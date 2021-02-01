@@ -1,9 +1,4 @@
 package com.baidu.tbadk.core.data;
-
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class aw {
-    public int chapterId;
-    public String eKO;
-    public TbPageContext pageContext;
+public class aw extends cb {
 }

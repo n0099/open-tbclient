@@ -36,87 +36,87 @@ import java.util.Collections;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private AlaDynamicGiftSmallGiftStyleView aVA;
-    private int aVB;
-    private int aVC;
-    private j aVu;
-    private boolean aVw;
-    private int aVx;
-    private AlaDynamicVideoGiftLayout aVy;
-    private AlaDynamicGiftLayout aVz;
+    private j aYC;
+    private boolean aYE;
+    private int aYF;
+    private AlaDynamicVideoGiftLayout aYG;
+    private AlaDynamicGiftLayout aYH;
+    private AlaDynamicGiftSmallGiftStyleView aYI;
+    private int aYJ;
+    private int aYK;
     private Context mContext;
-    private boolean aTV = false;
-    private b aVD = new b() { // from class: com.baidu.live.gift.biggift.a.1
+    private boolean aXa = false;
+    private b aYL = new b() { // from class: com.baidu.live.gift.biggift.a.1
         @Override // com.baidu.live.gift.biggift.b
         public void m(com.baidu.live.gift.a.c cVar) {
-            a.this.aVw = true;
-            cVar.aP(System.currentTimeMillis());
+            a.this.aYE = true;
+            cVar.aS(System.currentTimeMillis());
         }
 
         @Override // com.baidu.live.gift.biggift.b
-        public void cI(int i) {
+        public void cN(int i) {
         }
 
         @Override // com.baidu.live.gift.biggift.b
         public void a(int i, String str, com.baidu.live.gift.a.c cVar) {
-            l.a(i, str, cVar.giftId, cVar.userId, cVar.msgId, cVar.aZP);
+            l.a(i, str, cVar.giftId, cVar.userId, cVar.msgId, cVar.bcW);
         }
 
         @Override // com.baidu.live.gift.biggift.b
         public void n(com.baidu.live.gift.a.c cVar) {
             a.this.j(cVar);
-            a.this.aVw = false;
-            a.this.aVu.Dr();
-            a.this.Et();
+            a.this.aYE = false;
+            a.this.aYC.EH();
+            a.this.FJ();
         }
     };
-    private ArrayList<com.baidu.live.gift.a.c> aVv = new ArrayList<>();
+    private ArrayList<com.baidu.live.gift.a.c> aYD = new ArrayList<>();
 
     public a(Context context, j jVar) {
-        this.aVx = 0;
+        this.aYF = 0;
         this.mContext = context;
-        this.aVu = jVar;
-        this.aVx = 0;
+        this.aYC = jVar;
+        this.aYF = 0;
     }
 
     public void h(com.baidu.live.gift.a.c cVar) {
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
-            long j = cVar.aZM;
-            cVar.aZM = 1L;
+            long j = cVar.bcT;
+            cVar.bcT = 1L;
             for (int i = 0; i < j; i++) {
                 com.baidu.live.gift.a.c clone = cVar.clone();
                 if (clone != null) {
                     if (cVar.priority == 11) {
-                        this.aVv.add(0, clone);
+                        this.aYD.add(0, clone);
                     } else {
-                        this.aVv.add(clone);
+                        this.aYD.add(clone);
                     }
-                    if (clone.aZP) {
+                    if (clone.bcW) {
                         LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, clone.chatMCastId, clone.ensureMCastId, clone.giftId, "");
                     }
                 }
             }
             try {
-                Er();
+                FH();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void Er() {
-        if (this.aVv != null) {
-            int i = com.baidu.live.af.a.OJ().bru != null ? com.baidu.live.af.a.OJ().bru.aKh : 0;
-            if (i > 0 && this.aVv.size() > i) {
-                Collections.sort(this.aVv, new c.a());
+    private void FH() {
+        if (this.aYD != null) {
+            int i = com.baidu.live.ae.a.Qj().buX != null ? com.baidu.live.ae.a.Qj().buX.aMU : 0;
+            if (i > 0 && this.aYD.size() > i) {
+                Collections.sort(this.aYD, new c.a());
                 int max = Math.max((int) (i * 0.7f), 1);
-                ArrayList arrayList = new ArrayList(this.aVv.subList(0, max));
+                ArrayList arrayList = new ArrayList(this.aYD.subList(0, max));
                 while (true) {
                     int i2 = max;
-                    if (i2 < this.aVv.size()) {
-                        if (this.aVv.get(i2) == null || !this.aVv.get(i2).aZS) {
+                    if (i2 < this.aYD.size()) {
+                        if (this.aYD.get(i2) == null || !this.aYD.get(i2).bcZ) {
                             max = i2 + 1;
                         } else {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 1));
@@ -126,52 +126,65 @@ public class a {
                         break;
                     }
                 }
-                if (this.aVv.removeAll(arrayList)) {
-                    Iterator<com.baidu.live.gift.a.c> it = this.aVv.iterator();
+                if (this.aYD.removeAll(arrayList)) {
+                    Iterator<com.baidu.live.gift.a.c> it = this.aYD.iterator();
                     while (it.hasNext()) {
                         com.baidu.live.gift.a.c next = it.next();
-                        l.a(next.giftId, next.userId, next.msgId, next.aZP);
+                        l.a(next.giftId, next.userId, next.msgId, next.bcW);
                     }
                 }
-                this.aVv.clear();
-                this.aVv.addAll(arrayList);
+                this.aYD.clear();
+                this.aYD.addAll(arrayList);
             }
+        }
+    }
+
+    public int getCacheSize() {
+        if (this.aYD != null) {
+            return this.aYD.size();
+        }
+        return 0;
+    }
+
+    public void clearCache() {
+        if (this.aYD != null) {
+            this.aYD.clear();
         }
     }
 
     public void i(com.baidu.live.gift.a.c cVar) {
-        if (Ew()) {
-            l.c(cVar.giftId, cVar.userId, cVar.msgId, cVar.aZP);
+        if (FM()) {
+            l.c(cVar.giftId, cVar.userId, cVar.msgId, cVar.bcW);
         } else {
-            Et();
+            FJ();
         }
     }
 
-    public void Es() {
-        if (this.aVw) {
-            if (this.aVy != null) {
-                this.aVy.stopAnim();
+    public void FI() {
+        if (this.aYE) {
+            if (this.aYG != null) {
+                this.aYG.stopAnim();
             }
-            if (this.aVz != null) {
-                this.aVz.stopAnim();
+            if (this.aYH != null) {
+                this.aYH.stopAnim();
             }
-            if (this.aVA != null) {
-                this.aVA.stopAnim();
+            if (this.aYI != null) {
+                this.aYI.stopAnim();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(com.baidu.live.gift.a.c cVar) {
-        if (cVar != null && cVar.aZP) {
+        if (cVar != null && cVar.bcW) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(LogConfig.LOG_GIFT_ID, cVar.giftId);
-                jSONObject.put("gift_count", cVar.aZM);
+                jSONObject.put("gift_count", cVar.bcT);
                 jSONObject.put("sender_uk", EncryptionHelper.getEncryptionUserId(cVar.userId));
-                jSONObject.put("show_stime", cVar.Fp());
+                jSONObject.put("show_stime", cVar.GF());
                 jSONObject.put("show_ctime", System.currentTimeMillis());
-                if (cVar.aZW) {
+                if (cVar.bdd) {
                     jSONObject.put("from_recovery", 1);
                 }
             } catch (JSONException e) {
@@ -182,101 +195,101 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Et() {
-        if (this.aVv.isEmpty()) {
-            this.aVu.Dp();
-            Ev();
+    public void FJ() {
+        if (this.aYD.isEmpty()) {
+            this.aYC.EF();
+            FL();
             return;
         }
-        com.baidu.live.gift.a.c Eu = Eu();
-        if (Eu == null) {
-            Et();
+        com.baidu.live.gift.a.c FK = FK();
+        if (FK == null) {
+            FJ();
         } else {
-            k(Eu);
+            k(FK);
         }
     }
 
-    private com.baidu.live.gift.a.c Eu() {
-        if (this.aVv.isEmpty()) {
+    private com.baidu.live.gift.a.c FK() {
+        if (this.aYD.isEmpty()) {
             return null;
         }
-        return this.aVv.remove(0);
+        return this.aYD.remove(0);
     }
 
-    private void Ev() {
-        this.aVu.Dr();
+    private void FL() {
+        this.aYC.EH();
     }
 
     private void k(com.baidu.live.gift.a.c cVar) {
-        com.baidu.live.gift.c go;
+        com.baidu.live.gift.c gM;
         if (cVar != null) {
             boolean z = UtilHelper.getRealScreenOrientation(this.mContext) == 2;
-            if (cVar.aZS && !b(cVar, z)) {
+            if (cVar.bcZ && !b(cVar, z)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 1));
-                Et();
-            } else if (z && cVar.aZT) {
-                Et();
-            } else if (this.aTV && z && !cVar.aZG) {
+                FJ();
+            } else if (z && cVar.bda) {
+                FJ();
+            } else if (this.aXa && z && !cVar.bcN) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913138, cVar));
-                l.b(cVar.giftId, cVar.userId, cVar.msgId, cVar.aZP);
-                Et();
+                l.b(cVar.giftId, cVar.userId, cVar.msgId, cVar.bcW);
+                FJ();
             } else {
                 try {
-                    if ((cVar.aZH != null && com.baidu.live.gift.c.b.Gb().fL(cVar.aZH.CC())) || cVar.aZS) {
-                        if (cVar.aZS) {
-                            go = com.baidu.live.entereffect.a.BG().fi(cVar.giftId).aRk;
+                    if ((cVar.bcO != null && com.baidu.live.gift.c.b.Hr().gg(cVar.bcO.DR())) || cVar.bcZ) {
+                        if (cVar.bcZ) {
+                            gM = com.baidu.live.entereffect.a.CV().fD(cVar.giftId).aUp;
                         } else {
-                            go = com.baidu.live.gift.c.b.Gb().go(cVar.giftId);
+                            gM = com.baidu.live.gift.c.b.Hr().gM(cVar.giftId);
                         }
-                        if (a(go, cVar)) {
-                            if (cVar.aZS) {
+                        if (a(gM, cVar)) {
+                            if (cVar.bcZ) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 0));
-                                com.baidu.live.entereffect.a.BG().fj(cVar.giftId);
-                            } else if (go != null && go.aSo != null && go.aSo.aSl != null) {
-                                v.fn(go.aSo.aSl.zipName);
+                                com.baidu.live.entereffect.a.CV().fE(cVar.giftId);
+                            } else if (gM != null && gM.aVs != null && gM.aVs.aVp != null) {
+                                v.D(gM.aVs.aVp.zipName, gM.aVs.aVr);
                             }
-                            b(go, cVar);
-                        } else if (b(go)) {
-                            if (cVar.aZS) {
+                            b(gM, cVar);
+                        } else if (b(gM)) {
+                            if (cVar.bcZ) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 0));
-                                com.baidu.live.entereffect.a.BG().fj(cVar.giftId);
-                            } else if (go != null && go.aSo != null && go.aSo.aSl != null) {
-                                v.fn(go.aSo.aSl.zipName);
+                                com.baidu.live.entereffect.a.CV().fE(cVar.giftId);
+                            } else if (gM != null && gM.aVs != null && gM.aVs.aVp != null) {
+                                v.D(gM.aVs.aVp.zipName, gM.aVs.aVr);
                             }
-                            c(go, cVar);
+                            c(gM, cVar);
                         } else {
-                            if (cVar.aZS || cVar.aZT || cVar.aZU) {
-                                Et();
-                                if (cVar.aZS) {
+                            if (cVar.bcZ || cVar.bda || cVar.bdb) {
+                                FJ();
+                                if (cVar.bcZ) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2913109, 1));
                                 }
                             } else {
                                 l(cVar);
-                                l.b(cVar.giftId, cVar.userId, cVar.msgId, cVar.aZP);
+                                l.b(cVar.giftId, cVar.userId, cVar.msgId, cVar.bcW);
                             }
-                            a(go);
+                            a(gM);
                         }
-                        if (cVar.aZP) {
+                        if (cVar.bcW) {
                             LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "");
                         }
                     } else {
-                        if (cVar.aZP) {
+                        if (cVar.bcW) {
                             LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW_FAIL, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "不在大礼物列表");
                         }
-                        l.d(cVar.giftId, cVar.userId, cVar.msgId, cVar.aZP);
+                        l.d(cVar.giftId, cVar.userId, cVar.msgId, cVar.bcW);
                     }
                 } catch (OutOfMemoryError e) {
                     log(BdStatsConstant.StatsType.ERROR, "showbiggift", TiebaInitialize.LogFields.REASON, "oom");
                     TbadkCoreApplication.getInst().onAppMemoryLow();
                     System.gc();
-                    if (cVar.aZP) {
+                    if (cVar.bcW) {
                         LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW_FAIL, cVar.chatMCastId, cVar.ensureMCastId, cVar.giftId, "OOM");
                     }
-                    if (this.aVx < 1) {
-                        this.aVx++;
+                    if (this.aYF < 1) {
+                        this.aYF++;
                         k(cVar);
                     } else {
-                        Et();
+                        FJ();
                     }
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2913019));
@@ -285,12 +298,12 @@ public class a {
     }
 
     private void a(com.baidu.live.gift.c cVar) {
-        if (cVar != null && cVar.aSo != null) {
+        if (cVar != null && cVar.aVs != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("cartoon_id", cVar.aSo.giftId);
+                jSONObject.put("cartoon_id", cVar.aVs.giftId);
                 String str = "portrait";
-                if (cVar.aSo.aSl != null && cVar.aSo.aSl.isLandScape()) {
+                if (cVar.aVs.aVp != null && cVar.aVs.aVp.isLandScape()) {
                     str = "landscape";
                 }
                 jSONObject.put("status", str);
@@ -302,17 +315,17 @@ public class a {
     }
 
     private boolean b(com.baidu.live.gift.a.c cVar, boolean z) {
-        com.baidu.live.entereffect.a.a fi;
+        com.baidu.live.entereffect.a.a fD;
         com.baidu.live.gift.c cVar2;
-        if (z || (fi = com.baidu.live.entereffect.a.BG().fi(cVar.giftId)) == null || (cVar2 = fi.aRk) == null) {
+        if (z || (fD = com.baidu.live.entereffect.a.CV().fD(cVar.giftId)) == null || (cVar2 = fD.aUp) == null) {
             return false;
         }
         return (TextUtils.isEmpty(cVar2.videoPath) && ListUtils.isEmpty(cVar2.unZipFilesPathList)) ? false : true;
     }
 
     private boolean a(com.baidu.live.gift.c cVar, com.baidu.live.gift.a.c cVar2) {
-        boolean z = (!com.baidu.live.alphavideo.a.yH().yI() || cVar == null || cVar.aSo == null) ? false : true;
-        return cVar2.aZS ? z && !TextUtils.isEmpty(cVar.Cj()) : z && cVar.aSo.Cg() && !TextUtils.isEmpty(cVar.Cj());
+        boolean z = (!com.baidu.live.alphavideo.a.zo().zp() || cVar == null || cVar.aVs == null) ? false : true;
+        return cVar2.bcZ ? z && !TextUtils.isEmpty(cVar.Dy()) : z && cVar.aVs.Dv() && !TextUtils.isEmpty(cVar.Dy());
     }
 
     private boolean b(com.baidu.live.gift.c cVar) {
@@ -321,102 +334,102 @@ public class a {
 
     private void c(com.baidu.live.gift.a.c cVar, boolean z) {
         if (cVar != null) {
-            g gVar = cVar.aZH;
-            if (!cVar.aZS && !cVar.aZT) {
-                if (cVar.aZP || cVar.aZG) {
+            g gVar = cVar.bcO;
+            if (!cVar.bcZ && !cVar.bda) {
+                if (cVar.bcW || cVar.bcN) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.CC());
-                        jSONObject.putOpt("gift_name", gVar.CD());
+                        jSONObject.putOpt(LogConfig.LOG_GIFT_ID, gVar.DR());
+                        jSONObject.putOpt("gift_name", gVar.DS());
                         jSONObject.putOpt(LogConfig.LOG_GIFT_VALUE, gVar.getPrice());
-                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.aZM));
+                        jSONObject.putOpt("gift_num", Long.valueOf(cVar.bcT));
                         jSONObject.putOpt("is_down", Integer.valueOf(z ? 1 : 0));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.aZP ? "author_liveroom" : "liveroom", "giftplay_show").setContentExt(null, UbcStatConstant.SubPage.POPUP, jSONObject));
+                    UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", cVar.bcW ? "author_liveroom" : "liveroom", "giftplay_show").setContentExt(null, UbcStatConstant.SubPage.POPUP, jSONObject));
                 }
             }
         }
     }
 
     private void b(com.baidu.live.gift.c cVar, com.baidu.live.gift.a.c cVar2) {
-        if (this.aVy == null) {
-            this.aVy = new AlaDynamicVideoGiftLayout(this.mContext);
+        if (this.aYG == null) {
+            this.aYG = new AlaDynamicVideoGiftLayout(this.mContext);
         }
-        ViewGroup.LayoutParams layoutParams = this.aVy.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.aYG.getLayoutParams();
         if (!(layoutParams instanceof RelativeLayout.LayoutParams)) {
             layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         }
-        this.aVu.a(this.aVy, (RelativeLayout.LayoutParams) layoutParams);
-        this.aVy.setHost(this.aVu.aSj);
-        this.aVy.setEnterEffectRelativeBottomMargin(this.aVC);
-        this.aVy.setData(cVar, cVar2);
-        this.aVy.setBigGiftCallBack(this.aVD);
-        this.aVy.startAnim();
+        this.aYC.a(this.aYG, (RelativeLayout.LayoutParams) layoutParams);
+        this.aYG.setHost(this.aYC.aVn);
+        this.aYG.setEnterEffectRelativeBottomMargin(this.aYK);
+        this.aYG.setData(cVar, cVar2);
+        this.aYG.setBigGiftCallBack(this.aYL);
+        this.aYG.startAnim();
         c(cVar2, true);
     }
 
     private void c(com.baidu.live.gift.c cVar, com.baidu.live.gift.a.c cVar2) {
-        if (this.aVz == null) {
-            this.aVz = new AlaDynamicGiftLayout(this.mContext);
+        if (this.aYH == null) {
+            this.aYH = new AlaDynamicGiftLayout(this.mContext);
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aVz.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aYH.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         }
-        this.aVu.a(this.aVz, layoutParams);
-        this.aVz.setHost(this.aVu.aSj);
-        this.aVz.setData(cVar, cVar2);
-        this.aVz.setBigGiftCallBack(this.aVD);
-        this.aVz.startAnim();
+        this.aYC.a(this.aYH, layoutParams);
+        this.aYH.setHost(this.aYC.aVn);
+        this.aYH.setData(cVar, cVar2);
+        this.aYH.setBigGiftCallBack(this.aYL);
+        this.aYH.startAnim();
         c(cVar2, true);
     }
 
     private void l(com.baidu.live.gift.a.c cVar) {
-        if (this.aVA == null) {
-            this.aVA = new AlaDynamicGiftSmallGiftStyleView(this.mContext);
+        if (this.aYI == null) {
+            this.aYI = new AlaDynamicGiftSmallGiftStyleView(this.mContext);
         }
-        this.aVu.M(this.aVA);
-        this.aVA.df(this.aVB);
-        this.aVA.setData(cVar);
-        this.aVA.setBigGiftCallBack(this.aVD);
-        this.aVA.startAnim();
+        this.aYC.M(this.aYI);
+        this.aYI.dk(this.aYJ);
+        this.aYI.setData(cVar);
+        this.aYI.setBigGiftCallBack(this.aYL);
+        this.aYI.startAnim();
         c(cVar, false);
     }
 
-    public boolean Ew() {
-        return this.aVw;
+    public boolean FM() {
+        return this.aYE;
     }
 
-    public void Ex() {
+    public void FN() {
         boolean z = false;
         if (2 == UtilHelper.getRealScreenOrientation(this.mContext)) {
             z = true;
         }
-        if (this.aVy != null) {
-            this.aVy.Ex();
+        if (this.aYG != null) {
+            this.aYG.FN();
         }
-        if (this.aVz != null) {
-            this.aVz.bT(z);
+        if (this.aYH != null) {
+            this.aYH.bY(z);
         }
-        if (this.aVA != null) {
-            this.aVA.bT(z);
+        if (this.aYI != null) {
+            this.aYI.bY(z);
         }
     }
 
     public void onDestroy() {
-        this.aVx = 0;
-        this.aVv.clear();
-        this.aVw = false;
-        if (this.aVy != null) {
-            this.aVy.onDestroy();
+        this.aYF = 0;
+        this.aYD.clear();
+        this.aYE = false;
+        if (this.aYG != null) {
+            this.aYG.onDestroy();
         }
-        if (this.aVz != null) {
-            this.aVz.onDestroy();
+        if (this.aYH != null) {
+            this.aYH.onDestroy();
         }
-        if (this.aVA != null) {
-            this.aVA.onDestroy();
+        if (this.aYI != null) {
+            this.aYI.onDestroy();
         }
         this.mContext = null;
     }
@@ -425,15 +438,15 @@ public class a {
         AlaStatManager.getInstance().newDebug("alaGift", 0L, null, objArr);
     }
 
-    public void bw(boolean z) {
-        this.aTV = z;
+    public void bB(boolean z) {
+        this.aXa = z;
     }
 
-    public void cG(int i) {
-        this.aVB = i;
+    public void cL(int i) {
+        this.aYJ = i;
     }
 
-    public void cH(int i) {
-        this.aVC = i;
+    public void cM(int i) {
+        this.aYK = i;
     }
 }

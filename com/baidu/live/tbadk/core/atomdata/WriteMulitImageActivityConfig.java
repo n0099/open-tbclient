@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.live.tbadk.img.WriteImagesInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WriteMulitImageActivityConfig extends IntentConfig {
     public static final int ENTRANCE_ALBUM = 2;
     public static final int ENTRANCE_CHOOSE_TAB = 1;

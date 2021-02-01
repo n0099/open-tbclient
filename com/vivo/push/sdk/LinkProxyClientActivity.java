@@ -1,6 +1,6 @@
 package com.vivo.push.sdk;
 
 import com.vivo.push.sdk.service.LinkProxyActivity;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class LinkProxyClientActivity extends LinkProxyActivity {
 }

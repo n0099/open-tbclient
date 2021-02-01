@@ -9,10 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaAppPromotionView extends RelativeLayout {
-    private TbImageView hlD;
-    private TextView hlE;
+    private TbImageView hpR;
+    private TextView hpS;
 
     public AlaAppPromotionView(Context context) {
         this(context, null);
@@ -29,17 +29,17 @@ public class AlaAppPromotionView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_app_promotion_view, (ViewGroup) this, true);
-        this.hlD = (TbImageView) findViewById(a.f.iv_app_icon);
-        this.hlE = (TextView) findViewById(a.f.tv_app_des);
-        this.hlD.setDefaultBgResource(a.c.sdk_transparent);
+        this.hpR = (TbImageView) findViewById(a.f.iv_app_icon);
+        this.hpS = (TextView) findViewById(a.f.tv_app_des);
+        this.hpR.setDefaultBgResource(a.c.sdk_transparent);
     }
 
     public void setImage(String str) {
-        this.hlD.startLoad(str, 10, false);
+        this.hpR.startLoad(str, 10, false);
     }
 
     public void setStatus(String str) {
-        this.hlE.setText(str);
+        this.hpS.setText(str);
     }
 
     public void setProgress(long j, long j2) {
@@ -47,6 +47,6 @@ public class AlaAppPromotionView extends RelativeLayout {
         if (i < 0) {
             i = 0;
         }
-        this.hlE.setText(getResources().getString(a.h.ala_app_promotion_downloading, Integer.valueOf(i <= 100 ? i : 100)));
+        this.hpS.setText(getResources().getString(a.h.ala_app_promotion_downloading, Integer.valueOf(i <= 100 ? i : 100)));
     }
 }

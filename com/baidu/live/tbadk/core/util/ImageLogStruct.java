@@ -1,6 +1,6 @@
 package com.baidu.live.tbadk.core.util;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ImageLogStruct {
     public int num = 0;
     public int failnum = 0;

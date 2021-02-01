@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class aa extends PngChunk {
     /* JADX INFO: Access modifiers changed from: protected */
     public aa(String str, com.kwad.sdk.pngencrypt.k kVar) {
@@ -12,12 +12,12 @@ public abstract class aa extends PngChunk {
         }
         if (obj != null && getClass() == obj.getClass()) {
             aa aaVar = (aa) obj;
-            return this.f10494a == null ? aaVar.f10494a == null : this.f10494a.equals(aaVar.f10494a);
+            return this.f10496a == null ? aaVar.f10496a == null : this.f10496a.equals(aaVar.f10496a);
         }
         return false;
     }
 
     public int hashCode() {
-        return (this.f10494a == null ? 0 : this.f10494a.hashCode()) + 31;
+        return (this.f10496a == null ? 0 : this.f10496a.hashCode()) + 31;
     }
 }

@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewParent;
 /* loaded from: classes3.dex */
 public final class bi {
-    public static Context ey(View view) {
+    public static Context ew(View view) {
         if (view == null) {
             return null;
         }
@@ -27,31 +27,31 @@ public final class bi {
         return ((View) parent).getContext();
     }
 
-    public static int[] iX(Context context) {
-        int iQ;
-        int iR;
+    public static int[] ja(Context context) {
+        int iT;
+        int iU;
         if (context instanceof Activity) {
             Display defaultDisplay = ((Activity) context).getWindowManager().getDefaultDisplay();
             if (Build.VERSION.SDK_INT >= 13) {
                 Point point = new Point();
                 defaultDisplay.getSize(point);
-                iQ = point.x;
-                iR = point.y;
+                iT = point.x;
+                iU = point.y;
             } else {
-                iQ = defaultDisplay.getWidth();
-                iR = defaultDisplay.getHeight();
+                iT = defaultDisplay.getWidth();
+                iU = defaultDisplay.getHeight();
             }
         } else {
-            iQ = bd.iQ(context);
-            iR = bd.iR(context);
+            iT = bd.iT(context);
+            iU = bd.iU(context);
         }
-        return new int[]{iQ, iR};
+        return new int[]{iT, iU};
     }
 
-    public static int[] iY(Context context) {
-        int[] iX = iX(context);
-        b(context, iX);
-        return iX;
+    public static int[] jb(Context context) {
+        int[] ja = ja(context);
+        b(context, ja);
+        return ja;
     }
 
     public static void b(Context context, int[] iArr) {

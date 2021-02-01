@@ -1,35 +1,45 @@
 package com.baidu.live.ao;
 
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.FrameLayout;
-import com.baidu.live.data.x;
-import org.json.JSONObject;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.AlaWheatInfoData;
+import com.baidu.live.data.ab;
+import java.util.List;
+/* loaded from: classes11.dex */
 public interface b {
-    void H(Object obj);
+    void G(String str, boolean z);
 
-    void PB();
+    boolean Yk();
 
-    boolean PC();
+    AlaWheatInfoData Yl();
 
-    boolean PD();
+    List<AlaWheatInfoData> Ym();
 
-    void Y(View view);
+    List<AlaWheatInfoData> Yn();
 
-    void Y(JSONObject jSONObject);
+    String Yo();
 
-    void a(FrameLayout frameLayout);
+    String Yp();
 
-    void a(a aVar);
+    ab Yq();
 
-    View getEnterView();
+    String Yr();
 
-    void onDestroy();
+    void Ys();
 
-    boolean onKeyDown(int i, KeyEvent keyEvent);
+    void Yt();
 
-    void setLiveShowData(x xVar);
+    String getCustomRoomId();
 
-    void setMute(boolean z);
+    boolean iH(String str);
+
+    boolean iI(String str);
+
+    boolean iJ(String str);
+
+    AlaWheatInfoData iK(String str);
+
+    boolean iL(String str);
+
+    boolean isApplying();
+
+    void muteOrUnmuteAudio(boolean z);
 }

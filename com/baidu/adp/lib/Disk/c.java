@@ -6,17 +6,17 @@ import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
-    private b JY;
-    private volatile e JZ = null;
+    private b JX;
+    private volatile e JY = null;
     private DiskFileOperate mDiskFileOperate;
 
     public c(b bVar, DiskFileOperate diskFileOperate) {
-        this.JY = null;
+        this.JX = null;
         this.mDiskFileOperate = null;
         if (bVar == null || diskFileOperate == null) {
             throw new InvalidParameterException("DiskFileTask parameter null");
         }
-        this.JY = bVar;
+        this.JX = bVar;
         this.mDiskFileOperate = diskFileOperate;
     }
 
@@ -25,8 +25,8 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
-        this.JZ = new e(this.JY, this.mDiskFileOperate);
-        this.JZ.call();
+        this.JY = new e(this.JX, this.mDiskFileOperate);
+        this.JY.call();
         return this.mDiskFileOperate;
     }
 
@@ -53,8 +53,8 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        if (this.JZ != null) {
-            this.JZ.cancel();
+        if (this.JY != null) {
+            this.JY.cancel();
         }
     }
 }

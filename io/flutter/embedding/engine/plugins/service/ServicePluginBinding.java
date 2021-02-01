@@ -4,7 +4,7 @@ import android.app.Service;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.plugins.service.ServiceAware;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public interface ServicePluginBinding {
     void addOnModeChangeListener(@NonNull ServiceAware.OnModeChangeListener onModeChangeListener);
 

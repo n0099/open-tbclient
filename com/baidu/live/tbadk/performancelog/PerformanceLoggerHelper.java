@@ -4,7 +4,7 @@ import android.os.Process;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PerformanceLoggerHelper {
     private static volatile PerformanceLoggerHelper mInstance;
 

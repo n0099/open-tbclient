@@ -8,18 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.ss.android.downloadlib.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e extends Dialog implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f12925a;
+    private View f12927a;
 
     /* renamed from: b  reason: collision with root package name */
-    private View f12926b;
+    private View f12928b;
     private boolean e;
     private Activity f;
-    private d pQP;
-    private c pQQ;
+    private d qaT;
+    private c qaU;
 
     public e(@NonNull Activity activity, @NonNull d dVar) {
         this(activity, dVar, null);
@@ -28,23 +28,23 @@ public class e extends Dialog implements c {
     public e(@NonNull Activity activity, @NonNull d dVar, c cVar) {
         super(activity, a.d.ttdownloader_translucent_dialog);
         this.f = activity;
-        this.pQP = dVar;
-        this.pQQ = cVar;
+        this.qaT = dVar;
+        this.qaU = cVar;
         setCancelable(false);
         d();
     }
 
     private void d() {
         setContentView(LayoutInflater.from(this.f.getApplicationContext()).inflate(a(), (ViewGroup) null));
-        this.f12925a = findViewById(b());
-        this.f12926b = findViewById(c());
-        this.f12925a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.1
+        this.f12927a = findViewById(b());
+        this.f12928b = findViewById(c());
+        this.f12927a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.e();
             }
         });
-        this.f12926b.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.2
+        this.f12928b.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.f();
@@ -54,17 +54,17 @@ public class e extends Dialog implements c {
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int a() {
-        return this.pQQ != null ? this.pQQ.a() : a.c.ttdownloader_dialog_reserve_wifi;
+        return this.qaU != null ? this.qaU.a() : a.c.ttdownloader_dialog_reserve_wifi;
     }
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int b() {
-        return this.pQQ != null ? this.pQQ.b() : a.b.confirm_tv;
+        return this.qaU != null ? this.qaU.b() : a.b.confirm_tv;
     }
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int c() {
-        return this.pQQ != null ? this.pQQ.c() : a.b.cancel_tv;
+        return this.qaU != null ? this.qaU.c() : a.b.cancel_tv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -85,9 +85,9 @@ public class e extends Dialog implements c {
             this.f.finish();
         }
         if (this.e) {
-            this.pQP.a();
+            this.qaT.a();
         } else {
-            this.pQP.b();
+            this.qaT.b();
         }
     }
 

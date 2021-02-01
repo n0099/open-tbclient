@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import rx.d;
 import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] qhY = new Object[0];
-    private final SubjectSubscriptionManager<T> qur;
+    private static final Object[] qsc = new Object[0];
+    private final SubjectSubscriptionManager<T> qEu;
 
-    public static <T> a<T> eLL() {
+    public static <T> a<T> eOb() {
         return f(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.qur = subjectSubscriptionManager;
+        this.qEu = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.qur.getLatest() == null || this.qur.active) {
-            Object eKC = NotificationLite.eKC();
-            for (SubjectSubscriptionManager.b<T> bVar : this.qur.terminate(eKC)) {
-                bVar.ck(eKC);
+        if (this.qEu.getLatest() == null || this.qEu.active) {
+            Object eMS = NotificationLite.eMS();
+            for (SubjectSubscriptionManager.b<T> bVar : this.qEu.terminate(eMS)) {
+                bVar.ck(eMS);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.qur.getLatest() == null || this.qur.active) {
+        if (this.qEu.getLatest() == null || this.qEu.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.qur.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.qEu.terminate(error)) {
                 try {
                     bVar.ck(error);
                 } catch (Throwable th2) {
@@ -60,15 +60,15 @@ public final class a<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.ho(arrayList);
+            rx.exceptions.a.hk(arrayList);
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.qur.getLatest() == null || this.qur.active) {
+        if (this.qEu.getLatest() == null || this.qEu.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.qur.next(next)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.qEu.next(next)) {
                 bVar.ck(next);
             }
         }

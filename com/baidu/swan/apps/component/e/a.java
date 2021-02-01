@@ -5,11 +5,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static void bq(@NonNull String str, @NonNull String str2) {
+    public static void bk(@NonNull String str, @NonNull String str2) {
         f(str, str2, null);
     }
 

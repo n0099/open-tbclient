@@ -11,32 +11,32 @@ import com.baidu.adp.lib.f.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.c;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TitleTipView extends RelativeLayout {
-    private TextView acW;
-    private int bCV;
-    private Runnable bDf;
+    private TextView acQ;
+    private int bGF;
+    private Runnable bGP;
     private boolean isShowing;
-    private int jZf;
-    private LinearLayout kRh;
-    private ImageView ltA;
+    private LinearLayout kZj;
+    private int kgI;
+    private ImageView lBE;
     private View.OnClickListener mOnClickListener;
-    private ImageView nXR;
-    private View nXS;
+    private ImageView ohX;
+    private View ohY;
 
     public TitleTipView(Context context) {
         super(context);
-        this.jZf = 3;
-        this.bCV = 5000;
+        this.kgI = 3;
+        this.bGF = 5000;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.TitleTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TitleTipView.this.dismiss();
             }
         };
-        this.bDf = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
+        this.bGP = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
             @Override // java.lang.Runnable
             public void run() {
                 TitleTipView.this.dismiss();
@@ -47,15 +47,15 @@ public class TitleTipView extends RelativeLayout {
 
     public TitleTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jZf = 3;
-        this.bCV = 5000;
+        this.kgI = 3;
+        this.bGF = 5000;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.TitleTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TitleTipView.this.dismiss();
             }
         };
-        this.bDf = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
+        this.bGP = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
             @Override // java.lang.Runnable
             public void run() {
                 TitleTipView.this.dismiss();
@@ -66,15 +66,15 @@ public class TitleTipView extends RelativeLayout {
 
     public TitleTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jZf = 3;
-        this.bCV = 5000;
+        this.kgI = 3;
+        this.bGF = 5000;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.TitleTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TitleTipView.this.dismiss();
             }
         };
-        this.bDf = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
+        this.bGP = new Runnable() { // from class: com.baidu.tieba.write.view.TitleTipView.2
             @Override // java.lang.Runnable
             public void run() {
                 TitleTipView.this.dismiss();
@@ -85,38 +85,38 @@ public class TitleTipView extends RelativeLayout {
 
     private void init() {
         View.inflate(getContext(), R.layout.title_tip_layout, this);
-        this.kRh = (LinearLayout) findViewById(R.id.tip_bg);
-        this.nXR = (ImageView) findViewById(R.id.img_icon);
-        this.ltA = (ImageView) findViewById(R.id.img_close);
-        this.acW = (TextView) findViewById(R.id.tv_tip);
-        this.nXS = findViewById(R.id.tv_line);
-        this.acW.setText(R.string.add_title_tip);
-        this.ltA.setOnClickListener(this.mOnClickListener);
+        this.kZj = (LinearLayout) findViewById(R.id.tip_bg);
+        this.ohX = (ImageView) findViewById(R.id.img_icon);
+        this.lBE = (ImageView) findViewById(R.id.img_close);
+        this.acQ = (TextView) findViewById(R.id.tv_tip);
+        this.ohY = findViewById(R.id.tv_line);
+        this.acQ.setText(R.string.add_title_tip);
+        this.lBE.setOnClickListener(this.mOnClickListener);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void dVq() {
+    public void dXE() {
         setVisibility(0);
         this.isShowing = true;
-        e.mB().postDelayed(this.bDf, this.bCV);
+        e.mA().postDelayed(this.bGP, this.bGF);
     }
 
     public void dismiss() {
         setVisibility(8);
-        e.mB().removeCallbacks(this.bDf);
+        e.mA().removeCallbacks(this.bGP);
         this.isShowing = false;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jZf != i) {
-            c.bv(this.kRh).od(R.string.J_X05).og(R.dimen.L_X01).of(R.color.CAM_X0602).setBackGroundColor(R.color.CAM_X0206);
-            c.bv(this.nXS).setBackGroundColor(R.color.CAM_X0203);
-            c.bv(this.acW).nV(R.color.CAM_X0107);
-            this.ltA.setImageDrawable(WebPManager.a(R.drawable.icon_pure_home_delete16, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null));
-            if (this.nXR != null) {
-                this.nXR.setImageDrawable(WebPManager.a(R.drawable.pic_post_fatiemijue, ao.getColor(R.color.CAM_X0302), (WebPManager.ResourceStateType) null));
+        if (this.kgI != i) {
+            c.br(this.kZj).og(R.string.J_X05).ok(R.dimen.L_X01).oj(R.color.CAM_X0602).setBackGroundColor(R.color.CAM_X0206);
+            c.br(this.ohY).setBackGroundColor(R.color.CAM_X0203);
+            c.br(this.acQ).nY(R.color.CAM_X0107);
+            this.lBE.setImageDrawable(WebPManager.a(R.drawable.icon_pure_home_delete16, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null));
+            if (this.ohX != null) {
+                this.ohX.setImageDrawable(WebPManager.a(R.drawable.pic_post_fatiemijue, ap.getColor(R.color.CAM_X0302), (WebPManager.ResourceStateType) null));
             }
         }
-        this.jZf = i;
+        this.kgI = i;
     }
 }

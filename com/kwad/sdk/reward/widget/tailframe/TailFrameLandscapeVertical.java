@@ -18,14 +18,14 @@ import com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape;
 import com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5Landscape;
 import com.kwad.sdk.widget.KsLogoView;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TailFrameLandscapeVertical extends LinearLayout implements View.OnClickListener, a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f10681a;
+    private ImageView f10683a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f10682b;
+    private ImageView f10684b;
     private ImageView c;
     private TailFrameBarAppLandscape d;
     private TailFrameBarH5Landscape e;
@@ -52,15 +52,15 @@ public class TailFrameLandscapeVertical extends LinearLayout implements View.OnC
 
     private void c() {
         inflate(getContext(), R.layout.ksad_video_tf_view_landscape_vertical, this);
-        this.f10681a = (ImageView) findViewById(R.id.ksad_video_thumb_left);
-        this.f10682b = (ImageView) findViewById(R.id.ksad_video_thumb_mid);
+        this.f10683a = (ImageView) findViewById(R.id.ksad_video_thumb_left);
+        this.f10684b = (ImageView) findViewById(R.id.ksad_video_thumb_mid);
         this.c = (ImageView) findViewById(R.id.ksad_video_thumb_right);
         this.l = (KsLogoView) findViewById(R.id.ksad_video_tf_logo);
     }
 
     private void d() {
-        KSImageLoader.loadImage(this.f10681a, com.kwad.sdk.core.response.b.a.f(this.h), this.g);
-        KSImageLoader.loadImage(this.f10682b, com.kwad.sdk.core.response.b.a.f(this.h), this.g);
+        KSImageLoader.loadImage(this.f10683a, com.kwad.sdk.core.response.b.a.f(this.h), this.g);
+        KSImageLoader.loadImage(this.f10684b, com.kwad.sdk.core.response.b.a.f(this.h), this.g);
         KSImageLoader.loadImage(this.c, com.kwad.sdk.core.response.b.a.f(this.h), this.g);
     }
 
@@ -155,8 +155,8 @@ public class TailFrameLandscapeVertical extends LinearLayout implements View.OnC
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.g, new a.InterfaceC1088a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeVertical.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1088a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.g, new a.InterfaceC1092a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeVertical.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
             public void a() {
                 if (TailFrameLandscapeVertical.this.f != null) {
                     TailFrameLandscapeVertical.this.f.a();

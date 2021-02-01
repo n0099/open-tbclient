@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.live.adp.base.db.DatabaseManager;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdBlobCacheAllInOneTableDBManager extends BdCacheBaseDBManager<byte[]> {
     private String sharedTableName;
 
@@ -30,7 +30,7 @@ public class BdBlobCacheAllInOneTableDBManager extends BdCacheBaseDBManager<byte
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r1v17, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r1v17, types: [T, byte[]] */
     @Override // com.baidu.live.adp.lib.cache.BdCacheBaseDBManager
     protected BdCacheItem<byte[]> getFromDB(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;

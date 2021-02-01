@@ -6,28 +6,28 @@ import com.kwad.sdk.utils.ae;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h extends com.kwad.sdk.core.network.d {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<com.kwad.sdk.core.g.a.f> f9261a = new ArrayList(1);
+        public List<com.kwad.sdk.core.g.a.f> f9263a = new ArrayList(1);
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.core.g.a.c f9262b;
+        public com.kwad.sdk.core.g.a.c f9264b;
         public String c;
         public com.kwad.sdk.core.g.a.j d;
     }
 
     public h(a aVar) {
         JSONArray jSONArray = new JSONArray();
-        for (com.kwad.sdk.core.g.a.f fVar : aVar.f9261a) {
+        for (com.kwad.sdk.core.g.a.f fVar : aVar.f9263a) {
             com.kwad.sdk.utils.o.a(jSONArray, fVar.toJson());
         }
         a("impInfo", jSONArray);
-        a("contentInfo", aVar.f9262b);
+        a("contentInfo", aVar.f9264b);
         if (aVar.d != null) {
             a("preloadInfo", aVar.d);
         }

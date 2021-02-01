@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces;
 
 import android.graphics.Bitmap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdResource {
     Bitmap getClaw();
 
@@ -12,6 +12,12 @@ public interface IXAdResource {
     Bitmap getJump();
 
     Bitmap getLP();
+
+    Bitmap getRewardVideoCloseAd();
+
+    Bitmap getRewardVideoVolume();
+
+    Bitmap getRewardVideoVolumeMute();
 
     Bitmap getVolume();
 

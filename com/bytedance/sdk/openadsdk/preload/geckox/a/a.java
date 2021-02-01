@@ -17,11 +17,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void a(final Context context, Map<String, ComponentModel.b> map, File file, final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (map != null && !map.isEmpty()) {
-            final List<C1024a> list = null;
+            final List<C1028a> list = null;
             try {
                 list = a(map, file);
             } catch (Exception e) {
@@ -43,26 +43,26 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, List<C1024a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+    public static void b(Context context, List<C1028a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (list != null && !list.isEmpty()) {
-            for (C1024a c1024a : list) {
-                File file = c1024a.e;
+            for (C1028a c1028a : list) {
+                File file = c1028a.e;
                 long uptimeMillis = SystemClock.uptimeMillis();
                 boolean a2 = d.a(file);
                 long uptimeMillis2 = SystemClock.uptimeMillis();
                 if (a2) {
                     if (aVar != null) {
-                        aVar.b(c1024a.f7441b);
+                        aVar.b(c1028a.f7443b);
                     }
-                    b.a(context).a(c1024a.f7440a, c1024a.f7441b, c1024a.c, 200, c1024a.d, 0, null, uptimeMillis2 - uptimeMillis, 1);
+                    b.a(context).a(c1028a.f7442a, c1028a.f7443b, c1028a.c, 200, c1028a.d, 0, null, uptimeMillis2 - uptimeMillis, 1);
                 } else {
-                    b.a(context).a(c1024a.f7440a, c1024a.f7441b, c1024a.c, 201, c1024a.d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
+                    b.a(context).a(c1028a.f7442a, c1028a.f7443b, c1028a.c, 201, c1028a.d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
                 }
             }
         }
     }
 
-    private static List<C1024a> a(Map<String, ComponentModel.b> map, File file) {
+    private static List<C1028a> a(Map<String, ComponentModel.b> map, File file) {
         ComponentModel.b value;
         List<Long> b2;
         List<Long> b3;
@@ -70,14 +70,14 @@ public class a {
         for (Map.Entry<String, ComponentModel.b> entry : map.entrySet()) {
             String key = entry.getKey();
             File file2 = new File(file, key);
-            if (file2.isDirectory() && (value = entry.getValue()) != null && value.f7506a != null && !value.f7506a.isEmpty()) {
-                List<ComponentModel.a> list = value.f7506a;
+            if (file2.isDirectory() && (value = entry.getValue()) != null && value.f7508a != null && !value.f7508a.isEmpty()) {
+                List<ComponentModel.a> list = value.f7508a;
                 HashSet hashSet = new HashSet();
                 for (ComponentModel.a aVar : list) {
-                    String str = aVar.f7504a;
+                    String str = aVar.f7506a;
                     if (!hashSet.contains(str)) {
                         hashSet.add(str);
-                        int i = aVar.f7505b;
+                        int i = aVar.f7507b;
                         List<Long> list2 = aVar.c;
                         File file3 = new File(file2, str);
                         switch (i) {
@@ -87,7 +87,7 @@ public class a {
                                         if (list2.contains(l)) {
                                             File file4 = new File(file3, l + "--pending-delete");
                                             new File(file3, l + "").renameTo(file4);
-                                            arrayList.add(new C1024a(key, str, i, l.longValue(), file4));
+                                            arrayList.add(new C1028a(key, str, i, l.longValue(), file4));
                                         }
                                     }
                                     break;
@@ -99,7 +99,7 @@ public class a {
                                         if (list2.get(0).longValue() > l2.longValue()) {
                                             File file5 = new File(file3, l2 + "--pending-delete");
                                             new File(file3, l2 + "").renameTo(file5);
-                                            arrayList.add(new C1024a(key, str, i, l2.longValue(), file5));
+                                            arrayList.add(new C1028a(key, str, i, l2.longValue(), file5));
                                         }
                                     }
                                     break;
@@ -109,7 +109,7 @@ public class a {
                                 File file6 = new File(file2, str);
                                 File file7 = new File(file2, str + "--pending-delete");
                                 file6.renameTo(file7);
-                                arrayList.add(new C1024a(key, str, i, 0L, file7));
+                                arrayList.add(new C1028a(key, str, i, 0L, file7));
                                 break;
                         }
                     }
@@ -127,7 +127,7 @@ public class a {
         if (bVar.c()) {
             Common common2 = new Common(bVar.j(), bVar.n(), bVar.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(bVar.a()), i.a(bVar.a()), bVar.k(), bVar.l());
             StatisticModel statisticModel = new StatisticModel();
-            statisticModel.f7514common = common2;
+            statisticModel.f7516common = common2;
             statisticModel.packages.addAll(a(bVar.a()));
             if (!statisticModel.packages.isEmpty()) {
                 String str = SapiUtils.COOKIE_HTTPS_URL_PREFIX + bVar.i() + "/gecko/server/packages/stats";
@@ -150,28 +150,28 @@ public class a {
         if (a2.c != 200) {
             throw new NetworkErrorException("net work get failed, code: " + a2.c + ", url:" + str);
         }
-        if (new JSONObject(a2.f7494b).getInt("status") != 0) {
+        if (new JSONObject(a2.f7496b).getInt("status") != 0) {
             throw new RuntimeException("upload failed");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1024a {
+    /* loaded from: classes6.dex */
+    public static class C1028a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f7440a;
+        String f7442a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f7441b;
+        String f7443b;
         int c;
         long d;
         File e;
 
-        C1024a(String str, String str2, int i, long j, File file) {
-            this.f7440a = str;
-            this.f7441b = str2;
+        C1028a(String str, String str2, int i, long j, File file) {
+            this.f7442a = str;
+            this.f7443b = str2;
             this.c = i;
             this.d = j;
             this.e = file;

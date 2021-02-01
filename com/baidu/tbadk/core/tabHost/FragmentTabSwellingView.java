@@ -8,20 +8,20 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FragmentTabSwellingView extends View {
-    private Paint eWW;
-    private Path eWX;
-    private Path eWY;
-    private int eWZ;
-    private int eXa;
-    private int eXb;
-    private int eXc;
-    private int eXd;
-    private int eXe;
-    private int eXf;
+    private Paint eZm;
+    private Path eZn;
+    private Path eZo;
+    private int eZp;
+    private int eZq;
+    private int eZr;
+    private int eZs;
+    private int eZt;
+    private int eZu;
+    private int eZv;
     private Paint mShadowPaint;
 
     public FragmentTabSwellingView(Context context) {
@@ -38,34 +38,34 @@ public class FragmentTabSwellingView extends View {
     }
 
     private void init() {
-        brz();
-        brB();
-        brA();
+        brS();
+        brU();
+        brT();
         setLayerType(1, null);
     }
 
-    private void brz() {
-        this.eWZ = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds137);
-        this.eXa = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds204);
-        this.eXb = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds23);
-        this.eXc = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds51);
-        this.eXd = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds16);
-        this.eXe = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds52);
-        this.eXf = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds2);
+    private void brS() {
+        this.eZp = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds137);
+        this.eZq = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds204);
+        this.eZr = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds23);
+        this.eZs = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds51);
+        this.eZt = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds16);
+        this.eZu = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds52);
+        this.eZv = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds2);
     }
 
-    private void brA() {
-        this.eWX = new Path();
-        this.eWY = new Path();
+    private void brT() {
+        this.eZn = new Path();
+        this.eZo = new Path();
     }
 
-    private void brB() {
-        this.eWW = new Paint();
-        this.eWW.setColor(ao.getColor(R.color.CAM_X0205));
-        this.eWW.setAntiAlias(true);
-        this.eWW.setStrokeWidth(1.0f);
-        this.eWW.setDither(true);
-        this.eWW.setStyle(Paint.Style.FILL);
+    private void brU() {
+        this.eZm = new Paint();
+        this.eZm.setColor(ap.getColor(R.color.CAM_X0205));
+        this.eZm.setAntiAlias(true);
+        this.eZm.setStrokeWidth(1.0f);
+        this.eZm.setDither(true);
+        this.eZm.setStyle(Paint.Style.FILL);
         this.mShadowPaint = new Paint();
         this.mShadowPaint.setAntiAlias(true);
         this.mShadowPaint.setDither(true);
@@ -76,37 +76,37 @@ public class FragmentTabSwellingView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (getWidth() <= l.getEquipmentWidth(getContext())) {
-            this.eWY.reset();
-            this.eWX.reset();
-            this.eWX.moveTo(0.0f, getHeight() - this.eWZ);
-            this.eWX.lineTo((getWidth() / 2) - (this.eXa / 2), getHeight() - this.eWZ);
-            this.eWX.quadTo(((getWidth() / 2) - (this.eXa / 2)) + this.eXb, getHeight() - this.eWZ, ((getWidth() / 2) - (this.eXa / 2)) + this.eXc, (getHeight() - this.eWZ) - this.eXd);
-            this.eWX.quadTo(getWidth() / 2, (getHeight() - this.eWZ) - this.eXe, ((getWidth() / 2) + (this.eXa / 2)) - this.eXc, (getHeight() - this.eWZ) - this.eXd);
-            this.eWX.quadTo(((getWidth() / 2) + (this.eXa / 2)) - this.eXb, getHeight() - this.eWZ, (getWidth() / 2) + (this.eXa / 2), getHeight() - this.eWZ);
-            this.eWX.lineTo(getWidth(), getHeight() - this.eWZ);
-            this.eWX.lineTo(getWidth(), getHeight());
-            this.eWX.lineTo(0.0f, getHeight());
-            this.eWX.close();
-            this.eWY.moveTo(0.0f, (getHeight() - this.eWZ) + this.eXf);
-            this.eWY.lineTo((getWidth() / 2) - (this.eXa / 2), (getHeight() - this.eWZ) + this.eXf);
-            this.eWY.quadTo(((getWidth() / 2) - (this.eXa / 2)) + this.eXb, (getHeight() - this.eWZ) + this.eXf, ((getWidth() / 2) - (this.eXa / 2)) + this.eXc, ((getHeight() - this.eWZ) - this.eXd) + this.eXf);
-            this.eWY.quadTo(getWidth() / 2, ((getHeight() - this.eWZ) - this.eXe) + this.eXf, ((getWidth() / 2) + (this.eXa / 2)) - this.eXc, ((getHeight() - this.eWZ) - this.eXd) + this.eXf);
-            this.eWY.quadTo(((getWidth() / 2) + (this.eXa / 2)) - this.eXb, (getHeight() - this.eWZ) + this.eXf, (getWidth() / 2) + (this.eXa / 2), (getHeight() - this.eWZ) + this.eXf);
-            this.eWY.lineTo(getWidth(), (getHeight() - this.eWZ) + this.eXf);
-            this.eWY.lineTo(getWidth(), getHeight());
-            this.eWY.lineTo(0.0f, getHeight());
-            this.eWY.close();
-            canvas.drawPath(this.eWY, this.mShadowPaint);
-            canvas.drawPath(this.eWX, this.eWW);
+            this.eZo.reset();
+            this.eZn.reset();
+            this.eZn.moveTo(0.0f, getHeight() - this.eZp);
+            this.eZn.lineTo((getWidth() / 2) - (this.eZq / 2), getHeight() - this.eZp);
+            this.eZn.quadTo(((getWidth() / 2) - (this.eZq / 2)) + this.eZr, getHeight() - this.eZp, ((getWidth() / 2) - (this.eZq / 2)) + this.eZs, (getHeight() - this.eZp) - this.eZt);
+            this.eZn.quadTo(getWidth() / 2, (getHeight() - this.eZp) - this.eZu, ((getWidth() / 2) + (this.eZq / 2)) - this.eZs, (getHeight() - this.eZp) - this.eZt);
+            this.eZn.quadTo(((getWidth() / 2) + (this.eZq / 2)) - this.eZr, getHeight() - this.eZp, (getWidth() / 2) + (this.eZq / 2), getHeight() - this.eZp);
+            this.eZn.lineTo(getWidth(), getHeight() - this.eZp);
+            this.eZn.lineTo(getWidth(), getHeight());
+            this.eZn.lineTo(0.0f, getHeight());
+            this.eZn.close();
+            this.eZo.moveTo(0.0f, (getHeight() - this.eZp) + this.eZv);
+            this.eZo.lineTo((getWidth() / 2) - (this.eZq / 2), (getHeight() - this.eZp) + this.eZv);
+            this.eZo.quadTo(((getWidth() / 2) - (this.eZq / 2)) + this.eZr, (getHeight() - this.eZp) + this.eZv, ((getWidth() / 2) - (this.eZq / 2)) + this.eZs, ((getHeight() - this.eZp) - this.eZt) + this.eZv);
+            this.eZo.quadTo(getWidth() / 2, ((getHeight() - this.eZp) - this.eZu) + this.eZv, ((getWidth() / 2) + (this.eZq / 2)) - this.eZs, ((getHeight() - this.eZp) - this.eZt) + this.eZv);
+            this.eZo.quadTo(((getWidth() / 2) + (this.eZq / 2)) - this.eZr, (getHeight() - this.eZp) + this.eZv, (getWidth() / 2) + (this.eZq / 2), (getHeight() - this.eZp) + this.eZv);
+            this.eZo.lineTo(getWidth(), (getHeight() - this.eZp) + this.eZv);
+            this.eZo.lineTo(getWidth(), getHeight());
+            this.eZo.lineTo(0.0f, getHeight());
+            this.eZo.close();
+            canvas.drawPath(this.eZo, this.mShadowPaint);
+            canvas.drawPath(this.eZn, this.eZm);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (i == 1 || i == 4) {
-            this.eWW.setColor(ao.getColor(R.color.CAM_X0206_1));
+            this.eZm.setColor(ap.getColor(R.color.CAM_X0206_1));
             this.mShadowPaint.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
         } else {
-            this.eWW.setColor(ao.getColor(R.color.CAM_X0205));
+            this.eZm.setColor(ap.getColor(R.color.CAM_X0205));
             this.mShadowPaint.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
         }
         invalidate();

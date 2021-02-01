@@ -1,14 +1,14 @@
 package com.baidu.tieba.faceshop.emotiondetail.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EmotionDetailData extends OrmObject {
     public String error;
     public String no;
     public PckInfo pck_info;
     public PicInfo pic_info;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class PckInfo extends OrmObject {
         public String cover;
         public String download;
@@ -20,7 +20,7 @@ public class EmotionDetailData extends OrmObject {
         public String status;
         public String type;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class Owner extends OrmObject {
             public String user_id;
             public String user_name;
@@ -28,7 +28,7 @@ public class EmotionDetailData extends OrmObject {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class PicInfo extends OrmObject {
         public int height;
         public long pic_id;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.entelechy.adapter;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,17 +14,17 @@ public interface al {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.n> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bz> cFf();
+    HashMap<Integer, cb> cGs();
 
-    int cFg();
+    int cGt();
 
-    void cFh();
+    void cGu();
 
-    int cFi();
+    int cGv();
 
-    int cFj();
+    int cGw();
 
-    void cFk();
+    void cGx();
 
     List<com.baidu.adp.widget.ListView.n> getDatas();
 
@@ -32,9 +32,9 @@ public interface al {
 
     void onDestory();
 
-    void qV(boolean z);
-
     boolean r(BdUniqueId bdUniqueId);
+
+    void rf(boolean z);
 
     void setForumName(String str);
 

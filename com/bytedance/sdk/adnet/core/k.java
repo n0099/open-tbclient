@@ -9,21 +9,21 @@ import androidx.annotation.VisibleForTesting;
 import com.bytedance.sdk.adnet.err.VAdError;
 import java.util.concurrent.BlockingQueue;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class k extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private final BlockingQueue<Request<?>> f6039a;
+    private final BlockingQueue<Request<?>> f6041a;
     private volatile boolean e = false;
-    private final com.bytedance.sdk.adnet.e.c pkQ;
-    private final com.bytedance.sdk.adnet.e.b pkR;
-    private final com.bytedance.sdk.adnet.e.d pkS;
+    private final com.bytedance.sdk.adnet.e.c pvf;
+    private final com.bytedance.sdk.adnet.e.b pvg;
+    private final com.bytedance.sdk.adnet.e.d pvh;
 
     public k(BlockingQueue<Request<?>> blockingQueue, com.bytedance.sdk.adnet.e.c cVar, com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.d dVar) {
-        this.f6039a = blockingQueue;
-        this.pkQ = cVar;
-        this.pkR = bVar;
-        this.pkS = dVar;
+        this.f6041a = blockingQueue;
+        this.pvf = cVar;
+        this.pvg = bVar;
+        this.pvh = dVar;
     }
 
     public void a() {
@@ -55,7 +55,7 @@ public class k extends Thread {
     }
 
     private void b() throws InterruptedException {
-        b(this.f6039a.take());
+        b(this.f6041a.take());
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [193=6] */
@@ -73,7 +73,7 @@ public class k extends Thread {
                         return;
                     }
                     g(request);
-                    l c = this.pkQ.c(request);
+                    l c = this.pvf.c(request);
                     request.setNetDuration(c.f);
                     request.addMarker("network-http-complete");
                     if (c.e && request.hasHadResponseDelivered()) {
@@ -84,12 +84,12 @@ public class k extends Thread {
                     p<?> a2 = request.a(c);
                     request.setNetDuration(c.f);
                     request.addMarker("network-parse-complete");
-                    if (request.shouldCache() && a2.pkZ != null) {
-                        this.pkR.a(request.getCacheKey(), a2.pkZ);
+                    if (request.shouldCache() && a2.pvo != null) {
+                        this.pvg.a(request.getCacheKey(), a2.pvo);
                         request.addMarker("network-cache-written");
                     }
                     request.markDelivered();
-                    this.pkS.a(request, a2);
+                    this.pvh.a(request, a2);
                     request.b(a2);
                 } catch (VAdError e) {
                     e.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
@@ -100,7 +100,7 @@ public class k extends Thread {
                 r.a(e2, "Unhandled exception %s", e2.toString());
                 VAdError vAdError = new VAdError(e2);
                 vAdError.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-                this.pkS.a(request, vAdError);
+                this.pvh.a(request, vAdError);
                 request.e();
             }
         } finally {
@@ -109,6 +109,6 @@ public class k extends Thread {
     }
 
     private void a(Request<?> request, VAdError vAdError) {
-        this.pkS.a(request, request.a(vAdError));
+        this.pvh.a(request, request.a(vAdError));
     }
 }

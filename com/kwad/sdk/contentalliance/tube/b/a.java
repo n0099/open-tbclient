@@ -7,38 +7,38 @@ import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.o;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d {
 
     /* renamed from: com.kwad.sdk.contentalliance.tube.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1080a {
+    /* loaded from: classes3.dex */
+    public static class C1084a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f8918a;
+        public long f8920a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f8919b;
+        public long f8921b;
         public int c;
         public f d;
 
-        public C1080a(f fVar, long j, long j2, int i) {
-            this.f8918a = j;
-            this.f8919b = j2;
+        public C1084a(f fVar, long j, long j2, int i) {
+            this.f8920a = j;
+            this.f8921b = j2;
             this.c = i;
             this.d = fVar;
         }
     }
 
-    public a(@NonNull C1080a c1080a) {
+    public a(@NonNull C1084a c1084a) {
         JSONArray jSONArray = new JSONArray();
-        if (c1080a.d != null) {
-            o.a(jSONArray, c1080a.d.toJson());
+        if (c1084a.d != null) {
+            o.a(jSONArray, c1084a.d.toJson());
         }
         a("impInfo", jSONArray);
-        a(URLPackage.KEY_TUBE_ID, c1080a.f8918a);
-        a("photoId", c1080a.f8919b);
-        a("count", c1080a.c);
+        a(URLPackage.KEY_TUBE_ID, c1084a.f8920a);
+        a("photoId", c1084a.f8921b);
+        a("count", c1084a.c);
         a("contentInfo", new c());
     }
 

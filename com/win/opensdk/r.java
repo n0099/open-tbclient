@@ -3,7 +3,7 @@ package com.win.opensdk;
 public interface r<T> {
     void bH(T t);
 
-    void cd(int i, String str);
+    void ck(int i, String str);
 
-    void eGz();
+    void eIP();
 }

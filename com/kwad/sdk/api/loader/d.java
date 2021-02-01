@@ -6,13 +6,13 @@ import androidx.annotation.NonNull;
 import dalvik.system.DexClassLoader;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final List<String> f8194a = new ArrayList();
+    private static final List<String> f8196a = new ArrayList();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class a extends DexClassLoader {
         public a(String str, String str2, String str3, ClassLoader classLoader) {
             super(str, str2, str3, classLoader);
@@ -40,11 +40,11 @@ class d {
     }
 
     static {
-        f8194a.add("com.kwad.sdk");
-        f8194a.add("com.ksad");
-        f8194a.add("com.kwai");
-        f8194a.add("kwad.support");
-        f8194a.add("android.support.rastermill");
+        f8196a.add("com.kwad.sdk");
+        f8196a.add("com.ksad");
+        f8196a.add("com.kwai");
+        f8196a.add("kwad.support");
+        f8196a.add("android.support.rastermill");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

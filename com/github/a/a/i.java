@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
 public class i extends a {
-    private static final LinkedHashMap<Long, String> pGM = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> pQR = new LinkedHashMap<>();
     private Thread mCurrentThread;
-    private int pGN;
+    private int pQS;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void start() {
@@ -24,17 +24,17 @@ public class i extends a {
 
     public i(Thread thread, int i, long j) {
         super(j);
-        this.pGN = 100;
+        this.pQS = 100;
         this.mCurrentThread = thread;
-        this.pGN = i;
+        this.pQS = i;
     }
 
-    public ArrayList<String> P(long j, long j2) {
+    public ArrayList<String> T(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (pGM) {
-            for (Long l : pGM.keySet()) {
+        synchronized (pQR) {
+            for (Long l : pQR.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(com.github.a.a.a.a.pGA.format(l) + "\r\n\r\n" + pGM.get(l));
+                    arrayList.add(com.github.a.a.a.a.pQF.format(l) + "\r\n\r\n" + pQR.get(l));
                 }
             }
         }
@@ -42,16 +42,16 @@ public class i extends a {
     }
 
     @Override // com.github.a.a.a
-    protected void eyc() {
+    protected void eAu() {
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement stackTraceElement : this.mCurrentThread.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (pGM) {
-            if (pGM.size() == this.pGN && this.pGN > 0) {
-                pGM.remove(pGM.keySet().iterator().next());
+        synchronized (pQR) {
+            if (pQR.size() == this.pQS && this.pQS > 0) {
+                pQR.remove(pQR.keySet().iterator().next());
             }
-            pGM.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            pQR.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

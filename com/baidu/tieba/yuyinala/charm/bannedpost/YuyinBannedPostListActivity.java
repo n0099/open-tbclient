@@ -21,16 +21,16 @@ import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.utils.i;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostListActivity> implements View.OnTouchListener {
     private View mRootView;
     private int mScreenWidth;
-    private h ogf;
+    private h opY;
     private Handler mHandler = new Handler();
-    private boolean aTo = false;
-    private boolean aXA = false;
-    private boolean aXB = false;
-    private ViewTreeObserver.OnGlobalLayoutListener aXw = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity.3
+    private boolean aWt = false;
+    private boolean baH = false;
+    private boolean baI = false;
+    private ViewTreeObserver.OnGlobalLayoutListener baD = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity.3
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(YuyinBannedPostListActivity.this.getPageContext().getPageActivity());
@@ -40,21 +40,21 @@ public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostLis
                     YuyinBannedPostListActivity.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            i.ae(YuyinBannedPostListActivity.this.ogf.getView());
+                            i.ae(YuyinBannedPostListActivity.this.opY.getView());
                         }
                     }, 300L);
                 }
             }
         }
     };
-    CustomMessageListener aTF = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity.4
+    CustomMessageListener aWK = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             YuyinBannedPostListActivity.this.closeActivity();
         }
     };
-    public CustomMessageListener bdo = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity.5
+    public CustomMessageListener bgy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -70,14 +70,14 @@ public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostLis
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.ogf = new h(this);
-            this.mRootView = this.ogf.getView();
+            this.opY = new h(this);
+            this.mRootView = this.opY.getView();
             setContentView(this.mRootView);
-            registerListener(this.aTF);
+            registerListener(this.aWK);
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            this.aXA = false;
+            this.baH = false;
             this.mRootView.setVisibility(4);
-            MessageManager.getInstance().registerListener(this.bdo);
+            MessageManager.getInstance().registerListener(this.bgy);
         }
     }
 
@@ -85,10 +85,10 @@ public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostLis
     @Override // com.baidu.live.tbadk.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aTo) {
+        if (!this.aWt) {
             this.mRootView.setVisibility(0);
-            EL();
-            this.aTo = true;
+            Gb();
+            this.aWt = true;
         }
     }
 
@@ -99,9 +99,9 @@ public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostLis
         UtilHelper.changeStatusBarIconAndTextColor(true, getPageContext().getPageActivity());
     }
 
-    private void EL() {
-        this.aXA = true;
-        Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0194a.sdk_in_from_bottom);
+    private void Gb() {
+        this.baH = true;
+        Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
@@ -109,7 +109,7 @@ public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostLis
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                YuyinBannedPostListActivity.this.aXA = false;
+                YuyinBannedPostListActivity.this.baH = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -119,9 +119,9 @@ public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostLis
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void EM() {
-        if (!this.aXB && !this.aXA) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0194a.sdk_out_to_bottom);
+    private void Gc() {
+        if (!this.baI && !this.baH) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
@@ -137,23 +137,23 @@ public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostLis
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.aXB = true;
+            this.baI = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        EM();
+        Gc();
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Ts();
+        UZ();
     }
 
-    private void Ts() {
+    private void UZ() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -167,13 +167,13 @@ public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostLis
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.aXw);
-            if (this.ogf.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ogf.getView().getLayoutParams();
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.baD);
+            if (this.opY.getView().getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.opY.getView().getLayoutParams();
                 layoutParams.width = screenDimensions[0];
                 layoutParams.height = (int) (screenDimensions[1] * 0.6d);
                 layoutParams.gravity = 80;
-                this.ogf.getView().setLayoutParams(layoutParams);
+                this.opY.getView().setLayoutParams(layoutParams);
             }
         }
     }
@@ -194,10 +194,10 @@ public class YuyinBannedPostListActivity extends BaseActivity<YuyinBannedPostLis
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.ogf.onDestory();
+        this.opY.onDestory();
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.aXw);
-        MessageManager.getInstance().unRegisterListener(this.bdo);
-        this.aXw = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.baD);
+        MessageManager.getInstance().unRegisterListener(this.bgy);
+        this.baD = null;
     }
 }

@@ -17,11 +17,11 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class t {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static int[] aNA() {
+    public static int[] aNT() {
         int[] iArr = new int[1];
         GLES10.glGetIntegerv(3379, iArr, 0);
         if (iArr[0] != 0) {
@@ -44,7 +44,7 @@ public final class t {
         return iArr;
     }
 
-    public static Uri tC(String str) {
+    public static Uri tV(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -57,11 +57,11 @@ public final class t {
         return Uri.parse(str);
     }
 
-    public static File tD(String str) {
-        return cL(com.baidu.swan.apps.v.f.azN().azt().aLI(), str);
+    public static File tW(String str) {
+        return cF(com.baidu.swan.apps.v.f.aAl().azR().aMb(), str);
     }
 
-    public static File cL(String str, String str2) {
+    public static File cF(String str, String str2) {
         if (DEBUG) {
             Log.d("ImageUtils", "获取temp路径");
         }

@@ -1,38 +1,38 @@
 package com.baidu.yuyinala.background;
 
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static a oLg;
+    private static a oVm;
     private TbPageContext mPageContext;
-    private b oLh;
+    private b oVn;
 
-    public static a egn() {
-        if (oLg == null) {
+    public static a eiF() {
+        if (oVm == null) {
             synchronized (a.class) {
-                if (oLg == null) {
-                    oLg = new a();
+                if (oVm == null) {
+                    oVm = new a();
                 }
             }
         }
-        return oLg;
+        return oVm;
     }
 
-    public void b(TbPageContext tbPageContext, x xVar) {
+    public void b(TbPageContext tbPageContext, ab abVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oLh = null;
+            this.oVn = null;
         }
-        if (this.oLh == null) {
-            this.oLh = new b(tbPageContext, xVar);
+        if (this.oVn == null) {
+            this.oVn = new b(tbPageContext, abVar);
         }
-        this.oLh.show();
+        this.oVn.show();
     }
 
-    public void Ek() {
-        if (this.oLh != null && this.oLh.isShowing()) {
-            this.oLh.dismiss();
+    public void FA() {
+        if (this.oVn != null && this.oVn.isShowing()) {
+            this.oVn.dismiss();
         }
     }
 }

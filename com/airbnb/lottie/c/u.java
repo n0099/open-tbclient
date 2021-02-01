@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class u {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewParent;
 import androidx.annotation.IdRes;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class ExpandableWidgetHelper {
     private boolean expanded = false;
     @IdRes

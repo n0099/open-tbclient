@@ -3,14 +3,14 @@ package com.baidu.platform.comapi.wnplatform.o;
 import android.content.Context;
 import android.os.Handler;
 import java.io.BufferedReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4450a = d.class.getSimpleName();
+    private static String f4453a = d.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f4451b = null;
+    private static String f4454b = null;
     private static Handler c = new Handler();
     private static int d = 0;
     private static int e = 0;

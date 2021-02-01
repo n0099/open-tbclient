@@ -6,9 +6,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PkUserInfoData extends BaseData implements Serializable {
     public String bdPortrait;
+    public String buffMultiple;
+    public long buffMultipleEndTime;
     public long charmCount;
     public String division;
     public String divisionIcon;
@@ -52,6 +54,8 @@ public class PkUserInfoData extends BaseData implements Serializable {
         this.pkID = jSONObject.optLong("pk_id");
         this.division = jSONObject.optString("division");
         this.divisionIcon = jSONObject.optString("division_icon_url");
+        this.buffMultiple = jSONObject.optString("buff_multiple", "1");
+        this.buffMultipleEndTime = jSONObject.optLong("buff_multiple_end_time");
         setPropsInfos(jSONObject);
     }
 

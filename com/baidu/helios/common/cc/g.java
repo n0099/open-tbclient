@@ -1,8 +1,8 @@
 package com.baidu.helios.common.cc;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 final class g extends e {
     public g(int i, int i2) {
-        this.f2441b = 4294967295L;
+        this.f2439b = 4294967295L;
         this.c = 4;
         this.d = 32;
         this.e = i;

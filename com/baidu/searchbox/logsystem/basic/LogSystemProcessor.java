@@ -44,7 +44,7 @@ import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LogSystemProcessor {
     private static final int KEEP_ALIVE_TIME = 60000;
     protected static final String TAG = "LogSystemProcessor";

@@ -6,15 +6,15 @@ import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f13521a = new e();
+    public static e f13523a = new e();
 
     public Map<Integer, Integer> a(Context context) {
         Map<Integer, Integer> map;
-        z f = f13521a.f(context);
+        z f = f13523a.f(context);
         return (f == null || (map = f.h) == null) ? new HashMap() : map;
     }
 
@@ -24,7 +24,7 @@ public class e {
 
     public String b(Context context) {
         StringBuilder sb = new StringBuilder();
-        z f = f13521a.f(context);
+        z f = f13523a.f(context);
         if (f != null) {
             sb.append(f.d);
             sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -34,7 +34,7 @@ public class e {
     }
 
     public long c(Context context) {
-        z f = f13521a.f(context);
+        z f = f13523a.f(context);
         if (f != null) {
             long j = f.i;
             if (j > 0) {
@@ -57,7 +57,7 @@ public class e {
             return "";
         }
         File file = new File(dir.getAbsolutePath() + File.separator + Constants.VIA_REPORT_TYPE_SET_AVATAR);
-        return (file.exists() || file.mkdirs()) ? file.getAbsolutePath() + File.separator + af.f13467a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "auMini" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "1" : "";
+        return (file.exists() || file.mkdirs()) ? file.getAbsolutePath() + File.separator + af.f13469a + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "auMini" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "1" : "";
     }
 
     public final z f(Context context) {

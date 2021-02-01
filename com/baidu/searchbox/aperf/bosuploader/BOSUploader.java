@@ -24,7 +24,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BOSUploader {
     private static final String OS_ANDROID = "android";
     private static final long PART_SIZE = 5242880;
@@ -188,6 +188,6 @@ public class BOSUploader {
     }
 
     public String createObjectKey(@NonNull String str, @NonNull String str2) {
-        return a.uf().getAppName() + "/android/" + str + "/" + str2;
+        return a.uc().getAppName() + "/android/" + str + "/" + str2;
     }
 }

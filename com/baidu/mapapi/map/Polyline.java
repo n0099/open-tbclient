@@ -7,14 +7,14 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Polyline extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2756a;
+    int f2754a;
 
     /* renamed from: b  reason: collision with root package name */
-    List<LatLng> f2757b;
+    List<LatLng> f2755b;
     int[] c;
     int[] d;
     int e;
@@ -71,15 +71,15 @@ public final class Polyline extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2757b.get(0));
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2755b.get(0));
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("width", this.e);
-        Overlay.a(this.f2757b, bundle);
-        Overlay.a(this.f2756a, bundle);
+        Overlay.a(this.f2755b, bundle);
+        Overlay.a(this.f2754a, bundle);
         a(this.c, bundle);
         b(this.d, bundle);
-        if (this.c != null && this.c.length > 0 && this.c.length > this.f2757b.size() - 1) {
+        if (this.c != null && this.c.length > 0 && this.c.length > this.f2755b.size() - 1) {
             Log.e("baidumapsdk", "the size of textureIndexs is larger than the size of points");
         }
         if (this.f) {
@@ -116,11 +116,11 @@ public final class Polyline extends Overlay {
     }
 
     public int getColor() {
-        return this.f2756a;
+        return this.f2754a;
     }
 
     public List<LatLng> getPoints() {
-        return this.f2757b;
+        return this.f2755b;
     }
 
     public int getWidth() {
@@ -136,7 +136,7 @@ public final class Polyline extends Overlay {
     }
 
     public void setColor(int i) {
-        this.f2756a = i;
+        this.f2754a = i;
         this.listener.b(this);
     }
 
@@ -167,7 +167,7 @@ public final class Polyline extends Overlay {
         if (list.contains(null)) {
             throw new IllegalArgumentException("points list can not contains null");
         }
-        this.f2757b = list;
+        this.f2755b = list;
         this.listener.b(this);
     }
 

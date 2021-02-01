@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import com.baidu.swan.apps.ao.i;
 import com.baidu.swan.apps.b;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SwanAppNativeSwanJsBridge {
     private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "_naSwan";
@@ -24,8 +24,8 @@ public class SwanAppNativeSwanJsBridge {
     @JavascriptInterface
     public String getAPIs(int i) {
         if (DEBUG) {
-            return com.baidu.swan.apps.ad.a.a.aET() ? i.C(i, false) : "";
-        } else if (!i.aNk()) {
+            return com.baidu.swan.apps.ad.a.a.aFo() ? i.C(i, false) : "";
+        } else if (!i.aND()) {
             return "";
         } else {
             return i.C(i, false);

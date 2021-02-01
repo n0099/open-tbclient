@@ -12,35 +12,35 @@ import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String eaC;
-    private com.baidu.swan.games.network.b eaD;
-    private a eaE;
+    private String ecJ;
+    private com.baidu.swan.games.network.b ecK;
+    private a ecL;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.eaC = "";
-        this.eaD = bVar;
-        this.eaC = str;
+        this.ecJ = "";
+        this.ecK = bVar;
+        this.ecJ = str;
         this.mSrc = str2;
-        this.eaE = aVar;
+        this.ecL = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.eaD.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.audio.a.c.1
+        this.ecK.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.audio.a.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("AudioDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.eaE != null) {
-                    c.this.eaE.ax(-1, c.this.mSrc);
+                if (c.this.ecL != null) {
+                    c.this.ecL.aB(-1, c.this.mSrc);
                 }
             }
 
@@ -55,13 +55,13 @@ public class c {
                     inputStream = response.body().byteStream();
                     try {
                         try {
-                            String vA = f.vA(c.this.mSrc);
-                            String str = c.this.eaC + vA.substring(0, vA.lastIndexOf("/"));
+                            String vT = f.vT(c.this.mSrc);
+                            String str = c.this.ecJ + vT.substring(0, vT.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
                             }
-                            String substring = vA.substring(vA.lastIndexOf("/") + 1);
+                            String substring = vT.substring(vT.lastIndexOf("/") + 1);
                             file = new File(str, substring + ".bddownload");
                             try {
                                 fileOutputStream = new FileOutputStream(file);
@@ -81,8 +81,8 @@ public class c {
                                             if (file != null) {
                                                 file.delete();
                                             }
-                                            if (c.this.eaE != null) {
-                                                c.this.eaE.ax(-1, c.this.mSrc);
+                                            if (c.this.ecL != null) {
+                                                c.this.ecL.aB(-1, c.this.mSrc);
                                             }
                                             d.closeSafely(inputStream);
                                             d.closeSafely(fileOutputStream);
@@ -107,16 +107,16 @@ public class c {
                                     if (c.DEBUG) {
                                         Log.e("AudioDownloader", c.this.mSrc + " load rename success path = " + absolutePath);
                                     }
-                                    if (c.this.eaE != null) {
-                                        c.this.eaE.cQ(c.this.mSrc, absolutePath);
+                                    if (c.this.ecL != null) {
+                                        c.this.ecL.cK(c.this.mSrc, absolutePath);
                                     }
                                 } else {
                                     if (c.DEBUG) {
                                         Log.e("AudioDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                                     }
                                     file.delete();
-                                    if (c.this.eaE != null) {
-                                        c.this.eaE.ax(-1, absolutePath);
+                                    if (c.this.ecL != null) {
+                                        c.this.ecL.aB(-1, absolutePath);
                                     }
                                 }
                                 d.closeSafely(inputStream);

@@ -9,28 +9,28 @@ import android.os.PowerManager;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.qq.e.comm.plugin.util.af;
 import com.qq.e.comm.plugin.util.t;
 import com.qq.e.comm.plugin.w.d;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
+import com.yy.videoplayer.decoder.VideoConstant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Point f11729a;
+    private Point f11731a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final d f11732a = new d();
+        static final d f11734a = new d();
     }
 
     private d() {
@@ -63,7 +63,7 @@ public class d implements e {
         } else {
             i3 = i2;
         }
-        int i6 = 320;
+        int i6 = VideoConstant.THUMBNAIL_WIDTH;
         int i7 = 50;
         if (i == 25) {
             i6 = 100;
@@ -100,16 +100,16 @@ public class d implements e {
     private Point a(Context context) {
         Point point;
         synchronized (this) {
-            if (this.f11729a == null) {
+            if (this.f11731a == null) {
                 WindowManager windowManager = (WindowManager) context.getSystemService("window");
-                this.f11729a = new Point();
+                this.f11731a = new Point();
                 if (Build.VERSION.SDK_INT >= 17) {
-                    windowManager.getDefaultDisplay().getRealSize(this.f11729a);
+                    windowManager.getDefaultDisplay().getRealSize(this.f11731a);
                 } else {
-                    this.f11729a.set(windowManager.getDefaultDisplay().getWidth(), windowManager.getDefaultDisplay().getHeight());
+                    this.f11731a.set(windowManager.getDefaultDisplay().getWidth(), windowManager.getDefaultDisplay().getHeight());
                 }
             }
-            point = this.f11729a;
+            point = this.f11731a;
         }
         return point;
     }
@@ -128,7 +128,7 @@ public class d implements e {
     }
 
     public static final d a() {
-        return a.f11732a;
+        return a.f11734a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e
@@ -172,7 +172,7 @@ public class d implements e {
                         hashMap.put("w", Integer.valueOf(hVar.f()));
                         hashMap.put("h", Integer.valueOf(hVar.g()));
                         hashMap.put("sw", Integer.valueOf(a(hVar.a().getContext()).x));
-                        hashMap.put(IXAdRequestInfo.SCREEN_HEIGHT, Integer.valueOf(a(hVar.a().getContext()).y));
+                        hashMap.put("sh", Integer.valueOf(a(hVar.a().getContext()).y));
                         aVar.a(hashMap);
                     }
                 }

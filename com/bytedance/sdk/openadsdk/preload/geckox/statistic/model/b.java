@@ -2,14 +2,14 @@ package com.bytedance.sdk.openadsdk.preload.geckox.statistic.model;
 
 import android.text.TextUtils;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7517a;
+    public String f7519a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7518b;
+    public String f7520b;
     public String c;
     public String d;
     public String e;

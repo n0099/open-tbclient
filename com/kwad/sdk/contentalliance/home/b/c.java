@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.kwad.sdk.contentalliance.home.d;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.utils.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    private View f8683b;
+    private View f8685b;
     private SlidePlayViewPager c;
     private com.kwad.sdk.contentalliance.home.swipe.c d;
     private com.kwad.sdk.contentalliance.home.a.b e;
@@ -19,7 +19,7 @@ public class c extends com.kwad.sdk.contentalliance.home.e {
     private Runnable g = new Runnable() { // from class: com.kwad.sdk.contentalliance.home.b.c.1
         @Override // java.lang.Runnable
         public void run() {
-            c.this.b(c.this.f8683b);
+            c.this.b(c.this.f8685b);
         }
     };
     private View.OnKeyListener h = new View.OnKeyListener() { // from class: com.kwad.sdk.contentalliance.home.b.c.2
@@ -85,29 +85,29 @@ public class c extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8683b = l();
-        this.c = this.f8734a.c;
-        this.f = this.f8734a.f;
+        this.f8685b = l();
+        this.c = this.f8736a.c;
+        this.f = this.f8736a.f;
         if (this.f != null) {
             this.d = this.f.g;
             this.f.f.add(this.j);
         }
-        if (this.f8734a.f8736b != null) {
-            this.e = this.f8734a.f8736b.c();
+        if (this.f8736a.f8738b != null) {
+            this.e = this.f8736a.f8738b.c();
         }
-        if (this.f8683b != null) {
-            b(this.f8683b);
-            this.f8683b.postDelayed(this.g, 1000L);
+        if (this.f8685b != null) {
+            b(this.f8685b);
+            this.f8685b.postDelayed(this.g, 1000L);
         }
-        this.k.a(this.f8734a.m);
+        this.k.a(this.f8736a.m);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.f8683b != null) {
-            this.f8683b.removeCallbacks(this.g);
+        if (this.f8685b != null) {
+            this.f8685b.removeCallbacks(this.g);
         }
         if (this.f != null) {
             this.f.f.remove(this.j);

@@ -1,5 +1,5 @@
 package com.bumptech.glide.load.engine;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public interface Initializable {
     void initialize();
 }

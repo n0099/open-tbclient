@@ -3,7 +3,7 @@ package com.ksad.lottie.c;
 import android.util.JsonReader;
 import com.baidu.mobstat.Config;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.content.g a(JsonReader jsonReader, com.ksad.lottie.d dVar) {

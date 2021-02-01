@@ -8,19 +8,19 @@ import android.text.style.ImageSpan;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final WeakReference<TextView> f9766a;
+    protected final WeakReference<TextView> f9768a;
     private int d = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    protected boolean f9767b = false;
+    protected boolean f9769b = false;
     protected boolean c = true;
 
     public e(@NonNull TextView textView) {
-        this.f9766a = new WeakReference<>(textView);
+        this.f9768a = new WeakReference<>(textView);
     }
 
     public abstract void a(Editable editable);

@@ -6,15 +6,15 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d implements w, Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f6953a = new d();
+    public static final d f6955a = new d();
     private boolean e;
 
     /* renamed from: b  reason: collision with root package name */
-    private double f6954b = -1.0d;
+    private double f6956b = -1.0d;
     private int c = 136;
     private boolean d = true;
     private List<com.bytedance.sdk.openadsdk.d.b> f = Collections.emptyList();
@@ -82,7 +82,7 @@ public final class d implements w, Cloneable {
         if ((this.c & field.getModifiers()) != 0) {
             return true;
         }
-        if ((this.f6954b == -1.0d || a((com.bytedance.sdk.openadsdk.d.a.d) field.getAnnotation(com.bytedance.sdk.openadsdk.d.a.d.class), (com.bytedance.sdk.openadsdk.d.a.e) field.getAnnotation(com.bytedance.sdk.openadsdk.d.a.e.class))) && !field.isSynthetic()) {
+        if ((this.f6956b == -1.0d || a((com.bytedance.sdk.openadsdk.d.a.d) field.getAnnotation(com.bytedance.sdk.openadsdk.d.a.d.class), (com.bytedance.sdk.openadsdk.d.a.e) field.getAnnotation(com.bytedance.sdk.openadsdk.d.a.e.class))) && !field.isSynthetic()) {
             if (!this.e || ((aVar = (com.bytedance.sdk.openadsdk.d.a.a) field.getAnnotation(com.bytedance.sdk.openadsdk.d.a.a.class)) != null && (!z ? !aVar.b() : !aVar.a()))) {
                 if ((this.d || !c(field.getType())) && !b(field.getType())) {
                     List<com.bytedance.sdk.openadsdk.d.b> list = z ? this.f : this.g;
@@ -104,7 +104,7 @@ public final class d implements w, Cloneable {
     }
 
     private boolean a(Class<?> cls) {
-        if (this.f6954b == -1.0d || a((com.bytedance.sdk.openadsdk.d.a.d) cls.getAnnotation(com.bytedance.sdk.openadsdk.d.a.d.class), (com.bytedance.sdk.openadsdk.d.a.e) cls.getAnnotation(com.bytedance.sdk.openadsdk.d.a.e.class))) {
+        if (this.f6956b == -1.0d || a((com.bytedance.sdk.openadsdk.d.a.d) cls.getAnnotation(com.bytedance.sdk.openadsdk.d.a.d.class), (com.bytedance.sdk.openadsdk.d.a.e) cls.getAnnotation(com.bytedance.sdk.openadsdk.d.a.e.class))) {
             return (!this.d && c(cls)) || b(cls);
         }
         return true;
@@ -140,10 +140,10 @@ public final class d implements w, Cloneable {
     }
 
     private boolean a(com.bytedance.sdk.openadsdk.d.a.d dVar) {
-        return dVar == null || dVar.a() <= this.f6954b;
+        return dVar == null || dVar.a() <= this.f6956b;
     }
 
     private boolean a(com.bytedance.sdk.openadsdk.d.a.e eVar) {
-        return eVar == null || eVar.a() > this.f6954b;
+        return eVar == null || eVar.a() > this.f6956b;
     }
 }

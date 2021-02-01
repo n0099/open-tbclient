@@ -10,7 +10,7 @@ import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.recommendlist.data.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends AbsDelegateAdapter<g, a> {
     public e(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -19,7 +19,7 @@ public class e extends AbsDelegateAdapter<g, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: db */
+    /* renamed from: dc */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_type_item_layout, viewGroup, false));
     }
@@ -38,23 +38,23 @@ public class e extends AbsDelegateAdapter<g, a> {
                 string = gVar.title;
                 break;
         }
-        aVar.mRi.setText(string);
+        aVar.naF.setText(string);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16);
         if (i != 0) {
-            aVar.mRi.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds48), 0, dimensionPixelSize);
+            aVar.naF.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds48), 0, dimensionPixelSize);
         } else {
-            aVar.mRi.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            aVar.naF.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
         }
         return view;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private TextView mRi;
+        private TextView naF;
 
         private a(View view) {
             super(view);
-            this.mRi = (TextView) view.findViewById(a.f.ala_recommend_live_type);
+            this.naF = (TextView) view.findViewById(a.f.ala_recommend_live_type);
         }
     }
 }

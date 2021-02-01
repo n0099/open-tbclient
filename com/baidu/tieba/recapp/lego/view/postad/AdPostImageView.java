@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
@@ -15,11 +15,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdPost;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdPostImageView extends AdPostBaseView {
-    private ConstrainImageGroup irt;
-    private b<TbImageView> mNo;
-    private b<ConstrainImageLayout> mNp;
+    private ConstrainImageGroup iwX;
+    private b<TbImageView> mWC;
+    private b<ConstrainImageLayout> mWD;
 
     public AdPostImageView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -31,37 +31,37 @@ public class AdPostImageView extends AdPostBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView
-    protected void ec(View view) {
+    protected void ea(View view) {
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
         f fVar = new f(3);
         fVar.r(1.0d);
-        this.irt = (ConstrainImageGroup) this.rootView.findViewById(R.id.card_home_page_normal_thread_img_layout);
-        this.irt.setChildClickListener(this.iry);
-        this.irt.setImageMargin(dimensionPixelSize);
-        this.irt.setImageProcessor(fVar);
-        this.irt.setImageViewPool(this.mNo);
-        this.irt.setConstrainLayoutPool(this.mNp);
+        this.iwX = (ConstrainImageGroup) this.rootView.findViewById(R.id.card_home_page_normal_thread_img_layout);
+        this.iwX.setChildClickListener(this.ixc);
+        this.iwX.setImageMargin(dimensionPixelSize);
+        this.iwX.setImageProcessor(fVar);
+        this.iwX.setImageViewPool(this.mWC);
+        this.iwX.setConstrainLayoutPool(this.mWD);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView
     protected void a(AdPost adPost) {
         if (adPost != null && adPost.getAdvertAppInfo() != null) {
-            boolean isShowImages = k.bkB().isShowImages();
-            if (adPost.feedData.dBv().size() == 0 || !isShowImages) {
-                this.irt.setVisibility(8);
+            boolean isShowImages = k.bkT().isShowImages();
+            if (adPost.feedData.getImageUrls().size() == 0 || !isShowImages) {
+                this.iwX.setVisibility(8);
                 return;
             }
-            this.irt.setVisibility(0);
-            List<String> dBv = adPost.feedData.dBv();
-            if (!x.isEmpty(dBv)) {
+            this.iwX.setVisibility(0);
+            List<String> imageUrls = adPost.feedData.getImageUrls();
+            if (!y.isEmpty(imageUrls)) {
                 LinkedList linkedList = new LinkedList();
-                for (String str : dBv) {
+                for (String str : imageUrls) {
                     MediaData mediaData = new MediaData();
                     mediaData.setPic(str);
                     mediaData.setThumbnails_url(str);
                     linkedList.add(mediaData);
                 }
-                this.irt.setImageMediaList(linkedList);
+                this.iwX.setImageMediaList(linkedList);
             }
         }
     }
@@ -72,14 +72,14 @@ public class AdPostImageView extends AdPostBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView, com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
     public void a(AdPost adPost, int i) {
         super.a(adPost, i);
-        this.irt.onChangeSkinType();
+        this.iwX.onChangeSkinType();
     }
 
     public void setConstrainLayoutPool(b<ConstrainImageLayout> bVar) {
-        this.mNp = bVar;
+        this.mWD = bVar;
     }
 
     public void setConstrainImagePool(b<TbImageView> bVar) {
-        this.mNo = bVar;
+        this.mWC = bVar;
     }
 }

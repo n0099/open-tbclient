@@ -13,7 +13,7 @@ import com.qq.e.comm.plugin.ad.n;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.mediation.interfaces.BaseNativeExpressAd;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class ANNativeExpressAdAdapter extends BaseNativeExpressAd implements com.qq.e.comm.plugin.r.a {
     private f mDelegate;
     private NativeExpressADView mExpressADView;

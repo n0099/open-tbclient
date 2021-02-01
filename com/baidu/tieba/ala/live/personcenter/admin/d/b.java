@@ -13,25 +13,25 @@ import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.utils.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends TypeAdapter.ViewHolder {
-    private HeadImageView gYH;
-    private TextView hfU;
-    private TextView hfV;
-    private com.baidu.tieba.ala.live.personcenter.admin.b.b hfW;
+    private HeadImageView hbr;
+    private TextView hkk;
+    private TextView hkl;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.b hkm;
 
     public b(Context context, final BdUniqueId bdUniqueId) {
         super(LayoutInflater.from(context).inflate(a.g.sdk_prc_person_adminlist_item, (ViewGroup) null));
-        this.gYH = (HeadImageView) getView().findViewById(a.f.view_header);
-        this.gYH.setIsRound(true);
-        this.hfU = (TextView) getView().findViewById(a.f.text_user_name);
-        this.hfV = (TextView) getView().findViewById(a.f.btn_right);
-        this.hfV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.d.b.1
+        this.hbr = (HeadImageView) getView().findViewById(a.f.view_header);
+        this.hbr.setIsRound(true);
+        this.hkk = (TextView) getView().findViewById(a.f.text_user_name);
+        this.hkl = (TextView) getView().findViewById(a.f.btn_right);
+        this.hkl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.d.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                CustomMessage customMessage = new CustomMessage(2913050, b.this.hfW);
+                CustomMessage customMessage = new CustomMessage(2913050, b.this.hkm);
                 customMessage.setTag(bdUniqueId);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2913050, b.this.hfW);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2913050, b.this.hkm);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
@@ -39,8 +39,8 @@ public class b extends TypeAdapter.ViewHolder {
     }
 
     public void b(com.baidu.tieba.ala.live.personcenter.admin.b.b bVar) {
-        this.hfW = bVar;
-        m.a(this.gYH, bVar.getPortrait(), false, false);
-        this.hfU.setText(bVar.byI());
+        this.hkm = bVar;
+        m.a(this.hbr, bVar.getPortrait(), false, false);
+        this.hkk.setText(bVar.bza());
     }
 }

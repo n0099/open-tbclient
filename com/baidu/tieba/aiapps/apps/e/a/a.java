@@ -24,11 +24,11 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements z {
     private static BroadcastReceiver broadcastReceiver = null;
-    c gju;
-    CustomMessageListener gjv = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
+    c gmb;
+    CustomMessageListener gmc = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -47,7 +47,7 @@ public class a implements z {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.gju != null) {
+                        if (a.this.gmb != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -56,19 +56,19 @@ public class a implements z {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.gju.aN(arrayList);
+                                a.this.gmb.aI(arrayList);
                             } else {
-                                a.this.gju.pg("cancel");
+                                a.this.gmb.py("cancel");
                             }
                         }
-                    } else if (a.this.gju != null) {
-                        a.this.gju.pg(BdStatsConstant.StatsType.ERROR);
+                    } else if (a.this.gmb != null) {
+                        a.this.gmb.py(BdStatsConstant.StatsType.ERROR);
                     }
-                    e.mB().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
+                    e.mA().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.gju = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.gjv);
+                            a.this.gmb = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.gmc);
                         }
                     });
                 }
@@ -76,11 +76,11 @@ public class a implements z {
             intent = null;
             if (intent == null) {
             }
-            e.mB().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
+            e.mA().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.gju = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.gjv);
+                    a.this.gmb = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.gmc);
                 }
             });
         }
@@ -140,8 +140,8 @@ public class a implements z {
                 }
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.s(arrayList).mN(i).je(true).jf(true).jg(true).zv(arrayList.size() > 0 ? arrayList.get(0) : "").jh(false).ji(false).jm(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eQ(context)));
+            aVar.s(arrayList).mQ(i).jg(true).jh(true).ji(true).zM(arrayList.size() > 0 ? arrayList.get(0) : "").jj(false).jk(false).jo(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eP(context)));
         }
     }
 }

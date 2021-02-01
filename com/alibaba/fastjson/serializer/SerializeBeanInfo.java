@@ -2,7 +2,7 @@ package com.alibaba.fastjson.serializer;
 
 import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.util.FieldInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SerializeBeanInfo {
     protected final Class<?> beanType;
     protected int features;

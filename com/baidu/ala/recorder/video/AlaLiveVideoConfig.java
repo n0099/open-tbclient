@@ -1,9 +1,8 @@
 package com.baidu.ala.recorder.video;
 
 import com.baidu.ala.recorder.video.DynamicBitRateConfig;
-import com.baidu.tbadk.TbConfig;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaLiveVideoConfig {
     public static final int HW_ENCODER = 1;
     private static final int PREVIEW_HEIGHT = 1280;
@@ -11,6 +10,7 @@ public class AlaLiveVideoConfig {
     public static final int SW_ENCODER = 2;
     public static final int VIDEO_CODEC_H264 = 7;
     public static final int VIDEO_CODEC_H265 = 12;
+    private boolean mArReportOriginalValue;
     private DynamicBitRateConfig mCurrentConfig;
     private int mEncoderType;
     private DynamicBitRateConfig mHardConfig;
@@ -29,16 +29,16 @@ public class AlaLiveVideoConfig {
     private VideoEncoderConfig mVideoEncoderConfig;
     private int mVideoGOP;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class VideoEncoderConfig {
         public String x264Param;
     }
 
     public AlaLiveVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
-        this.mPreviewWidth = PREVIEW_WIDTH;
+        this.mPreviewWidth = 720;
         this.mPreviewHeight = 1280;
         this.mOutputWidth = 540;
-        this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
+        this.mOutputHeight = 960;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
         this.mVideoCodecId = 7;
@@ -47,6 +47,7 @@ public class AlaLiveVideoConfig {
         this.mIsSupportDynamicBitrate = true;
         this.mIsSupportResetHWEncoder = false;
         this.mRsetHwEncoderThreshold = 0.3f;
+        this.mArReportOriginalValue = false;
         if (alaLiveVideoConfig == null) {
             throw new IllegalArgumentException("config is null!!");
         }
@@ -73,13 +74,14 @@ public class AlaLiveVideoConfig {
         this.mRsetHwEncoderThreshold = alaLiveVideoConfig.mRsetHwEncoderThreshold;
         this.mVideoCodecId = alaLiveVideoConfig.mVideoCodecId;
         this.mVideoEncoderConfig = alaLiveVideoConfig.mVideoEncoderConfig;
+        this.mArReportOriginalValue = alaLiveVideoConfig.mArReportOriginalValue;
     }
 
     public AlaLiveVideoConfig(List<DynamicBitRateConfig.DynamicBitRateItem> list, List<DynamicBitRateConfig.DynamicBitRateItem> list2, double d, double d2, int i, boolean z, boolean z2, int i2, int i3) {
-        this.mPreviewWidth = PREVIEW_WIDTH;
+        this.mPreviewWidth = 720;
         this.mPreviewHeight = 1280;
         this.mOutputWidth = 540;
-        this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
+        this.mOutputHeight = 960;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
         this.mVideoCodecId = 7;
@@ -88,6 +90,7 @@ public class AlaLiveVideoConfig {
         this.mIsSupportDynamicBitrate = true;
         this.mIsSupportResetHWEncoder = false;
         this.mRsetHwEncoderThreshold = 0.3f;
+        this.mArReportOriginalValue = false;
         this.mSoftConfig = new DynamicBitRateConfig(d, d2, i, list);
         if (!this.mSoftConfig.isValid()) {
             this.mSoftConfig = DynamicBitRateConfig.generateDefaultConfig(1);
@@ -109,10 +112,10 @@ public class AlaLiveVideoConfig {
     }
 
     private AlaLiveVideoConfig() {
-        this.mPreviewWidth = PREVIEW_WIDTH;
+        this.mPreviewWidth = 720;
         this.mPreviewHeight = 1280;
         this.mOutputWidth = 540;
-        this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
+        this.mOutputHeight = 960;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
         this.mVideoCodecId = 7;
@@ -121,6 +124,16 @@ public class AlaLiveVideoConfig {
         this.mIsSupportDynamicBitrate = true;
         this.mIsSupportResetHWEncoder = false;
         this.mRsetHwEncoderThreshold = 0.3f;
+        this.mArReportOriginalValue = false;
+    }
+
+    public AlaLiveVideoConfig setArReportOriginalValue(boolean z) {
+        this.mArReportOriginalValue = z;
+        return this;
+    }
+
+    public boolean isArReportOriginalValue() {
+        return this.mArReportOriginalValue;
     }
 
     public void switchToRtcMode(int i, int i2) {

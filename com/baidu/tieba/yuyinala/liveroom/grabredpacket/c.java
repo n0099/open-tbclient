@@ -3,13 +3,13 @@ package com.baidu.tieba.yuyinala.liveroom.grabredpacket;
 import android.content.Context;
 import android.graphics.Bitmap;
 import java.util.Random;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     public Bitmap bitmap;
     public int height;
     public int money;
-    public float okV;
-    public boolean okW;
+    public float ouN;
+    public boolean ouO;
     public float rotation;
     public float speed;
     public int width;
@@ -28,15 +28,15 @@ public class c {
         this.y = -this.height;
         this.speed = i + (((float) Math.random()) * 1000.0f);
         this.rotation = (((float) Math.random()) * 180.0f) - 90.0f;
-        this.okV = (((float) Math.random()) * 90.0f) - 45.0f;
-        this.okW = dYQ();
+        this.ouN = (((float) Math.random()) * 90.0f) - 45.0f;
+        this.ouO = ebc();
     }
 
     public boolean H(float f, float f2) {
         return this.x - 50.0f < f && (this.x + 50.0f) + ((float) this.width) > f && this.y - 50.0f < f2 && (this.y + 50.0f) + ((float) this.height) > f2;
     }
 
-    public boolean dYQ() {
+    public boolean ebc() {
         int nextInt = new Random().nextInt(10) + 1;
         if (nextInt % 2 == 0) {
             this.money = nextInt * 2;

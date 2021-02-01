@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.download.utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class LogUtils {
     private static final String TAG = "LogUtils";
 

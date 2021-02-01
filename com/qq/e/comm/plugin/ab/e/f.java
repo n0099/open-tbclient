@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.ab.e;
 
 import android.graphics.Bitmap;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface f {
     void a(String str);
 

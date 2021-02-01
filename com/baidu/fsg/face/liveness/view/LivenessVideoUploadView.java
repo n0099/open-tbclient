@@ -22,10 +22,10 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class LivenessVideoUploadView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f2344a;
+    private ImageView f2342a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LivenessCircleProgressView f2345b;
+    private LivenessCircleProgressView f2343b;
     private TextView c;
     private LinearLayout d;
     private LinearLayout e;
@@ -52,9 +52,9 @@ public class LivenessVideoUploadView extends FrameLayout {
 
     private void a() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_liveness_video_upload_view, (ViewGroup) this, true);
-        this.f2345b = (LivenessCircleProgressView) inflate.findViewById(R.id.uploading_file_view);
+        this.f2343b = (LivenessCircleProgressView) inflate.findViewById(R.id.uploading_file_view);
         this.c = (TextView) inflate.findViewById(R.id.uploading_tv);
-        this.f2344a = (ImageView) inflate.findViewById(R.id.img_canvas_view);
+        this.f2342a = (ImageView) inflate.findViewById(R.id.img_canvas_view);
         this.d = (LinearLayout) inflate.findViewById(R.id.cancle_upload);
         this.e = (LinearLayout) inflate.findViewById(R.id.confirm_upload);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.LivenessVideoUploadView.1
@@ -76,7 +76,7 @@ public class LivenessVideoUploadView extends FrameLayout {
     }
 
     public void updateProgress(int i) {
-        this.f2345b.updateProgress(i);
+        this.f2343b.updateProgress(i);
     }
 
     public void showBackgroundBitmap() {
@@ -143,7 +143,7 @@ public class LivenessVideoUploadView extends FrameLayout {
                 LivenessVideoUploadView.this.e.setVisibility(8);
                 LivenessVideoUploadView.this.d.setVisibility(8);
                 if (LivenessVideoUploadView.this.f != null) {
-                    LivenessVideoUploadView.this.f2345b.setVisibility(0);
+                    LivenessVideoUploadView.this.f2343b.setVisibility(0);
                     LivenessVideoUploadView.this.c.setVisibility(0);
                     LivenessVideoUploadView.this.f.c();
                 }
@@ -153,7 +153,7 @@ public class LivenessVideoUploadView extends FrameLayout {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        float[] fArr = {this.f2345b.getX() + (this.f2345b.getWidth() / 2), this.f2345b.getY() + (this.f2345b.getHeight() / 2)};
+        float[] fArr = {this.f2343b.getX() + (this.f2343b.getWidth() / 2), this.f2343b.getY() + (this.f2343b.getHeight() / 2)};
         float[] fArr2 = {this.d.getX() + (this.d.getWidth() / 2), this.d.getY() + (this.d.getHeight() / 2)};
         float[] fArr3 = {this.e.getX() + (this.e.getWidth() / 2), this.e.getY() + (this.e.getHeight() / 2)};
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, fArr[0] - fArr2[0], 0.0f, fArr[1] - fArr2[1]);

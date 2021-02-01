@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class LargestLimitedMemoryCache extends LimitedMemoryCache<String, Bitmap> {
     private final Map<Bitmap, Integer> valueSizes;
 

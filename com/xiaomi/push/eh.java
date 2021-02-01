@@ -6,11 +6,11 @@ import android.content.SharedPreferences;
 public class eh extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private SharedPreferences f13967a;
+    private SharedPreferences f13969a;
 
     public eh(Context context, int i) {
         super(context, i);
-        this.f13967a = context.getSharedPreferences("mipush_extra", 0);
+        this.f13969a = context.getSharedPreferences("mipush_extra", 0);
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a

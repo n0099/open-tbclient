@@ -4,14 +4,14 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.config.c;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g extends c<ReportAction, f> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f9416a = false;
+    private static volatile boolean f9418a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private static g f9417b = new g();
+    private static g f9419b = new g();
 
     private g() {
     }
@@ -31,7 +31,7 @@ public class g extends c<ReportAction, f> {
         if (aVar == null) {
             return;
         }
-        f9417b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
+        f9419b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -46,14 +46,14 @@ public class g extends c<ReportAction, f> {
     }
 
     public static g c() {
-        return f9417b;
+        return f9419b;
     }
 
     public static void c(final a aVar) {
         if (aVar == null) {
             return;
         }
-        f9417b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
+        f9419b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -65,7 +65,7 @@ public class g extends c<ReportAction, f> {
 
     @Override // com.kwad.sdk.core.report.c
     public void a(Context context) {
-        if (f9416a) {
+        if (f9418a) {
             return;
         }
         super.a(context);
@@ -76,7 +76,7 @@ public class g extends c<ReportAction, f> {
         if (a2 == 2) {
             a(l.a(context));
         }
-        f9416a = true;
+        f9418a = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

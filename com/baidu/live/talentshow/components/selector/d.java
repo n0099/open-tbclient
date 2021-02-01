@@ -6,91 +6,91 @@ import com.baidu.live.talentshow.components.selector.LiveBCMasterChatSelectorLay
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d implements View.OnClickListener {
-    private LiveBCMasterChatSelectorLayer bAw;
-    private List<com.baidu.live.talentshow.b.d> bAx;
+    private LiveBCMasterChatSelectorLayer bEc;
+    private List<com.baidu.live.talentshow.b.d> bEd;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
-        if (this.bAw == null) {
-            this.bAw = new LiveBCMasterChatSelectorLayer(context);
-            this.bAw.setNeedHideAnim(true);
-            this.bAw.setNeedShowAnim(true);
-            this.bAw.setCanceledOnTouchOutside(true);
-            this.bAw.d(this);
+        if (this.bEc == null) {
+            this.bEc = new LiveBCMasterChatSelectorLayer(context);
+            this.bEc.setNeedHideAnim(true);
+            this.bEc.setNeedShowAnim(true);
+            this.bEc.setCanceledOnTouchOutside(true);
+            this.bEc.d(this);
         }
     }
 
     public void a(LiveBCMasterChatSelectorLayer.b bVar) {
         if (bVar != null) {
-            this.bAw.setOnConfirmListener(bVar);
+            this.bEc.setOnConfirmListener(bVar);
         }
     }
 
     public void a(LiveBCMasterChatSelectorLayer.a aVar) {
         if (aVar != null) {
-            this.bAw.setOnPanelStateChangeListener(aVar);
+            this.bEc.setOnPanelStateChangeListener(aVar);
         }
     }
 
-    private void cP(boolean z) {
-        if (UtilHelper.getRealScreenOrientation(this.mContext) != 2 && this.bAw != null) {
+    private void cX(boolean z) {
+        if (UtilHelper.getRealScreenOrientation(this.mContext) != 2 && this.bEc != null) {
             if (z) {
-                this.bAw.Qx();
+                this.bEc.Sh();
             } else {
-                this.bAw.showLoading();
+                this.bEc.showLoading();
             }
-            if (!this.bAw.Qz()) {
-                com.baidu.live.core.layer.b.As().d(this.bAw);
+            if (!this.bEc.Sj()) {
+                com.baidu.live.core.layer.b.Bc().d(this.bEc);
             }
         }
     }
 
-    public void PF() {
-        cP(false);
+    public void Rp() {
+        cX(false);
     }
 
-    public void QF() {
-        cP(true);
+    public void Sp() {
+        cX(true);
     }
 
-    public void af(List<com.baidu.live.talentshow.b.d> list) {
-        this.bAx = list;
-        if (this.bAw != null && list != null) {
-            this.bAw.setData(list);
+    public void ag(List<com.baidu.live.talentshow.b.d> list) {
+        this.bEd = list;
+        if (this.bEc != null && list != null) {
+            this.bEc.setData(list);
         }
     }
 
-    public List<com.baidu.live.talentshow.b.d> QG() {
-        return this.bAx;
+    public List<com.baidu.live.talentshow.b.d> Sq() {
+        return this.bEd;
     }
 
-    public String bg(long j) {
-        return (this.bAx == null || ListUtils.isEmpty(this.bAx)) ? "" : b(this.bAx, j);
+    public String bk(long j) {
+        return (this.bEd == null || ListUtils.isEmpty(this.bEd)) ? "" : b(this.bEd, j);
     }
 
     private String b(List<com.baidu.live.talentshow.b.d> list, long j) {
         String str = j + "";
         for (com.baidu.live.talentshow.b.d dVar : list) {
-            if (dVar.bBF.equals(str)) {
+            if (dVar.bFl.equals(str)) {
                 return dVar.nickName;
             }
         }
         return "";
     }
 
-    public void QH() {
-        if (this.bAw != null && this.bAw.Qz()) {
-            com.baidu.live.core.layer.b.As().e(this.bAw);
+    public void Sr() {
+        if (this.bEc != null && this.bEc.Sj()) {
+            com.baidu.live.core.layer.b.Bc().e(this.bEc);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bAw.getParentLayout()) {
-            QH();
+        if (view == this.bEc.getParentLayout()) {
+            Sr();
         }
     }
 }

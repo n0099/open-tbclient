@@ -11,11 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TopProxyLayout extends View implements a<TopProxyLayout> {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f6355a;
+    private a f6357a;
 
     public TopProxyLayout(Context context) {
         this(context, null);
@@ -34,7 +34,7 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
     public TopProxyLayout a(boolean z, @NonNull l lVar) {
         TopLayoutDislike2 a2 = new TopLayoutDislike2(getContext()).a(z, lVar);
         if (a2 instanceof a) {
-            this.f6355a = a2;
+            this.f6357a = a2;
             ViewParent parent = getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
                 a(a2, (ViewGroup) parent);
@@ -72,78 +72,78 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSkip(boolean z) {
-        if (this.f6355a != null) {
-            this.f6355a.setShowSkip(z);
+        if (this.f6357a != null) {
+            this.f6357a.setShowSkip(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSkipEnable(boolean z) {
-        if (this.f6355a != null) {
-            this.f6355a.setSkipEnable(z);
+        if (this.f6357a != null) {
+            this.f6357a.setSkipEnable(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void c() {
-        if (this.f6355a != null) {
-            this.f6355a.c();
+        if (this.f6357a != null) {
+            this.f6357a.c();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowSound(boolean z) {
-        if (this.f6355a != null) {
-            this.f6355a.setShowSound(z);
+        if (this.f6357a != null) {
+            this.f6357a.setShowSound(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setSoundMute(boolean z) {
-        if (this.f6355a != null) {
-            this.f6355a.setSoundMute(z);
+        if (this.f6357a != null) {
+            this.f6357a.setSoundMute(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowCountDown(boolean z) {
-        if (this.f6355a != null) {
-            this.f6355a.setShowCountDown(z);
+        if (this.f6357a != null) {
+            this.f6357a.setShowCountDown(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a(CharSequence charSequence, CharSequence charSequence2) {
-        if (this.f6355a != null) {
-            this.f6355a.a(charSequence, charSequence2);
+        if (this.f6357a != null) {
+            this.f6357a.a(charSequence, charSequence2);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setShowDislike(boolean z) {
-        if (this.f6355a != null) {
-            this.f6355a.setShowDislike(z);
+        if (this.f6357a != null) {
+            this.f6357a.setShowDislike(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void setListener(b bVar) {
-        if (this.f6355a != null) {
-            this.f6355a.setListener(bVar);
+        if (this.f6357a != null) {
+            this.f6357a.setListener(bVar);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a() {
-        if (this.f6355a != null) {
-            this.f6355a.a();
+        if (this.f6357a != null) {
+            this.f6357a.a();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void b() {
-        if (this.f6355a != null) {
-            this.f6355a.b();
+        if (this.f6357a != null) {
+            this.f6357a.b();
         }
     }
 }

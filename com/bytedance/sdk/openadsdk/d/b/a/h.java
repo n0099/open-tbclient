@@ -4,11 +4,11 @@ import com.bytedance.sdk.openadsdk.d.v;
 import com.bytedance.sdk.openadsdk.d.w;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class h extends v<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f6884a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.h.1
+    public static final w f6886a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.h.1
         @Override // com.bytedance.sdk.openadsdk.d.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.d.f fVar, com.bytedance.sdk.openadsdk.d.c.a<T> aVar) {
             if (aVar.a() == Object.class) {
@@ -19,10 +19,10 @@ public final class h extends v<Object> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.f f6885b;
+    private final com.bytedance.sdk.openadsdk.d.f f6887b;
 
     h(com.bytedance.sdk.openadsdk.d.f fVar) {
-        this.f6885b = fVar;
+        this.f6887b = fVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.v
@@ -64,7 +64,7 @@ public final class h extends v<Object> {
             cVar.f();
             return;
         }
-        v a2 = this.f6885b.a((Class) obj.getClass());
+        v a2 = this.f6887b.a((Class) obj.getClass());
         if (a2 instanceof h) {
             cVar.d();
             cVar.e();

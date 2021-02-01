@@ -8,7 +8,7 @@ import com.vivo.push.util.p;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class f extends d<com.vivo.push.model.a> {
     public f(Context context) {
         super(context);
@@ -60,6 +60,6 @@ public final class f extends d<com.vivo.push.model.a> {
 
     @Override // com.vivo.push.cache.d
     final String b(String str) throws Exception {
-        return new String(g.a(g.a(f13635a), g.a(f13636b), Base64.decode(str, 2)), "utf-8");
+        return new String(g.a(g.a(f13637a), g.a(f13638b), Base64.decode(str, 2)), "utf-8");
     }
 }

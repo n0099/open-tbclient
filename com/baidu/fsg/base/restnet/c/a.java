@@ -11,10 +11,10 @@ import java.util.List;
 public class a extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1902a = "/risk/init/stat";
+    public static final String f1900a = "/risk/init/stat";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1903b = 1;
+    public static final int f1901b = 1;
     private Context c;
     private String d;
     private String e;
@@ -49,7 +49,7 @@ public class a extends BaseBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return EnvConfig.getInstance(this.c).getRimHttpsHost() + f1902a;
+        return EnvConfig.getInstance(this.c).getRimHttpsHost() + f1900a;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean

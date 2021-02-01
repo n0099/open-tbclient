@@ -5,11 +5,11 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.lib.widget.recycler.e;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.feed.a.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f9818b;
+    private AdTemplate f9820b;
     private String c;
     private Map<String, e.a> d;
     private com.kwad.sdk.core.i.a e;
@@ -18,21 +18,21 @@ public class b extends com.kwad.sdk.feed.a.a.a.a {
     private e.a h = new e.a() { // from class: com.kwad.sdk.feed.a.a.b.a.b.1
         @Override // com.kwad.sdk.lib.widget.recycler.e.a
         public void a(AdTemplate adTemplate, float f) {
-            com.kwad.sdk.core.d.a.a("FeedHomeItemAdPvPresenter", "position=" + ((com.kwad.sdk.feed.a.a.a.b) b.this.f10452a).h + "--visiblePercent=" + f);
+            com.kwad.sdk.core.d.a.a("FeedHomeItemAdPvPresenter", "position=" + ((com.kwad.sdk.feed.a.a.a.b) b.this.f10454a).h + "--visiblePercent=" + f);
             if (f < 0.3f || b.this.g) {
                 return;
             }
             b.this.f.postDelayed(new Runnable() { // from class: com.kwad.sdk.feed.a.a.b.a.b.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.f9818b.mPvReported || !b.this.e.e()) {
+                    if (b.this.f9820b.mPvReported || !b.this.e.e()) {
                         return;
                     }
-                    com.kwad.sdk.core.report.b.a(b.this.f9818b, (JSONObject) null);
+                    com.kwad.sdk.core.report.b.a(b.this.f9820b, (JSONObject) null);
                     if (b.this.d != null && b.this.h != null) {
                         b.this.d.remove(b.this.c);
                     }
-                    com.kwad.sdk.core.d.a.a("FeedHomeItemAdPvPresenter", "reportAdPv position=" + ((com.kwad.sdk.feed.a.a.a.b) b.this.f10452a).h);
+                    com.kwad.sdk.core.d.a.a("FeedHomeItemAdPvPresenter", "reportAdPv position=" + ((com.kwad.sdk.feed.a.a.a.b) b.this.f10454a).h);
                 }
             }, 1000L);
             b.this.g = true;
@@ -43,13 +43,13 @@ public class b extends com.kwad.sdk.feed.a.a.a.a {
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f9818b = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10452a).i;
-        this.c = this.f9818b.mUniqueId;
-        this.e = ((com.kwad.sdk.feed.a.a.a.b) this.f10452a).f9809a.f9836b;
-        if (this.f9818b.mPvReported) {
+        this.f9820b = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10454a).i;
+        this.c = this.f9820b.mUniqueId;
+        this.e = ((com.kwad.sdk.feed.a.a.a.b) this.f10454a).f9811a.f9838b;
+        if (this.f9820b.mPvReported) {
             return;
         }
-        this.d = ((com.kwad.sdk.feed.a.a.a.b) this.f10452a).f9809a.c;
+        this.d = ((com.kwad.sdk.feed.a.a.a.b) this.f10454a).f9811a.c;
         this.d.put(this.c, this.h);
     }
 

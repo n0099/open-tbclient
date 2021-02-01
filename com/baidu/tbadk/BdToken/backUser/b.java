@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.framework.listener.a eBn = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_BACK_USER, 309689) { // from class: com.baidu.tbadk.BdToken.backUser.b.1
+    private com.baidu.adp.framework.listener.a eDt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_BACK_USER, 309689) { // from class: com.baidu.tbadk.BdToken.backUser.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && b.this.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError() && responsedMessage.getError() == 0) {
@@ -19,9 +19,9 @@ public class b {
                 } else if (responsedMessage instanceof BackUserSocketResMsg) {
                     aVar = ((BackUserSocketResMsg) responsedMessage).getData();
                 }
-                if (aVar != null && aVar.eDm) {
-                    com.baidu.tbadk.core.sharedPref.b.brx().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("pref_key_last_request_mission"), System.currentTimeMillis());
-                    com.baidu.tbadk.core.f.a.brt().bru();
+                if (aVar != null && aVar.eFt) {
+                    com.baidu.tbadk.core.sharedPref.b.brQ().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("pref_key_last_request_mission"), System.currentTimeMillis());
+                    com.baidu.tbadk.core.f.a.brM().brN();
                 }
             }
         }
@@ -30,13 +30,13 @@ public class b {
 
     public b(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        bim();
-        this.eBn.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.eBn);
+        zH();
+        this.eDt.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.eDt);
     }
 
-    public void bin() {
-        if (bio()) {
+    public void biz() {
+        if (biA()) {
             BackUserReqMsg backUserReqMsg = new BackUserReqMsg();
             backUserReqMsg.setTag(this.mBdUniqueId);
             MessageManager.getInstance().sendMessage(backUserReqMsg);
@@ -47,7 +47,7 @@ public class b {
         return this.mBdUniqueId;
     }
 
-    private void bim() {
+    private void zH() {
         com.baidu.tieba.tbadkCore.a.a.a(309689, BackUserSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.URL_BACK_USER, 309689));
         tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
@@ -55,7 +55,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private boolean bio() {
-        return !UtilHelper.isSameDay(com.baidu.tbadk.core.sharedPref.b.brx().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("pref_key_last_request_mission"), 0L), System.currentTimeMillis());
+    private boolean biA() {
+        return !UtilHelper.isSameDay(com.baidu.tbadk.core.sharedPref.b.brQ().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("pref_key_last_request_mission"), 0L), System.currentTimeMillis());
     }
 }

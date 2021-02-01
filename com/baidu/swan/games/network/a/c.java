@@ -1,7 +1,7 @@
 package com.baidu.swan.games.network.a;
 
 import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     @V8JavascriptField
     public String filePath;

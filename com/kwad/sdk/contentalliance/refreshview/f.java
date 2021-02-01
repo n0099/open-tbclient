@@ -1,7 +1,7 @@
 package com.kwad.sdk.contentalliance.refreshview;
 
 import android.os.Build;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static boolean a() {
         return b();

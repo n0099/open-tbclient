@@ -21,14 +21,14 @@ import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class PassFaceRecogManager implements PassBiometric {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final long f3993a = 300;
+    private static final long f3996a = 300;
 
     /* renamed from: b  reason: collision with root package name */
-    private static PassFaceRecogManager f3994b;
+    private static PassFaceRecogManager f3997b;
     private PassBiometricConfiguration c;
     private PassFaceRecogCallback d;
     private long e;
@@ -109,10 +109,10 @@ public class PassFaceRecogManager implements PassBiometric {
     public static synchronized PassFaceRecogManager getInstance() {
         PassFaceRecogManager passFaceRecogManager;
         synchronized (PassFaceRecogManager.class) {
-            if (f3994b == null) {
-                f3994b = new PassFaceRecogManager();
+            if (f3997b == null) {
+                f3997b = new PassFaceRecogManager();
             }
-            passFaceRecogManager = f3994b;
+            passFaceRecogManager = f3997b;
         }
         return passFaceRecogManager;
     }

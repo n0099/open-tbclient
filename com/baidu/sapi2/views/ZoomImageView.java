@@ -17,16 +17,16 @@ import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 @TargetApi(8)
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnScaleGestureListener, View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
     public static final float o = 12.0f;
     private static ZoomImageView p;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f5161a;
+    public float f5163a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final float[] f5162b;
+    private final float[] f5164b;
     private boolean c;
     private ScaleGestureDetector d;
     public final Matrix e;
@@ -144,8 +144,8 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     }
 
     public final float getScale() {
-        this.e.getValues(this.f5162b);
-        return this.f5162b[0];
+        this.e.getValues(this.f5164b);
+        return this.f5164b[0];
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -178,7 +178,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
             } else {
                 max = Math.max(((getWidth() * 1.0f) - (this.m * 2)) / intrinsicWidth, ((getHeight() * 1.0f) - (this.n * 2)) / intrinsicHeight);
             }
-            this.f5161a = max;
+            this.f5163a = max;
             this.e.postTranslate((width - intrinsicWidth) / 2, (height - intrinsicHeight) / 2);
             this.e.postScale(max, max, width / 2, height / 2);
             setImageMatrix(this.e);
@@ -278,8 +278,8 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
 
     public ZoomImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f5161a = 1.0f;
-        this.f5162b = new float[9];
+        this.f5163a = 1.0f;
+        this.f5164b = new float[9];
         this.c = true;
         this.e = new Matrix();
         this.f = 0;

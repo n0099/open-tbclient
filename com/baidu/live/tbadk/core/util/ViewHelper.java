@@ -8,7 +8,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.RegisterActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ViewHelper {
     public static void skipToRegisterActivity(Context context) {
         if (context != null) {

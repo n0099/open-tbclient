@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import com.baidu.mobstat.Config;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Size {
     public int height;
     public int width;

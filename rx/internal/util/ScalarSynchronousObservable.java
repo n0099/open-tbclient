@@ -6,13 +6,13 @@ import rx.g;
 import rx.internal.producers.SingleProducer;
 import rx.j;
 import rx.k;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ScalarSynchronousObservable<T> extends rx.d<T> {
-    static final boolean qsY = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
+    static final boolean qDb = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
     final T t;
 
     static <T> rx.f a(j<? super T> jVar, T t) {
-        return qsY ? new SingleProducer(jVar, t) : new c(jVar, t);
+        return qDb ? new SingleProducer(jVar, t) : new c(jVar, t);
     }
 
     public static <T> ScalarSynchronousObservable<T> cf(T t) {
@@ -64,7 +64,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
         return a((d.a) new b(this.t, fVar));
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     static final class a<T> implements d.a<T> {
         final T value;
 
@@ -83,7 +83,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class b<T> implements d.a<T> {
         final rx.functions.f<rx.functions.a, k> onSchedule;
         final T value;
@@ -104,7 +104,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements rx.f, rx.functions.a {
         private static final long serialVersionUID = -2466317989629281651L;
         final j<? super T> actual;
@@ -165,7 +165,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class c<T> implements rx.f {
         final j<? super T> actual;
         boolean once;

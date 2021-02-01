@@ -2,14 +2,14 @@ package com.qq.e.comm.plugin.r.b;
 
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12379a;
+    private String f12381a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12380b;
+    private String f12382b;
     private int c;
     private int d;
     private String e;
@@ -31,8 +31,8 @@ public class c {
         this.k = -1;
         this.m = false;
         this.n = false;
-        this.f12379a = jSONObject.optString("name");
-        this.f12380b = jSONObject.optString("identity");
+        this.f12381a = jSONObject.optString("name");
+        this.f12382b = jSONObject.optString("identity");
         this.c = jSONObject.optInt("bid");
         this.d = jSONObject.optInt("priority");
         this.k = jSONObject.optInt("c_priority");
@@ -45,7 +45,7 @@ public class c {
     }
 
     public String a() {
-        return this.f12379a;
+        return this.f12381a;
     }
 
     public void a(int i) {
@@ -57,7 +57,7 @@ public class c {
     }
 
     public String b() {
-        return this.f12380b;
+        return this.f12382b;
     }
 
     public void b(int i) {

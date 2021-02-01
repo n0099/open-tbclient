@@ -9,7 +9,7 @@ import com.xiaomi.push.service.ap;
 public class fq extends fz {
 
     /* renamed from: a  reason: collision with root package name */
-    private fm f14025a;
+    private fm f14027a;
 
     /* renamed from: a  reason: collision with other field name */
     private fn f434a;
@@ -40,9 +40,9 @@ public class fq extends fz {
 
     private void h() {
         try {
-            this.f14025a = new fm(this.f457a.getInputStream(), this);
+            this.f14027a = new fm(this.f457a.getInputStream(), this);
             this.f434a = new fn(this.f457a.getOutputStream(), this);
-            this.f435a = new fr(this, "Blob Reader (" + this.f14028b + ")");
+            this.f435a = new fr(this, "Blob Reader (" + this.f14030b + ")");
             this.f435a.start();
         } catch (Exception e) {
             throw new gd("Error to init reader and writer", e);
@@ -59,9 +59,9 @@ public class fq extends fz {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaomi.push.fz
     public synchronized void a(int i, Exception exc) {
-        if (this.f14025a != null) {
-            this.f14025a.b();
-            this.f14025a = null;
+        if (this.f14027a != null) {
+            this.f14027a.b();
+            this.f14027a = null;
         }
         if (this.f434a != null) {
             try {

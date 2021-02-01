@@ -1,15 +1,15 @@
 package com.baidu.n.a.a;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class d implements c {
     protected Context mCtx;
     protected int mStatusCode = -200;
-    protected boolean oKA;
-    protected String oKC;
-    protected String oKD;
-    protected String oKE;
-    protected boolean oLc;
+    protected boolean oUI;
+    protected String oUJ;
+    protected String oUK;
+    protected String oUL;
+    protected boolean oVi;
 
     public d(Context context) {
         if (context != null) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.n.a.a.c
-    public boolean egl() {
-        return this.oKA;
+    public boolean eiD() {
+        return this.oUI;
     }
 
     @Override // com.baidu.n.a.a.c
     public boolean isSupport() {
-        return this.oLc;
+        return this.oVi;
     }
 
     @Override // com.baidu.n.a.a.c
     public String getOAID() {
-        return this.oKC;
+        return this.oUJ;
     }
 
     @Override // com.baidu.n.a.a.c
     public String getAAID() {
-        return this.oKD;
+        return this.oUK;
     }
 
     @Override // com.baidu.n.a.a.c
     public String getVAID() {
-        return this.oKE;
+        return this.oUL;
     }
 
     @Override // com.baidu.n.a.a.c
@@ -48,32 +48,32 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.n.a.a.c
-    public void Al(boolean z) {
-        this.oKA = z;
+    public void AE(boolean z) {
+        this.oUI = z;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void Am(boolean z) {
-        this.oLc = z;
+    public void AF(boolean z) {
+        this.oVi = z;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void WO(String str) {
-        this.oKC = str;
+    public void XN(String str) {
+        this.oUJ = str;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void WP(String str) {
-        this.oKD = str;
+    public void XO(String str) {
+        this.oUK = str;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void WQ(String str) {
-        this.oKE = str;
+    public void XP(String str) {
+        this.oUL = str;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void MX(int i) {
+    public void Nt(int i) {
         this.mStatusCode = i;
     }
 }

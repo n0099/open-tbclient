@@ -1,5 +1,5 @@
 package com.baidu.ala.data;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TabData {
     public Object extra;
     public int tabId;

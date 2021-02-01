@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseProxyActivity extends Activity {
     static final /* synthetic */ boolean $assertionsDisabled;
     private IActivityProxy mDelegate;

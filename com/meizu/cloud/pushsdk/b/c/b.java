@@ -3,56 +3,56 @@ package com.meizu.cloud.pushsdk.b.c;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final g f11144a = g.a("application/x-www-form-urlencoded");
+    private static final g f11146a = g.a("application/x-www-form-urlencoded");
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<String> f11145b;
+    private final List<String> f11147b;
     private final List<String> c;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<String> f11146a = new ArrayList();
+        private final List<String> f11148a = new ArrayList();
 
         /* renamed from: b  reason: collision with root package name */
-        private final List<String> f11147b = new ArrayList();
+        private final List<String> f11149b = new ArrayList();
 
         public a a(String str, String str2) {
-            this.f11146a.add(f.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true));
-            this.f11147b.add(f.a(str2, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true));
+            this.f11148a.add(f.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true));
+            this.f11149b.add(f.a(str2, " \"':;<=>@[]^`{}|/\\?#&!$(),~", false, false, true, true));
             return this;
         }
 
         public b a() {
-            return new b(this.f11146a, this.f11147b);
+            return new b(this.f11148a, this.f11149b);
         }
 
         public a b(String str, String str2) {
-            this.f11146a.add(f.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", true, false, true, true));
-            this.f11147b.add(f.a(str2, " \"':;<=>@[]^`{}|/\\?#&!$(),~", true, false, true, true));
+            this.f11148a.add(f.a(str, " \"':;<=>@[]^`{}|/\\?#&!$(),~", true, false, true, true));
+            this.f11149b.add(f.a(str2, " \"':;<=>@[]^`{}|/\\?#&!$(),~", true, false, true, true));
             return this;
         }
     }
 
     private b(List<String> list, List<String> list2) {
-        this.f11145b = m.a(list);
+        this.f11147b = m.a(list);
         this.c = m.a(list2);
     }
 
     private long a(com.meizu.cloud.pushsdk.b.g.c cVar, boolean z) {
         long j = 0;
         com.meizu.cloud.pushsdk.b.g.b bVar = z ? new com.meizu.cloud.pushsdk.b.g.b() : cVar.b();
-        int size = this.f11145b.size();
+        int size = this.f11147b.size();
         for (int i = 0; i < size; i++) {
             if (i > 0) {
                 bVar.b(38);
             }
-            bVar.b(this.f11145b.get(i));
+            bVar.b(this.f11147b.get(i));
             bVar.b(61);
             bVar.b(this.c.get(i));
         }
@@ -65,7 +65,7 @@ public class b extends j {
 
     @Override // com.meizu.cloud.pushsdk.b.c.j
     public g a() {
-        return f11144a;
+        return f11146a;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.c.j

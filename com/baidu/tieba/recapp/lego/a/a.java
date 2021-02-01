@@ -2,13 +2,13 @@ package com.baidu.tieba.recapp.lego.a;
 
 import android.text.TextPaint;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static int Hx(int i) {
+    public static int HQ(int i) {
         return (int) ((i * 16.0d) / 9.0d);
     }
 
-    public static int Hy(int i) {
+    public static int HR(int i) {
         return (int) ((i * 9.0d) / 16.0d);
     }
 

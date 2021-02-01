@@ -8,64 +8,64 @@ import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c implements e {
-    private static File gqJ = i.getPrivateCaptureRootChildDir("duMakeup");
-    private List<com.baidu.tieba.ala.alaar.sticker.download.a.a> cgL;
-    private File cgq;
-    private File cgr;
-    private a gqR;
-    private com.baidu.tieba.ala.alaar.makeup.c gqS;
+    private static File gtt = i.getPrivateCaptureRootChildDir("duMakeup");
+    private File ckA;
+    private File ckB;
+    private List<com.baidu.tieba.ala.alaar.sticker.download.a.a> ckV;
+    private a gtB;
+    private com.baidu.tieba.ala.alaar.makeup.c gtC;
     private File mFolder;
 
     public c(com.baidu.tieba.ala.alaar.makeup.c cVar) {
-        this(cVar, gqJ);
+        this(cVar, gtt);
     }
 
     public c(com.baidu.tieba.ala.alaar.makeup.c cVar, File file) {
-        this.gqS = cVar;
+        this.gtC = cVar;
         this.mFolder = file;
-        this.cgL = new ArrayList();
-        if (!TextUtils.isEmpty(this.gqS.bOz())) {
-            this.cgq = new File(file, this.gqS.bOA());
-            this.cgr = new File(file, this.gqS.bOA() + ".zip");
-            this.gqS.EV(this.cgq.getAbsolutePath());
+        this.ckV = new ArrayList();
+        if (!TextUtils.isEmpty(this.gtC.bPd())) {
+            this.ckA = new File(file, this.gtC.bPe());
+            this.ckB = new File(file, this.gtC.bPe() + ".zip");
+            this.gtC.Ft(this.ckA.getAbsolutePath());
         }
     }
 
     public boolean isLoaded() {
-        return this.cgq == null || this.cgq.exists();
+        return this.ckA == null || this.ckA.exists();
     }
 
     public boolean isLoading() {
-        return this.gqR != null;
+        return this.gtB != null;
     }
 
     public File getLocalFile() {
-        return this.cgq;
+        return this.ckA;
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.model.e
     public void b(com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
         if (isLoaded()) {
             if (aVar != null) {
-                aVar.onCompleted(this.cgq.getAbsolutePath());
+                aVar.onCompleted(this.ckA.getAbsolutePath());
                 return;
             }
             return;
         }
-        if (aVar != null && !this.cgL.contains(aVar)) {
-            this.cgL.add(aVar);
+        if (aVar != null && !this.ckV.contains(aVar)) {
+            this.ckV.add(aVar);
         }
-        aaD();
+        acr();
     }
 
-    private void aaD() {
+    private void acr() {
         if (!isLoaded() && !isLoading()) {
             synchronized (this) {
                 if (!isLoaded() && !isLoading()) {
-                    this.gqR = new a();
-                    com.baidu.tieba.ala.alaar.sticker.download.b.bPf().a(this.gqS.bOz(), this.mFolder, this.cgr.getName(), this.gqR);
+                    this.gtB = new a();
+                    com.baidu.tieba.ala.alaar.sticker.download.b.bPJ().a(this.gtC.bPd(), this.mFolder, this.ckB.getName(), this.gtB);
                 }
             }
         }
@@ -73,9 +73,9 @@ public class c implements e {
 
     protected void f(final DownloadException downloadException) {
         synchronized (this) {
-            this.gqR = null;
+            this.gtB = null;
         }
-        if (this.cgL != null && !this.cgL.isEmpty()) {
+        if (this.ckV != null && !this.ckV.isEmpty()) {
             final boolean isLoaded = isLoaded();
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.model.c.1
                 @Override // java.lang.Runnable
@@ -84,10 +84,10 @@ public class c implements e {
                     if (!isLoaded) {
                         while (true) {
                             int i2 = i;
-                            if (i2 >= c.this.cgL.size()) {
+                            if (i2 >= c.this.ckV.size()) {
                                 break;
                             }
-                            com.baidu.tieba.ala.alaar.sticker.download.a.a aVar = (com.baidu.tieba.ala.alaar.sticker.download.a.a) c.this.cgL.get(i2);
+                            com.baidu.tieba.ala.alaar.sticker.download.a.a aVar = (com.baidu.tieba.ala.alaar.sticker.download.a.a) c.this.ckV.get(i2);
                             if (aVar != null) {
                                 aVar.a(downloadException);
                             }
@@ -96,33 +96,33 @@ public class c implements e {
                     } else {
                         while (true) {
                             int i3 = i;
-                            if (i3 >= c.this.cgL.size()) {
+                            if (i3 >= c.this.ckV.size()) {
                                 break;
                             }
-                            com.baidu.tieba.ala.alaar.sticker.download.a.a aVar2 = (com.baidu.tieba.ala.alaar.sticker.download.a.a) c.this.cgL.get(i3);
+                            com.baidu.tieba.ala.alaar.sticker.download.a.a aVar2 = (com.baidu.tieba.ala.alaar.sticker.download.a.a) c.this.ckV.get(i3);
                             if (aVar2 != null) {
-                                aVar2.onCompleted(c.this.cgq.getAbsolutePath());
+                                aVar2.onCompleted(c.this.ckA.getAbsolutePath());
                             }
                             i = i3 + 1;
                         }
                     }
-                    c.this.cgL.clear();
+                    c.this.ckV.clear();
                 }
             });
         }
     }
 
-    protected boolean iB(String str) {
+    protected boolean jh(String str) {
         boolean z = false;
         try {
             File file = new File(str);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onCompleted-unzip:" + str + "\nto " + this.cgq.getAbsolutePath() + ", sk:" + this.gqS.bOA());
-            File file2 = new File(this.cgq + ".ziping");
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onCompleted-unzip:" + str + "\nto " + this.ckA.getAbsolutePath() + ", sk:" + this.gtC.bPe());
+            File file2 = new File(this.ckA + ".ziping");
             if (file2.exists()) {
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFileOrDir(file2);
             }
-            com.baidu.tieba.ala.alaar.sticker.b.c.d(file, file2);
-            file2.renameTo(this.cgq);
+            com.baidu.tieba.ala.alaar.sticker.b.c.c(file, file2);
+            file2.renameTo(this.ckA);
             z = true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -133,14 +133,14 @@ public class c implements e {
     }
 
     protected void g(DownloadException downloadException) {
-        if (this.cgr.exists()) {
-            this.cgr.delete();
+        if (this.ckB.exists()) {
+            this.ckB.delete();
         }
         f(downloadException);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends com.baidu.tieba.ala.alaar.sticker.download.a.a {
         a() {
         }
@@ -148,16 +148,16 @@ public class c implements e {
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onStarted() {
             super.onStarted();
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onStarted url:" + c.this.gqS.bOz());
-            if (c.this.cgL != null && !c.this.cgL.isEmpty()) {
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onStarted url:" + c.this.gtC.bPd());
+            if (c.this.ckV != null && !c.this.ckV.isEmpty()) {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.model.c.a.1
                     @Override // java.lang.Runnable
                     public void run() {
                         int i = 0;
                         while (true) {
                             int i2 = i;
-                            if (i2 < c.this.cgL.size()) {
-                                com.baidu.tieba.ala.alaar.sticker.download.a.a aVar = (com.baidu.tieba.ala.alaar.sticker.download.a.a) c.this.cgL.get(i2);
+                            if (i2 < c.this.ckV.size()) {
+                                com.baidu.tieba.ala.alaar.sticker.download.a.a aVar = (com.baidu.tieba.ala.alaar.sticker.download.a.a) c.this.ckV.get(i2);
                                 if (aVar != null) {
                                     aVar.onStarted();
                                 }
@@ -183,7 +183,7 @@ public class c implements e {
             new Thread() { // from class: com.baidu.tieba.ala.alaar.sticker.model.c.a.2
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    c.this.iB(str);
+                    c.this.jh(str);
                 }
             }.start();
         }
@@ -191,7 +191,7 @@ public class c implements e {
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void a(DownloadException downloadException) {
             super.a(downloadException);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onFailed " + (downloadException != null ? downloadException.getErrorMessage() : "") + "\n" + c.this.gqS.bOz());
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onFailed " + (downloadException != null ? downloadException.getErrorMessage() : "") + "\n" + c.this.gtC.bPd());
             c.this.g(downloadException);
         }
     }

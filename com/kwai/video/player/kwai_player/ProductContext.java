@@ -2,11 +2,11 @@ package com.kwai.video.player.kwai_player;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ProductContext {
     String productContextJson;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         private String bizType = "N/A";
         private int playIndex = -1;

@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetBgByCategory.ThemeBgInMain;
 import tbclient.ThemeBgProp;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     private String groupName;
-    private List<DressItemData> nwM;
+    private List<DressItemData> nGw;
 
     public void a(ThemeBgInMain themeBgInMain) {
         if (themeBgInMain != null) {
             this.groupName = themeBgInMain.bg_category;
-            this.nwM = new ArrayList();
+            this.nGw = new ArrayList();
             for (ThemeBgProp themeBgProp : themeBgInMain.props) {
-                this.nwM.add(new DressItemData(themeBgProp));
+                this.nGw.add(new DressItemData(themeBgProp));
             }
         }
     }
@@ -24,6 +24,6 @@ public class b {
     }
 
     public List<DressItemData> getBackgroundList() {
-        return this.nwM;
+        return this.nGw;
     }
 }

@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.kwai.video.cache.AwesomeCache;
 import com.kwai.video.hodor.util.Timber;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PlayerPreferrenceUtil {
     private static final String VOD_ADAPTIVE_PREFERENCE_HISTORY_DATA_KEY_NAME = "history_data";
     private static final String VOD_ADAPTIVE_PREFERENCE_NAME = "vod_adaptive_data";

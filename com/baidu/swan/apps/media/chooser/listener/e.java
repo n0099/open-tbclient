@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.media.chooser.listener;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface e {
-    void hT(int i);
+    void hW(int i);
 }

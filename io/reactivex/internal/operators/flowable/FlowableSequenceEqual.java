@@ -15,8 +15,8 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class FlowableSequenceEqual<T> extends g<Boolean> {
     final d<? super T, ? super T> comparer;
     final int prefetch;
-    final org.a.b<? extends T> qeF;
-    final org.a.b<? extends T> qeG;
+    final org.a.b<? extends T> qoJ;
+    final org.a.b<? extends T> qoK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
@@ -30,7 +30,7 @@ public final class FlowableSequenceEqual<T> extends g<Boolean> {
     public void a(org.a.c<? super Boolean> cVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(cVar, this.prefetch, this.comparer);
         cVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.qeF, this.qeG);
+        equalCoordinator.subscribe(this.qoJ, this.qoK);
     }
 
     /* loaded from: classes5.dex */
@@ -99,7 +99,7 @@ public final class FlowableSequenceEqual<T> extends g<Boolean> {
                                 t = fVar.poll();
                                 this.v1 = t;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.O(th);
+                                io.reactivex.exceptions.a.N(th);
                                 cancelAndClear();
                                 this.error.addThrowable(th);
                                 this.actual.onError(this.error.terminate());
@@ -115,7 +115,7 @@ public final class FlowableSequenceEqual<T> extends g<Boolean> {
                                 t3 = fVar2.poll();
                                 this.v2 = t3;
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.O(th2);
+                                io.reactivex.exceptions.a.N(th2);
                                 cancelAndClear();
                                 this.error.addThrowable(th2);
                                 this.actual.onError(this.error.terminate());
@@ -143,7 +143,7 @@ public final class FlowableSequenceEqual<T> extends g<Boolean> {
                                 this.first.request();
                                 this.second.request();
                             } catch (Throwable th3) {
-                                io.reactivex.exceptions.a.O(th3);
+                                io.reactivex.exceptions.a.N(th3);
                                 cancelAndClear();
                                 this.error.addThrowable(th3);
                                 this.actual.onError(this.error.terminate());

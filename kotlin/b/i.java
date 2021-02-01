@@ -4,58 +4,58 @@ import com.baidu.android.common.others.IStringUtil;
 import kotlin.collections.z;
 import kotlin.jvm.internal.o;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i implements Iterable<Long> {
-    public static final a qjJ = new a(null);
-    private final long qjG;
-    private final long qjH;
-    private final long qjI;
+    public static final a qtN = new a(null);
+    private final long qtK;
+    private final long qtL;
+    private final long qtM;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.qjG = j;
-        this.qjH = kotlin.internal.d.j(j, j2, j3);
-        this.qjI = j3;
+        this.qtK = j;
+        this.qtL = kotlin.internal.d.j(j, j2, j3);
+        this.qtM = j3;
     }
 
-    public final long eJj() {
-        return this.qjG;
+    public final long eLz() {
+        return this.qtK;
     }
 
-    public final long eJk() {
-        return this.qjH;
+    public final long eLA() {
+        return this.qtL;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: eJl */
+    /* renamed from: eLB */
     public z iterator() {
-        return new j(this.qjG, this.qjH, this.qjI);
+        return new j(this.qtK, this.qtL, this.qtM);
     }
 
     public boolean isEmpty() {
-        return this.qjI > 0 ? this.qjG > this.qjH : this.qjG < this.qjH;
+        return this.qtM > 0 ? this.qtK > this.qtL : this.qtK < this.qtL;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.qjG == ((i) obj).qjG && this.qjH == ((i) obj).qjH && this.qjI == ((i) obj).qjI));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.qtK == ((i) obj).qtK && this.qtL == ((i) obj).qtL && this.qtM == ((i) obj).qtM));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.qjG ^ (this.qjG >>> 32))) + (this.qjH ^ (this.qjH >>> 32)))) + (this.qjI ^ (this.qjI >>> 32)));
+        return (int) ((31 * ((31 * (this.qtK ^ (this.qtK >>> 32))) + (this.qtL ^ (this.qtL >>> 32)))) + (this.qtM ^ (this.qtM >>> 32)));
     }
 
     public String toString() {
-        return this.qjI > 0 ? "" + this.qjG + IStringUtil.TOP_PATH + this.qjH + " step " + this.qjI : "" + this.qjG + " downTo " + this.qjH + " step " + (-this.qjI);
+        return this.qtM > 0 ? "" + this.qtK + IStringUtil.TOP_PATH + this.qtL + " step " + this.qtM : "" + this.qtK + " downTo " + this.qtL + " step " + (-this.qtM);
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         private a() {
         }

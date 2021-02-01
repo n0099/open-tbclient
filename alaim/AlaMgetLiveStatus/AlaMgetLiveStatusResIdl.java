@@ -3,7 +3,7 @@ package alaim.AlaMgetLiveStatus;
 import alaim.Error;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AlaMgetLiveStatusResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class AlaMgetLiveStatusResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<AlaMgetLiveStatusResIdl> {
         public DataRes data;
         public Error error;

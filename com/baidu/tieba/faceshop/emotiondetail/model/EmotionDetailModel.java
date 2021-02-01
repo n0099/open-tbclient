@@ -10,9 +10,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.emotiondetail.message.EmotionDetailResponseMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EmotionDetailModel extends BdBaseModel {
-    private HttpMessageListener iUc = new HttpMessageListener(1003361) { // from class: com.baidu.tieba.faceshop.emotiondetail.model.EmotionDetailModel.1
+    private HttpMessageListener iZJ = new HttpMessageListener(1003361) { // from class: com.baidu.tieba.faceshop.emotiondetail.model.EmotionDetailModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -27,9 +27,9 @@ public class EmotionDetailModel extends BdBaseModel {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003361, TbConfig.SERVER_ADDRESS + TbConfig.EMOTION_DETAIL);
         tbHttpMessageTask.setResponsedClass(EmotionDetailResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.iUc.setTag(getUniqueId());
-        this.iUc.setSelfListener(true);
-        registerListener(this.iUc);
+        this.iZJ.setTag(getUniqueId());
+        this.iZJ.setSelfListener(true);
+        registerListener(this.iZJ);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -37,7 +37,7 @@ public class EmotionDetailModel extends BdBaseModel {
         return false;
     }
 
-    public void B(long j, int i) {
+    public void z(long j, int i) {
         if (j >= 0 || i >= 0) {
             HttpMessage httpMessage = new HttpMessage(1003361);
             httpMessage.addParam(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, j);
@@ -49,7 +49,7 @@ public class EmotionDetailModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterTask(1003361);
-        MessageManager.getInstance().unRegisterListener(this.iUc);
+        MessageManager.getInstance().unRegisterListener(this.iZJ);
         return true;
     }
 }

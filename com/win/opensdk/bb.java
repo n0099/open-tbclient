@@ -4,14 +4,14 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes3.dex */
 public final class bb {
-    private static Handler pZR;
+    private static Handler qjV;
 
     static {
-        pZR = null;
-        pZR = new Handler(Looper.getMainLooper());
+        qjV = null;
+        qjV = new Handler(Looper.getMainLooper());
     }
 
-    public static void D(Runnable runnable) {
-        pZR.post(runnable);
+    public static void C(Runnable runnable) {
+        qjV.post(runnable);
     }
 }

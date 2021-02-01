@@ -8,7 +8,7 @@ import android.net.LinkProperties;
 import android.net.Network;
 @DoNotInline
 @TargetApi(23)
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ApiHelperForM {
     public static Network getActiveNetwork(ConnectivityManager connectivityManager) {
         try {

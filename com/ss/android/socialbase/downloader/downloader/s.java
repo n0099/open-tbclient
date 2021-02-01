@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.downloader;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface s {
     long a(int i, int i2);
 }

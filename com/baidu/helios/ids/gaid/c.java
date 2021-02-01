@@ -1,10 +1,10 @@
 package com.baidu.helios.ids.gaid;
 
 import com.baidu.helios.common.a.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 class c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class a extends Exception {
         public a(String str) {
             super(str);

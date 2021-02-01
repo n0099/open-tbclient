@@ -10,18 +10,18 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends b {
     public e(Context context) {
-        super(context, com.baidu.live.im.a.bgH);
+        super(context, com.baidu.live.im.a.bjY);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void Jb() {
-        if (Jc()) {
-            Jd();
+    protected void Kz() {
+        if (KA()) {
+            KB();
         } else {
-            Je();
+            KC();
         }
     }
 
@@ -34,12 +34,12 @@ public class e extends b {
     protected SpannableStringBuilder b(com.baidu.live.im.data.b bVar, com.baidu.live.im.c cVar) {
         Drawable drawable;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a y = y(bVar);
-        if (y != null) {
-            String str = y.shareText;
+        a E = E(bVar);
+        if (E != null) {
+            String str = E.shareText;
             SpannableString valueOf = SpannableString.valueOf(str);
-            if (Jc()) {
-                if (y.shareType != 3) {
+            if (KA()) {
+                if (E.shareType != 3) {
                     valueOf.setSpan(new ForegroundColorSpan(-7479041), 0, valueOf.length(), 33);
                 } else {
                     valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
@@ -49,25 +49,25 @@ public class e extends b {
             }
             spannableStringBuilder.append((CharSequence) valueOf);
             String string = this.mContext.getString(a.h.sdk_share_blue_zhuan);
-            if (y.shareType == 2 && str.contains(string) && (drawable = TbadkCoreApplication.getInst().getResources().getDrawable(a.e.sdk_icon_live_blue_diamond)) != null) {
+            if (E.shareType == 2 && str.contains(string) && (drawable = TbadkCoreApplication.getInst().getResources().getDrawable(a.e.sdk_icon_live_blue_diamond)) != null) {
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 CenterImageSpan centerImageSpan = new CenterImageSpan(drawable, 1);
                 SpannableString spannableString = new SpannableString(" [img]");
                 spannableString.setSpan(centerImageSpan, 1, spannableString.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableString);
             }
-            if (y.shareType != 3) {
-                a(spannableStringBuilder, bVar.JB(), cVar, false, false);
-                if (Jc()) {
-                    Jd();
+            if (E.shareType != 3) {
+                a(spannableStringBuilder, bVar.KZ(), cVar, false, false);
+                if (KA()) {
+                    KB();
                 }
             }
-            cVar.bgU.setText(spannableStringBuilder);
+            cVar.bkl.setText(spannableStringBuilder);
         }
         return spannableStringBuilder;
     }
 
-    private a y(com.baidu.live.im.data.b bVar) {
+    private a E(com.baidu.live.im.data.b bVar) {
         JSONObject jSONObject;
         try {
             if (bVar.getObjContent() instanceof JSONObject) {
@@ -85,7 +85,7 @@ public class e extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public String shareText;
         public int shareType;

@@ -10,14 +10,14 @@ import java.util.HashMap;
 public final class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f13839a;
+    final /* synthetic */ Context f13841a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ boolean f160a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(Context context, boolean z) {
-        this.f13839a = context;
+        this.f13841a = context;
         this.f160a = z;
     }
 
@@ -28,8 +28,8 @@ public final class u implements Runnable {
         File logFile;
         File file = null;
         try {
-            a2 = ac.a(this.f13839a, "");
-            absolutePath = this.f160a ? this.f13839a.getFilesDir().getAbsolutePath() : this.f13839a.getExternalFilesDir(null).getAbsolutePath() + dm.f300a;
+            a2 = ac.a(this.f13841a, "");
+            absolutePath = this.f160a ? this.f13841a.getFilesDir().getAbsolutePath() : this.f13841a.getExternalFilesDir(null).getAbsolutePath() + dm.f300a;
             logFile = Logger.getLogFile(absolutePath);
         } catch (Throwable th) {
             th = th;
@@ -38,7 +38,7 @@ public final class u implements Runnable {
             com.xiaomi.channel.commonutils.logger.b.m80a("log file null");
             return;
         }
-        File file2 = new File(absolutePath, this.f13839a.getPackageName() + ".zip");
+        File file2 = new File(absolutePath, this.f13841a.getPackageName() + ".zip");
         try {
             com.xiaomi.push.y.a(file2, logFile);
             if (file2.exists()) {

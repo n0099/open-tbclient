@@ -214,7 +214,7 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.getSharedPreferences(str, i) : this.mApplicationProxy.getSharedPreferences(pluginPackageName + str, i);
     }
 
@@ -271,7 +271,7 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public String getPackageResourcePath() {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
             Plugin plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName);
             if (plugin2 == null) {
@@ -290,28 +290,28 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public FileInputStream openFileInput(String str) throws FileNotFoundException {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.openFileInput(str) : this.mApplicationProxy.openFileInput(pluginPackageName + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.openFileOutput(str, i) : this.mApplicationProxy.openFileOutput(pluginPackageName + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean deleteFile(String str) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.deleteFile(str) : this.mApplicationProxy.deleteFile(pluginPackageName + str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getFileStreamPath(String str) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.getFileStreamPath(str) : this.mApplicationProxy.getFileStreamPath(pluginPackageName + str);
     }
 
@@ -333,7 +333,7 @@ public class PluginBaseApplication extends Application {
             return null;
         }
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
         if (findPluginSetting == null || !findPluginSetting.isThird) {
             return filesDir;
         }
@@ -356,7 +356,7 @@ public class PluginBaseApplication extends Application {
             return null;
         }
         try {
-            PluginSetting findPluginSetting = c.pZ().findPluginSetting(getPluginPackageName());
+            PluginSetting findPluginSetting = c.pX().findPluginSetting(getPluginPackageName());
             if (findPluginSetting == null || !findPluginSetting.isThird) {
                 return cacheDir;
             }
@@ -374,14 +374,14 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public File getDir(String str, int i) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.getDir(str, i) : this.mApplicationProxy.getDir(pluginPackageName + str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         String pluginPackageName = getPluginPackageName();
-        PluginSetting findPluginSetting = c.pZ().findPluginSetting(pluginPackageName);
+        PluginSetting findPluginSetting = c.pX().findPluginSetting(pluginPackageName);
         return (findPluginSetting == null || !findPluginSetting.isThird) ? this.mApplicationProxy.openOrCreateDatabase(str, i, cursorFactory) : this.mApplicationProxy.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
     }
 

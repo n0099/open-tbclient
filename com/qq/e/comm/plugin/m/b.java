@@ -30,14 +30,14 @@ import com.qq.e.comm.plugin.w.d;
 import com.qq.e.comm.util.StringUtil;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b implements NativeExpressADData2, ADEventListener, com.qq.e.comm.plugin.a.d.a, com.qq.e.comm.plugin.nativeadunified.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12184a;
+    public String f12186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12185b;
+    public String f12187b;
     int c;
     VideoOption2 d;
     public k f;
@@ -62,7 +62,7 @@ public class b implements NativeExpressADData2, ADEventListener, com.qq.e.comm.p
     private b.d s = b.d.NOT_DOWNLOAD;
 
     /* renamed from: com.qq.e.comm.plugin.m.b$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     class AnonymousClass1 implements Runnable {
         AnonymousClass1() {
         }
@@ -138,18 +138,18 @@ public class b implements NativeExpressADData2, ADEventListener, com.qq.e.comm.p
 
     public b(Context context, String str, String str2, JSONObject jSONObject, int i, int i2, int i3, VideoOption2 videoOption2) {
         this.h = context;
-        this.f12184a = str2;
-        this.f12185b = com.qq.e.comm.plugin.util.a.a(str, this.f12184a, o.b());
-        this.i = a(str, this.f12184a, this.f12185b, jSONObject, i2, i3, videoOption2);
+        this.f12186a = str2;
+        this.f12187b = com.qq.e.comm.plugin.util.a.a(str, this.f12186a, o.b());
+        this.i = a(str, this.f12186a, this.f12187b, jSONObject, i2, i3, videoOption2);
         this.w = b.class.getSimpleName() + this.i.m();
         this.c = i;
         this.d = videoOption2;
-        this.e.a(this.f12184a);
+        this.e.a(this.f12186a);
         this.e.b(this.i.m());
         this.e.c(this.i.H());
         this.k.a("posId", str2);
         this.k.a("appid", str);
-        this.o = new com.qq.e.comm.plugin.w.b(this.f12185b, com.qq.e.comm.plugin.ad.e.EXPRESS2, this.f12184a);
+        this.o = new com.qq.e.comm.plugin.w.b(this.f12187b, com.qq.e.comm.plugin.ad.e.EXPRESS2, this.f12186a);
         this.l = new Handler(Looper.getMainLooper());
         this.p = new com.qq.e.comm.plugin.ad.g();
         if (this.i.ah()) {
@@ -409,9 +409,9 @@ public class b implements NativeExpressADData2, ADEventListener, com.qq.e.comm.p
     }
 
     @Override // com.qq.e.comm.plugin.nativeadunified.b
-    public void a(b.EnumC1199b enumC1199b) {
+    public void a(b.EnumC1203b enumC1203b) {
         if (this.f != null) {
-            this.f.a(enumC1199b);
+            this.f.a(enumC1203b);
         }
     }
 
@@ -433,7 +433,7 @@ public class b implements NativeExpressADData2, ADEventListener, com.qq.e.comm.p
     public void a(String str, int i, int i2) {
         if (this.f != null) {
             d.a a2 = com.qq.e.comm.plugin.w.i.a(this.i);
-            d.e eVar = new d.e(this.f12185b, com.qq.e.comm.plugin.ad.e.EXPRESS2, this.f12184a);
+            d.e eVar = new d.e(this.f12187b, com.qq.e.comm.plugin.ad.e.EXPRESS2, this.f12186a);
             d.b a3 = d.a(i, i2, this.i, this.f.q(), str, this.c);
             a3.i = com.qq.e.comm.plugin.ad.a.a().b(this.f.q());
             com.qq.e.comm.plugin.w.a.d.a(this.f.q(), a2, eVar, a3);
@@ -529,7 +529,7 @@ public class b implements NativeExpressADData2, ADEventListener, com.qq.e.comm.p
     }
 
     @Override // com.qq.e.comm.plugin.nativeadunified.b
-    public b.EnumC1199b h() {
+    public b.EnumC1203b h() {
         if (this.f != null) {
             return this.f.r();
         }
@@ -576,7 +576,7 @@ public class b implements NativeExpressADData2, ADEventListener, com.qq.e.comm.p
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void render() {
         if (this.h != null && com.qq.e.comm.plugin.ad.e.EXPRESS2 == this.i.C()) {
-            z.a().a(this.f12184a);
+            z.a().a(this.f12186a);
         }
         this.l.post(new AnonymousClass1());
     }

@@ -17,19 +17,19 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     @NonNull
     private final o c;
     private Context d;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Handler f5993b = new Handler(Looper.getMainLooper());
+    private final Handler f5995b = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, C0992b> f5992a = Collections.synchronizedMap(new LinkedHashMap());
+    private final Map<String, C0996b> f5994a = Collections.synchronizedMap(new LinkedHashMap());
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a extends c.a {
         File a(String str);
 
@@ -48,15 +48,15 @@ public class b {
     }
 
     public void a(String str, final a aVar, boolean z) {
-        C0992b c0992b;
+        C0996b c0996b;
         if (!TextUtils.isEmpty(str)) {
-            if (a(str) && (c0992b = this.f5992a.get(str)) != null) {
-                c0992b.a(aVar);
+            if (a(str) && (c0996b = this.f5994a.get(str)) != null) {
+                c0996b.a(aVar);
                 return;
             }
             final File a2 = aVar.a(str);
             if (a2 != null && aVar != null) {
-                this.f5993b.post(new Runnable() { // from class: com.bytedance.sdk.adnet.b.b.1
+                this.f5995b.post(new Runnable() { // from class: com.bytedance.sdk.adnet.b.b.1
                     @Override // java.lang.Runnable
                     public void run() {
                         aVar.a(a2.length(), a2.length());
@@ -69,18 +69,18 @@ public class b {
         }
     }
 
-    private void a(C0992b c0992b) {
-        if (c0992b != null) {
-            c0992b.a();
-            this.f5992a.put(c0992b.f5995a, c0992b);
+    private void a(C0996b c0996b) {
+        if (c0996b != null) {
+            c0996b.a();
+            this.f5994a.put(c0996b.f5997a, c0996b);
         }
     }
 
     private boolean a(String str) {
-        return this.f5992a.containsKey(str);
+        return this.f5994a.containsKey(str);
     }
 
-    private C0992b b(String str, a aVar, boolean z) {
+    private C0996b b(String str, a aVar, boolean z) {
         String absolutePath;
         File file = null;
         if (aVar != null) {
@@ -91,7 +91,7 @@ public class b {
         } else {
             absolutePath = file.getAbsolutePath();
         }
-        return new C0992b(str, absolutePath, aVar, z);
+        return new C0996b(str, absolutePath, aVar, z);
     }
 
     private String a() {
@@ -102,21 +102,21 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bytedance.sdk.adnet.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C0992b {
+    /* loaded from: classes6.dex */
+    public class C0996b {
 
         /* renamed from: a  reason: collision with root package name */
-        String f5995a;
+        String f5997a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f5996b;
+        String f5998b;
         List<a> c;
         boolean d;
-        c pki;
+        c pux;
 
-        C0992b(String str, String str2, a aVar, boolean z) {
-            this.f5995a = str;
-            this.f5996b = str2;
+        C0996b(String str, String str2, a aVar, boolean z) {
+            this.f5997a = str;
+            this.f5998b = str2;
             this.d = z;
             a(aVar);
         }
@@ -131,11 +131,11 @@ public class b {
         }
 
         void a() {
-            this.pki = new c(this.f5996b, this.f5995a, new c.a() { // from class: com.bytedance.sdk.adnet.b.b.b.1
+            this.pux = new c(this.f5998b, this.f5997a, new c.a() { // from class: com.bytedance.sdk.adnet.b.b.b.1
                 @Override // com.bytedance.sdk.adnet.b.c.a
                 public void a(long j, long j2) {
-                    if (C0992b.this.c != null) {
-                        for (a aVar : C0992b.this.c) {
+                    if (C0996b.this.c != null) {
+                        for (a aVar : C0996b.this.c) {
                             try {
                                 aVar.a(j, j2);
                             } catch (Throwable th) {
@@ -147,45 +147,45 @@ public class b {
 
                 @Override // com.bytedance.sdk.adnet.core.p.a
                 public void a(p<File> pVar) {
-                    if (C0992b.this.c != null) {
-                        for (a aVar : C0992b.this.c) {
+                    if (C0996b.this.c != null) {
+                        for (a aVar : C0996b.this.c) {
                             try {
                                 aVar.a(pVar);
                             } catch (Throwable th) {
                                 r.a(th, "file loader onResponse error", new Object[0]);
                             }
                             try {
-                                aVar.a(C0992b.this.f5995a, pVar.f6045a);
+                                aVar.a(C0996b.this.f5997a, pVar.f6047a);
                             } catch (Throwable th2) {
                                 r.a(th2, "file loader putFile error", new Object[0]);
                             }
                         }
-                        C0992b.this.c.clear();
+                        C0996b.this.c.clear();
                     }
-                    b.this.f5992a.remove(C0992b.this.f5995a);
+                    b.this.f5994a.remove(C0996b.this.f5997a);
                 }
 
                 @Override // com.bytedance.sdk.adnet.core.p.a
                 public void b(p<File> pVar) {
-                    if (C0992b.this.c != null) {
-                        for (a aVar : C0992b.this.c) {
+                    if (C0996b.this.c != null) {
+                        for (a aVar : C0996b.this.c) {
                             try {
                                 aVar.b(pVar);
                             } catch (Throwable th) {
                                 r.a(th, "file loader onErrorResponse error", new Object[0]);
                             }
                         }
-                        C0992b.this.c.clear();
+                        C0996b.this.c.clear();
                     }
-                    b.this.f5992a.remove(C0992b.this.f5995a);
+                    b.this.f5994a.remove(C0996b.this.f5997a);
                 }
             });
-            this.pki.setTag("FileLoader#" + this.f5995a);
-            b.this.c.j(this.pki);
+            this.pux.setTag("FileLoader#" + this.f5997a);
+            b.this.c.j(this.pux);
         }
 
         public boolean equals(Object obj) {
-            return obj instanceof C0992b ? ((C0992b) obj).f5995a.equals(this.f5995a) : super.equals(obj);
+            return obj instanceof C0996b ? ((C0996b) obj).f5997a.equals(this.f5997a) : super.equals(obj);
         }
     }
 }

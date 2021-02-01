@@ -4,29 +4,29 @@ import android.content.Context;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private static b oPO;
+    private static b oZY;
     private ThreadPoolExecutor mThreadPool;
     private static final String TAG = b.class.getSimpleName();
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
     private static final int MAXIMUM_POOL_SIZE = (CPU_COUNT * 2) + 1;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
         }
     }
 
-    public static synchronized b ht(Context context) {
+    public static synchronized b hw(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (oPO == null) {
-                oPO = new b();
+            if (oZY == null) {
+                oZY = new b();
             }
-            bVar = oPO;
+            bVar = oZY;
         }
         return bVar;
     }
@@ -37,7 +37,7 @@ public class b {
         this.mThreadPool.allowCoreThreadTimeOut(true);
     }
 
-    public void z(Runnable runnable) {
+    public void x(Runnable runnable) {
         try {
             this.mThreadPool.submit(runnable);
         } catch (Exception e) {

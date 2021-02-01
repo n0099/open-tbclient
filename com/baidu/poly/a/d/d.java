@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static boolean a(String str, OutputStream outputStream) {
         BufferedInputStream bufferedInputStream;
@@ -61,7 +61,7 @@ public class d {
         }
     }
 
-    public static Bitmap iH(String str) {
+    public static Bitmap c(String str) {
         BufferedInputStream bufferedInputStream;
         BufferedInputStream bufferedInputStream2 = null;
         try {

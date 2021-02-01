@@ -5,6 +5,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.games.utils.so.SoLoader;
 import com.baidu.swan.games.utils.so.f;
 import com.baidu.webkit.internal.GlobalConstants;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,27 +13,27 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public static final String cUm = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
-    private static final String cUn = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
-    public static final String cUo = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
+    public static final String cWz = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "zeus" + File.separator + "libs";
+    private static final String cWA = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "libs";
+    public static final String cWB = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
-    public static f fq(boolean z) {
+    public static f fs(boolean z) {
         boolean z2 = true;
         if (z) {
-            return f.ik(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
+            return f.im(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
         }
-        if (ari()) {
-            arh();
-            boolean o = d.o("zeusv8", cUn, true);
-            if (!d.o("arcore_sdk_c", cUm, false) || !d.o("arcore_sdk_jni", cUm, false) || !d.o("c++_shared", cUm, false) || !d.o("v8.engine", cUm, false)) {
+        if (arG()) {
+            arF();
+            boolean o = d.o("zeusv8", cWA, true);
+            if (!d.o("arcore_sdk_c", cWz, false) || !d.o("arcore_sdk_jni", cWz, false) || !d.o("c++_shared", cWz, false) || !d.o("v8.engine", cWz, false)) {
                 z2 = false;
             }
-            return f.u(o, z2);
+            return f.v(o, z2);
         }
-        d.o("zeusv8", cUo, true);
-        return f.ik(d.o("v8.engine", cUo, true));
+        d.o("zeusv8", cWB, true);
+        return f.im(d.o("v8.engine", cWB, true));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [152=5, 153=4, 154=4, 156=4, 157=4, 158=4, 161=4] */
@@ -41,7 +42,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void arh() {
+    private static void arF() {
         Throwable th;
         FileLock fileLock;
         FileChannel fileChannel;
@@ -49,11 +50,11 @@ public class a {
         FileInputStream fileInputStream;
         Exception exc;
         FileOutputStream fileOutputStream2;
-        File file = new File(cUm + File.separator + GlobalConstants.LIB_ZEUS_V8);
+        File file = new File(cWz + File.separator + GlobalConstants.LIB_ZEUS_V8);
         if (!file.exists() || file.length() <= 0) {
             return;
         }
-        File file2 = new File(cUn);
+        File file2 = new File(cWA);
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -69,7 +70,7 @@ public class a {
                 } catch (IOException e) {
                 }
             }
-            fileChannel = new RandomAccessFile(file4, "rw").getChannel();
+            fileChannel = new RandomAccessFile(file4, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth).getChannel();
             try {
                 fileLock = fileChannel.lock();
                 if (fileLock != null) {
@@ -202,7 +203,7 @@ public class a {
         }
     }
 
-    public static boolean ari() {
+    public static boolean arG() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 }

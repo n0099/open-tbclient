@@ -20,7 +20,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class GradientColorInflaterCompat {
     private static final int TILE_MODE_CLAMP = 0;
     private static final int TILE_MODE_MIRROR = 2;
@@ -136,7 +136,7 @@ public final class GradientColorInflaterCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static final class ColorStops {
         final int[] mColors;
         final float[] mOffsets;

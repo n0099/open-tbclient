@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,18 +23,18 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11307a;
+    private int f11309a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11308b;
+    private int f11310b;
     private int c;
 
     public a() {
     }
 
     protected a(Parcel parcel) {
-        this.f11307a = parcel.readInt();
-        this.f11308b = parcel.readInt();
+        this.f11309a = parcel.readInt();
+        this.f11310b = parcel.readInt();
         this.c = parcel.readInt();
     }
 
@@ -61,15 +61,15 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.f11307a;
+        return this.f11309a;
     }
 
     public void a(int i) {
-        this.f11307a = i;
+        this.f11309a = i;
     }
 
     public void b(int i) {
-        this.f11308b = i;
+        this.f11310b = i;
     }
 
     public void c(int i) {
@@ -82,13 +82,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.f11307a + ", cached=" + this.f11308b + ", cacheNum=" + this.c + '}';
+        return "Control{pushType=" + this.f11309a + ", cached=" + this.f11310b + ", cacheNum=" + this.c + '}';
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f11307a);
-        parcel.writeInt(this.f11308b);
+        parcel.writeInt(this.f11309a);
+        parcel.writeInt(this.f11310b);
         parcel.writeInt(this.c);
     }
 }

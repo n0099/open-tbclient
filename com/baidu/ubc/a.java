@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public abstract class a implements u {
     private static final boolean DEBUG = AppConfig.isDebug();
-    protected af oHU = new af();
+    protected af oSc = new af();
 
     public abstract ad a(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
@@ -25,20 +25,20 @@ public abstract class a implements u {
 
     public boolean b(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean efw = this.oHU.efw();
-        if (efw) {
+        boolean ehO = this.oSc.ehO();
+        if (ehO) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
-        String processUrl = com.baidu.d.c.b.uj().processUrl(str2);
-        if (efw && !TextUtils.isEmpty(processUrl)) {
+        String processUrl = com.baidu.d.c.b.ug().processUrl(str2);
+        if (ehO && !TextUtils.isEmpty(processUrl)) {
             processUrl = UrlUtil.addParam(processUrl, "debug", "1");
         }
         if (z) {
             processUrl = UrlUtil.addParam(processUrl, "reallog", "1");
         }
-        if (g.eff().isBeta()) {
+        if (g.ehx().isBeta()) {
             processUrl = UrlUtil.addParam(processUrl, "beta", "1");
         }
         HashMap hashMap = new HashMap(2);
@@ -56,7 +56,7 @@ public abstract class a implements u {
                 if (DEBUG) {
                     Log.d("UploadManager", "postByteRequest, fail: " + a2.getMessage());
                 } else {
-                    ac.efx().gV(a2.getMessage(), null);
+                    ac.ehP().hc(a2.getMessage(), null);
                 }
                 a2.close();
                 return false;
@@ -68,14 +68,14 @@ public abstract class a implements u {
                         Log.d("UploadManager", "server error");
                     }
                     if (!DEBUG) {
-                        ac.efx().MP(i);
+                        ac.ehP().Nl(i);
                     }
                 }
             } catch (Exception e) {
                 if (DEBUG) {
                     Log.d("UploadManager", "body tostring fail:" + e.getMessage());
                 } else {
-                    ac.efx().Wu(Log.getStackTraceString(e));
+                    ac.ehP().Xt(Log.getStackTraceString(e));
                 }
             }
             a2.close();
@@ -84,7 +84,7 @@ public abstract class a implements u {
             if (DEBUG) {
                 Log.d("UploadManager", "postByteRequest, Exception: ", e2);
             } else {
-                ac.efx().gV(null, Log.getStackTraceString(e2));
+                ac.ehP().hc(null, Log.getStackTraceString(e2));
             }
             return false;
         }

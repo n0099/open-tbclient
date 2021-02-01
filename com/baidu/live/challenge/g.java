@@ -1,18 +1,18 @@
 package com.baidu.live.challenge;
 
-import com.baidu.live.data.bc;
 import com.baidu.live.data.bg;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.bk;
+/* loaded from: classes11.dex */
 public interface g {
-    void a(bc bcVar, bg bgVar, bg bgVar2);
+    void Av();
 
-    void bl(boolean z);
+    void Aw();
 
-    void bm(boolean z);
+    void Ax();
 
-    void zL();
+    void a(bg bgVar, bk bkVar, bk bkVar2);
 
-    void zM();
+    void bn(boolean z);
 
-    void zN();
+    void bo(boolean z);
 }

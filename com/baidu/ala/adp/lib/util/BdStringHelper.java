@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class BdStringHelper {
     protected static SimpleDateFormat FORMATE_DATE_ALL = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     protected static SimpleDateFormat FORMATE_DATE_YEAR = new SimpleDateFormat("yyyy年");

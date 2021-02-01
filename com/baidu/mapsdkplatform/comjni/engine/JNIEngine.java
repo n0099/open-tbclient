@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comjni.engine;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class JNIEngine {
     public static native boolean InitEngine(Context context);
 

@@ -5,8 +5,8 @@ import android.content.Context;
 public class b {
     public static boolean LOG_DEBUG = false;
 
-    public static void i(Context context, boolean z) {
-        e.l(context, z);
+    public static void j(Context context, boolean z) {
+        e.m(context, z);
     }
 
     public static boolean aH(Context context) {

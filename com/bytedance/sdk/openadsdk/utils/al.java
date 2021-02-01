@@ -7,7 +7,7 @@ import java.security.SignatureException;
 import javax.security.cert.Certificate;
 import javax.security.cert.CertificateException;
 import javax.security.cert.X509Certificate;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class al {
     public static boolean a(Certificate[] certificateArr) {
         if (certificateArr != null) {

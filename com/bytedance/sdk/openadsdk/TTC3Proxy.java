@@ -5,7 +5,7 @@ import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.component.reward.c;
 import com.bytedance.sdk.openadsdk.component.reward.d;
 import com.bytedance.sdk.openadsdk.component.reward.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTC3Proxy {
     private TTC3Proxy() {
     }

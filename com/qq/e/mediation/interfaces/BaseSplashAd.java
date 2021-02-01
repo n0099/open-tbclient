@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class BaseSplashAd {
     public static final int DEFAULT_PRIORITY = -1;
     public static final int EVENT_TYPE_AD_CLICKED = 4;

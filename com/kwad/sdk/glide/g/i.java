@@ -2,14 +2,14 @@ package com.kwad.sdk.glide.g;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private Class<?> f10027a;
+    private Class<?> f10029a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Class<?> f10028b;
+    private Class<?> f10030b;
     private Class<?> c;
 
     public i() {
@@ -20,8 +20,8 @@ public class i {
     }
 
     public void a(@NonNull Class<?> cls, @NonNull Class<?> cls2, @Nullable Class<?> cls3) {
-        this.f10027a = cls;
-        this.f10028b = cls2;
+        this.f10029a = cls;
+        this.f10030b = cls2;
         this.c = cls3;
     }
 
@@ -33,14 +33,14 @@ public class i {
             return false;
         }
         i iVar = (i) obj;
-        return this.f10027a.equals(iVar.f10027a) && this.f10028b.equals(iVar.f10028b) && k.a(this.c, iVar.c);
+        return this.f10029a.equals(iVar.f10029a) && this.f10030b.equals(iVar.f10030b) && k.a(this.c, iVar.c);
     }
 
     public int hashCode() {
-        return (this.c != null ? this.c.hashCode() : 0) + (((this.f10027a.hashCode() * 31) + this.f10028b.hashCode()) * 31);
+        return (this.c != null ? this.c.hashCode() : 0) + (((this.f10029a.hashCode() * 31) + this.f10030b.hashCode()) * 31);
     }
 
     public String toString() {
-        return "MultiClassKey{first=" + this.f10027a + ", second=" + this.f10028b + '}';
+        return "MultiClassKey{first=" + this.f10029a + ", second=" + this.f10030b + '}';
     }
 }

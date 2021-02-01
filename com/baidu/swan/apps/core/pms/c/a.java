@@ -3,77 +3,77 @@ package com.baidu.swan.apps.core.pms.c;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends f {
-    private InterfaceC0412a cTm;
+    private InterfaceC0409a cVz;
 
     /* renamed from: com.baidu.swan.apps.core.pms.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0412a {
-        void aqD();
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0409a {
+        void arb();
 
         void onError();
 
         void onSuccess();
     }
 
-    public a(String str, InterfaceC0412a interfaceC0412a) {
+    public a(String str, InterfaceC0409a interfaceC0409a) {
         super(str);
-        this.cTm = interfaceC0412a;
+        this.cVz = interfaceC0409a;
     }
 
     @Override // com.baidu.swan.apps.core.pms.j
-    protected int aqi() {
+    protected int aqG() {
         return 1;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void ani() {
-        super.ani();
-        gU(0);
+    public void anG() {
+        super.anG();
+        gX(0);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
     public void b(com.baidu.swan.pms.model.a aVar) {
         super.b(aVar);
-        gU(-1);
+        gX(-1);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void aqm() {
-        super.aqm();
-        if (aqu() == null) {
-            gU(1);
-            bC("page_route_download", "0");
+    protected void aqK() {
+        super.aqK();
+        if (aqS() == null) {
+            gX(1);
+            bw("page_route_download", "0");
             return;
         }
-        gU(-1);
+        gX(-1);
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType aqn() {
+    protected PMSDownloadType aqL() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void m(Throwable th) {
-        gU(-1);
+    protected void l(Throwable th) {
+        gX(-1);
     }
 
-    private void gU(final int i) {
-        ak.l(new Runnable() { // from class: com.baidu.swan.apps.core.pms.c.a.1
+    private void gX(final int i) {
+        ak.k(new Runnable() { // from class: com.baidu.swan.apps.core.pms.c.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cTm != null) {
+                if (a.this.cVz != null) {
                     switch (i) {
                         case -1:
-                            a.this.cTm.onError();
+                            a.this.cVz.onError();
                             return;
                         case 0:
-                            a.this.cTm.aqD();
+                            a.this.cVz.arb();
                             return;
                         case 1:
-                            a.this.cTm.onSuccess();
+                            a.this.cVz.onSuccess();
                             return;
                         default:
                             return;

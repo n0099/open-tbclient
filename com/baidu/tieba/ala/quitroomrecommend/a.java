@@ -24,7 +24,7 @@ import com.baidu.tieba.ala.quitroomrecommend.data.AlaQuitRoomRecommendData;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
     private int cardWidth;
     private Context mContext;
@@ -34,7 +34,7 @@ public class a extends BaseAdapter {
     public a(Context context) {
         this.mContext = context;
         this.mScreenWidth = BdUtilHelper.getEquipmentWidth(this.mContext);
-        cnH();
+        coF();
     }
 
     public void setData(List<com.baidu.tieba.ala.quitroomrecommend.data.a> list) {
@@ -42,7 +42,7 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private void cnH() {
+    private void coF() {
         this.cardWidth = (((this.mScreenWidth - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds34)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds34)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16)) / 2;
         if (this.cardWidth <= 0) {
             this.cardWidth = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds372);
@@ -83,82 +83,82 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.ala.quitroomrecommend.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class C0693a {
-        private LinearLayout[] ibA;
-        private TextView[] ibB;
-        private TbImageView[] ibC;
-        private ViewGroup[] ibD;
-        private TextView[] ibE;
-        private com.baidu.tieba.ala.quitroomrecommend.data.a ibF;
-        private String ibG;
-        private RelativeLayout[] ibw;
-        private TbImageView[] ibx;
-        private TextView[] iby;
-        private TextView[] ibz;
+        private RelativeLayout[] ifU;
+        private TbImageView[] ifV;
+        private TextView[] ifW;
+        private TextView[] ifX;
+        private LinearLayout[] ifY;
+        private TextView[] ifZ;
+        private TbImageView[] iga;
+        private ViewGroup[] igb;
+        private TextView[] igc;
+        private com.baidu.tieba.ala.quitroomrecommend.data.a igd;
+        private String ige;
         private Context mContext;
         private int mPosition;
 
         private C0693a(View view, Context context, int i) {
-            this.ibG = "";
+            this.ige = "";
             this.mContext = context;
-            this.ibw = new RelativeLayout[2];
-            this.ibx = new TbImageView[2];
-            this.iby = new TextView[2];
-            this.ibz = new TextView[2];
-            this.ibA = new LinearLayout[2];
-            this.ibB = new TextView[2];
-            this.ibE = new TextView[2];
-            this.ibC = new TbImageView[2];
-            this.ibD = new ViewGroup[2];
-            this.ibE[0] = (TextView) view.findViewById(a.f.sdk_ala_left_tv_label);
-            this.ibE[1] = (TextView) view.findViewById(a.f.sdk_ala_right_tv_label);
-            this.ibC[0] = (TbImageView) view.findViewById(a.f.sdk_ala_left_iv_icon);
-            this.ibC[1] = (TbImageView) view.findViewById(a.f.sdk_ala_right_iv_icon);
-            this.ibD[0] = (ViewGroup) view.findViewById(a.f.sdk_ala_left_quit_item_icon_container);
-            this.ibD[1] = (ViewGroup) view.findViewById(a.f.sdk_ala_right_quit_item_icon_container);
-            this.ibw[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
-            this.ibw[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
-            this.ibx[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
-            this.ibx[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
-            this.iby[0] = (TextView) view.findViewById(a.f.left_count_textView);
-            this.iby[1] = (TextView) view.findViewById(a.f.right_count_textView);
-            this.ibz[0] = (TextView) view.findViewById(a.f.left_name_textView);
-            this.ibz[1] = (TextView) view.findViewById(a.f.right_name_textView);
-            this.ibA[0] = (LinearLayout) view.findViewById(a.f.left_location_layout);
-            this.ibA[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
-            this.ibB[0] = (TextView) view.findViewById(a.f.left_location_textView);
-            this.ibB[1] = (TextView) view.findViewById(a.f.right_location_textView);
-            this.ibw[0].getLayoutParams().width = i;
-            this.ibw[0].getLayoutParams().height = i;
-            this.ibw[1].getLayoutParams().width = i;
-            this.ibw[1].getLayoutParams().height = i;
-            this.ibx[0].setDefaultBgResource(a.e.sdk_shape_quit_room_item_bg);
-            this.ibx[0].setDefaultErrorResource(a.e.sdk_shape_quit_room_item_bg);
-            this.ibx[1].setDefaultBgResource(a.e.sdk_shape_quit_room_item_bg);
-            this.ibx[1].setDefaultErrorResource(a.e.sdk_shape_quit_room_item_bg);
-            this.ibC[0].setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.ibC[1].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.ifU = new RelativeLayout[2];
+            this.ifV = new TbImageView[2];
+            this.ifW = new TextView[2];
+            this.ifX = new TextView[2];
+            this.ifY = new LinearLayout[2];
+            this.ifZ = new TextView[2];
+            this.igc = new TextView[2];
+            this.iga = new TbImageView[2];
+            this.igb = new ViewGroup[2];
+            this.igc[0] = (TextView) view.findViewById(a.f.sdk_ala_left_tv_label);
+            this.igc[1] = (TextView) view.findViewById(a.f.sdk_ala_right_tv_label);
+            this.iga[0] = (TbImageView) view.findViewById(a.f.sdk_ala_left_iv_icon);
+            this.iga[1] = (TbImageView) view.findViewById(a.f.sdk_ala_right_iv_icon);
+            this.igb[0] = (ViewGroup) view.findViewById(a.f.sdk_ala_left_quit_item_icon_container);
+            this.igb[1] = (ViewGroup) view.findViewById(a.f.sdk_ala_right_quit_item_icon_container);
+            this.ifU[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
+            this.ifU[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
+            this.ifV[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
+            this.ifV[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
+            this.ifW[0] = (TextView) view.findViewById(a.f.left_count_textView);
+            this.ifW[1] = (TextView) view.findViewById(a.f.right_count_textView);
+            this.ifX[0] = (TextView) view.findViewById(a.f.left_name_textView);
+            this.ifX[1] = (TextView) view.findViewById(a.f.right_name_textView);
+            this.ifY[0] = (LinearLayout) view.findViewById(a.f.left_location_layout);
+            this.ifY[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
+            this.ifZ[0] = (TextView) view.findViewById(a.f.left_location_textView);
+            this.ifZ[1] = (TextView) view.findViewById(a.f.right_location_textView);
+            this.ifU[0].getLayoutParams().width = i;
+            this.ifU[0].getLayoutParams().height = i;
+            this.ifU[1].getLayoutParams().width = i;
+            this.ifU[1].getLayoutParams().height = i;
+            this.ifV[0].setDefaultBgResource(a.e.sdk_shape_quit_room_item_bg);
+            this.ifV[0].setDefaultErrorResource(a.e.sdk_shape_quit_room_item_bg);
+            this.ifV[1].setDefaultBgResource(a.e.sdk_shape_quit_room_item_bg);
+            this.ifV[1].setDefaultErrorResource(a.e.sdk_shape_quit_room_item_bg);
+            this.iga[0].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.iga[1].setDefaultBgResource(a.e.sdk_shape_transparent);
             if (!TbadkCoreApplication.getInst().isMobileBaidu() && i > 0) {
-                this.ibG = "@resize{w:" + i + ",h:" + i + "}";
+                this.ige = "@resize{w:" + i + ",h:" + i + "}";
             }
-            this.ibw[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.1
+            this.ifU[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0693a.this.ibF != null) {
-                        if (C0693a.this.ibF.ibW != null) {
-                            C0693a.this.a(C0693a.this.ibF.ibW);
-                        } else if (C0693a.this.ibF.ibX != null) {
-                            C0693a.this.a(C0693a.this.ibF.ibX);
+                    if (C0693a.this.igd != null) {
+                        if (C0693a.this.igd.igu != null) {
+                            C0693a.this.a(C0693a.this.igd.igu);
+                        } else if (C0693a.this.igd.igv != null) {
+                            C0693a.this.a(C0693a.this.igd.igv);
                         }
                     }
                 }
             });
-            this.ibw[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.2
+            this.ifU[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0693a.this.ibF != null && C0693a.this.ibF.ibX != null) {
-                        C0693a.this.a(C0693a.this.ibF.ibX);
+                    if (C0693a.this.igd != null && C0693a.this.igd.igv != null) {
+                        C0693a.this.a(C0693a.this.igd.igv);
                     }
                 }
             });
@@ -168,64 +168,64 @@ public class a extends BaseAdapter {
             boolean z;
             int i2;
             if (aVar != null) {
-                this.ibF = aVar;
+                this.igd = aVar;
                 this.mPosition = i;
-                if (aVar.ibW != null) {
-                    a(aVar.ibW, 0);
+                if (aVar.igu != null) {
+                    a(aVar.igu, 0);
                 }
-                if (aVar.ibX != null) {
-                    if (aVar.ibW == null) {
+                if (aVar.igv != null) {
+                    if (aVar.igu == null) {
                         i2 = 0;
                         z = false;
                     } else {
                         i2 = 1;
                         z = true;
                     }
-                    a(aVar.ibX, i2);
+                    a(aVar.igv, i2);
                 } else {
                     z = false;
                 }
                 if (z) {
-                    this.ibw[1].setVisibility(0);
+                    this.ifU[1].setVisibility(0);
                 } else {
-                    this.ibw[1].setVisibility(8);
+                    this.ifU[1].setVisibility(8);
                 }
             }
         }
 
         private void a(AlaQuitRoomRecommendData alaQuitRoomRecommendData, int i) {
-            String str = alaQuitRoomRecommendData.cover + this.ibG;
+            String str = alaQuitRoomRecommendData.cover + this.ige;
             if (TextUtils.isEmpty(alaQuitRoomRecommendData.labelIcon) && TextUtils.isEmpty(alaQuitRoomRecommendData.labelText)) {
-                this.ibD[i].setVisibility(4);
+                this.igb[i].setVisibility(4);
             } else {
-                this.ibD[i].setVisibility(0);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ibE[i].getLayoutParams();
+                this.igb[i].setVisibility(0);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.igc[i].getLayoutParams();
                 if (TextUtils.isEmpty(alaQuitRoomRecommendData.labelIcon)) {
                     layoutParams.leftMargin = 0;
-                    this.ibC[i].setVisibility(8);
+                    this.iga[i].setVisibility(8);
                 } else {
-                    this.ibC[i].startLoad(alaQuitRoomRecommendData.labelIcon, 10, false);
-                    this.ibC[i].setVisibility(0);
+                    this.iga[i].startLoad(alaQuitRoomRecommendData.labelIcon, 10, false);
+                    this.iga[i].setVisibility(0);
                     layoutParams.leftMargin = BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds4);
                 }
-                this.ibE[i].setText(alaQuitRoomRecommendData.labelText);
-                this.ibE[i].setLayoutParams(layoutParams);
+                this.igc[i].setText(alaQuitRoomRecommendData.labelText);
+                this.igc[i].setLayoutParams(layoutParams);
             }
-            this.ibx[i].startLoad(str, 10, false);
-            this.ibz[i].setText(alaQuitRoomRecommendData.getNameShow());
-            this.iby[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_audience_count), StringHelper.formatValue(alaQuitRoomRecommendData.audience_count)));
+            this.ifV[i].startLoad(str, 10, false);
+            this.ifX[i].setText(alaQuitRoomRecommendData.getNameShow());
+            this.ifW[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_audience_count), StringHelper.formatValue(alaQuitRoomRecommendData.audience_count)));
             if (!TextUtils.isEmpty(alaQuitRoomRecommendData.distance) && !TextUtils.equals(alaQuitRoomRecommendData.distance, "0")) {
-                this.ibB[i].setText(alaQuitRoomRecommendData.distance);
-                this.ibA[i].setVisibility(0);
+                this.ifZ[i].setText(alaQuitRoomRecommendData.distance);
+                this.ifY[i].setVisibility(0);
                 return;
             }
-            this.ibA[i].setVisibility(8);
+            this.ifY[i].setVisibility(8);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(AlaQuitRoomRecommendData alaQuitRoomRecommendData) {
             if (alaQuitRoomRecommendData != null) {
-                com.baidu.live.liveroom.a.KT().a(com.baidu.live.liveroom.a.KT().KU().gL(String.valueOf(alaQuitRoomRecommendData.live_id)));
+                com.baidu.live.liveroom.a.Mr().a(com.baidu.live.liveroom.a.Mr().Ms().hk(String.valueOf(alaQuitRoomRecommendData.live_id)));
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("author_uid", alaQuitRoomRecommendData.user_id);
@@ -251,7 +251,7 @@ public class a extends BaseAdapter {
                     e2.printStackTrace();
                 }
                 alaLiveRoomActivityConfig.addExtraByParams(str);
-                com.baidu.live.liveroom.a.KT().a(alaLiveRoomActivityConfig);
+                com.baidu.live.liveroom.a.Mr().a(alaLiveRoomActivityConfig);
             }
         }
     }

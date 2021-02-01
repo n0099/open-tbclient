@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.ActivityPage.ActivityPageReqIdl;
 import tbclient.ActivityPage.DataReq;
 /* loaded from: classes2.dex */
@@ -32,9 +32,9 @@ public class TabFeedListRequestMessage extends NetMessage {
             builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-            builder.q_type = Integer.valueOf(k.bkB().getViewImageQuality());
+            builder.q_type = Integer.valueOf(k.bkT().getViewImageQuality());
             if (z) {
-                t.b(builder, true);
+                v.b(builder, true);
             }
             ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
             builder2.data = builder.build(false);

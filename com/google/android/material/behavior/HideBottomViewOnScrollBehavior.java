@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewPropertyAnimator;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.animation.AnimationUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class HideBottomViewOnScrollBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     protected static final int ENTER_ANIMATION_DURATION = 225;
     protected static final int EXIT_ANIMATION_DURATION = 175;

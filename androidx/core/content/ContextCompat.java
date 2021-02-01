@@ -73,7 +73,7 @@ import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class ContextCompat {
     private static final String TAG = "ContextCompat";
     private static final Object sLock = new Object();
@@ -247,7 +247,7 @@ public class ContextCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static final class LegacyServiceMapHolder {
         static final HashMap<Class<?>, String> SERVICES = new HashMap<>();
 

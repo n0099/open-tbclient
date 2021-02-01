@@ -4,30 +4,30 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.g.j;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a<Object> f10133a = new a<Object>() { // from class: com.kwad.sdk.glide.load.d.1
+    private static final a<Object> f10135a = new a<Object>() { // from class: com.kwad.sdk.glide.load.d.1
         @Override // com.kwad.sdk.glide.load.d.a
         public void a(@NonNull byte[] bArr, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
         }
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final T f10134b;
+    private final T f10136b;
     private final a<T> c;
     private final String d;
     private volatile byte[] e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a<T> {
         void a(@NonNull byte[] bArr, @NonNull T t, @NonNull MessageDigest messageDigest);
     }
 
     private d(@NonNull String str, @Nullable T t, @NonNull a<T> aVar) {
         this.d = j.a(str);
-        this.f10134b = t;
+        this.f10136b = t;
         this.c = (a) j.a(aVar);
     }
 
@@ -49,19 +49,19 @@ public final class d<T> {
     @NonNull
     private byte[] b() {
         if (this.e == null) {
-            this.e = this.d.getBytes(c.f10132a);
+            this.e = this.d.getBytes(c.f10134a);
         }
         return this.e;
     }
 
     @NonNull
     private static <T> a<T> c() {
-        return (a<T>) f10133a;
+        return (a<T>) f10135a;
     }
 
     @Nullable
     public T a() {
-        return this.f10134b;
+        return this.f10136b;
     }
 
     public void a(@NonNull T t, @NonNull MessageDigest messageDigest) {

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface e extends s, ReadableByteChannel {
     void a(long j) throws IOException;
 
@@ -21,22 +21,21 @@ public interface e extends s, ReadableByteChannel {
     boolean e() throws IOException;
 
     @Deprecated
-    c elX();
+    c eor();
 
-    InputStream elZ();
+    InputStream eot();
 
-    byte ema() throws IOException;
+    byte eou() throws IOException;
 
-    short emb() throws IOException;
+    short eov() throws IOException;
 
-    short emc() throws IOException;
+    short eow() throws IOException;
 
     void h(long j) throws IOException;
 
-    /* renamed from: if */
-    f mo54if(long j) throws IOException;
+    f ii(long j) throws IOException;
 
-    byte[] ih(long j) throws IOException;
+    byte[] ik(long j) throws IOException;
 
     int j() throws IOException;
 

@@ -107,7 +107,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Pattern;
 import javax.sql.DataSource;
 import javax.xml.datatype.XMLGregorianCalendar;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ParserConfig {
     public static final String AUTOTYPE_ACCEPT = "fastjson.parser.autoTypeAccept";
     private static final String[] AUTO_TYPE_ACCEPT_LIST;

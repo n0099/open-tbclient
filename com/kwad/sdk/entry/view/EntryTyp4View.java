@@ -18,7 +18,7 @@ import com.kwad.sdk.utils.ai;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EntryTyp4View extends a {
     private TextView c;
     private ImageView d;
@@ -71,13 +71,13 @@ public class EntryTyp4View extends a {
     @Override // com.kwad.sdk.entry.view.a, com.kwad.sdk.widget.b
     public void a() {
         super.a();
-        e.b(this.g, this.f9801a.e);
+        e.b(this.g, this.f9803a.e);
     }
 
     @Override // com.kwad.sdk.entry.view.a
     protected boolean b() {
         this.i.clear();
-        Iterator<AdTemplate> it = this.f9801a.k.iterator();
+        Iterator<AdTemplate> it = this.f9803a.k.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -97,14 +97,14 @@ public class EntryTyp4View extends a {
         if (this.g == null) {
             return false;
         }
-        if (this.f9801a.h != 1 || TextUtils.isEmpty(this.h.baseInfo.videoDesc)) {
+        if (this.f9803a.h != 1 || TextUtils.isEmpty(this.h.baseInfo.videoDesc)) {
             this.c.setVisibility(8);
         } else {
             this.c.setText(this.h.baseInfo.videoDesc);
             this.c.setVisibility(0);
         }
         String a2 = ai.a(this.h.videoInfo.duration);
-        if (this.f9801a.h == 1) {
+        if (this.f9803a.h == 1) {
             this.f.setText(a2);
             this.f.setVisibility(0);
         } else {
@@ -127,15 +127,15 @@ public class EntryTyp4View extends a {
 
     @Override // com.kwad.sdk.entry.view.a
     public String getEntrySourceDesc() {
-        if (TextUtils.isEmpty(this.f9801a.f9431b)) {
-            this.f9801a.f9431b = "快手推荐";
+        if (TextUtils.isEmpty(this.f9803a.f9433b)) {
+            this.f9803a.f9433b = "快手推荐";
         }
         StringBuilder sb = new StringBuilder();
-        if (this.f9801a.c != 0) {
-            sb.append(this.f9801a.f9431b);
+        if (this.f9803a.c != 0) {
+            sb.append(this.f9803a.f9433b);
             sb.append("   ");
         }
-        if (this.f9801a.j != 0) {
+        if (this.f9803a.j != 0) {
             sb.append(ag.a(this.h.baseInfo.commentCount, "0")).append(" 评论");
         }
         return sb.toString();
@@ -144,7 +144,7 @@ public class EntryTyp4View extends a {
     @Override // com.kwad.sdk.entry.view.a
     public int getEntrySourcePos() {
         int entrySourcePos = super.getEntrySourcePos();
-        return entrySourcePos == 0 ? this.f9801a.j : entrySourcePos;
+        return entrySourcePos == 0 ? this.f9803a.j : entrySourcePos;
     }
 
     @Override // com.kwad.sdk.entry.view.a

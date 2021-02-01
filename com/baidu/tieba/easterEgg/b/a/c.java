@@ -1,20 +1,20 @@
 package com.baidu.tieba.easterEgg.b.a;
 
 import android.webkit.JsPromptResult;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c implements com.baidu.tieba.easterEgg.b {
     @Override // com.baidu.tieba.easterEgg.b
-    public String ctj() {
+    public String cuv() {
         return "showNativeDialog";
     }
 
     @Override // com.baidu.tieba.easterEgg.b
     public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
-        if (ctj().equals(str)) {
+        if (cuv().equals(str)) {
             try {
-                com.baidu.tieba.easterEgg.a.cte().eO(str2, str3);
+                com.baidu.tieba.easterEgg.a.cuq().eO(str2, str3);
             } catch (Throwable th) {
-                com.baidu.tieba.easterEgg.a.cte().ctf();
+                com.baidu.tieba.easterEgg.a.cuq().cur();
             }
         }
     }

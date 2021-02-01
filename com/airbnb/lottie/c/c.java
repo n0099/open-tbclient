@@ -6,7 +6,7 @@ import android.util.JsonToken;
 import android.util.Log;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static com.airbnb.lottie.model.a.l e(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         com.airbnb.lottie.model.a.e eVar;

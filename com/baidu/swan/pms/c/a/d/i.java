@@ -4,36 +4,36 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class i implements b {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private com.baidu.swan.pms.a.d dcz;
-    private List<com.baidu.swan.pms.model.e> esE = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> esF = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> esG = new ArrayList();
-    private List<com.baidu.swan.pms.c.a.b> esD = new ArrayList();
+    private com.baidu.swan.pms.a.d deM;
+    private List<com.baidu.swan.pms.model.e> euL = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> euM = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> euN = new ArrayList();
+    private List<com.baidu.swan.pms.c.a.b> euK = new ArrayList();
 
     public i(com.baidu.swan.pms.a.d dVar) {
-        this.dcz = dVar;
-        d.bcJ().c(this);
+        this.deM = dVar;
+        d.bcW().c(this);
     }
 
     public void a(com.baidu.swan.pms.c.a.b bVar) {
         if (bVar != null) {
-            this.esD.add(bVar);
+            this.euK.add(bVar);
         }
     }
 
-    public void bcU() {
-        if (!bcV()) {
+    public void bdh() {
+        if (!bdi()) {
             if (DEBUG) {
-                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bcc().getProcessName() + " startDownload: total=" + this.esD.size());
+                Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bcp().getProcessName() + " startDownload: total=" + this.euK.size());
             }
-            for (com.baidu.swan.pms.c.a.b bVar : this.esD) {
+            for (com.baidu.swan.pms.c.a.b bVar : this.euK) {
                 if (DEBUG) {
-                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bcc().getProcessName() + " startDownload: for handler=" + bVar);
+                    Log.i("PMSTaskGroup", com.baidu.swan.pms.d.bcp().getProcessName() + " startDownload: for handler=" + bVar);
                 }
-                bVar.iz(false);
+                bVar.iB(false);
             }
         }
     }
@@ -44,8 +44,8 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.c.a.d.b
     public <T> void e(f<T> fVar) {
-        if (!fVar.bcT()) {
-            Iterator<com.baidu.swan.pms.c.a.b> it = this.esD.iterator();
+        if (!fVar.bdg()) {
+            Iterator<com.baidu.swan.pms.c.a.b> it = this.euK.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -53,16 +53,16 @@ public class i implements b {
                 com.baidu.swan.pms.c.a.b next = it.next();
                 if (next.a(fVar)) {
                     int taskState = fVar.getTaskState();
-                    this.esD.remove(next);
+                    this.euK.remove(next);
                     switch (taskState) {
                         case 2:
-                            this.esG.add(next.bcD().esw.esv);
+                            this.euN.add(next.bcQ().euD.euC);
                             break;
                         case 3:
-                            this.esF.add(next.bcD().esw.esv);
+                            this.euM.add(next.bcQ().euD.euC);
                             break;
                         case 10:
-                            this.esE.add(next.bcD().esw.esv);
+                            this.euL.add(next.bcQ().euD.euC);
                             break;
                         default:
                             if (com.baidu.swan.pms.d.DEBUG) {
@@ -73,14 +73,14 @@ public class i implements b {
                     }
                 }
             }
-            bcV();
+            bdi();
         }
     }
 
-    private boolean bcV() {
-        if (this.esD.isEmpty()) {
-            this.dcz.aqe();
-            d.bcJ().d(this);
+    private boolean bdi() {
+        if (this.euK.isEmpty()) {
+            this.deM.aqC();
+            d.bcW().d(this);
             return true;
         }
         return false;

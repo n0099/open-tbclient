@@ -5,16 +5,16 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements IAdapterData {
-    public static final BdUniqueId hgX = BdUniqueId.gen();
+    public static final BdUniqueId hln = BdUniqueId.gen();
     private String portrait;
     private int sex;
     private String userId;
     private String userName;
     private String userNickName;
 
-    public void dG(JSONObject jSONObject) {
+    public void dH(JSONObject jSONObject) {
         this.userId = jSONObject.optString("user_id");
         this.userName = jSONObject.optString("user_name");
         if (!jSONObject.isNull("user_nickname")) {
@@ -31,7 +31,7 @@ public class b implements IAdapterData {
         return this.userId;
     }
 
-    public String byI() {
+    public String bza() {
         return !TextUtils.isEmpty(this.userNickName) ? this.userNickName : this.userName;
     }
 
@@ -41,6 +41,6 @@ public class b implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return hgX;
+        return hln;
     }
 }

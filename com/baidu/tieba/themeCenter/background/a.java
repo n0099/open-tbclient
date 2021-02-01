@@ -8,41 +8,41 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<?> eSJ;
-    private List<Object> nwG;
-    d nwH;
+    private TbPageContext<?> eUY;
+    private List<Object> nGq;
+    d nGr;
 
     /* renamed from: com.baidu.tieba.themeCenter.background.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0876a {
-        public View ldy;
-        public TextView nwI;
-        public BackgroundItemView nwJ;
-        public BackgroundItemView nwK;
-        public BackgroundItemView nwL;
+    /* loaded from: classes9.dex */
+    public static class C0879a {
+        public View llB;
+        public TextView nGs;
+        public BackgroundItemView nGt;
+        public BackgroundItemView nGu;
+        public BackgroundItemView nGv;
     }
 
     public a(TbPageContext<?> tbPageContext, d dVar) {
-        this.eSJ = tbPageContext;
-        this.nwH = dVar;
+        this.eUY = tbPageContext;
+        this.nGr = dVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.nwG != null) {
-            return this.nwG.size();
+        if (this.nGq != null) {
+            return this.nGq.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.nwG == null || this.nwG.size() <= 0 || i < 0 || i >= this.nwG.size()) {
+        if (this.nGq == null || this.nGq.size() <= 0 || i < 0 || i >= this.nGq.size()) {
             return null;
         }
-        return this.nwG.get(i);
+        return this.nGq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -68,56 +68,56 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0876a c0876a;
+        C0879a c0879a;
         Object item = getItem(i);
         if (view != null) {
-            c0876a = (C0876a) view.getTag();
+            c0879a = (C0879a) view.getTag();
         } else if (getItemViewType(i) == 0) {
-            view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
-            c0876a = new C0876a();
-            c0876a.nwI = (TextView) view.findViewById(R.id.group_name);
-            view.setTag(c0876a);
+            view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
+            c0879a = new C0879a();
+            c0879a.nGs = (TextView) view.findViewById(R.id.group_name);
+            view.setTag(c0879a);
         } else {
-            view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
-            c0876a = new C0876a();
-            c0876a.nwJ = (BackgroundItemView) view.findViewById(R.id.bg_view1);
-            c0876a.nwK = (BackgroundItemView) view.findViewById(R.id.bg_view2);
-            c0876a.nwL = (BackgroundItemView) view.findViewById(R.id.bg_view3);
-            c0876a.ldy = view.findViewById(R.id.divider_line);
-            view.setTag(c0876a);
+            view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
+            c0879a = new C0879a();
+            c0879a.nGt = (BackgroundItemView) view.findViewById(R.id.bg_view1);
+            c0879a.nGu = (BackgroundItemView) view.findViewById(R.id.bg_view2);
+            c0879a.nGv = (BackgroundItemView) view.findViewById(R.id.bg_view3);
+            c0879a.llB = view.findViewById(R.id.divider_line);
+            view.setTag(c0879a);
         }
         if (item != null) {
             if (getItemViewType(i) == 0) {
-                c0876a.nwI.setText(item.toString());
+                c0879a.nGs.setText(item.toString());
             } else {
                 List list = (List) item;
-                c0876a.nwJ.d((DressItemData) list.get(0));
-                c0876a.nwJ.setController(this.nwH);
+                c0879a.nGt.d((DressItemData) list.get(0));
+                c0879a.nGt.setController(this.nGr);
                 if (list.size() > 2) {
-                    c0876a.nwK.d((DressItemData) list.get(1));
-                    c0876a.nwL.d((DressItemData) list.get(2));
-                    c0876a.nwK.setController(this.nwH);
-                    c0876a.nwL.setController(this.nwH);
+                    c0879a.nGu.d((DressItemData) list.get(1));
+                    c0879a.nGv.d((DressItemData) list.get(2));
+                    c0879a.nGu.setController(this.nGr);
+                    c0879a.nGv.setController(this.nGr);
                 } else if (list.size() > 1) {
-                    c0876a.nwK.d((DressItemData) list.get(1));
-                    c0876a.nwK.setController(this.nwH);
-                    c0876a.nwL.hide();
+                    c0879a.nGu.d((DressItemData) list.get(1));
+                    c0879a.nGu.setController(this.nGr);
+                    c0879a.nGv.hide();
                 } else {
-                    c0876a.nwK.hide();
-                    c0876a.nwL.hide();
+                    c0879a.nGu.hide();
+                    c0879a.nGv.hide();
                 }
                 if (getItem(i + 1) instanceof List) {
-                    c0876a.ldy.setVisibility(8);
+                    c0879a.llB.setVisibility(8);
                 } else {
-                    c0876a.ldy.setVisibility(0);
+                    c0879a.llB.setVisibility(0);
                 }
             }
         }
-        this.eSJ.getLayoutMode().onModeChanged(view);
+        this.eUY.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     public void setData(List<Object> list) {
-        this.nwG = list;
+        this.nGq = list;
     }
 }

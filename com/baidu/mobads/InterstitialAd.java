@@ -8,16 +8,16 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class InterstitialAd {
     public static final String TAG = InterstitialAd.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f3281a;
+    IOAdEventListener f3278a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdSize f3282b;
-    private com.baidu.mobads.production.f.a c;
+    private AdSize f3279b;
+    private com.baidu.mobads.production.e.a c;
     private final IXAdLogger d;
     private InterstitialAdListener e;
 
@@ -27,31 +27,31 @@ public class InterstitialAd {
 
     public InterstitialAd(Context context, AdSize adSize, String str) {
         this.d = XAdSDKFoundationFacade.getInstance().getAdLogger();
-        this.e = new m(this);
-        this.f3281a = new n(this);
+        this.e = new n(this);
+        this.f3278a = new o(this);
         XAdView xAdView = new XAdView(context);
-        xAdView.setListener(new p(this));
-        this.f3282b = adSize;
+        xAdView.setListener(new q(this));
+        this.f3279b = adSize;
         if (a()) {
-            this.c = new com.baidu.mobads.production.f.b(context, xAdView, true, str);
+            this.c = new com.baidu.mobads.production.e.b(context, xAdView, true, str);
         } else if (b()) {
-            this.c = new com.baidu.mobads.production.e.b(context, xAdView, true, adSize, str);
+            this.c = new com.baidu.mobads.production.d.b(context, xAdView, true, adSize, str);
         }
-        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f3281a);
-        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3281a);
-        this.c.addEventListener(IXAdEvent.AD_STOPPED, this.f3281a);
-        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f3281a);
-        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3281a);
-        this.c.addEventListener("AdUserClick", this.f3281a);
+        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f3278a);
+        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3278a);
+        this.c.addEventListener(IXAdEvent.AD_STOPPED, this.f3278a);
+        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f3278a);
+        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3278a);
+        this.c.addEventListener("AdUserClick", this.f3278a);
         this.c.request();
     }
 
     private boolean a() {
-        return this.f3282b.getValue() <= AdSize.InterstitialOther.getValue() && this.f3282b.getValue() >= AdSize.InterstitialGame.getValue();
+        return this.f3279b.getValue() <= AdSize.InterstitialOther.getValue() && this.f3279b.getValue() >= AdSize.InterstitialGame.getValue();
     }
 
     private boolean b() {
-        return this.f3282b.getValue() >= AdSize.InterstitialForVideoBeforePlay.getValue() && this.f3282b.getValue() <= AdSize.InterstitialForVideoPausePlay.getValue();
+        return this.f3279b.getValue() >= AdSize.InterstitialForVideoBeforePlay.getValue() && this.f3279b.getValue() <= AdSize.InterstitialForVideoPausePlay.getValue();
     }
 
     public boolean isAdReady() {
@@ -59,7 +59,7 @@ public class InterstitialAd {
     }
 
     public void loadAd() {
-        this.c.q();
+        this.c.a();
     }
 
     public void loadAdForVideoApp(int i, int i2) {

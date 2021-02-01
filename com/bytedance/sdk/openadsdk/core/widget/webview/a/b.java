@@ -13,14 +13,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static File f6826a;
+    private static File f6828a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile b f6827b;
+    private static volatile b f6829b;
     private AtomicBoolean c = new AtomicBoolean(true);
     private AtomicBoolean d = new AtomicBoolean(false);
     private boolean e = false;
@@ -28,14 +28,14 @@ public class b {
     private AtomicLong g = new AtomicLong();
 
     public static b a() {
-        if (f6827b == null) {
+        if (f6829b == null) {
             synchronized (b.class) {
-                if (f6827b == null) {
-                    f6827b = new b();
+                if (f6829b == null) {
+                    f6829b = new b();
                 }
             }
         }
-        return f6827b;
+        return f6829b;
     }
 
     private b() {
@@ -171,10 +171,10 @@ public class b {
                         } catch (Throwable th2) {
                         }
                     }
-                    i eop = i.eop();
-                    new com.bytedance.sdk.adnet.b.c(file.getAbsolutePath(), a4, eop).build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).c());
+                    i eqH = i.eqH();
+                    new com.bytedance.sdk.adnet.b.c(file.getAbsolutePath(), a4, eqH).build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).c());
                     try {
-                        pVar = eop.get();
+                        pVar = eqH.get();
                     } catch (Throwable th3) {
                         pVar = null;
                     }
@@ -249,7 +249,7 @@ public class b {
 
     public static File e() {
         File externalCacheDir;
-        if (f6826a == null) {
+        if (f6828a == null) {
             try {
                 if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && com.bytedance.sdk.openadsdk.core.p.a().getExternalCacheDir() != null) {
                     externalCacheDir = com.bytedance.sdk.openadsdk.core.p.a().getExternalCacheDir();
@@ -258,11 +258,11 @@ public class b {
                 }
                 File file = new File(new File(externalCacheDir, "tt_tmpl_pkg"), "template");
                 file.mkdirs();
-                f6826a = file;
+                f6828a = file;
             } catch (Throwable th) {
                 u.c("TemplateManager", "getTemplateDir error", th);
             }
         }
-        return f6826a;
+        return f6828a;
     }
 }

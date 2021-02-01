@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.core.h;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6569a;
+    public String f6571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6570b = 1;
+    public int f6572b = 1;
     public int c = 1;
     public int d = 2;
     public int e = 1;
@@ -109,12 +109,12 @@ public class a {
     }
 
     public a a(String str) {
-        this.f6569a = str;
+        this.f6571a = str;
         return this;
     }
 
     public a n(int i) {
-        this.f6570b = i;
+        this.f6572b = i;
         return this;
     }
 

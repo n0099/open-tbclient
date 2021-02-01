@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d {
-    public a WA = null;
+    public a Ww = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
@@ -28,7 +28,7 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.WA = aVar;
+        this.Ww = aVar;
     }
 
     public int z(View view) {
@@ -37,7 +37,7 @@ public class d {
             int i2 = i;
             if (i2 < this.mHeaderViewInfos.size()) {
                 c cVar = this.mHeaderViewInfos.get(i2);
-                if (cVar == null || cVar.WC == null || cVar.WC.itemView != view) {
+                if (cVar == null || cVar.Wy == null || cVar.Wy.itemView != view) {
                     i = i2 + 1;
                 } else {
                     return i2;
@@ -54,7 +54,7 @@ public class d {
             int i2 = i;
             if (i2 < this.mFooterViewInfos.size()) {
                 c cVar = this.mFooterViewInfos.get(i2);
-                if (cVar == null || cVar.WC == null || cVar.WC.itemView != view) {
+                if (cVar == null || cVar.Wy == null || cVar.Wy.itemView != view) {
                     i = i2 + 1;
                 } else {
                     return i2;
@@ -76,10 +76,10 @@ public class d {
     public void a(View view, Object obj, boolean z, boolean z2, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.WC = new TypeAdapter.ViewHolder(view);
+            cVar.Wy = new TypeAdapter.ViewHolder(view);
             cVar.data = obj;
             cVar.isSelectable = z;
-            cVar.WD = z2;
+            cVar.Wz = z2;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("HEADER");
@@ -94,10 +94,10 @@ public class d {
     public void b(View view, Object obj, boolean z, boolean z2, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.WC = new TypeAdapter.ViewHolder(view);
+            cVar.Wy = new TypeAdapter.ViewHolder(view);
             cVar.data = obj;
             cVar.isSelectable = z;
-            cVar.WD = z2;
+            cVar.Wz = z2;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("FOOTER");
@@ -115,7 +115,7 @@ public class d {
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.WC != null && cVar.WC.itemView == view) {
+            if (cVar != null && cVar.Wy != null && cVar.Wy.itemView == view) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -129,7 +129,7 @@ public class d {
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.WC != null && cVar.WC.itemView == view) {
+            if (cVar != null && cVar.Wy != null && cVar.Wy.itemView == view) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -177,8 +177,8 @@ public class d {
 
     /* loaded from: classes.dex */
     public class c {
-        public TypeAdapter.ViewHolder WC;
-        public boolean WD;
+        public TypeAdapter.ViewHolder Wy;
+        public boolean Wz;
         public Object data;
         public long id;
         public boolean isSelectable;

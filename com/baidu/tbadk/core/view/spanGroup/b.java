@@ -4,16 +4,16 @@ import android.text.Editable;
 import android.text.SpannableStringBuilder;
 /* loaded from: classes.dex */
 public class b extends Editable.Factory {
-    private c flF;
+    private c fnX;
 
     public b(c cVar) {
-        this.flF = cVar;
+        this.fnX = cVar;
     }
 
     @Override // android.text.Editable.Factory
     public Editable newEditable(CharSequence charSequence) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-        spannableStringBuilder.setSpan(this.flF, 0, charSequence.length(), 18);
+        spannableStringBuilder.setSpan(this.fnX, 0, charSequence.length(), 18);
         return spannableStringBuilder;
     }
 }

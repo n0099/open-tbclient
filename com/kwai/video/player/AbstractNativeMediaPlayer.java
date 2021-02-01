@@ -20,7 +20,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
     private static final String TAG;
     @AccessedByNative
@@ -39,7 +39,7 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
     protected KsMediaPlayer.OnAudioProcessPCMListener mOnAudioProcessPCMListener = null;
     protected IMediaPlayer.OnVideoRawDataListener mOnVideoRawDataListener = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DefaultMediaCodecSelector implements OnMediaCodecSelectListener {
         public static final DefaultMediaCodecSelector sInstance = new DefaultMediaCodecSelector();
 
@@ -95,7 +95,7 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class EventHandler extends Handler {
         private final WeakReference<AbstractNativeMediaPlayer> mWeakPlayer;
 
@@ -115,7 +115,7 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnMediaCodecSelectListener {
         String onMediaCodecSelect(IMediaPlayer iMediaPlayer, String str, int i, int i2);
     }

@@ -10,7 +10,7 @@ import java.util.zip.GZIPOutputStream;
 public class g {
     public com.baidu.lcp.sdk.connect.b b(com.baidu.lcp.sdk.connect.b bVar, boolean z) {
         bVar.needReplay = z;
-        return a(bVar, a(bVar.serviceId, bVar.methodId, bVar.msgId, aU(false)), h(bVar.auU, aU(false)));
+        return a(bVar, a(bVar.serviceId, bVar.methodId, bVar.msgId, aU(false)), h(bVar.auJ, aU(false)));
     }
 
     public com.baidu.lcp.sdk.connect.b g(Context context, long j) {
@@ -20,7 +20,7 @@ public class g {
         bVar.needReplay = true;
         bVar.serviceId = 1L;
         bVar.methodId = j;
-        bVar.ava = j == 1;
+        bVar.auP = j == 1;
         bVar.isHeartbeat = j == 3;
         return a(bVar, a(1L, j, random, aU(false)), h(b(context, random, j), aU(false)));
     }
@@ -36,7 +36,7 @@ public class g {
             allocate.putInt(bArr.length);
             allocate.put(bArr);
             allocate.put(bArr2);
-            bVar.auU = allocate.array();
+            bVar.auJ = allocate.array();
         } catch (Exception e) {
         }
         return bVar;
@@ -53,7 +53,7 @@ public class g {
         }
         if (j2 == 1) {
             try {
-                LcmPb.Common common2 = (LcmPb.Common) com.baidu.lcp.sdk.d.a.h(context, false);
+                LcmPb.Common common2 = (LcmPb.Common) com.baidu.lcp.sdk.d.a.i(context, false);
                 LcmPb.LcmRequest build2 = LcmPb.LcmRequest.newBuilder().ac(j).b(common2).eu(com.baidu.lcp.sdk.d.e.getToken(context)).ad(System.currentTimeMillis()).bS(com.baidu.lcp.sdk.a.d.getLoginOpenType(context)).bT(com.baidu.lcp.sdk.d.e.aN(context)).build();
                 com.baidu.lcp.sdk.d.d.d("PbProcessor", "cuid :" + common2.getCuid() + ", device :" + common2.getDeviceType() + ", os:" + common2.getOsVersion() + ", man :" + common2.getManufacture() + ", model :" + common2.getModelType() + ", appId :" + common2.getAppId() + ", app :" + common2.getAppVersion() + ", sdk :" + common2.getSdkVersion() + ", token :" + build2.getToken() + ", net :" + common2.getNetwork() + ", rom :" + common2.getRomVersion() + ", start :" + build2.getStartType() + "，connType :" + build2.getConnType());
                 build = build2;

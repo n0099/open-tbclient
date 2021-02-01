@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RankDetailTrendCard extends BaseCardInfo {
     private final String btnDone;
     private final String btnText;
@@ -85,8 +85,8 @@ public class RankDetailTrendCard extends BaseCardInfo {
         this.picTrendType = jSONObject.optInt("picTrendType");
         this.picTrendUrl = jSONObject.optString("picTrendUrl");
         this.trendText = jSONObject.optString("trendText");
-        this.trendColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("trendColor", ""));
-        this.trendColorN = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("trendColorN", ""));
+        this.trendColor = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("trendColor", ""));
+        this.trendColorN = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("trendColorN", ""));
         this.postUrl = jSONObject.optString("postUrl");
         this.isDone = jSONObject.optInt("isDone") == 1;
         this.btnText = jSONObject.optString("btnText");

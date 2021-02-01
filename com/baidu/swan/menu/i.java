@@ -19,29 +19,29 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class i extends PopupWindow implements View.OnClickListener {
-    private FrameLayout ajf;
-    private boolean cPA;
-    private View dlr;
-    private View dlt;
-    private BaseMenuView eqT;
-    private MainMenuView eqU;
-    private boolean eqV;
-    private a eqW;
-    private int eqX;
+    private FrameLayout aiT;
+    private boolean cRO;
+    private View dnC;
+    private View dnE;
+    private BaseMenuView eta;
+    private MainMenuView etb;
+    private boolean etd;
+    private a ete;
+    private int etf;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(Context context, View view, @Nullable a aVar) {
         super(context);
-        this.eqV = true;
-        this.cPA = true;
-        this.eqX = 0;
+        this.etd = true;
+        this.cRO = true;
+        this.etf = 0;
         this.mContext = context;
-        this.dlr = view;
-        this.eqW = aVar;
-        ee(false);
+        this.dnC = view;
+        this.ete = aVar;
+        eo(false);
         setFocusable(true);
-        ed(true);
+        en(true);
         setBackgroundDrawable(new ColorDrawable(0));
         setWidth(-1);
         setHeight(-1);
@@ -49,78 +49,78 @@ public class i extends PopupWindow implements View.OnClickListener {
     }
 
     private void initViews() {
-        this.ajf = (FrameLayout) LayoutInflater.from(this.mContext).inflate(f.e.aiapp_menu_layout, (ViewGroup) null);
-        this.dlt = this.ajf.findViewById(f.d.mask);
-        this.eqU = (MainMenuView) this.ajf.findViewById(f.d.aiapp_menu_body);
-        this.dlt.setOnClickListener(this);
-        this.eqU.setClickListener(this);
-        this.ajf.measure(0, 0);
-        setContentView(this.ajf);
+        this.aiT = (FrameLayout) LayoutInflater.from(this.mContext).inflate(f.e.aiapp_menu_layout, (ViewGroup) null);
+        this.dnE = this.aiT.findViewById(f.d.mask);
+        this.etb = (MainMenuView) this.aiT.findViewById(f.d.aiapp_menu_body);
+        this.dnE.setOnClickListener(this);
+        this.etb.setClickListener(this);
+        this.aiT.measure(0, 0);
+        setContentView(this.aiT);
     }
 
     private void showView() {
         if (!isShowing()) {
-            aBW();
-            this.eqU.reset();
-            this.eqT = this.eqU;
-            if (this.cPA) {
+            aCt();
+            this.etb.reset();
+            this.eta = this.etb;
+            if (this.cRO) {
                 setFocusable(false);
             }
             Activity activity = (Activity) this.mContext;
             if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-                showAtLocation(this.dlr, 81, 0, 0);
-                if (this.cPA) {
-                    getContentView().setSystemUiVisibility(this.eqX | 1024 | 4096);
+                showAtLocation(this.dnC, 81, 0, 0);
+                if (this.cRO) {
+                    getContentView().setSystemUiVisibility(this.etf | 1024 | 4096);
                     setFocusable(true);
                     update();
                 }
-                final View contentView = this.eqU.getContentView();
+                final View contentView = this.etb.getContentView();
                 if (contentView.getHeight() == 0) {
                     contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.menu.i.1
                         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                         public void onGlobalLayout() {
-                            i.this.eqU.lw(contentView.getHeight());
-                            i.this.aBX();
+                            i.this.etb.lz(contentView.getHeight());
+                            i.this.aCu();
                             contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         }
                     });
                 } else {
-                    aBX();
+                    aCu();
                 }
             }
         }
     }
 
-    public void aBW() {
-        if (this.eqW != null) {
-            this.eqW.a(this.eqU);
+    public void aCt() {
+        if (this.ete != null) {
+            this.ete.a(this.etb);
         }
     }
 
     public void b(List<List<h>> list, View view, boolean z, int i) {
-        this.eqU.a(list, view, z, i);
+        this.etb.a(list, view, z, i);
         showView();
     }
 
     @Override // com.baidu.swan.menu.PopupWindow
     public void dismiss() {
-        ge(true);
+        gg(true);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
         if (id == f.d.cancel || id == f.d.mask) {
-            ge(true);
+            gg(true);
         }
     }
 
-    public void ge(boolean z) {
+    public void gg(boolean z) {
         if (!z) {
             super.dismiss();
         } else if (isShowing()) {
-            ObjectAnimator bj = c.bj(this.dlt);
-            ObjectAnimator c = c.c(this.eqT);
+            ObjectAnimator bf = c.bf(this.dnE);
+            ObjectAnimator c = c.c(this.eta);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.menu.i.2
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -128,28 +128,28 @@ public class i extends PopupWindow implements View.OnClickListener {
                     Context context = i.this.mContext;
                     if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                         i.super.dismiss();
-                        if (i.this.eqT != i.this.eqU) {
-                            i.this.eqT.setVisibility(8);
+                        if (i.this.eta != i.this.etb) {
+                            i.this.eta.setVisibility(8);
                         }
                     }
                 }
             });
-            animatorSet.playTogether(bj, c);
+            animatorSet.playTogether(bf, c);
             animatorSet.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bbp() {
-        this.eqU.bbp();
+    public void bbC() {
+        this.etb.bbC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBX() {
-        this.dlt.setAlpha(0.0f);
-        this.eqU.setTranslationY(this.eqU.getHeight());
-        ObjectAnimator a2 = c.a(this.dlt, this.eqU);
-        ObjectAnimator b2 = c.b(this.eqU);
+    public void aCu() {
+        this.dnE.setAlpha(0.0f);
+        this.etb.setTranslationY(this.etb.getHeight());
+        ObjectAnimator a2 = c.a(this.dnE, this.etb);
+        ObjectAnimator b2 = c.b(this.etb);
         ArrayList arrayList = new ArrayList();
         arrayList.add(a2);
         arrayList.add(b2);
@@ -158,7 +158,7 @@ public class i extends PopupWindow implements View.OnClickListener {
         animatorSet.start();
     }
 
-    public void lB(int i) {
-        this.eqX = i;
+    public void lE(int i) {
+        this.etf = i;
     }
 }

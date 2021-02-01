@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
 import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.SquareForumListActivityConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.square.forumlist.SquareForumListActivity;
 import com.baidu.tieba.square.forumlist.SquareForumListResHttpMsg;
 import com.baidu.tieba.square.forumlist.SquareForumListResSocketMsg;
 import com.baidu.tieba.square.square.f;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ForumRankActivityStatic {
     public static String Tag = "tag";
 
@@ -93,8 +93,8 @@ public class ForumRankActivityStatic {
         tbHttpMessageTask.setResponsedClass(SquareForumListResHttpMsg.class);
         tbHttpMessageTask.setIsImm(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.6
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
@@ -114,8 +114,8 @@ public class ForumRankActivityStatic {
                 return 3;
             }
         });
-        be.bsB().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new be.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
-            @Override // com.baidu.tbadk.core.util.be.b
+        bf.bsV().a(UrlSchemaHelper.SCHEMA_TYPE_SQUARE, new bf.b() { // from class: com.baidu.tieba.square.flist.ForumRankActivityStatic.7
+            @Override // com.baidu.tbadk.core.util.bf.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
                     new SingleSquareActivityConfig(tbPageContext.getPageActivity()).start();

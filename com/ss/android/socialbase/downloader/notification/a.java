@@ -2,14 +2,14 @@ package com.ss.android.socialbase.downloader.notification;
 
 import android.app.Notification;
 import com.ss.android.socialbase.downloader.g.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Notification f13250a;
+    protected Notification f13252a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f13251b;
+    private int f13253b;
     private long c;
     private long d;
     private String e;
@@ -21,19 +21,19 @@ public abstract class a {
     public abstract void a(com.ss.android.socialbase.downloader.e.a aVar, boolean z);
 
     public a(int i, String str) {
-        this.f13251b = i;
+        this.f13253b = i;
         this.e = str;
     }
 
     public void a(c cVar) {
         if (cVar != null) {
-            this.f13251b = cVar.g();
+            this.f13253b = cVar.g();
             this.e = cVar.i();
         }
     }
 
     public int a() {
-        return this.f13251b;
+        return this.f13253b;
     }
 
     public long b() {
@@ -86,8 +86,8 @@ public abstract class a {
     }
 
     public void c(Notification notification) {
-        if (this.f13251b != 0 && notification != null) {
-            b.eGk().a(this.f13251b, this.f, notification);
+        if (this.f13253b != 0 && notification != null) {
+            b.eIB().a(this.f13253b, this.f, notification);
         }
     }
 
@@ -108,7 +108,7 @@ public abstract class a {
         this.i = z;
     }
 
-    public Notification eGj() {
-        return this.f13250a;
+    public Notification eIA() {
+        return this.f13252a;
     }
 }

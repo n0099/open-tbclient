@@ -26,10 +26,10 @@ public class BaseActivity extends Activity implements NoProguard {
     public static final String WITH_ANIM = "with_anim";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1867a = "BaseActivity";
+    private static final String f1865a = "BaseActivity";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final boolean f1868b = false;
+    private static final boolean f1866b = false;
     private long h;
     protected RimStatisticsUtil mStatUtil;
     public static LinkedList<BaseActivity> mActivityStack = new LinkedList<>();
@@ -97,7 +97,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     protected static synchronized void clearTasksWithFlag(int i) {
         synchronized (BaseActivity.class) {
-            LogUtil.d(f1867a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
+            LogUtil.d(f1865a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
             Iterator<BaseActivity> it = mActivityStack.iterator();
             while (it.hasNext()) {
                 BaseActivity next = it.next();
@@ -111,7 +111,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     protected static synchronized void clearTasksTopOf(BaseActivity baseActivity) {
         synchronized (BaseActivity.class) {
-            LogUtil.d(f1867a, "clearTasksTopOf. stack size = " + mActivityStack.size());
+            LogUtil.d(f1865a, "clearTasksTopOf. stack size = " + mActivityStack.size());
             for (int size = mActivityStack.size() - 1; size > 0; size--) {
                 BaseActivity baseActivity2 = mActivityStack.get(size);
                 if (baseActivity2 == baseActivity) {

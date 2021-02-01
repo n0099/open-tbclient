@@ -5,7 +5,7 @@ import com.baidu.swan.config.c.a;
 import com.baidu.swan.config.c.b;
 import com.baidu.webkit.internal.ETAG;
 import com.kwai.player.qos.KwaiQosInfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public enum ConfigNode {
     HOST_INFO(KwaiQosInfo.HOST_INFO, a.class, b.class),
     FRAMEWORK("framework", com.baidu.swan.config.b.a.class, com.baidu.swan.config.b.b.class),

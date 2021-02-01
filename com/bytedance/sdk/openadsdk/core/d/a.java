@@ -5,33 +5,33 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6483a;
+    private String f6485a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6484b;
+    private int f6486b;
     private String c;
     private List<l> d = new ArrayList();
     private String e;
     private long f;
 
     public String a() {
-        return this.f6483a;
+        return this.f6485a;
     }
 
     public void a(String str) {
-        this.f6483a = str;
+        this.f6485a = str;
     }
 
     public int b() {
-        return this.f6484b;
+        return this.f6486b;
     }
 
     public void a(int i) {
-        this.f6484b = i;
+        this.f6486b = i;
     }
 
     public void b(String str) {

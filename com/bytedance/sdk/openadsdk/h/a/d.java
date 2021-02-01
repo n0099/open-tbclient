@@ -8,14 +8,14 @@ import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.x;
 import com.bytedance.sdk.openadsdk.utils.y;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d<T extends d> implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7175a;
+    private String f7177a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7176b;
+    private String f7178b;
     private String c;
     private String e;
     private String h;
@@ -102,11 +102,11 @@ public class d<T extends d> implements b {
     }
 
     public String c() {
-        return this.f7175a;
+        return this.f7177a;
     }
 
     public T a(String str) {
-        this.f7175a = str;
+        this.f7177a = str;
         return q();
     }
 
@@ -120,11 +120,11 @@ public class d<T extends d> implements b {
     }
 
     public String e() {
-        return this.f7176b;
+        return this.f7178b;
     }
 
     public T c(String str) {
-        this.f7176b = str;
+        this.f7178b = str;
         return q();
     }
 

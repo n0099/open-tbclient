@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.pay.channel.interfaces;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IPayChannel {
     PayChannelType getType();
 

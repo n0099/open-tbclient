@@ -12,7 +12,7 @@ import androidx.core.view.ActionProvider;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(16)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MenuItemWrapperJB extends MenuItemWrapperICS {
     /* JADX INFO: Access modifiers changed from: package-private */
     public MenuItemWrapperJB(Context context, SupportMenuItem supportMenuItem) {
@@ -24,7 +24,7 @@ public class MenuItemWrapperJB extends MenuItemWrapperICS {
         return new ActionProviderWrapperJB(this.mContext, actionProvider);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     class ActionProviderWrapperJB extends MenuItemWrapperICS.ActionProviderWrapper implements ActionProvider.VisibilityListener {
         ActionProvider.VisibilityListener mListener;
 

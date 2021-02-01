@@ -15,7 +15,7 @@ import com.xiaomi.push.fc;
 public class XMJobService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    static Service f14196a = null;
+    static Service f14198a = null;
 
     /* renamed from: a  reason: collision with other field name */
     private IBinder f874a = null;
@@ -25,21 +25,21 @@ public class XMJobService extends Service {
     static class a extends JobService {
 
         /* renamed from: a  reason: collision with root package name */
-        Binder f14197a;
+        Binder f14199a;
 
         /* renamed from: a  reason: collision with other field name */
         private Handler f875a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class HandlerC1278a extends Handler {
+        private static class HandlerC1282a extends Handler {
 
             /* renamed from: a  reason: collision with root package name */
-            JobService f14198a;
+            JobService f14200a;
 
-            HandlerC1278a(JobService jobService) {
+            HandlerC1282a(JobService jobService) {
                 super(jobService.getMainLooper());
-                this.f14198a = jobService;
+                this.f14200a = jobService;
             }
 
             @Override // android.os.Handler
@@ -48,7 +48,7 @@ public class XMJobService extends Service {
                     case 1:
                         JobParameters jobParameters = (JobParameters) message.obj;
                         com.xiaomi.channel.commonutils.logger.b.m80a("Job finished " + jobParameters.getJobId());
-                        this.f14198a.jobFinished(jobParameters, false);
+                        this.f14200a.jobFinished(jobParameters, false);
                         if (jobParameters.getJobId() == 1) {
                             fc.a(false);
                             return;
@@ -61,8 +61,8 @@ public class XMJobService extends Service {
         }
 
         a(Service service) {
-            this.f14197a = null;
-            this.f14197a = (Binder) com.xiaomi.push.ba.a(this, "onBind", new Intent());
+            this.f14199a = null;
+            this.f14199a = (Binder) com.xiaomi.push.ba.a(this, "onBind", new Intent());
             com.xiaomi.push.ba.a(this, "attachBaseContext", service);
         }
 
@@ -74,7 +74,7 @@ public class XMJobService extends Service {
             intent.setPackage(getPackageName());
             startService(intent);
             if (this.f875a == null) {
-                this.f875a = new HandlerC1278a(this);
+                this.f875a = new HandlerC1282a(this);
             }
             this.f875a.sendMessage(Message.obtain(this.f875a, 1, jobParameters));
             return true;
@@ -89,7 +89,7 @@ public class XMJobService extends Service {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Service a() {
-        return f14196a;
+        return f14198a;
     }
 
     @Override // android.app.Service
@@ -101,14 +101,14 @@ public class XMJobService extends Service {
     public void onCreate() {
         super.onCreate();
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f874a = new a(this).f14197a;
+            this.f874a = new a(this).f14199a;
         }
-        f14196a = this;
+        f14198a = this;
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        f14196a = null;
+        f14198a = null;
     }
 }

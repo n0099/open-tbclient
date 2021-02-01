@@ -32,36 +32,36 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.utils.m;
 import com.baidu.live.yuyingift.a.c;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaSmallGiftView extends RelativeLayout implements View.OnClickListener, ViewTreeObserver.OnGlobalLayoutListener {
-    private TextView aVp;
-    private TextView aWL;
-    private c bTW;
-    private AlaGiftStrokeTextView bWy;
-    private a bWz;
-    private ObjectAnimator bdR;
-    private ObjectAnimator bdS;
-    private ObjectAnimator bdT;
-    private AnimatorSet bdU;
-    private ObjectAnimator bdV;
-    private ObjectAnimator bdW;
-    private ObjectAnimator bdX;
-    private AnimatorSet bdY;
-    private ObjectAnimator bdZ;
-    private ObjectAnimator bea;
-    private RelativeLayout beb;
-    private HeadImageView bec;
-    private TbImageView bee;
-    private LottieAnimationView bef;
-    private LottieAnimationView bei;
-    private int bek;
+    private TextView aYx;
+    private TextView aZR;
+    private c bXV;
+    private ObjectAnimator bhb;
+    private ObjectAnimator bhc;
+    private ObjectAnimator bhd;
+    private AnimatorSet bhe;
+    private ObjectAnimator bhf;
+    private ObjectAnimator bhg;
+    private ObjectAnimator bhh;
+    private AnimatorSet bhi;
+    private ObjectAnimator bhj;
+    private ObjectAnimator bhk;
+    private RelativeLayout bhl;
+    private HeadImageView bhm;
+    private TbImageView bho;
+    private LottieAnimationView bhp;
+    private LottieAnimationView bhr;
+    private int bht;
+    private AlaGiftStrokeTextView caA;
+    private a caB;
     private Context mContext;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void FG();
+        void GW();
 
-        void FH();
+        void GX();
 
         void T(View view);
     }
@@ -80,47 +80,47 @@ public class AlaSmallGiftView extends RelativeLayout implements View.OnClickList
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyinpopup_gift_layout, this);
-        this.beb = (RelativeLayout) findViewById(a.f.sender_user_info);
-        this.beb.getViewTreeObserver().addOnGlobalLayoutListener(this);
-        this.bec = (HeadImageView) findViewById(a.f.sender_avatar);
-        this.bec.setIsRound(true);
-        this.bec.setAutoChangeStyle(false);
-        this.bec.setDefaultBgResource(a.e.sdk_default_avatar);
-        this.bec.setOnClickListener(this);
-        this.aVp = (TextView) findViewById(a.f.sender_name);
-        this.aVp.setOnClickListener(this);
-        this.aWL = (TextView) findViewById(a.f.gift_name);
-        this.bee = (TbImageView) findViewById(a.f.gift_icon);
-        this.bee.setAutoChangeStyle(false);
-        this.bee.setDefaultBgResource(a.c.sdk_transparent);
-        this.bee.setDefaultErrorResource(a.c.sdk_transparent);
-        this.bee.setGifIconSupport(false);
-        this.bWy = (AlaGiftStrokeTextView) findViewById(a.f.gift_count);
-        this.bef = (LottieAnimationView) findViewById(a.f.small_gift_bg);
-        this.bef.loop(true);
-        this.bef.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.bei = (LottieAnimationView) findViewById(a.f.gift_count_bg);
-        this.bei.loop(true);
-        this.bWy.getPaint().setFakeBoldText(true);
-        GS();
+        this.bhl = (RelativeLayout) findViewById(a.f.sender_user_info);
+        this.bhl.getViewTreeObserver().addOnGlobalLayoutListener(this);
+        this.bhm = (HeadImageView) findViewById(a.f.sender_avatar);
+        this.bhm.setIsRound(true);
+        this.bhm.setAutoChangeStyle(false);
+        this.bhm.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.bhm.setOnClickListener(this);
+        this.aYx = (TextView) findViewById(a.f.sender_name);
+        this.aYx.setOnClickListener(this);
+        this.aZR = (TextView) findViewById(a.f.gift_name);
+        this.bho = (TbImageView) findViewById(a.f.gift_icon);
+        this.bho.setAutoChangeStyle(false);
+        this.bho.setDefaultBgResource(a.c.sdk_transparent);
+        this.bho.setDefaultErrorResource(a.c.sdk_transparent);
+        this.bho.setGifIconSupport(false);
+        this.caA = (AlaGiftStrokeTextView) findViewById(a.f.gift_count);
+        this.bhp = (LottieAnimationView) findViewById(a.f.small_gift_bg);
+        this.bhp.loop(true);
+        this.bhp.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.bhr = (LottieAnimationView) findViewById(a.f.gift_count_bg);
+        this.bhr.loop(true);
+        this.caA.getPaint().setFakeBoldText(true);
+        Ii();
     }
 
     public void setMode(boolean z) {
-        this.bek = z ? a.e.ala_small_gift_bg : a.e.ala_small_gift_bg_alpha_shape;
+        this.bht = z ? a.e.ala_small_gift_bg : a.e.ala_small_gift_bg_alpha_shape;
     }
 
-    private void GS() {
-        this.bdS = ObjectAnimator.ofFloat(this.bec, "TranslationX", -BdUtilHelper.getScreenDimensions(this.mContext)[0], 0.0f);
-        this.bdS.setDuration(350L);
-        this.bdS.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.1
+    private void Ii() {
+        this.bhc = ObjectAnimator.ofFloat(this.bhm, "TranslationX", -BdUtilHelper.getScreenDimensions(this.mContext)[0], 0.0f);
+        this.bhc.setDuration(350L);
+        this.bhc.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                AlaSmallGiftView.this.GU();
-                AlaSmallGiftView.this.GV();
+                AlaSmallGiftView.this.Ik();
+                AlaSmallGiftView.this.Il();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -131,21 +131,21 @@ public class AlaSmallGiftView extends RelativeLayout implements View.OnClickList
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.bdV = ObjectAnimator.ofFloat(this.bee, "ScaleX", 0.1f, 1.0f);
-        this.bdW = ObjectAnimator.ofFloat(this.bee, "ScaleY", 0.1f, 1.0f);
-        this.bdU = new AnimatorSet();
-        this.bdU.playTogether(this.bdV, this.bdW);
-        this.bdU.setInterpolator(new OvershootInterpolator(4.0f));
-        this.bdU.setDuration(400L);
-        this.bdU.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.2
+        this.bhf = ObjectAnimator.ofFloat(this.bho, "ScaleX", 0.1f, 1.0f);
+        this.bhg = ObjectAnimator.ofFloat(this.bho, "ScaleY", 0.1f, 1.0f);
+        this.bhe = new AnimatorSet();
+        this.bhe.playTogether(this.bhf, this.bhg);
+        this.bhe.setInterpolator(new OvershootInterpolator(4.0f));
+        this.bhe.setDuration(400L);
+        this.bhe.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (AlaSmallGiftView.this.bWz != null) {
-                    AlaSmallGiftView.this.bWz.FG();
+                if (AlaSmallGiftView.this.caB != null) {
+                    AlaSmallGiftView.this.caB.GW();
                 }
             }
 
@@ -157,19 +157,19 @@ public class AlaSmallGiftView extends RelativeLayout implements View.OnClickList
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.bdX = ObjectAnimator.ofFloat(this, "TranslationY", 0.0f, -100.0f);
-        this.bdX.setDuration(300L);
-        this.bdX.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.3
+        this.bhh = ObjectAnimator.ofFloat(this, "TranslationY", 0.0f, -100.0f);
+        this.bhh.setDuration(300L);
+        this.bhh.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                AlaSmallGiftView.this.Ha();
-                AlaSmallGiftView.this.Hb();
-                if (AlaSmallGiftView.this.bWz != null) {
-                    AlaSmallGiftView.this.bWz.T(AlaSmallGiftView.this);
+                AlaSmallGiftView.this.Iq();
+                AlaSmallGiftView.this.Ir();
+                if (AlaSmallGiftView.this.caB != null) {
+                    AlaSmallGiftView.this.caB.T(AlaSmallGiftView.this);
                 }
             }
 
@@ -181,21 +181,21 @@ public class AlaSmallGiftView extends RelativeLayout implements View.OnClickList
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.bdZ = ObjectAnimator.ofFloat(this.bWy, "ScaleX", 3.0f, 1.0f);
-        this.bea = ObjectAnimator.ofFloat(this.bWy, "ScaleY", 3.0f, 1.0f);
-        this.bdY = new AnimatorSet();
-        this.bdY.playTogether(this.bdZ, this.bea);
-        this.bdY.setDuration(240L);
-        this.bdY.setInterpolator(new OvershootInterpolator());
-        this.bdY.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.4
+        this.bhj = ObjectAnimator.ofFloat(this.caA, "ScaleX", 3.0f, 1.0f);
+        this.bhk = ObjectAnimator.ofFloat(this.caA, "ScaleY", 3.0f, 1.0f);
+        this.bhi = new AnimatorSet();
+        this.bhi.playTogether(this.bhj, this.bhk);
+        this.bhi.setDuration(240L);
+        this.bhi.setInterpolator(new OvershootInterpolator());
+        this.bhi.addListener(new Animator.AnimatorListener() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (AlaSmallGiftView.this.bWz != null) {
-                    AlaSmallGiftView.this.bWz.FH();
+                if (AlaSmallGiftView.this.caB != null) {
+                    AlaSmallGiftView.this.caB.GX();
                 }
             }
 
@@ -207,66 +207,66 @@ public class AlaSmallGiftView extends RelativeLayout implements View.OnClickList
             public void onAnimationRepeat(Animator animator) {
             }
         });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void GU() {
-        this.bee.setVisibility(0);
-        this.bdU.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GV() {
-        if (this.bef != null && this.bef.getVisibility() == 0) {
-            this.bef.post(new Runnable() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.5
+    public void Ik() {
+        this.bho.setVisibility(0);
+        this.bhe.start();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Il() {
+        if (this.bhp != null && this.bhp.getVisibility() == 0) {
+            this.bhp.post(new Runnable() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    AlaSmallGiftView.this.bef.cancelAnimation();
-                    AlaSmallGiftView.this.bef.playAnimation();
+                    AlaSmallGiftView.this.bhp.cancelAnimation();
+                    AlaSmallGiftView.this.bhp.playAnimation();
                 }
             });
         }
-        if (this.bei != null && this.bei.getVisibility() == 0) {
-            this.bei.post(new Runnable() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.6
+        if (this.bhr != null && this.bhr.getVisibility() == 0) {
+            this.bhr.post(new Runnable() { // from class: com.baidu.live.yuyingift.smallgift.AlaSmallGiftView.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    AlaSmallGiftView.this.bei.cancelAnimation();
-                    AlaSmallGiftView.this.bei.playAnimation();
+                    AlaSmallGiftView.this.bhr.cancelAnimation();
+                    AlaSmallGiftView.this.bhr.playAnimation();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ha() {
-        this.bee.setVisibility(8);
+    public void Iq() {
+        this.bho.setVisibility(8);
     }
 
-    public void Hb() {
+    public void Ir() {
         setTranslationY(0.0f);
-        if (this.bdS != null) {
-            this.bdS.cancel();
+        if (this.bhc != null) {
+            this.bhc.cancel();
         }
-        if (this.bdU != null) {
-            this.bdU.cancel();
+        if (this.bhe != null) {
+            this.bhe.cancel();
         }
-        if (this.bdY != null) {
-            this.bdY.cancel();
+        if (this.bhi != null) {
+            this.bhi.cancel();
         }
-        if (this.bdR != null) {
-            this.bdR.cancel();
+        if (this.bhb != null) {
+            this.bhb.cancel();
         }
-        if (this.bdT != null) {
-            this.bdT.cancel();
+        if (this.bhd != null) {
+            this.bhd.cancel();
         }
-        if (this.bdX != null) {
-            this.bdX.cancel();
+        if (this.bhh != null) {
+            this.bhh.cancel();
         }
-        if (this.bei != null) {
-            this.bei.cancelAnimation();
+        if (this.bhr != null) {
+            this.bhr.cancelAnimation();
         }
-        if (this.bef != null) {
-            this.bef.cancelAnimation();
+        if (this.bhp != null) {
+            this.bhp.cancelAnimation();
         }
     }
 
@@ -275,121 +275,121 @@ public class AlaSmallGiftView extends RelativeLayout implements View.OnClickList
     }
 
     public void setData(c cVar, boolean z) {
-        if (cVar != null && cVar.aZH != null) {
-            this.bTW = cVar;
-            setGiftCnt(cVar.aZN);
-            fZ(cVar.userName);
-            this.aWL.setText(cVar.aZH.CD());
-            Hc();
-            Hd();
+        if (cVar != null && cVar.bcO != null) {
+            this.bXV = cVar;
+            setGiftCnt(cVar.bcU);
+            gx(cVar.userName);
+            this.aZR.setText(cVar.bcO.DS());
+            Is();
+            It();
             if (z) {
-                setDisplayStyle(cVar.aZN);
+                setDisplayStyle(cVar.bcU);
             }
         }
     }
 
-    private void Hc() {
-        if (this.bTW != null) {
-            this.bec.setUrl(this.bTW.portrait);
-            m.a(this.bec, this.bTW.portrait, false, !StringUtils.isNull(this.bTW.appId));
+    private void Is() {
+        if (this.bXV != null) {
+            this.bhm.setUrl(this.bXV.portrait);
+            m.a(this.bhm, this.bXV.portrait, false, !StringUtils.isNull(this.bXV.appId));
         }
     }
 
-    private void Hd() {
-        if (this.bTW != null && this.bTW.aZH != null) {
-            this.bee.setVisibility(0);
-            this.bee.startLoad(this.bTW.aZH.getThumbnail_url(), 10, false);
+    private void It() {
+        if (this.bXV != null && this.bXV.bcO != null) {
+            this.bho.setVisibility(0);
+            this.bho.startLoad(this.bXV.bcO.getThumbnail_url(), 10, false);
         }
     }
 
-    private void fZ(String str) {
-        this.aVp.setTag(Long.valueOf(System.currentTimeMillis()));
+    private void gx(String str) {
+        this.aYx.setTag(Long.valueOf(System.currentTimeMillis()));
         if (!TextUtils.isEmpty(str)) {
             if (TextHelper.getTextLengthWithEmoji(str) > 14) {
                 str = TextHelper.subStringWithEmoji(str, 14) + StringHelper.STRING_MORE;
             }
-            this.aVp.setText(str);
+            this.aYx.setText(str);
         }
     }
 
     private void setDisplayStyle(long j) {
         if (j > 0 && j <= 10) {
-            this.bef.setVisibility(8);
-            this.bei.setVisibility(8);
-            this.beb.setBackgroundResource(a.e.ala_small_gift_bg_less10);
-            this.bWy.setTextColor(getResources().getColor(a.c.sdk_cp_bg_line_d));
-            this.bWy.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
-            this.bWy.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_f));
-            this.bWy.setGravity(3);
+            this.bhp.setVisibility(8);
+            this.bhr.setVisibility(8);
+            this.bhl.setBackgroundResource(a.e.ala_small_gift_bg_less10);
+            this.caA.setTextColor(getResources().getColor(a.c.sdk_cp_bg_line_d));
+            this.caA.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
+            this.caA.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_f));
+            this.caA.setGravity(3);
         } else if (j <= 65) {
-            this.bef.setVisibility(8);
-            this.bei.setVisibility(8);
-            this.beb.setBackgroundResource(a.e.ala_small_gift_bg_less65);
-            this.bWy.setTextColor(getResources().getColor(a.c.sdk_common_color_10275));
-            this.bWy.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
-            this.bWy.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
-            this.bWy.setGravity(19);
+            this.bhp.setVisibility(8);
+            this.bhr.setVisibility(8);
+            this.bhl.setBackgroundResource(a.e.ala_small_gift_bg_less65);
+            this.caA.setTextColor(getResources().getColor(a.c.sdk_common_color_10275));
+            this.caA.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
+            this.caA.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
+            this.caA.setGravity(19);
         } else if (j <= 187) {
-            this.bef.setVisibility(0);
-            this.bef.setAnimation("yuyin-66-1.json");
-            this.bei.setVisibility(8);
-            this.beb.setBackgroundResource(a.c.sdk_transparent);
-            this.bWy.setTextColor(getResources().getColor(a.c.sdk_common_color_10276));
-            this.bWy.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
-            this.bWy.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
+            this.bhp.setVisibility(0);
+            this.bhp.setAnimation("yuyin-66-1.json");
+            this.bhr.setVisibility(8);
+            this.bhl.setBackgroundResource(a.c.sdk_transparent);
+            this.caA.setTextColor(getResources().getColor(a.c.sdk_common_color_10276));
+            this.caA.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
+            this.caA.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
         } else if (j <= 519) {
-            this.bef.setVisibility(0);
-            this.bef.setAnimation("yuyin-188-1.json");
-            this.bei.setVisibility(0);
-            this.bei.setAnimation("yuyin-188-2.json");
-            this.beb.setBackgroundResource(a.c.sdk_transparent);
-            this.bWy.setTextColor(getResources().getColor(a.c.sdk_common_color_10277));
-            this.bWy.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
-            this.bWy.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
+            this.bhp.setVisibility(0);
+            this.bhp.setAnimation("yuyin-188-1.json");
+            this.bhr.setVisibility(0);
+            this.bhr.setAnimation("yuyin-188-2.json");
+            this.bhl.setBackgroundResource(a.c.sdk_transparent);
+            this.caA.setTextColor(getResources().getColor(a.c.sdk_common_color_10277));
+            this.caA.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
+            this.caA.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
         } else if (j <= 1313) {
-            this.bef.setVisibility(0);
-            this.bef.setAnimation("yuyin-520-1.json");
-            this.bei.setVisibility(0);
-            this.bei.setAnimation("yuyin-520-2.json");
-            this.beb.setBackgroundResource(a.c.sdk_transparent);
-            this.bWy.setTextColor(getResources().getColor(a.c.sdk_common_color_10278));
-            this.bWy.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
-            this.bWy.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
+            this.bhp.setVisibility(0);
+            this.bhp.setAnimation("yuyin-520-1.json");
+            this.bhr.setVisibility(0);
+            this.bhr.setAnimation("yuyin-520-2.json");
+            this.bhl.setBackgroundResource(a.c.sdk_transparent);
+            this.caA.setTextColor(getResources().getColor(a.c.sdk_common_color_10278));
+            this.caA.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
+            this.caA.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
         } else if (j <= 9998) {
-            this.bef.setVisibility(0);
-            this.bef.setAnimation("yuyin-1314-1.json");
-            this.bei.setVisibility(0);
-            this.bei.setAnimation("yuyin-1314-2.json");
-            this.beb.setBackgroundResource(a.c.sdk_transparent);
-            this.bWy.setTextColor(getResources().getColor(a.c.sdk_common_color_10279));
-            this.bWy.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
-            this.bWy.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
+            this.bhp.setVisibility(0);
+            this.bhp.setAnimation("yuyin-1314-1.json");
+            this.bhr.setVisibility(0);
+            this.bhr.setAnimation("yuyin-1314-2.json");
+            this.bhl.setBackgroundResource(a.c.sdk_transparent);
+            this.caA.setTextColor(getResources().getColor(a.c.sdk_common_color_10279));
+            this.caA.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
+            this.caA.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
         } else {
-            this.bef.setVisibility(0);
-            this.bef.setAnimation("yuyin-9999-1.json");
-            this.bei.setVisibility(0);
-            this.bei.setAnimation("yuyin-9999-2.json");
-            this.beb.setBackgroundResource(a.c.sdk_transparent);
-            this.bWy.setTextColor(getResources().getColor(a.c.sdk_common_color_10280));
-            this.bWy.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
-            this.bWy.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
+            this.bhp.setVisibility(0);
+            this.bhp.setAnimation("yuyin-9999-1.json");
+            this.bhr.setVisibility(0);
+            this.bhr.setAnimation("yuyin-9999-2.json");
+            this.bhl.setBackgroundResource(a.c.sdk_transparent);
+            this.caA.setTextColor(getResources().getColor(a.c.sdk_common_color_10280));
+            this.caA.setShadowLayer(2.0f, 0.0f, 0.0f, getResources().getColor(a.c.sdk_black_alpha50));
+            this.caA.setStrokeColor(getResources().getColor(a.c.sdk_cp_cont_i));
         }
-        if (this.bei.getVisibility() == 0) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bWy.getLayoutParams();
+        if (this.bhr.getVisibility() == 0) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.caA.getLayoutParams();
             layoutParams.width = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds136);
-            this.bWy.setLayoutParams(layoutParams);
-            this.bWy.setGravity(17);
+            this.caA.setLayoutParams(layoutParams);
+            this.caA.setGravity(17);
         } else {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bWy.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.caA.getLayoutParams();
             layoutParams2.width = -2;
-            this.bWy.setLayoutParams(layoutParams2);
-            this.bWy.setGravity(19);
+            this.caA.setLayoutParams(layoutParams2);
+            this.caA.setGravity(19);
         }
-        this.bdZ.setFloatValues(1.0f, 1.5f, 1.0f);
-        this.bea.setFloatValues(1.0f, 1.5f, 1.0f);
-        this.bdY.setDuration(840L);
-        this.bdY.setInterpolator(new AccelerateInterpolator());
-        ArrayList<Animator> childAnimations = this.bdY.getChildAnimations();
+        this.bhj.setFloatValues(1.0f, 1.5f, 1.0f);
+        this.bhk.setFloatValues(1.0f, 1.5f, 1.0f);
+        this.bhi.setDuration(840L);
+        this.bhi.setInterpolator(new AccelerateInterpolator());
+        ArrayList<Animator> childAnimations = this.bhi.getChildAnimations();
         for (int i = 0; i < childAnimations.size(); i++) {
             Animator animator = childAnimations.get(i);
             if (animator instanceof ValueAnimator) {
@@ -401,16 +401,16 @@ public class AlaSmallGiftView extends RelativeLayout implements View.OnClickList
     private void setSendUserBg(int i) {
         switch (i) {
             case 0:
-                if (this.bek > 0) {
-                    this.beb.setBackgroundResource(this.bek);
+                if (this.bht > 0) {
+                    this.bhl.setBackgroundResource(this.bht);
                 } else {
-                    this.beb.setBackgroundResource(a.e.gray_circle);
+                    this.bhl.setBackgroundResource(a.e.gray_circle);
                 }
-                this.bWy.setTextColor(getResources().getColor(a.c.sdk_cp_other_b));
+                this.caA.setTextColor(getResources().getColor(a.c.sdk_cp_other_b));
                 return;
             case 1:
-                this.beb.setBackgroundResource(a.e.ala_small_gift_bg_alpha_shape_spec_cnt);
-                this.bWy.setTextColor(getResources().getColor(a.c.sdk_cp_other_h));
+                this.bhl.setBackgroundResource(a.e.ala_small_gift_bg_alpha_shape_spec_cnt);
+                this.caA.setTextColor(getResources().getColor(a.c.sdk_cp_other_h));
                 return;
             default:
                 return;
@@ -421,24 +421,24 @@ public class AlaSmallGiftView extends RelativeLayout implements View.OnClickList
         int i2;
         switch (i) {
             case 0:
-                this.bdZ.setFloatValues(3.0f, 1.0f);
-                this.bea.setFloatValues(3.0f, 1.0f);
-                this.bdY.setDuration(240L);
-                this.bdY.setInterpolator(new OvershootInterpolator(4.0f));
+                this.bhj.setFloatValues(3.0f, 1.0f);
+                this.bhk.setFloatValues(3.0f, 1.0f);
+                this.bhi.setDuration(240L);
+                this.bhi.setInterpolator(new OvershootInterpolator(4.0f));
                 i2 = 0;
                 break;
             case 1:
-                this.bdZ.setFloatValues(1.0f, 1.5f, 1.0f);
-                this.bea.setFloatValues(1.0f, 1.5f, 1.0f);
-                this.bdY.setDuration(480L);
-                this.bdY.setInterpolator(new LinearInterpolator());
+                this.bhj.setFloatValues(1.0f, 1.5f, 1.0f);
+                this.bhk.setFloatValues(1.0f, 1.5f, 1.0f);
+                this.bhi.setDuration(480L);
+                this.bhi.setInterpolator(new LinearInterpolator());
                 i2 = 4;
                 break;
             default:
                 i2 = 0;
                 break;
         }
-        for (Animator animator : this.bdY.getChildAnimations()) {
+        for (Animator animator : this.bhi.getChildAnimations()) {
             if (animator instanceof ValueAnimator) {
                 ((ValueAnimator) animator).setRepeatCount(i2);
             }
@@ -447,56 +447,56 @@ public class AlaSmallGiftView extends RelativeLayout implements View.OnClickList
 
     private void setGiftCnt(long j) {
         if (j <= 1) {
-            this.bWy.setVisibility(8);
+            this.caA.setVisibility(8);
         } else {
-            this.bWy.setVisibility(0);
+            this.caA.setVisibility(0);
         }
-        this.bWy.setText(getResources().getString(a.h.ala_gift_stroke_num_tip, Long.valueOf(j)));
+        this.caA.setText(getResources().getString(a.h.ala_gift_stroke_num_tip, Long.valueOf(j)));
     }
 
     public c getCurGiftData() {
-        return this.bTW;
+        return this.bXV;
     }
 
-    private void He() {
-        this.bWy.setVisibility(0);
-        this.bdY.start();
+    private void Iu() {
+        this.caA.setVisibility(0);
+        this.bhi.start();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bTW != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(getContext(), String.valueOf(this.bTW.userId), this.bTW.userName, this.bTW.portrait, this.bTW.sex, this.bTW.aZJ, this.bTW.location, this.bTW.description, 0L, this.bTW.fansCount, this.bTW.followCount, this.bTW.userStatus, this.bTW.groupId, this.bTW.liveId, this.bTW.aZP, this.bTW.aZQ, this.bTW.appId, this.bTW.userName, "")));
+        if (this.bXV != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(getContext(), String.valueOf(this.bXV.userId), this.bXV.userName, this.bXV.portrait, this.bXV.sex, this.bXV.bcQ, this.bXV.location, this.bXV.description, 0L, this.bXV.fansCount, this.bXV.followCount, this.bXV.userStatus, this.bXV.groupId, this.bXV.liveId, this.bXV.bcW, this.bXV.bcX, this.bXV.appId, this.bXV.userName, "")));
         }
     }
 
     @Override // android.view.View
     protected void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.bTW != null && this.bTW.aZN < this.bTW.aZM) {
-            if (this.bTW.aZN <= 0) {
-                this.bTW.aZN = 1L;
+        if (this.bXV != null && this.bXV.bcU < this.bXV.bcT) {
+            if (this.bXV.bcU <= 0) {
+                this.bXV.bcU = 1L;
             }
-            this.bWy.setText(getResources().getString(a.h.ala_gift_stroke_num_tip, Long.valueOf(this.bTW.aZN)));
-            He();
-            setDisplayStyle(this.bTW.aZN);
-            GV();
+            this.caA.setText(getResources().getString(a.h.ala_gift_stroke_num_tip, Long.valueOf(this.bXV.bcU)));
+            Iu();
+            setDisplayStyle(this.bXV.bcU);
+            Il();
         }
     }
 
     public void setSmallAnimCallBack(a aVar) {
-        this.bWz = aVar;
+        this.caB = aVar;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
-        if (this.bef != null && this.bef.getVisibility() == 0) {
-            int width = this.beb.getWidth();
-            int height = this.beb.getHeight();
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bef.getLayoutParams();
+        if (this.bhp != null && this.bhp.getVisibility() == 0) {
+            int width = this.bhl.getWidth();
+            int height = this.bhl.getHeight();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bhp.getLayoutParams();
             layoutParams.width = width;
             layoutParams.height = height;
-            this.bef.setLayoutParams(layoutParams);
+            this.bhp.setLayoutParams(layoutParams);
         }
     }
 }

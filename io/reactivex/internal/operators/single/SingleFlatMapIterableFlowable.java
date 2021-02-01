@@ -55,7 +55,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                 this.it = it;
                 drain();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 this.actual.onError(th);
             }
         }
@@ -112,7 +112,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.O(th);
+                                            io.reactivex.exceptions.a.N(th);
                                             cVar.onError(th);
                                             return;
                                         }
@@ -120,7 +120,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                                         return;
                                     }
                                 } catch (Throwable th2) {
-                                    io.reactivex.exceptions.a.O(th2);
+                                    io.reactivex.exceptions.a.N(th2);
                                     cVar.onError(th2);
                                     return;
                                 }
@@ -159,7 +159,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.O(th);
+                            io.reactivex.exceptions.a.N(th);
                             cVar.onError(th);
                             return;
                         }
@@ -167,7 +167,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.O(th2);
+                    io.reactivex.exceptions.a.N(th2);
                     cVar.onError(th2);
                     return;
                 }

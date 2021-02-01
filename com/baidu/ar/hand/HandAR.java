@@ -64,13 +64,13 @@ public class HandAR extends c {
         this.mv = new e() { // from class: com.baidu.ar.hand.HandAR.1
             @Override // com.baidu.ar.d.e
             public void a(b bVar) {
-                long de2 = bVar.de();
+                long de = bVar.de();
                 l r = HandAR.this.r();
-                if (r == null || de2 <= 0) {
+                if (r == null || de <= 0) {
                     return;
                 }
-                r.a(de2, "ability_hand_skeleton");
-                HandAR.this.a(de2);
+                r.a(de, "ability_hand_skeleton");
+                HandAR.this.a(de);
             }
 
             @Override // com.baidu.ar.d.e

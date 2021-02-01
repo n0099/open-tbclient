@@ -10,17 +10,17 @@ import android.text.TextUtils;
 public class Cdo implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13951a;
+    private Context f13953a;
 
     /* renamed from: a  reason: collision with other field name */
     private String f304a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13952b;
+    private String f13954b;
 
     public Cdo(Context context, String str) {
         this.f304a = "";
-        this.f13951a = context;
+        this.f13953a = context;
         this.f304a = str;
     }
 
@@ -29,7 +29,7 @@ public class Cdo implements Application.ActivityLifecycleCallbacks {
         huVar.a(str);
         huVar.a(System.currentTimeMillis());
         huVar.a(ho.ActivityActiveTimeStamp);
-        ed.a(this.f13951a, huVar);
+        ed.a(this.f13953a, huVar);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -46,20 +46,20 @@ public class Cdo implements Application.ActivityLifecycleCallbacks {
         if (TextUtils.isEmpty(this.f304a) || TextUtils.isEmpty(localClassName)) {
             return;
         }
-        this.f13952b = "";
-        if (!TextUtils.isEmpty(this.f13952b) && !TextUtils.equals(this.f13952b, localClassName)) {
+        this.f13954b = "";
+        if (!TextUtils.isEmpty(this.f13954b) && !TextUtils.equals(this.f13954b, localClassName)) {
             this.f304a = "";
             return;
         }
-        a(this.f13951a.getPackageName() + "|" + localClassName + ":" + this.f304a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+        a(this.f13953a.getPackageName() + "|" + localClassName + ":" + this.f304a + "," + String.valueOf(System.currentTimeMillis() / 1000));
         this.f304a = "";
-        this.f13952b = "";
+        this.f13954b = "";
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        if (TextUtils.isEmpty(this.f13952b)) {
-            this.f13952b = activity.getLocalClassName();
+        if (TextUtils.isEmpty(this.f13954b)) {
+            this.f13954b = activity.getLocalClassName();
         }
         this.f304a = String.valueOf(System.currentTimeMillis() / 1000);
     }

@@ -7,25 +7,25 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    static class C0270a {
+    /* loaded from: classes5.dex */
+    static class C0274a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f4057a = "UTF-8";
+        private static final String f4060a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f4058b = "AES/CBC/NoPadding";
+        private static final String f4061b = "AES/CBC/NoPadding";
         private static final String c = "AES";
         private String d;
         private String e;
         private String f;
 
-        public C0270a() {
-            this("AES", f4058b, "UTF-8");
+        public C0274a() {
+            this("AES", f4061b, "UTF-8");
         }
 
         public byte[] a(String str, String str2, String str3) throws Exception {
@@ -47,9 +47,9 @@ class a {
             throw new Exception("Empty string");
         }
 
-        public C0270a(String str, String str2, String str3) {
+        public C0274a(String str, String str2, String str3) {
             this.d = "UTF-8";
-            this.e = f4058b;
+            this.e = f4061b;
             this.f = "AES";
             this.f = str;
             this.e = str2;

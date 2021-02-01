@@ -12,13 +12,13 @@ import java.util.Iterator;
 public abstract class fz extends fs {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Exception f14034a;
+    protected Exception f14036a;
 
     /* renamed from: a  reason: collision with other field name */
     protected Socket f457a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected XMPushService f14035b;
+    protected XMPushService f14037b;
     private int c;
 
     /* renamed from: c  reason: collision with other field name */
@@ -30,12 +30,12 @@ public abstract class fz extends fs {
 
     public fz(XMPushService xMPushService, ft ftVar) {
         super(xMPushService, ftVar);
-        this.f14034a = null;
+        this.f14036a = null;
         this.f458c = null;
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
-        this.f14035b = xMPushService;
+        this.f14037b = xMPushService;
     }
 
     private void a(ft ftVar) {
@@ -43,7 +43,7 @@ public abstract class fz extends fs {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:49:0x028b, code lost:
-        if (android.text.TextUtils.equals(r11, com.xiaomi.push.az.m166a((android.content.Context) r16.f14035b)) != false) goto L34;
+        if (android.text.TextUtils.equals(r11, com.xiaomi.push.az.m166a((android.content.Context) r16.f14037b)) != false) goto L34;
      */
     /* JADX WARN: Removed duplicated region for block: B:20:0x010a  */
     /* JADX WARN: Removed duplicated region for block: B:45:0x021c  */
@@ -55,7 +55,7 @@ public abstract class fz extends fs {
         boolean z;
         Throwable th;
         boolean z2 = false;
-        this.f14034a = null;
+        this.f14036a = null;
         ArrayList<String> arrayList = new ArrayList<>();
         int intValue = com.xiaomi.channel.commonutils.logger.b.a("get bucket for host : " + str).intValue();
         cv a2 = a(str);
@@ -67,7 +67,7 @@ public abstract class fz extends fs {
             arrayList.add(str);
         }
         this.g = 0L;
-        String m166a = az.m166a((Context) this.f14035b);
+        String m166a = az.m166a((Context) this.f14037b);
         StringBuilder sb = new StringBuilder();
         Iterator<String> it = arrayList.iterator();
         while (true) {
@@ -98,17 +98,17 @@ public abstract class fz extends fs {
                     break;
                 } catch (Exception e) {
                     e = e;
-                    this.f14034a = e;
+                    this.f14036a = e;
                     if (z) {
                         continue;
                     } else {
                         com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f14034a.getClass().getSimpleName()).append("\n");
-                        hg.a(next, this.f14034a);
+                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f14036a.getClass().getSimpleName()).append("\n");
+                        hg.a(next, this.f14036a);
                         if (a2 != null) {
-                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f14034a);
+                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f14036a);
                         }
-                        if (!TextUtils.equals(m166a, az.m166a((Context) this.f14035b))) {
+                        if (!TextUtils.equals(m166a, az.m166a((Context) this.f14037b))) {
                             cz.a().m249c();
                             if (!z) {
                             }
@@ -118,16 +118,16 @@ public abstract class fz extends fs {
                 } catch (Throwable th2) {
                     th = th2;
                     try {
-                        this.f14034a = new Exception("abnormal exception", th);
+                        this.f14036a = new Exception("abnormal exception", th);
                         com.xiaomi.channel.commonutils.logger.b.a(th);
                     } catch (Throwable th3) {
                         th = th3;
                         if (!z) {
                             com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                            sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f14034a.getClass().getSimpleName()).append("\n");
-                            hg.a(next, this.f14034a);
+                            sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f14036a.getClass().getSimpleName()).append("\n");
+                            hg.a(next, this.f14036a);
                             if (a2 != null) {
-                                a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f14034a);
+                                a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f14036a);
                             }
                         }
                         throw th;
@@ -136,12 +136,12 @@ public abstract class fz extends fs {
                         continue;
                     } else {
                         com.xiaomi.channel.commonutils.logger.b.d("SMACK: Could not connect to:" + next);
-                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f14034a.getClass().getSimpleName()).append("\n");
-                        hg.a(next, this.f14034a);
+                        sb.append("SMACK: Could not connect to ").append(next).append(" port:").append(i).append(" err:").append(this.f14036a.getClass().getSimpleName()).append("\n");
+                        hg.a(next, this.f14036a);
                         if (a2 != null) {
-                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f14034a);
+                            a2.b(next, System.currentTimeMillis() - currentTimeMillis, 0L, this.f14036a);
                         }
-                        if (!TextUtils.equals(m166a, az.m166a((Context) this.f14035b))) {
+                        if (!TextUtils.equals(m166a, az.m166a((Context) this.f14037b))) {
                             cz.a().m249c();
                             if (!z) {
                             }
@@ -209,7 +209,7 @@ public abstract class fz extends fs {
     protected void a(Exception exc) {
         if (SystemClock.elapsedRealtime() - this.g >= 300000) {
             this.c = 0;
-        } else if (az.b(this.f14035b)) {
+        } else if (az.b(this.f14037b)) {
             this.c++;
             if (this.c >= 2) {
                 String a2 = a();
@@ -251,7 +251,7 @@ public abstract class fz extends fs {
         if (z) {
             return;
         }
-        this.f14035b.a(new ga(this, 13, currentTimeMillis), 10000L);
+        this.f14037b.a(new ga(this, 13, currentTimeMillis), 10000L);
     }
 
     @Override // com.xiaomi.push.fs
@@ -260,7 +260,7 @@ public abstract class fz extends fs {
     }
 
     public void c(int i, Exception exc) {
-        this.f14035b.a(new gb(this, 2, i, exc));
+        this.f14037b.a(new gb(this, 2, i, exc));
     }
 
     @Override // com.xiaomi.push.fs

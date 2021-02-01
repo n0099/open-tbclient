@@ -9,42 +9,42 @@ import com.baidu.card.a.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
 /* loaded from: classes.dex */
 public class ap extends a<com.baidu.tbadk.core.data.a> {
-    private static final int ahh = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - ((com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
-    private boolean agO;
-    private com.baidu.tbadk.core.data.a agr;
-    private TextView ahj;
-    private OriginalThreadCardView ajg;
-    private OriginalThreadCardView.a ajh;
+    private static final int agW = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - ((com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+    private boolean agD;
+    private TextView agY;
+    private com.baidu.tbadk.core.data.a agj;
+    private OriginalThreadCardView aiU;
+    private OriginalThreadCardView.a aiV;
     private View mRootView;
     private TextView mTitle;
 
     public ap(Context context) {
         super(context);
-        this.agO = false;
-        this.ajh = new OriginalThreadCardView.a() { // from class: com.baidu.card.ap.1
+        this.agD = false;
+        this.aiV = new OriginalThreadCardView.a() { // from class: com.baidu.card.ap.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (ap.this.agr != null && ap.this.agr.bkV() != null) {
-                    if (ap.this.sR() != null) {
-                        ap.this.sR().a(ap.this.ajg, ap.this.agr);
+                if (ap.this.agj != null && ap.this.agj.bln() != null) {
+                    if (ap.this.sO() != null) {
+                        ap.this.sO().a(ap.this.aiU, ap.this.agj);
                     }
-                    String id = ap.this.agr.bkV().getId();
-                    com.baidu.tieba.card.m.Ic(id);
+                    String id = ap.this.agj.bln().getId();
+                    com.baidu.tieba.card.m.IM(id);
                     ap.this.dd(id);
-                    ap.this.agm.b(new a.C0089a(1));
+                    ap.this.agd.b(new a.C0089a(1));
                 }
             }
         };
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.thread_card_title);
-        this.ahj = (TextView) this.mRootView.findViewById(R.id.thread_card_abstract);
-        this.ajg = (OriginalThreadCardView) this.mRootView.findViewById(R.id.original_thread_view);
-        this.ajg.setSubClickListener(this.ajh);
+        this.agY = (TextView) this.mRootView.findViewById(R.id.thread_card_abstract);
+        this.aiU = (OriginalThreadCardView) this.mRootView.findViewById(R.id.original_thread_view);
+        this.aiU.setSubClickListener(this.aiV);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -57,36 +57,36 @@ public class ap extends a<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.bkV() != null) {
-            this.agr = aVar;
-            ay.a(this.mTitle, aVar.bkV(), this.agO);
-            ay.a(this.ahj, this.mTitle, aVar.bkV(), ahh, this.agO);
-            this.ajg.b(aVar.bkV().eQQ);
+        if (aVar != null && aVar.bln() != null) {
+            this.agj = aVar;
+            az.a(this.mTitle, aVar.bln(), this.agD);
+            az.a(this.agY, this.mTitle, aVar.bln(), agW, this.agD);
+            this.aiU.b(aVar.bln().eTc);
         }
     }
 
     public void bD(int i) {
-        this.ajg.itw = i;
+        this.aiU.izg = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dd(String str) {
         com.baidu.tieba.card.m.a(this.mTitle, str, R.color.CAM_X0105, R.color.CAM_X0109);
-        com.baidu.tieba.card.m.a(this.ahj, str, R.color.CAM_X0105, R.color.CAM_X0109);
-        this.ajg.setReadState(com.baidu.tieba.card.m.Id(str));
+        com.baidu.tieba.card.m.a(this.agY, str, R.color.CAM_X0105, R.color.CAM_X0109);
+        this.aiU.setReadState(com.baidu.tieba.card.m.IN(str));
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.ajg.onChangeSkinType();
+        this.aiU.onChangeSkinType();
     }
 
     @Override // com.baidu.card.a
-    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<com.baidu.tbadk.core.data.a> aaVar) {
-        super.setOnCardSubClickListener(aaVar);
+    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
+        super.setOnCardSubClickListener(abVar);
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.agO = z;
+        this.agD = z;
     }
 }

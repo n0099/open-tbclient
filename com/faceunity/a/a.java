@@ -5,19 +5,18 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.util.Log;
 import android.view.Surface;
-import com.baidu.ala.helper.StreamConfig;
 import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private boolean cdz;
+    private boolean chH;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
     private int mTrackIndex;
-    private c pDC;
+    private c pNK;
 
     public a(c cVar) {
-        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1);
+        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", 48000, 1);
         createAudioFormat.setInteger("aac-profile", 2);
         createAudioFormat.setInteger("channel-mask", 16);
         createAudioFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, 128000);
@@ -29,8 +28,8 @@ public class a {
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
         this.mTrackIndex = -1;
-        this.cdz = false;
-        this.pDC = cVar;
+        this.chH = false;
+        this.pNK = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +64,7 @@ public class a {
         }
     }
 
-    public void exS() throws Exception {
+    public void eAk() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -73,24 +72,24 @@ public class a {
                 if (dequeueOutputBuffer == -3) {
                     outputBuffers = this.mEncoder.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.cdz) {
+                    if (this.chH) {
                         throw new RuntimeException("format changed twice");
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.mTrackIndex = this.pDC.f(outputFormat);
-                    if (!this.pDC.start()) {
-                        synchronized (this.pDC) {
-                            while (!this.pDC.isStarted()) {
+                    this.mTrackIndex = this.pNK.f(outputFormat);
+                    if (!this.pNK.start()) {
+                        synchronized (this.pNK) {
+                            while (!this.pNK.isStarted()) {
                                 try {
-                                    this.pDC.wait(100L);
+                                    this.pNK.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.cdz = true;
+                    this.chH = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -102,12 +101,12 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.cdz) {
+                        if (!this.chH) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.pDC.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                        this.pNK.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -127,9 +126,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.pDC != null) {
-                this.pDC.stop();
-                this.pDC = null;
+            if (this.pNK != null) {
+                this.pNK.stop();
+                this.pNK = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

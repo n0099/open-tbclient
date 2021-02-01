@@ -1,18 +1,18 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.lottie;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     public void onVideoPlayStart() {
     }
 
-    public void ebY() {
+    public void eem() {
     }
 
     public void onVideoPlayEnd() {
     }
 
-    public void ebZ() {
+    public void een() {
     }
 
-    public void eca() {
+    public void eeo() {
     }
 }

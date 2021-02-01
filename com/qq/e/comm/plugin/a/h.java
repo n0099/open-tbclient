@@ -13,14 +13,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class h implements Callable<Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ConcurrentHashMap<String, String> f11619a = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, String> f11621a = new ConcurrentHashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11620b;
+    private String f11622b;
     private int c;
     private int d;
 
@@ -29,8 +29,8 @@ class h implements Callable<Bitmap> {
     }
 
     public h(String str, int i, int i2) {
-        this.f11620b = "";
-        this.f11620b = str;
+        this.f11622b = "";
+        this.f11622b = str;
         this.c = i;
         this.d = i2;
     }
@@ -49,8 +49,8 @@ class h implements Callable<Bitmap> {
         File i = ah.i();
         if (i != null) {
             i.mkdirs();
-            String encode = Md5Util.encode(this.f11620b);
-            if (f11619a.contains(encode)) {
+            String encode = Md5Util.encode(this.f11622b);
+            if (f11621a.contains(encode)) {
                 return null;
             }
             File file = new File(i, encode);
@@ -91,7 +91,7 @@ class h implements Callable<Bitmap> {
             }
             decodeFile = BitmapFactory.decodeFile(file.getAbsolutePath());
             if (decodeFile == null) {
-                GDTLogger.report("DecodeIconImageFail\turl:" + this.f11620b + "\tfilemd5:" + Md5Util.encode(file));
+                GDTLogger.report("DecodeIconImageFail\turl:" + this.f11622b + "\tfilemd5:" + Md5Util.encode(file));
             }
             return a(decodeFile);
         }
@@ -99,8 +99,8 @@ class h implements Callable<Bitmap> {
     }
 
     private HttpURLConnection c() throws IOException {
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f11620b).openConnection();
-        httpURLConnection.setRequestProperty("User-Agent", com.qq.e.comm.plugin.t.j.f12541a);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f11622b).openConnection();
+        httpURLConnection.setRequestProperty("User-Agent", com.qq.e.comm.plugin.t.j.f12543a);
         httpURLConnection.setConnectTimeout(5000);
         httpURLConnection.setReadTimeout(5000);
         return httpURLConnection;

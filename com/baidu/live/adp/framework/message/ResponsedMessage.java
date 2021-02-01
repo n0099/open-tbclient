@@ -1,7 +1,7 @@
 package com.baidu.live.adp.framework.message;
 
 import com.baidu.live.adp.framework.client.socket.SocketConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class ResponsedMessage<T> implements IDecode<T> {
     private final int mCmd;
     private Message<?> mOrginalMessage;

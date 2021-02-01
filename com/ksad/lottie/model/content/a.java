@@ -2,20 +2,20 @@ package com.ksad.lottie.model.content;
 
 import android.graphics.PointF;
 import com.ksad.lottie.model.a.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8065a;
+    private final String f8067a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final m<PointF, PointF> f8066b;
+    private final m<PointF, PointF> f8068b;
     private final com.ksad.lottie.model.a.f c;
     private final boolean d;
 
     public a(String str, m<PointF, PointF> mVar, com.ksad.lottie.model.a.f fVar, boolean z) {
-        this.f8065a = str;
-        this.f8066b = mVar;
+        this.f8067a = str;
+        this.f8068b = mVar;
         this.c = fVar;
         this.d = z;
     }
@@ -26,11 +26,11 @@ public class a implements b {
     }
 
     public String a() {
-        return this.f8065a;
+        return this.f8067a;
     }
 
     public m<PointF, PointF> b() {
-        return this.f8066b;
+        return this.f8068b;
     }
 
     public com.ksad.lottie.model.a.f c() {

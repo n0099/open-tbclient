@@ -37,27 +37,27 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: com.qq.e.comm.plugin.intersitial2.fullscreen.a$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class AnonymousClass2 implements d.b {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ String f12123a;
+        final /* synthetic */ String f12125a;
 
         AnonymousClass2(String str) {
-            this.f12123a = str;
+            this.f12125a = str;
         }
 
         @Override // com.qq.e.comm.plugin.w.d.b
         public void a() {
             GDTLogger.d("GDTNativeExpress FullScreenAD report video info success");
-            if (StringUtil.isEmpty(this.f12123a)) {
+            if (StringUtil.isEmpty(this.f12125a)) {
                 return;
             }
-            af.a(this.f12123a);
+            af.a(this.f12125a);
         }
 
         @Override // com.qq.e.comm.plugin.w.d.b
@@ -67,32 +67,32 @@ public class a {
     }
 
     /* renamed from: com.qq.e.comm.plugin.intersitial2.fullscreen.a$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class AnonymousClass3 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.qq.e.comm.plugin.s.a f12124a;
+        final /* synthetic */ com.qq.e.comm.plugin.s.a f12126a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ g f12125b;
+        final /* synthetic */ g f12127b;
         final /* synthetic */ View c;
         final /* synthetic */ d.b d;
 
         AnonymousClass3(com.qq.e.comm.plugin.s.a aVar, g gVar, View view, d.b bVar) {
-            this.f12124a = aVar;
-            this.f12125b = gVar;
+            this.f12126a = aVar;
+            this.f12127b = gVar;
             this.c = view;
             this.d = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String q = this.f12124a.q();
-            i.a(this.f12125b.a(this.c, this.f12125b.a().m(), this.f12124a.x(), null), com.qq.e.comm.plugin.ad.a.a().b(this.c), this.f12124a, new com.qq.e.comm.plugin.w.b(this.f12124a.D(), com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, this.f12124a.B()), q, new d.b() { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.a.3.1
+            String q = this.f12126a.q();
+            i.a(this.f12127b.a(this.c, this.f12127b.a().m(), this.f12126a.x(), null), com.qq.e.comm.plugin.ad.a.a().b(this.c), this.f12126a, new com.qq.e.comm.plugin.w.b(this.f12126a.D(), com.qq.e.comm.plugin.ad.e.NATIVEEXPRESSAD, this.f12126a.B()), q, new d.b() { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.a.3.1
                 @Override // com.qq.e.comm.plugin.w.d.b
                 public void a() {
                     GDTLogger.d("GDT Native Express FullScreenVideo Cover exposure success");
-                    String t = AnonymousClass3.this.f12124a.t();
+                    String t = AnonymousClass3.this.f12126a.t();
                     if (!TextUtils.isEmpty(t)) {
                         af.a(t);
                     }

@@ -1,17 +1,16 @@
 package com.kwad.sdk.pngencrypt;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f10489a;
+    static final /* synthetic */ boolean f10491a;
 
     /* renamed from: b  reason: collision with root package name */
-    private InputStream f10490b;
+    private InputStream f10492b;
     private byte[] c;
     private int d;
     private int e;
@@ -20,7 +19,7 @@ public class a implements Closeable {
     private long h;
 
     static {
-        f10489a = !a.class.desiredAssertionStatus();
+        f10491a = !a.class.desiredAssertionStatus();
     }
 
     public a(InputStream inputStream) {
@@ -31,12 +30,12 @@ public class a implements Closeable {
         this.f = false;
         this.g = true;
         this.h = 0L;
-        this.f10490b = inputStream;
+        this.f10492b = inputStream;
         this.c = new byte[i < 1 ? 16384 : i];
     }
 
     public int a(f fVar) {
-        return a(fVar, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return a(fVar, Integer.MAX_VALUE);
     }
 
     public int a(f fVar, int i) {
@@ -54,7 +53,7 @@ public class a implements Closeable {
         if (a2 > 0) {
             this.e += a2;
             this.d -= a2;
-            if (!f10489a && this.d < 0) {
+            if (!f10491a && this.d < 0) {
                 throw new AssertionError();
             }
         }
@@ -74,7 +73,7 @@ public class a implements Closeable {
         }
         try {
             this.e = 0;
-            this.d = this.f10490b.read(this.c);
+            this.d = this.f10492b.read(this.c);
             if (this.d == 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("This should not happen: stream.read(buf) returned 0"));
             } else if (this.d < 0) {
@@ -100,7 +99,7 @@ public class a implements Closeable {
             }
             i2 -= a2;
         }
-        if (f10489a || i2 == 0) {
+        if (f10491a || i2 == 0) {
             return i;
         }
         throw new AssertionError();
@@ -112,12 +111,12 @@ public class a implements Closeable {
         this.c = null;
         this.d = 0;
         this.e = 0;
-        if (this.f10490b != null && this.g) {
+        if (this.f10492b != null && this.g) {
             try {
-                this.f10490b.close();
+                this.f10492b.close();
             } catch (Exception e) {
             }
         }
-        this.f10490b = null;
+        this.f10492b = null;
     }
 }

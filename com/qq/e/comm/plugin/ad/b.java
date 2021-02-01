@@ -4,7 +4,7 @@ import com.qq.e.comm.constants.LoginType;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b {
     private JSONObject C;
     private int D;
@@ -17,10 +17,10 @@ public class b {
     private JSONObject K;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11876a;
+    private String f11878a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11877b;
+    private int f11879b;
     private int c;
     private int d;
     private int e;
@@ -103,7 +103,7 @@ public class b {
     }
 
     public void a(String str) {
-        this.f11876a = str;
+        this.f11878a = str;
     }
 
     public void a(List<String> list) {
@@ -151,11 +151,11 @@ public class b {
     }
 
     public String c() {
-        return this.f11876a;
+        return this.f11878a;
     }
 
     public void c(int i) {
-        this.f11877b = i;
+        this.f11879b = i;
     }
 
     public void c(String str) {
@@ -167,7 +167,7 @@ public class b {
     }
 
     public int d() {
-        return this.f11877b;
+        return this.f11879b;
     }
 
     public void d(int i) {

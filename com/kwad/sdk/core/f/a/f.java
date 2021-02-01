@@ -9,20 +9,20 @@ import android.os.IBinder;
 import com.kwad.sdk.core.f.b.d;
 import java.security.MessageDigest;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9137a;
+    private Context f9139a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final LinkedBlockingQueue<IBinder> f9138b = new LinkedBlockingQueue<>(1);
+    private final LinkedBlockingQueue<IBinder> f9140b = new LinkedBlockingQueue<>(1);
     private ServiceConnection c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.f.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "onServiceConnected");
             try {
-                f.this.f9138b.put(iBinder);
+                f.this.f9140b.put(iBinder);
             } catch (InterruptedException e) {
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -34,12 +34,12 @@ public class f {
     };
 
     public f(Context context) {
-        this.f9137a = context;
+        this.f9139a = context;
     }
 
     private String b() {
         try {
-            Signature[] signatureArr = this.f9137a.getPackageManager().getPackageInfo(this.f9137a.getPackageName(), 64).signatures;
+            Signature[] signatureArr = this.f9139a.getPackageManager().getPackageInfo(this.f9139a.getPackageName(), 64).signatures;
             if (signatureArr == null || signatureArr.length <= 0) {
                 return null;
             }
@@ -70,22 +70,22 @@ public class f {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            ?? bindService = this.f9137a.bindService(intent, this.c, 1);
+            ?? bindService = this.f9139a.bindService(intent, this.c, 1);
             com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "getOAID isBin=" + ((boolean) bindService));
             try {
                 if (bindService != 0) {
                     try {
-                        String a2 = new d.a(this.f9138b.take()).a(this.f9137a.getPackageName(), b(), "OUID");
+                        String a2 = new d.a(this.f9140b.take()).a(this.f9139a.getPackageName(), b(), "OUID");
                         try {
                             try {
                                 com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "getOAID oaid" + a2);
-                                this.f9137a.unbindService(this.c);
+                                this.f9139a.unbindService(this.c);
                                 bindService = a2;
                             } catch (Exception e) {
                                 e = e;
                                 str3 = a2;
                                 com.kwad.sdk.core.d.a.a(e);
-                                this.f9137a.unbindService(this.c);
+                                this.f9139a.unbindService(this.c);
                                 bindService = str3;
                                 return bindService;
                             }
@@ -93,7 +93,7 @@ public class f {
                             th = th2;
                             str2 = str3;
                             try {
-                                this.f9137a.unbindService(this.c);
+                                this.f9139a.unbindService(this.c);
                                 throw th;
                             } catch (Exception e2) {
                                 e = e2;
@@ -109,7 +109,7 @@ public class f {
                     } catch (Throwable th3) {
                         th = th3;
                         str2 = "";
-                        this.f9137a.unbindService(this.c);
+                        this.f9139a.unbindService(this.c);
                         throw th;
                     }
                     return bindService;

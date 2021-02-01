@@ -8,7 +8,7 @@ import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l implements aj<com.airbnb.lottie.model.content.c> {
     private int Hs;
 
@@ -83,7 +83,7 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
             }
             for (int i5 = 0; i5 < cVar.getSize(); i5++) {
                 int i6 = cVar.getColors()[i5];
-                cVar.getColors()[i5] = Color.argb(b(cVar.jn()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
+                cVar.getColors()[i5] = Color.argb(b(cVar.jm()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
             }
         }
     }

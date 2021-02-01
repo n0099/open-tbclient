@@ -3,11 +3,11 @@ package com.kwad.sdk.glide.load.engine;
 import androidx.annotation.NonNull;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class u implements com.kwad.sdk.glide.load.c {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final com.kwad.sdk.glide.g.g<Class<?>, byte[]> f10250b = new com.kwad.sdk.glide.g.g<>(50);
+    private static final com.kwad.sdk.glide.g.g<Class<?>, byte[]> f10252b = new com.kwad.sdk.glide.g.g<>(50);
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b c;
     private final com.kwad.sdk.glide.load.c d;
     private final com.kwad.sdk.glide.load.c e;
@@ -30,10 +30,10 @@ final class u implements com.kwad.sdk.glide.load.c {
     }
 
     private byte[] a() {
-        byte[] b2 = f10250b.b(this.h);
+        byte[] b2 = f10252b.b(this.h);
         if (b2 == null) {
-            byte[] bytes = this.h.getName().getBytes(f10132a);
-            f10250b.b(this.h, bytes);
+            byte[] bytes = this.h.getName().getBytes(f10134a);
+            f10252b.b(this.h, bytes);
             return bytes;
         }
         return b2;

@@ -7,7 +7,7 @@ import com.kwai.video.hodor.anotations.AccessedByNative;
 import com.kwai.video.hodor.util.HeaderUtil;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HlsPreloadPriorityTask extends AbstractHodorPreloadTask {
     private AwesomeCacheCallback mAwesomeCacheCallback;
     @AccessedByNative

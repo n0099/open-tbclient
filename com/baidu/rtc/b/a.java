@@ -15,107 +15,107 @@ import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private final Context appContext;
-    private int cwa;
-    private long[] cwb;
-    private boolean cwc;
-    private int cwd;
-    private double[] cwe;
-    private String[] cwf;
-    private final C0317a cwg;
-    private b cwh;
-    private long cwi;
-    private String[] cwj;
-    private final C0317a cwk;
-    private final C0317a cwl;
-    private final C0317a cwm;
+    private int cyn;
+    private long[] cyo;
+    private boolean cyp;
+    private int cyq;
+    private double[] cyr;
+    private String[] cys;
+    private final C0314a cyt;
+    private b cyu;
+    private long cyv;
+    private String[] cyw;
+    private final C0314a cyx;
+    private final C0314a cyy;
+    private final C0314a cyz;
     private ScheduledExecutorService executor;
     private boolean initialized;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.rtc.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0317a {
-        private double[] cwo;
-        private int cwp;
-        private double cwq;
-        private double cwr;
+    /* loaded from: classes10.dex */
+    public static class C0314a {
+        private double[] cyB;
+        private int cyC;
+        private double cyD;
+        private double cyE;
         private final int size;
 
-        public C0317a(int i) {
+        public C0314a(int i) {
             if (i <= 0) {
                 throw new AssertionError("Size value in MovingAverage ctor should be positive.");
             }
             this.size = i;
-            this.cwo = new double[i];
+            this.cyB = new double[i];
         }
 
-        public double aeQ() {
-            return this.cwr / this.size;
+        public double afj() {
+            return this.cyE / this.size;
         }
 
-        public double aeR() {
-            return this.cwq;
+        public double afk() {
+            return this.cyD;
         }
 
         public void l(double d) {
-            this.cwr -= this.cwo[this.cwp];
-            double[] dArr = this.cwo;
-            int i = this.cwp;
-            this.cwp = i + 1;
+            this.cyE -= this.cyB[this.cyC];
+            double[] dArr = this.cyB;
+            int i = this.cyC;
+            this.cyC = i + 1;
             dArr[i] = d;
-            this.cwq = d;
-            this.cwr += d;
-            if (this.cwp >= this.size) {
-                this.cwp = 0;
+            this.cyD = d;
+            this.cyE += d;
+            if (this.cyC >= this.size) {
+                this.cyC = 0;
             }
         }
 
         public void reset() {
-            Arrays.fill(this.cwo, 0.0d);
-            this.cwp = 0;
-            this.cwr = 0.0d;
-            this.cwq = 0.0d;
+            Arrays.fill(this.cyB, 0.0d);
+            this.cyC = 0;
+            this.cyE = 0.0d;
+            this.cyD = 0.0d;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        final long cws;
-        final long cwt;
-        final long cwu;
+        final long cyF;
+        final long cyG;
+        final long cyH;
 
         b(long j, long j2, long j3) {
-            this.cwu = j;
-            this.cwt = j2;
-            this.cws = j3;
+            this.cyH = j;
+            this.cyG = j2;
+            this.cyF = j3;
         }
     }
 
     public a(Context context) {
         Log.d("CpuMonitor", "CpuMonitor ctor.");
         this.appContext = context.getApplicationContext();
-        this.cwm = new C0317a(5);
-        this.cwk = new C0317a(5);
-        this.cwl = new C0317a(5);
-        this.cwg = new C0317a(5);
-        this.cwi = SystemClock.elapsedRealtime();
-        aeO();
+        this.cyz = new C0314a(5);
+        this.cyx = new C0314a(5);
+        this.cyy = new C0314a(5);
+        this.cyt = new C0314a(5);
+        this.cyv = SystemClock.elapsedRealtime();
+        afh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeI() {
-        if (!aeN() || SystemClock.elapsedRealtime() - this.cwi < 6000) {
+    public void afb() {
+        if (!afg() || SystemClock.elapsedRealtime() - this.cyv < 6000) {
             return;
         }
-        this.cwi = SystemClock.elapsedRealtime();
-        Log.d("CpuMonitor", aeK());
+        this.cyv = SystemClock.elapsedRealtime();
+        Log.d("CpuMonitor", afd());
     }
 
-    private int aeJ() {
+    private int afc() {
         Intent registerReceiver = this.appContext.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         int intExtra = registerReceiver.getIntExtra("scale", 100);
         if (intExtra > 0) {
@@ -124,36 +124,36 @@ public class a {
         return 0;
     }
 
-    private String aeK() {
+    private String afd() {
         String sb;
         synchronized (this) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CPU User: ");
-            sb2.append(k(this.cwm.aeR()));
+            sb2.append(k(this.cyz.afk()));
             sb2.append("/");
-            sb2.append(k(this.cwm.aeQ()));
+            sb2.append(k(this.cyz.afj()));
             sb2.append(". System: ");
-            sb2.append(k(this.cwk.aeR()));
+            sb2.append(k(this.cyx.afk()));
             sb2.append("/");
-            sb2.append(k(this.cwk.aeQ()));
+            sb2.append(k(this.cyx.afj()));
             sb2.append(". Freq: ");
-            sb2.append(k(this.cwg.aeR()));
+            sb2.append(k(this.cyt.afk()));
             sb2.append("/");
-            sb2.append(k(this.cwg.aeQ()));
+            sb2.append(k(this.cyt.afj()));
             sb2.append(". Total usage: ");
-            sb2.append(k(this.cwl.aeR()));
+            sb2.append(k(this.cyy.afk()));
             sb2.append("/");
-            sb2.append(k(this.cwl.aeQ()));
+            sb2.append(k(this.cyy.afj()));
             sb2.append(". Cores: ");
-            sb2.append(this.cwa);
+            sb2.append(this.cyn);
             sb2.append("( ");
-            for (int i = 0; i < this.cwd; i++) {
-                sb2.append(k(this.cwe[i]));
+            for (int i = 0; i < this.cyq; i++) {
+                sb2.append(k(this.cyr[i]));
                 sb2.append(" ");
             }
             sb2.append("). Battery: ");
-            sb2.append(aeJ());
-            if (this.cwc) {
+            sb2.append(afc());
+            if (this.cyp) {
                 sb2.append(". Overuse.");
             }
             sb = sb2.toString();
@@ -161,7 +161,7 @@ public class a {
         return sb;
     }
 
-    private b aeL() {
+    private b afe() {
         long j;
         long j2;
         long j3;
@@ -199,54 +199,54 @@ public class a {
         }
     }
 
-    private void aeM() {
+    private void aff() {
         synchronized (this) {
-            this.cwm.reset();
-            this.cwk.reset();
-            this.cwl.reset();
-            this.cwg.reset();
-            this.cwi = SystemClock.elapsedRealtime();
+            this.cyz.reset();
+            this.cyx.reset();
+            this.cyy.reset();
+            this.cyt.reset();
+            this.cyv = SystemClock.elapsedRealtime();
         }
     }
 
-    private boolean aeN() {
+    private boolean afg() {
         long j;
         synchronized (this) {
             if (!this.initialized) {
                 init();
             }
-            if (this.cwd == 0) {
+            if (this.cyq == 0) {
                 return false;
             }
-            this.cwa = 0;
+            this.cyn = 0;
             int i = 0;
             long j2 = 0;
             long j3 = 0;
             long j4 = 0;
-            while (i < this.cwd) {
-                this.cwe[i] = 0.0d;
-                if (this.cwb[i] == 0) {
-                    j = jm(this.cwj[i]);
+            while (i < this.cyq) {
+                this.cyr[i] = 0.0d;
+                if (this.cyo[i] == 0) {
+                    j = jF(this.cyw[i]);
                     if (j > 0) {
                         Log.d("CpuMonitor", "Core " + i + ". Max frequency: " + j);
-                        this.cwb[i] = j;
-                        this.cwj[i] = null;
+                        this.cyo[i] = j;
+                        this.cyw[i] = null;
                     } else {
                         j = j3;
                     }
                 } else {
-                    j = this.cwb[i];
+                    j = this.cyo[i];
                 }
-                long jm = jm(this.cwf[i]);
-                int i2 = (jm > 0L ? 1 : (jm == 0L ? 0 : -1));
+                long jF = jF(this.cys[i]);
+                int i2 = (jF > 0L ? 1 : (jF == 0L ? 0 : -1));
                 if (i2 != 0 || j != 0) {
                     if (i2 > 0) {
-                        this.cwa++;
+                        this.cyn++;
                     }
-                    j4 += jm;
+                    j4 += jF;
                     j2 += j;
                     if (j > 0) {
-                        this.cwe[i] = jm / j;
+                        this.cyr[i] = jF / j;
                     }
                 }
                 i++;
@@ -257,35 +257,35 @@ public class a {
                 return false;
             }
             double d = j4 / j2;
-            if (this.cwg.aeR() > 0.0d) {
-                d = (d + this.cwg.aeR()) * 0.5d;
+            if (this.cyt.afk() > 0.0d) {
+                d = (d + this.cyt.afk()) * 0.5d;
             }
-            this.cwg.l(d);
+            this.cyt.l(d);
             if (Build.VERSION.SDK_INT < 19 || Build.VERSION.SDK_INT > 24) {
                 return true;
             }
-            b aeL = aeL();
-            if (aeL == null) {
+            b afe = afe();
+            if (afe == null) {
                 return false;
             }
-            long j5 = aeL.cwu - this.cwh.cwu;
-            long j6 = aeL.cwt - this.cwh.cwt;
-            long j7 = j5 + j6 + (aeL.cws - this.cwh.cws);
+            long j5 = afe.cyH - this.cyu.cyH;
+            long j6 = afe.cyG - this.cyu.cyG;
+            long j7 = j5 + j6 + (afe.cyF - this.cyu.cyF);
             if (d == 0.0d || j7 == 0) {
                 return false;
             }
             double d2 = j7;
             double d3 = j5 / d2;
-            this.cwm.l(d3);
+            this.cyz.l(d3);
             double d4 = j6 / d2;
-            this.cwk.l(d4);
-            this.cwl.l(d * (d3 + d4));
-            this.cwh = aeL;
+            this.cyx.l(d4);
+            this.cyy.l(d * (d3 + d4));
+            this.cyu = afe;
             return true;
         }
     }
 
-    private void aeO() {
+    private void afh() {
         if (this.executor != null) {
             this.executor.shutdownNow();
             this.executor = null;
@@ -294,7 +294,7 @@ public class a {
         this.executor.scheduleAtFixedRate(new Runnable() { // from class: com.baidu.rtc.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.aeI();
+                a.this.afb();
             }
         }, 0L, 2000L, TimeUnit.MILLISECONDS);
     }
@@ -306,7 +306,7 @@ public class a {
                 try {
                     Scanner useDelimiter = new Scanner(new BufferedReader(fileReader)).useDelimiter("[-\n]");
                     useDelimiter.nextInt();
-                    this.cwd = useDelimiter.nextInt() + 1;
+                    this.cyq = useDelimiter.nextInt() + 1;
                     useDelimiter.close();
                 } catch (Exception e) {
                     Log.e("CpuMonitor", "Cannot do CPU stats due to /sys/devices/system/cpu/present parsing problem");
@@ -319,24 +319,24 @@ public class a {
         } catch (IOException e3) {
             Log.e("CpuMonitor", "Error closing file");
         }
-        this.cwb = new long[this.cwd];
-        this.cwj = new String[this.cwd];
-        this.cwf = new String[this.cwd];
-        this.cwe = new double[this.cwd];
-        for (int i = 0; i < this.cwd; i++) {
-            this.cwb[i] = 0;
-            this.cwe[i] = 0.0d;
-            String[] strArr = this.cwj;
+        this.cyo = new long[this.cyq];
+        this.cyw = new String[this.cyq];
+        this.cys = new String[this.cyq];
+        this.cyr = new double[this.cyq];
+        for (int i = 0; i < this.cyq; i++) {
+            this.cyo[i] = 0;
+            this.cyr[i] = 0.0d;
+            String[] strArr = this.cyw;
             strArr[i] = "/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq";
-            String[] strArr2 = this.cwf;
+            String[] strArr2 = this.cys;
             strArr2[i] = "/sys/devices/system/cpu/cpu" + i + "/cpufreq/scaling_cur_freq";
         }
-        this.cwh = new b(0L, 0L, 0L);
-        aeM();
+        this.cyu = new b(0L, 0L, 0L);
+        aff();
         this.initialized = true;
     }
 
-    private long jm(String str) {
+    private long jF(String str) {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(str));
             try {
@@ -371,10 +371,10 @@ public class a {
         }
     }
 
-    public int aeP() {
+    public int afi() {
         int k;
         synchronized (this) {
-            k = k(this.cwg.aeQ());
+            k = k(this.cyt.afj());
         }
         return k;
     }

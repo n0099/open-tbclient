@@ -1,23 +1,23 @@
 package com.baidu.ar.npc;
 
 import com.baidu.ar.npc.ArBridge;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class p implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ArBridge.c f1551a;
+    final /* synthetic */ ArBridge.c f1549a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ ArBridge f1552b;
+    final /* synthetic */ ArBridge f1550b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ArBridge arBridge, ArBridge.c cVar) {
-        this.f1552b = arBridge;
-        this.f1551a = cVar;
+        this.f1550b = arBridge;
+        this.f1549a = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1551a.a(null);
+        this.f1549a.a(null);
     }
 }

@@ -4,20 +4,20 @@ import android.graphics.Paint;
 import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.a.q;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ShapeStroke implements b {
     private final float FQ;
     private final List<com.baidu.live.lottie.model.a.b> FR;
-    private final com.baidu.live.lottie.model.a.a bpP;
-    private final com.baidu.live.lottie.model.a.d bpX;
-    private final com.baidu.live.lottie.model.a.b bqh;
-    private final LineCapType bqi;
-    private final LineJoinType bqj;
+    private final com.baidu.live.lottie.model.a.b btJ;
+    private final LineCapType btK;
+    private final LineJoinType btL;
     @Nullable
-    private final com.baidu.live.lottie.model.a.b bqv;
+    private final com.baidu.live.lottie.model.a.b btX;
+    private final com.baidu.live.lottie.model.a.a btr;
+    private final com.baidu.live.lottie.model.a.d btz;
     private final String name;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum LineCapType {
         Butt,
         Round,
@@ -35,7 +35,7 @@ public class ShapeStroke implements b {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum LineJoinType {
         Miter,
         Round,
@@ -57,13 +57,13 @@ public class ShapeStroke implements b {
 
     public ShapeStroke(String str, @Nullable com.baidu.live.lottie.model.a.b bVar, List<com.baidu.live.lottie.model.a.b> list, com.baidu.live.lottie.model.a.a aVar, com.baidu.live.lottie.model.a.d dVar, com.baidu.live.lottie.model.a.b bVar2, LineCapType lineCapType, LineJoinType lineJoinType, float f) {
         this.name = str;
-        this.bqv = bVar;
+        this.btX = bVar;
         this.FR = list;
-        this.bpP = aVar;
-        this.bpX = dVar;
-        this.bqh = bVar2;
-        this.bqi = lineCapType;
-        this.bqj = lineJoinType;
+        this.btr = aVar;
+        this.btz = dVar;
+        this.btJ = bVar2;
+        this.btK = lineCapType;
+        this.btL = lineJoinType;
         this.FQ = f;
     }
 
@@ -76,35 +76,35 @@ public class ShapeStroke implements b {
         return this.name;
     }
 
-    public com.baidu.live.lottie.model.a.a MA() {
-        return this.bpP;
+    public com.baidu.live.lottie.model.a.a NY() {
+        return this.btr;
     }
 
-    public com.baidu.live.lottie.model.a.d Ma() {
-        return this.bpX;
+    public com.baidu.live.lottie.model.a.d Ny() {
+        return this.btz;
     }
 
-    public com.baidu.live.lottie.model.a.b Mj() {
-        return this.bqh;
+    public com.baidu.live.lottie.model.a.b NH() {
+        return this.btJ;
     }
 
-    public List<com.baidu.live.lottie.model.a.b> jw() {
+    public List<com.baidu.live.lottie.model.a.b> jv() {
         return this.FR;
     }
 
-    public com.baidu.live.lottie.model.a.b Mm() {
-        return this.bqv;
+    public com.baidu.live.lottie.model.a.b NK() {
+        return this.btX;
     }
 
-    public LineCapType Mk() {
-        return this.bqi;
+    public LineCapType NI() {
+        return this.btK;
     }
 
-    public LineJoinType Ml() {
-        return this.bqj;
+    public LineJoinType NJ() {
+        return this.btL;
     }
 
-    public float jy() {
+    public float jx() {
         return this.FQ;
     }
 }

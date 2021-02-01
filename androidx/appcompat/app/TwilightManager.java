@@ -12,7 +12,7 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.content.PermissionChecker;
 import com.kwad.sdk.collector.AppStatusRules;
 import java.util.Calendar;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class TwilightManager {
     private static final int SUNRISE = 6;
     private static final int SUNSET = 22;
@@ -122,7 +122,7 @@ class TwilightManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class TwilightState {
         boolean isNight;
         long nextUpdate;

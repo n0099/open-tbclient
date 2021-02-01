@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class Detector {
     private final BitMatrix image;
     private final WhiteRectangleDetector rectangleDetector;
@@ -214,7 +214,7 @@ public final class Detector {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class ResultPointsAndTransitions {
         private final ResultPoint from;
         private final ResultPoint to;
@@ -243,7 +243,7 @@ public final class Detector {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static final class ResultPointsAndTransitionsComparator implements Serializable, Comparator<ResultPointsAndTransitions> {
         private ResultPointsAndTransitionsComparator() {
         }

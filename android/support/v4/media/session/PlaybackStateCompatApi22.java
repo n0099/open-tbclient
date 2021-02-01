@@ -6,7 +6,7 @@ import androidx.annotation.RequiresApi;
 import java.util.Iterator;
 import java.util.List;
 @RequiresApi(22)
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class PlaybackStateCompatApi22 {
     public static Bundle getExtras(Object obj) {
         return ((PlaybackState) obj).getExtras();

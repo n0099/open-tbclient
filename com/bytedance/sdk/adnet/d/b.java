@@ -5,7 +5,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     @Deprecated
     public static void a() {

@@ -2,7 +2,7 @@ package com.baidu.swan.game.ad.d;
 
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static String getRequestAdUrl(String str, HashMap<String, String> hashMap) {
         StringBuilder sb;

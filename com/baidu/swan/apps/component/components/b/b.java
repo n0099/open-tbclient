@@ -12,7 +12,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.swan.apps.scheme.actions.b {
     public b(j jVar) {
         super(jVar, "/swanAPI/button");
@@ -35,12 +35,12 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
             com.baidu.swan.apps.console.c.e("Component-Action-Button", "model is null");
             return false;
         }
-        com.baidu.swan.apps.component.b.c akD = new a(context, i).akD();
-        boolean isSuccess = akD.isSuccess();
+        com.baidu.swan.apps.component.b.c alb = new a(context, i).alb();
+        boolean isSuccess = alb.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, akD.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, alb.msg);
         }
         return isSuccess;
     }
@@ -58,7 +58,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         a aVar = (a) com.baidu.swan.apps.component.container.a.d(i);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + i.cJc;
+            String str2 = "can't find button component:#" + i.cLq;
             com.baidu.swan.apps.console.c.e("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -86,18 +86,18 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         a aVar = (a) com.baidu.swan.apps.component.container.a.d(i);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + i.cJc;
+            String str2 = "can't find button component:#" + i.cLq;
             com.baidu.swan.apps.console.c.e("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
         }
-        com.baidu.swan.apps.component.b.c akF = aVar.akF();
-        boolean isSuccess = akF.isSuccess();
+        com.baidu.swan.apps.component.b.c ald = aVar.ald();
+        boolean isSuccess = ald.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return isSuccess;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, akF.msg);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, ald.msg);
         return isSuccess;
     }
 

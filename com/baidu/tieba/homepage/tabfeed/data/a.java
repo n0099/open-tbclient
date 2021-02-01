@@ -1,12 +1,12 @@
 package com.baidu.tieba.homepage.tabfeed.data;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.aj;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.data.br;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.data.l;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.ak;
+import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.data.bt;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.data.m;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,103 +20,103 @@ import tbclient.Page;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class a {
-    private ArrayList<bz> iIY;
-    private b kfA;
-    private SpecialColumnListData kfB;
-    private l kfw;
-    private aj kfx;
-    private bm kfy;
-    private br kfz;
+    private ArrayList<cb> iOG;
+    private m knE;
+    private ak knF;
+    private bo knG;
+    private bt knH;
+    private b knI;
+    private SpecialColumnListData knJ;
     private boolean hasMore = true;
-    private int kfv = 1;
+    private int knD = 1;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             Page page = dataRes.page_info;
             if (page != null) {
-                this.kfv = page.current_page.intValue();
+                this.knD = page.current_page.intValue();
                 this.hasMore = page.has_more.intValue() == 1;
             }
-            this.iIY = new ArrayList<>(x.getCount(dataRes.thread_list));
+            this.iOG = new ArrayList<>(y.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
-                bz bzVar = new bz();
-                bzVar.a(threadInfo);
-                bzVar.bmZ();
-                this.iIY.add(bzVar);
+                cb cbVar = new cb();
+                cbVar.a(threadInfo);
+                cbVar.bns();
+                this.iOG.add(cbVar);
             }
             List<BannerImage> list = dataRes.banner_image;
-            if (!x.isEmpty(list)) {
-                this.kfw = new l();
-                this.kfw.parserProtobuf(list);
+            if (!y.isEmpty(list)) {
+                this.knE = new m();
+                this.knE.parserProtobuf(list);
             }
             List<BannerImage> list2 = dataRes.grid;
-            if (x.getCount(list2) >= 4) {
-                this.kfx = new aj();
-                this.kfx.parserProtobuf(list2);
+            if (y.getCount(list2) >= 4) {
+                this.knF = new ak();
+                this.knF.parserProtobuf(list2);
             }
             RecommendForumList recommendForumList = dataRes.recommend_forum;
-            if (recommendForumList != null && x.getCount(recommendForumList.forum_list) >= 5) {
-                this.kfy = new bm();
-                this.kfy.bt(recommendForumList.forum_list);
-                this.kfy.className = recommendForumList.class_name;
-                this.kfy.floorPosition = recommendForumList.floor_position.intValue();
-                this.kfy.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
-                this.kfy.eNa = R.color.CAM_X0108;
+            if (recommendForumList != null && y.getCount(recommendForumList.forum_list) >= 5) {
+                this.knG = new bo();
+                this.knG.bo(recommendForumList.forum_list);
+                this.knG.className = recommendForumList.class_name;
+                this.knG.floorPosition = recommendForumList.floor_position.intValue();
+                this.knG.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
+                this.knG.ePm = R.color.CAM_X0108;
             }
             RecommendUserList recommendUserList = dataRes.recommend_user;
-            if (recommendUserList != null && x.getCount(recommendUserList.user_list) >= 4) {
-                this.kfz = new br();
-                this.kfz.bu(recommendUserList.user_list);
-                this.kfz.floorPosition = recommendUserList.floor_position.intValue();
-                this.kfz.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
-                this.kfz.eNa = R.color.CAM_X0108;
+            if (recommendUserList != null && y.getCount(recommendUserList.user_list) >= 4) {
+                this.knH = new bt();
+                this.knH.bp(recommendUserList.user_list);
+                this.knH.floorPosition = recommendUserList.floor_position.intValue();
+                this.knH.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
+                this.knH.ePm = R.color.CAM_X0108;
             }
             HotTopic hotTopic = dataRes.hot_topic;
-            if (hotTopic != null && x.getCount(hotTopic.topic_list) >= 4) {
-                this.kfA = new b();
-                this.kfA.a(hotTopic);
+            if (hotTopic != null && y.getCount(hotTopic.topic_list) >= 4) {
+                this.knI = new b();
+                this.knI.a(hotTopic);
             }
             SpecialColumnList specialColumnList = dataRes.special_column;
-            if (specialColumnList != null && x.getCount(specialColumnList.item_list) >= 3) {
-                this.kfB = new SpecialColumnListData();
-                this.kfB.a(specialColumnList);
+            if (specialColumnList != null && y.getCount(specialColumnList.item_list) >= 3) {
+                this.knJ = new SpecialColumnListData();
+                this.knJ.a(specialColumnList);
             }
         }
     }
 
-    public int cPV() {
-        return this.kfv;
+    public int cRU() {
+        return this.knD;
     }
 
     public boolean hasMore() {
         return this.hasMore;
     }
 
-    public ArrayList<bz> cvP() {
-        return this.iIY;
+    public ArrayList<cb> cxb() {
+        return this.iOG;
     }
 
-    public bm cPW() {
-        return this.kfy;
+    public bo cRV() {
+        return this.knG;
     }
 
-    public br cPX() {
-        return this.kfz;
+    public bt cRW() {
+        return this.knH;
     }
 
-    public l cPY() {
-        return this.kfw;
+    public m cRX() {
+        return this.knE;
     }
 
-    public aj cPZ() {
-        return this.kfx;
+    public ak cRY() {
+        return this.knF;
     }
 
-    public b cQa() {
-        return this.kfA;
+    public b cRZ() {
+        return this.knI;
     }
 
-    public SpecialColumnListData cQb() {
-        return this.kfB;
+    public SpecialColumnListData cSa() {
+        return this.knJ;
     }
 }

@@ -14,21 +14,21 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SegmentIndexBox extends AbstractFullBox {
     public static final String TYPE = "sidx";
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_9 = null;
     long earliestPresentationTime;
     List<Entry> entries;
     long firstOffset;
@@ -136,7 +136,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setReferenceId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.jv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.jy(j)));
         this.referenceId = j;
     }
 
@@ -146,7 +146,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setTimeScale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.jv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.jy(j)));
         this.timeScale = j;
     }
 
@@ -156,7 +156,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setEarliestPresentationTime(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.jv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.jy(j)));
         this.earliestPresentationTime = j;
     }
 
@@ -166,7 +166,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setFirstOffset(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.jv(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.jy(j)));
         this.firstOffset = j;
     }
 
@@ -176,11 +176,11 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.Sb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.Sw(i)));
         this.reserved = i;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         byte referenceType;
         int referencedSize;

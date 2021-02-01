@@ -15,13 +15,12 @@ import android.util.Log;
 import com.baidu.ala.adp.lib.util.BdLog;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TargetApi(16)
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class CameraUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final String TAG;
@@ -101,7 +100,7 @@ public class CameraUtils {
                 i2 = 180;
                 break;
             case 3:
-                i2 = SubsamplingScaleImageView.ORIENTATION_270;
+                i2 = 270;
                 break;
         }
         if (cameraInfo.facing == 1) {
@@ -247,7 +246,7 @@ public class CameraUtils {
             case 2:
                 return 180;
             case 3:
-                return SubsamplingScaleImageView.ORIENTATION_270;
+                return 270;
         }
     }
 

@@ -3,12 +3,12 @@ package org.webrtc.voiceengine;
 import android.media.AudioRecord;
 import android.os.Build;
 import android.os.Process;
-import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+import javax.annotation.Nullable;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WebRtcAudioRecord {
     private static final long AUDIO_RECORD_THREAD_JOIN_TIMEOUT_MS = 2000;
     private static final int BITS_PER_SAMPLE = 16;
@@ -34,13 +34,13 @@ public class WebRtcAudioRecord {
     private static final int DEFAULT_AUDIO_SOURCE = getDefaultAudioSource();
     private static int audioSource = DEFAULT_AUDIO_SOURCE;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum AudioRecordStartErrorCode {
         AUDIO_RECORD_START_EXCEPTION,
         AUDIO_RECORD_START_STATE_MISMATCH
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private class AudioRecordThread extends Thread {
         private volatile boolean keepAlive;
 
@@ -92,7 +92,7 @@ public class WebRtcAudioRecord {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class AudioSamples {
         private final int audioFormat;
         private final int channelCount;
@@ -123,7 +123,7 @@ public class WebRtcAudioRecord {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface WebRtcAudioRecordErrorCallback {
         void onWebRtcAudioRecordError(String str);
 
@@ -132,7 +132,7 @@ public class WebRtcAudioRecord {
         void onWebRtcAudioRecordStartError(AudioRecordStartErrorCode audioRecordStartErrorCode, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface WebRtcAudioRecordSamplesReadyCallback {
         void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
     }

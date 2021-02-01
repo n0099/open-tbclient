@@ -1,7 +1,7 @@
 package com.baidu.cesium.c.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f1637b = {16, 24, 32};
+    public static final int[] f1635b = {16, 24, 32};
 }

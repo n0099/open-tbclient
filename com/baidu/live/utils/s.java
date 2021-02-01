@@ -10,10 +10,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class s {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public String name;
         public String uk;
@@ -24,7 +24,8 @@ public class s {
         }
     }
 
-    public static List<a> hK(String str) {
+    /* renamed from: if  reason: not valid java name */
+    public static List<a> m22if(String str) {
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -42,7 +43,24 @@ public class s {
         return arrayList;
     }
 
-    public static String ak(List<AlaWheatInfoData> list) {
+    public static String Vw() {
+        AlaWheatInfoData Yl = com.baidu.live.ao.a.Yj().Yl();
+        if (Yl != null) {
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("user_uk", Yl.uk);
+                jSONObject.put("user_name", Yl.userName);
+                jSONArray.put(jSONObject);
+                return jSONArray.toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
+    }
+
+    public static String al(List<AlaWheatInfoData> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null && list.size() > 0) {
             for (AlaWheatInfoData alaWheatInfoData : list) {
@@ -63,7 +81,7 @@ public class s {
         return "" + j + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str3;
     }
 
-    public static final String hL(String str) {
+    public static final String ig(String str) {
         return !TextUtils.isEmpty(str) ? Base64.encodeBytes(str.getBytes()).replace("+", Constants.ACCEPT_TIME_SEPARATOR_SERVER).replace("/", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("=", "") : "";
     }
 }

@@ -21,14 +21,14 @@ import com.qq.e.comm.plugin.n.f;
 import com.qq.e.comm.plugin.rewardvideo.n;
 import com.qq.e.comm.plugin.util.bc;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d implements ACTD, m {
 
     /* renamed from: a  reason: collision with root package name */
-    private f f12612a;
+    private f f12614a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Activity f12613b;
+    private Activity f12615b;
     private i c;
     private e d;
     private View e;
@@ -42,7 +42,7 @@ public class d implements ACTD, m {
     private com.qq.e.comm.plugin.y.c m = new com.qq.e.comm.plugin.y.c();
 
     public d(Activity activity) {
-        this.f12613b = activity;
+        this.f12615b = activity;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -61,7 +61,7 @@ public class d implements ACTD, m {
     private boolean a(Object obj, String str) {
         if (obj == null) {
             GDTLogger.e("RewardPage activity fail to create ! miss " + str);
-            this.f12613b.finish();
+            this.f12615b.finish();
             return true;
         }
         return false;
@@ -71,7 +71,7 @@ public class d implements ACTD, m {
         com.qq.e.comm.plugin.ad.g e = this.c.e();
         e.a(System.currentTimeMillis());
         e.a(1);
-        this.g = com.qq.e.comm.plugin.n.d.a(this.f12613b, this.d, e, "Reward", n.a(this.d, this.d.k_()), this.m);
+        this.g = com.qq.e.comm.plugin.n.d.a(this.f12615b, this.d, e, "Reward", n.a(this.d, this.d.k_()), this.m);
         this.g.a(new f.a() { // from class: com.qq.e.comm.plugin.v.d.2
             @Override // com.qq.e.comm.plugin.n.f.a
             public void a(String str, boolean z) {
@@ -80,11 +80,11 @@ public class d implements ACTD, m {
 
             @Override // com.qq.e.comm.plugin.n.f.a
             public void b() {
-                d.this.f12612a.b();
-                if (d.this.f12613b.isFinishing()) {
+                d.this.f12614a.b();
+                if (d.this.f12615b.isFinishing()) {
                     return;
                 }
-                d.this.f12613b.finish();
+                d.this.f12615b.finish();
             }
 
             @Override // com.qq.e.comm.plugin.n.f.a
@@ -127,11 +127,11 @@ public class d implements ACTD, m {
 
     @Override // com.qq.e.comm.pi.ACTD
     public void onAfterCreate(Bundle bundle) {
-        this.f12612a = a.a(this.f12613b.getIntent().getIntExtra("objectId", 0));
-        if (a(this.f12612a, "mAdImpl")) {
+        this.f12614a = a.a(this.f12615b.getIntent().getIntExtra("objectId", 0));
+        if (a(this.f12614a, "mAdImpl")) {
             return;
         }
-        this.c = this.f12612a.d();
+        this.c = this.f12614a.d();
         if (a(this.c, "mDataController")) {
             return;
         }
@@ -139,11 +139,11 @@ public class d implements ACTD, m {
         if (a(this.d, "mAdData")) {
             return;
         }
-        this.f = new FrameLayout(this.f12613b);
+        this.f = new FrameLayout(this.f12615b);
         this.f.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        this.f12613b.setContentView(this.f, new FrameLayout.LayoutParams(-1, -1));
-        this.f12612a.a(this.f);
-        this.f12612a.a(new ADListener() { // from class: com.qq.e.comm.plugin.v.d.1
+        this.f12615b.setContentView(this.f, new FrameLayout.LayoutParams(-1, -1));
+        this.f12614a.a(this.f);
+        this.f12614a.a(new ADListener() { // from class: com.qq.e.comm.plugin.v.d.1
             @Override // com.qq.e.comm.adevent.ADListener
             public void onADEvent(ADEvent aDEvent) {
                 switch (aDEvent.getType()) {
@@ -157,10 +157,10 @@ public class d implements ACTD, m {
                         d.this.d();
                         return;
                     case 105:
-                        if (d.this.f12613b.isFinishing()) {
+                        if (d.this.f12615b.isFinishing()) {
                             return;
                         }
-                        d.this.f12613b.finish();
+                        d.this.f12615b.finish();
                         return;
                     default:
                         return;
@@ -174,7 +174,7 @@ public class d implements ACTD, m {
         }
         a();
         b();
-        if (this.c.b() || this.f12612a.c()) {
+        if (this.c.b() || this.f12614a.c()) {
             d();
         }
     }
@@ -182,17 +182,17 @@ public class d implements ACTD, m {
     @Override // com.qq.e.comm.pi.ACTD
     public void onBackPressed() {
         if (this.h) {
-            this.f12613b.finish();
+            this.f12615b.finish();
         }
     }
 
     @Override // com.qq.e.comm.pi.ACTD
     public void onBeforeCreate(Bundle bundle) {
-        this.f12613b.requestWindowFeature(1);
+        this.f12615b.requestWindowFeature(1);
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f12613b.getWindow().setStatusBarColor(ViewCompat.MEASURED_STATE_MASK);
+            this.f12615b.getWindow().setStatusBarColor(ViewCompat.MEASURED_STATE_MASK);
         }
-        Window window = this.f12613b.getWindow();
+        Window window = this.f12615b.getWindow();
         window.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#E6000000")));
         window.setFlags(1024, 1024);
         window.setFlags(16777216, 16777216);

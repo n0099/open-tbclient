@@ -3,41 +3,41 @@ package com.baidu.swan.pms.database.a;
 import android.net.Uri;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private ConcurrentHashMap<Class<?>, b> erH;
-    private ConcurrentHashMap<Class<?>, Uri> erI;
+    private ConcurrentHashMap<Class<?>, b> etO;
+    private ConcurrentHashMap<Class<?>, Uri> etP;
 
-    private void bcl() {
-        this.erH = new ConcurrentHashMap<>();
-        this.erI = new ConcurrentHashMap<>();
-        this.erH.put(com.baidu.swan.pms.model.f.class, new f());
-        this.erH.put(com.baidu.swan.pms.model.g.class, new g());
-        this.erH.put(com.baidu.swan.pms.model.d.class, new e());
-        this.erH.put(com.baidu.swan.pms.model.b.class, new d());
-        this.erH.put(PMSAppInfo.class, new a());
-        this.erH.put(com.baidu.swan.pms.model.h.class, new h());
-        this.erH.put(com.baidu.swan.pms.model.i.class, new i());
-        this.erH.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.b());
-        this.erI.put(com.baidu.swan.pms.model.f.class, com.baidu.swan.pms.database.provider.b.erN);
-        this.erI.put(com.baidu.swan.pms.model.g.class, com.baidu.swan.pms.database.provider.b.erO);
-        this.erI.put(com.baidu.swan.pms.model.d.class, com.baidu.swan.pms.database.provider.b.erL);
-        this.erI.put(com.baidu.swan.pms.model.b.class, com.baidu.swan.pms.database.provider.b.erP);
-        this.erI.put(PMSAppInfo.class, com.baidu.swan.pms.database.provider.b.erM);
-        this.erI.put(com.baidu.swan.pms.model.h.class, com.baidu.swan.pms.database.provider.b.erQ);
-        this.erI.put(com.baidu.swan.pms.model.i.class, com.baidu.swan.pms.database.provider.b.erR);
-        this.erI.put(com.baidu.swan.pms.b.a.class, com.baidu.swan.pms.database.provider.b.erS);
+    private void bcy() {
+        this.etO = new ConcurrentHashMap<>();
+        this.etP = new ConcurrentHashMap<>();
+        this.etO.put(com.baidu.swan.pms.model.f.class, new f());
+        this.etO.put(com.baidu.swan.pms.model.g.class, new g());
+        this.etO.put(com.baidu.swan.pms.model.d.class, new e());
+        this.etO.put(com.baidu.swan.pms.model.b.class, new d());
+        this.etO.put(PMSAppInfo.class, new a());
+        this.etO.put(com.baidu.swan.pms.model.h.class, new h());
+        this.etO.put(com.baidu.swan.pms.model.i.class, new i());
+        this.etO.put(com.baidu.swan.pms.b.a.class, new com.baidu.swan.pms.b.a.b());
+        this.etP.put(com.baidu.swan.pms.model.f.class, com.baidu.swan.pms.database.provider.b.etU);
+        this.etP.put(com.baidu.swan.pms.model.g.class, com.baidu.swan.pms.database.provider.b.etV);
+        this.etP.put(com.baidu.swan.pms.model.d.class, com.baidu.swan.pms.database.provider.b.etS);
+        this.etP.put(com.baidu.swan.pms.model.b.class, com.baidu.swan.pms.database.provider.b.etW);
+        this.etP.put(PMSAppInfo.class, com.baidu.swan.pms.database.provider.b.etT);
+        this.etP.put(com.baidu.swan.pms.model.h.class, com.baidu.swan.pms.database.provider.b.etX);
+        this.etP.put(com.baidu.swan.pms.model.i.class, com.baidu.swan.pms.database.provider.b.etY);
+        this.etP.put(com.baidu.swan.pms.b.a.class, com.baidu.swan.pms.database.provider.b.etZ);
     }
 
     public c() {
-        bcl();
+        bcy();
     }
 
     public <T> b<T> k(Class<T> cls) {
-        return this.erH.get(cls);
+        return this.etO.get(cls);
     }
 
     public <T> Uri l(Class<T> cls) {
-        return this.erI.get(cls);
+        return this.etP.get(cls);
     }
 }

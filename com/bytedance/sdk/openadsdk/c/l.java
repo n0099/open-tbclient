@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.c;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class l extends n {
     public l(Context context) {
         super(context);
@@ -14,12 +14,12 @@ public class l extends n {
 
     @Override // com.bytedance.sdk.openadsdk.c.n, com.bytedance.sdk.openadsdk.c.e
     public int c() {
-        return this.f6244a.b("stats_serverbusy_retrycount", 0);
+        return this.f6246a.b("stats_serverbusy_retrycount", 0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.n, com.bytedance.sdk.openadsdk.c.e
     public void a(int i) {
-        this.f6244a.a("stats_serverbusy_retrycount", i);
+        this.f6246a.a("stats_serverbusy_retrycount", i);
     }
 
     public static String e() {

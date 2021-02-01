@@ -1,29 +1,22 @@
 package com.baidu.live.g;
 
-import com.baidu.live.adp.widget.IGuideTab;
-/* loaded from: classes10.dex */
-public class a {
-    private static volatile a aDT;
-    private b aDU;
+import android.view.ViewGroup;
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
+public interface a {
+    void a(ViewGroup viewGroup, ab abVar);
 
-    private a() {
-    }
+    void a(ab abVar);
 
-    public static a Ah() {
-        if (aDT == null) {
-            synchronized (a.class) {
-                if (aDT == null) {
-                    aDT = new a();
-                }
-            }
-        }
-        return aDT;
-    }
+    void onDestroy();
 
-    public IGuideTab Ai() {
-        if (this.aDU != null) {
-            return this.aDU.Aj();
-        }
-        return null;
-    }
+    void onPause();
+
+    void onResume();
+
+    void onStop();
+
+    void setCanVisible(boolean z);
+
+    void xh();
 }

@@ -221,7 +221,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public static class ClientParams implements Serializable {
         public ClientParams(JSONObject jSONObject) {
             if (jSONObject != null) {
-                com.baidu.tieba.a.bIN().parse(jSONObject);
+                com.baidu.tieba.a.bJg().parse(jSONObject);
             }
         }
     }

@@ -5,14 +5,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.c.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends BaseAdapter {
     private Context mContext;
     private int padding;
@@ -44,7 +44,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: DP */
+    /* renamed from: Eh */
     public e getItem(int i) {
         if (i < 0 || i >= this.tagList.size()) {
             return null;
@@ -68,17 +68,17 @@ public class b extends BaseAdapter {
             textView.setTextSize(0, this.textSize);
             textView.setPadding(0, this.padding, 0, this.padding);
         }
-        e eVar = (e) x.getItem(this.tagList, i);
+        e eVar = (e) y.getItem(this.tagList, i);
         if (eVar == null) {
             return null;
         }
-        textView.setText(at.cutChineseAndEnglishWithSuffix(eVar.tag_name, 8, null));
-        ao.setViewTextColor(textView, R.color.CAM_X0106, 1);
+        textView.setText(au.cutChineseAndEnglishWithSuffix(eVar.tag_name, 8, null));
+        ap.setViewTextColor(textView, R.color.CAM_X0106, 1);
         if (i == this.selectedPosition) {
-            ao.setBackgroundResource(textView, R.drawable.btn_label_white_s);
+            ap.setBackgroundResource(textView, R.drawable.btn_label_white_s);
             return textView;
         }
-        ao.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
+        ap.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
         return textView;
     }
 }

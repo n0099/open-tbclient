@@ -1,11 +1,6 @@
 package com.baidu.live.alablmsdk.module.rtc;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public long axT;
-    public BLMStreamState ayn;
-    public String order;
-
-    public String toString() {
-        return "imUk=" + this.axT + " , order=" + this.order;
-    }
+    public long ayk;
+    public String message;
 }

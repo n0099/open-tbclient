@@ -5,7 +5,7 @@ import com.bytedance.sdk.openadsdk.preload.geckox.utils.k;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d extends com.bytedance.sdk.openadsdk.preload.a.d<List<String>, List<Pair<String, Long>>> {
     private File d;
     private String e;

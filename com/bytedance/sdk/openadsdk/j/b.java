@@ -8,24 +8,25 @@ import com.bytedance.sdk.adnet.err.VAdError;
 import com.bytedance.sdk.openadsdk.j.h;
 import com.bytedance.sdk.openadsdk.j.i;
 import com.bytedance.sdk.openadsdk.j.l;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.SocketTimeoutException;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends com.bytedance.sdk.openadsdk.j.a {
     final Object m;
     final Object n;
     private final int o;
-    private final InterfaceC1018b p;
+    private final InterfaceC1022b p;
     private volatile h.a q;
     private volatile com.bytedance.sdk.openadsdk.j.c.b r;
 
     /* renamed from: com.bytedance.sdk.openadsdk.j.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1018b {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1022b {
         void a(b bVar);
     }
 
@@ -34,8 +35,8 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
         this.o = aVar.g;
         this.p = aVar.i;
         this.m = this;
-        this.g = aVar.f7235a;
-        this.h = aVar.f7236b;
+        this.g = aVar.f7237a;
+        this.h = aVar.f7238b;
         this.f = aVar.f;
         this.j = aVar.c;
         this.i = aVar.h;
@@ -44,7 +45,7 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f7217a.a(this.h);
+        this.f7219a.a(this.h);
         long elapsedRealtime = SystemClock.elapsedRealtime();
         try {
             j();
@@ -62,7 +63,7 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
             }
         }
         this.d.set(SystemClock.elapsedRealtime() - elapsedRealtime);
-        this.f7217a.b(this.h);
+        this.f7219a.b(this.h);
         if (this.p != null) {
             this.p.a(this);
         }
@@ -185,7 +186,7 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
     */
     private void a(l.a aVar) throws IOException, h.a, com.bytedance.sdk.openadsdk.j.c.a, com.bytedance.sdk.openadsdk.j.c.b, VAdError {
         boolean z = true;
-        File c = this.f7217a.c(this.h);
+        File c = this.f7219a.c(this.h);
         long length = c.length();
         if (this.o > 0 && length >= this.o) {
             if (e.c) {
@@ -195,7 +196,7 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
             return;
         }
         int f = f();
-        com.bytedance.sdk.openadsdk.j.b.a a2 = this.f7218b.a(this.h, f);
+        com.bytedance.sdk.openadsdk.j.b.a a2 = this.f7220b.a(this.h, f);
         if (a2 != null && length >= a2.c) {
             if (e.c) {
                 Log.i("TAG_PROXY_DownloadTask", "file download complete, key: " + this.h);
@@ -222,11 +223,11 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
                 }
                 throw new com.bytedance.sdk.openadsdk.j.c.b("Content-Length not match, old length: " + a2.c + ", new length: " + a5 + ", rawKey: " + this.g + ", currentUrl: " + aVar + ", previousInfo: " + a2.e);
             }
-            com.bytedance.sdk.openadsdk.j.g.d.a(a3, this.f7218b, this.h, f);
-            com.bytedance.sdk.openadsdk.j.b.a a6 = this.f7218b.a(this.h, f);
+            com.bytedance.sdk.openadsdk.j.g.d.a(a3, this.f7220b, this.h, f);
+            com.bytedance.sdk.openadsdk.j.b.a a6 = this.f7220b.a(this.h, f);
             int i = a6 == null ? 0 : a6.c;
             InputStream d = a3.d();
-            h hVar2 = new h(c, e.d ? "rwd" : "rw");
+            h hVar2 = new h(c, e.d ? "rwd" : VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             try {
                 hVar2.a(length);
                 if (e.c) {
@@ -283,21 +284,21 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f7235a;
+        String f7237a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f7236b;
+        String f7238b;
         l c;
         com.bytedance.sdk.openadsdk.j.a.a d;
         com.bytedance.sdk.openadsdk.j.b.c e;
         List<i.b> f;
         int g;
         i h;
-        InterfaceC1018b i;
+        InterfaceC1022b i;
         Object j;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -305,7 +306,7 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
             if (TextUtils.isEmpty(str)) {
                 throw new IllegalArgumentException("rawKey == null");
             }
-            this.f7235a = str;
+            this.f7237a = str;
             return this;
         }
 
@@ -314,7 +315,7 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
             if (TextUtils.isEmpty(str)) {
                 throw new IllegalArgumentException("key == null");
             }
-            this.f7236b = str;
+            this.f7238b = str;
             return this;
         }
 
@@ -358,8 +359,8 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a a(InterfaceC1018b interfaceC1018b) {
-            this.i = interfaceC1018b;
+        public a a(InterfaceC1022b interfaceC1022b) {
+            this.i = interfaceC1022b;
             return this;
         }
 
@@ -377,7 +378,7 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b a() {
-            if (this.d == null || this.e == null || TextUtils.isEmpty(this.f7235a) || TextUtils.isEmpty(this.f7236b) || this.c == null) {
+            if (this.d == null || this.e == null || TextUtils.isEmpty(this.f7237a) || TextUtils.isEmpty(this.f7238b) || this.c == null) {
                 throw new IllegalArgumentException();
             }
             return new b(this);

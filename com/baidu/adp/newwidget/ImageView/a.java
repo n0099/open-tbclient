@@ -12,7 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class a {
-    private InterfaceC0020a St;
+    private InterfaceC0020a Sr;
     private static final Matrix.ScaleToFit[] sS2FArray = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
     private static final PorterDuffColorFilter sColorFilterForSkin = new PorterDuffColorFilter(1409286144, PorterDuff.Mode.SRC_ATOP);
     public Paint mPaint = new Paint(6);
@@ -24,7 +24,7 @@ public abstract class a {
     private RectF mTempSrc = new RectF();
     private RectF mTempDst = new RectF();
     private RectF mTempForNinePatch = new RectF();
-    protected e Su = new e();
+    protected e Ss = new e();
     private float[] mValues = new float[9];
     private PointF mPoint = new PointF();
     protected RectF mForegroundRect = new RectF();
@@ -52,7 +52,7 @@ public abstract class a {
     }
 
     public void a(InterfaceC0020a interfaceC0020a) {
-        this.St = interfaceC0020a;
+        this.Sr = interfaceC0020a;
     }
 
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
@@ -99,10 +99,10 @@ public abstract class a {
                     this.mDrawMatrix.setRectToRect(this.mTempSrc, this.mTempDst, scaleTypeToScaleToFit(scaleType));
                 }
             }
-            int length = this.Su.mRadius.length;
+            int length = this.Ss.mRadius.length;
             for (int i = 0; i < length; i++) {
-                if (this.Su.mRadius[i] > 0.0f && this.Su.mRadius[i] < 1.0f) {
-                    this.Su.mRadius[i] = this.Su.mRadius[i] * this.mBounds.height();
+                if (this.Ss.mRadius[i] > 0.0f && this.Ss.mRadius[i] < 1.0f) {
+                    this.Ss.mRadius[i] = this.Ss.mRadius[i] * this.mBounds.height();
                 }
             }
             a(dVar, imageView);
@@ -121,15 +121,15 @@ public abstract class a {
         canvas.clipRect(scrollX + paddingLeft, scrollY + paddingTop, ((scrollX + imageView.getRight()) - imageView.getLeft()) - paddingRight, ((scrollY + imageView.getBottom()) - imageView.getTop()) - paddingBottom);
         canvas.translate(paddingLeft, paddingTop);
         int save2 = canvas.save();
-        if (this.Su.mExtraMatrix != null) {
-            canvas.concat(this.Su.mExtraMatrix);
+        if (this.Ss.mExtraMatrix != null) {
+            canvas.concat(this.Ss.mExtraMatrix);
         }
-        if (dVar.Sz != null && dVar.Sz.isNinePatchBitmap()) {
-            if ((dVar.Sz.getRawBitmap().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.Sz.getRawBitmap().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.mDrawMatrix != null) {
+        if (dVar.Sx != null && dVar.Sx.isNinePatchBitmap()) {
+            if ((dVar.Sx.getRawBitmap().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.Sx.getRawBitmap().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.mDrawMatrix != null) {
                 canvas.concat(this.mDrawMatrix);
             }
             this.mTempForNinePatch.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            dVar.Sz.drawNinePatchImage(canvas, this.mTempForNinePatch);
+            dVar.Sx.drawNinePatchImage(canvas, this.mTempForNinePatch);
         } else {
             b(canvas, dVar, imageView);
         }
@@ -158,13 +158,13 @@ public abstract class a {
     }
 
     protected void drawBackgroundReal(Canvas canvas, Drawable drawable) {
-        if (this.St == null || !this.St.a(canvas, drawable)) {
+        if (this.Sr == null || !this.Sr.a(canvas, drawable)) {
             drawable.draw(canvas);
         }
     }
 
     public void a(e eVar) {
-        this.Su = eVar;
+        this.Ss = eVar;
     }
 
     public Matrix getDrawMatrix() {
@@ -181,14 +181,14 @@ public abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void updatePaint() {
-        this.mPaint.setAlpha((int) (255.0f * this.Su.mAlpha));
-        if (this.Su.mIsNight) {
+        this.mPaint.setAlpha((int) (255.0f * this.Ss.mAlpha));
+        if (this.Ss.mIsNight) {
             this.mPaint.setColorFilter(sColorFilterForSkin);
         } else {
             this.mPaint.setColorFilter(null);
         }
-        this.mBorderPaint.setColor(this.Su.mBorderColor);
-        this.mBorderPaint.setStrokeWidth(this.Su.mBorderWidth);
+        this.mBorderPaint.setColor(this.Ss.mBorderColor);
+        this.mBorderPaint.setStrokeWidth(this.Ss.mBorderWidth);
     }
 
     private static Matrix.ScaleToFit scaleTypeToScaleToFit(ImageView.ScaleType scaleType) {

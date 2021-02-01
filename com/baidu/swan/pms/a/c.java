@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import okio.BufferedSource;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface c<T> extends e {
     void Q(T t);
 
@@ -22,5 +22,5 @@ public interface c<T> extends e {
 
     void ak(T t);
 
-    Map<String, Object> bce();
+    Map<String, Object> bcr();
 }

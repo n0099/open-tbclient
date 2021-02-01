@@ -9,48 +9,48 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
-    private Animation iTa;
-    private View jnl;
-    private TbImageView jnm;
-    private boolean jnn;
+    private Animation iYH;
+    private View jsR;
+    private TbImageView jsS;
+    private boolean jsT;
     private int mIconId;
     private int mSkinType;
 
     public EntelechyPullUpRefreshView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.iTa = null;
+        this.iYH = null;
         this.mIconId = R.drawable.icon_frs_reload;
-        this.jnn = false;
+        this.jsT = false;
         k(context, null);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.iTa = null;
+        this.iYH = null;
         this.mIconId = R.drawable.icon_frs_reload;
-        this.jnn = false;
+        this.jsT = false;
         k(context, attributeSet);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.iTa = null;
+        this.iYH = null;
         this.mIconId = R.drawable.icon_frs_reload;
-        this.jnn = false;
+        this.jsT = false;
         k(context, attributeSet);
     }
 
     public void setIconResource(int i) {
         this.mIconId = i;
-        ao.setImageResource(this.jnm, this.mIconId);
+        ap.setImageResource(this.jsS, this.mIconId);
     }
 
     public void k(Context context, AttributeSet attributeSet) {
@@ -58,43 +58,43 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.EntelechyPullUpRefreshView);
                 this.mIconId = obtainStyledAttributes.getResourceId(R.styleable.EntelechyPullUpRefreshView_tb_pull_up_icon, R.drawable.icon_frs_reload);
-                this.jnn = obtainStyledAttributes.getBoolean(R.styleable.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
+                this.jsT = obtainStyledAttributes.getBoolean(R.styleable.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
                 obtainStyledAttributes.recycle();
             }
             setOrientation(1);
             setGravity(1);
-            ao.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
-            if (this.jnn) {
-                this.jnl = new View(context);
-                this.jnl.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
-                ao.setBackgroundResource(this.jnl, R.color.CAM_X0204);
-                addView(this.jnl);
+            ap.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
+            if (this.jsT) {
+                this.jsR = new View(context);
+                this.jsR.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(R.dimen.ds1)));
+                ap.setBackgroundResource(this.jsR, R.color.CAM_X0204);
+                addView(this.jsR);
             }
-            this.jnm = new TbImageView(context);
+            this.jsS = new TbImageView(context);
             int dimens = l.getDimens(getContext(), R.dimen.ds48);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens, dimens);
             layoutParams.topMargin = l.getDimens(getContext(), R.dimen.ds20);
-            this.jnm.setLayoutParams(layoutParams);
-            ao.setImageResource(this.jnm, this.mIconId);
-            addView(this.jnm);
+            this.jsS.setLayoutParams(layoutParams);
+            ap.setImageResource(this.jsS, this.mIconId);
+            addView(this.jsS);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ao.setBackgroundResource(this.jnl, R.color.CAM_X0204);
-            ao.setImageResource(this.jnm, this.mIconId);
-            ao.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
+            ap.setBackgroundResource(this.jsR, R.color.CAM_X0204);
+            ap.setImageResource(this.jsS, this.mIconId);
+            ap.setBackgroundResource(this, R.color.cp_bg_line_d_alpha98);
             this.mSkinType = i;
         }
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.iTa == null) {
-            this.iTa = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
-            this.iTa.setInterpolator(new LinearInterpolator());
-            this.iTa.setFillAfter(true);
+        if (this.iYH == null) {
+            this.iYH = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
+            this.iYH.setInterpolator(new LinearInterpolator());
+            this.iYH.setFillAfter(true);
         }
-        return this.iTa;
+        return this.iYH;
     }
 }

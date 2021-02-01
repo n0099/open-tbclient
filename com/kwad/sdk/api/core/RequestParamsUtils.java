@@ -2,7 +2,7 @@ package com.kwad.sdk.api.core;
 
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class RequestParamsUtils {
     private static final String USER_AGENT = getUserAgentParams() + "ksad-android-3.3.9";
     public static final String USER_AGENT_KEY = "User-Agent";

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdTemplate implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = -5413539480595883024L;
     public int contentType;

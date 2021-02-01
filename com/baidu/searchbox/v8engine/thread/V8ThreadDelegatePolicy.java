@@ -1,7 +1,7 @@
 package com.baidu.searchbox.v8engine.thread;
 
 import com.baidu.searchbox.v8engine.V8Engine;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public interface V8ThreadDelegatePolicy {
     void doDelegateRunnable(Runnable runnable);
 

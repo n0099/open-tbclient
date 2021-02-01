@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     static final int EXIF_MAGIC_NUMBER = 65496;
     static final int EXIF_SEGMENT_TYPE = 225;
@@ -39,7 +39,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     private static final int[] BYTES_PER_FORMAT = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface Reader {
         int getByte() throws IOException;
 
@@ -278,7 +278,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static final class RandomAccessReader {
         private final ByteBuffer data;
 
@@ -313,7 +313,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static final class ByteBufferReader implements Reader {
         private final ByteBuffer byteBuffer;
 
@@ -358,7 +358,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static final class StreamReader implements Reader {
         private final InputStream is;
 

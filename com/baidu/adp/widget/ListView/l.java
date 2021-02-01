@@ -7,17 +7,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.TbSingleton;
 /* loaded from: classes.dex */
 public class l {
-    private i XU;
-    private m XV;
-    private int XW;
-    private com.baidu.tbadk.n.a.a XX;
+    private i XQ;
+    private m XR;
+    private int XS;
+    private com.baidu.tbadk.n.a.a XT;
     private int mCurrentPosition;
     private float mLastX;
     private float mLastY;
     private int mOrientation;
     private RecyclerView mRecyclerView;
     private VelocityTracker mVelocityTracker;
-    private RecyclerView.OnChildAttachStateChangeListener XY = new RecyclerView.OnChildAttachStateChangeListener() { // from class: com.baidu.adp.widget.ListView.l.1
+    private RecyclerView.OnChildAttachStateChangeListener XU = new RecyclerView.OnChildAttachStateChangeListener() { // from class: com.baidu.adp.widget.ListView.l.1
         @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
         public void onChildViewAttachedToWindow(View view) {
             l.this.E(view);
@@ -57,8 +57,8 @@ public class l {
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
                 int i = (l.this.mOrientation == 2 ? y - l.this.mLastY : x - l.this.mLastX) >= 0.0f ? 2 : 1;
-                if (i != l.this.XW) {
-                    l.this.XW = i;
+                if (i != l.this.XS) {
+                    l.this.XS = i;
                     l.this.mVelocityTracker.clear();
                 }
                 l.this.mVelocityTracker.addMovement(motionEvent);
@@ -87,8 +87,8 @@ public class l {
     };
 
     public l(j jVar) {
-        this.XU = new i(jVar);
-        this.XV = new m(jVar);
+        this.XQ = new i(jVar);
+        this.XR = new m(jVar);
     }
 
     public void a(RecyclerView recyclerView, int i) {
@@ -96,78 +96,78 @@ public class l {
             if (this.mRecyclerView != null) {
                 this.mRecyclerView.removeOnItemTouchListener(this.mOnItemTouchListener);
                 this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
-                this.mRecyclerView.removeOnChildAttachStateChangeListener(this.XY);
+                this.mRecyclerView.removeOnChildAttachStateChangeListener(this.XU);
             }
             this.mRecyclerView = recyclerView;
             this.mOrientation = i;
             if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-                this.XV.a((BdTypeRecyclerView) this.mRecyclerView, this.mOrientation);
+                this.XR.a((BdTypeRecyclerView) this.mRecyclerView, this.mOrientation);
             } else {
-                this.XU.a(this.mRecyclerView, this.mOrientation);
+                this.XQ.a(this.mRecyclerView, this.mOrientation);
             }
             this.mRecyclerView.addOnItemTouchListener(this.mOnItemTouchListener);
             this.mRecyclerView.addOnScrollListener(this.mOnScrollListener);
-            this.mRecyclerView.addOnChildAttachStateChangeListener(this.XY);
+            this.mRecyclerView.addOnChildAttachStateChangeListener(this.XU);
         }
     }
 
-    public void qL() {
+    public void qJ() {
         if (this.mRecyclerView != null) {
             this.mRecyclerView.removeOnItemTouchListener(this.mOnItemTouchListener);
             this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
-            this.mRecyclerView.removeOnChildAttachStateChangeListener(this.XY);
+            this.mRecyclerView.removeOnChildAttachStateChangeListener(this.XU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(float f, float f2) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.XV.a(f, f2, this.mCurrentPosition);
+            this.XR.a(f, f2, this.mCurrentPosition);
         }
-        this.XU.a(f, f2, this.mCurrentPosition);
+        this.XQ.a(f, f2, this.mCurrentPosition);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q(int i, int i2) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.XV.j(i, i2, this.mCurrentPosition);
+            this.XR.j(i, i2, this.mCurrentPosition);
         }
-        this.XU.j(i, i2, this.mCurrentPosition);
+        this.XQ.j(i, i2, this.mCurrentPosition);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aX(int i) {
         if (i == 1) {
             if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                if (this.XX == null) {
-                    this.XX = new com.baidu.tbadk.n.a.a("anim_switch_slide");
+                if (this.XT == null) {
+                    this.XT = new com.baidu.tbadk.n.a.a("anim_switch_slide");
                 }
-                this.XX.bDZ();
+                this.XT.bEr();
             }
-        } else if (i == 0 && this.XX != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-            this.XX.bEa();
+        } else if (i == 0 && this.XT != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+            this.XT.bEs();
         }
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.XV.aW(i);
+            this.XR.aW(i);
         }
-        this.XU.aW(i);
+        this.XQ.aW(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void E(View view) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.XV.C(view);
+            this.XR.C(view);
         } else {
-            this.XU.C(view);
+            this.XQ.C(view);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void F(View view) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.XV.D(view);
+            this.XR.D(view);
         } else {
-            this.XU.D(view);
+            this.XQ.D(view);
         }
     }
 

@@ -14,7 +14,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import com.idlefish.flutterboost.containers.FlutterFragment;
@@ -22,13 +22,15 @@ import com.idlefish.flutterboost.containers.ViewSplashScreen;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TbFlutterFragment extends FlutterFragment {
     private ContinuousAnimationView loadingView;
     private TbFlutterFragmentLifeCircleInterface mLifeCycleListener;
     private long beginTime = 0;
     private long creatTime = 0;
     private long flutterStartTime = 0;
+    private long removeDelay = 0;
+    private boolean autoPlayWhenInit = false;
     private CustomMessageListener skinTypeChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.flutter.view.TbFlutterFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -45,14 +47,22 @@ public class TbFlutterFragment extends FlutterFragment {
         MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
     }
 
+    public void removeSplashDelay(long j) {
+        this.removeDelay = j;
+    }
+
+    public void setAutoPlayWhenInit(boolean z) {
+        this.autoPlayWhenInit = z;
+    }
+
     @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
     @Nullable
     public SplashScreen provideSplashScreen() {
         FrameLayout frameLayout = new FrameLayout(getActivity());
         frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         this.loadingView = new ContinuousAnimationView(getActivity());
-        Resources resources = h.kE().getResources();
-        ao.a(this.loadingView, resources.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
+        Resources resources = h.kD().getResources();
+        ap.a(this.loadingView, resources.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
         this.loadingView.setSpeed(1.2f);
         this.loadingView.setLayoutParams(new FrameLayout.LayoutParams(resources.getDimensionPixelSize(resources.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), resources.getDimensionPixelSize(resources.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
         int identifier = resources.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
@@ -60,9 +70,13 @@ public class TbFlutterFragment extends FlutterFragment {
         if (identifier == 0) {
             frameLayout.setBackgroundColor(i);
         } else {
-            frameLayout.setBackgroundColor(ao.getColor(identifier));
+            frameLayout.setBackgroundColor(ap.getColor(identifier));
         }
         frameLayout.addView(this.loadingView);
+        if (this.autoPlayWhenInit) {
+            this.loadingView.playAnimation();
+            this.autoPlayWhenInit = false;
+        }
         return new ViewSplashScreen(frameLayout);
     }
 
@@ -81,6 +95,10 @@ public class TbFlutterFragment extends FlutterFragment {
 
     @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
+        if (this.removeDelay != 0 && getFlutterDelegate() != null && getFlutterDelegate().getBoostFlutterView() != null) {
+            getFlutterDelegate().getBoostFlutterView().removeSplashDelay(this.removeDelay);
+            this.removeDelay = 0L;
+        }
         this.flutterStartTime = System.currentTimeMillis();
         super.onResume();
     }

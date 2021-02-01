@@ -2,7 +2,7 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class f {
     public static d a(Context context, e eVar) {
         d cVar;

@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.atomdata;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UpdatesActivityConfig extends IntentConfig {
     public UpdatesActivityConfig(Context context) {
         super(context);

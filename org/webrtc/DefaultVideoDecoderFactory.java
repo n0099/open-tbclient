@@ -1,10 +1,10 @@
 package org.webrtc;
 
-import androidx.annotation.Nullable;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
+import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
     private final VideoDecoderFactory hardwareVideoDecoderFactory;
     @Nullable

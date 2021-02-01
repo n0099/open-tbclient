@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class CronetUrlRequest extends UrlRequestBase {
     public static final /* synthetic */ boolean $assertionsDisabled = !CronetUrlRequest.class.desiredAssertionStatus();
     public final boolean mAllowDirectExecutor;
@@ -49,13 +49,13 @@ public final class CronetUrlRequest extends UrlRequestBase {
     public final List<String> mUrlChain = new ArrayList();
     public final HeadersList mRequestHeaders = new HeadersList(null);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class HeadersList extends ArrayList<Map.Entry<String, String>> {
         public /* synthetic */ HeadersList(AnonymousClass1 anonymousClass1) {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private final class OnReadCompletedRunnable implements Runnable {
         public ByteBuffer mByteBuffer;
 

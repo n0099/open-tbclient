@@ -2,21 +2,21 @@ package com.baidu.live.liveroom.d;
 
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public b bnZ;
-    private List<d> aCB = new LinkedList();
-    private List<e> boa = new LinkedList();
+    public b brA;
+    private List<d> aEo = new LinkedList();
+    private List<e> brB = new LinkedList();
 
     public void a(d dVar) {
-        if (dVar != null && !this.aCB.contains(dVar)) {
-            this.aCB.add(dVar);
+        if (dVar != null && !this.aEo.contains(dVar)) {
+            this.aEo.add(dVar);
         }
     }
 
     public void a(e eVar) {
-        if (eVar != null && !this.boa.contains(eVar)) {
-            this.boa.add(eVar);
+        if (eVar != null && !this.brB.contains(eVar)) {
+            this.brB.add(eVar);
         }
     }
 }

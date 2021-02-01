@@ -1,7 +1,7 @@
 package com.baidu.android.bbalbs.common.util;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CommonParam {
 
     /* renamed from: a  reason: collision with root package name */

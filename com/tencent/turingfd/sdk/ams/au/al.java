@@ -6,14 +6,14 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import java.io.File;
 import java.util.HashSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class al extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f13472a;
+    public final /* synthetic */ an f13474a;
 
     public al(an anVar) {
-        this.f13472a = anVar;
+        this.f13474a = anVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -23,14 +23,14 @@ public class al extends Thread {
         c cVar2;
         File file;
         Context a2 = aj.a();
-        cVar = this.f13472a.g;
+        cVar = this.f13474a.g;
         j.a(a2, cVar);
         try {
             Thread.sleep(5000L);
         } catch (InterruptedException e) {
         }
-        this.f13472a.a(a2, 1, true);
-        if (f.f13522a.a(u.N.aO)) {
+        this.f13474a.a(a2, 1, true);
+        if (f.f13524a.a(u.N.aO)) {
             StringBuilder sb = new StringBuilder();
             try {
                 String[] split = new String(aj.b("/proc/self/maps")).split("\n");
@@ -67,10 +67,10 @@ public class al extends Thread {
                 sb.append(name);
             }
             String replace = sb.toString().replace("(\\|)|\\s*|\t|\r|\n", "");
-            cVar2 = this.f13472a.g;
+            cVar2 = this.f13474a.g;
             cVar2.a(a2, TbEnum.SystemMessage.EVENT_ID_DELETE_FRIEND, replace, true);
         }
-        an anVar = this.f13472a;
+        an anVar = this.f13474a;
         aqVar = anVar.d;
         anVar.c(aqVar.g(), false);
     }

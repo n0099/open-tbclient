@@ -4,108 +4,108 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.b.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class o {
-    private final a<PointF, PointF> bpA;
-    private final a<?, PointF> bpB;
-    private final a<com.baidu.live.lottie.e.d, com.baidu.live.lottie.e.d> bpC;
-    private final a<Float, Float> bpD;
-    private final a<Integer, Integer> bpE;
+    private final a<PointF, PointF> btb;
+    private final a<?, PointF> btc;
+    private final a<com.baidu.live.lottie.e.d, com.baidu.live.lottie.e.d> btd;
+    private final a<Float, Float> bte;
+    private final a<Integer, Integer> btf;
     @Nullable
-    private final a<?, Float> bpF;
+    private final a<?, Float> btg;
     @Nullable
-    private final a<?, Float> bpG;
+    private final a<?, Float> bth;
     private final Matrix matrix = new Matrix();
 
     public o(com.baidu.live.lottie.model.a.l lVar) {
-        this.bpA = lVar.LW().LU();
-        this.bpB = lVar.LX().LU();
-        this.bpC = lVar.LY().LU();
-        this.bpD = lVar.LZ().LU();
-        this.bpE = lVar.Ma().LU();
-        if (lVar.Mb() != null) {
-            this.bpF = lVar.Mb().LU();
+        this.btb = lVar.Nu().Ns();
+        this.btc = lVar.Nv().Ns();
+        this.btd = lVar.Nw().Ns();
+        this.bte = lVar.Nx().Ns();
+        this.btf = lVar.Ny().Ns();
+        if (lVar.Nz() != null) {
+            this.btg = lVar.Nz().Ns();
         } else {
-            this.bpF = null;
+            this.btg = null;
         }
-        if (lVar.Mc() != null) {
-            this.bpG = lVar.Mc().LU();
+        if (lVar.NA() != null) {
+            this.bth = lVar.NA().Ns();
         } else {
-            this.bpG = null;
+            this.bth = null;
         }
     }
 
     public void a(com.baidu.live.lottie.model.layer.a aVar) {
-        aVar.a(this.bpA);
-        aVar.a(this.bpB);
-        aVar.a(this.bpC);
-        aVar.a(this.bpD);
-        aVar.a(this.bpE);
-        if (this.bpF != null) {
-            aVar.a(this.bpF);
+        aVar.a(this.btb);
+        aVar.a(this.btc);
+        aVar.a(this.btd);
+        aVar.a(this.bte);
+        aVar.a(this.btf);
+        if (this.btg != null) {
+            aVar.a(this.btg);
         }
-        if (this.bpG != null) {
-            aVar.a(this.bpG);
+        if (this.bth != null) {
+            aVar.a(this.bth);
         }
     }
 
-    public void a(a.InterfaceC0185a interfaceC0185a) {
-        this.bpA.b(interfaceC0185a);
-        this.bpB.b(interfaceC0185a);
-        this.bpC.b(interfaceC0185a);
-        this.bpD.b(interfaceC0185a);
-        this.bpE.b(interfaceC0185a);
-        if (this.bpF != null) {
-            this.bpF.b(interfaceC0185a);
+    public void a(a.InterfaceC0186a interfaceC0186a) {
+        this.btb.b(interfaceC0186a);
+        this.btc.b(interfaceC0186a);
+        this.btd.b(interfaceC0186a);
+        this.bte.b(interfaceC0186a);
+        this.btf.b(interfaceC0186a);
+        if (this.btg != null) {
+            this.btg.b(interfaceC0186a);
         }
-        if (this.bpG != null) {
-            this.bpG.b(interfaceC0185a);
+        if (this.bth != null) {
+            this.bth.b(interfaceC0186a);
         }
     }
 
     public void setProgress(float f) {
-        this.bpA.setProgress(f);
-        this.bpB.setProgress(f);
-        this.bpC.setProgress(f);
-        this.bpD.setProgress(f);
-        this.bpE.setProgress(f);
-        if (this.bpF != null) {
-            this.bpF.setProgress(f);
+        this.btb.setProgress(f);
+        this.btc.setProgress(f);
+        this.btd.setProgress(f);
+        this.bte.setProgress(f);
+        this.btf.setProgress(f);
+        if (this.btg != null) {
+            this.btg.setProgress(f);
         }
-        if (this.bpG != null) {
-            this.bpG.setProgress(f);
+        if (this.bth != null) {
+            this.bth.setProgress(f);
         }
     }
 
-    public a<?, Integer> LP() {
-        return this.bpE;
+    public a<?, Integer> Nn() {
+        return this.btf;
     }
 
     @Nullable
-    public a<?, Float> LQ() {
-        return this.bpF;
+    public a<?, Float> No() {
+        return this.btg;
     }
 
     @Nullable
-    public a<?, Float> LR() {
-        return this.bpG;
+    public a<?, Float> Np() {
+        return this.bth;
     }
 
     public Matrix getMatrix() {
         this.matrix.reset();
-        PointF value = this.bpB.getValue();
+        PointF value = this.btc.getValue();
         if (value.x != 0.0f || value.y != 0.0f) {
             this.matrix.preTranslate(value.x, value.y);
         }
-        float floatValue = this.bpD.getValue().floatValue();
+        float floatValue = this.bte.getValue().floatValue();
         if (floatValue != 0.0f) {
             this.matrix.preRotate(floatValue);
         }
-        com.baidu.live.lottie.e.d value2 = this.bpC.getValue();
+        com.baidu.live.lottie.e.d value2 = this.btd.getValue();
         if (value2.getScaleX() != 1.0f || value2.getScaleY() != 1.0f) {
             this.matrix.preScale(value2.getScaleX(), value2.getScaleY());
         }
-        PointF value3 = this.bpA.getValue();
+        PointF value3 = this.btb.getValue();
         if (value3.x != 0.0f || value3.y != 0.0f) {
             this.matrix.preTranslate(-value3.x, -value3.y);
         }
@@ -113,10 +113,10 @@ public class o {
     }
 
     public Matrix h(float f) {
-        PointF value = this.bpB.getValue();
-        PointF value2 = this.bpA.getValue();
-        com.baidu.live.lottie.e.d value3 = this.bpC.getValue();
-        float floatValue = this.bpD.getValue().floatValue();
+        PointF value = this.btc.getValue();
+        PointF value2 = this.btb.getValue();
+        com.baidu.live.lottie.e.d value3 = this.btd.getValue();
+        float floatValue = this.bte.getValue().floatValue();
         this.matrix.reset();
         this.matrix.preTranslate(value.x * f, value.y * f);
         this.matrix.preScale((float) Math.pow(value3.getScaleX(), f), (float) Math.pow(value3.getScaleY(), f));
@@ -126,19 +126,19 @@ public class o {
 
     public <T> boolean b(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
         if (t == com.baidu.live.lottie.l.CD) {
-            this.bpA.a(cVar);
+            this.btb.a(cVar);
         } else if (t == com.baidu.live.lottie.l.CE) {
-            this.bpB.a(cVar);
-        } else if (t == com.baidu.live.lottie.l.boJ) {
-            this.bpC.a(cVar);
+            this.btc.a(cVar);
+        } else if (t == com.baidu.live.lottie.l.bsk) {
+            this.btd.a(cVar);
         } else if (t == com.baidu.live.lottie.l.CI) {
-            this.bpD.a(cVar);
+            this.bte.a(cVar);
         } else if (t == com.baidu.live.lottie.l.CB) {
-            this.bpE.a(cVar);
-        } else if (t == com.baidu.live.lottie.l.CY && this.bpF != null) {
-            this.bpF.a(cVar);
-        } else if (t == com.baidu.live.lottie.l.CZ && this.bpG != null) {
-            this.bpG.a(cVar);
+            this.btf.a(cVar);
+        } else if (t == com.baidu.live.lottie.l.CY && this.btg != null) {
+            this.btg.a(cVar);
+        } else if (t == com.baidu.live.lottie.l.CZ && this.bth != null) {
+            this.bth.a(cVar);
         } else {
             return false;
         }

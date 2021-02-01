@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class AppWidgetTarget extends SimpleTarget<Bitmap> {
     private final ComponentName componentName;
     private final Context context;

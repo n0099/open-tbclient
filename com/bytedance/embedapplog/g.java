@@ -1,7 +1,7 @@
 package com.bytedance.embedapplog;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface g {
     void onIdLoaded(String str, String str2, String str3);
 

@@ -9,7 +9,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.a.e;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.ss.android.downloadlib.a.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static com.bytedance.sdk.openadsdk.downloadnew.core.a a(Context context, l lVar, String str) {
         return new b(context, lVar, str);
@@ -24,8 +24,8 @@ public class a {
     }
 
     public static boolean a(Context context, final ExitInstallListener exitInstallListener) {
-        return com.ss.android.downloadlib.a.a.a.eBZ().a(context, false, new a.InterfaceC1216a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.1
-            @Override // com.ss.android.downloadlib.a.a.a.InterfaceC1216a
+        return com.ss.android.downloadlib.a.a.a.eEq().a(context, false, new a.InterfaceC1220a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.1
+            @Override // com.ss.android.downloadlib.a.a.a.InterfaceC1220a
             public void a() {
                 if (ExitInstallListener.this != null) {
                     ExitInstallListener.this.onExitInstall();

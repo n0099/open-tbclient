@@ -1,12 +1,12 @@
 package com.google.protobuf;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.google.protobuf.MessageLite;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class CodedInputStream {
     private static final int BUFFER_SIZE = 4096;
     private static final int DEFAULT_RECURSION_LIMIT = 64;
@@ -270,7 +270,7 @@ public final class CodedInputStream {
 
     public static int readRawVarint32(int i, InputStream inputStream) throws IOException {
         if ((i & 128) != 0) {
-            i &= 127;
+            i &= ThunderNetStateService.NetState.SYSNET_UNKNOWN;
             int i2 = 7;
             while (true) {
                 if (i2 < 32) {
@@ -278,7 +278,7 @@ public final class CodedInputStream {
                     if (read == -1) {
                         throw InvalidProtocolBufferException.truncatedMessage();
                     }
-                    i |= (read & 127) << i2;
+                    i |= (read & ThunderNetStateService.NetState.SYSNET_UNKNOWN) << i2;
                     if ((read & 128) == 0) {
                         break;
                     }
@@ -331,7 +331,7 @@ public final class CodedInputStream {
     }
 
     private CodedInputStream(byte[] bArr, int i, int i2) {
-        this.currentLimit = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.currentLimit = Integer.MAX_VALUE;
         this.recursionLimit = 64;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = bArr;
@@ -342,7 +342,7 @@ public final class CodedInputStream {
     }
 
     private CodedInputStream(InputStream inputStream) {
-        this.currentLimit = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.currentLimit = Integer.MAX_VALUE;
         this.recursionLimit = 64;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = new byte[4096];

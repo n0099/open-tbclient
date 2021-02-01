@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.coremedia.iso.boxes.Box;
@@ -31,7 +30,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AACTrackImpl extends AbstractTrack {
     static Map<Integer, String> audioObjectTypes = new HashMap();
     public static Map<Integer, Integer> samplingFrequencyIndexMap;
@@ -95,9 +94,9 @@ public class AACTrackImpl extends AbstractTrack {
         samplingFrequencyIndexMap.put(96000, 0);
         samplingFrequencyIndexMap.put(88200, 1);
         samplingFrequencyIndexMap.put(Integer.valueOf((int) AudioEncoderCore.EncodeConfig.BIT_RATE), 2);
-        samplingFrequencyIndexMap.put(Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K), 3);
+        samplingFrequencyIndexMap.put(48000, 3);
         samplingFrequencyIndexMap.put(44100, 4);
-        samplingFrequencyIndexMap.put(Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K), 5);
+        samplingFrequencyIndexMap.put(32000, 5);
         samplingFrequencyIndexMap.put(24000, 6);
         samplingFrequencyIndexMap.put(22050, 7);
         samplingFrequencyIndexMap.put(16000, 8);
@@ -107,9 +106,9 @@ public class AACTrackImpl extends AbstractTrack {
         samplingFrequencyIndexMap.put(0, 96000);
         samplingFrequencyIndexMap.put(1, 88200);
         samplingFrequencyIndexMap.put(2, Integer.valueOf((int) AudioEncoderCore.EncodeConfig.BIT_RATE));
-        samplingFrequencyIndexMap.put(3, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K));
+        samplingFrequencyIndexMap.put(3, 48000);
         samplingFrequencyIndexMap.put(4, 44100);
-        samplingFrequencyIndexMap.put(5, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K));
+        samplingFrequencyIndexMap.put(5, 32000);
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
         samplingFrequencyIndexMap.put(8, 16000);
@@ -166,10 +165,10 @@ public class AACTrackImpl extends AbstractTrack {
         this.bufferSizeDB = 1536;
         this.sampleDescriptionBox = new SampleDescriptionBox();
         AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
-        if (this.firstHeader.pMO == 7) {
+        if (this.firstHeader.pWT == 7) {
             audioSampleEntry.setChannelCount(8);
         } else {
-            audioSampleEntry.setChannelCount(this.firstHeader.pMO);
+            audioSampleEntry.setChannelCount(this.firstHeader.pWT);
         }
         audioSampleEntry.setSampleRate(this.firstHeader.sampleRate);
         audioSampleEntry.setDataReferenceIndex(1);
@@ -188,8 +187,8 @@ public class AACTrackImpl extends AbstractTrack {
         decoderConfigDescriptor.setAvgBitRate(this.avgBitRate);
         AudioSpecificConfig audioSpecificConfig = new AudioSpecificConfig();
         audioSpecificConfig.setAudioObjectType(2);
-        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.pML);
-        audioSpecificConfig.setChannelConfiguration(this.firstHeader.pMO);
+        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.pWQ);
+        audioSpecificConfig.setChannelConfiguration(this.firstHeader.pWT);
         decoderConfigDescriptor.setAudioSpecificInfo(audioSpecificConfig);
         eSDescriptor.setDecoderConfigDescriptor(decoderConfigDescriptor);
         ByteBuffer serialize = eSDescriptor.serialize();
@@ -257,20 +256,20 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a {
+        int frameLength;
         int home;
         int layer;
         int original;
-        int pML;
-        int pMM;
-        int pMN;
-        int pMO;
-        int pMP;
-        int pMQ;
-        int pMR;
-        int pMS;
-        int pMT;
+        int pWQ;
+        int pWR;
+        int pWS;
+        int pWT;
+        int pWU;
+        int pWV;
+        int pWW;
+        int pWX;
         int profile;
         int sampleRate;
 
@@ -278,7 +277,7 @@ public class AACTrackImpl extends AbstractTrack {
         }
 
         int getSize() {
-            return (this.pMN == 0 ? 2 : 0) + 7;
+            return (this.pWS == 0 ? 2 : 0) + 7;
         }
     }
 
@@ -294,25 +293,25 @@ public class AACTrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(12) != 4095) {
             throw new IOException("Expected Start Word 0xfff");
         }
-        aVar.pMM = bitReaderBuffer.readBits(1);
+        aVar.pWR = bitReaderBuffer.readBits(1);
         aVar.layer = bitReaderBuffer.readBits(2);
-        aVar.pMN = bitReaderBuffer.readBits(1);
+        aVar.pWS = bitReaderBuffer.readBits(1);
         aVar.profile = bitReaderBuffer.readBits(2) + 1;
-        aVar.pML = bitReaderBuffer.readBits(4);
-        aVar.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(aVar.pML)).intValue();
+        aVar.pWQ = bitReaderBuffer.readBits(4);
+        aVar.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(aVar.pWQ)).intValue();
         bitReaderBuffer.readBits(1);
-        aVar.pMO = bitReaderBuffer.readBits(3);
+        aVar.pWT = bitReaderBuffer.readBits(3);
         aVar.original = bitReaderBuffer.readBits(1);
         aVar.home = bitReaderBuffer.readBits(1);
-        aVar.pMP = bitReaderBuffer.readBits(1);
-        aVar.pMQ = bitReaderBuffer.readBits(1);
-        aVar.pMR = bitReaderBuffer.readBits(13);
-        aVar.pMS = bitReaderBuffer.readBits(11);
-        aVar.pMT = bitReaderBuffer.readBits(2) + 1;
-        if (aVar.pMT != 1) {
+        aVar.pWU = bitReaderBuffer.readBits(1);
+        aVar.pWV = bitReaderBuffer.readBits(1);
+        aVar.frameLength = bitReaderBuffer.readBits(13);
+        aVar.pWW = bitReaderBuffer.readBits(11);
+        aVar.pWX = bitReaderBuffer.readBits(2) + 1;
+        if (aVar.pWX != 1) {
             throw new IOException("This muxer can only work with 1 AAC frame per ADTS frame");
         }
-        if (aVar.pMN == 0) {
+        if (aVar.pWS == 0) {
             dataSource.read(ByteBuffer.allocate(2));
         }
         return aVar;
@@ -326,9 +325,9 @@ public class AACTrackImpl extends AbstractTrack {
                 if (aVar == null) {
                     aVar = readADTSHeader;
                 }
-                ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.pMR - readADTSHeader.getSize());
+                ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.frameLength - readADTSHeader.getSize());
                 this.samples.add(new SampleImpl(map));
-                dataSource.position((dataSource.position() + readADTSHeader.pMR) - readADTSHeader.getSize());
+                dataSource.position((dataSource.position() + readADTSHeader.frameLength) - readADTSHeader.getSize());
                 map.rewind();
             } else {
                 return aVar;
@@ -337,6 +336,6 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     public String toString() {
-        return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.pMO + '}';
+        return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.pWT + '}';
     }
 }

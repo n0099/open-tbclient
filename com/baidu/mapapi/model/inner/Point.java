@@ -1,7 +1,7 @@
 package com.baidu.mapapi.model.inner;
 
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Point implements Serializable {
     public int x;
     public int y;

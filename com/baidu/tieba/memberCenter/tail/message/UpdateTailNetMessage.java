@@ -2,10 +2,10 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.UpdateTail.ReqData;
 import tbclient.UpdateTail.UpdateTailReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UpdateTailNetMessage extends NetMessage {
     ReqData.Builder data;
     UpdateTailReqIdl.Builder idl;
@@ -23,7 +23,7 @@ public class UpdateTailNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         if (z) {
-            t.b(this.data, true);
+            v.b(this.data, true);
         }
         this.idl.data = this.data.build(false);
         return this.idl.build(false);

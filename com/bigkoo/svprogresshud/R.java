@@ -19,11 +19,11 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class attr {
-        public static final int svprogress_max = 0x7f0404cd;
-        public static final int svprogress_roundColor = 0x7f0404ce;
-        public static final int svprogress_roundProgressColor = 0x7f0404cf;
-        public static final int svprogress_roundWidth = 0x7f0404d0;
-        public static final int svprogress_style = 0x7f0404d1;
+        public static final int svprogress_max = 0x7f040502;
+        public static final int svprogress_roundColor = 0x7f040503;
+        public static final int svprogress_roundProgressColor = 0x7f040504;
+        public static final int svprogress_roundWidth = 0x7f040505;
+        public static final int svprogress_style = 0x7f040506;
 
         private attr() {
         }
@@ -31,12 +31,12 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class color {
-        public static final int bgColor_overlay = 0x7f060332;
-        public static final int bgColor_overlay_black = 0x7f060333;
-        public static final int bgColor_svprogressdefaultview = 0x7f060334;
-        public static final int roundColor_svprogresshuddefault = 0x7f0608dc;
-        public static final int roundProgressColor_svprogresshuddefault = 0x7f0608dd;
-        public static final int textColor_svprogresshuddefault_msg = 0x7f060bbb;
+        public static final int bgColor_overlay = 0x7f06033f;
+        public static final int bgColor_overlay_black = 0x7f060340;
+        public static final int bgColor_svprogressdefaultview = 0x7f060341;
+        public static final int roundColor_svprogresshuddefault = 0x7f0608e8;
+        public static final int roundProgressColor_svprogresshuddefault = 0x7f0608e9;
+        public static final int textColor_svprogresshuddefault_msg = 0x7f060bd8;
 
         private color() {
         }
@@ -44,13 +44,13 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class dimen {
-        public static final int margintop_svprogresshuddefault_msg = 0x7f0703fa;
-        public static final int padding_svprogresshuddefault = 0x7f070449;
-        public static final int radius_svprogresshuddefault = 0x7f070469;
-        public static final int size_image_bigloading = 0x7f07073c;
-        public static final int size_image_smallloading = 0x7f07073d;
-        public static final int size_minwidth_svprogresshuddefault = 0x7f07073e;
-        public static final int textSize_svprogresshuddefault_msg = 0x7f0709ed;
+        public static final int margintop_svprogresshuddefault_msg = 0x7f0703fb;
+        public static final int padding_svprogresshuddefault = 0x7f07044a;
+        public static final int radius_svprogresshuddefault = 0x7f07046a;
+        public static final int size_image_bigloading = 0x7f07073f;
+        public static final int size_image_smallloading = 0x7f070740;
+        public static final int size_minwidth_svprogresshuddefault = 0x7f070741;
+        public static final int textSize_svprogresshuddefault_msg = 0x7f0709f1;
 
         private dimen() {
         }
@@ -58,12 +58,12 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class drawable {
-        public static final int bg_overlay_gradient = 0x7f080657;
-        public static final int bg_svprogresshuddefault = 0x7f0806b6;
-        public static final int ic_svstatus_error = 0x7f080e58;
-        public static final int ic_svstatus_info = 0x7f080e59;
-        public static final int ic_svstatus_loading = 0x7f080e5a;
-        public static final int ic_svstatus_success = 0x7f080e5b;
+        public static final int bg_overlay_gradient = 0x7f08066f;
+        public static final int bg_svprogresshuddefault = 0x7f0806cd;
+        public static final int ic_svstatus_error = 0x7f080e05;
+        public static final int ic_svstatus_info = 0x7f080e06;
+        public static final int ic_svstatus_loading = 0x7f080e07;
+        public static final int ic_svstatus_success = 0x7f080e08;
 
         private drawable() {
         }
@@ -73,11 +73,11 @@ public final class R {
     public static final class id {
         public static final int FILL = 0x7f090008;
         public static final int STROKE = 0x7f090012;
-        public static final int circleProgressBar = 0x7f090afc;
-        public static final int ivBigLoading = 0x7f091670;
-        public static final int ivSmallLoading = 0x7f091671;
-        public static final int sv_outmost_container = 0x7f0926d2;
-        public static final int tvMsg = 0x7f092b3a;
+        public static final int circleProgressBar = 0x7f090b10;
+        public static final int ivBigLoading = 0x7f0916bc;
+        public static final int ivSmallLoading = 0x7f0916bd;
+        public static final int sv_outmost_container = 0x7f092746;
+        public static final int tvMsg = 0x7f092bba;
 
         private id() {
         }
@@ -93,8 +93,8 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int layout_svprogresshud = 0x7f0c0631;
-        public static final int view_svprogressdefault = 0x7f0c09ec;
+        public static final int layout_svprogresshud = 0x7f0c0643;
+        public static final int view_svprogressdefault = 0x7f0c0a00;
 
         private layout() {
         }

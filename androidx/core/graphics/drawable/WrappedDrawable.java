@@ -3,7 +3,7 @@ package androidx.core.graphics.drawable;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public interface WrappedDrawable {
     Drawable getWrappedDrawable();
 

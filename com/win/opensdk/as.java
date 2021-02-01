@@ -19,31 +19,31 @@ public class as {
     /* loaded from: classes3.dex */
     public static class a {
         String java;
-        private boolean pYM;
+        private boolean qiQ;
 
         public a(String str, boolean z) {
             this.java = str;
-            this.pYM = z;
+            this.qiQ = z;
         }
     }
 
     /* loaded from: classes3.dex */
     public static class b implements ServiceConnection {
-        private Context pYJ;
-        boolean pYM = false;
-        final BlockingQueue<IBinder> qae = new LinkedBlockingQueue();
+        private Context qiN;
+        boolean qiQ = false;
+        final BlockingQueue<IBinder> qki = new LinkedBlockingQueue();
 
         public b(Context context) {
-            this.pYJ = context;
+            this.qiN = context;
         }
 
         @Override // android.content.ServiceConnection
         public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.qae.put(iBinder);
-                String java = java.AbstractBinderC1273java.java(iBinder).java();
+                this.qki.put(iBinder);
+                String java = java.AbstractBinderC1277java.java(iBinder).java();
                 if (!TextUtils.isEmpty(java)) {
-                    az.bJ(this.pYJ, java);
+                    az.bI(this.qiN, java);
                 }
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -57,7 +57,7 @@ public class as {
         }
     }
 
-    public static a iN(Context context) {
+    public static a iQ(Context context) {
         Intent intent;
         if (!(RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER)) || Build.VERSION.SDK_INT < 23) {
             return null;
@@ -72,14 +72,14 @@ public class as {
             context.unbindService(bVar);
         }
         if (context.bindService(intent, bVar, 1)) {
-            if (bVar.pYM) {
+            if (bVar.qiQ) {
                 throw new IllegalStateException("Binder already consumed");
             }
-            IBinder take = bVar.qae.take();
+            IBinder take = bVar.qki.take();
             if (take != null) {
-                bVar.pYM = true;
+                bVar.qiQ = true;
             }
-            java java2 = java.AbstractBinderC1273java.java(take);
+            java java2 = java.AbstractBinderC1277java.java(take);
             return new a(java2.java(), java2.m78java());
         }
         return null;

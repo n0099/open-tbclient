@@ -6,12 +6,12 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 /* loaded from: classes3.dex */
 final class l extends WebChromeClient {
-    private y pZl;
-    private h pZp;
+    private y qjp;
+    private h qjt;
 
     public l(y yVar, h hVar) {
-        this.pZl = yVar;
-        this.pZp = hVar;
+        this.qjp = yVar;
+        this.qjt = hVar;
     }
 
     @Override // android.webkit.WebChromeClient
@@ -21,10 +21,10 @@ final class l extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public final boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.pZl == null || this.pZl.getDispatcher() == null) {
+        if (this.qjp == null || this.qjp.getDispatcher() == null) {
             return super.onJsAlert(webView, str, str2, jsResult);
         }
-        this.pZl.getDispatcher();
+        this.qjp.getDispatcher();
         return false;
     }
 }

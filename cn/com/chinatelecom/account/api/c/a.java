@@ -5,6 +5,7 @@ import android.net.Network;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.thunder.livesdk.ThunderRtcConstant;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
@@ -179,7 +180,7 @@ public final class a {
                 th.printStackTrace();
             }
         }
-        return i.a(-8001, "请求网络异常- redirect 30002 ");
+        return i.a(ThunderRtcConstant.ThunderRet.THUNDER_RET_LOG_ENGINE_ERROR, "请求网络异常- redirect 30002 ");
     }
 
     public static String a(String str) {

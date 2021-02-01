@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends d {
     private static final Interpolator l = new AccelerateDecelerateInterpolator();
     private static final Interpolator m = new Interpolator() { // from class: com.kwad.sdk.contentalliance.home.swipe.c.1
@@ -23,10 +23,10 @@ public class c extends d {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f8746a;
+    private final int f8748a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f8747b;
+    private final int f8749b;
     private final int c;
     private VelocityTracker d;
     private float e;
@@ -41,8 +41,8 @@ public class c extends d {
 
     public c(Context context) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-        this.f8746a = (int) (context.getResources().getDisplayMetrics().density * 400.0f);
-        this.f8747b = viewConfiguration.getScaledMaximumFlingVelocity();
+        this.f8748a = (int) (context.getResources().getDisplayMetrics().density * 400.0f);
+        this.f8749b = viewConfiguration.getScaledMaximumFlingVelocity();
         this.c = viewConfiguration.getScaledPagingTouchSlop();
     }
 
@@ -211,7 +211,7 @@ public class c extends d {
         if (this.g == 0) {
             this.g = SystemClock.elapsedRealtime();
         }
-        if (SystemClock.elapsedRealtime() - this.g >= 80 || Math.abs(e()) < this.f8746a) {
+        if (SystemClock.elapsedRealtime() - this.g >= 80 || Math.abs(e()) < this.f8748a) {
             return false;
         }
         this.e = motionEvent.getX();
@@ -220,7 +220,7 @@ public class c extends d {
 
     private void d() {
         int e = e();
-        if (Math.abs(e) >= this.f8746a) {
+        if (Math.abs(e) >= this.f8748a) {
             if (e < 0) {
                 a(this.h, 0.0f, true);
             } else {
@@ -235,7 +235,7 @@ public class c extends d {
 
     private int e() {
         VelocityTracker velocityTracker = this.d;
-        velocityTracker.computeCurrentVelocity(1000, this.f8747b);
+        velocityTracker.computeCurrentVelocity(1000, this.f8749b);
         return (int) velocityTracker.getXVelocity();
     }
 

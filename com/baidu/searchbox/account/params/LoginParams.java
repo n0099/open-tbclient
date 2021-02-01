@@ -2,7 +2,7 @@ package com.baidu.searchbox.account.params;
 
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class LoginParams {
     public static final int ANIM_LOGIN_LEFT_RIGHT = 10;
     public static final int ANIM_LOGIN_TOP_BOTTOM = 11;
@@ -42,7 +42,7 @@ public final class LoginParams {
         this.mNormalAccountSubTitle = builder.mNormalAccountSubTitle;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         private int mLoginPageAnim;
         private UserAccountActionItem mLoginSrc;

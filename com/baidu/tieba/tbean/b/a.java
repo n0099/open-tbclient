@@ -5,11 +5,11 @@ import com.baidu.adp.widget.ListView.n;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.GetIconList.Custom;
 import tbclient.GetIconList.Setting;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends BaseCardInfo implements n {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public Custom nsH;
-    public Setting nsI;
+    public Custom nCq;
+    public Setting nCr;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {

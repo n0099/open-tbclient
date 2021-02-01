@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends a {
     private final JSONObject c;
 
@@ -34,13 +34,13 @@ public class c extends a {
         }
         if (!TextUtils.isEmpty(optString4)) {
             try {
-                intent.setData(Uri.parse(String.format(optString4, this.f13008b)));
+                intent.setData(Uri.parse(String.format(optString4, this.f13010b)));
             } catch (Throwable th) {
             }
         }
         intent.setFlags(optInt);
         if (!TextUtils.isEmpty(optString3)) {
-            intent.putExtra(optString3, this.f13008b);
+            intent.putExtra(optString3, this.f13010b);
         }
         a(intent, optJSONObject, optJSONObject2);
         return intent;

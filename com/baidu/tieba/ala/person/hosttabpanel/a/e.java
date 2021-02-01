@@ -6,7 +6,7 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.hosttabpanel.d.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends AbsDelegateAdapter<com.baidu.tieba.ala.person.hosttabpanel.b.d, e.a> {
     private TbPageContext mPageContext;
 
@@ -28,7 +28,7 @@ public class e extends AbsDelegateAdapter<com.baidu.tieba.ala.person.hosttabpane
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.person.hosttabpanel.b.d dVar, e.a aVar) {
-        aVar.hSh.onBindDataToView(dVar);
+        aVar.hWC.onBindDataToView(dVar);
         return aVar.getView();
     }
 }

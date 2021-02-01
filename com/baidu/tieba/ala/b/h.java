@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface h {
     void a(g gVar);
 

@@ -20,10 +20,10 @@ import java.io.IOException;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f14118a = null;
+    private static String f14120a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f14119b = "";
+    private static String f14121b = "";
     private static String c = null;
     private static String d = null;
     private static final String e = String.valueOf((char) 2);
@@ -545,8 +545,8 @@ public class i {
         if (l.d()) {
             return "";
         }
-        if (f14118a != null) {
-            return f14118a;
+        if (f14120a != null) {
+            return f14120a;
         }
         try {
             String str2 = (!l.m526a() || (a2 = ba.a("miui.telephony.TelephonyManager", "getDefault", new Object[0])) == null || (a3 = ba.a(a2, "getMiuiDeviceId", new Object[0])) == null || !(a3 instanceof String)) ? null : (String) String.class.cast(a3);
@@ -562,7 +562,7 @@ public class i {
                 if (b(str)) {
                     return "";
                 }
-                f14118a = str;
+                f14120a = str;
                 return str;
             }
             str = str2;
@@ -594,10 +594,10 @@ public class i {
 
     public static String i(Context context) {
         if (!l.d() && Build.VERSION.SDK_INT >= 22) {
-            if (TextUtils.isEmpty(f14119b)) {
+            if (TextUtils.isEmpty(f14121b)) {
                 if (m422d(context)) {
                     g(context);
-                    if (TextUtils.isEmpty(f14118a)) {
+                    if (TextUtils.isEmpty(f14120a)) {
                         return "";
                     }
                     try {
@@ -615,15 +615,15 @@ public class i {
                             } else if (2 == telephonyManager.getPhoneType()) {
                                 str = (String) ba.a(telephonyManager, "getMeid", Integer.valueOf(i));
                             }
-                            if (!TextUtils.isEmpty(str) && !TextUtils.equals(f14118a, str) && b(str)) {
-                                f14119b += str + ",";
+                            if (!TextUtils.isEmpty(str) && !TextUtils.equals(f14120a, str) && b(str)) {
+                                f14121b += str + ",";
                             }
                         }
-                        int length = f14119b.length();
+                        int length = f14121b.length();
                         if (length > 0) {
-                            f14119b = f14119b.substring(0, length - 1);
+                            f14121b = f14121b.substring(0, length - 1);
                         }
-                        return f14119b;
+                        return f14121b;
                     } catch (Exception e2) {
                         com.xiaomi.channel.commonutils.logger.b.d(e2.toString());
                         return "";
@@ -631,18 +631,18 @@ public class i {
                 }
                 return "";
             }
-            return f14119b;
+            return f14121b;
         }
         return "";
     }
 
     public static String j(Context context) {
         i(context);
-        if (TextUtils.isEmpty(f14119b)) {
+        if (TextUtils.isEmpty(f14121b)) {
             return "";
         }
         String str = "";
-        for (String str2 : f14119b.split(",")) {
+        for (String str2 : f14121b.split(",")) {
             if (b(str2)) {
                 str = str + bf.a(str2) + ",";
             }

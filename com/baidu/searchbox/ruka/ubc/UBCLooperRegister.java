@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UBCLooperRegister extends ILooperRegister {
     private static final String KEY_EXT = "ext";
     private static final String TAG = "UBCLooperRegister";

@@ -25,7 +25,7 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
@@ -35,7 +35,7 @@ public class b {
     private OkHttpClient f1401a = a();
     private Context c;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class a implements Interceptor {
         public a() {
         }

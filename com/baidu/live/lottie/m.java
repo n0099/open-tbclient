@@ -2,7 +2,7 @@ package com.baidu.live.lottie;
 
 import androidx.annotation.Nullable;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class m<V> {
     @Nullable
     private final Throwable exception;
@@ -25,7 +25,7 @@ public final class m<V> {
     }
 
     @Nullable
-    public Throwable im() {
+    public Throwable il() {
         return this.exception;
     }
 
@@ -36,10 +36,10 @@ public final class m<V> {
         if (obj instanceof m) {
             m mVar = (m) obj;
             if (getValue() == null || !getValue().equals(mVar.getValue())) {
-                if (im() == null || mVar.im() == null) {
+                if (il() == null || mVar.il() == null) {
                     return false;
                 }
-                return im().toString().equals(im().toString());
+                return il().toString().equals(il().toString());
             }
             return true;
         }
@@ -47,6 +47,6 @@ public final class m<V> {
     }
 
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{getValue(), im()});
+        return Arrays.hashCode(new Object[]{getValue(), il()});
     }
 }

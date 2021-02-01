@@ -5,18 +5,17 @@ import android.graphics.Point;
 import android.hardware.Camera;
 import android.view.WindowManager;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 final class b {
-    private static final Pattern mFg = Pattern.compile(",");
+    private static final Pattern mOl = Pattern.compile(",");
     private final Context mContext;
-    private Point mFh;
-    private Point mFi;
-    private Point mFj;
+    private Point mOm;
+    private Point mOn;
+    private Point mOo;
 
     public b(Context context) {
         this.mContext = context;
@@ -27,20 +26,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.mFh = a.gK(this.mContext);
+        this.mOm = a.gN(this.mContext);
         Point point = new Point();
-        point.x = this.mFh.x;
-        point.y = this.mFh.y;
-        int gJ = a.gJ(this.mContext);
-        if (gJ == 0) {
-            point.x = this.mFh.y;
-            point.y = this.mFh.x;
+        point.x = this.mOm.x;
+        point.y = this.mOm.y;
+        int gM = a.gM(this.mContext);
+        if (gM == 0) {
+            point.x = this.mOm.y;
+            point.y = this.mOm.x;
         }
-        this.mFj = a(parameters, point);
-        if (gJ == 0) {
-            this.mFi = new Point(this.mFj.y, this.mFj.x);
+        this.mOo = a(parameters, point);
+        if (gM == 0) {
+            this.mOn = new Point(this.mOo.y, this.mOo.x);
         } else {
-            this.mFi = this.mFj;
+            this.mOn = this.mOo;
         }
     }
 
@@ -48,15 +47,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point dAh() {
-        return this.mFi;
+    public Point dCr() {
+        return this.mOn;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.mFj.x, this.mFj.y);
+        parameters.setPreviewSize(this.mOo.x, this.mOo.y);
         c(parameters);
-        camera.setDisplayOrientation(dAi());
+        camera.setDisplayOrientation(dCs());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +70,7 @@ final class b {
         return null;
     }
 
-    public int dAi() {
+    public int dCs() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -86,7 +85,7 @@ final class b {
                 i = 180;
                 break;
             case 3:
-                i = SubsamplingScaleImageView.ORIENTATION_270;
+                i = 270;
                 break;
             default:
                 i = 0;
@@ -141,7 +140,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = mFg.split(charSequence);
+        String[] split = mOl.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

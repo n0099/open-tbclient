@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.data;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class q {
-    public String aSf;
-    public CharSequence gQs;
-    public String gQt;
+    public String aVj;
+    public CharSequence gTc;
+    public String gTd;
     public String nickname;
 }

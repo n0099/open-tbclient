@@ -9,11 +9,11 @@ import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class AbstractRequest implements Request {
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11578b;
+    private int f11580b;
     private int c;
     private int d;
     private String e;
@@ -21,7 +21,7 @@ public abstract class AbstractRequest implements Request {
     private byte[] k;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f11577a = true;
+    private boolean f11579a = true;
     private Map<String, String> f = new HashMap();
     private Map<String, String> g = new HashMap();
     private Map<String, String> h = Collections.unmodifiableMap(this.f);
@@ -98,7 +98,7 @@ public abstract class AbstractRequest implements Request {
 
     @Override // com.qq.e.comm.net.rr.Request
     public int getPriority() {
-        return this.f11578b;
+        return this.f11580b;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
@@ -130,11 +130,11 @@ public abstract class AbstractRequest implements Request {
 
     @Override // com.qq.e.comm.net.rr.Request
     public boolean isAutoClose() {
-        return this.f11577a;
+        return this.f11579a;
     }
 
     public void setAutoClose(boolean z) {
-        this.f11577a = z;
+        this.f11579a = z;
     }
 
     @Override // com.qq.e.comm.net.rr.Request
@@ -143,7 +143,7 @@ public abstract class AbstractRequest implements Request {
     }
 
     public void setPriority(int i) {
-        this.f11578b = i;
+        this.f11580b = i;
     }
 
     @Override // com.qq.e.comm.net.rr.Request

@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = "ConnectManager";

@@ -11,7 +11,7 @@ import com.kwad.sdk.glide.load.d;
 import com.kwad.sdk.glide.load.h;
 import com.kwad.sdk.glide.load.resource.bitmap.DownsampleStrategy;
 import com.kwad.sdk.glide.request.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a extends f implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.request.a

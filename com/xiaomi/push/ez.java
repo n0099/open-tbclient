@@ -10,6 +10,6 @@ public class ez extends com.xiaomi.clientreport.processor.b {
 
     @Override // com.xiaomi.clientreport.processor.b
     public void a(List<String> list) {
-        fa.a(this.f13783a, list);
+        fa.a(this.f13785a, list);
     }
 }

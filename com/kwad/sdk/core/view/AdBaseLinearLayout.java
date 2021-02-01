@@ -8,14 +8,14 @@ import android.widget.LinearLayout;
 import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdBaseLinearLayout extends LinearLayout {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final s.a f9510b = new s.a();
+    private static final s.a f9512b = new s.a();
 
     /* renamed from: a  reason: collision with root package name */
-    private View.OnTouchListener f9511a;
+    private View.OnTouchListener f9513a;
 
     public AdBaseLinearLayout(Context context) {
         super(context);
@@ -31,16 +31,16 @@ public class AdBaseLinearLayout extends LinearLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.f9511a != null) {
-            this.f9511a.onTouch(this, motionEvent);
+        if (this.f9513a != null) {
+            this.f9513a.onTouch(this, motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
-                f9510b.a(getWidth(), getHeight());
-                f9510b.a(motionEvent.getX(), motionEvent.getY());
+                f9512b.a(getWidth(), getHeight());
+                f9512b.a(motionEvent.getX(), motionEvent.getY());
                 break;
             case 1:
-                f9510b.b(motionEvent.getX(), motionEvent.getY());
+                f9512b.b(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -48,10 +48,10 @@ public class AdBaseLinearLayout extends LinearLayout {
 
     @MainThread
     public s.a getTouchCoords() {
-        return f9510b;
+        return f9512b;
     }
 
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
-        this.f9511a = onTouchListener;
+        this.f9513a = onTouchListener;
     }
 }

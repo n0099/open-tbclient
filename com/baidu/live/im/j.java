@@ -2,9 +2,9 @@ package com.baidu.live.im;
 
 import android.view.View;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface j {
-    void IE();
+    void Kc();
 
     void a(String str, String str2, boolean z, String str3, String str4);
 

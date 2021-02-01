@@ -3,30 +3,30 @@ package com.baidu.swan.games.audio.a;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String eaC;
-    private com.baidu.swan.games.network.b eaD;
-    private HashMap<String, c> eaB = new HashMap<>();
+    private String ecJ;
+    private com.baidu.swan.games.network.b ecK;
+    private HashMap<String, c> ecI = new HashMap<>();
     private HashMap<String, ArrayList<a>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
 
     public b(String str) {
-        this.eaC = str;
+        this.ecJ = str;
     }
 
-    private boolean vD(String str) {
-        return this.eaB.containsKey(str);
+    private boolean vW(String str) {
+        return this.ecI.containsKey(str);
     }
 
     public void a(String str, a aVar) {
         synchronized (this.mObject) {
-            if (!vD(str)) {
+            if (!vW(str)) {
                 if (DEBUG) {
                     Log.e("AudioDownloadManager", "start load url = " + str);
                 }
-                vE(str);
+                vX(str);
             } else if (DEBUG) {
                 Log.e("AudioDownloadManager", "re load url = " + str);
             }
@@ -34,15 +34,15 @@ public class b implements a {
         }
     }
 
-    public void vE(String str) {
+    public void vX(String str) {
         if (DEBUG) {
             Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
         }
-        if (this.eaD == null) {
-            this.eaD = com.baidu.swan.games.network.b.aXo();
+        if (this.ecK == null) {
+            this.ecK = com.baidu.swan.games.network.b.aXA();
         }
-        c cVar = new c(this.eaD, this.eaC, str, this);
-        this.eaB.put(str, cVar);
+        c cVar = new c(this.ecK, this.ecJ, str, this);
+        this.ecI.put(str, cVar);
         cVar.load();
     }
 
@@ -57,32 +57,32 @@ public class b implements a {
     }
 
     @Override // com.baidu.swan.games.audio.a.a
-    public void cQ(String str, String str2) {
+    public void cK(String str, String str2) {
         ArrayList<a> arrayList;
         synchronized (this.mObject) {
-            if (vD(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (vW(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
-                    arrayList.get(i).cQ(str, str2);
+                    arrayList.get(i).cK(str, str2);
                     if (DEBUG) {
                         Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.eaB.remove(str);
+                this.ecI.remove(str);
             }
         }
     }
 
     @Override // com.baidu.swan.games.audio.a.a
-    public void ax(int i, String str) {
+    public void aB(int i, String str) {
         ArrayList<a> arrayList;
         synchronized (this.mObject) {
-            if (vD(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (vW(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    arrayList.get(i2).ax(i, str);
+                    arrayList.get(i2).aB(i, str);
                 }
-                this.eaB.remove(str);
+                this.ecI.remove(str);
             }
         }
     }

@@ -17,11 +17,11 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ae {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean f(File file, String str) {
+    public static boolean e(File file, String str) {
         return a(file, str, (com.baidu.swan.apps.ao.a.c) null);
     }
 
@@ -33,7 +33,7 @@ public class ae {
         boolean z = file == null;
         if (z || !file.exists() || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.dNy = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
+                cVar.dPE = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
             }
             return false;
         }
@@ -55,19 +55,19 @@ public class ae {
         boolean z = readableByteChannel == null;
         if (z || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.dNy = "zipSource isNullIs=" + z;
+                cVar.dPE = "zipSource isNullIs=" + z;
                 return false;
             }
             return false;
         }
         String a2 = com.baidu.swan.c.e.a(readableByteChannel, false);
         if (cVar != null) {
-            cVar.dNy = a2;
+            cVar.dPE = a2;
         }
         try {
-            String str2 = new String(b(Base64.decode(str.getBytes("utf-8"), 8), tH("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
+            String str2 = new String(b(Base64.decode(str.getBytes("utf-8"), 8), ua("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
             if (cVar != null) {
-                cVar.dNz = str2;
+                cVar.dPF = str2;
             }
             return TextUtils.equals(str2, a2);
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class ae {
                 e.printStackTrace();
             }
             if (cVar != null) {
-                cVar.dNz = e.getLocalizedMessage();
+                cVar.dPF = e.getLocalizedMessage();
                 return false;
             }
             return false;
@@ -89,7 +89,7 @@ public class ae {
         return cipher.doFinal(bArr);
     }
 
-    private static PublicKey tH(String str) {
+    private static PublicKey ua(String str) {
         try {
             return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
         } catch (UnsupportedEncodingException e) {

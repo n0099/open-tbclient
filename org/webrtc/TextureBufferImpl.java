@@ -2,10 +2,10 @@ package org.webrtc;
 
 import android.graphics.Matrix;
 import android.os.Handler;
-import androidx.annotation.Nullable;
 import java.util.concurrent.Callable;
+import javax.annotation.Nullable;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TextureBufferImpl implements VideoFrame.TextureBuffer {
     private final int height;
     private final int id;

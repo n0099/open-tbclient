@@ -4,14 +4,14 @@ import java.nio.charset.Charset;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f5982a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
+    private static final Pattern f5984a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Pattern f5983b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
+    private static final Pattern f5985b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
     private final String c;
     private final String d;
     private final String e;
@@ -24,12 +24,12 @@ public final class y {
         this.f = str4;
     }
 
-    public static y XM(String str) {
-        Matcher matcher = f5982a.matcher(str);
+    public static y YN(String str) {
+        Matcher matcher = f5984a.matcher(str);
         if (matcher.lookingAt()) {
             String lowerCase = matcher.group(1).toLowerCase(Locale.US);
             String lowerCase2 = matcher.group(2).toLowerCase(Locale.US);
-            Matcher matcher2 = f5983b.matcher(str);
+            Matcher matcher2 = f5985b.matcher(str);
             String str2 = null;
             for (int end = matcher.end(); end < str.length(); end = matcher2.end()) {
                 matcher2.region(end, str.length());
@@ -57,7 +57,7 @@ public final class y {
         return null;
     }
 
-    public Charset enI() {
+    public Charset eqb() {
         return a(null);
     }
 

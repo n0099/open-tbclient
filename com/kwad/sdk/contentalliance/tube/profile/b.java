@@ -10,17 +10,17 @@ import com.kwad.sdk.api.proxy.app.BaseFragmentActivity;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends IFragmentActivityProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    private TubeProfileParam f8956a;
+    private TubeProfileParam f8958a;
 
     /* renamed from: b  reason: collision with root package name */
-    private SceneImpl f8957b;
+    private SceneImpl f8959b;
 
     private void a() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, d.a(this.f8956a)).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, d.a(this.f8958a)).commitAllowingStateLoss();
     }
 
     public static void a(Context context, TubeProfileParam tubeProfileParam) {
@@ -35,19 +35,19 @@ public class b extends IFragmentActivityProxy {
     private boolean b() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_TUBE_HOME_PARAM");
         if (serializableExtra instanceof TubeProfileParam) {
-            this.f8956a = (TubeProfileParam) serializableExtra;
-            this.f8957b = new SceneImpl(this.f8956a.mEntryScene);
+            this.f8958a = (TubeProfileParam) serializableExtra;
+            this.f8959b = new SceneImpl(this.f8958a.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 7);
-            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f8956a.getTubeId());
-            this.f8957b.setUrlPackage(uRLPackage);
+            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f8958a.getTubeId());
+            this.f8959b.setUrlPackage(uRLPackage);
         }
-        return this.f8956a != null;
+        return this.f8958a != null;
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
         super.onBackPressed();
-        com.kwad.sdk.core.report.e.d(this.f8957b);
+        com.kwad.sdk.core.report.e.d(this.f8959b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

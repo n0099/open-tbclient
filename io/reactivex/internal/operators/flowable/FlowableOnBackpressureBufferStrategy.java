@@ -17,7 +17,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qdS.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
+        this.qnW.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
     }
 
     /* loaded from: classes5.dex */
@@ -87,7 +87,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
                         try {
                             this.onOverflow.run();
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.O(th);
+                            io.reactivex.exceptions.a.N(th);
                             this.s.cancel();
                             onError(th);
                         }

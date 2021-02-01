@@ -8,10 +8,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PlayIntroduceView extends LinearLayout {
-    private TextView akG;
-    private ImageView nXR;
+    private TextView akv;
+    private ImageView ohX;
 
     public PlayIntroduceView(Context context) {
         super(context);
@@ -25,8 +25,8 @@ public class PlayIntroduceView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_ala_liveroom_play_introduce_layout, this);
-        this.nXR = (ImageView) findViewById(a.f.iv_icon);
-        this.akG = (TextView) findViewById(a.f.tv_text);
+        this.ohX = (ImageView) findViewById(a.f.iv_icon);
+        this.akv = (TextView) findViewById(a.f.tv_text);
     }
 
     public void destory() {

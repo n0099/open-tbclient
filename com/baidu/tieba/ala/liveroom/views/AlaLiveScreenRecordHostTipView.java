@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveScreenRecordHostTipView extends TextView {
     public AlaLiveScreenRecordHostTipView(Context context) {
         super(context);

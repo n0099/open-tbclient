@@ -3,7 +3,6 @@ package com.qq.e.comm.plugin.w;
 import android.os.SystemClock;
 import android.util.Pair;
 import com.baidu.fsg.base.statistics.j;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.plugin.util.o;
 import com.qq.e.comm.util.GDTLogger;
@@ -15,19 +14,19 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile long f12683a = -1;
+    private static volatile long f12685a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile String f12684b = null;
+    private static volatile String f12686b = null;
     private static volatile boolean c = false;
     private static Object d = new Object();
 
     /* renamed from: com.qq.e.comm.plugin.w.g$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class AnonymousClass1 implements Runnable {
         AnonymousClass1() {
         }
@@ -51,10 +50,10 @@ public class g {
                         Pair<Integer, Integer> a2 = o.a();
                         if (((Integer) a2.first).intValue() > ((Integer) a2.second).intValue()) {
                             jSONObject.put("sw", a2.second);
-                            jSONObject.put(IXAdRequestInfo.SCREEN_HEIGHT, a2.first);
+                            jSONObject.put("sh", a2.first);
                         } else {
                             jSONObject.put("sw", a2.first);
-                            jSONObject.put(IXAdRequestInfo.SCREEN_HEIGHT, a2.second);
+                            jSONObject.put("sh", a2.second);
                         }
                         jSONObject.put("cv", o.g());
                         jSONObject.put("rs", o.h());

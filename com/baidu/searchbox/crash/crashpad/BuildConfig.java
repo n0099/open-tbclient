@@ -1,5 +1,5 @@
 package com.baidu.searchbox.crash.crashpad;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.crash.crashpad";
     public static final String BUILD_TYPE = "release";

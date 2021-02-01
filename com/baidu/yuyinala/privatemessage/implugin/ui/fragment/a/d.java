@@ -2,69 +2,69 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static d oTd;
-    private b oTe;
-    private b oTf;
-    private a oTg;
-    private String oTh = "";
-    private ConcurrentHashMap<String, c> oTi = new ConcurrentHashMap<>(4);
+    private static d pdq;
+    private b pdr;
+    private b pds;
+    private a pdt;
+    private String pdu = "";
+    private ConcurrentHashMap<String, c> pdv = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    public static d eiJ() {
-        if (oTd == null) {
+    public static d eld() {
+        if (pdq == null) {
             synchronized (d.class) {
-                if (oTd == null) {
-                    oTd = new d();
+                if (pdq == null) {
+                    pdq = new d();
                 }
             }
         }
-        return oTd;
+        return pdq;
     }
 
-    public c Xm(String str) {
-        return this.oTi.get(str);
+    public c Yn(String str) {
+        return this.pdv.get(str);
     }
 
-    public String eiK() {
-        return this.oTh;
+    public String ele() {
+        return this.pdu;
     }
 
     public void a(String str, c cVar) {
-        this.oTh = str;
+        this.pdu = str;
         if (cVar != null) {
-            this.oTi.put(str, cVar);
+            this.pdv.put(str, cVar);
         }
     }
 
-    public void Xn(String str) {
-        if (this.oTi.containsKey(str)) {
-            this.oTi.remove(str);
+    public void Yo(String str) {
+        if (this.pdv.containsKey(str)) {
+            this.pdv.remove(str);
         }
     }
 
-    public b eiL() {
-        return this.oTe;
+    public b elf() {
+        return this.pdr;
     }
 
     public void a(b bVar) {
-        this.oTe = bVar;
+        this.pdr = bVar;
     }
 
-    public b eiM() {
-        return this.oTf;
+    public b elg() {
+        return this.pds;
     }
 
     public void b(b bVar) {
-        this.oTf = bVar;
+        this.pds = bVar;
     }
 
-    public static void eiN() {
-        oTd = null;
+    public static void elh() {
+        pdq = null;
     }
 
-    public a eiO() {
-        return this.oTg;
+    public a eli() {
+        return this.pdt;
     }
 }

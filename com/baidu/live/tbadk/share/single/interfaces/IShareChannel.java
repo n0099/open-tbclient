@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.share.single.interfaces;
 
 import com.baidu.live.tbadk.data.ShareEntity;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IShareChannel {
     void shareToQQ(ShareEntity shareEntity, IShareCallback iShareCallback);
 

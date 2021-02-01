@@ -1,5 +1,5 @@
 package com.baidu.mapapi.synchronization;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface SynchronizationDisplayListener {
     void onRoutePlanInfoFreshFinished(float f, long j);
 

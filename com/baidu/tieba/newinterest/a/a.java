@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
@@ -22,133 +22,133 @@ import com.baidu.tieba.newinterest.data.c;
 import com.baidu.tieba.newinterest.fragment.InterestedForumFragment;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b.InterfaceC0818b {
-    private BdListView.e WL = new BdListView.e() { // from class: com.baidu.tieba.newinterest.a.a.1
+/* loaded from: classes8.dex */
+public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b.InterfaceC0819b {
+    private BdListView.e WH = new BdListView.e() { // from class: com.baidu.tieba.newinterest.a.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (a.this.lwI.hasMore()) {
-                a.this.lwI.dhw();
-                a.this.Vo();
+            if (a.this.lEM.hasMore()) {
+                a.this.lEM.djx();
+                a.this.WX();
             }
         }
     };
-    private PbListView gxy;
-    private final BdRecyclerView ikg;
-    private final InterestedForumFragment lwH;
-    private final b lwI;
-    private InterestedForumAdapter lwJ;
-    private final TBSpecificationBtn lwK;
-    private final TBSpecificationBtn lwL;
+    private PbListView gAi;
+    private final BdRecyclerView ipO;
+    private final InterestedForumFragment lEL;
+    private final b lEM;
+    private InterestedForumAdapter lEN;
+    private final TBSpecificationBtn lEO;
+    private final TBSpecificationBtn lEP;
     private final TbPageContext<BaseFragmentActivity> mPageContext;
 
     public a(InterestedForumFragment interestedForumFragment, BdRecyclerView bdRecyclerView, TBSpecificationBtn tBSpecificationBtn, TBSpecificationBtn tBSpecificationBtn2, TbPageContext<BaseFragmentActivity> tbPageContext, b bVar) {
-        this.lwH = interestedForumFragment;
-        this.ikg = bdRecyclerView;
-        this.lwI = bVar;
+        this.lEL = interestedForumFragment;
+        this.ipO = bdRecyclerView;
+        this.lEM = bVar;
         this.mPageContext = tbPageContext;
-        this.lwL = tBSpecificationBtn;
-        this.lwK = tBSpecificationBtn2;
+        this.lEP = tBSpecificationBtn;
+        this.lEO = tBSpecificationBtn2;
         initUI();
-        cFy();
+        cGL();
     }
 
     private void initUI() {
-        this.lwJ = new InterestedForumAdapter();
-        this.ikg.setLayoutManager(new LinearLayoutManager(this.ikg.getContext()));
-        this.ikg.setAdapter(this.lwJ);
-        this.gxy = new PbListView(this.ikg.getContext());
-        this.gxy.createView();
-        this.gxy.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.gxy.setLineGone();
-        this.gxy.setTextColor(ao.getColor(R.color.CAM_X0109));
-        this.gxy.setTextSize(R.dimen.tbfontsize33);
-        this.gxy.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.ikg.setNextPage(this.gxy);
-        Vo();
+        this.lEN = new InterestedForumAdapter();
+        this.ipO.setLayoutManager(new LinearLayoutManager(this.ipO.getContext()));
+        this.ipO.setAdapter(this.lEN);
+        this.gAi = new PbListView(this.ipO.getContext());
+        this.gAi.createView();
+        this.gAi.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.gAi.setLineGone();
+        this.gAi.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.gAi.setTextSize(R.dimen.tbfontsize33);
+        this.gAi.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.ipO.setNextPage(this.gAi);
+        WX();
     }
 
-    private void cFy() {
-        this.ikg.setOnSrollToBottomListener(this.WL);
-        this.lwI.a((b.InterfaceC0818b) this);
-        this.lwI.a((b.a) this);
-        this.lwJ.a(this);
-        this.lwL.setOnClickListener(this);
+    private void cGL() {
+        this.ipO.setOnSrollToBottomListener(this.WH);
+        this.lEM.a((b.InterfaceC0819b) this);
+        this.lEM.a((b.a) this);
+        this.lEN.a(this);
+        this.lEP.setOnClickListener(this);
     }
 
-    public void Vo() {
-        this.gxy.setTopExtraViewGone();
-        this.gxy.startLoadData();
-        this.gxy.setText(this.ikg.getContext().getString(R.string.list_loading));
-        this.gxy.showEmptyView(l.getDimens(this.ikg.getContext(), R.dimen.tbds217));
+    public void WX() {
+        this.gAi.setTopExtraViewGone();
+        this.gAi.startLoadData();
+        this.gAi.setText(this.ipO.getContext().getString(R.string.list_loading));
+        this.gAi.showEmptyView(l.getDimens(this.ipO.getContext(), R.dimen.tbds217));
     }
 
-    public void dhp() {
-        this.gxy.at(this.ikg.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.ikg.getContext(), R.dimen.tbds178));
-        this.gxy.setTextSize(R.dimen.tbds36);
-        this.gxy.setNoMoreTextColorId(R.color.CAM_X0109);
-        this.gxy.endLoadData();
-        this.gxy.showEmptyView(l.getDimens(this.ikg.getContext(), R.dimen.tbds217));
+    public void djq() {
+        this.gAi.av(this.ipO.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.ipO.getContext(), R.dimen.tbds178));
+        this.gAi.setTextSize(R.dimen.tbds36);
+        this.gAi.setNoMoreTextColorId(R.color.CAM_X0109);
+        this.gAi.endLoadData();
+        this.gAi.showEmptyView(l.getDimens(this.ipO.getContext(), R.dimen.tbds217));
     }
 
-    public void dhn() {
-        this.lwJ.dhn();
+    public void djo() {
+        this.lEN.djo();
     }
 
-    public void ff(List<com.baidu.tieba.newinterest.data.b> list) {
-        this.lwI.fl(list);
-        this.lwI.dhw();
+    public void fd(List<com.baidu.tieba.newinterest.data.b> list) {
+        this.lEM.fj(list);
+        this.lEM.djx();
     }
 
     @Override // com.baidu.tieba.newinterest.b.b.a
-    public void bSB() {
+    public void bTe() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(0)));
     }
 
-    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0818b
+    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0819b
     public void a(c cVar) {
-        if (cVar != null && cVar.lwO != null && !x.isEmpty(cVar.lwO)) {
-            if (this.ikg.getVisibility() == 8) {
-                this.ikg.setVisibility(0);
+        if (cVar != null && cVar.lES != null && !y.isEmpty(cVar.lES)) {
+            if (this.ipO.getVisibility() == 8) {
+                this.ipO.setVisibility(0);
             }
-            this.lwJ.cA(cVar.lwO);
-            this.lwH.dhq();
+            this.lEN.cv(cVar.lES);
+            this.lEL.djr();
         }
-        if (!this.lwI.hasMore()) {
-            dhp();
+        if (!this.lEM.hasMore()) {
+            djq();
         }
     }
 
-    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0818b
+    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0819b
     public void onError(int i, String str) {
-        this.lwH.onError(str);
+        this.lEL.onError(str);
     }
 
     @Override // com.baidu.tieba.newinterest.adapter.InterestedForumAdapter.a
     public void ac(int i, boolean z) {
-        if (i > 0 && !this.lwL.isEnabled()) {
-            this.lwL.setEnabled(true);
-            this.lwL.setText(this.ikg.getResources().getString(R.string.start_the_trip));
+        if (i > 0 && !this.lEP.isEnabled()) {
+            this.lEP.setEnabled(true);
+            this.lEP.setText(this.ipO.getResources().getString(R.string.start_the_trip));
         } else if (i == 0) {
-            this.lwL.setEnabled(false);
-            this.lwL.setText(this.ikg.getResources().getString(R.string.try_to_select));
+            this.lEP.setEnabled(false);
+            this.lEP.setText(this.ipO.getResources().getString(R.string.try_to_select));
         }
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
         if (!z) {
-            this.lwK.setText(this.mPageContext.getString(R.string.select_all));
-            this.lwK.setConfig(bVar);
+            this.lEO.setText(this.mPageContext.getString(R.string.select_all));
+            this.lEO.setConfig(bVar);
             return;
         }
-        this.lwK.setText(this.mPageContext.getString(R.string.unselect_all));
-        bVar.pO(R.color.CAM_X0109);
-        this.lwK.setConfig(bVar);
+        this.lEO.setText(this.mPageContext.getString(R.string.unselect_all));
+        bVar.pT(R.color.CAM_X0109);
+        this.lEO.setConfig(bVar);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.lwL) {
+        if (view == this.lEP) {
             try {
-                this.lwI.fj(this.lwJ.dhm());
+                this.lEM.fh(this.lEN.djn());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

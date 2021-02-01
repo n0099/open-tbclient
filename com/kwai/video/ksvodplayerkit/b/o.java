@@ -1,7 +1,7 @@
 package com.kwai.video.ksvodplayerkit.b;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class o {
     public static n a(String str) {
         JSONObject jSONObject;
@@ -14,8 +14,8 @@ public final class o {
             return null;
         }
         n nVar = new n();
-        nVar.f11055a = jSONObject.optInt("rateType", nVar.f11055a);
-        nVar.f11056b = jSONObject.optInt("bwEstimateType", nVar.f11056b);
+        nVar.f11057a = jSONObject.optInt("rateType", nVar.f11057a);
+        nVar.f11058b = jSONObject.optInt("bwEstimateType", nVar.f11058b);
         nVar.c = jSONObject.optInt("absLowResLowDevice", nVar.c);
         nVar.d = jSONObject.optInt("adapt4G", nVar.d);
         nVar.e = jSONObject.optInt("adaptWifi", nVar.e);

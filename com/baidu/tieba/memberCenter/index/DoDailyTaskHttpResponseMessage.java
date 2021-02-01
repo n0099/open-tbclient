@@ -5,7 +5,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.DoDailyTask.ButtonItem;
 import tbclient.DoDailyTask.DoDailyTaskResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DoDailyTaskHttpResponseMessage extends TbHttpResponsedMessage {
     public List<ButtonItem> buttonItems;
     public String content;

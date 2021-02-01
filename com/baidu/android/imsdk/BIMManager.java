@@ -76,7 +76,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     private static volatile Runnable checkIMLoginState = new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.4
         @Override // java.lang.Runnable
         public void run() {
-            if (a.vC() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
+            if (a.vz() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
                 LogUtils.e("BIMManager", "checkIMLoginState lcp connected, but im not login, triggle im relogin");
                 LoginManager.getInstance(BIMManager.sContext).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
             }
@@ -131,10 +131,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        com.baidu.g.a.aur = a.aA(applicationContext);
-        if (com.baidu.g.a.aur) {
+        com.baidu.g.a.aug = a.aA(applicationContext);
+        if (com.baidu.g.a.aug) {
             try {
-                b.i(applicationContext, i != 0);
+                b.j(applicationContext, i != 0);
                 b.j(applicationContext, i);
             } catch (Throwable th) {
                 LogUtils.e(TAG, "LCPConstants.setLcpEnv not found");
@@ -828,7 +828,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (!com.baidu.g.a.aur) {
+        if (!com.baidu.g.a.aug) {
             AccountManagerImpl.getInstance(context);
             AccountManagerImpl.tryConnection(context);
         }

@@ -2,7 +2,7 @@ package com.baidu.live.adp.widget;
 
 import android.graphics.Canvas;
 import android.view.MotionEvent;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ViewInjector {
     void animate(int i);
 

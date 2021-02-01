@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.a;
 
 import com.bytedance.sdk.openadsdk.preload.a.l;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class a<IN, OUT> extends l<IN, OUT> {
     protected abstract String a(b<OUT> bVar, IN in);
 
@@ -15,8 +15,8 @@ public abstract class a<IN, OUT> extends l<IN, OUT> {
         if (aVar == null) {
             throw new IllegalArgumentException("can not found branch, branch name is：" + a2);
         }
-        List<h> list = aVar.f7428a;
-        Object a3 = c.a(list, ((i) bVar).f7426a, this).a((b) in);
+        List<h> list = aVar.f7430a;
+        Object a3 = c.a(list, ((i) bVar).f7428a, this).a((b) in);
         return !a(list) ? a3 : bVar.a((b<OUT>) a3);
     }
 }

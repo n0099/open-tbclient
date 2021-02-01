@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.util;
 import android.text.TextUtils;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class t {
     public static String a(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {

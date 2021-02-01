@@ -1,5 +1,5 @@
 package com.baidu.mapapi.utils.poi;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class IllegalPoiSearchArgumentException extends RuntimeException {
     public IllegalPoiSearchArgumentException() {
     }

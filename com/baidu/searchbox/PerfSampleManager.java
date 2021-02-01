@@ -9,16 +9,16 @@ import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
 import com.baidu.tieba.q.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PerfSampleManager {
     private d<IPerfSampleCallback> mCallbackList;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public interface IPerfSampleCallback {
         String getSampleFlag();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class IPerfSampleCallback_PerfSampleManager_ListProvider implements a {
         @Override // com.baidu.pyramid.a.a
         public Object get() {
@@ -32,7 +32,7 @@ public class PerfSampleManager {
     }
 
     public void initmCallbackList() {
-        this.mCallbackList = com.baidu.pyramid.a.a.b.adH();
+        this.mCallbackList = com.baidu.pyramid.a.a.b.adY();
         this.mCallbackList.b(new IPerfSampleCallback_PerfSampleManager_ListProvider());
     }
 

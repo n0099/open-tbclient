@@ -3,7 +3,7 @@ package com.kuaishou.aegon.httpdns;
 import androidx.annotation.Keep;
 import java.util.List;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ResolveFinishedInfo {
     public String clientIp;
     public String errorMessage;

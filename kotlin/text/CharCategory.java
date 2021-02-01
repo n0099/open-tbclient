@@ -2,7 +2,7 @@ package kotlin.text;
 
 import kotlin.jvm.internal.PropertyReference1Impl;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum CharCategory {
     UNASSIGNED(0, "Cn"),
     UPPERCASE_LETTER(1, "Lu"),
@@ -59,7 +59,7 @@ public enum CharCategory {
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         static final /* synthetic */ kotlin.reflect.j[] $$delegatedProperties = {kotlin.jvm.internal.s.a(new PropertyReference1Impl(kotlin.jvm.internal.s.G(a.class), "categoryMap", "getCategoryMap()Ljava/util/Map;"))};
 

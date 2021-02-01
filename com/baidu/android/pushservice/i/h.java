@@ -9,7 +9,7 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import androidx.core.app.NotificationManagerCompat;
 import com.baidu.android.util.io.ActionJsonData;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class h {
     @SuppressLint({"NewApi"})
     public static int a(Context context) {

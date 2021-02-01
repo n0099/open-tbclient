@@ -14,7 +14,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
-    private HttpMessageListener frq = new HttpMessageListener(1003383) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
+    private HttpMessageListener ftJ = new HttpMessageListener(1003383) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -23,7 +23,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData() != null) {
                     aVar.a(((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData());
                 } else {
-                    aVar.byn();
+                    aVar.byF();
                 }
             }
         }
@@ -33,15 +33,15 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public interface a {
         void a(CustomDialogData customDialogData);
 
-        void byn();
+        void byF();
     }
 
     public ShareSuccessReplyToServerModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.frq.setTag(getUniqueId());
-        this.frq.setSelfListener(true);
-        registerListener(this.frq);
+        this.ftJ.setTag(getUniqueId());
+        this.ftJ.setSelfListener(true);
+        registerListener(this.ftJ);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -98,7 +98,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error >= 0 && jSONObject != null && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.mActDialogData = com.baidu.tieba.pb.b.eF(optJSONObject);
+                this.mActDialogData = com.baidu.tieba.pb.b.eG(optJSONObject);
             }
         }
 
@@ -109,7 +109,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.frq);
+        MessageManager.getInstance().unRegisterListener(this.ftJ);
         return false;
     }
 }

@@ -21,23 +21,23 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<Type, com.bytedance.sdk.openadsdk.d.h<?>> f6932a;
+    private final Map<Type, com.bytedance.sdk.openadsdk.d.h<?>> f6934a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.b.b.b f6933b = com.bytedance.sdk.openadsdk.d.b.b.b.a();
+    private final com.bytedance.sdk.openadsdk.d.b.b.b f6935b = com.bytedance.sdk.openadsdk.d.b.b.b.a();
 
     public c(Map<Type, com.bytedance.sdk.openadsdk.d.h<?>> map) {
-        this.f6932a = map;
+        this.f6934a = map;
     }
 
     public <T> i<T> a(com.bytedance.sdk.openadsdk.d.c.a<T> aVar) {
         final Type b2 = aVar.b();
         Class<? super T> a2 = aVar.a();
-        final com.bytedance.sdk.openadsdk.d.h<?> hVar = this.f6932a.get(b2);
+        final com.bytedance.sdk.openadsdk.d.h<?> hVar = this.f6934a.get(b2);
         if (hVar != null) {
             return new i<T>() { // from class: com.bytedance.sdk.openadsdk.d.b.c.1
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
@@ -47,7 +47,7 @@ public final class c {
                 }
             };
         }
-        final com.bytedance.sdk.openadsdk.d.h<?> hVar2 = this.f6932a.get(a2);
+        final com.bytedance.sdk.openadsdk.d.h<?> hVar2 = this.f6934a.get(a2);
         if (hVar2 != null) {
             return new i<T>() { // from class: com.bytedance.sdk.openadsdk.d.b.c.7
                 /* JADX WARN: Type inference failed for: r0v1, types: [T, java.lang.Object] */
@@ -69,7 +69,7 @@ public final class c {
         try {
             final Constructor<? super T> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
             if (!declaredConstructor.isAccessible()) {
-                this.f6933b.a(declaredConstructor);
+                this.f6935b.a(declaredConstructor);
             }
             return new i<T>() { // from class: com.bytedance.sdk.openadsdk.d.b.c.8
                 /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
@@ -209,6 +209,6 @@ public final class c {
     }
 
     public String toString() {
-        return this.f6932a.toString();
+        return this.f6934a.toString();
     }
 }

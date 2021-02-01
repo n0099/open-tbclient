@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.ala.zan;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IAlaBdZanBuilder {
     IAlaBdZan build();
 }

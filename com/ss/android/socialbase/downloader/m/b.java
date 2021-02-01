@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.m;
 
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import org.apache.http.HttpStatus;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(int i) {
         switch (i) {

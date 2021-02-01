@@ -5,28 +5,28 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.at;
-import com.baidu.live.data.bh;
+import com.baidu.live.data.ax;
+import com.baidu.live.data.bl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public static PersonUserData a(bh bhVar) {
+    public static PersonUserData a(bl blVar) {
         PersonUserData personUserData = new PersonUserData();
-        personUserData.user_info = new at();
+        personUserData.user_info = new ax();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.aLr = bhVar.metaKey;
-        personUserData.user_info.user_id = bhVar.id;
-        personUserData.user_info.user_name = bhVar.name;
-        personUserData.user_info.user_nickname = bhVar.name_show;
-        personUserData.user_info.description = bhVar.intro;
-        personUserData.user_info.portrait = bhVar.portrait;
-        personUserData.relation_info.follow_status = bhVar.aMc;
+        personUserData.user_info.aOn = blVar.metaKey;
+        personUserData.user_info.user_id = blVar.id;
+        personUserData.user_info.user_name = blVar.name;
+        personUserData.user_info.user_nickname = blVar.name_show;
+        personUserData.user_info.description = blVar.intro;
+        personUserData.user_info.portrait = blVar.portrait;
+        personUserData.relation_info.follow_status = blVar.aOZ;
         return personUserData;
     }
 
-    public static String x(int i, String str) {
+    public static String B(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -60,7 +60,7 @@ public class a {
         return null;
     }
 
-    public static String bc(long j) {
+    public static String bg(long j) {
         return j / 10000 > 0 ? i(Math.floor(j / 1000.0d) / 10.0d) + "w" : String.valueOf(j);
     }
 

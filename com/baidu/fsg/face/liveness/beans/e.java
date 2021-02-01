@@ -15,11 +15,11 @@ import java.util.List;
 public class e extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2273b;
+    private String f2271b;
     private String c;
 
     public void a(String str) {
-        this.f2273b = str;
+        this.f2271b = str;
     }
 
     public e(Context context) {
@@ -40,10 +40,10 @@ public class e extends l {
             arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
             arrayList.add(new RestNameValuePair("exuid", livenessRecogDTO.exUid));
         }
-        arrayList.add(new RestNameValuePair("imgdigests", this.f2273b));
+        arrayList.add(new RestNameValuePair("imgdigests", this.f2271b));
         String randomString = RandomUtils.getRandomString(4096);
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f2280a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f2278a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

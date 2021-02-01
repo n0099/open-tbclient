@@ -6,7 +6,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static int a(Context context, AdTemplate adTemplate, int i) {
         int i2 = 0;

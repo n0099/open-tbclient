@@ -2,9 +2,9 @@ package kotlin.collections;
 
 import java.util.Iterator;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class k implements Iterator<Boolean> {
-    public abstract boolean ezc();
+    public abstract boolean eBu();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class k implements Iterator<Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eID */
+    /* renamed from: eKT */
     public final Boolean next() {
-        return Boolean.valueOf(ezc());
+        return Boolean.valueOf(eBu());
     }
 }

@@ -4,58 +4,58 @@ import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.z;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.core.util.aa;
+/* loaded from: classes8.dex */
 public class e {
-    private static final String ndT = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
-    private z chV = null;
+    private static final String nnB = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private aa cml = null;
     private String mAuthSid;
 
     public void setAuthSid(String str) {
         this.mAuthSid = str;
     }
 
-    public String dIF() {
-        this.chV = new z(ndT);
-        this.chV.addPostData("authsid", this.mAuthSid);
-        this.chV.brX().bsG().mNeedBackgroundLogin = true;
-        this.chV.brX().bsG().mIsNeedTbs = true;
-        this.chV.jI(true);
-        return this.chV.postNetData();
+    public String dKQ() {
+        this.cml = new aa(nnB);
+        this.cml.addPostData("authsid", this.mAuthSid);
+        this.cml.bsr().bta().mNeedBackgroundLogin = true;
+        this.cml.bsr().bta().mIsNeedTbs = true;
+        this.cml.jL(true);
+        return this.cml.postNetData();
     }
 
-    public String RD(String str) {
+    public String SA(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.chV = new z(ndT);
-        this.chV.addPostData("user_id", str2);
-        this.chV.addPostData("forum_ids", str);
-        this.chV.addPostData("authsid", this.mAuthSid);
-        this.chV.brX().bsG().mNeedBackgroundLogin = true;
-        this.chV.brX().bsG().mIsNeedTbs = true;
-        this.chV.jI(true);
-        return this.chV.postNetData();
+        this.cml = new aa(nnB);
+        this.cml.addPostData("user_id", str2);
+        this.cml.addPostData("forum_ids", str);
+        this.cml.addPostData("authsid", this.mAuthSid);
+        this.cml.bsr().bta().mNeedBackgroundLogin = true;
+        this.cml.bsr().bta().mIsNeedTbs = true;
+        this.cml.jL(true);
+        return this.cml.postNetData();
     }
 
     public void cancel() {
-        if (this.chV != null) {
-            this.chV.cancelNetConnect();
+        if (this.cml != null) {
+            this.cml.cancelNetConnect();
         }
     }
 
     public boolean isRequestSuccess() {
-        if (this.chV != null) {
-            return this.chV.brX().bsH().isRequestSuccess();
+        if (this.cml != null) {
+            return this.cml.bsr().btb().isRequestSuccess();
         }
         return false;
     }
 
-    public String bkz() {
-        if (this.chV != null) {
-            return this.chV.getErrorString();
+    public String bkR() {
+        if (this.cml != null) {
+            return this.cml.getErrorString();
         }
         return null;
     }

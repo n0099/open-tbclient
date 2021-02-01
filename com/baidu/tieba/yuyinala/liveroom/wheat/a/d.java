@@ -2,29 +2,27 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.a;
 
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.notify.BIMInviteSyncRtcInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface d {
-    void LX(int i);
+    void Mt(int i);
 
-    void LY(int i);
+    void Mu(int i);
 
-    void PB();
+    void Rl();
 
     void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo);
 
     void b(BIMRtcInfo bIMRtcInfo, int i);
 
-    void bM(long j);
+    void bQ(long j);
 
-    void hL(long j);
+    void g(int i, long j, String str);
 
-    void hM(long j);
+    void hO(long j);
 
-    void l(int i, long j, String str);
+    void hP(long j);
 
     void onError(int i, int i2, String str);
 
-    void s(int i, int i2, String str);
-
-    void v(long j, boolean z);
+    void u(long j, boolean z);
 }

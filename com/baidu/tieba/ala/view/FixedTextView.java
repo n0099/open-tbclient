@@ -13,10 +13,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FixedTextView extends View {
-    private int ifs;
-    private float ift;
+    private int ikh;
+    private float iki;
     private TextPaint mPaint;
     private String mText;
     private int mTextColor;
@@ -38,14 +38,14 @@ public class FixedTextView extends View {
 
     private void init(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.sdk_FixedTextView);
-        this.ifs = obtainStyledAttributes.getInt(a.j.sdk_FixedTextView_sdk_ftvMaxLine, 1);
+        this.ikh = obtainStyledAttributes.getInt(a.j.sdk_FixedTextView_sdk_ftvMaxLine, 1);
         this.mTextColor = obtainStyledAttributes.getColor(a.j.sdk_FixedTextView_sdk_ftvTextColor, Color.parseColor("#333333"));
-        this.ift = obtainStyledAttributes.getDimension(a.j.sdk_FixedTextView_sdk_ftvMinTextSize, -1.0f);
+        this.iki = obtainStyledAttributes.getDimension(a.j.sdk_FixedTextView_sdk_ftvMinTextSize, -1.0f);
         this.mText = obtainStyledAttributes.getString(a.j.sdk_FixedTextView_sdk_ftvText);
         obtainStyledAttributes.recycle();
         this.mPaint = new TextPaint(1);
         this.mPaint.setColor(this.mTextColor);
-        this.mPaint.setTextSize(this.ift);
+        this.mPaint.setTextSize(this.iki);
         this.mPaint.setStyle(Paint.Style.FILL);
     }
 
@@ -59,17 +59,17 @@ public class FixedTextView extends View {
         int height = canvas.getHeight();
         int floor = (int) Math.floor((width - getPaddingLeft()) - getPaddingRight());
         int floor2 = (int) Math.floor((height - getPaddingTop()) - getPaddingBottom());
-        float floor3 = (float) Math.floor(floor2 / this.ifs);
-        float max = Math.max(this.ift, floor2);
+        float floor3 = (float) Math.floor(floor2 / this.ikh);
+        float max = Math.max(this.iki, floor2);
         while (true) {
             this.mPaint.setTextSize(max);
             staticLayout = new StaticLayout(this.mText, this.mPaint, floor, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
             f = max - 0.1f;
-            if ((this.ift == -1.0f || f > this.ift) && staticLayout.getLineCount() > this.ifs) {
+            if ((this.iki == -1.0f || f > this.iki) && staticLayout.getLineCount() > this.ikh) {
                 max = f;
             }
         }
-        if (this.ift != -1.0f && f <= this.ift && staticLayout.getLineCount() > this.ifs) {
+        if (this.iki != -1.0f && f <= this.iki && staticLayout.getLineCount() > this.ikh) {
             staticLayout.getLineCount();
             int lineForVertical = staticLayout.getLineForVertical(floor2);
             int length = this.mText.length();
@@ -95,6 +95,12 @@ public class FixedTextView extends View {
 
     public void setText(String str) {
         this.mText = str;
-        invalidate();
+        postInvalidate();
+    }
+
+    public void setTextColor(int i) {
+        this.mTextColor = i;
+        this.mPaint.setColor(this.mTextColor);
+        postInvalidate();
     }
 }

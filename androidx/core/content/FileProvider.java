@@ -16,13 +16,14 @@ import android.webkit.MimeTypeMap;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class FileProvider extends ContentProvider {
     private static final String ATTR_NAME = "name";
     private static final String ATTR_PATH = "path";
@@ -41,7 +42,7 @@ public class FileProvider extends ContentProvider {
     private static HashMap<String, PathStrategy> sCache = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public interface PathStrategy {
         File getFileForUri(Uri uri);
 
@@ -211,7 +212,7 @@ public class FileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static class SimplePathStrategy implements PathStrategy {
         private final String mAuthority;
         private final HashMap<String, File> mRoots = new HashMap<>();
@@ -292,7 +293,7 @@ public class FileProvider extends ContentProvider {
         if ("wa".equals(str)) {
             return 704643072;
         }
-        if ("rw".equals(str)) {
+        if (VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth.equals(str)) {
             return 939524096;
         }
         if ("rwt".equals(str)) {

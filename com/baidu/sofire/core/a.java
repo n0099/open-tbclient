@@ -6,24 +6,24 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class a implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f5205a;
+    public ArrayList<b> f5207a;
 
     public a(ActivityInfo[] activityInfoArr) {
         int length;
-        this.f5205a = null;
+        this.f5207a = null;
         if (activityInfoArr != null && (length = activityInfoArr.length) > 0) {
-            this.f5205a = new ArrayList<>(length);
+            this.f5207a = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
                 if (activityInfoArr[i] != null) {
                     b bVar = new b();
                     bVar.h = activityInfoArr[i].configChanges;
                     bVar.f = activityInfoArr[i].flags;
                     bVar.l = activityInfoArr[i].labelRes;
-                    bVar.f5207b = activityInfoArr[i].launchMode;
+                    bVar.f5209b = activityInfoArr[i].launchMode;
                     if (activityInfoArr[i].nonLocalizedLabel != null) {
                         bVar.m = activityInfoArr[i].nonLocalizedLabel.toString();
                     }
@@ -34,8 +34,8 @@ public final class a implements Serializable {
                     bVar.i = activityInfoArr[i].softInputMode;
                     bVar.e = activityInfoArr[i].targetActivity;
                     bVar.d = activityInfoArr[i].taskAffinity;
-                    bVar.f5206a = activityInfoArr[i].theme;
-                    this.f5205a.add(bVar);
+                    bVar.f5208a = activityInfoArr[i].theme;
+                    this.f5207a.add(bVar);
                 }
             }
         }
@@ -52,7 +52,7 @@ public final class a implements Serializable {
             try {
                 objectOutputStream2 = new ObjectOutputStream(byteArrayOutputStream);
                 try {
-                    objectOutputStream2.writeObject(this.f5205a);
+                    objectOutputStream2.writeObject(this.f5207a);
                     objectOutputStream2.close();
                     byteArrayOutputStream.close();
                     bArr = byteArrayOutputStream.toByteArray();

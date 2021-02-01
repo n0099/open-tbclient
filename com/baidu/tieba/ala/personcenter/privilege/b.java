@@ -12,41 +12,41 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private AlaRefreshScoreModel hVP;
-    private a hVQ;
-    CustomMessageListener hVR = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.1
+    private AlaRefreshScoreModel iak;
+    private a ial;
+    CustomMessageListener iam = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             b.this.refreshCurUserScores();
         }
     };
-    CustomMessageListener hVS = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.2
+    CustomMessageListener ian = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.hVQ != null) {
-                b.this.hVQ.oP(true);
+            if (b.this.ial != null) {
+                b.this.ial.oZ(true);
             }
         }
     };
     private TbPageContext mPageContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void oP(boolean z);
+        void oZ(boolean z);
     }
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.mPageContext.registerListener(this.hVR);
-        this.mPageContext.registerListener(this.hVS);
+        this.mPageContext.registerListener(this.iam);
+        this.mPageContext.registerListener(this.ian);
     }
 
     public void a(a aVar) {
-        this.hVQ = aVar;
+        this.ial = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,15 +54,15 @@ public class b {
         if (!TbadkCoreApplication.isLogin()) {
             return false;
         }
-        if (this.hVP == null) {
-            this.hVP = new AlaRefreshScoreModel();
-            this.hVP.initListener();
+        if (this.iak == null) {
+            this.iak = new AlaRefreshScoreModel();
+            this.iak.initListener();
         }
-        this.hVP.refreshCurUserScores();
+        this.iak.refreshCurUserScores();
         return true;
     }
 
-    public void fN(long j) {
+    public void fT(long j) {
         long j2 = j - TbadkCoreApplication.getInst().currentAccountTdouNum;
         if (j2 > 0) {
             if (j2 > 200000000) {

@@ -13,7 +13,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static b.a c(l lVar) {
         boolean z;
@@ -86,8 +86,8 @@ public class c {
             j4 = j8;
         }
         b.a aVar = new b.a();
-        aVar.f6061a = lVar.f6040a;
-        aVar.f6062b = lVar.f6041b;
+        aVar.f6063a = lVar.f6042a;
+        aVar.f6064b = lVar.f6043b;
         aVar.c = str5;
         aVar.g = j4;
         aVar.f = j3;
@@ -100,7 +100,7 @@ public class c {
 
     public static long a(String str) {
         try {
-            return eou().parse(str).getTime();
+            return eqM().parse(str).getTime();
         } catch (Throwable th) {
             r.a(th, "Unable to parse dateStr: %s, falling back to 0", str);
             return 0L;
@@ -108,10 +108,10 @@ public class c {
     }
 
     public static String a(long j) {
-        return eou().format(new Date(j));
+        return eqM().format(new Date(j));
     }
 
-    private static SimpleDateFormat eou() {
+    private static SimpleDateFormat eqM() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         return simpleDateFormat;
@@ -146,7 +146,7 @@ public class c {
         return treeMap;
     }
 
-    public static List<com.bytedance.sdk.adnet.core.a> I(Map<String, String> map) {
+    public static List<com.bytedance.sdk.adnet.core.a> K(Map<String, String> map) {
         if (map == null) {
             return new ArrayList();
         }

@@ -2,9 +2,9 @@ package com.baidu.live.lottie.c;
 
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class o implements aj<Integer> {
-    public static final o bqY = new o();
+    public static final o buB = new o();
 
     private o() {
     }

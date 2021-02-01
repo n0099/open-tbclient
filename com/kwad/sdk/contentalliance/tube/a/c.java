@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.core.e.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class c<T extends com.kwad.sdk.core.e.b> extends com.kwad.sdk.contentalliance.b<T> {
     protected RecyclerView d;
 

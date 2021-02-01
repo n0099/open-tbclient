@@ -14,7 +14,7 @@ import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.comm.adevent.ADListener;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface POFactory {
     void config(int i, String str);
 

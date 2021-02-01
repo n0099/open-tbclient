@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface TTGlobalAppDownloadListener {
     void onDownloadActive(TTAppDownloadInfo tTAppDownloadInfo);
 

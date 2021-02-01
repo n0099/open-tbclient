@@ -1,42 +1,39 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import java.util.ArrayList;
+import tbclient.RecommendInfo;
 import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class bq {
-    private String uid = "";
-    private String uname = "";
-    private String portrait = "";
-    private String institute = "";
-    private int isLike = -1;
+public class bq extends cb {
+    public static final BdUniqueId ePp = BdUniqueId.gen();
+    private String title = "";
+    private ArrayList<bs> ePq = new ArrayList<>();
 
-    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
-        if (schoolRecomUserInfo != null) {
-            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
-            this.uname = schoolRecomUserInfo.uname;
-            this.portrait = schoolRecomUserInfo.portrait;
-            this.institute = schoolRecomUserInfo.institute;
-            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+    public void a(RecommendInfo recommendInfo) {
+        if (recommendInfo != null) {
+            this.title = recommendInfo.title;
+            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
+                if (schoolRecomUserInfo != null) {
+                    bs bsVar = new bs();
+                    bsVar.a(schoolRecomUserInfo);
+                    this.ePq.add(bsVar);
+                }
+            }
         }
     }
 
-    public String getUid() {
-        return this.uid;
+    @Override // com.baidu.tbadk.core.data.cb
+    public String getTitle() {
+        return this.title;
     }
 
-    public String bmI() {
-        return this.uname;
+    public ArrayList<bs> bmX() {
+        return this.ePq;
     }
 
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public String bmJ() {
-        return this.institute;
-    }
-
-    public int getIsLike() {
-        return this.isLike;
+    @Override // com.baidu.tbadk.core.data.cb, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
+    public BdUniqueId getType() {
+        return ePp;
     }
 }

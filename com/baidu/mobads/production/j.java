@@ -1,27 +1,20 @@
 package com.baidu.mobads.production;
-
-import com.baidu.mobads.interfaces.error.XAdErrorCode;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f3456a;
+    final /* synthetic */ a f3460a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(b bVar) {
-        this.f3456a = bVar;
+    public j(a aVar) {
+        this.f3460a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        try {
-            this.f3456a.b();
-            this.f3456a.l();
-            this.f3456a.k();
-            this.f3456a.a(XAdErrorCode.REQUEST_TIMEOUT, "");
-        } catch (Exception e) {
-            this.f3456a.s.e(e);
+        if (this.f3460a.h != null) {
+            this.f3460a.h.resume();
         }
     }
 }

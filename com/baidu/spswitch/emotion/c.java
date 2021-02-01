@@ -11,29 +11,29 @@ import com.baidu.spswitch.b.a;
 import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
 /* loaded from: classes3.dex */
 public class c {
-    private static c cyG;
+    private static c cBc;
     private static Context mAppContext;
-    private EditText cyH;
-    private boolean cyI;
-    private Runnable cyJ = new Runnable() { // from class: com.baidu.spswitch.emotion.c.1
+    private EditText cBd;
+    private boolean cBe;
+    private Runnable cBf = new Runnable() { // from class: com.baidu.spswitch.emotion.c.1
         @Override // java.lang.Runnable
         public void run() {
-            c.this.cyH.dispatchKeyEvent(new KeyEvent(0, 67));
-            c.this.cyH.postDelayed(c.this.cyJ, 60L);
+            c.this.cBd.dispatchKeyEvent(new KeyEvent(0, 67));
+            c.this.cBd.postDelayed(c.this.cBf, 60L);
         }
     };
-    private a.InterfaceC0351a cyK;
+    private a.InterfaceC0348a cBg;
 
-    public static c bU(Context context) {
+    public static c bT(Context context) {
         mAppContext = context;
-        if (cyG == null) {
+        if (cBc == null) {
             synchronized (c.class) {
-                if (cyG == null) {
-                    cyG = new c();
+                if (cBc == null) {
+                    cBc = new c();
                 }
             }
         }
-        return cyG;
+        return cBc;
     }
 
     public AdapterView.OnItemClickListener a(final EmotionType emotionType, final int i) {
@@ -43,26 +43,26 @@ public class c {
                 Object adapter = adapterView.getAdapter();
                 if (adapter instanceof BDEmotionBagLayout.a) {
                     BDEmotionBagLayout.a aVar = (BDEmotionBagLayout.a) adapter;
-                    if (c.this.cyH != null) {
+                    if (c.this.cBd != null) {
                         if (i2 == aVar.getCount() - 1) {
-                            if (c.this.cyI) {
-                                c.this.cyH.removeCallbacks(c.this.cyJ);
-                                c.this.cyI = false;
+                            if (c.this.cBe) {
+                                c.this.cBd.removeCallbacks(c.this.cBf);
+                                c.this.cBe = false;
                                 return;
                             }
-                            c.this.cyH.dispatchKeyEvent(new KeyEvent(0, 67));
-                            if (c.this.cyK != null) {
-                                c.this.cyK.a(emotionType, i, "", "[delete]");
+                            c.this.cBd.dispatchKeyEvent(new KeyEvent(0, 67));
+                            if (c.this.cBg != null) {
+                                c.this.cBg.a(emotionType, i, "", "[delete]");
                                 return;
                             }
                             return;
                         }
                         String item = aVar.getItem(i2);
                         if (!TextUtils.isEmpty(item)) {
-                            c.this.cyH.getEditableText().insert(c.this.cyH.getSelectionStart(), a.afi().a(EmotionType.EMOTION_CLASSIC_TYPE, c.mAppContext, item, c.this.cyH));
+                            c.this.cBd.getEditableText().insert(c.this.cBd.getSelectionStart(), a.afH().a(EmotionType.EMOTION_CLASSIC_TYPE, c.mAppContext, item, c.this.cBd));
                         }
-                        if (c.this.cyK != null) {
-                            c.this.cyK.a(emotionType, i, b.bR(c.mAppContext).b(emotionType, item), item);
+                        if (c.this.cBg != null) {
+                            c.this.cBg.a(emotionType, i, b.bQ(c.mAppContext).b(emotionType, item), item);
                         }
                     }
                 }
@@ -76,9 +76,9 @@ public class c {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
                 Object adapter = adapterView.getAdapter();
                 if ((adapter instanceof BDEmotionBagLayout.a) && i == ((BDEmotionBagLayout.a) adapter).getCount() - 1) {
-                    c.this.cyI = true;
-                    if (c.this.cyH != null) {
-                        c.this.cyH.post(c.this.cyJ);
+                    c.this.cBe = true;
+                    if (c.this.cBd != null) {
+                        c.this.cBd.post(c.this.cBf);
                         return false;
                     }
                     return false;
@@ -93,7 +93,7 @@ public class c {
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 1) {
-                    c.this.afl();
+                    c.this.afK();
                     return false;
                 }
                 return false;
@@ -101,9 +101,9 @@ public class c {
         };
     }
 
-    public void afl() {
-        if (this.cyH != null) {
-            this.cyH.removeCallbacks(this.cyJ);
+    public void afK() {
+        if (this.cBd != null) {
+            this.cBd.removeCallbacks(this.cBf);
         }
     }
 }

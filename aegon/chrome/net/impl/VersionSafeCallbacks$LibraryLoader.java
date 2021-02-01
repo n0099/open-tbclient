@@ -1,7 +1,7 @@
 package aegon.chrome.net.impl;
 
 import aegon.chrome.net.CronetEngine$Builder$LibraryLoader;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class VersionSafeCallbacks$LibraryLoader extends CronetEngine$Builder$LibraryLoader {
     public final CronetEngine$Builder$LibraryLoader mWrappedLoader;
 

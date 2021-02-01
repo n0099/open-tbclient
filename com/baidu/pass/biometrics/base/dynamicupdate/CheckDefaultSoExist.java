@@ -5,7 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CheckDefaultSoExist {
     private static String a(Context context, String str) {
         Object invoke;
@@ -49,7 +49,7 @@ public class CheckDefaultSoExist {
     public static void isExist(Context context) {
         String[] strArr;
         String b2;
-        for (String str : LoadSo.f3943b) {
+        for (String str : LoadSo.f3946b) {
             if (Build.VERSION.SDK_INT > 8) {
                 b2 = a(context, str);
             } else {

@@ -7,12 +7,12 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    private Cursor Kx;
+    private Cursor Kv;
     private final Set<String> keySet;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.Kx = cursor;
+        this.Kv = cursor;
         this.values = null;
         this.keySet = new TreeSet();
         if (cursor != null) {
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.Kx.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.Kx.getColumnCount()) {
+        int columnIndex = this.Kv.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.Kv.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.Kx.getShort(columnIndex));
+                valueOf = Short.valueOf(this.Kv.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.Kx.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.Kv.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.Kx.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.Kv.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.Kx.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.Kv.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.Kx.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.Kv.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.Kx.getString(columnIndex);
+                    string = this.Kv.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.Kx.getBlob(columnIndex);
+                        return this.Kv.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;

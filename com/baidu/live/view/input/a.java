@@ -4,40 +4,40 @@ import android.view.View;
 import com.baidu.live.data.AlaLiveInfoData;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.view.input.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0230a {
-        boolean IJ();
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0232a {
+        boolean Kh();
 
-        void IL();
+        void Kj();
 
-        void IM();
+        void Kk();
 
-        void IN();
+        void Kl();
 
-        boolean IO();
+        boolean Km();
 
-        int IP();
+        int Kn();
 
-        boolean IQ();
+        boolean Ko();
 
         void t(String str, boolean z);
     }
 
-    boolean KA();
+    boolean LW();
 
-    void KB();
+    boolean LX();
 
-    void KC();
+    boolean LY();
 
-    void KI();
+    void LZ();
 
-    boolean Ky();
+    void Ma();
 
-    boolean Kz();
+    void Mg();
 
     void a(List<String> list, Map<String, Integer> map, AlaLiveInfoData alaLiveInfoData);
 

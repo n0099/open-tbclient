@@ -16,7 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.util.Log;
 import android.widget.ImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends Drawable {
     private final int mBitmapHeight;
     private final Paint mBitmapPaint;
@@ -114,11 +114,11 @@ public class c extends Drawable {
         }
         if (this.mScaleType != scaleType) {
             this.mScaleType = scaleType;
-            aGs();
+            setMatrix();
         }
     }
 
-    private void aGs() {
+    private void setMatrix() {
         float min;
         float width;
         float height;
@@ -195,7 +195,7 @@ public class c extends Drawable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.res.ui.c$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 
@@ -235,7 +235,7 @@ public class c extends Drawable {
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
         this.mBounds.set(rect);
-        aGs();
+        setMatrix();
     }
 
     @Override // android.graphics.drawable.Drawable

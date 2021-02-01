@@ -10,22 +10,22 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.TrapezoidButton;
 import com.baidu.tieba.view.RoundAndShadowLinearLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VoteAreaLayout extends CardBasicLayout {
-    private TextView fkl;
-    private RoundAndShadowLinearLayout inv;
-    private View inw;
-    private TrapezoidButton inx;
-    private TextView iny;
+    private TextView fmD;
+    private RoundAndShadowLinearLayout isZ;
+    private View ita;
+    private TrapezoidButton itb;
+    private TextView itc;
     private Context mContext;
 
     public VoteAreaLayout(Context context) {
@@ -46,35 +46,35 @@ public class VoteAreaLayout extends CardBasicLayout {
         setMinimumHeight(l.getDimens(getContext(), R.dimen.tbds90));
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         LayoutInflater.from(getContext()).inflate(R.layout.vote_area_layout, (ViewGroup) this, true);
-        tC();
+        tz();
     }
 
-    private void tC() {
-        this.inv = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
-        this.inv.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
-        this.fkl = (TextView) findViewById(R.id.vote_num);
-        this.inx = (TrapezoidButton) findViewById(R.id.vote_button);
-        this.iny = (TextView) findViewById(R.id.vote_button_tv);
-        this.inw = findViewById(R.id.button_container);
+    private void tz() {
+        this.isZ = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
+        this.isZ.setRadius(l.getDimens(this.mContext, R.dimen.tbds8));
+        this.fmD = (TextView) findViewById(R.id.vote_num);
+        this.itb = (TrapezoidButton) findViewById(R.id.vote_button);
+        this.itc = (TextView) findViewById(R.id.vote_button_tv);
+        this.ita = findViewById(R.id.button_container);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, final f fVar) {
         super.setData(i, fVar);
-        if (this.ijz == null || this.inn == null || this.status < 0) {
+        if (this.iph == null || this.isS == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.fkl.setText(at.numFormatOverWan(this.inn.cpS()) + "票");
-        this.iny.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
+        this.fmD.setText(au.numFormatOverWan(this.isS.crc()) + "票");
+        this.itc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.VoteAreaLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((VoteAreaLayout.this.mContext instanceof Activity) && bg.checkUpIsLogin(VoteAreaLayout.this.mContext)) {
-                    new aq("c13441").bsu();
-                    if (VoteAreaLayout.this.inn != null && fVar != null && fVar.cqf() != null) {
-                        if (fVar.cqf().cqb()) {
+                if ((VoteAreaLayout.this.mContext instanceof Activity) && bh.checkUpIsLogin(VoteAreaLayout.this.mContext)) {
+                    new ar("c13441").bsO();
+                    if (VoteAreaLayout.this.isS != null && fVar != null && fVar.crp() != null) {
+                        if (fVar.crp().crl()) {
                             if (fVar.getFid() != 0 && fVar.getUniqueId() != null) {
-                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.inn.getUid(), fVar.getFid(), VoteAreaLayout.this.inn.getTid(), 1);
+                                CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.isS.getUid(), fVar.getFid(), VoteAreaLayout.this.isS.getTid(), 1);
                                 commitVoteReqMsg.setTag(fVar.getUniqueId());
                                 MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                                 return;
@@ -86,17 +86,17 @@ public class VoteAreaLayout extends CardBasicLayout {
                 }
             }
         });
-        if (this.inn.cpU()) {
-            this.iny.setEnabled(false);
+        if (this.isS.cre()) {
+            this.itc.setEnabled(false);
         } else {
-            this.iny.setEnabled(true);
+            this.itc.setEnabled(true);
         }
     }
 
-    public void uo(int i) {
-        ao.setViewTextColor(this.fkl, R.color.CAM_X0303, 1, i);
-        ao.a(this.inw, R.color.CAM_X0303, 0.2f, i);
-        ao.setViewTextColor(this.iny, R.color.CAM_X0101, 1, i);
-        ao.setBackgroundResource(this.iny, R.drawable.bar_select_bg_gradient, i);
+    public void uu(int i) {
+        ap.setViewTextColor(this.fmD, R.color.CAM_X0303, 1, i);
+        ap.a(this.ita, R.color.CAM_X0303, 0.2f, i);
+        ap.setViewTextColor(this.itc, R.color.CAM_X0101, 1, i);
+        ap.setBackgroundResource(this.itc, R.drawable.bar_select_bg_gradient, i);
     }
 }

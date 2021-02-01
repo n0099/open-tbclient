@@ -1,8 +1,8 @@
 package kotlin;
 @e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class g {
-    public static final g qiJ = new g();
+    public static final g qsN = new g();
 
     private g() {
     }

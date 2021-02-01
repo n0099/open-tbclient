@@ -1,9 +1,9 @@
 package com.baidu.tieba.write.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static long lastClickTime = 0;
 
-    public static long v(CharSequence charSequence) {
+    public static long w(CharSequence charSequence) {
         double d = 0.0d;
         for (int i = 0; i < charSequence.length(); i++) {
             char charAt = charSequence.charAt(i);

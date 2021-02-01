@@ -4,7 +4,7 @@ import android.content.res.ColorStateList;
 import androidx.annotation.RestrictTo;
 import androidx.versionedparcelable.VersionedParcel;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class IconCompatParcelizer {
     public static IconCompat read(VersionedParcel versionedParcel) {
         IconCompat iconCompat = new IconCompat();

@@ -18,12 +18,12 @@ import kotlin.e;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static final Companion Companion = new Companion(null);
 
     @e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class Companion {
         private Companion() {
         }
@@ -80,14 +80,14 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
                 String valueOf2 = String.valueOf(methodCall.argument("text"));
                 boolean l = p.l((String) methodCall.argument("isSvg"), "1");
                 String androidNameFromIos = getAndroidNameFromIos(valueOf);
-                h kE = h.kE();
-                p.n(kE, "BdResources.getInstance()");
-                Resources resources = kE.getResources();
+                h kD = h.kD();
+                p.n(kD, "BdResources.getInstance()");
+                Resources resources = kD.getResources();
                 BdBaseApplication inst4 = BdBaseApplication.getInst();
                 p.n(inst4, "BdBaseApplication.getInst()");
                 int identifier = resources.getIdentifier(androidNameFromIos, "drawable", inst4.getPackageName());
                 activity5 = ProgresshudPluginKt.mCurrentActivity;
-                BdToast.b(activity5, valueOf2, identifier, l).bqk();
+                BdToast.b(activity5, valueOf2, identifier, l).bqD();
             }
         } else if (p.l(methodCall.method, "showWithStatus")) {
             ProgresshudPluginKt.getDialog().showWithStatus(methodCall.arguments.toString(), ProgresshudPluginKt.getMaskType());
@@ -103,7 +103,7 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
             String str = (String) methodCall.argument("status");
             Object argument = methodCall.argument("time");
             if (argument == null) {
-                p.eIW();
+                p.eLm();
             }
             double doubleValue = ((Number) argument).doubleValue();
             activity2 = ProgresshudPluginKt.mCurrentActivity;

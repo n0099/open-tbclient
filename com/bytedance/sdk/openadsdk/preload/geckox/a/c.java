@@ -8,7 +8,7 @@ import java.io.FileFilter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static void a(final String str) {
         j.a().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.a.c.1

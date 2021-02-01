@@ -9,53 +9,53 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private ImageView alK;
-    private final ThreadAchievementShareInfo.ParamBean eFP;
-    private TextView eGA;
-    private TbImageView eGY;
-    private TextView eGx;
-    private TextView eGy;
-    private TextView eGz;
+    private ImageView alA;
+    private final ThreadAchievementShareInfo.ParamBean eHV;
+    private TextView eID;
+    private TextView eIE;
+    private TextView eIF;
+    private TextView eIG;
+    private TbImageView eJe;
     private final Context mContext;
     private final View mRoot;
 
     public c(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         this.mContext = context;
         this.mRoot = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
-        this.eFP = threadAchievementShareInfo.getParams();
+        this.eHV = threadAchievementShareInfo.getParams();
         initUI();
         initData();
     }
 
     private void initData() {
-        if (this.eFP != null && this.eFP.getVideo_info() != null && !TextUtils.isEmpty(this.eFP.getVideo_info().getThumbnail_url())) {
-            this.eGY.startLoad(this.eFP.getVideo_info().getThumbnail_url(), 10, false);
-            this.eGA.setText(at.ea(this.eFP.getAgree_num()));
-            this.eGx.setText(at.ea(this.eFP.getPost_num()));
+        if (this.eHV != null && this.eHV.getVideo_info() != null && !TextUtils.isEmpty(this.eHV.getVideo_info().getThumbnail_url())) {
+            this.eJe.startLoad(this.eHV.getVideo_info().getThumbnail_url(), 10, false);
+            this.eIG.setText(au.eg(this.eHV.getAgree_num()));
+            this.eID.setText(au.eg(this.eHV.getPost_num()));
         }
     }
 
     private void initUI() {
-        this.eGx = (TextView) this.mRoot.findViewById(R.id.comment_num);
-        this.eGy = (TextView) this.mRoot.findViewById(R.id.comment_desc);
-        this.eGz = (TextView) this.mRoot.findViewById(R.id.praise_desc);
-        this.eGA = (TextView) this.mRoot.findViewById(R.id.praise_num);
-        this.eGA.setTextColor(ao.getColor(R.color.CAM_X0310));
-        this.eGx.setTextColor(ao.getColor(R.color.CAM_X0310));
-        this.eGz.setTextColor(ao.getColor(R.color.CAM_X0105));
-        this.eGy.setTextColor(ao.getColor(R.color.CAM_X0105));
-        this.eGY = (TbImageView) this.mRoot.findViewById(R.id.video_img);
-        this.eGY.setDefaultBgResource(R.color.transparent);
-        this.eGY.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eGY.setPlaceHolder(2);
-        this.alK = (ImageView) this.mRoot.findViewById(R.id.play_icon);
-        this.alK.setImageDrawable(SvgManager.bsx().a(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+        this.eID = (TextView) this.mRoot.findViewById(R.id.comment_num);
+        this.eIE = (TextView) this.mRoot.findViewById(R.id.comment_desc);
+        this.eIF = (TextView) this.mRoot.findViewById(R.id.praise_desc);
+        this.eIG = (TextView) this.mRoot.findViewById(R.id.praise_num);
+        this.eIG.setTextColor(ap.getColor(R.color.CAM_X0310));
+        this.eID.setTextColor(ap.getColor(R.color.CAM_X0310));
+        this.eIF.setTextColor(ap.getColor(R.color.CAM_X0105));
+        this.eIE.setTextColor(ap.getColor(R.color.CAM_X0105));
+        this.eJe = (TbImageView) this.mRoot.findViewById(R.id.video_img);
+        this.eJe.setDefaultBgResource(R.color.transparent);
+        this.eJe.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eJe.setPlaceHolder(2);
+        this.alA = (ImageView) this.mRoot.findViewById(R.id.play_icon);
+        this.alA.setImageDrawable(SvgManager.bsR().a(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
     }
 
     public View getView() {

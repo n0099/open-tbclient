@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetPendantByCategory.GetPendantByCategoryResIdl;
 import tbclient.GetPendantByCategory.ThemePendantInMain;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage {
     private List<a> mAvatarPendantList;
     private e mRecommand;

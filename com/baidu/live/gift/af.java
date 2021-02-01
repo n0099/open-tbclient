@@ -1,9 +1,9 @@
 package com.baidu.live.gift;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface af {
-    void Ei();
+    void Fy();
 
-    void fY(String str);
+    void gw(String str);
 
     void release();
 }

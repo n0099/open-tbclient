@@ -16,11 +16,11 @@ import java.net.URLEncoder;
 import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.HttpHost;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile AlertDialog f12628a;
+    private static volatile AlertDialog f12630a;
 
     public static int a(Context context, String str, String str2, String str3, String str4, boolean z) {
         if (StringUtil.isEmpty(str2) && StringUtil.isEmpty(str)) {
@@ -85,12 +85,12 @@ public class c {
     }
 
     public static void a() {
-        if (f12628a != null) {
+        if (f12630a != null) {
             try {
-                f12628a.dismiss();
-                f12628a = null;
+                f12630a.dismiss();
+                f12630a = null;
             } catch (Throwable th) {
-                f12628a = null;
+                f12630a = null;
             }
         }
     }
@@ -138,8 +138,8 @@ public class c {
             public void run() {
                 try {
                     c.a();
-                    AlertDialog unused = c.f12628a = builder.show();
-                    c.f12628a.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.qq.e.comm.plugin.w.a.c.4.1
+                    AlertDialog unused = c.f12630a = builder.show();
+                    c.f12630a.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.qq.e.comm.plugin.w.a.c.4.1
                         @Override // android.content.DialogInterface.OnDismissListener
                         public void onDismiss(DialogInterface dialogInterface) {
                             try {

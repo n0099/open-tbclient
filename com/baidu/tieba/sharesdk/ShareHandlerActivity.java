@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.model.ShareReportModel;
 import com.baidu.tieba.sharesdk.a.d;
@@ -13,16 +13,16 @@ import com.baidu.tieba.sharesdk.a.f;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu.tieba.sharesdk.b.b, WbShareCallback {
-    public static int akf = 3;
+    public static int ajU = 3;
     private PermissionJudgePolicy mPermissionJudgement;
-    protected boolean nam = false;
-    protected int nan = -1;
-    protected ShareEntity nao;
-    protected com.baidu.tieba.sharesdk.a.a nap;
-    protected e naq;
-    private ShareReportModel nar;
+    protected boolean njV = false;
+    protected int njW = -1;
+    protected ShareEntity njX;
+    protected com.baidu.tieba.sharesdk.a.a njY;
+    protected e njZ;
+    private ShareReportModel nka;
 
     @Override // com.baidu.tieba.sharesdk.ShareBaseActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -30,56 +30,56 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
         super.onCreate(bundle);
         try {
             Intent intent = getIntent();
-            this.nao = (ShareEntity) intent.getParcelableExtra("extra_share_data");
-            akf = intent.getIntExtra("extra_skin", 3);
+            this.njX = (ShareEntity) intent.getParcelableExtra("extra_share_data");
+            ajU = intent.getIntExtra("extra_skin", 3);
         } catch (Exception e) {
         }
-        if (this.nao == null) {
+        if (this.njX == null) {
             finish();
             return;
         }
-        aI(this.nao.byK());
-        this.nan = this.nao.dGQ();
-        if (this.nap != null) {
-            this.nap.onDestroy();
-            this.nap = null;
+        aI(this.njX.bzc());
+        this.njW = this.njX.dJb();
+        if (this.njY != null) {
+            this.njY.onDestroy();
+            this.njY = null;
         }
-        if (this.naq != null) {
-            this.naq.onDestroy();
-            this.naq = null;
+        if (this.njZ != null) {
+            this.njZ.onDestroy();
+            this.njZ = null;
         }
-        switch (this.nan) {
+        switch (this.njW) {
             case 0:
-                this.nap = new d(this);
+                this.njY = new d(this);
                 break;
             case 1:
             case 5:
             case 7:
             default:
-                this.nap = null;
+                this.njY = null;
                 break;
             case 2:
-                this.nap = new f(this, 2);
+                this.njY = new f(this, 2);
                 break;
             case 3:
-                this.nap = new f(this, 3);
+                this.njY = new f(this, 3);
                 break;
             case 4:
-                this.nap = new com.baidu.tieba.sharesdk.a.c(this);
+                this.njY = new com.baidu.tieba.sharesdk.a.c(this);
                 break;
             case 6:
-                this.naq = new e(this, this, this);
-                this.nap = this.naq;
+                this.njZ = new e(this, this, this);
+                this.njY = this.njZ;
                 break;
             case 8:
-                this.nap = new com.baidu.tieba.sharesdk.a.b(this);
+                this.njY = new com.baidu.tieba.sharesdk.a.b(this);
                 break;
         }
-        if (this.nap != null) {
-            this.nap.setTid(this.nao.getTid());
-            this.nap.Rt(this.nao.dGS());
+        if (this.njY != null) {
+            this.njY.setTid(this.njX.getTid());
+            this.njY.Sq(this.njX.dJd());
         }
-        if (this.nao.dGV() && !TextUtils.isEmpty(this.nao.getImgUrl())) {
+        if (this.njX.dJg() && !TextUtils.isEmpty(this.njX.getImgUrl())) {
             if (this.mPermissionJudgement == null) {
                 this.mPermissionJudgement = new PermissionJudgePolicy();
             }
@@ -89,24 +89,24 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
                 return;
             }
         }
-        if (this.nap != null) {
-            this.nap.y(getUniqueId());
-            this.nap.N(getIntent());
-            this.nap.a(this.nao, this);
+        if (this.njY != null) {
+            this.njY.z(getUniqueId());
+            this.njY.N(getIntent());
+            this.njY.a(this.njX, this);
             return;
         }
-        if (this.nao.byK() != null) {
-            this.nao.byK().getString("tid");
+        if (this.njX.bzc() != null) {
+            this.njX.bzc().getString("tid");
         }
-        a(this.nan, 2, this.nao.byK(), null);
+        a(this.njW, 2, this.njX.bzc(), null);
     }
 
     private void aI(Bundle bundle) {
         if (bundle != null) {
-            if (this.nar == null) {
-                this.nar = new ShareReportModel(getPageContext());
+            if (this.nka == null) {
+                this.nka = new ShareReportModel(getPageContext());
             }
-            this.nar.u(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
+            this.nka.u(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
         }
     }
 
@@ -123,10 +123,10 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (this.nam) {
+        if (this.njV) {
             finish();
         } else {
-            this.nam = true;
+            this.njV = true;
         }
     }
 
@@ -134,10 +134,10 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         if (intent != null) {
-            akf = intent.getIntExtra("extra_skin", 3);
+            ajU = intent.getIntExtra("extra_skin", 3);
         }
-        if (this.nap != null) {
-            this.nap.N(intent);
+        if (this.njY != null) {
+            this.njY.N(intent);
         }
     }
 
@@ -146,42 +146,41 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
         super.onActivityResult(i, i2, intent);
         if (i == 10103 || i == 10104) {
             Tencent.onActivityResultData(i, i2, intent, null);
-        } else if (this.nap != null) {
-            this.nap.N(intent);
+        } else if (this.njY != null) {
+            this.njY.N(intent);
         }
     }
 
     @Override // com.baidu.tieba.sharesdk.b.b
-    /* renamed from: do  reason: not valid java name */
-    public void mo47do(int i, int i2) {
+    public void dl(int i, int i2) {
         if (i2 == 1) {
-            com.baidu.tieba.sharesdk.c.b.a(i, this.nao);
+            com.baidu.tieba.sharesdk.c.b.a(i, this.njX);
         }
         if (i2 == 3) {
             if (i == 8 || i == 6) {
-                com.baidu.tieba.sharesdk.c.b.a(i, this.nao);
+                com.baidu.tieba.sharesdk.c.b.a(i, this.njX);
             } else {
-                com.baidu.tieba.sharesdk.c.b.b(i, this.nao);
+                com.baidu.tieba.sharesdk.c.b.b(i, this.njX);
             }
         }
-        if (this.nao.byK() != null) {
-            this.nao.byK().getString("tid");
-            this.nao.byK().getString("pid");
+        if (this.njX.bzc() != null) {
+            this.njX.bzc().getString("tid");
+            this.njX.bzc().getString("pid");
         }
         String str = null;
-        if (!at.isEmpty(this.nao.taskCompleteId)) {
-            str = this.nao.taskCompleteId;
+        if (!au.isEmpty(this.njX.taskCompleteId)) {
+            str = this.njX.taskCompleteId;
         }
-        a(i, i2, this.nao.byK(), str);
+        a(i, i2, this.njX.bzc(), str);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onDestroy() {
-        if (this.nap != null) {
-            this.nap.onDestroy();
+        if (this.njY != null) {
+            this.njY.onDestroy();
         }
-        if (this.nar != null) {
-            this.nar.cancelMessage();
+        if (this.nka != null) {
+            this.nka.cancelMessage();
         }
         super.onDestroy();
     }
@@ -200,22 +199,22 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareSuccess() {
-        if (this.naq != null) {
-            this.naq.onWbShareSuccess();
+        if (this.njZ != null) {
+            this.njZ.onWbShareSuccess();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        if (this.naq != null) {
-            this.naq.onWbShareCancel();
+        if (this.njZ != null) {
+            this.njZ.onWbShareCancel();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        if (this.naq != null) {
-            this.naq.onWbShareFail();
+        if (this.njZ != null) {
+            this.njZ.onWbShareFail();
         }
     }
 }

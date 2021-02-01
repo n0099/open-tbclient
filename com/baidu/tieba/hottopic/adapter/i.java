@@ -15,25 +15,25 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.m;
 import com.baidu.tieba.hottopic.holder.QualityThreadItemHolder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i extends com.baidu.adp.widget.ListView.a<m, QualityThreadItemHolder> {
-    private a kkA;
-    private w kkB;
-    private HotTopicActivity kku;
+    private HotTopicActivity ksB;
+    private a ksH;
+    private w ksI;
     public int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.kkA = new a();
-        this.kkB = new w() { // from class: com.baidu.tieba.hottopic.adapter.i.1
+        this.ksH = new a();
+        this.ksI = new w() { // from class: com.baidu.tieba.hottopic.adapter.i.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 if (nVar != null && (nVar instanceof m)) {
@@ -42,7 +42,7 @@ public class i extends com.baidu.adp.widget.ListView.a<m, QualityThreadItemHolde
                 }
             }
         };
-        this.kku = hotTopicActivity;
+        this.ksB = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,56 +67,56 @@ public class i extends com.baidu.adp.widget.ListView.a<m, QualityThreadItemHolde
     private void a(QualityThreadItemHolder qualityThreadItemHolder, View view) {
         if (qualityThreadItemHolder != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (this.kku != null && qualityThreadItemHolder.akf != this.mSkinType) {
-                qualityThreadItemHolder.akf = this.mSkinType;
-                ao.setBackgroundResource(qualityThreadItemHolder.getView(), R.drawable.list_item_selector);
-                ao.setViewTextColor(qualityThreadItemHolder.knE, R.color.CAM_X0108, 1);
-                ao.setViewTextColor(qualityThreadItemHolder.eFr, R.color.CAM_X0105, 1);
-                ao.setViewTextColor(qualityThreadItemHolder.knN, R.color.CAM_X0109, 1);
-                ao.setBackgroundColor(qualityThreadItemHolder.knL, R.color.CAM_X0204);
-                ao.setBackgroundColor(qualityThreadItemHolder.knD, R.color.CAM_X0204);
-                qualityThreadItemHolder.knM.setImageDrawable(null);
-                this.kku.getLayoutMode().setNightMode(this.mSkinType == 1);
-                this.kku.getLayoutMode().onModeChanged(view);
+            if (this.ksB != null && qualityThreadItemHolder.ajU != this.mSkinType) {
+                qualityThreadItemHolder.ajU = this.mSkinType;
+                ap.setBackgroundResource(qualityThreadItemHolder.getView(), R.drawable.list_item_selector);
+                ap.setViewTextColor(qualityThreadItemHolder.kvL, R.color.CAM_X0108, 1);
+                ap.setViewTextColor(qualityThreadItemHolder.eHx, R.color.CAM_X0105, 1);
+                ap.setViewTextColor(qualityThreadItemHolder.kvU, R.color.CAM_X0109, 1);
+                ap.setBackgroundColor(qualityThreadItemHolder.kvS, R.color.CAM_X0204);
+                ap.setBackgroundColor(qualityThreadItemHolder.kvK, R.color.CAM_X0204);
+                qualityThreadItemHolder.kvT.setImageDrawable(null);
+                this.ksB.getLayoutMode().setNightMode(this.mSkinType == 1);
+                this.ksB.getLayoutMode().onModeChanged(view);
             }
         }
     }
 
     private void a(QualityThreadItemHolder qualityThreadItemHolder, m mVar) {
         if (qualityThreadItemHolder != null && mVar != null) {
-            if (mVar.cRu()) {
-                qualityThreadItemHolder.knD.setVisibility(0);
-                qualityThreadItemHolder.knE.setVisibility(0);
-                qualityThreadItemHolder.knL.setVisibility(8);
-                qualityThreadItemHolder.knK.setVisibility(8);
-                qualityThreadItemHolder.knE.setText(mVar.klL.trim());
-                ao.setBackgroundColor(qualityThreadItemHolder.getView(), R.color.CAM_X0201);
+            if (mVar.cTt()) {
+                qualityThreadItemHolder.kvK.setVisibility(0);
+                qualityThreadItemHolder.kvL.setVisibility(0);
+                qualityThreadItemHolder.kvS.setVisibility(8);
+                qualityThreadItemHolder.kvR.setVisibility(8);
+                qualityThreadItemHolder.kvL.setText(mVar.ktS.trim());
+                ap.setBackgroundColor(qualityThreadItemHolder.getView(), R.color.CAM_X0201);
                 return;
             }
-            qualityThreadItemHolder.knD.setVisibility(8);
-            qualityThreadItemHolder.knE.setVisibility(8);
-            qualityThreadItemHolder.knL.setVisibility(0);
-            qualityThreadItemHolder.knK.setVisibility(0);
-            qualityThreadItemHolder.knM.startLoad(mVar.eLw, 10, false);
-            qualityThreadItemHolder.eFr.setText(mVar.title.trim());
-            qualityThreadItemHolder.knN.setText(mVar.summary.trim());
-            qualityThreadItemHolder.knO.setText(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.fname, 7, false)}));
-            qualityThreadItemHolder.knP.setText(at.numberUniformFormat(mVar.kmW));
-            qualityThreadItemHolder.knQ.setText(at.numFormatOver10000(mVar.replyNum));
+            qualityThreadItemHolder.kvK.setVisibility(8);
+            qualityThreadItemHolder.kvL.setVisibility(8);
+            qualityThreadItemHolder.kvS.setVisibility(0);
+            qualityThreadItemHolder.kvR.setVisibility(0);
+            qualityThreadItemHolder.kvT.startLoad(mVar.eNI, 10, false);
+            qualityThreadItemHolder.eHx.setText(mVar.title.trim());
+            qualityThreadItemHolder.kvU.setText(mVar.summary.trim());
+            qualityThreadItemHolder.kvV.setText(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.fname, 7, false)}));
+            qualityThreadItemHolder.kvW.setText(au.numberUniformFormat(mVar.kvd));
+            qualityThreadItemHolder.kvX.setText(au.numFormatOver10000(mVar.replyNum));
             b(qualityThreadItemHolder, mVar);
         }
     }
 
     private void b(QualityThreadItemHolder qualityThreadItemHolder, m mVar) {
-        if (qualityThreadItemHolder != null && mVar != null && this.kku != null) {
-            a(this.kkB);
-            this.kkA.fq(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.fname, 7, false)}), String.valueOf(mVar.fid));
-            qualityThreadItemHolder.knO.setOnClickListener(this.kkA);
+        if (qualityThreadItemHolder != null && mVar != null && this.ksB != null) {
+            a(this.ksI);
+            this.ksH.fq(TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedText(mVar.fname, 7, false)}), String.valueOf(mVar.fid));
+            qualityThreadItemHolder.kvV.setOnClickListener(this.ksH);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         private String fid;
         private String forumName;
@@ -131,20 +131,20 @@ public class i extends com.baidu.adp.widget.ListView.a<m, QualityThreadItemHolde
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (at.isForumName(this.forumName)) {
+            if (au.isForumName(this.forumName)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(i.this.mContext).createNormalCfg(this.forumName, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                TiebaStatic.log(new aq("c10523").dW("fid", this.fid));
+                TiebaStatic.log(new ar("c10523").dR("fid", this.fid));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(m mVar) {
-        if (mVar != null && !mVar.cRu()) {
+        if (mVar != null && !mVar.cTt()) {
             String valueOf = String.valueOf(mVar.tid);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.kku.getActivity()).createNormalCfg(valueOf, String.valueOf(mVar.postId), "hot_topic")));
-            TiebaStatic.log(new aq("c10522").dW("tid", valueOf).dW("obj_id", this.kku.cQT()));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.ksB.getActivity()).createNormalCfg(valueOf, String.valueOf(mVar.postId), "hot_topic")));
+            TiebaStatic.log(new ar("c10522").dR("tid", valueOf).dR("obj_id", this.ksB.cSS()));
         }
     }
 }

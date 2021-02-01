@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.j;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CdnCacheItem implements Serializable {
     private static final int TB_CDNCACHEITEM_ERROR = -1;
     private static final int TB_CDN_IP_DISABLE_TIME = 3600000;
@@ -134,7 +134,7 @@ public class CdnCacheItem implements Serializable {
         return this.isUsedIp;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private class TBIPListItem implements Serializable {
         private static final long serialVersionUID = -99289965442562023L;
         public String cdnIp;

@@ -31,7 +31,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KsFragment extends AbstractIFragmentLifecycle implements IFragment, IFragmentLifecycle {
     private static final SimpleArrayMap<String, Class<?>> sClassMap = new SimpleArrayMap<>();
     private Fragment mBase;

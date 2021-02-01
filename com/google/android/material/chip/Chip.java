@@ -53,7 +53,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate {
     private static final int CLOSE_ICON_VIRTUAL_ID = 0;
     private static final String NAMESPACE_ANDROID = "http://schemas.android.com/apk/res/android";
@@ -762,7 +762,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class ChipTouchHelper extends ExploreByTouchHelper {
         ChipTouchHelper(Chip chip) {
             super(chip);

@@ -7,7 +7,7 @@ import com.baidu.android.pushservice.i.m;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b extends c {
     public b(Context context) {
         super(context);

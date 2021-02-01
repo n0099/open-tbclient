@@ -7,22 +7,22 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class k extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avy() {
+    public String avW() {
         return "getRemoteAudioLevels";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
-        ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> avL = bVar.avL();
+        ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> awj = bVar.awj();
         JSONObject jSONObject = new JSONObject();
         JSONArray jSONArray = new JSONArray();
-        if (avL != null) {
-            Iterator<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> it = avL.iterator();
+        if (awj != null) {
+            Iterator<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> it = awj.iterator();
             while (it.hasNext()) {
                 com.baidu.swan.apps.inlinewidget.rtcroom.model.a next = it.next();
                 JSONObject jSONObject2 = next == null ? null : next.toJSONObject();

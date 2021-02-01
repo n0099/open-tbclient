@@ -13,16 +13,16 @@ import java.util.Iterator;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class c {
-    private static SimpleDateFormat apB;
-    private static PackageManager apC;
+    private static SimpleDateFormat apr;
+    private static PackageManager aps;
 
     public static String a(Date date) {
-        if (apB == null) {
-            apB = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (apr == null) {
+            apr = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return apB.format(date);
+        return apr.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -143,7 +143,18 @@ public final class c {
         return a(str.getBytes());
     }
 
-    public static String g(Throwable th) {
+    public static boolean g(Context context, String str) {
+        if (aps == null) {
+            aps = context.getPackageManager();
+        }
+        try {
+            return aps.checkPermission(str, context.getPackageName()) == 0;
+        } catch (RuntimeException e) {
+            return false;
+        }
+    }
+
+    public static String h(Throwable th) {
         if (th == null) {
             a.w("getErrorLine thr is null.");
             return "";
@@ -152,18 +163,7 @@ public final class c {
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static boolean g(Context context, String str) {
-        if (apC == null) {
-            apC = context.getPackageManager();
-        }
-        try {
-            return apC.checkPermission(str, context.getPackageName()) == 0;
-        } catch (RuntimeException e) {
-            return false;
-        }
-    }
-
-    public static String h(Throwable th) {
+    public static String j(Throwable th) {
         if (th == null) {
             a.w("getErrorOriginalLine thr is null.");
             return "";

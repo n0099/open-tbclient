@@ -7,48 +7,48 @@ import com.baidu.live.liveroom.d.d;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaChallengeShowAllJinzhuPagerAdapter extends PagerAdapter {
-    private long brk;
-    private ArrayList<d> gZR = new ArrayList<>();
-    private long gmc;
-    private long hpW;
+    private long buN;
+    private long goL;
+    private ArrayList<d> hcB = new ArrayList<>();
+    private long hug;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
 
     public AlaChallengeShowAllJinzhuPagerAdapter(TbPageContext tbPageContext, long j, long j2, long j3, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.hpW = j;
-        this.brk = j2;
-        this.gmc = j3;
-        bVJ();
+        this.hug = j;
+        this.buN = j2;
+        this.goL = j3;
+        bWn();
     }
 
-    private void bVJ() {
+    private void bWn() {
         com.baidu.tieba.ala.liveroom.challenge.view.b bVar = new com.baidu.tieba.ala.liveroom.challenge.view.b(this.mTbPageContext, 1, this.mIsHost);
-        bVar.e(this.hpW, this.brk, this.gmc);
-        this.gZR.add(bVar);
+        bVar.e(this.hug, this.buN, this.goL);
+        this.hcB.add(bVar);
         com.baidu.tieba.ala.liveroom.challenge.view.b bVar2 = new com.baidu.tieba.ala.liveroom.challenge.view.b(this.mTbPageContext, 2, this.mIsHost);
-        bVar2.e(this.hpW, this.brk, this.gmc);
-        this.gZR.add(bVar2);
+        bVar2.e(this.hug, this.buN, this.goL);
+        this.hcB.add(bVar2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.gZR != null) {
-            return this.gZR.size();
+        if (this.hcB != null) {
+            return this.hcB.size();
         }
         return 0;
     }
 
     public ArrayList<d> getDataList() {
-        return this.gZR;
+        return this.hcB;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.gZR, i);
+        d dVar = (d) ListUtils.getItem(this.hcB, i);
         if (dVar != null && dVar.getPanelView() != null) {
             View panelView = dVar.getPanelView();
             if (panelView.getParent() != null) {

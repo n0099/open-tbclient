@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bf;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     private static final int CACHETIME = 604800000;
-    private bd data;
+    private bf data;
     private int errCode;
     private String resultString;
 
@@ -25,14 +25,14 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public PersonFriendResponseMessage(int i) {
         super(i);
         this.errCode = -1;
-        this.data = new bd();
+        this.data = new bf();
     }
 
-    public void setPersonFriendData(bd bdVar) {
-        this.data = bdVar;
+    public void setPersonFriendData(bf bfVar) {
+        this.data = bfVar;
     }
 
-    public bd getPersonFriendData() {
+    public bf getPersonFriendData() {
         return this.data;
     }
 
@@ -58,7 +58,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> Ab;
+        l<String> As;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
@@ -68,8 +68,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (Ab = com.baidu.tbadk.core.c.a.bpZ().Ab("tb.my_pages")) != null) {
-                        Ab.set("personal_myfollow" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str, parseToString, 604800000L);
+                    if (parseToString != null && (As = com.baidu.tbadk.core.c.a.bqr().As("tb.my_pages")) != null) {
+                        As.set("personal_myfollow" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str, parseToString, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

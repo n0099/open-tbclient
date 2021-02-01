@@ -2,43 +2,43 @@ package com.baidu.tieba.recapp;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public String forumName;
-    public int mIf;
-    public int mIg;
-    public int mIh;
+    public int mRp;
+    public int mRq;
+    public int mRr;
     public int refreshCount;
 
     public g() {
         this.refreshCount = 0;
-        this.mIf = 0;
-        this.mIg = 0;
-        this.mIh = 0;
+        this.mRp = 0;
+        this.mRq = 0;
+        this.mRr = 0;
     }
 
     public g(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.mIf = 0;
-        this.mIg = 0;
-        this.mIh = 0;
+        this.mRp = 0;
+        this.mRq = 0;
+        this.mRr = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.mIf = jSONObject.optInt("loadmore_count");
-            this.mIg = jSONObject.optInt("loadmore_count_pb");
-            this.mIh = jSONObject.optInt("refresh_count_pb");
+            this.mRp = jSONObject.optInt("loadmore_count");
+            this.mRq = jSONObject.optInt("loadmore_count_pb");
+            this.mRr = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject aiX() {
+    public JSONObject ajv() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.mIf);
-            jSONObject.put("loadmore_count_pb", this.mIg);
-            jSONObject.put("refresh_count_pb", this.mIh);
+            jSONObject.put("loadmore_count", this.mRp);
+            jSONObject.put("loadmore_count_pb", this.mRq);
+            jSONObject.put("refresh_count_pb", this.mRr);
             return jSONObject;
         } catch (JSONException e) {
             return null;
@@ -46,20 +46,20 @@ public class g {
     }
 
     public int ay(boolean z, boolean z2) {
-        return z2 ? z ? this.mIh : this.mIg : z ? this.refreshCount : this.mIf;
+        return z2 ? z ? this.mRr : this.mRq : z ? this.refreshCount : this.mRp;
     }
 
     public void az(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.mIh++;
+                this.mRr++;
             } else {
-                this.mIg++;
+                this.mRq++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.mIf++;
+            this.mRp++;
         }
     }
 }

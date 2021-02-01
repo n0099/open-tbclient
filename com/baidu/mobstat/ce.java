@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class ce extends cd {
     static final /* synthetic */ boolean f;
     private ByteBuffer g;
@@ -23,18 +23,18 @@ public class ce extends cd {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public class a extends Throwable {
 
         /* renamed from: b  reason: collision with root package name */
-        private int f3792b;
+        private int f3795b;
 
         public a(int i) {
-            this.f3792b = i;
+            this.f3795b = i;
         }
 
         public int a() {
-            return this.f3792b;
+            return this.f3795b;
         }
     }
 

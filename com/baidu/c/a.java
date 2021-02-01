@@ -13,9 +13,9 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private static C0087a acj = new C0087a();
+    private static C0087a ace = new C0087a();
     private MethodChannel channel;
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -64,14 +64,14 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             case 0:
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (currentActivity instanceof TbPageContextSupport) {
-                    acj.a(((TbPageContextSupport) currentActivity).getPageContext(), (String) methodCall.argument("page_name"));
+                    ace.a(((TbPageContextSupport) currentActivity).getPageContext(), (String) methodCall.argument("page_name"));
                 }
                 result.success(true);
                 return;
             case 1:
                 Activity currentActivity2 = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (currentActivity2 instanceof TbPageContextSupport) {
-                    acj.b(((TbPageContextSupport) currentActivity2).getPageContext(), (String) methodCall.argument("page_name"));
+                    ace.b(((TbPageContextSupport) currentActivity2).getPageContext(), (String) methodCall.argument("page_name"));
                 }
                 result.success(true);
                 return;
@@ -82,14 +82,14 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                 voiceModel.voiceId = (String) methodCall.argument("url");
                 voiceModel.duration = Integer.valueOf((String) methodCall.argument("duration")).intValue();
-                if (!acj.isPlaying(voiceModel)) {
-                    acj.a(voiceModel);
-                    acj.rK();
+                if (!ace.isPlaying(voiceModel)) {
+                    ace.a(voiceModel);
+                    ace.rI();
                 }
                 result.success(true);
                 return;
             case 4:
-                acj.acn.stopPlay();
+                ace.acg.stopPlay();
                 result.success(true);
                 return;
             default:
@@ -104,47 +104,47 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     }
 
     /* renamed from: com.baidu.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     private static class C0087a implements VoiceManager.b {
-        String acm;
-        VoiceManager acn;
-        VoiceData.VoiceModel aco;
+        String acf;
+        VoiceManager acg;
+        VoiceData.VoiceModel ach;
 
         private C0087a() {
-            this.acm = "";
-            this.acn = VoiceManager.instance();
+            this.acf = "";
+            this.acg = VoiceManager.instance();
         }
 
         void a(VoiceData.VoiceModel voiceModel) {
-            this.aco = voiceModel;
+            this.ach = voiceModel;
         }
 
         boolean isPlaying(VoiceData.VoiceModel voiceModel) {
-            return this.acn.isPlaying(voiceModel);
+            return this.acg.isPlaying(voiceModel);
         }
 
         boolean cT(String str) {
-            return this.acm != null && this.acm.equals(str);
+            return this.acf != null && this.acf.equals(str);
         }
 
         boolean a(TbPageContext tbPageContext, String str) {
             if (cT(str)) {
                 return false;
             }
-            this.acm = str;
-            this.acn.onCreate(tbPageContext);
+            this.acf = str;
+            this.acg.onCreate(tbPageContext);
             return true;
         }
 
         void b(TbPageContext tbPageContext, String str) {
             if (cT(str)) {
-                this.acn.onDestory(tbPageContext);
-                this.acm = null;
+                this.acg.onDestory(tbPageContext);
+                this.acf = null;
             }
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-        public void rJ() {
+        public void rH() {
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -161,7 +161,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
         public VoiceData.VoiceModel getVoiceModel() {
-            return this.aco;
+            return this.ach;
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -169,8 +169,8 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             return null;
         }
 
-        void rK() {
-            this.acn.startPlay(this);
+        void rI() {
+            this.acg.startPlay(this);
         }
     }
 }

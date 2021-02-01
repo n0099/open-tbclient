@@ -6,7 +6,7 @@ import android.net.Uri;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class BaseRouter {
     public static boolean invoke(Context context, String str) {
         if (UnitedSchemeUtility.isUnitedScheme(str)) {

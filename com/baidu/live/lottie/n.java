@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class n<T> {
     public static Executor Dc = Executors.newCachedThreadPool();
     @Nullable
@@ -22,7 +22,7 @@ public class n<T> {
     private final Set<j<Throwable>> Df;
     private final FutureTask<m<T>> Dg;
     @Nullable
-    private volatile m<T> boK;
+    private volatile m<T> bsl;
     private final Handler handler;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -35,7 +35,7 @@ public class n<T> {
         this.De = new LinkedHashSet(1);
         this.Df = new LinkedHashSet(1);
         this.handler = new Handler(Looper.getMainLooper());
-        this.boK = null;
+        this.bsl = null;
         this.Dg = new FutureTask<>(callable);
         if (z) {
             try {
@@ -47,58 +47,58 @@ public class n<T> {
             }
         }
         Dc.execute(this.Dg);
-        ip();
+        in();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@Nullable m<T> mVar) {
-        if (this.boK != null) {
+        if (this.bsl != null) {
             throw new IllegalStateException("A task may only be set once.");
         }
-        this.boK = mVar;
-        in();
+        this.bsl = mVar;
+        im();
     }
 
     public synchronized n<T> a(j<T> jVar) {
-        if (this.boK != null && this.boK.getValue() != null) {
-            jVar.onResult(this.boK.getValue());
+        if (this.bsl != null && this.bsl.getValue() != null) {
+            jVar.onResult(this.bsl.getValue());
         }
         this.De.add(jVar);
-        ip();
+        in();
         return this;
     }
 
     public synchronized n<T> b(j<T> jVar) {
         this.De.remove(jVar);
-        iq();
+        ip();
         return this;
     }
 
     public synchronized n<T> c(j<Throwable> jVar) {
-        if (this.boK != null && this.boK.im() != null) {
-            jVar.onResult(this.boK.im());
+        if (this.bsl != null && this.bsl.il() != null) {
+            jVar.onResult(this.bsl.il());
         }
         this.Df.add(jVar);
-        ip();
+        in();
         return this;
     }
 
     public synchronized n<T> d(j<Throwable> jVar) {
         this.Df.remove(jVar);
-        iq();
+        ip();
         return this;
     }
 
-    private void in() {
+    private void im() {
         this.handler.post(new Runnable() { // from class: com.baidu.live.lottie.n.1
             @Override // java.lang.Runnable
             public void run() {
-                if (n.this.boK != null && !n.this.Dg.isCancelled()) {
-                    m mVar = n.this.boK;
+                if (n.this.bsl != null && !n.this.Dg.isCancelled()) {
+                    m mVar = n.this.bsl;
                     if (mVar.getValue() != null) {
                         n.this.l(mVar.getValue());
                     } else {
-                        n.this.f(mVar.im());
+                        n.this.g(mVar.il());
                     }
                 }
             }
@@ -113,7 +113,7 @@ public class n<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f(Throwable th) {
+    public void g(Throwable th) {
         ArrayList<j> arrayList = new ArrayList(this.Df);
         if (arrayList.isEmpty()) {
             Log.w("LOTTIE", "Lottie encountered an error but no failure listener was added.", th);
@@ -124,8 +124,8 @@ public class n<T> {
         }
     }
 
-    private synchronized void ip() {
-        if (!ir() && this.boK == null) {
+    private synchronized void in() {
+        if (!iq() && this.bsl == null) {
             this.Dd = new Thread("LottieTaskObserver") { // from class: com.baidu.live.lottie.n.2
                 private boolean Dj = false;
 
@@ -139,7 +139,7 @@ public class n<T> {
                                 n.this.a(new m(e));
                             }
                             this.Dj = true;
-                            n.this.iq();
+                            n.this.ip();
                         }
                     }
                 }
@@ -150,15 +150,15 @@ public class n<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void iq() {
-        if (ir() && (this.De.isEmpty() || this.boK != null)) {
+    public synchronized void ip() {
+        if (iq() && (this.De.isEmpty() || this.bsl != null)) {
             this.Dd.interrupt();
             this.Dd = null;
             d.debug("Stopping TaskObserver thread");
         }
     }
 
-    private boolean ir() {
+    private boolean iq() {
         return this.Dd != null && this.Dd.isAlive();
     }
 }

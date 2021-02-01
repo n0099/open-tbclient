@@ -10,7 +10,7 @@ import android.telephony.TelephonyManager;
 import android.util.Pair;
 import com.baidu.android.util.devices.RomUtils;
 import com.kwai.video.hodor.util.Timber;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NetworkMonitor {
     private static final int HodorMobileType_MOBILE_2G = 1;
     private static final int HodorMobileType_MOBILE_3G = 2;

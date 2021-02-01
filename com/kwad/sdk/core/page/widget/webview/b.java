@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends KSApiWebView {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f9375b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
+    private static final String[] f9377b = {"getClass", "hashCode", "notify", "notifyAll", "equals", "toString", "wait"};
 
     /* renamed from: a  reason: collision with root package name */
-    private Boolean f9376a;
+    private Boolean f9378a;
     private final HashMap<String, Object> c;
     private String d;
 
@@ -157,7 +157,7 @@ public class b extends KSApiWebView {
     }
 
     private boolean a(String str) {
-        for (String str2 : f9375b) {
+        for (String str2 : f9377b) {
             if (str2.equals(str)) {
                 return true;
             }
@@ -215,8 +215,8 @@ public class b extends KSApiWebView {
     }
 
     public void a() {
-        if (Build.VERSION.SDK_INT == 17 && this.f9376a == null && f()) {
-            this.f9376a = true;
+        if (Build.VERSION.SDK_INT == 17 && this.f9378a == null && f()) {
+            this.f9378a = true;
             setAccessibilityEnabled(false);
         }
     }

@@ -5,23 +5,23 @@ import com.ss.android.socialbase.downloader.i.g;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Object f13169a;
+    protected final Object f13171a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<e> f13170b;
+    private final List<e> f13172b;
     private boolean d;
     private long e;
     private InputStream f;
-    private g pWh;
+    private g qgl;
 
     public void e() throws InterruptedException {
-        synchronized (this.f13169a) {
-            if (this.d && this.pWh == null) {
-                this.f13169a.wait();
+        synchronized (this.f13171a) {
+            if (this.d && this.qgl == null) {
+                this.f13171a.wait();
             }
         }
     }
@@ -36,42 +36,42 @@ public class d implements g {
 
     @Override // com.ss.android.socialbase.downloader.i.g
     public void d() {
-        if (this.pWh != null) {
-            this.pWh.d();
+        if (this.qgl != null) {
+            this.qgl.d();
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public String a(String str) {
-        if (this.pWh != null) {
-            return this.pWh.a(str);
+        if (this.qgl != null) {
+            return this.qgl.a(str);
         }
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public int b() throws IOException {
-        if (this.pWh != null) {
-            return this.pWh.b();
+        if (this.qgl != null) {
+            return this.qgl.b();
         }
         return 0;
     }
 
     public List<e> f() {
-        return this.f13170b;
+        return this.f13172b;
     }
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public void c() {
-        if (this.pWh != null) {
-            this.pWh.c();
+        if (this.qgl != null) {
+            this.qgl.c();
         }
     }
 
     public boolean g() {
         try {
-            if (this.pWh != null) {
-                return a(this.pWh.b());
+            if (this.qgl != null) {
+                return a(this.qgl.b());
             }
             return false;
         } catch (IOException e) {
@@ -85,6 +85,6 @@ public class d implements g {
     }
 
     public boolean h() {
-        return System.currentTimeMillis() - this.e < b.f13164a;
+        return System.currentTimeMillis() - this.e < b.f13166a;
     }
 }

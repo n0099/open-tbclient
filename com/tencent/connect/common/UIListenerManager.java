@@ -3,7 +3,6 @@ package com.tencent.connect.common;
 import android.content.Intent;
 import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.mobads.openad.c.b;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
 import com.tencent.open.utils.j;
@@ -14,26 +13,26 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class UIListenerManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static UIListenerManager f13331a = null;
+    private static UIListenerManager f13333a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, ApiTask> f13332b;
+    private Map<String, ApiTask> f13334b;
 
     public static UIListenerManager getInstance() {
-        if (f13331a == null) {
-            f13331a = new UIListenerManager();
+        if (f13333a == null) {
+            f13333a = new UIListenerManager();
         }
-        return f13331a;
+        return f13333a;
     }
 
     private UIListenerManager() {
-        this.f13332b = Collections.synchronizedMap(new HashMap());
-        if (this.f13332b == null) {
-            this.f13332b = Collections.synchronizedMap(new HashMap());
+        this.f13334b = Collections.synchronizedMap(new HashMap());
+        if (this.f13334b == null) {
+            this.f13334b = Collections.synchronizedMap(new HashMap());
         }
     }
 
@@ -44,8 +43,8 @@ public class UIListenerManager {
             f.e("openSDK_LOG.UIListenerManager", "setListener action is null! rquestCode=" + i);
             return null;
         }
-        synchronized (this.f13332b) {
-            put = this.f13332b.put(a2, new ApiTask(i, iUiListener));
+        synchronized (this.f13334b) {
+            put = this.f13334b.put(a2, new ApiTask(i, iUiListener));
         }
         if (put == null) {
             return null;
@@ -60,8 +59,8 @@ public class UIListenerManager {
             f.e("openSDK_LOG.UIListenerManager", "setListnerWithAction fail, action = " + str);
             return null;
         }
-        synchronized (this.f13332b) {
-            put = this.f13332b.put(str, new ApiTask(a2, iUiListener));
+        synchronized (this.f13334b) {
+            put = this.f13334b.put(str, new ApiTask(a2, iUiListener));
         }
         if (put == null) {
             return null;
@@ -84,9 +83,9 @@ public class UIListenerManager {
             f.e("openSDK_LOG.UIListenerManager", "getListnerWithAction action is null!");
             return null;
         }
-        synchronized (this.f13332b) {
-            apiTask = this.f13332b.get(str);
-            this.f13332b.remove(str);
+        synchronized (this.f13334b) {
+            apiTask = this.f13334b.get(str);
+            this.f13334b.remove(str);
         }
         if (apiTask == null) {
             return null;
@@ -128,7 +127,7 @@ public class UIListenerManager {
                 iUiListener.onCancel();
             } else if (BdStatsConstant.StatsType.ERROR.equals(stringExtra3)) {
                 iUiListener.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
-            } else if (b.COMPLETE.equals(stringExtra3)) {
+            } else if ("complete".equals(stringExtra3)) {
                 try {
                     iUiListener.onComplete(new JSONObject(stringExtra4 == null ? "{\"ret\": 0}" : stringExtra4));
                 } catch (JSONException e2) {
@@ -194,7 +193,7 @@ public class UIListenerManager {
                     iUiListener2.onCancel();
                 } else if (BdStatsConstant.StatsType.ERROR.equals(stringExtra3)) {
                     iUiListener2.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
-                } else if (b.COMPLETE.equals(stringExtra3)) {
+                } else if ("complete".equals(stringExtra3)) {
                     try {
                         iUiListener2.onComplete(new JSONObject(stringExtra4 == null ? "{\"ret\": 0}" : stringExtra4));
                     } catch (JSONException e2) {
@@ -225,7 +224,7 @@ public class UIListenerManager {
         return true;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public class ApiTask {
         public IUiListener mListener;
         public int mRequestCode;

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.Properties;
 import org.apache.http.HttpStatus;
 import org.json.JSONArray;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class e {
     private static volatile e m;
     private String C;
@@ -70,7 +70,7 @@ public final class e {
     private int A = 0;
     private int B = 0;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     class a extends Thread {
         a() {
             setName("PushService-PushConnection-readThread");
@@ -126,7 +126,7 @@ public final class e {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     class b extends Thread {
         b() {
             setName("PushService-PushConnection-SendThread");

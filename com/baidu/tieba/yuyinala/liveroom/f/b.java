@@ -3,11 +3,11 @@ package com.baidu.tieba.yuyinala.liveroom.f;
 import android.view.View;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.yuyinala.liveroom.views.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private TbPageContext mPageContext;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.liveroom.views.b okj;
+    private com.baidu.tieba.yuyinala.liveroom.views.b oub;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -15,59 +15,59 @@ public class b {
     }
 
     private void init() {
-        this.okj = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
-        this.mRootView = this.okj.getView();
+        this.oub = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
+        this.mRootView = this.oub.getView();
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public boolean cdv() {
-        return this.okj.cdv();
+    public boolean ceq() {
+        return this.oub.ceq();
     }
 
-    public boolean cdw() {
-        return this.okj.cdw();
+    public boolean cer() {
+        return this.oub.cer();
     }
 
     public String getLiveTitle() {
-        return this.okj.getLiveTitle();
+        return this.oub.getLiveTitle();
     }
 
-    public boolean cdx() {
-        return this.okj.cdx();
+    public boolean ces() {
+        return this.oub.ces();
     }
 
-    public boolean cdy() {
-        return this.okj.cdy();
+    public boolean cet() {
+        return this.oub.cet();
     }
 
-    public String cdA() {
-        return this.okj.cdA();
+    public String cev() {
+        return this.oub.cev();
     }
 
     public void a(d.b bVar) {
-        this.okj.a(bVar);
+        this.oub.a(bVar);
     }
 
     public void a(d.a aVar) {
-        this.okj.a(aVar);
+        this.oub.a(aVar);
     }
 
-    public void Hd(String str) {
-        this.okj.Hd(str);
+    public void HH(String str) {
+        this.oub.HH(str);
     }
 
-    public void cdD() {
-        if (this.okj != null) {
-            this.okj.cdD();
+    public void cey() {
+        if (this.oub != null) {
+            this.oub.cey();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.okj != null) {
-            this.okj.onKeyboardVisibilityChanged(z);
+        if (this.oub != null) {
+            this.oub.onKeyboardVisibilityChanged(z);
         }
     }
 }

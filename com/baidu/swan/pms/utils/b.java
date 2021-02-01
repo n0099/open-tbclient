@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=5] */
     public static String e(File file, boolean z) {

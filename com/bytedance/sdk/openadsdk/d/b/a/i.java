@@ -11,21 +11,21 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class i implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.b.c f6887a;
+    private final com.bytedance.sdk.openadsdk.d.b.c f6889a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.e f6888b;
+    private final com.bytedance.sdk.openadsdk.d.e f6890b;
     private final com.bytedance.sdk.openadsdk.d.b.d c;
     private final d d;
     private final com.bytedance.sdk.openadsdk.d.b.b.b e = com.bytedance.sdk.openadsdk.d.b.b.b.a();
 
     public i(com.bytedance.sdk.openadsdk.d.b.c cVar, com.bytedance.sdk.openadsdk.d.e eVar, com.bytedance.sdk.openadsdk.d.b.d dVar, d dVar2) {
-        this.f6887a = cVar;
-        this.f6888b = eVar;
+        this.f6889a = cVar;
+        this.f6890b = eVar;
         this.c = dVar;
         this.d = dVar2;
     }
@@ -41,7 +41,7 @@ public final class i implements w {
     private List<String> a(Field field) {
         com.bytedance.sdk.openadsdk.d.a.c cVar = (com.bytedance.sdk.openadsdk.d.a.c) field.getAnnotation(com.bytedance.sdk.openadsdk.d.a.c.class);
         if (cVar == null) {
-            return Collections.singletonList(this.f6888b.a(field));
+            return Collections.singletonList(this.f6890b.a(field));
         }
         String a2 = cVar.a();
         String[] b2 = cVar.b();
@@ -62,7 +62,7 @@ public final class i implements w {
         if (!Object.class.isAssignableFrom(a2)) {
             return null;
         }
-        return new a(this.f6887a.a(aVar), a(fVar, (com.bytedance.sdk.openadsdk.d.c.a<?>) aVar, (Class<?>) a2));
+        return new a(this.f6889a.a(aVar), a(fVar, (com.bytedance.sdk.openadsdk.d.c.a<?>) aVar, (Class<?>) a2));
     }
 
     private b a(final com.bytedance.sdk.openadsdk.d.f fVar, final Field field, String str, final com.bytedance.sdk.openadsdk.d.c.a<?> aVar, boolean z, boolean z2) {
@@ -70,7 +70,7 @@ public final class i implements w {
         com.bytedance.sdk.openadsdk.d.a.b bVar = (com.bytedance.sdk.openadsdk.d.a.b) field.getAnnotation(com.bytedance.sdk.openadsdk.d.a.b.class);
         final v<?> vVar = null;
         if (bVar != null) {
-            vVar = this.d.a(this.f6887a, fVar, aVar, bVar);
+            vVar = this.d.a(this.f6889a, fVar, aVar, bVar);
         }
         final boolean z3 = vVar != null;
         if (vVar == null) {
@@ -139,7 +139,7 @@ public final class i implements w {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class b {
         final String h;
         final boolean i;
@@ -158,18 +158,18 @@ public final class i implements w {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a<T> extends v<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.bytedance.sdk.openadsdk.d.b.i<T> f6891a;
+        private final com.bytedance.sdk.openadsdk.d.b.i<T> f6893a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final Map<String, b> f6892b;
+        private final Map<String, b> f6894b;
 
         a(com.bytedance.sdk.openadsdk.d.b.i<T> iVar, Map<String, b> map) {
-            this.f6891a = iVar;
-            this.f6892b = map;
+            this.f6893a = iVar;
+            this.f6894b = map;
         }
 
         @Override // com.bytedance.sdk.openadsdk.d.v
@@ -178,11 +178,11 @@ public final class i implements w {
                 aVar.j();
                 return null;
             }
-            T a2 = this.f6891a.a();
+            T a2 = this.f6893a.a();
             try {
                 aVar.c();
                 while (aVar.e()) {
-                    b bVar = this.f6892b.get(aVar.g());
+                    b bVar = this.f6894b.get(aVar.g());
                     if (bVar == null || !bVar.j) {
                         aVar.n();
                     } else {
@@ -206,7 +206,7 @@ public final class i implements w {
             }
             cVar.d();
             try {
-                for (b bVar : this.f6892b.values()) {
+                for (b bVar : this.f6894b.values()) {
                     if (bVar.a(t)) {
                         cVar.a(bVar.h);
                         bVar.a(cVar, t);

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class FunAdView extends FrameLayout {
     public FunAdView(@NonNull Context context) {
         this(context, null);

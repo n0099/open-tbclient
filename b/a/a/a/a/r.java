@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class r extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */

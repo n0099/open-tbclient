@@ -1,15 +1,15 @@
 package com.baidu.live.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends f<com.baidu.live.lottie.model.content.c> {
-    private final com.baidu.live.lottie.model.content.c bpv;
+    private final com.baidu.live.lottie.model.content.c bsW;
 
     public d(List<com.baidu.live.lottie.e.a<com.baidu.live.lottie.model.content.c>> list) {
         super(list);
         com.baidu.live.lottie.model.content.c cVar = list.get(0).HL;
         int size = cVar == null ? 0 : cVar.getSize();
-        this.bpv = new com.baidu.live.lottie.model.content.c(new float[size], new int[size]);
+        this.bsW = new com.baidu.live.lottie.model.content.c(new float[size], new int[size]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public class d extends f<com.baidu.live.lottie.model.content.c> {
     @Override // com.baidu.live.lottie.a.b.a
     /* renamed from: d */
     public com.baidu.live.lottie.model.content.c a(com.baidu.live.lottie.e.a<com.baidu.live.lottie.model.content.c> aVar, float f) {
-        this.bpv.a(aVar.HL, aVar.HM, f);
-        return this.bpv;
+        this.bsW.a(aVar.HL, aVar.HM, f);
+        return this.bsW;
     }
 }

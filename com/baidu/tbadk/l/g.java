@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g extends a {
     private final int arrayLength;
     private int currentIndex;
-    private ContinuousAnimationView fEE;
-    private ValueAnimator.AnimatorUpdateListener fEF;
-    private boolean fgH;
+    private ContinuousAnimationView fGQ;
+    private ValueAnimator.AnimatorUpdateListener fGR;
+    private boolean fja;
     private final Animator.AnimatorListener loadViewAnimListener;
     private TextView loadingTextView;
     private int mSkinType;
@@ -55,18 +55,18 @@ public class g extends a {
                 TbadkCoreApplication.getInst().handler.postDelayed(g.this.runnable, 200L);
             }
         };
-        this.fEF = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.l.g.2
+        this.fGR = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.l.g.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (!g.this.fgH) {
-                    g.this.fEE.setAlpha(Math.min(1.0f, (valueAnimator.getAnimatedFraction() * 24.0f) / 6.0f));
+                if (!g.this.fja) {
+                    g.this.fGQ.setAlpha(Math.min(1.0f, (valueAnimator.getAnimatedFraction() * 24.0f) / 6.0f));
                 }
             }
         };
         this.loadViewAnimListener = new Animator.AnimatorListener() { // from class: com.baidu.tbadk.l.g.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                g.this.fgH = false;
+                g.this.fja = false;
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -79,24 +79,24 @@ public class g extends a {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                g.this.fgH = true;
+                g.this.fja = true;
             }
         };
-        this.fEE = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
+        this.fGQ = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.fEE.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.fGQ.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.fEE.setLayoutParams(marginLayoutParams);
+                this.fGQ.setLayoutParams(marginLayoutParams);
             }
         }
-        ao.a(this.fEE, R.raw.lottie_full_screen_refresh);
-        this.fEE.setMinAndMaxProgress(0.0f, 1.0f);
-        this.fEE.setRepeatMode(1);
-        this.fEE.addAnimatorUpdateListener(this.fEF);
-        this.fEE.addAnimatorListener(this.loadViewAnimListener);
-        this.fEE.setSpeed(1.2f);
+        ap.a(this.fGQ, R.raw.lottie_full_screen_refresh);
+        this.fGQ.setMinAndMaxProgress(0.0f, 1.0f);
+        this.fGQ.setRepeatMode(1);
+        this.fGQ.addAnimatorUpdateListener(this.fGR);
+        this.fGQ.addAnimatorListener(this.loadViewAnimListener);
+        this.fGQ.setSpeed(1.2f);
         this.textView = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
         this.loadingTextView = (TextView) this.attachedView.findViewById(R.id.loading_text);
         this.textArray = context.getResources().getStringArray(R.array.loading_anim_text_array);
@@ -104,14 +104,14 @@ public class g extends a {
     }
 
     private void startLoadingAnimation() {
-        if (this.fEE != null) {
-            this.fEE.playAnimation();
+        if (this.fGQ != null) {
+            this.fGQ.playAnimation();
         }
     }
 
     private void stopLoadingAnimation() {
-        if (this.fEE != null) {
-            this.fEE.pauseAnimation();
+        if (this.fGQ != null) {
+            this.fGQ.pauseAnimation();
         }
     }
 
@@ -125,10 +125,10 @@ public class g extends a {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        ao.a(this.fEE, R.raw.lottie_full_screen_refresh);
+        ap.a(this.fGQ, R.raw.lottie_full_screen_refresh);
         startLoadingAnimation();
-        ao.setViewTextColor(this.textView, R.color.CAM_X0108, 1, this.mSkinType);
-        ao.setViewTextColor(this.loadingTextView, R.color.CAM_X0108, 1, this.mSkinType);
+        ap.setViewTextColor(this.textView, R.color.CAM_X0108, 1, this.mSkinType);
+        ap.setViewTextColor(this.loadingTextView, R.color.CAM_X0108, 1, this.mSkinType);
         this.textView.setText(this.textArray[0]);
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
         TbadkCoreApplication.getInst().handler.postDelayed(this.runnable, 200L);
@@ -152,16 +152,16 @@ public class g extends a {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
         if (isViewAttached()) {
-            ao.setViewTextColor(this.textView, R.color.CAM_X0108, 1, this.mSkinType);
-            ao.setViewTextColor(this.loadingTextView, R.color.CAM_X0108, 1, this.mSkinType);
+            ap.setViewTextColor(this.textView, R.color.CAM_X0108, 1, this.mSkinType);
+            ap.setViewTextColor(this.loadingTextView, R.color.CAM_X0108, 1, this.mSkinType);
             startLoadingAnimation();
         }
     }
 
     public void onChangeSkinType(int i) {
-        ao.setViewTextColor(this.textView, R.color.CAM_X0108, 1, i);
-        ao.setViewTextColor(this.loadingTextView, R.color.CAM_X0108, 1, i);
-        ao.a(this.fEE, R.raw.lottie_full_screen_refresh);
+        ap.setViewTextColor(this.textView, R.color.CAM_X0108, 1, i);
+        ap.setViewTextColor(this.loadingTextView, R.color.CAM_X0108, 1, i);
+        ap.a(this.fGQ, R.raw.lottie_full_screen_refresh);
         if (isViewAttached()) {
             startLoadingAnimation();
         }
@@ -176,8 +176,8 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.l.a
     public void dettachView(View view) {
-        if (this.fEE != null) {
-            this.fEE.cancelAnimation();
+        if (this.fGQ != null) {
+            this.fGQ.cancelAnimation();
         }
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
         super.dettachView(view);
@@ -190,24 +190,24 @@ public class g extends a {
     }
 
     public void setTopMargin(int i) {
-        if (this.fEE != null) {
-            ViewGroup.LayoutParams layoutParams = this.fEE.getLayoutParams();
+        if (this.fGQ != null) {
+            ViewGroup.LayoutParams layoutParams = this.fGQ.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.fEE.setLayoutParams(marginLayoutParams);
+                this.fGQ.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
     public void bt(int i) {
-        if (this.fEE != null && this.loadingTextView != null) {
+        if (this.fGQ != null && this.loadingTextView != null) {
             if (this.loadingTextView.getVisibility() == 8) {
-                ViewGroup.LayoutParams layoutParams = this.fEE.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.fGQ.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                     marginLayoutParams.bottomMargin = i;
-                    this.fEE.setLayoutParams(marginLayoutParams);
+                    this.fGQ.setLayoutParams(marginLayoutParams);
                     return;
                 }
                 return;
@@ -221,9 +221,9 @@ public class g extends a {
         }
     }
 
-    public void bCA() {
-        if (this.fEE != null) {
-            ((RelativeLayout.LayoutParams) this.fEE.getLayoutParams()).addRule(15, 0);
+    public void bCS() {
+        if (this.fGQ != null) {
+            ((RelativeLayout.LayoutParams) this.fGQ.getLayoutParams()).addRule(15, 0);
         }
     }
 

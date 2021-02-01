@@ -14,16 +14,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Iterator;
 import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.l f6636a;
+    private com.bytedance.sdk.openadsdk.core.d.l f6638a;
     private boolean h;
 
     public f(Context context, x xVar, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.c.j jVar, boolean z) {
         super(context, xVar, lVar.T(), jVar);
-        this.f6636a = lVar;
+        this.f6638a = lVar;
         this.h = z;
     }
 
@@ -72,7 +72,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
         }
         e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
         if (a2 != e.a.IMAGE) {
-            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f6636a.M().iterator();
+            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f6638a.M().iterator();
             while (it.hasNext()) {
                 kVar = it.next();
                 if (!TextUtils.isEmpty(kVar.a()) && !TextUtils.isEmpty(str)) {

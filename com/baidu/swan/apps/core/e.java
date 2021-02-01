@@ -24,15 +24,15 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.nio.channels.FileChannel;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean agS() {
-        return com.baidu.swan.apps.t.a.awK().agS();
+    public static boolean ahq() {
+        return com.baidu.swan.apps.t.a.axi().ahq();
     }
 
-    public static void g(File file, File file2) throws IOException {
+    public static void d(File file, File file2) throws IOException {
         Throwable th;
         FileChannel fileChannel;
         FileChannel fileChannel2;
@@ -62,11 +62,11 @@ public class e {
         }
     }
 
-    public static void lO(String str) {
+    public static void mg(String str) {
         d(str, null, null, true);
     }
 
-    public static void L(String str, String str2, String str3) {
+    public static void M(String str, String str2, String str3) {
         d(str, str2, str3, false);
     }
 
@@ -95,9 +95,9 @@ public class e {
                 bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
                 try {
                     if (file3.exists()) {
-                        g(file3, file);
+                        d(file3, file);
                     } else {
-                        g(file, file3);
+                        d(file, file3);
                     }
                     bufferedWriter = new BufferedWriter(new FileWriter(file2));
                     boolean z2 = false;
@@ -167,7 +167,7 @@ public class e {
         }
     }
 
-    public static void cH(@NonNull Context context) {
+    public static void cG(@NonNull Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             Class<?> cls = Class.forName("android.content.res.AssetManager");
@@ -224,10 +224,10 @@ public class e {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new c.a(10006).sk(jSONObject2).sj(com.baidu.swan.apps.runtime.e.aIt()).atQ();
+        new c.a(10006).sE(jSONObject2).sD(com.baidu.swan.apps.runtime.e.aIM()).auo();
     }
 
-    public static void M(String str, String str2, String str3) {
+    public static void N(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("url", str);
@@ -235,7 +235,7 @@ public class e {
             jSONObject.put(Constant.KEY_PROCESS_NAME, ProcessUtils.getCurProcessName());
             jSONObject.put("appId", str2);
             jSONObject.put("errMessage", str3);
-            jSONObject.put("isMainThread", ak.aNZ());
+            jSONObject.put("isMainThread", ak.aOs());
             String jSONObject2 = jSONObject.toString();
             if (DEBUG && TextUtils.isEmpty(jSONObject2)) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: empty");
@@ -244,7 +244,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new c.a(10008).sk(jSONObject2).sj(com.baidu.swan.apps.runtime.e.aIt()).atQ();
+            new c.a(10008).sE(jSONObject2).sD(com.baidu.swan.apps.runtime.e.aIM()).auo();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

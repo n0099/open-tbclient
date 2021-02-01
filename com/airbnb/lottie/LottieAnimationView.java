@@ -25,7 +25,7 @@ import com.baidu.mapapi.map.WeightedLatLng;
 import java.io.StringReader;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LottieAnimationView extends AppCompatImageView {
     private static final String TAG = LottieAnimationView.class.getSimpleName();
     private final h<d> BF;
@@ -33,12 +33,12 @@ public class LottieAnimationView extends AppCompatImageView {
     private final f BH;
     @Nullable
     private l<d> BI;
+    @Nullable
+    private d BJ;
     private String animationName;
     @RawRes
     private int animationResId;
     private boolean autoPlay;
-    @Nullable
-    private d composition;
     private Set<i> lottieOnCompositionLoadedListeners;
     private boolean useHardwareLayer;
     private boolean wasAnimatingWhenDetached;
@@ -48,6 +48,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.BF = new h<d>() { // from class: com.airbnb.lottie.LottieAnimationView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.h
+            /* renamed from: a */
             public void onResult(d dVar) {
                 LottieAnimationView.this.setComposition(dVar);
             }
@@ -55,6 +56,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.BG = new h<Throwable>() { // from class: com.airbnb.lottie.LottieAnimationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.h
+            /* renamed from: f */
             public void onResult(Throwable th) {
                 throw new IllegalStateException("Unable to parse composition", th);
             }
@@ -72,6 +74,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.BF = new h<d>() { // from class: com.airbnb.lottie.LottieAnimationView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.h
+            /* renamed from: a */
             public void onResult(d dVar) {
                 LottieAnimationView.this.setComposition(dVar);
             }
@@ -79,6 +82,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.BG = new h<Throwable>() { // from class: com.airbnb.lottie.LottieAnimationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.h
+            /* renamed from: f */
             public void onResult(Throwable th) {
                 throw new IllegalStateException("Unable to parse composition", th);
             }
@@ -96,6 +100,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.BF = new h<d>() { // from class: com.airbnb.lottie.LottieAnimationView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.h
+            /* renamed from: a */
             public void onResult(d dVar) {
                 LottieAnimationView.this.setComposition(dVar);
             }
@@ -103,6 +108,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.BG = new h<Throwable>() { // from class: com.airbnb.lottie.LottieAnimationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.airbnb.lottie.h
+            /* renamed from: f */
             public void onResult(Throwable th) {
                 throw new IllegalStateException("Unable to parse composition", th);
             }
@@ -208,7 +214,7 @@ public class LottieAnimationView extends AppCompatImageView {
         savedState.animationResId = this.animationResId;
         savedState.progress = this.BH.getProgress();
         savedState.isAnimating = this.BH.isAnimating();
-        savedState.BK = this.BH.getImageAssetsFolder();
+        savedState.BL = this.BH.getImageAssetsFolder();
         savedState.repeatMode = this.BH.getRepeatMode();
         savedState.repeatCount = this.BH.getRepeatCount();
         return savedState;
@@ -235,7 +241,7 @@ public class LottieAnimationView extends AppCompatImageView {
         if (savedState.isAnimating) {
             playAnimation();
         }
-        this.BH.be(savedState.BK);
+        this.BH.be(savedState.BL);
         setRepeatMode(savedState.repeatMode);
         setRepeatCount(savedState.repeatCount);
     }
@@ -327,22 +333,22 @@ public class LottieAnimationView extends AppCompatImageView {
             Log.v(TAG, "Set Composition \n" + dVar);
         }
         this.BH.setCallback(this);
-        this.composition = dVar;
-        boolean a2 = this.BH.a(dVar);
+        this.BJ = dVar;
+        boolean b2 = this.BH.b(dVar);
         enableOrDisableHardwareLayer();
-        if (getDrawable() != this.BH || a2) {
+        if (getDrawable() != this.BH || b2) {
             setImageDrawable(null);
             setImageDrawable(this.BH);
             requestLayout();
             for (i iVar : this.lottieOnCompositionLoadedListeners) {
-                iVar.c(dVar);
+                iVar.d(dVar);
             }
         }
     }
 
     @Nullable
     public d getComposition() {
-        return this.composition;
+        return this.BJ;
     }
 
     @MainThread
@@ -509,8 +515,8 @@ public class LottieAnimationView extends AppCompatImageView {
     }
 
     public long getDuration() {
-        if (this.composition != null) {
-            return this.composition.hS();
+        if (this.BJ != null) {
+            return this.BJ.hR();
         }
         return 0L;
     }
@@ -525,7 +531,7 @@ public class LottieAnimationView extends AppCompatImageView {
     }
 
     private void clearComposition() {
-        this.composition = null;
+        this.BJ = null;
         this.BH.clearComposition();
     }
 
@@ -534,7 +540,7 @@ public class LottieAnimationView extends AppCompatImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -551,7 +557,7 @@ public class LottieAnimationView extends AppCompatImageView {
                 return new SavedState[i];
             }
         };
-        String BK;
+        String BL;
         String animationName;
         int animationResId;
         boolean isAnimating;
@@ -568,7 +574,7 @@ public class LottieAnimationView extends AppCompatImageView {
             this.animationName = parcel.readString();
             this.progress = parcel.readFloat();
             this.isAnimating = parcel.readInt() == 1;
-            this.BK = parcel.readString();
+            this.BL = parcel.readString();
             this.repeatMode = parcel.readInt();
             this.repeatCount = parcel.readInt();
         }
@@ -579,7 +585,7 @@ public class LottieAnimationView extends AppCompatImageView {
             parcel.writeString(this.animationName);
             parcel.writeFloat(this.progress);
             parcel.writeInt(this.isAnimating ? 1 : 0);
-            parcel.writeString(this.BK);
+            parcel.writeString(this.BL);
             parcel.writeInt(this.repeatMode);
             parcel.writeInt(this.repeatCount);
         }

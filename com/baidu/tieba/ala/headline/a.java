@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.headline;
 
 import java.math.RoundingMode;
 import java.text.NumberFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public static String fm(long j) {
+    public static String fs(long j) {
         if (j >= 100000000) {
             NumberFormat numberInstance = NumberFormat.getNumberInstance();
             numberInstance.setMaximumFractionDigits(3);

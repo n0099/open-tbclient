@@ -11,22 +11,22 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class AdView extends RelativeLayout {
     protected static final String P_VERSION = "3.61";
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f3265a;
+    IOAdEventListener f3264a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AtomicBoolean f3266b;
+    private AtomicBoolean f3265b;
     private com.baidu.mobads.production.a.a c;
     private AdViewListener d;
 
     public AdView(Context context) {
         super(context);
-        this.f3266b = new AtomicBoolean(false);
-        this.f3265a = new a(this);
+        this.f3265b = new AtomicBoolean(false);
+        this.f3264a = new a(this);
     }
 
     public AdView(Context context, String str) {
@@ -44,23 +44,23 @@ public final class AdView extends RelativeLayout {
 
     public AdView(Context context, AttributeSet attributeSet, boolean z, AdSize adSize, String str) {
         super(context, attributeSet);
-        this.f3266b = new AtomicBoolean(false);
-        this.f3265a = new a(this);
+        this.f3265b = new AtomicBoolean(false);
+        this.f3264a = new a(this);
         XAdView xAdView = new XAdView(context);
         this.c = new com.baidu.mobads.production.a.a(context, xAdView, str, z);
-        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f3265a);
-        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3265a);
-        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3265a);
-        this.c.addEventListener("AdUserClick", this.f3265a);
-        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f3265a);
+        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f3264a);
+        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3264a);
+        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3264a);
+        this.c.addEventListener("AdUserClick", this.f3264a);
+        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f3264a);
         xAdView.setListener(new c(this));
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (!this.f3266b.get()) {
-            this.f3266b.set(true);
+        if (!this.f3265b.get()) {
+            this.f3265b.set(true);
             this.c.request();
         }
     }

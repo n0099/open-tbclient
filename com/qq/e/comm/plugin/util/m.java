@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.util;
 import android.text.TextUtils;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class m {
     public static boolean a(double d) {
         return d == 0.0d;

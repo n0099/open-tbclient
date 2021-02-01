@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.handler.a.b.g;
 import com.meizu.cloud.pushsdk.notification.c;
 import com.meizu.cloud.pushsdk.util.d;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

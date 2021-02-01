@@ -23,7 +23,6 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import android.text.format.Formatter;
 import android.util.Log;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.fsg.base.ApollonConstants;
@@ -54,10 +53,10 @@ import org.json.JSONObject;
 public final class PhoneUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1986a = "PhoneUtils";
+    private static final String f1984a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f1987b = "_rim_pay.preferences";
+    private static final String f1985b = "_rim_pay.preferences";
     private static final String c = "cuid_1";
     private static final String d = "cuid_2";
     private static final String e = "wime";
@@ -88,7 +87,7 @@ public final class PhoneUtils {
     }
 
     private static final String a(Context context) {
-        String str = (String) SharedPreferencesUtils.getParam(context, f1987b, "imei", "");
+        String str = (String) SharedPreferencesUtils.getParam(context, f1985b, "imei", "");
         if (TextUtils.isEmpty(str)) {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("BAIDU");
@@ -104,7 +103,7 @@ public final class PhoneUtils {
                 random = null;
             }
             if (ApollonConstants.DEBUG) {
-                Log.d(f1986a, "makeImei :: " + upperCase + " # " + length);
+                Log.d(f1984a, "makeImei :: " + upperCase + " # " + length);
             }
             int length2 = upperCase.length();
             for (int i2 = length2 - 1; i2 >= length2 - 6; i2--) {
@@ -113,10 +112,10 @@ public final class PhoneUtils {
             for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                 stringBuffer.append((char) (random.nextInt(10) | 48));
             }
-            SharedPreferencesUtils.setParam(context, f1987b, "imei", stringBuffer.toString());
+            SharedPreferencesUtils.setParam(context, f1985b, "imei", stringBuffer.toString());
             return stringBuffer.toString();
         } else if (ApollonConstants.DEBUG) {
-            Log.d(f1986a, "从文件里面获取imei号=" + str);
+            Log.d(f1984a, "从文件里面获取imei号=" + str);
             return str;
         } else {
             return str;
@@ -172,10 +171,10 @@ public final class PhoneUtils {
                     return Pattern.matches("cpu[0-9]", file.getName());
                 }
             });
-            LogUtil.d(f1986a, "CPU Count: " + listFiles.length);
+            LogUtil.d(f1984a, "CPU Count: " + listFiles.length);
             return listFiles.length;
         } catch (Exception e2) {
-            LogUtil.d(f1986a, "CPU Count: Failed.");
+            LogUtil.d(f1984a, "CPU Count: Failed.");
             e2.printStackTrace();
             return 1;
         }
@@ -199,7 +198,7 @@ public final class PhoneUtils {
                 }
             }
         } catch (PackageManager.NameNotFoundException e2) {
-            Log.e(f1986a, "exception is " + e2);
+            Log.e(f1984a, "exception is " + e2);
         }
         return str2;
     }
@@ -234,7 +233,7 @@ public final class PhoneUtils {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
         } catch (Throwable th) {
-            LogUtil.w(f1986a, "get app version code exception");
+            LogUtil.w(f1984a, "get app version code exception");
             return 1;
         }
     }
@@ -246,7 +245,7 @@ public final class PhoneUtils {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
         } catch (Throwable th) {
-            LogUtil.w(f1986a, "get app version name exception");
+            LogUtil.w(f1984a, "get app version name exception");
             return "";
         }
     }
@@ -262,8 +261,8 @@ public final class PhoneUtils {
     }
 
     public static void sdkError(String str) {
-        LogUtil.w(f1986a, str);
-        LogUtil.w(f1986a, "SDK install error:" + str);
+        LogUtil.w(f1984a, str);
+        LogUtil.w(f1984a, "SDK install error:" + str);
     }
 
     public static String getWifiMacAddress(Context context) {
@@ -271,12 +270,12 @@ public final class PhoneUtils {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             if (wifiManager != null) {
                 WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                LogUtil.d(f1986a, String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()));
+                LogUtil.d(f1984a, String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()));
                 return connectionInfo.getMacAddress();
             }
         } catch (Exception e2) {
             if (ApollonConstants.DEBUG) {
-                Log.d(f1986a, e2.toString());
+                Log.d(f1984a, e2.toString());
             }
         }
         return "";
@@ -399,7 +398,7 @@ public final class PhoneUtils {
             }
             return defaultAdapter.getAddress();
         } catch (Exception e2) {
-            Log.d(f1986a, "exception is " + e2);
+            Log.d(f1984a, "exception is " + e2);
             return "";
         }
     }
@@ -412,13 +411,13 @@ public final class PhoneUtils {
         try {
             if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
                 Location lastKnownLocation = ((LocationManager) context.getSystemService(Headers.LOCATION)).getLastKnownLocation("gps");
-                LogUtil.d(f1986a, "location: " + lastKnownLocation);
+                LogUtil.d(f1984a, "location: " + lastKnownLocation);
                 if (lastKnownLocation != null) {
                     return String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
                 }
             }
         } catch (Exception e2) {
-            LogUtil.d(f1986a, "exception is " + e2);
+            LogUtil.d(f1984a, "exception is " + e2);
         }
         return "";
     }
@@ -433,12 +432,12 @@ public final class PhoneUtils {
             if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (wifiManager.isWifiEnabled()) {
-                    int i4 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                    int i4 = Integer.MAX_VALUE;
                     int i5 = -1;
                     while (i3 < wifiManager.getScanResults().size()) {
                         ScanResult scanResult = wifiManager.getScanResults().get(i3);
                         int abs = Math.abs(scanResult.level);
-                        LogUtil.d(f1986a, String.format("%s %s_%s", scanResult.SSID, scanResult.BSSID, Integer.valueOf(abs)));
+                        LogUtil.d(f1984a, String.format("%s %s_%s", scanResult.SSID, scanResult.BSSID, Integer.valueOf(abs)));
                         if (i4 > abs) {
                             i2 = i3;
                         } else {
@@ -457,12 +456,12 @@ public final class PhoneUtils {
                     }
                     try {
                         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                        Log.d(f1986a, String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi()))));
+                        Log.d(f1984a, String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi()))));
                         return str2;
                     } catch (Exception e3) {
                         e2 = e3;
                         str = str2;
-                        Log.d(f1986a, "getWifiLocation " + e2);
+                        Log.d(f1984a, "getWifiLocation " + e2);
                         return str;
                     }
                 }
@@ -564,7 +563,7 @@ public final class PhoneUtils {
             }
         } catch (Exception e2) {
             if (ApollonConstants.DEBUG) {
-                Log.d(f1986a, "getIpInfo fail!" + e2.toString());
+                Log.d(f1984a, "getIpInfo fail!" + e2.toString());
             }
         }
         if (TextUtils.isEmpty(str2)) {
@@ -650,10 +649,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f1988a = "processor";
+        private static final String f1986a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f1989b = "features";
+        private static final String f1987b = "features";
         public String processor = "";
         public String features = "";
 

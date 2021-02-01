@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.liveroom.challenge;
 import com.baidu.live.challenge.f;
 import com.baidu.live.challenge.j;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements f {
     private TbPageContext mPageContext;
 
@@ -12,7 +12,7 @@ public class b implements f {
     }
 
     @Override // com.baidu.live.challenge.f
-    public j zK() {
+    public j Au() {
         return new com.baidu.tieba.ala.liveroom.challenge.panel.f(this.mPageContext);
     }
 }

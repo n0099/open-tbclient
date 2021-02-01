@@ -1,43 +1,13 @@
 package com.baidu.live.guess;
 
-import android.content.DialogInterface;
-/* loaded from: classes10.dex */
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface b {
+    void IZ();
 
-    /* loaded from: classes10.dex */
-    public interface a {
-        void HM();
+    void a(ab abVar, ViewGroup viewGroup);
 
-        void a(b bVar);
-
-        void b(b bVar);
-
-        void onDismiss(DialogInterface dialogInterface);
-
-        void onExit();
-
-        void onTimeout();
-    }
-
-    void HK();
-
-    void HL();
-
-    void a(DialogInterface.OnKeyListener onKeyListener);
-
-    void dismiss();
-
-    void dr(int i);
-
-    void gv(String str);
-
-    void gw(String str);
-
-    void gx(String str);
-
-    boolean isShowing();
-
-    void setQuesContent(String str);
-
-    void show();
+    void init(Context context, boolean z);
 }

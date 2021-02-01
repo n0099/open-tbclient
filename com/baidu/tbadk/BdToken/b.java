@@ -2,7 +2,7 @@ package com.baidu.tbadk.BdToken;
 
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import java.util.ArrayList;
 import java.util.Calendar;
 import org.json.JSONArray;
@@ -11,27 +11,27 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int[] eAA;
-    private long eAB;
-    private volatile int eAC;
-    private volatile int eAD;
-    private boolean eAE;
-    private int eAF;
-    public boolean eAG;
-    private final ArrayList<h> eAH;
-    private int eAn;
-    private int eAo;
-    private long eAp;
-    private String eAq;
-    private int eAr;
-    private long eAs;
-    private String eAt;
-    private String eAu;
-    private String eAv;
-    private String eAw;
-    private long eAx;
-    private int eAy;
-    private long eAz;
+    private String eCA;
+    private String eCB;
+    private String eCC;
+    private long eCD;
+    private int eCE;
+    private long eCF;
+    private int[] eCG;
+    private long eCH;
+    private volatile int eCI;
+    private volatile int eCJ;
+    private boolean eCK;
+    private int eCL;
+    public boolean eCM;
+    private final ArrayList<h> eCN;
+    private int eCt;
+    private int eCu;
+    private long eCv;
+    private String eCw;
+    private int eCx;
+    private long eCy;
+    private String eCz;
     private int mCallType;
     private long mFid;
     private String mSource;
@@ -40,80 +40,80 @@ public class b {
     private int mThreadNum;
     private String mToken;
     public static String ACTIVITY_ID = "activityid";
-    public static String ezJ = "missionid";
-    public static String ezK = "activitysource";
+    public static String eBP = "missionid";
+    public static String eBQ = "activitysource";
     public static String SOURCE = "source";
-    public static String ezL = "tab";
-    public static String ezM = "calltype";
-    public static String ezN = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
-    public static String ezO = "browsetimepage";
-    public static String ezP = "browsetime";
-    public static String ezQ = "threadnum";
-    public static String ezR = "forumnum";
-    public static String ezS = "cleartype";
-    public static String ezT = "cleartime";
+    public static String eBR = "tab";
+    public static String eBS = "calltype";
+    public static String eBT = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
+    public static String eBU = "browsetimepage";
+    public static String eBV = "browsetime";
+    public static String eBW = "threadnum";
+    public static String eBX = "forumnum";
+    public static String eBY = "cleartype";
+    public static String eBZ = "cleartime";
     public static String TID = "tid";
     public static String FID = "fid";
-    public static String ezU = "threadtext";
-    public static String ezV = "threadimg";
-    public static String ezW = "threadforum";
-    public static String ezX = "total_limit";
-    public static int ezY = -1;
-    public static int ezZ = 1;
-    public static int eAa = 2;
-    public static int eAb = 3;
-    public static int eAc = 4;
-    public static int eAd = 5;
-    public static int eAe = 6;
-    public static int eAf = 7;
-    public static int eAg = 8;
-    public static int eAh = 9;
-    public static int eAi = -1;
-    public static int eAj = 0;
-    public static int eAk = 1;
-    public static int eAl = 2;
-    public static int eAm = 3;
+    public static String eCa = "threadtext";
+    public static String eCb = "threadimg";
+    public static String eCc = "threadforum";
+    public static String eCd = "total_limit";
+    public static int eCe = -1;
+    public static int eCf = 1;
+    public static int eCg = 2;
+    public static int eCh = 3;
+    public static int eCi = 4;
+    public static int eCj = 5;
+    public static int eCk = 6;
+    public static int eCl = 7;
+    public static int eCm = 8;
+    public static int eCn = 9;
+    public static int eCo = -1;
+    public static int eCp = 0;
+    public static int eCq = 1;
+    public static int eCr = 2;
+    public static int eCs = 3;
 
     public void reset() {
-        this.eAH.clear();
-        this.eAC = 0;
-        this.eAD = 0;
+        this.eCN.clear();
+        this.eCI = 0;
+        this.eCJ = 0;
         this.mTag = 0;
     }
 
     public void a(h hVar) {
         if (this.mTaskType == 7 && (hVar instanceof k)) {
-            if (!this.eAH.contains(hVar)) {
-                this.eAH.add(hVar);
+            if (!this.eCN.contains(hVar)) {
+                this.eCN.add(hVar);
             }
         } else if (this.mTaskType == 1 && (hVar instanceof m)) {
-            if (!this.eAH.contains(hVar)) {
-                this.eAH.add(hVar);
+            if (!this.eCN.contains(hVar)) {
+                this.eCN.add(hVar);
             }
         } else if (this.mTaskType == 2 && (hVar instanceof j)) {
-            if (!this.eAH.contains(hVar)) {
-                this.eAH.add(hVar);
+            if (!this.eCN.contains(hVar)) {
+                this.eCN.add(hVar);
             }
         } else if (this.mTaskType == 4 && (hVar instanceof i)) {
-            if (!this.eAH.contains(hVar)) {
-                this.eAH.add(hVar);
+            if (!this.eCN.contains(hVar)) {
+                this.eCN.add(hVar);
             }
-        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.eAH.contains(hVar)) {
-            this.eAH.add(hVar);
+        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.eCN.contains(hVar)) {
+            this.eCN.add(hVar);
         }
     }
 
-    public ArrayList<h> bgz() {
-        return this.eAH;
+    public ArrayList<h> bgM() {
+        return this.eCN;
     }
 
-    public int bgA() {
+    public int bgN() {
         int i;
-        int size = this.eAH.size();
+        int size = this.eCN.size();
         int i2 = 0;
         int i3 = 0;
         while (i2 < size) {
-            h hVar = (h) com.baidu.tbadk.core.util.x.getItem(this.eAH, i2);
+            h hVar = (h) com.baidu.tbadk.core.util.y.getItem(this.eCN, i2);
             if (hVar instanceof k) {
                 i = ((k) hVar).getTag() == getTag() ? i3 + 1 : i3;
             } else {
@@ -141,19 +141,19 @@ public class b {
         return ((j) hVar).getFid();
     }
 
-    public void bgB() {
-        int size = this.eAH.size();
+    public void bgO() {
+        int size = this.eCN.size();
         for (int i = 0; i < size; i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.x.getItem(this.eAH, i);
+            h hVar = (h) com.baidu.tbadk.core.util.y.getItem(this.eCN, i);
             if (hVar != null) {
-                hVar.iU(true);
+                hVar.iW(true);
             }
         }
     }
 
-    public boolean dx(long j) {
-        for (int i = 0; i < this.eAH.size(); i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.x.getItem(this.eAH, i);
+    public boolean dD(long j) {
+        for (int i = 0; i < this.eCN.size(); i++) {
+            h hVar = (h) com.baidu.tbadk.core.util.y.getItem(this.eCN, i);
             if (hVar != null) {
                 long b2 = b(hVar);
                 if (b2 > 0 && b2 == j && hVar.isCompleted()) {
@@ -164,7 +164,7 @@ public class b {
         return false;
     }
 
-    public void aE(int i, String str) {
+    public void aI(int i, String str) {
         try {
             JSONArray jSONArray = new JSONArray(str);
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -176,38 +176,38 @@ public class b {
                 if (i == 7) {
                     if (optLong > 0) {
                         k kVar = new k(this, optLong);
-                        kVar.iU(optBoolean);
-                        kVar.dC(optLong2);
-                        kVar.mC(optInt);
+                        kVar.iW(optBoolean);
+                        kVar.dI(optLong2);
+                        kVar.mF(optInt);
                         a(kVar);
                     }
                 } else if (i == 1) {
                     if (optLong > 0) {
                         m mVar = new m(this, optLong);
-                        mVar.iU(optBoolean);
-                        mVar.dC(optLong2);
-                        mVar.mC(optInt);
+                        mVar.iW(optBoolean);
+                        mVar.dI(optLong2);
+                        mVar.mF(optInt);
                         a(mVar);
                     }
                 } else if (i == 2) {
                     if (optLong > 0) {
                         j jVar = new j(this, optLong);
-                        jVar.iU(optBoolean);
-                        jVar.dC(optLong2);
-                        jVar.mC(optInt);
+                        jVar.iW(optBoolean);
+                        jVar.dI(optLong2);
+                        jVar.mF(optInt);
                         a(jVar);
                     }
                 } else if (i == 4) {
                     i iVar = new i(this);
-                    iVar.iU(optBoolean);
-                    iVar.dC(optLong2);
-                    iVar.mC(optInt);
+                    iVar.iW(optBoolean);
+                    iVar.dI(optLong2);
+                    iVar.mF(optInt);
                     a(iVar);
                 } else if (i == 8) {
                     l lVar = new l(this);
-                    lVar.iU(optBoolean);
-                    lVar.dC(optLong2);
-                    lVar.mC(optInt);
+                    lVar.iW(optBoolean);
+                    lVar.dI(optLong2);
+                    lVar.mF(optInt);
                     a(lVar);
                 }
             }
@@ -216,15 +216,15 @@ public class b {
         }
     }
 
-    public String bgC() {
+    public String bgP() {
         try {
-            ArrayList<h> arrayList = this.eAH;
+            ArrayList<h> arrayList = this.eCN;
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < arrayList.size(); i++) {
-                h hVar = (h) com.baidu.tbadk.core.util.x.getItem(arrayList, i);
+                h hVar = (h) com.baidu.tbadk.core.util.y.getItem(arrayList, i);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("i", b(hVar));
-                jSONObject.put("t", hVar.bhA());
+                jSONObject.put("t", hVar.bhN());
                 jSONObject.put("c", hVar.isCompleted());
                 jSONObject.put("a", hVar.getTag());
                 jSONArray.put(jSONObject);
@@ -237,69 +237,69 @@ public class b {
     }
 
     public b() {
-        this.eAy = eAi;
-        this.eAC = 0;
-        this.eAD = 0;
-        this.eAE = false;
-        this.eAF = 1;
+        this.eCE = eCo;
+        this.eCI = 0;
+        this.eCJ = 0;
+        this.eCK = false;
+        this.eCL = 1;
         this.mTag = 0;
-        this.eAG = false;
-        this.eAH = new ArrayList<>();
+        this.eCM = false;
+        this.eCN = new ArrayList<>();
     }
 
     public b(String str) {
-        this.eAy = eAi;
-        this.eAC = 0;
-        this.eAD = 0;
-        this.eAE = false;
-        this.eAF = 1;
+        this.eCE = eCo;
+        this.eCI = 0;
+        this.eCJ = 0;
+        this.eCK = false;
+        this.eCL = 1;
         this.mTag = 0;
-        this.eAG = false;
-        this.eAH = new ArrayList<>();
-        yF(str);
+        this.eCM = false;
+        this.eCN = new ArrayList<>();
+        yX(str);
     }
 
     public void a(ActiveCenterData.ActiveCenterMissionData activeCenterMissionData) {
         if (activeCenterMissionData != null) {
-            mw(activeCenterMissionData.mission_id);
-            mB(activeCenterMissionData.total_limit);
-            my(activeCenterMissionData.task_type);
+            mz(activeCenterMissionData.mission_id);
+            mE(activeCenterMissionData.total_limit);
+            mB(activeCenterMissionData.task_type);
             setActivityId(activeCenterMissionData.active_id);
-            mA(activeCenterMissionData.cleartype);
-            dz(activeCenterMissionData.cleartime);
+            mD(activeCenterMissionData.cleartype);
+            dF(activeCenterMissionData.cleartime);
         }
     }
 
-    public boolean yF(String str) {
-        if (at.isEmpty(str)) {
+    public boolean yX(String str) {
+        if (au.isEmpty(str)) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.eAn = jSONObject.optInt(ACTIVITY_ID);
-                this.eAo = jSONObject.optInt(ezJ);
-                this.eAt = jSONObject.optString(ezK);
+                this.eCt = jSONObject.optInt(ACTIVITY_ID);
+                this.eCu = jSONObject.optInt(eBP);
+                this.eCz = jSONObject.optString(eBQ);
                 this.mSource = jSONObject.optString(SOURCE);
-                this.eAu = jSONObject.optString(ezL);
-                this.mCallType = jSONObject.optInt(ezM);
-                this.mTaskType = jSONObject.optInt(ezN);
-                this.eAq = jSONObject.optString(ezO);
-                this.eAA = yG(this.eAq);
-                this.eAp = jSONObject.optLong(ezP);
-                this.mThreadNum = jSONObject.optInt(ezQ);
-                this.eAr = jSONObject.optInt(ezR);
-                this.eAy = jSONObject.optInt(ezS);
-                this.eAz = jSONObject.optLong(ezT);
-                this.eAB = bgI();
-                this.eAs = jSONObject.optLong(TID);
+                this.eCA = jSONObject.optString(eBR);
+                this.mCallType = jSONObject.optInt(eBS);
+                this.mTaskType = jSONObject.optInt(eBT);
+                this.eCw = jSONObject.optString(eBU);
+                this.eCG = yY(this.eCw);
+                this.eCv = jSONObject.optLong(eBV);
+                this.mThreadNum = jSONObject.optInt(eBW);
+                this.eCx = jSONObject.optInt(eBX);
+                this.eCE = jSONObject.optInt(eBY);
+                this.eCF = jSONObject.optLong(eBZ);
+                this.eCH = bgV();
+                this.eCy = jSONObject.optLong(TID);
                 this.mFid = jSONObject.optLong(FID);
-                this.eAv = jSONObject.optString(ezU);
-                this.eAw = jSONObject.optString(ezV);
-                this.eAx = jSONObject.optLong(ezW);
-                int optInt = jSONObject.optInt(ezX);
+                this.eCB = jSONObject.optString(eCa);
+                this.eCC = jSONObject.optString(eCb);
+                this.eCD = jSONObject.optLong(eCc);
+                int optInt = jSONObject.optInt(eCd);
                 if (optInt > 0) {
-                    this.eAF = optInt;
+                    this.eCL = optInt;
                 }
                 return true;
             }
@@ -311,66 +311,66 @@ public class b {
     }
 
     public b(MissionInfo missionInfo) {
-        this.eAy = eAi;
-        this.eAC = 0;
-        this.eAD = 0;
-        this.eAE = false;
-        this.eAF = 1;
+        this.eCE = eCo;
+        this.eCI = 0;
+        this.eCJ = 0;
+        this.eCK = false;
+        this.eCL = 1;
         this.mTag = 0;
-        this.eAG = false;
-        this.eAH = new ArrayList<>();
+        this.eCM = false;
+        this.eCN = new ArrayList<>();
         if (missionInfo != null) {
-            this.eAn = missionInfo.activityid.intValue();
-            this.eAo = missionInfo.missionid.intValue();
+            this.eCt = missionInfo.activityid.intValue();
+            this.eCu = missionInfo.missionid.intValue();
             this.mTaskType = missionInfo.tasktype.intValue();
-            this.eAy = missionInfo.cleartype.intValue();
-            this.eAz = missionInfo.cleartime.intValue();
-            this.eAB = bgI();
-            this.eAq = missionInfo.browsetimepage;
-            this.eAA = yG(this.eAq);
+            this.eCE = missionInfo.cleartype.intValue();
+            this.eCF = missionInfo.cleartime.intValue();
+            this.eCH = bgV();
+            this.eCw = missionInfo.browsetimepage;
+            this.eCG = yY(this.eCw);
             if (missionInfo.threadnum.intValue() > 0) {
                 this.mThreadNum = missionInfo.threadnum.intValue();
             }
             if (missionInfo.browsetime.intValue() > 0) {
-                this.eAp = missionInfo.browsetime.intValue();
+                this.eCv = missionInfo.browsetime.intValue();
             }
             if (missionInfo.total_limit.intValue() > 0) {
-                this.eAF = missionInfo.total_limit.intValue();
+                this.eCL = missionInfo.total_limit.intValue();
             }
         }
     }
 
-    public boolean bgD() {
-        return this.eAn > 0 && this.eAo > 0 && this.mTaskType > 0 && this.eAp > 0;
+    public boolean bgQ() {
+        return this.eCt > 0 && this.eCu > 0 && this.mTaskType > 0 && this.eCv > 0;
     }
 
-    public synchronized int bgE() {
+    public synchronized int bgR() {
         int i;
-        i = this.eAD + 1;
-        this.eAD = i;
+        i = this.eCJ + 1;
+        this.eCJ = i;
         return i;
     }
 
-    public synchronized int bgF() {
+    public synchronized int bgS() {
         int i;
-        i = this.eAC + 1;
-        this.eAC = i;
+        i = this.eCI + 1;
+        this.eCI = i;
         return i;
     }
 
-    public synchronized int bgG() {
+    public synchronized int bgT() {
         int i;
         i = this.mTag + 1;
         this.mTag = i;
         return i;
     }
 
-    private int[] yG(String str) {
+    private int[] yY(String str) {
         if (this.mTaskType == 8) {
-            return new int[]{ezY};
+            return new int[]{eCe};
         }
         if (this.mTaskType == 7) {
-            return new int[]{ezZ, eAg, eAh};
+            return new int[]{eCf, eCm, eCn};
         }
         if (str == null) {
             return null;
@@ -386,34 +386,34 @@ public class b {
         return iArr;
     }
 
-    public boolean bgH() {
-        return System.currentTimeMillis() > bgU() * 1000;
+    public boolean bgU() {
+        return System.currentTimeMillis() > bhh() * 1000;
     }
 
-    public long bgI() {
-        if (this.eAy == eAi) {
+    public long bgV() {
+        if (this.eCE == eCo) {
             return 0L;
         }
-        if (this.eAy == eAj) {
-            return (System.currentTimeMillis() / 1000) + this.eAz;
+        if (this.eCE == eCp) {
+            return (System.currentTimeMillis() / 1000) + this.eCF;
         }
-        if (this.eAy == eAk) {
-            long bgJ = (bgJ() / 1000) + this.eAz;
-            if (System.currentTimeMillis() > bgJ) {
-                return bgJ + 86400;
+        if (this.eCE == eCq) {
+            long bgW = (bgW() / 1000) + this.eCF;
+            if (System.currentTimeMillis() > bgW) {
+                return bgW + 86400;
             }
-            return bgJ;
-        } else if (this.eAy == eAl) {
-            return m((int) this.eAz, mv(4)) / 1000;
+            return bgW;
+        } else if (this.eCE == eCr) {
+            return n((int) this.eCF, my(4)) / 1000;
         } else {
-            if (this.eAy == eAm) {
-                return this.eAz / 1000;
+            if (this.eCE == eCs) {
+                return this.eCF / 1000;
             }
             return 0L;
         }
     }
 
-    private long bgJ() {
+    private long bgW() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, 0);
         calendar.set(12, 0);
@@ -422,17 +422,17 @@ public class b {
         return calendar.getTimeInMillis();
     }
 
-    private long mv(int i) {
-        long bgJ = bgJ();
+    private long my(int i) {
+        long bgW = bgW();
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, i);
         calendar.set(12, 0);
         calendar.set(13, 0);
         calendar.set(14, 0);
-        return calendar.getTimeInMillis() - bgJ;
+        return calendar.getTimeInMillis() - bgW;
     }
 
-    private long m(int i, long j) {
+    private long n(int i, long j) {
         switch (i) {
             case 1:
                 i = 2;
@@ -472,42 +472,42 @@ public class b {
     }
 
     public int getActivityId() {
-        return this.eAn;
+        return this.eCt;
     }
 
     public void setActivityId(int i) {
-        this.eAn = i;
+        this.eCt = i;
     }
 
-    public int bgK() {
-        return this.eAo;
+    public int bgX() {
+        return this.eCu;
     }
 
-    public void mw(int i) {
-        this.eAo = i;
+    public void mz(int i) {
+        this.eCu = i;
     }
 
-    public String bgL() {
-        return this.eAt;
+    public String bgY() {
+        return this.eCz;
     }
 
-    public void yH(String str) {
-        this.eAt = str;
+    public void yZ(String str) {
+        this.eCz = str;
     }
 
-    public String bgM() {
-        return this.eAu;
+    public String bgZ() {
+        return this.eCA;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public int bgN() {
+    public int bha() {
         return this.mCallType;
     }
 
-    public void mx(int i) {
+    public void mA(int i) {
         this.mCallType = i;
     }
 
@@ -515,29 +515,29 @@ public class b {
         return this.mTaskType;
     }
 
-    public void my(int i) {
+    public void mB(int i) {
         this.mTaskType = i;
     }
 
-    public String bgO() {
-        return this.eAq;
+    public String bhb() {
+        return this.eCw;
     }
 
-    public void yI(String str) {
-        this.eAq = str;
-        this.eAA = yG(str);
+    public void za(String str) {
+        this.eCw = str;
+        this.eCG = yY(str);
     }
 
-    public int[] bgP() {
-        return this.eAA;
+    public int[] bhc() {
+        return this.eCG;
     }
 
-    public long bgQ() {
-        return this.eAp;
+    public long bhd() {
+        return this.eCv;
     }
 
-    public void dy(long j) {
-        this.eAp = j;
+    public void dE(long j) {
+        this.eCv = j;
     }
 
     public int getThreadNum() {
@@ -548,44 +548,44 @@ public class b {
         this.mThreadNum = i;
     }
 
-    public int bgR() {
-        return this.eAr;
+    public int bhe() {
+        return this.eCx;
     }
 
-    public void mz(int i) {
-        this.eAr = i;
+    public void mC(int i) {
+        this.eCx = i;
     }
 
-    public int bgS() {
-        return this.eAy;
+    public int bhf() {
+        return this.eCE;
     }
 
-    public void mA(int i) {
-        this.eAy = i;
+    public void mD(int i) {
+        this.eCE = i;
     }
 
-    public long bgT() {
-        return this.eAz;
+    public long bhg() {
+        return this.eCF;
     }
 
-    public void dz(long j) {
-        this.eAz = j;
+    public void dF(long j) {
+        this.eCF = j;
     }
 
-    public long bgU() {
-        return this.eAB;
+    public long bhh() {
+        return this.eCH;
     }
 
-    public void dA(long j) {
-        this.eAB = j;
+    public void dG(long j) {
+        this.eCH = j;
     }
 
     public long getTid() {
-        return this.eAs;
+        return this.eCy;
     }
 
     public void setTid(long j) {
-        this.eAs = j;
+        this.eCy = j;
     }
 
     public long getFid() {
@@ -596,39 +596,39 @@ public class b {
         this.mFid = j;
     }
 
-    public String bgV() {
-        return this.eAv;
+    public String bhi() {
+        return this.eCB;
     }
 
-    public void yJ(String str) {
-        this.eAv = str;
+    public void zb(String str) {
+        this.eCB = str;
     }
 
-    public String bgW() {
-        return this.eAw;
+    public String bhj() {
+        return this.eCC;
     }
 
-    public void yK(String str) {
-        this.eAw = str;
+    public void zc(String str) {
+        this.eCC = str;
     }
 
-    public long bgX() {
-        return this.eAx;
+    public long bhk() {
+        return this.eCD;
     }
 
-    public void dB(long j) {
-        this.eAx = j;
+    public void dH(long j) {
+        this.eCD = j;
     }
 
-    public int bgY() {
-        return this.eAF;
+    public int bhl() {
+        return this.eCL;
     }
 
-    public void mB(int i) {
-        this.eAF = i;
+    public void mE(int i) {
+        this.eCL = i;
     }
 
-    public void mC(int i) {
+    public void mF(int i) {
         this.mTag = i;
     }
 
@@ -636,12 +636,12 @@ public class b {
         return this.mTag;
     }
 
-    public boolean bgZ() {
-        return this.eAE;
+    public boolean bhm() {
+        return this.eCK;
     }
 
-    public void iT(boolean z) {
-        this.eAE = z;
+    public void iV(boolean z) {
+        this.eCK = z;
     }
 
     public String getToken() {

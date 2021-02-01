@@ -10,24 +10,24 @@ import com.baidu.ala.downloader.ResourceDownloader;
 import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private InterfaceC0690a hXQ;
-    private BdAsyncTask hXR;
-    private HttpMessageListener hXS = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1
+    private InterfaceC0690a ick;
+    private BdAsyncTask icl;
+    private HttpMessageListener icm = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage) {
                 final List<n> effectList = ((AlaGetEnterEffectResponsedMessage) httpResponsedMessage).getEffectList();
-                if (x.isEmpty(effectList)) {
-                    a.this.hXQ.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                if (y.isEmpty(effectList)) {
+                    a.this.ick.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     return;
                 }
-                a.this.hXR = new BdAsyncTask() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1.1
+                a.this.icl = new BdAsyncTask() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1.1
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     protected Object doInBackground(Object[] objArr) {
                         for (n nVar : effectList) {
@@ -49,14 +49,14 @@ public class a {
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onPostExecute(Object obj) {
                         super.onPostExecute(obj);
-                        a.this.hXQ.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                        a.this.ick.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     }
 
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onCancelled() {
                         super.onCancelled();
-                        a.this.hXQ.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                        a.this.ick.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     }
                 }.execute(new Object[0]);
             }
@@ -65,26 +65,26 @@ public class a {
     private TbPageContext mPageContext;
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.entereffect.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface InterfaceC0690a {
         void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
     }
 
     public a(TbPageContext tbPageContext, InterfaceC0690a interfaceC0690a) {
         this.mPageContext = tbPageContext;
-        this.hXQ = interfaceC0690a;
-        this.mPageContext.registerListener(this.hXS);
+        this.ick = interfaceC0690a;
+        this.mPageContext.registerListener(this.icm);
     }
 
-    public void cmn() {
+    public void cnl() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         this.mPageContext.sendMessage(httpMessage);
     }
 
     public void onDestory() {
-        if (this.hXR != null) {
-            this.hXR.cancel();
+        if (this.icl != null) {
+            this.icl.cancel();
         }
     }
 }

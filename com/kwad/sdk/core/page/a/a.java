@@ -6,7 +6,7 @@ import com.kwad.sdk.core.page.recycle.e;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.feed.widget.k;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends Presenter {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
@@ -22,12 +22,12 @@ public class a extends Presenter {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (com.kwad.sdk.core.response.b.a.y(c.j(eVar.c))) {
-                    if (eVar.f9359a != null) {
-                        eVar.f9359a.a(a.this.m());
+                    if (eVar.f9361a != null) {
+                        eVar.f9361a.a(a.this.m());
                     }
-                } else if (eVar.f9360b == null || eVar.f9360b.getAdapter() == null || eVar.f9360b.getAdapter().getItemCount() <= 1) {
+                } else if (eVar.f9362b == null || eVar.f9362b.getAdapter() == null || eVar.f9362b.getAdapter().getItemCount() <= 1) {
                 } else {
-                    eVar.f9360b.scrollToPosition(1);
+                    eVar.f9362b.scrollToPosition(1);
                 }
             }
         });

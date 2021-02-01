@@ -1,7 +1,7 @@
 package com.ksad.lottie.model.a;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends n<Integer, Integer> {
     public a(List<com.ksad.lottie.e.a<Integer>> list) {
         super((List) list);
@@ -9,7 +9,7 @@ public class a extends n<Integer, Integer> {
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<Integer, Integer> a() {
-        return new com.ksad.lottie.a.b.b(this.f8048a);
+        return new com.ksad.lottie.a.b.b(this.f8050a);
     }
 
     @Override // com.ksad.lottie.model.a.n

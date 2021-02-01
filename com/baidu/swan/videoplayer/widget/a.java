@@ -14,62 +14,62 @@ import com.baidu.swan.apps.inlinewidget.b.a;
 import com.baidu.swan.apps.inlinewidget.d;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class a implements com.baidu.swan.apps.inlinewidget.b.a {
     private static final boolean DEBUG = b.DEBUG;
-    private String cBM;
-    private volatile boolean ceK = false;
-    private a.InterfaceC0430a ezx;
-    private CyberExtractor ezy;
+    private String cEi;
+    private volatile boolean ciT = false;
+    private a.InterfaceC0427a eBE;
+    private CyberExtractor eBF;
 
     public a(ZeusPluginFactory.Invoker invoker, String str) {
-        this.cBM = str;
+        this.cEi = str;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     public void a(@NonNull d.a aVar) {
-        this.ezy = new CyberExtractor(true);
-        aVar.fE(true);
+        this.eBF = new CyberExtractor(true);
+        aVar.fG(true);
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
-    public String avA() {
+    public String avY() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
     public String getSlaveId() {
-        return this.cBM;
+        return this.cEi;
     }
 
     public Context getContext() {
-        return com.baidu.swan.apps.t.a.awy();
+        return com.baidu.swan.apps.t.a.awW();
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b.a
-    public void a(a.InterfaceC0430a interfaceC0430a) {
-        this.ezx = interfaceC0430a;
+    public void a(a.InterfaceC0427a interfaceC0427a) {
+        this.eBE = interfaceC0427a;
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b.a
-    public void e(final String str, final Map<String, String> map) {
+    public void d(final String str, final Map<String, String> map) {
         if (!TextUtils.isEmpty(str)) {
             p.b(new Runnable() { // from class: com.baidu.swan.videoplayer.widget.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.ceK) {
+                    if (a.this.ciT) {
                         if (a.DEBUG) {
                             Log.d("MediaExtractorWidget", "media extractor already released");
                             return;
                         }
                         return;
                     }
-                    a.this.ezy.setDataSource(a.this.getContext(), Uri.parse(com.baidu.swan.apps.inlinewidget.e.a.nP(str)), map);
-                    Bundle metaData = a.this.ezy.getMetaData();
-                    if (a.this.ezx != null) {
-                        a.this.ezx.z(metaData);
+                    a.this.eBF.setDataSource(a.this.getContext(), Uri.parse(com.baidu.swan.apps.inlinewidget.e.a.oi(str)), map);
+                    Bundle metaData = a.this.eBF.getMetaData();
+                    if (a.this.eBE != null) {
+                        a.this.eBE.z(metaData);
                     }
                 }
             }, "loadMetadata");
@@ -78,14 +78,14 @@ public class a implements com.baidu.swan.apps.inlinewidget.b.a {
 
     @Override // com.baidu.swan.apps.inlinewidget.b.a
     public void release() {
-        this.ceK = true;
-        if (this.ezy != null) {
-            this.ezy.release();
+        this.ciT = true;
+        if (this.eBF != null) {
+            this.eBF.release();
         }
-        this.ezy = null;
-        if (this.ezx != null) {
-            this.ezx.onRelease();
+        this.eBF = null;
+        if (this.eBE != null) {
+            this.eBE.onRelease();
         }
-        this.ezx = null;
+        this.eBE = null;
     }
 }

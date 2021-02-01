@@ -6,13 +6,13 @@ import android.content.Intent;
 import android.util.Log;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.data.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HomeWatcherReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f7532a;
+    private a f7534a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void H();
 
@@ -29,13 +29,13 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
                 Log.i("HomeReceiver", "reason: " + stringExtra);
                 if ("homekey".equals(stringExtra)) {
                     Log.i("HomeReceiver", "homekey");
-                    if (this.f7532a != null) {
-                        this.f7532a.H();
+                    if (this.f7534a != null) {
+                        this.f7534a.H();
                     }
                 } else if ("recentapps".equals(stringExtra)) {
                     Log.i("HomeReceiver", "long press home key or activity switch");
-                    if (this.f7532a != null) {
-                        this.f7532a.I();
+                    if (this.f7534a != null) {
+                        this.f7534a.I();
                     }
                 } else if (Config.BAWU_TYPE_ASSIST.equals(stringExtra)) {
                     Log.i("HomeReceiver", Config.BAWU_TYPE_ASSIST);
@@ -45,6 +45,6 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
     }
 
     public void a(a aVar) {
-        this.f7532a = aVar;
+        this.f7534a = aVar;
     }
 }

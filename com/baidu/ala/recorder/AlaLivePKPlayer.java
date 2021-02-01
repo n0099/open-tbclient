@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaLivePKPlayer {
     private static final int JNI_NOTIFY_MESSAGE_NO_VIDEO_FRAME = 2;
     private static final int JNI_NOTIFY_MESSAGE_RENDER_VIDEO_FRAME = 1;
@@ -90,11 +90,11 @@ public class AlaLivePKPlayer {
         if (this.mEnableRtcACE) {
             if (!this.mRunOpenSLES) {
                 if (this.mAudioPlayer == null) {
-                    this.mAudioPlayer = new AlaAudioPlayer(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 4, this.mEnableRtcACE);
+                    this.mAudioPlayer = new AlaAudioPlayer(48000, 4, this.mEnableRtcACE);
                 }
             } else if (this.mNativePlayFlags == 0) {
                 this.mNDKAdapter.setWebRtcHandle(AudioProcessModule.sharedInstance().getContext());
-                if (AudioProcessModule.sharedInstance().createAudioPlayer(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1, StreamConfig.OUTPUT_FRAMES_PER_BUFFER) != 0) {
+                if (AudioProcessModule.sharedInstance().createAudioPlayer(48000, 1, StreamConfig.OUTPUT_FRAMES_PER_BUFFER) != 0) {
                     BdLog.e("LIVE_SDK_JNIcreateAudioPlayer failed");
                 }
                 this.mNativePlayFlags = 1;
@@ -234,7 +234,7 @@ public class AlaLivePKPlayer {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class AlaLivePKVideoPlayer extends TextureView implements TextureView.SurfaceTextureListener {
         private int mIndex;
         private Surface mSurface;

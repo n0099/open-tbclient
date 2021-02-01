@@ -1,12 +1,12 @@
 package com.baidu.tieba.yuyinala.liveroom.turntable.lucky;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public long aFE;
+    public long aIa;
     public long expiredTime;
-    public int hKF;
-    public a oss;
+    public int hOZ;
+    public a oCd;
 
     public b(JSONObject jSONObject) {
         parseJson(jSONObject);
@@ -14,22 +14,22 @@ public class b {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.hKF = jSONObject.optInt("is_lucky_moment");
-            this.aFE = jSONObject.optLong("current_time");
+            this.hOZ = jSONObject.optInt("is_lucky_moment");
+            this.aIa = jSONObject.optLong("current_time");
             this.expiredTime = jSONObject.optLong("expired_time");
-            this.oss = new a(jSONObject.optJSONObject("lucky_gift_info"));
+            this.oCd = new a(jSONObject.optJSONObject("lucky_gift_info"));
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a {
         public String giftName;
-        public String hKH;
+        public String hPb;
 
         public a(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.giftName = jSONObject.optString("gift_name");
-                this.hKH = jSONObject.optString("pro_up_ratio");
+                this.hPb = jSONObject.optString("pro_up_ratio");
             }
         }
     }

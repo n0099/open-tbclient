@@ -5,11 +5,11 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.d.f;
 import com.bytedance.sdk.openadsdk.utils.ak;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d extends com.bytedance.sdk.openadsdk.core.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.j f6634a;
+    private com.bytedance.sdk.openadsdk.core.d.j f6636a;
 
     public d(@NonNull Context context, @NonNull com.bytedance.sdk.openadsdk.core.d.l lVar, @NonNull String str, int i) {
         super(context, lVar, str, i);
@@ -41,13 +41,13 @@ public class d extends com.bytedance.sdk.openadsdk.core.a.a {
         }
         int[] iArr3 = new int[2];
         int[] iArr4 = new int[2];
-        if (this.f6634a != null) {
-            j = this.f6634a.e;
-            j2 = this.f6634a.f;
-            iArr3[0] = i5 + ((int) ak.a(this.c, this.f6634a.g));
-            iArr3[1] = i6 + ((int) ak.a(this.c, this.f6634a.h));
-            int a3 = (int) ak.a(this.c, this.f6634a.i);
-            int a4 = (int) ak.a(this.c, this.f6634a.j);
+        if (this.f6636a != null) {
+            j = this.f6636a.e;
+            j2 = this.f6636a.f;
+            iArr3[0] = i5 + ((int) ak.a(this.c, this.f6636a.g));
+            iArr3[1] = i6 + ((int) ak.a(this.c, this.f6636a.h));
+            int a3 = (int) ak.a(this.c, this.f6636a.i);
+            int a4 = (int) ak.a(this.c, this.f6636a.j);
             iArr4[0] = a3;
             iArr4[1] = a4;
             if (a3 == 0 && a4 == 0) {
@@ -62,6 +62,6 @@ public class d extends com.bytedance.sdk.openadsdk.core.a.a {
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.j jVar) {
-        this.f6634a = jVar;
+        this.f6636a = jVar;
     }
 }

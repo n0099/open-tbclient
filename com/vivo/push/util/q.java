@@ -6,7 +6,7 @@ import com.vivo.push.model.UPSNotificationMessage;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class q {
     public static UPSNotificationMessage a(InsideNotificationItem insideNotificationItem) {
         UPSNotificationMessage uPSNotificationMessage = new UPSNotificationMessage();

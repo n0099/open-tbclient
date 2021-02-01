@@ -2,7 +2,7 @@ package com.baidu.browser.core.util;
 
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static Object a(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr, Object obj2) {
         try {

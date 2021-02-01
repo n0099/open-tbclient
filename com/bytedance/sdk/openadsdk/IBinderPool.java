@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IBinderPool extends IInterface {
     IBinder queryBinder(int i) throws RemoteException;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements IBinderPool {
         public Stub() {
             attachInterface(this, "com.bytedance.sdk.openadsdk.IBinderPool");
@@ -48,19 +48,19 @@ public interface IBinderPool extends IInterface {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         private static class a implements IBinderPool {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6071a;
+            private IBinder f6073a;
 
             a(IBinder iBinder) {
-                this.f6071a = iBinder;
+                this.f6073a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6071a;
+                return this.f6073a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IBinderPool
@@ -70,7 +70,7 @@ public interface IBinderPool extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IBinderPool");
                     obtain.writeInt(i);
-                    this.f6071a.transact(1, obtain, obtain2, 0);
+                    this.f6073a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readStrongBinder();
                 } finally {

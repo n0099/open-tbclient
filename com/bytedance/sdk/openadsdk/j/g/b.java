@@ -2,14 +2,14 @@ package com.bytedance.sdk.openadsdk.j.g;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final MessageDigest f7289a = a();
+    private static final MessageDigest f7291a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final char[] f7290b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] f7292b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     private b() {
     }
@@ -24,11 +24,11 @@ public class b {
 
     public static String a(String str) {
         byte[] digest;
-        MessageDigest messageDigest = f7289a;
+        MessageDigest messageDigest = f7291a;
         if (messageDigest == null) {
             return "";
         }
-        byte[] bytes = str.getBytes(d.f7293a);
+        byte[] bytes = str.getBytes(d.f7295a);
         synchronized (b.class) {
             digest = messageDigest.digest(bytes);
         }
@@ -46,8 +46,8 @@ public class b {
         while (i < length) {
             byte b2 = bArr[i];
             int i3 = i2 + 1;
-            cArr[i2] = f7290b[(b2 & 240) >> 4];
-            cArr[i3] = f7290b[b2 & 15];
+            cArr[i2] = f7292b[(b2 & 240) >> 4];
+            cArr[i3] = f7292b[b2 & 15];
             i++;
             i2 = i3 + 1;
         }

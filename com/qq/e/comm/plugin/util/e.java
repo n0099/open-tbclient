@@ -7,11 +7,11 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.qq.e.comm.util.GDTLogger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f12583a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] f12585a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String a(Context context) {
         try {
@@ -39,8 +39,8 @@ public class e {
         char[] cArr = new char[bArr.length * 2];
         for (int i = 0; i < bArr.length; i++) {
             byte b2 = bArr[i];
-            cArr[i * 2] = f12583a[(b2 >>> 4) & 15];
-            cArr[(i * 2) + 1] = f12583a[b2 & 15];
+            cArr[i * 2] = f12585a[(b2 >>> 4) & 15];
+            cArr[(i * 2) + 1] = f12585a[b2 & 15];
         }
         return new String(cArr);
     }

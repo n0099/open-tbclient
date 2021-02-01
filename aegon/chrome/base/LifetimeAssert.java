@@ -6,35 +6,35 @@ import java.lang.ref.ReferenceQueue;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LifetimeAssert {
     public static TestHook sTestHook;
     @VisibleForTesting
     public final WrappedReference mWrapper;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class CreationException extends RuntimeException {
         public CreationException() {
             super("vvv This is where object was created. vvv");
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     static class LifetimeAssertException extends RuntimeException {
         public LifetimeAssertException(String str, Throwable th) {
             super(str, th);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     interface TestHook {
         void onCleaned(WrappedReference wrappedReference, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class WrappedReference extends PhantomReference<Object> {
         public final CreationException mCreationException;
         public boolean mSafeToGc;

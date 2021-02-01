@@ -8,13 +8,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BasicSeperateBaMemberItemView extends LinearLayout {
-    private TbImageView jnU;
-    private View ldq;
-    private TextView ldr;
-    private TextView lds;
-    private TbImageView ldt;
+    private TbImageView jtA;
+    private View llt;
+    private TextView llu;
+    private TextView llv;
+    private TbImageView llw;
     private Context mContext;
     private View mRootView;
 
@@ -38,10 +38,10 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.index_seperate_ba_item, this);
-        this.ldq = this.mRootView.findViewById(R.id.ly_desc);
-        this.jnU = (TbImageView) this.mRootView.findViewById(R.id.task_icon);
-        this.ldr = (TextView) this.mRootView.findViewById(R.id.txt_title);
-        this.lds = (TextView) this.mRootView.findViewById(R.id.txt_desc);
-        this.ldt = (TbImageView) this.mRootView.findViewById(R.id.privilege_spread_icon);
+        this.llt = this.mRootView.findViewById(R.id.ly_desc);
+        this.jtA = (TbImageView) this.mRootView.findViewById(R.id.task_icon);
+        this.llu = (TextView) this.mRootView.findViewById(R.id.txt_title);
+        this.llv = (TextView) this.mRootView.findViewById(R.id.txt_desc);
+        this.llw = (TbImageView) this.mRootView.findViewById(R.id.privilege_spread_icon);
     }
 }

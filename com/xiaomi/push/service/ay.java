@@ -5,7 +5,7 @@ import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 public class ay {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14259a = 8;
+    private static int f14261a = 8;
     private int d = -666;
 
     /* renamed from: a  reason: collision with other field name */
@@ -13,7 +13,7 @@ public class ay {
     private int c = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f14260b = 0;
+    private int f14262b = 0;
 
     public static int a(byte b2) {
         return b2 >= 0 ? b2 : b2 + GDiffPatcher.EOF;
@@ -21,7 +21,7 @@ public class ay {
 
     private void a() {
         this.c = 0;
-        this.f14260b = 0;
+        this.f14262b = 0;
     }
 
     private void a(int i, byte[] bArr, boolean z) {
@@ -30,11 +30,11 @@ public class ay {
             this.f950a[i2] = (byte) i2;
         }
         this.c = 0;
-        this.f14260b = 0;
-        while (this.f14260b < i) {
-            this.c = ((this.c + a(this.f950a[this.f14260b])) + a(bArr[this.f14260b % length])) % 256;
-            a(this.f950a, this.f14260b, this.c);
-            this.f14260b++;
+        this.f14262b = 0;
+        while (this.f14262b < i) {
+            this.c = ((this.c + a(this.f950a[this.f14262b])) + a(bArr[this.f14262b % length])) % 256;
+            a(this.f950a, this.f14262b, this.c);
+            this.f14262b++;
         }
         if (i != 256) {
             this.d = ((this.c + a(this.f950a[i])) + a(bArr[i % length])) % 256;
@@ -119,9 +119,9 @@ public class ay {
 
     /* renamed from: a  reason: collision with other method in class */
     byte m580a() {
-        this.f14260b = (this.f14260b + 1) % 256;
-        this.c = (this.c + a(this.f950a[this.f14260b])) % 256;
-        a(this.f950a, this.f14260b, this.c);
-        return this.f950a[(a(this.f950a[this.f14260b]) + a(this.f950a[this.c])) % 256];
+        this.f14262b = (this.f14262b + 1) % 256;
+        this.c = (this.c + a(this.f950a[this.f14262b])) % 256;
+        a(this.f950a, this.f14262b, this.c);
+        return this.f950a[(a(this.f950a[this.f14262b]) + a(this.f950a[this.c])) % 256];
     }
 }

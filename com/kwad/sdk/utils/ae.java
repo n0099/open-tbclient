@@ -3,11 +3,11 @@ package com.kwad.sdk.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f10771a = "";
+    private static String f10773a = "";
 
     public static int a(@NonNull Context context, int i) {
         return context.getSharedPreferences("ksadsdk_pref", 0).getInt("profile_guide_times", i);
@@ -74,7 +74,7 @@ public class ae {
     }
 
     public static void f(Context context, String str) {
-        f10771a = str;
+        f10773a = str;
         if (context == null) {
             return;
         }
@@ -82,7 +82,7 @@ public class ae {
     }
 
     public static String g(Context context) {
-        return !TextUtils.isEmpty(f10771a) ? f10771a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "");
+        return !TextUtils.isEmpty(f10773a) ? f10773a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "");
     }
 
     public static void g(Context context, String str) {

@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -7,7 +8,7 @@ import java.io.UnsupportedEncodingException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f13898a;
+    private final int f13900a;
 
     /* renamed from: a  reason: collision with other field name */
     private final OutputStream f224a;
@@ -16,7 +17,7 @@ public final class c {
     private final byte[] f225a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f13899b;
+    private int f13901b;
 
     /* loaded from: classes6.dex */
     public static class a extends IOException {
@@ -28,15 +29,15 @@ public final class c {
     private c(OutputStream outputStream, byte[] bArr) {
         this.f224a = outputStream;
         this.f225a = bArr;
-        this.f13899b = 0;
-        this.f13898a = bArr.length;
+        this.f13901b = 0;
+        this.f13900a = bArr.length;
     }
 
     private c(byte[] bArr, int i, int i2) {
         this.f224a = null;
         this.f225a = bArr;
-        this.f13899b = i;
-        this.f13898a = i + i2;
+        this.f13901b = i;
+        this.f13900a = i + i2;
     }
 
     public static int a(int i) {
@@ -160,8 +161,8 @@ public final class c {
         if (this.f224a == null) {
             throw new a();
         }
-        this.f224a.write(this.f225a, 0, this.f13899b);
-        this.f13899b = 0;
+        this.f224a.write(this.f225a, 0, this.f13901b);
+        this.f13901b = 0;
     }
 
     public static int d(int i) {
@@ -179,7 +180,7 @@ public final class c {
 
     public int a() {
         if (this.f224a == null) {
-            return this.f13898a - this.f13899b;
+            return this.f13900a - this.f13901b;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
     }
@@ -192,12 +193,12 @@ public final class c {
     }
 
     public void a(byte b2) {
-        if (this.f13899b == this.f13898a) {
+        if (this.f13901b == this.f13900a) {
             c();
         }
         byte[] bArr = this.f225a;
-        int i = this.f13899b;
-        this.f13899b = i + 1;
+        int i = this.f13901b;
+        this.f13901b = i + 1;
         bArr[i] = b2;
     }
 
@@ -282,23 +283,23 @@ public final class c {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m215a(byte[] bArr, int i, int i2) {
-        if (this.f13898a - this.f13899b >= i2) {
-            System.arraycopy(bArr, i, this.f225a, this.f13899b, i2);
-            this.f13899b += i2;
+        if (this.f13900a - this.f13901b >= i2) {
+            System.arraycopy(bArr, i, this.f225a, this.f13901b, i2);
+            this.f13901b += i2;
             return;
         }
-        int i3 = this.f13898a - this.f13899b;
-        System.arraycopy(bArr, i, this.f225a, this.f13899b, i3);
+        int i3 = this.f13900a - this.f13901b;
+        System.arraycopy(bArr, i, this.f225a, this.f13901b, i3);
         int i4 = i + i3;
         int i5 = i2 - i3;
-        this.f13899b = this.f13898a;
+        this.f13901b = this.f13900a;
         c();
-        if (i5 > this.f13898a) {
+        if (i5 > this.f13900a) {
             this.f224a.write(bArr, i4, i5);
             return;
         }
         System.arraycopy(bArr, i4, this.f225a, 0, i5);
-        this.f13899b = i5;
+        this.f13901b = i5;
     }
 
     public void b() {
@@ -341,7 +342,7 @@ public final class c {
     /* renamed from: c  reason: collision with other method in class */
     public void m221c(long j) {
         while (((-128) & j) != 0) {
-            m220c((((int) j) & 127) | 128);
+            m220c((((int) j) & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
             j >>>= 7;
         }
         m220c((int) j);
@@ -350,7 +351,7 @@ public final class c {
     /* renamed from: d  reason: collision with other method in class */
     public void m222d(int i) {
         while ((i & (-128)) != 0) {
-            m220c((i & 127) | 128);
+            m220c((i & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
             i >>>= 7;
         }
         m220c(i);

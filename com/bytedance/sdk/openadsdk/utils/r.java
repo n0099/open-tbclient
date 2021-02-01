@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.utils;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.webkit.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class r {
     public static void a(Uri uri, com.bytedance.sdk.openadsdk.core.x xVar) {
         if (xVar != null && xVar.a(uri)) {

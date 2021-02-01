@@ -8,35 +8,35 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class c {
-    private static List<WeakReference<ScheduledFuture<?>>> oKn = new ArrayList();
-    private static int oKp = 30;
-    private static ExecutorService oKo = Executors.newFixedThreadPool(2);
-    private static ScheduledExecutorService oKq = Executors.newScheduledThreadPool(2);
+    private static List<WeakReference<ScheduledFuture<?>>> oUv = new ArrayList();
+    private static int oUx = 30;
+    private static ExecutorService oUw = Executors.newFixedThreadPool(2);
+    private static ScheduledExecutorService oUy = Executors.newScheduledThreadPool(2);
 
     public static void execute(Runnable runnable) {
-        if (oKo == null || oKo.isShutdown()) {
-            oKo = Executors.newFixedThreadPool(2);
+        if (oUw == null || oUw.isShutdown()) {
+            oUw = Executors.newFixedThreadPool(2);
         }
-        oKo.execute(runnable);
+        oUw.execute(runnable);
     }
 
     public static synchronized void a(Runnable runnable, long j, long j2) {
         synchronized (c.class) {
-            if (oKq == null || oKq.isShutdown()) {
-                oKq = Executors.newScheduledThreadPool(2);
+            if (oUy == null || oUy.isShutdown()) {
+                oUy = Executors.newScheduledThreadPool(2);
             }
-            oKn.add(new WeakReference<>(oKq.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+            oUv.add(new WeakReference<>(oUy.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
         }
     }
 
     public static synchronized void a(Runnable runnable) {
         synchronized (c.class) {
-            if (oKq == null || oKq.isShutdown()) {
-                oKq = Executors.newScheduledThreadPool(2);
+            if (oUy == null || oUy.isShutdown()) {
+                oUy = Executors.newScheduledThreadPool(2);
             }
-            oKq.execute(runnable);
+            oUy.execute(runnable);
         }
     }
 }

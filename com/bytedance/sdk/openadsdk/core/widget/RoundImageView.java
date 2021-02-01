@@ -14,31 +14,31 @@ import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RoundImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6766a;
+    private int f6768a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6767b;
+    private int f6769b;
 
     public RoundImageView(Context context) {
         super(context);
-        this.f6766a = 0;
-        this.f6767b = 0;
+        this.f6768a = 0;
+        this.f6769b = 0;
     }
 
     public RoundImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f6766a = 0;
-        this.f6767b = 0;
+        this.f6768a = 0;
+        this.f6769b = 0;
     }
 
     public RoundImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f6766a = 0;
-        this.f6767b = 0;
+        this.f6768a = 0;
+        this.f6769b = 0;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -60,21 +60,21 @@ public class RoundImageView extends ImageView {
                     super.onDraw(canvas);
                     return;
                 }
-                if (this.f6766a == 0) {
-                    this.f6766a = getWidth();
+                if (this.f6768a == 0) {
+                    this.f6768a = getWidth();
                 }
-                if (this.f6767b == 0) {
-                    this.f6767b = getHeight();
+                if (this.f6769b == 0) {
+                    this.f6769b = getHeight();
                 }
                 try {
-                    bitmap3 = a(bitmap2, (this.f6766a < this.f6767b ? this.f6766a : this.f6767b) / 2);
+                    bitmap3 = a(bitmap2, (this.f6768a < this.f6769b ? this.f6768a : this.f6769b) / 2);
                 } catch (Throwable th2) {
                     bitmap3 = null;
                 }
                 if (bitmap3 == null) {
                     super.onDraw(canvas);
                 } else {
-                    canvas.drawBitmap(bitmap3, (this.f6766a / 2) - i, (this.f6767b / 2) - i, (Paint) null);
+                    canvas.drawBitmap(bitmap3, (this.f6768a / 2) - i, (this.f6769b / 2) - i, (Paint) null);
                 }
             }
         }

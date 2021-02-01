@@ -3,7 +3,7 @@ package com.yxcorp.kuaishou.addfp.a.b.a;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class c extends Binder implements b {
     public static b a(IBinder iBinder) {
         if (iBinder == null) {

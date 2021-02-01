@@ -32,7 +32,7 @@ import androidx.customview.widget.ViewDragHelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SlidingPaneLayout extends ViewGroup {
     private static final int DEFAULT_FADE_COLOR = -858993460;
     private static final int DEFAULT_OVERHANG_SIZE = 32;
@@ -62,7 +62,7 @@ public class SlidingPaneLayout extends ViewGroup {
     private int mSliderFadeColor;
     private final Rect mTmpRect;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PanelSlideListener {
         void onPanelClosed(@NonNull View view);
 
@@ -71,7 +71,7 @@ public class SlidingPaneLayout extends ViewGroup {
         void onPanelSlide(@NonNull View view, float f);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SimplePanelSlideListener implements PanelSlideListener {
         @Override // androidx.slidingpanelayout.widget.SlidingPaneLayout.PanelSlideListener
         public void onPanelSlide(View view, float f) {
@@ -941,7 +941,7 @@ public class SlidingPaneLayout extends ViewGroup {
         this.mPreservedOpenState = savedState.isOpen;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private class DragHelperCallback extends ViewDragHelper.Callback {
         DragHelperCallback() {
         }
@@ -1026,7 +1026,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         private static final int[] ATTRS = {16843137};
         Paint dimPaint;
@@ -1070,7 +1070,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.slidingpanelayout.widget.SlidingPaneLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1110,7 +1110,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AccessibilityDelegate extends AccessibilityDelegateCompat {
         private final Rect mTmpRect = new Rect();
 
@@ -1180,7 +1180,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class DisableLayerRunnable implements Runnable {
         final View mChildView;
 

@@ -1,14 +1,13 @@
 package com.bytedance.sdk.a.b;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidubce.http.Headers;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class g {
-    public static final g pgJ = new a().env().enx();
-    public static final g pgK = new a().enw().a(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.SECONDS).enx();
+    public static final g prb = new a().epO().epQ();
+    public static final g prc = new a().epP().a(Integer.MAX_VALUE, TimeUnit.SECONDS).epQ();
     String c;
     private final boolean d;
     private final boolean e;
@@ -40,8 +39,8 @@ public final class g {
     }
 
     g(a aVar) {
-        this.d = aVar.f5957a;
-        this.e = aVar.f5958b;
+        this.d = aVar.f5959a;
+        this.e = aVar.f5960b;
         this.f = aVar.c;
         this.g = -1;
         this.h = false;
@@ -164,7 +163,7 @@ public final class g {
                 } else if ("must-revalidate".equalsIgnoreCase(trim)) {
                     z6 = true;
                 } else if ("max-stale".equalsIgnoreCase(trim)) {
-                    i4 = com.bytedance.sdk.a.b.a.c.e.b(str, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                    i4 = com.bytedance.sdk.a.b.a.c.e.b(str, Integer.MAX_VALUE);
                 } else if ("min-fresh".equalsIgnoreCase(trim)) {
                     i5 = com.bytedance.sdk.a.b.a.c.e.b(str, -1);
                 } else if ("only-if-cached".equalsIgnoreCase(trim)) {
@@ -236,14 +235,14 @@ public final class g {
         return sb.toString();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f5957a;
+        boolean f5959a;
 
         /* renamed from: b  reason: collision with root package name */
-        boolean f5958b;
+        boolean f5960b;
         int c = -1;
         int d = -1;
         int e = -1;
@@ -251,8 +250,8 @@ public final class g {
         boolean g;
         boolean h;
 
-        public a env() {
-            this.f5957a = true;
+        public a epO() {
+            this.f5959a = true;
             return this;
         }
 
@@ -261,16 +260,16 @@ public final class g {
                 throw new IllegalArgumentException("maxStale < 0: " + i);
             }
             long seconds = timeUnit.toSeconds(i);
-            this.d = seconds > 2147483647L ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : (int) seconds;
+            this.d = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
             return this;
         }
 
-        public a enw() {
+        public a epP() {
             this.f = true;
             return this;
         }
 
-        public g enx() {
+        public g epQ() {
             return new g(this);
         }
     }

@@ -1,5 +1,5 @@
 package com.kwai.video.hodor;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class BuildConfig {
     @Deprecated
     public static final String APPLICATION_ID = "com.kwai.video.hodor";

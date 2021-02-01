@@ -2,7 +2,7 @@ package aegon.chrome.base.task;
 
 import java.util.ArrayDeque;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SerialExecutor implements Executor {
     public Runnable mActive;
     public final ArrayDeque<Runnable> mTasks = new ArrayDeque<>();

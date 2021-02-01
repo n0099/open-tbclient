@@ -1,7 +1,7 @@
 package com.kwai.video.hodor;
 
 import com.kwai.video.cache.AwesomeCacheCallback;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface IHodorTask {
     public static final int EvictStrategy_LRU = 1;
     public static final int EvictStrategy_NEVER = 2;
@@ -19,15 +19,15 @@ public interface IHodorTask {
     public static final int TaskQosClass_User_Interactive = 2;
     public static final int TaskQosClass_Utility = 1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface HodorTaskState {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface MediaDirEvictStrategy {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface TaskQosClass {
     }
 

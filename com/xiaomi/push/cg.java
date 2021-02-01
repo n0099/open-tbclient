@@ -10,7 +10,7 @@ public class cg {
     private static SimpleDateFormat f241a = new SimpleDateFormat("yyyy/MM/dd");
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13910a = f241a.format(Long.valueOf(System.currentTimeMillis()));
+    private static String f13912a = f241a.format(Long.valueOf(System.currentTimeMillis()));
 
     public static hq a(Context context, String str) {
         if (TextUtils.isEmpty(str)) {

@@ -1,10 +1,10 @@
 package com.bytedance.sdk.a.b;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface x {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         int b();
 
@@ -14,7 +14,7 @@ public interface x {
 
         int d();
 
-        ab emS();
+        ab epm();
     }
 
     b a(a aVar) throws IOException;

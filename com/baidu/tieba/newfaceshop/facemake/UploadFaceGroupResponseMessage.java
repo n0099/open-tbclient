@@ -2,7 +2,7 @@ package com.baidu.tieba.newfaceshop.facemake;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UploadFaceGroupResponseMessage extends JsonHttpResponsedMessage {
     private String mGroupId;
 

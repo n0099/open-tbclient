@@ -2,7 +2,7 @@ package com.airbnb.lottie.model.content;
 
 import android.graphics.Path;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i implements b {
     private final Path.FillType FH;
     @Nullable
@@ -25,16 +25,16 @@ public class i implements b {
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.a jO() {
+    public com.airbnb.lottie.model.a.a jN() {
         return this.Fr;
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.d ji() {
+    public com.airbnb.lottie.model.a.d jh() {
         return this.Fz;
     }
 
-    public Path.FillType jp() {
+    public Path.FillType jo() {
         return this.FH;
     }
 

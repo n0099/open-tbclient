@@ -6,11 +6,11 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
-    private static final char[] pYr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] qiv = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static String aA(File file) {
+    public static String ax(File file) {
         return a(file, 9, 8192L);
     }
 
@@ -39,29 +39,29 @@ public class c {
                     int i = -1;
                     long j = -1;
                     try {
-                        a aaw = aaw(str);
-                        if (aaw != null) {
-                            if (aaw.pYs > 1) {
+                        a abx = abx(str);
+                        if (abx != null) {
+                            if (abx.qiw > 1) {
                                 return 3;
                             }
-                            i = aaw.sampleCount;
-                            j = aaw.sampleSize;
+                            i = abx.sampleCount;
+                            j = abx.sampleSize;
                         }
                         String b2 = b(file, i, j);
                         if (b2 == null || b2.length() == 0) {
                             return 6;
                         }
-                        if (aaw == null || (aaw.pYs == 1 && aaw.pYt == 1)) {
+                        if (abx == null || (abx.qiw == 1 && abx.qix == 1)) {
                             if (b2.equals(str)) {
                                 return 0;
                             }
-                        } else if (aaw.pYu != null) {
+                        } else if (abx.qiy != null) {
                             try {
-                                aVar = aaw(b2);
+                                aVar = abx(b2);
                             } catch (Throwable th) {
                                 aVar = null;
                             }
-                            if (aVar != null && aaw.sampleCount == aVar.sampleCount && aaw.sampleSize == aVar.sampleSize && aaw.pYu.equals(aVar.pYu)) {
+                            if (aVar != null && abx.sampleCount == aVar.sampleCount && abx.sampleSize == aVar.sampleSize && abx.qiy.equals(aVar.qiy)) {
                                 return 0;
                             }
                         }
@@ -110,7 +110,7 @@ public class c {
             }
             String hexString = toHexString(messageDigest.digest());
             if (i != 1 || j2 != length) {
-                String str = E(i, j2) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + hexString;
+                String str = G(i, j2) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + hexString;
                 try {
                     bVar.close();
                     return str;
@@ -134,7 +134,7 @@ public class c {
     }
 
     private static void a(b bVar, MessageDigest messageDigest, byte[] bArr, long j, long j2) throws IOException {
-        bVar.R(j, j2);
+        bVar.V(j, j2);
         long j3 = 0;
         while (j3 < j2) {
             int read = bVar.read(bArr, 0, (int) Math.min(j2 - j3, bArr.length));
@@ -156,41 +156,41 @@ public class c {
         for (int i2 = 0; i2 < length; i2++) {
             int i3 = bArr[i2 + 0] & 255;
             int i4 = i + 1;
-            cArr[i] = pYr[i3 >> 4];
+            cArr[i] = qiv[i3 >> 4];
             i = i4 + 1;
-            cArr[i4] = pYr[i3 & 15];
+            cArr[i4] = qiv[i3 & 15];
         }
         return new String(cArr, 0, length * 2);
     }
 
-    private static String E(int i, long j) {
-        return "ttmd5:1:1:" + jr(i) + IXAdRequestInfo.GPS + jr(j);
+    private static String G(int i, long j) {
+        return "ttmd5:1:1:" + ju(i) + IXAdRequestInfo.GPS + ju(j);
     }
 
-    private static a aaw(String str) throws Exception {
+    private static a abx(String str) throws Exception {
         if (str.startsWith("ttmd5:")) {
             String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             String[] split2 = split[0].split(":");
             a aVar = new a();
-            aVar.pYs = Integer.parseInt(split2[1]);
-            if (aVar.pYs > 1) {
+            aVar.qiw = Integer.parseInt(split2[1]);
+            if (aVar.qiw > 1) {
                 return aVar;
             }
-            aVar.pYt = Integer.parseInt(split2[2]);
+            aVar.qix = Integer.parseInt(split2[2]);
             String[] split3 = split2[3].split(IXAdRequestInfo.GPS);
-            aVar.sampleCount = (int) aax(split3[0]);
-            aVar.sampleSize = aax(split3[1]);
-            aVar.pYu = split[1];
+            aVar.sampleCount = (int) aby(split3[0]);
+            aVar.sampleSize = aby(split3[1]);
+            aVar.qiy = split[1];
             return aVar;
         }
         return null;
     }
 
-    private static String jr(long j) {
+    private static String ju(long j) {
         return Long.toHexString((j << 4) + 31);
     }
 
-    private static long aax(String str) throws RuntimeException {
+    private static long aby(String str) throws RuntimeException {
         try {
             return (Long.parseLong(str, 16) - 31) >> 4;
         } catch (Throwable th) {
@@ -199,11 +199,11 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        private int pYs;
-        private int pYt;
-        private String pYu;
+        private int qiw;
+        private int qix;
+        private String qiy;
         private int sampleCount;
         private long sampleSize;
 

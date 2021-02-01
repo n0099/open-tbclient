@@ -6,31 +6,31 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class b extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicBoolean f9525a;
+    private final AtomicBoolean f9527a;
 
     public b(@NonNull Context context) {
         super(context);
-        this.f9525a = new AtomicBoolean(true);
+        this.f9527a = new AtomicBoolean(true);
     }
 
     public b(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f9525a = new AtomicBoolean(true);
+        this.f9527a = new AtomicBoolean(true);
     }
 
     private void c() {
-        if (this.f9525a.getAndSet(false)) {
+        if (this.f9527a.getAndSet(false)) {
             com.kwad.sdk.core.d.a.b("BasePvView", "onViewAttached");
             a();
         }
     }
 
     private void d() {
-        if (this.f9525a.getAndSet(true)) {
+        if (this.f9527a.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.b("BasePvView", "onViewDetached");

@@ -11,16 +11,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends AsyncTask<String, Integer, Integer> {
     private String mFilePath;
     private String mUrl;
-    private b oPP;
-    private int oPQ = 0;
+    private b oZZ;
+    private int paa = 0;
 
     public a(Context context, String str, String str2, b bVar) {
         this.mUrl = str;
-        this.oPP = bVar;
+        this.oZZ = bVar;
         this.mFilePath = str2;
     }
 
@@ -162,10 +162,10 @@ public class a extends AsyncTask<String, Integer, Integer> {
             try {
                 if (numArr.length > 0) {
                     Integer num = numArr[0];
-                    if (num.intValue() > this.oPQ) {
-                        this.oPQ = num.intValue();
-                        if (this.oPP != null) {
-                            this.oPP.onProgress(this.oPQ);
+                    if (num.intValue() > this.paa) {
+                        this.paa = num.intValue();
+                        if (this.oZZ != null) {
+                            this.oZZ.onProgress(this.paa);
                         }
                     }
                 }
@@ -188,8 +188,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFailed(int i) {
         try {
-            if (this.oPP != null) {
-                this.oPP.onFailed(i);
+            if (this.oZZ != null) {
+                this.oZZ.onFailed(i);
             }
         } catch (Exception e) {
             c.e("AsyncDownloadTask", "notifyFailed:" + e.getMessage());
@@ -198,8 +198,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFinished() {
         try {
-            if (this.oPP != null) {
-                this.oPP.Xc(this.mFilePath);
+            if (this.oZZ != null) {
+                this.oZZ.Yd(this.mFilePath);
             }
             if (c.isDebugMode()) {
                 c.d("AsyncDownloadTask", "donwLoad finshed sucess:" + System.currentTimeMillis());

@@ -15,7 +15,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class p {
     public static void a() {
         boolean z;
@@ -229,33 +229,33 @@ public class p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f7597a;
+        String f7599a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f7598b;
+        String f7600b;
         String c;
 
         a(String str, String str2, String str3) {
-            this.f7597a = str;
-            this.f7598b = str2;
+            this.f7599a = str;
+            this.f7600b = str2;
             this.c = str3;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f7597a != null && this.f7597a.equals(aVar.f7597a) && this.c != null && this.c.equals(aVar.c);
+                return this.f7599a != null && this.f7599a.equals(aVar.f7599a) && this.c != null && this.c.equals(aVar.c);
             }
             return super.equals(obj);
         }
 
         public String toString() {
             try {
-                return "<" + this.f7597a + " name=\"" + this.f7598b + "\" path=\"" + this.c + "\" />";
+                return "<" + this.f7599a + " name=\"" + this.f7600b + "\" path=\"" + this.c + "\" />";
             } catch (Throwable th) {
                 return super.toString();
             }

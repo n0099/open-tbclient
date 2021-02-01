@@ -1,8 +1,8 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface TTFeedAd extends TTNativeAd {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface VideoAdListener {
         void onProgressUpdate(long j, long j2);
 

@@ -13,7 +13,7 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.qdS.a((j) new MapNotificationSubscriber(cVar, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));
+        this.qnW.a((j) new MapNotificationSubscriber(cVar, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));
     }
 
     /* loaded from: classes5.dex */
@@ -37,7 +37,7 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
                 this.produced++;
                 this.actual.onNext(m);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 this.actual.onError(th);
             }
         }
@@ -49,7 +49,7 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
             try {
                 complete(io.reactivex.internal.functions.a.m(this.onErrorMapper.apply(th), "The onError publisher returned is null"));
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.O(th2);
+                io.reactivex.exceptions.a.N(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }
@@ -61,7 +61,7 @@ public final class FlowableMapNotification<T, R> extends a<T, R> {
             try {
                 complete(io.reactivex.internal.functions.a.m(this.onCompleteSupplier.call(), "The onComplete publisher returned is null"));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 this.actual.onError(th);
             }
         }

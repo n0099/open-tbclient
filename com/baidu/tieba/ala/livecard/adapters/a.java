@@ -5,12 +5,12 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.livecard.holder.FrsPageAlaInsertRecLiveHolder;
-import com.baidu.tieba.card.y;
+import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.g;
-/* loaded from: classes9.dex */
-public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements y {
-    private com.baidu.tieba.ala.livecard.a.a hiw;
+/* loaded from: classes10.dex */
+public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
+    private com.baidu.tieba.ala.livecard.a.a hmJ;
     private String mForumName;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -26,9 +26,9 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements y {
         if (this.mPageContext == null) {
             return null;
         }
-        this.hiw = new com.baidu.tieba.ala.livecard.a.a(this.mPageContext);
-        this.hiw.setForumName(this.mForumName);
-        return new FrsPageAlaInsertRecLiveHolder(this.hiw);
+        this.hmJ = new com.baidu.tieba.ala.livecard.a.a(this.mPageContext);
+        this.hmJ.setForumName(this.mForumName);
+        return new FrsPageAlaInsertRecLiveHolder(this.hmJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,22 +37,22 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements y {
     public View a(int i, View view, ViewGroup viewGroup, g gVar, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (g) frsPageAlaInsertRecLiveHolder);
         if (gVar != null) {
-            int topThreadSize = this.jaa != null ? this.jaa.getTopThreadSize() : 0;
-            if (gVar.nkz != null && gVar.nkz.get(0) != null) {
-                gVar.nkz.get(0).eMg = (i + 1) - topThreadSize;
+            int topThreadSize = this.jfG != null ? this.jfG.getTopThreadSize() : 0;
+            if (gVar.nuh != null && gVar.nuh.get(0) != null) {
+                gVar.nuh.get(0).eOs = (i + 1) - topThreadSize;
             }
-            frsPageAlaInsertRecLiveHolder.hiP.setForumName(this.mForumName);
-            frsPageAlaInsertRecLiveHolder.hiP.a(gVar);
+            frsPageAlaInsertRecLiveHolder.hnc.setForumName(this.mForumName);
+            frsPageAlaInsertRecLiveHolder.hnc.a(gVar);
         }
         return view;
     }
 
-    @Override // com.baidu.tieba.card.y
+    @Override // com.baidu.tieba.card.z
     public void setForumName(String str) {
         this.mForumName = str;
     }
 
-    @Override // com.baidu.tieba.card.y
-    public void uN(int i) {
+    @Override // com.baidu.tieba.card.z
+    public void uX(int i) {
     }
 }

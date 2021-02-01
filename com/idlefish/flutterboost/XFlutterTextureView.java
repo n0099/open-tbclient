@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class XFlutterTextureView extends TextureView implements RenderSurface {
     @Nullable
     private FlutterRenderer flutterRenderer;

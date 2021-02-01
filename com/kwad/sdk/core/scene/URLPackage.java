@@ -8,7 +8,7 @@ import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class URLPackage implements b, Serializable {
     public static final String KEY_AUTHOR_ID = "authorId";
     public static final String KEY_TREND_ID = "trendId";

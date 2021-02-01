@@ -5,7 +5,6 @@ import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.ar.arrender.Texture;
 import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.RotationType;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes6.dex */
 public class DuMixInput {
     private SurfaceTexture bh;
@@ -148,7 +147,7 @@ public class DuMixInput {
             case 180:
                 this.mRotationType = RotationType.ROTATE_180;
                 return;
-            case SubsamplingScaleImageView.ORIENTATION_270 /* 270 */:
+            case 270:
                 this.mRotationType = RotationType.ROTATE_270;
                 return;
             default:

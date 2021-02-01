@@ -4,7 +4,7 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class r implements b, a.InterfaceC0007a {
     private final ShapeTrimPath.Type En;
     private final com.airbnb.lottie.a.b.a<?, Float> Eo;
@@ -15,10 +15,10 @@ public class r implements b, a.InterfaceC0007a {
 
     public r(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.En = shapeTrimPath.iC();
-        this.Eo = shapeTrimPath.jR().jc();
-        this.Ep = shapeTrimPath.jQ().jc();
-        this.Eq = shapeTrimPath.jK().jc();
+        this.En = shapeTrimPath.iB();
+        this.Eo = shapeTrimPath.jQ().jb();
+        this.Ep = shapeTrimPath.jP().jb();
+        this.Eq = shapeTrimPath.jJ().jb();
         aVar.a(this.Eo);
         aVar.a(this.Ep);
         aVar.a(this.Eq);
@@ -28,12 +28,12 @@ public class r implements b, a.InterfaceC0007a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void is() {
+    public void ir() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.listeners.size()) {
-                this.listeners.get(i2).is();
+                this.listeners.get(i2).ir();
                 i = i2 + 1;
             } else {
                 return;
@@ -56,19 +56,19 @@ public class r implements b, a.InterfaceC0007a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type iC() {
+    public ShapeTrimPath.Type iB() {
         return this.En;
     }
 
-    public com.airbnb.lottie.a.b.a<?, Float> iD() {
+    public com.airbnb.lottie.a.b.a<?, Float> iC() {
         return this.Eo;
     }
 
-    public com.airbnb.lottie.a.b.a<?, Float> iE() {
+    public com.airbnb.lottie.a.b.a<?, Float> iD() {
         return this.Ep;
     }
 
-    public com.airbnb.lottie.a.b.a<?, Float> iF() {
+    public com.airbnb.lottie.a.b.a<?, Float> iE() {
         return this.Eq;
     }
 }

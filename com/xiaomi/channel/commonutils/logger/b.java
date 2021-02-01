@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f13770a = 2;
+    private static int f13772a = 2;
 
     /* renamed from: a  reason: collision with other field name */
     private static LoggerInterface f85a = new a();
@@ -15,7 +15,7 @@ public abstract class b {
     private static final HashMap<Integer, Long> f87a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final HashMap<Integer, String> f13771b = new HashMap<>();
+    private static final HashMap<Integer, String> f13773b = new HashMap<>();
 
     /* renamed from: a  reason: collision with other field name */
     private static final Integer f86a = -1;
@@ -24,14 +24,14 @@ public abstract class b {
     private static AtomicInteger f88a = new AtomicInteger(1);
 
     public static int a() {
-        return f13770a;
+        return f13772a;
     }
 
     public static Integer a(String str) {
-        if (f13770a <= 1) {
+        if (f13772a <= 1) {
             Integer valueOf = Integer.valueOf(f88a.incrementAndGet());
             f87a.put(valueOf, Long.valueOf(System.currentTimeMillis()));
-            f13771b.put(valueOf, str);
+            f13773b.put(valueOf, str);
             f85a.log(str + " starts");
             return valueOf;
         }
@@ -42,23 +42,23 @@ public abstract class b {
         if (i < 0 || i > 5) {
             a(2, "set log level as " + i);
         }
-        f13770a = i;
+        f13772a = i;
     }
 
     public static void a(int i, String str) {
-        if (i >= f13770a) {
+        if (i >= f13772a) {
             f85a.log(str);
         }
     }
 
     public static void a(int i, String str, Throwable th) {
-        if (i >= f13770a) {
+        if (i >= f13772a) {
             f85a.log(str, th);
         }
     }
 
     public static void a(int i, Throwable th) {
-        if (i >= f13770a) {
+        if (i >= f13772a) {
             f85a.log("", th);
         }
     }
@@ -68,11 +68,11 @@ public abstract class b {
     }
 
     public static void a(Integer num) {
-        if (f13770a > 1 || !f87a.containsKey(num)) {
+        if (f13772a > 1 || !f87a.containsKey(num)) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis() - f87a.remove(num).longValue();
-        f85a.log(f13771b.remove(num) + " ends in " + currentTimeMillis + " ms");
+        f85a.log(f13773b.remove(num) + " ends in " + currentTimeMillis + " ms");
     }
 
     /* renamed from: a  reason: collision with other method in class */

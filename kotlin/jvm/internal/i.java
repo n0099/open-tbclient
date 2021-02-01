@@ -5,9 +5,9 @@ import kotlin.collections.w;
 import kotlin.collections.y;
 import kotlin.collections.z;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i {
-    public static final kotlin.collections.l ax(byte[] bArr) {
+    public static final kotlin.collections.l aw(byte[] bArr) {
         p.o(bArr, com.baidu.fsg.base.statistics.b.j);
         return new b(bArr);
     }

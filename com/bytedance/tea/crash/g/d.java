@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static void b(@NonNull File file, @NonNull String str, boolean z) throws IOException {
         FileOutputStream fileOutputStream;
@@ -109,7 +109,7 @@ public class d {
         return a(str, null);
     }
 
-    public static com.bytedance.tea.crash.c.c XS(String str) {
+    public static com.bytedance.tea.crash.c.c YT(String str) {
         try {
             JSONObject jSONObject = new JSONObject(b(str));
             com.bytedance.tea.crash.c.c cVar = new com.bytedance.tea.crash.c.c();
@@ -167,7 +167,7 @@ public class d {
     }
 
     @Nullable
-    public static String[] XT(String str) {
+    public static String[] YU(String str) {
         BufferedReader bufferedReader;
         String[] strArr = null;
         try {

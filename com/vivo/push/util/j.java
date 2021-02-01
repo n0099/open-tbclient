@@ -4,29 +4,29 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class j implements BaseNotifyLayoutAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Resources f13688a;
+    private Resources f13690a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13689b;
+    private String f13691b;
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final void init(Context context) {
-        this.f13689b = context.getPackageName();
-        this.f13688a = context.getResources();
+        this.f13691b = context.getPackageName();
+        this.f13690a = context.getResources();
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getNotificationLayout() {
-        return this.f13688a.getIdentifier("push_notify", "layout", this.f13689b);
+        return this.f13690a.getIdentifier("push_notify", "layout", this.f13691b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getSuitIconId() {
-        return k.g ? this.f13688a.getIdentifier("notify_icon_rom30", "id", this.f13689b) : k.f ? this.f13688a.getIdentifier("notify_icon_rom20", "id", this.f13689b) : this.f13688a.getIdentifier("notify_icon", "id", this.f13689b);
+        return k.g ? this.f13690a.getIdentifier("notify_icon_rom30", "id", this.f13691b) : k.f ? this.f13690a.getIdentifier("notify_icon_rom20", "id", this.f13691b) : this.f13690a.getIdentifier("notify_icon", "id", this.f13691b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -39,7 +39,7 @@ public final class j implements BaseNotifyLayoutAdapter {
             i = 0;
         }
         if (i > 0) {
-            return this.f13688a.getColor(i);
+            return this.f13690a.getColor(i);
         }
         if (k.g) {
             return -1;

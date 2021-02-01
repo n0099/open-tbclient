@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.loading;
 
 import android.view.View;
 import android.widget.RelativeLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RelativeLayoutStrategy implements ILayoutStrategy {
     @Override // com.baidu.live.tbadk.loading.ILayoutStrategy
     public void attachView(View view, View view2, boolean z) {

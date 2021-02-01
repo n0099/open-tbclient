@@ -7,6 +7,7 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.n;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,14 +15,14 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1838a = null;
+    private String f1836a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f1839b = null;
+    private String f1837b = null;
     private String c;
 
     public d() {
@@ -53,7 +54,7 @@ public class d {
         FileLock fileLock3 = null;
         try {
             try {
-                randomAccessFile = new RandomAccessFile(str, "rw");
+                randomAccessFile = new RandomAccessFile(str, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             } catch (Throwable th) {
                 th = th;
             }
@@ -170,15 +171,15 @@ public class d {
     }
 
     public void a() {
-        if (TextUtils.isEmpty(this.f1838a) || TextUtils.isEmpty(this.f1839b)) {
+        if (TextUtils.isEmpty(this.f1836a) || TextUtils.isEmpty(this.f1837b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f1838a;
+            String str = this.f1836a;
             if (b(str)) {
-                String str2 = this.f1839b;
+                String str2 = this.f1837b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -201,18 +202,18 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.f1838a = b2 + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + ".bak";
-        this.f1839b = b2 + File.separator + this.c + "_log_" + coreVersion + ".tmp";
+        this.f1836a = b2 + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + ".bak";
+        this.f1837b = b2 + File.separator + this.c + "_log_" + coreVersion + ".tmp";
     }
 
     public void a(byte[] bArr) {
-        if (bArr == null || TextUtils.isEmpty(this.f1838a)) {
+        if (bArr == null || TextUtils.isEmpty(this.f1836a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            a(this.f1838a, bArr, "\r\n");
+            a(this.f1836a, bArr, "\r\n");
         } catch (AssertionError e) {
             CyberLog.e("DpStatFileWriter", "write data to file fail");
         } finally {

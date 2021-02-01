@@ -30,18 +30,18 @@ import java.io.IOException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class Tencent {
     public static final int REQUEST_LOGIN = 10001;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Tencent f13454b;
+    private static Tencent f13456b;
 
     /* renamed from: a  reason: collision with root package name */
-    private final c f13455a;
+    private final c f13457a;
 
     private Tencent(String str, Context context) {
-        this.f13455a = c.a(str, context);
+        this.f13457a = c.a(str, context);
     }
 
     public static synchronized Tencent createInstance(String str, Context context) {
@@ -49,18 +49,18 @@ public class Tencent {
         synchronized (Tencent.class) {
             e.a(context.getApplicationContext());
             f.c("openSDK_LOG.Tencent", "createInstance()  -- start, appId = " + str);
-            if (f13454b == null) {
-                f13454b = new Tencent(str, context);
-            } else if (!str.equals(f13454b.getAppId())) {
-                f13454b.logout(context);
-                f13454b = new Tencent(str, context);
+            if (f13456b == null) {
+                f13456b = new Tencent(str, context);
+            } else if (!str.equals(f13456b.getAppId())) {
+                f13456b.logout(context);
+                f13456b = new Tencent(str, context);
             }
             if (!a(context, str)) {
                 tencent = null;
             } else {
                 com.tencent.open.utils.f.a(context, str);
                 f.c("openSDK_LOG.Tencent", "createInstance()  -- end");
-                tencent = f13454b;
+                tencent = f13456b;
             }
         }
         return tencent;
@@ -84,96 +84,96 @@ public class Tencent {
 
     public int login(Activity activity, String str, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "login() with activity, scope is " + str);
-        return this.f13455a.a(activity, str, iUiListener);
+        return this.f13457a.a(activity, str, iUiListener);
     }
 
     public int login(Fragment fragment, String str, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "login() with fragment, scope is " + str);
-        return this.f13455a.a(fragment, str, iUiListener, "");
+        return this.f13457a.a(fragment, str, iUiListener, "");
     }
 
     public int loginServerSide(Activity activity, String str, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "loginServerSide() with activity, scope = " + str + ",server_side");
-        return this.f13455a.a(activity, str + ",server_side", iUiListener);
+        return this.f13457a.a(activity, str + ",server_side", iUiListener);
     }
 
     public int loginServerSide(Fragment fragment, String str, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "loginServerSide() with fragment, scope = " + str + ",server_side");
-        return this.f13455a.a(fragment, str + ",server_side", iUiListener, "");
+        return this.f13457a.a(fragment, str + ",server_side", iUiListener, "");
     }
 
     public int loginWithOEM(Activity activity, String str, IUiListener iUiListener, String str2, String str3, String str4) {
         f.c("openSDK_LOG.Tencent", "loginWithOEM() with activity, scope = " + str);
-        return this.f13455a.a(activity, str, iUiListener, str2, str3, str4);
+        return this.f13457a.a(activity, str, iUiListener, str2, str3, str4);
     }
 
     public void logout(Context context) {
         f.c("openSDK_LOG.Tencent", "logout()");
-        this.f13455a.b().setAccessToken(null, "0");
-        this.f13455a.b().setOpenId(null);
+        this.f13457a.b().setAccessToken(null, "0");
+        this.f13457a.b().setOpenId(null);
     }
 
     public int reAuth(Activity activity, String str, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "reAuth() with activity, scope = " + str);
-        return this.f13455a.b(activity, str, iUiListener);
+        return this.f13457a.b(activity, str, iUiListener);
     }
 
     public void reportDAU() {
-        this.f13455a.a();
+        this.f13457a.a();
     }
 
     public void checkLogin(IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "checkLogin()");
-        this.f13455a.a(iUiListener);
+        this.f13457a.a(iUiListener);
     }
 
     public int invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "invite()");
-        new SocialApi(this.f13455a.b()).invite(activity, bundle, iUiListener);
+        new SocialApi(this.f13457a.b()).invite(activity, bundle, iUiListener);
         return 0;
     }
 
     public int story(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "story()");
-        new SocialApi(this.f13455a.b()).story(activity, bundle, iUiListener);
+        new SocialApi(this.f13457a.b()).story(activity, bundle, iUiListener);
         return 0;
     }
 
     public int gift(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "gift()");
-        new SocialApi(this.f13455a.b()).gift(activity, bundle, iUiListener);
+        new SocialApi(this.f13457a.b()).gift(activity, bundle, iUiListener);
         return 0;
     }
 
     public int ask(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "ask()");
-        new SocialApi(this.f13455a.b()).ask(activity, bundle, iUiListener);
+        new SocialApi(this.f13457a.b()).ask(activity, bundle, iUiListener);
         return 0;
     }
 
     public void requestAsync(String str, Bundle bundle, String str2, IRequestListener iRequestListener, Object obj) {
         f.c("openSDK_LOG.Tencent", "requestAsync()");
-        HttpUtils.requestAsync(this.f13455a.b(), e.a(), str, bundle, str2, iRequestListener);
+        HttpUtils.requestAsync(this.f13457a.b(), e.a(), str, bundle, str2, iRequestListener);
     }
 
     public JSONObject request(String str, Bundle bundle, String str2) throws IOException, JSONException, HttpUtils.NetworkUnavailableException, HttpUtils.HttpStatusException {
         f.c("openSDK_LOG.Tencent", "request()");
-        return HttpUtils.request(this.f13455a.b(), e.a(), str, bundle, str2);
+        return HttpUtils.request(this.f13457a.b(), e.a(), str, bundle, str2);
     }
 
     public void shareToQQ(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "shareToQQ()");
-        new QQShare(activity, this.f13455a.b()).shareToQQ(activity, bundle, iUiListener);
+        new QQShare(activity, this.f13457a.b()).shareToQQ(activity, bundle, iUiListener);
     }
 
     public void shareToQzone(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "shareToQzone()");
-        new QzoneShare(activity, this.f13455a.b()).shareToQzone(activity, bundle, iUiListener);
+        new QzoneShare(activity, this.f13457a.b()).shareToQzone(activity, bundle, iUiListener);
     }
 
     public void publishToQzone(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.Tencent", "publishToQzone()");
-        new QzonePublish(activity, this.f13455a.b()).publishToQzone(activity, bundle, iUiListener);
+        new QzonePublish(activity, this.f13457a.b()).publishToQzone(activity, bundle, iUiListener);
     }
 
     public void releaseResource() {
@@ -190,23 +190,23 @@ public class Tencent {
     }
 
     public boolean isSessionValid() {
-        return this.f13455a.c();
+        return this.f13457a.c();
     }
 
     public String getAppId() {
-        return this.f13455a.b().getAppId();
+        return this.f13457a.b().getAppId();
     }
 
     public String getAccessToken() {
-        return this.f13455a.b().getAccessToken();
+        return this.f13457a.b().getAccessToken();
     }
 
     public long getExpiresIn() {
-        return this.f13455a.b().getExpireTimeInSecond();
+        return this.f13457a.b().getExpireTimeInSecond();
     }
 
     public String getOpenId() {
-        return this.f13455a.b().getOpenId();
+        return this.f13457a.b().getOpenId();
     }
 
     @Deprecated
@@ -222,12 +222,12 @@ public class Tencent {
 
     public void setAccessToken(String str, String str2) {
         f.a("openSDK_LOG.Tencent", "setAccessToken(), expiresIn = " + str2 + "");
-        this.f13455a.a(str, str2);
+        this.f13457a.a(str, str2);
     }
 
     public void setOpenId(String str) {
         f.a("openSDK_LOG.Tencent", "setOpenId() --start");
-        this.f13455a.a(e.a(), str);
+        this.f13457a.a(e.a(), str);
         f.a("openSDK_LOG.Tencent", "setOpenId() --end");
     }
 
@@ -236,7 +236,7 @@ public class Tencent {
     }
 
     public QQToken getQQToken() {
-        return this.f13455a.b();
+        return this.f13457a.b();
     }
 
     public boolean isSupportSSOLogin(Activity activity) {
@@ -254,8 +254,8 @@ public class Tencent {
     public boolean joinQQGroup(Activity activity, String str) {
         f.c("openSDK_LOG.Tencent", "joinQQGroup()");
         Intent intent = new Intent();
-        String openId = this.f13455a.b().getOpenId();
-        String appId = this.f13455a.b().getAppId();
+        String openId = this.f13457a.b().getOpenId();
+        String appId = this.f13457a.b().getAppId();
         StringBuffer stringBuffer = new StringBuffer("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + str);
         if (!TextUtils.isEmpty(openId)) {
             stringBuffer.append("&openid=" + Base64.encodeToString(j.i(openId), 2));
@@ -266,10 +266,10 @@ public class Tencent {
         intent.setData(Uri.parse(stringBuffer.toString()));
         try {
             activity.startActivity(intent);
-            d.a().a(this.f13455a.b().getOpenId(), this.f13455a.b().getAppId(), Constants.VIA_JOIN_GROUP, Constants.VIA_REPORT_TYPE_JOININ_GROUP, "18", "0");
+            d.a().a(this.f13457a.b().getOpenId(), this.f13457a.b().getAppId(), Constants.VIA_JOIN_GROUP, Constants.VIA_REPORT_TYPE_JOININ_GROUP, "18", "0");
             return true;
         } catch (Exception e) {
-            d.a().a(this.f13455a.b().getOpenId(), this.f13455a.b().getAppId(), Constants.VIA_JOIN_GROUP, Constants.VIA_REPORT_TYPE_JOININ_GROUP, "18", "1");
+            d.a().a(this.f13457a.b().getOpenId(), this.f13457a.b().getAppId(), Constants.VIA_JOIN_GROUP, Constants.VIA_REPORT_TYPE_JOININ_GROUP, "18", "1");
             return false;
         }
     }
@@ -288,11 +288,11 @@ public class Tencent {
     }
 
     public void saveSession(JSONObject jSONObject) {
-        this.f13455a.b().saveSession(jSONObject);
+        this.f13457a.b().saveSession(jSONObject);
     }
 
     public boolean checkSessionValid(String str) {
-        JSONObject loadSession = this.f13455a.b().loadSession(str);
+        JSONObject loadSession = this.f13457a.b().loadSession(str);
         if (loadSession == null || loadSession.length() == 0) {
             return false;
         }
@@ -312,7 +312,7 @@ public class Tencent {
     }
 
     public JSONObject loadSession(String str) {
-        return this.f13455a.b().loadSession(str);
+        return this.f13457a.b().loadSession(str);
     }
 
     public void initSessionCache(JSONObject jSONObject) {

@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializable {
     private static final int CODE_RESULT_OK = 1;
     private static final long serialVersionUID = -8657363515914699792L;

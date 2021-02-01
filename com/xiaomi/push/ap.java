@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.internal.IMConnection;
 public class ap implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f13860a;
+    private static boolean f13862a;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f185a;
@@ -33,7 +33,7 @@ public class ap implements ar {
     private volatile boolean f189b = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile String f13861b = null;
+    private volatile String f13863b = null;
 
     /* renamed from: a  reason: collision with other field name */
     private final Object f187a = new Object();
@@ -162,7 +162,7 @@ public class ap implements ar {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
             boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
-            f13860a = packageInfo.versionCode >= 20602000;
+            f13862a = packageInfo.versionCode >= 20602000;
             if (z) {
                 return true;
             }
@@ -188,7 +188,7 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return f13860a;
+        return f13862a;
     }
 
     @Override // com.xiaomi.push.ar
@@ -205,13 +205,13 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        if (this.f13861b == null) {
+        if (this.f13863b == null) {
             synchronized (this) {
-                if (this.f13861b == null) {
-                    this.f13861b = a(this.f185a);
+                if (this.f13863b == null) {
+                    this.f13863b = a(this.f185a);
                 }
             }
         }
-        return this.f13861b;
+        return this.f13863b;
     }
 }

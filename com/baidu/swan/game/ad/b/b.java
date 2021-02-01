@@ -1,88 +1,88 @@
 package com.baidu.swan.game.ad.b;
 
 import com.baidu.swan.apps.ao.ah;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private int aba;
-    private String dWJ;
-    private String dWK;
-    private String dWL;
-    private int dWM;
-    private int dWN;
+    private int aaW;
+    private String dYQ;
+    private String dYR;
+    private int dYS;
+    private int dYT;
+    private String mAdPlaceId;
 
     private b(a aVar) {
-        this.dWK = aVar.dWK;
-        this.dWJ = aVar.dWJ;
-        this.dWM = aVar.dWM;
-        this.dWN = aVar.dWN;
-        this.dWL = aVar.dWL;
-        this.aba = aVar.aba;
+        this.dYQ = aVar.dYQ;
+        this.mAdPlaceId = aVar.mAdPlaceId;
+        this.dYS = aVar.dYS;
+        this.dYT = aVar.dYT;
+        this.dYR = aVar.dYR;
+        this.aaW = aVar.aaW;
     }
 
-    public int aRP() {
-        return this.dWM;
+    public int getAdWidth() {
+        return this.dYS;
     }
 
-    public int aRQ() {
-        return this.dWN;
+    public int getAdHeight() {
+        return this.dYT;
     }
 
     public String getAppSid() {
-        return this.dWK;
+        return this.dYQ;
     }
 
-    public String aRR() {
-        return this.dWJ;
+    public String getAdPlaceId() {
+        return this.mAdPlaceId;
     }
 
-    public String aRS() {
-        return this.dWL;
+    public String aSe() {
+        return this.dYR;
     }
 
-    public int rw() {
-        return this.aba;
+    public int ru() {
+        return this.aaW;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        private int aba;
-        private String dWJ;
-        private String dWK;
-        private String dWL;
-        private int dWM;
-        private int dWN;
+        private int aaW;
+        private String dYQ;
+        private String dYR;
+        private int dYS;
+        private int dYT;
+        private String mAdPlaceId;
 
-        public a uY(String str) {
-            this.dWK = str;
+        public a vr(String str) {
+            this.dYQ = str;
             return this;
         }
 
-        public a uZ(String str) {
-            this.dWJ = str;
+        public a vs(String str) {
+            this.mAdPlaceId = str;
             return this;
         }
 
-        public a va(String str) {
-            this.dWL = str;
+        public a vt(String str) {
+            this.dYR = str;
             return this;
         }
 
-        public a kL(int i) {
-            this.dWM = ah.O(i);
+        public a kO(int i) {
+            this.dYS = ah.P(i);
             return this;
         }
 
-        public a kM(int i) {
-            this.dWN = ah.O(i);
+        public a kP(int i) {
+            this.dYT = ah.P(i);
             return this;
         }
 
-        public a kN(int i) {
-            this.aba = i;
+        public a kQ(int i) {
+            this.aaW = i;
             return this;
         }
 
-        public b aRT() {
+        public b aSf() {
             return new b(this);
         }
     }

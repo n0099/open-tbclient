@@ -8,19 +8,19 @@ import com.kwad.sdk.core.response.model.PhotoComment;
 import com.kwad.sdk.utils.ag;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends RecyclerView.Adapter<h> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f8450a;
+    protected Context f8452a;
     private long c;
 
     /* renamed from: b  reason: collision with root package name */
-    protected List<PhotoComment> f8451b = new ArrayList();
+    protected List<PhotoComment> f8453b = new ArrayList();
     private List<b> d = new ArrayList();
 
     public d(@NonNull Context context, @NonNull e eVar) {
-        this.f8450a = context;
+        this.f8452a = context;
         a(eVar.d());
         if (eVar.d() == null) {
             return;
@@ -33,8 +33,8 @@ public class d extends RecyclerView.Adapter<h> {
             }
             PhotoComment photoComment = eVar.d().get(i2);
             b bVar = new b();
-            bVar.f8447a = photoComment;
-            bVar.f8448b = eVar.a();
+            bVar.f8449a = photoComment;
+            bVar.f8450b = eVar.a();
             bVar.c = eVar.c();
             bVar.e = i2;
             bVar.g = ag.c(photoComment.content);
@@ -57,7 +57,7 @@ public class d extends RecyclerView.Adapter<h> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public h onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new h(new com.kwad.sdk.contentalliance.detail.photo.newui.a.a(this.f8450a));
+        return new h(new com.kwad.sdk.contentalliance.detail.photo.newui.a.a(this.f8452a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,15 +69,15 @@ public class d extends RecyclerView.Adapter<h> {
 
     public void a(List<PhotoComment> list) {
         if (list != null) {
-            this.f8451b.clear();
-            this.f8451b.addAll(list);
+            this.f8453b.clear();
+            this.f8453b.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.f8451b.size();
+        return this.f8453b.size();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

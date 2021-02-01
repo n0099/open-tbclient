@@ -1,7 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FeatureCardGod extends OrmObject {
@@ -11,6 +11,6 @@ public class FeatureCardGod extends OrmObject {
     public Integer type;
 
     public boolean isValid() {
-        return !x.isEmpty(this.sub_nodes);
+        return !y.isEmpty(this.sub_nodes);
     }
 }

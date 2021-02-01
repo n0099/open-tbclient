@@ -4,8 +4,8 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.n;
 import com.baidu.adp.widget.ListView.w;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
 import com.baidu.tieba.tbadkCore.data.PostData;
@@ -13,69 +13,72 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private BdTypeListView gwr;
-    private NewSubPbActivity lXw;
-    private com.baidu.tieba.pb.pb.sub.adapter.b lYm;
-    private SubPbReplyAdapter lYn;
-    private w lYo;
-    private List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
-    private View.OnClickListener aYB = null;
-    private boolean ixr = false;
-    private boolean lYp = true;
+    private BdTypeListView gzb;
+    private NewSubPbActivity mgB;
+    private com.baidu.tieba.pb.pb.sub.adapter.b mhr;
+    private SubPbReplyAdapter mhs;
+    private w mht;
+    private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
+    private View.OnClickListener bbI = null;
+    private boolean iDb = false;
+    private boolean mhu = true;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.lXw = newSubPbActivity;
-        this.gwr = bdTypeListView;
+        this.mgB = newSubPbActivity;
+        this.gzb = bdTypeListView;
     }
 
-    public void IY() {
-        this.lYm = new com.baidu.tieba.pb.pb.sub.adapter.b(this.lXw, PostData.nmO);
-        this.lYm.C(this.aYB);
-        this.lYm.a(this.lYo);
-        this.lYm.setFromCDN(this.lYp);
-        this.bjZ.add(this.lYm);
-        this.lYn = new SubPbReplyAdapter(this.lXw, com.baidu.tieba.pb.pb.sub.a.b.lZh);
-        this.bjZ.add(this.lYn);
-        this.bjZ.add(new com.baidu.tieba.pb.pb.sub.adapter.c(this.lXw, com.baidu.tieba.pb.pb.sub.a.a.lZg));
-        this.gwr.addAdapters(this.bjZ);
+    public void Kw() {
+        this.mhr = new com.baidu.tieba.pb.pb.sub.adapter.b(this.mgB, PostData.nwy);
+        this.mhr.C(this.bbI);
+        this.mhr.a(this.mht);
+        this.mhr.setFromCDN(this.mhu);
+        this.bns.add(this.mhr);
+        this.mhs = new SubPbReplyAdapter(this.mgB, com.baidu.tieba.pb.pb.sub.a.b.mip);
+        this.bns.add(this.mhs);
+        this.bns.add(new com.baidu.tieba.pb.pb.sub.adapter.c(this.mgB, com.baidu.tieba.pb.pb.sub.a.a.mio));
+        this.gzb.addAdapters(this.bns);
     }
 
-    public void a(bz bzVar, List<n> list) {
-        this.lYm.setThreadData(bzVar);
-        if (!at.isEmpty(this.lXw.dqm().dmd())) {
-            this.lYm.Pj(this.lXw.dqm().dmd());
+    public void a(cb cbVar, List<n> list) {
+        this.mhr.setThreadData(cbVar);
+        if (!au.isEmpty(this.mgB.dsA().dos())) {
+            this.mhr.Qa(this.mgB.dsA().dos());
         }
-        this.gwr.setData(list);
-        this.gwr.getAdapter().notifyDataSetChanged();
+        if (this.mgB != null && this.mgB.dsA() != null) {
+            this.mhr.uT(this.mgB.dsA().dtv());
+        }
+        this.gzb.setData(list);
+        this.gzb.getAdapter().notifyDataSetChanged();
     }
 
-    public boolean aHa() {
-        return this.ixr;
+    public boolean aHt() {
+        return this.iDb;
     }
 
     public void setHasMoreData(boolean z) {
-        this.ixr = z;
+        this.iDb = z;
     }
 
     public void C(View.OnClickListener onClickListener) {
-        this.aYB = onClickListener;
+        this.bbI = onClickListener;
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.lYm.setOnLongClickListener(onLongClickListener);
+        this.mhr.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.lYm.setOnImageClickListener(iVar);
+        this.mhr.setOnImageClickListener(iVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.lYp = z;
+        this.mhu = z;
     }
 
     public void notifyDataSetChanged() {
-        if (this.gwr.getAdapter() != null) {
-            this.gwr.getAdapter().notifyDataSetChanged();
+        if (this.gzb.getAdapter() != null) {
+            this.gzb.getAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -3,14 +3,14 @@ package com.kwad.sdk.pngencrypt.chunk;
 import com.kwad.sdk.pngencrypt.PngjException;
 import java.io.ByteArrayInputStream;
 import java.util.zip.CRC32;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f10501a;
+    public final int f10503a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f10502b;
+    public final byte[] f10504b;
     public final String c;
     private CRC32 g;
     public byte[] d = null;
@@ -18,11 +18,11 @@ public class d {
     public byte[] e = new byte[4];
 
     public d(int i, String str, boolean z) {
-        this.f10501a = i;
+        this.f10503a = i;
         this.c = str;
-        this.f10502b = b.a(str);
+        this.f10504b = b.a(str);
         for (int i2 = 0; i2 < 4; i2++) {
-            if (this.f10502b[i2] < 65 || this.f10502b[i2] > 122 || (this.f10502b[i2] > 90 && this.f10502b[i2] < 97)) {
+            if (this.f10504b[i2] < 65 || this.f10504b[i2] > 122 || (this.f10504b[i2] > 90 && this.f10504b[i2] < 97)) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad id chunk: must be ascii letters " + str));
             }
         }
@@ -32,8 +32,8 @@ public class d {
     }
 
     public void a() {
-        if (this.d == null || this.d.length < this.f10501a) {
-            this.d = new byte[this.f10501a];
+        if (this.d == null || this.d.length < this.f10503a) {
+            this.d = new byte[this.f10503a];
         }
     }
 
@@ -93,6 +93,6 @@ public class d {
     }
 
     public String toString() {
-        return "chunkid=" + b.a(this.f10502b) + " len=" + this.f10501a;
+        return "chunkid=" + b.a(this.f10504b) + " len=" + this.f10503a;
     }
 }

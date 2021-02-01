@@ -4,10 +4,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.f.b;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetRepostRecommendForum.DataReq;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetRepostForumReqMessage extends NetMessage {
     private long forumId;
     private BdUniqueId mRequestId;
@@ -31,7 +31,7 @@ public class GetRepostForumReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                t.b(builder, true);
+                v.b(builder, true);
             }
             builder.title = this.threadTitle;
             builder.content = this.threadContent;

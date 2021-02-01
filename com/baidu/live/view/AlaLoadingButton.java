@@ -16,22 +16,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLoadingButton extends FrameLayout {
-    private TextView bOQ;
-    private ImageView bOR;
-    private FrameLayout bOS;
-    private CharSequence bOT;
-    private RotateAnimation bOU;
-    private int bOV;
-    private float bOW;
-    private int bOX;
-    private int bOY;
-    private int bOZ;
-    private int bPa;
-    private float bPb;
-    private float bPc;
-    private View.OnTouchListener bPd;
+    private TextView bSG;
+    private ImageView bSH;
+    private FrameLayout bSI;
+    private CharSequence bSJ;
+    private RotateAnimation bSK;
+    private int bSL;
+    private float bSM;
+    private int bSN;
+    private int bSO;
+    private int bSP;
+    private int bSQ;
+    private float bSR;
+    private float bSS;
+    private View.OnTouchListener bST;
     private int mStatus;
     private CharSequence mText;
     private int mTextColor;
@@ -40,7 +40,7 @@ public class AlaLoadingButton extends FrameLayout {
     public AlaLoadingButton(@NonNull Context context) {
         super(context);
         this.mStatus = -1;
-        this.bPd = new View.OnTouchListener() { // from class: com.baidu.live.view.AlaLoadingButton.1
+        this.bST = new View.OnTouchListener() { // from class: com.baidu.live.view.AlaLoadingButton.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
@@ -60,7 +60,7 @@ public class AlaLoadingButton extends FrameLayout {
     public AlaLoadingButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mStatus = -1;
-        this.bPd = new View.OnTouchListener() { // from class: com.baidu.live.view.AlaLoadingButton.1
+        this.bST = new View.OnTouchListener() { // from class: com.baidu.live.view.AlaLoadingButton.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
@@ -81,7 +81,7 @@ public class AlaLoadingButton extends FrameLayout {
     public AlaLoadingButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mStatus = -1;
-        this.bPd = new View.OnTouchListener() { // from class: com.baidu.live.view.AlaLoadingButton.1
+        this.bST = new View.OnTouchListener() { // from class: com.baidu.live.view.AlaLoadingButton.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
@@ -101,42 +101,42 @@ public class AlaLoadingButton extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.yuyin_ala_loading_button, (ViewGroup) this, true);
-        this.bOS = (FrameLayout) findViewById(a.f.ala_loading_button_root);
-        this.bOQ = (TextView) findViewById(a.f.ala_loading_button_text);
-        this.bOR = (ImageView) findViewById(a.f.ala_loading_button_loading);
-        setOnTouchListener(this.bPd);
+        this.bSI = (FrameLayout) findViewById(a.f.ala_loading_button_root);
+        this.bSG = (TextView) findViewById(a.f.ala_loading_button_text);
+        this.bSH = (ImageView) findViewById(a.f.ala_loading_button_loading);
+        setOnTouchListener(this.bST);
         if (this.mText == null) {
             this.mText = getResources().getText(a.h.sdk_yuyin_loading_button_follow);
         } else {
-            this.bOQ.setText(this.mText);
+            this.bSG.setText(this.mText);
         }
-        if (this.bOT == null) {
-            this.bOT = getResources().getText(a.h.sdk_yuyin_loading_button_followed);
+        if (this.bSJ == null) {
+            this.bSJ = getResources().getText(a.h.sdk_yuyin_loading_button_followed);
         }
         if (this.mTextColor != 0) {
-            this.bOQ.setTextColor(this.mTextColor);
+            this.bSG.setTextColor(this.mTextColor);
         } else {
             this.mTextColor = -1;
         }
         if (this.mTextSize != 0.0f) {
-            this.bOQ.setTextSize(0, this.mTextSize);
+            this.bSG.setTextSize(0, this.mTextSize);
         }
-        if (this.bPb != 0.0f || this.bPc != 0.0f) {
-            this.bOQ.setPadding((int) this.bPb, (int) this.bPc, (int) this.bPb, (int) this.bPc);
+        if (this.bSR != 0.0f || this.bSS != 0.0f) {
+            this.bSG.setPadding((int) this.bSR, (int) this.bSS, (int) this.bSR, (int) this.bSS);
         }
-        if (this.bOW != 0.0f) {
-            setLoadingIconSize((int) this.bOW);
+        if (this.bSM != 0.0f) {
+            setLoadingIconSize((int) this.bSM);
         }
-        if (this.bOX != 0) {
-            this.bOR.setImageResource(this.bOX);
+        if (this.bSN != 0) {
+            this.bSH.setImageResource(this.bSN);
         }
-        if (this.bOY != 0) {
-            this.bOS.setBackgroundResource(this.bOY);
+        if (this.bSO != 0) {
+            this.bSI.setBackgroundResource(this.bSO);
         } else {
-            this.bOY = a.e.ala_loading_button_nomal_bg;
+            this.bSO = a.e.ala_loading_button_nomal_bg;
         }
-        if (this.bOV == 0) {
-            this.bOV = Color.parseColor("#525252");
+        if (this.bSL == 0) {
+            this.bSL = Color.parseColor("#525252");
         }
     }
 
@@ -147,32 +147,32 @@ public class AlaLoadingButton extends FrameLayout {
         }
         switch (i) {
             case 1:
-                if (this.bOU != null && this.bOU.hasStarted()) {
+                if (this.bSK != null && this.bSK.hasStarted()) {
                     stopAnim();
                 }
-                this.bOS.setBackgroundResource(this.bOY);
-                this.bOQ.setText(this.mText);
-                this.bOQ.setTextColor(this.mTextColor);
+                this.bSI.setBackgroundResource(this.bSO);
+                this.bSG.setText(this.mText);
+                this.bSG.setTextColor(this.mTextColor);
                 return;
             case 2:
             default:
                 return;
             case 3:
-                this.bOS.setBackgroundResource(this.bOY);
+                this.bSI.setBackgroundResource(this.bSO);
                 startAnim();
                 return;
             case 4:
-                if (this.bOU != null && this.bOU.hasStarted()) {
+                if (this.bSK != null && this.bSK.hasStarted()) {
                     stopAnim();
                 }
-                this.bOS.setBackgroundResource(this.bOZ != 0 ? this.bOZ : a.e.ala_loading_button_done_bg);
-                this.bOQ.setText(this.bOT);
-                this.bOQ.setTextColor(this.bOV);
+                this.bSI.setBackgroundResource(this.bSP != 0 ? this.bSP : a.e.ala_loading_button_done_bg);
+                this.bSG.setText(this.bSJ);
+                this.bSG.setTextColor(this.bSL);
                 return;
             case 5:
-                this.bOS.setBackgroundResource(this.bOZ != 0 ? this.bPa : a.e.ala_loading_button_close_done_bg);
-                this.bOQ.setText(this.bOT);
-                this.bOQ.setTextColor(-1);
+                this.bSI.setBackgroundResource(this.bSP != 0 ? this.bSQ : a.e.ala_loading_button_close_done_bg);
+                this.bSG.setText(this.bSJ);
+                this.bSG.setTextColor(-1);
                 return;
         }
     }
@@ -182,88 +182,88 @@ public class AlaLoadingButton extends FrameLayout {
     }
 
     public void setTextColor(int i) {
-        if (this.bOQ != null) {
+        if (this.bSG != null) {
             this.mTextColor = i;
-            this.bOQ.setTextColor(i);
+            this.bSG.setTextColor(i);
         }
     }
 
     @Override // android.view.View
     public void setBackgroundResource(int i) {
-        if (this.bOS != null) {
-            this.bOY = i;
-            this.bOS.setBackgroundResource(i);
+        if (this.bSI != null) {
+            this.bSO = i;
+            this.bSI.setBackgroundResource(i);
         }
     }
 
     public void setText(CharSequence charSequence) {
         this.mText = charSequence;
-        this.bOQ.setText(charSequence);
+        this.bSG.setText(charSequence);
     }
 
     public String getText() {
-        return this.bOQ == null ? "" : this.bOQ.getText().toString().trim();
+        return this.bSG == null ? "" : this.bSG.getText().toString().trim();
     }
 
     public void setLoadingIconResource(int i) {
-        if (this.bOR != null) {
-            this.bOX = i;
-            this.bOR.setImageResource(i);
+        if (this.bSH != null) {
+            this.bSN = i;
+            this.bSH.setImageResource(i);
         }
     }
 
     public void setLoadingIconSize(int i) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i, i);
         layoutParams.gravity = 17;
-        this.bOR.setLayoutParams(layoutParams);
+        this.bSH.setLayoutParams(layoutParams);
     }
 
     private void startAnim() {
-        if (this.bOQ != null) {
-            this.bOQ.setVisibility(4);
+        if (this.bSG != null) {
+            this.bSG.setVisibility(4);
         }
-        if (this.bOR != null) {
-            this.bOR.setVisibility(0);
+        if (this.bSH != null) {
+            this.bSH.setVisibility(0);
         }
-        if (this.bOU == null) {
-            this.bOU = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
-            this.bOU.setDuration(300L);
-            this.bOU.setInterpolator(new LinearInterpolator());
-            this.bOU.setRepeatCount(-1);
-            this.bOU.setFillAfter(true);
-            this.bOU.setStartOffset(10L);
+        if (this.bSK == null) {
+            this.bSK = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
+            this.bSK.setDuration(300L);
+            this.bSK.setInterpolator(new LinearInterpolator());
+            this.bSK.setRepeatCount(-1);
+            this.bSK.setFillAfter(true);
+            this.bSK.setStartOffset(10L);
         }
-        if (this.bOR != null) {
-            this.bOR.startAnimation(this.bOU);
+        if (this.bSH != null) {
+            this.bSH.startAnimation(this.bSK);
         }
     }
 
     private void stopAnim() {
-        if (this.bOQ != null) {
-            this.bOQ.setVisibility(0);
+        if (this.bSG != null) {
+            this.bSG.setVisibility(0);
         }
-        if (this.bOR != null) {
-            this.bOR.setVisibility(8);
+        if (this.bSH != null) {
+            this.bSH.setVisibility(8);
         }
-        if (this.bOU != null && this.bOR != null) {
-            this.bOR.clearAnimation();
+        if (this.bSK != null && this.bSH != null) {
+            this.bSH.clearAnimation();
         }
     }
 
     private void g(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.AlaLoadingButton);
         this.mText = obtainStyledAttributes.getText(a.j.AlaLoadingButton_ala_text);
-        this.bOT = obtainStyledAttributes.getText(a.j.AlaLoadingButton_ala_text_done);
+        this.bSJ = obtainStyledAttributes.getText(a.j.AlaLoadingButton_ala_text_done);
         this.mTextSize = obtainStyledAttributes.getDimension(a.j.AlaLoadingButton_ala_text_size, 0.0f);
-        this.bPb = obtainStyledAttributes.getDimension(a.j.AlaLoadingButton_ala_padding_lr, 0.0f);
-        this.bPc = obtainStyledAttributes.getDimension(a.j.AlaLoadingButton_ala_padding_tb, 0.0f);
-        this.bOW = obtainStyledAttributes.getDimension(a.j.AlaLoadingButton_ala_loading_size, 0.0f);
-        this.bOX = obtainStyledAttributes.getResourceId(a.j.AlaLoadingButton_ala_loading_icon, 0);
-        this.bOY = obtainStyledAttributes.getResourceId(a.j.AlaLoadingButton_ala_background, 0);
-        this.bOZ = obtainStyledAttributes.getResourceId(a.j.AlaLoadingButton_ala_done_background, 0);
-        this.bPa = obtainStyledAttributes.getResourceId(a.j.AlaLoadingButton_ala_close_done_background, 0);
+        this.bSR = obtainStyledAttributes.getDimension(a.j.AlaLoadingButton_ala_padding_lr, 0.0f);
+        this.bSS = obtainStyledAttributes.getDimension(a.j.AlaLoadingButton_ala_padding_tb, 0.0f);
+        this.bSM = obtainStyledAttributes.getDimension(a.j.AlaLoadingButton_ala_loading_size, 0.0f);
+        this.bSN = obtainStyledAttributes.getResourceId(a.j.AlaLoadingButton_ala_loading_icon, 0);
+        this.bSO = obtainStyledAttributes.getResourceId(a.j.AlaLoadingButton_ala_background, 0);
+        this.bSP = obtainStyledAttributes.getResourceId(a.j.AlaLoadingButton_ala_done_background, 0);
+        this.bSQ = obtainStyledAttributes.getResourceId(a.j.AlaLoadingButton_ala_close_done_background, 0);
         this.mTextColor = obtainStyledAttributes.getColor(a.j.AlaLoadingButton_ala_text_color, 0);
-        this.bOV = obtainStyledAttributes.getColor(a.j.AlaLoadingButton_ala_done_text_color, 0);
+        this.bSL = obtainStyledAttributes.getColor(a.j.AlaLoadingButton_ala_done_text_color, 0);
         obtainStyledAttributes.recycle();
     }
 }

@@ -12,14 +12,14 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL10;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class m extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicBoolean f3065a;
+    private AtomicBoolean f3063a;
 
     /* renamed from: b  reason: collision with root package name */
-    private SurfaceTexture f3066b;
+    private SurfaceTexture f3064b;
     private a c;
     private EGL10 d;
     private GL10 h;
@@ -30,15 +30,15 @@ public class m extends Thread {
     private int i = 1;
     private boolean j = false;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         int a();
     }
 
     public m(SurfaceTexture surfaceTexture, a aVar, AtomicBoolean atomicBoolean, ac acVar) {
-        this.f3066b = surfaceTexture;
+        this.f3064b = surfaceTexture;
         this.c = aVar;
-        this.f3065a = atomicBoolean;
+        this.f3063a = atomicBoolean;
         this.k = acVar;
     }
 
@@ -55,7 +55,7 @@ public class m extends Thread {
                 return false;
             }
             this.f = this.d.eglCreateContext(this.e, eGLConfigArr[0], EGL10.EGL_NO_CONTEXT, new int[]{12440, 2, 12344});
-            this.g = this.d.eglCreateWindowSurface(this.e, eGLConfigArr[0], this.f3066b, null);
+            this.g = this.d.eglCreateWindowSurface(this.e, eGLConfigArr[0], this.f3064b, null);
             if (this.g == EGL10.EGL_NO_SURFACE || this.f == EGL10.EGL_NO_CONTEXT) {
                 if (this.d.eglGetError() == 12299) {
                     throw new RuntimeException("eglCreateWindowSurface returned EGL_BAD_NATIVE_WINDOW. ");
@@ -90,7 +90,7 @@ public class m extends Thread {
             a(8, 8, 8, 0, 24, 0);
         }
         MapRenderer.nativeInit(this.k.b().j);
-        MapRenderer.nativeResize(this.k.b().j, ac.f3044a, ac.f3045b);
+        MapRenderer.nativeResize(this.k.b().j, ac.f3042a, ac.f3043b);
     }
 
     private void e() {

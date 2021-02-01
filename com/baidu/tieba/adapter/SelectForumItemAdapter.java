@@ -13,9 +13,9 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.j;
 import com.baidu.tieba.R;
@@ -23,18 +23,18 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class SelectForumItemAdapter extends RecyclerView.Adapter<a> {
-    private d gfD;
+    private d ghS;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.adapter.SelectForumItemAdapter.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             j jVar = (j) view.getTag();
             if (jVar != null) {
-                if (!jVar.fxR) {
-                    SelectForumItemAdapter.this.gfD.DR(jVar.fxS);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, jVar.fxS));
+                if (!jVar.fAh) {
+                    SelectForumItemAdapter.this.ghS.Eo(jVar.fAi);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, jVar.fAi));
                     return;
                 }
-                TiebaStatic.log(new aq("c13995").dW("fid", jVar.forumId).an("obj_source", SelectForumItemAdapter.this.mType));
+                TiebaStatic.log(new ar("c13995").dR("fid", jVar.forumId).ap("obj_source", SelectForumItemAdapter.this.mType));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921505, jVar));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921503));
             }
@@ -44,14 +44,14 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<a> {
     private int mType;
 
     public SelectForumItemAdapter(d dVar) {
-        this.gfD = dVar;
+        this.ghS = dVar;
     }
 
     public void setType(int i) {
         this.mType = i;
     }
 
-    public void bs(List<j> list) {
+    public void bn(List<j> list) {
         this.mDataList = list;
     }
 
@@ -67,50 +67,50 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<a> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(@NonNull a aVar, int i) {
-        j jVar = (j) x.getItem(this.mDataList, i);
+        j jVar = (j) y.getItem(this.mDataList, i);
         if (jVar != null) {
-            aVar.gfF.setPlaceHolder(1);
-            aVar.gfF.setShowOval(true);
-            aVar.gfF.setShowOuterBorder(true);
-            aVar.gfF.setShowInnerBorder(false);
-            aVar.gfF.setStrokeColorResId(R.color.CAM_X0401);
-            aVar.gfF.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            aVar.gfF.startLoad(jVar.aSf, 10, false);
-            aVar.gfG.setText(jVar.forumName);
-            ao.setViewTextColor(aVar.gfG, R.color.CAM_X0105);
+            aVar.ghU.setPlaceHolder(1);
+            aVar.ghU.setShowOval(true);
+            aVar.ghU.setShowOuterBorder(true);
+            aVar.ghU.setShowInnerBorder(false);
+            aVar.ghU.setStrokeColorResId(R.color.CAM_X0401);
+            aVar.ghU.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            aVar.ghU.startLoad(jVar.aVj, 10, false);
+            aVar.ghV.setText(jVar.forumName);
+            ap.setViewTextColor(aVar.ghV, R.color.CAM_X0105);
             if (jVar.level <= 0) {
-                aVar.gfH.setVisibility(8);
+                aVar.ghW.setVisibility(8);
             } else {
-                aVar.gfH.setVisibility(0);
-                ao.setImageResource(aVar.gfH, BitmapHelper.getGradeResourceIdInEnterForum(jVar.level));
+                aVar.ghW.setVisibility(0);
+                ap.setImageResource(aVar.ghW, BitmapHelper.getGradeResourceIdInEnterForum(jVar.level));
             }
-            aVar.gfI.setVisibility(jVar.fxQ ? 0 : 8);
-            ao.setViewTextColor(aVar.gfI, R.color.CAM_X0302);
+            aVar.ghX.setVisibility(jVar.fAg ? 0 : 8);
+            ap.setViewTextColor(aVar.ghX, R.color.CAM_X0302);
             aVar.itemView.setTag(jVar);
-            ao.setBackgroundResource(aVar.itemView, R.drawable.forum_selected_view_bg);
+            ap.setBackgroundResource(aVar.itemView, R.drawable.forum_selected_view_bg);
             aVar.itemView.setOnClickListener(this.mClickListener);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return x.getCount(this.mDataList);
+        return y.getCount(this.mDataList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a extends RecyclerView.ViewHolder {
-        BarImageView gfF;
-        TextView gfG;
-        ImageView gfH;
-        TextView gfI;
+        BarImageView ghU;
+        TextView ghV;
+        ImageView ghW;
+        TextView ghX;
 
         public a(View view) {
             super(view);
-            this.gfF = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
-            this.gfG = (TextView) view.findViewById(R.id.cell_select_forum_name);
-            this.gfH = (ImageView) view.findViewById(R.id.cell_select_forum_level);
-            this.gfI = (TextView) view.findViewById(R.id.cell_select_forum_lately);
+            this.ghU = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
+            this.ghV = (TextView) view.findViewById(R.id.cell_select_forum_name);
+            this.ghW = (ImageView) view.findViewById(R.id.cell_select_forum_level);
+            this.ghX = (TextView) view.findViewById(R.id.cell_select_forum_lately);
         }
     }
 }

@@ -13,10 +13,10 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class RimFaceResultPageTipView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f2376a;
+    private TextView f2374a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f2377b;
+    private TextView f2375b;
     private ImageView c;
     private TextView d;
     private TextView e;
@@ -56,8 +56,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
         this.e = (TextView) findViewById(R.id.rim_face_result_tips_next_title);
         this.f = (TextView) findViewById(R.id.rim_face_result_page_tip_msg);
         this.g = (LinearLayout) findViewById(R.id.layout_result_page_show_risk_tip);
-        this.f2377b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
-        this.f2376a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
+        this.f2375b = (TextView) findViewById(R.id.rim_face_result_page_confirm);
+        this.f2374a = (TextView) findViewById(R.id.rim_face_result_page_cancel);
         this.h.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -66,7 +66,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
                 }
             }
         });
-        this.f2377b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
+        this.f2375b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (RimFaceResultPageTipView.this.i != null) {
@@ -74,7 +74,7 @@ public class RimFaceResultPageTipView extends LinearLayout {
                 }
             }
         });
-        this.f2376a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
+        this.f2374a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.RimFaceResultPageTipView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (RimFaceResultPageTipView.this.i != null) {
@@ -90,8 +90,8 @@ public class RimFaceResultPageTipView extends LinearLayout {
         this.e.setVisibility(4);
         this.h.setVisibility(4);
         this.g.setVisibility(4);
-        this.f2376a.setVisibility(4);
-        this.f2377b.setVisibility(4);
+        this.f2374a.setVisibility(4);
+        this.f2375b.setVisibility(4);
         this.j = null;
         this.i = null;
     }
@@ -135,15 +135,15 @@ public class RimFaceResultPageTipView extends LinearLayout {
 
     public void setResultPageConfirmText(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f2377b.setVisibility(0);
-            this.f2377b.setText(str);
+            this.f2375b.setVisibility(0);
+            this.f2375b.setText(str);
         }
     }
 
     public void setResultPageCancelText(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f2376a.setVisibility(0);
-            this.f2376a.setText(str);
+            this.f2374a.setVisibility(0);
+            this.f2374a.setText(str);
         }
     }
 

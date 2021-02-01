@@ -1,72 +1,72 @@
 package com.baidu.tieba.ala.liveroom.master.a;
 
-import com.baidu.live.data.as;
+import com.baidu.live.data.aw;
 import com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a {
-    protected int cqj;
-    protected com.baidu.tieba.ala.liveroom.data.d hDt;
-    protected AlaMasterLiveRoomOpearator hEP;
-    protected b hEQ;
-    protected com.baidu.tieba.ala.liveroom.data.e hqr;
+    protected int ezR;
+    protected com.baidu.tieba.ala.liveroom.data.d hHG;
+    protected AlaMasterLiveRoomOpearator hJb;
+    protected b hJc;
+    protected com.baidu.tieba.ala.liveroom.data.e huB;
 
-    public abstract void bl(int i, String str);
+    public abstract void bq(int i, String str);
 
-    public abstract void chJ();
+    public abstract void ciC();
 
     public a(com.baidu.tieba.ala.liveroom.data.e eVar) {
-        this.hqr = eVar;
+        this.huB = eVar;
     }
 
-    public void aq(AlaMasterLiveRoomOpearator alaMasterLiveRoomOpearator) {
-        this.hEP = alaMasterLiveRoomOpearator;
+    public void ao(AlaMasterLiveRoomOpearator alaMasterLiveRoomOpearator) {
+        this.hJb = alaMasterLiveRoomOpearator;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(short s, Object obj) {
-        this.cqj = s;
+        this.ezR = s;
         switch (s) {
             case 2:
-                if (this.hEP != null) {
-                    this.hEP.cgs();
+                if (this.hJb != null) {
+                    this.hJb.chm();
                     return;
                 }
                 return;
             case 3:
-                if (this.hEP != null) {
-                    this.hEP.cgt();
+                if (this.hJb != null) {
+                    this.hJb.chn();
                     return;
                 }
                 return;
             case 4:
-                if (this.hEP != null) {
+                if (this.hJb != null) {
                     com.baidu.tieba.ala.liveroom.data.d dVar = obj instanceof com.baidu.tieba.ala.liveroom.data.d ? (com.baidu.tieba.ala.liveroom.data.d) obj : null;
-                    this.hEP.d(dVar);
-                    if (this.hEQ != null) {
-                        this.hEQ.b(dVar);
+                    this.hJb.d(dVar);
+                    if (this.hJc != null) {
+                        this.hJc.b(dVar);
                     }
-                    if (dVar != null && dVar.hxu) {
-                        this.hqr.hxE.a((short) 5, null);
+                    if (dVar != null && dVar.hBE) {
+                        this.huB.hBO.a((short) 5, null);
                         return;
                     }
                     return;
                 }
                 return;
             case 5:
-                if (this.hEP != null) {
-                    this.hEP.b(obj instanceof as ? (as) obj : null);
+                if (this.hJb != null) {
+                    this.hJb.b(obj instanceof aw ? (aw) obj : null);
                     return;
                 }
                 return;
             case 6:
-                if (this.hEP != null) {
-                    this.hEP.cgA();
+                if (this.hJb != null) {
+                    this.hJb.chu();
                     return;
                 }
                 return;
             case 7:
-                if (this.hEP != null) {
-                    this.hEP.cgB();
+                if (this.hJb != null) {
+                    this.hJb.chv();
                     return;
                 }
                 return;
@@ -75,8 +75,8 @@ public abstract class a {
                 if (obj instanceof Short) {
                     s2 = ((Short) obj).shortValue();
                 }
-                if (this.hEP != null) {
-                    this.hEP.h(s2);
+                if (this.hJb != null) {
+                    this.hJb.h(s2);
                     return;
                 }
                 return;
@@ -86,64 +86,64 @@ public abstract class a {
     }
 
     public void c(com.baidu.tieba.ala.liveroom.data.d dVar) {
-        this.hDt = dVar;
-        chJ();
+        this.hHG = dVar;
+        ciC();
     }
 
-    public void c(as asVar) {
-        if (this.hqr != null && this.hqr.hxE != null) {
-            this.hqr.hxE.a((short) 5, asVar);
+    public void c(aw awVar) {
+        if (this.huB != null && this.huB.hBO != null) {
+            this.huB.hBO.a((short) 5, awVar);
         }
     }
 
-    public void bm(int i, String str) {
-        if (this.hEP != null) {
-            this.hEP.onError(i, str);
+    public void br(int i, String str) {
+        if (this.hJb != null) {
+            this.hJb.onError(i, str);
         }
     }
 
     public void j(short s) {
-        if (this.hqr != null && this.hqr.hxE != null) {
-            this.hqr.hxE.a((short) 8, Short.valueOf(s));
+        if (this.huB != null && this.huB.hBO != null) {
+            this.huB.hBO.a((short) 8, Short.valueOf(s));
         }
     }
 
     public void markEnterBackground() {
-        if (this.hEP != null) {
-            this.hEP.cgE();
+        if (this.hJb != null) {
+            this.hJb.chy();
         }
     }
 
     public void markEnterForeground() {
-        if (this.hEP != null) {
-            this.hEP.cgF();
+        if (this.hJb != null) {
+            this.hJb.chz();
         }
     }
 
     public void onPause() {
-        if (this.hEP != null) {
-            this.hEP.onPause();
+        if (this.hJb != null) {
+            this.hJb.onPause();
         }
     }
 
-    public boolean chK() {
-        if (this.hEP != null) {
-            return this.hEP.cgC();
+    public boolean ciD() {
+        if (this.hJb != null) {
+            return this.hJb.chw();
         }
         return false;
     }
 
-    public void chL() {
-        if (this.hEP != null) {
-            this.hEP.cgD();
+    public void ciE() {
+        if (this.hJb != null) {
+            this.hJb.chx();
         }
     }
 
-    public boolean chM() {
-        return this.cqj == 5;
+    public boolean ciF() {
+        return this.ezR == 5;
     }
 
     public void a(b bVar) {
-        this.hEQ = bVar;
+        this.hJc = bVar;
     }
 }

@@ -3,7 +3,7 @@ package com.kwad.sdk.lib.a;
 import androidx.recyclerview.widget.RecyclerView;
 import com.kuaishou.live.audience.annonation.NonNull;
 import com.kuaishou.live.audience.annonation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface b<PAGE> {
     @NonNull
     RecyclerView.LayoutManager a(PAGE page);

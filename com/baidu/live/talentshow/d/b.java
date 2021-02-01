@@ -1,15 +1,15 @@
 package com.baidu.live.talentshow.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void PZ();
+    void RJ();
 
-    void Qa();
+    void RK();
 
     void b(com.baidu.live.alablmsdk.module.c cVar, int i);
 
     void b(com.baidu.live.talentshow.b.c cVar);
 
-    void cO(boolean z);
+    void cW(boolean z);
 
-    void dW(int i);
+    void ea(int i);
 }

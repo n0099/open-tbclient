@@ -8,15 +8,15 @@ import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class e {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f4141b = true;
+    private boolean f4144b = true;
     private boolean c = true;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.platform.util.a f4140a = new com.baidu.platform.util.a();
+    protected com.baidu.platform.util.a f4143a = new com.baidu.platform.util.a();
 
     public String a() {
         String a2 = a(com.baidu.platform.domain.d.a());
@@ -30,10 +30,10 @@ public abstract class e {
             }
             authToken = HttpClient.getAuthToken();
         }
-        if (this.f4141b) {
-            this.f4140a.a("token", authToken);
+        if (this.f4144b) {
+            this.f4143a.a("token", authToken);
         }
-        String str = this.f4140a.a() + HttpClient.getPhoneInfo();
+        String str = this.f4143a.a() + HttpClient.getPhoneInfo();
         if (this.c) {
             str = str + "&sign=" + AppMD5.getSignMD5String(str);
         }
@@ -65,6 +65,6 @@ public abstract class e {
     }
 
     public void b(boolean z) {
-        this.f4141b = z;
+        this.f4144b = z;
     }
 }

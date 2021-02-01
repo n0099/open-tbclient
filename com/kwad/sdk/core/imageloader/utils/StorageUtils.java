@@ -3,7 +3,7 @@ package com.kwad.sdk.core.imageloader.utils;
 import android.content.Context;
 import com.kwad.sdk.utils.ad;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class StorageUtils {
     private static final String EXTERNAL_STORAGE_PERMISSION = "android.permission.WRITE_EXTERNAL_STORAGE";
     public static final String INDIVIDUAL_DIR_NAME = "ksad-images";

@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.component.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private a cKs;
+    private a cMG;
 
     public b() {
-        this.cKs = new a(501);
+        this.cMG = new a(501);
     }
 
     public b(boolean z) {
-        this.cKs = new a(501, z);
+        this.cMG = new a(501, z);
     }
 
-    public void gs(int i) {
-        this.cKs.set(i);
+    public void gv(int i) {
+        this.cMG.set(i);
     }
 
-    public boolean gt(int i) {
-        return this.cKs.get(i);
+    public boolean gw(int i) {
+        return this.cMG.get(i);
     }
 }

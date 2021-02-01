@@ -22,7 +22,6 @@ import com.baidu.ar.arplay.core.pixel.PixelReadListener;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelRotation;
 import com.baidu.ar.arplay.core.pixel.PixelType;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.IOException;
 import java.lang.ref.SoftReference;
 import java.nio.ByteBuffer;
@@ -48,7 +47,7 @@ public class ARPRenderer implements d, IARPRenderer {
     private long mTotalFrameTimeInMS = 0;
     private int mTotalFrameCount = 0;
     private int mInputTexWidth = 720;
-    private int mInputTexHeight = PlatformPlugin.DEFAULT_SYSTEM_UI;
+    private int mInputTexHeight = 1280;
     private SoftReference<Context> softContext = null;
     private TakePictureCallback mTakePictureCallback = null;
     private int mRotation = 0;

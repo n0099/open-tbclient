@@ -6,19 +6,19 @@ import com.bytedance.sdk.openadsdk.utils.x;
 import java.util.Iterator;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f6216a;
+    public final String f6218a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f6217b;
+    public final JSONObject f6219b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str, JSONObject jSONObject) {
-        this.f6216a = str;
-        this.f6217b = jSONObject;
+        this.f6218a = str;
+        this.f6219b = jSONObject;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,13 +99,13 @@ public class a implements i {
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f6216a) || this.f6217b == null) {
+        if (TextUtils.isEmpty(this.f6218a) || this.f6219b == null) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("localId", this.f6216a);
-            jSONObject.put("event", this.f6217b);
+            jSONObject.put("localId", this.f6218a);
+            jSONObject.put("event", this.f6219b);
         } catch (Throwable th) {
         }
         return jSONObject.toString();
@@ -113,6 +113,6 @@ public class a implements i {
 
     @Override // com.bytedance.sdk.openadsdk.c.i
     public String b() {
-        return this.f6216a;
+        return this.f6218a;
     }
 }

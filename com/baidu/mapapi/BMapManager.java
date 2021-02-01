@@ -2,7 +2,7 @@ package com.baidu.mapapi;
 
 import android.content.Context;
 import com.baidu.mapsdkplatform.comapi.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BMapManager {
     public static void destroy() {
         a.a().d();

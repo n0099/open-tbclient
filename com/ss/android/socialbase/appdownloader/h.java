@@ -7,22 +7,22 @@ import android.text.TextUtils;
 import com.ss.android.socialbase.downloader.a.a;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private Queue<Integer> f13053a;
+    private Queue<Integer> f13055a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f13054b;
+    private boolean f13056b;
     private long c;
     private long d;
     private Handler e;
     private Runnable f;
 
     private h() {
-        this.f13053a = new ArrayDeque();
-        this.f13054b = false;
+        this.f13055a = new ArrayDeque();
+        this.f13056b = false;
         this.e = new Handler(Looper.getMainLooper());
         this.f = new Runnable() { // from class: com.ss.android.socialbase.appdownloader.h.1
             @Override // java.lang.Runnable
@@ -30,16 +30,16 @@ public class h {
                 h.this.b();
             }
         };
-        com.ss.android.socialbase.downloader.a.a.eDz().a(new a.InterfaceC1227a() { // from class: com.ss.android.socialbase.appdownloader.h.2
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1227a
+        com.ss.android.socialbase.downloader.a.a.eFQ().a(new a.InterfaceC1231a() { // from class: com.ss.android.socialbase.appdownloader.h.2
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1231a
             public void b() {
-                if (System.currentTimeMillis() - h.this.d >= com.ss.android.socialbase.downloader.k.a.eGg().a("install_on_resume_install_interval", 300000L)) {
+                if (System.currentTimeMillis() - h.this.d >= com.ss.android.socialbase.downloader.k.a.eIx().a("install_on_resume_install_interval", 300000L)) {
                     h.this.d = System.currentTimeMillis();
                     h.this.b();
                 }
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1227a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1231a
             public void c() {
             }
         });
@@ -47,24 +47,24 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        final Integer poll = this.f13053a.poll();
+        final Integer poll = this.f13055a.poll();
         this.e.removeCallbacks(this.f);
         if (poll != null) {
-            final Context eEd = com.ss.android.socialbase.downloader.downloader.b.eEd();
+            final Context eGu = com.ss.android.socialbase.downloader.downloader.b.eGu();
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 this.e.post(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.h.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        h.this.g(eEd, poll.intValue(), false);
+                        h.this.g(eGu, poll.intValue(), false);
                     }
                 });
             } else {
-                g(eEd, poll.intValue(), false);
+                g(eGu, poll.intValue(), false);
             }
             this.e.postDelayed(this.f, 20000L);
             return;
         }
-        this.f13054b = false;
+        this.f13056b = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -75,13 +75,13 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        private static final h pTX = new h();
+        private static final h qeb = new h();
     }
 
-    public static h eDx() {
-        return a.pTX;
+    public static h eFO() {
+        return a.qeb;
     }
 
     public int f(final Context context, final int i, final boolean z) {
@@ -96,22 +96,22 @@ public class h {
                 }
             }, 1000L);
             return 1;
-        } else if (com.ss.android.socialbase.downloader.a.a.eDz().b()) {
+        } else if (com.ss.android.socialbase.downloader.a.a.eFQ().b()) {
             return g(context, i, z);
         } else {
-            if (this.f13053a.isEmpty() && !this.f13054b) {
+            if (this.f13055a.isEmpty() && !this.f13056b) {
                 return g(context, i, z);
             }
-            int a2 = com.ss.android.socialbase.downloader.k.a.eGg().a("install_queue_size", 3);
-            while (this.f13053a.size() > a2) {
-                this.f13053a.poll();
+            int a2 = com.ss.android.socialbase.downloader.k.a.eIx().a("install_queue_size", 3);
+            while (this.f13055a.size() > a2) {
+                this.f13055a.poll();
             }
             this.e.removeCallbacks(this.f);
-            this.e.postDelayed(this.f, com.ss.android.socialbase.downloader.k.a.RA(i).a("install_queue_timeout", 20000L));
-            if (this.f13053a.contains(Integer.valueOf(i))) {
+            this.e.postDelayed(this.f, com.ss.android.socialbase.downloader.k.a.RV(i).a("install_queue_timeout", 20000L));
+            if (this.f13055a.contains(Integer.valueOf(i))) {
                 return 1;
             }
-            this.f13053a.offer(Integer.valueOf(i));
+            this.f13055a.offer(Integer.valueOf(i));
             return 1;
         }
     }
@@ -124,7 +124,7 @@ public class h {
     public int g(Context context, int i, boolean z) {
         int g = c.g(context, i, z);
         if (g == 1) {
-            this.f13054b = true;
+            this.f13056b = true;
         }
         this.c = System.currentTimeMillis();
         return g;

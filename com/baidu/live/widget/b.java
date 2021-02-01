@@ -2,7 +2,7 @@ package com.baidu.live.widget;
 
 import com.baidu.live.tbadk.ala.zan.IAlaBdZan;
 import com.baidu.live.tbadk.ala.zan.IAlaBdZanBuilder;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements IAlaBdZanBuilder {
     @Override // com.baidu.live.tbadk.ala.zan.IAlaBdZanBuilder
     public IAlaBdZan build() {

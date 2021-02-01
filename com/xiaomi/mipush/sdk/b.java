@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile b f13819a;
+    private static volatile b f13821a;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f141a;
@@ -35,7 +35,7 @@ public class b {
         public String f146a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13821b;
+        public String f13823b;
         public String c;
         public String d;
         public String e;
@@ -50,7 +50,7 @@ public class b {
         public boolean f148b = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13820a = 1;
+        public int f13822a = 1;
 
         public a(Context context) {
             this.f145a = context;
@@ -61,14 +61,14 @@ public class b {
                 JSONObject jSONObject = new JSONObject(str);
                 a aVar = new a(context);
                 aVar.f146a = jSONObject.getString("appId");
-                aVar.f13821b = jSONObject.getString("appToken");
+                aVar.f13823b = jSONObject.getString("appToken");
                 aVar.c = jSONObject.getString("regId");
                 aVar.d = jSONObject.getString("regSec");
                 aVar.f = jSONObject.getString("devId");
                 aVar.e = jSONObject.getString("vName");
                 aVar.f147a = jSONObject.getBoolean(CloudControlUBCUtils.KEY_VALID);
                 aVar.f148b = jSONObject.getBoolean("paused");
-                aVar.f13820a = jSONObject.getInt("envType");
+                aVar.f13822a = jSONObject.getInt("envType");
                 aVar.g = jSONObject.getString("regResource");
                 return aVar;
             } catch (Throwable th) {
@@ -85,14 +85,14 @@ public class b {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("appId", aVar.f146a);
-                jSONObject.put("appToken", aVar.f13821b);
+                jSONObject.put("appToken", aVar.f13823b);
                 jSONObject.put("regId", aVar.c);
                 jSONObject.put("regSec", aVar.d);
                 jSONObject.put("devId", aVar.f);
                 jSONObject.put("vName", aVar.e);
                 jSONObject.put(CloudControlUBCUtils.KEY_VALID, aVar.f147a);
                 jSONObject.put("paused", aVar.f148b);
-                jSONObject.put("envType", aVar.f13820a);
+                jSONObject.put("envType", aVar.f13822a);
                 jSONObject.put("regResource", aVar.g);
                 return jSONObject.toString();
             } catch (Throwable th) {
@@ -105,7 +105,7 @@ public class b {
         public void m132a() {
             b.a(this.f145a).edit().clear().commit();
             this.f146a = null;
-            this.f13821b = null;
+            this.f13823b = null;
             this.c = null;
             this.d = null;
             this.f = null;
@@ -113,11 +113,11 @@ public class b {
             this.f147a = false;
             this.f148b = false;
             this.h = null;
-            this.f13820a = 1;
+            this.f13822a = 1;
         }
 
         public void a(int i) {
-            this.f13820a = i;
+            this.f13822a = i;
         }
 
         public void a(String str, String str2) {
@@ -130,7 +130,7 @@ public class b {
 
         public void a(String str, String str2, String str3) {
             this.f146a = str;
-            this.f13821b = str2;
+            this.f13823b = str2;
             this.g = str3;
             SharedPreferences.Editor edit = b.a(this.f145a).edit();
             edit.putString("appId", this.f146a);
@@ -145,12 +145,12 @@ public class b {
 
         /* renamed from: a  reason: collision with other method in class */
         public boolean m133a() {
-            return m134a(this.f146a, this.f13821b);
+            return m134a(this.f146a, this.f13823b);
         }
 
         /* renamed from: a  reason: collision with other method in class */
         public boolean m134a(String str, String str2) {
-            return TextUtils.equals(this.f146a, str) && TextUtils.equals(this.f13821b, str2) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && (TextUtils.equals(this.f, com.xiaomi.push.i.l(this.f145a)) || TextUtils.equals(this.f, com.xiaomi.push.i.k(this.f145a)));
+            return TextUtils.equals(this.f146a, str) && TextUtils.equals(this.f13823b, str2) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && (TextUtils.equals(this.f, com.xiaomi.push.i.l(this.f145a)) || TextUtils.equals(this.f, com.xiaomi.push.i.k(this.f145a)));
         }
 
         public void b() {
@@ -177,7 +177,7 @@ public class b {
 
         public void c(String str, String str2, String str3) {
             this.f146a = str;
-            this.f13821b = str2;
+            this.f13823b = str2;
             this.g = str3;
         }
     }
@@ -193,14 +193,14 @@ public class b {
 
     /* renamed from: a  reason: collision with other method in class */
     public static b m120a(Context context) {
-        if (f13819a == null) {
+        if (f13821a == null) {
             synchronized (b.class) {
-                if (f13819a == null) {
-                    f13819a = new b(context);
+                if (f13821a == null) {
+                    f13821a = new b(context);
                 }
             }
         }
-        return f13819a;
+        return f13821a;
     }
 
     private void c() {
@@ -208,7 +208,7 @@ public class b {
         this.f144a = new HashMap();
         SharedPreferences a2 = a(this.f141a);
         this.f142a.f146a = a2.getString("appId", null);
-        this.f142a.f13821b = a2.getString("appToken", null);
+        this.f142a.f13823b = a2.getString("appToken", null);
         this.f142a.c = a2.getString("regId", null);
         this.f142a.d = a2.getString("regSec", null);
         this.f142a.f = a2.getString("devId", null);
@@ -219,13 +219,13 @@ public class b {
         this.f142a.e = a2.getString("vName", null);
         this.f142a.f147a = a2.getBoolean(CloudControlUBCUtils.KEY_VALID, true);
         this.f142a.f148b = a2.getBoolean("paused", false);
-        this.f142a.f13820a = a2.getInt("envType", 1);
+        this.f142a.f13822a = a2.getInt("envType", 1);
         this.f142a.g = a2.getString("regResource", null);
         this.f142a.h = a2.getString("appRegion", null);
     }
 
     public int a() {
-        return this.f142a.f13820a;
+        return this.f142a.f13822a;
     }
 
     public a a(String str) {
@@ -292,11 +292,11 @@ public class b {
     /* renamed from: a  reason: collision with other method in class */
     public boolean m125a(String str, String str2, String str3) {
         a a2 = a(str3);
-        return a2 != null && TextUtils.equals(str, a2.f146a) && TextUtils.equals(str2, a2.f13821b);
+        return a2 != null && TextUtils.equals(str, a2.f146a) && TextUtils.equals(str2, a2.f13823b);
     }
 
     public String b() {
-        return this.f142a.f13821b;
+        return this.f142a.f13823b;
     }
 
     /* renamed from: b  reason: collision with other method in class */

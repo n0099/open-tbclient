@@ -12,7 +12,7 @@ import androidx.loader.content.Loader;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CursorLoader extends AsyncTaskLoader<Cursor> {
     CancellationSignal mCancellationSignal;
     Cursor mCursor;

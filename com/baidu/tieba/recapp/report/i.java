@@ -6,15 +6,15 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class i implements f {
-    private TbHttpMessageTask mOe;
-    private HttpMessageListener mOd = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.i.1
+    private TbHttpMessageTask mXt;
+    private HttpMessageListener mXs = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -22,41 +22,41 @@ public class i implements f {
                 if (!(httpResponsedMessage.getError() == 0)) {
                     Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
                     if (orginalMessage instanceof AdUploadHttpRequest) {
-                        i.this.fP(((AdUploadHttpRequest) orginalMessage).getDataArray());
+                        i.this.fN(((AdUploadHttpRequest) orginalMessage).getDataArray());
                     }
                 }
             }
         }
     };
-    private ArrayList<c> mOf = new ArrayList<>();
+    private ArrayList<c> mXu = new ArrayList<>();
 
     public i() {
-        aak();
-        MessageManager.getInstance().registerListener(this.mOd);
+        abY();
+        MessageManager.getInstance().registerListener(this.mXs);
     }
 
-    private void aak() {
-        this.mOe = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
-        this.mOe.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.mOe.setIsNeedAddCommenParam(true);
-        this.mOe.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void abY() {
+        this.mXt = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
+        this.mXt.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.mXt.setIsNeedAddCommenParam(true);
+        this.mXt.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.f
     public void b(c cVar) {
         if (cVar != null) {
             com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            if (!(adAdSense == null || adAdSense.bvE())) {
-                this.mOe.setUrl("http://als.baidu.com/clog/clog");
+            if (!(adAdSense == null || adAdSense.bvX())) {
+                this.mXt.setUrl("http://als.baidu.com/clog/clog");
             }
             d(cVar);
-            dCh();
+            dEp();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.f
-    public void dCg() {
-        dCh();
+    public void dEo() {
+        dEp();
     }
 
     @Override // com.baidu.tieba.recapp.report.f
@@ -66,16 +66,16 @@ public class i implements f {
         }
     }
 
-    private void dCh() {
-        if (x.getCount(this.mOf) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.mOf), this.mOe);
-            this.mOf.clear();
+    private void dEp() {
+        if (y.getCount(this.mXu) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.mXu), this.mXt);
+            this.mXu.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fP(List<c> list) {
-        if (x.getCount(list) > 0) {
+    public void fN(List<c> list) {
+        if (y.getCount(list) > 0) {
             for (c cVar : list) {
                 if (cVar != null) {
                     d(cVar);
@@ -86,10 +86,10 @@ public class i implements f {
 
     private void d(c cVar) {
         if (cVar != null) {
-            if (x.getCount(this.mOf) >= 20) {
-                this.mOf.remove(0);
+            if (y.getCount(this.mXu) >= 20) {
+                this.mXu.remove(0);
             }
-            this.mOf.add(cVar);
+            this.mXu.add(cVar);
         }
     }
 }

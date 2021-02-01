@@ -7,15 +7,15 @@ import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BusLineResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BusLineResult> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2833a;
+    private String f2831a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2834b;
+    private String f2832b;
     private boolean c;
     private Date d;
     private Date e;
@@ -26,17 +26,17 @@ public class BusLineResult extends SearchResult implements Parcelable {
     private float j;
     private String k;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class BusStation extends RouteNode {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class BusStep extends RouteStep {
     }
 
     public BusLineResult() {
-        this.f2833a = null;
-        this.f2834b = null;
+        this.f2831a = null;
+        this.f2832b = null;
         this.g = null;
         this.h = null;
         this.k = null;
@@ -44,13 +44,13 @@ public class BusLineResult extends SearchResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public BusLineResult(Parcel parcel) {
-        this.f2833a = null;
-        this.f2834b = null;
+        this.f2831a = null;
+        this.f2832b = null;
         this.g = null;
         this.h = null;
         this.k = null;
-        this.f2833a = parcel.readString();
-        this.f2834b = parcel.readString();
+        this.f2831a = parcel.readString();
+        this.f2832b = parcel.readString();
         this.c = ((Boolean) parcel.readValue(Boolean.class.getClassLoader())).booleanValue();
         this.d = (Date) parcel.readValue(Date.class.getClassLoader());
         this.e = (Date) parcel.readValue(Date.class.getClassLoader());
@@ -69,11 +69,11 @@ public class BusLineResult extends SearchResult implements Parcelable {
     }
 
     public String getBusCompany() {
-        return this.f2833a;
+        return this.f2831a;
     }
 
     public String getBusLineName() {
-        return this.f2834b;
+        return this.f2832b;
     }
 
     public Date getEndTime() {
@@ -113,7 +113,7 @@ public class BusLineResult extends SearchResult implements Parcelable {
     }
 
     public void setBusLineName(String str) {
-        this.f2834b = str;
+        this.f2832b = str;
     }
 
     public void setEndTime(Date date) {
@@ -150,8 +150,8 @@ public class BusLineResult extends SearchResult implements Parcelable {
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2833a);
-        parcel.writeString(this.f2834b);
+        parcel.writeString(this.f2831a);
+        parcel.writeString(this.f2832b);
         parcel.writeValue(Boolean.valueOf(this.c));
         parcel.writeValue(this.d);
         parcel.writeValue(this.e);

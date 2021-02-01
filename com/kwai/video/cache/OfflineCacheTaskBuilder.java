@@ -1,5 +1,5 @@
 package com.kwai.video.cache;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class OfflineCacheTaskBuilder extends OfflineCacheTaskBuilderBase {
     public OfflineCacheTaskBuilder(String str, String str2, String str3, AwesomeCacheCallback awesomeCacheCallback) {
         this.mDataSpec.url = str;

@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class FIFOLimitedMemoryCache extends LimitedMemoryCache<String, Bitmap> {
     private final List<Bitmap> queue;
 

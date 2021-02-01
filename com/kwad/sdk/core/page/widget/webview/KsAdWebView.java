@@ -24,14 +24,14 @@ import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.utils.ah;
 import com.kwad.sdk.utils.t;
 import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f9370a;
+    protected boolean f9372a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected c f9371b;
+    protected c f9373b;
     private AdTemplate c;
     private boolean d;
     private d e;
@@ -39,7 +39,7 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.b {
     private o.a g;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements DownloadListener {
         private a() {
         }
@@ -69,19 +69,19 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(View view, int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a();
 
@@ -130,8 +130,8 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.b {
             @Override // com.kwad.sdk.core.page.widget.webview.c, android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
-                if (!KsAdWebView.this.f9370a) {
-                    KsAdWebView.this.f9370a = true;
+                if (!KsAdWebView.this.f9372a) {
+                    KsAdWebView.this.f9372a = true;
                     com.kwad.sdk.core.report.b.b(KsAdWebView.this.c, KsAdWebView.this.g);
                 }
                 if (KsAdWebView.this.e != null) {
@@ -223,8 +223,8 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.b {
     @Override // android.webkit.WebView, android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.f9371b != null) {
-            this.f9371b.a(this, i, i2, i3, i4);
+        if (this.f9373b != null) {
+            this.f9373b.a(this, i, i2, i3, i4);
         }
     }
 
@@ -245,7 +245,7 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.b {
     }
 
     public void setOnWebViewScrollChangeListener(c cVar) {
-        this.f9371b = cVar;
+        this.f9373b = cVar;
     }
 
     public void setTemplateData(@Nullable AdTemplate adTemplate) {

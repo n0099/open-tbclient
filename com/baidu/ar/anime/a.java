@@ -6,12 +6,11 @@ import com.baidu.ar.arplay.core.pixel.PixelRotation;
 import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.d.j;
 import com.baidu.ar.d.l;
-import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes6.dex */
 public class a extends j {
     private static final String TAG = a.class.getSimpleName();
     private int cj = 720;
-    private int ck = PlatformPlugin.DEFAULT_SYSTEM_UI;
+    private int ck = 1280;
     private boolean cl = true;
     private InterfaceC0066a cm = null;
 

@@ -12,19 +12,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
-    private static long oZq = -1;
+    private static long pjG = -1;
 
     public static String k(Context context, long j) {
-        Calendar calendar = Calendar.getInstance(ekB());
+        Calendar calendar = Calendar.getInstance(emT());
         calendar.setTimeInMillis(j);
         Date time = calendar.getTime();
-        Calendar calendar2 = Calendar.getInstance(ekB());
-        calendar2.setTimeInMillis(hZ(System.currentTimeMillis()));
+        Calendar calendar2 = Calendar.getInstance(emT());
+        calendar2.setTimeInMillis(ic(System.currentTimeMillis()));
         SimpleDateFormat simpleDateFormat = null;
         if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5)) {
-            simpleDateFormat = new SimpleDateFormat("HH:mm", ekB());
+            simpleDateFormat = new SimpleDateFormat("HH:mm", emT());
         } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5) - 1) {
             return "昨天";
         } else {
@@ -52,29 +52,29 @@ public final class a {
                     return "星期日";
                 }
             } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) != calendar2.get(5)) {
-                simpleDateFormat = new SimpleDateFormat("MM-dd", ekB());
+                simpleDateFormat = new SimpleDateFormat("MM-dd", emT());
             } else {
-                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", ekB());
+                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", emT());
             }
         }
         return simpleDateFormat.format(time);
     }
 
-    public static long hZ(long j) {
-        if (oZq < 0) {
-            oZq = j;
+    public static long ic(long j) {
+        if (pjG < 0) {
+            pjG = j;
         }
-        if (Math.abs(oZq - j) > 1000) {
-            oZq = j;
+        if (Math.abs(pjG - j) > 1000) {
+            pjG = j;
         }
-        return oZq;
+        return pjG;
     }
 
-    public static Locale ekB() {
+    public static Locale emT() {
         return BdBaseApplication.getInst().getResources().getConfiguration().locale;
     }
 
-    public static String ia(long j) {
+    public static String id(long j) {
         if (j <= 0) {
             return null;
         }
@@ -88,8 +88,8 @@ public final class a {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new af(context, j + "", str, str4, z, str2, str3, j2 + "", str5)));
     }
 
-    public static void ib(long j) {
-        b.eky().hY(j);
+    public static void ie(long j) {
+        b.emQ().ib(j);
     }
 
     public static String b(ChatSession chatSession) {

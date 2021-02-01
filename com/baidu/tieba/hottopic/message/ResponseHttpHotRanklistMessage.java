@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.hottopic.data.j;
 import com.squareup.wire.Wire;
 import tbclient.TopicList.TopicListResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
     private j ranklistData;
 

@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.core.h;
 import android.util.Log;
 import com.bytedance.sdk.openadsdk.core.p;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static AtomicInteger f6593a = new AtomicInteger(1);
+    private static AtomicInteger f6595a = new AtomicInteger(1);
 
     public static boolean a() {
-        return f6593a.get() == 1;
+        return f6595a.get() == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,11 +25,11 @@ public class j {
         boolean z2 = true;
         if (i == 1 || i == 2) {
             try {
-                if (f6593a.get() == i) {
+                if (f6595a.get() == i) {
                     z2 = false;
                 } else {
                     try {
-                        f6593a.set(i);
+                        f6595a.set(i);
                     } catch (Throwable th2) {
                         th = th2;
                         z = true;

@@ -30,7 +30,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
     public static final int BUSSINESS_SET_PORTRAIT = 0;
@@ -47,10 +47,10 @@ public class ImageClipActivity extends Activity {
     private static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4810a = 0;
+    private int f4812a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4811b = 0;
+    private int f4813b = 0;
     private int c = 0;
     private int d = 0;
     private int e;
@@ -122,8 +122,8 @@ public class ImageClipActivity extends Activity {
     }
 
     protected void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.f4810a = i;
-        this.f4811b = i2;
+        this.f4812a = i;
+        this.f4813b = i2;
         this.c = i3;
         this.d = i4;
     }
@@ -221,12 +221,12 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f4810a == 0 && this.f4811b == 0) {
+        if (this.f4812a == 0 && this.f4813b == 0) {
             return;
         }
-        overridePendingTransition(this.f4810a, this.f4811b);
-        this.f4810a = 0;
-        this.f4811b = 0;
+        overridePendingTransition(this.f4812a, this.f4813b);
+        this.f4812a = 0;
+        this.f4813b = 0;
     }
 
     @TargetApi(19)

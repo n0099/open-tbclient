@@ -1,15 +1,15 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class d<IN, OUT> {
     private static AtomicLong d = new AtomicLong();
 
     /* renamed from: a  reason: collision with root package name */
-    d f7418a;
+    d f7420a;
 
     /* renamed from: b  reason: collision with root package name */
-    IN f7419b;
+    IN f7421b;
     OUT c;
     private com.bytedance.sdk.openadsdk.preload.a.b.a e;
     private b f;
@@ -20,16 +20,16 @@ public abstract class d<IN, OUT> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(b bVar, d dVar, IN in, com.bytedance.sdk.openadsdk.preload.a.b.a aVar, Object[] objArr) {
         this.f = new m(bVar);
-        this.f7418a = dVar;
-        this.f7419b = in;
+        this.f7420a = dVar;
+        this.f7421b = in;
         this.e = aVar;
         a();
         a(objArr);
     }
 
     private void a() {
-        if (this.f7418a != null) {
-            this.g = this.f7418a.g;
+        if (this.f7420a != null) {
+            this.g = this.f7420a.g;
             return;
         }
         this.g = d.getAndIncrement();

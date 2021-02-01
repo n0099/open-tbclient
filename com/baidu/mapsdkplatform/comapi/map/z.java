@@ -1,12 +1,12 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class z {
 
     /* renamed from: a  reason: collision with root package name */
-    ab f3079a = new ab();
+    ab f3077a = new ab();
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f3080b = true;
+    boolean f3078b = true;
     int c = 1;
     boolean d = true;
     boolean e = true;
@@ -19,12 +19,12 @@ public final class z {
     }
 
     public z a(ab abVar) {
-        this.f3079a = abVar;
+        this.f3077a = abVar;
         return this;
     }
 
     public z a(boolean z) {
-        this.f3080b = z;
+        this.f3078b = z;
         return this;
     }
 

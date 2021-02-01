@@ -2,7 +2,7 @@ package com.google.zxing.pdf417.decoder;
 
 import com.google.zxing.pdf417.PDF417Common;
 import java.util.Formatter;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class DetectionResult {
     private static final int ADJUST_ROW_NUMBER_SKIP = 2;
     private final int barcodeColumnCount;

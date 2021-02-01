@@ -5,11 +5,11 @@ import alaim.AlaMgetLiveStatus.DataReq;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.util.v;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaMGetLiveStatusRequestMessage extends NetMessage {
     private long mAudienceCount;
     private List<Long> mIds;
@@ -29,7 +29,7 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
     }
 
     public void setOriginData(List<Object> list) {
-        if (!x.isEmpty(list)) {
+        if (!y.isEmpty(list)) {
             this.mOriginDatas.clear();
             this.mOriginDatas.addAll(list);
         }
@@ -45,7 +45,7 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
         builder.live_ids = this.mIds;
         builder.audience_count = Long.valueOf(this.mAudienceCount);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         AlaMgetLiveStatusReqIdl.Builder builder2 = new AlaMgetLiveStatusReqIdl.Builder();
         builder2.data = builder.build(false);

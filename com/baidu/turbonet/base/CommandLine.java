@@ -3,10 +3,10 @@ package com.baidu.turbonet.base;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class CommandLine {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final List<Object> oEr;
+    private static final List<Object> oOA;
     private static final AtomicReference<CommandLine> sCommandLine;
 
     private static native void nativeAppendSwitch(String str);
@@ -25,7 +25,7 @@ public abstract class CommandLine {
 
     static {
         $assertionsDisabled = !CommandLine.class.desiredAssertionStatus();
-        oEr = new ArrayList();
+        oOA = new ArrayList();
         sCommandLine = new AtomicReference<>();
     }
 
@@ -33,7 +33,7 @@ public abstract class CommandLine {
         return sCommandLine.get() != null;
     }
 
-    public static CommandLine edy() {
+    public static CommandLine efQ() {
         CommandLine commandLine = sCommandLine.get();
         if ($assertionsDisabled || commandLine != null) {
             return commandLine;

@@ -8,22 +8,22 @@ import com.baidu.lcp.sdk.d.e;
 /* loaded from: classes3.dex */
 public class a {
     public static void c(Context context, String str, String str2, int i) {
-        c.vD().c(context, str, str2, i);
+        c.vA().c(context, str, str2, i);
     }
 
     public static void a(@NonNull BLCPRequest bLCPRequest, @Nullable com.baidu.lcp.sdk.client.bean.b bVar) {
-        c.vD().a(bLCPRequest, bVar);
+        c.vA().a(bLCPRequest, bVar);
     }
 
     public static boolean aA(Context context) {
         return e.aA(context);
     }
 
-    public static int vC() {
-        return c.vC();
+    public static int vz() {
+        return c.vz();
     }
 
     public static void pingRequest() {
-        c.vD().pingRequest();
+        c.vA().pingRequest();
     }
 }

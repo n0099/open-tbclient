@@ -4,7 +4,7 @@ import android.media.AudioAttributes;
 import androidx.annotation.RestrictTo;
 import androidx.versionedparcelable.VersionedParcel;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class AudioAttributesImplApi21Parcelizer {
     public static AudioAttributesImplApi21 read(VersionedParcel versionedParcel) {
         AudioAttributesImplApi21 audioAttributesImplApi21 = new AudioAttributesImplApi21();

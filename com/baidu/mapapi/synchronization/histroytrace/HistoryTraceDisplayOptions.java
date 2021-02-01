@@ -2,7 +2,7 @@ package com.baidu.mapapi.synchronization.histroytrace;
 
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HistoryTraceDisplayOptions {
     private boolean j = true;
     private int k = 30;
@@ -11,10 +11,10 @@ public class HistoryTraceDisplayOptions {
     private int n = 30;
 
     /* renamed from: a  reason: collision with root package name */
-    private BitmapDescriptor f2953a = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+    private BitmapDescriptor f2951a = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
 
     /* renamed from: b  reason: collision with root package name */
-    private BitmapDescriptor f2954b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
+    private BitmapDescriptor f2952b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
     private BitmapDescriptor c = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
     private BitmapDescriptor d = BitmapDescriptorFactory.fromAsset("SDK_Default_Route_Texture_Gray_Arrow.png");
     private int e = 22;
@@ -28,7 +28,7 @@ public class HistoryTraceDisplayOptions {
     }
 
     public BitmapDescriptor getEndPositionIcon() {
-        return this.f2954b;
+        return this.f2952b;
     }
 
     public int getPaddingBottom() {
@@ -56,7 +56,7 @@ public class HistoryTraceDisplayOptions {
     }
 
     public BitmapDescriptor getStartPositionIcon() {
-        return this.f2953a;
+        return this.f2951a;
     }
 
     public boolean isRouteLineRenderBySubSection() {
@@ -85,7 +85,7 @@ public class HistoryTraceDisplayOptions {
     }
 
     public HistoryTraceDisplayOptions setEndPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f2954b = bitmapDescriptor;
+        this.f2952b = bitmapDescriptor;
         return this;
     }
 
@@ -150,7 +150,7 @@ public class HistoryTraceDisplayOptions {
     }
 
     public HistoryTraceDisplayOptions setStartPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        this.f2953a = bitmapDescriptor;
+        this.f2951a = bitmapDescriptor;
         return this;
     }
 }

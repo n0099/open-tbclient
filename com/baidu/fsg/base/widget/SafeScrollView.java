@@ -14,10 +14,10 @@ import com.baidu.fsg.base.utils.RimGlobalUtils;
 public class SafeScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2033a = SafeScrollView.class.getSimpleName();
+    private static final String f2031a = SafeScrollView.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private ScrollChangedListener f2034b;
+    private ScrollChangedListener f2032b;
     private boolean c;
     private int d;
     private Context e;
@@ -175,17 +175,17 @@ public class SafeScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.f2034b != null) {
-            this.f2034b.onScrollChanged(i, i2, i3, i4);
+        if (this.f2032b != null) {
+            this.f2032b.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     public void setScrollChangeListener(ScrollChangedListener scrollChangedListener) {
-        this.f2034b = scrollChangedListener;
+        this.f2032b = scrollChangedListener;
     }
 
     private void a() {
-        this.f2034b = null;
+        this.f2032b = null;
     }
 
     @Override // android.widget.ScrollView, android.view.ViewGroup, android.view.View

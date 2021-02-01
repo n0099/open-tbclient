@@ -13,7 +13,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, CardViewHolder<com.bai
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.khV);
+        super(tbPageContext.getPageActivity(), c.kqd);
         this.mPageContext = tbPageContext;
     }
 
@@ -34,11 +34,11 @@ public class b extends com.baidu.adp.widget.ListView.a<c, CardViewHolder<com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, CardViewHolder<com.baidu.tieba.homepage.topic.topictab.view.b> cardViewHolder) {
-        if (cVar == null || cardViewHolder == null || cardViewHolder.crP() == null) {
+        if (cVar == null || cardViewHolder == null || cardViewHolder.ctb() == null) {
             return null;
         }
-        cardViewHolder.crP().a(cVar);
-        cardViewHolder.crP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.ctb().a(cVar);
+        cardViewHolder.ctb().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return cardViewHolder.getView();
     }
 }

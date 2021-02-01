@@ -14,141 +14,141 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import com.qq.e.comm.util.GDTLogger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d implements Window.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    final Window.Callback f12014a;
+    final Window.Callback f12016a;
 
     public d(Window.Callback callback) {
         if (callback == null) {
             GDTLogger.e("Window callback may not be null");
         }
-        this.f12014a = callback;
+        this.f12016a = callback;
     }
 
     @Override // android.view.Window.Callback
     @TargetApi(12)
     public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
-        return this.f12014a.dispatchGenericMotionEvent(motionEvent);
+        return this.f12016a.dispatchGenericMotionEvent(motionEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return this.f12014a.dispatchKeyEvent(keyEvent);
+        return this.f12016a.dispatchKeyEvent(keyEvent);
     }
 
     @Override // android.view.Window.Callback
     @TargetApi(11)
     public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        return this.f12014a.dispatchKeyShortcutEvent(keyEvent);
+        return this.f12016a.dispatchKeyShortcutEvent(keyEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        return this.f12014a.dispatchPopulateAccessibilityEvent(accessibilityEvent);
+        return this.f12016a.dispatchPopulateAccessibilityEvent(accessibilityEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        return this.f12014a.dispatchTouchEvent(motionEvent);
+        return this.f12016a.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.Window.Callback
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        return this.f12014a.dispatchTrackballEvent(motionEvent);
+        return this.f12016a.dispatchTrackballEvent(motionEvent);
     }
 
     @Override // android.view.Window.Callback
     @TargetApi(11)
     public void onActionModeFinished(ActionMode actionMode) {
-        this.f12014a.onActionModeFinished(actionMode);
+        this.f12016a.onActionModeFinished(actionMode);
     }
 
     @Override // android.view.Window.Callback
     @TargetApi(11)
     public void onActionModeStarted(ActionMode actionMode) {
-        this.f12014a.onActionModeStarted(actionMode);
+        this.f12016a.onActionModeStarted(actionMode);
     }
 
     @Override // android.view.Window.Callback
     public void onAttachedToWindow() {
-        this.f12014a.onAttachedToWindow();
+        this.f12016a.onAttachedToWindow();
     }
 
     @Override // android.view.Window.Callback
     public void onContentChanged() {
-        this.f12014a.onContentChanged();
+        this.f12016a.onContentChanged();
     }
 
     @Override // android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
-        return this.f12014a.onCreatePanelMenu(i, menu);
+        return this.f12016a.onCreatePanelMenu(i, menu);
     }
 
     @Override // android.view.Window.Callback
     public View onCreatePanelView(int i) {
-        return this.f12014a.onCreatePanelView(i);
+        return this.f12016a.onCreatePanelView(i);
     }
 
     @Override // android.view.Window.Callback
     public void onDetachedFromWindow() {
-        this.f12014a.onDetachedFromWindow();
+        this.f12016a.onDetachedFromWindow();
     }
 
     @Override // android.view.Window.Callback
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return this.f12014a.onMenuItemSelected(i, menuItem);
+        return this.f12016a.onMenuItemSelected(i, menuItem);
     }
 
     @Override // android.view.Window.Callback
     public boolean onMenuOpened(int i, Menu menu) {
-        return this.f12014a.onMenuOpened(i, menu);
+        return this.f12016a.onMenuOpened(i, menu);
     }
 
     @Override // android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
-        this.f12014a.onPanelClosed(i, menu);
+        this.f12016a.onPanelClosed(i, menu);
     }
 
     @Override // android.view.Window.Callback
     public boolean onPreparePanel(int i, View view, Menu menu) {
-        return this.f12014a.onPreparePanel(i, view, menu);
+        return this.f12016a.onPreparePanel(i, view, menu);
     }
 
     @Override // android.view.Window.Callback
     public boolean onSearchRequested() {
-        return this.f12014a.onSearchRequested();
+        return this.f12016a.onSearchRequested();
     }
 
     @Override // android.view.Window.Callback
     public boolean onSearchRequested(SearchEvent searchEvent) {
         if (Build.VERSION.SDK_INT >= 23) {
-            return this.f12014a.onSearchRequested(searchEvent);
+            return this.f12016a.onSearchRequested(searchEvent);
         }
         return false;
     }
 
     @Override // android.view.Window.Callback
     public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
-        this.f12014a.onWindowAttributesChanged(layoutParams);
+        this.f12016a.onWindowAttributesChanged(layoutParams);
     }
 
     @Override // android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
-        this.f12014a.onWindowFocusChanged(z);
+        this.f12016a.onWindowFocusChanged(z);
     }
 
     @Override // android.view.Window.Callback
     @TargetApi(11)
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
-        return this.f12014a.onWindowStartingActionMode(callback);
+        return this.f12016a.onWindowStartingActionMode(callback);
     }
 
     @Override // android.view.Window.Callback
     public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
         if (Build.VERSION.SDK_INT >= 23) {
-            return this.f12014a.onWindowStartingActionMode(callback, i);
+            return this.f12016a.onWindowStartingActionMode(callback, i);
         }
         return null;
     }

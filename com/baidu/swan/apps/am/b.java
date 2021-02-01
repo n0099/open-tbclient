@@ -8,37 +8,37 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.swan.apps.c;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String dMk;
+    private static String dOo;
 
-    public static String aMS() {
-        return tq(GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
+    public static String aNl() {
+        return tJ(GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public static String asZ() {
-        return tq("swangame");
+    public static String atx() {
+        return tJ("swangame");
     }
 
-    private static String tq(String str) {
-        String hostName = com.baidu.swan.apps.t.a.axk().getHostName();
+    private static String tJ(String str) {
+        String hostName = com.baidu.swan.apps.t.a.axI().getHostName();
         a aVar = new a();
-        aVar.tr(str).ts(c.getVersion()).tt(hostName).tu(getVersionName()).tv(getOSVersion());
-        return aVar.aMT();
+        aVar.tK(str).tL(c.getVersion()).tM(hostName).tN(getVersionName()).tO(getOSVersion());
+        return aVar.aNm();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.t.a.awy();
+        return com.baidu.swan.apps.t.a.awW();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(dMk)) {
-            return dMk;
+        if (!TextUtils.isEmpty(dOo)) {
+            return dOo;
         }
         try {
-            dMk = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return dMk;
+            dOo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return dOo;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -55,56 +55,56 @@ public class b {
         return str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        private static String dMp = "%s/%s";
-        private static String dMq = "%s-%s/%s";
-        private static String dMr = "(Baidu; P1 %s)";
-        private static String dMs = "%s/%s";
-        private String dMl;
-        private String dMm;
-        private String dMn;
-        private String dMo;
+        private static String dOt = "%s/%s";
+        private static String dOu = "%s-%s/%s";
+        private static String dOv = "(Baidu; P1 %s)";
+        private static String dOw = "%s/%s";
+        private String dOp;
+        private String dOq;
+        private String dOr;
+        private String dOs;
         private String mOSVersion;
 
-        public a tr(String str) {
-            this.dMl = str;
+        public a tK(String str) {
+            this.dOp = str;
             return this;
         }
 
-        public a ts(String str) {
-            this.dMm = str;
+        public a tL(String str) {
+            this.dOq = str;
             return this;
         }
 
-        public a tt(String str) {
-            this.dMn = str;
+        public a tM(String str) {
+            this.dOr = str;
             return this;
         }
 
-        public a tu(String str) {
-            this.dMo = str;
+        public a tN(String str) {
+            this.dOs = str;
             return this;
         }
 
-        public a tv(String str) {
+        public a tO(String str) {
             this.mOSVersion = str;
             return this;
         }
 
-        public String aMT() {
-            String format = String.format(dMp, this.dMl, this.dMm);
-            String format2 = String.format(dMq, this.dMl, this.dMn, this.dMo);
-            String format3 = String.format(dMs, this.dMn, this.dMo);
-            String format4 = String.format(dMr, this.mOSVersion);
-            if (aMU()) {
+        public String aNm() {
+            String format = String.format(dOt, this.dOp, this.dOq);
+            String format2 = String.format(dOu, this.dOp, this.dOr, this.dOs);
+            String format3 = String.format(dOw, this.dOr, this.dOs);
+            String format4 = String.format(dOv, this.mOSVersion);
+            if (aNn()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean aMU() {
-            return TextUtils.equals("baiduboxapp", this.dMn);
+        private boolean aNn() {
+            return TextUtils.equals("baiduboxapp", this.dOr);
         }
     }
 }

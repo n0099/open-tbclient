@@ -6,11 +6,11 @@ import com.ss.android.downloadlib.a.j;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
-    public CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> hr(String str, String str2) {
+    public CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> hy(String str, String str2) {
         CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
         try {
             String string = j.a().getSharedPreferences(str, 0).getString(str2, "");
@@ -18,9 +18,9 @@ class b {
                 JSONObject jSONObject = new JSONObject(string);
                 Iterator<String> keys = jSONObject.keys();
                 while (keys.hasNext()) {
-                    com.ss.android.downloadlib.a.b.a fc = com.ss.android.downloadlib.a.b.a.fc(jSONObject.optJSONObject(keys.next()));
-                    if (fc != null) {
-                        copyOnWriteArrayList.add(fc);
+                    com.ss.android.downloadlib.a.b.a fd = com.ss.android.downloadlib.a.b.a.fd(jSONObject.optJSONObject(keys.next()));
+                    if (fd != null) {
+                        copyOnWriteArrayList.add(fd);
                     }
                 }
             }
@@ -39,7 +39,7 @@ class b {
                 while (it.hasNext()) {
                     com.ss.android.downloadlib.a.b.a next = it.next();
                     if (next != null) {
-                        jSONObject.put(String.valueOf(next.f12930b), next.a());
+                        jSONObject.put(String.valueOf(next.f12932b), next.a());
                     }
                 }
             } catch (Exception e) {

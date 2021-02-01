@@ -7,57 +7,57 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import com.baidu.adp.base.f;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.adp.base.d {
     private Resources mResources;
     private View mRootView;
-    private a nCf;
-    private HorizontalListView nEQ;
-    private com.baidu.tieba.video.editvideo.a.b nER;
-    private com.baidu.tieba.video.editvideo.b.a nES;
+    private a nLP;
+    private HorizontalListView nOA;
+    private com.baidu.tieba.video.editvideo.a.b nOB;
+    private com.baidu.tieba.video.editvideo.b.a nOC;
 
     public d(f fVar, a aVar) {
         super(fVar);
-        this.nCf = aVar;
+        this.nLP = aVar;
         this.mRootView = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.edit_filter_layout, (ViewGroup) null);
         this.mResources = this.mRootView.getResources();
         initView();
     }
 
     public void a(com.baidu.tieba.video.editvideo.b.a aVar) {
-        this.nES = aVar;
+        this.nOC = aVar;
     }
 
     private void initView() {
-        this.nEQ = (HorizontalListView) this.mRootView.findViewById(R.id.edit_filter_horizontal_list);
-        this.nER = new com.baidu.tieba.video.editvideo.a.b();
-        setFilters(com.baidu.tieba.video.editvideo.b.a.gX(this.mRootView.getContext()));
-        this.nEQ.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.editvideo.view.d.1
+        this.nOA = (HorizontalListView) this.mRootView.findViewById(R.id.edit_filter_horizontal_list);
+        this.nOB = new com.baidu.tieba.video.editvideo.a.b();
+        setFilters(com.baidu.tieba.video.editvideo.b.a.ha(this.mRootView.getContext()));
+        this.nOA.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.editvideo.view.d.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tieba.video.editvideo.data.a aVar = (com.baidu.tieba.video.editvideo.data.a) d.this.nER.getItem(i);
-                if (d.this.nES != null) {
-                    d.this.nES.b(aVar);
+                com.baidu.tieba.video.editvideo.data.a aVar = (com.baidu.tieba.video.editvideo.data.a) d.this.nOB.getItem(i);
+                if (d.this.nOC != null) {
+                    d.this.nOC.b(aVar);
                 }
-                if (d.this.nCf != null && d.this.nCf.dQT() != null) {
-                    d.this.nCf.dQT().setFilter(aVar);
+                if (d.this.nLP != null && d.this.nLP.dTe() != null) {
+                    d.this.nLP.dTe().setFilter(aVar);
                 }
             }
         });
     }
 
     public void setFilters(List<com.baidu.tieba.video.editvideo.data.a> list) {
-        this.nER.setData(list);
-        this.nEQ.setAdapter((ListAdapter) this.nER);
+        this.nOB.setData(list);
+        this.nOA.setAdapter((ListAdapter) this.nOB);
     }
 
-    public com.baidu.tieba.video.editvideo.data.a Tt(String str) {
-        for (com.baidu.tieba.video.editvideo.data.a aVar : this.nER.getData()) {
-            if (aVar != null && at.equals(aVar.value, str)) {
+    public com.baidu.tieba.video.editvideo.data.a Uq(String str) {
+        for (com.baidu.tieba.video.editvideo.data.a aVar : this.nOB.getData()) {
+            if (aVar != null && au.equals(aVar.value, str)) {
                 return aVar;
             }
         }
@@ -65,17 +65,17 @@ public class d extends com.baidu.adp.base.d {
     }
 
     public void d(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.nER.a(aVar);
+        this.nOB.a(aVar);
     }
 
-    public void eo(View view) {
+    public void em(View view) {
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void yF(boolean z) {
+    public void yY(boolean z) {
     }
 
     public void onPause() {

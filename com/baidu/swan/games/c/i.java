@@ -4,43 +4,43 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i {
-    private static volatile boolean cKz = false;
-    private static volatile boolean ecQ = false;
-    private static volatile List<com.baidu.swan.apps.event.a.b> ecR = new ArrayList();
+    private static volatile boolean cMN = false;
+    private static volatile boolean eeX = false;
+    private static volatile List<com.baidu.swan.apps.event.a.b> eeY = new ArrayList();
 
     private i() {
     }
 
-    public static void eW(boolean z) {
-        cKz = z;
-        com.baidu.swan.apps.console.c.eW(z);
+    public static void eY(boolean z) {
+        cMN = z;
+        com.baidu.swan.apps.console.c.eY(z);
     }
 
-    public static void aVD() {
+    public static void aVP() {
         synchronized (i.class) {
-            ecR = new ArrayList();
+            eeY = new ArrayList();
         }
-        ecQ = false;
+        eeX = false;
     }
 
-    public static void aVE() {
-        if (cKz && !ecQ) {
+    public static void aVQ() {
+        if (cMN && !eeX) {
             synchronized (i.class) {
-                if (ecR != null) {
-                    for (int i = 0; i < ecR.size(); i++) {
-                        com.baidu.swan.apps.v.f.azN().a("console", ecR.get(i));
+                if (eeY != null) {
+                    for (int i = 0; i < eeY.size(); i++) {
+                        com.baidu.swan.apps.v.f.aAl().a("console", eeY.get(i));
                     }
-                    ecR.clear();
-                    ecR = null;
+                    eeY.clear();
+                    eeY = null;
                 }
             }
-            ecQ = true;
+            eeX = true;
         }
     }
 
-    private static String kZ(int i) {
+    private static String lc(int i) {
         switch (i) {
             case 1:
                 return TbConfig.TMP_LOG_DIR_NAME;
@@ -58,31 +58,31 @@ public class i {
         }
     }
 
-    public static void ay(int i, String str) {
-        cX(kZ(i), str);
+    public static void aC(int i, String str) {
+        cR(lc(i), str);
     }
 
-    public static void cX(String str, String str2) {
-        if (cKz) {
-            a(c.cV(str, str2));
+    public static void cR(String str, String str2) {
+        if (cMN) {
+            a(c.cP(str, str2));
         }
     }
 
-    public static void cY(String str, String str2) {
-        if (cKz) {
-            a(c.cW(str, str2));
+    public static void cS(String str, String str2) {
+        if (cMN) {
+            a(c.cQ(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.event.a.b bVar) {
-        if (!ecQ) {
+        if (!eeX) {
             synchronized (i.class) {
-                if (ecR != null) {
-                    ecR.add(bVar);
+                if (eeY != null) {
+                    eeY.add(bVar);
                     return;
                 }
             }
         }
-        com.baidu.swan.apps.v.f.azN().a("console", bVar);
+        com.baidu.swan.apps.v.f.aAl().a("console", bVar);
     }
 }

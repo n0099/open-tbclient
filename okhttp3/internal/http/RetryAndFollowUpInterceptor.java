@@ -1,6 +1,5 @@
 package okhttp3.internal.http;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.http.response.ResponseException;
 import com.baidubce.http.Headers;
 import java.io.FileNotFoundException;
@@ -30,7 +29,7 @@ import okhttp3.internal.connection.RouteException;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class RetryAndFollowUpInterceptor implements Interceptor {
     private static final int MAX_FOLLOW_UPS = 20;
     private Object callStackTrace;
@@ -212,7 +211,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                 }
                 return null;
             case 503:
-                if ((response.priorResponse() == null || response.priorResponse().code() != 503) && retryAfter(response, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) == 0) {
+                if ((response.priorResponse() == null || response.priorResponse().code() != 503) && retryAfter(response, Integer.MAX_VALUE) == 0) {
                     return response.request();
                 }
                 return null;
@@ -251,7 +250,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             if (header.matches("\\d+")) {
                 return Integer.valueOf(header).intValue();
             }
-            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            return Integer.MAX_VALUE;
         }
         return i;
     }

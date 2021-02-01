@@ -2,7 +2,7 @@ package com.baidu.mobads.interfaces;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.log.LogConfig;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdConstants4PDK {
     public static final String EVENT_ERROR = "EVENT_ERROR";
     public static final String EVENT_REQUEST_COMPLETE = "EVENT_REQUEST_COMPLETE";
@@ -13,27 +13,27 @@ public interface IXAdConstants4PDK {
     public static final String EVENT_SLOT_PRELOADED = "EVENT_SLOT_PRELOADED";
     public static final String EVENT_SLOT_STARTED = "EVENT_SLOT_STARTED";
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum VideoAssetPlayMode {
         VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED("VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED"),
         VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED("VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED");
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3368a;
+        private final String f3379a;
 
         VideoAssetPlayMode(String str) {
-            this.f3368a = str;
+            this.f3379a = str;
         }
 
         public String getValue() {
-            return this.f3368a;
+            return this.f3379a;
         }
 
         public static VideoAssetPlayMode parse(String str) {
             VideoAssetPlayMode[] values;
             for (VideoAssetPlayMode videoAssetPlayMode : values()) {
-                if (videoAssetPlayMode.f3368a.equalsIgnoreCase(str)) {
+                if (videoAssetPlayMode.f3379a.equalsIgnoreCase(str)) {
                     return videoAssetPlayMode;
                 }
             }
@@ -41,27 +41,27 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum ScreenSizeMode {
         NORMAL("normal"),
         FULL_SCREEN("full_screen");
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3362a;
+        private final String f3373a;
 
         ScreenSizeMode(String str) {
-            this.f3362a = str;
+            this.f3373a = str;
         }
 
         public String getValue() {
-            return this.f3362a;
+            return this.f3373a;
         }
 
         public static ScreenSizeMode parse(String str) {
             ScreenSizeMode[] values;
             for (ScreenSizeMode screenSizeMode : values()) {
-                if (screenSizeMode.f3362a.equalsIgnoreCase(str)) {
+                if (screenSizeMode.f3373a.equalsIgnoreCase(str)) {
                     return screenSizeMode;
                 }
             }
@@ -69,7 +69,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum VideoState {
         IDLE("IDLE"),
         PLAYING("PLAYING"),
@@ -78,20 +78,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3370a;
+        private final String f3381a;
 
         VideoState(String str) {
-            this.f3370a = str;
+            this.f3381a = str;
         }
 
         public String getValue() {
-            return this.f3370a;
+            return this.f3381a;
         }
 
         public static VideoState parse(String str) {
             VideoState[] values;
             for (VideoState videoState : values()) {
-                if (videoState.f3370a.equalsIgnoreCase(str)) {
+                if (videoState.f3381a.equalsIgnoreCase(str)) {
                     return videoState;
                 }
             }
@@ -99,7 +99,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum ActivityState {
         CREATE("CREATE"),
         START("START"),
@@ -111,20 +111,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3360a;
+        private final String f3371a;
 
         ActivityState(String str) {
-            this.f3360a = str;
+            this.f3371a = str;
         }
 
         public String getValue() {
-            return this.f3360a;
+            return this.f3371a;
         }
 
         public static ActivityState parse(String str) {
             ActivityState[] values;
             for (ActivityState activityState : values()) {
-                if (activityState.f3360a.equalsIgnoreCase(str)) {
+                if (activityState.f3371a.equalsIgnoreCase(str)) {
                     return activityState;
                 }
             }
@@ -132,7 +132,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum SlotState {
         IDEL("idel"),
         LOADING("loading"),
@@ -144,20 +144,20 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3364a;
+        private final String f3375a;
 
         SlotState(String str) {
-            this.f3364a = str;
+            this.f3375a = str;
         }
 
         public String getValue() {
-            return this.f3364a;
+            return this.f3375a;
         }
 
         public static SlotState parse(String str) {
             SlotState[] values;
             for (SlotState slotState : values()) {
-                if (slotState.f3364a.equalsIgnoreCase(str)) {
+                if (slotState.f3375a.equalsIgnoreCase(str)) {
                     return slotState;
                 }
             }
@@ -165,7 +165,7 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum SlotType {
         SLOT_TYPE_JSSDK("jssdk"),
         SLOT_TYPE_CPU("cpu"),
@@ -173,28 +173,34 @@ public interface IXAdConstants4PDK {
         SLOT_TYPE_SPLASH("rsplash"),
         SLOT_TYPE_INTERSTITIAL("int"),
         SLOT_TYPE_FEEDS(LogConfig.KEY_FEED),
+        SLOT_TYPE_INSITE("insite"),
+        SLOT_TYPE_SUG("sug"),
+        SLOT_TYPE_FULLSCREEN_VIDEO("fvideo"),
+        SLOT_TYPE_REWARD_VIDEO("rvideo"),
+        SLOT_TYPE_PORTRAIT_VIDEO("pvideo"),
         SLOT_TYPE_PREROLL("preroll"),
         SLOT_TYPE_MIDROLL("midroll"),
         SLOT_TYPE_POSTROLL("postroll"),
         SLOT_TYPE_OVERLAY("overlay"),
-        SLOT_TYPE_PAUSE_ROLL("pauseroll");
+        SLOT_TYPE_PAUSE_ROLL("pauseroll"),
+        SLOT_TYPE_CONTENT("content");
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3366a;
+        private final String f3377a;
 
         SlotType(String str) {
-            this.f3366a = str;
+            this.f3377a = str;
         }
 
         public String getValue() {
-            return this.f3366a;
+            return this.f3377a;
         }
 
         public static SlotType parse(String str) {
             SlotType[] values;
             for (SlotType slotType : values()) {
-                if (slotType.f3366a.equalsIgnoreCase(str)) {
+                if (slotType.f3377a.equalsIgnoreCase(str)) {
                     return slotType;
                 }
             }
@@ -202,27 +208,27 @@ public interface IXAdConstants4PDK {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum VisitorAction {
         PAUSE_BUTTON_CLICKED("PAUSE_BUTTON_CLICKED"),
         RESUME_BUTTON_CLICKED("RESUME_BUTTON_CLICKED");
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3372a;
+        private final String f3383a;
 
         VisitorAction(String str) {
-            this.f3372a = str;
+            this.f3383a = str;
         }
 
         public String getValue() {
-            return this.f3372a;
+            return this.f3383a;
         }
 
         public static VisitorAction parse(String str) {
             VisitorAction[] values;
             for (VisitorAction visitorAction : values()) {
-                if (visitorAction.f3372a.equalsIgnoreCase(str)) {
+                if (visitorAction.f3383a.equalsIgnoreCase(str)) {
                     return visitorAction;
                 }
             }

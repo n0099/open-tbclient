@@ -10,7 +10,7 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
     private static final String TAG = "FlutterSurfaceView";
     @Nullable

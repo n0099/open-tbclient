@@ -21,6 +21,7 @@ import com.baidu.ar.h.i;
 import com.baidu.ar.lua.LuaMsgListener;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
+import com.yy.videoplayer.decoder.VideoConstant;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -172,7 +173,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             i3 = this.mInputHeight;
             i4 = this.mInputWidth;
         }
-        if (Float.compare((i3 * 1.0f) / i4, (180 * 1.0f) / 320) == 0) {
+        if (Float.compare((i3 * 1.0f) / i4, (180 * 1.0f) / ((float) VideoConstant.THUMBNAIL_WIDTH)) == 0) {
             i = 320;
             i2 = 180;
         } else if (i3 > i4) {
@@ -187,7 +188,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private j m16do() {
+    private j m17do() {
         dn();
         j jVar = new j();
         jVar.I(this.nx.getAlgoImageWidth());
@@ -483,11 +484,11 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                 }
             };
             this.np.p(getContext());
-            j m16do = m16do();
+            j m17do = m17do();
             this.nx.z(this.nw);
             configSyncStatus(dm());
             this.np.E(u());
-            this.np.b(m16do);
+            this.np.b(m17do);
             a(this.np, this.mv);
             this.nA = new com.baidu.ar.face.attributes.a(r());
             this.nA.b(getContext(), this.ny.qc);

@@ -16,33 +16,37 @@ import com.baidu.tieba.tbadkCore.z;
 public class a {
     public static void a(ShareItem shareItem, final Context context, final int i, final DialogInterface.OnCancelListener onCancelListener) {
         if (shareItem != null && !TextUtils.isEmpty(shareItem.content) && !TextUtils.isEmpty(shareItem.title) && (context instanceof Activity)) {
-            com.baidu.adp.lib.util.a.copyToClipboard(shareItem.ftb);
+            com.baidu.adp.lib.util.a.copyToClipboard(shareItem.fvt);
             Activity activity = (Activity) context;
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-            aVar.Ac(context.getString(R.string.command_share_tips));
-            aVar.Ad(shareItem.ftb);
+            aVar.At(context.getString(R.string.command_share_tips));
+            aVar.Au(shareItem.fvt);
             aVar.setAutoNight(false);
-            aVar.jD(true);
+            aVar.jF(true);
             aVar.setTitleShowCenter(true);
             aVar.a(j(i, context), new a.b() { // from class: com.baidu.tbadk.coreExtra.share.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     a.i(i, context);
                     aVar2.dismiss();
-                    onCancelListener.onCancel(aVar2.getDialog());
+                    if (onCancelListener != null) {
+                        onCancelListener.onCancel(aVar2.getDialog());
+                    }
                 }
             });
             aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.coreExtra.share.a.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    onCancelListener.onCancel(aVar2.getDialog());
+                    if (onCancelListener != null) {
+                        onCancelListener.onCancel(aVar2.getDialog());
+                    }
                 }
             }).b(j.K(activity));
             if (onCancelListener != null) {
                 aVar.d(onCancelListener);
             }
-            aVar.bqe();
+            aVar.bqx();
         }
     }
 
@@ -51,7 +55,7 @@ public class a {
         Intent intent = null;
         if (i == 3 || i == 2) {
             if (!F(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).bqk();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).bqD();
                 return;
             }
             intent = new Intent("android.intent.action.MAIN");
@@ -62,7 +66,7 @@ public class a {
             context.startActivity(intent);
         } else if (i == 8 || i == 4) {
             if (!F(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).bqk();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).bqD();
                 return;
             }
             intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
@@ -70,7 +74,7 @@ public class a {
             context.startActivity(intent);
         } else if (i == 6) {
             if (!F(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).bqk();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).bqD();
                 return;
             }
             intent = new Intent();

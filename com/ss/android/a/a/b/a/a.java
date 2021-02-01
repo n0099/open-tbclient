@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.ss.android.a.a.b.b;
 import com.ss.android.a.a.b.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void a(@NonNull c cVar, @Nullable com.ss.android.a.a.b.a aVar, @Nullable b bVar);
 

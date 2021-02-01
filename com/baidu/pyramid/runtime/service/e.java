@@ -3,15 +3,15 @@ package com.baidu.pyramid.runtime.service;
 import com.baidu.ubc.UBC;
 import com.baidu.ubc.ae;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
-    private static final HashMap<d, b<?>> crn = new HashMap<>();
+    private static final HashMap<d, b<?>> ctb = new HashMap<>();
 
     static {
-        aee();
+        aev();
     }
 
-    private static void aee() {
+    private static void aev() {
         a("ubc", UBC.TAG, ae.class);
     }
 
@@ -26,15 +26,15 @@ public class e {
     }
 
     public static <T> void a(d dVar, b<T> bVar) {
-        synchronized (crn) {
-            crn.put(dVar, bVar);
+        synchronized (ctb) {
+            ctb.put(dVar, bVar);
         }
     }
 
     public static <T> T a(d dVar) {
-        b<?> bVar = crn.get(dVar);
+        b<?> bVar = ctb.get(dVar);
         if (bVar != null) {
-            return (T) bVar.aec();
+            return (T) bVar.aet();
         }
         return null;
     }

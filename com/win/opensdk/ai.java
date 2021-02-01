@@ -9,23 +9,23 @@ import org.json.JSONException;
 public final class ai {
     public static void a(String str, r<am> rVar) {
         try {
-            rVar.eGz();
-            t eGD = new s(str, "GET", eGM()).eGD();
+            rVar.eIP();
+            t eIT = new s(str, "GET", eJc()).eIT();
             am amVar = new am();
-            int a2 = a(eGD, amVar);
+            int a2 = a(eIT, amVar);
             if (a2 == 200) {
                 rVar.bH(amVar);
             } else {
-                rVar.cd(a2, amVar.f23java);
+                rVar.ck(a2, amVar.f23java);
             }
         } catch (JSONException e) {
-            rVar.cd(101, e.getMessage());
+            rVar.ck(101, e.getMessage());
         } catch (Exception e2) {
-            rVar.cd(100, e2.getMessage());
+            rVar.ck(100, e2.getMessage());
         }
     }
 
-    public static HashMap<String, List<String>> eGM() {
+    public static HashMap<String, List<String>> eJc() {
         HashMap<String, List<String>> hashMap = new HashMap<>();
         hashMap.put(Headers.ACCEPT_ENCODING, Collections.singletonList("application/gzip"));
         hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
@@ -34,10 +34,10 @@ public final class ai {
     }
 
     public static int a(t tVar, am amVar) {
-        byte[] bArr = tVar.pZz;
+        byte[] bArr = tVar.qjD;
         int i = tVar.java;
         if (i == 200) {
-            amVar.aaE(new String(bArr, "UTF-8"));
+            amVar.abF(new String(bArr, "UTF-8"));
             return amVar.java;
         }
         return i;

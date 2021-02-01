@@ -13,14 +13,14 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends Drawable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f9530a;
+    private Paint f9532a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Paint f9531b;
+    private Paint f9533b;
     private int c;
     private int d;
     private int e;
@@ -29,14 +29,14 @@ public class e extends Drawable {
     private int[] h;
     private RectF i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f9532a = 1;
+        private int f9534a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f9533b = 12;
+        private int f9535b = 12;
         private int c = Color.parseColor("#4d000000");
         private int d = 18;
         private int e = 0;
@@ -48,12 +48,12 @@ public class e extends Drawable {
         }
 
         public a a(int i) {
-            this.f9533b = i;
+            this.f9535b = i;
             return this;
         }
 
         public e a() {
-            return new e(this.f9532a, this.g, this.f9533b, this.c, this.d, this.e, this.f);
+            return new e(this.f9534a, this.g, this.f9535b, this.c, this.d, this.e, this.f);
         }
 
         public a b(int i) {
@@ -89,13 +89,13 @@ public class e extends Drawable {
         this.c = i4;
         this.f = i5;
         this.g = i6;
-        this.f9530a = new Paint();
-        this.f9530a.setColor(0);
-        this.f9530a.setAntiAlias(true);
-        this.f9530a.setShadowLayer(i4, i5, i6, i3);
-        this.f9530a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
-        this.f9531b = new Paint();
-        this.f9531b.setAntiAlias(true);
+        this.f9532a = new Paint();
+        this.f9532a.setColor(0);
+        this.f9532a.setAntiAlias(true);
+        this.f9532a.setShadowLayer(i4, i5, i6, i3);
+        this.f9532a.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
+        this.f9533b = new Paint();
+        this.f9533b.setAntiAlias(true);
     }
 
     public static void a(View view, int i, int i2, int i3, int i4, int i5, int i6) {
@@ -113,18 +113,18 @@ public class e extends Drawable {
     public void draw(@NonNull Canvas canvas) {
         if (this.h != null) {
             if (this.h.length == 1) {
-                this.f9531b.setColor(this.h[0]);
+                this.f9533b.setColor(this.h[0]);
             } else {
-                this.f9531b.setShader(new LinearGradient(this.i.left, this.i.height() / 2.0f, this.i.right, this.i.height() / 2.0f, this.h, (float[]) null, Shader.TileMode.CLAMP));
+                this.f9533b.setShader(new LinearGradient(this.i.left, this.i.height() / 2.0f, this.i.right, this.i.height() / 2.0f, this.h, (float[]) null, Shader.TileMode.CLAMP));
             }
         }
         if (this.d == 1) {
-            canvas.drawRoundRect(this.i, this.e, this.e, this.f9530a);
-            canvas.drawRoundRect(this.i, this.e, this.e, this.f9531b);
+            canvas.drawRoundRect(this.i, this.e, this.e, this.f9532a);
+            canvas.drawRoundRect(this.i, this.e, this.e, this.f9533b);
             return;
         }
-        canvas.drawCircle(this.i.centerX(), this.i.centerY(), Math.min(this.i.width(), this.i.height()) / 2.0f, this.f9530a);
-        canvas.drawCircle(this.i.centerX(), this.i.centerY(), Math.min(this.i.width(), this.i.height()) / 2.0f, this.f9531b);
+        canvas.drawCircle(this.i.centerX(), this.i.centerY(), Math.min(this.i.width(), this.i.height()) / 2.0f, this.f9532a);
+        canvas.drawCircle(this.i.centerX(), this.i.centerY(), Math.min(this.i.width(), this.i.height()) / 2.0f, this.f9533b);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -134,7 +134,7 @@ public class e extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.f9530a.setAlpha(i);
+        this.f9532a.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -145,6 +145,6 @@ public class e extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        this.f9530a.setColorFilter(colorFilter);
+        this.f9532a.setColorFilter(colorFilter);
     }
 }

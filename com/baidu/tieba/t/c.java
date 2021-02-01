@@ -5,11 +5,11 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.ae;
 /* loaded from: classes.dex */
 public class c {
-    private static c nvz;
-    private a nvA = dOA();
+    private static c nFj;
+    private a nFk = dQL();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -20,47 +20,47 @@ public class c {
         void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
     }
 
-    private boolean dOz() {
-        return com.baidu.tbadk.core.sharedPref.b.brx().getInt("pref_key_stat_sdk_enable", 1) != 0;
+    private boolean dQK() {
+        return com.baidu.tbadk.core.sharedPref.b.brQ().getInt("pref_key_stat_sdk_enable", 1) != 0;
     }
 
     private c() {
     }
 
-    private a dOA() {
+    private a dQL() {
         CustomResponsedMessage runTask;
-        if (!dOz() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+        if (!dQK() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static c dOB() {
-        if (nvz == null) {
+    public static c dQM() {
+        if (nFj == null) {
             synchronized (c.class) {
-                if (nvz == null) {
-                    nvz = new c();
+                if (nFj == null) {
+                    nFj = new c();
                 }
             }
         }
-        return nvz;
+        return nFj;
     }
 
     public void autoTrace(Context context) {
-        if (ad.bsf() && this.nvA != null) {
-            this.nvA.autoTrace(context);
+        if (ae.bsz() && this.nFk != null) {
+            this.nFk.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (ad.bsf() && this.nvA != null) {
-            this.nvA.setAppChannel(context, str, z);
+        if (ae.bsz() && this.nFk != null) {
+            this.nFk.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (ad.bsf() && this.nvA != null) {
-            this.nvA.trackWebView(context, webView, webChromeClient);
+        if (ae.bsz() && this.nFk != null) {
+            this.nFk.trackWebView(context, webView, webChromeClient);
         }
     }
 }

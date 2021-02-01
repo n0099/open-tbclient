@@ -3,6 +3,7 @@ package com.coremedia.iso;
 import com.coremedia.iso.boxes.Box;
 import com.googlecode.mp4parser.FileDataSourceImpl;
 import com.googlecode.mp4parser.util.Path;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -10,7 +11,7 @@ import java.nio.channels.FileChannel;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BoxReplacer {
     static final /* synthetic */ boolean $assertionsDisabled;
 
@@ -29,7 +30,7 @@ public class BoxReplacer {
             }
         }
         isoFile.close();
-        FileChannel channel = new RandomAccessFile(file, "rw").getChannel();
+        FileChannel channel = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth).getChannel();
         Iterator it = hashMap.entrySet().iterator();
         if (it.hasNext()) {
             String str = (String) ((Map.Entry) it.next()).getKey();

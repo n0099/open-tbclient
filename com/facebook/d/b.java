@@ -8,17 +8,17 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public class b {
-    public static int PV(int i) {
-        return d.PV(i);
+    public static int Qq(int i) {
+        return d.Qq(i);
     }
 
-    public static int C(InputStream inputStream) {
+    public static int z(InputStream inputStream) {
         try {
-            int D = D(inputStream);
-            if (D == 0) {
+            int A = A(inputStream);
+            if (A == 0) {
                 return 0;
             }
-            return d.h(inputStream, D);
+            return d.h(inputStream, A);
         } catch (IOException e) {
             return 0;
         }
@@ -31,7 +31,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && PW(i2)) || i2 == i) {
+            if ((i == 192 && Qr(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -44,7 +44,7 @@ public class b {
         return false;
     }
 
-    private static boolean PW(int i) {
+    private static boolean Qr(int i) {
         switch (i) {
             case 192:
             case 193:
@@ -68,7 +68,7 @@ public class b {
         }
     }
 
-    private static int D(InputStream inputStream) throws IOException {
+    private static int A(InputStream inputStream) throws IOException {
         int a2;
         if (g(inputStream, 225) && c.a(inputStream, 2, false) - 2 > 6) {
             int a3 = c.a(inputStream, 4, false);

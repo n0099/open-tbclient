@@ -1,7 +1,7 @@
 package com.airbnb.lottie.model.content;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b {
     @Nullable
     com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar);

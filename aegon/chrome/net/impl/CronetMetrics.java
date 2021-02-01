@@ -1,7 +1,7 @@
 package aegon.chrome.net.impl;
 
 import aegon.chrome.net.RequestFinishedInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class CronetMetrics extends RequestFinishedInfo.Metrics {
     public static final /* synthetic */ boolean $assertionsDisabled = !CronetMetrics.class.desiredAssertionStatus();
 

@@ -9,53 +9,52 @@ import android.util.Log;
 import android.view.Surface;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.fsg.face.liveness.video.f;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.l.g;
 import com.baidu.tieba.l.k;
 import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
-    private boolean cdz;
+    private boolean chH;
     private MediaCodec.BufferInfo mBufferInfo;
     private MediaCodec mEncoder;
     private Surface mInputSurface;
     private int mTrackIndex;
-    private g noi;
-    private c pDC;
-    private Bundle dqI = new Bundle();
-    private long pEg = 0;
-    private boolean pEb = false;
+    private g nxU;
+    private c pNK;
+    private Bundle dsU = new Bundle();
+    private long pOl = 0;
+    private boolean pOi = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
-            this.noi = kVar.deY();
+            this.nxU = kVar.dgY();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
-        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f.f2313b, i, i2);
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
         createVideoFormat.setInteger("color-format", 2130708361);
         createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, i3);
         createVideoFormat.setInteger("frame-rate", 20);
         createVideoFormat.setInteger("i-frame-interval", 1);
-        this.mEncoder = MediaCodec.createEncoderByType(f.f2313b);
+        this.mEncoder = MediaCodec.createEncoderByType("video/avc");
         this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mInputSurface = this.mEncoder.createInputSurface();
         this.mEncoder.start();
         if (Build.VERSION.SDK_INT >= 19) {
-            this.dqI.putInt("request-sync", 0);
-            this.mEncoder.setParameters(this.dqI);
+            this.dsU.putInt("request-sync", 0);
+            this.mEncoder.setParameters(this.dsU);
         }
         this.mTrackIndex = -1;
-        this.cdz = false;
-        this.pDC = cVar;
+        this.chH = false;
+        this.pNK = cVar;
     }
 
     public synchronized void requestStop() {
-        this.pEb = true;
+        this.pOi = true;
     }
 
     public Surface getInputSurface() {
@@ -68,15 +67,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.pDC != null) {
+        if (this.pNK != null) {
             try {
-                this.pDC.stop();
+                this.pNK.stop();
             } catch (IllegalStateException e) {
-                if (this.noi != null) {
-                    this.noi.bE(17, com.baidu.tieba.l.a.p(e));
+                if (this.nxU != null) {
+                    this.nxU.bK(17, com.baidu.tieba.l.a.o(e));
                 }
             }
-            this.pDC = null;
+            this.pNK = null;
         }
     }
 
@@ -94,25 +93,25 @@ public class e {
             } else if (dequeueOutputBuffer == -3) {
                 outputBuffers = this.mEncoder.getOutputBuffers();
             } else if (dequeueOutputBuffer == -2) {
-                if (this.cdz) {
+                if (this.chH) {
                     throw new RuntimeException("format changed twice");
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.mTrackIndex = this.pDC.f(outputFormat);
-                if (!this.pDC.start()) {
-                    synchronized (this.pDC) {
-                        while (!this.pDC.isStarted() && !this.pEb) {
+                this.mTrackIndex = this.pNK.f(outputFormat);
+                if (!this.pNK.start()) {
+                    synchronized (this.pNK) {
+                        while (!this.pNK.isStarted() && !this.pOi) {
                             try {
-                                this.pDC.wait(100L);
+                                this.pNK.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.pEb) {
-                    this.cdz = true;
+                if (!this.pOi) {
+                    this.chH = true;
                 } else {
                     return;
                 }
@@ -127,17 +126,17 @@ public class e {
                     this.mBufferInfo.size = 0;
                 }
                 if (this.mBufferInfo.size != 0) {
-                    if (!this.cdz) {
+                    if (!this.chH) {
                         throw new RuntimeException("muxer hasn't started");
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.pDC.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                    this.pNK.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pEg >= 500) {
-                    this.mEncoder.setParameters(this.dqI);
-                    this.pEg = System.currentTimeMillis();
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pOl >= 500) {
+                    this.mEncoder.setParameters(this.dsU);
+                    this.pOl = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

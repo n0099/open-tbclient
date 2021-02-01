@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.t.b;
 import com.qq.e.comm.plugin.t.b.e;
 import com.qq.e.comm.plugin.util.aq;
 import java.net.HttpURLConnection;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class g extends a {
     public g(String str, byte[] bArr) {
         super(str, e.a.POST, bArr);

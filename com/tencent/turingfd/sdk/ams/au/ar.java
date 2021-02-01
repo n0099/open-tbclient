@@ -1,7 +1,7 @@
 package com.tencent.turingfd.sdk.ams.au;
 
 import com.baidu.adp.plugin.install.PluginInstallerService;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class ar {
     public static boolean a(String str, String str2) {
         int indexOf;

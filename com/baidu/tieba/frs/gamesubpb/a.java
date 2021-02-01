@@ -8,8 +8,8 @@ import com.baidu.tieba.frs.gamesubpb.model.d;
 import com.baidu.tieba.frs.gamesubpb.view.GameSubCommentView;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.GameSubCommentViewHolder> {
-    private TbPageContext jvh;
-    private InterfaceC0730a jvi;
+    private TbPageContext jAN;
+    private InterfaceC0730a jAO;
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -24,7 +24,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.Gam
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.jvh = tbPageContext;
+        this.jAN = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,8 +32,8 @@ public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.Gam
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bK */
     public GameSubCommentView.GameSubCommentViewHolder e(ViewGroup viewGroup) {
-        GameSubCommentView gameSubCommentView = new GameSubCommentView(this.jvh);
-        gameSubCommentView.setClickListener(this.jvi);
+        GameSubCommentView gameSubCommentView = new GameSubCommentView(this.jAN);
+        gameSubCommentView.setClickListener(this.jAO);
         return new GameSubCommentView.GameSubCommentViewHolder(gameSubCommentView);
     }
 
@@ -48,6 +48,6 @@ public class a extends com.baidu.adp.widget.ListView.a<d, GameSubCommentView.Gam
     }
 
     public void setClickListener(InterfaceC0730a interfaceC0730a) {
-        this.jvi = interfaceC0730a;
+        this.jAO = interfaceC0730a;
     }
 }

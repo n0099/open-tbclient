@@ -24,11 +24,11 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static IWTTSPlayer f2979b;
+    private static IWTTSPlayer f2977b;
     private static com.baidu.platform.comapi.wnplatform.m.c h = new d();
     private FrameLayout d;
     private RelativeLayout e;
@@ -37,7 +37,7 @@ public class a {
     private MapView c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    View f2980a = null;
+    View f2978a = null;
 
     public void a(Activity activity, IWEngineInitListener iWEngineInitListener) {
         if (iWEngineInitListener == null) {
@@ -63,7 +63,7 @@ public class a {
     }
 
     public void a(IWTTSPlayer iWTTSPlayer) {
-        f2979b = iWTTSPlayer;
+        f2977b = iWTTSPlayer;
     }
 
     public void a(WLocData wLocData) {
@@ -105,13 +105,13 @@ public class a {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         this.d = new FrameLayout(activity);
         this.d.setLayoutParams(layoutParams);
-        this.f2980a = com.baidu.platform.comapi.walknavi.b.a().b(activity);
+        this.f2978a = com.baidu.platform.comapi.walknavi.b.a().b(activity);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -1);
         this.e = new RelativeLayout(activity);
         this.e.setLayoutParams(layoutParams2);
         this.d.addView(this.c);
         this.d.addView(this.e);
-        this.d.addView(this.f2980a);
+        this.d.addView(this.f2978a);
         return this.d;
     }
 
@@ -176,8 +176,8 @@ public class a {
     }
 
     public void e() {
-        if (f2979b != null) {
-            f2979b = null;
+        if (f2977b != null) {
+            f2977b = null;
         }
         if (this.c != null) {
             this.c.getMap().clear();

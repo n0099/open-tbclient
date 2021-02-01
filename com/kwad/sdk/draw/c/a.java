@@ -10,15 +10,15 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.video.a.c;
 import com.kwad.sdk.core.view.g;
 import com.kwad.sdk.utils.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private AdTemplate f9709a;
+    private AdTemplate f9711a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f9710b;
+    private long f9712b;
     private g c;
     private com.kwad.sdk.contentalliance.detail.video.a d;
     private c e;
@@ -30,7 +30,7 @@ public class a {
                 return;
             }
             if (a.this.e == null) {
-                a.this.e = new c(a.this.f9710b, System.currentTimeMillis());
+                a.this.e = new c(a.this.f9712b, System.currentTimeMillis());
                 a.this.d.a(a.this.e);
             }
             a.this.c();
@@ -39,8 +39,8 @@ public class a {
 
     public a(@NonNull AdTemplate adTemplate, @NonNull g gVar, @NonNull DetailVideoView detailVideoView) {
         adTemplate.mKsPlayerClickTimeParam = System.currentTimeMillis();
-        this.f9709a = adTemplate;
-        this.f9710b = com.kwad.sdk.core.response.b.a.k(com.kwad.sdk.core.response.b.c.j(this.f9709a));
+        this.f9711a = adTemplate;
+        this.f9712b = com.kwad.sdk.core.response.b.a.k(com.kwad.sdk.core.response.b.c.j(this.f9711a));
         this.c = gVar;
         this.d = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
         f();
@@ -55,13 +55,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
         if (this.c.d()) {
-            this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f9710b, j));
+            this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f9712b, j));
             this.d.f();
         }
     }
 
     private void f() {
-        this.d.a(new d.a().a(com.kwad.sdk.core.response.b.c.l(this.f9709a)).a(this.f9709a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.c.a(this.f9709a)).a());
+        this.d.a(new d.a().a(com.kwad.sdk.core.response.b.c.l(this.f9711a)).a(this.f9711a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.c.a(this.f9711a)).a());
         this.d.e();
     }
 

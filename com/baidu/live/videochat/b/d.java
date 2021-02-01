@@ -3,28 +3,28 @@ package com.baidu.live.videochat.b;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.AlaLiveUserInfoData;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    public AlaLiveUserInfoData aLL;
-    public AlaLiveInfoData aLZ;
-    public a bLu;
+    public AlaLiveUserInfoData aOI;
+    public AlaLiveInfoData aOW;
+    public a bPe;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.aLL = new AlaLiveUserInfoData();
-                this.aLL.parserJson(optJSONObject);
+                this.aOI = new AlaLiveUserInfoData();
+                this.aOI.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("live_info");
             if (optJSONObject2 != null) {
-                this.aLZ = new AlaLiveInfoData();
-                this.aLZ.parserJson(optJSONObject2);
+                this.aOW = new AlaLiveInfoData();
+                this.aOW.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("match_info");
             if (optJSONObject3 != null) {
-                this.bLu = new a();
-                this.bLu.parserJson(optJSONObject3);
+                this.bPe = new a();
+                this.bPe.parserJson(optJSONObject3);
             }
         }
     }

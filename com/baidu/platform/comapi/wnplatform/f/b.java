@@ -13,15 +13,15 @@ import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.platform.comjni.jninative.vibrate.IVibrateListener;
 import com.baidu.platform.comjni.jninative.vibrate.VibrateHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu.platform.comapi.wnplatform.c.a, com.baidu.platform.comapi.wnplatform.h.a, com.baidu.platform.comapi.wnplatform.h.b, IVibrateListener {
     private Activity c;
 
     /* renamed from: a  reason: collision with root package name */
-    private IWRouteGuidanceListener f4404a = null;
+    private IWRouteGuidanceListener f4407a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private IBRouteGuidanceListener f4405b = null;
+    private IBRouteGuidanceListener f4408b = null;
     private int d = -1;
 
     public b(Activity activity) {
@@ -30,8 +30,8 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
-        this.f4404a = null;
-        this.f4405b = null;
+        this.f4407a = null;
+        this.f4408b = null;
         if (this.c != null) {
             this.c = null;
         }
@@ -48,8 +48,8 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
 
     @Override // com.baidu.platform.comapi.wnplatform.h.a
     public void a(Bundle bundle) {
-        if (this.f4405b != null) {
-            this.f4405b.onGetRouteDetailInfo(a.a(bundle));
+        if (this.f4408b != null) {
+            this.f4408b.onGetRouteDetailInfo(a.a(bundle));
         }
     }
 
@@ -60,17 +60,17 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
     @Override // com.baidu.platform.comapi.wnplatform.c.a
     public void a(Message message) {
         if (this.c != null) {
-            if (this.f4405b != null && message.arg1 == 0) {
-                if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
-                    this.f4405b.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f08001c_ic_icon_mask_guide_tech_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837575));
+            if (this.f4408b != null && message.arg1 == 0) {
+                if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+                    this.f4408b.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f08001c_ic_icon_mask_guide_tech_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837575));
                 } else {
-                    this.f4405b.onGpsStatusChange(this.c.getResources().getString(R.drawable.res_0x7f08001c_ic_icon_mask_guide_tech_svg__0), this.c.getResources().getDrawable(2130837575));
+                    this.f4408b.onGpsStatusChange(this.c.getResources().getString(R.drawable.res_0x7f08001c_ic_icon_mask_guide_tech_svg__0), this.c.getResources().getDrawable(2130837575));
                 }
-            } else if (this.f4404a != null && message.arg1 == 0) {
-                if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
-                    this.f4404a.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f08001c_ic_icon_mask_guide_tech_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837575));
+            } else if (this.f4407a != null && message.arg1 == 0) {
+                if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+                    this.f4407a.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f08001c_ic_icon_mask_guide_tech_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837575));
                 } else {
-                    this.f4404a.onGpsStatusChange(this.c.getResources().getString(R.drawable.res_0x7f08001c_ic_icon_mask_guide_tech_svg__0), this.c.getResources().getDrawable(2130837575));
+                    this.f4407a.onGpsStatusChange(this.c.getResources().getString(R.drawable.res_0x7f08001c_ic_icon_mask_guide_tech_svg__0), this.c.getResources().getDrawable(2130837575));
                 }
             }
         }
@@ -80,31 +80,31 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
     public void b(Bundle bundle) {
         int i;
         if (this.c != null) {
-            com.baidu.platform.comapi.wnplatform.d.a.a("OuterWalkGuideInfo", "OutWalkGuide mIBRouteGuidanceListener:" + this.f4405b);
+            com.baidu.platform.comapi.wnplatform.d.a.a("OuterWalkGuideInfo", "OutWalkGuide mIBRouteGuidanceListener:" + this.f4408b);
             int i2 = bundle.getInt("simpleUpdateType");
             com.baidu.platform.comapi.wnplatform.d.a.a("OuterWalkGuideInfo", "OutWalkGuide updateType:" + i2 + "  data:" + bundle);
-            if (i2 != e.a.f4411a && i2 != e.a.d) {
+            if (i2 != e.a.f4414a && i2 != e.a.d) {
                 if (bundle.containsKey("enGuideType") && (i = bundle.getInt("enGuideType")) < RouteGuideKind.values().length) {
-                    if (this.f4405b != null) {
-                        this.f4405b.onRouteGuideKind(RouteGuideKind.values()[i]);
-                    } else if (this.f4404a != null) {
-                        this.f4404a.onRouteGuideKind(RouteGuideKind.values()[i]);
+                    if (this.f4408b != null) {
+                        this.f4408b.onRouteGuideKind(RouteGuideKind.values()[i]);
+                    } else if (this.f4407a != null) {
+                        this.f4407a.onRouteGuideKind(RouteGuideKind.values()[i]);
                     }
                 }
                 com.baidu.platform.comapi.walknavi.g.a.a.a(bundle, 1, bundle.getInt("nRemainDist"), bundle.getInt("nStartDist"));
                 if (bundle.containsKey("enGuideType")) {
                     int a2 = com.baidu.platform.comapi.bikenavi.c.a.a(c.b(RouteGuideKind.values()[bundle.getInt("enGuideType")]));
                     if (this.d != a2) {
-                        if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
-                            if (this.f4405b != null) {
-                                this.f4405b.onRouteGuideIconUpdate(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, a2));
-                            } else if (this.f4404a != null) {
-                                this.f4404a.onRouteGuideIconUpdate(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, a2));
+                        if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+                            if (this.f4408b != null) {
+                                this.f4408b.onRouteGuideIconUpdate(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, a2));
+                            } else if (this.f4407a != null) {
+                                this.f4407a.onRouteGuideIconUpdate(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, a2));
                             }
-                        } else if (this.f4405b != null) {
-                            this.f4405b.onRouteGuideIconUpdate(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, a2));
-                        } else if (this.f4404a != null) {
-                            this.f4404a.onRouteGuideIconUpdate(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, a2));
+                        } else if (this.f4408b != null) {
+                            this.f4408b.onRouteGuideIconUpdate(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, a2));
+                        } else if (this.f4407a != null) {
+                            this.f4407a.onRouteGuideIconUpdate(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, a2));
                         }
                         this.d = a2;
                         com.baidu.platform.comapi.wnplatform.d.a.a("OuterWalkGuideInfo", "OutWalkGuide getResources ID:" + a2);
@@ -141,10 +141,10 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
                         sb2.append((CharSequence) string, intArray[i4], string.length());
                         sb2.append("");
                         com.baidu.platform.comapi.wnplatform.d.a.a("OuterWalkGuideInfo", "OutWalkGuide onRoadGuideTextUpdate:" + sb.toString());
-                        if (this.f4405b != null) {
-                            this.f4405b.onRoadGuideTextUpdate(sb.toString(), sb2.toString());
-                        } else if (this.f4404a != null) {
-                            this.f4404a.onRoadGuideTextUpdate(sb.toString(), sb2.toString());
+                        if (this.f4408b != null) {
+                            this.f4408b.onRoadGuideTextUpdate(sb.toString(), sb2.toString());
+                        } else if (this.f4407a != null) {
+                            this.f4407a.onRoadGuideTextUpdate(sb.toString(), sb2.toString());
                         }
                     }
                 }
@@ -158,12 +158,12 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
         int i2 = bundle.getInt("totaltime");
         StringBuffer stringBuffer = new StringBuffer();
         f.a(i, f.a.ZH, stringBuffer);
-        if (this.f4405b != null) {
-            this.f4405b.onRemainDistanceUpdate(stringBuffer.toString());
-            this.f4405b.onRemainTimeUpdate(f.a(i2, 2));
-        } else if (this.f4404a != null) {
-            this.f4404a.onRemainDistanceUpdate(stringBuffer.toString());
-            this.f4404a.onRemainTimeUpdate(f.a(i2, 2));
+        if (this.f4408b != null) {
+            this.f4408b.onRemainDistanceUpdate(stringBuffer.toString());
+            this.f4408b.onRemainTimeUpdate(f.a(i2, 2));
+        } else if (this.f4407a != null) {
+            this.f4407a.onRemainDistanceUpdate(stringBuffer.toString());
+            this.f4407a.onRemainTimeUpdate(f.a(i2, 2));
         }
     }
 
@@ -182,18 +182,18 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
     @Override // com.baidu.platform.comapi.wnplatform.h.b
     public void b(Message message) {
         if (this.c != null) {
-            if (this.f4405b != null) {
-                if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
-                    this.f4405b.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f08001a_ic_icon_mask_guide_sport_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837572));
+            if (this.f4408b != null) {
+                if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+                    this.f4408b.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f08001a_ic_icon_mask_guide_sport_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837572));
                     return;
                 }
-                this.f4405b.onRouteFarAway(this.c.getResources().getString(R.drawable.res_0x7f08001a_ic_icon_mask_guide_sport_svg__0), this.c.getResources().getDrawable(2130837572));
-            } else if (this.f4404a != null) {
-                if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
-                    this.f4404a.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f08001a_ic_icon_mask_guide_sport_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837572));
+                this.f4408b.onRouteFarAway(this.c.getResources().getString(R.drawable.res_0x7f08001a_ic_icon_mask_guide_sport_svg__0), this.c.getResources().getDrawable(2130837572));
+            } else if (this.f4407a != null) {
+                if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+                    this.f4407a.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f08001a_ic_icon_mask_guide_sport_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837572));
                     return;
                 }
-                this.f4404a.onRouteFarAway(this.c.getResources().getString(R.drawable.res_0x7f08001a_ic_icon_mask_guide_sport_svg__0), this.c.getResources().getDrawable(2130837572));
+                this.f4407a.onRouteFarAway(this.c.getResources().getString(R.drawable.res_0x7f08001a_ic_icon_mask_guide_sport_svg__0), this.c.getResources().getDrawable(2130837572));
             }
         }
     }
@@ -201,37 +201,37 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
     @Override // com.baidu.platform.comapi.wnplatform.h.b
     public void c(Message message) {
         if (this.c != null) {
-            if (this.f4405b != null) {
-                if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
-                    this.f4405b.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f080016_ic_icon_mask_guide_leaf_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837587));
+            if (this.f4408b != null) {
+                if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+                    this.f4408b.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f080016_ic_icon_mask_guide_leaf_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837587));
                     return;
                 }
-                this.f4405b.onRoutePlanYawing(this.c.getResources().getString(R.drawable.res_0x7f080016_ic_icon_mask_guide_leaf_svg__0), this.c.getResources().getDrawable(2130837587));
-            } else if (this.f4404a != null) {
-                if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
-                    this.f4404a.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f080016_ic_icon_mask_guide_leaf_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837587));
+                this.f4408b.onRoutePlanYawing(this.c.getResources().getString(R.drawable.res_0x7f080016_ic_icon_mask_guide_leaf_svg__0), this.c.getResources().getDrawable(2130837587));
+            } else if (this.f4407a != null) {
+                if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+                    this.f4407a.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.drawable.res_0x7f080016_ic_icon_mask_guide_leaf_svg__0), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, 2130837587));
                     return;
                 }
-                this.f4404a.onRoutePlanYawing(this.c.getResources().getString(R.drawable.res_0x7f080016_ic_icon_mask_guide_leaf_svg__0), this.c.getResources().getDrawable(2130837587));
+                this.f4407a.onRoutePlanYawing(this.c.getResources().getString(R.drawable.res_0x7f080016_ic_icon_mask_guide_leaf_svg__0), this.c.getResources().getDrawable(2130837587));
             }
         }
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.h.b
     public void d(Message message) {
-        if (this.f4405b != null) {
-            this.f4405b.onReRouteComplete();
-        } else if (this.f4404a != null) {
-            this.f4404a.onReRouteComplete();
+        if (this.f4408b != null) {
+            this.f4408b.onReRouteComplete();
+        } else if (this.f4407a != null) {
+            this.f4407a.onReRouteComplete();
         }
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.h.b
     public void e(Message message) {
-        if (this.f4405b != null) {
-            this.f4405b.onArriveDest();
-        } else if (this.f4404a != null) {
-            this.f4404a.onArriveDest();
+        if (this.f4408b != null) {
+            this.f4408b.onArriveDest();
+        } else if (this.f4407a != null) {
+            this.f4407a.onArriveDest();
         }
     }
 
@@ -241,16 +241,16 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
 
     @Override // com.baidu.platform.comjni.jninative.vibrate.IVibrateListener
     public void onVibrate() {
-        if (this.f4405b != null) {
-            this.f4405b.onVibrate();
-        } else if (this.f4404a != null) {
-            this.f4404a.onVibrate();
+        if (this.f4408b != null) {
+            this.f4408b.onVibrate();
+        } else if (this.f4407a != null) {
+            this.f4407a.onVibrate();
         }
     }
 
     public void a(IWRouteGuidanceListener iWRouteGuidanceListener) {
-        this.f4404a = iWRouteGuidanceListener;
-        if (this.f4404a != null) {
+        this.f4407a = iWRouteGuidanceListener;
+        if (this.f4407a != null) {
             com.baidu.platform.comapi.walknavi.b.a().E().a((com.baidu.platform.comapi.wnplatform.h.a) this);
             com.baidu.platform.comapi.walknavi.b.a().E().a((com.baidu.platform.comapi.wnplatform.h.b) this);
             com.baidu.platform.comapi.walknavi.b.a().P().a(this);
@@ -264,8 +264,8 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
     }
 
     public void a(IBRouteGuidanceListener iBRouteGuidanceListener) {
-        this.f4405b = iBRouteGuidanceListener;
-        if (this.f4405b != null) {
+        this.f4408b = iBRouteGuidanceListener;
+        if (this.f4408b != null) {
             com.baidu.platform.comapi.walknavi.b.a().E().a((com.baidu.platform.comapi.wnplatform.h.a) this);
             com.baidu.platform.comapi.walknavi.b.a().E().a((com.baidu.platform.comapi.wnplatform.h.b) this);
             com.baidu.platform.comapi.walknavi.b.a().P().a(this);

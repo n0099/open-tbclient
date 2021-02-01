@@ -22,10 +22,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static final String TAG = "SapiLivenessRecog";
 
     /* renamed from: a  reason: collision with root package name */
-    private static SapiLivenessRecogManager f2111a;
+    private static SapiLivenessRecogManager f2109a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LivenessRecogCallback f2112b;
+    private LivenessRecogCallback f2110b;
     private long c;
     private long d;
 
@@ -35,10 +35,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static synchronized SapiLivenessRecogManager getInstance() {
         SapiLivenessRecogManager sapiLivenessRecogManager;
         synchronized (SapiLivenessRecogManager.class) {
-            if (f2111a == null) {
-                f2111a = new SapiLivenessRecogManager();
+            if (f2109a == null) {
+                f2109a = new SapiLivenessRecogManager();
             }
-            sapiLivenessRecogManager = f2111a;
+            sapiLivenessRecogManager = f2109a;
         }
         return sapiLivenessRecogManager;
     }
@@ -103,7 +103,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.f2112b = livenessRecogCallback;
+        this.f2110b = livenessRecogCallback;
         if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_FACEDETECT) {
             if (livenessRecogDTO.showGuidePage) {
                 Intent intent = new Intent(context, LivenessRecogGuidActivity.class);
@@ -123,11 +123,11 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     }
 
     public LivenessRecogCallback getLivenessRecogCallback() {
-        return this.f2112b;
+        return this.f2110b;
     }
 
     public void cleanLivenessRecogCallback() {
-        this.f2112b = null;
+        this.f2110b = null;
     }
 
     private void a(final Context context) {
@@ -231,7 +231,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             }
             return;
         }
-        this.f2112b = livenessRecogCallback;
+        this.f2110b = livenessRecogCallback;
         Intent intent = new Intent(context, LivenessVideoLoadingActivity.class);
         intent.setFlags(268435456);
         context.startActivity(intent);

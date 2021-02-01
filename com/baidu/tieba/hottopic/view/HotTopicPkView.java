@@ -9,31 +9,31 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.i;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HotTopicPkView extends View {
     private int ds30;
-    private boolean fXQ;
+    private boolean gag;
     private boolean isLeft;
-    private int kpe;
-    private int kpf;
-    private int kpg;
-    private int kph;
-    private Drawable kpi;
-    private Drawable kpj;
-    private Drawable kpk;
-    private int kpl;
-    private int kpm;
-    private int kpn;
-    private int kpo;
-    private RectF kpp;
-    private RectF kpq;
-    private i kpr;
-    private HotTopicActivity kps;
+    private int kxl;
+    private int kxm;
+    private int kxn;
+    private int kxo;
+    private Drawable kxp;
+    private Drawable kxq;
+    private Drawable kxr;
+    private int kxs;
+    private int kxt;
+    private int kxu;
+    private int kxv;
+    private RectF kxw;
+    private RectF kxx;
+    private i kxy;
+    private HotTopicActivity kxz;
     private int mSkinType;
     private Paint paint;
     private int width;
@@ -41,7 +41,7 @@ public class HotTopicPkView extends View {
     public HotTopicPkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.fXQ = false;
+        this.gag = false;
         this.isLeft = false;
         init(context);
     }
@@ -49,7 +49,7 @@ public class HotTopicPkView extends View {
     public HotTopicPkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.fXQ = false;
+        this.gag = false;
         this.isLeft = false;
         init(context);
     }
@@ -57,7 +57,7 @@ public class HotTopicPkView extends View {
     public HotTopicPkView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.fXQ = false;
+        this.gag = false;
         this.isLeft = false;
         init(context);
     }
@@ -68,42 +68,42 @@ public class HotTopicPkView extends View {
         this.paint.setDither(true);
         this.paint.setFilterBitmap(true);
         this.ds30 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
-        cRI();
-        this.kpk = ao.getDrawable(R.drawable.icon_pic_vs);
-        this.kpl = this.kpi.getIntrinsicWidth();
-        this.kpm = this.kpi.getIntrinsicHeight();
-        this.kpn = this.kpk.getIntrinsicWidth();
-        this.kpo = this.kpk.getIntrinsicHeight();
-        this.kpp = new RectF(0.0f, 0.0f, this.kpl, this.kpm);
-        this.kph = (this.kpm - this.kpo) / 2;
+        cTH();
+        this.kxr = ap.getDrawable(R.drawable.icon_pic_vs);
+        this.kxs = this.kxp.getIntrinsicWidth();
+        this.kxt = this.kxp.getIntrinsicHeight();
+        this.kxu = this.kxr.getIntrinsicWidth();
+        this.kxv = this.kxr.getIntrinsicHeight();
+        this.kxw = new RectF(0.0f, 0.0f, this.kxs, this.kxt);
+        this.kxo = (this.kxt - this.kxv) / 2;
     }
 
     public void setData(i iVar, HotTopicActivity hotTopicActivity) {
         if (iVar != null && hotTopicActivity != null) {
-            this.kpr = iVar;
-            this.kps = hotTopicActivity;
+            this.kxy = iVar;
+            this.kxz = hotTopicActivity;
             invalidate();
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.kpr.klN != 0) {
+        if (this.kxy.ktU != 0) {
             return true;
         }
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.kpp.contains(motionEvent.getX(), motionEvent.getY())) {
-                    this.kpr.kmE++;
-                    this.kpr.klN = 1;
-                } else if (this.kpq.contains(motionEvent.getX(), motionEvent.getY())) {
-                    this.kpr.kmH++;
-                    this.kpr.klN = 2;
+                if (this.kxw.contains(motionEvent.getX(), motionEvent.getY())) {
+                    this.kxy.kuL++;
+                    this.kxy.ktU = 1;
+                } else if (this.kxx.contains(motionEvent.getX(), motionEvent.getY())) {
+                    this.kxy.kuO++;
+                    this.kxy.ktU = 2;
                 }
-                cRI();
-                if (this.kpr.klN != 0) {
-                    if (this.kpr.kmE + this.kpr.kmH > 50) {
-                        this.fXQ = true;
+                cTH();
+                if (this.kxy.ktU != 0) {
+                    if (this.kxy.kuL + this.kxy.kuO > 50) {
+                        this.gag = true;
                         new Thread(new Runnable() { // from class: com.baidu.tieba.hottopic.view.HotTopicPkView.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -114,14 +114,14 @@ public class HotTopicPkView extends View {
                                     } catch (InterruptedException e) {
                                     }
                                 }
-                                HotTopicPkView.this.fXQ = false;
+                                HotTopicPkView.this.gag = false;
                                 HotTopicPkView.this.postInvalidate();
                             }
                         }).start();
                     } else {
                         invalidate();
                     }
-                    this.kps.cQR();
+                    this.kxz.cSQ();
                     return true;
                 }
                 return true;
@@ -133,12 +133,12 @@ public class HotTopicPkView extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.kpe = this.kpm;
+        this.kxl = this.kxt;
         this.width = View.MeasureSpec.getSize(i);
-        setMeasuredDimension(this.width, this.kpe + this.ds30);
-        this.kpf = (this.width - (this.kpl * 2)) - 100;
-        if (this.kpq == null) {
-            this.kpq = new RectF(this.width - this.kpl, 0.0f, this.width, this.kpe);
+        setMeasuredDimension(this.width, this.kxl + this.ds30);
+        this.kxm = (this.width - (this.kxs * 2)) - 100;
+        if (this.kxx == null) {
+            this.kxx = new RectF(this.width - this.kxs, 0.0f, this.width, this.kxl);
         }
     }
 
@@ -152,80 +152,80 @@ public class HotTopicPkView extends View {
     }
 
     private void af(Canvas canvas) {
-        if (this.kpr.kmE == 0 && this.kpr.kmH == 0) {
-            this.kpg = (int) ((0.5d * this.kpf) + this.kpl + 50.0d);
+        if (this.kxy.kuL == 0 && this.kxy.kuO == 0) {
+            this.kxn = (int) ((0.5d * this.kxm) + this.kxs + 50.0d);
         } else {
-            this.kpg = (int) (((((float) this.kpr.kmE) / ((float) (this.kpr.kmE + this.kpr.kmH))) * this.kpf) + this.kpl + 50.0f);
+            this.kxn = (int) (((((float) this.kxy.kuL) / ((float) (this.kxy.kuL + this.kxy.kuO))) * this.kxm) + this.kxs + 50.0f);
         }
-        if (this.kpr.klN == 2) {
-            this.paint.setColor(ao.getColor(R.color.topic_pk_agree_disable));
+        if (this.kxy.ktU == 2) {
+            this.paint.setColor(ap.getColor(R.color.topic_pk_agree_disable));
         } else {
-            this.paint.setColor(ao.getColor(R.color.CAM_X0308));
+            this.paint.setColor(ap.getColor(R.color.CAM_X0308));
         }
-        canvas.drawRect(this.kpl / 2.0f, this.kph, this.kpg, this.kpe - this.kph, this.paint);
-        if (this.kpr.klN == 1) {
-            this.paint.setColor(ao.getColor(R.color.topic_pk_oppose_disable));
+        canvas.drawRect(this.kxs / 2.0f, this.kxo, this.kxn, this.kxl - this.kxo, this.paint);
+        if (this.kxy.ktU == 1) {
+            this.paint.setColor(ap.getColor(R.color.topic_pk_oppose_disable));
         } else {
-            this.paint.setColor(ao.getColor(R.color.CAM_X0302));
+            this.paint.setColor(ap.getColor(R.color.CAM_X0302));
         }
-        canvas.drawRect(this.kpg, this.kph, this.width - (this.kpl / 2.0f), this.kpe - this.kph, this.paint);
+        canvas.drawRect(this.kxn, this.kxo, this.width - (this.kxs / 2.0f), this.kxl - this.kxo, this.paint);
     }
 
     private void ag(Canvas canvas) {
-        cRI();
-        this.kpi.setBounds(0, 0, this.kpl, this.kpm);
-        this.kpi.draw(canvas);
-        this.kpj.setBounds(this.width - this.kpl, 0, this.width, this.kpm);
-        this.kpj.draw(canvas);
+        cTH();
+        this.kxp.setBounds(0, 0, this.kxs, this.kxt);
+        this.kxp.draw(canvas);
+        this.kxq.setBounds(this.width - this.kxs, 0, this.width, this.kxt);
+        this.kxq.draw(canvas);
     }
 
     private void ah(Canvas canvas) {
-        this.kpk = ao.getDrawable(R.drawable.icon_pic_vs);
-        if (this.fXQ) {
+        this.kxr = ap.getDrawable(R.drawable.icon_pic_vs);
+        if (this.gag) {
             if (this.isLeft) {
-                this.kpk.setBounds((this.kpg - (this.kpn / 2)) - 3, this.kph, ((this.kpg - (this.kpn / 2)) - 3) + this.kpn, this.kph + this.kpo);
-                this.kpk.draw(canvas);
+                this.kxr.setBounds((this.kxn - (this.kxu / 2)) - 3, this.kxo, ((this.kxn - (this.kxu / 2)) - 3) + this.kxu, this.kxo + this.kxv);
+                this.kxr.draw(canvas);
             } else {
-                this.kpk.setBounds((this.kpg - (this.kpn / 2)) + 3, this.kph, (this.kpg - (this.kpn / 2)) + 3 + this.kpn, this.kph + this.kpo);
-                this.kpk.draw(canvas);
+                this.kxr.setBounds((this.kxn - (this.kxu / 2)) + 3, this.kxo, (this.kxn - (this.kxu / 2)) + 3 + this.kxu, this.kxo + this.kxv);
+                this.kxr.draw(canvas);
             }
             this.isLeft = !this.isLeft;
             return;
         }
-        this.kpk.setBounds(this.kpg - (this.kpn / 2), this.kph, (this.kpg - (this.kpn / 2)) + this.kpn, this.kph + this.kpo);
-        this.kpk.draw(canvas);
+        this.kxr.setBounds(this.kxn - (this.kxu / 2), this.kxo, (this.kxn - (this.kxu / 2)) + this.kxu, this.kxo + this.kxv);
+        this.kxr.draw(canvas);
     }
 
     private void J(Canvas canvas) {
         int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds25);
         this.paint.setTextSize(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.fontsize28));
-        if (this.kpr.klN == 2) {
-            this.paint.setColor(ao.getColor(R.color.topic_pk_agree_disable));
+        if (this.kxy.ktU == 2) {
+            this.paint.setColor(ap.getColor(R.color.topic_pk_agree_disable));
         } else {
-            this.paint.setColor(ao.getColor(R.color.CAM_X0308));
+            this.paint.setColor(ap.getColor(R.color.CAM_X0308));
         }
-        canvas.drawText(at.numberUniformFormat(this.kpr.kmE), this.kpl, this.kpe + dimensionPixelSize, this.paint);
-        if (this.kpr.klN == 1) {
-            this.paint.setColor(ao.getColor(R.color.topic_pk_oppose_disable));
+        canvas.drawText(au.numberUniformFormat(this.kxy.kuL), this.kxs, this.kxl + dimensionPixelSize, this.paint);
+        if (this.kxy.ktU == 1) {
+            this.paint.setColor(ap.getColor(R.color.topic_pk_oppose_disable));
         } else {
-            this.paint.setColor(ao.getColor(R.color.CAM_X0302));
+            this.paint.setColor(ap.getColor(R.color.CAM_X0302));
         }
-        canvas.drawText(at.numberUniformFormat(this.kpr.kmH), (this.width - this.kpl) - ((int) this.paint.measureText(at.numberUniformFormat(this.kpr.kmH))), dimensionPixelSize + this.kpe, this.paint);
+        canvas.drawText(au.numberUniformFormat(this.kxy.kuO), (this.width - this.kxs) - ((int) this.paint.measureText(au.numberUniformFormat(this.kxy.kuO))), dimensionPixelSize + this.kxl, this.paint);
     }
 
-    private void cRI() {
-        if (this.kpr == null) {
-            this.kpi = ao.getDrawable(R.drawable.icon_pk_red_n);
-            this.kpj = ao.getDrawable(R.drawable.icon_pk_blule_n);
-        } else if (this.kpr.klN == 1) {
-            this.kpi = ao.getDrawable(R.drawable.icon_pk_red_s);
-            this.kpj = ao.getDrawable(R.drawable.icon_pk_blule_d);
-        } else if (this.kpr.klN == 2) {
-            this.kpj = ao.getDrawable(R.drawable.icon_pk_blule_s);
-            this.kpi = ao.getDrawable(R.drawable.icon_pk_red_d);
+    private void cTH() {
+        if (this.kxy == null) {
+            this.kxp = ap.getDrawable(R.drawable.icon_pk_red_n);
+            this.kxq = ap.getDrawable(R.drawable.icon_pk_blule_n);
+        } else if (this.kxy.ktU == 1) {
+            this.kxp = ap.getDrawable(R.drawable.icon_pk_red_s);
+            this.kxq = ap.getDrawable(R.drawable.icon_pk_blule_d);
+        } else if (this.kxy.ktU == 2) {
+            this.kxq = ap.getDrawable(R.drawable.icon_pk_blule_s);
+            this.kxp = ap.getDrawable(R.drawable.icon_pk_red_d);
         } else {
-            this.kpi = ao.getDrawable(R.drawable.icon_pk_red_n);
-            this.kpj = ao.getDrawable(R.drawable.icon_pk_blule_n);
+            this.kxp = ap.getDrawable(R.drawable.icon_pk_red_n);
+            this.kxq = ap.getDrawable(R.drawable.icon_pk_blule_n);
         }
     }
 }

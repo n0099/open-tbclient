@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.UiThread;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.os.TraceCompat;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.util.Preconditions;
@@ -28,7 +27,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class PrecomputedTextCompat implements Spannable {
     private static final char LINE_FEED = '\n';
     @NonNull
@@ -44,7 +43,7 @@ public class PrecomputedTextCompat implements Spannable {
     @GuardedBy("sLock")
     private static Executor sExecutor = null;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static final class Params {
         private final int mBreakStrategy;
         private final int mHyphenationFrequency;
@@ -54,7 +53,7 @@ public class PrecomputedTextCompat implements Spannable {
         private final TextDirectionHeuristic mTextDir;
         final PrecomputedText.Params mWrapped;
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes4.dex */
         public static class Builder {
             private int mBreakStrategy;
             private int mHyphenationFrequency;
@@ -238,9 +237,9 @@ public class PrecomputedTextCompat implements Spannable {
                     iArr[i2] = ((Integer) arrayList.get(i2)).intValue();
                 }
                 if (Build.VERSION.SDK_INT >= 23) {
-                    StaticLayout.Builder.obtain(charSequence, 0, charSequence.length(), params.getTextPaint(), ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED).setBreakStrategy(params.getBreakStrategy()).setHyphenationFrequency(params.getHyphenationFrequency()).setTextDirection(params.getTextDirection()).build();
+                    StaticLayout.Builder.obtain(charSequence, 0, charSequence.length(), params.getTextPaint(), Integer.MAX_VALUE).setBreakStrategy(params.getBreakStrategy()).setHyphenationFrequency(params.getHyphenationFrequency()).setTextDirection(params.getTextDirection()).build();
                 } else if (Build.VERSION.SDK_INT >= 21) {
-                    new StaticLayout(charSequence, params.getTextPaint(), ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+                    new StaticLayout(charSequence, params.getTextPaint(), Integer.MAX_VALUE, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
                 }
                 precomputedTextCompat = new PrecomputedTextCompat(charSequence, params, iArr);
             }
@@ -312,10 +311,10 @@ public class PrecomputedTextCompat implements Spannable {
         throw new IndexOutOfBoundsException("pos must be less than " + this.mParagraphEnds[this.mParagraphEnds.length - 1] + ", gave " + i);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     private static class PrecomputedTextFutureTask extends FutureTask<PrecomputedTextCompat> {
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes4.dex */
         private static class PrecomputedTextCallback implements Callable<PrecomputedTextCompat> {
             private Params mParams;
             private CharSequence mText;

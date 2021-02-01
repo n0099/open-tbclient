@@ -2,6 +2,7 @@ package com.bumptech.glide.util;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class ByteBufferUtil {
     private static final AtomicReference<byte[]> BUFFER_REF = new AtomicReference<>();
     private static final int BUFFER_SIZE = 16384;
@@ -86,7 +87,7 @@ public final class ByteBufferUtil {
         RandomAccessFile randomAccessFile;
         byteBuffer.position(0);
         try {
-            randomAccessFile = new RandomAccessFile(file, "rw");
+            randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             try {
                 fileChannel = randomAccessFile.getChannel();
                 try {
@@ -197,7 +198,7 @@ public final class ByteBufferUtil {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static final class SafeArray {
         final byte[] data;
         final int limit;
@@ -210,7 +211,7 @@ public final class ByteBufferUtil {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class ByteBufferStream extends InputStream {
         private static final int UNSET = -1;
         @NonNull

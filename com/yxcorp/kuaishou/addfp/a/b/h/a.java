@@ -5,17 +5,17 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.yxcorp.kuaishou.addfp.android.b.b;
 import com.yxcorp.kuaishou.addfp.android.b.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14366a = "";
+    private String f14368a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f14367b;
+    private Context f14369b;
 
     public a(Context context) {
-        this.f14367b = context;
+        this.f14369b = context;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -33,7 +33,7 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a {
     }
 
     public final void a(String str) {
-        this.f14366a = str;
+        this.f14368a = str;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -43,13 +43,13 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final String b() {
-        String b2 = com.yxcorp.kuaishou.addfp.a.b.h.a.b.jb(this.f14367b).b();
+        String b2 = com.yxcorp.kuaishou.addfp.a.b.h.a.b.je(this.f14369b).b();
         return TextUtils.isEmpty(b2) ? "" : b2;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
-        return com.yxcorp.kuaishou.addfp.a.b.h.a.b.jb(this.f14367b).a();
+        return com.yxcorp.kuaishou.addfp.a.b.h.a.b.je(this.f14369b).a();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a

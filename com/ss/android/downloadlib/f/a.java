@@ -10,13 +10,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return com.ss.android.c.c.aA(new File(str));
+        return com.ss.android.c.c.ax(new File(str));
     }
 
     public static int a(String str, String str2) {
@@ -43,7 +43,7 @@ public class a {
 
     public static void a() {
         if (com.ss.android.downloadlib.a.j.i().optInt("hook", 0) == 1) {
-            com.ss.android.downloadlib.f.eCI().a(new Runnable() { // from class: com.ss.android.downloadlib.f.a.1
+            com.ss.android.downloadlib.f.eEZ().a(new Runnable() { // from class: com.ss.android.downloadlib.f.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     com.ss.android.socialbase.downloader.m.g.f();
@@ -69,7 +69,7 @@ public class a {
             declaredField2.setAccessible(true);
             Object obj2 = declaredField2.get(obj);
             if (obj2 != null && (cls = Class.forName("android.app.IActivityManager")) != null) {
-                declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C1220a(obj2)));
+                declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C1224a(obj2)));
             }
         } catch (Throwable th) {
         }
@@ -78,7 +78,7 @@ public class a {
     public static void a(Object[] objArr) {
         if (com.ss.android.downloadlib.a.j.i().optInt("hook", 0) == 1 && (objArr[1] instanceof String) && (objArr[2] instanceof Intent)) {
             Intent intent = (Intent) objArr[2];
-            if ("android.intent.action.VIEW".equals(intent.getAction()) && com.ss.android.socialbase.downloader.b.e.f13072a.equals(intent.getType())) {
+            if ("android.intent.action.VIEW".equals(intent.getAction()) && com.ss.android.socialbase.downloader.b.e.f13074a.equals(intent.getType())) {
                 if (com.ss.android.socialbase.downloader.m.g.c()) {
                     String optString = com.ss.android.downloadlib.a.j.i().optString("hook_vivo_arg", "com.android.settings");
                     if (!"null".equals(optString)) {
@@ -112,14 +112,14 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.ss.android.downloadlib.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1220a implements InvocationHandler {
+    /* loaded from: classes6.dex */
+    public static class C1224a implements InvocationHandler {
 
         /* renamed from: a  reason: collision with root package name */
-        private Object f12986a;
+        private Object f12988a;
 
-        private C1220a(Object obj) {
-            this.f12986a = obj;
+        private C1224a(Object obj) {
+            this.f12988a = obj;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -130,7 +130,7 @@ public class a {
                 }
             } catch (Throwable th) {
             }
-            return method.invoke(this.f12986a, objArr);
+            return method.invoke(this.f12988a, objArr);
         }
     }
 }

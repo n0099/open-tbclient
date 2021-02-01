@@ -32,6 +32,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String KEY_IS_OPEN_EDITOR = "key_is_open_editor";
     public static final String KEY_IS_SHOW_GO_TO_SUBJECT = "is_show_go_to_subject";
     public static final String KEY_IS_USE_SPID = "key_is_use_spid";
+    public static final String KEY_MAIN_POST_MASK_VISIBLE = "key_main_post_mask_visible";
     public static final String KEY_OPEN_EDITOR_TIPS = "key_open_editor_tips";
     public static final String KEY_ORI_UGC_NID = "key_ori_ugc_nid";
     public static final String KEY_ORI_UGC_TID = "key_ori_ugc_tid";
@@ -248,6 +249,13 @@ public class SubPbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra("key_open_editor_tips", str);
+        }
+    }
+
+    public void setMainPostMaskVisibly(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_MAIN_POST_MASK_VISIBLE, z);
         }
     }
 }

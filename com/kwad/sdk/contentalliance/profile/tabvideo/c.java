@@ -13,7 +13,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ao;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
     private SceneImpl d;
     private ProfileTabVideoParam e;
@@ -71,7 +71,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
 
     @Override // com.kwad.sdk.lib.a.c
     protected com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> d() {
-        return new b(this, this.f10415b, this.e);
+        return new b(this, this.f10417b, this.e);
     }
 
     @Override // com.kwad.sdk.lib.a.c, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

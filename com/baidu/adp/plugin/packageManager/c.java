@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c Un;
-    private ArrayList<String> Ue = new ArrayList<>();
-    private a Uo;
+    private static volatile c Ul;
+    private ArrayList<String> Uc = new ArrayList<>();
+    private a Um;
 
-    public static c pv() {
-        if (Un == null) {
+    public static c pt() {
+        if (Ul == null) {
             synchronized (c.class) {
-                if (Un == null) {
-                    Un = new c();
+                if (Ul == null) {
+                    Ul = new c();
                 }
             }
         }
-        return Un;
+        return Ul;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Ue.iterator();
+            Iterator<String> it = this.Uc.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,17 +45,17 @@ public class c {
                 }
             }
             if (!z) {
-                this.Ue.add(pluginSetting.packageName);
+                this.Uc.add(pluginSetting.packageName);
             }
-            pr();
+            pp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pr() {
-        if (this.Ue.size() > 0 && this.Uo == null) {
-            this.Uo = new a(this.Ue.get(0));
-            this.Uo.execute(new String[0]);
+    public void pp() {
+        if (this.Uc.size() > 0 && this.Um == null) {
+            this.Um = new a(this.Uc.get(0));
+            this.Um.execute(new String[0]);
         }
     }
 
@@ -83,36 +83,36 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.Uo = null;
-            if (c.this.Ue.size() > 0) {
-                Iterator it = c.this.Ue.iterator();
+            c.this.Um = null;
+            if (c.this.Uc.size() > 0) {
+                Iterator it = c.this.Uc.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.Ue.remove(str);
+                        c.this.Uc.remove(str);
                         break;
                     }
                 }
             }
-            c.this.pr();
+            c.this.pp();
         }
 
         private void cu(String str) {
             File[] listFiles;
-            File qj = Util.qj();
+            File qh = Util.qh();
             String cS = Util.cS(str);
-            if (qj != null && qj.exists() && (listFiles = qj.listFiles()) != null) {
+            if (qh != null && qh.exists() && (listFiles = qh.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(cS)) {
                         try {
                             f.forceDelete(listFiles[i]);
-                            com.baidu.adp.plugin.b.a.pg().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
+                            com.baidu.adp.plugin.b.a.pe().f("plugin_del_temp", "deltmp_suc", str, listFiles[i].getName());
                         } catch (Throwable th) {
-                            com.baidu.adp.plugin.b.a.pg().h("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
+                            com.baidu.adp.plugin.b.a.pe().h("plugin_del_temp", "deltmp_fail", str, listFiles[i].getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + th.getMessage());
                         }
                     }
                 }

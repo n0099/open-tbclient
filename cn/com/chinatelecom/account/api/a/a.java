@@ -2,7 +2,7 @@ package cn.com.chinatelecom.account.api.a;
 
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */

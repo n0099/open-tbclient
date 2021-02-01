@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.alaar.sticker.download.exception;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DownloadException extends Exception {
     private int errorCode;
     private String errorMessage;

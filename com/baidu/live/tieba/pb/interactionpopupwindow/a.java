@@ -13,26 +13,26 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.live.tieba.pb.interactionpopupwindow.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class a<V extends d, D extends IBaseDialogData> implements c {
-    private DialogInterface.OnDismissListener bFK;
-    protected V bFO;
-    protected D bFP;
+    private DialogInterface.OnDismissListener bJu;
+    protected V bJy;
+    protected D bJz;
     private DialogInterface.OnCancelListener mCancelListenr;
     protected Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
     private int mDialogGravity = -1;
-    private boolean bFL = true;
-    private boolean bFM = false;
-    private boolean bFN = false;
+    private boolean bJv = true;
+    private boolean bJw = false;
+    private boolean bJx = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.bFO = v;
-        this.bFP = d;
+        this.bJy = v;
+        this.bJz = d;
         a((a<V, D>) d);
     }
 
@@ -41,8 +41,8 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             ShowUtil.showDialog(this.mDialog, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.bFM) {
-            if (this.bFN) {
+        if (this.bJw) {
+            if (this.bJx) {
                 this.mDialog = new AlertDialog.Builder(this.mContext, a.i.sdk_search_dialog_from_bottom_in).create();
             } else {
                 this.mDialog = new AlertDialog.Builder(this.mContext, a.i.sdk_search_dialog).create();
@@ -50,14 +50,14 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         } else {
             this.mDialog = new AlertDialog.Builder(this.mContext).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(QI());
-        this.mDialog.setCancelable(QJ());
+        this.mDialog.setCanceledOnTouchOutside(Ss());
+        this.mDialog.setCancelable(St());
         this.mDialog.setOnKeyListener(this.mOnKeyListener);
         if (this.mCancelListenr != null) {
             this.mDialog.setOnCancelListener(this.mCancelListenr);
         }
-        if (this.bFK != null) {
-            this.mDialog.setOnDismissListener(this.bFK);
+        if (this.bJu != null) {
+            this.mDialog.setOnDismissListener(this.bJu);
         }
         ShowUtil.showDialog(this.mDialog, this.mPageContext.getPageActivity());
         if (this.mDialog.getWindow().getDecorView().getParent() != null) {
@@ -81,7 +81,7 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.bFO.getViewGroup());
+            window.setContentView(this.bJy.getViewGroup());
         }
     }
 
@@ -93,7 +93,7 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
     }
 
     public a a(DialogInterface.OnDismissListener onDismissListener) {
-        this.bFK = onDismissListener;
+        this.bJu = onDismissListener;
         return this;
     }
 
@@ -105,23 +105,23 @@ public abstract class a<V extends d, D extends IBaseDialogData> implements c {
         return false;
     }
 
-    public a eI(int i) {
+    public a eM(int i) {
         this.mDialogGravity = i;
         return this;
     }
 
-    public a cW(boolean z) {
-        this.bFM = z;
+    public a de(boolean z) {
+        this.bJw = z;
         return this;
     }
 
     public void a(D d) {
-        if (this.bFO != null) {
-            this.bFO.a(d);
+        if (this.bJy != null) {
+            this.bJy.a(d);
         }
     }
 
-    public void cX(boolean z) {
-        this.bFN = z;
+    public void df(boolean z) {
+        this.bJx = z;
     }
 }

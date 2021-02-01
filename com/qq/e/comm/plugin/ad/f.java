@@ -2,22 +2,22 @@ package com.qq.e.comm.plugin.ad;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f11885a;
+    private boolean f11887a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11886b;
+    private int f11888b;
     private int c;
     private int d;
     private int e;
     private String f;
 
     public f(boolean z, int i, int i2, int i3, int i4, String str) {
-        this.f11885a = z;
-        this.f11886b = i;
+        this.f11887a = z;
+        this.f11888b = i;
         this.c = i2;
         this.d = i3;
         this.e = i4;
@@ -26,7 +26,7 @@ public class f {
 
     public Object a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.putOpt("width", Integer.valueOf(this.f11886b));
+        jSONObject.putOpt("width", Integer.valueOf(this.f11888b));
         jSONObject.putOpt("height", Integer.valueOf(this.c));
         jSONObject.putOpt("visibleWidth", Integer.valueOf(this.d));
         jSONObject.putOpt("visibleHeight", Integer.valueOf(this.e));

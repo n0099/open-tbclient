@@ -6,66 +6,71 @@ import android.os.Handler;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class n implements Runnable {
+/* loaded from: classes5.dex */
+public class n extends com.baidu.mobads.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g.c f3342a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ Handler f3343b;
-    final /* synthetic */ g c;
+    final /* synthetic */ g.c f3353a;
+    final /* synthetic */ Handler c;
+    final /* synthetic */ g d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(g gVar, g.c cVar, Handler handler) {
-        this.c = gVar;
-        this.f3342a = cVar;
-        this.f3343b = handler;
+        this.d = gVar;
+        this.f3353a = cVar;
+        this.c = handler;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, INVOKE, IF, IGET, INVOKE, INVOKE, CONST_STR, IGET, INVOKE, INVOKE, SGET, IGET, INVOKE, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.mobads.f.a
+    protected Object a() {
         IXAdLogger iXAdLogger;
-        SharedPreferences l;
+        SharedPreferences k;
         IXAdLogger iXAdLogger2;
         IXAdLogger iXAdLogger3;
-        SharedPreferences l2;
+        SharedPreferences k2;
         try {
             synchronized (g.class) {
-                this.c.b(this.f3342a, this.f3343b);
+                this.d.b(this.f3353a, this.c);
             }
-        } catch (Throwable th) {
             try {
-                iXAdLogger2 = this.c.m;
-                iXAdLogger2.e("XAdApkLoader", "Load APK Failed: " + th.toString());
-                this.c.b(false);
+                return null;
+            } catch (Throwable th) {
+                return null;
+            }
+        } catch (Throwable th2) {
+            try {
+                iXAdLogger2 = this.d.m;
+                iXAdLogger2.d("XAdApkLoader", "Load APK Failed: " + th2.toString());
+                this.d.b(false);
                 try {
-                    l2 = this.c.l();
-                    SharedPreferences.Editor edit = l2.edit();
-                    edit.putString("previousProxyVersion", this.c.a());
+                    k2 = this.d.k();
+                    SharedPreferences.Editor edit = k2.edit();
+                    edit.putString("previousProxyVersion", this.d.a());
                     if (Build.VERSION.SDK_INT >= 9) {
                         edit.apply();
                     } else {
                         edit.commit();
                     }
-                } catch (Throwable th2) {
-                    iXAdLogger3 = this.c.m;
-                    iXAdLogger3.e("XAdApkLoader", th2);
+                    return null;
+                } catch (Throwable th3) {
+                    iXAdLogger3 = this.d.m;
+                    iXAdLogger3.d("XAdApkLoader", th3);
+                    return null;
                 }
             } finally {
                 try {
-                    l = this.c.l();
-                    SharedPreferences.Editor edit2 = l.edit();
-                    edit2.putString("previousProxyVersion", this.c.a());
+                    k = this.d.k();
+                    SharedPreferences.Editor edit2 = k.edit();
+                    edit2.putString("previousProxyVersion", this.d.a());
                     if (Build.VERSION.SDK_INT >= 9) {
                         edit2.apply();
                     } else {
                         edit2.commit();
                     }
-                } catch (Throwable th3) {
-                    iXAdLogger = this.c.m;
-                    iXAdLogger.e("XAdApkLoader", th3);
+                } catch (Throwable th4) {
+                    iXAdLogger = this.d.m;
+                    iXAdLogger.d("XAdApkLoader", th4);
                 }
             }
         }

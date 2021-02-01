@@ -6,14 +6,14 @@ import android.annotation.TargetApi;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class j extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f3012a = null;
+    private Animator f3010a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f3013b = 0;
+    private long f3011b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
     private int e = 1;
@@ -39,7 +39,7 @@ public class j extends c {
         if (objectAnimator != null) {
             objectAnimator.setRepeatCount(this.f);
             objectAnimator.setRepeatMode(c());
-            objectAnimator.setDuration(this.f3013b);
+            objectAnimator.setDuration(this.f3011b);
             if (this.c != null) {
                 objectAnimator.setInterpolator(this.c);
             }
@@ -50,10 +50,10 @@ public class j extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f3012a == null) {
+        if (this.f3010a == null) {
             return;
         }
-        this.f3012a.start();
+        this.f3010a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -66,7 +66,7 @@ public class j extends c {
         if (j < 0) {
             j = 0;
         }
-        this.f3013b = j;
+        this.f3011b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -91,16 +91,16 @@ public class j extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f3012a = a(marker);
-        a(this.f3012a);
+        this.f3010a = a(marker);
+        a(this.f3010a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f3012a != null) {
-            this.f3012a.cancel();
-            this.f3012a = null;
+        if (this.f3010a != null) {
+            this.f3010a.cancel();
+            this.f3010a = null;
         }
     }
 

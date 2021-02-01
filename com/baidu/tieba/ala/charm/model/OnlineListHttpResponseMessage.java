@@ -1,14 +1,14 @@
 package com.baidu.tieba.ala.charm.model;
 
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.r;
+import com.baidu.live.data.v;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData aFH;
-    private r gMb;
-    private long gMc;
+    private AlaLiveUserInfoData aId;
+    private v gOH;
+    private long gOI;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.gMb = new r();
-                this.gMb.parserJson(optJSONObject);
+                this.gOH = new v();
+                this.gOH.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
-                this.aFH = new AlaLiveUserInfoData();
-                this.aFH.parserJson(optJSONObject2);
+                this.aId = new AlaLiveUserInfoData();
+                this.aId.parserJson(optJSONObject2);
             }
-            this.gMc = optJSONObject.optLong("live_total_price");
+            this.gOI = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bTg() {
+    public long bTJ() {
         return this.mAudienceCount;
     }
 
-    public r bTh() {
-        return this.gMb;
+    public v bTK() {
+        return this.gOH;
     }
 
-    public AlaLiveUserInfoData bTi() {
-        return this.aFH;
+    public AlaLiveUserInfoData bTL() {
+        return this.aId;
     }
 
-    public long bTj() {
-        return this.gMc;
+    public long bTM() {
+        return this.gOI;
     }
 }

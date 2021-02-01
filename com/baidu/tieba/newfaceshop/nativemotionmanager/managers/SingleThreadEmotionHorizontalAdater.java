@@ -8,24 +8,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.view.SingleThreadEmotionHorizontalView;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
-    private List<EmotionPackageData> bWQ;
+    private List<EmotionPackageData> caS;
     private TbPageContext mPageContext;
 
     public SingleThreadEmotionHorizontalAdater(List<EmotionPackageData> list, TbPageContext tbPageContext) {
-        this.bWQ = list;
+        this.caS = list;
         this.mPageContext = tbPageContext;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.bWQ.size();
+        return this.caS.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bWQ.get(i);
+        return this.caS.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -42,22 +42,22 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
             emotionGridViewHolder = new EmotionGridViewHolder(view);
             view.setTag(emotionGridViewHolder);
         }
-        (emotionGridViewHolder == null ? (EmotionGridViewHolder) view.getTag() : emotionGridViewHolder).setData(this.bWQ.get(i));
+        (emotionGridViewHolder == null ? (EmotionGridViewHolder) view.getTag() : emotionGridViewHolder).setData(this.caS.get(i));
         return view;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
-        private SingleThreadEmotionHorizontalView lve;
+        private SingleThreadEmotionHorizontalView lDi;
 
         public EmotionGridViewHolder(View view) {
             super(view);
-            this.lve = (SingleThreadEmotionHorizontalView) view;
+            this.lDi = (SingleThreadEmotionHorizontalView) view;
         }
 
         public void setData(EmotionPackageData emotionPackageData) {
-            if (this.lve != null && emotionPackageData != null) {
-                this.lve.setData(emotionPackageData);
+            if (this.lDi != null && emotionPackageData != null) {
+                this.lDi.setData(emotionPackageData);
             }
         }
     }

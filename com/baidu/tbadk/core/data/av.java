@@ -1,57 +1,92 @@
 package com.baidu.tbadk.core.data;
+
+import android.util.SparseArray;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class av {
-    private String content;
-    private String link;
-    private long messageID;
-    private long serviceId;
-    private String stat;
-    private long taskId;
-    private String toId;
+    public String abTag;
+    public int cardType;
+    private long eOn;
+    public int eOq;
+    public JSONArray eOr;
+    public int eOs;
+    public String extra;
+    private String fid;
+    private String nid;
+    public String source;
+    public int threadType;
+    private String tid;
+    private String type;
+    public String weight;
+    public SparseArray<String> feedBackReasonMap = null;
+    public SparseArray<String> eOo = null;
+    public SparseArray<String> eOp = null;
 
-    public av() {
-        this.messageID = -1L;
-        this.link = null;
-        this.content = null;
-        this.toId = null;
-        this.stat = "";
-        this.taskId = -1L;
-        this.serviceId = -1L;
+    public String getTid() {
+        return this.tid;
     }
 
-    public av(long j, long j2, String str, String str2, String str3, long j3) {
-        this.messageID = -1L;
-        this.link = null;
-        this.content = null;
-        this.toId = null;
-        this.stat = "";
-        this.taskId = -1L;
-        this.serviceId = -1L;
-        this.messageID = j;
-        this.taskId = j2;
-        this.link = str;
-        this.content = str2;
-        this.stat = str3;
-        this.serviceId = j3;
+    public void setTid(String str) {
+        this.tid = str;
     }
 
-    public String getStat() {
-        return this.stat;
+    public String getFid() {
+        return this.fid;
     }
 
-    public long getMessageID() {
-        return this.messageID;
+    public void setFid(String str) {
+        this.fid = str;
     }
 
-    public long getTaskId() {
-        return this.taskId;
+    public void setFid(long j) {
+        this.fid = String.valueOf(j);
     }
 
-    public String getLink() {
-        return this.link;
+    public String getType() {
+        return this.type;
     }
 
-    public String getContent() {
-        return this.content;
+    public void setType(String str) {
+        this.type = str;
+    }
+
+    public SparseArray<String> getFeedBackReasonMap() {
+        return this.feedBackReasonMap;
+    }
+
+    public void setFeedBackReasonMap(SparseArray<String> sparseArray) {
+        this.feedBackReasonMap = sparseArray;
+    }
+
+    public void mX(int i) {
+        this.eOq = i;
+    }
+
+    public int bml() {
+        return this.eOq;
+    }
+
+    public void P(JSONArray jSONArray) {
+        this.eOr = jSONArray;
+    }
+
+    public JSONArray bmm() {
+        return this.eOr;
+    }
+
+    public long bmn() {
+        return this.eOn;
+    }
+
+    public void dJ(long j) {
+        this.eOn = j;
+    }
+
+    public String bmo() {
+        return this.nid;
+    }
+
+    public void setNid(String str) {
+        this.nid = str;
     }
 }

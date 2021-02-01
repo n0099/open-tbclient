@@ -7,37 +7,37 @@ import androidx.annotation.NonNull;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class i {
-    private File cgG;
-    private File cgH;
-    private File cgI;
-    private volatile boolean cgJ = false;
+    private File ckQ;
+    private File ckR;
+    private File ckS;
+    private volatile boolean ckT = false;
 
     @SuppressLint({"NewApi"})
     public i(@NonNull File file) {
-        this.cgG = (File) Objects.requireNonNull(file);
+        this.ckQ = (File) Objects.requireNonNull(file);
         if (isDebug()) {
             d("create " + file.getAbsolutePath());
         }
-        this.cgH = new File(this.cgG, ".property/lockers");
-        this.cgI = new File(this.cgG, ".property/holders");
+        this.ckR = new File(this.ckQ, ".property/lockers");
+        this.ckS = new File(this.ckQ, ".property/holders");
     }
 
     public boolean isLocked() {
-        String[] list = this.cgH.list();
+        String[] list = this.ckR.list();
         return list != null && list.length > 0;
     }
 
-    public String iy(String str) {
+    public String je(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         String str2 = str + ".locker." + System.currentTimeMillis();
-        File file = new File(this.cgH, str2);
+        File file = new File(this.ckR, str2);
         if (!file.exists()) {
-            if (!this.cgH.exists()) {
-                this.cgH.mkdirs();
+            if (!this.ckR.exists()) {
+                this.ckR.mkdirs();
             }
             try {
                 file.createNewFile();
@@ -52,9 +52,9 @@ public class i {
         return str2;
     }
 
-    public void iz(String str) {
+    public void jf(String str) {
         if (!TextUtils.isEmpty(str)) {
-            File file = new File(this.cgH, str);
+            File file = new File(this.ckR, str);
             if (file.exists()) {
                 com.baidu.minivideo.arface.utils.f.deleteFileOrDir(file);
             }
@@ -64,14 +64,14 @@ public class i {
         }
     }
 
-    public void iA(String str) {
+    public void jg(String str) {
         File file;
-        String[] list = this.cgH.list();
+        String[] list = this.ckR.list();
         if (list != null && list.length != 0) {
             String str2 = str + ".locker.";
             for (String str3 : list) {
                 if (str3 != null && str3.startsWith(str2)) {
-                    com.baidu.minivideo.arface.utils.f.deleteFileOrDir(new File(this.cgH, str3));
+                    com.baidu.minivideo.arface.utils.f.deleteFileOrDir(new File(this.ckR, str3));
                     if (isDebug()) {
                         d("cleanLockerTag , " + file.getAbsolutePath());
                     }
@@ -82,7 +82,7 @@ public class i {
 
     public void c(String str, File file) {
         if (!TextUtils.isEmpty(str) && file != null) {
-            File file2 = new File(this.cgI, file.getName());
+            File file2 = new File(this.ckS, file.getName());
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -103,7 +103,7 @@ public class i {
     public void d(String str, File file) {
         String str2;
         File file2;
-        File[] listFiles = this.cgI.listFiles();
+        File[] listFiles = this.ckS.listFiles();
         String str3 = str + ".holder";
         if (file == null) {
             str2 = null;
@@ -142,7 +142,7 @@ public class i {
         if (file == null || !file.exists()) {
             return false;
         }
-        File file2 = new File(this.cgI, file.getName());
+        File file2 = new File(this.ckS, file.getName());
         if (file2.exists()) {
             if (file2.isDirectory()) {
                 String[] list = file2.list();
@@ -160,8 +160,8 @@ public class i {
         return false;
     }
 
-    public void aaB() {
-        File[] listFiles = this.cgG.listFiles();
+    public void acp() {
+        File[] listFiles = this.ckQ.listFiles();
         if (listFiles != null && listFiles.length != 0 && !isLocked()) {
             for (File file : listFiles) {
                 if (!TextUtils.equals(".property", file.getName()) && !p(file)) {
@@ -175,8 +175,8 @@ public class i {
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.minivideo.arface.b.i$1] */
-    public void aaC() {
-        if (this.cgJ) {
+    public void acq() {
+        if (this.ckT) {
             if (isDebug()) {
                 d("cleanCacehAsync isCleaning... ");
                 return;
@@ -184,20 +184,20 @@ public class i {
             return;
         }
         synchronized (this) {
-            if (this.cgJ) {
+            if (this.ckT) {
                 if (isDebug()) {
                     d("cleanCacehAsync isCleaning... ");
                 }
                 return;
             }
-            this.cgJ = true;
+            this.ckT = true;
             new Thread() { // from class: com.baidu.minivideo.arface.b.i.1
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     super.run();
-                    i.this.aaB();
+                    i.this.acp();
                     synchronized (i.this) {
-                        i.this.cgJ = false;
+                        i.this.ckT = false;
                         if (i.this.isDebug()) {
                             i.this.d("cleanCacehAsync finish.");
                         }

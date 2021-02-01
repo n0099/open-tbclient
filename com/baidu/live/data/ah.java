@@ -1,32 +1,25 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ah {
-    public long aHk;
-    public String aHl;
-    public int aHm;
-    public int aHn;
-    public boolean aHo;
+    public int aJD;
+    public long aJE;
+    public long aJF;
+    public String division;
+    public String iconUrl;
+    public int maxStar;
+    public String name;
 
-    public void parse(JSONObject jSONObject) {
-        try {
-            if (jSONObject != null) {
-                this.aHk = jSONObject.optLong("stay_interval_ms", 7000L);
-                this.aHl = jSONObject.optString("rec_title");
-                this.aHm = jSONObject.optInt("rec_daily_num", 1);
-                this.aHn = jSONObject.optInt("rec_hide_limit_num", 3);
-                this.aHo = jSONObject.optInt("switch", 0) == 1;
-            } else {
-                this.aHk = 7000L;
-                this.aHm = 1;
-                this.aHn = 3;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            this.aHk = 7000L;
-            this.aHm = 1;
-            this.aHn = 3;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.division = jSONObject.optString("division");
+            this.aJD = jSONObject.optInt("cur_star");
+            this.maxStar = jSONObject.optInt("max_star", 5);
+            this.aJE = jSONObject.optInt("min_score");
+            this.aJF = jSONObject.optInt("max_score");
+            this.name = jSONObject.optString("name");
+            this.iconUrl = jSONObject.optString("icon_url");
         }
     }
 }

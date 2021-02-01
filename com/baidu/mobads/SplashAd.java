@@ -1,63 +1,169 @@
 package com.baidu.mobads;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.text.TextUtils;
 import android.view.SurfaceView;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.component.XAdView;
+import com.baidu.mobads.interfaces.error.XAdErrorCode;
+import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes14.dex */
+import java.util.HashMap;
+/* loaded from: classes5.dex */
 public class SplashAd {
-    private static boolean d;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mobads.production.g.a f3284a;
+    private com.baidu.mobads.production.f.a f3285a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3285b;
+    private int f3286b;
     private volatile String c;
-    private SplashAdListener e;
-    private IOAdEventListener f;
-    public static String RSPLASH_PATTERN = "pattern";
-    public static String RSPLASH_BTN_POS = "btn_pos";
+    private Context d;
+    private XAdView e;
+    private String f;
+    private RequestParameters g;
+    private ViewGroup h;
+    private HashMap<String, String> i;
+    private SplashAdListener j;
+    private IOAdEventListener k;
+    public int mTimeout;
 
     public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str) {
         this(context, viewGroup, splashAdListener, str, true);
     }
 
+    public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, int i) {
+        this(context, viewGroup, splashAdListener, str, true, null, i);
+    }
+
+    public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z, int i) {
+        this(context, viewGroup, splashAdListener, str, z, null, i);
+    }
+
     public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z) {
-        this.f3285b = 4;
+        this(context, viewGroup, splashAdListener, str, z, (RequestParameters) null);
+    }
+
+    public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z, RequestParameters requestParameters) {
+        this(context, viewGroup, splashAdListener, str, z, requestParameters, 4200);
+    }
+
+    public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z, RequestParameters requestParameters, int i) {
+        this(context, viewGroup, splashAdListener, str, z, requestParameters, i, true, true);
+    }
+
+    public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z, RequestParameters requestParameters, int i, boolean z2, boolean z3) {
+        this.f3286b = 4;
         this.c = OneKeyLoginSdkCall.l;
-        this.e = new q(this);
-        this.f = new r(this);
+        this.i = new HashMap<>();
+        this.j = new s(this);
+        this.k = new t(this);
         try {
-            com.baidu.mobads.a.a.l = System.currentTimeMillis();
-            com.baidu.mobads.a.a.m = 0L;
-            com.baidu.mobads.a.a.n = 0L;
-            com.baidu.mobads.a.a.o = 0L;
-            com.baidu.mobads.a.a.p = 0L;
-            com.baidu.mobads.a.a.q = 0L;
-            com.baidu.mobads.a.a.r = 0L;
-            if (!AppActivity.isAnti()) {
-                a(viewGroup, context);
-            }
+            j.a().a(context.getApplicationContext());
+            j.a().a(1001);
+            this.d = context;
+            this.f = str;
+            this.g = requestParameters;
+            this.mTimeout = i;
+            this.h = viewGroup;
+            this.i.put("Display_Down_Info", String.valueOf(z3));
+            com.baidu.mobads.constants.a.l = System.currentTimeMillis();
+            com.baidu.mobads.constants.a.m = 0L;
+            com.baidu.mobads.constants.a.n = 0L;
+            com.baidu.mobads.constants.a.o = 0L;
+            com.baidu.mobads.constants.a.p = 0L;
+            com.baidu.mobads.constants.a.q = 0L;
+            com.baidu.mobads.constants.a.r = 0L;
             if (splashAdListener != null) {
-                this.e = splashAdListener;
+                this.j = splashAdListener;
             }
             if (TextUtils.isEmpty(str)) {
-                this.e.onAdFailed("请您输入正确的广告位ID");
-                return;
+                this.j.onAdFailed("请您输入正确的广告位ID");
+            } else if (z2) {
+                if (!AppActivity.isAnti()) {
+                    a(viewGroup, context);
+                }
+                XAdView xAdView = new XAdView(context);
+                xAdView.setListener(new v(this, context, xAdView, str, z, i, requestParameters));
+                xAdView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                viewGroup.addView(xAdView);
             }
-            XAdView xAdView = new XAdView(context);
-            xAdView.setListener(new t(this, context, xAdView, str, z));
-            xAdView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            viewGroup.addView(xAdView);
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
-            com.baidu.mobads.c.a.a().a("splash ad create failed: " + e.toString());
+        }
+    }
+
+    public final void load() {
+        int i;
+        this.e = new XAdView(this.d);
+        this.e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if (this.f3285a != null) {
+            this.f3285a.removeAllListeners();
+            this.f3285a = null;
+        }
+        float screenDensity = XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenDensity(this.d);
+        Rect screenRect = XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenRect(this.d);
+        int width = screenRect.width();
+        int height = screenRect.height();
+        if (this.g != null && this.g.isCustomSize()) {
+            if (this.g.getWidth() > 0) {
+                width = (int) (this.g.getWidth() * screenDensity);
+            }
+            if (this.g.getHeight() > 0) {
+                height = (int) (this.g.getHeight() * screenDensity);
+                i = width;
+                if (i >= 200.0f * screenDensity || height < screenDensity * 150.0f) {
+                    XAdSDKFoundationFacade.getInstance().getAdLogger().e(XAdSDKFoundationFacade.getInstance().getErrorCode().genCompleteErrorMessage(XAdErrorCode.SHOW_STANDARD_UNFIT, "开屏显示区域太小,宽度至少200dp,高度至少150dp"));
+                    this.j.onAdDismissed();
+                }
+                this.f3285a = new com.baidu.mobads.production.f.a(this.d, this.e, this.f, true, i, height, this.f3286b, this.mTimeout);
+                this.f3285a.a(this.i);
+                this.f3285a.A = true;
+                if (this.g != null) {
+                    this.f3285a.a(this.g);
+                }
+                this.f3285a.addEventListener("AdUserClick", this.k);
+                this.f3285a.addEventListener(IXAdEvent.AD_LOADED, this.k);
+                this.f3285a.addEventListener(IXAdEvent.AD_STARTED, this.k);
+                this.f3285a.addEventListener(IXAdEvent.AD_STOPPED, this.k);
+                this.f3285a.addEventListener(IXAdEvent.AD_ERROR, this.k);
+                this.f3285a.request();
+                return;
+            }
+        }
+        i = width;
+        if (i >= 200.0f * screenDensity) {
+        }
+        XAdSDKFoundationFacade.getInstance().getAdLogger().e(XAdSDKFoundationFacade.getInstance().getErrorCode().genCompleteErrorMessage(XAdErrorCode.SHOW_STANDARD_UNFIT, "开屏显示区域太小,宽度至少200dp,高度至少150dp"));
+        this.j.onAdDismissed();
+    }
+
+    public final void show() {
+        if (this.h != null && this.e != null && this.f3285a != null) {
+            if (this.e.getParent() != null) {
+                this.f3285a.removeAllListeners();
+                a("展现失败，请重新load");
+                return;
+            }
+            this.e.setListener(new w(this));
+            this.h.addView(this.e);
+            return;
+        }
+        if (this.f3285a != null) {
+            this.f3285a.removeAllListeners();
+        }
+        a("展现失败，请检查splashAd参数是否正确");
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str) {
+        if (this.j != null) {
+            this.j.onAdFailed(str);
         }
     }
 
@@ -69,28 +175,26 @@ public class SplashAd {
     public static void setAppSec(Context context, String str) {
     }
 
-    public static void needRequestVRAd(boolean z) {
-        d = z;
-        com.baidu.mobads.production.g.a.b(d);
-    }
-
-    public static void setBitmapDisplayMode(int i) {
-        com.baidu.mobads.production.g.a.b(i);
-    }
-
     public void destroy() {
-        if (this.f3284a != null) {
-            this.f3284a.p();
+        if (this.f3285a != null) {
+            this.f3285a.p();
         }
+        this.j = null;
     }
 
     public static void setMaxVideoCacheCapacityMb(int i) {
         if (i >= 15 && i <= 100) {
-            com.baidu.mobads.utils.i.a(i);
+            com.baidu.mobads.utils.m.a(i);
             return;
         }
-        com.baidu.mobads.utils.i.a(30);
+        com.baidu.mobads.utils.m.a(30);
         XAdSDKFoundationFacade.getInstance().getErrorCode().printErrorMessage("", "开屏设置视频最大缓存值有效范围在15~100M,默认30M", "");
+    }
+
+    public HashMap getExtData() {
+        HashMap hashMap = new HashMap();
+        HashMap r = this.f3285a.r();
+        return r != null ? r : hashMap;
     }
 
     private void a(ViewGroup viewGroup, Context context) {

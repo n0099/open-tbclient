@@ -3,10 +3,10 @@ package com.bytedance.embedapplog;
 import android.content.Context;
 import android.os.Build;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class bj {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static bi hT(Context context) {
+    public static bi hW(Context context) {
         if (o.b()) {
             return new bn(new al());
         }

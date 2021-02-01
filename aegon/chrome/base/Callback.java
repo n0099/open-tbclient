@@ -1,8 +1,8 @@
 package aegon.chrome.base;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface Callback<T> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Helper {
         public static void onBooleanResultFromNative(Callback callback, boolean z) {
             callback.onResult(Boolean.valueOf(z));

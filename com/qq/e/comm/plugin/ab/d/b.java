@@ -8,39 +8,39 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import com.qq.e.comm.plugin.util.ai;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class b extends com.qq.e.comm.plugin.ab.f.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private f f11753a;
+    private f f11755a;
 
     public void a(f fVar) {
-        this.f11753a = fVar;
+        this.f11755a = fVar;
     }
 
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i) {
         super.onProgressChanged(webView, i);
-        if (this.f11753a != null) {
-            this.f11753a.a(i);
+        if (this.f11755a != null) {
+            this.f11755a.a(i);
         }
     }
 
     @Override // android.webkit.WebChromeClient
     public void onReceivedTitle(WebView webView, String str) {
         super.onReceivedTitle(webView, str);
-        if (this.f11753a != null) {
-            this.f11753a.c(str);
+        if (this.f11755a != null) {
+            this.f11755a.c(str);
         }
     }
 
     @Override // android.webkit.WebChromeClient
     public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         ai.b("gdt_tag_inner_webview", "onShowFileChooser(%s,%s)", valueCallback, fileChooserParams);
-        if (this.f11753a == null || Build.VERSION.SDK_INT < 21 || fileChooserParams == null) {
+        if (this.f11755a == null || Build.VERSION.SDK_INT < 21 || fileChooserParams == null) {
             return false;
         }
-        return this.f11753a.b(valueCallback, fileChooserParams.createIntent());
+        return this.f11755a.b(valueCallback, fileChooserParams.createIntent());
     }
 
     public void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
@@ -50,7 +50,7 @@ class b extends com.qq.e.comm.plugin.ab.f.b {
 
     public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
         ai.b("gdt_tag_inner_webview", "openFileChooser(%s,%s,%s)", valueCallback, str, str2);
-        if (this.f11753a == null) {
+        if (this.f11755a == null) {
             if (valueCallback != null) {
                 valueCallback.onReceiveValue(null);
                 return;
@@ -63,6 +63,6 @@ class b extends com.qq.e.comm.plugin.ab.f.b {
             str = "*/*";
         }
         intent.setType(str);
-        this.f11753a.a(valueCallback, intent);
+        this.f11755a.a(valueCallback, intent);
     }
 }

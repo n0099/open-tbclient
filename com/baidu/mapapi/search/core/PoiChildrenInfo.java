@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.core;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PoiChildrenInfo implements Parcelable {
     public static final Parcelable.Creator<PoiChildrenInfo> CREATOR = new e();
     private String address;

@@ -3,7 +3,7 @@ package com.baidu.searchbox.logsystem.basic.javacrash;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener;
 import java.lang.Thread;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BaseProcessExceptionListener implements ProcessExceptionListener {
     @Override // com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener
     public void onProcessExceptionStart(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th) {

@@ -2,7 +2,7 @@ package com.ksad.lottie.a.b;
 
 import android.graphics.Path;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l extends a<com.ksad.lottie.model.content.h, Path> {
     private final com.ksad.lottie.model.content.h c;
     private final Path d;
@@ -17,7 +17,7 @@ public class l extends a<com.ksad.lottie.model.content.h, Path> {
     @Override // com.ksad.lottie.a.b.a
     /* renamed from: b */
     public Path a(com.ksad.lottie.e.a<com.ksad.lottie.model.content.h> aVar, float f) {
-        this.c.a(aVar.f8001a, aVar.f8002b, f);
+        this.c.a(aVar.f8003a, aVar.f8004b, f);
         com.ksad.lottie.d.e.a(this.c, this.d);
         return this.d;
     }

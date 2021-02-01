@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 public class j {
     public String subType = null;
 
-    public static com.baidu.adp.lib.stats.a pi() {
+    public static com.baidu.adp.lib.stats.a pg() {
         return BdStatisticsManager.getInstance().getStatsItem(BdStatsConstant.StatsType.PERFORMANCE);
     }
 }

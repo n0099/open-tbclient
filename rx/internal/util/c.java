@@ -2,57 +2,57 @@ package rx.internal.util;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
     final int capacityHint;
-    Object[] qhx;
-    Object[] qhy;
-    int qhz;
+    Object[] qrB;
+    Object[] qrC;
+    int qrD;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.qhx = new Object[this.capacityHint + 1];
-            this.qhy = this.qhx;
-            this.qhx[0] = obj;
-            this.qhz = 1;
+            this.qrB = new Object[this.capacityHint + 1];
+            this.qrC = this.qrB;
+            this.qrB[0] = obj;
+            this.qrD = 1;
             this.size = 1;
-        } else if (this.qhz == this.capacityHint) {
+        } else if (this.qrD == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.qhy[this.capacityHint] = objArr;
-            this.qhy = objArr;
-            this.qhz = 1;
+            this.qrC[this.capacityHint] = objArr;
+            this.qrC = objArr;
+            this.qrD = 1;
             this.size++;
         } else {
-            this.qhy[this.qhz] = obj;
-            this.qhz++;
+            this.qrC[this.qrD] = obj;
+            this.qrD++;
             this.size++;
         }
     }
 
-    public Object[] eIo() {
-        return this.qhx;
+    public Object[] eKE() {
+        return this.qrB;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> eKV() {
+    List<Object> eNl() {
         int i = this.capacityHint;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
         int i4 = 0;
-        Object[] eIo = eIo();
+        Object[] eKE = eKE();
         while (i4 < i2) {
-            arrayList.add(eIo[i3]);
+            arrayList.add(eKE[i3]);
             i4++;
             int i5 = i3 + 1;
             if (i5 == i) {
                 i3 = 0;
-                eIo = eIo[i];
+                eKE = eKE[i];
             } else {
                 i3 = i5;
             }
@@ -61,6 +61,6 @@ public class c {
     }
 
     public String toString() {
-        return eKV().toString();
+        return eNl().toString();
     }
 }

@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.Size;
 import java.util.Locale;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class LocaleListCompat {
     static final LocaleListInterface IMPL;
     private static final LocaleListCompat sEmptyLocaleList = new LocaleListCompat();
@@ -21,7 +21,7 @@ public final class LocaleListCompat {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     static class LocaleListCompatBaseImpl implements LocaleListInterface {
         private LocaleListHelper mLocaleList = new LocaleListHelper(new Locale[0]);
 
@@ -91,7 +91,7 @@ public final class LocaleListCompat {
     }
 
     @RequiresApi(24)
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     static class LocaleListCompatApi24Impl implements LocaleListInterface {
         private LocaleList mLocaleList = new LocaleList(new Locale[0]);
 

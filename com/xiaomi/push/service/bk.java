@@ -2,6 +2,7 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import com.xiaomi.push.hq;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -11,14 +12,14 @@ import java.nio.channels.FileLock;
 public final class bk implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f14276a;
+    final /* synthetic */ Context f14278a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ hq f975a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(Context context, hq hqVar) {
-        this.f14276a = context;
+        this.f14278a = context;
         this.f975a = hqVar;
     }
 
@@ -26,16 +27,16 @@ public final class bk implements Runnable {
     public void run() {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
-        synchronized (bj.f14275a) {
+        synchronized (bj.f14277a) {
             try {
-                File file = new File(this.f14276a.getFilesDir(), "tiny_data.lock");
+                File file = new File(this.f14278a.getFilesDir(), "tiny_data.lock");
                 com.xiaomi.push.y.m616a(file);
-                randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
                     try {
                         try {
-                            bj.c(this.f14276a, this.f975a);
+                            bj.c(this.f14278a, this.f975a);
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();

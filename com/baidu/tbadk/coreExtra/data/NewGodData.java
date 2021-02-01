@@ -5,14 +5,14 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.NewGodInfo;
 /* loaded from: classes.dex */
-public class NewGodData extends com.baidu.tbadk.core.data.n implements Serializable {
+public class NewGodData extends com.baidu.tbadk.core.data.o implements Serializable {
     private int mStatus = 0;
     private String mFieldId = "";
     private String mFieldName = "";
     private int mType = 0;
     private String mTypeName = "";
 
-    @Override // com.baidu.tbadk.core.data.n
+    @Override // com.baidu.tbadk.core.data.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {

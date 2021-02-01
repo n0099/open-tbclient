@@ -8,7 +8,7 @@ import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.mediation.interfaces.BaseNativeUnifiedAd;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class ANNativeUnifiedAdAdapter extends BaseNativeUnifiedAd {
     private List<NativeUnifiedADData> data;
     private i delegate;

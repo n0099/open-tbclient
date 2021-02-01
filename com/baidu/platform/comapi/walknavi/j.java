@@ -6,15 +6,15 @@ import android.content.Intent;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class j extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4355a;
+    final /* synthetic */ b f4358a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(b bVar) {
-        this.f4355a = bVar;
+        this.f4358a = bVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -32,18 +32,18 @@ public class j extends BroadcastReceiver {
     private void a(Context context) {
         Context context2;
         Context context3;
-        context2 = this.f4355a.y;
+        context2 = this.f4358a.y;
         int a2 = com.baidu.platform.comapi.wnplatform.o.h.a(context2);
         if (a2 != 0) {
-            com.baidu.platform.comapi.walknavi.b.a.f4187a = a2;
-            context3 = this.f4355a.y;
+            com.baidu.platform.comapi.walknavi.b.a.f4190a = a2;
+            context3 = this.f4358a.y;
             com.baidu.platform.comapi.wnplatform.o.h.a(context3, 0);
         }
     }
 
     private void b(Context context) {
         Handler handler;
-        handler = this.f4355a.z;
+        handler = this.f4358a.z;
         handler.postDelayed(new k(this), 2000L);
     }
 }

@@ -2,36 +2,36 @@ package com.kwad.sdk.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9569a;
+    private final com.kwad.sdk.core.webview.a f9571a;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f9570b;
+    private a f9572b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class b implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f9571a;
+        private int f9573a;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "screenOrientation", this.f9571a);
+            com.kwad.sdk.utils.o.a(jSONObject, "screenOrientation", this.f9573a);
             return jSONObject;
         }
     }
 
     public f(com.kwad.sdk.core.webview.a aVar) {
-        this.f9569a = aVar;
+        this.f9571a = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -41,20 +41,20 @@ public class f implements com.kwad.sdk.core.webview.a.a {
     }
 
     public void a(a aVar) {
-        this.f9570b = aVar;
+        this.f9572b = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        if (this.f9569a.f9537b == null) {
+        if (this.f9571a.f9539b == null) {
             cVar.a(-1, "native adTemplate is null");
             return;
         }
-        if (this.f9570b != null) {
-            this.f9570b.a();
+        if (this.f9572b != null) {
+            this.f9572b.a();
         }
         b bVar = new b();
-        bVar.f9571a = this.f9569a.f9536a;
+        bVar.f9573a = this.f9571a.f9538a;
         cVar.a(bVar);
     }
 

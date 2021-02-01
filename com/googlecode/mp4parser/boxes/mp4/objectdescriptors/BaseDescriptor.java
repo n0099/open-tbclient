@@ -1,10 +1,11 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
 import com.coremedia.iso.IsoTypeReader;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {0})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseDescriptor {
     static final /* synthetic */ boolean $assertionsDisabled;
     int sizeBytes;
@@ -36,12 +37,12 @@ public abstract class BaseDescriptor {
     public final void parse(int i, ByteBuffer byteBuffer) throws IOException {
         this.tag = i;
         int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-        this.sizeOfInstance = readUInt8 & 127;
+        this.sizeOfInstance = readUInt8 & ThunderNetStateService.NetState.SYSNET_UNKNOWN;
         int i2 = 1;
         while ((readUInt8 >>> 7) == 1) {
             readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
             i2++;
-            this.sizeOfInstance = (this.sizeOfInstance << 7) | (readUInt8 & 127);
+            this.sizeOfInstance = (this.sizeOfInstance << 7) | (readUInt8 & ThunderNetStateService.NetState.SYSNET_UNKNOWN);
         }
         this.sizeBytes = i2;
         ByteBuffer slice = byteBuffer.slice();

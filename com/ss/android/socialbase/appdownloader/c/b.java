@@ -1,8 +1,8 @@
 package com.ss.android.socialbase.appdownloader.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class b implements k {
     @Override // com.ss.android.socialbase.appdownloader.c.k
-    public k BE(boolean z) {
+    public k BY(boolean z) {
         return null;
     }
 }

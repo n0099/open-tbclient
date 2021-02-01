@@ -1,6 +1,7 @@
 package com.baidu.tieba.attention;
 
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.j;
@@ -39,14 +40,14 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                 if (optJSONObject2 != null) {
                     j jVar = new j();
                     jVar.forumId = optJSONObject2.optString("id");
-                    jVar.aSf = optJSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                    jVar.aVj = optJSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
                     jVar.forumName = optJSONObject2.optString("name");
                     jVar.level = optJSONObject2.optInt("level_id");
-                    jVar.fxQ = optJSONObject2.optInt("this_week_post") == 1;
+                    jVar.fAg = optJSONObject2.optInt("this_week_post") == 1;
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject("block_pop_info");
                     if (optJSONObject3 != null) {
-                        jVar.fxR = optJSONObject3.optInt("can_post") == 1;
-                        jVar.fxS = optJSONObject3.optString("block_info");
+                        jVar.fAh = optJSONObject3.optInt("can_post") == 1;
+                        jVar.fAi = optJSONObject3.optString("block_info");
                     }
                     JSONArray optJSONArray = optJSONObject2.optJSONArray("tab_info");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -62,7 +63,7 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                                 builder.tab_gid = optJSONObject4.optString("tab_gid");
                                 builder.tab_title = optJSONObject4.optString("tab_title");
                                 builder.is_general_tab = Integer.valueOf(optJSONObject4.optInt("is_general_tab"));
-                                builder.tab_code = optJSONObject4.optString("tab_code");
+                                builder.tab_code = optJSONObject4.optString(LowFlowsActivityConfig.TAB_CODE);
                                 builder.tab_version = Integer.valueOf(optJSONObject4.optInt("tab_version"));
                                 builder.is_default = Integer.valueOf(optJSONObject4.optInt("is_default"));
                                 jVar.tabInfoList.add(new FrsTabItemData(builder.build(true)));
@@ -71,8 +72,8 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                     }
                     jVar.isForumBusinessAccount = optJSONObject2.optInt("is_forum_business_account") == 1;
                     if (optJSONObject2.optInt("has_postpre") == 1 && (optJSONObject = optJSONObject2.optJSONObject("post_prefix")) != null) {
-                        jVar.fxT = new PostPrefixData();
-                        jVar.fxT.parserJson(optJSONObject);
+                        jVar.fAj = new PostPrefixData();
+                        jVar.fAj.parserJson(optJSONObject);
                     }
                     this.mSelectForumDataList.add(jVar);
                 }

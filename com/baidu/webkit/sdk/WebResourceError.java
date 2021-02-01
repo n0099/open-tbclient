@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public abstract class WebResourceError {
     public abstract CharSequence getDescription();
 

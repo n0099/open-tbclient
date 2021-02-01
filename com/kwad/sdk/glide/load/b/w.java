@@ -11,28 +11,28 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class w<Data> implements n<Uri, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<String> f10125a = Collections.unmodifiableSet(new HashSet(Arrays.asList("file", "android.resource", "content")));
+    private static final Set<String> f10127a = Collections.unmodifiableSet(new HashSet(Arrays.asList("file", "android.resource", "content")));
 
     /* renamed from: b  reason: collision with root package name */
-    private final c<Data> f10126b;
+    private final c<Data> f10128b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements o<Uri, AssetFileDescriptor>, c<AssetFileDescriptor> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ContentResolver f10127a;
+        private final ContentResolver f10129a;
 
         public a(ContentResolver contentResolver) {
-            this.f10127a = contentResolver;
+            this.f10129a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.b.w.c
         public com.kwad.sdk.glide.load.a.d<AssetFileDescriptor> a(Uri uri) {
-            return new com.kwad.sdk.glide.load.a.a(this.f10127a, uri);
+            return new com.kwad.sdk.glide.load.a.a(this.f10129a, uri);
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
@@ -41,19 +41,19 @@ public class w<Data> implements n<Uri, Data> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements o<Uri, ParcelFileDescriptor>, c<ParcelFileDescriptor> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ContentResolver f10128a;
+        private final ContentResolver f10130a;
 
         public b(ContentResolver contentResolver) {
-            this.f10128a = contentResolver;
+            this.f10130a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.b.w.c
         public com.kwad.sdk.glide.load.a.d<ParcelFileDescriptor> a(Uri uri) {
-            return new com.kwad.sdk.glide.load.a.i(this.f10128a, uri);
+            return new com.kwad.sdk.glide.load.a.i(this.f10130a, uri);
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
@@ -63,24 +63,24 @@ public class w<Data> implements n<Uri, Data> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c<Data> {
         com.kwad.sdk.glide.load.a.d<Data> a(Uri uri);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class d implements o<Uri, InputStream>, c<InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ContentResolver f10129a;
+        private final ContentResolver f10131a;
 
         public d(ContentResolver contentResolver) {
-            this.f10129a = contentResolver;
+            this.f10131a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.b.w.c
         public com.kwad.sdk.glide.load.a.d<InputStream> a(Uri uri) {
-            return new com.kwad.sdk.glide.load.a.n(this.f10129a, uri);
+            return new com.kwad.sdk.glide.load.a.n(this.f10131a, uri);
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
@@ -91,18 +91,18 @@ public class w<Data> implements n<Uri, Data> {
     }
 
     public w(c<Data> cVar) {
-        this.f10126b = cVar;
+        this.f10128b = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return new n.a<>(new com.kwad.sdk.glide.f.b(uri), this.f10126b.a(uri));
+        return new n.a<>(new com.kwad.sdk.glide.f.b(uri), this.f10128b.a(uri));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public boolean a(@NonNull Uri uri) {
-        return f10125a.contains(uri.getScheme());
+        return f10127a.contains(uri.getScheme());
     }
 }

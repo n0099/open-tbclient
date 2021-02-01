@@ -5,11 +5,11 @@ import com.kwad.sdk.lib.a.a.b;
 import com.kwad.sdk.lib.b.f;
 import com.kwad.sdk.lib.b.g;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b<PAGE, MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<PAGE, MODEL>> extends com.kwad.sdk.lib.a.a.a<MODEL, CallerContext> {
 
     /* renamed from: a  reason: collision with root package name */
-    private RecyclerView f10408a;
+    private RecyclerView f10410a;
     private com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> c;
     private com.kwad.sdk.lib.widget.recycler.d d;
     private com.kwad.sdk.lib.b.c<PAGE, MODEL> e;
@@ -26,7 +26,7 @@ public class b<PAGE, MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<PAGE, M
 
         @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
         public void b(boolean z, boolean z2) {
-            if (b.this.g && b.this.f10408a.getLayoutManager() == null) {
+            if (b.this.g && b.this.f10410a.getLayoutManager() == null) {
                 b.this.e();
             }
         }
@@ -38,13 +38,13 @@ public class b<PAGE, MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<PAGE, M
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f10408a.setItemAnimator(null);
+        this.f10410a.setItemAnimator(null);
         RecyclerView.ItemDecoration b2 = this.f.b(this.e.p());
         if (b2 != null) {
-            this.f10408a.addItemDecoration(b2);
+            this.f10410a.addItemDecoration(b2);
         }
-        this.f10408a.setLayoutManager(this.f.a(this.e.p()));
-        this.d.a(this.f10408a);
+        this.f10410a.setLayoutManager(this.f.a(this.e.p()));
+        this.d.a(this.f10410a);
     }
 
     /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: java.util.List<MODEL>, java.util.List<M> */
@@ -52,14 +52,14 @@ public class b<PAGE, MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<PAGE, M
     @Override // com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f10408a = this.f10405b.f;
-        this.e = this.f10405b.g;
-        this.c = this.f10405b.h;
-        this.d = this.f10405b.i;
+        this.f10410a = this.f10407b.f;
+        this.e = this.f10407b.g;
+        this.c = this.f10407b.h;
+        this.d = this.f10407b.i;
         this.c.a((List<MODEL>) this.e.g());
-        this.c.a((com.kwad.sdk.lib.b.c<?, MODEL>) this.f10405b.g);
-        this.f10408a.setAdapter(this.d);
-        this.f = this.f10405b.k;
+        this.c.a((com.kwad.sdk.lib.b.c<?, MODEL>) this.f10407b.g);
+        this.f10410a.setAdapter(this.d);
+        this.f = this.f10407b.k;
         if (this.g) {
             this.e.a(this.h);
         } else {

@@ -16,7 +16,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class LinearLayoutCompat extends ViewGroup {
     public static final int HORIZONTAL = 0;
     private static final int INDEX_BOTTOM = 2;
@@ -47,13 +47,13 @@ public class LinearLayoutCompat extends ViewGroup {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public @interface DividerMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public @interface OrientationMode {
     }
 
@@ -1149,7 +1149,7 @@ public class LinearLayoutCompat extends ViewGroup {
         accessibilityNodeInfo.setClassName(LinearLayoutCompat.class.getName());
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public int gravity;
         public float weight;

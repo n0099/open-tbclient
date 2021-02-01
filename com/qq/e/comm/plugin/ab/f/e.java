@@ -14,48 +14,48 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ab.f.a f11793a;
+    private com.qq.e.comm.plugin.ab.f.a f11795a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b f11794b;
+    private b f11796b;
     private a c = new a();
     private f d;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Map<String, com.qq.e.comm.plugin.ab.f.a.b> f11801a;
+        private Map<String, com.qq.e.comm.plugin.ab.f.a.b> f11803a;
 
         private a() {
-            this.f11801a = new HashMap();
+            this.f11803a = new HashMap();
         }
 
         com.qq.e.comm.plugin.ab.f.a.b a(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.f11801a.get(str);
+            return this.f11803a.get(str);
         }
 
         void a(String str, com.qq.e.comm.plugin.ab.f.a.b bVar) {
             if (TextUtils.isEmpty(str) || bVar == null) {
                 return;
             }
-            this.f11801a.put(str, bVar);
+            this.f11803a.put(str, bVar);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private Map<String, com.qq.e.comm.plugin.ab.f.a.c> f11802a = new HashMap();
+        private Map<String, com.qq.e.comm.plugin.ab.f.a.c> f11804a = new HashMap();
 
         public b(JSONObject jSONObject) {
             a(jSONObject);
@@ -63,29 +63,29 @@ public class e {
 
         private void a(JSONObject jSONObject) {
             com.qq.e.comm.plugin.ab.f.a.a aVar = new com.qq.e.comm.plugin.ab.f.a.a(jSONObject);
-            this.f11802a.put("download", aVar);
-            this.f11802a.put("package", aVar);
-            this.f11802a.put("network", aVar);
+            this.f11804a.put("download", aVar);
+            this.f11804a.put("package", aVar);
+            this.f11804a.put("network", aVar);
         }
 
         com.qq.e.comm.plugin.ab.f.a.c a(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.f11802a.get(str);
+            return this.f11804a.get(str);
         }
 
         void a(String str, com.qq.e.comm.plugin.ab.f.a.c cVar) {
             if (TextUtils.isEmpty(str) || cVar == null) {
                 return;
             }
-            this.f11802a.put(str, cVar);
+            this.f11804a.put(str, cVar);
         }
     }
 
     public e(com.qq.e.comm.plugin.ab.f.a aVar, JSONObject jSONObject) {
-        this.f11793a = aVar;
-        this.f11794b = new b(jSONObject);
+        this.f11795a = aVar;
+        this.f11796b = new b(jSONObject);
     }
 
     private void a(String str, String str2, String str3) {
@@ -118,7 +118,7 @@ public class e {
         String str5 = "";
         String str6 = "";
         if (f.a(Uri.parse(str))) {
-            this.d = new f(this.f11793a);
+            this.d = new f(this.f11795a);
             this.d.a();
             com.qq.e.comm.plugin.ab.b.d a2 = this.d.a(str);
             if (a2 != null) {
@@ -155,8 +155,8 @@ public class e {
             }
         }
         if (!"template".equals(str3)) {
-            com.qq.e.comm.plugin.ab.f.a.c a3 = this.f11794b.a(str3);
-            return a3 != null ? a3.a(this, this.f11793a.c(), str3, str4, str5, str6) : new com.qq.e.comm.plugin.ab.c.f<>(1000, "Unsupported service");
+            com.qq.e.comm.plugin.ab.f.a.c a3 = this.f11796b.a(str3);
+            return a3 != null ? a3.a(this, this.f11795a.c(), str3, str4, str5, str6) : new com.qq.e.comm.plugin.ab.c.f<>(1000, "Unsupported service");
         }
         if ("multiAction".equals(str4)) {
             if (TextUtils.isEmpty(str2)) {
@@ -177,7 +177,7 @@ public class e {
     }
 
     public Set<String> a() {
-        return this.c.f11801a.keySet();
+        return this.c.f11803a.keySet();
     }
 
     public void a(final com.qq.e.comm.plugin.ab.b.b bVar) {
@@ -186,7 +186,7 @@ public class e {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        e.this.f11793a.b(bVar.a());
+                        e.this.f11795a.b(bVar.a());
                     } catch (Throwable th) {
                         GDTLogger.report("Exception while fire JSEvent");
                     }
@@ -202,7 +202,7 @@ public class e {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        e.this.f11793a.b(eVar.a());
+                        e.this.f11795a.b(eVar.a());
                     } catch (Throwable th) {
                         GDTLogger.report("Exception while sending JSResponse", th);
                     }
@@ -226,7 +226,7 @@ public class e {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    e.this.f11793a.b(str3);
+                    e.this.f11795a.b(str3);
                 } catch (Throwable th) {
                     GDTLogger.report("Exception while sending JSResponse", th);
                 }
@@ -235,6 +235,6 @@ public class e {
     }
 
     public void a(String str, com.qq.e.comm.plugin.ab.f.a.c cVar) {
-        this.f11794b.a(str, cVar);
+        this.f11796b.a(str, cVar);
     }
 }

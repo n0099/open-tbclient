@@ -1,7 +1,6 @@
 package okhttp3.internal.http2;
 
 import android.net.http.Headers;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
@@ -20,7 +19,7 @@ import okio.Okio;
 import okio.Source;
 import org.apache.http.HttpHost;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class Hpack {
     private static final int PREFIX_4_BITS = 15;
     private static final int PREFIX_5_BITS = 31;
@@ -32,7 +31,7 @@ public final class Hpack {
     private Hpack() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     static final class Reader {
         Header[] dynamicTable;
         int dynamicTableByteCount;
@@ -108,7 +107,7 @@ public final class Hpack {
                     throw new IOException("index == 0");
                 }
                 if ((readByte & 128) == 128) {
-                    readIndexedHeader(readInt(readByte, Hpack.PREFIX_7_BITS) - 1);
+                    readIndexedHeader(readInt(readByte, 127) - 1);
                 } else if (readByte == 64) {
                     readLiteralHeaderWithIncrementalIndexingNewName();
                 } else if ((readByte & 64) == 64) {
@@ -219,7 +218,7 @@ public final class Hpack {
                 while (true) {
                     int readByte = readByte();
                     if ((readByte & 128) != 0) {
-                        i2 += (readByte & Hpack.PREFIX_7_BITS) << i4;
+                        i2 += (readByte & 127) << i4;
                         i4 += 7;
                     } else {
                         return (readByte << i4) + i2;
@@ -233,7 +232,7 @@ public final class Hpack {
         ByteString readByteString() throws IOException {
             int readByte = readByte();
             boolean z = (readByte & 128) == 128;
-            int readInt = readInt(readByte, Hpack.PREFIX_7_BITS);
+            int readInt = readInt(readByte, 127);
             if (z) {
                 return ByteString.of(Huffman.get().decode(this.source.readByteArray(readInt)));
             }
@@ -251,7 +250,7 @@ public final class Hpack {
         return Collections.unmodifiableMap(linkedHashMap);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     static final class Writer {
         private static final int SETTINGS_HEADER_TABLE_SIZE = 4096;
         private static final int SETTINGS_HEADER_TABLE_SIZE_LIMIT = 16384;
@@ -272,7 +271,7 @@ public final class Hpack {
         }
 
         Writer(int i, boolean z, Buffer buffer) {
-            this.smallestHeaderTableSizeSetting = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            this.smallestHeaderTableSizeSetting = Integer.MAX_VALUE;
             this.dynamicTable = new Header[8];
             this.nextHeaderIndex = this.dynamicTable.length - 1;
             this.headerCount = 0;
@@ -340,7 +339,7 @@ public final class Hpack {
                     writeInt(this.smallestHeaderTableSizeSetting, 31, 32);
                 }
                 this.emitDynamicTableSizeUpdate = false;
-                this.smallestHeaderTableSizeSetting = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                this.smallestHeaderTableSizeSetting = Integer.MAX_VALUE;
                 writeInt(this.maxDynamicTableByteCount, 31, 32);
             }
             int size = list.size();
@@ -385,7 +384,7 @@ public final class Hpack {
                     }
                 }
                 if (i2 != -1) {
-                    writeInt(i2, Hpack.PREFIX_7_BITS, 128);
+                    writeInt(i2, 127, 128);
                 } else if (i == -1) {
                     this.out.writeByte(64);
                     writeByteString(asciiLowercase);
@@ -410,7 +409,7 @@ public final class Hpack {
             this.out.writeByte(i3 | i2);
             int i4 = i - i2;
             while (i4 >= 128) {
-                this.out.writeByte((i4 & Hpack.PREFIX_7_BITS) | 128);
+                this.out.writeByte((i4 & 127) | 128);
                 i4 >>>= 7;
             }
             this.out.writeByte(i4);
@@ -421,11 +420,11 @@ public final class Hpack {
                 Buffer buffer = new Buffer();
                 Huffman.get().encode(byteString, buffer);
                 ByteString readByteString = buffer.readByteString();
-                writeInt(readByteString.size(), Hpack.PREFIX_7_BITS, 128);
+                writeInt(readByteString.size(), 127, 128);
                 this.out.write(readByteString);
                 return;
             }
-            writeInt(byteString.size(), Hpack.PREFIX_7_BITS, 0);
+            writeInt(byteString.size(), 127, 0);
             this.out.write(byteString);
         }
 

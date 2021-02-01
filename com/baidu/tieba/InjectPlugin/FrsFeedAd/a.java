@@ -6,23 +6,23 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.InjectPlugin.a.f;
 import com.baidu.tieba.recapp.p;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends f {
-    protected p fZO;
+    protected p gch;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(p pVar, BdUniqueId bdUniqueId) {
         super(pVar.getTbPageContext().getPageActivity(), bdUniqueId);
-        this.fZO = pVar;
+        this.gch = pVar;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.f, com.baidu.adp.widget.ListView.a
     public View getView(int i, View view, ViewGroup viewGroup, Object obj) {
         if (obj instanceof b) {
             b bVar = (b) obj;
-            com.baidu.tieba.InjectPlugin.a.a sH = ((com.baidu.tieba.InjectPlugin.a.b) this.fZO).sH(1);
-            if (sH instanceof d) {
-                return ((d) sH).getView(i, view, viewGroup, bVar.bIW());
+            com.baidu.tieba.InjectPlugin.a.a sM = ((com.baidu.tieba.InjectPlugin.a.b) this.gch).sM(1);
+            if (sM instanceof d) {
+                return ((d) sM).getView(i, view, viewGroup, bVar.bJq());
             }
             return null;
         }
@@ -32,9 +32,9 @@ public class a extends f {
     @Override // com.baidu.adp.widget.ListView.a
     public TypeAdapter.ViewHolder a(ViewGroup viewGroup, Object obj) {
         if (b.n(getType()) != -1 && (obj instanceof b)) {
-            com.baidu.tieba.InjectPlugin.a.a sH = ((com.baidu.tieba.InjectPlugin.a.b) this.fZO).sH(1);
-            if (sH instanceof d) {
-                return ((d) sH).a(viewGroup, ((b) obj).bIW());
+            com.baidu.tieba.InjectPlugin.a.a sM = ((com.baidu.tieba.InjectPlugin.a.b) this.gch).sM(1);
+            if (sM instanceof d) {
+                return ((d) sM).a(viewGroup, ((b) obj).bJq());
             }
             return null;
         }
@@ -44,9 +44,9 @@ public class a extends f {
     @Override // com.baidu.adp.widget.ListView.a
     public void a(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj) {
         if (obj instanceof b) {
-            com.baidu.tieba.InjectPlugin.a.a sH = ((com.baidu.tieba.InjectPlugin.a.b) this.fZO).sH(1);
-            if (sH instanceof d) {
-                ((d) sH).a(i, viewGroup, viewHolder, ((b) obj).bIW());
+            com.baidu.tieba.InjectPlugin.a.a sM = ((com.baidu.tieba.InjectPlugin.a.b) this.gch).sM(1);
+            if (sM instanceof d) {
+                ((d) sM).a(i, viewGroup, viewHolder, ((b) obj).bJq());
             }
         }
     }

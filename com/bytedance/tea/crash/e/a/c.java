@@ -10,24 +10,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.bytedance.tea.crash.c f7636a;
+    protected com.bytedance.tea.crash.c f7638a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected Context f7637b;
-    protected d plA;
-    protected com.bytedance.tea.crash.d ply = h.eoL().eoF();
-    protected b plz;
+    protected Context f7639b;
+    protected com.bytedance.tea.crash.d pvN = h.erd().eqX();
+    protected b pvO;
+    protected d pvP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.bytedance.tea.crash.c cVar, Context context, b bVar, d dVar) {
-        this.f7636a = cVar;
-        this.f7637b = context;
-        this.plz = bVar;
-        this.plA = dVar;
+        this.f7638a = cVar;
+        this.f7639b = context;
+        this.pvO = bVar;
+        this.pvP = dVar;
     }
 
     public com.bytedance.tea.crash.c.a a(com.bytedance.tea.crash.c.a aVar) {
@@ -40,22 +40,22 @@ public abstract class c {
     }
 
     void b(com.bytedance.tea.crash.c.a aVar) {
-        if (b() && this.plz != null) {
-            aVar.a(this.plz);
+        if (b() && this.pvO != null) {
+            aVar.a(this.pvO);
         }
-        aVar.iv(h.f());
-        aVar.a("is_background", Boolean.valueOf(!com.bytedance.tea.crash.g.a.a(this.f7637b)));
+        aVar.iy(h.f());
+        aVar.a("is_background", Boolean.valueOf(!com.bytedance.tea.crash.g.a.a(this.f7639b)));
         aVar.a("pid", Integer.valueOf(Process.myPid()));
-        aVar.a("battery", Integer.valueOf(this.plA.a()));
-        aVar.J(this.ply.e());
-        aVar.K(h.eoP());
-        aVar.cb(h.j(), h.k());
-        aVar.gI(this.ply.f());
-        aVar.eS(n.a(this.f7637b));
+        aVar.a("battery", Integer.valueOf(this.pvP.a()));
+        aVar.L(this.pvN.e());
+        aVar.M(h.erh());
+        aVar.ci(h.j(), h.k());
+        aVar.gG(this.pvN.f());
+        aVar.eT(n.a(this.f7639b));
         if (a()) {
             e(aVar);
         }
-        aVar.XR(this.ply.d());
+        aVar.YS(this.pvN.d());
         String g = h.g();
         if (g != null) {
             aVar.a(Constant.KEY_BUSINESS, g);
@@ -63,13 +63,13 @@ public abstract class c {
         if (h.h()) {
             aVar.a("is_mp", 1);
         }
-        aVar.L(h.eoM().a());
+        aVar.N(h.ere().a());
         aVar.a("crash_uuid", UUID.randomUUID().toString());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(com.bytedance.tea.crash.c.a aVar) {
-        Map<String, Object> a2 = h.eoL().a();
+        Map<String, Object> a2 = h.erd().a();
         if (a2 != null) {
             if (a2.containsKey("app_version")) {
                 aVar.a("crash_version", a2.get("app_version"));
@@ -95,11 +95,11 @@ public abstract class c {
     }
 
     private void d(com.bytedance.tea.crash.c.a aVar) {
-        List<com.bytedance.tea.crash.a> b2 = h.eoM().b(this.f7636a);
+        List<com.bytedance.tea.crash.a> b2 = h.ere().b(this.f7638a);
         if (b2 != null) {
             JSONObject jSONObject = new JSONObject();
             for (com.bytedance.tea.crash.a aVar2 : b2) {
-                Map<? extends String, ? extends String> a2 = aVar2.a(this.f7636a);
+                Map<? extends String, ? extends String> a2 = aVar2.a(this.f7638a);
                 if (a2 != null) {
                     try {
                         for (String str : a2.keySet()) {
@@ -114,7 +114,7 @@ public abstract class c {
     }
 
     protected void e(com.bytedance.tea.crash.c.a aVar) {
-        aVar.gJ(com.bytedance.tea.crash.e.e.a(h.eoO().b(), h.eoO().c()));
+        aVar.gH(com.bytedance.tea.crash.e.e.a(h.erg().b(), h.erg().c()));
     }
 
     protected boolean a() {

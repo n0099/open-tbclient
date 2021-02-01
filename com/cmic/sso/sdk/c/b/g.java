@@ -1,7 +1,7 @@
 package com.cmic.sso.sdk.c.b;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public abstract class g {
     public abstract String a();
 

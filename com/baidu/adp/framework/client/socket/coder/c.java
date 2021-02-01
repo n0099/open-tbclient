@@ -1,7 +1,7 @@
 package com.baidu.adp.framework.client.socket.coder;
 /* loaded from: classes.dex */
 public class c {
-    public a Jn;
+    public a Jm;
     public byte[] body;
     public int bodyLength;
     public int bodyOffset;

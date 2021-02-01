@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.core.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static boolean a(String str) {
         return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.c.b.a(str) : a.a().a(str);

@@ -1,44 +1,44 @@
 package com.baidu.tieba.yuyinala.liveroom.messages;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e extends HttpMessage {
-    private long brk;
-    private String brl;
+    private long buN;
+    private String buO;
     private long mAlaId;
     private long mTime;
-    private long omO;
+    private long owG;
 
     public void setFrom(String str) {
-        this.brl = str;
+        this.buO = str;
     }
 
     public void setLiveId(long j) {
-        this.brk = j;
+        this.buN = j;
     }
 
-    public void aZ(long j) {
+    public void bd(long j) {
         this.mTime = j;
     }
 
-    public void aP(long j) {
-        this.omO = j;
+    public void aS(long j) {
+        this.owG = j;
     }
 
     public e() {
         super(1031024);
-        this.brl = "";
-        this.brk = 0L;
+        this.buO = "";
+        this.buN = 0L;
         this.mAlaId = 0L;
         this.mTime = 0L;
     }
 
     public void setParams() {
-        addParam("from_type", this.brl);
-        addParam("live_id", this.brk);
+        addParam("from_type", this.buO);
+        addParam("live_id", this.buN);
         addParam("enter_time", this.mTime);
-        if (this.omO > 0) {
-            addParam("send_time", this.omO);
+        if (this.owG > 0) {
+            addParam("send_time", this.owG);
         }
     }
 }

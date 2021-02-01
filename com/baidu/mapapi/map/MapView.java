@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
@@ -28,12 +27,13 @@ import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapsdkplatform.comapi.map.ak;
 import com.baidu.webkit.net.BdNetTask;
+import com.yy.mediaframework.base.VideoEncoderConfig;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MapView extends ViewGroup {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f2739b;
+    private static String f2737b;
     private int A;
     private com.baidu.mapsdkplatform.comapi.map.j d;
     private BaiduMap e;
@@ -59,12 +59,12 @@ public final class MapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2738a = MapView.class.getSimpleName();
+    private static final String f2736a = MapView.class.getSimpleName();
     private static int c = 0;
     private static final SparseArray<Integer> p = new SparseArray<>();
 
     static {
-        p.append(3, 2000000);
+        p.append(3, Integer.valueOf((int) VideoEncoderConfig.SCREEN_RECORD_ENCODE_ULTRA_HIGH_BITRATE));
         p.append(4, Integer.valueOf((int) MessageConfig.BASE_SEGMENT_LENGTH));
         p.append(5, 500000);
         p.append(6, Integer.valueOf((int) AlaRecorderLog.ErrCodeSeg.ERROR_BASE_RTMP));
@@ -147,7 +147,7 @@ public final class MapView extends ViewGroup {
         this.o = context;
         com.baidu.mapsdkplatform.comapi.map.i.a();
         BMapManager.init();
-        a(context, baiduMapOptions, f2739b, c);
+        a(context, baiduMapOptions, f2737b, c);
         this.e = new BaiduMap(this.d);
         a(context);
         b(context);
@@ -195,9 +195,9 @@ public final class MapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.h.a()) {
-            float f = this.d.a().E().f3040a;
-            this.h.b(f > this.d.a().f3053b);
-            this.h.a(f < this.d.a().f3052a);
+            float f = this.d.a().E().f3038a;
+            this.h.b(f > this.d.a().f3051b);
+            this.h.a(f < this.d.a().f3050a);
         }
     }
 
@@ -220,7 +220,7 @@ public final class MapView extends ViewGroup {
         this.l.setTextSize(2, 11.0f);
         this.l.setTypeface(this.l.getTypeface(), 1);
         this.l.setLayoutParams(layoutParams);
-        this.l.setId(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.l.setId(Integer.MAX_VALUE);
         this.k.addView(this.l);
         this.m = new TextView(context);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
@@ -253,7 +253,7 @@ public final class MapView extends ViewGroup {
         if (!new File(str).exists()) {
             throw new RuntimeException("please check whether the customMapStylePath file exits");
         }
-        f2739b = str;
+        f2737b = str;
     }
 
     public static void setIconCustom(int i) {
@@ -294,12 +294,12 @@ public final class MapView extends ViewGroup {
     }
 
     public final BaiduMap getMap() {
-        this.e.f2694a = this;
+        this.e.f2692a = this;
         return this.e;
     }
 
     public final int getMapLevel() {
-        return p.get((int) this.d.a().E().f3040a).intValue();
+        return p.get((int) this.d.a().E().f3038a).intValue();
     }
 
     public int getScaleControlViewHeight() {
@@ -340,7 +340,7 @@ public final class MapView extends ViewGroup {
         if (bundle == null) {
             return;
         }
-        f2739b = bundle.getString("customMapPath");
+        f2737b = bundle.getString("customMapPath");
         if (bundle == null) {
             a(context, new BaiduMapOptions());
             return;
@@ -367,8 +367,8 @@ public final class MapView extends ViewGroup {
             this.g.recycle();
             this.g = null;
         }
-        if (f2739b != null) {
-            f2739b = null;
+        if (f2737b != null) {
+            f2737b = null;
         }
         this.h.b();
         BMapManager.destroy();
@@ -473,7 +473,7 @@ public final class MapView extends ViewGroup {
                     }
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2741b : this.d.a().a(CoordUtil.ll2mc(mapViewLayoutParams.f2740a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2739b : this.d.a().a(CoordUtil.ll2mc(mapViewLayoutParams.f2738a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();
@@ -512,7 +512,7 @@ public final class MapView extends ViewGroup {
         bundle.putInt("paddingTop", this.x);
         bundle.putInt("paddingRight", this.w);
         bundle.putInt("paddingBottom", this.y);
-        bundle.putString("customMapPath", f2739b);
+        bundle.putString("customMapPath", f2737b);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager

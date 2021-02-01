@@ -2,7 +2,7 @@ package com.kwad.sdk.plugin;
 
 import android.content.Context;
 import com.kwad.sdk.core.b.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a extends e {
     i a();
 

@@ -18,7 +18,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class SapiAccount implements Parcelable, Cloneable {
     public static final Parcelable.Creator<SapiAccount> CREATOR;
     public static final String SAPI_ACCOUNT_APP = "app";
@@ -26,7 +26,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     public static final String SAPI_ACCOUNT_PORTRAIT = "portrait";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4547b = "uid";
+    private static final String f4549b = "uid";
     private static final String c = "displayname";
     private static final String d = "username";
     private static final String e = "email";
@@ -37,7 +37,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     @Deprecated
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4548a;
+    private String f4550a;
     public String app;
     public String bduss;
     public String displayname;
@@ -53,7 +53,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     public String uid;
     public String username;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static class a implements Parcelable.Creator<SapiAccount> {
         a() {
         }
@@ -301,7 +301,7 @@ public class SapiAccount implements Parcelable, Cloneable {
                     ExtraProperty fromJSONObject = ExtraProperty.fromJSONObject(new JSONObject(sapiAccount.extra));
                     extraProperty.dispersionCertification.tplStokenMap = fromJSONObject.dispersionCertification.tplStokenMap;
                     extraProperty.d = fromJSONObject.d;
-                    extraProperty.f4549a = fromJSONObject.f4549a;
+                    extraProperty.f4551a = fromJSONObject.f4551a;
                     extraProperty.e = fromJSONObject.e;
                     this.extra = extraProperty.toJSONObject().toString();
                 } catch (JSONException e2) {
@@ -322,7 +322,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         parcel.writeString(this.app);
         parcel.writeString(this.ptoken);
         parcel.writeString(this.stoken);
-        parcel.writeString(this.f4548a);
+        parcel.writeString(this.f4550a);
         parcel.writeString(this.extra);
         parcel.writeString(this.portrait);
     }
@@ -337,13 +337,13 @@ public class SapiAccount implements Parcelable, Cloneable {
         this.app = parcel.readString();
         this.ptoken = parcel.readString();
         this.stoken = parcel.readString();
-        this.f4548a = parcel.readString();
+        this.f4550a = parcel.readString();
         this.extra = parcel.readString();
         this.portrait = parcel.readString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class DispersionCertification implements NoProguard {
         protected Map<String, String> tplStokenMap = new HashMap();
 
@@ -419,7 +419,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         return str2;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class ExtraProperty implements NoProguard {
         protected static final String EXTRA_ACCOUNT_TYPE = "account_type";
         protected static final String EXTRA_IS_GUEST_ACCOUNT = "is_guest_account";
@@ -431,10 +431,10 @@ public class SapiAccount implements Parcelable, Cloneable {
         protected static final String EXTRA_TPL_STOKEN_LIST = "stoken_list";
 
         /* renamed from: a  reason: collision with root package name */
-        String f4549a;
+        String f4551a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f4550b;
+        String f4552b;
         String c;
         String d;
         protected DispersionCertification dispersionCertification = new DispersionCertification();
@@ -446,8 +446,8 @@ public class SapiAccount implements Parcelable, Cloneable {
         public JSONObject toJSONObject() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("account_type", this.f4549a);
-                jSONObject.put(EXTRA_IS_SOCIAL_ACCOUNT, this.f4550b);
+                jSONObject.put("account_type", this.f4551a);
+                jSONObject.put(EXTRA_IS_SOCIAL_ACCOUNT, this.f4552b);
                 jSONObject.put("social_type", this.c);
                 jSONObject.put(EXTRA_SOCIAL_PORTRAIT, this.d);
                 jSONObject.put(EXTRA_TPL_STOKEN_LIST, new JSONObject(this.dispersionCertification.tplStokenMap));
@@ -466,8 +466,8 @@ public class SapiAccount implements Parcelable, Cloneable {
                 return null;
             }
             ExtraProperty extraProperty = new ExtraProperty();
-            extraProperty.f4549a = jSONObject.optString("account_type");
-            extraProperty.f4550b = jSONObject.optString(EXTRA_IS_SOCIAL_ACCOUNT);
+            extraProperty.f4551a = jSONObject.optString("account_type");
+            extraProperty.f4552b = jSONObject.optString(EXTRA_IS_SOCIAL_ACCOUNT);
             extraProperty.c = jSONObject.optString("social_type");
             extraProperty.d = jSONObject.optString(EXTRA_SOCIAL_PORTRAIT);
             extraProperty.dispersionCertification = DispersionCertification.fromJSONObject(jSONObject);

@@ -37,7 +37,7 @@ import org.json.JSONObject;
 public class cz {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static Context f13927a;
+    protected static Context f13929a;
 
     /* renamed from: a  reason: collision with other field name */
     private static a f266a;
@@ -72,7 +72,7 @@ public class cz {
     private long f276c;
 
     /* renamed from: b  reason: collision with root package name */
-    protected static Map<String, cv> f13928b = new HashMap();
+    protected static Map<String, cv> f13930b = new HashMap();
 
     /* renamed from: a  reason: collision with other field name */
     protected static boolean f268a = false;
@@ -127,11 +127,11 @@ public class cz {
     public static String m241a() {
         String str;
         ConnectivityManager connectivityManager;
-        if (f13927a == null) {
+        if (f13929a == null) {
             return "unknown";
         }
         try {
-            connectivityManager = (ConnectivityManager) f13927a.getSystemService("connectivity");
+            connectivityManager = (ConnectivityManager) f13929a.getSystemService("connectivity");
         } catch (Throwable th) {
         }
         if (connectivityManager == null) {
@@ -141,7 +141,7 @@ public class cz {
             if (activeNetworkInfo == null) {
                 str = "unknown";
             } else if (activeNetworkInfo.getType() == 1) {
-                WifiManager wifiManager = (WifiManager) f13927a.getSystemService("wifi");
+                WifiManager wifiManager = (WifiManager) f13929a.getSystemService("wifi");
                 if (wifiManager != null && wifiManager.getConnectionInfo() != null) {
                     str = "WIFI-" + wifiManager.getConnectionInfo().getSSID();
                 }
@@ -179,16 +179,16 @@ public class cz {
                 }
             }
         }
-        boolean isEmpty = f13928b.isEmpty();
-        synchronized (f13928b) {
-            Object[] array = f13928b.values().toArray();
+        boolean isEmpty = f13930b.isEmpty();
+        synchronized (f13930b) {
+            Object[] array = f13930b.values().toArray();
             int length = array.length;
             int i = 0;
             while (i < length) {
                 cv cvVar = (cv) array[i];
                 if (!cvVar.b()) {
                     isEmpty = true;
-                    f13928b.remove(cvVar.f263b);
+                    f13930b.remove(cvVar.f263b);
                 }
                 i++;
                 isEmpty = isEmpty;
@@ -202,7 +202,7 @@ public class cz {
             arrayList2.add(null);
         }
         try {
-            String str2 = az.d(f13927a) ? "wifi" : "wap";
+            String str2 = az.d(f13929a) ? "wifi" : "wap";
             String a2 = a(arrayList, str2, this.f272a, isEmpty);
             if (!TextUtils.isEmpty(a2)) {
                 JSONObject jSONObject = new JSONObject(a2);
@@ -265,9 +265,9 @@ public class cz {
                                         cvVar3.a(new de(string7, optJSONArray2.length() - i5));
                                     }
                                 }
-                                synchronized (f13928b) {
+                                synchronized (f13930b) {
                                     if (this.f270a.a(next)) {
-                                        f13928b.put(next, cvVar3);
+                                        f13930b.put(next, cvVar3);
                                     }
                                 }
                             }
@@ -295,9 +295,9 @@ public class cz {
 
     public static synchronized void a(Context context, cy cyVar, b bVar, String str, String str2, String str3) {
         synchronized (cz.class) {
-            f13927a = context.getApplicationContext();
-            if (f13927a == null) {
-                f13927a = context;
+            f13929a = context.getApplicationContext();
+            if (f13929a == null) {
+                f13929a = context;
             }
             if (f267a == null) {
                 if (f266a == null) {
@@ -317,13 +317,13 @@ public class cz {
     }
 
     public static void a(String str, String str2) {
-        cv cvVar = f13928b.get(str);
-        synchronized (f13928b) {
+        cv cvVar = f13930b.get(str);
+        synchronized (f13930b) {
             if (cvVar == null) {
                 cv cvVar2 = new cv(str);
                 cvVar2.a(604800000L);
                 cvVar2.m234a(str2);
-                f13928b.put(str, cvVar2);
+                f13930b.put(str, cvVar2);
             } else {
                 cvVar.m234a(str2);
             }
@@ -332,7 +332,7 @@ public class cz {
 
     private String f() {
         try {
-            PackageInfo packageInfo = f13927a.getPackageManager().getPackageInfo(f13927a.getPackageName(), 16384);
+            PackageInfo packageInfo = f13929a.getPackageManager().getPackageInfo(f13929a.getPackageName(), 16384);
             if (packageInfo != null) {
                 return packageInfo.versionName;
             }
@@ -356,7 +356,7 @@ public class cz {
         }
         if (this.f270a.a(str)) {
             cv c2 = c(str);
-            return (c2 == null || !c2.b()) ? (z && az.b(f13927a) && (d2 = d(str)) != null) ? d2 : new db(this, str, c2) : c2;
+            return (c2 == null || !c2.b()) ? (z && az.b(f13929a) && (d2 = d(str)) != null) ? d2 : new db(this, str, c2) : c2;
         }
         return null;
     }
@@ -369,20 +369,20 @@ public class cz {
         ArrayList<ay> arrayList3 = new ArrayList();
         arrayList3.add(new aw("type", str));
         if (str.equals("wap")) {
-            arrayList3.add(new aw("conpt", a(az.m166a(f13927a))));
+            arrayList3.add(new aw("conpt", a(az.m166a(f13929a))));
         }
         if (z) {
             arrayList3.add(new aw(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "1"));
         }
         arrayList3.add(new aw("uuid", str2));
         arrayList3.add(new aw("list", bf.a(arrayList, ",")));
-        arrayList3.add(new aw("countrycode", com.xiaomi.push.service.a.a(f13927a).b()));
+        arrayList3.add(new aw("countrycode", com.xiaomi.push.service.a.a(f13929a).b()));
         cv c2 = c(b());
         String format = String.format(Locale.US, "http://%1$s/gslb/?ver=4.0", b());
         if (c2 == null) {
             arrayList2.add(format);
-            synchronized (f13928b) {
-                cv cvVar = f13928b.get("resolver.msg.xiaomi.net");
+            synchronized (f13930b) {
+                cv cvVar = f13930b.get("resolver.msg.xiaomi.net");
                 if (cvVar != null) {
                     Iterator<String> it = cvVar.a(true).iterator();
                     while (it.hasNext()) {
@@ -402,7 +402,7 @@ public class cz {
                 buildUpon.appendQueryParameter(ayVar.a(), ayVar.b());
             }
             try {
-                str3 = this.f271a == null ? az.a(f13927a, new URL(buildUpon.toString())) : this.f271a.a(buildUpon.toString());
+                str3 = this.f271a == null ? az.a(f13929a, new URL(buildUpon.toString())) : this.f271a.a(buildUpon.toString());
                 return str3;
             } catch (IOException e2) {
                 e = e2;
@@ -427,7 +427,7 @@ public class cz {
             }
             jSONObject.put("data", jSONArray);
             JSONArray jSONArray2 = new JSONArray();
-            for (cv cvVar : f13928b.values()) {
+            for (cv cvVar : f13930b.values()) {
                 jSONArray2.put(cvVar.m233a());
             }
             jSONObject.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, jSONArray2);
@@ -488,7 +488,7 @@ public class cz {
     }
 
     protected String b() {
-        String a2 = com.xiaomi.push.service.a.a(f13927a).a();
+        String a2 = com.xiaomi.push.service.a.a(f13929a).a();
         return (TextUtils.isEmpty(a2) || PushChannelRegion.China.name().equals(a2)) ? "resolver.msg.xiaomi.net" : "resolver.msg.global.xiaomi.net";
     }
 
@@ -535,7 +535,7 @@ public class cz {
             JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
             for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                 cv a3 = new cv("").a(optJSONArray2.getJSONObject(i2));
-                f13928b.put(a3.f263b, a3);
+                f13930b.put(a3.f263b, a3);
             }
         }
     }
@@ -570,7 +570,7 @@ public class cz {
     public void m249c() {
         synchronized (this.f273a) {
             try {
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(f13927a.openFileOutput(e(), 0)));
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(f13929a.openFileOutput(e(), 0)));
                 String jSONObject = m243a().toString();
                 if (!TextUtils.isEmpty(jSONObject)) {
                     bufferedWriter.write(jSONObject);
@@ -602,7 +602,7 @@ public class cz {
         BufferedReader bufferedReader;
         String str = null;
         try {
-            File file = new File(f13927a.getFilesDir(), e());
+            File file = new File(f13929a.getFilesDir(), e());
             if (file.isFile()) {
                 bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
                 try {
@@ -663,7 +663,7 @@ public class cz {
     }
 
     protected String e() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) f13927a.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) f13929a.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                 if (runningAppProcessInfo.pid == Process.myPid()) {

@@ -9,28 +9,28 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean eHm = false;
+    protected boolean eJs = false;
     private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.mJ(CollectFragment.this.getType());
-                if (!CollectFragment.this.eHm) {
+                CollectFragment.this.mM(CollectFragment.this.getType());
+                if (!CollectFragment.this.eJs) {
                     CollectFragment.this.p(false, CollectFragment.this.getType());
                 }
             }
         }
     };
 
-    public abstract boolean bky();
+    public abstract boolean bkQ();
 
     public abstract int getType();
 
-    public boolean bkx() {
-        return this.eHm;
+    public boolean bkP() {
+        return this.eJs;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -46,10 +46,10 @@ public abstract class CollectFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void mJ(int i) {
+    public void mM(int i) {
         Bundle bundle = new Bundle();
-        this.eHm = !bky() && j.isNetWorkAvailable();
-        bundle.putBoolean("is_enable_edit", this.eHm);
+        this.eJs = !bkQ() && j.isNetWorkAvailable();
+        bundle.putBoolean("is_enable_edit", this.eJs);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }

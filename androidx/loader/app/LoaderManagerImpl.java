@@ -20,7 +20,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class LoaderManagerImpl extends LoaderManager {
     static boolean DEBUG = false;
     static final String TAG = "LoaderManager";
@@ -29,7 +29,7 @@ public class LoaderManagerImpl extends LoaderManager {
     @NonNull
     private final LoaderViewModel mLoaderViewModel;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class LoaderInfo<D> extends MutableLiveData<D> implements Loader.OnLoadCompleteListener<D> {
         @Nullable
         private final Bundle mArgs;
@@ -188,7 +188,7 @@ public class LoaderManagerImpl extends LoaderManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class LoaderObserver<D> implements Observer<D> {
         @NonNull
         private final LoaderManager.LoaderCallbacks<D> mCallback;
@@ -236,7 +236,7 @@ public class LoaderManagerImpl extends LoaderManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class LoaderViewModel extends ViewModel {
         private static final ViewModelProvider.Factory FACTORY = new ViewModelProvider.Factory() { // from class: androidx.loader.app.LoaderManagerImpl.LoaderViewModel.1
             @Override // androidx.lifecycle.ViewModelProvider.Factory

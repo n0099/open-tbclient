@@ -3,12 +3,12 @@ package kotlin.collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State qiL = State.NotReady;
-    private T qiM;
+    private State qsP = State.NotReady;
+    private T qsQ;
 
-    protected abstract void eIC();
+    protected abstract void eKS();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.l(this.qiL, State.Failed)) {
-            switch (this.qiL) {
+        if (!kotlin.jvm.internal.p.l(this.qsP, State.Failed)) {
+            switch (this.qsP) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return eIB();
+                    return eKR();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.qiL = State.NotReady;
-            return this.qiM;
+            this.qsP = State.NotReady;
+            return this.qsQ;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean eIB() {
-        this.qiL = State.Failed;
-        eIC();
-        return kotlin.jvm.internal.p.l(this.qiL, State.Ready);
+    private final boolean eKR() {
+        this.qsP = State.Failed;
+        eKS();
+        return kotlin.jvm.internal.p.l(this.qsP, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bR(T t) {
-        this.qiM = t;
-        this.qiL = State.Ready;
+        this.qsQ = t;
+        this.qsP = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.qiL = State.Done;
+        this.qsP = State.Done;
     }
 }

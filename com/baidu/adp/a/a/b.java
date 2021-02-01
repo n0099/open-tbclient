@@ -19,26 +19,26 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int Io = 0;
+    private static int In = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
         try {
             Class<?> cls = obj.getClass();
             if (str == null || str.equals("")) {
-                stringBuffer.append(kG() + cls.getSimpleName() + " = {\n");
+                stringBuffer.append(kF() + cls.getSimpleName() + " = {\n");
             } else {
                 stringBuffer.append(str + " = {\n");
             }
             while (cls != null && e(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    Io++;
+                    In++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    Io--;
+                    In--;
                 }
                 cls = cls.getSuperclass();
             }
-            stringBuffer.append(kG() + "}\n");
+            stringBuffer.append(kF() + "}\n");
         } catch (IllegalAccessException e) {
             stringBuffer.append(e.toString());
         }
@@ -59,14 +59,14 @@ public class b {
         for (int i = 0; i < fieldArr.length; i++) {
             fieldArr[i].setAccessible(true);
             if (!Modifier.isStatic(fieldArr[i].getModifiers())) {
-                stringBuffer.append(c(kG() + fieldArr[i].getName(), fieldArr[i].get(obj), list));
+                stringBuffer.append(c(kF() + fieldArr[i].getName(), fieldArr[i].get(obj), list));
             }
         }
     }
 
-    private static String kG() {
+    private static String kF() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < Io; i++) {
+        for (int i = 0; i < In; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -232,7 +232,7 @@ public class b {
 
     public static void d(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.Iz) {
+        if (d.Iy) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(c("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
@@ -23,17 +23,17 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
     public int sortType = 0;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bCS() {
+    public HashMap<String, Object> bDk() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bCT() {
+    public HashMap<String, String> bDl() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.l
-    public Object ld(boolean z) {
+    public Object lg(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.tab_id = Integer.valueOf(this.tabId);
         builder.tab_type = Integer.valueOf(this.tabType);
@@ -51,7 +51,7 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
         builder.scr_dip = Integer.valueOf((int) l.getEquipmentDensity(TbadkCoreApplication.getInst()));
         builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
         builder.ad_ext_params = this.adExtParams;
-        t.a(builder, true, false, true);
+        v.a(builder, true, false, true);
         GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

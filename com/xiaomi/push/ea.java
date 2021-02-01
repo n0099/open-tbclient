@@ -9,16 +9,16 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 public class ea extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13959a;
+    private String f13961a;
 
     public ea(Context context, int i, String str) {
         super(context, i);
-        this.f13959a = str;
+        this.f13961a = str;
     }
 
     private String[] a() {
-        if (!TextUtils.isEmpty(this.f13959a)) {
-            String b2 = bc.b(this.f13959a);
+        if (!TextUtils.isEmpty(this.f13961a)) {
+            String b2 = bc.b(this.f13961a);
             if (!TextUtils.isEmpty(b2)) {
                 return b2.contains(",") ? b2.split(",") : new String[]{b2};
             }

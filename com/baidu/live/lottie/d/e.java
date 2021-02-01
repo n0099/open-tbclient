@@ -6,7 +6,7 @@ import androidx.annotation.FloatRange;
 import com.baidu.live.lottie.a.a.j;
 import com.baidu.live.lottie.model.content.h;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static PointF b(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
@@ -14,25 +14,25 @@ public class e {
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF jM = hVar.jM();
-        path.moveTo(jM.x, jM.y);
-        PointF pointF = new PointF(jM.x, jM.y);
+        PointF jL = hVar.jL();
+        path.moveTo(jL.x, jL.y);
+        PointF pointF = new PointF(jL.x, jL.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.jN().size()) {
+            if (i2 >= hVar.jM().size()) {
                 break;
             }
-            com.baidu.live.lottie.model.a aVar = hVar.jN().get(i2);
+            com.baidu.live.lottie.model.a aVar = hVar.jM().get(i2);
+            PointF iS = aVar.iS();
             PointF iT = aVar.iT();
             PointF iU = aVar.iU();
-            PointF iV = aVar.iV();
-            if (iT.equals(pointF) && iU.equals(iV)) {
-                path.lineTo(iV.x, iV.y);
+            if (iS.equals(pointF) && iT.equals(iU)) {
+                path.lineTo(iU.x, iU.y);
             } else {
-                path.cubicTo(iT.x, iT.y, iU.x, iU.y, iV.x, iV.y);
+                path.cubicTo(iS.x, iS.y, iT.x, iT.y, iU.x, iU.y);
             }
-            pointF.set(iV.x, iV.y);
+            pointF.set(iU.x, iU.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {
@@ -80,7 +80,7 @@ public class e {
 
     public static void a(com.baidu.live.lottie.model.e eVar, int i, List<com.baidu.live.lottie.model.e> list, com.baidu.live.lottie.model.e eVar2, j jVar) {
         if (eVar.j(jVar.getName(), i)) {
-            list.add(eVar2.gO(jVar.getName()).a(jVar));
+            list.add(eVar2.hn(jVar.getName()).a(jVar));
         }
     }
 }

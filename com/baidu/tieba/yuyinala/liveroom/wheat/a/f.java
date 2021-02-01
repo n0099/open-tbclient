@@ -1,276 +1,90 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.a;
 
-import android.content.Context;
 import android.os.Handler;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imrtc.BIMRtcClient;
-import com.baidu.android.imrtc.request.BIMRtcTokenListener;
-import com.baidu.android.imrtc.send.BIMAnswerRtcInfo;
-import com.baidu.android.imrtc.send.BIMCancelRtcInfo;
-import com.baidu.android.imrtc.send.BIMCloseRoomRtcInfo;
-import com.baidu.android.imrtc.send.BIMInviteRtcInfo;
-import com.baidu.android.imrtc.utils.IStatusListener;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes11.dex */
 public class f {
-    private final int ayZ = 3;
-    private Handler aza;
-    private IStatusListener azc;
-    private IStatusListener azd;
-    private IStatusListener aze;
-    private IStatusListener azf;
-    private IStatusListener azh;
-    private IStatusListener azj;
-    private BIMRtcTokenListener ovF;
+    private a oFf;
+    private Handler oFg;
+    private ConcurrentHashMap<Long, b> oFe = new ConcurrentHashMap<>();
+    boolean oFh = false;
+    private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1
+        @Override // java.lang.Runnable
+        public void run() {
+            f.this.oFh = true;
+            f.this.ecR();
+            if (f.this.oFe != null && f.this.oFe.size() > 0) {
+                f.this.oFg.postDelayed(f.this.mRunnable, 1000L);
+            } else {
+                f.this.oFh = false;
+            }
+        }
+    };
+
+    /* loaded from: classes11.dex */
+    public interface a {
+        void a(b bVar);
+    }
 
     public f(Handler handler) {
-        this.aza = handler;
+        this.oFg = handler;
     }
 
-    public void generateToken(@NonNull final Context context, final String str, final String str2, final long j, @NonNull final BIMRtcTokenListener bIMRtcTokenListener) {
-        if (TextUtils.isEmpty(str2)) {
-            bIMRtcTokenListener.onResult(-1, "generateToken roomId is null", new BIMRtcTokenListener.BIMRTCGetTokeResult());
-            return;
+    public void b(b bVar) {
+        if (bVar != null && !TextUtils.isEmpty(bVar.thirdUserId)) {
+            bVar.oFj = System.currentTimeMillis();
+            this.oFe.put(Long.valueOf(bVar.imUK), bVar);
+            sz();
         }
-        final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.ovF = new BIMRtcTokenListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1
-            @Override // com.baidu.android.imrtc.request.BIMRtcTokenListener
-            public void onResult(int i, String str3, @NonNull BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult) {
-                if (i == 0) {
-                    if (bIMRtcTokenListener != null) {
-                        bIMRtcTokenListener.onResult(i, str3, bIMRTCGetTokeResult);
-                    }
-                } else if (atomicInteger.get() < 3) {
-                    if (f.this.b(i, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            BIMRtcClient.generateToken(context, str, str2, j, f.this.ovF);
-                        }
-                    })) {
-                        atomicInteger.incrementAndGet();
-                    } else if (bIMRtcTokenListener != null) {
-                        bIMRtcTokenListener.onResult(i, str3, bIMRTCGetTokeResult);
-                    }
-                } else if (bIMRtcTokenListener != null) {
-                    bIMRtcTokenListener.onResult(i, str3, bIMRTCGetTokeResult);
+    }
+
+    public void hQ(long j) {
+        this.oFe.remove(Long.valueOf(j));
+    }
+
+    public void ecR() {
+        Iterator<Map.Entry<Long, b>> it = this.oFe.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<Long, b> next = it.next();
+            if (System.currentTimeMillis() - next.getValue().oFj > 10000) {
+                if (this.oFf != null) {
+                    this.oFf.a(next.getValue());
                 }
+                it.remove();
             }
-        };
-        BIMRtcClient.generateToken(context, str, str2, j, this.ovF);
-    }
-
-    public void join(@NonNull final Context context, @NonNull final String str, final IStatusListener iStatusListener) {
-        if (TextUtils.isEmpty(str)) {
-            iStatusListener.onResult(-1, "join roomId is null");
-            return;
-        }
-        final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.azc = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.2
-            @Override // com.baidu.android.imrtc.utils.IStatusListener
-            public void onResult(int i, String str2) {
-                f.this.a(i, str2, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.2.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        BIMRtcClient.join(context, str, f.this.azc);
-                    }
-                });
-            }
-        };
-        BIMRtcClient.join(context, str, this.azc);
-    }
-
-    public void invite(@NonNull final Context context, @NonNull final BIMInviteRtcInfo bIMInviteRtcInfo, final IStatusListener iStatusListener) {
-        if (bIMInviteRtcInfo == null || TextUtils.isEmpty(bIMInviteRtcInfo.getRtcRoomId())) {
-            iStatusListener.onResult(-1, "invite roomId is null");
-            return;
-        }
-        final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aze = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.3
-            @Override // com.baidu.android.imrtc.utils.IStatusListener
-            public void onResult(int i, String str) {
-                f.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.3.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        BIMRtcClient.invite(context, bIMInviteRtcInfo, f.this.aze);
-                    }
-                });
-            }
-        };
-        BIMRtcClient.invite(context, bIMInviteRtcInfo, this.aze);
-    }
-
-    public void answer(@NonNull final Context context, @NonNull final BIMAnswerRtcInfo bIMAnswerRtcInfo, final IStatusListener iStatusListener) {
-        if (bIMAnswerRtcInfo == null || TextUtils.isEmpty(bIMAnswerRtcInfo.getRtcRoomId())) {
-            iStatusListener.onResult(-1, "answer roomId is null");
-            return;
-        }
-        final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.azf = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.4
-            @Override // com.baidu.android.imrtc.utils.IStatusListener
-            public void onResult(int i, String str) {
-                f.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.4.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        BIMRtcClient.answer(context, bIMAnswerRtcInfo, f.this.azf);
-                    }
-                });
-            }
-        };
-        BIMRtcClient.answer(context, bIMAnswerRtcInfo, this.azf);
-    }
-
-    public void cancelCall(@NonNull final Context context, @NonNull final BIMCancelRtcInfo bIMCancelRtcInfo, final IStatusListener iStatusListener) {
-        if (bIMCancelRtcInfo == null || TextUtils.isEmpty(bIMCancelRtcInfo.getRtcRoomId())) {
-            iStatusListener.onResult(-1, "cancelCall roomId is null");
-            return;
-        }
-        final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.azd = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.5
-            @Override // com.baidu.android.imrtc.utils.IStatusListener
-            public void onResult(int i, String str) {
-                f.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.5.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        BIMRtcClient.cancelCall(context, bIMCancelRtcInfo, f.this.azd);
-                    }
-                });
-            }
-        };
-        BIMRtcClient.cancelCall(context, bIMCancelRtcInfo, this.azd);
-    }
-
-    public void hangout(@NonNull final Context context, @NonNull final String str, final IStatusListener iStatusListener) {
-        if (TextUtils.isEmpty(str)) {
-            iStatusListener.onResult(-1, "hangout roomId is null");
-            return;
-        }
-        final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.azh = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.6
-            @Override // com.baidu.android.imrtc.utils.IStatusListener
-            public void onResult(int i, String str2) {
-                f.this.a(i, str2, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.6.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        BIMRtcClient.hangout(context, str, f.this.azh);
-                    }
-                });
-            }
-        };
-        BIMRtcClient.hangout(context, str, this.azh);
-    }
-
-    public void closeRoom(@NonNull final Context context, @NonNull final BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, final IStatusListener iStatusListener) {
-        if (bIMCloseRoomRtcInfo == null || TextUtils.isEmpty(bIMCloseRoomRtcInfo.getRtcRoomId())) {
-            iStatusListener.onResult(-1, "closeRoom roomId is null");
-            return;
-        }
-        final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.azj = new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.7
-            @Override // com.baidu.android.imrtc.utils.IStatusListener
-            public void onResult(int i, String str) {
-                f.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.7.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, f.this.azj);
-                    }
-                });
-            }
-        };
-        BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, this.azj);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str, AtomicInteger atomicInteger, IStatusListener iStatusListener, Runnable runnable) {
-        if (i == 0) {
-            if (iStatusListener != null) {
-                iStatusListener.onResult(i, str);
-            }
-        } else if (atomicInteger.get() < 3) {
-            if (b(i, runnable)) {
-                atomicInteger.incrementAndGet();
-            } else if (iStatusListener != null) {
-                iStatusListener.onResult(i, str);
-            }
-        } else if (iStatusListener != null) {
-            iStatusListener.onResult(i, str);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean b(int i, Runnable runnable) {
-        if (this.aza == null) {
-            return false;
-        }
-        boolean z = true;
-        switch (i) {
-            case -1:
-                this.aza.post(runnable);
-                break;
-            case 1004:
-                this.aza.post(runnable);
-                break;
-            case 1005:
-                this.aza.post(runnable);
-                break;
-            case 5010:
-                this.aza.post(runnable);
-                break;
-            case 5011:
-                this.aza.postDelayed(runnable, 1000L);
-                break;
-            case 5012:
-                this.aza.postDelayed(runnable, 1000L);
-                break;
-            case 5013:
-                this.aza.postDelayed(runnable, 1000L);
-                break;
-            case 5014:
-                this.aza.post(runnable);
-                break;
-            case 5015:
-                this.aza.post(runnable);
-                break;
-            case 5016:
-                this.aza.post(runnable);
-                break;
-            case 5017:
-                this.aza.post(runnable);
-                break;
-            case 5018:
-                this.aza.post(runnable);
-                break;
-            case 5020:
-                this.aza.postDelayed(runnable, 1000L);
-                break;
-            case 5022:
-                this.aza.post(runnable);
-                break;
-            default:
-                z = false;
-                break;
-        }
-        return z;
+    public void a(a aVar) {
+        this.oFf = aVar;
     }
 
-    public void release() {
-        if (this.azc != null) {
-            this.azc = null;
+    private void sz() {
+        if (this.oFg == null) {
+            this.oFh = false;
+        } else if (this.oFe == null || this.oFe.size() == 0) {
+            this.oFh = false;
+        } else {
+            this.oFg.postDelayed(this.mRunnable, 0L);
         }
-        if (this.aze != null) {
-            this.aze = null;
-        }
-        if (this.azd != null) {
-            this.azd = null;
-        }
-        if (this.azh != null) {
-            this.azh = null;
-        }
-        if (this.azj != null) {
-            this.azj = null;
-        }
-        if (this.azf != null) {
-            this.azf = null;
+    }
+
+    /* loaded from: classes11.dex */
+    public static class b {
+        public long appId;
+        public String cuid;
+        public long imUK;
+        public long oFj;
+        public String thirdUserId;
+
+        public b(long j, long j2, String str, String str2) {
+            this.appId = j;
+            this.imUK = j2;
+            this.cuid = str;
+            this.thirdUserId = str2;
         }
     }
 }

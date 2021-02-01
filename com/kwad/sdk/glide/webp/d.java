@@ -11,7 +11,7 @@ import com.kwad.sdk.glide.webp.decoder.k;
 import com.kwad.sdk.glide.webp.decoder.l;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends com.kwad.sdk.glide.d.b {
     @Override // com.kwad.sdk.glide.d.b
     public void a(Context context, com.kwad.sdk.glide.c cVar, Registry registry) {

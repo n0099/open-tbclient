@@ -9,7 +9,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class y extends a {
     static final /* synthetic */ boolean h;
     private String i;
@@ -25,8 +25,8 @@ public class y extends a {
         if (jVar.e != null) {
             return jVar.e;
         }
-        if (jVar.f7128a != null) {
-            return jVar.f7128a.getContext();
+        if (jVar.f7130a != null) {
+            return jVar.f7130a.getContext();
         }
         throw new IllegalStateException("WebView cannot be null!");
     }
@@ -39,7 +39,7 @@ public class y extends a {
     @Override // com.bytedance.sdk.openadsdk.f.a.a
     @SuppressLint({"JavascriptInterface", "AddJavascriptInterface"})
     protected void b(j jVar) {
-        this.j = jVar.f7128a;
+        this.j = jVar.f7130a;
         this.i = jVar.c;
         if (Build.VERSION.SDK_INT >= 17 && !jVar.n) {
             if (!h && this.j == null) {

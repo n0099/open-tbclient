@@ -11,11 +11,11 @@ import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.b.p;
 import com.baidu.live.lottie.h;
 import com.baidu.live.lottie.l;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f extends a {
     @Nullable
-    private com.baidu.live.lottie.a.b.a<ColorFilter, ColorFilter> boR;
-    private final Layer bqA;
+    private com.baidu.live.lottie.a.b.a<ColorFilter, ColorFilter> bss;
+    private final Layer buc;
     private final Paint paint;
     private final Path path;
     private final float[] points;
@@ -28,7 +28,7 @@ public class f extends a {
         this.paint = new Paint();
         this.points = new float[8];
         this.path = new Path();
-        this.bqA = layer;
+        this.buc = layer;
         this.paint.setAlpha(0);
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(layer.getSolidColor());
@@ -36,22 +36,22 @@ public class f extends a {
 
     @Override // com.baidu.live.lottie.model.layer.a
     public void d(Canvas canvas, Matrix matrix, int i) {
-        int alpha = Color.alpha(this.bqA.getSolidColor());
+        int alpha = Color.alpha(this.buc.getSolidColor());
         if (alpha != 0) {
-            int intValue = (int) (((this.bpm.LP().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
+            int intValue = (int) (((this.bsN.Nn().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
             this.paint.setAlpha(intValue);
-            if (this.boR != null) {
-                this.paint.setColorFilter(this.boR.getValue());
+            if (this.bss != null) {
+                this.paint.setColorFilter(this.bss.getValue());
             }
             if (intValue > 0) {
                 this.points[0] = 0.0f;
                 this.points[1] = 0.0f;
-                this.points[2] = this.bqA.kg();
+                this.points[2] = this.buc.kf();
                 this.points[3] = 0.0f;
-                this.points[4] = this.bqA.kg();
-                this.points[5] = this.bqA.kf();
+                this.points[4] = this.buc.kf();
+                this.points[5] = this.buc.ke();
                 this.points[6] = 0.0f;
-                this.points[7] = this.bqA.kf();
+                this.points[7] = this.buc.ke();
                 matrix.mapPoints(this.points);
                 this.path.reset();
                 this.path.moveTo(this.points[0], this.points[1]);
@@ -68,7 +68,7 @@ public class f extends a {
     @Override // com.baidu.live.lottie.model.layer.a, com.baidu.live.lottie.a.a.d
     public void d(RectF rectF, Matrix matrix) {
         super.d(rectF, matrix);
-        this.rect.set(0.0f, 0.0f, this.bqA.kg(), this.bqA.kf());
+        this.rect.set(0.0f, 0.0f, this.buc.kf(), this.buc.ke());
         this.Gx.mapRect(this.rect);
         rectF.set(this.rect);
     }
@@ -78,9 +78,9 @@ public class f extends a {
         super.a((f) t, (com.baidu.live.lottie.e.c<f>) cVar);
         if (t == l.Db) {
             if (cVar == null) {
-                this.boR = null;
+                this.bss = null;
             } else {
-                this.boR = new p(cVar);
+                this.bss = new p(cVar);
             }
         }
     }

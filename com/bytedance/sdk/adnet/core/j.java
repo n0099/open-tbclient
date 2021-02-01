@@ -21,14 +21,14 @@ import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j implements com.bytedance.sdk.adnet.e.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private final SSLSocketFactory f6037b;
-    private final b pkP;
+    private final SSLSocketFactory f6039b;
+    private final b pve;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         String a(String str);
     }
@@ -42,8 +42,8 @@ public class j implements com.bytedance.sdk.adnet.e.a {
     }
 
     public j(b bVar, SSLSocketFactory sSLSocketFactory) {
-        this.pkP = bVar;
-        this.f6037b = sSLSocketFactory;
+        this.pve = bVar;
+        this.f6039b = sSLSocketFactory;
     }
 
     @Override // com.bytedance.sdk.adnet.e.a
@@ -57,8 +57,8 @@ public class j implements com.bytedance.sdk.adnet.e.a {
         }
         hashMap.putAll(map);
         hashMap.putAll(request.getHeaders());
-        if (this.pkP != null) {
-            str = this.pkP.a(url);
+        if (this.pve != null) {
+            str = this.pve.a(url);
             if (str == null) {
                 throw new IOException("URL blocked by rewriter: " + url);
             }
@@ -113,21 +113,21 @@ public class j implements com.bytedance.sdk.adnet.e.a {
         return (i == 4 || (100 <= i2 && i2 < 200) || i2 == 204 || i2 == 304) ? false : true;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     static class a extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        private final HttpURLConnection f6038a;
+        private final HttpURLConnection f6040a;
 
         a(HttpURLConnection httpURLConnection) {
             super(j.f(httpURLConnection));
-            this.f6038a = httpURLConnection;
+            this.f6040a = httpURLConnection;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
             super.close();
-            this.f6038a.disconnect();
+            this.f6040a.disconnect();
         }
     }
 
@@ -144,7 +144,7 @@ public class j implements com.bytedance.sdk.adnet.e.a {
         HttpURLConnection httpURLConnection = null;
         if (url != null) {
             String host = url.getHost();
-            String a2 = com.bytedance.sdk.adnet.a.pjY != null ? com.bytedance.sdk.adnet.a.pjY.a(host) : null;
+            String a2 = com.bytedance.sdk.adnet.a.puo != null ? com.bytedance.sdk.adnet.a.puo.a(host) : null;
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     httpURLConnection = (HttpURLConnection) new URL(url.toString().replaceFirst(host, a2)).openConnection();
@@ -174,10 +174,10 @@ public class j implements com.bytedance.sdk.adnet.e.a {
         if ("https".equals(url.getProtocol())) {
             if (a(a2)) {
                 r.b("connection verify by inner", new Object[0]);
-            } else if (this.f6037b == null) {
+            } else if (this.f6039b == null) {
                 com.bytedance.sdk.adnet.d.b.a();
             } else {
-                ((HttpsURLConnection) a2).setSSLSocketFactory(this.f6037b);
+                ((HttpsURLConnection) a2).setSSLSocketFactory(this.f6039b);
             }
         }
         return a2;

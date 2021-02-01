@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.IMConnection;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
     @Nullable
     public static JSONObject a() {
@@ -13,7 +13,7 @@ public class d {
 
     @NonNull
     public static com.ss.android.socialbase.downloader.k.a g(com.ss.android.a.a.b.c cVar) {
-        return com.ss.android.socialbase.downloader.k.a.fl(h(cVar));
+        return com.ss.android.socialbase.downloader.k.a.fm(h(cVar));
     }
 
     public static JSONObject h(com.ss.android.a.a.b.c cVar) {
@@ -27,55 +27,55 @@ public class d {
     }
 
     public static boolean a(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("install_guide_switch", 0) == 1;
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("install_guide_switch", 0) == 1;
     }
 
     public static boolean b(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("install_guide_vivo", 1) == 1;
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("install_guide_vivo", 1) == 1;
     }
 
     public static boolean c(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("install_guide_huawei", 1) == 1;
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("install_guide_huawei", 1) == 1;
     }
 
     public static boolean d(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("install_guide_xiaomi", 1) == 1;
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("install_guide_xiaomi", 1) == 1;
     }
 
     public static boolean e(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("install_guide_kllk", 1) == 1;
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("install_guide_kllk", 1) == 1;
     }
 
-    public static String QB(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).d("install_guide_lottie_url_xiaomi");
+    public static String QW(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).d("install_guide_lottie_url_xiaomi");
     }
 
-    public static String Oo(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).d("install_guide_lottie_url_kllk");
+    public static String OJ(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).d("install_guide_lottie_url_kllk");
     }
 
-    public static String Op(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).d("install_guide_lottie_url_vivo");
+    public static String OK(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).d("install_guide_lottie_url_vivo");
     }
 
-    public static String Oq(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).d("install_guide_lottie_url_huawei");
+    public static String OL(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).d("install_guide_lottie_url_huawei");
     }
 
-    public static int fD(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("install_hijack_days", 15);
+    public static int fJ(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("install_hijack_days", 15);
     }
 
-    public static int fC(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("install_guide_interval", 3);
+    public static int fI(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("install_guide_interval", 3);
     }
 
-    public static double QC(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).e("install_hijack_ratio", 0.5d);
+    public static double QX(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).e("install_hijack_ratio", 0.5d);
     }
 
-    public static long QD(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("install_guide_show_time", IMConnection.RETRY_DELAY_TIMES);
+    public static long QY(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("install_guide_show_time", IMConnection.RETRY_DELAY_TIMES);
     }
 
     public static int d(@NonNull com.ss.android.socialbase.downloader.k.a aVar) {
@@ -87,34 +87,34 @@ public class d {
     }
 
     public static boolean n(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("pause_reserve_on_wifi", 0) == 1;
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("pause_reserve_on_wifi", 0) == 1;
     }
 
-    public static double QE(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).e("clean_min_install_size", 0.0d);
+    public static double QZ(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).e("clean_min_install_size", 0.0d);
     }
 
-    public static long QF(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("storage_min_size", 0L);
+    public static long Ra(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("storage_min_size", 0L);
     }
 
-    public static long QG(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("clean_fetch_apk_head_time_out", 800L);
+    public static long Rb(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("clean_fetch_apk_head_time_out", 800L);
     }
 
-    public static boolean QH(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("clean_fetch_apk_switch", 0L) == 1;
+    public static boolean Rc(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("clean_fetch_apk_switch", 0L) == 1;
     }
 
-    public static boolean QI(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("clean_space_optimise_switch", 0L) == 1;
+    public static boolean Rd(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("clean_space_optimise_switch", 0L) == 1;
     }
 
-    public static boolean QJ(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("exec_clear_space_switch", 0) == 1;
+    public static boolean Re(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("exec_clear_space_switch", 0) == 1;
     }
 
-    public static boolean QK(int i) {
-        return com.ss.android.socialbase.downloader.k.a.RA(i).a("clean_app_cache_dir", 0) == 1;
+    public static boolean Rf(int i) {
+        return com.ss.android.socialbase.downloader.k.a.RV(i).a("clean_app_cache_dir", 0) == 1;
     }
 }

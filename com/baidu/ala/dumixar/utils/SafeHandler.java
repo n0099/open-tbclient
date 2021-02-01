@@ -2,7 +2,7 @@ package com.baidu.ala.dumixar.utils;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class SafeHandler extends Handler {
     private static final SafeHandler instance = new SafeHandler();
 

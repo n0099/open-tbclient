@@ -5,19 +5,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MyPagerAdapter extends PagerAdapter {
     Context context;
-    private ArrayList<View> gJj;
+    private ArrayList<View> gLP;
 
     public MyPagerAdapter(Context context, ArrayList<View> arrayList) {
         this.context = context;
-        this.gJj = arrayList;
+        this.gLP = arrayList;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.gJj.size();
+        return this.gLP.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -27,12 +27,12 @@ public class MyPagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.gJj.get(i));
-        return this.gJj.get(i);
+        viewGroup.addView(this.gLP.get(i));
+        return this.gLP.get(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.gJj.get(i));
+        viewGroup.removeView(this.gLP.get(i));
     }
 }

@@ -53,7 +53,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class FunAdFactory {
     public static FunAdFactory INST = new FunAdFactory();
     public Map<String, au> mSlotIds = new HashMap();
@@ -66,10 +66,10 @@ public final class FunAdFactory {
     public Map<String, FunDrawVideoAdLoader> mDrawVideoAdLoaders = new HashMap();
 
     private p adLoader(au auVar) {
-        p pVar = this.mAdLoaders.get(auVar.f7758a);
+        p pVar = this.mAdLoaders.get(auVar.f7760a);
         if (pVar == null) {
             p pVar2 = new p(auVar, this.mCSJFactory, this.mKSFactory, this.mGDTFactory, this.mJYFactory);
-            this.mAdLoaders.put(auVar.f7758a, pVar2);
+            this.mAdLoaders.put(auVar.f7760a, pVar2);
             return pVar2;
         }
         return pVar;
@@ -86,11 +86,11 @@ public final class FunAdFactory {
         }
         p pVar = this.mAdLoaders.get(str);
         if (pVar != null) {
-            List<au.a> list = pVar.pEF.c;
+            List<au.a> list = pVar.pOK.c;
             if (list != null && !list.isEmpty()) {
                 pVar.j.removeMessages(0);
                 for (au.a aVar : list) {
-                    String str2 = aVar.f7761b;
+                    String str2 = aVar.f7763b;
                     char c = 65535;
                     switch (str2.hashCode()) {
                         case -1900686778:
@@ -268,15 +268,15 @@ public final class FunAdFactory {
                         case '\b':
                         case '\t':
                         case '\n':
-                            bg bgVar = pVar.pEG;
-                            String str3 = pVar.pEF.f7758a;
+                            bg bgVar = pVar.pOL;
+                            String str3 = pVar.pOK.f7760a;
                             if (bgVar != null) {
-                                String a2 = bgVar.a(str3, aVar.f7760a);
-                                bd bdVar = bgVar.f7768a.get(a2);
+                                String a2 = bgVar.a(str3, aVar.f7762a);
+                                bd bdVar = bgVar.f7770a.get(a2);
                                 if (bdVar != null) {
                                     bdVar.a();
                                 }
-                                bgVar.f7768a.remove(a2);
+                                bgVar.f7770a.remove(a2);
                                 break;
                             } else {
                                 throw null;
@@ -286,15 +286,15 @@ public final class FunAdFactory {
                         case '\r':
                         case 14:
                         case 15:
-                            af afVar = pVar.pEH;
-                            String str4 = pVar.pEF.f7758a;
+                            af afVar = pVar.pOM;
+                            String str4 = pVar.pOK.f7760a;
                             if (afVar != null) {
-                                String a3 = afVar.a(str4, aVar.f7760a);
-                                ac acVar = afVar.f7746a.get(a3);
+                                String a3 = afVar.a(str4, aVar.f7762a);
+                                ac acVar = afVar.f7748a.get(a3);
                                 if (acVar != null) {
                                     acVar.a();
                                 }
-                                afVar.f7746a.remove(a3);
+                                afVar.f7748a.remove(a3);
                                 break;
                             } else {
                                 throw null;
@@ -307,15 +307,15 @@ public final class FunAdFactory {
                         case 21:
                         case 22:
                         case 23:
-                            aq aqVar = pVar.pEI;
-                            String str5 = pVar.pEF.f7758a;
+                            aq aqVar = pVar.pON;
+                            String str5 = pVar.pOK.f7760a;
                             if (aqVar != null) {
-                                String a4 = aqVar.a(str5, aVar.f7760a);
-                                an anVar = aqVar.f7754a.get(a4);
+                                String a4 = aqVar.a(str5, aVar.f7762a);
+                                an anVar = aqVar.f7756a.get(a4);
                                 if (anVar != null) {
                                     anVar.a();
                                 }
-                                aqVar.f7754a.remove(a4);
+                                aqVar.f7756a.remove(a4);
                                 break;
                             } else {
                                 throw null;
@@ -323,29 +323,29 @@ public final class FunAdFactory {
                         case 24:
                         case 25:
                         case 26:
-                            l lVar = pVar.pEJ;
-                            String str6 = pVar.pEF.f7758a;
+                            l lVar = pVar.pOO;
+                            String str6 = pVar.pOK.f7760a;
                             if (lVar != null) {
-                                String a5 = lVar.a(str6, aVar.f7760a);
-                                i iVar = lVar.f7784a.get(a5);
+                                String a5 = lVar.a(str6, aVar.f7762a);
+                                i iVar = lVar.f7786a.get(a5);
                                 if (iVar != null) {
                                     iVar.a();
                                 }
-                                lVar.f7784a.remove(a5);
+                                lVar.f7786a.remove(a5);
                                 break;
                             } else {
                                 throw null;
                             }
                     }
-                    p.b bVar = pVar.f.get(aVar.f7760a);
+                    p.b bVar = pVar.f.get(aVar.f7762a);
                     if (bVar != null) {
                         bVar.a();
                     }
                 }
-                pVar.pEK = null;
+                pVar.pOP = null;
                 return;
             }
-            Log.e("FunAdSdk", "FunAdLoader destroy广告位：" + pVar.pEF.f7758a + "未配置任何类型的广告ID");
+            Log.e("FunAdSdk", "FunAdLoader destroy广告位：" + pVar.pOK.f7760a + "未配置任何类型的广告ID");
             return;
         }
         Log.e("FunAdSdk", "FunAdFactory: 广告destroy错误，必须先load广告 sid: " + str);
@@ -375,7 +375,7 @@ public final class FunAdFactory {
         }
         p pVar = this.mAdLoaders.get(str);
         if (pVar != null) {
-            List<au.a> list = pVar.pEF.c;
+            List<au.a> list = pVar.pOK.c;
             if (list != null && !list.isEmpty()) {
                 Iterator<au.a> it = list.iterator();
                 while (true) {
@@ -384,14 +384,14 @@ public final class FunAdFactory {
                         break;
                     }
                     au.a next = it.next();
-                    p.b bVar = pVar.f.get(next.f7760a);
-                    if (bVar != null && bVar.f7786b && System.currentTimeMillis() - bVar.c <= d.i) {
-                        str2 = next.f7761b;
+                    p.b bVar = pVar.f.get(next.f7762a);
+                    if (bVar != null && bVar.f7788b && System.currentTimeMillis() - bVar.c <= d.i) {
+                        str2 = next.f7763b;
                         break;
                     }
                 }
             } else {
-                Log.e("FunAdSdk", "FunAdLoader isReady广告位：" + pVar.pEF.f7758a + "未配置任何类型的广告ID");
+                Log.e("FunAdSdk", "FunAdLoader isReady广告位：" + pVar.pOK.f7760a + "未配置任何类型的广告ID");
                 str2 = null;
             }
             return str2;
@@ -408,7 +408,7 @@ public final class FunAdFactory {
         }
         p pVar = this.mAdLoaders.get(str);
         if (pVar != null) {
-            List<au.a> list = pVar.pEF.c;
+            List<au.a> list = pVar.pOK.c;
             if (list != null && !list.isEmpty()) {
                 Iterator<au.a> it = list.iterator();
                 while (true) {
@@ -417,10 +417,10 @@ public final class FunAdFactory {
                         break;
                     }
                     au.a next = it.next();
-                    p.b bVar = pVar.f.get(next.f7760a);
-                    if (bVar != null && bVar.f7786b && System.currentTimeMillis() - bVar.c <= d.i) {
+                    p.b bVar = pVar.f.get(next.f7762a);
+                    if (bVar != null && bVar.f7788b && System.currentTimeMillis() - bVar.c <= d.i) {
                         FunRippedAd b2 = pVar.b(next);
-                        pVar.k.put(next.f7760a, b2);
+                        pVar.k.put(next.f7762a, b2);
                         if (b2 != null && b2.isDeepLinkAd) {
                             funRippedAd = b2;
                             break;
@@ -428,7 +428,7 @@ public final class FunAdFactory {
                     }
                 }
             } else {
-                Log.e("FunAdSdk", "FunAdLoader isReady广告位：" + pVar.pEF.f7758a + "未配置任何类型的广告ID");
+                Log.e("FunAdSdk", "FunAdLoader isReady广告位：" + pVar.pOK.f7760a + "未配置任何类型的广告ID");
                 funRippedAd = null;
             }
             return funRippedAd;
@@ -438,9 +438,9 @@ public final class FunAdFactory {
     }
 
     public void init(Context context) {
-        this.mCSJFactory.f7768a.clear();
-        this.mKSFactory.f7746a.clear();
-        this.mGDTFactory.f7754a.clear();
+        this.mCSJFactory.f7770a.clear();
+        this.mKSFactory.f7748a.clear();
+        this.mGDTFactory.f7756a.clear();
     }
 
     public boolean isAdReady(String str) {
@@ -451,7 +451,7 @@ public final class FunAdFactory {
         }
         p pVar = this.mAdLoaders.get(str);
         if (pVar != null) {
-            List<au.a> list = pVar.pEF.c;
+            List<au.a> list = pVar.pOK.c;
             if (list != null && !list.isEmpty()) {
                 Iterator<au.a> it = list.iterator();
                 while (true) {
@@ -459,14 +459,14 @@ public final class FunAdFactory {
                         z = false;
                         break;
                     }
-                    p.b bVar = pVar.f.get(it.next().f7760a);
-                    if (bVar != null && bVar.f7786b && System.currentTimeMillis() - bVar.c <= d.i) {
+                    p.b bVar = pVar.f.get(it.next().f7762a);
+                    if (bVar != null && bVar.f7788b && System.currentTimeMillis() - bVar.c <= d.i) {
                         z = true;
                         break;
                     }
                 }
             } else {
-                Log.e("FunAdSdk", "FunAdLoader isReady广告位：" + pVar.pEF.f7758a + "未配置任何类型的广告ID");
+                Log.e("FunAdSdk", "FunAdLoader isReady广告位：" + pVar.pOK.f7760a + "未配置任何类型的广告ID");
                 z = false;
             }
             return z;
@@ -493,37 +493,37 @@ public final class FunAdFactory {
             return;
         }
         p adLoader = adLoader(auVar);
-        List<au.a> list = adLoader.pEF.c;
+        List<au.a> list = adLoader.pOK.c;
         if (list != null && !list.isEmpty()) {
             adLoader.j.removeMessages(0);
             adLoader.h = true;
-            adLoader.pEL = funAdSlot.getAdLoadMode();
-            adLoader.pEK = funAdLoadListener;
+            adLoader.pOQ = funAdSlot.getAdLoadMode();
+            adLoader.pOP = funAdLoadListener;
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     au.a aVar = list.get(i2);
-                    p.b bVar = adLoader.f.get(aVar.f7760a);
+                    p.b bVar = adLoader.f.get(aVar.f7762a);
                     if (bVar == null) {
                         bVar = new p.b();
-                        adLoader.f.put(aVar.f7760a, bVar);
+                        adLoader.f.put(aVar.f7762a, bVar);
                     }
-                    bVar.f7785a = i2;
-                    if (bVar.f7786b && System.currentTimeMillis() - bVar.c <= d.i) {
-                        if ((adLoader.pEL == FunAdSlot.AdLoadMode.PRIORITY_FIRST && bVar.f7785a == 0) || adLoader.pEL == FunAdSlot.AdLoadMode.TIME_FIRST) {
-                            adLoader.pEL = FunAdSlot.AdLoadMode.PRIORITY_FIRST;
+                    bVar.f7787a = i2;
+                    if (bVar.f7788b && System.currentTimeMillis() - bVar.c <= d.i) {
+                        if ((adLoader.pOQ == FunAdSlot.AdLoadMode.PRIORITY_FIRST && bVar.f7787a == 0) || adLoader.pOQ == FunAdSlot.AdLoadMode.TIME_FIRST) {
+                            adLoader.pOQ = FunAdSlot.AdLoadMode.PRIORITY_FIRST;
                             adLoader.h = false;
                             adLoader.j.removeMessages(0);
-                            FunAdLoadListener funAdLoadListener2 = adLoader.pEK;
+                            FunAdLoadListener funAdLoadListener2 = adLoader.pOP;
                             if (funAdLoadListener2 != null) {
-                                funAdLoadListener2.onAdLoaded(adLoader.pEF.f7758a);
+                                funAdLoadListener2.onAdLoaded(adLoader.pOK.f7760a);
                             }
                         }
                     } else {
                         System.currentTimeMillis();
-                        adLoader.k.put(aVar.f7760a, null);
-                        String str = aVar.f7761b;
+                        adLoader.k.put(aVar.f7762a, null);
+                        String str = aVar.f7763b;
                         char c = 65535;
                         switch (str.hashCode()) {
                             case -1900686778:
@@ -701,13 +701,13 @@ public final class FunAdFactory {
                             case '\b':
                             case '\t':
                             case '\n':
-                                bg bgVar = adLoader.pEG;
+                                bg bgVar = adLoader.pOL;
                                 aj ajVar = new aj(adLoader, funAdSlot, aVar);
                                 if (bgVar != null) {
-                                    String a2 = bgVar.a(funAdSlot.getSid(), aVar.f7760a);
-                                    bd bdVar = bgVar.f7768a.get(a2);
+                                    String a2 = bgVar.a(funAdSlot.getSid(), aVar.f7762a);
+                                    bd bdVar = bgVar.f7770a.get(a2);
                                     if (bdVar == null) {
-                                        String str2 = aVar.f7761b;
+                                        String str2 = aVar.f7763b;
                                         char c2 = 65535;
                                         switch (str2.hashCode()) {
                                             case -1263692214:
@@ -780,50 +780,50 @@ public final class FunAdFactory {
                                         switch (c2) {
                                             case 0:
                                                 aeVar = new bl(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case 1:
                                                 aeVar = new bo(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case 2:
                                                 aeVar = new n(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case 3:
                                                 aeVar = new b(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case 4:
                                                 aeVar = new e(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case 5:
                                                 aeVar = new h(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case 6:
                                                 aeVar = new bt(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case 7:
                                                 aeVar = new s(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case '\b':
                                                 aeVar = new y(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case '\t':
                                                 aeVar = new ab(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             case '\n':
                                                 aeVar = new ae(aVar);
-                                                bgVar.f7768a.put(a2, aeVar);
+                                                bgVar.f7770a.put(a2, aeVar);
                                                 break;
                                             default:
-                                                Log.e("FunAdSdk", "CSJAdLoaderFactory error: not support ad type: " + aVar.f7761b);
+                                                Log.e("FunAdSdk", "CSJAdLoaderFactory error: not support ad type: " + aVar.f7763b);
                                                 aeVar = null;
                                                 break;
                                         }
@@ -845,13 +845,13 @@ public final class FunAdFactory {
                             case '\r':
                             case 14:
                             case 15:
-                                af afVar = adLoader.pEH;
+                                af afVar = adLoader.pOM;
                                 ad adVar = new ad(adLoader, funAdSlot, aVar);
                                 if (afVar != null) {
-                                    String a3 = afVar.a(funAdSlot.getSid(), aVar.f7760a);
-                                    ac acVar = afVar.f7746a.get(a3);
+                                    String a3 = afVar.a(funAdSlot.getSid(), aVar.f7762a);
+                                    ac acVar = afVar.f7748a.get(a3);
                                     if (acVar == null) {
-                                        String str3 = aVar.f7761b;
+                                        String str3 = aVar.f7763b;
                                         char c3 = 65535;
                                         switch (str3.hashCode()) {
                                             case -1377301807:
@@ -888,26 +888,26 @@ public final class FunAdFactory {
                                         switch (c3) {
                                             case 0:
                                                 azVar = new ao(aVar);
-                                                afVar.f7746a.put(a3, azVar);
+                                                afVar.f7748a.put(a3, azVar);
                                                 break;
                                             case 1:
                                                 azVar = new at(aVar);
-                                                afVar.f7746a.put(a3, azVar);
+                                                afVar.f7748a.put(a3, azVar);
                                                 break;
                                             case 2:
                                                 azVar = new al(aVar);
-                                                afVar.f7746a.put(a3, azVar);
+                                                afVar.f7748a.put(a3, azVar);
                                                 break;
                                             case 3:
                                                 azVar = new aw(aVar);
-                                                afVar.f7746a.put(a3, azVar);
+                                                afVar.f7748a.put(a3, azVar);
                                                 break;
                                             case 4:
                                                 azVar = new az(aVar);
-                                                afVar.f7746a.put(a3, azVar);
+                                                afVar.f7748a.put(a3, azVar);
                                                 break;
                                             default:
-                                                Log.e("FunAdSdk", "KSAdLoaderFactory error: not support ad type: " + aVar.f7761b);
+                                                Log.e("FunAdSdk", "KSAdLoaderFactory error: not support ad type: " + aVar.f7763b);
                                                 azVar = null;
                                                 break;
                                         }
@@ -932,13 +932,13 @@ public final class FunAdFactory {
                             case 21:
                             case 22:
                             case 23:
-                                aq aqVar = adLoader.pEI;
+                                aq aqVar = adLoader.pON;
                                 x xVar = new x(adLoader, funAdSlot, aVar);
                                 if (aqVar != null) {
-                                    String a4 = aqVar.a(funAdSlot.getSid(), aVar.f7760a);
-                                    an anVar = aqVar.f7754a.get(a4);
+                                    String a4 = aqVar.a(funAdSlot.getSid(), aVar.f7762a);
+                                    an anVar = aqVar.f7756a.get(a4);
                                     if (anVar == null) {
-                                        String str4 = aVar.f7761b;
+                                        String str4 = aVar.f7763b;
                                         char c4 = 65535;
                                         switch (str4.hashCode()) {
                                             case -1303381232:
@@ -993,38 +993,38 @@ public final class FunAdFactory {
                                         switch (c4) {
                                             case 0:
                                                 bpVar = new bs(aVar);
-                                                aqVar.f7754a.put(a4, bpVar);
+                                                aqVar.f7756a.put(a4, bpVar);
                                                 break;
                                             case 1:
                                                 bpVar = new bh(aVar);
-                                                aqVar.f7754a.put(a4, bpVar);
+                                                aqVar.f7756a.put(a4, bpVar);
                                                 break;
                                             case 2:
                                                 bpVar = new be(aVar);
-                                                aqVar.f7754a.put(a4, bpVar);
+                                                aqVar.f7756a.put(a4, bpVar);
                                                 break;
                                             case 3:
                                                 bpVar = new av(aVar);
-                                                aqVar.f7754a.put(a4, bpVar);
+                                                aqVar.f7756a.put(a4, bpVar);
                                                 break;
                                             case 4:
                                                 bpVar = new bu(aVar);
-                                                aqVar.f7754a.put(a4, bpVar);
+                                                aqVar.f7756a.put(a4, bpVar);
                                                 break;
                                             case 5:
                                                 bpVar = new as(aVar);
-                                                aqVar.f7754a.put(a4, bpVar);
+                                                aqVar.f7756a.put(a4, bpVar);
                                                 break;
                                             case 6:
                                                 bpVar = new bm(aVar);
-                                                aqVar.f7754a.put(a4, bpVar);
+                                                aqVar.f7756a.put(a4, bpVar);
                                                 break;
                                             case 7:
                                                 bpVar = new bp(aVar);
-                                                aqVar.f7754a.put(a4, bpVar);
+                                                aqVar.f7756a.put(a4, bpVar);
                                                 break;
                                             default:
-                                                Log.e("FunAdSdk", "GDTAdLoaderFactory error: not support ad type: " + aVar.f7761b);
+                                                Log.e("FunAdSdk", "GDTAdLoaderFactory error: not support ad type: " + aVar.f7763b);
                                                 bpVar = null;
                                                 break;
                                         }
@@ -1044,13 +1044,13 @@ public final class FunAdFactory {
                             case 24:
                             case 25:
                             case 26:
-                                l lVar = adLoader.pEJ;
+                                l lVar = adLoader.pOO;
                                 r rVar = new r(adLoader, funAdSlot, aVar);
                                 if (lVar != null) {
-                                    String a5 = lVar.a(funAdSlot.getSid(), aVar.f7760a);
-                                    i iVar = lVar.f7784a.get(a5);
+                                    String a5 = lVar.a(funAdSlot.getSid(), aVar.f7762a);
+                                    i iVar = lVar.f7786a.get(a5);
                                     if (iVar == null) {
-                                        String str5 = aVar.f7761b;
+                                        String str5 = aVar.f7763b;
                                         char c5 = 65535;
                                         int hashCode = str5.hashCode();
                                         if (hashCode != -1900686778) {
@@ -1069,12 +1069,12 @@ public final class FunAdFactory {
                                         } else if (c5 == 1) {
                                             tVar = new o(aVar);
                                         } else if (c5 != 2) {
-                                            Log.e("FunAdSdk", "JYAdLoaderFactory error: not support ad type: " + aVar.f7761b);
+                                            Log.e("FunAdSdk", "JYAdLoaderFactory error: not support ad type: " + aVar.f7763b);
                                             tVar = null;
                                         } else {
                                             tVar = new t(aVar);
                                         }
-                                        lVar.f7784a.put(a5, tVar);
+                                        lVar.f7786a.put(a5, tVar);
                                     } else {
                                         tVar = iVar;
                                     }
@@ -1093,16 +1093,16 @@ public final class FunAdFactory {
                     }
                     i = i2 + 1;
                 } else {
-                    m.a("FunAdLoader load sid: " + adLoader.pEF.f7758a + " wt: " + adLoader.pEF.f7759b);
+                    m.a("FunAdLoader load sid: " + adLoader.pOK.f7760a + " wt: " + adLoader.pOK.f7761b);
                     if (adLoader.h) {
-                        adLoader.j.sendEmptyMessageDelayed(0, adLoader.pEF.f7759b);
+                        adLoader.j.sendEmptyMessageDelayed(0, adLoader.pOK.f7761b);
                         return;
                     }
                     return;
                 }
             }
         } else {
-            Log.e("FunAdSdk", "FunAdLoader load广告位：" + adLoader.pEF.f7758a + "未配置任何类型的广告ID");
+            Log.e("FunAdSdk", "FunAdLoader load广告位：" + adLoader.pOK.f7760a + "未配置任何类型的广告ID");
         }
     }
 
@@ -1142,8 +1142,8 @@ public final class FunAdFactory {
         this.mSlotIds = hashMap;
         for (String str : hashMap.keySet()) {
             au auVar = this.mSlotIds.get(str);
-            if (auVar != null && (pVar = this.mAdLoaders.get(auVar.f7758a)) != null) {
-                pVar.pEF = auVar;
+            if (auVar != null && (pVar = this.mAdLoaders.get(auVar.f7760a)) != null) {
+                pVar.pOK = auVar;
             }
         }
     }
@@ -1161,7 +1161,7 @@ public final class FunAdFactory {
         }
         p pVar = this.mAdLoaders.get(str);
         if (pVar != null) {
-            List<au.a> list = pVar.pEF.c;
+            List<au.a> list = pVar.pOK.c;
             if (list != null && !list.isEmpty()) {
                 if (d.h) {
                     Iterator<au.a> it = list.iterator();
@@ -1171,12 +1171,12 @@ public final class FunAdFactory {
                             break;
                         }
                         au.a next = it.next();
-                        p.b bVar = pVar.f.get(next.f7760a);
-                        if (bVar != null && bVar.f7786b) {
-                            FunRippedAd funRippedAd = pVar.k.get(next.f7760a);
+                        p.b bVar = pVar.f.get(next.f7762a);
+                        if (bVar != null && bVar.f7788b) {
+                            FunRippedAd funRippedAd = pVar.k.get(next.f7762a);
                             if (funRippedAd == null) {
                                 funRippedAd = pVar.b(next);
-                                pVar.k.put(next.f7760a, funRippedAd);
+                                pVar.k.put(next.f7762a, funRippedAd);
                             }
                             if (funRippedAd != null && funRippedAd.isDeepLinkAd) {
                                 aVar2 = next;
@@ -1186,8 +1186,8 @@ public final class FunAdFactory {
                     }
                     if (aVar2 != null) {
                         for (au.a aVar4 : list) {
-                            p.b bVar2 = pVar.f.get(aVar4.f7760a);
-                            if (bVar2 != null && bVar2.f7786b) {
+                            p.b bVar2 = pVar.f.get(aVar4.f7762a);
+                            if (bVar2 != null && bVar2.f7788b) {
                                 bVar2.a();
                             }
                         }
@@ -1202,8 +1202,8 @@ public final class FunAdFactory {
                     }
                 }
                 for (au.a aVar5 : list) {
-                    p.b bVar3 = pVar.f.get(aVar5.f7760a);
-                    if (bVar3 != null && bVar3.f7786b) {
+                    p.b bVar3 = pVar.f.get(aVar5.f7762a);
+                    if (bVar3 != null && bVar3.f7788b) {
                         bVar3.a();
                         aVar = aVar3 == null ? aVar5 : aVar3;
                         if (!d.g || !pVar.a(aVar5)) {
@@ -1224,7 +1224,7 @@ public final class FunAdFactory {
                 pVar.k.clear();
                 return;
             }
-            Log.e("FunAdSdk", "FunAdLoader show广告位：" + pVar.pEF.f7758a + "未配置任何类型的广告ID");
+            Log.e("FunAdSdk", "FunAdLoader show广告位：" + pVar.pOK.f7760a + "未配置任何类型的广告ID");
             return;
         }
         Log.e("FunAdSdk", "FunAdFactory: 广告展示错误，必须先load广告 sid: " + str);

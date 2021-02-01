@@ -26,11 +26,11 @@ import com.bytedance.sdk.openadsdk.utils.b;
 import com.bytedance.sdk.openadsdk.utils.r;
 import com.bytedance.sdk.openadsdk.utils.t;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends WebViewClient {
 
     /* renamed from: b  reason: collision with root package name */
-    protected final x f6841b;
+    protected final x f6843b;
     protected final Context c;
     protected final String d;
     protected j e;
@@ -39,7 +39,7 @@ public class c extends WebViewClient {
 
     public c(Context context, x xVar, String str, j jVar) {
         this.c = context;
-        this.f6841b = xVar;
+        this.f6843b = xVar;
         this.d = str;
         this.e = jVar;
     }
@@ -64,10 +64,10 @@ public class c extends WebViewClient {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x006e, code lost:
-        if (com.bytedance.sdk.openadsdk.downloadnew.a.e.d().eCP().a(r7.c, r1, com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(r7.f6841b.f(), r7.f6841b.a(), null).eBP()) == false) goto L18;
+        if (com.bytedance.sdk.openadsdk.downloadnew.a.e.d().eFg().a(r7.c, r1, com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(r7.f6843b.f(), r7.f6843b.a(), null).eEg()) == false) goto L18;
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:0x0112, code lost:
-        if (r7.f6841b.b() != false) goto L7;
+        if (r7.f6843b.b() != false) goto L7;
      */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0114 -> B:29:0x0035). Please submit an issue!!! */
     @Override // android.webkit.WebViewClient
@@ -84,18 +84,18 @@ public class c extends WebViewClient {
             lowerCase = parse.getScheme().toLowerCase();
         } catch (Exception e) {
             u.b("WebChromeClient", "shouldOverrideUrlLoading", e);
-            if (this.f6841b != null) {
+            if (this.f6843b != null) {
             }
         }
         if ("bytedance".equals(lowerCase)) {
-            r.a(parse, this.f6841b);
+            r.a(parse, this.f6843b);
         } else {
-            if ("market".equals(lowerCase) && this.f6841b != null && this.f6841b.a() != null) {
+            if ("market".equals(lowerCase) && this.f6843b != null && this.f6843b.a() != null) {
             }
             if (!com.bytedance.sdk.openadsdk.utils.x.a(str)) {
-                final String f = this.f6841b.f();
+                final String f = this.f6843b.f();
                 u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading tag " + f);
-                final l a2 = this.f6841b.a();
+                final l a2 = this.f6843b.a();
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(parse);
                 intent.addFlags(268435456);

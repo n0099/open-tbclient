@@ -1,11 +1,11 @@
 package org.webrtc;
 
-import androidx.annotation.Nullable;
+import javax.annotation.Nullable;
 import javax.microedition.khronos.egl.EGLContext;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase10;
 import org.webrtc.EglBase14;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final /* synthetic */ class EglBase_CC {
     public static EglBase create() {
         return create(null, EglBase.CONFIG_PLAIN);

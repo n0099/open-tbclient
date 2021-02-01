@@ -5,7 +5,6 @@ import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelRotation;
 import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.d.j;
-import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes6.dex */
 public class d extends j {
     private boolean ma = true;
@@ -13,7 +12,7 @@ public class d extends j {
     public d() {
         this.nk = new PixelReadParams(PixelType.RGBA);
         this.nk.setOutputWidth(720);
-        this.nk.setOutputHeight(PlatformPlugin.DEFAULT_SYSTEM_UI);
+        this.nk.setOutputHeight(1280);
     }
 
     @Override // com.baidu.ar.d.j

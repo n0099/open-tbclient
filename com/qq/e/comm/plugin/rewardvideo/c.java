@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c {
     public static Pair<Object, Object> a(String str, JSONObject jSONObject) {
         JSONObject optJSONObject;

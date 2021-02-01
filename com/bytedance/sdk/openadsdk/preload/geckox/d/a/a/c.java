@@ -4,7 +4,7 @@ import android.util.Pair;
 import com.bytedance.sdk.openadsdk.preload.a.d;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends d<Pair<File, UpdatePackage>, Pair<String, Long>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.a.d

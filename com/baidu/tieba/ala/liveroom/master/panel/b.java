@@ -16,81 +16,81 @@ import com.baidu.live.tieba.view.NoScrollGridView;
 import com.baidu.live.utils.m;
 import com.baidu.tieba.ala.liveroom.master.panel.a;
 import com.baidu.tieba.compatible.StatusBarUtil;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends Dialog {
-    private final int hEA;
-    private final int hEB;
-    private final int hEC;
-    private final int hED;
-    private boolean hEE;
-    private int hEF;
-    private int hEG;
-    private FrameLayout hEH;
-    private NoScrollGridView hEI;
-    private com.baidu.tieba.ala.liveroom.master.panel.a hEJ;
-    private a hEK;
-    public final int hEu;
-    private a.InterfaceC0668a hEy;
+    public final int hIG;
+    private a.InterfaceC0669a hIK;
+    private final int hIM;
+    private final int hIN;
+    private final int hIO;
+    private final int hIP;
+    private boolean hIQ;
+    private int hIR;
+    private int hIS;
+    private FrameLayout hIT;
+    private NoScrollGridView hIU;
+    private com.baidu.tieba.ala.liveroom.master.panel.a hIV;
+    private a hIW;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void chw();
+        void cip();
 
-        void chx();
+        void ciq();
 
-        void chy();
+        void cir();
 
-        void chz();
+        void cis();
 
-        void or(boolean z);
+        void oB(boolean z);
 
-        void os(boolean z);
+        void oC(boolean z);
 
-        void ot(boolean z);
+        void oD(boolean z);
 
-        void ou(boolean z);
+        void oE(boolean z);
     }
 
     public b(Context context, boolean z) {
         super(context);
-        this.hEu = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds60) * 2)) / 4;
-        this.hEA = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds12);
-        this.hEB = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds16);
-        this.hEC = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds60);
-        this.hED = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds17);
-        this.hEG = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds24);
-        this.hEy = new a.InterfaceC0668a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
-            @Override // com.baidu.tieba.ala.liveroom.master.panel.a.InterfaceC0668a
+        this.hIG = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds60) * 2)) / 4;
+        this.hIM = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds12);
+        this.hIN = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds16);
+        this.hIO = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds60);
+        this.hIP = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds17);
+        this.hIS = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds24);
+        this.hIK = new a.InterfaceC0669a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
+            @Override // com.baidu.tieba.ala.liveroom.master.panel.a.InterfaceC0669a
             public void L(int i, boolean z2) {
-                if (b.this.hEK != null) {
+                if (b.this.hIW != null) {
                     if (i == 1) {
-                        b.this.hEK.or(z2);
+                        b.this.hIW.oB(z2);
                     } else if (i == 2) {
-                        b.this.hEK.os(z2);
+                        b.this.hIW.oC(z2);
                     } else if (i == 3) {
-                        b.this.hEK.ot(z2);
+                        b.this.hIW.oD(z2);
                     } else if (i == 4) {
-                        b.this.hEK.ou(z2);
+                        b.this.hIW.oE(z2);
                     } else if (i == 5) {
-                        b.this.hEK.chw();
+                        b.this.hIW.cip();
                     } else if (i == 6) {
-                        b.this.hEK.chx();
+                        b.this.hIW.ciq();
                     } else if (i == 7) {
-                        b.this.hEK.chy();
+                        b.this.hIW.cir();
                     } else if (i == 8) {
-                        b.this.hEK.chz();
+                        b.this.hIW.cis();
                     }
                 }
             }
         };
-        this.hEE = z;
+        this.hIQ = z;
         if (UtilHelper.getRealScreenOrientation(context) == 2) {
             getContext().setTheme(a.i.theme_operation_landscape_dialog);
         } else {
             getContext().setTheme(a.i.theme_operation_portrait_dialog);
         }
-        this.hEJ = new com.baidu.tieba.ala.liveroom.master.panel.a(getContext(), z);
-        this.hEJ.a(this.hEy);
+        this.hIV = new com.baidu.tieba.ala.liveroom.master.panel.a(getContext(), z);
+        this.hIV.a(this.hIK);
     }
 
     @Override // android.app.Dialog
@@ -98,39 +98,39 @@ public class b extends Dialog {
         super.onCreate(bundle);
         StatusBarUtil.from(this).setTransparentStatusbar(true).process();
         createView();
-        chH();
-        chG();
+        ciA();
+        ciz();
     }
 
-    private void chG() {
-        this.hEH.addView(this.hEI);
+    private void ciz() {
+        this.hIT.addView(this.hIU);
         View view = new View(getContext());
         view.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_white_alpha10));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(a.d.sdk_ds2));
-        layoutParams.topMargin = this.hEF;
-        layoutParams.leftMargin = this.hEG;
-        layoutParams.rightMargin = this.hEG;
-        this.hEH.addView(view, layoutParams);
-        setContentView(this.hEH);
+        layoutParams.topMargin = this.hIR;
+        layoutParams.leftMargin = this.hIS;
+        layoutParams.rightMargin = this.hIS;
+        this.hIT.addView(view, layoutParams);
+        setContentView(this.hIT);
     }
 
     public void a(a aVar) {
-        this.hEK = aVar;
+        this.hIW = aVar;
     }
 
     private void createView() {
-        this.hEH = new FrameLayout(getContext());
-        this.hEI = new NoScrollGridView(getContext());
-        this.hEI.setAdapter((ListAdapter) this.hEJ);
+        this.hIT = new FrameLayout(getContext());
+        this.hIU = new NoScrollGridView(getContext());
+        this.hIU.setAdapter((ListAdapter) this.hIV);
         View findViewById = findViewById(16908290);
         if (findViewById == null) {
-            this.hEI.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_black_alpha85));
+            this.hIU.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_black_alpha85));
         } else {
             findViewById.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_black_alpha85));
         }
     }
 
-    private void chH() {
+    private void ciA() {
         Display defaultDisplay = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay();
         int navigationBarHeight = m.getNavigationBarHeight(getContext());
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -139,27 +139,27 @@ public class b extends Dialog {
             attributes.height = defaultDisplay.getHeight();
             getWindow().setAttributes(attributes);
             getWindow().setGravity(5);
-            this.hEI.setNumColumns(2);
-            this.hEI.setPadding(this.hEA, this.hEC, navigationBarHeight + this.hEB, this.hEC);
-            this.hEF = ((this.hEE ? this.hEu : this.hEu * 2) + this.hEC) - getContext().getResources().getDimensionPixelSize(a.d.sdk_ds4);
+            this.hIU.setNumColumns(2);
+            this.hIU.setPadding(this.hIM, this.hIO, navigationBarHeight + this.hIN, this.hIO);
+            this.hIR = ((this.hIQ ? this.hIG : this.hIG * 2) + this.hIO) - getContext().getResources().getDimensionPixelSize(a.d.sdk_ds4);
         } else {
             attributes.width = defaultDisplay.getWidth();
-            if (this.hEE) {
+            if (this.hIQ) {
                 attributes.height = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds184) + navigationBarHeight;
             } else {
                 attributes.height = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds334) + navigationBarHeight;
             }
             getWindow().setAttributes(attributes);
             getWindow().setGravity(80);
-            this.hEI.setNumColumns(4);
-            this.hEI.setPadding(this.hED, getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds32), this.hED, 0);
+            this.hIU.setNumColumns(4);
+            this.hIU.setPadding(this.hIP, getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds32), this.hIP, 0);
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
     }
 
     public void setIsBackCamera(boolean z) {
-        this.hEJ.a(1, z ? (short) 1 : (short) 2);
+        this.hIV.a(1, z ? (short) 1 : (short) 2);
     }
 
     public void S(boolean z, boolean z2) {
@@ -169,7 +169,7 @@ public class b extends Dialog {
         } else if (!z) {
             s = 2;
         }
-        this.hEJ.a(2, s);
+        this.hIV.a(2, s);
     }
 
     public void T(boolean z, boolean z2) {
@@ -179,14 +179,14 @@ public class b extends Dialog {
         } else if (!z) {
             s = 2;
         }
-        this.hEJ.a(3, s);
+        this.hIV.a(3, s);
     }
 
-    public void ov(boolean z) {
-        this.hEJ.a(4, z ? (short) 1 : (short) 2);
+    public void oF(boolean z) {
+        this.hIV.a(4, z ? (short) 1 : (short) 2);
     }
 
-    public void chI() {
-        this.hEJ.notifyDataSetChanged();
+    public void ciB() {
+        this.hIV.notifyDataSetChanged();
     }
 }

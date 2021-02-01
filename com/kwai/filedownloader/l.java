@@ -1,11 +1,11 @@
 package com.kwai.filedownloader;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f10943a;
+    private static a f10945a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(com.kwai.filedownloader.a aVar);
 
@@ -17,7 +17,7 @@ public class l {
     }
 
     public static a a() {
-        return f10943a;
+        return f10945a;
     }
 
     public static boolean b() {

@@ -5,16 +5,16 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.core.e.b {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public KsNativeAd.AdInteractionListener f8137a;
+    public KsNativeAd.AdInteractionListener f8139a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f8138b;
+    public KsNativeAd.VideoPlayListener f8140b;
     @NonNull
     public AdBaseFrameLayout c;
     @NonNull

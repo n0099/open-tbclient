@@ -78,7 +78,7 @@ public class aj {
     }
 
     private static ix a(hm hmVar, boolean z) {
-        switch (ak.f13804a[hmVar.ordinal()]) {
+        switch (ak.f13806a[hmVar.ordinal()]) {
             case 1:
                 return new in();
             case 2:

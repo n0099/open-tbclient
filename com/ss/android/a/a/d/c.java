@@ -4,14 +4,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f12897a;
+    public Context f12899a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12898b;
+    public String f12900b;
     public String c;
     public String d;
     public String e;
@@ -19,9 +19,9 @@ public class c {
     public Drawable g;
     public View i;
     public int j;
-    public b pQu;
+    public b qay;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(DialogInterface dialogInterface);
 
@@ -32,26 +32,26 @@ public class c {
 
     private c(a aVar) {
         this.f = true;
-        this.f12897a = aVar.c;
-        this.f12898b = aVar.d;
+        this.f12899a = aVar.c;
+        this.f12900b = aVar.d;
         this.c = aVar.e;
         this.d = aVar.f;
         this.e = aVar.g;
         this.f = aVar.h;
         this.g = aVar.i;
-        this.pQu = aVar.pQv;
-        this.i = aVar.f12899a;
-        this.j = aVar.f12900b;
+        this.qay = aVar.qaz;
+        this.i = aVar.f12901a;
+        this.j = aVar.f12902b;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f12899a;
+        public View f12901a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12900b;
+        public int f12902b;
         private Context c;
         private String d;
         private String e;
@@ -59,33 +59,33 @@ public class c {
         private String g;
         private boolean h;
         private Drawable i;
-        private b pQv;
+        private b qaz;
 
         public a(Context context) {
             this.c = context;
         }
 
-        public a Ze(String str) {
+        public a aaf(String str) {
             this.d = str;
             return this;
         }
 
-        public a Zf(String str) {
+        public a aag(String str) {
             this.e = str;
             return this;
         }
 
-        public a Zg(String str) {
+        public a aah(String str) {
             this.f = str;
             return this;
         }
 
-        public a Zh(String str) {
+        public a aai(String str) {
             this.g = str;
             return this;
         }
 
-        public a Bp(boolean z) {
+        public a BJ(boolean z) {
             this.h = z;
             return this;
         }
@@ -96,16 +96,16 @@ public class c {
         }
 
         public a a(b bVar) {
-            this.pQv = bVar;
+            this.qaz = bVar;
             return this;
         }
 
-        public a Qq(int i) {
-            this.f12900b = i;
+        public a QL(int i) {
+            this.f12902b = i;
             return this;
         }
 
-        public c eBL() {
+        public c eEc() {
             return new c(this);
         }
     }

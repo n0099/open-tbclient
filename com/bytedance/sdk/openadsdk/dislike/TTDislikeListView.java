@@ -9,14 +9,14 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTDislikeListView extends ListView {
 
     /* renamed from: a  reason: collision with root package name */
-    private l f7028a;
+    private l f7030a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdapterView.OnItemClickListener f7029b;
+    private AdapterView.OnItemClickListener f7031b;
     private AdapterView.OnItemClickListener c;
 
     public TTDislikeListView(Context context) {
@@ -29,11 +29,11 @@ public class TTDislikeListView extends ListView {
                     if (!filterWord.hasSecondOptions()) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(filterWord);
-                        if (TTDislikeListView.this.f7028a != null) {
-                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7028a, arrayList);
+                        if (TTDislikeListView.this.f7030a != null) {
+                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7030a, arrayList);
                         }
-                        if (TTDislikeListView.this.f7029b != null) {
-                            TTDislikeListView.this.f7029b.onItemClick(adapterView, view, i, j);
+                        if (TTDislikeListView.this.f7031b != null) {
+                            TTDislikeListView.this.f7031b.onItemClick(adapterView, view, i, j);
                             return;
                         }
                         return;
@@ -56,11 +56,11 @@ public class TTDislikeListView extends ListView {
                     if (!filterWord.hasSecondOptions()) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(filterWord);
-                        if (TTDislikeListView.this.f7028a != null) {
-                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7028a, arrayList);
+                        if (TTDislikeListView.this.f7030a != null) {
+                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7030a, arrayList);
                         }
-                        if (TTDislikeListView.this.f7029b != null) {
-                            TTDislikeListView.this.f7029b.onItemClick(adapterView, view, i, j);
+                        if (TTDislikeListView.this.f7031b != null) {
+                            TTDislikeListView.this.f7031b.onItemClick(adapterView, view, i, j);
                             return;
                         }
                         return;
@@ -83,11 +83,11 @@ public class TTDislikeListView extends ListView {
                     if (!filterWord.hasSecondOptions()) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(filterWord);
-                        if (TTDislikeListView.this.f7028a != null) {
-                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7028a, arrayList);
+                        if (TTDislikeListView.this.f7030a != null) {
+                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7030a, arrayList);
                         }
-                        if (TTDislikeListView.this.f7029b != null) {
-                            TTDislikeListView.this.f7029b.onItemClick(adapterView, view, i2, j);
+                        if (TTDislikeListView.this.f7031b != null) {
+                            TTDislikeListView.this.f7031b.onItemClick(adapterView, view, i2, j);
                             return;
                         }
                         return;
@@ -101,7 +101,7 @@ public class TTDislikeListView extends ListView {
     }
 
     public void setMaterialMeta(l lVar) {
-        this.f7028a = lVar;
+        this.f7030a = lVar;
     }
 
     private void a() {
@@ -110,6 +110,6 @@ public class TTDislikeListView extends ListView {
 
     @Override // android.widget.AdapterView
     public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener onItemClickListener) {
-        this.f7029b = onItemClickListener;
+        this.f7031b = onItemClickListener;
     }
 }

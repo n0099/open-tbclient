@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
@@ -29,7 +29,7 @@ public class VideoItemData implements Parcelable, Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Kc */
+        /* renamed from: Kw */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }
@@ -158,49 +158,49 @@ public class VideoItemData implements Parcelable, Serializable {
         return this;
     }
 
-    public VideoItemData buildWithThreadData(bz bzVar) {
-        if (bzVar != null) {
-            this.thread_id = bzVar.getTid();
-            this.nid = bzVar.blV();
-            this.post_id = bzVar.bnh();
-            if (bzVar.bnO() != null) {
-                this.thumbnail_url = bzVar.bnO().thumbnail_url;
-                this.video_url = bzVar.bnO().video_url;
-                this.video_height = String.valueOf(bzVar.bnO().video_height);
-                this.video_width = String.valueOf(bzVar.bnO().video_width);
-                this.mMd5 = bzVar.bnO().video_md5;
-                this.video_duration = bzVar.bnO().video_duration.intValue();
-                this.play_count = bzVar.bnO().play_count.intValue();
-                this.isVerticalVideo = bzVar.bnO().is_vertical.intValue();
+    public VideoItemData buildWithThreadData(cb cbVar) {
+        if (cbVar != null) {
+            this.thread_id = cbVar.getTid();
+            this.nid = cbVar.bmo();
+            this.post_id = cbVar.bnA();
+            if (cbVar.boh() != null) {
+                this.thumbnail_url = cbVar.boh().thumbnail_url;
+                this.video_url = cbVar.boh().video_url;
+                this.video_height = String.valueOf(cbVar.boh().video_height);
+                this.video_width = String.valueOf(cbVar.boh().video_width);
+                this.mMd5 = cbVar.boh().video_md5;
+                this.video_duration = cbVar.boh().video_duration.intValue();
+                this.play_count = cbVar.boh().play_count.intValue();
+                this.isVerticalVideo = cbVar.boh().is_vertical.intValue();
             }
-            this.comment_num = String.valueOf(bzVar.bno());
-            this.agree_num = String.valueOf(bzVar.boY());
-            this.share_num = String.valueOf(bzVar.bpc());
-            this.title = bzVar.getTitle();
-            this.forum_id = String.valueOf(bzVar.getFid());
-            this.baijiahaoData = bzVar.getBaijiahaoData();
-            this.forum_name = bzVar.bnB();
-            this.is_agreed = String.valueOf(bzVar.bpa());
-            if (bzVar.bnx() != null) {
+            this.comment_num = String.valueOf(cbVar.bnH());
+            this.agree_num = String.valueOf(cbVar.bpq());
+            this.share_num = String.valueOf(cbVar.bpu());
+            this.title = cbVar.getTitle();
+            this.forum_id = String.valueOf(cbVar.getFid());
+            this.baijiahaoData = cbVar.getBaijiahaoData();
+            this.forum_name = cbVar.bnU();
+            this.is_agreed = String.valueOf(cbVar.bps());
+            if (cbVar.bnQ() != null) {
                 UserItemData userItemData = new UserItemData();
-                userItemData.user_name = bzVar.bnx().getUserName();
-                userItemData.name_show = bzVar.bnx().getName_show();
-                userItemData.portrait = bzVar.bnx().getPortrait();
-                userItemData.user_id = bzVar.bnx().getUserId();
-                userItemData.is_follow = bzVar.bnx().hadConcerned() ? "1" : "0";
-                if (bzVar.bnx().getBaijiahaoInfo() != null) {
-                    userItemData.bjhAvatar = bzVar.bnx().getBaijiahaoInfo().avatar;
+                userItemData.user_name = cbVar.bnQ().getUserName();
+                userItemData.name_show = cbVar.bnQ().getName_show();
+                userItemData.portrait = cbVar.bnQ().getPortrait();
+                userItemData.user_id = cbVar.bnQ().getUserId();
+                userItemData.is_follow = cbVar.bnQ().hadConcerned() ? "1" : "0";
+                if (cbVar.bnQ().getBaijiahaoInfo() != null) {
+                    userItemData.bjhAvatar = cbVar.bnQ().getBaijiahaoInfo().avatar;
                 }
                 this.author_info = userItemData;
             }
-            this.act_info = bzVar.bmb();
-            this.mRecomAbTag = bzVar.mRecomAbTag;
-            this.mRecomSource = bzVar.mRecomSource;
-            this.mRecomWeight = bzVar.mRecomWeight;
-            this.mRecomExtra = bzVar.mRecomExtra;
-            this.isBjhVideo = bzVar.bmg();
-            this.forbidComment = bzVar.forbidComment;
-            this.noCommetStr = bzVar.noCommetStr;
+            this.act_info = cbVar.bmu();
+            this.mRecomAbTag = cbVar.mRecomAbTag;
+            this.mRecomSource = cbVar.mRecomSource;
+            this.mRecomWeight = cbVar.mRecomWeight;
+            this.mRecomExtra = cbVar.mRecomExtra;
+            this.isBjhVideo = cbVar.bmz();
+            this.forbidComment = cbVar.forbidComment;
+            this.noCommetStr = cbVar.noCommetStr;
         }
         return this;
     }
@@ -252,8 +252,8 @@ public class VideoItemData implements Parcelable, Serializable {
                 }
                 this.author_info = userItemData;
             }
-            this.act_info = originalThreadInfo.bmb();
-            this.isBjhVideo = originalThreadInfo.bmf();
+            this.act_info = originalThreadInfo.bmu();
+            this.isBjhVideo = originalThreadInfo.bmy();
         }
         return this;
     }
@@ -298,6 +298,7 @@ public class VideoItemData implements Parcelable, Serializable {
                     this.baijiahaoData = new BaijiahaoData();
                     this.baijiahaoData.parseJson(optJSONObject4);
                 }
+                this.isBjhVideo = this.baijiahaoData != null && UtilHelper.isUgcThreadType(this.baijiahaoData.oriUgcType);
                 this.mRecomAbTag = jSONObject.optString("abtest_tag");
                 this.mRecomSource = jSONObject.optString("source");
                 this.mRecomWeight = jSONObject.optString("weight");

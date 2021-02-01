@@ -1,9 +1,9 @@
 package com.baidu.live.im.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface e {
-    int IP();
+    boolean KW();
 
-    boolean Jy();
+    int Kn();
 
-    void dv(int i);
+    void dB(int i);
 }

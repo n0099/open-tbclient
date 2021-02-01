@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -23,7 +24,7 @@ public class ag {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
                 y.m616a(file);
-                randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             } catch (IOException e) {
                 e = e;
                 fileLock = null;

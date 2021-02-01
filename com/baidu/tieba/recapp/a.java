@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.am;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,7 +17,7 @@ import java.util.Set;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class a {
-    public static List<al> r(List<App> list, String str) {
+    public static List<am> p(List<App> list, String str) {
         ArrayList arrayList = new ArrayList();
         if (com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
             return arrayList;
@@ -38,38 +38,35 @@ public class a {
         return arrayList;
     }
 
-    public static List<al> b(List<al> list, List<com.baidu.adp.widget.ListView.n> list2, int i) {
+    public static List<am> b(List<am> list, List<com.baidu.adp.widget.ListView.n> list2, int i) {
         int i2 = 0;
         ArrayList arrayList = new ArrayList();
         if (com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
             return arrayList;
         }
-        fK(list);
-        int i3 = 0;
-        for (int i4 = 0; i4 < list.size(); i4++) {
-            al alVar = (al) com.baidu.tieba.lego.card.c.a.l(list, i4);
-            if (alVar != null && alVar.blp() != null) {
-                int eN = com.baidu.tieba.lego.card.c.a.eN(list2);
-                int e = e(alVar.blp()) - 1;
+        fI(list);
+        for (int i3 = 0; i3 < list.size(); i3++) {
+            am amVar = (am) com.baidu.tieba.lego.card.c.a.l(list, i3);
+            if (amVar != null && amVar.blH() != null) {
+                int eL = com.baidu.tieba.lego.card.c.a.eL(list2);
+                int e = e(amVar.blH()) - 1;
                 if (e < 0) {
-                    i3++;
-                    g(alVar.blp());
+                    g(amVar.blH());
                 } else {
-                    int blq = alVar.blr() ? alVar.blq() : ((e + i) + i4) - i3;
-                    if (blq > eN) {
-                        g(alVar.blp());
-                        i3++;
+                    int blI = amVar.blJ() ? amVar.blI() : e + i;
+                    if (blI > eL) {
+                        g(amVar.blH());
                     } else {
-                        alVar.setPosition(blq);
-                        com.baidu.tieba.lego.card.c.a.a(list2, alVar, blq);
-                        arrayList.add(alVar);
+                        amVar.setPosition(blI);
+                        com.baidu.tieba.lego.card.c.a.a(list2, amVar, blI);
+                        arrayList.add(amVar);
                     }
                 }
             }
         }
-        while (i < com.baidu.tieba.lego.card.c.a.eN(list2)) {
+        while (i < com.baidu.tieba.lego.card.c.a.eL(list2)) {
             com.baidu.adp.widget.ListView.n nVar = list2.get(i);
-            if (nVar instanceof al) {
+            if (nVar instanceof am) {
                 i2++;
             } else if (nVar instanceof BaseCardInfo) {
                 ((BaseCardInfo) nVar).position += i2;
@@ -79,19 +76,19 @@ public class a {
         return arrayList;
     }
 
-    public static void fK(List<al> list) {
-        Collections.sort(list, new Comparator<al>() { // from class: com.baidu.tieba.recapp.a.1
+    public static void fI(List<am> list) {
+        Collections.sort(list, new Comparator<am>() { // from class: com.baidu.tieba.recapp.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
-            public int compare(al alVar, al alVar2) {
-                if (alVar.blr() && alVar2.blr()) {
-                    return alVar.blq() - alVar2.blq();
+            public int compare(am amVar, am amVar2) {
+                if (amVar.blJ() && amVar2.blJ()) {
+                    return amVar.blI() - amVar2.blI();
                 }
-                if (alVar.blr() || alVar2.blr()) {
-                    return !alVar.blr() ? 1 : -1;
+                if (amVar.blJ() || amVar2.blJ()) {
+                    return !amVar.blJ() ? 1 : -1;
                 }
-                return (alVar.blp() == null ? -1 : a.e(alVar.blp())) - (alVar2.blp() != null ? a.e(alVar2.blp()) : -1);
+                return (amVar.blH() == null ? -1 : a.e(amVar.blH())) - (amVar2.blH() != null ? a.e(amVar2.blH()) : -1);
             }
         });
     }
@@ -107,11 +104,11 @@ public class a {
     }
 
     public static int f(@Nullable AdvertAppInfo advertAppInfo) {
-        int bll = advertAppInfo.bll();
+        int blD = advertAppInfo.blD();
         if (e(advertAppInfo) < 0) {
             return 23;
         }
-        return bll;
+        return blD;
     }
 
     private static void g(AdvertAppInfo advertAppInfo) {
@@ -119,60 +116,60 @@ public class a {
     }
 
     private static void b(AdvertAppInfo advertAppInfo, int i) {
-        com.baidu.tieba.recapp.report.e.dCe().a(com.baidu.tieba.recapp.report.h.b(advertAppInfo, 5, 1, i));
-        if (advertAppInfo != null && advertAppInfo.eJy != null) {
-            advertAppInfo.eJy.mDiscardReason = i;
+        com.baidu.tieba.recapp.report.e.dEm().a(com.baidu.tieba.recapp.report.h.b(advertAppInfo, 5, 1, i));
+        if (advertAppInfo != null && advertAppInfo.eLK != null) {
+            advertAppInfo.eLK.mDiscardReason = i;
         }
     }
 
-    public static int fL(@NonNull List<com.baidu.adp.widget.ListView.n> list) {
+    public static int fJ(@NonNull List<com.baidu.adp.widget.ListView.n> list) {
         boolean z = false;
-        int eN = com.baidu.tieba.lego.card.c.a.eN(list);
+        int eL = com.baidu.tieba.lego.card.c.a.eL(list);
         if (!com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
-            int eN2 = com.baidu.tieba.lego.card.c.a.eN(list) - 1;
+            int eL2 = com.baidu.tieba.lego.card.c.a.eL(list) - 1;
             int i = 0;
             while (true) {
-                if (eN2 < 0) {
+                if (eL2 < 0) {
                     break;
-                } else if (com.baidu.tieba.lego.card.c.a.l(list, eN2) instanceof al) {
+                } else if (com.baidu.tieba.lego.card.c.a.l(list, eL2) instanceof am) {
                     z = true;
                     break;
                 } else {
                     i++;
-                    eN2--;
+                    eL2--;
                 }
             }
             if (!z) {
-                i = eN;
+                i = eL;
             }
             return i;
         }
-        return eN;
+        return eL;
     }
 
     public static Set<com.baidu.adp.widget.ListView.n> a(List<com.baidu.adp.widget.ListView.n> list, int i, String str) {
-        AdvertAppInfo blp;
-        AdvertAppInfo blp2;
+        AdvertAppInfo blH;
+        AdvertAppInfo blH2;
         HashSet hashSet = new HashSet();
         if (com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
             return hashSet;
         }
-        Set<com.baidu.adp.widget.ListView.n> QL = com.baidu.tieba.recapp.report.a.QL(str);
-        HashSet hashSet2 = QL == null ? new HashSet() : QL;
+        Set<com.baidu.adp.widget.ListView.n> RE = com.baidu.tieba.recapp.report.a.RE(str);
+        HashSet hashSet2 = RE == null ? new HashSet() : RE;
         for (com.baidu.adp.widget.ListView.n nVar : list) {
             if (nVar != null) {
                 for (com.baidu.adp.widget.ListView.n nVar2 : hashSet2) {
-                    if ((nVar instanceof al) && (blp2 = ((al) nVar).blp()) != null && nVar2.hashCode() == blp2.hashCode()) {
-                        blp2.advertAppContext = ((AdvertAppInfo) nVar2).advertAppContext;
+                    if ((nVar instanceof am) && (blH2 = ((am) nVar).blH()) != null && nVar2.hashCode() == blH2.hashCode()) {
+                        blH2.advertAppContext = ((AdvertAppInfo) nVar2).advertAppContext;
                     }
                 }
-                if ((nVar instanceof al) && (blp = ((al) nVar).blp()) != null && blp.advertAppContext == null) {
-                    blp.advertAppContext = new com.baidu.tbadk.core.data.c();
-                    blp.advertAppContext.page = str;
-                    blp.advertAppContext.pn = i;
-                    blp.advertAppContext.extensionInfo = blp.extensionInfo;
-                    blp.advertAppContext.aaw = false;
-                    hashSet.add(blp);
+                if ((nVar instanceof am) && (blH = ((am) nVar).blH()) != null && blH.advertAppContext == null) {
+                    blH.advertAppContext = new com.baidu.tbadk.core.data.d();
+                    blH.advertAppContext.page = str;
+                    blH.advertAppContext.pn = i;
+                    blH.advertAppContext.extensionInfo = blH.extensionInfo;
+                    blH.advertAppContext.aas = false;
+                    hashSet.add(blH);
                 }
             }
         }
@@ -187,14 +184,14 @@ public class a {
             Iterator it = list.iterator();
             while (it.hasNext()) {
                 Object next = it.next();
-                if ((next instanceof al) || (next instanceof App)) {
+                if ((next instanceof am) || (next instanceof App)) {
                     if (next instanceof App) {
                         str2 = ((App) next).id;
                     } else {
-                        if (next instanceof al) {
-                            al alVar = (al) next;
-                            if (alVar.blp() != null) {
-                                str2 = alVar.blp().eJi;
+                        if (next instanceof am) {
+                            am amVar = (am) next;
+                            if (amVar.blH() != null) {
+                                str2 = amVar.blH().eLu;
                             }
                         }
                         str2 = "";
@@ -207,13 +204,13 @@ public class a {
         }
     }
 
-    public static void fM(List<com.baidu.adp.widget.ListView.n> list) {
+    public static void fK(List<com.baidu.adp.widget.ListView.n> list) {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < com.baidu.tieba.lego.card.c.a.eN(list)) {
-                if (com.baidu.tieba.lego.card.c.a.l(list, i2) instanceof al) {
-                    ((al) com.baidu.tieba.lego.card.c.a.l(list, i2)).setPosition(i2);
+            if (i2 < com.baidu.tieba.lego.card.c.a.eL(list)) {
+                if (com.baidu.tieba.lego.card.c.a.l(list, i2) instanceof am) {
+                    ((am) com.baidu.tieba.lego.card.c.a.l(list, i2)).setPosition(i2);
                 }
                 i = i2 + 1;
             } else {
@@ -222,14 +219,50 @@ public class a {
         }
     }
 
-    public static void fN(List<com.baidu.adp.widget.ListView.n> list) {
+    public static void fL(List<com.baidu.adp.widget.ListView.n> list) {
         if (!com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
             Iterator<com.baidu.adp.widget.ListView.n> it = list.iterator();
             while (it.hasNext()) {
-                if (it.next() instanceof al) {
+                if (it.next() instanceof am) {
                     it.remove();
                 }
             }
         }
+    }
+
+    public static String y(List<com.baidu.adp.widget.ListView.n> list, boolean z) {
+        int i;
+        StringBuilder sb = new StringBuilder("");
+        if (z || com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
+            return sb.toString();
+        }
+        int i2 = 0;
+        int eL = com.baidu.tieba.lego.card.c.a.eL(list) - 1;
+        while (eL >= 0 && i2 < 6) {
+            if (com.baidu.tieba.lego.card.c.a.l(list, eL) instanceof am) {
+                am amVar = (am) com.baidu.tieba.lego.card.c.a.l(list, eL);
+                if (amVar == null) {
+                    i = i2;
+                } else if (h(amVar.blH())) {
+                    i = i2;
+                } else {
+                    sb.append(amVar.blI() + 1).append(",");
+                    i = i2 + 1;
+                }
+            } else {
+                i = i2;
+            }
+            eL--;
+            i2 = i;
+        }
+        if (sb.length() <= 1) {
+            return sb.toString();
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
+    }
+
+    public static boolean h(AdvertAppInfo advertAppInfo) {
+        return advertAppInfo == null || advertAppInfo.getType() == AdvertAppInfo.eLa || advertAppInfo.getType() == AdvertAppInfo.eLf || advertAppInfo.getType() == AdvertAppInfo.eLg;
     }
 }

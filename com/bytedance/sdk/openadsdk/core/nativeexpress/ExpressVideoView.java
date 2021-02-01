@@ -7,7 +7,7 @@ import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ExpressVideoView extends NativeVideoTsView implements View.OnClickListener {
     private boolean n;
 
@@ -24,7 +24,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
     public void b() {
         this.d = false;
-        p.h().s(String.valueOf(aj.d(this.f6720a.W())));
+        p.h().s(String.valueOf(aj.d(this.f6722a.W())));
         super.b();
     }
 
@@ -41,8 +41,8 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     }
 
     public void setShouldCheckNetChange(boolean z) {
-        if (this.f6721b != null) {
-            this.f6721b.f(z);
+        if (this.f6723b != null) {
+            this.f6723b.f(z);
         }
     }
 
@@ -85,7 +85,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
         f();
         if (this.e != null) {
             if (this.e.getVisibility() != 0) {
-                com.bytedance.sdk.openadsdk.i.e.a(getContext()).a(this.f6720a.F().g(), this.f);
+                com.bytedance.sdk.openadsdk.i.e.a(getContext()).a(this.f6722a.F().g(), this.f);
             } else {
                 return;
             }
@@ -103,7 +103,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
 
     public void setShowAdInteractionView(boolean z) {
         com.bytedance.sdk.openadsdk.core.video.nativevideo.h u;
-        if (this.f6721b != null && (u = this.f6721b.u()) != null) {
+        if (this.f6723b != null && (u = this.f6723b.u()) != null) {
             u.d(z);
         }
     }

@@ -19,9 +19,9 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private String bre;
+    private String buH;
     private boolean mIsHost;
     private List<com.baidu.live.noble.data.a> mList = new ArrayList();
     private String mLiveId;
@@ -30,7 +30,7 @@ public class a extends BaseAdapter {
     public a(TbPageContext tbPageContext, String str, String str2, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
-        this.bre = str2;
+        this.buH = str2;
         this.mIsHost = z;
     }
 
@@ -65,43 +65,43 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0187a c0187a;
+        C0188a c0188a;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.ala_noble_item_layout, (ViewGroup) null);
-            c0187a = new C0187a();
-            c0187a.bsn = (HeadImageView) view.findViewById(a.f.avatar_noble);
-            c0187a.bso = (TextView) view.findViewById(a.f.tv_noble_name);
-            c0187a.bsq = (ImageView) view.findViewById(a.f.avatar_noble_wrapper_box);
-            c0187a.bsp = (TbImageView) view.findViewById(a.f.mark_noble);
-            c0187a.bsp.setDefaultBgResource(a.e.ala_noble_ulist_default_mark_bg);
-            a(c0187a.bsn);
-            view.setTag(c0187a);
+            c0188a = new C0188a();
+            c0188a.bvR = (HeadImageView) view.findViewById(a.f.avatar_noble);
+            c0188a.bvS = (TextView) view.findViewById(a.f.tv_noble_name);
+            c0188a.bvU = (ImageView) view.findViewById(a.f.avatar_noble_wrapper_box);
+            c0188a.bvT = (TbImageView) view.findViewById(a.f.mark_noble);
+            c0188a.bvT.setDefaultBgResource(a.e.ala_noble_ulist_default_mark_bg);
+            a(c0188a.bvR);
+            view.setTag(c0188a);
         } else {
-            c0187a = (C0187a) view.getTag();
+            c0188a = (C0188a) view.getTag();
         }
         final com.baidu.live.noble.data.a aVar = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (aVar != null) {
-            c0187a.bso.setText(aVar.aQo);
+            c0188a.bvS.setText(aVar.aTr);
             if (TextUtils.isEmpty(aVar.icon_url)) {
-                c0187a.bsp.setVisibility(4);
+                c0188a.bvT.setVisibility(4);
             } else {
-                c0187a.bsp.setVisibility(0);
-                c0187a.bsp.startLoad(aVar.icon_url, 10, false);
+                c0188a.bvT.setVisibility(0);
+                c0188a.bvT.startLoad(aVar.icon_url, 10, false);
             }
-            c0187a.bsn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.noble.a.a.1
+            c0188a.bvR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.noble.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     a.this.a(aVar);
                 }
             });
-            a(aVar, c0187a.bsn, c0187a.bsq);
+            a(aVar, c0188a.bvR, c0188a.bvU);
         }
         return view;
     }
 
     private void a(HeadImageView headImageView) {
-        headImageView.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
-        headImageView.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
+        headImageView.setDefaultResource(a.e.sdk_icon_default_avatar100);
+        headImageView.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
         headImageView.setIsRound(true);
         headImageView.setAutoChangeStyle(false);
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -109,21 +109,21 @@ public class a extends BaseAdapter {
 
     private void a(com.baidu.live.noble.data.a aVar, HeadImageView headImageView, ImageView imageView) {
         if (aVar != null && headImageView != null && imageView != null) {
-            headImageView.startLoad(aVar.aQn, 10, false);
+            headImageView.startLoad(aVar.aTq, 10, false);
             int dimens = BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds8);
-            if (aVar.aQp == 7) {
+            if (aVar.aTs == 7) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (aVar.aQp == 6) {
+            } else if (aVar.aTs == 6) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (aVar.aQp == 5) {
+            } else if (aVar.aTs == 5) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
-            } else if (aVar.aQp == 4) {
+            } else if (aVar.aTs == 4) {
                 imageView.setVisibility(0);
                 imageView.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
                 headImageView.setPadding(dimens, dimens, dimens, dimens);
@@ -137,21 +137,21 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.noble.data.a aVar) {
         if (aVar != null) {
-            AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), aVar.user_id + "", aVar.aQo, aVar.aQn, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.bre != null && this.bre.equals(TbadkCoreApplication.getCurrentAccount()), this.bre, null, aVar.aQo);
+            AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(this.mTbPageContext.getPageActivity(), aVar.user_id + "", aVar.aTr, aVar.aTq, 0, 0, null, null, 0L, 0L, 0L, 0, null, this.mLiveId, this.buH != null && this.buH.equals(TbadkCoreApplication.getCurrentAccount()), this.buH, null, aVar.aTr);
             alaPersonCardActivityConfig.setExtInfo(aVar.extInfoJson);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
         }
     }
 
     /* renamed from: com.baidu.live.noble.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private class C0187a {
-        public HeadImageView bsn;
-        public TextView bso;
-        public TbImageView bsp;
-        public ImageView bsq;
+    /* loaded from: classes11.dex */
+    private class C0188a {
+        public HeadImageView bvR;
+        public TextView bvS;
+        public TbImageView bvT;
+        public ImageView bvU;
 
-        private C0187a() {
+        private C0188a() {
         }
     }
 }

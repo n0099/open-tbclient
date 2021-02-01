@@ -3,28 +3,28 @@ package com.kwad.sdk.core.page.recycle;
 import android.view.View;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    final RecyclerView f9361a;
+    final RecyclerView f9363a;
 
     /* renamed from: b  reason: collision with root package name */
-    final RecyclerView.LayoutManager f9362b;
+    final RecyclerView.LayoutManager f9364b;
 
     f(RecyclerView recyclerView) {
-        this.f9361a = recyclerView;
-        this.f9362b = recyclerView.getLayoutManager();
+        this.f9363a = recyclerView;
+        this.f9364b = recyclerView.getLayoutManager();
     }
 
     private View a(int i, int i2, boolean z, boolean z2) {
-        OrientationHelper createVerticalHelper = this.f9362b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f9362b) : OrientationHelper.createHorizontalHelper(this.f9362b);
+        OrientationHelper createVerticalHelper = this.f9364b.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.f9364b) : OrientationHelper.createHorizontalHelper(this.f9364b);
         int startAfterPadding = createVerticalHelper.getStartAfterPadding();
         int endAfterPadding = createVerticalHelper.getEndAfterPadding();
         int i3 = i2 > i ? 1 : -1;
         View view = null;
         while (i != i2) {
-            View childAt = this.f9362b.getChildAt(i);
+            View childAt = this.f9364b.getChildAt(i);
             int decoratedStart = createVerticalHelper.getDecoratedStart(childAt);
             int decoratedEnd = createVerticalHelper.getDecoratedEnd(childAt);
             if (decoratedStart < endAfterPadding && decoratedEnd > startAfterPadding) {
@@ -54,18 +54,18 @@ public class f {
     }
 
     public int a() {
-        View a2 = a(0, this.f9362b.getChildCount(), false, true);
+        View a2 = a(0, this.f9364b.getChildCount(), false, true);
         if (a2 == null) {
             return -1;
         }
-        return this.f9361a.getChildAdapterPosition(a2);
+        return this.f9363a.getChildAdapterPosition(a2);
     }
 
     public int b() {
-        View a2 = a(this.f9362b.getChildCount() - 1, -1, false, true);
+        View a2 = a(this.f9364b.getChildCount() - 1, -1, false, true);
         if (a2 == null) {
             return -1;
         }
-        return this.f9361a.getChildAdapterPosition(a2);
+        return this.f9363a.getChildAdapterPosition(a2);
     }
 }

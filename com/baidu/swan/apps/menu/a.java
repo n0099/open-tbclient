@@ -24,25 +24,25 @@ import com.baidu.swan.menu.PopupWindow;
 import com.baidu.swan.menu.g;
 import com.baidu.swan.menu.h;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private g cPu;
-    private SwanAppMenuHeaderView cPv;
-    private c dlh;
+    private g cRI;
+    private SwanAppMenuHeaderView cRJ;
+    private c dnr;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.menu.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0439a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0436a {
         void onFail();
 
         void onSuccess();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
-        public static final boolean dlk = com.baidu.swan.apps.t.a.awB().agJ();
+        public static final boolean dnv = com.baidu.swan.apps.t.a.awZ().ahh();
     }
 
     public a(g gVar, c cVar) {
@@ -50,52 +50,52 @@ public class a {
     }
 
     public a(g gVar, c cVar, SwanAppMenuHeaderView swanAppMenuHeaderView) {
-        this.cPu = gVar;
-        this.cPv = swanAppMenuHeaderView;
-        this.dlh = cVar;
+        this.cRI = gVar;
+        this.cRJ = swanAppMenuHeaderView;
+        this.dnr = cVar;
         if (cVar != null) {
             this.mContext = cVar.getContext();
         }
-        aBD();
+        aCa();
     }
 
-    private void aBD() {
-        com.baidu.swan.apps.t.a.axj().a((com.baidu.swan.apps.commonsync.a.a) null);
+    private void aCa() {
+        com.baidu.swan.apps.t.a.axH().a((com.baidu.swan.apps.commonsync.a.a) null);
     }
 
-    public void aBE() {
-        e aIs;
-        if (this.cPu != null && this.dlh != null && this.mContext != null && (aIs = e.aIs()) != null) {
-            this.cPu.a(new com.baidu.swan.menu.e() { // from class: com.baidu.swan.apps.menu.a.1
+    public void aCb() {
+        e aIL;
+        if (this.cRI != null && this.dnr != null && this.mContext != null && (aIL = e.aIL()) != null) {
+            this.cRI.a(new com.baidu.swan.menu.e() { // from class: com.baidu.swan.apps.menu.a.1
                 @Override // com.baidu.swan.menu.e
                 public boolean a(View view, h hVar) {
                     return a.this.b(hVar);
                 }
             });
-            if (this.cPv != null) {
-                this.cPv.setOnMenuHeaderClickListener(new SwanAppMenuHeaderView.a() { // from class: com.baidu.swan.apps.menu.a.2
+            if (this.cRJ != null) {
+                this.cRJ.setOnMenuHeaderClickListener(new SwanAppMenuHeaderView.a() { // from class: com.baidu.swan.apps.menu.a.2
                     @Override // com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.a
                     public void onClick(View view) {
-                        a.this.cPu.dismiss();
-                        a.this.aBP();
+                        a.this.cRI.dismiss();
+                        a.this.aCm();
                     }
                 });
-                if (b.dlk) {
-                    this.cPv.setAttentionBtnShow(true);
-                    this.cPv.setOnAttentionBtnClickListener(new SwanAppMenuHeaderView.a() { // from class: com.baidu.swan.apps.menu.a.3
+                if (b.dnv) {
+                    this.cRJ.setAttentionBtnShow(true);
+                    this.cRJ.setOnAttentionBtnClickListener(new SwanAppMenuHeaderView.a() { // from class: com.baidu.swan.apps.menu.a.3
                         @Override // com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.a
                         public void onClick(View view) {
-                            a.this.cPu.dismiss();
-                            a.this.aBL();
+                            a.this.cRI.dismiss();
+                            a.this.aCi();
                         }
                     });
                 }
-                if (!aIs.aIK()) {
-                    this.cPv.setOnMenuHeaderLongClickListener(new SwanAppMenuHeaderView.b() { // from class: com.baidu.swan.apps.menu.a.4
+                if (!aIL.aJd()) {
+                    this.cRJ.setOnMenuHeaderLongClickListener(new SwanAppMenuHeaderView.b() { // from class: com.baidu.swan.apps.menu.a.4
                         @Override // com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView.b
                         public boolean onLongClick(View view) {
-                            a.this.cPu.dismiss();
-                            return a.this.aBG();
+                            a.this.cRI.dismiss();
+                            return a.this.aCd();
                         }
                     });
                 }
@@ -104,76 +104,76 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBF() {
-        this.cPv.setAttentionBtnStates(com.baidu.swan.apps.database.favorite.a.mX(d.aIn().getAppId()));
+    public void aCc() {
+        this.cRJ.setAttentionBtnStates(com.baidu.swan.apps.database.favorite.a.np(d.aIG().getAppId()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aBG() {
-        if (this.dlh == null || this.mContext == null) {
+    public boolean aCd() {
+        if (this.dnr == null || this.mContext == null) {
             return false;
         }
-        com.baidu.swan.apps.res.widget.b.d.a(this.mContext, aBJ() ? this.mContext.getString(a.h.swanapp_write_to_clipborad_succ) : this.mContext.getString(a.h.swanapp_write_to_clipborad_fail)).jg(2).aHZ();
+        com.baidu.swan.apps.res.widget.b.d.a(this.mContext, aCg() ? this.mContext.getString(a.h.swanapp_write_to_clipborad_succ) : this.mContext.getString(a.h.swanapp_write_to_clipborad_fail)).jj(2).aIs();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(h hVar) {
-        if (this.dlh == null || this.mContext == null) {
+        if (this.dnr == null || this.mContext == null) {
             return false;
         }
         switch (hVar.getItemId()) {
             case 4:
-                aBK();
+                aCh();
                 return true;
             case 5:
-                aBM();
+                aCj();
                 return true;
             case 35:
-                aBN();
+                aCk();
                 return true;
             case 37:
-                aBQ();
+                aCn();
                 return true;
             case 38:
-                aBL();
+                aCi();
                 return true;
             case 39:
                 restart();
                 return true;
             case 42:
-                aBO();
+                aCl();
                 return true;
             case 49:
-                aBI();
+                aCf();
                 return true;
             case 50:
-                aBH();
+                aCe();
                 return true;
             default:
-                return com.baidu.swan.apps.t.a.awC().a(hVar);
+                return com.baidu.swan.apps.t.a.axa().a(hVar);
         }
     }
 
-    private void aBH() {
-        this.cPu.dismiss();
-        com.baidu.swan.apps.menu.fontsize.c cVar = new com.baidu.swan.apps.menu.fontsize.c(this.mContext, this.dlh.aob(), new com.baidu.swan.apps.view.c.b());
+    private void aCe() {
+        this.cRI.dismiss();
+        com.baidu.swan.apps.menu.fontsize.c cVar = new com.baidu.swan.apps.menu.fontsize.c(this.mContext, this.dnr.aoz(), new com.baidu.swan.apps.view.c.b());
         cVar.showView();
         cVar.a(new c.a() { // from class: com.baidu.swan.apps.menu.a.5
             @Override // com.baidu.swan.apps.menu.fontsize.c.a
-            public void ie(int i) {
-                com.baidu.swan.apps.adaptation.b.c aoN;
+            public void ih(int i) {
+                com.baidu.swan.apps.adaptation.b.c apm;
                 NgWebView ngWebView;
-                if ((a.this.dlh instanceof com.baidu.swan.apps.core.d.e) && (aoN = ((com.baidu.swan.apps.core.d.e) a.this.dlh).aoN()) != null) {
-                    if (aoN.air() != null) {
-                        ngWebView = (NgWebView) aoN.air().aiy();
+                if ((a.this.dnr instanceof com.baidu.swan.apps.core.d.e) && (apm = ((com.baidu.swan.apps.core.d.e) a.this.dnr).apm()) != null) {
+                    if (apm.aiP() != null) {
+                        ngWebView = (NgWebView) apm.aiP().aiW();
                     } else {
-                        ngWebView = (NgWebView) aoN.aiy();
+                        ngWebView = (NgWebView) apm.aiW();
                     }
-                    if (!com.baidu.swan.apps.menu.fontsize.b.aBS()) {
-                        ngWebView.getSettings().setTextZoom(com.baidu.swan.apps.menu.fontsize.b.ig(i));
+                    if (!com.baidu.swan.apps.menu.fontsize.b.aCp()) {
+                        ngWebView.getSettings().setTextZoom(com.baidu.swan.apps.menu.fontsize.b.ij(i));
                     }
-                    com.baidu.swan.apps.menu.fontsize.b.m26if(i);
+                    com.baidu.swan.apps.menu.fontsize.b.ii(i);
                     com.baidu.swan.apps.menu.fontsize.a.g(Integer.valueOf(i + 1));
                 }
             }
@@ -181,169 +181,169 @@ public class a {
         cVar.a(new PopupWindow.a() { // from class: com.baidu.swan.apps.menu.a.6
             @Override // com.baidu.swan.menu.PopupWindow.a
             public void onDismiss() {
-                a.f("fontSizeChanged", null, null, "fontSizeLevel", String.valueOf(com.baidu.swan.apps.menu.fontsize.b.aBR()));
+                a.f("fontSizeChanged", null, null, "fontSizeLevel", String.valueOf(com.baidu.swan.apps.menu.fontsize.b.aCo()));
             }
         });
-        px("typeface");
+        pP("typeface");
     }
 
-    private void aBI() {
-        f afz = this.dlh.afz();
-        if (afz == null) {
-            com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_open_fragment_failed_toast).aHZ();
+    private void aCf() {
+        f afX = this.dnr.afX();
+        if (afX == null) {
+            com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_open_fragment_failed_toast).aIs();
             return;
         }
-        afz.mk("navigateTo").ai(f.cQm, f.cQo).a("settings", null).commit();
-        px("set");
+        afX.mC("navigateTo").af(f.cSz, f.cSB).a("settings", null).commit();
+        pP("set");
     }
 
-    private boolean aBJ() {
-        al.dS(this.mContext).setText(com.baidu.swan.apps.model.b.d(ak.aNY()));
+    private boolean aCg() {
+        al.dR(this.mContext).setText(com.baidu.swan.apps.model.b.d(ak.aOr()));
         return true;
     }
 
-    private void aBK() {
-        this.dlh.anL();
-        px(TbConfig.TMP_SHARE_DIR_NAME);
+    private void aCh() {
+        this.dnr.aoj();
+        pP(TbConfig.TMP_SHARE_DIR_NAME);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBL() {
-        String appId = d.aIn().getAppId();
+    public void aCi() {
+        String appId = d.aIG().getAppId();
         if (!TextUtils.isEmpty(appId)) {
-            if (com.baidu.swan.apps.database.favorite.a.mX(appId)) {
-                ma(appId);
+            if (com.baidu.swan.apps.database.favorite.a.np(appId)) {
+                ms(appId);
             } else {
-                mb(appId);
+                mt(appId);
             }
         }
     }
 
-    private void ma(String str) {
-        SwanFavorDataManager.auq().b(str, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.menu.a.7
+    private void ms(String str) {
+        SwanFavorDataManager.auO().b(str, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.menu.a.7
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void anP() {
-                com.baidu.swan.apps.res.widget.b.d.u(a.this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_success).jg(2).aIc();
-                a.this.aBF();
+            public void aon() {
+                com.baidu.swan.apps.res.widget.b.d.u(a.this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_success).jj(2).aIv();
+                a.this.aCc();
             }
 
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void anQ() {
-                com.baidu.swan.apps.res.widget.b.d.u(a.this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_fail).jg(2).aHZ();
+            public void aoo() {
+                com.baidu.swan.apps.res.widget.b.d.u(a.this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_fail).jj(2).aIs();
             }
-        }, com.baidu.swan.apps.env.c.c.atM().hf(3).atN());
-        px("deletemyswan");
+        }, com.baidu.swan.apps.env.c.c.auk().hi(3).aul());
+        pP("deletemyswan");
     }
 
-    private void mb(String str) {
-        if (com.baidu.swan.apps.ad.a.a.aER()) {
+    private void mt(String str) {
+        if (com.baidu.swan.apps.ad.a.a.aFm()) {
             if (DEBUG) {
                 Log.d("SwanAppMenuHelper", "in debug mode cannot add favor");
             }
-            com.baidu.swan.apps.res.widget.b.d.u(this.mContext.getApplicationContext(), a.h.aiapps_debug_forbid_favor).aHZ();
+            com.baidu.swan.apps.res.widget.b.d.u(this.mContext.getApplicationContext(), a.h.aiapps_debug_forbid_favor).aIs();
             return;
         }
-        com.baidu.swan.apps.api.module.favorite.a.cDi = null;
-        final String page = ak.aNY().getPage();
-        SwanFavorDataManager.auq().b(str, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.menu.a.8
+        com.baidu.swan.apps.api.module.favorite.a.cFE = null;
+        final String page = ak.aOr().getPage();
+        SwanFavorDataManager.auO().b(str, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.menu.a.8
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void anR() {
-                com.baidu.swan.apps.database.favorite.a.asN();
-                if (a.C(a.this.dlh.bdH())) {
-                    a.cd("addmyswan", page);
+            public void aop() {
+                com.baidu.swan.apps.database.favorite.a.atl();
+                if (a.w(a.this.dnr.bdU())) {
+                    a.bX("addmyswan", page);
                     return;
                 }
-                com.baidu.swan.apps.res.widget.b.d.u(a.this.mContext.getApplicationContext(), a.h.aiapps_fav_success).jg(2).jc(2).aHZ();
-                a.this.aBF();
+                com.baidu.swan.apps.res.widget.b.d.u(a.this.mContext.getApplicationContext(), a.h.aiapps_fav_success).jj(2).jf(2).aIs();
+                a.this.aCc();
             }
 
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void anS() {
-                com.baidu.swan.apps.res.widget.b.d.u(a.this.mContext.getApplicationContext(), a.h.aiapps_fav_fail).jg(2).aHZ();
+            public void aoq() {
+                com.baidu.swan.apps.res.widget.b.d.u(a.this.mContext.getApplicationContext(), a.h.aiapps_fav_fail).jj(2).aIs();
             }
         });
-        cd("addmyswan", page);
+        bX("addmyswan", page);
     }
 
-    public static void a(@NonNull final Activity activity, final InterfaceC0439a interfaceC0439a) {
-        String appId = d.aIn().getAppId();
-        if (TextUtils.isEmpty(appId) && interfaceC0439a != null) {
-            interfaceC0439a.onFail();
+    public static void a(@NonNull final Activity activity, final InterfaceC0436a interfaceC0436a) {
+        String appId = d.aIG().getAppId();
+        if (TextUtils.isEmpty(appId) && interfaceC0436a != null) {
+            interfaceC0436a.onFail();
         }
-        if (!com.baidu.swan.apps.database.favorite.a.mX(appId)) {
-            SwanFavorDataManager.auq().b(appId, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.menu.a.9
+        if (!com.baidu.swan.apps.database.favorite.a.np(appId)) {
+            SwanFavorDataManager.auO().b(appId, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.menu.a.9
                 @Override // com.baidu.swan.apps.favordata.a.a
-                public void anR() {
-                    com.baidu.swan.apps.database.favorite.a.asN();
-                    if (a.C(activity)) {
-                        if (interfaceC0439a != null) {
-                            interfaceC0439a.onSuccess();
+                public void aop() {
+                    com.baidu.swan.apps.database.favorite.a.atl();
+                    if (a.w(activity)) {
+                        if (interfaceC0436a != null) {
+                            interfaceC0436a.onSuccess();
                             return;
                         }
                         return;
                     }
-                    com.baidu.swan.apps.res.widget.b.d.u(activity.getApplicationContext(), a.h.aiapps_fav_success).jg(2).jc(2).aHZ();
-                    if (interfaceC0439a != null) {
-                        interfaceC0439a.onSuccess();
+                    com.baidu.swan.apps.res.widget.b.d.u(activity.getApplicationContext(), a.h.aiapps_fav_success).jj(2).jf(2).aIs();
+                    if (interfaceC0436a != null) {
+                        interfaceC0436a.onSuccess();
                     }
                 }
 
                 @Override // com.baidu.swan.apps.favordata.a.a
-                public void anS() {
-                    com.baidu.swan.apps.res.widget.b.d.u(activity.getApplicationContext(), a.h.aiapps_fav_fail).jg(2).aHZ();
-                    if (interfaceC0439a != null) {
-                        interfaceC0439a.onFail();
+                public void aoq() {
+                    com.baidu.swan.apps.res.widget.b.d.u(activity.getApplicationContext(), a.h.aiapps_fav_fail).jj(2).aIs();
+                    if (interfaceC0436a != null) {
+                        interfaceC0436a.onFail();
                     }
                 }
             });
-        } else if (interfaceC0439a != null) {
-            interfaceC0439a.onSuccess();
+        } else if (interfaceC0436a != null) {
+            interfaceC0436a.onSuccess();
         }
     }
 
-    public static boolean C(Activity activity) {
-        return com.baidu.swan.apps.t.a.axC().C(activity);
+    public static boolean w(Activity activity) {
+        return com.baidu.swan.apps.t.a.aya().w(activity);
     }
 
-    private void aBM() {
+    private void aCj() {
         if (DEBUG) {
             Log.d("SwanAppMenuHelper", "change night mode");
         }
-        boolean ahK = com.baidu.swan.apps.t.a.awU().ahK();
-        com.baidu.swan.apps.t.a.awU().eH(!ahK);
-        if (this.dlh.bdH() != null && (this.dlh.bdH() instanceof SwanAppActivity)) {
-            ((SwanAppActivity) this.dlh.bdH()).k(com.baidu.swan.apps.t.a.awU().ahK(), true);
+        boolean aii = com.baidu.swan.apps.t.a.axs().aii();
+        com.baidu.swan.apps.t.a.axs().eJ(!aii);
+        if (this.dnr.bdU() != null && (this.dnr.bdU() instanceof SwanAppActivity)) {
+            ((SwanAppActivity) this.dnr.bdU()).l(com.baidu.swan.apps.t.a.axs().aii(), true);
         }
-        if (ahK) {
-            com.baidu.swan.apps.res.widget.b.d.u(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_day_mode).jh(a.e.aiapps_day_mode_toast_icon).jg(2).aIc();
+        if (aii) {
+            com.baidu.swan.apps.res.widget.b.d.u(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_day_mode).jk(a.e.aiapps_day_mode_toast_icon).jj(2).aIv();
         } else {
-            com.baidu.swan.apps.res.widget.b.d.u(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_night_mode).jh(a.e.aiapps_night_mode_toast_icon).jg(2).aIc();
+            com.baidu.swan.apps.res.widget.b.d.u(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_night_mode).jk(a.e.aiapps_night_mode_toast_icon).jj(2).aIv();
         }
-        px("daynightmode");
+        pP("daynightmode");
     }
 
-    private void aBN() {
-        b.a afB;
-        if (com.baidu.swan.apps.ad.a.a.aER()) {
+    private void aCk() {
+        b.a afZ;
+        if (com.baidu.swan.apps.ad.a.a.aFm()) {
             if (DEBUG) {
                 Log.d("SwanAppMenuHelper", "in debug mode cannot add shortcut");
             }
-            com.baidu.swan.apps.res.widget.b.d.u(this.mContext.getApplicationContext(), a.h.aiapps_debug_forbid_shortcut).aHZ();
+            com.baidu.swan.apps.res.widget.b.d.u(this.mContext.getApplicationContext(), a.h.aiapps_debug_forbid_shortcut).aIs();
             return;
         }
         if (DEBUG) {
             Log.d("SwanAppMenuHelper", "add shortcut");
         }
-        if (e.aIs() != null) {
-            afB = e.aIs().aIv();
+        if (e.aIL() != null) {
+            afZ = e.aIL().aIO();
         } else {
-            afB = ((SwanAppActivity) this.dlh.bdH()).afB();
+            afZ = ((SwanAppActivity) this.dnr.bdU()).afZ();
         }
-        com.baidu.swan.apps.ah.a.a(this.dlh.getContext(), afB);
-        px("addshortcut");
+        com.baidu.swan.apps.ah.a.a(this.dnr.getContext(), afZ);
+        pP("addshortcut");
     }
 
-    private void aBO() {
+    private void aCl() {
         if (DEBUG) {
             Log.d("SwanAppMenuHelper", "restart");
         }
@@ -353,47 +353,47 @@ public class a {
     }
 
     protected void restart() {
-        px(Headers.REFRESH);
-        com.baidu.swan.games.utils.a.n(com.baidu.swan.apps.v.f.azN().azx());
-        com.baidu.swan.apps.console.c.br("SwanAppMenuHelper", "restart");
+        pP(Headers.REFRESH);
+        com.baidu.swan.games.utils.a.n(com.baidu.swan.apps.v.f.aAl().azV());
+        com.baidu.swan.apps.console.c.bl("SwanAppMenuHelper", "restart");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBP() {
+    public void aCm() {
         if (DEBUG) {
             Log.d("SwanAppMenuHelper", "startAboutFragment");
         }
-        f afz = com.baidu.swan.apps.v.f.azN().afz();
-        if (afz == null) {
-            com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_open_fragment_failed_toast).aHZ();
+        f afX = com.baidu.swan.apps.v.f.aAl().afX();
+        if (afX == null) {
+            com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_open_fragment_failed_toast).aIs();
             return;
         }
-        afz.mk("navigateTo").ai(f.cQm, f.cQo).a("about", null).commit();
-        px("about");
+        afX.mC("navigateTo").af(f.cSz, f.cSB).a("about", null).commit();
+        pP("about");
     }
 
-    private void aBQ() {
+    private void aCn() {
         if (DEBUG) {
             Log.d("SwanAppMenuHelper", "startSettingFragment");
         }
-        f afz = this.dlh.afz();
-        if (afz == null) {
-            com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_open_fragment_failed_toast).aHZ();
+        f afX = this.dnr.afX();
+        if (afX == null) {
+            com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_open_fragment_failed_toast).aIs();
             return;
         }
-        afz.mk("navigateTo").ai(f.cQm, f.cQo).a("authority", null).commit();
-        px("permission");
+        afX.mC("navigateTo").af(f.cSz, f.cSB).a("authority", null).commit();
+        pP("permission");
     }
 
-    public static void px(String str) {
-        cd(str, null);
+    public static void pP(String str) {
+        bX(str, null);
     }
 
-    public static void cd(String str, String str2) {
-        U(str, str2, null);
+    public static void bX(String str, String str2) {
+        V(str, str2, null);
     }
 
-    public static void U(String str, String str2, String str3) {
+    public static void V(String str, String str2, String str3) {
         f(str, str2, str3, null, null);
     }
 
@@ -402,18 +402,18 @@ public class a {
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
             fVar.mValue = str;
             if (!TextUtils.isEmpty(str2)) {
-                fVar.t("page", str2);
+                fVar.r("page", str2);
                 fVar.mPage = str2;
             }
             if (!TextUtils.isEmpty(str3)) {
                 fVar.mType = str3;
             }
             if (!TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
-                fVar.t(str4, str5);
+                fVar.r(str4, str5);
             }
-            SwanAppActivity azx = com.baidu.swan.apps.v.f.azN().azx();
-            if (azx != null) {
-                azx.a(fVar);
+            SwanAppActivity azV = com.baidu.swan.apps.v.f.aAl().azV();
+            if (azV != null) {
+                azV.a(fVar);
             }
         }
     }

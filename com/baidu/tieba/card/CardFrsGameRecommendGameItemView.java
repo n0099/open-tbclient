@@ -10,15 +10,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
-    private TbImageView iqd;
-    private TextView iqe;
-    private TextView iqf;
+    private TbImageView ivH;
+    private TextView ivI;
+    private TextView ivJ;
     private String mForumId;
     public int mSkinType;
 
@@ -42,17 +42,17 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
-        this.iqd = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
-        this.iqd.setAutoChangeStyle(true);
-        this.iqd.setDefaultResource(17170445);
-        this.iqd.setDefaultBgResource(R.color.CAM_X0205);
-        this.iqd.setDrawerType(1);
-        this.iqd.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
-        this.iqd.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.iqd.setBorderColor(ao.getColor(R.color.common_color_10043));
-        this.iqd.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
-        this.iqe = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
-        this.iqf = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
+        this.ivH = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
+        this.ivH.setAutoChangeStyle(true);
+        this.ivH.setDefaultResource(17170445);
+        this.ivH.setDefaultBgResource(R.color.CAM_X0205);
+        this.ivH.setDrawerType(1);
+        this.ivH.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
+        this.ivH.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.ivH.setBorderColor(ap.getColor(R.color.common_color_10043));
+        this.ivH.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
+        this.ivI = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
+        this.ivJ = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -61,7 +61,7 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new aq("c13047").an("obj_locate", 10).dW("fid", CardFrsGameRecommendGameItemView.this.mForumId));
+                    TiebaStatic.log(new ar("c13047").ap("obj_locate", 10).dR("fid", CardFrsGameRecommendGameItemView.this.mForumId));
                     com.baidu.tbadk.browser.a.startWebActivity(CardFrsGameRecommendGameItemView.this.getContext(), (String) view.getTag());
                 }
             }
@@ -73,22 +73,22 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     }
 
     public TbImageView getGamePicView() {
-        return this.iqd;
+        return this.ivH;
     }
 
     public TextView getGameNameView() {
-        return this.iqe;
+        return this.ivI;
     }
 
     public TextView getGameDscView() {
-        return this.iqf;
+        return this.ivJ;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            ao.setViewTextColor(this.iqe, R.color.CAM_X0106, 1);
-            ao.setViewTextColor(this.iqf, R.color.CAM_X0109, 1);
+            ap.setViewTextColor(this.ivI, R.color.CAM_X0106, 1);
+            ap.setViewTextColor(this.ivJ, R.color.CAM_X0109, 1);
         }
     }
 }

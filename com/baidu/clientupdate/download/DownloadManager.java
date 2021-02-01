@@ -45,7 +45,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class DownloadManager {
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
     public static final String ACTION_DOWNLOAD_PROGRESS_CHANGE = "com.baidu.clientupdate.download.PROGRESS_CHANGE";
@@ -169,18 +169,18 @@ public final class DownloadManager {
             download.mCurrentLength = j2;
             download.mFileLength = j3;
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - download.f1684a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
-                download.f1684a = currentTimeMillis;
+            if (currentTimeMillis - download.f1682a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
+                download.f1682a = currentTimeMillis;
                 int progress = download.getProgress();
                 if (progress != download.c) {
                     DownloadManager.this.notifyProgressChange(j, progress);
                     download.c = progress;
                 }
-                if (currentTimeMillis - download.f1685b > 2000) {
+                if (currentTimeMillis - download.f1683b > 2000) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     DownloadManager.this.mDbHelper.b(download);
                     LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (System.currentTimeMillis() - currentTimeMillis2) + "ms");
-                    download.f1685b = currentTimeMillis;
+                    download.f1683b = currentTimeMillis;
                 }
             }
         }

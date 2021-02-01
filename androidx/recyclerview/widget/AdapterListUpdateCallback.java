@@ -2,7 +2,7 @@ package androidx.recyclerview.widget;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public final class AdapterListUpdateCallback implements ListUpdateCallback {
     @NonNull
     private final RecyclerView.Adapter mAdapter;

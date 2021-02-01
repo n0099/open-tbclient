@@ -5,7 +5,7 @@ import com.baidu.swan.apps.ao.p;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     private c() {
     }
@@ -31,14 +31,14 @@ public class c {
                     jSONObject.put("page", aVar.page);
                 }
                 boolean isEmpty = TextUtils.isEmpty(aVar.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(aVar.dIK);
+                boolean isEmpty2 = TextUtils.isEmpty(aVar.dKO);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
                         jSONObject2.put("appid", aVar.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", aVar.dIK);
+                        jSONObject2.put("info", aVar.dKO);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -46,7 +46,7 @@ public class c {
                     @Override // java.lang.Runnable
                     public void run() {
                         b.onEvent("777", jSONObject);
-                        com.baidu.swan.apps.console.c.br("SwanAppBusinessUbc", jSONObject.toString());
+                        com.baidu.swan.apps.console.c.bl("SwanAppBusinessUbc", jSONObject.toString());
                     }
                 }, "SwanAppBusinessUbcRunnable");
             } catch (JSONException e) {
@@ -57,43 +57,43 @@ public class c {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         private String appId;
-        private String dIK;
+        private String dKO;
         private String page;
         private String source;
         private String type;
         private String value;
-        private c dIJ = new c();
+        private c dKN = new c();
         private String from = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
 
         public a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public a sh(String str) {
+        public a sB(String str) {
             this.source = str;
             return this;
         }
 
-        public a si(String str) {
+        public a sC(String str) {
             this.page = str;
             return this;
         }
 
-        public a sj(String str) {
+        public a sD(String str) {
             this.appId = str;
             return this;
         }
 
-        public a sk(String str) {
-            this.dIK = str;
+        public a sE(String str) {
+            this.dKO = str;
             return this;
         }
 
-        public void atQ() {
-            this.dIJ.a(this);
+        public void auo() {
+            this.dKN.a(this);
         }
     }
 }

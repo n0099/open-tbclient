@@ -6,48 +6,48 @@ import com.baidu.swan.apps.network.h;
 import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Response;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements Interceptor {
-    private InterfaceC0441a dnb;
-    final e dnc = new e() { // from class: com.baidu.swan.apps.network.a.a.1
+    private InterfaceC0438a dpp;
+    final e dpq = new e() { // from class: com.baidu.swan.apps.network.a.a.1
         @Override // com.baidu.swan.apps.network.e
-        public void b(long j, long j2, boolean z) {
-            if (a.this.dnb == null) {
+        public void c(long j, long j2, boolean z) {
+            if (a.this.dpp == null) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
                 }
             } else if (j2 == -1 && j != 0) {
-                a.this.dnb.d(0, j, j2);
+                a.this.dpp.d(0, j, j2);
             } else if (j2 > Config.RAVEN_LOG_LIMIT) {
-                a.this.dnb.cu(j2);
+                a.this.dpp.cA(j2);
             } else if (j2 <= 0 || j > j2 || j == 0) {
-                a.this.dnb.l(j, j2);
+                a.this.dpp.p(j, j2);
             } else {
                 int floor = (int) Math.floor((100 * j) / j2);
                 if (floor <= 100) {
-                    a.this.dnb.d(floor, j, j2);
+                    a.this.dpp.d(floor, j, j2);
                 }
             }
         }
     };
 
     /* renamed from: com.baidu.swan.apps.network.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0441a {
-        void cu(long j);
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0438a {
+        void cA(long j);
 
         void d(int i, long j, long j2);
 
-        void l(long j, long j2);
+        void p(long j, long j2);
     }
 
-    public void a(InterfaceC0441a interfaceC0441a) {
-        this.dnb = interfaceC0441a;
+    public void a(InterfaceC0438a interfaceC0438a) {
+        this.dpp = interfaceC0438a;
     }
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Response proceed = chain.proceed(chain.request());
-        return proceed.newBuilder().body(new h(proceed.body(), this.dnc)).build();
+        return proceed.newBuilder().body(new h(proceed.body(), this.dpq)).build();
     }
 }

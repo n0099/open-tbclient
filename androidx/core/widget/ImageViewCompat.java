@@ -7,7 +7,7 @@ import android.os.Build;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class ImageViewCompat {
     @Nullable
     public static ColorStateList getImageTintList(@NonNull ImageView imageView) {

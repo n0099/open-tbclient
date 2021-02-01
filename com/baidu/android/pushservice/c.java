@@ -6,7 +6,7 @@ import com.baidu.android.pushservice.d.g;
 import com.baidu.android.pushservice.d.j;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -18,7 +18,7 @@ public class c {
     private Runnable d;
     private volatile boolean e;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i, String str);
     }

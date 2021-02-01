@@ -1,66 +1,66 @@
 package com.baidu.live.liveroom.e;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i {
-    private static volatile i bof = null;
-    private e bog;
-    private e boh;
-    private c boi;
-    private com.baidu.live.v.d boj;
+    private static volatile i brG = null;
+    private e brH;
+    private e brI;
+    private c brJ;
+    private com.baidu.live.u.d brK;
 
     private i() {
     }
 
-    public static i Lv() {
-        if (bof == null) {
+    public static i MT() {
+        if (brG == null) {
             synchronized (i.class) {
-                if (bof == null) {
-                    bof = new i();
+                if (brG == null) {
+                    brG = new i();
                 }
             }
         }
-        return bof;
+        return brG;
     }
 
     public void a(e eVar) {
-        this.bog = eVar;
+        this.brH = eVar;
     }
 
     public void b(e eVar) {
-        this.boh = eVar;
+        this.brI = eVar;
     }
 
-    public boolean Lw() {
-        return this.bog != null;
+    public boolean MU() {
+        return this.brH != null;
     }
 
     public d ba(Context context) {
-        if (this.bog != null) {
-            return this.bog.aZ(context);
+        if (this.brH != null) {
+            return this.brH.aZ(context);
         }
         return null;
     }
 
     public d bb(Context context) {
-        if (this.boh != null) {
-            return this.boh.aZ(context);
+        if (this.brI != null) {
+            return this.brI.aZ(context);
         }
         return null;
     }
 
     public void a(c cVar) {
-        this.boi = cVar;
+        this.brJ = cVar;
     }
 
-    public b Lx() {
-        if (this.boi != null) {
-            return this.boi.Lt();
+    public b MV() {
+        if (this.brJ != null) {
+            return this.brJ.MR();
         }
         return null;
     }
 
-    public com.baidu.live.v.d Ly() {
-        return this.boj;
+    public com.baidu.live.u.d MW() {
+        return this.brK;
     }
 }

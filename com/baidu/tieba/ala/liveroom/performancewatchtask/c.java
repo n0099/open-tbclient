@@ -1,19 +1,19 @@
 package com.baidu.tieba.ala.liveroom.performancewatchtask;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    public int hIm;
-    public String hIn;
-    public int hIo;
-    public String hIp;
-    public int hIq;
-    public int hIr;
-    public String hIs;
-    public int hIt;
-    public String hIu;
-    public int hIv;
-    public int hIw;
+    public int hMK;
+    public String hML;
+    public int hMM;
+    public String hMN;
+    public int hMO;
+    public int hMP;
+    public String hMQ;
+    public int hMR;
+    public String hMS;
+    public int hMT;
+    public int hMU;
     public String msg;
     public int status;
     public String taskId;
@@ -23,22 +23,22 @@ public class c {
             this.status = jSONObject.optInt("status");
             this.msg = jSONObject.optString("msg");
             this.taskId = jSONObject.optString("task_id");
-            this.hIw = jSONObject.optInt("ticket_num");
+            this.hMU = jSONObject.optInt("ticket_num");
             JSONObject optJSONObject = jSONObject.optJSONObject("type1");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("type2");
             if (optJSONObject != null) {
-                this.hIm = optJSONObject.optInt("isok");
-                this.hIn = optJSONObject.optString("content");
-                this.hIo = optJSONObject.optInt("type");
-                this.hIp = optJSONObject.optString("h5url");
-                this.hIq = optJSONObject.optInt("len_time");
+                this.hMK = optJSONObject.optInt("isok");
+                this.hML = optJSONObject.optString("content");
+                this.hMM = optJSONObject.optInt("type");
+                this.hMN = optJSONObject.optString("h5url");
+                this.hMO = optJSONObject.optInt("len_time");
             }
             if (optJSONObject2 != null) {
-                this.hIr = optJSONObject2.optInt("isok");
-                this.hIs = optJSONObject2.optString("content");
-                this.hIt = optJSONObject2.optInt("type");
-                this.hIu = optJSONObject2.optString("h5url");
-                this.hIv = optJSONObject2.optInt("len_time");
+                this.hMP = optJSONObject2.optInt("isok");
+                this.hMQ = optJSONObject2.optString("content");
+                this.hMR = optJSONObject2.optInt("type");
+                this.hMS = optJSONObject2.optString("h5url");
+                this.hMT = optJSONObject2.optInt("len_time");
             }
         }
     }

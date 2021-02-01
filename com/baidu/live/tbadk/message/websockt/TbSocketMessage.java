@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.message.websockt;
 
 import com.baidu.live.adp.framework.message.SocketMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class TbSocketMessage extends SocketMessage {
     protected abstract Object encode();
 

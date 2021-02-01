@@ -1,7 +1,7 @@
 package aegon.chrome.base;
 
 import aegon.chrome.base.memory.MemoryPressureCallback;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final /* synthetic */ class MemoryPressureListener$$Lambda$1 implements MemoryPressureCallback {
     private static final MemoryPressureListener$$Lambda$1 instance = new MemoryPressureListener$$Lambda$1();
 

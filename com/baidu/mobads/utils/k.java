@@ -1,22 +1,22 @@
 package com.baidu.mobads.utils;
-
-import java.io.File;
-import java.util.Comparator;
-/* loaded from: classes14.dex */
-class k implements Comparator<File> {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes5.dex */
+public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f3505a;
+    final /* synthetic */ Runnable f3496a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ h f3497b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.f3505a = jVar;
+    public k(h hVar, Runnable runnable) {
+        this.f3497b = hVar;
+        this.f3496a = runnable;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(File file, File file2) {
-        return Long.valueOf(file.lastModified()).compareTo(Long.valueOf(file2.lastModified()));
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f3496a.run();
     }
 }

@@ -10,14 +10,14 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
-    private static final int iXo = R.id.assist_apply_tip;
-    private com.baidu.tbadk.coreExtra.view.b fnD;
+    private static final int jcV = R.id.assist_apply_tip;
+    private com.baidu.tbadk.coreExtra.view.b fpW;
     private View.OnClickListener mClickListener;
 
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -25,11 +25,11 @@ public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Object tag = view.getTag(k.iXo);
+                Object tag = view.getTag(k.jcV);
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     k.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    be.bsB().b((TbPageContext) com.baidu.adp.base.j.K(k.this.mContext), new String[]{tag.toString()});
+                    bf.bsV().b((TbPageContext) com.baidu.adp.base.j.K(k.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -53,23 +53,23 @@ public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
                 managerApplyViewHolder.mRootLayout.setVisibility(8);
             } else {
                 if (managerApplyViewHolder.mSkinType != this.mSkinType) {
-                    ao.setViewTextColor(managerApplyViewHolder.iXx, R.color.CAM_X0109, 1);
-                    ao.setViewTextColor(managerApplyViewHolder.iXw, R.color.CAM_X0105, 1);
-                    ao.setBackgroundResource(managerApplyViewHolder.iXy, R.drawable.frs_member_manito_bg);
+                    ap.setViewTextColor(managerApplyViewHolder.jde, R.color.CAM_X0109, 1);
+                    ap.setViewTextColor(managerApplyViewHolder.jdd, R.color.CAM_X0105, 1);
+                    ap.setBackgroundResource(managerApplyViewHolder.jdf, R.drawable.frs_member_manito_bg);
                 }
-                int czD = lVar.czD();
-                if (czD > 0) {
-                    managerApplyViewHolder.iXx.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), at.numberUniformFormat(czD)));
-                    managerApplyViewHolder.iXy.setTag(iXo, lVar.czE());
-                    managerApplyViewHolder.iXy.setOnClickListener(this.mClickListener);
-                    managerApplyViewHolder.iXy.setEnabled(true);
-                    managerApplyViewHolder.iXy.setClickable(true);
+                int cAO = lVar.cAO();
+                if (cAO > 0) {
+                    managerApplyViewHolder.jde.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), au.numberUniformFormat(cAO)));
+                    managerApplyViewHolder.jdf.setTag(jcV, lVar.cAP());
+                    managerApplyViewHolder.jdf.setOnClickListener(this.mClickListener);
+                    managerApplyViewHolder.jdf.setEnabled(true);
+                    managerApplyViewHolder.jdf.setClickable(true);
                 } else {
-                    managerApplyViewHolder.iXx.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    managerApplyViewHolder.iXy.setEnabled(false);
-                    managerApplyViewHolder.iXy.setClickable(false);
+                    managerApplyViewHolder.jde.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    managerApplyViewHolder.jdf.setEnabled(false);
+                    managerApplyViewHolder.jdf.setClickable(false);
                 }
-                managerApplyViewHolder.iXx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                managerApplyViewHolder.jde.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 managerApplyViewHolder.mSkinType = this.mSkinType;
             }
         }
@@ -85,17 +85,17 @@ public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
         } else {
             activity = ((TbPageContext) K).getPageActivity();
         }
-        if (this.fnD == null) {
-            this.fnD = new com.baidu.tbadk.coreExtra.view.b(activity);
+        if (this.fpW == null) {
+            this.fpW = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.fnD.bzi();
-        this.fnD.setAccountData(accountData);
-        this.fnD.qy(1);
+        this.fpW.bzA();
+        this.fpW.setAccountData(accountData);
+        this.fpW.qD(1);
     }
 
     public void onDestroy() {
-        if (this.fnD != null) {
-            this.fnD.onDestroy();
+        if (this.fpW != null) {
+            this.fpW.onDestroy();
         }
     }
 }

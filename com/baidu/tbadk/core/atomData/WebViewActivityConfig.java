@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
@@ -18,6 +18,7 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_DOWNLOAD_AD_ID = "tag_download_ad_id";
     public static final String TAG_ENABLE_JS = "tag_enable_js";
     public static final String TAG_FIX_TITLE = "tag_fix_title";
+    public static final String TAG_LOAD_BY_WEB_CLIENT = "tag_load_by_web_client";
     public static final String TAG_NAV_BAR = "tag_navigation_bar";
     public static final String TAG_NEED_STYLE_IMMERSIVE_STICKY = "tag_style_immersive_sticky";
     public static final String TAG_NO_MENU = "tag_nomenu";
@@ -116,9 +117,9 @@ public class WebViewActivityConfig extends IntentConfig {
     }
 
     public String addTiebaParams(String str) {
-        if (!at.isEmpty(str)) {
+        if (!au.isEmpty(str)) {
             if (str.indexOf("_client_version=") < 0) {
-                if (at.isEmpty(Uri.parse(str).getQuery())) {
+                if (au.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();
@@ -130,5 +131,11 @@ public class WebViewActivityConfig extends IntentConfig {
             return str;
         }
         return str;
+    }
+
+    public void setLoadType(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(TAG_LOAD_BY_WEB_CLIENT, z);
+        }
     }
 }

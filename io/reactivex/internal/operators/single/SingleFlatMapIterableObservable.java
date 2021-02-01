@@ -64,7 +64,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
                                         return;
                                     }
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.O(th);
+                                    io.reactivex.exceptions.a.N(th);
                                     uVar.onError(th);
                                     return;
                                 }
@@ -72,14 +72,14 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
                                 return;
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.O(th2);
+                            io.reactivex.exceptions.a.N(th2);
                             uVar.onError(th2);
                             return;
                         }
                     }
                 }
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.O(th3);
+                io.reactivex.exceptions.a.N(th3);
                 this.actual.onError(th3);
             }
         }

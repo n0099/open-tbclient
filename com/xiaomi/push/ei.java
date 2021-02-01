@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.xiaomi.push.ai;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,7 +16,7 @@ import java.util.List;
 public class ei extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13968a;
+    private Context f13970a;
 
     /* renamed from: a  reason: collision with other field name */
     private SharedPreferences f311a;
@@ -24,7 +25,7 @@ public class ei extends ai.a {
     private com.xiaomi.push.service.ak f312a;
 
     public ei(Context context) {
-        this.f13968a = context;
+        this.f13970a = context;
         this.f311a = context.getSharedPreferences("mipush_extra", 0);
         this.f312a = com.xiaomi.push.service.ak.a(context);
     }
@@ -41,11 +42,11 @@ public class ei extends ai.a {
         }
         ArrayList arrayList = new ArrayList();
         byte[] bArr = new byte[4];
-        synchronized (dv.f13955a) {
+        synchronized (dv.f13957a) {
             try {
-                File file2 = new File(this.f13968a.getExternalFilesDir(null), "push_cdata.lock");
+                File file2 = new File(this.f13970a.getExternalFilesDir(null), "push_cdata.lock");
                 y.m616a(file2);
-                randomAccessFile = new RandomAccessFile(file2, "rw");
+                randomAccessFile = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
                     try {
@@ -132,11 +133,11 @@ public class ei extends ai.a {
 
     /* renamed from: a  reason: collision with other method in class */
     private boolean m263a() {
-        if (az.d(this.f13968a)) {
+        if (az.d(this.f13970a)) {
             return false;
         }
-        if (!az.f(this.f13968a) || c()) {
-            return (az.g(this.f13968a) && !b()) || az.h(this.f13968a);
+        if (!az.f(this.f13970a) || c()) {
+            return (az.g(this.f13970a) && !b()) || az.h(this.f13970a);
         }
         return true;
     }
@@ -163,8 +164,8 @@ public class ei extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        File file = new File(this.f13968a.getExternalFilesDir(null), "push_cdata.data");
-        if (!az.c(this.f13968a)) {
+        File file = new File(this.f13970a.getExternalFilesDir(null), "push_cdata.data");
+        if (!az.c(this.f13970a)) {
             if (file.length() > 1863680) {
                 file.delete();
             }

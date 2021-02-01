@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.messages;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AcceptPkResponseMessage extends JsonHttpResponsedMessage {
     long pkID;
 
@@ -19,7 +19,7 @@ public class AcceptPkResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public long ckU() {
+    public long clS() {
         return this.pkID;
     }
 }

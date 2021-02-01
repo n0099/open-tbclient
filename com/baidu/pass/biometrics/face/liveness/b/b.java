@@ -5,37 +5,37 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class b extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f4037a;
+    private a f4040a;
 
     /* renamed from: b  reason: collision with root package name */
-    SurfaceHolder f4038b;
+    SurfaceHolder f4041b;
 
     public b(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4038b = getHolder();
-        this.f4038b.setFormat(-2);
-        this.f4038b.setType(3);
-        this.f4038b.addCallback(this);
+        this.f4041b = getHolder();
+        this.f4041b.setFormat(-2);
+        this.f4041b.setType(3);
+        this.f4041b.addCallback(this);
     }
 
     public void a() {
         if (getContext() instanceof Activity) {
-            this.f4037a.a((Activity) getContext(), this.f4038b);
+            this.f4040a.a((Activity) getContext(), this.f4041b);
         }
     }
 
     public void setCameraInterface(a aVar) {
-        this.f4037a = aVar;
+        this.f4040a = aVar;
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
         if (getContext() instanceof Activity) {
-            this.f4037a.a((Activity) getContext(), this.f4038b);
+            this.f4040a.a((Activity) getContext(), this.f4041b);
         }
     }
 
@@ -45,6 +45,6 @@ public class b extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        this.f4037a.a();
+        this.f4040a.a();
     }
 }

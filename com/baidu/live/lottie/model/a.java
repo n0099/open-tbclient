@@ -3,7 +3,7 @@ package com.baidu.live.lottie.model;
 import android.graphics.PointF;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     private final PointF EZ;
     private final PointF Fa;
@@ -25,7 +25,7 @@ public class a {
         this.EZ.set(f, f2);
     }
 
-    public PointF iT() {
+    public PointF iS() {
         return this.EZ;
     }
 
@@ -33,7 +33,7 @@ public class a {
         this.Fa.set(f, f2);
     }
 
-    public PointF iU() {
+    public PointF iT() {
         return this.Fa;
     }
 
@@ -41,7 +41,7 @@ public class a {
         this.Fb.set(f, f2);
     }
 
-    public PointF iV() {
+    public PointF iU() {
         return this.Fb;
     }
 }

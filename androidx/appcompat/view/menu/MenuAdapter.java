@@ -8,7 +8,7 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuView;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MenuAdapter extends BaseAdapter {
     MenuBuilder mAdapterMenu;
     private int mExpandedIndex = -1;

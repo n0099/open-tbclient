@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class cw {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13925a;
+    private String f13927a;
 
     /* renamed from: a  reason: collision with other field name */
     private final ArrayList<cv> f264a = new ArrayList<>();
@@ -22,7 +22,7 @@ public class cw {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f13925a = str;
+        this.f13927a = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
@@ -49,17 +49,17 @@ public class cw {
     }
 
     public synchronized cw a(JSONObject jSONObject) {
-        this.f13925a = jSONObject.getString("host");
+        this.f13927a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
-            this.f264a.add(new cv(this.f13925a).a(jSONArray.getJSONObject(i)));
+            this.f264a.add(new cv(this.f13927a).a(jSONArray.getJSONObject(i)));
         }
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public String m236a() {
-        return this.f13925a;
+        return this.f13927a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -71,7 +71,7 @@ public class cw {
     public synchronized JSONObject m238a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put("host", this.f13925a);
+        jSONObject.put("host", this.f13927a);
         JSONArray jSONArray = new JSONArray();
         Iterator<cv> it = this.f264a.iterator();
         while (it.hasNext()) {
@@ -115,7 +115,7 @@ public class cw {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f13925a);
+        sb.append(this.f13927a);
         sb.append("\n");
         Iterator<cv> it = this.f264a.iterator();
         while (it.hasNext()) {

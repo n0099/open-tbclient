@@ -3,11 +3,11 @@ package com.kwad.sdk.reward.b;
 import android.view.ViewGroup;
 import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.detail.video.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends com.kwad.sdk.reward.d {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f10639b;
+    private ViewGroup f10641b;
     private ViewGroup c;
     private com.kwad.sdk.reward.a.e d = new com.kwad.sdk.reward.a.e() { // from class: com.kwad.sdk.reward.b.e.1
         @Override // com.kwad.sdk.reward.a.e
@@ -19,13 +19,13 @@ public class e extends com.kwad.sdk.reward.d {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
             super.a();
-            e.this.f10650a.b();
+            e.this.f10652a.b();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f10639b.setVisibility(8);
+        this.f10641b.setVisibility(8);
         this.c.setVisibility(0);
     }
 
@@ -33,24 +33,24 @@ public class e extends com.kwad.sdk.reward.d {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f10639b.setVisibility(0);
-        this.f10650a.n.add(this.d);
-        this.f10650a.i.a(this.e);
+        this.f10641b.setVisibility(0);
+        this.f10652a.n.add(this.d);
+        this.f10652a.i.a(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10650a.n.remove(this.d);
-        this.f10650a.i.b(this.e);
+        this.f10652a.n.remove(this.d);
+        this.f10652a.i.b(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10639b = (ViewGroup) b(R.id.ksad_play_detail_top_toolbar);
+        this.f10641b = (ViewGroup) b(R.id.ksad_play_detail_top_toolbar);
         this.c = (ViewGroup) b(R.id.ksad_play_end_top_toolbar);
     }
 }

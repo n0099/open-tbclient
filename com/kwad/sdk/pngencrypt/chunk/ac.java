@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ac extends aa {
     private int h;
     private int i;
@@ -16,7 +16,7 @@ public class ac extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f10501a != 7) {
+        if (dVar.f10503a != 7) {
             throw new PngjException("bad chunk " + dVar);
         }
         this.h = com.kwad.sdk.pngencrypt.n.b(dVar.d, 0);

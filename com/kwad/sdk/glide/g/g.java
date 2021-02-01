@@ -5,19 +5,19 @@ import androidx.annotation.Nullable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g<T, Y> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<T, Y> f10024a = new LinkedHashMap(100, 0.75f, true);
+    private final Map<T, Y> f10026a = new LinkedHashMap(100, 0.75f, true);
 
     /* renamed from: b  reason: collision with root package name */
-    private final long f10025b;
+    private final long f10027b;
     private long c;
     private long d;
 
     public g(long j) {
-        this.f10025b = j;
+        this.f10027b = j;
         this.c = j;
     }
 
@@ -37,7 +37,7 @@ public class g<T, Y> {
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void a(long j) {
         while (this.d > j) {
-            Iterator<Map.Entry<T, Y>> it = this.f10024a.entrySet().iterator();
+            Iterator<Map.Entry<T, Y>> it = this.f10026a.entrySet().iterator();
             Map.Entry<T, Y> next = it.next();
             Y value = next.getValue();
             this.d -= a((g<T, Y>) value);
@@ -56,7 +56,7 @@ public class g<T, Y> {
 
     @Nullable
     public synchronized Y b(@NonNull T t) {
-        return this.f10024a.get(t);
+        return this.f10026a.get(t);
     }
 
     @Nullable
@@ -70,7 +70,7 @@ public class g<T, Y> {
             if (y != null) {
                 this.d = a2 + this.d;
             }
-            put = this.f10024a.put(t, y);
+            put = this.f10026a.put(t, y);
             if (put != null) {
                 this.d -= a((g<T, Y>) put);
                 if (!put.equals(y)) {
@@ -85,7 +85,7 @@ public class g<T, Y> {
     @Nullable
     public synchronized Y c(@NonNull T t) {
         Y remove;
-        remove = this.f10024a.remove(t);
+        remove = this.f10026a.remove(t);
         if (remove != null) {
             this.d -= a((g<T, Y>) remove);
         }

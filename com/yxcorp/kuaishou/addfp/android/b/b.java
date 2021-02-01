@@ -1,12 +1,14 @@
 package com.yxcorp.kuaishou.addfp.android.b;
-/* loaded from: classes4.dex */
+
+import com.baidu.android.imrtc.BuildConfig;
+/* loaded from: classes3.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f14387a = false;
+    private static boolean f14389a = false;
 
     public static String a() {
-        return "1.2.6";
+        return BuildConfig.VERSION_NAME;
     }
 
     public static void a(String str) {
@@ -14,7 +16,7 @@ public final class b {
 
     public static void a(Throwable th) {
         try {
-            if (f14387a) {
+            if (f14389a) {
                 th.printStackTrace();
             }
         } catch (Exception e) {

@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BaseSSOLoginActivity extends SocialLoginBase {
     public static final String EXTRA_PARAM_EXTRAS_JSON = "extraJson";
     public static final String LOAD_THIRD_PARTY_SCENE_FROM = "sceneFrom";

@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public class c {
     private static Pattern pattern = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String aS(String str, boolean z) {
+    public static String aR(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
@@ -129,7 +129,7 @@ public class c {
         }
     }
 
-    private static final String Mr(String str) {
+    private static final String Nf(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -158,7 +158,7 @@ public class c {
         return sb.toString();
     }
 
-    private static final String Ms(String str) {
+    private static final String Ng(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -181,28 +181,28 @@ public class c {
     }
 
     public static String v(ChatMessage chatMessage) {
-        return chatMessage == null ? "" : bz(chatMessage.getMsgType(), chatMessage.getContent());
+        return chatMessage == null ? "" : bF(chatMessage.getMsgType(), chatMessage.getContent());
     }
 
-    public static String bz(int i, String str) {
+    public static String bF(int i, String str) {
         int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (i == 1) {
-            String Mr = (str.length() <= 1 || str.charAt(0) != '[') ? null : Mr(str);
-            if (TextUtils.isEmpty(Mr)) {
-                Mr = str;
+            String Nf = (str.length() <= 1 || str.charAt(0) != '[') ? null : Nf(str);
+            if (TextUtils.isEmpty(Nf)) {
+                Nf = str;
             }
-            if (Mr == null) {
+            if (Nf == null) {
                 return null;
             }
-            Matcher matcher = pattern.matcher(Mr);
+            Matcher matcher = pattern.matcher(Nf);
             while (matcher.find()) {
                 String group = matcher.group();
-                Mr = Mr.replace(group, group.replace("#(", "[").replace(")", "]"));
+                Nf = Nf.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return Mr;
+            return Nf;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic);
         } else {
@@ -210,7 +210,7 @@ public class c {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_voice);
             }
             if (i == 11) {
-                return Mt(str);
+                return Nh(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_reply_card);
@@ -299,7 +299,7 @@ public class c {
                         return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return Ms(str);
+                    return Ng(str);
                 } else {
                     return null;
                 }
@@ -331,7 +331,7 @@ public class c {
         return v(chatMessage);
     }
 
-    private static String Mt(String str) {
+    private static String Nh(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -445,19 +445,19 @@ public class c {
 
     public static d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return Mu(commonMsgPojo.getContent());
+            return Ni(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static d Mu(String str) {
+    public static d Ni(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return Mv(jSONArray.getJSONObject(0).optString("msg_src"));
+                return Nj(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -466,13 +466,13 @@ public class c {
         }
     }
 
-    public static d Mv(String str) {
+    public static d Nj(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) == null || split.length != 2) {
             return null;
         }
         d dVar = new d();
-        dVar.kww = split[0];
+        dVar.kEC = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

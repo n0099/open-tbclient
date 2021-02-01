@@ -8,14 +8,14 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class ch {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f5823a;
+    boolean f5825a;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f5824b;
+    boolean f5826b;
     boolean c;
     boolean d;
 
@@ -24,14 +24,14 @@ public abstract class ch {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ch(boolean z, boolean z2) {
-        this.f5824b = z;
+        this.f5826b = z;
         this.c = z2;
         this.d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ch(boolean z, boolean z2, boolean z3) {
-        this.f5824b = z;
+        this.f5826b = z;
         this.c = z2;
         this.d = z3;
     }
@@ -128,7 +128,7 @@ public abstract class ch {
                 fileLock = lock;
                 try {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        if (bx.elC().f5816a.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") != 0) {
+                        if (bx.enV().f5818a.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") != 0) {
                             throw new SecurityException(e);
                         }
                         au.a(e);

@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import androidx.core.view.ViewCompat;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 import com.baidu.yuyinala.privatemessage.implugin.util.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends Drawable {
     private final int mBitmapHeight;
     private final Paint mBitmapPaint;
@@ -34,7 +34,7 @@ public class a extends Drawable {
     private float mBorderWidth = 0.0f;
     private ColorStateList mBorderColor = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
     private ImageView.ScaleType mScaleType = ImageView.ScaleType.FIT_CENTER;
-    private boolean oTY = false;
+    private boolean pel = false;
 
     public a(Bitmap bitmap) {
         this.mBitmapWidth = bitmap.getWidth();
@@ -53,7 +53,7 @@ public class a extends Drawable {
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
     }
 
-    public static a Y(Bitmap bitmap) {
+    public static a X(Bitmap bitmap) {
         if (bitmap != null) {
             return new a(bitmap);
         }
@@ -113,7 +113,7 @@ public class a extends Drawable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 
@@ -249,7 +249,7 @@ public class a extends Drawable {
             canvas.drawRoundRect(this.mDrawableRect, this.mCornerRadius, this.mCornerRadius, this.mBitmapPaint);
         }
         try {
-            if (ThemeManager.ejW() == ThemeManager.ThemeMode.NIGHT && this.oTY) {
+            if (ThemeManager.emo() == ThemeManager.ThemeMode.NIGHT && this.pel) {
                 Paint paint = new Paint();
                 paint.setAntiAlias(true);
                 paint.setColor(1342177280);
@@ -299,12 +299,12 @@ public class a extends Drawable {
         return this.mBitmapHeight;
     }
 
-    public a bu(float f) {
+    public a bx(float f) {
         this.mCornerRadius = f;
         return this;
     }
 
-    public a bv(float f) {
+    public a by(float f) {
         this.mBorderWidth = f;
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
         return this;
@@ -319,7 +319,7 @@ public class a extends Drawable {
         return this;
     }
 
-    public a Ay(boolean z) {
+    public a AR(boolean z) {
         this.mOval = z;
         return this;
     }
@@ -335,7 +335,7 @@ public class a extends Drawable {
         return this;
     }
 
-    public void Az(boolean z) {
-        this.oTY = z;
+    public void AS(boolean z) {
+        this.pel = z;
     }
 }

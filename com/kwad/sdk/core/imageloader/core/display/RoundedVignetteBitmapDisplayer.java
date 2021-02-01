@@ -12,10 +12,10 @@ import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageViewAware;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RoundedVignetteBitmapDisplayer extends RoundedBitmapDisplayer {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     protected static class RoundedVignetteDrawable extends RoundedBitmapDisplayer.RoundedDrawable {
         RoundedVignetteDrawable(Bitmap bitmap, int i, int i2) {
             super(bitmap, i, i2);

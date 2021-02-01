@@ -9,18 +9,18 @@ import com.kwad.sdk.glide.load.b.n;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d implements n<File, ByteBuffer> {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.glide.load.a.d<ByteBuffer> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final File f10076a;
+        private final File f10078a;
 
         a(File file) {
-            this.f10076a = file;
+            this.f10078a = file;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
@@ -32,7 +32,7 @@ public class d implements n<File, ByteBuffer> {
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super ByteBuffer> aVar) {
             try {
-                aVar.a((d.a<? super ByteBuffer>) com.kwad.sdk.glide.g.a.a(this.f10076a));
+                aVar.a((d.a<? super ByteBuffer>) com.kwad.sdk.glide.g.a.a(this.f10078a));
             } catch (IOException e) {
                 if (Log.isLoggable("ByteBufferFileLoader", 3)) {
                     Log.d("ByteBufferFileLoader", "Failed to obtain ByteBuffer for file", e);
@@ -56,7 +56,7 @@ public class d implements n<File, ByteBuffer> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements o<File, ByteBuffer> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull

@@ -1,7 +1,7 @@
 package com.baidu.ala.helper;
 
 import com.baidu.ala.adp.lib.safe.SafeHandler;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class EncodePerformanceHelper {
     private static volatile EncodePerformanceHelper mInst = null;
     long mEndTime;
@@ -10,7 +10,7 @@ public class EncodePerformanceHelper {
     long mEncoderCostMs = 0;
     int mEncoderCostCount = 0;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public interface FrameReport {
         void onFrameEncodeCost(float f);
     }

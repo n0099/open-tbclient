@@ -10,7 +10,7 @@ import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.ala.recorder.AlaLiveRecorderConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaLiveUtilHelper {
     private static final String ALA_PLUGIN_NAME = "com.baidu.tieba.pluginAla";
     public static final int ALIVE_SDK_PLATFORM = 4;

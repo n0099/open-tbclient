@@ -5,11 +5,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdURIUitls {
     String addParameter(String str, String str2, String str3);
 
     String addParameters(String str, HashMap<String, String> hashMap);
+
+    void closeHttpURLConnection(HttpURLConnection httpURLConnection);
 
     String encodeUrl(String str);
 
@@ -30,6 +32,8 @@ public interface IXAdURIUitls {
     Boolean isHttpProtocol(String str);
 
     Boolean isHttpsProtocol(String str);
+
+    Boolean isMessageProtocol(String str);
 
     void pintHttpInNewThread(String str);
 

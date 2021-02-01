@@ -21,14 +21,14 @@ public class b extends com.baidu.tbadk.core.view.viewpager.b<com.baidu.tbadk.cor
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.viewpager.b
     public View a(ViewGroup viewGroup, a aVar, com.baidu.tbadk.core.view.viewpager.bannerflow.a aVar2) {
-        aVar.fcv.startLoad(aVar2.getImageUrl(), 10, false);
+        aVar.feK.startLoad(aVar2.getImageUrl(), 10, false);
         return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.view.viewpager.b
-    /* renamed from: M */
-    public a L(ViewGroup viewGroup) {
+    /* renamed from: K */
+    public a J(ViewGroup viewGroup) {
         TbImageView tbImageView = new TbImageView(this.mContext);
         tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         return new a(tbImageView);
@@ -36,13 +36,13 @@ public class b extends com.baidu.tbadk.core.view.viewpager.b<com.baidu.tbadk.cor
 
     /* loaded from: classes.dex */
     public class a extends BdBaseViewPagerAdapter.a {
-        public TbImageView fcv;
+        public TbImageView feK;
 
         public a(View view) {
             super(view);
             if (view instanceof TbImageView) {
-                this.fcv = (TbImageView) view;
-                this.fcv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.feK = (TbImageView) view;
+                this.feK.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
     }

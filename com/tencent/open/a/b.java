@@ -1,22 +1,21 @@
 package com.tencent.open.a;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f13371a = d.C1264d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat f13373a = d.C1268d.a("yy.MM.dd.HH");
     private File g;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13372b = "Tracer.File";
-    private int c = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private int d = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private String f13374b = "Tracer.File";
+    private int c = Integer.MAX_VALUE;
+    private int d = Integer.MAX_VALUE;
     private int e = 4096;
     private long f = 10000;
     private int h = 10;
@@ -66,11 +65,11 @@ public class b {
     }
 
     public String c() {
-        return this.f13372b;
+        return this.f13374b;
     }
 
     public void a(String str) {
-        this.f13372b = str;
+        this.f13374b = str;
     }
 
     public void a(int i) {

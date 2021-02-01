@@ -3,7 +3,7 @@ package com.baidu.android.util.devices;
 import android.app.Activity;
 import com.baidu.android.util.devices.DeviceUtil;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class SamsungSpecialHandler {
     private static final boolean DEBUG = false;
     private static final String TAG = "SamsungSpecialHandler";

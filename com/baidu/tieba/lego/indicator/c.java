@@ -14,31 +14,31 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.f.d;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.c.e;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     private boolean isShow = false;
-    private a kXO;
-    private b kXP;
-    private Animation kqr;
-    private Animation kqs;
-    private ViewGroup kqw;
+    private ViewGroup kyD;
+    private Animation kyy;
+    private Animation kyz;
+    private a lfS;
+    private b lfT;
     private View rootView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void cRA();
+        void cTz();
     }
 
     public c(ViewGroup viewGroup) {
-        this.kqw = viewGroup;
+        this.kyD = viewGroup;
     }
 
     public void a(a aVar) {
-        this.kXO = aVar;
+        this.lfS = aVar;
     }
 
     public boolean isShowing() {
@@ -49,15 +49,15 @@ public class c {
         if (!this.isShow) {
             this.isShow = true;
             this.rootView = b(context, list, i);
-            this.kqw.addView(this.rootView);
-            ao.setBackgroundColor(this.rootView, R.color.CAM_X0111);
-            this.rootView.startAnimation(gn(context));
+            this.kyD.addView(this.rootView);
+            ap.setBackgroundColor(this.rootView, R.color.CAM_X0111);
+            this.rootView.startAnimation(go(context));
         }
     }
 
-    public void gm(Context context) {
+    public void gn(Context context) {
         if (this.rootView != null) {
-            this.rootView.startAnimation(go(context));
+            this.rootView.startAnimation(gp(context));
         }
     }
 
@@ -65,49 +65,49 @@ public class c {
         View inflate = LayoutInflater.from(context).inflate(R.layout.lego_scroll_fragment_more, (ViewGroup) null);
         GridView gridView = (GridView) inflate.findViewById(R.id.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
-        this.kXP = new b(context, i);
-        this.kXP.setTagList(list);
-        gridView.setAdapter((ListAdapter) this.kXP);
+        this.lfT = new b(context, i);
+        this.lfT.setTagList(list);
+        gridView.setAdapter((ListAdapter) this.lfT);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.lego.indicator.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                e item = c.this.kXP.getItem(i2);
+                e item = c.this.lfT.getItem(i2);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEGO_SWITCH_TAB_FROM_POP_WINDOW));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEGO_SWITCH_TAB, item));
-                c.this.gm(context);
+                c.this.gn(context);
             }
         });
         return inflate;
     }
 
-    private Animation gn(Context context) {
-        if (this.kqr == null) {
-            this.kqr = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+    private Animation go(Context context) {
+        if (this.kyy == null) {
+            this.kyy = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
         }
-        return this.kqr;
+        return this.kyy;
     }
 
-    private Animation go(Context context) {
-        if (this.kqs == null) {
-            this.kqs = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+    private Animation gp(Context context) {
+        if (this.kyz == null) {
+            this.kyz = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
         }
-        this.kqs.setAnimationListener(new d() { // from class: com.baidu.tieba.lego.indicator.c.2
+        this.kyz.setAnimationListener(new d() { // from class: com.baidu.tieba.lego.indicator.c.2
             @Override // com.baidu.adp.lib.f.d, android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 c.this.isShow = false;
-                if (c.this.kXO != null) {
-                    c.this.kXO.cRA();
+                if (c.this.lfS != null) {
+                    c.this.lfS.cTz();
                 }
-                c.this.kqw.removeView(c.this.rootView);
+                c.this.kyD.removeView(c.this.rootView);
             }
         });
-        return this.kqs;
+        return this.kyz;
     }
 
     public void onChangeSkin(int i) {
-        ao.setBackgroundColor(this.rootView, R.color.CAM_X0111);
-        if (this.kXP != null) {
-            this.kXP.notifyDataSetChanged();
+        ap.setBackgroundColor(this.rootView, R.color.CAM_X0111);
+        if (this.lfT != null) {
+            this.lfT.notifyDataSetChanged();
         }
     }
 }

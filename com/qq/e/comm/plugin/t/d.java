@@ -11,26 +11,26 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final c f12534a = new d();
+    private static final c f12536a = new d();
     private PriorityBlockingQueue<Runnable> c = new PriorityBlockingQueue<>(15);
 
     /* renamed from: b  reason: collision with root package name */
-    private final ExecutorService f12535b = new ThreadPoolExecutor(5, 10, 180, TimeUnit.SECONDS, this.c);
+    private final ExecutorService f12537b = new ThreadPoolExecutor(5, 10, 180, TimeUnit.SECONDS, this.c);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class a<T> extends FutureTask<T> implements Comparable<a<T>> {
 
         /* renamed from: b  reason: collision with root package name */
-        private final c.a f12537b;
+        private final c.a f12539b;
 
         public a(Callable<T> callable, c.a aVar) {
             super(callable);
-            this.f12537b = aVar;
+            this.f12539b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -40,33 +40,33 @@ public class d implements c {
             if (aVar == null) {
                 return 1;
             }
-            return this.f12537b.a() - aVar.f12537b.a();
+            return this.f12539b.a() - aVar.f12539b.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class b implements Callable<com.qq.e.comm.plugin.t.b.f> {
 
         /* renamed from: a  reason: collision with root package name */
-        final com.qq.e.comm.plugin.t.b.e f12538a;
+        final com.qq.e.comm.plugin.t.b.e f12540a;
 
         /* renamed from: b  reason: collision with root package name */
-        final com.qq.e.comm.plugin.t.b f12539b;
+        final com.qq.e.comm.plugin.t.b f12541b;
 
         public b(com.qq.e.comm.plugin.t.b.e eVar) {
             this(eVar, null);
         }
 
         public b(com.qq.e.comm.plugin.t.b.e eVar, com.qq.e.comm.plugin.t.b bVar) {
-            this.f12538a = eVar;
-            this.f12539b = bVar;
+            this.f12540a = eVar;
+            this.f12541b = bVar;
         }
 
         private com.qq.e.comm.plugin.t.b.f b() throws Exception {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new com.qq.e.comm.plugin.t.a.b());
-            return new com.qq.e.comm.plugin.t.a(0, arrayList, this.f12538a).a(this.f12538a);
+            return new com.qq.e.comm.plugin.t.a(0, arrayList, this.f12540a).a(this.f12540a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,21 +82,21 @@ public class d implements c {
                 fVar = null;
             }
             if (e == null) {
-                if (this.f12539b != null) {
-                    this.f12539b.a(this.f12538a, fVar);
+                if (this.f12541b != null) {
+                    this.f12541b.a(this.f12540a, fVar);
                 }
-                if (this.f12538a.j()) {
+                if (this.f12540a.j()) {
                     fVar.c();
                 }
             } else {
                 if (fVar != null) {
                     fVar.c();
                 }
-                if (this.f12539b == null) {
+                if (this.f12541b == null) {
                     throw e;
                 }
                 GDTLogger.w("NetworkClientException", e);
-                this.f12539b.a(e);
+                this.f12541b.a(e);
             }
             return fVar;
         }
@@ -106,7 +106,7 @@ public class d implements c {
     }
 
     public static c a() {
-        return f12534a;
+        return f12536a;
     }
 
     @Override // com.qq.e.comm.plugin.t.c
@@ -117,14 +117,14 @@ public class d implements c {
     @Override // com.qq.e.comm.plugin.t.c
     public Future<com.qq.e.comm.plugin.t.b.f> a(com.qq.e.comm.plugin.t.b.e eVar, c.a aVar) {
         a aVar2 = new a(new b(eVar), aVar);
-        this.f12535b.execute(aVar2);
+        this.f12537b.execute(aVar2);
         GDTLogger.d("QueueSize:" + this.c.size());
         return aVar2;
     }
 
     @Override // com.qq.e.comm.plugin.t.c
     public void a(com.qq.e.comm.plugin.t.b.e eVar, c.a aVar, com.qq.e.comm.plugin.t.b bVar) {
-        a(eVar, aVar, bVar, this.f12535b);
+        a(eVar, aVar, bVar, this.f12537b);
     }
 
     public void a(com.qq.e.comm.plugin.t.b.e eVar, c.a aVar, com.qq.e.comm.plugin.t.b bVar, Executor executor) {

@@ -6,14 +6,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public String ayi;
-    public boolean ayj;
-    public String ayk;
-    private List<b> ayl = new ArrayList();
+    public boolean ayA;
+    public String ayB;
+    private List<b> ayC = new ArrayList();
+    public String ayz;
 
-    public static JSONObject yr() {
+    public static JSONObject yF() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
@@ -21,7 +21,7 @@ public class a {
             jSONObject.put("user_ext_info", jSONObject2);
         } catch (JSONException e) {
         }
-        com.baidu.live.alablmsdk.a.b.a.ai(" structureStatusCheckInfo " + jSONObject.toString(), "");
+        com.baidu.live.alablmsdk.a.b.a.ag(" structureStatusCheckInfo " + jSONObject.toString(), "");
         return jSONObject;
     }
 
@@ -36,11 +36,11 @@ public class a {
         }
         try {
             JSONObject jSONObject2 = new JSONObject();
-            if (!TextUtils.isEmpty(this.ayk)) {
-                jSONObject2.put("blm_status_check_info", this.ayk);
+            if (!TextUtils.isEmpty(this.ayB)) {
+                jSONObject2.put("blm_status_check_info", this.ayB);
             }
-            if (!TextUtils.isEmpty(this.ayi)) {
-                jSONObject2.put("user_ext_info", new JSONArray(this.ayi));
+            if (!TextUtils.isEmpty(this.ayz)) {
+                jSONObject2.put("user_ext_info", new JSONArray(this.ayz));
             }
             if (jSONObject2.length() > 0) {
                 jSONObject.put("blm_internal_info", jSONObject2);
@@ -51,7 +51,7 @@ public class a {
         return jSONObject;
     }
 
-    public JSONObject eD(String str) {
+    public JSONObject eP(String str) {
         com.baidu.live.alablmsdk.a.b.a.d(" parseAndRemoveInternalInfo 原始数据 " + str);
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -71,23 +71,23 @@ public class a {
         JSONObject optJSONObject = jSONObject.optJSONObject("blm_internal_info");
         if (optJSONObject != null) {
             if (optJSONObject.has("blm_status_check_info")) {
-                this.ayj = true;
+                this.ayA = true;
             }
-            this.ayk = optJSONObject.optString("blm_status_check_info");
-            this.ayi = optJSONObject.optString("user_ext_info");
-            if (this.ayi != null) {
+            this.ayB = optJSONObject.optString("blm_status_check_info");
+            this.ayz = optJSONObject.optString("user_ext_info");
+            if (this.ayz != null) {
                 try {
-                    JSONArray jSONArray = new JSONArray(this.ayi);
+                    JSONArray jSONArray = new JSONArray(this.ayz);
                     int length = jSONArray.length();
-                    if (this.ayl == null) {
-                        this.ayl = new ArrayList();
+                    if (this.ayC == null) {
+                        this.ayC = new ArrayList();
                     }
                     for (int i = 0; i < length; i++) {
                         String string = jSONArray.getString(i);
                         if (!TextUtils.isEmpty(string) && (jSONObject2 = new JSONObject(string)) != null) {
                             b bVar = new b();
                             bVar.parse(jSONObject2);
-                            this.ayl.add(bVar);
+                            this.ayC.add(bVar);
                         }
                     }
                 } catch (JSONException e) {
@@ -99,18 +99,18 @@ public class a {
         return jSONObject;
     }
 
-    public b aB(long j) {
-        if (j == 0 || com.baidu.live.alablmsdk.a.a.isEmpty(this.ayl)) {
+    public b aF(long j) {
+        if (j == 0 || com.baidu.live.alablmsdk.a.a.isEmpty(this.ayC)) {
             return null;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.ayl.size()) {
+            if (i2 >= this.ayC.size()) {
                 return null;
             }
-            b bVar = this.ayl.get(i2);
-            if (bVar == null || bVar.axT != j) {
+            b bVar = this.ayC.get(i2);
+            if (bVar == null || bVar.ayk != j) {
                 i = i2 + 1;
             } else {
                 return bVar;

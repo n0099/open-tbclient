@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdGzipHelper {
     static final int BUFFERSIZE = 1024;
 

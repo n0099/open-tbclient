@@ -9,10 +9,10 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 public class HomeWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f2018a = "HomeWatcher";
+    static final String f2016a = "HomeWatcher";
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f2019b;
+    private final Context f2017b;
     private final IntentFilter c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
     private OnHomePressedListener d;
     private InnerRecevier e;
@@ -25,7 +25,7 @@ public class HomeWatcher {
     }
 
     public HomeWatcher(Context context) {
-        this.f2019b = context;
+        this.f2017b = context;
     }
 
     public void setOnHomePressedListener(OnHomePressedListener onHomePressedListener) {
@@ -35,13 +35,13 @@ public class HomeWatcher {
 
     public void startWatch() {
         if (this.e != null) {
-            this.f2019b.registerReceiver(this.e, this.c);
+            this.f2017b.registerReceiver(this.e, this.c);
         }
     }
 
     public void stopWatch() {
         if (this.e != null) {
-            this.f2019b.unregisterReceiver(this.e);
+            this.f2017b.unregisterReceiver(this.e);
         }
     }
 
@@ -49,10 +49,10 @@ public class HomeWatcher {
     class InnerRecevier extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f2020a = TiebaInitialize.LogFields.REASON;
+        final String f2018a = TiebaInitialize.LogFields.REASON;
 
         /* renamed from: b  reason: collision with root package name */
-        final String f2021b = "globalactions";
+        final String f2019b = "globalactions";
         final String c = "recentapps";
         final String d = "homekey";
 

@@ -10,7 +10,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.ab;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes7.dex */
 public class StartupCountStats extends SimpleActivityLifeCycle implements NoProGuard {
     private static final String TAG = "StartupCountStats";
     private static Flow sFlow;
@@ -173,14 +173,14 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         return sPerfSampleManager.getSampleFlag();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class StatsRule {
         public boolean shouldStats(Activity activity) {
             return true;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes7.dex */
     public static class ExtDataCallBack {
         public JSONObject addData() {
             return null;

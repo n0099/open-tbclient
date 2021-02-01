@@ -10,19 +10,19 @@ import com.kwai.sodler.lib.ext.b;
 import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicBoolean f10395a = new AtomicBoolean(false);
+    private static final AtomicBoolean f10397a = new AtomicBoolean(false);
 
     public static void a(Context context) {
         final String Z;
         final String str;
-        if (f10395a.get() || KsAdSDKImpl.get().getIsExternal()) {
+        if (f10397a.get() || KsAdSDKImpl.get().getIsExternal()) {
             return;
         }
-        f10395a.set(true);
+        f10397a.set(true);
         if (AbiUtil.b()) {
             Z = com.kwad.sdk.core.config.c.aa();
             if (TextUtils.isEmpty(Z)) {
@@ -43,8 +43,8 @@ public class e {
                 com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
                 bVar.c = Z;
                 bVar.e = true;
-                bVar.f11003a = str;
-                bVar.f11004b = "3.0";
+                bVar.f11005a = str;
+                bVar.f11006b = "3.0";
                 bVar.g = false;
                 return bVar;
             }

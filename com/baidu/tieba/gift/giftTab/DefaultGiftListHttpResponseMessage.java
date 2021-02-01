@@ -1,7 +1,7 @@
 package com.baidu.tieba.gift.giftTab;
 
-import com.baidu.tbadk.core.data.ah;
 import com.baidu.tbadk.core.data.ai;
+import com.baidu.tbadk.core.data.aj;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -9,16 +9,16 @@ import tbclient.GetGiftList.GetGiftListResIdl;
 import tbclient.GetGiftList.PresentCategoryList;
 import tbclient.GetGiftList.PresentGiftList1;
 import tbclient.GetGiftList.PresentNumInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     private String addFreeUrl;
     private ArrayList<a> categoryList;
     public int currencyType;
     private int freeChance;
-    private ArrayList<ah> giftList;
+    private ArrayList<ai> giftList;
     private ArrayList<e> numberList;
     private long sceneId;
-    public ai urlTitleData;
+    public aj urlTitleData;
 
     public DefaultGiftListHttpResponseMessage(int i) {
         super(i);
@@ -38,31 +38,31 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
                 this.freeChance = getGiftListResIdl.data.free_chance.intValue();
                 this.sceneId = getGiftListResIdl.data.scene_id.intValue();
                 this.currencyType = getGiftListResIdl.data.currency_type.intValue();
-                this.urlTitleData = new ai();
-                this.urlTitleData.eLL = getGiftListResIdl.data.currency_txt.name;
-                this.urlTitleData.eLM = getGiftListResIdl.data.currency_txt.url;
+                this.urlTitleData = new aj();
+                this.urlTitleData.eNX = getGiftListResIdl.data.currency_txt.name;
+                this.urlTitleData.eNY = getGiftListResIdl.data.currency_txt.url;
                 if (getGiftListResIdl.data.gift_list != null && getGiftListResIdl.data.gift_list.size() > 0) {
                     this.giftList = new ArrayList<>();
                     for (PresentGiftList1 presentGiftList1 : getGiftListResIdl.data.gift_list) {
                         if (presentGiftList1 != null) {
-                            ah ahVar = new ah();
-                            ahVar.id = presentGiftList1.gift_id.intValue();
-                            ahVar.name = presentGiftList1.gift_name;
-                            ahVar.price = presentGiftList1.price.intValue();
-                            ahVar.thumbnailUrl = presentGiftList1.thumbnail_url;
-                            ahVar.eLE = presentGiftList1.ios_price.intValue();
-                            ahVar.desc = presentGiftList1.gift_desc;
-                            ahVar.aFw = presentGiftList1.activity_type.intValue();
-                            ahVar.eLF = presentGiftList1.mark_url;
-                            ahVar.beginTime = presentGiftList1.begin_time.intValue();
-                            ahVar.endTime = presentGiftList1.end_time.intValue();
-                            ahVar.eLG = presentGiftList1.discount.intValue();
-                            ahVar.eLH = presentGiftList1.ios_discount.intValue();
-                            ahVar.eLI = presentGiftList1.proportion.intValue();
-                            ahVar.eLJ = presentGiftList1.pitch_on.intValue();
-                            ahVar.aUu = presentGiftList1.gift_count.intValue();
-                            ahVar.eLK = presentGiftList1.currency_unit.intValue();
-                            this.giftList.add(ahVar);
+                            ai aiVar = new ai();
+                            aiVar.id = presentGiftList1.gift_id.intValue();
+                            aiVar.name = presentGiftList1.gift_name;
+                            aiVar.price = presentGiftList1.price.intValue();
+                            aiVar.thumbnailUrl = presentGiftList1.thumbnail_url;
+                            aiVar.eNQ = presentGiftList1.ios_price.intValue();
+                            aiVar.desc = presentGiftList1.gift_desc;
+                            aiVar.aHS = presentGiftList1.activity_type.intValue();
+                            aiVar.eNR = presentGiftList1.mark_url;
+                            aiVar.beginTime = presentGiftList1.begin_time.intValue();
+                            aiVar.endTime = presentGiftList1.end_time.intValue();
+                            aiVar.eNS = presentGiftList1.discount.intValue();
+                            aiVar.eNT = presentGiftList1.ios_discount.intValue();
+                            aiVar.eNU = presentGiftList1.proportion.intValue();
+                            aiVar.eNV = presentGiftList1.pitch_on.intValue();
+                            aiVar.aXz = presentGiftList1.gift_count.intValue();
+                            aiVar.eNW = presentGiftList1.currency_unit.intValue();
+                            this.giftList.add(aiVar);
                         }
                     }
                 }
@@ -94,7 +94,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return this.categoryList;
     }
 
-    public ArrayList<ah> getGiftList() {
+    public ArrayList<ai> getGiftList() {
         return this.giftList;
     }
 

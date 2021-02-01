@@ -19,6 +19,7 @@ import android.os.Process;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.base.BdActivityStack;
@@ -103,7 +104,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TbadkCoreApplication extends BdBaseApplication implements BdActivityStack.OnAllActivityClosed {
     public static final String ACCOUNT_CHANGE_ACTION = "com.baidu.tieba.action.accountChange";
     private static final String ACTIVE_CLEAR_TAG = "active_clear";
@@ -519,6 +520,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
 
     protected void initTasks() {
         System.currentTimeMillis();
+        Log.e("initial", "@@ initial TbadkCoreApplication.initTasks");
         Tasks.initial();
     }
 
@@ -1239,7 +1241,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class MyPhoneStateListener extends PhoneStateListener {
         private MyPhoneStateListener() {
         }

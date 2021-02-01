@@ -2,32 +2,32 @@ package com.baidu.tieba.barselect.idCard;
 
 import android.graphics.Rect;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface d {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         int j(byte[] bArr, int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void aa(byte[] bArr);
+        void Z(byte[] bArr);
     }
 
     void a(b bVar);
 
     void a(e eVar);
 
-    void cqi();
+    Rect crC();
 
-    int cqj();
+    void crD();
 
-    View cqk();
+    void crs();
 
-    Rect cqs();
+    int crt();
 
-    void cqt();
+    View cru();
 
     void pause();
 
@@ -39,5 +39,5 @@ public interface d {
 
     void stop();
 
-    void wG(int i);
+    void wR(int i);
 }

@@ -1,17 +1,17 @@
 package com.tencent.turingfd.sdk.ams.au;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class av {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13494a;
+    public String f13496a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13495b;
+    public String f13497b;
     public String c;
     public String d;
 
     public void a(String str) {
-        this.f13495b = str;
+        this.f13497b = str;
     }
 
     public void b(String str) {

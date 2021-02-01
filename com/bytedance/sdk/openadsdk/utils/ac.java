@@ -3,27 +3,27 @@ package com.bytedance.sdk.openadsdk.utils;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7538a = null;
+    private static String f7540a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Resources f7539b = null;
+    private static Resources f7541b = null;
 
     private static String a(Context context) {
-        if (f7538a == null) {
-            f7538a = context.getPackageName();
+        if (f7540a == null) {
+            f7540a = context.getPackageName();
         }
-        return f7538a;
+        return f7540a;
     }
 
     private static int a(Context context, String str, String str2) {
-        if (f7539b == null) {
-            f7539b = context.getResources();
+        if (f7541b == null) {
+            f7541b = context.getResources();
         }
-        return f7539b.getIdentifier(str, str2, a(context));
+        return f7541b.getIdentifier(str, str2, a(context));
     }
 
     public static String a(Context context, String str) {

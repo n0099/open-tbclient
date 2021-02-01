@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class YuyinAlaCharmRankActivityConfig extends IntentConfig {
     public static final String CHARM_VALUE = "charm_value";
     public static final String C_ROOM_ID = "c_room_id";
@@ -17,11 +17,12 @@ public class YuyinAlaCharmRankActivityConfig extends IntentConfig {
     public static final String LOGIN_USER_NAME = "login_user_name";
     public static final String NEED_SHOW_GIFT_PANEL = "need_show_gift_panel";
     public static final String ONLINE_COUNT = "online_count";
+    public static final String SHOW_CHARM_LIST_VIEW = "show_charm_list_view";
     public static final String USER_ID = "user_id";
     public static final String USER_NAME = "user_name";
     public static final String USER_TYPE = "user_type";
 
-    public YuyinAlaCharmRankActivityConfig(Context context, String str, String str2, String str3, String str4, String str5, boolean z, String str6, String str7, String str8, String str9, long j, int i) {
+    public YuyinAlaCharmRankActivityConfig(Context context, String str, String str2, String str3, String str4, String str5, boolean z, String str6, String str7, String str8, String str9, long j, int i, boolean z2) {
         super(context);
         getIntent().putExtra("user_name", str);
         getIntent().putExtra("user_id", str2);
@@ -35,6 +36,7 @@ public class YuyinAlaCharmRankActivityConfig extends IntentConfig {
         getIntent().putExtra("login_user_portrait", str9);
         getIntent().putExtra("online_count", j);
         getIntent().putExtra("user_type", i);
+        getIntent().putExtra(SHOW_CHARM_LIST_VIEW, z2);
         setRequestCode(RequestResponseCode.REQUEST_ALA_PERSON_CHARM_CARD);
         setIntentAction(IntentAction.ActivityForResult);
     }

@@ -1,32 +1,48 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import org.json.JSONObject;
-import tbclient.BookThread;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class p {
-    public String eKo;
-    public long eKp;
-    public int eKq;
+public class p extends cb {
+    public static final BdUniqueId eMv = BdUniqueId.gen();
+    private boolean eMw = false;
+    private boolean eMx = false;
+    private boolean eMy = false;
+    private int eMz;
 
-    public void a(BookThread bookThread) {
-        if (bookThread != null) {
-            this.eKo = bookThread.book_id;
-            this.eKp = bookThread.chapter_id.longValue();
-            this.eKq = bookThread.book_type.intValue();
-        }
+    public boolean blM() {
+        return this.eMw;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.eKo = jSONObject.optString("book_id", "0");
-                this.eKp = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
-                this.eKq = jSONObject.optInt("book_type", 0);
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
+    public void jq(boolean z) {
+        this.eMw = z;
+    }
+
+    public boolean blN() {
+        return this.eMx;
+    }
+
+    public void jr(boolean z) {
+        this.eMx = z;
+    }
+
+    public boolean blO() {
+        return this.eMy;
+    }
+
+    public void js(boolean z) {
+        this.eMy = z;
+    }
+
+    @Override // com.baidu.tbadk.core.data.cb, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
+    public BdUniqueId getType() {
+        return eMv;
+    }
+
+    public void setFloorNum(int i) {
+        this.eMz = i;
+    }
+
+    public int getFloorNum() {
+        return this.eMz;
     }
 }

@@ -14,8 +14,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.elementsMaven.c;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tieba.R;
@@ -24,27 +24,27 @@ import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.frs.m;
 import com.google.android.material.tabs.TabLayout;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ForumTabSelectedView extends LinearLayout {
-    private TabLayout.OnTabSelectedListener jYx;
-    private TabLayout jxP;
+    private TabLayout jDv;
+    private TabLayout.OnTabSelectedListener kga;
     private BaseActivity mActivity;
     private int mBgColor;
     private ImageView mIconView;
     private TextView mTitleView;
-    private FrsTabItemData nXx;
-    private View.OnClickListener nXy;
+    private FrsTabItemData ohD;
+    private View.OnClickListener ohE;
 
     public ForumTabSelectedView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mBgColor = R.color.CAM_X0202;
-        this.jYx = new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.write.view.ForumTabSelectedView.1
+        this.kga = new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.write.view.ForumTabSelectedView.1
             @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
                     FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
                     frsTabItemData.isSelected = true;
-                    ForumTabSelectedView.this.nXx = frsTabItemData;
+                    ForumTabSelectedView.this.ohD = frsTabItemData;
                     ForumTabSelectedView.this.setTabColorSelected(tab);
                 }
             }
@@ -63,17 +63,17 @@ public class ForumTabSelectedView extends LinearLayout {
                     FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
                     if (frsTabItemData.isSelected) {
                         frsTabItemData.isSelected = false;
-                        ForumTabSelectedView.this.nXx = null;
+                        ForumTabSelectedView.this.ohD = null;
                         ForumTabSelectedView.this.setTabColorUnSelected(tab);
                         return;
                     }
                     frsTabItemData.isSelected = true;
-                    ForumTabSelectedView.this.nXx = frsTabItemData;
+                    ForumTabSelectedView.this.ohD = frsTabItemData;
                     ForumTabSelectedView.this.setTabColorSelected(tab);
                 }
             }
         };
-        this.nXy = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.ForumTabSelectedView.2
+        this.ohE = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.ForumTabSelectedView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ForumTabSelectedView.this.mActivity != null) {
@@ -88,13 +88,13 @@ public class ForumTabSelectedView extends LinearLayout {
     public ForumTabSelectedView(Context context) {
         super(context);
         this.mBgColor = R.color.CAM_X0202;
-        this.jYx = new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.write.view.ForumTabSelectedView.1
+        this.kga = new TabLayout.OnTabSelectedListener() { // from class: com.baidu.tieba.write.view.ForumTabSelectedView.1
             @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
                     FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
                     frsTabItemData.isSelected = true;
-                    ForumTabSelectedView.this.nXx = frsTabItemData;
+                    ForumTabSelectedView.this.ohD = frsTabItemData;
                     ForumTabSelectedView.this.setTabColorSelected(tab);
                 }
             }
@@ -113,17 +113,17 @@ public class ForumTabSelectedView extends LinearLayout {
                     FrsTabItemData frsTabItemData = (FrsTabItemData) tab.getTag();
                     if (frsTabItemData.isSelected) {
                         frsTabItemData.isSelected = false;
-                        ForumTabSelectedView.this.nXx = null;
+                        ForumTabSelectedView.this.ohD = null;
                         ForumTabSelectedView.this.setTabColorUnSelected(tab);
                         return;
                     }
                     frsTabItemData.isSelected = true;
-                    ForumTabSelectedView.this.nXx = frsTabItemData;
+                    ForumTabSelectedView.this.ohD = frsTabItemData;
                     ForumTabSelectedView.this.setTabColorSelected(tab);
                 }
             }
         };
-        this.nXy = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.ForumTabSelectedView.2
+        this.ohE = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.ForumTabSelectedView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ForumTabSelectedView.this.mActivity != null) {
@@ -138,53 +138,53 @@ public class ForumTabSelectedView extends LinearLayout {
     private void initUI() {
         setOrientation(0);
         setGravity(16);
-        dVh();
-        dVi();
-        cHL();
+        dXv();
+        dXw();
+        cIY();
     }
 
-    private void dVh() {
+    private void dXv() {
         this.mTitleView = new EMTextView(getContext());
         this.mTitleView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        c.bv(this.mTitleView).nW(R.dimen.T_X08);
+        c.br(this.mTitleView).nZ(R.dimen.T_X08);
         this.mTitleView.setText(R.string.forum_tab_select_title);
-        this.mTitleView.setOnClickListener(this.nXy);
+        this.mTitleView.setOnClickListener(this.ohE);
         addView(this.mTitleView);
     }
 
-    private void dVi() {
+    private void dXw() {
         this.mIconView = new ImageView(getContext());
         int dimens = l.getDimens(getContext(), R.dimen.tbds31);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens, dimens);
         layoutParams.setMargins(l.getDimens(getContext(), R.dimen.M_W_X002), 0, 0, 0);
         this.mIconView.setLayoutParams(layoutParams);
-        this.mIconView.setOnClickListener(this.nXy);
+        this.mIconView.setOnClickListener(this.ohE);
         addView(this.mIconView);
     }
 
-    private void cHL() {
-        this.jxP = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.forum_tab_select_layout, (ViewGroup) null);
+    private void cIY() {
+        this.jDv = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.forum_tab_select_layout, (ViewGroup) null);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.setMargins(l.getDimens(getContext(), R.dimen.M_W_X002), 0, 0, 0);
-        this.jxP.setLayoutParams(layoutParams);
-        addView(this.jxP);
-        this.jxP.setOnTabSelectedListener(this.jYx);
+        this.jDv.setLayoutParams(layoutParams);
+        addView(this.jDv);
+        this.jDv.setOnTabSelectedListener(this.kga);
     }
 
     public FrsTabItemData getSelectedTabItemData() {
-        if (this.nXx == null || !this.nXx.isSelected) {
+        if (this.ohD == null || !this.ohD.isSelected) {
             return null;
         }
-        return this.nXx;
+        return this.ohD;
     }
 
     public void setData(FrsTabInfoData frsTabInfoData) {
-        if (frsTabInfoData == null || x.isEmpty(frsTabInfoData.tabList)) {
+        if (frsTabInfoData == null || y.isEmpty(frsTabInfoData.tabList)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        a(frsTabInfoData.tabList, this.jxP, frsTabInfoData.selectedTabId);
+        a(frsTabInfoData.tabList, this.jDv, frsTabInfoData.selectedTabId);
     }
 
     private void a(List<FrsTabItemData> list, TabLayout tabLayout, int i) {
@@ -223,12 +223,12 @@ public class ForumTabSelectedView extends LinearLayout {
                         if (!(tab.getCustomView() instanceof TBSpecificationBtn)) {
                             tBSpecificationBtn = new TBSpecificationBtn(getContext());
                             b bVar = new b();
-                            bVar.pJ(dimens2);
-                            bVar.pK(dimens3);
+                            bVar.pO(dimens2);
+                            bVar.pP(dimens3);
                             if (frsTabItemData.tabId == 505) {
-                                bVar.pO(R.color.CAM_X0302);
+                                bVar.pT(R.color.CAM_X0302);
                             } else {
-                                bVar.pO(R.color.CAM_X0107);
+                                bVar.pT(R.color.CAM_X0107);
                             }
                             tBSpecificationBtn.setConfig(bVar);
                             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -254,7 +254,7 @@ public class ForumTabSelectedView extends LinearLayout {
     }
 
     private void b(TabLayout tabLayout) {
-        ao.setBackgroundColor(tabLayout, this.mBgColor);
+        ap.setBackgroundColor(tabLayout, this.mBgColor);
         if (tabLayout != null) {
             int i = 0;
             while (true) {
@@ -263,14 +263,14 @@ public class ForumTabSelectedView extends LinearLayout {
                     TabLayout.Tab tabAt = tabLayout.getTabAt(i2);
                     if (tabAt != null && (tabAt.getCustomView() instanceof TBSpecificationBtn)) {
                         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tabAt.getCustomView();
-                        tBSpecificationBtn.btV();
+                        tBSpecificationBtn.bup();
                         b bVar = (b) tBSpecificationBtn.getStyleConfig();
                         if (tabAt.isSelected()) {
-                            bVar.pM(R.color.CAM_X0302);
+                            bVar.pR(R.color.CAM_X0302);
                         } else if (a(tabAt)) {
-                            bVar.pO(R.color.CAM_X0302);
+                            bVar.pT(R.color.CAM_X0302);
                         } else {
-                            bVar.pO(R.color.CAM_X0107);
+                            bVar.pT(R.color.CAM_X0107);
                         }
                     }
                     i = i2 + 1;
@@ -291,7 +291,7 @@ public class ForumTabSelectedView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void setTabColorSelected(TabLayout.Tab tab) {
         if (tab != null && tab.getCustomView() != null) {
-            ((b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).pM(R.color.CAM_X0302);
+            ((b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).pR(R.color.CAM_X0302);
         }
     }
 
@@ -300,7 +300,7 @@ public class ForumTabSelectedView extends LinearLayout {
         if (tab != null && tab.getCustomView() != null) {
             b bVar = (b) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig();
             if (!a(tab)) {
-                bVar.pO(R.color.CAM_X0107);
+                bVar.pT(R.color.CAM_X0107);
             }
         }
     }
@@ -310,9 +310,9 @@ public class ForumTabSelectedView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        b(this.jxP);
-        ao.setViewTextColor(this.mTitleView, R.color.CAM_X0107);
-        this.mIconView.setImageDrawable(WebPManager.a(R.drawable.icon_pure_post_section12, ao.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+        b(this.jDv);
+        ap.setViewTextColor(this.mTitleView, R.color.CAM_X0107);
+        this.mIconView.setImageDrawable(WebPManager.a(R.drawable.icon_pure_post_section12, ap.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
     }
 
     public void setBgColor(int i) {

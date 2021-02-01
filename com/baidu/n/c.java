@@ -4,9 +4,9 @@ import android.content.Context;
 import android.os.Looper;
 import android.util.Log;
 import com.baidu.n.a.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private static c oKF;
+    private static c oUM;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -15,24 +15,24 @@ public class c {
         this.mCtx = context.getApplicationContext();
     }
 
-    public static c hm(Context context) {
-        if (oKF == null) {
+    public static c hp(Context context) {
+        if (oUM == null) {
             synchronized (c.class) {
-                if (oKF == null) {
-                    oKF = new c(context);
-                    com.baidu.n.a.a.hn(context);
+                if (oUM == null) {
+                    oUM = new c(context);
+                    com.baidu.n.a.a.hq(context);
                 }
             }
         }
-        return oKF;
+        return oUM;
     }
 
     public void a(b bVar) {
-        a(new d().MU(1).Ak(false), bVar, Looper.getMainLooper());
+        a(new d().Nq(1).AD(false), bVar, Looper.getMainLooper());
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.egg().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
+        e.eiy().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
             @Override // com.baidu.n.a.a.b
             public void a(com.baidu.n.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,7 +40,7 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.egl(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.eiD(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
                 }
             }
         });

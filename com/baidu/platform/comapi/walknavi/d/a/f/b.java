@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import com.baidu.platform.comapi.walknavi.d.a.g.k;
 import com.baidubce.http.Headers;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -17,24 +18,24 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b extends AsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4235a;
+    private String f4238a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4236b;
+    private int f4239b;
     private a<String> c;
     private boolean d = false;
     private boolean e;
     private String f;
 
     public b(String str, int i, boolean z, a<String> aVar) {
-        this.f4235a = "";
-        this.f4236b = 0;
-        this.f4235a = str;
-        this.f4236b = i;
+        this.f4238a = "";
+        this.f4239b = 0;
+        this.f4238a = str;
+        this.f4239b = i;
         this.c = aVar;
         this.e = z;
     }
@@ -97,7 +98,7 @@ public class b extends AsyncTask<String, Integer, String> {
             return null;
         }
         this.f = str;
-        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f4235a, this.f4236b);
+        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f4238a, this.f4239b);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
@@ -110,7 +111,7 @@ public class b extends AsyncTask<String, Integer, String> {
         if (file2.exists()) {
             try {
                 new ZipFile(str2);
-                if (com.baidu.platform.comapi.walknavi.d.a.b.f4206a) {
+                if (com.baidu.platform.comapi.walknavi.d.a.b.f4209a) {
                     return c(str2);
                 }
                 if (this.c != null) {
@@ -119,14 +120,14 @@ public class b extends AsyncTask<String, Integer, String> {
                 return "false";
             } catch (Exception e) {
                 file2.delete();
-                if (!com.baidu.platform.comapi.walknavi.d.a.b.f4206a) {
+                if (!com.baidu.platform.comapi.walknavi.d.a.b.f4209a) {
                     if (this.c != null) {
                         this.c.a(true, b(str));
                     }
                     return "true";
                 }
             }
-        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f4206a) {
+        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f4209a) {
             if (this.c != null) {
                 this.c.a(true, b(str));
             }
@@ -151,7 +152,7 @@ public class b extends AsyncTask<String, Integer, String> {
             URLConnection openConnection = new URL(str).openConnection();
             openConnection.setConnectTimeout(10000);
             openConnection.setRequestProperty(Headers.RANGE, "bytes=0-" + b2);
-            randomAccessFile2 = new RandomAccessFile(str2, "rw");
+            randomAccessFile2 = new RandomAccessFile(str2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             try {
                 randomAccessFile2.seek(0L);
                 byte[] bArr = new byte[8192];

@@ -20,14 +20,14 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c extends b {
     private String A;
     private JSONObject B;
     private JSONObject C;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f12079b = 1;
+    private final int f12081b = 1;
     private final int c = 2;
     private final int d = 4;
     private final int e = 8;
@@ -292,10 +292,10 @@ public class c extends b {
 
     @Override // com.qq.e.comm.plugin.h.a.b, com.qq.e.comm.plugin.h.a
     public String b(Context context) {
-        if (TextUtils.isEmpty(this.f12077a)) {
-            this.f12077a = c(context);
+        if (TextUtils.isEmpty(this.f12079a)) {
+            this.f12079a = c(context);
         }
-        return this.f12077a;
+        return this.f12079a;
     }
 
     @Override // com.qq.e.comm.plugin.h.a.b

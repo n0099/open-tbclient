@@ -6,7 +6,6 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.tube.profile.TubeProfileParam;
 import com.kwad.sdk.core.report.e;
@@ -14,11 +13,11 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.utils.ag;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private FrameLayout f8904b;
+    private FrameLayout f8906b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -33,7 +32,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             if (a.this.i.getAndSet(true)) {
                 return;
             }
-            z = (!com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(a.this.f)) || a.this.f8393a.j.mIsTubeEpisodeList) ? false : false;
+            z = (!com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(a.this.f)) || a.this.f8395a.j.mIsTubeEpisodeList) ? false : false;
             com.kwad.sdk.core.d.a.a("PhotoTubeEnterPresenter", ">> isShowTubeEnter() isShowTubeEnter =" + z);
             if (z) {
                 e.k(a.this.f);
@@ -55,26 +54,26 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f = this.f8393a.j;
-        if (com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(this.f)) && !this.f8393a.j.mIsTubeEpisodeList) {
+        this.f = this.f8395a.j;
+        if (com.kwad.sdk.core.response.b.d.x(com.kwad.sdk.core.response.b.c.k(this.f)) && !this.f8395a.j.mIsTubeEpisodeList) {
             b(com.kwad.sdk.core.response.b.d.B(com.kwad.sdk.core.response.b.c.k(this.f)));
             a(com.kwad.sdk.core.response.b.d.C(com.kwad.sdk.core.response.b.c.k(this.f)));
             this.h = new TranslateAnimation(-5.0f, 5.0f, 0.0f, 0.0f);
             this.h.setDuration(250L);
             this.g.setAnimation(this.h);
-            this.h.setRepeatCount(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+            this.h.setRepeatCount(Integer.MAX_VALUE);
             this.h.setRepeatMode(2);
             this.h.startNow();
             a(com.kwad.sdk.core.response.b.d.A(com.kwad.sdk.core.response.b.c.k(this.f)));
-            this.f8904b.setOnClickListener(this);
-            this.f8904b.setVisibility(0);
+            this.f8906b.setOnClickListener(this);
+            this.f8906b.setVisibility(0);
         } else {
-            this.f8904b.setVisibility(8);
+            this.f8906b.setVisibility(8);
         }
-        if (this.f8393a.m != null) {
-            this.f8393a.m.a(this.j);
+        if (this.f8395a.m != null) {
+            this.f8395a.m.a(this.j);
         }
-        this.f8393a.f8403b.add(this.k);
+        this.f8395a.f8405b.add(this.k);
     }
 
     public void a(String str) {
@@ -92,9 +91,9 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         if (this.h != null) {
             this.h.cancel();
         }
-        this.f8393a.f8403b.remove(this.k);
-        if (this.f8393a.m != null) {
-            this.f8393a.m.b(this.j);
+        this.f8395a.f8405b.remove(this.k);
+        if (this.f8395a.m != null) {
+            this.f8395a.m.b(this.j);
         }
     }
 
@@ -102,7 +101,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8904b = (FrameLayout) b(R.id.ksad_tube_enter_container);
+        this.f8906b = (FrameLayout) b(R.id.ksad_tube_enter_container);
         this.c = (TextView) b(R.id.ksad_tube_enter_name);
         this.d = (TextView) b(R.id.ksad_tube_enter_episode_name);
         this.e = (TextView) b(R.id.ksad_tube_enter_play_count);
@@ -116,10 +115,10 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             PhotoInfo.TubeEpisode y = com.kwad.sdk.core.response.b.d.y(com.kwad.sdk.core.response.b.c.k(this.f));
             TubeProfileParam tubeProfileParam = new TubeProfileParam();
             tubeProfileParam.mTubeEpisode = y;
-            if (this.f8393a.j != null && this.f8393a.j.mAdScene != null) {
-                tubeProfileParam.mEntryScene = this.f8393a.j.mAdScene.entryScene;
+            if (this.f8395a.j != null && this.f8395a.j.mAdScene != null) {
+                tubeProfileParam.mEntryScene = this.f8395a.j.mAdScene.entryScene;
             }
-            tubeProfileParam.mAdTemplate = this.f8393a.j;
+            tubeProfileParam.mAdTemplate = this.f8395a.j;
             com.kwad.sdk.contentalliance.tube.profile.b.a(o(), tubeProfileParam);
         }
     }

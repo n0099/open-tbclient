@@ -6,14 +6,14 @@ import com.bytedance.sdk.openadsdk.core.a.c;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int[] f6493a;
+    private final int[] f6495a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int[] f6494b;
+    private final int[] f6496b;
     private final int[] c;
     private final int[] d;
     private final int e;
@@ -29,16 +29,16 @@ public class f {
     private SparseArray<c.a> o;
 
     private f(@NonNull a aVar) {
-        this.f6493a = aVar.h;
-        this.f6494b = aVar.i;
+        this.f6495a = aVar.h;
+        this.f6496b = aVar.i;
         this.d = aVar.j;
         this.c = aVar.g;
         this.e = aVar.f;
         this.f = aVar.e;
         this.g = aVar.d;
         this.h = aVar.c;
-        this.i = aVar.f6496b;
-        this.j = aVar.f6495a;
+        this.i = aVar.f6498b;
+        this.j = aVar.f6497a;
         this.k = aVar.k;
         this.l = aVar.l;
         this.m = aVar.m;
@@ -49,11 +49,11 @@ public class f {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.f6493a != null && this.f6493a.length == 2) {
-                jSONObject.putOpt("ad_x", Integer.valueOf(this.f6493a[0])).putOpt("ad_y", Integer.valueOf(this.f6493a[1]));
+            if (this.f6495a != null && this.f6495a.length == 2) {
+                jSONObject.putOpt("ad_x", Integer.valueOf(this.f6495a[0])).putOpt("ad_y", Integer.valueOf(this.f6495a[1]));
             }
-            if (this.f6494b != null && this.f6494b.length == 2) {
-                jSONObject.putOpt("width", Integer.valueOf(this.f6494b[0])).putOpt("height", Integer.valueOf(this.f6494b[1]));
+            if (this.f6496b != null && this.f6496b.length == 2) {
+                jSONObject.putOpt("width", Integer.valueOf(this.f6496b[0])).putOpt("height", Integer.valueOf(this.f6496b[1]));
             }
             if (this.c != null && this.c.length == 2) {
                 jSONObject.putOpt("button_x", Integer.valueOf(this.c[0])).putOpt("button_y", Integer.valueOf(this.c[1]));
@@ -68,7 +68,7 @@ public class f {
                     c.a valueAt = this.o.valueAt(i);
                     if (valueAt != null) {
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.putOpt("force", Double.valueOf(valueAt.c)).putOpt("mr", Double.valueOf(valueAt.f6446b)).putOpt("phase", Integer.valueOf(valueAt.f6445a)).putOpt(TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(valueAt.d));
+                        jSONObject3.putOpt("force", Double.valueOf(valueAt.c)).putOpt("mr", Double.valueOf(valueAt.f6448b)).putOpt("phase", Integer.valueOf(valueAt.f6447a)).putOpt(TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(valueAt.d));
                         jSONArray.put(jSONObject3);
                     }
                 }
@@ -80,14 +80,14 @@ public class f {
         return jSONObject;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private long f6495a;
+        private long f6497a;
 
         /* renamed from: b  reason: collision with root package name */
-        private long f6496b;
+        private long f6498b;
         private int c;
         private int d;
         private int e;
@@ -113,12 +113,12 @@ public class f {
         }
 
         public a a(long j) {
-            this.f6495a = j;
+            this.f6497a = j;
             return this;
         }
 
         public a b(long j) {
-            this.f6496b = j;
+            this.f6498b = j;
             return this;
         }
 

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
     public a resultData;
 
@@ -29,14 +29,14 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
         return this.resultData;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a {
         private int errorCode;
         private String errorMsg = null;
-        private String leb = null;
-        private String lec = null;
-        private String led = null;
-        private boolean lee = false;
+        private String lme = null;
+        private String lmf = null;
+        private String lmg = null;
+        private boolean lmh = false;
 
         public a() {
         }
@@ -45,19 +45,19 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject != null) {
                 this.errorCode = jSONObject.optInt("error_code");
                 this.errorMsg = jSONObject.optString("error_msg");
-                this.leb = jSONObject.optString("field_text");
-                this.lec = jSONObject.optString("left_button");
-                this.led = jSONObject.optString("right_button");
+                this.lme = jSONObject.optString("field_text");
+                this.lmf = jSONObject.optString("left_button");
+                this.lmg = jSONObject.optString("right_button");
                 if (this.errorCode == 0) {
-                    if (StringUtils.isNull(this.leb)) {
-                        this.lee = true;
+                    if (StringUtils.isNull(this.lme)) {
+                        this.lmh = true;
                     } else {
-                        this.lee = false;
+                        this.lmh = false;
                     }
                 } else if (this.errorCode == 2270014) {
-                    this.lee = false;
+                    this.lmh = false;
                 } else {
-                    this.lee = false;
+                    this.lmh = false;
                 }
             }
         }

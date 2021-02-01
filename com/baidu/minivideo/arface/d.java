@@ -4,7 +4,7 @@ import com.baidu.ar.DuMixCallback;
 import com.baidu.ar.DuMixErrorType;
 import com.baidu.ar.DuMixInput;
 import com.baidu.ar.DuMixOutput;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class d implements DuMixCallback {
     @Override // com.baidu.ar.DuMixCallback
     public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {

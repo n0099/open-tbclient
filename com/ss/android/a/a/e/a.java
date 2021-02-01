@@ -1,7 +1,7 @@
 package com.ss.android.a.a.e;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static long C(JSONObject jSONObject, String str) {
         if (jSONObject == null) {

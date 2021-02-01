@@ -4,28 +4,28 @@ import GetSticker.DataReq;
 import GetSticker.GetStickerReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.CommonReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RequestGetStickerMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f5348common;
+    private CommonReq f5350common;
 
     public RequestGetStickerMessage() {
         super(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST);
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f5348common = commonReq;
+        this.f5350common = commonReq;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1025common = this.f5348common;
+        builder.f1025common = this.f5350common;
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetStickerReqIdl.Builder builder2 = new GetStickerReqIdl.Builder();
         builder2.data = builder.build(false);

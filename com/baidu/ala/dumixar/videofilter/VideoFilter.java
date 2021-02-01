@@ -8,7 +8,7 @@ import com.baidu.ala.dumixar.gles.GlUtil;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.util.LinkedList;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class VideoFilter {
     protected static final String FRAGMENT_SHADER = "precision mediump float;varying vec2 textureCoordinate;uniform sampler2D inputImageTexture;void main() {    gl_FragColor = texture2D(inputImageTexture, textureCoordinate);}";
     protected static final String FRAGMENT_SHADER_WITHOUT_MATRIX = "precision mediump float;varying vec2 textureCoordinate;uniform sampler2D inputImageTexture;void main() {    gl_FragColor = texture2D(inputImageTexture, textureCoordinate);}";

@@ -11,22 +11,22 @@ import android.widget.TextView;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.sdk.a;
 import com.kwad.sdk.collector.AppStatusRules;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IMChatHeader extends LinearLayout {
-    private long dtU;
-    private TextView dvM;
+    private long dwe;
+    private TextView dxT;
     private AnimationDrawable mAnimationDrawable;
     private LinearLayout mContainer;
     public Context mContext;
     private int mState;
-    private ImageView oUF;
-    private LinearLayout oUG;
-    private TextView oUH;
+    private ImageView peS;
+    private LinearLayout peT;
+    private TextView peU;
 
     public IMChatHeader(Context context) {
         super(context);
         this.mState = 0;
-        this.dtU = -1L;
+        this.dwe = -1L;
         this.mContext = context;
         initView(context);
     }
@@ -34,7 +34,7 @@ public class IMChatHeader extends LinearLayout {
     public IMChatHeader(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mState = 0;
-        this.dtU = -1L;
+        this.dwe = -1L;
         this.mContext = context;
         initView(context);
     }
@@ -43,11 +43,11 @@ public class IMChatHeader extends LinearLayout {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
         this.mContainer = (LinearLayout) LayoutInflater.from(context).inflate(a.g.bd_im_listview_header, (ViewGroup) null);
         addView(this.mContainer, layoutParams);
-        this.dvM = (TextView) findViewById(a.f.bd_im_listview_header_hint_textview);
-        this.oUF = (ImageView) findViewById(a.f.bd_im_listview_header_progressbar);
-        this.oUG = (LinearLayout) findViewById(a.f.bd_im_listview_header_content);
-        this.oUH = (TextView) findViewById(a.f.bd_im_listview_header_time);
-        this.mAnimationDrawable = (AnimationDrawable) this.oUF.getDrawable();
+        this.dxT = (TextView) findViewById(a.f.bd_im_listview_header_hint_textview);
+        this.peS = (ImageView) findViewById(a.f.bd_im_listview_header_progressbar);
+        this.peT = (LinearLayout) findViewById(a.f.bd_im_listview_header_content);
+        this.peU = (TextView) findViewById(a.f.bd_im_listview_header_time);
+        this.mAnimationDrawable = (AnimationDrawable) this.peS.getDrawable();
         this.mAnimationDrawable.start();
     }
 
@@ -55,13 +55,13 @@ public class IMChatHeader extends LinearLayout {
         if (i != this.mState) {
             switch (i) {
                 case 0:
-                    this.dvM.setText(a.h.bd_im_listview_header_hint_loading);
+                    this.dxT.setText(a.h.bd_im_listview_header_hint_loading);
                     break;
                 case 1:
-                    this.dvM.setText(a.h.bd_im_listview_header_hint_loading);
+                    this.dxT.setText(a.h.bd_im_listview_header_hint_loading);
                     break;
                 case 2:
-                    this.dvM.setText(a.h.bd_im_listview_header_hint_loading);
+                    this.dxT.setText(a.h.bd_im_listview_header_hint_loading);
                     break;
             }
             this.mState = i;
@@ -85,24 +85,24 @@ public class IMChatHeader extends LinearLayout {
     }
 
     public void setVisiableContent(int i) {
-        this.oUG.setVisibility(i);
+        this.peT.setVisibility(i);
         if (i != 0 && this.mAnimationDrawable != null) {
             this.mAnimationDrawable.stop();
         }
     }
 
     public void setRefreshTime() {
-        ejb();
+        elv();
     }
 
     public long getRefreshTime() {
-        return this.dtU;
+        return this.dwe;
     }
 
-    private void ejb() {
+    private void elv() {
         String format;
-        long currentTimeMillis = System.currentTimeMillis() - this.dtU;
-        if (this.dtU == -1) {
+        long currentTimeMillis = System.currentTimeMillis() - this.dwe;
+        if (this.dwe == -1) {
             format = getResources().getString(a.h.bd_im_listview_not_updated_yet);
         } else if (currentTimeMillis < 0) {
             format = getResources().getString(a.h.bd_im_listview_time_error);
@@ -119,6 +119,6 @@ public class IMChatHeader extends LinearLayout {
         } else {
             format = String.format(getResources().getString(a.h.bd_im_listview_updated_at), (currentTimeMillis / 31104000000L) + getResources().getString(a.h.bd_im_listview_year));
         }
-        this.oUH.setText(format);
+        this.peU.setText(format);
     }
 }

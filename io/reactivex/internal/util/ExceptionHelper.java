@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ExceptionHelper {
     public static final Throwable TERMINATED = new Termination();
 
-    public static RuntimeException Q(Throwable th) {
+    public static RuntimeException P(Throwable th) {
         if (th instanceof Error) {
             throw ((Error) th);
         }

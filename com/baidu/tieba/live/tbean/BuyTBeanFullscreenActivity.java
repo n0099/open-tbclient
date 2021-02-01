@@ -9,7 +9,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ViewCommonUtil;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BuyTBeanFullscreenActivity extends BaseActivity<BuyTBeanActivity> implements IBuyTBeanActivity {
     private int availableHeight;
     private BuyTBeanController buyTBeanController;

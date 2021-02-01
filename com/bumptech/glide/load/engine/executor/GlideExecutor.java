@@ -5,7 +5,6 @@ import android.os.StrictMode;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.widget.ActivityChooserView;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -18,7 +17,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class GlideExecutor implements ExecutorService {
     private static final String ANIMATION_EXECUTOR_NAME = "animation";
     private static final String DEFAULT_DISK_CACHE_EXECUTOR_NAME = "disk-cache";
@@ -31,7 +30,7 @@ public final class GlideExecutor implements ExecutorService {
     private static volatile int bestThreadCount;
     private final ExecutorService delegate;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface UncaughtThrowableStrategy {
         public static final UncaughtThrowableStrategy IGNORE = new UncaughtThrowableStrategy() { // from class: com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy.1
             @Override // com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy
@@ -84,7 +83,7 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     public static GlideExecutor newUnlimitedSourceExecutor() {
-        return new GlideExecutor(new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, KEEP_ALIVE_TIME_MS, TimeUnit.MILLISECONDS, new SynchronousQueue(), new DefaultThreadFactory(SOURCE_UNLIMITED_EXECUTOR_NAME, UncaughtThrowableStrategy.DEFAULT, false)));
+        return new GlideExecutor(new ThreadPoolExecutor(0, Integer.MAX_VALUE, KEEP_ALIVE_TIME_MS, TimeUnit.MILLISECONDS, new SynchronousQueue(), new DefaultThreadFactory(SOURCE_UNLIMITED_EXECUTOR_NAME, UncaughtThrowableStrategy.DEFAULT, false)));
     }
 
     public static GlideExecutor newAnimationExecutor() {
@@ -183,7 +182,7 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static final class DefaultThreadFactory implements ThreadFactory {
         private static final int DEFAULT_PRIORITY = 9;
         private final String name;

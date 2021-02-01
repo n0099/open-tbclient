@@ -16,13 +16,13 @@ import androidx.annotation.RequiresApi;
 import com.win.opensdk.d;
 /* loaded from: classes3.dex */
 public final class n extends WebViewClient {
-    private boolean pYM;
-    private y pZl;
-    private h pZp;
+    private boolean qiQ;
+    private y qjp;
+    private h qjt;
 
     public n(y yVar, h hVar) {
-        this.pZl = yVar;
-        this.pZp = hVar;
+        this.qjp = yVar;
+        this.qjt = hVar;
     }
 
     @Override // android.webkit.WebViewClient
@@ -40,12 +40,12 @@ public final class n extends WebViewClient {
                 return super.shouldOverrideUrlLoading(webView, str);
             }
             if ("mraid".equals(Uri.parse(str).getScheme())) {
-                if (this.pZp != null) {
-                    this.pZp.aaE(str);
+                if (this.qjt != null) {
+                    this.qjt.abF(str);
                 }
                 return true;
-            } else if (this.pZp != null) {
-                return this.pZp.aaD(str);
+            } else if (this.qjt != null) {
+                return this.qjt.abE(str);
             }
         }
         return super.shouldOverrideUrlLoading(webView, str);
@@ -63,13 +63,13 @@ public final class n extends WebViewClient {
                 return super.shouldOverrideUrlLoading(webView, webResourceRequest);
             }
             if ("mraid".equals(scheme)) {
-                if (this.pZp != null) {
-                    this.pZp.aaE(uri);
+                if (this.qjt != null) {
+                    this.qjt.abF(uri);
                 }
-                g.e(this.pZl, "javascript:window.mraidbridge.nativeCallComplete('" + host + "')");
+                g.e(this.qjp, "javascript:window.mraidbridge.nativeCallComplete('" + host + "')");
                 return true;
-            } else if (this.pZp != null) {
-                return this.pZp.aaD(uri);
+            } else if (this.qjt != null) {
+                return this.qjt.abE(uri);
             }
         }
         return super.shouldOverrideUrlLoading(webView, webResourceRequest);
@@ -81,7 +81,7 @@ public final class n extends WebViewClient {
         if (Build.VERSION.SDK_INT < 24) {
             try {
                 if (str.contains("mraid.js") && Build.VERSION.SDK_INT >= 12) {
-                    return new WebResourceResponse("text/javascript", "utf-8", webView.getResources().openRawResource(d.C1271d.mraid));
+                    return new WebResourceResponse("text/javascript", "utf-8", webView.getResources().openRawResource(d.C1275d.mraid));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -97,7 +97,7 @@ public final class n extends WebViewClient {
         if (Build.VERSION.SDK_INT >= 24) {
             try {
                 if (webResourceRequest.getUrl().toString().contains("mraid.js") && Build.VERSION.SDK_INT >= 12) {
-                    return new WebResourceResponse("text/javascript", "utf-8", webView.getResources().openRawResource(d.C1271d.mraid));
+                    return new WebResourceResponse("text/javascript", "utf-8", webView.getResources().openRawResource(d.C1275d.mraid));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -109,14 +109,14 @@ public final class n extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public final void onPageFinished(WebView webView, String str) {
         super.onPageFinished(webView, str);
-        if (!this.pYM) {
-            if (this.pZl != null && this.pZp != null) {
-                this.pZp.a(this.pZl);
+        if (!this.qiQ) {
+            if (this.qjp != null && this.qjt != null) {
+                this.qjt.a(this.qjp);
             }
-            if (!this.pZp.java()) {
-                this.pZl.getDispatcher().eGz();
+            if (!this.qjt.java()) {
+                this.qjp.getDispatcher().eIP();
             }
-            this.pYM = true;
+            this.qiQ = true;
         }
     }
 

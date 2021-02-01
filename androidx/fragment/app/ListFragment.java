@@ -16,7 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ListFragment extends Fragment {
     static final int INTERNAL_EMPTY_ID = 16711681;
     static final int INTERNAL_LIST_CONTAINER_ID = 16711683;

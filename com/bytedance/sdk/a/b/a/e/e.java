@@ -1,13 +1,13 @@
 package com.bytedance.sdk.a.b.a.e;
 
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class e {
-    static final com.bytedance.sdk.a.a.f pfg = com.bytedance.sdk.a.a.f.a("PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n");
+    static final com.bytedance.sdk.a.a.f ppy = com.bytedance.sdk.a.a.f.a("PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n");
     private static final String[] d = {"DATA", "HEADERS", "PRIORITY", "RST_STREAM", "SETTINGS", "PUSH_PROMISE", "PING", "GOAWAY", "WINDOW_UPDATE", "CONTINUATION"};
 
     /* renamed from: b  reason: collision with root package name */
-    static final String[] f5895b = new String[64];
+    static final String[] f5897b = new String[64];
     static final String[] c = new String[256];
 
     static {
@@ -15,25 +15,25 @@ public final class e {
         for (int i = 0; i < c.length; i++) {
             c[i] = com.bytedance.sdk.a.b.a.c.a("%8s", Integer.toBinaryString(i)).replace(' ', '0');
         }
-        f5895b[0] = "";
-        f5895b[1] = "END_STREAM";
+        f5897b[0] = "";
+        f5897b[1] = "END_STREAM";
         int[] iArr2 = {1};
-        f5895b[8] = "PADDED";
+        f5897b[8] = "PADDED";
         for (int i2 : iArr2) {
-            f5895b[i2 | 8] = f5895b[i2] + "|PADDED";
+            f5897b[i2 | 8] = f5897b[i2] + "|PADDED";
         }
-        f5895b[4] = "END_HEADERS";
-        f5895b[32] = "PRIORITY";
-        f5895b[36] = "END_HEADERS|PRIORITY";
+        f5897b[4] = "END_HEADERS";
+        f5897b[32] = "PRIORITY";
+        f5897b[36] = "END_HEADERS|PRIORITY";
         for (int i3 : new int[]{4, 32, 36}) {
             for (int i4 : iArr2) {
-                f5895b[i4 | i3] = f5895b[i4] + '|' + f5895b[i3];
-                f5895b[i4 | i3 | 8] = f5895b[i4] + '|' + f5895b[i3] + "|PADDED";
+                f5897b[i4 | i3] = f5897b[i4] + '|' + f5897b[i3];
+                f5897b[i4 | i3 | 8] = f5897b[i4] + '|' + f5897b[i3] + "|PADDED";
             }
         }
-        for (int i5 = 0; i5 < f5895b.length; i5++) {
-            if (f5895b[i5] == null) {
-                f5895b[i5] = c[i5];
+        for (int i5 = 0; i5 < f5897b.length; i5++) {
+            if (f5897b[i5] == null) {
+                f5897b[i5] = c[i5];
             }
         }
     }
@@ -79,7 +79,7 @@ public final class e {
                 return b3 == 1 ? "ACK" : c[b3];
             case 5:
             default:
-                String str = b3 < f5895b.length ? f5895b[b3] : c[b3];
+                String str = b3 < f5897b.length ? f5897b[b3] : c[b3];
                 if (b2 == 5 && (b3 & 4) != 0) {
                     return str.replace("HEADERS", "PUSH_PROMISE");
                 }

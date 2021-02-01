@@ -1,14 +1,12 @@
 package com.xiaomi.push;
-
-import androidx.appcompat.widget.ActivityChooserView;
 /* loaded from: classes6.dex */
 public class jl {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14177a = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private static int f14179a = Integer.MAX_VALUE;
 
     public static void a(ji jiVar, byte b2) {
-        a(jiVar, b2, f14177a);
+        a(jiVar, b2, f14179a);
     }
 
     public static void a(ji jiVar, byte b2, int i) {
@@ -47,19 +45,19 @@ public class jl {
                 jiVar.m515a();
                 while (true) {
                     jf m511a = jiVar.m511a();
-                    if (m511a.f14171a == 0) {
+                    if (m511a.f14173a == 0) {
                         jiVar.f();
                         return;
                     } else {
-                        a(jiVar, m511a.f14171a, i - 1);
+                        a(jiVar, m511a.f14173a, i - 1);
                         jiVar.g();
                     }
                 }
             case 13:
                 jh m513a = jiVar.m513a();
                 while (i2 < m513a.f859a) {
-                    a(jiVar, m513a.f14173a, i - 1);
-                    a(jiVar, m513a.f14174b, i - 1);
+                    a(jiVar, m513a.f14175a, i - 1);
+                    a(jiVar, m513a.f14176b, i - 1);
                     i2++;
                 }
                 jiVar.h();
@@ -67,7 +65,7 @@ public class jl {
             case 14:
                 jm m514a = jiVar.m514a();
                 while (i2 < m514a.f860a) {
-                    a(jiVar, m514a.f14178a, i - 1);
+                    a(jiVar, m514a.f14180a, i - 1);
                     i2++;
                 }
                 jiVar.j();
@@ -75,7 +73,7 @@ public class jl {
             case 15:
                 jg m512a = jiVar.m512a();
                 while (i2 < m512a.f858a) {
-                    a(jiVar, m512a.f14172a, i - 1);
+                    a(jiVar, m512a.f14174a, i - 1);
                     i2++;
                 }
                 jiVar.i();

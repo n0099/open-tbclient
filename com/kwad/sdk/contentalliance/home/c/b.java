@@ -12,7 +12,7 @@ import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ao;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.sdk.contentalliance.home.c.a.b> {
     private SlidePlayViewPager c;
     private c d;
@@ -31,7 +31,7 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     }
 
     private void b(AdTemplate adTemplate, @Nullable View view, boolean z) {
-        int indexOf = this.f10434a.indexOf(adTemplate);
+        int indexOf = this.f10436a.indexOf(adTemplate);
         com.kwad.sdk.core.d.a.a("SlideProfileAdapter", "notifyVideoStateChange selectedPosition:" + indexOf);
         if (indexOf != -1) {
             for (a aVar : this.f) {
@@ -41,7 +41,7 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     }
 
     private void l() {
-        int indexOf = this.f10434a.indexOf(this.g);
+        int indexOf = this.f10436a.indexOf(this.g);
         com.kwad.sdk.core.d.a.a("SlideProfileAdapter", "notifyOnSelectChanged selectedPosition:" + indexOf);
         if (indexOf != -1) {
             for (a aVar : this.f) {
@@ -77,8 +77,8 @@ public class b extends com.kwad.sdk.lib.widget.recycler.c<AdTemplate, com.kwad.s
     @Override // com.kwad.sdk.lib.widget.recycler.c
     public void a(com.kwad.sdk.contentalliance.home.c.a.b bVar, int i) {
         super.a((b) bVar, i);
-        bVar.f8715a = this.c;
-        bVar.f8716b = this.i;
+        bVar.f8717a = this.c;
+        bVar.f8718b = this.i;
         bVar.c = this;
     }
 

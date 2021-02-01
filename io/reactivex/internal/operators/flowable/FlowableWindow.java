@@ -19,11 +19,11 @@ public final class FlowableWindow<T> extends a<T, g<T>> {
     @Override // io.reactivex.g
     public void a(org.a.c<? super g<T>> cVar) {
         if (this.skip == this.size) {
-            this.qdS.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
+            this.qnW.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
         } else if (this.skip > this.size) {
-            this.qdS.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.qnW.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
         } else {
-            this.qdS.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.qnW.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
         }
     }
 
@@ -98,7 +98,7 @@ public final class FlowableWindow<T> extends a<T, g<T>> {
         @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                this.s.request(io.reactivex.internal.util.b.U(this.size, j));
+                this.s.request(io.reactivex.internal.util.b.Y(this.size, j));
             }
         }
 
@@ -197,10 +197,10 @@ public final class FlowableWindow<T> extends a<T, g<T>> {
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 if (!this.firstRequest.get() && this.firstRequest.compareAndSet(false, true)) {
-                    this.s.request(io.reactivex.internal.util.b.T(io.reactivex.internal.util.b.U(this.size, j), io.reactivex.internal.util.b.U(this.skip - this.size, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.X(io.reactivex.internal.util.b.Y(this.size, j), io.reactivex.internal.util.b.Y(this.skip - this.size, j - 1)));
                     return;
                 }
-                this.s.request(io.reactivex.internal.util.b.U(this.skip, j));
+                this.s.request(io.reactivex.internal.util.b.Y(this.skip, j));
             }
         }
 
@@ -386,9 +386,9 @@ public final class FlowableWindow<T> extends a<T, g<T>> {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
                 if (!this.firstRequest.get() && this.firstRequest.compareAndSet(false, true)) {
-                    this.s.request(io.reactivex.internal.util.b.T(this.size, io.reactivex.internal.util.b.U(this.skip, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.X(this.size, io.reactivex.internal.util.b.Y(this.skip, j - 1)));
                 } else {
-                    this.s.request(io.reactivex.internal.util.b.U(this.skip, j));
+                    this.s.request(io.reactivex.internal.util.b.Y(this.skip, j));
                 }
                 drain();
             }

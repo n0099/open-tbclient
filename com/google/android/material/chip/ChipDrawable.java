@@ -35,7 +35,6 @@ import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
 import androidx.annotation.XmlRes;
 import androidx.appcompat.content.res.AppCompatResources;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -51,11 +50,12 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.resources.TextAppearance;
 import com.google.android.material.ripple.RippleUtils;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ChipDrawable extends Drawable implements Drawable.Callback, TintAwareDrawable {
     private static final boolean DEBUG = false;
     private static final int[] DEFAULT_STATE = {16842910};
@@ -156,7 +156,7 @@ public class ChipDrawable extends Drawable implements Drawable.Callback, TintAwa
     @Nullable
     private CharSequence rawText = "";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface Delegate {
         void onChipDrawableSizeChange();
     }
@@ -265,7 +265,7 @@ public class ChipDrawable extends Drawable implements Drawable.Callback, TintAwa
         setCloseIconStartPadding(obtainStyledAttributes.getDimension(R.styleable.Chip_closeIconStartPadding, 0.0f));
         setCloseIconEndPadding(obtainStyledAttributes.getDimension(R.styleable.Chip_closeIconEndPadding, 0.0f));
         setChipEndPadding(obtainStyledAttributes.getDimension(R.styleable.Chip_chipEndPadding, 0.0f));
-        setMaxWidth(obtainStyledAttributes.getDimensionPixelSize(R.styleable.Chip_android_maxWidth, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED));
+        setMaxWidth(obtainStyledAttributes.getDimensionPixelSize(R.styleable.Chip_android_maxWidth, Integer.MAX_VALUE));
         obtainStyledAttributes.recycle();
     }
 
@@ -474,7 +474,7 @@ public class ChipDrawable extends Drawable implements Drawable.Callback, TintAwa
 
     private void drawDebug(@NonNull Canvas canvas, Rect rect) {
         if (this.debugPaint != null) {
-            this.debugPaint.setColor(ColorUtils.setAlphaComponent(ViewCompat.MEASURED_STATE_MASK, 127));
+            this.debugPaint.setColor(ColorUtils.setAlphaComponent(ViewCompat.MEASURED_STATE_MASK, ThunderNetStateService.NetState.SYSNET_UNKNOWN));
             canvas.drawRect(rect, this.debugPaint);
             if (showsChipIcon() || showsCheckedIcon()) {
                 calculateChipIconBounds(rect, this.rectF);
@@ -487,10 +487,10 @@ public class ChipDrawable extends Drawable implements Drawable.Callback, TintAwa
                 calculateCloseIconBounds(rect, this.rectF);
                 canvas.drawRect(this.rectF, this.debugPaint);
             }
-            this.debugPaint.setColor(ColorUtils.setAlphaComponent(SupportMenu.CATEGORY_MASK, 127));
+            this.debugPaint.setColor(ColorUtils.setAlphaComponent(SupportMenu.CATEGORY_MASK, ThunderNetStateService.NetState.SYSNET_UNKNOWN));
             calculateChipTouchBounds(rect, this.rectF);
             canvas.drawRect(this.rectF, this.debugPaint);
-            this.debugPaint.setColor(ColorUtils.setAlphaComponent(-16711936, 127));
+            this.debugPaint.setColor(ColorUtils.setAlphaComponent(-16711936, ThunderNetStateService.NetState.SYSNET_UNKNOWN));
             calculateCloseIconTouchBounds(rect, this.rectF);
             canvas.drawRect(this.rectF, this.debugPaint);
         }

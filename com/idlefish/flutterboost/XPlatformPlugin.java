@@ -12,10 +12,9 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class XPlatformPlugin {
     private Activity activity;
     private PlatformChannel.SystemChromeStyle currentTheme;
@@ -86,7 +85,7 @@ public class XPlatformPlugin {
     public XPlatformPlugin(PlatformChannel platformChannel) {
         this.platformChannel = platformChannel;
         this.platformChannel.setPlatformMessageHandler(this.mPlatformMessageHandler);
-        this.mEnabledOverlays = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        this.mEnabledOverlays = 1280;
     }
 
     public void attachToActivity(Activity activity) {

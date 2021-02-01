@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Regex implements Serializable {
     public static final a Companion = new a(null);
     private Set<? extends RegexOption> _options;
@@ -39,7 +39,7 @@ public final class Regex implements Serializable {
         this(r0);
         kotlin.jvm.internal.p.o(str, "pattern");
         kotlin.jvm.internal.p.o(regexOption, "option");
-        Pattern compile = Pattern.compile(str, Companion.Sa(regexOption.getValue()));
+        Pattern compile = Pattern.compile(str, Companion.Sv(regexOption.getValue()));
         kotlin.jvm.internal.p.n(compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
     }
 
@@ -54,7 +54,7 @@ public final class Regex implements Serializable {
         kotlin.jvm.internal.p.o(set, "options");
         a aVar = Companion;
         j = k.j(set);
-        Pattern compile = Pattern.compile(str, aVar.Sa(j));
+        Pattern compile = Pattern.compile(str, aVar.Sv(j));
         kotlin.jvm.internal.p.n(compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
     }
 
@@ -146,12 +146,12 @@ public final class Regex implements Serializable {
         StringBuilder sb = new StringBuilder(length);
         do {
             if (find$default == null) {
-                kotlin.jvm.internal.p.eIW();
+                kotlin.jvm.internal.p.eLm();
             }
-            sb.append(charSequence, i, find$default.eJo().eJf().intValue());
+            sb.append(charSequence, i, find$default.eLE().eLv().intValue());
             sb.append(bVar.invoke(find$default));
-            i = find$default.eJo().eJg().intValue() + 1;
-            find$default = find$default.eJp();
+            i = find$default.eLE().eLw().intValue() + 1;
+            find$default = find$default.eLF();
             if (i >= length) {
                 break;
             }
@@ -210,7 +210,7 @@ public final class Regex implements Serializable {
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static final class Serialized implements Serializable {
         public static final a Companion = new a(null);
         private static final long serialVersionUID = 0;
@@ -218,7 +218,7 @@ public final class Regex implements Serializable {
         private final String pattern;
 
         @kotlin.e
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static final class a {
             private a() {
             }
@@ -250,7 +250,7 @@ public final class Regex implements Serializable {
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         private a() {
         }
@@ -260,7 +260,7 @@ public final class Regex implements Serializable {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final int Sa(int i) {
+        public final int Sv(int i) {
             return (i & 2) != 0 ? i | 64 : i;
         }
     }

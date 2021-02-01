@@ -6,7 +6,7 @@ import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.Point;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ab {
     private static final String t = ab.class.getSimpleName();
     public double m;
@@ -18,10 +18,10 @@ public class ab {
     public int s;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3040a = 12.0f;
+    public float f3038a = 12.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3041b = 0;
+    public int f3039b = 0;
     public int c = 0;
     public double d = 1.2958162E7d;
     public double e = 4825907.0d;
@@ -33,14 +33,14 @@ public class ab {
     public a k = new a();
     public boolean l = false;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f3042a = 0;
+        public long f3040a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f3043b = 0;
+        public long f3041b = 0;
         public long c = 0;
         public long d = 0;
         public Point e = new Point(0, 0);
@@ -53,21 +53,21 @@ public class ab {
     }
 
     public Bundle a(e eVar) {
-        if (this.f3040a < eVar.f3053b) {
-            this.f3040a = eVar.f3053b;
+        if (this.f3038a < eVar.f3051b) {
+            this.f3038a = eVar.f3051b;
         }
-        if (this.f3040a > eVar.f3052a) {
-            if (this.f3040a == 1096.0f || e.d == 26.0f) {
-                this.f3040a = 26.0f;
+        if (this.f3038a > eVar.f3050a) {
+            if (this.f3038a == 1096.0f || e.d == 26.0f) {
+                this.f3038a = 26.0f;
                 e.d = 26.0f;
             } else {
-                this.f3040a = eVar.f3052a;
+                this.f3038a = eVar.f3050a;
             }
         }
-        while (this.f3041b < 0) {
-            this.f3041b += EncoderTextureDrawer.X264_WIDTH;
+        while (this.f3039b < 0) {
+            this.f3039b += EncoderTextureDrawer.X264_WIDTH;
         }
-        this.f3041b %= EncoderTextureDrawer.X264_WIDTH;
+        this.f3039b %= EncoderTextureDrawer.X264_WIDTH;
         if (this.c > 0) {
             this.c = 0;
         }
@@ -75,8 +75,8 @@ public class ab {
             this.c = -45;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", this.f3040a);
-        bundle.putDouble("rotation", this.f3041b);
+        bundle.putDouble("level", this.f3038a);
+        bundle.putDouble("rotation", this.f3039b);
         bundle.putDouble("overlooking", this.c);
         bundle.putDouble("centerptx", this.d);
         bundle.putDouble("centerpty", this.e);
@@ -112,8 +112,8 @@ public class ab {
     }
 
     public void a(Bundle bundle) {
-        this.f3040a = (float) bundle.getDouble("level");
-        this.f3041b = (int) bundle.getDouble("rotation");
+        this.f3038a = (float) bundle.getDouble("level");
+        this.f3039b = (int) bundle.getDouble("rotation");
         this.c = (int) bundle.getDouble("overlooking");
         this.d = bundle.getDouble("centerptx");
         this.e = bundle.getDouble("centerpty");
@@ -128,15 +128,15 @@ public class ab {
             this.f = ((this.j.right - this.j.left) / 2) + ((int) this.h);
             this.g = i + ((this.j.bottom - this.j.top) / 2);
         }
-        this.k.f3042a = bundle.getLong("gleft");
-        this.k.f3043b = bundle.getLong("gright");
+        this.k.f3040a = bundle.getLong("gleft");
+        this.k.f3041b = bundle.getLong("gright");
         this.k.c = bundle.getLong("gtop");
         this.k.d = bundle.getLong("gbottom");
-        if (this.k.f3042a <= -20037508) {
-            this.k.f3042a = -20037508L;
+        if (this.k.f3040a <= -20037508) {
+            this.k.f3040a = -20037508L;
         }
-        if (this.k.f3043b >= 20037508) {
-            this.k.f3043b = 20037508L;
+        if (this.k.f3041b >= 20037508) {
+            this.k.f3041b = 20037508L;
         }
         if (this.k.c >= 20037508) {
             this.k.c = 20037508L;

@@ -4,7 +4,7 @@ import android.os.Build;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class TooltipCompat {
     public static void setTooltipText(@NonNull View view, @Nullable CharSequence charSequence) {
         if (Build.VERSION.SDK_INT >= 26) {

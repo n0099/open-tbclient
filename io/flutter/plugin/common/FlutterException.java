@@ -1,5 +1,5 @@
 package io.flutter.plugin.common;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class FlutterException extends RuntimeException {
     private static final String TAG = "FlutterException#";
     public final String code;

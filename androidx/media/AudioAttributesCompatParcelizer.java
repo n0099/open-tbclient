@@ -3,7 +3,7 @@ package androidx.media;
 import androidx.annotation.RestrictTo;
 import androidx.versionedparcelable.VersionedParcel;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class AudioAttributesCompatParcelizer {
     public static AudioAttributesCompat read(VersionedParcel versionedParcel) {
         AudioAttributesCompat audioAttributesCompat = new AudioAttributesCompat();

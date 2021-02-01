@@ -12,42 +12,42 @@ import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private static volatile d lso;
-    private boolean lsm;
-    private boolean lsn;
-    private NewFaceSyncUploadModel lsj = new NewFaceSyncUploadModel();
-    private NewFaceSyncDownloadModel lsk = new NewFaceSyncDownloadModel();
-    private NewFaceGroupDownloadModel iOw = new NewFaceGroupDownloadModel();
-    private ad lsl = new ad();
+    private static volatile d lAt;
+    private boolean lAr;
+    private boolean lAs;
+    private NewFaceSyncUploadModel lAo = new NewFaceSyncUploadModel();
+    private NewFaceSyncDownloadModel lAp = new NewFaceSyncDownloadModel();
+    private NewFaceGroupDownloadModel iUd = new NewFaceGroupDownloadModel();
+    private ad lAq = new ad();
 
-    public static d dgo() {
-        if (lso == null) {
+    public static d dip() {
+        if (lAt == null) {
             synchronized (d.class) {
-                if (lso == null) {
-                    lso = new d();
+                if (lAt == null) {
+                    lAt = new d();
                 }
             }
         }
-        return lso;
+        return lAt;
     }
 
-    public void dgp() {
-        a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.d.1
+    public void diq() {
+        a.dij().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.d.1
             @Override // java.lang.Runnable
             public void run() {
                 String str;
-                List<MyEmotionGroupData> dgl = c.dgk().dgl();
-                if (dgl != null) {
-                    if (!dgl.isEmpty()) {
+                List<MyEmotionGroupData> dim = c.dil().dim();
+                if (dim != null) {
+                    if (!dim.isEmpty()) {
                         StringBuilder sb = new StringBuilder();
                         int i = 0;
-                        for (int i2 = 0; i2 < dgl.size() && i < 30; i2++) {
-                            MyEmotionGroupData myEmotionGroupData = dgl.get(i2);
+                        for (int i2 = 0; i2 < dim.size() && i < 30; i2++) {
+                            MyEmotionGroupData myEmotionGroupData = dim.get(i2);
                             if (myEmotionGroupData != null) {
                                 sb.append(myEmotionGroupData.getGroupId());
-                                if (i2 < dgl.size() - 1) {
+                                if (i2 < dim.size() - 1) {
                                     sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                                 }
                                 i++;
@@ -57,74 +57,74 @@ public class d {
                     } else {
                         str = UserCollectModel.ALL_DELETE;
                     }
-                    d.this.lsj.Ob(str);
+                    d.this.lAo.OQ(str);
                 }
             }
         });
     }
 
-    public void dgq() {
-        this.lsm = true;
-        this.lsn = true;
-        this.lsk.a(new com.baidu.tieba.newfaceshop.a.a() { // from class: com.baidu.tieba.newfaceshop.d.2
+    public void dir() {
+        this.lAr = true;
+        this.lAs = true;
+        this.lAp.a(new com.baidu.tieba.newfaceshop.a.a() { // from class: com.baidu.tieba.newfaceshop.d.2
             @Override // com.baidu.tieba.newfaceshop.a.a
             public void a(final GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
                 if (getCloudFaceGroupMessage == null) {
-                    d.this.lsn = false;
-                    d.this.lsm = false;
+                    d.this.lAs = false;
+                    d.this.lAr = false;
                     return;
                 }
                 if (getCloudFaceGroupMessage.getCollectUpdateTime() <= d.getCollectUpdateTime()) {
-                    d.this.lsn = false;
+                    d.this.lAs = false;
                     if (getCloudFaceGroupMessage.getCollectUpdateTime() < d.getCollectUpdateTime()) {
                         new UserCollectModel().upload();
                     }
-                    ab.cyv().cyw();
+                    ab.czG().czH();
                 } else if (getCloudFaceGroupMessage.getCollectEmotionList() == null) {
-                    d.this.lsn = false;
+                    d.this.lAs = false;
                 } else {
-                    a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.d.2.1
+                    a.dij().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.d.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            d.this.lsl.dh(getCloudFaceGroupMessage.getCollectEmotionList());
+                            d.this.lAq.dc(getCloudFaceGroupMessage.getCollectEmotionList());
                         }
                     });
                 }
                 if (getCloudFaceGroupMessage.getFaceGroupUpdateTime() <= d.getFaceGroupUpdateTime()) {
-                    d.this.lsm = false;
+                    d.this.lAr = false;
                     if (getCloudFaceGroupMessage.getFaceGroupUpdateTime() < d.getFaceGroupUpdateTime()) {
-                        d.this.dgp();
+                        d.this.diq();
                     }
-                    c.dgk().dgm();
+                    c.dil().din();
                 } else if (getCloudFaceGroupMessage.getFaceGroupData() != null) {
-                    d.this.eY(getCloudFaceGroupMessage.getFaceGroupData());
+                    d.this.eW(getCloudFaceGroupMessage.getFaceGroupData());
                 } else {
-                    d.this.lsm = false;
+                    d.this.lAr = false;
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eY(final List<String> list) {
-        a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.d.3
+    public void eW(final List<String> list) {
+        a.dij().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.d.3
             @Override // java.lang.Runnable
             public void run() {
-                c.dgk().ue(true);
-                List<MyEmotionGroupData> dgl = c.dgk().dgl();
+                c.dil().ur(true);
+                List<MyEmotionGroupData> dim = c.dil().dim();
                 ArrayList arrayList = new ArrayList();
-                if (dgl != null) {
-                    for (MyEmotionGroupData myEmotionGroupData : dgl) {
+                if (dim != null) {
+                    for (MyEmotionGroupData myEmotionGroupData : dim) {
                         arrayList.add(myEmotionGroupData.getGroupId());
                     }
                 }
-                d.this.E(list, arrayList);
+                d.this.D(list, arrayList);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void E(List<String> list, List<String> list2) {
+    public void D(List<String> list, List<String> list2) {
         if (list2 != null) {
             ArrayList arrayList = new ArrayList();
             for (String str : list2) {
@@ -133,15 +133,15 @@ public class d {
                 }
             }
             if (!arrayList.isEmpty()) {
-                c.dgk().u(arrayList, false);
+                c.dil().v(arrayList, false);
             }
         }
-        F(list, list2);
+        E(list, list2);
     }
 
-    private void F(final List<String> list, List<String> list2) {
+    private void E(final List<String> list, List<String> list2) {
         if (list == null || list.isEmpty()) {
-            this.lsm = false;
+            this.lAr = false;
             return;
         }
         ArrayList<String> arrayList = new ArrayList();
@@ -153,11 +153,11 @@ public class d {
         if (!arrayList.isEmpty()) {
             final AtomicInteger atomicInteger = new AtomicInteger(arrayList.size());
             for (String str2 : arrayList) {
-                this.iOw.a(str2, false, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.newfaceshop.d.4
+                this.iUd.a(str2, false, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.newfaceshop.d.4
                     @Override // com.baidu.tieba.newfaceshop.a.b
                     public void onSuccess(String str3) {
                         if (atomicInteger.decrementAndGet() == 0) {
-                            d.this.fa(list);
+                            d.this.eY(list);
                         }
                     }
 
@@ -168,66 +168,66 @@ public class d {
                     @Override // com.baidu.tieba.newfaceshop.a.b
                     public void onFail(String str3) {
                         if (atomicInteger.decrementAndGet() == 0) {
-                            d.this.fa(list);
+                            d.this.eY(list);
                         }
                     }
                 });
             }
             return;
         }
-        eZ(list);
+        eX(list);
     }
 
-    private void eZ(final List<String> list) {
+    private void eX(final List<String> list) {
         if (l.isMainThread()) {
-            a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.d.5
+            a.dij().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.d.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.fa(list);
+                    d.this.eY(list);
                 }
             });
         } else {
-            fa(list);
+            eY(list);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fa(List<String> list) {
-        if (c.dgk().v(list, false)) {
-            hj(System.currentTimeMillis());
+    public void eY(List<String> list) {
+        if (c.dil().w(list, false)) {
+            ho(System.currentTimeMillis());
         }
-        this.lsm = false;
+        this.lAr = false;
     }
 
     public static long getFaceGroupUpdateTime() {
-        return com.baidu.tbadk.core.sharedPref.b.brx().getLong("face_group_update_time" + dgt(), 0L);
+        return com.baidu.tbadk.core.sharedPref.b.brQ().getLong("face_group_update_time" + diu(), 0L);
     }
 
     public static long getCollectUpdateTime() {
-        return com.baidu.tbadk.core.sharedPref.b.brx().getLong("face_collect_update_time" + dgt(), 0L);
+        return com.baidu.tbadk.core.sharedPref.b.brQ().getLong("face_collect_update_time" + diu(), 0L);
     }
 
-    public static void hi(long j) {
-        com.baidu.tbadk.core.sharedPref.b.brx().putLong("face_collect_update_time" + dgt(), j);
+    public static void hn(long j) {
+        com.baidu.tbadk.core.sharedPref.b.brQ().putLong("face_collect_update_time" + diu(), j);
     }
 
-    public static void hj(long j) {
-        com.baidu.tbadk.core.sharedPref.b.brx().putLong("face_group_update_time" + dgt(), j);
+    public static void ho(long j) {
+        com.baidu.tbadk.core.sharedPref.b.brQ().putLong("face_group_update_time" + diu(), j);
     }
 
-    public boolean dgr() {
-        return this.lsm;
+    public boolean dis() {
+        return this.lAr;
     }
 
-    public boolean dgs() {
-        return this.lsn;
+    public boolean dit() {
+        return this.lAs;
     }
 
-    public void uf(boolean z) {
-        this.lsn = z;
+    public void us(boolean z) {
+        this.lAs = z;
     }
 
-    private static String dgt() {
+    private static String diu() {
         return TbadkCoreApplication.getCurrentAccount() == null ? "" : String.valueOf(Math.abs(TbadkCoreApplication.getCurrentAccount().hashCode()));
     }
 }

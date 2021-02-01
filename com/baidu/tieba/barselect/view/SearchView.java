@@ -11,16 +11,16 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SearchView extends LinearLayout {
-    private ImageView gUy;
-    private View inN;
-    private TextView inO;
-    private TextView inP;
-    private View inQ;
-    private TextView inR;
+    private ImageView gXi;
+    private View itr;
+    private TextView its;
+    private TextView itt;
+    private View itu;
+    private TextView itv;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -39,36 +39,36 @@ public class SearchView extends LinearLayout {
         setMinimumHeight(l.getDimens(getContext(), R.dimen.tbds90));
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.vote_search_layout, (ViewGroup) this, true);
-        tC();
+        tz();
     }
 
-    private void tC() {
-        this.inN = findViewById(R.id.search_view_title_container);
-        this.inO = (TextView) findViewById(R.id.search_view_title);
-        this.inP = (TextView) findViewById(R.id.search_view_rank);
-        this.inQ = findViewById(R.id.search_container);
-        this.gUy = (ImageView) findViewById(R.id.search_bar_icon);
-        this.inR = (TextView) findViewById(R.id.search_text);
+    private void tz() {
+        this.itr = findViewById(R.id.search_view_title_container);
+        this.its = (TextView) findViewById(R.id.search_view_title);
+        this.itt = (TextView) findViewById(R.id.search_view_rank);
+        this.itu = findViewById(R.id.search_container);
+        this.gXi = (ImageView) findViewById(R.id.search_bar_icon);
+        this.itv = (TextView) findViewById(R.id.search_text);
     }
 
     public void setRank(int i) {
-        this.inN.setVisibility(0);
-        this.inP.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i)));
+        this.itr.setVisibility(0);
+        this.itt.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i)));
     }
 
-    public void uo(int i) {
-        ao.e(this.inQ, l.getDimens(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i);
-        SvgManager.bsx().a(this.gUy, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-        ao.setViewTextColor(this.inO, R.color.CAM_X0105, 1, i);
-        ao.setViewTextColor(this.inP, R.color.CAM_X0105, 1, i);
-        ao.setViewTextColor(this.inR, R.color.CAM_X0109, 1, i);
-        ao.setBackgroundColor(this, R.color.CAM_X0201, i);
+    public void uu(int i) {
+        ap.e(this.itu, l.getDimens(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i);
+        SvgManager.bsR().a(this.gXi, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+        ap.setViewTextColor(this.its, R.color.CAM_X0105, 1, i);
+        ap.setViewTextColor(this.itt, R.color.CAM_X0105, 1, i);
+        ap.setViewTextColor(this.itv, R.color.CAM_X0109, 1, i);
+        ap.setBackgroundColor(this, R.color.CAM_X0201, i);
     }
 
     public void w(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.inQ.setOnClickListener(this.mOnClickListener);
+            this.itu.setOnClickListener(this.mOnClickListener);
         }
     }
 }

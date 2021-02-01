@@ -1,98 +1,64 @@
 package com.baidu.mobads.utils;
 
 import android.content.Context;
-import android.graphics.Rect;
-import android.os.PowerManager;
-import android.util.DisplayMetrics;
-import android.view.View;
-import com.baidu.mobads.interfaces.utils.IXAdViewUtils;
-/* loaded from: classes14.dex */
-public class u implements IXAdViewUtils {
-    @Override // com.baidu.mobads.interfaces.utils.IXAdViewUtils
-    public boolean isAdViewOutsideScreen(View view) {
-        int[] iArr = new int[2];
-        view.getLocationOnScreen(iArr);
-        Rect windowRect = XAdSDKFoundationFacade.getInstance().getCommonUtils().getWindowRect(view.getContext());
-        int width = iArr[0] + (view.getWidth() / 2);
-        int height = iArr[1] + (view.getHeight() / 2);
-        return width <= 0 || width >= windowRect.width() || height <= 0 || height >= windowRect.height();
+import android.provider.Settings;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes5.dex */
+public class u extends com.baidu.mobads.f.a<String> {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ Context f3510a;
+    final /* synthetic */ t c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public u(t tVar, Context context) {
+        this.c = tVar;
+        this.f3510a = context;
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdViewUtils
-    public boolean isScreenOn(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x004c, code lost:
+        r5.c.n = "2";
+     */
+    @Override // com.baidu.mobads.f.a
+    /* renamed from: d */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String a() {
+        String str;
+        boolean e;
+        String str2;
         try {
-            return ((PowerManager) context.getSystemService("power")).isScreenOn();
-        } catch (Exception e) {
-            XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
-            return true;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdViewUtils
-    public boolean isAdViewTooSmall(View view) {
-        return view != null && (view.getWidth() < 10 || view.getHeight() < 10);
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdViewUtils
-    public boolean isAdViewShown(View view) {
-        return view != null && view.isShown();
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdViewUtils
-    public boolean isVisible(View view, int i) {
-        if (view == null || view.getVisibility() != 0 || view.getParent() == null) {
-            return false;
-        }
-        Rect rect = new Rect();
-        if (view.getGlobalVisibleRect(rect)) {
-            long height = rect.height() * rect.width();
-            long height2 = view.getHeight() * view.getWidth();
-            return height2 > 0 && height * 100 >= height2 * ((long) i);
-        }
-        return false;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdViewUtils
-    public int getVisiblePercent(View view, Context context) {
-        if (view != null) {
-            try {
-                if (view.isShown()) {
-                    DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                    int i = displayMetrics.heightPixels;
-                    int i2 = displayMetrics.widthPixels;
-                    Rect rect = new Rect();
-                    view.getGlobalVisibleRect(rect);
-                    if (rect.top > i || rect.left > i2) {
-                        return 0;
-                    }
-                    return (int) (((rect.width() * rect.height()) * 100.0d) / (view.getHeight() * view.getWidth()));
-                }
-                return 0;
-            } catch (Exception e) {
-                return 0;
+            this.c.m = "1";
+            String string = Settings.System.getString(this.f3510a.getContentResolver(), "bd_setting_i");
+            e = this.c.e(string);
+            if (e) {
+                this.c.m = "2";
+                str2 = "";
+            } else {
+                str2 = string;
             }
+            try {
+                String[] strArr = this.f3510a.getPackageManager().getPackageInfo(this.f3510a.getPackageName(), 4096).requestedPermissions;
+                int i = 0;
+                while (true) {
+                    if (i >= strArr.length) {
+                        break;
+                    } else if (strArr[i].contains("android.permission.READ_PHONE_STATE")) {
+                        break;
+                    } else {
+                        this.c.n = "0";
+                        i++;
+                    }
+                }
+            } catch (Throwable th) {
+            }
+            String unused = t.f = str2;
+        } catch (Throwable th2) {
+            String unused2 = t.f = "";
         }
-        return 0;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdViewUtils
-    public int getViewState(View view) {
-        if (!isScreenOn(view.getContext())) {
-            return 4;
-        }
-        if (!isAdViewShown(view)) {
-            return 1;
-        }
-        if (!a(view)) {
-            return 6;
-        }
-        if (isVisible(view, 50)) {
-            return 0;
-        }
-        return 3;
-    }
-
-    private boolean a(View view) {
-        return view.getWidth() > 15 && view.getHeight() > 15;
+        str = t.f;
+        return str;
     }
 }

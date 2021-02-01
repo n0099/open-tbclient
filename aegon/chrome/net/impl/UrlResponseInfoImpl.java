@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class UrlResponseInfoImpl extends UrlResponseInfo {
     public final HeaderBlockImpl mHeaders;
     public final int mHttpStatusCode;
@@ -17,7 +17,7 @@ public final class UrlResponseInfoImpl extends UrlResponseInfo {
     public final List<String> mResponseInfoUrlChain;
     public final boolean mWasCached;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class HeaderBlockImpl extends UrlResponseInfo.HeaderBlock {
         public final List<Map.Entry<String, String>> mAllHeadersList;
 

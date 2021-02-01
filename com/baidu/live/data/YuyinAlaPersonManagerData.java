@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class YuyinAlaPersonManagerData implements Serializable {
     public boolean isShowManagerBtn = false;
     public int userIndentity = 3;

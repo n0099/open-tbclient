@@ -5,50 +5,50 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.PrivatePopInfo;
 /* loaded from: classes.dex */
 public class PrivateForumPopInfoData extends OrmObject {
-    private String eMO = null;
-    private String eMP = null;
-    private String eMQ = null;
-    private Integer eMR = null;
+    private String ePa = null;
+    private String ePb = null;
+    private String ePc = null;
+    private Integer ePd = null;
 
-    public void zF(String str) {
-        this.eMO = str;
+    public void zW(String str) {
+        this.ePa = str;
     }
 
-    public String bmv() {
-        return this.eMO;
+    public String bmO() {
+        return this.ePa;
     }
 
-    public void zG(String str) {
-        this.eMP = str;
+    public void zX(String str) {
+        this.ePb = str;
     }
 
-    public String bmw() {
-        return this.eMP;
+    public String bmP() {
+        return this.ePb;
     }
 
-    public void zH(String str) {
-        this.eMQ = str;
+    public void zY(String str) {
+        this.ePc = str;
     }
 
-    public String bmx() {
-        return this.eMQ;
+    public String bmQ() {
+        return this.ePc;
     }
 
     public void m(Integer num) {
-        this.eMR = num;
+        this.ePd = num;
     }
 
-    public Integer bmy() {
-        return this.eMR;
+    public Integer bmR() {
+        return this.ePd;
     }
 
     public void a(PrivatePopInfo privatePopInfo) {
         if (privatePopInfo != null) {
             try {
-                this.eMO = privatePopInfo.pop_type;
-                this.eMP = privatePopInfo.pop_content;
-                this.eMQ = privatePopInfo.pop_url;
-                this.eMR = privatePopInfo.pop_forum_id;
+                this.ePa = privatePopInfo.pop_type;
+                this.ePb = privatePopInfo.pop_content;
+                this.ePc = privatePopInfo.pop_url;
+                this.ePd = privatePopInfo.pop_forum_id;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.pendantview.PendantChildView;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.tbadk.log.LogConfig;
@@ -15,49 +15,48 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.tieba.ala.view.AlaSeriesGiftPendant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class h implements com.baidu.live.ae.a {
-    protected AlaSeriesGiftPendant gPg;
-    private PendantParentView glA;
-    private PendantChildView glB;
-    private Context mContext;
-    private final int gPd = 1;
-    private final int gPe = 0;
-    private final int gPf = -1;
+/* loaded from: classes11.dex */
+public class h implements com.baidu.live.ad.a {
+    protected AlaSeriesGiftPendant gRP;
+    private PendantParentView gog;
+    private PendantChildView goh;
     private boolean isHost = false;
+    private Context mContext;
 
     public h(Context context) {
         this.mContext = context;
     }
 
-    @Override // com.baidu.live.ae.a
+    @Override // com.baidu.live.ad.a
     public void a(ViewGroup viewGroup, String str) {
-        if (viewGroup != null && str != null && !TextUtils.isEmpty(str)) {
+        if (viewGroup != null) {
             if (viewGroup instanceof PendantParentView) {
-                this.glA = (PendantParentView) viewGroup;
-                bNr();
+                this.gog = (PendantParentView) viewGroup;
+                bNS();
             }
-            if (this.gPg == null || (this.glB != null && this.glB.indexOfChild(this.gPg) < 0)) {
-                this.gPg = new AlaSeriesGiftPendant(this.glB.getContext(), this.isHost, str);
-                this.glB.addView(this.gPg);
+            if (str != null && !TextUtils.isEmpty(str)) {
+                if (this.gRP == null || (this.goh != null && this.goh.indexOfChild(this.gRP) < 0)) {
+                    this.gRP = new AlaSeriesGiftPendant(this.goh.getContext(), this.isHost, str);
+                    this.goh.addView(this.gRP);
+                }
             }
         }
     }
 
-    @Override // com.baidu.live.ae.a
-    public void a(x xVar) {
+    @Override // com.baidu.live.ad.a
+    public void a(ab abVar) {
     }
 
-    @Override // com.baidu.live.ae.a
-    public boolean V(JSONObject jSONObject) {
-        if (dI(jSONObject) == -1) {
+    @Override // com.baidu.live.ad.a
+    public boolean Z(JSONObject jSONObject) {
+        if (dJ(jSONObject) == -1) {
             return false;
         }
-        if (this.gPg != null && (this.gPg.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gPg.getParent()).removeView(this.gPg);
+        if (this.gRP != null && (this.gRP.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gRP.getParent()).removeView(this.gRP);
         }
-        this.gPg = new AlaSeriesGiftPendant(this.glB.getContext(), this.isHost, jSONObject.toString());
-        this.glB.addView(this.gPg);
+        this.gRP = new AlaSeriesGiftPendant(this.goh.getContext(), this.isHost, jSONObject.toString());
+        this.goh.addView(this.gRP);
         JSONObject jSONObject2 = new JSONObject();
         try {
             JSONObject jSONObject3 = new JSONObject();
@@ -71,85 +70,87 @@ public class h implements com.baidu.live.ae.a {
         return true;
     }
 
-    @Override // com.baidu.live.ae.a
+    @Override // com.baidu.live.ad.a
     public void setCanVisible(boolean z) {
-        if (this.gPg != null) {
-            this.gPg.setCanVisible(z);
+        if (this.gRP != null) {
+            this.gRP.setCanVisible(z);
         }
     }
 
-    @Override // com.baidu.live.ae.a
-    public void cK(boolean z) {
-        if (this.gPg != null && z && !AlaSeriesGiftPendant.ieQ) {
-            this.gPg.setCanVisible(true);
+    @Override // com.baidu.live.ad.a
+    public void cT(boolean z) {
+        if (this.gRP != null && z && !AlaSeriesGiftPendant.ijF) {
+            this.gRP.setCanVisible(true);
         }
     }
 
-    @Override // com.baidu.live.ae.a
-    public void xk() {
-        mr(true);
+    @Override // com.baidu.live.ad.a
+    public void xh() {
+        mv(true);
     }
 
-    @Override // com.baidu.live.ae.a
+    @Override // com.baidu.live.ad.a
     public void onDestroy() {
-        mr(true);
+        mv(true);
     }
 
-    @Override // com.baidu.live.ae.a
+    @Override // com.baidu.live.ad.a
     public void setIsHost(boolean z) {
         this.isHost = z;
     }
 
-    private void bNr() {
-        this.glB = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.h.1
-            @Override // com.baidu.live.pendantview.PendantChildView
-            public PendantParentView.Position getVerticalPosition() {
-                return PendantParentView.Position.RIGHT;
-            }
+    private void bNS() {
+        if (this.goh == null) {
+            this.goh = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.h.1
+                @Override // com.baidu.live.pendantview.PendantChildView
+                public PendantParentView.Position getVerticalPosition() {
+                    return PendantParentView.Position.RIGHT;
+                }
 
-            @Override // com.baidu.live.pendantview.PendantChildView
-            public PendantParentView.Position getVerticalPkPosition() {
-                return PendantParentView.Position.RIGHT;
-            }
+                @Override // com.baidu.live.pendantview.PendantChildView
+                public PendantParentView.Position getVerticalPkPosition() {
+                    return PendantParentView.Position.RIGHT;
+                }
 
-            @Override // com.baidu.live.pendantview.PendantChildView
-            public PendantParentView.Position getVerticalBBChattingPosition() {
-                return PendantParentView.Position.RIGHT;
-            }
+                @Override // com.baidu.live.pendantview.PendantChildView
+                public PendantParentView.Position getVerticalBBChattingPosition() {
+                    return PendantParentView.Position.RIGHT;
+                }
 
-            @Override // com.baidu.live.pendantview.PendantChildView
-            public PendantParentView.Position getHorizontalPosition() {
-                return PendantParentView.Position.RIGHT;
-            }
+                @Override // com.baidu.live.pendantview.PendantChildView
+                public PendantParentView.Position getHorizontalPosition() {
+                    return PendantParentView.Position.RIGHT;
+                }
 
-            @Override // com.baidu.live.pendantview.PendantChildView
-            public PendantParentView.Position getHorizontalFullPosition() {
-                return PendantParentView.Position.RIGHT;
-            }
+                @Override // com.baidu.live.pendantview.PendantChildView
+                public PendantParentView.Position getHorizontalFullPosition() {
+                    return PendantParentView.Position.RIGHT;
+                }
 
-            @Override // com.baidu.live.pendantview.PendantChildView
-            public int getPriority() {
-                return 9;
-            }
-        };
-        this.glB.setBackgroundColor(0);
-        if (this.glA != null) {
-            this.glA.a(this.glB, new LinearLayout.LayoutParams(-2, -2));
+                @Override // com.baidu.live.pendantview.PendantChildView
+                public int getPriority() {
+                    return 9;
+                }
+            };
+            this.goh.setBackgroundColor(0);
+        }
+        if (this.gog != null && this.gog.indexOfChild(this.goh) < 0) {
+            this.gog.a(this.goh, new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
-    private int dI(JSONObject jSONObject) {
+    private int dJ(JSONObject jSONObject) {
         String optString;
         return (jSONObject == null || (optString = jSONObject.optString("content_type")) == null || optString.isEmpty() || !optString.equals(UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT)) ? -1 : 0;
     }
 
-    private void mr(boolean z) {
-        if (this.gPg != null && (this.gPg.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gPg.getParent()).removeView(this.gPg);
+    private void mv(boolean z) {
+        if (this.gRP != null && (this.gRP.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gRP.getParent()).removeView(this.gRP);
         }
-        if (z && this.glB != null && (this.glB.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.glB.getParent()).removeView(this.glB);
+        if (z && this.goh != null && (this.goh.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.goh.getParent()).removeView(this.goh);
         }
-        AlaSeriesGiftPendant.ieQ = true;
+        AlaSeriesGiftPendant.ijF = true;
     }
 }

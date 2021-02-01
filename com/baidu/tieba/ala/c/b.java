@@ -32,38 +32,47 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends d {
-    private static int gNs;
-    private CommonEmptyView btf;
-    private BdGridView gNt;
-    private a gNu;
-    private List<g> gNv;
-    private g gNw;
+    private static int gPY;
+    private CommonEmptyView bwJ;
+    private BdGridView gPZ;
+    private a gQa;
+    private List<g> gQb;
+    private g gQc;
 
     public b(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
         super(alaChooseGiftActivity, frameLayout, str, arrayList, i, i2);
-        initView();
-        gNs = (int) (BdUtilHelper.getScreenDimensions(this.mContext)[0] / 4.0d);
+        this.gPZ = (BdGridView) this.mRootView.findViewById(a.f.choose_gift_gridview);
+        this.gPZ.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.c.b.1
+            @Override // android.widget.AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
+                b.this.gQc = (g) b.this.gQb.get(i3);
+                b.this.gQm = b.this.gQc.DR();
+                b.this.gQa.GB(b.this.gQm);
+            }
+        });
+        this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.choose_gift_empty_view);
+        gPY = (int) (BdUtilHelper.getScreenDimensions(this.mContext)[0] / 4.0d);
     }
 
     @Override // com.baidu.tieba.ala.c.d
-    protected int bTm() {
+    protected int bTQ() {
         return a.g.ala_choose_gift;
     }
 
     @Override // com.baidu.tieba.ala.c.d
     protected void initView() {
-        this.gNt = (BdGridView) this.mRootView.findViewById(a.f.choose_gift_gridview);
-        this.gNt.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.c.b.1
+        this.gPZ = (BdGridView) this.mRootView.findViewById(a.f.choose_gift_gridview);
+        this.gPZ.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.c.b.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                b.this.gNw = (g) b.this.gNv.get(i);
-                b.this.gNG = b.this.gNw.CC();
-                b.this.gNu.Gc(b.this.gNG);
+                b.this.gQc = (g) b.this.gQb.get(i);
+                b.this.gQm = b.this.gQc.DR();
+                b.this.gQa.GB(b.this.gQm);
             }
         });
-        this.btf = (CommonEmptyView) this.mRootView.findViewById(a.f.choose_gift_empty_view);
+        this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.choose_gift_empty_view);
     }
 
     @Override // com.baidu.tieba.ala.c.d
@@ -77,126 +86,126 @@ public class b extends d {
     }
 
     @Override // com.baidu.tieba.ala.c.d
-    public void aW(int i, String str) {
-        arA();
+    public void bb(int i, String str) {
+        arY();
     }
 
     @Override // com.baidu.tieba.ala.c.d
     public void confirm() {
-        if (this.gNw != null) {
+        if (this.gQc != null) {
             Intent intent = new Intent();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("gift_title", this.gNw.CD());
-                jSONObject.put("gift_url", this.gNw.getThumbnail_url());
-                jSONObject.put(LogConfig.LOG_GIFT_ID, this.gNw.CC());
+                jSONObject.put("gift_title", this.gQc.DS());
+                jSONObject.put("gift_url", this.gQc.getThumbnail_url());
+                jSONObject.put(LogConfig.LOG_GIFT_ID, this.gQc.DR());
                 intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            this.gNF.setResult(-1, intent);
+            this.gQl.setResult(-1, intent);
         }
-        this.gNF.finish();
+        this.gQl.finish();
     }
 
     private void e(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
         int i;
-        if (alaSdkGetGiftListHttpResponseMessage == null || ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.Gm())) {
+        if (alaSdkGetGiftListHttpResponseMessage == null || ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.HC())) {
             showNoDataView();
             return;
         }
-        this.gNt.setVisibility(0);
-        this.btf.setVisibility(8);
+        this.gPZ.setVisibility(0);
+        this.bwJ.setVisibility(8);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            i = com.baidu.live.af.a.OJ().bxp.aMZ.aPW;
+            i = com.baidu.live.ae.a.Qj().bAS.aPX.aSZ;
         } else if (TbadkCoreApplication.getInst().isTieba()) {
-            i = com.baidu.live.af.a.OJ().bxp.aMZ.aPV;
+            i = com.baidu.live.ae.a.Qj().bAS.aPX.aSY;
         } else if (TbadkCoreApplication.getInst().isQuanmin()) {
-            i = com.baidu.live.af.a.OJ().bxp.aMZ.aPX;
+            i = com.baidu.live.ae.a.Qj().bAS.aPX.aTa;
         } else {
-            i = TbadkCoreApplication.getInst().isYinbo() ? com.baidu.live.af.a.OJ().bxp.aMZ.aPY : 0;
+            i = TbadkCoreApplication.getInst().isYinbo() ? com.baidu.live.ae.a.Qj().bAS.aPX.aTb : 0;
         }
-        Iterator<h> it = alaSdkGetGiftListHttpResponseMessage.Gm().iterator();
+        Iterator<h> it = alaSdkGetGiftListHttpResponseMessage.HC().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             h next = it.next();
             if (next != null && i == next.getCategoryId()) {
-                this.gNv = next.Dg();
+                this.gQb = next.Ew();
                 break;
             }
         }
-        if (ListUtils.isEmpty(this.gNv)) {
+        if (ListUtils.isEmpty(this.gQb)) {
             showNoDataView();
         } else {
-            bTo();
+            bTS();
         }
     }
 
-    private void arA() {
-        bQU();
+    private void arY() {
+        bRy();
     }
 
     private void showNoDataView() {
-        bQU();
+        bRy();
     }
 
-    private void bQU() {
-        this.gNt.setVisibility(8);
-        this.btf.setVisibility(0);
-        this.btf.reset();
-        this.btf.setTitle(a.h.sdk_net_fail_tip_rank);
-        this.btf.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.b.2
+    private void bRy() {
+        this.gPZ.setVisibility(8);
+        this.bwJ.setVisibility(0);
+        this.bwJ.reset();
+        this.bwJ.setTitle(a.h.sdk_net_fail_tip_rank);
+        this.bwJ.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.btf.setVisibility(8);
-                b.this.co(b.this.btf);
+                b.this.bwJ.setVisibility(8);
+                b.this.ck(b.this.bwJ);
             }
         });
-        this.btf.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.btf.setVisibility(0);
+        this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.bwJ.setVisibility(0);
     }
 
-    private void bTo() {
+    private void bTS() {
         ArrayList arrayList = new ArrayList();
-        for (g gVar : this.gNv) {
-            if (gVar != null && gVar.CC() != null) {
-                if (gVar.CC().equals(this.gNG)) {
-                    this.gNw = gVar;
+        for (g gVar : this.gQb) {
+            if (gVar != null && gVar.DR() != null) {
+                if (gVar.DR().equals(this.gQm)) {
+                    this.gQc = gVar;
                 }
-                if (!ListUtils.isEmpty(this.glu) && this.glu.contains(gVar.CC())) {
+                if (!ListUtils.isEmpty(this.goa) && this.goa.contains(gVar.DR())) {
                     arrayList.add(gVar);
                 }
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            this.gNv.removeAll(arrayList);
+            this.gQb.removeAll(arrayList);
         }
-        this.gNu = new a(this.gNF.getPageContext());
-        this.gNt.setAdapter((ListAdapter) this.gNu);
-        this.gNu.Gb(this.gNG);
-        this.gNu.setData(this.gNv);
+        this.gQa = new a(this.gQl.getPageContext());
+        this.gPZ.setAdapter((ListAdapter) this.gQa);
+        this.gQa.GA(this.gQm);
+        this.gQa.setData(this.gQb);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends BaseAdapter {
         private List<g> dataList;
-        private String glt;
+        private String gnZ;
         private Context mContext;
 
         public a(TbPageContext tbPageContext) {
             this.mContext = tbPageContext.getPageActivity();
         }
 
-        public void Gb(String str) {
-            this.glt = str;
+        public void GA(String str) {
+            this.gnZ = str;
         }
 
-        public void Gc(String str) {
-            if (this.glt == null || !this.glt.equals(str)) {
-                this.glt = str;
+        public void GB(String str) {
+            if (this.gnZ == null || !this.gnZ.equals(str)) {
+                this.gnZ = str;
                 notifyDataSetChanged();
             }
         }
@@ -216,7 +225,7 @@ public class b extends d {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: cN */
+        /* renamed from: cS */
         public g getItem(int i) {
             if (this.dataList == null) {
                 return null;
@@ -231,35 +240,35 @@ public class b extends d {
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0621b c0621b;
+            C0620b c0620b;
             if (view == null) {
-                C0621b c0621b2 = new C0621b();
+                C0620b c0620b2 = new C0620b();
                 view = LayoutInflater.from(this.mContext).inflate(a.g.ala_choose_gift_item, viewGroup, false);
                 ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-                layoutParams.width = b.gNs;
-                layoutParams.height = b.gNs;
+                layoutParams.width = b.gPY;
+                layoutParams.height = b.gPY;
                 view.setLayoutParams(layoutParams);
-                c0621b2.gNy = (FrameLayout) view.findViewById(a.f.item_root);
-                c0621b2.gNz = (TbImageView) view.findViewById(a.f.item_gift_img);
-                c0621b2.gNz.setDefaultBgResource(a.e.icon_live_gift_default);
-                c0621b2.gNz.setDefaultErrorResource(a.e.icon_live_gift_default);
-                c0621b2.gNz.setAutoChangeStyle(false);
-                c0621b2.gNA = (TextView) view.findViewById(a.f.item_gift_title);
-                c0621b2.aWN = (TextView) view.findViewById(a.f.item_gift_price);
-                view.setTag(c0621b2);
-                c0621b = c0621b2;
+                c0620b2.gQe = (FrameLayout) view.findViewById(a.f.item_root);
+                c0620b2.gQf = (TbImageView) view.findViewById(a.f.item_gift_img);
+                c0620b2.gQf.setDefaultBgResource(a.e.icon_live_gift_default);
+                c0620b2.gQf.setDefaultErrorResource(a.e.icon_live_gift_default);
+                c0620b2.gQf.setAutoChangeStyle(false);
+                c0620b2.gQg = (TextView) view.findViewById(a.f.item_gift_title);
+                c0620b2.aZT = (TextView) view.findViewById(a.f.item_gift_price);
+                view.setTag(c0620b2);
+                c0620b = c0620b2;
             } else {
-                c0621b = (C0621b) view.getTag();
+                c0620b = (C0620b) view.getTag();
             }
             g item = getItem(i);
             if (item != null) {
-                c0621b.gNz.startLoad(item.getThumbnail_url(), 10, false);
-                c0621b.gNA.setText(item.CD());
-                c(c0621b.aWN, item.getPrice());
-                if (item.CC().equals(this.glt)) {
-                    c0621b.gNy.setBackgroundResource(a.e.choose_gift_chosen_bg);
+                c0620b.gQf.startLoad(item.getThumbnail_url(), 10, false);
+                c0620b.gQg.setText(item.DS());
+                c(c0620b.aZT, item.getPrice());
+                if (item.DR().equals(this.gnZ)) {
+                    c0620b.gQe.setBackgroundResource(a.e.choose_gift_chosen_bg);
                 } else {
-                    c0621b.gNy.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_transparent));
+                    c0620b.gQe.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_transparent));
                 }
             }
             return view;
@@ -268,7 +277,7 @@ public class b extends d {
         private void c(TextView textView, String str) {
             String formatGiftNumForTDouDisPlay;
             double d = JavaTypesHelper.toDouble(String.valueOf(str), 0.0d);
-            if (d >= 100.0d && com.baidu.live.af.a.OJ().bru.aJH) {
+            if (d >= 100.0d && com.baidu.live.ae.a.Qj().buX.aMr) {
                 formatGiftNumForTDouDisPlay = new DecimalFormat("0.###K").format(d / 1000.0d);
             } else {
                 formatGiftNumForTDouDisPlay = StringHelper.formatGiftNumForTDouDisPlay(Long.parseLong(str));
@@ -278,14 +287,14 @@ public class b extends d {
     }
 
     /* renamed from: com.baidu.tieba.ala.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private class C0621b {
-        public TextView aWN;
-        public TextView gNA;
-        public FrameLayout gNy;
-        public TbImageView gNz;
+    /* loaded from: classes11.dex */
+    private class C0620b {
+        public TextView aZT;
+        public FrameLayout gQe;
+        public TbImageView gQf;
+        public TextView gQg;
 
-        private C0621b() {
+        private C0620b() {
         }
     }
 }

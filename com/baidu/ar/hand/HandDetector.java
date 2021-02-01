@@ -44,7 +44,7 @@ public class HandDetector extends com.baidu.ar.b.a.a {
         return new b(this.oU) { // from class: com.baidu.ar.hand.HandDetector.1
             @Override // com.baidu.ar.b.b.b
             public int a(com.baidu.ar.mdl.a aVar) {
-                return aVar.f1493tv ? ARMdlInterfaceJNI.initHandSkeletonFromAsset(aVar.tw[0], aVar.tw[1]) : ARMdlInterfaceJNI.initHandSkeleton(aVar.tw[0], aVar.tw[1]);
+                return aVar.f1491tv ? ARMdlInterfaceJNI.initHandSkeletonFromAsset(aVar.tw[0], aVar.tw[1]) : ARMdlInterfaceJNI.initHandSkeleton(aVar.tw[0], aVar.tw[1]);
             }
 
             @Override // com.baidu.ar.c.a

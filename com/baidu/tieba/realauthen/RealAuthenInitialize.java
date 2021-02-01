@@ -6,8 +6,8 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.af.a;
-import com.baidu.live.data.bq;
+import com.baidu.live.ae.a;
+import com.baidu.live.data.bv;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.FaceRecognitionActivityConfig;
@@ -16,23 +16,23 @@ import com.baidu.live.tbadk.realAuthen.RealAuthenManager;
 import com.baidu.tieba.realauthen.activity.FaceRecognitionActivity;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RealAuthenInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(FaceRecognitionActivityConfig.class, FaceRecognitionActivity.class);
-        dAK();
+        dCS();
     }
 
-    private static void dAK() {
+    private static void dCS() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913222) { // from class: com.baidu.tieba.realauthen.RealAuthenInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (RealAuthenManager.getInstance().getRealAuthen() != null) {
                     HashMap hashMap = new HashMap();
-                    bq bqVar = a.OJ().bxp;
-                    if (bqVar != null && bqVar.aMU != null && !TextUtils.isEmpty(bqVar.aMU.aOl)) {
-                        hashMap.put("certify_url", bqVar.aMU.aOl);
+                    bv bvVar = a.Qj().bAS;
+                    if (bvVar != null && bvVar.aPS != null && !TextUtils.isEmpty(bvVar.aPS.aRo)) {
+                        hashMap.put("certify_url", bvVar.aPS.aRo);
                     }
                     RealAuthenManager.getInstance().getRealAuthen().doAuthen(hashMap, new AuthenCallback() { // from class: com.baidu.tieba.realauthen.RealAuthenInitialize.1.1
                         @Override // com.baidu.live.tbadk.realAuthen.AuthenCallback

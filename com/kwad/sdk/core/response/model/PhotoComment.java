@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PhotoComment extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = -8159360430336434144L;
     public long author_id;

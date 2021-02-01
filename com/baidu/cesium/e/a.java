@@ -7,32 +7,32 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private C0093a ana;
+    private C0093a amQ;
     private Context d;
 
     /* renamed from: com.baidu.cesium.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public final class C0093a {
-        private C0093a anE;
+        private C0093a anu;
 
         /* renamed from: b  reason: collision with root package name */
-        private File f1649b;
+        private File f1647b;
         private String c;
         private boolean e;
 
         C0093a(File file) {
             this.e = false;
             this.e = true;
-            this.f1649b = file;
+            this.f1647b = file;
             this.c = file.getName();
         }
 
         C0093a(String str, C0093a c0093a) {
             this.e = false;
             this.c = str;
-            this.anE = c0093a;
+            this.anu = c0093a;
             this.e = false;
         }
 
@@ -49,16 +49,16 @@ public class a {
         }
 
         public File b() {
-            File file = this.f1649b;
+            File file = this.f1647b;
             if (file == null) {
-                file = this.anE == null ? new File(a.this.a(), this.c) : new File(this.anE.b(), this.c);
-                this.f1649b = file;
+                file = this.anu == null ? new File(a.this.a(), this.c) : new File(this.anu.b(), this.c);
+                this.f1647b = file;
             }
             return file;
         }
 
         public File b(String str) {
-            return new File(this.f1649b, str);
+            return new File(this.f1647b, str);
         }
 
         public String c() {
@@ -77,7 +77,7 @@ public class a {
             C0093a c0093a = this;
             do {
                 arrayList.add(c0093a.c());
-                c0093a = c0093a.tR();
+                c0093a = c0093a.tO();
             } while (c0093a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
@@ -88,8 +88,8 @@ public class a {
             return new C0093a(file);
         }
 
-        public C0093a tR() {
-            return this.anE;
+        public C0093a tO() {
+            return this.anu;
         }
     }
 
@@ -195,10 +195,10 @@ public class a {
         return new File(this.d.getApplicationInfo().dataDir);
     }
 
-    public synchronized C0093a tQ() {
-        if (this.ana == null) {
-            this.ana = new C0093a(".cesium", null);
+    public synchronized C0093a tN() {
+        if (this.amQ == null) {
+            this.amQ = new C0093a(".cesium", null);
         }
-        return this.ana;
+        return this.amQ;
     }
 }

@@ -3,23 +3,23 @@ package com.baidu.tieba.ext.bdplayer.floating;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private JSONObject gRp;
-    private JSONObject gRu;
+    private JSONObject gTZ;
+    private JSONObject gUe;
     public String roomId = null;
     public String cover = null;
     public String extra = null;
 
-    public JSONObject cwM() {
-        return this.gRp;
+    public JSONObject getExtra() {
+        return this.gTZ;
     }
 
-    public JSONObject cwN() {
-        return this.gRu;
+    public JSONObject cxY() {
+        return this.gUe;
     }
 
-    public static c IE(String str) {
+    public static c Jp(String str) {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(str);
@@ -27,25 +27,25 @@ public class c {
             e.printStackTrace();
             jSONObject = null;
         }
-        return eh(jSONObject);
+        return ei(jSONObject);
     }
 
-    public static c eh(JSONObject jSONObject) {
+    public static c ei(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         c cVar = new c();
-        cVar.gRp = jSONObject.optJSONObject("extra");
-        cVar.gRu = jSONObject.optJSONObject(UserAccountActionItem.KEY_SRC);
+        cVar.gTZ = jSONObject.optJSONObject("extra");
+        cVar.gUe = jSONObject.optJSONObject(UserAccountActionItem.KEY_SRC);
         try {
-            JSONObject cwN = cVar.cwN();
-            if (cwN != null) {
-                cVar.roomId = cwN.optString("room_id");
-                cVar.cover = cwN.optString("cover");
+            JSONObject cxY = cVar.cxY();
+            if (cxY != null) {
+                cVar.roomId = cxY.optString("room_id");
+                cVar.cover = cxY.optString("cover");
             }
-            JSONObject cwM = cVar.cwM();
-            if (cwM != null) {
-                cVar.extra = cwM.toString();
+            JSONObject extra = cVar.getExtra();
+            if (extra != null) {
+                cVar.extra = extra.toString();
                 return cVar;
             }
             return cVar;

@@ -4,7 +4,7 @@ import aegon.chrome.base.annotations.CalledByNative;
 import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LocaleUtils {
     @CalledByNative
     public static String getDefaultCountryCode() {

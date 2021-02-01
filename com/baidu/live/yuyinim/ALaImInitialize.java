@@ -9,7 +9,7 @@ import com.baidu.live.im.k;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.view.b;
 import com.baidu.live.yuyinim.view.ALALiveTextView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ALaImInitialize {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2501044, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.yuyinim.ALaImInitialize.1
@@ -32,7 +32,7 @@ public class ALaImInitialize {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                b.bPf.clear();
+                b.bSV.clear();
             }
         });
     }

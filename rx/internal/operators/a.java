@@ -3,17 +3,17 @@ package rx.internal.operators;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.util.UtilityFunctions;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static long e(AtomicLong atomicLong, long j) {
         long j2;
         do {
             j2 = atomicLong.get();
-        } while (!atomicLong.compareAndSet(j2, T(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, X(j2, j)));
         return j2;
     }
 
-    public static long U(long j, long j2) {
+    public static long Y(long j, long j2) {
         long j3 = j * j2;
         if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
             return Long.MAX_VALUE;
@@ -21,7 +21,7 @@ public final class a {
         return j3;
     }
 
-    public static long T(long j, long j2) {
+    public static long X(long j, long j2) {
         long j3 = j + j2;
         if (j3 < 0) {
             return Long.MAX_VALUE;
@@ -30,11 +30,11 @@ public final class a {
     }
 
     public static <T> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super T> jVar) {
-        a(atomicLong, queue, jVar, UtilityFunctions.eLe());
+        a(atomicLong, queue, jVar, UtilityFunctions.eNu());
     }
 
     public static <T> boolean a(AtomicLong atomicLong, long j, Queue<T> queue, rx.j<? super T> jVar) {
-        return a(atomicLong, j, queue, jVar, UtilityFunctions.eLe());
+        return a(atomicLong, j, queue, jVar, UtilityFunctions.eNu());
     }
 
     public static <T, R> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {
@@ -62,7 +62,7 @@ public final class a {
         do {
             j2 = atomicLong.get();
             j3 = Long.MIN_VALUE & j2;
-        } while (!atomicLong.compareAndSet(j2, T(Long.MAX_VALUE & j2, j) | j3));
+        } while (!atomicLong.compareAndSet(j2, X(Long.MAX_VALUE & j2, j) | j3));
         if (j2 != Long.MIN_VALUE) {
             return j3 == 0;
         }

@@ -6,7 +6,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.kwai.video.hodor.util.Timber;
 import com.kwai.video.player.PlayerSettingConstants;
 import com.kwai.video.player.kwai_player.KwaiPlayerBaseBuilder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class KwaiPlayerBaseBuilder<T extends KwaiPlayerBaseBuilder<T>> {
     public static final String HEVC_DECODER_NAME_KS265 = "libks265dec";
     public static final String HEVC_DECODER_NAME_KVC = "libkvcdec";

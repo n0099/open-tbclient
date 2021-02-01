@@ -9,25 +9,25 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c implements com.bytedance.sdk.openadsdk.h.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<a> f7180b = Collections.synchronizedList(new LinkedList());
+    private final List<a> f7182b = Collections.synchronizedList(new LinkedList());
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f7179a = b.a();
+    private final b f7181a = b.a();
 
     @Override // com.bytedance.sdk.openadsdk.h.b.a
     public void a() {
         com.bytedance.sdk.openadsdk.k.a.a().d(new Runnable() { // from class: com.bytedance.sdk.openadsdk.h.b.c.1
             @Override // java.lang.Runnable
             public void run() {
-                List<a> d = c.this.f7179a.d();
+                List<a> d = c.this.f7181a.d();
                 if (d != null) {
-                    c.this.f7180b.addAll(d);
+                    c.this.f7182b.addAll(d);
                 }
-                c.this.f7179a.c();
+                c.this.f7181a.c();
             }
         }, 5);
     }
@@ -53,18 +53,18 @@ public class c implements com.bytedance.sdk.openadsdk.h.b.a {
     public void b() {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a implements i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f7182a;
+        public final String f7184a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final JSONObject f7183b;
+        public final JSONObject f7185b;
 
         public a(String str, JSONObject jSONObject) {
-            this.f7182a = str;
-            this.f7183b = jSONObject;
+            this.f7184a = str;
+            this.f7185b = jSONObject;
         }
 
         public static a a(String str) {
@@ -85,13 +85,13 @@ public class c implements com.bytedance.sdk.openadsdk.h.b.a {
         }
 
         public String a() {
-            if (TextUtils.isEmpty(this.f7182a) || this.f7183b == null) {
+            if (TextUtils.isEmpty(this.f7184a) || this.f7185b == null) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("localId", this.f7182a);
-                jSONObject.put("event", this.f7183b);
+                jSONObject.put("localId", this.f7184a);
+                jSONObject.put("event", this.f7185b);
             } catch (Throwable th) {
             }
             return jSONObject.toString();
@@ -99,7 +99,7 @@ public class c implements com.bytedance.sdk.openadsdk.h.b.a {
 
         @Override // com.bytedance.sdk.openadsdk.c.i
         public String b() {
-            return this.f7182a;
+            return this.f7184a;
         }
     }
 

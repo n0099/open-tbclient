@@ -24,15 +24,15 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.message.SignMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.signall.SignAllForumActivity;
 import com.baidu.tieba.signall.SignAllForumAdvertActivity;
 import com.baidu.tieba.supplementSign.SupplementSignActivity;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SignStatic {
     public static String Tag = "tag";
 
@@ -40,7 +40,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        bKi();
+        bKC();
         registerTask();
     }
 
@@ -63,29 +63,29 @@ public class SignStatic {
                 SignMessage signMessage = new SignMessage();
                 try {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getContext(), "sign_do_time", System.currentTimeMillis() + "");
-                    z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
-                    zVar.addPostData("kw", name);
-                    zVar.addPostData("fid", id);
+                    aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
+                    aaVar.addPostData("kw", name);
+                    aaVar.addPostData("fid", id);
                     if (!TextUtils.isEmpty(data.getFromPage())) {
-                        zVar.addPostData("sign_from", data.getFromPage());
+                        aaVar.addPostData("sign_from", data.getFromPage());
                     }
                     if (!TextUtils.isEmpty(TbSingleton.getInstance().getActivityId())) {
-                        zVar.addPostData("activity_id", TbSingleton.getInstance().getActivityId());
+                        aaVar.addPostData("activity_id", TbSingleton.getInstance().getActivityId());
                     }
-                    SignStatic.a(zVar);
-                    zVar.brX().bsG().mIsNeedTbs = true;
-                    zVar.jI(true);
-                    String postNetData = zVar.postNetData();
-                    if (zVar.isNetSuccess()) {
-                        if (zVar.brX().bsH().isRequestSuccess()) {
+                    SignStatic.a(aaVar);
+                    aaVar.bsr().bta().mIsNeedTbs = true;
+                    aaVar.jL(true);
+                    String postNetData = aaVar.postNetData();
+                    if (aaVar.isNetSuccess()) {
+                        if (aaVar.bsr().btb().isRequestSuccess()) {
                             signData = new SignData();
                             signData.parserJson(postNetData);
                             signData.forumId = id;
                             signData.forumName = name;
-                        } else if (!at.isEmpty(postNetData)) {
+                        } else if (!au.isEmpty(postNetData)) {
                             JSONObject jSONObject = new JSONObject(postNetData);
-                            signMessage.parserJson(zVar, jSONObject);
-                            if (AntiHelper.Jt(zVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
+                            signMessage.parserJson(aaVar, jSONObject);
+                            if (AntiHelper.JN(aaVar.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
                                 signData = new SignData();
                                 signData.parserJson(postNetData);
                                 signData.is_signed = 1;
@@ -97,7 +97,7 @@ public class SignStatic {
                                 signData = null;
                             }
                         } else {
-                            signMessage.parserJson(zVar, null);
+                            signMessage.parserJson(aaVar, null);
                             signData = null;
                         }
                         signMessage.signData = signData;
@@ -113,22 +113,22 @@ public class SignStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static void a(z zVar) {
+    public static void a(aa aaVar) {
         Address address;
         String locationLng = TbadkCoreApplication.getInst().getLocationLng();
         String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-        if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (address = com.baidu.adp.lib.c.a.lI().getAddress(false)) != null) {
+        if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (address = com.baidu.adp.lib.c.a.lH().getAddress(false)) != null) {
             locationLng = String.valueOf(address.getLongitude());
             locationLat = String.valueOf(address.getLatitude());
         }
         if (!TextUtils.isEmpty(locationLat) && !TextUtils.isEmpty(locationLng)) {
-            zVar.addPostData(Headers.LOCATION, locationLng + "," + locationLat);
+            aaVar.addPostData(Headers.LOCATION, locationLng + "," + locationLat);
         }
     }
 
-    private static void bKi() {
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.SignStatic.2
-            @Override // com.baidu.tbadk.core.util.be.a
+    private static void bKC() {
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.SignStatic.2
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;

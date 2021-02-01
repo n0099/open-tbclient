@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
     @NonNull
     public <Z> k<ImageView, Z> a(@NonNull ImageView imageView, @NonNull Class<Z> cls) {

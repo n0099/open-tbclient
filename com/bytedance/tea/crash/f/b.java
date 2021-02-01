@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import com.bytedance.tea.crash.g.j;
 import com.bytedance.tea.crash.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Handler handler, long j, long j2) {
@@ -13,13 +13,13 @@ public class b extends a {
 
     @Override // java.lang.Runnable
     public void run() {
-        String e = h.eoL().e();
+        String e = h.erd().e();
         if (TextUtils.isEmpty(e) || "0".equals(e)) {
             a(c());
             j.a("[DeviceIdTask] did is null, continue check.");
             return;
         }
-        h.eoN().a(e);
+        h.erf().a(e);
         j.a("[DeviceIdTask] did is " + e);
     }
 }

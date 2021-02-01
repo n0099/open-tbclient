@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class am extends Handler {
     StringBuffer Bx;
     final /* synthetic */ al By;

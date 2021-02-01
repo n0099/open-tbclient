@@ -1,7 +1,7 @@
 package io.flutter;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class Log {
     private static int logLevel = 3;
 

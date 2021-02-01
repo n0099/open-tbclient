@@ -1,7 +1,7 @@
 package com.ksad.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends f<Integer> {
     public e(List<com.ksad.lottie.e.a<Integer>> list) {
         super(list);
@@ -13,9 +13,9 @@ public class e extends f<Integer> {
     /* renamed from: b */
     public Integer a(com.ksad.lottie.e.a<Integer> aVar, float f) {
         Integer num;
-        if (aVar.f8001a == null || aVar.f8002b == null) {
+        if (aVar.f8003a == null || aVar.f8004b == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return (this.f7958b == null || (num = (Integer) this.f7958b.a(aVar.d, aVar.e.floatValue(), aVar.f8001a, aVar.f8002b, f, c(), f())) == null) ? Integer.valueOf(com.ksad.lottie.d.e.a(aVar.f8001a.intValue(), aVar.f8002b.intValue(), f)) : num;
+        return (this.f7960b == null || (num = (Integer) this.f7960b.a(aVar.d, aVar.e.floatValue(), aVar.f8003a, aVar.f8004b, f, c(), f())) == null) ? Integer.valueOf(com.ksad.lottie.d.e.a(aVar.f8003a.intValue(), aVar.f8004b.intValue(), f)) : num;
     }
 }

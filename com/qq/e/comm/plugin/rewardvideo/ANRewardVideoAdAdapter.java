@@ -6,7 +6,7 @@ import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.mediation.interfaces.BaseRewardAd;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class ANRewardVideoAdAdapter extends BaseRewardAd implements com.qq.e.comm.plugin.r.a {
     private j mDelegate;
     private ADListener mListener;

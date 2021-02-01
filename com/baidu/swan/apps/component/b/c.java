@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.component.b;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public String msg;
     public int statusCode;

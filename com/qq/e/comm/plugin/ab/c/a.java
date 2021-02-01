@@ -3,22 +3,22 @@ package com.qq.e.comm.plugin.ab.c;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a implements e {
 
     /* renamed from: com.qq.e.comm.plugin.ab.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static final class C1186a {
+    /* loaded from: classes15.dex */
+    private static final class C1190a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f11726a = new a();
+        static final a f11728a = new a();
     }
 
     private a() {
     }
 
     public static final a a() {
-        return C1186a.f11726a;
+        return C1190a.f11728a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e

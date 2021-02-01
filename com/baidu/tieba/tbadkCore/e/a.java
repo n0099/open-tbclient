@@ -5,8 +5,8 @@ import android.webkit.WebView;
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.tbadkCore.e.a.e;
 import com.baidu.tieba.tbadkCore.e.a.f;
 import com.baidu.tieba.tbadkCore.e.a.g;
@@ -17,16 +17,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<b> iCA = new ArrayList<>();
-    private f npl = new f();
+    private ArrayList<b> iIk = new ArrayList<>();
+    private f nyU = new f();
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.iCA.add(bVar);
+            this.iIk.add(bVar);
         }
-        if (this.npl != null && bVar != null && bVar.getClass().getAnnotation(com.baidu.b.a.a.class) != null) {
+        if (this.nyU != null && bVar != null && bVar.getClass().getAnnotation(com.baidu.b.a.a.class) != null) {
             try {
-                this.npl.a((com.baidu.tieba.tbadkCore.e.a.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + com.baidu.tieba.tbadkCore.e.a.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
+                this.nyU.a((com.baidu.tieba.tbadkCore.e.a.a) Class.forName("com.baidu.tieba.h5power." + bVar.getClass().getSimpleName() + com.baidu.tieba.tbadkCore.e.a.a.PROXY_CLASS_NAME_SUFFIX).getConstructor(bVar.getClass()).newInstance(bVar));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -35,12 +35,12 @@ public class a {
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.iCA.remove(bVar);
+            this.iIk.remove(bVar);
         }
     }
 
-    public void dLO() {
-        this.iCA.clear();
+    public void dNZ() {
+        this.iIk.clear();
     }
 
     public boolean a(WebView webView, String str, JsPromptResult jsPromptResult) {
@@ -70,42 +70,42 @@ public class a {
     }
 
     public void a(WebView webView, String str, @Nullable HashMap hashMap) {
-        if (this.npl != null) {
-            this.npl.a(webView, this.npl.f(str, hashMap));
+        if (this.nyU != null) {
+            this.nyU.a(webView, this.nyU.g(str, hashMap));
         }
     }
 
     private void b(WebView webView, String str) {
-        if (this.npl != null) {
+        if (this.nyU != null) {
             e eVar = new e();
             com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-            String Sp = g.Sp(str);
-            eVar.setAction(Sp);
-            String Sq = g.Sq(str);
-            eVar.bW(Sq);
-            String Sr = g.Sr(str);
-            cVar.Sk(Sr);
-            if (at.isEmpty(Sp) || at.isEmpty(Sq) || at.isEmpty(Sr)) {
-                cVar.Js(101);
+            String Tm = g.Tm(str);
+            eVar.setAction(Tm);
+            String Tn = g.Tn(str);
+            eVar.bW(Tn);
+            String To = g.To(str);
+            cVar.Th(To);
+            if (au.isEmpty(Tm) || au.isEmpty(Tn) || au.isEmpty(To)) {
+                cVar.JM(101);
             }
             try {
-                eVar.eK(g.Su(str));
+                eVar.eL(g.Tr(str));
             } catch (JSONException e) {
-                eVar.eK(new JSONObject());
-                cVar.Js(101);
+                eVar.eL(new JSONObject());
+                cVar.JM(101);
             }
-            eVar.Sn(g.Ss(str));
-            eVar.So(g.St(str));
-            com.baidu.tieba.tbadkCore.e.a.c a2 = this.npl.a(eVar, cVar);
-            if (a2.dLT()) {
-                this.npl.a(webView, a2);
+            eVar.Tk(g.Tp(str));
+            eVar.Tl(g.Tq(str));
+            com.baidu.tieba.tbadkCore.e.a.c a2 = this.nyU.a(eVar, cVar);
+            if (a2.dOe()) {
+                this.nyU.a(webView, a2);
             }
         }
     }
 
     private boolean b(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (x.getCount(this.iCA) > 0) {
-            Iterator<b> it = this.iCA.iterator();
+        if (y.getCount(this.iIk) > 0) {
+            Iterator<b> it = this.iIk.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {

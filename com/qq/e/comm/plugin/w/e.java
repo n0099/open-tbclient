@@ -18,21 +18,21 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static aw f12679a = new aw(2048, 5, "loadad_limit_num");
+    private static aw f12681a = new aw(2048, 5, "loadad_limit_num");
 
     /* renamed from: com.qq.e.comm.plugin.w.e$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class AnonymousClass1 extends com.qq.e.comm.plugin.t.i {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ long f12680a;
+        final /* synthetic */ long f12682a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ com.qq.e.comm.plugin.ad.b f12681b;
+        final /* synthetic */ com.qq.e.comm.plugin.ad.b f12683b;
         final /* synthetic */ AtomicLong c;
         final /* synthetic */ b d;
         final /* synthetic */ Map e;
@@ -40,8 +40,8 @@ public class e {
         final /* synthetic */ m g;
 
         AnonymousClass1(long j, com.qq.e.comm.plugin.ad.b bVar, AtomicLong atomicLong, b bVar2, Map map, a aVar, m mVar) {
-            this.f12680a = j;
-            this.f12681b = bVar;
+            this.f12682a = j;
+            this.f12683b = bVar;
             this.c = atomicLong;
             this.d = bVar2;
             this.e = map;
@@ -51,7 +51,7 @@ public class e {
 
         @Override // com.qq.e.comm.plugin.t.i
         public void a(int i, Exception exc) {
-            e.a(-1, -1, (int) (System.currentTimeMillis() - this.f12680a), "Exception:" + exc.getMessage(), this.d.f12668a, e.a(), this.g);
+            e.a(-1, -1, (int) (System.currentTimeMillis() - this.f12682a), "Exception:" + exc.getMessage(), this.d.f12670a, e.a(), this.g);
             this.f.a(new com.qq.e.comm.plugin.k.a(exc, i));
         }
 
@@ -59,10 +59,10 @@ public class e {
         public void a(com.qq.e.comm.plugin.t.b.e eVar, com.qq.e.comm.plugin.t.b.f fVar) {
             String str;
             JSONException jSONException;
-            long currentTimeMillis = System.currentTimeMillis() - this.f12680a;
+            long currentTimeMillis = System.currentTimeMillis() - this.f12682a;
             int e = fVar.e();
             if (e != 200) {
-                e.a(e, -1, (int) currentTimeMillis, "HttpStatus error", this.d.f12668a, eVar.f(), this.g);
+                e.a(e, -1, (int) currentTimeMillis, "HttpStatus error", this.d.f12670a, eVar.f(), this.g);
                 this.f.a(new com.qq.e.comm.plugin.k.a("HttpStatus error", e));
                 return;
             }
@@ -70,7 +70,7 @@ public class e {
                 try {
                     str = fVar.d();
                 } catch (Throwable th) {
-                    e.a(e, -1, (int) currentTimeMillis, "Exception:" + th.getMessage(), this.d.f12668a, eVar.f(), this.g);
+                    e.a(e, -1, (int) currentTimeMillis, "Exception:" + th.getMessage(), this.d.f12670a, eVar.f(), this.g);
                     this.f.a(new com.qq.e.comm.plugin.k.a(th, 3000));
                     return;
                 }
@@ -79,25 +79,25 @@ public class e {
                 jSONException = e2;
             }
             try {
-                e.a(this.f12681b.i(), this.c.get(), this.d.f12669b);
+                e.a(this.f12683b.i(), this.c.get(), this.d.f12671b);
                 String f = eVar.f();
                 JSONObject jSONObject = new JSONObject(str);
                 if (com.qq.e.comm.plugin.x.a.a().c() && jSONObject.has("seq")) {
                     com.qq.e.comm.plugin.x.a.a().a(jSONObject.optInt("seq"));
                 }
-                if (e.a(this.f12681b.j())) {
+                if (e.a(this.f12683b.j())) {
                     Uri.Builder buildUpon = Uri.parse(f).buildUpon();
                     for (Map.Entry entry : this.e.entrySet()) {
                         buildUpon.appendQueryParameter((String) entry.getKey(), (String) entry.getValue());
                     }
                     f = buildUpon.build().toString();
                 }
-                this.f.a(e.a(jSONObject, this.d.f12669b, f));
-                e.a(e, jSONObject.optInt(Constants.KEYS.RET, -1), (int) currentTimeMillis, "", this.d.f12668a, eVar.f(), this.g);
+                this.f.a(e.a(jSONObject, this.d.f12671b, f));
+                e.a(e, jSONObject.optInt(Constants.KEYS.RET, -1), (int) currentTimeMillis, "", this.d.f12670a, eVar.f(), this.g);
                 com.qq.e.comm.plugin.util.b.a(jSONObject, GDTADManager.getInstance().getAppContext());
             } catch (JSONException e3) {
                 jSONException = e3;
-                e.a(e, -1, (int) currentTimeMillis, "Exception:" + jSONException.getMessage(), this.d.f12668a, eVar.f(), this.g);
+                e.a(e, -1, (int) currentTimeMillis, "Exception:" + jSONException.getMessage(), this.d.f12670a, eVar.f(), this.g);
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.putOpt("ej", bj.a(str));
@@ -109,23 +109,23 @@ public class e {
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.e$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     static final class AnonymousClass2 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Context f12682a;
+        final /* synthetic */ Context f12684a;
 
         AnonymousClass2(Context context) {
-            this.f12682a = context;
+            this.f12684a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            v.a(this.f12682a).b(this.f12682a);
+            v.a(this.f12684a).b(this.f12684a);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(com.qq.e.comm.plugin.k.a aVar);
 

@@ -22,15 +22,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.util.Base64Encoder;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String eFc;
+    public static String eHi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String parseWebViewUrl(String str, String str2) {
@@ -46,8 +46,8 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void zg(String str) {
-        eFc = str;
+    public static void zy(String str) {
+        eHi = str;
     }
 
     public static void startWebActivity(Context context, String str) {
@@ -79,7 +79,7 @@ public class a {
     }
 
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        bka();
+        bks();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -94,11 +94,24 @@ public class a {
     }
 
     public static void startWebActivity(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        bka();
+        bks();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
                 tbWebViewActivityConfig.setFixTitle(z7);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public static void ay(Context context, String str) {
+        bks();
+        try {
+            if (!StringUtils.isNull(str)) {
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", str, true, false, false, false);
+                tbWebViewActivityConfig.setLoadType(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
             }
         } catch (Exception e) {
@@ -125,7 +138,7 @@ public class a {
     }
 
     public static String appendParams(String str, List<Pair<String, String>> list) {
-        if (!at.isEmpty(str) && list != null) {
+        if (!au.isEmpty(str) && list != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") < 0) {
@@ -145,7 +158,7 @@ public class a {
     }
 
     public static String appendCuidParam(String str) {
-        if (!at.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!au.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -169,7 +182,7 @@ public class a {
     }
 
     public static String appendVersionCode(String str) {
-        return (at.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+        return (au.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void initCookie(Context context) {
@@ -182,7 +195,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.bkC().zq(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.bkU().zH(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -231,7 +244,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void bka() {
-        new ai("open_webview", true).start();
+    private static void bks() {
+        new aj("open_webview", true).start();
     }
 }

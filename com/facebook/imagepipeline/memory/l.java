@@ -4,62 +4,62 @@ import com.facebook.common.memory.PooledByteBuffer;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class l implements PooledByteBuffer {
     private final int mSize;
     @GuardedBy("this")
-    com.facebook.common.references.a<NativeMemoryChunk> pAB;
+    com.facebook.common.references.a<NativeMemoryChunk> pKJ;
 
     public l(com.facebook.common.references.a<NativeMemoryChunk> aVar, int i) {
         com.facebook.common.internal.g.checkNotNull(aVar);
         com.facebook.common.internal.g.checkArgument(i >= 0 && i <= aVar.get().getSize());
-        this.pAB = aVar.clone();
+        this.pKJ = aVar.clone();
         this.mSize = i;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int size() {
-        eqw();
+        esP();
         return this.mSize;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized byte Oz(int i) {
-        byte Oz;
+    public synchronized byte OU(int i) {
+        byte OU;
         synchronized (this) {
-            eqw();
+            esP();
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            Oz = this.pAB.get().Oz(i);
+            OU = this.pKJ.get().OU(i);
         }
-        return Oz;
+        return OU;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        eqw();
+        esP();
         com.facebook.common.internal.g.checkArgument(i + i3 <= this.mSize);
-        return this.pAB.get().c(i, bArr, i2, i3);
+        return this.pKJ.get().c(i, bArr, i2, i3);
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized long eqn() {
-        eqw();
-        return this.pAB.get().eqn();
+    public synchronized long esG() {
+        esP();
+        return this.pKJ.get().esG();
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized boolean isClosed() {
-        return !com.facebook.common.references.a.a(this.pAB);
+        return !com.facebook.common.references.a.a(this.pKJ);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        com.facebook.common.references.a.c(this.pAB);
-        this.pAB = null;
+        com.facebook.common.references.a.c(this.pKJ);
+        this.pKJ = null;
     }
 
-    synchronized void eqw() {
+    synchronized void esP() {
         if (isClosed()) {
             throw new PooledByteBuffer.ClosedException();
         }

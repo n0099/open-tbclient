@@ -8,17 +8,18 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.location.d.j;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class f extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    LLSInterface f2646a = null;
+    LLSInterface f2644a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    LLSInterface f2647b = null;
+    LLSInterface f2645b = null;
     LLSInterface c = null;
     public static String replaceFileName = "repll.jar";
     public static Context mC = null;
@@ -31,7 +32,7 @@ public class f extends Service {
         try {
             File file2 = new File(j.h() + "/grtcfrsa.dat");
             if (file2.exists()) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 randomAccessFile.seek(200L);
                 if (randomAccessFile.readBoolean() && randomAccessFile.readBoolean() && (readInt = randomAccessFile.readInt()) != 0) {
                     byte[] bArr = new byte[readInt];
@@ -71,7 +72,7 @@ public class f extends Service {
     public void onCreate() {
         mC = getApplicationContext();
         System.currentTimeMillis();
-        this.f2647b = new com.baidu.location.c.a();
+        this.f2645b = new com.baidu.location.c.a();
         try {
             File file = new File(j.h() + File.separator + replaceFileName);
             File file2 = new File(j.h() + File.separator + "app.jar");
@@ -82,17 +83,17 @@ public class f extends Service {
                 file.renameTo(file2);
             }
             if (file2.exists() && a(new File(j.h() + File.separator + "app.jar"))) {
-                this.f2646a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                this.f2644a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
             }
         } catch (Exception e) {
-            this.f2646a = null;
+            this.f2644a = null;
         }
-        if (this.f2646a == null || this.f2646a.getVersion() < this.f2647b.getVersion()) {
-            this.c = this.f2647b;
-            this.f2646a = null;
+        if (this.f2644a == null || this.f2644a.getVersion() < this.f2645b.getVersion()) {
+            this.c = this.f2645b;
+            this.f2644a = null;
         } else {
-            this.c = this.f2646a;
-            this.f2647b = null;
+            this.c = this.f2644a;
+            this.f2645b = null;
         }
         isServing = true;
         this.c.onCreate(this);

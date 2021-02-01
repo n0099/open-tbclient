@@ -3,7 +3,7 @@ package com.kwai.filedownloader.b;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends SQLiteOpenHelper {
     public e(Context context) {
         super(context, "ksad_file_download.db", (SQLiteDatabase.CursorFactory) null, 1);

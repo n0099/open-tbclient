@@ -8,63 +8,63 @@ import android.graphics.Bitmap;
 import com.qq.e.comm.util.GDTLogger;
 /* JADX INFO: Access modifiers changed from: package-private */
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     private static class a extends c {
 
         /* renamed from: a  reason: collision with root package name */
-        private Notification.Builder f11602a;
+        private Notification.Builder f11604a;
 
         private a(Context context) {
-            this.f11602a = new Notification.Builder(context);
-            com.qq.e.comm.plugin.d.d.a(context, this.f11602a);
-            this.f11602a.setSmallIcon(17301634);
+            this.f11604a = new Notification.Builder(context);
+            com.qq.e.comm.plugin.d.d.a(context, this.f11604a);
+            this.f11604a.setSmallIcon(17301634);
         }
 
         @Override // com.qq.e.comm.plugin.a.b.c
         public Notification a() {
             try {
-                return this.f11602a.build();
+                return this.f11604a.build();
             } catch (Throwable th) {
-                return this.f11602a.getNotification();
+                return this.f11604a.getNotification();
             }
         }
 
         @Override // com.qq.e.comm.plugin.a.b.c
         public c a(int i, int i2, boolean z) {
-            this.f11602a.setProgress(i, i2, z);
+            this.f11604a.setProgress(i, i2, z);
             return this;
         }
 
         @Override // com.qq.e.comm.plugin.a.b.c
         public c a(PendingIntent pendingIntent) {
-            this.f11602a.setContentIntent(pendingIntent);
+            this.f11604a.setContentIntent(pendingIntent);
             return this;
         }
 
         @Override // com.qq.e.comm.plugin.a.b.c
         public c a(Bitmap bitmap) {
-            this.f11602a.setLargeIcon(bitmap);
+            this.f11604a.setLargeIcon(bitmap);
             return this;
         }
 
         @Override // com.qq.e.comm.plugin.a.b.c
         public c a(String str) {
-            this.f11602a.setContentTitle(str);
+            this.f11604a.setContentTitle(str);
             return this;
         }
 
         @Override // com.qq.e.comm.plugin.a.b.c
         public c a(boolean z) {
-            this.f11602a.setAutoCancel(z);
+            this.f11604a.setAutoCancel(z);
             return this;
         }
 
         @Override // com.qq.e.comm.plugin.a.b.c
         public c b(String str) {
-            this.f11602a.setContentText(str);
+            this.f11604a.setContentText(str);
             return this;
         }
     }

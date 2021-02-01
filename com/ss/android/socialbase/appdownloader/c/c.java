@@ -1,9 +1,9 @@
 package com.ss.android.socialbase.appdownloader.c;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface c {
     boolean a();
 
-    k iw(Context context);
+    k iz(Context context);
 }

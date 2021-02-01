@@ -15,7 +15,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/startCompass");
@@ -60,17 +60,17 @@ public class a extends aa {
             }
             c.i("compass", OneKeyLoginSdkCall.l);
             final k kVar = new k("compassChange", optParamsAsJo, optString);
-            com.baidu.swan.apps.ak.e.a aMn = com.baidu.swan.apps.ak.e.a.aMn();
-            aMn.init(context);
-            aMn.a(new a.InterfaceC0363a() { // from class: com.baidu.swan.apps.ak.e.a.a.1
-                @Override // com.baidu.swan.apps.ak.e.a.InterfaceC0363a
+            com.baidu.swan.apps.ak.e.a aMG = com.baidu.swan.apps.ak.e.a.aMG();
+            aMG.init(context);
+            aMG.a(new a.InterfaceC0360a() { // from class: com.baidu.swan.apps.ak.e.a.a.1
+                @Override // com.baidu.swan.apps.ak.e.a.InterfaceC0360a
                 public void b(float f, int i) {
                     c.i("compass", "handle compass change, angle:" + f + ",accuracy: " + i);
                     a.this.a(unitedSchemeEntity, callbackHandler, kVar, f, i);
                 }
             });
             c.i("compass", "start listen compass");
-            aMn.aMo();
+            aMG.aMH();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             kVar.a(unitedSchemeEntity, callbackHandler);
             return true;
@@ -82,7 +82,7 @@ public class a extends aa {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("direction", f);
-            jSONObject.put("accuracy", com.baidu.swan.apps.ak.e.a.jV(i));
+            jSONObject.put("accuracy", com.baidu.swan.apps.ak.e.a.jY(i));
             if (DEBUG) {
                 Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
             }

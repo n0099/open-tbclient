@@ -20,15 +20,15 @@ import com.baidu.mapsdkplatform.comapi.NativeLoader;
 import com.baidu.mapsdkplatform.comapi.map.VersionInfo;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BikeNavigateHelper {
     private static BikeNavigateHelper d;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2661a;
+    boolean f2659a;
 
     /* renamed from: b  reason: collision with root package name */
-    Activity f2662b;
+    Activity f2660b;
     private com.baidu.mapapi.bikenavi.controllers.a.a c = new com.baidu.mapapi.bikenavi.controllers.a.a();
 
     private BikeNavigateHelper() {
@@ -90,11 +90,11 @@ public class BikeNavigateHelper {
 
     public boolean startBikeNavi(Activity activity) {
         if (b.a().a(activity, (Bundle) null)) {
-            if (!this.f2661a) {
+            if (!this.f2659a) {
                 if (!b.a().p()) {
                     return false;
                 }
-                this.f2661a = true;
+                this.f2659a = true;
             }
             return true;
         }
@@ -109,7 +109,7 @@ public class BikeNavigateHelper {
 
     public View onCreate(Activity activity) {
         if (this.c != null) {
-            this.f2662b = activity;
+            this.f2660b = activity;
             return this.c.a(activity);
         }
         return null;
@@ -132,7 +132,7 @@ public class BikeNavigateHelper {
     }
 
     public void resume() {
-        if (this.f2662b != null && !this.f2662b.isFinishing()) {
+        if (this.f2660b != null && !this.f2660b.isFinishing()) {
             b.a().g();
             if (this.c != null) {
                 this.c.c();
@@ -151,8 +151,8 @@ public class BikeNavigateHelper {
             this.c.d();
             this.c = null;
         }
-        this.f2661a = false;
-        this.f2662b = null;
+        this.f2659a = false;
+        this.f2660b = null;
         if (d != null) {
             d = null;
         }

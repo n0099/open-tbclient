@@ -12,14 +12,14 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile f f7414a;
+    private static volatile f f7416a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static WeakReference<Context> f7415b;
+    private static WeakReference<Context> f7417b;
     private static List<a> c = Collections.synchronizedList(new ArrayList());
 
     static {
@@ -34,16 +34,16 @@ public class f implements a {
 
     public static f b(Context context) {
         if (context != null) {
-            f7415b = new WeakReference<>(context.getApplicationContext());
+            f7417b = new WeakReference<>(context.getApplicationContext());
         }
-        if (f7414a == null) {
+        if (f7416a == null) {
             synchronized (f.class) {
-                if (f7414a == null) {
-                    f7414a = new f();
+                if (f7416a == null) {
+                    f7416a = new f();
                 }
             }
         }
-        return f7414a;
+        return f7416a;
     }
 
     private f() {

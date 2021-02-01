@@ -10,7 +10,7 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.adp.widget.listview.TypeAdapter.ViewHolder;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class AbsDelegateAdapter<T, V extends TypeAdapter.ViewHolder> {
     private ITypeListAdapter<IAdapterData> mAdapter;
     protected OnAdapterItemClickListener mAdapterItemClickListener;

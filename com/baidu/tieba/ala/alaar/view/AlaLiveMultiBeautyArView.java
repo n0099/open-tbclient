@@ -25,7 +25,7 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.ar.AlaFilterAndBeautyData;
 import com.baidu.live.ar.ILiveMultiBeautyView;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
@@ -44,112 +44,112 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements View.OnClickListener {
     private static int ds120;
     private static int ds20;
     private static int ds28;
     private static int ds3;
-    private static int gtw;
-    private x aBr;
-    private com.baidu.live.ar.k bAO;
-    private BdPageContext bnf;
-    private final p gtg;
-    private final n gth;
-    private final m gti;
-    int gtj;
-    private c.a gtk;
-    private final o gtl;
-    private int gtm;
-    private com.baidu.tieba.ala.alaar.makeup.a.c gtn;
-    private final i gto;
-    private k gtp;
-    private BdAlertDialog gtq;
-    private boolean gtr;
-    private com.baidu.live.ar.e gts;
-    private com.baidu.live.ar.m gtt;
-    private com.baidu.tieba.ala.alaar.makeup.c gtu;
-    private TextView gtv;
+    private static int gwg;
+    private ab aDd;
+    private com.baidu.live.ar.k bEu;
+    private BdPageContext bqG;
+    private final p gvQ;
+    private final n gvR;
+    private final m gvS;
+    int gvT;
+    private c.a gvU;
+    private final o gvV;
+    private int gvW;
+    private com.baidu.tieba.ala.alaar.makeup.a.c gvX;
+    private final i gvY;
+    private k gvZ;
+    private BdAlertDialog gwa;
+    private boolean gwb;
+    private com.baidu.live.ar.e gwc;
+    private com.baidu.live.ar.m gwd;
+    private com.baidu.tieba.ala.alaar.makeup.c gwe;
+    private TextView gwf;
 
     static /* synthetic */ int b(AlaLiveMultiBeautyArView alaLiveMultiBeautyArView) {
-        int i = alaLiveMultiBeautyArView.gtm;
-        alaLiveMultiBeautyArView.gtm = i + 1;
+        int i = alaLiveMultiBeautyArView.gvW;
+        alaLiveMultiBeautyArView.gvW = i + 1;
         return i;
     }
 
     public AlaLiveMultiBeautyArView(Context context) {
         super(context);
-        this.gtg = new p();
-        this.gth = new n();
-        this.gti = new m();
-        this.gtj = 0;
-        this.gtl = new o();
-        this.gto = new i();
-        this.gtp = new k();
-        this.gtr = true;
-        this.gts = com.baidu.live.ar.e.aBa;
+        this.gvQ = new p();
+        this.gvR = new n();
+        this.gvS = new m();
+        this.gvT = 0;
+        this.gvV = new o();
+        this.gvY = new i();
+        this.gvZ = new k();
+        this.gwb = true;
+        this.gwc = com.baidu.live.ar.e.aCF;
         initViews();
     }
 
     public AlaLiveMultiBeautyArView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gtg = new p();
-        this.gth = new n();
-        this.gti = new m();
-        this.gtj = 0;
-        this.gtl = new o();
-        this.gto = new i();
-        this.gtp = new k();
-        this.gtr = true;
-        this.gts = com.baidu.live.ar.e.aBa;
+        this.gvQ = new p();
+        this.gvR = new n();
+        this.gvS = new m();
+        this.gvT = 0;
+        this.gvV = new o();
+        this.gvY = new i();
+        this.gvZ = new k();
+        this.gwb = true;
+        this.gwc = com.baidu.live.ar.e.aCF;
         initViews();
     }
 
     public AlaLiveMultiBeautyArView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gtg = new p();
-        this.gth = new n();
-        this.gti = new m();
-        this.gtj = 0;
-        this.gtl = new o();
-        this.gto = new i();
-        this.gtp = new k();
-        this.gtr = true;
-        this.gts = com.baidu.live.ar.e.aBa;
+        this.gvQ = new p();
+        this.gvR = new n();
+        this.gvS = new m();
+        this.gvT = 0;
+        this.gvV = new o();
+        this.gvY = new i();
+        this.gvZ = new k();
+        this.gwb = true;
+        this.gwc = com.baidu.live.ar.e.aCF;
         initViews();
     }
 
     public void setFilterFileName(String str) {
-        this.gts.aAM = str;
+        this.gwc.aCr = str;
     }
 
     public String getFilterFileName() {
-        if (TextUtils.isEmpty(this.gts.aAM) && this.gts.aAN != null) {
-            this.gts.aAM = com.baidu.tieba.ala.alaar.sticker.a.e.Fc(this.gts.aAN.yQ());
+        if (TextUtils.isEmpty(this.gwc.aCr) && this.gwc.aCs != null) {
+            this.gwc.aCr = com.baidu.tieba.ala.alaar.sticker.a.e.FA(this.gwc.aCs.zx());
         }
-        return this.gts.aAM;
+        return this.gwc.aCr;
     }
 
     private void initViews() {
         View.inflate(getContext(), a.g.ala_live_beauty_ar_hor_layout, this);
-        bPT();
-        this.gtm = 0;
-        this.gtg.cn(this);
-        this.gtg.a(new p.a() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.1
+        bQx();
+        this.gvW = 0;
+        this.gvQ.cj(this);
+        this.gvQ.a(new p.a() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.1
             @Override // com.baidu.tieba.ala.alaar.view.p.a
             public void a(l lVar) {
-                if (lVar != AlaLiveMultiBeautyArView.this.gtl) {
-                    if (lVar == AlaLiveMultiBeautyArView.this.gth) {
-                        AlaLiveMultiBeautyArView.this.gth.tz(AlaLiveMultiBeautyArView.this.gts.eK(AlaLiveMultiBeautyArView.this.getFilterFileName()));
+                if (lVar != AlaLiveMultiBeautyArView.this.gvV) {
+                    if (lVar == AlaLiveMultiBeautyArView.this.gvR) {
+                        AlaLiveMultiBeautyArView.this.gvR.tF(AlaLiveMultiBeautyArView.this.gwc.fc(AlaLiveMultiBeautyArView.this.getFilterFileName()));
                         return;
-                    } else if (lVar == AlaLiveMultiBeautyArView.this.gti && AlaLiveMultiBeautyArView.this.gts != null) {
-                        if (!TextUtils.equals(AlaLiveMultiBeautyArView.this.gts.aAO, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
-                            AlaLiveMultiBeautyArView.this.to(AlaLiveMultiBeautyArView.this.gts.eM(AlaLiveMultiBeautyArView.this.gts.aAO) + AlaLiveMultiBeautyArView.this.gtj);
-                            AlaLiveMultiBeautyArView.this.gti.gux.setProcessDiff(AlaLiveMultiBeautyArView.this.gtj);
+                    } else if (lVar == AlaLiveMultiBeautyArView.this.gvS && AlaLiveMultiBeautyArView.this.gwc != null) {
+                        if (!TextUtils.equals(AlaLiveMultiBeautyArView.this.gwc.aCt, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
+                            AlaLiveMultiBeautyArView.this.tu(AlaLiveMultiBeautyArView.this.gwc.fe(AlaLiveMultiBeautyArView.this.gwc.aCt) + AlaLiveMultiBeautyArView.this.gvT);
+                            AlaLiveMultiBeautyArView.this.gvS.gxh.setProcessDiff(AlaLiveMultiBeautyArView.this.gvT);
                             return;
                         }
                         try {
-                            AlaLiveMultiBeautyArView.this.c(AlaLiveMultiBeautyArView.this.gts.eL(AlaLiveMultiBeautyArView.this.gts.aAR), false, Integer.valueOf(AlaLiveMultiBeautyArView.this.gts.aAT).intValue());
+                            AlaLiveMultiBeautyArView.this.c(AlaLiveMultiBeautyArView.this.gwc.fd(AlaLiveMultiBeautyArView.this.gwc.aCw), false, Integer.valueOf(AlaLiveMultiBeautyArView.this.gwc.aCy).intValue());
                             return;
                         } catch (Exception e) {
                             return;
@@ -159,45 +159,45 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                     }
                 }
                 AlaLiveMultiBeautyArView.b(AlaLiveMultiBeautyArView.this);
-                if (AlaLiveMultiBeautyArView.this.gtn != null && !AlaLiveMultiBeautyArView.this.gtn.bOS()) {
-                    AlaLiveMultiBeautyArView.this.gtn.mh(true);
+                if (AlaLiveMultiBeautyArView.this.gvX != null && !AlaLiveMultiBeautyArView.this.gvX.bPw()) {
+                    AlaLiveMultiBeautyArView.this.gvX.ml(true);
                 }
-                if (AlaLiveMultiBeautyArView.this.gtm == 1 && AlaLiveMultiBeautyArView.this.gtl.guY != null) {
-                    AlaLiveMultiBeautyArView.this.gtl.tx(AlaLiveMultiBeautyArView.this.gtl.guY.getCurrentPosition());
+                if (AlaLiveMultiBeautyArView.this.gvW == 1 && AlaLiveMultiBeautyArView.this.gvV.gxI != null) {
+                    AlaLiveMultiBeautyArView.this.gvV.tD(AlaLiveMultiBeautyArView.this.gvV.gxI.getCurrentPosition());
                 }
-                AlaLiveMultiBeautyArView.this.gtl.ml(false);
+                AlaLiveMultiBeautyArView.this.gvV.mp(false);
             }
         });
-        this.gth.cn(this);
-        this.gth.setTitle(getResources().getString(a.h.ala_live_new_beauty_filter));
-        this.gtg.b(this.gth);
-        this.gth.c(new com.baidu.tieba.ala.alaar.view.a(getContext()));
-        this.gth.a(new l.a<com.baidu.live.ar.i>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.7
+        this.gvR.cj(this);
+        this.gvR.setTitle(getResources().getString(a.h.ala_live_new_beauty_filter));
+        this.gvQ.b(this.gvR);
+        this.gvR.c(new com.baidu.tieba.ala.alaar.view.a(getContext()));
+        this.gvR.a(new l.a<com.baidu.live.ar.i>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             /* renamed from: a  reason: avoid collision after fix types in other method */
             public void b(int i, com.baidu.live.ar.i iVar, boolean z) {
-                String Fc;
+                String FA;
                 if (AlaLiveMultiBeautyArView.this.getContext().getString(a.h.beauty_yuantu).equals(iVar.getName())) {
-                    com.baidu.minivideo.arface.b.ZU();
-                    Fc = com.baidu.minivideo.arface.c.aab();
+                    com.baidu.minivideo.arface.b.abI();
+                    FA = com.baidu.minivideo.arface.c.abP();
                 } else {
-                    Fc = com.baidu.tieba.ala.alaar.sticker.a.e.Fc(iVar.yQ());
+                    FA = com.baidu.tieba.ala.alaar.sticker.a.e.FA(iVar.zx());
                 }
-                if (!AlaLiveMultiBeautyArView.this.gts.aAM.equals(Fc)) {
-                    AlaLiveMultiBeautyArView.this.Fq(iVar.getName());
+                if (!AlaLiveMultiBeautyArView.this.gwc.aCr.equals(FA)) {
+                    AlaLiveMultiBeautyArView.this.FO(iVar.getName());
                 }
-                AlaLiveMultiBeautyArView.this.setFilterFileName(Fc);
-                AlaLiveMultiBeautyArView.this.gts.aAN = iVar;
-                if (AlaLiveMultiBeautyArView.this.gtt != null && AlaLiveMultiBeautyArView.this.bAO.yU() != null) {
-                    int a2 = AlaLiveMultiBeautyArView.this.gts.a(iVar, AlaLiveMultiBeautyArView.this.bAO.yU().aAy);
-                    int eK = AlaLiveMultiBeautyArView.this.gts.eK(AlaLiveMultiBeautyArView.this.getFilterFileName());
-                    float f = (((eK * 1.0f) / 100.0f) * (a2 * 1.0f)) / 100.0f;
-                    Log.d("ArUpdate", "@.@ onItemSelected threshold:" + a2 + ", level:" + eK + ", value:" + f);
-                    AlaLiveMultiBeautyArView.this.gtt.onFilterSelected(AlaLiveMultiBeautyArView.this.gts.aAN.getName(), AlaLiveMultiBeautyArView.this.getFilterFileName(), f);
+                AlaLiveMultiBeautyArView.this.setFilterFileName(FA);
+                AlaLiveMultiBeautyArView.this.gwc.aCs = iVar;
+                if (AlaLiveMultiBeautyArView.this.gwd != null && AlaLiveMultiBeautyArView.this.bEu.zB() != null) {
+                    int a2 = AlaLiveMultiBeautyArView.this.gwc.a(iVar, AlaLiveMultiBeautyArView.this.bEu.zB().aCd);
+                    int fc = AlaLiveMultiBeautyArView.this.gwc.fc(AlaLiveMultiBeautyArView.this.getFilterFileName());
+                    float f = (((fc * 1.0f) / 100.0f) * (a2 * 1.0f)) / 100.0f;
+                    Log.d("ArUpdate", "@.@ onItemSelected threshold:" + a2 + ", level:" + fc + ", value:" + f);
+                    AlaLiveMultiBeautyArView.this.gwd.onFilterSelected(AlaLiveMultiBeautyArView.this.gwc.aCs.getName(), AlaLiveMultiBeautyArView.this.getFilterFileName(), f);
                 }
-                if (AlaLiveMultiBeautyArView.this.gtg.gvc == AlaLiveMultiBeautyArView.this.gth) {
-                    AlaLiveMultiBeautyArView.this.gth.tz(AlaLiveMultiBeautyArView.this.gts.eK(AlaLiveMultiBeautyArView.this.getFilterFileName()));
+                if (AlaLiveMultiBeautyArView.this.gvQ.gxM == AlaLiveMultiBeautyArView.this.gvR) {
+                    AlaLiveMultiBeautyArView.this.gvR.tF(AlaLiveMultiBeautyArView.this.gwc.fc(AlaLiveMultiBeautyArView.this.getFilterFileName()));
                 }
             }
 
@@ -211,21 +211,21 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             public void a(com.baidu.live.ar.i iVar, SeekBar seekBar, int i, boolean z) {
-                AlaLiveMultiBeautyArView.this.gts.A(AlaLiveMultiBeautyArView.this.getFilterFileName(), i);
-                if (AlaLiveMultiBeautyArView.this.gtt != null) {
-                    int a2 = AlaLiveMultiBeautyArView.this.gts.a(AlaLiveMultiBeautyArView.this.gts.aAN, AlaLiveMultiBeautyArView.this.bAO.yU().aAy);
+                AlaLiveMultiBeautyArView.this.gwc.A(AlaLiveMultiBeautyArView.this.getFilterFileName(), i);
+                if (AlaLiveMultiBeautyArView.this.gwd != null) {
+                    int a2 = AlaLiveMultiBeautyArView.this.gwc.a(AlaLiveMultiBeautyArView.this.gwc.aCs, AlaLiveMultiBeautyArView.this.bEu.zB().aCd);
                     float f = (((i * 1.0f) / 100.0f) * (a2 * 1.0f)) / 100.0f;
                     Log.d("ArUpdate", "@.@ onProgressChanged threshold:" + a2 + ", progress:" + i + ", value:" + f);
-                    AlaLiveMultiBeautyArView.this.gtt.onFilterSelected(AlaLiveMultiBeautyArView.this.gts.aAN.getName(), AlaLiveMultiBeautyArView.this.getFilterFileName(), f);
+                    AlaLiveMultiBeautyArView.this.gwd.onFilterSelected(AlaLiveMultiBeautyArView.this.gwc.aCs.getName(), AlaLiveMultiBeautyArView.this.getFilterFileName(), f);
                 }
             }
 
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             public void onStartTrackingTouch(SeekBar seekBar) {
                 JSONObject jSONObject = new JSONObject();
-                if (AlaLiveMultiBeautyArView.this.gts.aAN != null) {
+                if (AlaLiveMultiBeautyArView.this.gwc.aCs != null) {
                     try {
-                        jSONObject.put("filter_id", AlaLiveMultiBeautyArView.this.gts.aAN.getId());
+                        jSONObject.put("filter_id", AlaLiveMultiBeautyArView.this.gwc.aCs.getId());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -233,35 +233,35 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                 AlaLiveMultiBeautyArView.this.r("filterbar_clk", jSONObject);
             }
         });
-        this.gti.cn(this);
-        this.gti.setTitle(getResources().getString(a.h.ala_live_new_beauty_beauty));
-        this.gtg.b(this.gti);
-        this.gti.a(new l.a<c.a>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.8
+        this.gvS.cj(this);
+        this.gvS.setTitle(getResources().getString(a.h.ala_live_new_beauty_beauty));
+        this.gvQ.b(this.gvS);
+        this.gvS.a(new l.a<c.a>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             /* renamed from: a  reason: avoid collision after fix types in other method */
             public void b(int i, c.a aVar, boolean z) {
-                if (AlaLiveMultiBeautyArView.this.gtg.gvc == AlaLiveMultiBeautyArView.this.gti) {
+                if (AlaLiveMultiBeautyArView.this.gvQ.gxM == AlaLiveMultiBeautyArView.this.gvS) {
                     if (i == 0) {
-                        AlaLiveMultiBeautyArView.this.bPU();
+                        AlaLiveMultiBeautyArView.this.bQy();
                         return;
                     }
-                    AlaLiveMultiBeautyArView.this.gts.aAO = aVar.gtW;
-                    AlaLiveMultiBeautyArView.this.gti.guJ.Fu(aVar.gtW);
-                    AlaLiveMultiBeautyArView.this.bPS();
-                    if (TextUtils.equals(AlaLiveMultiBeautyArView.this.gts.aAO, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
-                        if (AlaLiveMultiBeautyArView.this.gtg.gvc == AlaLiveMultiBeautyArView.this.gti && z) {
+                    AlaLiveMultiBeautyArView.this.gwc.aCt = aVar.gwG;
+                    AlaLiveMultiBeautyArView.this.gvS.gxt.FS(aVar.gwG);
+                    AlaLiveMultiBeautyArView.this.bQw();
+                    if (TextUtils.equals(AlaLiveMultiBeautyArView.this.gwc.aCt, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
+                        if (AlaLiveMultiBeautyArView.this.gvQ.gxM == AlaLiveMultiBeautyArView.this.gvS && z) {
                             AlaLiveMultiBeautyArView.this.a(aVar);
                             return;
                         }
                         return;
                     }
-                    AlaLiveMultiBeautyArView.this.gtk = aVar;
+                    AlaLiveMultiBeautyArView.this.gvU = aVar;
                     if (aVar != null) {
-                        AlaLiveMultiBeautyArView.this.gtj = aVar.gtX;
+                        AlaLiveMultiBeautyArView.this.gvT = aVar.gwH;
                     }
-                    AlaLiveMultiBeautyArView.this.to(AlaLiveMultiBeautyArView.this.gts.eM(AlaLiveMultiBeautyArView.this.gts.aAO) + AlaLiveMultiBeautyArView.this.gtj);
-                    AlaLiveMultiBeautyArView.this.gti.gux.setProcessDiff(AlaLiveMultiBeautyArView.this.gtj);
+                    AlaLiveMultiBeautyArView.this.tu(AlaLiveMultiBeautyArView.this.gwc.fe(AlaLiveMultiBeautyArView.this.gwc.aCt) + AlaLiveMultiBeautyArView.this.gvT);
+                    AlaLiveMultiBeautyArView.this.gvS.gxh.setProcessDiff(AlaLiveMultiBeautyArView.this.gvT);
                 }
             }
 
@@ -275,45 +275,45 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             public void a(c.a aVar, SeekBar seekBar, int i, boolean z) {
-                if (AlaLiveMultiBeautyArView.this.gtg.gvc == AlaLiveMultiBeautyArView.this.gtl) {
-                    if (z && AlaLiveMultiBeautyArView.this.gtu != null) {
-                        AlaLiveMultiBeautyArView.this.gtu.setValue(i);
-                        if (AlaLiveMultiBeautyArView.this.gts.aAV != null) {
-                            AlaLiveMultiBeautyArView.this.gts.aAV.setValue(AlaLiveMultiBeautyArView.this.gtu.bOw());
-                            AlaLiveMultiBeautyArView.this.gtt.a(AlaLiveMultiBeautyArView.this.gts.aAV);
+                if (AlaLiveMultiBeautyArView.this.gvQ.gxM == AlaLiveMultiBeautyArView.this.gvV) {
+                    if (z && AlaLiveMultiBeautyArView.this.gwe != null) {
+                        AlaLiveMultiBeautyArView.this.gwe.setValue(i);
+                        if (AlaLiveMultiBeautyArView.this.gwc.aCA != null) {
+                            AlaLiveMultiBeautyArView.this.gwc.aCA.setValue(AlaLiveMultiBeautyArView.this.gwe.bPa());
+                            AlaLiveMultiBeautyArView.this.gwd.a(AlaLiveMultiBeautyArView.this.gwc.aCA);
                         }
                     }
-                } else if (TextUtils.equals(AlaLiveMultiBeautyArView.this.gts.aAO, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
-                    AlaLiveMultiBeautyArView.this.gts.cj(i);
+                } else if (TextUtils.equals(AlaLiveMultiBeautyArView.this.gwc.aCt, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
+                    AlaLiveMultiBeautyArView.this.gwc.cm(i);
                     AlaLiveMultiBeautyArView.this.setThinFace(i);
-                    if ((TextUtils.equals("naturalFace", AlaLiveMultiBeautyArView.this.gts.aAR) || TextUtils.isEmpty(AlaLiveMultiBeautyArView.this.gts.aAR)) && com.baidu.live.d.xf().getInt("beauty_subitem_redot", 0) == 1 && com.baidu.live.d.xf().getBoolean("naturalFace", true)) {
-                        com.baidu.live.d.xf().putBoolean("naturalFace", false);
+                    if ((TextUtils.equals("naturalFace", AlaLiveMultiBeautyArView.this.gwc.aCw) || TextUtils.isEmpty(AlaLiveMultiBeautyArView.this.gwc.aCw)) && com.baidu.live.d.xc().getInt("beauty_subitem_redot", 0) == 1 && com.baidu.live.d.xc().getBoolean("naturalFace", true)) {
+                        com.baidu.live.d.xc().putBoolean("naturalFace", false);
                     }
                 } else {
-                    AlaLiveMultiBeautyArView.this.gts.B(AlaLiveMultiBeautyArView.this.gts.aAO, i - AlaLiveMultiBeautyArView.this.gtj);
-                    if (AlaLiveMultiBeautyArView.this.gtt != null) {
-                        AlaLiveMultiBeautyArView.this.gtt.a((1.0f * i) / 100.0f, AlaFilterAndBeautyData.eJ(AlaLiveMultiBeautyArView.this.gts.aAO));
+                    AlaLiveMultiBeautyArView.this.gwc.B(AlaLiveMultiBeautyArView.this.gwc.aCt, i - AlaLiveMultiBeautyArView.this.gvT);
+                    if (AlaLiveMultiBeautyArView.this.gwd != null) {
+                        AlaLiveMultiBeautyArView.this.gwd.a((1.0f * i) / 100.0f, AlaFilterAndBeautyData.fb(AlaLiveMultiBeautyArView.this.gwc.aCt));
                     }
                 }
                 if (z) {
-                    com.baidu.live.d.xf().putBoolean("ala_beauty_changed_by_user", true);
+                    com.baidu.live.d.xc().putBoolean("ala_beauty_changed_by_user", true);
                 }
             }
 
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             public void onStartTrackingTouch(SeekBar seekBar) {
-                if (AlaLiveMultiBeautyArView.this.gtg.gvc != AlaLiveMultiBeautyArView.this.gtl) {
-                    if (AlaLiveMultiBeautyArView.this.gts.aAO != null) {
+                if (AlaLiveMultiBeautyArView.this.gvQ.gxM != AlaLiveMultiBeautyArView.this.gvV) {
+                    if (AlaLiveMultiBeautyArView.this.gwc.aCt != null) {
                         String str = null;
-                        if (TextUtils.equals(AlaLiveMultiBeautyArView.this.gts.aAO, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
-                            if (AlaLiveMultiBeautyArView.this.gts.aAU != null) {
-                                str = AlaLiveMultiBeautyArView.this.gts.aAU.getName();
+                        if (TextUtils.equals(AlaLiveMultiBeautyArView.this.gwc.aCt, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
+                            if (AlaLiveMultiBeautyArView.this.gwc.aCz != null) {
+                                str = AlaLiveMultiBeautyArView.this.gwc.aCz.getName();
                             }
                         } else {
-                            str = AlaLiveMultiBeautyArView.this.gtk.gtV;
+                            str = AlaLiveMultiBeautyArView.this.gvU.gwF;
                         }
                         JSONObject jSONObject = new JSONObject();
-                        if (AlaLiveMultiBeautyArView.this.gtk != null && str != null) {
+                        if (AlaLiveMultiBeautyArView.this.gvU != null && str != null) {
                             try {
                                 jSONObject.put("beauty_name", str);
                             } catch (JSONException e) {
@@ -326,9 +326,9 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                     return;
                 }
                 JSONObject jSONObject2 = new JSONObject();
-                if (AlaLiveMultiBeautyArView.this.gtu != null) {
+                if (AlaLiveMultiBeautyArView.this.gwe != null) {
                     try {
-                        jSONObject2.put("makeup_id", AlaLiveMultiBeautyArView.this.gtu.getId());
+                        jSONObject2.put("makeup_id", AlaLiveMultiBeautyArView.this.gwe.getId());
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -336,17 +336,17 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                 AlaLiveMultiBeautyArView.this.r("makeupbar_clk", jSONObject2);
             }
         });
-        this.gti.guO.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.9
+        this.gvS.gxy.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.9
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction() & 255) {
                     case 0:
-                        if (AlaLiveMultiBeautyArView.this.gtg.gvc == AlaLiveMultiBeautyArView.this.gtl) {
-                            AlaLiveMultiBeautyArView.this.bPX();
+                        if (AlaLiveMultiBeautyArView.this.gvQ.gxM == AlaLiveMultiBeautyArView.this.gvV) {
+                            AlaLiveMultiBeautyArView.this.bQB();
                             break;
                         } else {
-                            if (AlaLiveMultiBeautyArView.this.gtt != null) {
-                                AlaLiveMultiBeautyArView.this.gtt.yY();
+                            if (AlaLiveMultiBeautyArView.this.gwd != null) {
+                                AlaLiveMultiBeautyArView.this.gwd.zF();
                             }
                             AlaLiveMultiBeautyArView.this.setThinFace(0);
                             break;
@@ -354,8 +354,8 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                     case 1:
                     case 3:
                     case 4:
-                        if (AlaLiveMultiBeautyArView.this.gtg.gvc == AlaLiveMultiBeautyArView.this.gtl) {
-                            AlaLiveMultiBeautyArView.this.bPW();
+                        if (AlaLiveMultiBeautyArView.this.gvQ.gxM == AlaLiveMultiBeautyArView.this.gvV) {
+                            AlaLiveMultiBeautyArView.this.bQA();
                             break;
                         } else {
                             AlaLiveMultiBeautyArView.this.setBeautyAdjustUserData2AR(true);
@@ -365,26 +365,26 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                 return true;
             }
         });
-        this.gtl.cn(this);
-        this.gtl.ty(0);
-        this.gtl.setTitle(getResources().getString(a.h.ala_live_new_beauty_makeup));
-        this.gtg.b(this.gtl);
-        this.gtl.a(new l.a<com.baidu.tieba.ala.alaar.makeup.d>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.10
+        this.gvV.cj(this);
+        this.gvV.tE(0);
+        this.gvV.setTitle(getResources().getString(a.h.ala_live_new_beauty_makeup));
+        this.gvQ.b(this.gvV);
+        this.gvV.a(new l.a<com.baidu.tieba.ala.alaar.makeup.d>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             /* renamed from: a  reason: avoid collision after fix types in other method */
             public void b(int i, com.baidu.tieba.ala.alaar.makeup.d dVar, boolean z) {
                 if (com.baidu.tieba.ala.alaar.makeup.h.isDebug()) {
-                    com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "ArView MKGroup onItemSelected pos= " + i + ", name=" + dVar.bOq());
+                    com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "ArView MKGroup onItemSelected pos= " + i + ", name=" + dVar.bOU());
                 }
-                List<com.baidu.tieba.ala.alaar.makeup.c> bOE = dVar.bOE();
-                if (dVar.ayW() || bOE == null || bOE.isEmpty()) {
+                List<com.baidu.tieba.ala.alaar.makeup.c> bPi = dVar.bPi();
+                if (dVar.azu() || bPi == null || bPi.isEmpty()) {
                     AlaLiveMultiBeautyArView.this.b(i, dVar, null);
-                } else if (AlaLiveMultiBeautyArView.this.gtg.gvc == AlaLiveMultiBeautyArView.this.gtl) {
+                } else if (AlaLiveMultiBeautyArView.this.gvQ.gxM == AlaLiveMultiBeautyArView.this.gvV) {
                     AlaLiveMultiBeautyArView.this.a(dVar);
                 }
-                if (AlaLiveMultiBeautyArView.this.gtn != null) {
-                    AlaLiveMultiBeautyArView.this.gtn.setPosition(i);
+                if (AlaLiveMultiBeautyArView.this.gvX != null) {
+                    AlaLiveMultiBeautyArView.this.gvX.setPosition(i);
                 }
             }
 
@@ -393,10 +393,10 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
             /* renamed from: b  reason: avoid collision after fix types in other method */
             public boolean a(int i, com.baidu.tieba.ala.alaar.makeup.d dVar, boolean z) {
                 if (com.baidu.tieba.ala.alaar.makeup.h.isDebug()) {
-                    com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "ArView MKGroup onItemClick pos= " + i + ", name=" + dVar.bOq());
+                    com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "ArView MKGroup onItemClick pos= " + i + ", name=" + dVar.bOU());
                 }
-                List<com.baidu.tieba.ala.alaar.makeup.c> bOE = dVar.bOE();
-                if (dVar.ayW() || bOE == null || bOE.isEmpty()) {
+                List<com.baidu.tieba.ala.alaar.makeup.c> bPi = dVar.bPi();
+                if (dVar.azu() || bPi == null || bPi.isEmpty()) {
                     return AlaLiveMultiBeautyArView.this.a(i, dVar, (com.baidu.tieba.ala.alaar.makeup.d) null);
                 }
                 return false;
@@ -411,21 +411,21 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
         });
-        if (this.gtn != null) {
-            this.gtl.setPosition(this.gtn.getPosition());
+        if (this.gvX != null) {
+            this.gvV.setPosition(this.gvX.getPosition());
         }
-        com.baidu.tieba.ala.alaar.makeup.g.bOI().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.11
+        com.baidu.tieba.ala.alaar.makeup.g.bPm().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.11
             @Override // com.baidu.tieba.ala.alaar.makeup.a.b
             public void c(com.baidu.tieba.ala.alaar.makeup.a aVar) {
-                com.baidu.tieba.ala.alaar.makeup.a.c bOK = com.baidu.tieba.ala.alaar.makeup.g.bOI().bOK();
+                com.baidu.tieba.ala.alaar.makeup.a.c bPo = com.baidu.tieba.ala.alaar.makeup.g.bPm().bPo();
                 if (com.baidu.tieba.ala.alaar.makeup.h.isDebug()) {
-                    com.baidu.tieba.ala.alaar.makeup.h.d("BeautyAr", "makeupdata onDataLoaded size: " + (AlaLiveMultiBeautyArView.this.gtn == null ? "null" : Integer.valueOf(AlaLiveMultiBeautyArView.this.gtn.size())));
+                    com.baidu.tieba.ala.alaar.makeup.h.d("BeautyAr", "makeupdata onDataLoaded size: " + (AlaLiveMultiBeautyArView.this.gvX == null ? "null" : Integer.valueOf(AlaLiveMultiBeautyArView.this.gvX.size())));
                 }
-                AlaLiveMultiBeautyArView.this.setMakeupData(bOK);
+                AlaLiveMultiBeautyArView.this.setMakeupData(bPo);
             }
         });
-        this.gtp.cn(this);
-        this.gtp.a(new j.a() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.12
+        this.gvZ.cj(this);
+        this.gvZ.a(new j.a() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.12
             @Override // com.baidu.tieba.ala.alaar.view.j.a
             public void a(k kVar, View view) {
                 AlaLiveMultiBeautyArView.this.J(false, true);
@@ -434,22 +434,22 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
         findViewById(a.f.beauty_viewStub).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.13
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaLiveMultiBeautyArView.this.bPR();
+                AlaLiveMultiBeautyArView.this.bQv();
             }
         });
-        this.gtv = (TextView) findViewById(a.f.filter_select_anim);
+        this.gwf = (TextView) findViewById(a.f.filter_select_anim);
         postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.14
             @Override // java.lang.Runnable
             public void run() {
-                AlaLiveMultiBeautyArView.this.bPS();
+                AlaLiveMultiBeautyArView.this.bQw();
             }
         }, 1000L);
-        String string = com.baidu.live.d.xf().getString("beauty_face_feature", "");
+        String string = com.baidu.live.d.xc().getString("beauty_face_feature", "");
         if (!TextUtils.isEmpty(string)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913196, string));
         }
-        this.gtg.c(this.gti);
-        this.gtg.show(false);
+        this.gvQ.c(this.gvS);
+        this.gvQ.show(false);
     }
 
     private boolean isShow() {
@@ -458,21 +458,21 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPR() {
+    public void bQv() {
         ViewParent parent = getParent();
         if (parent != null && (parent instanceof ViewGroup)) {
             ((ViewGroup) parent).removeView(this);
         }
-        yW();
-        if (this.gtt != null) {
-            this.gtt.onClosed();
+        zD();
+        if (this.gwd != null) {
+            this.gwd.onClosed();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final com.baidu.tieba.ala.alaar.makeup.d dVar) {
-        this.gto.guv = dVar;
-        this.gto.a(new l.a<com.baidu.tieba.ala.alaar.makeup.c>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.2
+        this.gvY.gxf = dVar;
+        this.gvY.a(new l.a<com.baidu.tieba.ala.alaar.makeup.c>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             /* renamed from: a  reason: avoid collision after fix types in other method */
@@ -495,9 +495,9 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             public void onStartTrackingTouch(SeekBar seekBar) {
                 JSONObject jSONObject = new JSONObject();
-                if (AlaLiveMultiBeautyArView.this.gtu != null) {
+                if (AlaLiveMultiBeautyArView.this.gwe != null) {
                     try {
-                        jSONObject.put("makeup_id", AlaLiveMultiBeautyArView.this.gtu.getId());
+                        jSONObject.put("makeup_id", AlaLiveMultiBeautyArView.this.gwe.getId());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -505,33 +505,33 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                 AlaLiveMultiBeautyArView.this.r("makeupbar_clk", jSONObject);
             }
         });
-        this.gto.a(dVar, this);
-        this.gto.setTitle(dVar.bOq());
+        this.gvY.a(dVar, this);
+        this.gvY.setTitle(dVar.bOU());
         J(true, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c.a aVar) {
-        this.gto.guv = aVar;
-        this.gto.cm(this);
-        this.gto.setTitle(aVar.gtV);
-        this.gto.a(new l.a<com.baidu.live.ar.h>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.3
+        this.gvY.gxf = aVar;
+        this.gvY.ci(this);
+        this.gvY.setTitle(aVar.gwF);
+        this.gvY.a(new l.a<com.baidu.live.ar.h>() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             /* renamed from: a  reason: avoid collision after fix types in other method */
             public void b(int i, com.baidu.live.ar.h hVar, boolean z) {
-                AlaLiveMultiBeautyArView.this.gts.aAR = hVar.getType();
-                AlaLiveMultiBeautyArView.this.gts.aAS = hVar.yS();
-                AlaLiveMultiBeautyArView.this.gts.aAT = hVar.yR();
-                AlaLiveMultiBeautyArView.this.gts.aAU = hVar;
-                String Fv = AlaLiveMultiBeautyArView.this.gto.gul.Fv(hVar.getType());
-                if (com.baidu.tieba.ala.alaar.sticker.a.d.Fd(hVar.yQ())) {
-                    Fv = com.baidu.tieba.ala.alaar.sticker.a.d.Fg(com.baidu.tieba.ala.alaar.sticker.a.d.Fc(hVar.yQ()));
+                AlaLiveMultiBeautyArView.this.gwc.aCw = hVar.getType();
+                AlaLiveMultiBeautyArView.this.gwc.aCx = hVar.zz();
+                AlaLiveMultiBeautyArView.this.gwc.aCy = hVar.zy();
+                AlaLiveMultiBeautyArView.this.gwc.aCz = hVar;
+                String FT = AlaLiveMultiBeautyArView.this.gvY.gwV.FT(hVar.getType());
+                if (com.baidu.tieba.ala.alaar.sticker.a.d.FB(hVar.zx())) {
+                    FT = com.baidu.tieba.ala.alaar.sticker.a.d.FE(com.baidu.tieba.ala.alaar.sticker.a.d.FA(hVar.zx()));
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913196, Fv));
-                AlaLiveMultiBeautyArView.this.gti.gux.setProcessDiff(0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913196, FT));
+                AlaLiveMultiBeautyArView.this.gvS.gxh.setProcessDiff(0);
                 try {
-                    AlaLiveMultiBeautyArView.this.c(AlaLiveMultiBeautyArView.this.gts.eL(AlaLiveMultiBeautyArView.this.gts.aAR), false, Integer.valueOf(AlaLiveMultiBeautyArView.this.gts.aAT).intValue());
+                    AlaLiveMultiBeautyArView.this.c(AlaLiveMultiBeautyArView.this.gwc.fd(AlaLiveMultiBeautyArView.this.gwc.aCw), false, Integer.valueOf(AlaLiveMultiBeautyArView.this.gwc.aCy).intValue());
                 } catch (Exception e) {
                 }
             }
@@ -551,11 +551,11 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
             @Override // com.baidu.tieba.ala.alaar.view.l.a
             public void onStartTrackingTouch(SeekBar seekBar) {
                 JSONObject jSONObject = new JSONObject();
-                if (AlaLiveMultiBeautyArView.this.gts.aAO != null) {
+                if (AlaLiveMultiBeautyArView.this.gwc.aCt != null) {
                     String str = null;
                     try {
-                        if (AlaLiveMultiBeautyArView.this.gts.aAU != null) {
-                            str = AlaLiveMultiBeautyArView.this.gts.aAU.getName();
+                        if (AlaLiveMultiBeautyArView.this.gwc.aCz != null) {
+                            str = AlaLiveMultiBeautyArView.this.gwc.aCz.getName();
                         }
                         jSONObject.put("beauty_name", str);
                     } catch (JSONException e) {
@@ -565,100 +565,100 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                 AlaLiveMultiBeautyArView.this.r("beautybar_clk", jSONObject);
             }
         });
-        if (this.bAO != null && this.bAO.yU() != null && this.bAO.yU().aAz != null) {
-            this.gts.b(false, this.bAO.yU().aAz);
-            List<com.baidu.live.ar.h> list = this.bAO.yU().aAz;
-            this.gto.gul.e(list, this.gto.gul.i(list, this.gts.aAR));
-            this.gto.gul.notifyDataSetChanged();
-            if (TextUtils.equals(this.gts.aAO, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
+        if (this.bEu != null && this.bEu.zB() != null && this.bEu.zB().aCe != null) {
+            this.gwc.b(false, this.bEu.zB().aCe);
+            List<com.baidu.live.ar.h> list = this.bEu.zB().aCe;
+            this.gvY.gwV.e(list, this.gvY.gwV.h(list, this.gwc.aCw));
+            this.gvY.gwV.notifyDataSetChanged();
+            if (TextUtils.equals(this.gwc.aCt, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
                 int i = 40;
                 try {
-                    if (!TextUtils.isEmpty(this.gts.aAT)) {
-                        i = Integer.valueOf(this.gts.aAT).intValue();
+                    if (!TextUtils.isEmpty(this.gwc.aCy)) {
+                        i = Integer.valueOf(this.gwc.aCy).intValue();
                     }
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
-                c(this.gts.eL(this.gts.aAR), false, i);
+                c(this.gwc.fd(this.gwc.aCw), false, i);
             }
         }
         J(true, true);
-        bPV();
-        this.gtp.show();
+        bQz();
+        this.gvZ.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setMakeupData(com.baidu.tieba.ala.alaar.makeup.a.c cVar) {
         boolean z = true;
-        this.gtn = cVar;
-        if (cVar != null && cVar.bOQ() != null && cVar.yO()) {
-            bPW();
-            this.gtl.setEnable(true);
-            this.gtl.guY.setData(cVar.bOQ().getData());
-            if (this.gtn != null) {
-                this.gtl.setPosition(this.gtn.getPosition());
+        this.gvX = cVar;
+        if (cVar != null && cVar.bPu() != null && cVar.zv()) {
+            bQA();
+            this.gvV.setEnable(true);
+            this.gvV.gxI.setData(cVar.bPu().getData());
+            if (this.gvX != null) {
+                this.gvV.setPosition(this.gvX.getPosition());
             }
-            o oVar = this.gtl;
-            if (!cVar.bOR() || cVar.bOS()) {
+            o oVar = this.gvV;
+            if (!cVar.bPv() || cVar.bPw()) {
                 z = false;
             }
-            oVar.ml(z);
+            oVar.mp(z);
             return;
         }
-        this.gtl.setEnable(false);
+        this.gvV.setEnable(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPS() {
-        if (com.baidu.live.d.xf().getInt("beauty_tab_redot", 0) != 1) {
-            this.gti.ml(false);
-        } else if (com.baidu.live.d.xf().getBoolean(AlaFilterAndBeautyData.BeautyAdjustKey.faceWidth.getJsonKey(), true) || com.baidu.live.d.xf().getBoolean(AlaFilterAndBeautyData.BeautyAdjustKey.noseLength.getJsonKey(), true) || com.baidu.live.d.xf().getBoolean(AlaFilterAndBeautyData.BeautyAdjustKey.upCount.getJsonKey(), true) || com.baidu.live.d.xf().getBoolean(AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance.getJsonKey(), true) || this.gti.guJ.bQb()) {
-            this.gti.ml(true);
+    public void bQw() {
+        if (com.baidu.live.d.xc().getInt("beauty_tab_redot", 0) != 1) {
+            this.gvS.mp(false);
+        } else if (com.baidu.live.d.xc().getBoolean(AlaFilterAndBeautyData.BeautyAdjustKey.faceWidth.getJsonKey(), true) || com.baidu.live.d.xc().getBoolean(AlaFilterAndBeautyData.BeautyAdjustKey.noseLength.getJsonKey(), true) || com.baidu.live.d.xc().getBoolean(AlaFilterAndBeautyData.BeautyAdjustKey.upCount.getJsonKey(), true) || com.baidu.live.d.xc().getBoolean(AlaFilterAndBeautyData.BeautyAdjustKey.eyeDistance.getJsonKey(), true) || this.gvS.gxt.bQF()) {
+            this.gvS.mp(true);
         } else {
-            this.gti.ml(false);
+            this.gvS.mp(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements h.a {
-        com.baidu.tieba.ala.alaar.makeup.d gtA;
-        com.baidu.tieba.ala.alaar.makeup.c gtz;
+        com.baidu.tieba.ala.alaar.makeup.c gwj;
+        com.baidu.tieba.ala.alaar.makeup.d gwk;
         int pos;
 
         public a(int i, com.baidu.tieba.ala.alaar.makeup.c cVar, com.baidu.tieba.ala.alaar.makeup.d dVar) {
             this.pos = i;
-            this.gtz = cVar;
-            this.gtA = dVar;
+            this.gwj = cVar;
+            this.gwk = dVar;
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.a.h.a
         public void J(Object obj) {
-            if (this.gtA != null && AlaLiveMultiBeautyArView.this.gto != null && AlaLiveMultiBeautyArView.this.gto.guv == this.gtA) {
-                AlaLiveMultiBeautyArView.this.gto.guk.notifyDataSetChanged();
-            } else if (this.gtz instanceof com.baidu.tieba.ala.alaar.makeup.d) {
-                AlaLiveMultiBeautyArView.this.gtl.guY.notifyDataSetChanged();
+            if (this.gwk != null && AlaLiveMultiBeautyArView.this.gvY != null && AlaLiveMultiBeautyArView.this.gvY.gxf == this.gwk) {
+                AlaLiveMultiBeautyArView.this.gvY.gwU.notifyDataSetChanged();
+            } else if (this.gwj instanceof com.baidu.tieba.ala.alaar.makeup.d) {
+                AlaLiveMultiBeautyArView.this.gvV.gxI.notifyDataSetChanged();
             }
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.a.h.a
         public void aF(Object obj) {
-            if (this.gtA != null && AlaLiveMultiBeautyArView.this.gto != null && AlaLiveMultiBeautyArView.this.gto.guv == this.gtA) {
-                AlaLiveMultiBeautyArView.this.gto.guk.tw(this.pos);
-                AlaLiveMultiBeautyArView.this.gto.guk.notifyDataSetChanged();
-            } else if (this.gtA != null && this.pos == this.gtA.gpm) {
-                AlaLiveMultiBeautyArView.this.b(this.pos, this.gtz, this.gtA);
-            } else if (this.gtz instanceof com.baidu.tieba.ala.alaar.makeup.d) {
-                AlaLiveMultiBeautyArView.this.gtl.guY.notifyDataSetChanged();
+            if (this.gwk != null && AlaLiveMultiBeautyArView.this.gvY != null && AlaLiveMultiBeautyArView.this.gvY.gxf == this.gwk) {
+                AlaLiveMultiBeautyArView.this.gvY.gwU.tC(this.pos);
+                AlaLiveMultiBeautyArView.this.gvY.gwU.notifyDataSetChanged();
+            } else if (this.gwk != null && this.pos == this.gwk.grV) {
+                AlaLiveMultiBeautyArView.this.b(this.pos, this.gwj, this.gwk);
+            } else if (this.gwj instanceof com.baidu.tieba.ala.alaar.makeup.d) {
+                AlaLiveMultiBeautyArView.this.gvV.gxI.notifyDataSetChanged();
             }
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.a.h.a
         public void a(Object obj, int i, int i2, String str) {
-            if (this.gtA != null && AlaLiveMultiBeautyArView.this.gto != null && AlaLiveMultiBeautyArView.this.gto.guv == this.gtA) {
-                AlaLiveMultiBeautyArView.this.gto.guk.notifyDataSetChanged();
-            } else if (this.gtz instanceof com.baidu.tieba.ala.alaar.makeup.d) {
-                AlaLiveMultiBeautyArView.this.gtl.guY.notifyDataSetChanged();
+            if (this.gwk != null && AlaLiveMultiBeautyArView.this.gvY != null && AlaLiveMultiBeautyArView.this.gvY.gxf == this.gwk) {
+                AlaLiveMultiBeautyArView.this.gvY.gwU.notifyDataSetChanged();
+            } else if (this.gwj instanceof com.baidu.tieba.ala.alaar.makeup.d) {
+                AlaLiveMultiBeautyArView.this.gvV.gxI.notifyDataSetChanged();
             }
         }
     }
@@ -666,7 +666,7 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(int i, com.baidu.tieba.ala.alaar.makeup.c cVar, com.baidu.tieba.ala.alaar.makeup.d dVar) {
         if (dVar != null) {
-            dVar.gpm = i;
+            dVar.grV = i;
         }
         if (cVar.isLoading()) {
             return true;
@@ -687,25 +687,25 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
         if (dVar != null) {
             dVar.setPosition(i);
         }
-        this.gtu = cVar;
+        this.gwe = cVar;
         if ("makeupClose".equals(cVar.getTypeName())) {
-            bPY();
+            bQC();
         }
         com.baidu.tieba.ala.alaar.makeup.a.a aVar = new com.baidu.tieba.ala.alaar.makeup.a.a();
-        aVar.setResPath(cVar.bOy());
+        aVar.setResPath(cVar.bPc());
         aVar.setType(cVar.getType().name());
-        aVar.setValue(cVar.bOw());
-        this.gts.aAV = aVar;
-        if (this.gtt != null) {
-            this.gtt.a(aVar);
+        aVar.setValue(cVar.bPa());
+        this.gwc.aCA = aVar;
+        if (this.gwd != null) {
+            this.gwd.a(aVar);
         }
-        if (this.gtg.gvc == this.gtl) {
-            boolean z = cVar.bOt() > cVar.bOu();
-            this.gti.mm(z);
+        if (this.gvQ.gxM == this.gvV) {
+            boolean z = cVar.bOX() > cVar.bOY();
+            this.gvS.mq(z);
             if (z) {
                 try {
-                    this.gti.gux.setProcessDiff(0);
-                    this.gtl.D(cVar.bOu(), cVar.bOt(), cVar.bOv(), cVar.getValue());
+                    this.gvS.gxh.setProcessDiff(0);
+                    this.gvV.D(cVar.bOY(), cVar.bOX(), cVar.bOZ(), cVar.getValue());
                 } catch (Exception e) {
                 }
             }
@@ -714,39 +714,39 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
-    public void yW() {
-        if (this.gts != null) {
-            com.baidu.live.d.xf().putString("ala_beauty_config_ar", this.gts.toJsonString());
-            com.baidu.tieba.ala.alaar.makeup.g.bOI().bON();
+    public void zD() {
+        if (this.gwc != null) {
+            com.baidu.live.d.xc().putString("ala_beauty_config_ar", this.gwc.toJsonString());
+            com.baidu.tieba.ala.alaar.makeup.g.bPm().bPr();
         }
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
     public void setArModel(com.baidu.live.ar.k kVar) {
-        this.bAO = kVar;
+        this.bEu = kVar;
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
     public void setBdPageContext(BdPageContext bdPageContext) {
-        this.bnf = bdPageContext;
-        gtw = BdUtilHelper.getScreenSize(this.bnf.getPageActivity()).widthPixels;
+        this.bqG = bdPageContext;
+        gwg = BdUtilHelper.getScreenSize(this.bqG.getPageActivity()).widthPixels;
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
-    public void setAlaLiveShowData(x xVar) {
-        this.aBr = xVar;
+    public void setAlaLiveShowData(ab abVar) {
+        this.aDd = abVar;
     }
 
     private com.baidu.live.ar.h getCurThinFace() {
         com.baidu.live.ar.h hVar = null;
-        if (TextUtils.isEmpty(this.gts.aAR) || this.bAO == null || this.bAO.yU() == null || this.bAO.yU().aAz == null) {
+        if (TextUtils.isEmpty(this.gwc.aCw) || this.bEu == null || this.bEu.zB() == null || this.bEu.zB().aCe == null) {
             return null;
         }
-        List<com.baidu.live.ar.h> list = this.bAO.yU().aAz;
+        List<com.baidu.live.ar.h> list = this.bEu.zB().aCe;
         int i = 0;
         while (i < list.size()) {
             com.baidu.live.ar.h hVar2 = list.get(i);
-            if (TextUtils.equals(this.gts.aAR, hVar2.getType())) {
+            if (TextUtils.equals(this.gwc.aCw, hVar2.getType())) {
                 return hVar2;
             }
             i++;
@@ -758,8 +758,8 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
     public void b(short s) {
         AlaFilterAndBeautyData.BeautyAdjustKey[] values;
-        com.baidu.tieba.ala.alaar.makeup.c bOF;
-        int eM;
+        com.baidu.tieba.ala.alaar.makeup.c bPj;
+        int fe;
         JSONArray jSONArray = new JSONArray();
         for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
             String str = null;
@@ -767,24 +767,24 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
                 com.baidu.live.ar.h curThinFace = getCurThinFace();
                 if (curThinFace != null && !TextUtils.isEmpty(curThinFace.getName())) {
                     str = curThinFace.getName();
-                    eM = this.gts.eL(this.gts.aAR);
+                    fe = this.gwc.fd(this.gwc.aCw);
                 }
-                eM = 0;
+                fe = 0;
             } else {
-                if (this.gti.guJ != null) {
-                    for (int i = 0; i < this.gti.guJ.gtP.length; i++) {
-                        if (beautyAdjustKey.getJsonKey().equals(this.gti.guJ.gtP[i].gtW)) {
-                            c.a aVar = this.gti.guJ.gtP[i];
-                            int i2 = aVar.gtX;
-                            str = aVar.gtV;
-                            eM = this.gts.eM(beautyAdjustKey.getJsonKey()) + i2;
+                if (this.gvS.gxt != null) {
+                    for (int i = 0; i < this.gvS.gxt.gwz.length; i++) {
+                        if (beautyAdjustKey.getJsonKey().equals(this.gvS.gxt.gwz[i].gwG)) {
+                            c.a aVar = this.gvS.gxt.gwz[i];
+                            int i2 = aVar.gwH;
+                            str = aVar.gwF;
+                            fe = this.gwc.fe(beautyAdjustKey.getJsonKey()) + i2;
                             break;
                         }
                     }
                 }
-                eM = 0;
+                fe = 0;
             }
-            if (eM != 0 && str != null) {
+            if (fe != 0 && str != null) {
                 jSONArray.put(str);
             }
         }
@@ -798,22 +798,22 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
         }
         s("beauty_suc", jSONObject);
         JSONObject jSONObject2 = new JSONObject();
-        if (this.gts.aAN != null) {
+        if (this.gwc.aCs != null) {
             try {
-                jSONObject2.put("filter_id", this.gts.aAN.getId());
+                jSONObject2.put("filter_id", this.gwc.aCs.getId());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
         s("filter_suc", jSONObject2);
-        if (com.baidu.tieba.ala.alaar.makeup.g.bOI().bOJ()) {
+        if (com.baidu.tieba.ala.alaar.makeup.g.bPm().bPn()) {
             JSONArray jSONArray2 = new JSONArray();
-            List<com.baidu.tieba.ala.alaar.makeup.d> bOL = com.baidu.tieba.ala.alaar.makeup.g.bOI().bOL();
-            if (bOL != null && bOL.size() > 0) {
-                for (int i3 = 0; i3 < bOL.size(); i3++) {
-                    com.baidu.tieba.ala.alaar.makeup.d dVar = bOL.get(i3);
-                    if (dVar != null && !"makeupClose".equals(dVar.getTypeName()) && (bOF = dVar.bOF()) != null && bOF.bOu() < bOF.bOt()) {
-                        jSONArray2.put(bOF.getId());
+            List<com.baidu.tieba.ala.alaar.makeup.d> bPp = com.baidu.tieba.ala.alaar.makeup.g.bPm().bPp();
+            if (bPp != null && bPp.size() > 0) {
+                for (int i3 = 0; i3 < bPp.size(); i3++) {
+                    com.baidu.tieba.ala.alaar.makeup.d dVar = bPp.get(i3);
+                    if (dVar != null && !"makeupClose".equals(dVar.getTypeName()) && (bPj = dVar.bPj()) != null && bPj.bOY() < bPj.bOX()) {
+                        jSONArray2.put(bPj.getId());
                     }
                 }
             }
@@ -830,29 +830,29 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void to(int i) {
+    public void tu(int i) {
         c(i, true, 0);
     }
 
     public void c(int i, boolean z, int i2) {
         if (z) {
-            i2 = com.baidu.live.ar.e.aAZ.eM(this.gts.aAO) + this.gtj;
+            i2 = com.baidu.live.ar.e.aCE.fe(this.gwc.aCt) + this.gvT;
         }
         L(100, i, i2);
     }
 
     public void L(int i, int i2, int i3) {
-        this.gti.gux.setMax(i);
+        this.gvS.gxh.setMax(i);
         if (Build.VERSION.SDK_INT >= 24) {
-            this.gti.gux.setProgress(i2, true);
+            this.gvS.gxh.setProgress(i2, true);
         } else {
-            this.gti.gux.setProgress(i2);
+            this.gvS.gxh.setProgress(i2);
         }
-        this.gti.gux.setDefThumbPos(i3);
+        this.gvS.gxh.setDefThumbPos(i3);
     }
 
     @Deprecated
-    private static void bPT() {
+    private static void bQx() {
         ds120 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds120);
         ds28 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds28);
         ds20 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds20);
@@ -868,95 +868,95 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
             i5 = ((i - i6) * ds120) + ds28 + (ds120 / 2);
         }
         if (iArr != null) {
-            int i7 = iArr[0] - ((gtw - ds120) / 2);
+            int i7 = iArr[0] - ((gwg - ds120) / 2);
             int i8 = z ? ((i - 1) * (ds120 + ds20)) + ds28 + ds3 + ds20 : ((ds120 + ds20) * i) + ds28;
             int i9 = ((i4 - i) - 1) * (ds120 + ds20);
-            if ((gtw - ds120) / 2 > i8) {
-                return (((gtw - ds120) / 2) - i8) + i7;
+            if ((gwg - ds120) / 2 > i8) {
+                return (((gwg - ds120) / 2) - i8) + i7;
             }
-            return (gtw - ds120) / 2 > i9 ? i7 - (((gtw - ds120) / 2) - i9) : i7;
+            return (gwg - ds120) / 2 > i9 ? i7 - (((gwg - ds120) / 2) - i9) : i7;
         }
         return i5;
     }
 
-    public static int bC(int i, int i2) {
+    public static int bz(int i, int i2) {
         return Math.max(0, Math.min((i - ds120) >> 1, ((ds120 + ds20) * i2) + ds28));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPU() {
-        if (this.gtq != null) {
-            this.gtq.dismiss();
-            this.gtq = null;
+    public void bQy() {
+        if (this.gwa != null) {
+            this.gwa.dismiss();
+            this.gwa = null;
         }
         String string = getContext().getString(a.h.ar_beauty_is_reset);
-        this.gtq = new BdAlertDialog((Activity) getContext());
-        this.gtq.setAutoNight(false);
-        this.gtq.setMessage(string);
-        this.gtq.setPositiveButton(getContext().getString(a.h.sdk_dialog_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.4
+        this.gwa = new BdAlertDialog((Activity) getContext());
+        this.gwa.setAutoNight(false);
+        this.gwa.setMessage(string);
+        this.gwa.setPositiveButton(getContext().getString(a.h.sdk_dialog_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.4
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
-                AlaLiveMultiBeautyArView.this.yX();
-                AlaLiveMultiBeautyArView.this.Ek();
+                AlaLiveMultiBeautyArView.this.zE();
+                AlaLiveMultiBeautyArView.this.FA();
             }
         });
-        this.gtq.setNegativeButton(getContext().getString(a.h.sdk_dialog_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.5
+        this.gwa.setNegativeButton(getContext().getString(a.h.sdk_dialog_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.5
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
-                AlaLiveMultiBeautyArView.this.Ek();
+                AlaLiveMultiBeautyArView.this.FA();
             }
         });
-        this.gtq.setCancelable(false);
-        this.gtq.setCanceledOnTouchOutside(false);
-        this.gtq.setTitleShowCenter(true);
-        this.gtq.setMessageShowCenter(true);
-        this.gtq.isShowTitleAndMessage();
-        this.gtq.create(this.bnf);
-        this.gtq.show();
+        this.gwa.setCancelable(false);
+        this.gwa.setCanceledOnTouchOutside(false);
+        this.gwa.setTitleShowCenter(true);
+        this.gwa.setMessageShowCenter(true);
+        this.gwa.isShowTitleAndMessage();
+        this.gwa.create(this.bqG);
+        this.gwa.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yX() {
-        if (this.gtt != null) {
-            this.gtt.yX();
+    public void zE() {
+        if (this.gwd != null) {
+            this.gwd.zE();
         }
-        bPZ();
-        String str = this.gts.aAR;
-        String str2 = this.gts.aAS;
-        String str3 = this.gts.aAT;
-        String str4 = com.baidu.live.ar.e.aBa.aAO;
-        com.baidu.live.ar.e.aBa.r(com.baidu.live.ar.e.aAZ.toJsonString(), true);
-        com.baidu.live.ar.e.aBa.aAO = str4;
-        com.baidu.live.ar.e.aBa.aAR = str;
-        com.baidu.live.ar.e.aBa.aAS = str2;
-        com.baidu.live.ar.e.aBa.aAT = str3;
-        this.gts = com.baidu.live.ar.e.aBa;
-        if (this.bAO != null && this.bAO.yU() != null && this.bAO.yU().aAz != null) {
-            this.gts.b(true, this.bAO.yU().aAz);
+        bQD();
+        String str = this.gwc.aCw;
+        String str2 = this.gwc.aCx;
+        String str3 = this.gwc.aCy;
+        String str4 = com.baidu.live.ar.e.aCF.aCt;
+        com.baidu.live.ar.e.aCF.r(com.baidu.live.ar.e.aCE.toJsonString(), true);
+        com.baidu.live.ar.e.aCF.aCt = str4;
+        com.baidu.live.ar.e.aCF.aCw = str;
+        com.baidu.live.ar.e.aCF.aCx = str2;
+        com.baidu.live.ar.e.aCF.aCy = str3;
+        this.gwc = com.baidu.live.ar.e.aCF;
+        if (this.bEu != null && this.bEu.zB() != null && this.bEu.zB().aCe != null) {
+            this.gwc.b(true, this.bEu.zB().aCe);
         }
         if (TextUtils.equals(str4, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
-            int eL = this.gts.eL(str);
-            this.gti.gux.setProcessDiff(0);
-            c(eL, false, eL);
+            int fd = this.gwc.fd(str);
+            this.gvS.gxh.setProcessDiff(0);
+            c(fd, false, fd);
             return;
         }
-        to(this.gts.eM(this.gts.aAO) + this.gtj);
+        tu(this.gwc.fe(this.gwc.aCt) + this.gvT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ek() {
-        if (this.gtq != null) {
-            this.gtq.dismiss();
-            this.gtq = null;
+    public void FA() {
+        if (this.gwa != null) {
+            this.gwa.dismiss();
+            this.gwa = null;
         }
-        this.gtq = null;
+        this.gwa = null;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.gtr) {
-            this.gtr = false;
+        if (this.gwb) {
+            this.gwb = false;
         }
     }
 
@@ -967,21 +967,21 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4 && isShow()) {
-            bPR();
+            bQv();
             return true;
         }
         return false;
     }
 
-    private void bPV() {
-        if (!TextUtils.isEmpty(this.gts.aAR)) {
-            if (TextUtils.isEmpty(this.gts.aAT)) {
-                to(this.gts.eL(this.gts.aAR));
+    private void bQz() {
+        if (!TextUtils.isEmpty(this.gwc.aCw)) {
+            if (TextUtils.isEmpty(this.gwc.aCy)) {
+                tu(this.gwc.fd(this.gwc.aCw));
                 return;
             }
             try {
-                this.gti.gux.setProcessDiff(0);
-                c(this.gts.eL(this.gts.aAR), false, Integer.valueOf(this.gts.aAT).intValue());
+                this.gvS.gxh.setProcessDiff(0);
+                c(this.gwc.fd(this.gwc.aCw), false, Integer.valueOf(this.gwc.aCy).intValue());
             } catch (Exception e) {
             }
         }
@@ -999,18 +999,18 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         J(false, false);
-        if (this.gti != null && this.gti.isEnable()) {
-            Fo("beautytab_show");
+        if (this.gvS != null && this.gvS.isEnable()) {
+            FM("beautytab_show");
         }
-        if (this.gtl != null && this.gtl.isEnable()) {
-            Fo("makeuptab_show");
+        if (this.gvV != null && this.gvV.isEnable()) {
+            FM("makeuptab_show");
         }
-        if (this.gth != null && this.gth.isEnable()) {
-            Fo("filtertab_show");
+        if (this.gvR != null && this.gvR.isEnable()) {
+            FM("filtertab_show");
         }
     }
 
-    private void Fo(String str) {
+    private void FM(String str) {
         String str2;
         JSONObject jSONObject = new JSONObject();
         try {
@@ -1019,8 +1019,8 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
             e.printStackTrace();
         }
         int i = 0;
-        if (this.aBr != null && this.aBr.mLiveInfo != null) {
-            i = this.aBr.mLiveInfo.live_status;
+        if (this.aDd != null && this.aDd.mLiveInfo != null) {
+            i = this.aDd.mLiveInfo.live_status;
         }
         if (i != 1) {
             str2 = UbcStatConstant.Page.LIVE_ACTION;
@@ -1042,8 +1042,8 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
             e.printStackTrace();
         }
         int i = 0;
-        if (this.aBr != null && this.aBr.mLiveInfo != null) {
-            i = this.aBr.mLiveInfo.live_status;
+        if (this.aDd != null && this.aDd.mLiveInfo != null) {
+            i = this.aDd.mLiveInfo.live_status;
         }
         if (i != 1) {
             str2 = UbcStatConstant.Page.LIVE_ACTION;
@@ -1068,73 +1068,73 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     /* JADX INFO: Access modifiers changed from: private */
     public void J(boolean z, boolean z2) {
         if (z) {
-            this.gtg.dismiss(z2);
-            if (this.gto != null) {
-                this.gtp.setTitle(this.gto.getTitle());
+            this.gvQ.dismiss(z2);
+            if (this.gvY != null) {
+                this.gvZ.setTitle(this.gvY.getTitle());
             }
-            this.gtp.show(z2);
+            this.gvZ.show(z2);
             return;
         }
-        if (this.gtg.gvc == this.gtl) {
-            this.gti.mm(false);
+        if (this.gvQ.gxM == this.gvV) {
+            this.gvS.mq(false);
         }
-        this.gtp.dismiss(z2);
-        this.gtg.show(z2);
-        bPS();
-        if (!this.gti.guJ.bQb()) {
-            this.gti.guJ.notifyDataSetChanged();
+        this.gvZ.dismiss(z2);
+        this.gvQ.show(z2);
+        bQw();
+        if (!this.gvS.gxt.bQF()) {
+            this.gvS.gxt.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
     public void setOnEffectSelectedListener(com.baidu.live.ar.m mVar) {
-        this.gtt = mVar;
+        this.gwd = mVar;
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
     public void setViewData() {
-        com.baidu.live.ar.e.aBa.r(com.baidu.live.d.xf().getString("ala_beauty_config_ar", ""), false);
-        if (TextUtils.isEmpty(com.baidu.live.ar.e.aBa.aAM) && com.baidu.minivideo.arface.b.ZU() != null) {
-            com.baidu.live.ar.e eVar = com.baidu.live.ar.e.aBa;
-            com.baidu.minivideo.arface.b.ZU();
-            eVar.aAM = com.baidu.minivideo.arface.c.aab();
+        com.baidu.live.ar.e.aCF.r(com.baidu.live.d.xc().getString("ala_beauty_config_ar", ""), false);
+        if (TextUtils.isEmpty(com.baidu.live.ar.e.aCF.aCr) && com.baidu.minivideo.arface.b.abI() != null) {
+            com.baidu.live.ar.e eVar = com.baidu.live.ar.e.aCF;
+            com.baidu.minivideo.arface.b.abI();
+            eVar.aCr = com.baidu.minivideo.arface.c.abP();
         }
-        if (TextUtils.isEmpty(com.baidu.live.ar.j.aBo)) {
-            com.baidu.minivideo.arface.b.ZU();
-            com.baidu.live.ar.j.eO(com.baidu.minivideo.arface.c.aab());
+        if (TextUtils.isEmpty(com.baidu.live.ar.j.aCT)) {
+            com.baidu.minivideo.arface.b.abI();
+            com.baidu.live.ar.j.fg(com.baidu.minivideo.arface.c.abP());
         }
-        this.gts = com.baidu.live.ar.e.aBa;
+        this.gwc = com.baidu.live.ar.e.aCF;
         setBeautyAdjustUserData2AR(false);
-        bPW();
-        if (this.gtg.gvc == this.gti && !TextUtils.equals(this.gts.aAO, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
-            to(this.gts.eM(this.gts.aAO) + this.gtj);
+        bQA();
+        if (this.gvQ.gxM == this.gvS && !TextUtils.equals(this.gwc.aCt, AlaFilterAndBeautyData.BeautyAdjustKey.thinFace.getJsonKey())) {
+            tu(this.gwc.fe(this.gwc.aCt) + this.gvT);
         }
-        this.gti.guJ.Fr(this.gts.aAO);
-        this.gti.guJ.notifyDataSetChanged();
-        if (this.bAO != null && this.bAO.yU() != null && this.bAO.yU().aAy != null) {
-            this.gth.guQ.setDatas(this.bAO.yU().aAy);
+        this.gvS.gxt.FP(this.gwc.aCt);
+        this.gvS.gxt.notifyDataSetChanged();
+        if (this.bEu != null && this.bEu.zB() != null && this.bEu.zB().aCd != null) {
+            this.gvR.gxA.setDatas(this.bEu.zB().aCd);
             if (!TextUtils.isEmpty(getFilterFileName())) {
-                this.gth.guQ.setSelect(h(this.bAO.yU().aAy, getFilterFileName()));
+                this.gvR.gxA.setSelect(g(this.bEu.zB().aCd, getFilterFileName()));
             }
         }
-        this.gth.guQ.notifyDataSetChanged();
+        this.gvR.gxA.notifyDataSetChanged();
     }
 
-    public int h(List<com.baidu.live.ar.i> list, String str) {
-        String Fc;
+    public int g(List<com.baidu.live.ar.i> list, String str) {
+        String FA;
         if (list == null || list.size() <= 0 || TextUtils.isEmpty(str)) {
             return -1;
         }
         int i = -1;
         for (int i2 = 0; i2 < list.size(); i2++) {
             if (getContext().getString(a.h.beauty_yuantu).equals(list.get(i2).getName())) {
-                com.baidu.minivideo.arface.b.ZU();
-                Fc = com.baidu.minivideo.arface.c.aab();
+                com.baidu.minivideo.arface.b.abI();
+                FA = com.baidu.minivideo.arface.c.abP();
                 i = i2;
             } else {
-                Fc = com.baidu.tieba.ala.alaar.sticker.a.e.Fc(list.get(i2).yQ());
+                FA = com.baidu.tieba.ala.alaar.sticker.a.e.FA(list.get(i2).zx());
             }
-            if (str.equals(Fc)) {
+            if (str.equals(FA)) {
                 return i2;
             }
         }
@@ -1148,40 +1148,40 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     public void setBeautyAdjustUserData2AR(boolean z) {
         AlaFilterAndBeautyData.BeautyAdjustKey[] values;
         int i;
-        if (this.gtt != null) {
+        if (this.gwd != null) {
             for (AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey : AlaFilterAndBeautyData.BeautyAdjustKey.values()) {
-                if (this.gti.guJ != null) {
+                if (this.gvS.gxt != null) {
                     i = 0;
-                    for (int i2 = 0; i2 < this.gti.guJ.gtP.length; i2++) {
-                        if (beautyAdjustKey.getJsonKey().equals(this.gti.guJ.gtP[i2].gtW)) {
-                            i = this.gti.guJ.gtP[i2].gtX;
+                    for (int i2 = 0; i2 < this.gvS.gxt.gwz.length; i2++) {
+                        if (beautyAdjustKey.getJsonKey().equals(this.gvS.gxt.gwz[i2].gwG)) {
+                            i = this.gvS.gxt.gwz[i2].gwH;
                         }
                     }
                 } else {
                     i = 0;
                 }
-                this.gtt.a(((this.gts.eM(beautyAdjustKey.getJsonKey()) + i) * 1.0f) / 100.0f, beautyAdjustKey);
+                this.gwd.a(((this.gwc.fe(beautyAdjustKey.getJsonKey()) + i) * 1.0f) / 100.0f, beautyAdjustKey);
             }
-            bPZ();
+            bQD();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPW() {
-        List<com.baidu.tieba.ala.alaar.makeup.d> bOL;
-        com.baidu.tieba.ala.alaar.makeup.c bOF;
-        if (this.gtt != null && com.baidu.tieba.ala.alaar.makeup.g.bOI().bOJ() && (bOL = com.baidu.tieba.ala.alaar.makeup.g.bOI().bOL()) != null && bOL.size() > 0) {
+    public void bQA() {
+        List<com.baidu.tieba.ala.alaar.makeup.d> bPp;
+        com.baidu.tieba.ala.alaar.makeup.c bPj;
+        if (this.gwd != null && com.baidu.tieba.ala.alaar.makeup.g.bPm().bPn() && (bPp = com.baidu.tieba.ala.alaar.makeup.g.bPm().bPp()) != null && bPp.size() > 0) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < bOL.size()) {
-                    com.baidu.tieba.ala.alaar.makeup.d dVar = bOL.get(i2);
-                    if (dVar != null && !"makeupClose".equals(dVar.getTypeName()) && (bOF = dVar.bOF()) != null && bOF.bOu() < bOF.bOt()) {
+                if (i2 < bPp.size()) {
+                    com.baidu.tieba.ala.alaar.makeup.d dVar = bPp.get(i2);
+                    if (dVar != null && !"makeupClose".equals(dVar.getTypeName()) && (bPj = dVar.bPj()) != null && bPj.bOY() < bPj.bOX()) {
                         com.baidu.tieba.ala.alaar.makeup.a.a aVar = new com.baidu.tieba.ala.alaar.makeup.a.a();
-                        aVar.setType(bOF.getTypeName());
-                        aVar.setValue(bOF.bOw());
-                        aVar.setResPath(bOF.bOy());
-                        this.gtt.a(aVar);
+                        aVar.setType(bPj.getTypeName());
+                        aVar.setValue(bPj.bPa());
+                        aVar.setResPath(bPj.bPc());
+                        this.gwd.a(aVar);
                     }
                     i = i2 + 1;
                 } else {
@@ -1192,23 +1192,23 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPX() {
-        List<com.baidu.tieba.ala.alaar.makeup.d> bOL = com.baidu.tieba.ala.alaar.makeup.g.bOI().bOL();
-        if (this.gtt != null && bOL != null && bOL.size() > 0) {
+    public void bQB() {
+        List<com.baidu.tieba.ala.alaar.makeup.d> bPp = com.baidu.tieba.ala.alaar.makeup.g.bPm().bPp();
+        if (this.gwd != null && bPp != null && bPp.size() > 0) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < bOL.size()) {
-                    com.baidu.tieba.ala.alaar.makeup.d dVar = bOL.get(i2);
+                if (i2 < bPp.size()) {
+                    com.baidu.tieba.ala.alaar.makeup.d dVar = bPp.get(i2);
                     if (dVar == null || !"makeupClose".equals(dVar.getTypeName())) {
                         i = i2 + 1;
                     } else {
-                        com.baidu.tieba.ala.alaar.makeup.c bOF = dVar.bOF();
+                        com.baidu.tieba.ala.alaar.makeup.c bPj = dVar.bPj();
                         com.baidu.tieba.ala.alaar.makeup.a.a aVar = new com.baidu.tieba.ala.alaar.makeup.a.a();
-                        aVar.setType(bOF.getTypeName());
-                        aVar.setValue(bOF.bOw());
-                        aVar.setResPath(bOF.bOy());
-                        this.gtt.a(aVar);
+                        aVar.setType(bPj.getTypeName());
+                        aVar.setValue(bPj.bPa());
+                        aVar.setResPath(bPj.bPc());
+                        this.gwd.a(aVar);
                         return;
                     }
                 } else {
@@ -1218,10 +1218,10 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
         }
     }
 
-    private void bPY() {
-        com.baidu.tieba.ala.alaar.makeup.a.b bOQ = this.gtn.bOQ();
-        if (bOQ != null) {
-            List<com.baidu.tieba.ala.alaar.makeup.d> data = bOQ.getData();
+    private void bQC() {
+        com.baidu.tieba.ala.alaar.makeup.a.b bPu = this.gvX.bPu();
+        if (bPu != null) {
+            List<com.baidu.tieba.ala.alaar.makeup.d> data = bPu.getData();
             for (int i = 0; i < data.size(); i++) {
                 com.baidu.tieba.ala.alaar.makeup.d dVar = data.get(i);
                 if (dVar != null) {
@@ -1233,24 +1233,24 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setThinFace(int i) {
-        if (this.gtt != null) {
+        if (this.gwd != null) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("thinFace", this.gts.aAS);
-            this.gtt.a((1.0f * i) / 100.0f, hashMap);
+            hashMap.put("thinFace", this.gwc.aCx);
+            this.gwd.a((1.0f * i) / 100.0f, hashMap);
         }
     }
 
-    private void bPZ() {
-        setThinFace(this.gts.eL(this.gts.aAR));
+    private void bQD() {
+        setThinFace(this.gwc.fd(this.gwc.aCw));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fq(String str) {
-        this.gtv.setText(str);
-        this.gtv.setVisibility(0);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.gtv, "scaleX", 0.0f, 1.0f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.gtv, "scaleY", 0.0f, 1.0f);
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.gtv, "alpha", 0.0f, 1.0f);
+    public void FO(String str) {
+        this.gwf.setText(str);
+        this.gwf.setVisibility(0);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.gwf, "scaleX", 0.0f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.gwf, "scaleY", 0.0f, 1.0f);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.gwf, "alpha", 0.0f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(ofFloat).with(ofFloat2).with(ofFloat3);
         animatorSet.setDuration(280L);
@@ -1258,7 +1258,7 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
         animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.alaar.view.AlaLiveMultiBeautyArView.6
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(AlaLiveMultiBeautyArView.this.gtv, "alpha", 1.0f, 0.0f);
+                ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(AlaLiveMultiBeautyArView.this.gwf, "alpha", 1.0f, 0.0f);
                 ofFloat4.setStartDelay(100L);
                 ofFloat4.setDuration(320L);
                 ofFloat4.start();
@@ -1268,12 +1268,12 @@ public class AlaLiveMultiBeautyArView extends ILiveMultiBeautyView implements Vi
     }
 
     @Override // com.baidu.live.ar.ILiveMultiBeautyView
-    public void yV() {
-        if (this.gti.guJ != null) {
-            this.gti.guJ.notifyDataSetChanged();
+    public void zC() {
+        if (this.gvS.gxt != null) {
+            this.gvS.gxt.notifyDataSetChanged();
         }
-        if (this.gth.guQ != null) {
-            this.gth.guQ.notifyDataSetChanged();
+        if (this.gvR.gxA != null) {
+            this.gvR.gxA.notifyDataSetChanged();
         }
     }
 

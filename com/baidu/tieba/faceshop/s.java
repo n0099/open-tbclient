@@ -22,23 +22,23 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class s extends BaseAdapter {
     private static int mScreenWidth;
-    private FaceBuyModel iPj;
-    private FaceShopData iQh;
-    private final r iQi;
-    private final int iQj;
-    private final int iQk;
-    private FacePackageDownloadModel iQm;
+    private FaceBuyModel iUQ;
+    private FaceShopData iVO;
+    private final r iVP;
+    private final int iVQ;
+    private final int iVR;
+    private FacePackageDownloadModel iVT;
     private final int mImageHeight;
     private final int mImageWidth;
-    private int iQl = -1;
-    View.OnClickListener iQn = new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.s.1
+    private int iVS = -1;
+    View.OnClickListener iVU = new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.s.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
@@ -46,18 +46,18 @@ public class s extends BaseAdapter {
                 if (bVar != null) {
                     int i = bVar.position;
                     if (!TbadkApplication.isLogin()) {
-                        s.this.iQl = bVar.position;
-                        TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(s.this.iQi.getPageContext().getPageActivity(), true, RequestResponseCode.REQUEST_LOGIN_USE)));
+                        s.this.iVS = bVar.position;
+                        TbadkCoreApplication.getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(s.this.iVP.getPageContext().getPageActivity(), true, RequestResponseCode.REQUEST_LOGIN_USE)));
                     } else {
-                        switch (bVar.iQx) {
+                        switch (bVar.iWe) {
                             case 2:
-                                s.this.xQ(i);
+                                s.this.ya(i);
                                 break;
                             case 3:
-                                s.this.xR(i);
+                                s.this.yb(i);
                                 break;
                             case 4:
-                                s.this.xS(i);
+                                s.this.yc(i);
                                 break;
                         }
                     }
@@ -68,50 +68,50 @@ public class s extends BaseAdapter {
         }
     };
 
-    public int cyc() {
-        return this.iQl;
+    public int czn() {
+        return this.iVS;
     }
 
     public s(r rVar) {
-        this.iQi = rVar;
+        this.iVP = rVar;
         mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(rVar.getPageContext().getPageActivity());
         this.mImageWidth = mScreenWidth - (rVar.getResources().getDimensionPixelSize(R.dimen.ds22) * 2);
         this.mImageHeight = (int) (this.mImageWidth * 0.38495576f);
-        Bitmap resBitmap = BitmapHelper.getResBitmap(this.iQi.getPageContext().getContext(), R.drawable.bg_content_download_down);
+        Bitmap resBitmap = BitmapHelper.getResBitmap(this.iVP.getPageContext().getContext(), R.drawable.bg_content_download_down);
         if (resBitmap != null) {
-            this.iQj = resBitmap.getWidth();
+            this.iVQ = resBitmap.getWidth();
         } else {
-            this.iQj = 0;
+            this.iVQ = 0;
         }
-        Bitmap resBitmap2 = BitmapHelper.getResBitmap(this.iQi.getPageContext().getContext(), R.drawable.bg_content_download_up);
+        Bitmap resBitmap2 = BitmapHelper.getResBitmap(this.iVP.getPageContext().getContext(), R.drawable.bg_content_download_up);
         if (resBitmap2 != null) {
-            this.iQk = resBitmap2.getWidth();
+            this.iVR = resBitmap2.getWidth();
         } else {
-            this.iQk = 0;
+            this.iVR = 0;
         }
-        this.iQm = null;
-        this.iPj = null;
+        this.iVT = null;
+        this.iUQ = null;
     }
 
     public void a(FaceShopData faceShopData) {
-        this.iQh = faceShopData;
+        this.iVO = faceShopData;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iQh == null || this.iQh.pack_list == null) {
+        if (this.iVO == null || this.iVO.pack_list == null) {
             return 0;
         }
-        return this.iQh.pack_list.size();
+        return this.iVO.pack_list.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.iQh == null || this.iQh.pack_list == null) {
+        if (this.iVO == null || this.iVO.pack_list == null) {
             return null;
         }
-        ArrayList<FacePackageData> arrayList = this.iQh.pack_list;
+        ArrayList<FacePackageData> arrayList = this.iVO.pack_list;
         if (i < 0 || i >= arrayList.size()) {
             return null;
         }
@@ -125,7 +125,7 @@ public class s extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (this.iQh == null || this.iQh.pack_list == null || this.iQh.pack_list.get(i) == null) ? 2 : 1;
+        return (this.iVO == null || this.iVO.pack_list == null || this.iVO.pack_list.get(i) == null) ? 2 : 1;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -141,7 +141,7 @@ public class s extends BaseAdapter {
             view = c(itemViewType, viewGroup);
         }
         a aVar = (a) view.getTag();
-        com.baidu.tbadk.core.c layoutMode = this.iQi.getLayoutMode();
+        com.baidu.tbadk.core.c layoutMode = this.iVP.getLayoutMode();
         layoutMode.setNightMode(skinType == 1);
         layoutMode.onModeChanged(view);
         a(i, aVar);
@@ -153,25 +153,25 @@ public class s extends BaseAdapter {
     public View c(int i, ViewGroup viewGroup) {
         if (i == 1) {
             a aVar = new a();
-            View inflate = LayoutInflater.from(this.iQi.getPageContext().getPageActivity()).inflate(R.layout.face_shop_list_tem, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.iVP.getPageContext().getPageActivity()).inflate(R.layout.face_shop_list_tem, (ViewGroup) null);
             aVar.mTitle = (TextView) inflate.findViewById(R.id.title);
-            aVar.iIW = (TbImageView) inflate.findViewById(R.id.image);
-            aVar.iQr = (FrameLayout) inflate.findViewById(R.id.btn);
-            aVar.iQs = (TextView) inflate.findViewById(R.id.btn_text);
-            aVar.iQt = (TextView) inflate.findViewById(R.id.downloaded);
-            aVar.iQu = (FrameLayout) inflate.findViewById(R.id.downloading);
-            aVar.iPz = (ImageView) inflate.findViewById(R.id.downloading_up);
-            aVar.gMG = (TextView) inflate.findViewById(R.id.intro);
-            aVar.fgY = (TbImageView) inflate.findViewById(R.id.icon);
-            aVar.fgY.setDefaultResource(0);
-            aVar.fgY.setDefaultBgResource(0);
+            aVar.iOE = (TbImageView) inflate.findViewById(R.id.image);
+            aVar.iVY = (FrameLayout) inflate.findViewById(R.id.btn);
+            aVar.iVZ = (TextView) inflate.findViewById(R.id.btn_text);
+            aVar.iWa = (TextView) inflate.findViewById(R.id.downloaded);
+            aVar.iWb = (FrameLayout) inflate.findViewById(R.id.downloading);
+            aVar.iVg = (ImageView) inflate.findViewById(R.id.downloading_up);
+            aVar.gPm = (TextView) inflate.findViewById(R.id.intro);
+            aVar.fjr = (TbImageView) inflate.findViewById(R.id.icon);
+            aVar.fjr.setDefaultResource(0);
+            aVar.fjr.setDefaultBgResource(0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.mImageWidth, this.mImageHeight);
-            layoutParams.setMargins(0, 0, 0, this.iQi.getResources().getDimensionPixelSize(R.dimen.ds8));
-            aVar.iIW.setLayoutParams(layoutParams);
-            aVar.iQs.setClickable(false);
-            aVar.iQr.setClickable(true);
-            aVar.iQr.setOnClickListener(this.iQn);
-            aVar.iQv = (TbImageView) inflate.findViewById(R.id.title_tag);
+            layoutParams.setMargins(0, 0, 0, this.iVP.getResources().getDimensionPixelSize(R.dimen.ds8));
+            aVar.iOE.setLayoutParams(layoutParams);
+            aVar.iVZ.setClickable(false);
+            aVar.iVY.setClickable(true);
+            aVar.iVY.setOnClickListener(this.iVU);
+            aVar.iWc = (TbImageView) inflate.findViewById(R.id.title_tag);
             inflate.setTag(aVar);
             return inflate;
         }
@@ -179,35 +179,35 @@ public class s extends BaseAdapter {
     }
 
     private void a(int i, a aVar) {
-        if (this.iQh != null && aVar != null) {
+        if (this.iVO != null && aVar != null) {
             try {
                 FacePackageData facePackageData = (FacePackageData) getItem(i);
                 if (facePackageData != null) {
                     aVar.mPosition = i;
                     aVar.mTitle.setText(facePackageData.pname);
-                    aVar.gMG.setText(facePackageData.pdesc);
-                    aVar.iIW.setTag(facePackageData.banner_url);
-                    aVar.iIW.a(facePackageData.banner_url, 10, this.mImageWidth, this.mImageHeight, false);
+                    aVar.gPm.setText(facePackageData.pdesc);
+                    aVar.iOE.setTag(facePackageData.banner_url);
+                    aVar.iOE.a(facePackageData.banner_url, 10, this.mImageWidth, this.mImageHeight, false);
                     if (facePackageData.new_icon != null && facePackageData.new_icon.length() > 0) {
-                        aVar.fgY.setTag(facePackageData.new_icon);
-                        aVar.fgY.startLoad(facePackageData.new_icon, 21, false);
-                        aVar.fgY.setVisibility(0);
+                        aVar.fjr.setTag(facePackageData.new_icon);
+                        aVar.fjr.startLoad(facePackageData.new_icon, 21, false);
+                        aVar.fjr.setVisibility(0);
                     } else {
-                        aVar.fgY.setVisibility(8);
+                        aVar.fjr.setVisibility(8);
                     }
-                    aVar.iQw = facePackageData.price;
+                    aVar.iWd = facePackageData.price;
                     a(facePackageData, aVar);
                     b bVar = new b();
-                    bVar.iQx = aVar.iPn;
+                    bVar.iWe = aVar.iUU;
                     bVar.position = i;
-                    aVar.iQr.setTag(bVar);
+                    aVar.iVY.setTag(bVar);
                     if (!TextUtils.isEmpty(facePackageData.tag_url)) {
-                        aVar.iQv.setVisibility(0);
-                        aVar.iQv.setTag(facePackageData.tag_url);
-                        aVar.iQv.startLoad(facePackageData.tag_url, 21, false);
+                        aVar.iWc.setVisibility(0);
+                        aVar.iWc.setTag(facePackageData.tag_url);
+                        aVar.iWc.startLoad(facePackageData.tag_url, 21, false);
                         return;
                     }
-                    aVar.iQv.setVisibility(8);
+                    aVar.iWc.setVisibility(8);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -218,18 +218,18 @@ public class s extends BaseAdapter {
     private void a(a aVar) {
         if (aVar != null) {
             b(aVar);
-            switch (aVar.iPn) {
+            switch (aVar.iUU) {
                 case 1:
-                    aVar.iQt.setVisibility(0);
+                    aVar.iWa.setVisibility(0);
                     return;
                 case 2:
                 case 3:
                 case 4:
-                    aVar.iQr.setVisibility(0);
-                    aVar.iQs.setVisibility(0);
+                    aVar.iVY.setVisibility(0);
+                    aVar.iVZ.setVisibility(0);
                     return;
                 case 5:
-                    aVar.iQu.setVisibility(0);
+                    aVar.iWb.setVisibility(0);
                     return;
                 default:
                     return;
@@ -239,11 +239,11 @@ public class s extends BaseAdapter {
 
     private void a(a aVar, int i) {
         if (aVar != null) {
-            if (aVar.iPn == 5) {
+            if (aVar.iUU == 5) {
                 e(aVar, i);
                 return;
             }
-            switch (aVar.iPn) {
+            switch (aVar.iUU) {
                 case 2:
                     c(aVar, i);
                     return;
@@ -260,42 +260,42 @@ public class s extends BaseAdapter {
     }
 
     private void b(a aVar, int i) {
-        aVar.iQs.setText(aVar.iQw);
-        aVar.iQs.setBackgroundResource(0);
-        ao.setBackgroundResource(aVar.iQr, R.drawable.btn_all_white);
+        aVar.iVZ.setText(aVar.iWd);
+        aVar.iVZ.setBackgroundResource(0);
+        ap.setBackgroundResource(aVar.iVY, R.drawable.btn_all_white);
     }
 
     private void c(a aVar, int i) {
-        aVar.iQs.setText((CharSequence) null);
-        ao.setBackgroundResource(aVar.iQr, R.drawable.btn_all_blue);
-        ao.setBackgroundResource(aVar.iQs, R.drawable.icon_content_download);
+        aVar.iVZ.setText((CharSequence) null);
+        ap.setBackgroundResource(aVar.iVY, R.drawable.btn_all_blue);
+        ap.setBackgroundResource(aVar.iVZ, R.drawable.icon_content_download);
     }
 
     private void d(a aVar, int i) {
-        aVar.iQs.setText(aVar.iQw);
-        aVar.iQs.setBackgroundResource(0);
-        ao.setBackgroundResource(aVar.iQr, R.drawable.faceshop_list_btn_selector);
+        aVar.iVZ.setText(aVar.iWd);
+        aVar.iVZ.setBackgroundResource(0);
+        ap.setBackgroundResource(aVar.iVY, R.drawable.faceshop_list_btn_selector);
     }
 
     private void e(a aVar, int i) {
         b(aVar);
-        aVar.iQu.setVisibility(0);
+        aVar.iWb.setVisibility(0);
         FacePackageData facePackageData = (FacePackageData) getItem(aVar.mPosition);
         if (facePackageData != null) {
-            int i2 = (int) ((((float) facePackageData.downloadNow) / ((float) facePackageData.downloadTotal)) * this.iQj);
-            int i3 = i2 < this.iQk ? this.iQk : i2;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) aVar.iPz.getLayoutParams();
+            int i2 = (int) ((((float) facePackageData.downloadNow) / ((float) facePackageData.downloadTotal)) * this.iVQ);
+            int i3 = i2 < this.iVR ? this.iVR : i2;
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) aVar.iVg.getLayoutParams();
             layoutParams.width = i3;
-            aVar.iPz.setLayoutParams(layoutParams);
+            aVar.iVg.setLayoutParams(layoutParams);
         }
     }
 
     private void b(a aVar) {
         if (aVar != null) {
-            aVar.iQs.setVisibility(8);
-            aVar.iQr.setVisibility(8);
-            aVar.iQt.setVisibility(8);
-            aVar.iQu.setVisibility(8);
+            aVar.iVZ.setVisibility(8);
+            aVar.iVY.setVisibility(8);
+            aVar.iWa.setVisibility(8);
+            aVar.iWb.setVisibility(8);
         }
     }
 
@@ -305,54 +305,54 @@ public class s extends BaseAdapter {
             int i2 = facePackageData.can_download;
             int i3 = facePackageData.downloaded;
             if (facePackageData.downloading == 1) {
-                aVar.iPn = 5;
+                aVar.iUU = 5;
             } else if (i3 == 1) {
-                aVar.iPn = 1;
+                aVar.iUU = 1;
             } else if (i == 2) {
-                aVar.iPn = 6;
+                aVar.iUU = 6;
             } else if (i == 1) {
                 if (i2 == 1) {
-                    aVar.iPn = 2;
+                    aVar.iUU = 2;
                 }
             } else if (i == 0) {
                 if (i2 == 1) {
-                    aVar.iPn = 3;
+                    aVar.iUU = 3;
                 } else {
-                    aVar.iPn = 4;
+                    aVar.iUU = 4;
                 }
             }
         }
     }
 
-    public void xQ(int i) {
+    public void ya(int i) {
         final FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (facePackageData != null) {
             facePackageData.downloading = 1;
             notifyDataSetChanged();
-            this.iQm = new FacePackageDownloadModel(this.iQi.getPageContext().getContext());
-            this.iQm.Jc(String.valueOf(facePackageData.pid));
-            this.iQm.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.s.2
+            this.iVT = new FacePackageDownloadModel(this.iVP.getPageContext().getContext());
+            this.iVT.JN(String.valueOf(facePackageData.pid));
+            this.iVT.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.s.2
                 @Override // com.baidu.adp.base.e
                 public void callback(Object obj) {
                     if (obj == null || !(obj instanceof FacePackageDownloadData)) {
-                        UtilHelper.showToast(s.this.iQi.getPageContext().getContext(), R.string.neterror);
+                        UtilHelper.showToast(s.this.iVP.getPageContext().getContext(), R.string.neterror);
                         return;
                     }
                     FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
                     if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
                         facePackageData.pack_url = facePackageDownloadData.pack_url;
-                        f.cxg().aF(String.valueOf(facePackageData.pid), facePackageData.pname, facePackageData.pack_url);
+                        f.cyr().aG(String.valueOf(facePackageData.pid), facePackageData.pname, facePackageData.pack_url);
                     } else if (facePackageDownloadData.usermsg != null) {
-                        UtilHelper.showToast(s.this.iQi.getPageContext().getContext(), facePackageDownloadData.usermsg);
+                        UtilHelper.showToast(s.this.iVP.getPageContext().getContext(), facePackageDownloadData.usermsg);
                     } else {
-                        UtilHelper.showToast(s.this.iQi.getPageContext().getContext(), R.string.neterror);
+                        UtilHelper.showToast(s.this.iVP.getPageContext().getContext(), R.string.neterror);
                     }
                 }
             });
         }
     }
 
-    public void xR(int i) {
+    public void yb(int i) {
         TiebaStatic.log("emotion_package_list_free");
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (facePackageData != null) {
@@ -361,19 +361,19 @@ public class s extends BaseAdapter {
         }
     }
 
-    public void xS(final int i) {
+    public void yc(final int i) {
         TiebaStatic.log("emotion_package_list_buy");
         final FacePackageData facePackageData = (FacePackageData) getItem(i);
-        if (this.iQh != null) {
-            this.iQi.showProgressBar();
+        if (this.iVO != null) {
+            this.iVP.showProgressBar();
             String valueOf = String.valueOf(facePackageData.pid);
-            this.iPj = new FaceBuyModel(this.iQi.getPageContext().getContext());
-            this.iPj.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.s.3
+            this.iUQ = new FaceBuyModel(this.iVP.getPageContext().getContext());
+            this.iUQ.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.s.3
                 @Override // com.baidu.adp.base.e
                 public void callback(Object obj) {
-                    s.this.iQi.hideProgressBar();
+                    s.this.iVP.hideProgressBar();
                     if (obj == null || !(obj instanceof FaceBuyData)) {
-                        UtilHelper.showToast(s.this.iQi.getPageContext().getContext(), R.string.neterror);
+                        UtilHelper.showToast(s.this.iVP.getPageContext().getContext(), R.string.neterror);
                         return;
                     }
                     FaceBuyData faceBuyData = (FaceBuyData) obj;
@@ -381,43 +381,43 @@ public class s extends BaseAdapter {
                         String str = faceBuyData.buy_info.buy_url;
                         String str2 = faceBuyData.buy_info.return_url;
                         if (faceBuyData.buy_info.buy_status == 2) {
-                            UtilHelper.showToast(s.this.iQi.getPageContext().getContext(), R.string.has_buy_book);
+                            UtilHelper.showToast(s.this.iVP.getPageContext().getContext(), R.string.has_buy_book);
                             facePackageData.buy_status = 1;
                             facePackageData.can_download = 1;
                             s.this.notifyDataSetChanged();
                             return;
                         }
                         facePackageData.orderId = faceBuyData.buy_info.order_id;
-                        IntentConfig intentConfig = new IntentConfig(s.this.iQi);
+                        IntentConfig intentConfig = new IntentConfig(s.this.iVP);
                         intentConfig.getIntent().putExtra("tag_url", str);
                         intentConfig.getIntent().putExtra("tag_hook_url", str2);
-                        intentConfig.getIntent().putExtra("tag_title", s.this.iQi.getString(R.string.buy_book));
+                        intentConfig.getIntent().putExtra("tag_title", s.this.iVP.getString(R.string.buy_book));
                         intentConfig.getIntent().putExtra("tag_position", i);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_FACEBUYWEBVIEW, intentConfig));
                     } else if (faceBuyData.usermsg != null) {
-                        UtilHelper.showToast(s.this.iQi.getPageContext().getContext(), faceBuyData.usermsg);
+                        UtilHelper.showToast(s.this.iVP.getPageContext().getContext(), faceBuyData.usermsg);
                     } else {
-                        UtilHelper.showToast(s.this.iQi.getPageContext().getContext(), R.string.neterror);
+                        UtilHelper.showToast(s.this.iVP.getPageContext().getContext(), R.string.neterror);
                     }
                 }
             });
-            this.iPj.IW(valueOf);
+            this.iUQ.JH(valueOf);
         }
     }
 
     public void onDestroy() {
-        if (this.iPj != null) {
-            this.iPj.cancelLoadData();
+        if (this.iUQ != null) {
+            this.iUQ.cancelLoadData();
         }
-        if (this.iQm != null) {
-            this.iQm.cancelLoadData();
+        if (this.iVT != null) {
+            this.iVT.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b {
-        int iQx;
+        int iWe;
         int position;
 
         private b() {
@@ -425,19 +425,19 @@ public class s extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a {
-        TbImageView fgY;
-        TextView gMG;
-        TbImageView iIW;
-        int iPn;
-        ImageView iPz;
-        FrameLayout iQr;
-        TextView iQs;
-        TextView iQt;
-        FrameLayout iQu;
-        TbImageView iQv;
-        String iQw;
+        TbImageView fjr;
+        TextView gPm;
+        TbImageView iOE;
+        int iUU;
+        FrameLayout iVY;
+        TextView iVZ;
+        ImageView iVg;
+        TextView iWa;
+        FrameLayout iWb;
+        TbImageView iWc;
+        String iWd;
         int mPosition;
         TextView mTitle;
 

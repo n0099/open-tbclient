@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class UrlResponseInfo {
     private final int mHttpStatusCode;
     private final String mHttpStatusText;
@@ -13,10 +13,10 @@ public final class UrlResponseInfo {
     private final String mProxyServer;
     private final List<String> mResponseInfoUrlChain;
     private final boolean mWasCached;
-    private final AtomicLong oHh = new AtomicLong();
-    private final HeaderBlock oHi;
+    private final AtomicLong oRp = new AtomicLong();
+    private final HeaderBlock oRq;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class HeaderBlock {
         private final List<Map.Entry<String, String>> mAllHeadersList;
 
@@ -25,7 +25,7 @@ public final class UrlResponseInfo {
             this.mAllHeadersList = list;
         }
 
-        public List<Map.Entry<String, String>> eeG() {
+        public List<Map.Entry<String, String>> egY() {
             return this.mAllHeadersList;
         }
     }
@@ -34,7 +34,7 @@ public final class UrlResponseInfo {
         this.mResponseInfoUrlChain = Collections.unmodifiableList(list);
         this.mHttpStatusCode = i;
         this.mHttpStatusText = str;
-        this.oHi = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.oRq = new HeaderBlock(Collections.unmodifiableList(list2));
         this.mWasCached = z;
         this.mNegotiatedProtocol = str2;
         this.mProxyServer = str3;
@@ -44,7 +44,7 @@ public final class UrlResponseInfo {
         return this.mResponseInfoUrlChain.get(this.mResponseInfoUrlChain.size() - 1);
     }
 
-    public List<String> eeA() {
+    public List<String> egS() {
         return this.mResponseInfoUrlChain;
     }
 
@@ -52,36 +52,36 @@ public final class UrlResponseInfo {
         return this.mHttpStatusCode;
     }
 
-    public String eeB() {
+    public String egT() {
         return this.mHttpStatusText;
     }
 
-    public List<Map.Entry<String, String>> eeC() {
-        return this.oHi.eeG();
+    public List<Map.Entry<String, String>> egU() {
+        return this.oRq.egY();
     }
 
-    public boolean eeD() {
+    public boolean egV() {
         return this.mWasCached;
     }
 
-    public String eeE() {
+    public String egW() {
         return this.mNegotiatedProtocol;
     }
 
-    public String eeF() {
+    public String egX() {
         return this.mProxyServer;
     }
 
     public long getReceivedBytesCount() {
-        return this.oHh.get();
+        return this.oRp.get();
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), eeA().toString(), Integer.valueOf(getHttpStatusCode()), eeB(), eeC().toString(), Boolean.valueOf(eeD()), eeE(), eeF(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), egS().toString(), Integer.valueOf(getHttpStatusCode()), egT(), egU().toString(), Boolean.valueOf(egV()), egW(), egX(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void hQ(long j) {
-        this.oHh.set(j);
+    public void hT(long j) {
+        this.oRp.set(j);
     }
 }

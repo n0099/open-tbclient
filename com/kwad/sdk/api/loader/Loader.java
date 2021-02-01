@@ -11,27 +11,27 @@ import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import com.kwad.sdk.api.proxy.IComponentProxy;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Loader {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f8179a;
+    static final /* synthetic */ boolean f8181a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile Context f8180b;
+    private volatile Context f8182b;
     private IKsAdSDK c;
     private j d;
     private AtomicBoolean e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final Loader f8181a = new Loader();
+        private static final Loader f8183a = new Loader();
     }
 
     static {
-        f8179a = !Loader.class.desiredAssertionStatus();
+        f8181a = !Loader.class.desiredAssertionStatus();
     }
 
     private Loader() {
@@ -48,7 +48,7 @@ public class Loader {
         synchronized (Loader.class) {
             try {
                 KsAdSdkDynamicApi ksAdSdkDynamicApi = (KsAdSdkDynamicApi) IKsAdSDK.class.getAnnotation(KsAdSdkDynamicApi.class);
-                if (!f8179a && ksAdSdkDynamicApi == null) {
+                if (!f8181a && ksAdSdkDynamicApi == null) {
                     throw new AssertionError();
                 }
                 Object invoke = Class.forName(ksAdSdkDynamicApi.value(), true, classLoader).getDeclaredMethod("get", new Class[0]).invoke(null, new Object[0]);
@@ -76,9 +76,9 @@ public class Loader {
         if (TextUtils.isEmpty(b2) || !f.a(b2, a2)) {
             b2 = a2;
         } else {
-            f.a(context, f.f8200b, b2);
+            f.a(context, f.f8202b, b2);
             a(context, a2);
-            f.a(context, f.f8199a, "");
+            f.a(context, f.f8201a, "");
         }
         return !TextUtils.isEmpty(b2);
     }
@@ -86,33 +86,33 @@ public class Loader {
     private void d(Context context) {
         String a2 = f.a(context);
         if (TextUtils.isEmpty(a2) || !a2.equals("3.3.9")) {
-            String a3 = f.a(context, f.f8200b);
-            f.a(context, f.f8200b, "");
-            f.a(context, f.f8199a, "");
+            String a3 = f.a(context, f.f8202b);
+            f.a(context, f.f8202b, "");
+            f.a(context, f.f8201a, "");
             g.b(g.c(context, a3));
             f.b(context, "3.3.9");
         }
     }
 
     public static Loader get() {
-        return a.f8181a;
+        return a.f8183a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(Context context) {
-        return f.a(context, f.f8200b);
+        return f.a(context, f.f8202b);
     }
 
     String b(Context context) {
-        return f.a(context, f.f8199a);
+        return f.a(context, f.f8201a);
     }
 
     public void checkUpdate() {
-        r.a(this.f8180b);
+        r.a(this.f8182b);
     }
 
     public Context getContext() {
-        return this.f8180b;
+        return this.f8182b;
     }
 
     @MainThread
@@ -139,14 +139,14 @@ public class Loader {
             return c;
         }
         if (this.c == null) {
-            this.c = a(this.f8180b != null ? this.f8180b.getClassLoader() : getClass().getClassLoader());
+            this.c = a(this.f8182b != null ? this.f8182b.getClassLoader() : getClass().getClassLoader());
         }
         this.c.setIsExternal(false);
         return this.c;
     }
 
     public ClassLoader getRealClassLoader() {
-        return this.d != null ? this.d.b() : this.f8180b.getClassLoader();
+        return this.d != null ? this.d.b() : this.f8182b.getClassLoader();
     }
 
     @MainThread
@@ -155,13 +155,13 @@ public class Loader {
             return;
         }
         this.e.set(true);
-        this.f8180b = context.getApplicationContext();
-        d(this.f8180b);
+        this.f8182b = context.getApplicationContext();
+        d(this.f8182b);
         if (c(context)) {
-            this.d = j.a(this.f8180b, a(context));
+            this.d = j.a(this.f8182b, a(context));
         }
         if (this.d == null) {
-            this.c = a(this.f8180b.getClassLoader());
+            this.c = a(this.f8182b.getClassLoader());
         }
     }
 

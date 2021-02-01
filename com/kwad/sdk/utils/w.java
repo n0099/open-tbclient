@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import android.database.Cursor;
 import androidx.annotation.Nullable;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class w {
     public static void a() {
     }

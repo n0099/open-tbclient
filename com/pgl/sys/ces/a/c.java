@@ -7,11 +7,11 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.lang.reflect.Method;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static double f11393a = -1.0d;
+    private static double f11395a = -1.0d;
 
     public static String a() {
         String str = null;
@@ -81,8 +81,8 @@ public class c {
 
     public static String e(Context context) {
         double d;
-        if (f11393a >= 0.0d) {
-            return Integer.toString((int) f11393a);
+        if (f11395a >= 0.0d) {
+            return Integer.toString((int) f11395a);
         }
         try {
             Class<?> cls = Class.forName("com.android.internal.os.PowerProfile");
@@ -93,7 +93,7 @@ public class c {
         } catch (Throwable th) {
             d = 0.0d;
         }
-        f11393a = d;
+        f11395a = d;
         return Integer.toString((int) d);
     }
 }

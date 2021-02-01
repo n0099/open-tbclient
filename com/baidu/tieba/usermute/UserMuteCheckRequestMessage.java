@@ -3,7 +3,7 @@ package com.baidu.tieba.usermute;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.UserMuteCheck.DataReq;
 import tbclient.UserMuteCheck.UserMuteCheckReqIdl;
 /* loaded from: classes.dex */
@@ -30,7 +30,7 @@ public class UserMuteCheckRequestMessage extends NetMessage {
         builder.user_id_f = Long.valueOf(this.userIdF);
         builder.user_id_t = Long.valueOf(this.userIdT);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         UserMuteCheckReqIdl.Builder builder2 = new UserMuteCheckReqIdl.Builder();
         builder2.data = builder.build(false);

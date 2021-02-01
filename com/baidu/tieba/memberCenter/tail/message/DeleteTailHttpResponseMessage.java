@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.memberCenter.tail.data.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DeleteTailHttpResponseMessage extends HttpResponsedMessage {
     private c resultData;
 
@@ -12,7 +12,7 @@ public class DeleteTailHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: getResultData */
-    public c m39getResultData() {
+    public c m38getResultData() {
         return this.resultData;
     }
 

@@ -4,14 +4,14 @@ import android.content.ContentValues;
 import com.kwai.filedownloader.f.f;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f10885a;
+    private int f10887a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f10886b;
+    private int f10888b;
     private long c;
     private long d;
     private long e;
@@ -30,11 +30,11 @@ public class a {
     }
 
     public int a() {
-        return this.f10885a;
+        return this.f10887a;
     }
 
     public void a(int i) {
-        this.f10885a = i;
+        this.f10887a = i;
     }
 
     public void a(long j) {
@@ -42,11 +42,11 @@ public class a {
     }
 
     public int b() {
-        return this.f10886b;
+        return this.f10888b;
     }
 
     public void b(int i) {
-        this.f10886b = i;
+        this.f10888b = i;
     }
 
     public void b(long j) {
@@ -71,8 +71,8 @@ public class a {
 
     public ContentValues f() {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", Integer.valueOf(this.f10885a));
-        contentValues.put("connectionIndex", Integer.valueOf(this.f10886b));
+        contentValues.put("id", Integer.valueOf(this.f10887a));
+        contentValues.put("connectionIndex", Integer.valueOf(this.f10888b));
         contentValues.put("startOffset", Long.valueOf(this.c));
         contentValues.put("currentOffset", Long.valueOf(this.d));
         contentValues.put("endOffset", Long.valueOf(this.e));
@@ -80,6 +80,6 @@ public class a {
     }
 
     public String toString() {
-        return f.a("id[%d] index[%d] range[%d, %d) current offset(%d)", Integer.valueOf(this.f10885a), Integer.valueOf(this.f10886b), Long.valueOf(this.c), Long.valueOf(this.e), Long.valueOf(this.d));
+        return f.a("id[%d] index[%d] range[%d, %d) current offset(%d)", Integer.valueOf(this.f10887a), Integer.valueOf(this.f10888b), Long.valueOf(this.c), Long.valueOf(this.e), Long.valueOf(this.d));
     }
 }

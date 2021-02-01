@@ -10,14 +10,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class f<Transcode> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<n.a<?>> f10212a = new ArrayList();
+    private final List<n.a<?>> f10214a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<com.kwad.sdk.glide.load.c> f10213b = new ArrayList();
+    private final List<com.kwad.sdk.glide.load.c> f10215b = new ArrayList();
     private com.kwad.sdk.glide.e c;
     private Object d;
     private int e;
@@ -56,9 +56,9 @@ public final class f<Transcode> {
         this.o = null;
         this.j = null;
         this.p = null;
-        this.f10212a.clear();
+        this.f10214a.clear();
         this.l = false;
-        this.f10213b.clear();
+        this.f10215b.clear();
         this.m = false;
     }
 
@@ -87,7 +87,7 @@ public final class f<Transcode> {
         List<n.a<?>> n = n();
         int size = n.size();
         for (int i = 0; i < size; i++) {
-            if (n.get(i).f10100a.equals(cVar)) {
+            if (n.get(i).f10102a.equals(cVar)) {
                 return true;
             }
         }
@@ -206,38 +206,38 @@ public final class f<Transcode> {
     public List<n.a<?>> n() {
         if (!this.l) {
             this.l = true;
-            this.f10212a.clear();
+            this.f10214a.clear();
             List c = this.c.d().c(this.d);
             int size = c.size();
             for (int i = 0; i < size; i++) {
                 n.a<?> a2 = ((com.kwad.sdk.glide.load.b.n) c.get(i)).a(this.d, this.e, this.f, this.i);
                 if (a2 != null) {
-                    this.f10212a.add(a2);
+                    this.f10214a.add(a2);
                 }
             }
         }
-        return this.f10212a;
+        return this.f10214a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<com.kwad.sdk.glide.load.c> o() {
         if (!this.m) {
             this.m = true;
-            this.f10213b.clear();
+            this.f10215b.clear();
             List<n.a<?>> n = n();
             int size = n.size();
             for (int i = 0; i < size; i++) {
                 n.a<?> aVar = n.get(i);
-                if (!this.f10213b.contains(aVar.f10100a)) {
-                    this.f10213b.add(aVar.f10100a);
+                if (!this.f10215b.contains(aVar.f10102a)) {
+                    this.f10215b.add(aVar.f10102a);
                 }
-                for (int i2 = 0; i2 < aVar.f10101b.size(); i2++) {
-                    if (!this.f10213b.contains(aVar.f10101b.get(i2))) {
-                        this.f10213b.add(aVar.f10101b.get(i2));
+                for (int i2 = 0; i2 < aVar.f10103b.size(); i2++) {
+                    if (!this.f10215b.contains(aVar.f10103b.get(i2))) {
+                        this.f10215b.add(aVar.f10103b.get(i2));
                     }
                 }
             }
         }
-        return this.f10213b;
+        return this.f10215b;
     }
 }

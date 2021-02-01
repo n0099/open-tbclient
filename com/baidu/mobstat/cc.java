@@ -12,15 +12,15 @@ import java.nio.ByteBuffer;
 import java.nio.channels.NotYetConnectedException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public abstract class cc extends bz implements by, Runnable {
     static final /* synthetic */ boolean c;
 
     /* renamed from: a  reason: collision with root package name */
-    private ca f3782a;
+    private ca f3785a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected URI f3783b;
+    protected URI f3786b;
     private InputStream e;
     private OutputStream f;
     private Thread h;
@@ -45,8 +45,8 @@ public abstract class cc extends bz implements by, Runnable {
     }
 
     public cc(URI uri, cd cdVar, Map<String, String> map, int i) {
-        this.f3783b = null;
-        this.f3782a = null;
+        this.f3786b = null;
+        this.f3785a = null;
         this.m = 0;
         if (uri == null) {
             throw new IllegalArgumentException();
@@ -54,11 +54,11 @@ public abstract class cc extends bz implements by, Runnable {
         if (cdVar == null) {
             throw new IllegalArgumentException("null as draft is permitted for `WebSocketServer` only!");
         }
-        this.f3783b = uri;
+        this.f3786b = uri;
         this.i = cdVar;
         this.j = map;
         this.m = i;
-        this.f3782a = new ca(this, cdVar);
+        this.f3785a = new ca(this, cdVar);
     }
 
     public void b() {
@@ -72,17 +72,17 @@ public abstract class cc extends bz implements by, Runnable {
     public boolean c() throws InterruptedException {
         b();
         this.k.await();
-        return this.f3782a.c();
+        return this.f3785a.c();
     }
 
     public void d() {
         if (this.h != null) {
-            this.f3782a.a(1000);
+            this.f3785a.a(1000);
         }
     }
 
     public void a(byte[] bArr) throws NotYetConnectedException {
-        this.f3782a.a(bArr);
+        this.f3785a.a(bArr);
     }
 
     @Override // java.lang.Runnable
@@ -95,38 +95,38 @@ public abstract class cc extends bz implements by, Runnable {
                 throw new IOException();
             }
             if (!this.d.isBound()) {
-                this.d.connect(new InetSocketAddress(this.f3783b.getHost(), h()), this.m);
+                this.d.connect(new InetSocketAddress(this.f3786b.getHost(), h()), this.m);
             }
             this.e = this.d.getInputStream();
             this.f = this.d.getOutputStream();
             i();
             this.h = new Thread(new a());
             this.h.start();
-            byte[] bArr = new byte[ca.f3781b];
+            byte[] bArr = new byte[ca.f3784b];
             while (!g() && !f() && (read = this.e.read(bArr)) != -1) {
                 try {
-                    this.f3782a.a(ByteBuffer.wrap(bArr, 0, read));
+                    this.f3785a.a(ByteBuffer.wrap(bArr, 0, read));
                 } catch (IOException e) {
-                    this.f3782a.b();
+                    this.f3785a.b();
                 } catch (RuntimeException e2) {
                     a(e2);
-                    this.f3782a.b(1006, e2.getMessage());
+                    this.f3785a.b(1006, e2.getMessage());
                 }
             }
-            this.f3782a.b();
+            this.f3785a.b();
             if (!c && !this.d.isClosed()) {
                 throw new AssertionError();
             }
         } catch (Exception e3) {
-            a(this.f3782a, e3);
-            this.f3782a.b(-1, e3.getMessage());
+            a(this.f3785a, e3);
+            this.f3785a.b(-1, e3.getMessage());
         }
     }
 
     private int h() {
-        int port = this.f3783b.getPort();
+        int port = this.f3786b.getPort();
         if (port == -1) {
-            String scheme = this.f3783b.getScheme();
+            String scheme = this.f3786b.getScheme();
             if (scheme.equals("wss")) {
                 return Constants.SOCKET_PORT_SSL;
             }
@@ -140,21 +140,21 @@ public abstract class cc extends bz implements by, Runnable {
 
     private void i() throws cj {
         int h;
-        String rawPath = this.f3783b.getRawPath();
-        String rawQuery = this.f3783b.getRawQuery();
+        String rawPath = this.f3786b.getRawPath();
+        String rawQuery = this.f3786b.getRawQuery();
         rawPath = (rawPath == null || rawPath.length() == 0) ? "/" : "/";
         if (rawQuery != null) {
             rawPath = rawPath + "?" + rawQuery;
         }
         cv cvVar = new cv();
         cvVar.a(rawPath);
-        cvVar.a("Host", this.f3783b.getHost() + (h() != 80 ? ":" + h : ""));
+        cvVar.a("Host", this.f3786b.getHost() + (h() != 80 ? ":" + h : ""));
         if (this.j != null) {
             for (Map.Entry<String, String> entry : this.j.entrySet()) {
                 cvVar.a(entry.getKey(), entry.getValue());
             }
         }
-        this.f3782a.a((ct) cvVar);
+        this.f3785a.a((ct) cvVar);
     }
 
     @Override // com.baidu.mobstat.cb
@@ -234,7 +234,7 @@ public abstract class cc extends bz implements by, Runnable {
     public void b(cq cqVar) {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     class a implements Runnable {
         private a() {
         }
@@ -244,11 +244,11 @@ public abstract class cc extends bz implements by, Runnable {
             Thread.currentThread().setName("WebsocketWriteThread");
             while (!Thread.interrupted()) {
                 try {
-                    ByteBuffer take = cc.this.f3782a.d.take();
+                    ByteBuffer take = cc.this.f3785a.d.take();
                     cc.this.f.write(take.array(), 0, take.limit());
                     cc.this.f.flush();
                 } catch (IOException e) {
-                    cc.this.f3782a.b();
+                    cc.this.f3785a.b();
                     return;
                 } catch (InterruptedException e2) {
                     return;
@@ -265,24 +265,24 @@ public abstract class cc extends bz implements by, Runnable {
     }
 
     public boolean e() {
-        return this.f3782a.e();
+        return this.f3785a.e();
     }
 
     public boolean f() {
-        return this.f3782a.f();
+        return this.f3785a.f();
     }
 
     public boolean g() {
-        return this.f3782a.d();
+        return this.f3785a.d();
     }
 
     @Override // com.baidu.mobstat.by
     public void a(cq cqVar) {
-        this.f3782a.a(cqVar);
+        this.f3785a.a(cqVar);
     }
 
     @Override // com.baidu.mobstat.by
     public InetSocketAddress a() {
-        return this.f3782a.a();
+        return this.f3785a.a();
     }
 }

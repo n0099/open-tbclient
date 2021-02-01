@@ -14,11 +14,11 @@ import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class HostLiveGoodsEnterView extends FrameLayout implements a {
-    private View bwH;
-    private ImageView bwI;
-    private TextView bwZ;
+    private TextView bAC;
+    private View bAk;
+    private ImageView bAl;
     private View rootView;
 
     public HostLiveGoodsEnterView(@NonNull Context context) {
@@ -38,41 +38,41 @@ public class HostLiveGoodsEnterView extends FrameLayout implements a {
 
     public void init(Context context) {
         this.rootView = View.inflate(context, a.g.ala_master_live_goods_enter_view, this);
-        this.bwH = this.rootView.findViewById(a.f.host_goods_layout);
-        this.bwI = (ImageView) this.rootView.findViewById(a.f.host_goods_imageView);
-        this.bwZ = (TextView) this.rootView.findViewById(a.f.host_goods_num_textView);
+        this.bAk = this.rootView.findViewById(a.f.host_goods_layout);
+        this.bAl = (ImageView) this.rootView.findViewById(a.f.host_goods_imageView);
+        this.bAC = (TextView) this.rootView.findViewById(a.f.host_goods_num_textView);
         if (ExtraParamsManager.getABTestSwitcher(ExtraParamsManager.KEY_SHOP_GIFT_ICON_AB, true)) {
-            this.bwI.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testa);
+            this.bAl.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testa);
         } else {
-            this.bwI.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testb);
+            this.bAl.setImageResource(a.e.ala_live_icon_bottom_bar_shop_testb);
         }
     }
 
     public void setOutClickListener(View.OnClickListener onClickListener) {
-        if (this.bwI != null) {
-            this.bwI.setOnClickListener(onClickListener);
+        if (this.bAl != null) {
+            this.bAl.setOnClickListener(onClickListener);
         }
     }
 
-    public void OH() {
-        if (this.bwH.getVisibility() == 8) {
+    public void Qh() {
+        if (this.bAk.getVisibility() == 8) {
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "author_liveroom", "shopcart_show"));
         }
-        this.bwH.setVisibility(0);
+        this.bAk.setVisibility(0);
     }
 
-    public void OI() {
-        this.bwH.setVisibility(8);
+    public void Qi() {
+        this.bAk.setVisibility(8);
     }
 
-    public void dS(int i) {
+    public void dW(int i) {
         if (i <= 0) {
-            this.bwZ.setVisibility(8);
-            this.bwZ.setText("");
+            this.bAC.setVisibility(8);
+            this.bAC.setText("");
             return;
         }
-        this.bwZ.setText(i + "");
-        this.bwZ.setVisibility(0);
+        this.bAC.setText(i + "");
+        this.bAC.setVisibility(0);
     }
 
     @Override // com.baidu.live.core.a.a

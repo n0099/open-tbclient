@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.imMessageCenter.mention.agree.message.AgreeMeHTTPResponseMessage;
 import com.baidu.tieba.imMessageCenter.mention.agree.message.AgreeMeRequestMessage;
 import com.baidu.tieba.imMessageCenter.mention.agree.message.AgreeMeSocketResponseMessage;
@@ -21,19 +21,19 @@ import tbclient.AgreeMe.AgreeMeResIdl;
 /* loaded from: classes2.dex */
 public class b {
     public boolean hasMore;
-    private a kKO;
-    private ArrayList<n> kKP;
+    private a kSR;
+    private ArrayList<n> kSS;
     private BdUniqueId uniqueId;
-    private boolean kKN = false;
+    private boolean kSQ = false;
     private long lastId = 0;
-    private com.baidu.adp.framework.listener.a kKQ = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
+    private com.baidu.adp.framework.listener.a kST = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = false;
             if (responsedMessage != null) {
                 if (responsedMessage.hasError()) {
-                    if (b.this.kKO != null) {
-                        b.this.kKO.onFailed(responsedMessage.getErrorString());
+                    if (b.this.kSR != null) {
+                        b.this.kSR.onFailed(responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -56,7 +56,7 @@ public class b {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void au(ArrayList<n> arrayList);
+        void at(ArrayList<n> arrayList);
 
         void onFailed(String str);
     }
@@ -69,26 +69,26 @@ public class b {
     public b(TbPageContext tbPageContext, a aVar) {
         if (tbPageContext != null) {
             this.uniqueId = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.kKQ);
-            this.kKO = aVar;
+            tbPageContext.registerListener(this.kST);
+            this.kSR = aVar;
         }
     }
 
-    public void cMK() {
-        bkL();
-        bkK();
+    public void cOH() {
+        bld();
+        blc();
     }
 
-    public void cEr() {
+    public void cFE() {
         this.lastId = 0L;
-        bkK();
+        blc();
     }
 
-    public void bQy() {
-        bkK();
+    public void bRc() {
+        blc();
     }
 
-    private void bkL() {
+    private void bld() {
         new BdAsyncTask<Void, Void, ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a>>() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -97,8 +97,8 @@ public class b {
             public ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList = new ArrayList<>();
-                l<byte[]> dK = com.baidu.tbadk.core.c.a.bpZ().dK("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
-                if (dK != null && (bArr = dK.get("agree_me_cache_key")) != null) {
+                l<byte[]> dE = com.baidu.tbadk.core.c.a.bqr().dE("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
+                if (dE != null && (bArr = dE.get("agree_me_cache_key")) != null) {
                     try {
                         AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
                         if (agreeMeResIdl.data != null) {
@@ -131,7 +131,7 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    private void bkK() {
+    private void blc() {
         AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
         agreeMeRequestMessage.id = this.lastId;
         agreeMeRequestMessage.setTag(this.uniqueId);
@@ -140,41 +140,41 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void t(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList) {
-        if (!this.kKN) {
-            if (x.isEmpty(this.kKP)) {
-                this.kKP = new ArrayList<>();
+        if (!this.kSQ) {
+            if (y.isEmpty(this.kSS)) {
+                this.kSS = new ArrayList<>();
             } else {
-                this.kKP.clear();
+                this.kSS.clear();
             }
-            this.kKP.addAll(arrayList);
-            n nVar = (n) x.getItem(this.kKP, this.kKP.size() - 1);
+            this.kSS.addAll(arrayList);
+            n nVar = (n) y.getItem(this.kSS, this.kSS.size() - 1);
             if (nVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
                 this.lastId = ((com.baidu.tieba.imMessageCenter.mention.base.a) nVar).getMsgId();
             }
-            if (this.kKO != null && !x.isEmpty(this.kKP)) {
-                this.kKO.au(this.kKP);
+            if (this.kSR != null && !y.isEmpty(this.kSS)) {
+                this.kSR.at(this.kSS);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList, boolean z) {
-        this.kKN = true;
-        if (x.isEmpty(this.kKP)) {
-            this.kKP = new ArrayList<>();
+        this.kSQ = true;
+        if (y.isEmpty(this.kSS)) {
+            this.kSS = new ArrayList<>();
         }
         if (!z) {
-            this.kKP.addAll(arrayList);
+            this.kSS.addAll(arrayList);
         } else {
-            this.kKP.clear();
-            this.kKP.addAll(0, arrayList);
+            this.kSS.clear();
+            this.kSS.addAll(0, arrayList);
         }
-        n nVar = (n) x.getItem(this.kKP, this.kKP.size() - 1);
+        n nVar = (n) y.getItem(this.kSS, this.kSS.size() - 1);
         if (nVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
             this.lastId = ((com.baidu.tieba.imMessageCenter.mention.base.a) nVar).getMsgId();
         }
-        if (this.kKO != null) {
-            this.kKO.au(this.kKP);
+        if (this.kSR != null) {
+            this.kSR.at(this.kSS);
         }
     }
 }

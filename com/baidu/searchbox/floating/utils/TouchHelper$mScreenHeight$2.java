@@ -4,7 +4,7 @@ import kotlin.e;
 import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 @e
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 final class TouchHelper$mScreenHeight$2 extends Lambda implements a<Integer> {
     final /* synthetic */ TouchHelper this$0;
 

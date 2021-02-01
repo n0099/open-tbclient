@@ -36,13 +36,14 @@ import com.qq.e.comm.plugin.util.av;
 import com.qq.e.comm.plugin.util.l;
 import com.qq.e.comm.plugin.util.o;
 import com.qq.e.comm.plugin.util.z;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.util.HashMap;
 import org.json.JSONObject;
 import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class POFactoryImpl implements POFactory {
     public static final String DETAIL_PAGE = "detailPage";
     public static final String DownloadManage = "downloadManage";
@@ -54,7 +55,7 @@ public class POFactoryImpl implements POFactory {
     public static final String RewardVideo2 = "rewardVideo2";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final POFactory f11584a = new POFactoryImpl();
+    private static final POFactory f11586a = new POFactoryImpl();
 
     private POFactoryImpl() {
         com.qq.e.comm.plugin.x.a.a().b();
@@ -84,7 +85,7 @@ public class POFactoryImpl implements POFactory {
 
     @Override // com.qq.e.comm.pi.POFactory
     public ACTD getActivityDelegate(String str, Activity activity) {
-        return (ACTD) gdtadv.getobjresult(127, 0, this, str, activity);
+        return (ACTD) gdtadv.getobjresult(ThunderNetStateService.NetState.SYSNET_UNKNOWN, 0, this, str, activity);
     }
 
     @Override // com.qq.e.comm.pi.POFactory

@@ -6,7 +6,7 @@ import android.os.PowerManager;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class y {
     private static boolean a(View view, int i) {
         if (view == null || view.getVisibility() != 0 || view.getParent() == null) {

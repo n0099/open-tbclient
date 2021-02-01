@@ -1,10 +1,10 @@
 package com.kwai.filedownloader.event;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DownloadServiceConnectChangedEvent extends b {
     private final ConnectStatus c;
     private final Class<?> d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum ConnectStatus {
         connected,
         disconnected,

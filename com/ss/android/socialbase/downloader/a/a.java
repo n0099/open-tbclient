@@ -10,21 +10,21 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Application f13062a;
+    private Application f13064a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<InterfaceC1227a> f13063b;
+    private final List<InterfaceC1231a> f13065b;
     private int c;
     private volatile int d;
-    private final Application.ActivityLifecycleCallbacks pUe;
+    private final Application.ActivityLifecycleCallbacks qei;
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1227a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1231a {
         @MainThread
         void b();
 
@@ -32,19 +32,19 @@ public class a {
         void c();
     }
 
-    public static a eDz() {
-        return b.pUf;
+    public static a eFQ() {
+        return b.qej;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class b {
-        private static final a pUf = new a();
+        private static final a qej = new a();
     }
 
     private a() {
-        this.f13063b = new ArrayList();
+        this.f13065b = new ArrayList();
         this.d = -1;
-        this.pUe = new Application.ActivityLifecycleCallbacks() { // from class: com.ss.android.socialbase.downloader.a.a.1
+        this.qei = new Application.ActivityLifecycleCallbacks() { // from class: com.ss.android.socialbase.downloader.a.a.1
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
             }
@@ -90,11 +90,11 @@ public class a {
     }
 
     public void a(Context context) {
-        if (this.f13062a == null && (context instanceof Application)) {
+        if (this.f13064a == null && (context instanceof Application)) {
             synchronized (this) {
-                if (this.f13062a == null) {
-                    this.f13062a = (Application) context;
-                    this.f13062a.registerActivityLifecycleCallbacks(this.pUe);
+                if (this.f13064a == null) {
+                    this.f13064a = (Application) context;
+                    this.f13064a.registerActivityLifecycleCallbacks(this.qei);
                 }
             }
         }
@@ -109,27 +109,27 @@ public class a {
         return i == 1;
     }
 
-    public void a(InterfaceC1227a interfaceC1227a) {
-        if (interfaceC1227a != null) {
-            synchronized (this.f13063b) {
-                if (!this.f13063b.contains(interfaceC1227a)) {
-                    this.f13063b.add(interfaceC1227a);
+    public void a(InterfaceC1231a interfaceC1231a) {
+        if (interfaceC1231a != null) {
+            synchronized (this.f13065b) {
+                if (!this.f13065b.contains(interfaceC1231a)) {
+                    this.f13065b.add(interfaceC1231a);
                 }
             }
         }
     }
 
-    public void b(InterfaceC1227a interfaceC1227a) {
-        synchronized (this.f13063b) {
-            this.f13063b.remove(interfaceC1227a);
+    public void b(InterfaceC1231a interfaceC1231a) {
+        synchronized (this.f13065b) {
+            this.f13065b.remove(interfaceC1231a);
         }
     }
 
     private Object[] c() {
         Object[] objArr = null;
-        synchronized (this.f13063b) {
-            if (this.f13063b.size() > 0) {
-                objArr = this.f13063b.toArray();
+        synchronized (this.f13065b) {
+            if (this.f13065b.size() > 0) {
+                objArr = this.f13065b.toArray();
             }
         }
         return objArr;
@@ -142,7 +142,7 @@ public class a {
         Object[] c = c();
         if (c != null) {
             for (Object obj : c) {
-                ((InterfaceC1227a) obj).b();
+                ((InterfaceC1231a) obj).b();
             }
         }
     }
@@ -154,16 +154,16 @@ public class a {
         Object[] c = c();
         if (c != null) {
             for (Object obj : c) {
-                ((InterfaceC1227a) obj).c();
+                ((InterfaceC1231a) obj).c();
             }
         }
     }
 
     private void f() {
-        Activity eDA = eDA();
+        Activity eFR = eFR();
         if (this.d == -1) {
-            if (eDA != null) {
-                this.c = eDA.hashCode();
+            if (eFR != null) {
+                this.c = eFR.hashCode();
                 this.d = 1;
                 return;
             }
@@ -171,7 +171,7 @@ public class a {
         }
     }
 
-    private Activity eDA() {
+    private Activity eFR() {
         Map map;
         try {
             Class<?> cls = Class.forName("android.app.ActivityThread");

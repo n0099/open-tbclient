@@ -9,7 +9,7 @@ import android.widget.CheckedTextView;
 import androidx.annotation.DrawableRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.widget.TextViewCompat;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AppCompatCheckedTextView extends CheckedTextView {
     private static final int[] TINT_ATTRS = {16843016};
     private final AppCompatTextHelper mTextHelper;

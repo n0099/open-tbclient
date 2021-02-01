@@ -9,20 +9,20 @@ import com.cmic.sso.sdk.c.d.b;
 import com.cmic.sso.sdk.e.s;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7696a;
+    private String f7698a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7697b;
+    private String f7699b;
 
     public c a(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
         List<String> list;
         Map<String, List<String>> b2 = bVar.b();
-        if (TextUtils.isEmpty(this.f7696a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
-            this.f7696a = list.get(0);
+        if (TextUtils.isEmpty(this.f7698a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
+            this.f7698a = list.get(0);
         }
         s.b(aVar, String.valueOf(bVar.a()));
         List<String> list2 = b2.get(Headers.LOCATION);
@@ -30,8 +30,8 @@ public class a {
             list2 = b2.get(Headers.LOCATION.toLowerCase());
         }
         if (list2 != null && list2.size() > 0) {
-            this.f7697b = list2.get(0);
-            if (!TextUtils.isEmpty(this.f7697b)) {
+            this.f7699b = list2.get(0);
+            if (!TextUtils.isEmpty(this.f7699b)) {
                 String b3 = aVar.b("operatortype", "0");
                 if ("2".equals(b3)) {
                     s.a(aVar, "getUnicomMobile");
@@ -42,8 +42,8 @@ public class a {
                 }
             }
         }
-        c a2 = a(this.f7697b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.eoY().a()));
-        a2.d(cVar.eoX());
+        c a2 = a(this.f7699b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.erq().a()));
+        a2.d(cVar.erp());
         return a2;
     }
 
@@ -57,9 +57,9 @@ public class a {
             s.a(aVar, "NONE");
         }
         s.b(aVar, String.valueOf(bVar.a()));
-        c a2 = a("http://www.cmpassport.com/unisdk" + this.f7696a, cVar.f(), "POST", new d(cVar.eoY().a(), "1.0", bVar.c()));
-        a2.d(cVar.eoX());
-        this.f7696a = null;
+        c a2 = a("http://www.cmpassport.com/unisdk" + this.f7698a, cVar.f(), "POST", new d(cVar.erq().a(), "1.0", bVar.c()));
+        a2.d(cVar.erp());
+        this.f7698a = null;
         return a2;
     }
 
@@ -72,6 +72,6 @@ public class a {
     }
 
     public String a() {
-        return this.f7696a;
+        return this.f7698a;
     }
 }

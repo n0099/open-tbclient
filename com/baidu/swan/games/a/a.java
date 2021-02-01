@@ -2,7 +2,7 @@ package com.baidu.swan.games.a;
 
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements c {
     @Override // com.baidu.swan.games.a.c
     @JavascriptInterface

@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,7 +26,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FileProvider extends ContentProvider {
     private static final String ATTR_NAME = "name";
     private static final String ATTR_PATH = "path";
@@ -45,7 +46,7 @@ public class FileProvider extends ContentProvider {
     /* JADX INFO: Access modifiers changed from: package-private */
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface PathStrategy {
         @KsAdSdkDynamicApi
         @Keep
@@ -57,7 +58,7 @@ public class FileProvider extends ContentProvider {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class SimplePathStrategy implements PathStrategy {
         private final String mAuthority;
         private final HashMap<String, File> mRoots = new HashMap<>();
@@ -186,7 +187,7 @@ public class FileProvider extends ContentProvider {
         if ("wa".equals(str)) {
             return 704643072;
         }
-        if ("rw".equals(str)) {
+        if (VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth.equals(str)) {
             return 939524096;
         }
         if ("rwt".equals(str)) {

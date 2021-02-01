@@ -6,9 +6,9 @@ import com.baidu.crashpad.ZwCrashpad;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    public static void uz() {
+    public static void uw() {
         ZwCrashpad.setEnabled(true);
         File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir();
         Context appContext = AppRuntime.getAppContext();

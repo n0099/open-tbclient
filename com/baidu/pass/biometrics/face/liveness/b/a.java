@@ -10,42 +10,41 @@ import android.view.WindowManager;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioDisplayUtil;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4033a = "CameraInterface";
+    private static final String f4036a = "CameraInterface";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f4034b = 3;
+    public static final int f4037b = 3;
     public static final int c = 480;
     public static final int d = 640;
     private static final float e = 0.2f;
     private static int f = -1;
     Camera g;
     SurfaceHolder h;
-    private C0269a i;
+    private C0273a i;
     private int k;
     private String j = "off";
     private boolean l = true;
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0269a {
+    /* loaded from: classes15.dex */
+    public static class C0273a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4035a;
+        public int f4038a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4036b;
+        public int f4039b;
 
-        public C0269a(int i, int i2) {
-            this.f4035a = i;
-            this.f4036b = i2;
+        public C0273a(int i, int i2) {
+            this.f4038a = i;
+            this.f4039b = i2;
         }
     }
 
@@ -85,9 +84,9 @@ public class a {
         return Camera.getNumberOfCameras();
     }
 
-    public C0269a c() {
+    public C0273a c() {
         if (this.i == null) {
-            this.i = new C0269a(640, 480);
+            this.i = new C0273a(640, 480);
         }
         return this.i;
     }
@@ -114,15 +113,15 @@ public class a {
     }
 
     @TargetApi(5)
-    private List<C0269a> b(Activity activity, Camera.Parameters parameters) {
+    private List<C0273a> b(Activity activity, Camera.Parameters parameters) {
         int i;
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
         if (supportedPreviewSizes != null && supportedPreviewSizes.size() != 0) {
             Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-            C0269a c0269a = new C0269a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
+            C0273a c0273a = new C0273a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
             int i2 = 153600;
-            int i3 = c0269a.f4035a;
-            int i4 = c0269a.f4036b;
+            int i3 = c0273a.f4038a;
+            int i4 = c0273a.f4039b;
             if ((i3 * i4) / 4 > 921600) {
                 i2 = (i4 * i3) / 8;
                 i = 2073600;
@@ -140,7 +139,7 @@ public class a {
                 int i7 = size.width;
                 int i8 = size.height;
                 if (i7 * i8 >= i2 && i7 * i8 <= i) {
-                    arrayList.add(new C0269a(i7, i8));
+                    arrayList.add(new C0273a(i7, i8));
                 }
                 i5 = i6 + 1;
             }
@@ -196,7 +195,7 @@ public class a {
                     i = 180;
                     break;
                 case 3:
-                    i = SubsamplingScaleImageView.ORIENTATION_270;
+                    i = 270;
                     break;
             }
             int i2 = Build.VERSION.SDK_INT;
@@ -241,25 +240,25 @@ public class a {
         }
     }
 
-    private C0269a a(Activity activity, Camera.Parameters parameters) {
-        C0269a c0269a = this.i;
-        if (c0269a == null) {
-            List<C0269a> b2 = b(activity, parameters);
-            this.i = new C0269a(640, 480);
+    private C0273a a(Activity activity, Camera.Parameters parameters) {
+        C0273a c0273a = this.i;
+        if (c0273a == null) {
+            List<C0273a> b2 = b(activity, parameters);
+            this.i = new C0273a(640, 480);
             if (b2 != null && b2.size() != 0) {
                 Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-                C0269a c0269a2 = new C0269a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
-                float f2 = c0269a2.f4036b / c0269a2.f4035a;
-                C0269a c0269a3 = this.i;
-                float f3 = c0269a3.f4035a / c0269a3.f4036b;
+                C0273a c0273a2 = new C0273a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
+                float f2 = c0273a2.f4039b / c0273a2.f4038a;
+                C0273a c0273a3 = this.i;
+                float f3 = c0273a3.f4038a / c0273a3.f4039b;
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < b2.size()) {
-                        C0269a c0269a4 = b2.get(i2);
-                        float abs = Math.abs((c0269a4.f4035a / c0269a4.f4036b) - f2);
+                        C0273a c0273a4 = b2.get(i2);
+                        float abs = Math.abs((c0273a4.f4038a / c0273a4.f4039b) - f2);
                         if (abs < f3) {
-                            this.i = c0269a4;
+                            this.i = c0273a4;
                             f3 = abs;
                         }
                         i = i2 + 1;
@@ -271,21 +270,21 @@ public class a {
                 return this.i;
             }
         } else {
-            return c0269a;
+            return c0273a;
         }
     }
 
-    public C0269a a(Activity activity, Camera.Parameters parameters, boolean z) {
-        C0269a a2 = a(activity, parameters);
-        parameters.setPreviewSize(a2.f4035a, a2.f4036b);
+    public C0273a a(Activity activity, Camera.Parameters parameters, boolean z) {
+        C0273a a2 = a(activity, parameters);
+        parameters.setPreviewSize(a2.f4038a, a2.f4039b);
         return a2;
     }
 
     @TargetApi(5)
-    public void a(Camera.Parameters parameters, C0269a c0269a) {
+    public void a(Camera.Parameters parameters, C0273a c0273a) {
         int i;
         int i2;
-        float f2 = c0269a != null ? c0269a.f4035a / c0269a.f4036b : 0.0f;
+        float f2 = c0273a != null ? c0273a.f4038a / c0273a.f4039b : 0.0f;
         List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
         if (supportedPictureSizes != null) {
             int size = supportedPictureSizes.size();

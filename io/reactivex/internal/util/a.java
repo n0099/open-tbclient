@@ -6,20 +6,20 @@ import io.reactivex.u;
 public class a<T> {
     final int capacity;
     int offset;
-    final Object[] qhx;
-    Object[] qhy;
+    final Object[] qrB;
+    Object[] qrC;
 
     /* renamed from: io.reactivex.internal.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1294a<T> extends j<T> {
+    public interface InterfaceC1304a<T> extends j<T> {
         @Override // io.reactivex.b.j
         boolean test(T t);
     }
 
     public a(int i) {
         this.capacity = i;
-        this.qhx = new Object[i + 1];
-        this.qhy = this.qhx;
+        this.qrB = new Object[i + 1];
+        this.qrC = this.qrB;
     }
 
     public void add(T t) {
@@ -27,26 +27,26 @@ public class a<T> {
         int i2 = this.offset;
         if (i2 == i) {
             Object[] objArr = new Object[i + 1];
-            this.qhy[i] = objArr;
-            this.qhy = objArr;
+            this.qrC[i] = objArr;
+            this.qrC = objArr;
             i2 = 0;
         }
-        this.qhy[i2] = t;
+        this.qrC[i2] = t;
         this.offset = i2 + 1;
     }
 
     public void bN(T t) {
-        this.qhx[0] = t;
+        this.qrB[0] = t;
     }
 
-    public void a(InterfaceC1294a<? super T> interfaceC1294a) {
+    public void a(InterfaceC1304a<? super T> interfaceC1304a) {
         int i;
-        Object[] objArr = this.qhx;
+        Object[] objArr = this.qrB;
         int i2 = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i2]) {
             while (i < i2) {
                 Object obj = objArr2[i];
-                i = (obj == null || interfaceC1294a.test(obj)) ? 0 : i + 1;
+                i = (obj == null || interfaceC1304a.test(obj)) ? 0 : i + 1;
             }
         }
     }
@@ -58,7 +58,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(org.a.c<? super U> cVar) {
-        Object[] objArr = this.qhx;
+        Object[] objArr = this.qrB;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -80,7 +80,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(u<? super U> uVar) {
-        Object[] objArr = this.qhx;
+        Object[] objArr = this.qrB;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {

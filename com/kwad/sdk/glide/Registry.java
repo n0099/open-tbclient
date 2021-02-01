@@ -14,38 +14,38 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Registry {
     private final com.kwad.sdk.glide.e.d h = new com.kwad.sdk.glide.e.d();
     private final com.kwad.sdk.glide.e.c i = new com.kwad.sdk.glide.e.c();
     private final Pools.Pool<List<Throwable>> j = com.kwad.sdk.glide.g.a.a.a();
 
     /* renamed from: a  reason: collision with root package name */
-    private final p f9920a = new p(this.j);
+    private final p f9922a = new p(this.j);
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.e.a f9921b = new com.kwad.sdk.glide.e.a();
+    private final com.kwad.sdk.glide.e.a f9923b = new com.kwad.sdk.glide.e.a();
     private final com.kwad.sdk.glide.e.e c = new com.kwad.sdk.glide.e.e();
     private final com.kwad.sdk.glide.e.f d = new com.kwad.sdk.glide.e.f();
     private final com.kwad.sdk.glide.load.a.f e = new com.kwad.sdk.glide.load.a.f();
     private final com.kwad.sdk.glide.load.resource.e.f f = new com.kwad.sdk.glide.load.resource.e.f();
     private final com.kwad.sdk.glide.e.b g = new com.kwad.sdk.glide.e.b();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class MissingComponentException extends RuntimeException {
         public MissingComponentException(@NonNull String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class NoImageHeaderParserException extends MissingComponentException {
         public NoImageHeaderParserException() {
             super("Failed to find image header parser.");
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class NoModelLoaderAvailableException extends MissingComponentException {
         public NoModelLoaderAvailableException(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
             super("Failed to find any ModelLoaders for model: " + cls + " and data: " + cls2);
@@ -56,14 +56,14 @@ public class Registry {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class NoResultEncoderAvailableException extends MissingComponentException {
         public NoResultEncoderAvailableException(@NonNull Class<?> cls) {
             super("Failed to find result encoder for resource class: " + cls + ", you may need to consider registering a new Encoder for the requested type or DiskCacheStrategy.DATA/DiskCacheStrategy.NONE if caching your transformed resource is unnecessary.");
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class NoSourceEncoderAvailableException extends MissingComponentException {
         public NoSourceEncoderAvailableException(@NonNull Class<?> cls) {
             super("Failed to find source encoder for data class: " + cls);
@@ -99,7 +99,7 @@ public class Registry {
 
     @NonNull
     public <Data> Registry a(@NonNull Class<Data> cls, @NonNull com.kwad.sdk.glide.load.a<Data> aVar) {
-        this.f9921b.a(cls, aVar);
+        this.f9923b.a(cls, aVar);
         return this;
     }
 
@@ -111,7 +111,7 @@ public class Registry {
 
     @NonNull
     public <Model, Data> Registry a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<Model, Data> oVar) {
-        this.f9920a.a(cls, cls2, oVar);
+        this.f9922a.a(cls, cls2, oVar);
         return this;
     }
 
@@ -145,7 +145,7 @@ public class Registry {
 
     @NonNull
     public <X> com.kwad.sdk.glide.load.a<X> a(@NonNull X x) {
-        com.kwad.sdk.glide.load.a<X> a2 = this.f9921b.a(x.getClass());
+        com.kwad.sdk.glide.load.a<X> a2 = this.f9923b.a(x.getClass());
         if (a2 != null) {
             return a2;
         }
@@ -217,7 +217,7 @@ public class Registry {
         List<Class<?>> a2 = this.h.a(cls, cls2, cls3);
         if (a2 == null) {
             ArrayList arrayList = new ArrayList();
-            for (Class<?> cls4 : this.f9920a.a((Class<?>) cls)) {
+            for (Class<?> cls4 : this.f9922a.a((Class<?>) cls)) {
                 for (Class cls5 : this.c.b(cls4, cls2)) {
                     if (!this.f.b(cls5, cls3).isEmpty() && !arrayList.contains(cls5)) {
                         arrayList.add(cls5);
@@ -232,7 +232,7 @@ public class Registry {
 
     @NonNull
     public <Model> List<n<Model, ?>> c(@NonNull Model model) {
-        List<n<Model, ?>> a2 = this.f9920a.a((p) model);
+        List<n<Model, ?>> a2 = this.f9922a.a((p) model);
         if (a2.isEmpty()) {
             throw new NoModelLoaderAvailableException(model);
         }

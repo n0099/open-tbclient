@@ -10,7 +10,7 @@ import com.bytedance.sdk.openadsdk.utils.ac;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FullRewardExpressBackupView extends BackupView {
     private View h;
     private NativeExpressView i;
@@ -19,16 +19,16 @@ public class FullRewardExpressBackupView extends BackupView {
 
     public FullRewardExpressBackupView(@NonNull Context context) {
         super(context);
-        this.f6615a = context;
+        this.f6617a = context;
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.l lVar, NativeExpressView nativeExpressView, com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
         u.b("FullRewardExpressBackupView", "show backup view");
         setBackgroundColor(-1);
-        this.f6616b = lVar;
+        this.f6618b = lVar;
         this.i = nativeExpressView;
         this.k = aVar;
-        if (aj.c(this.f6616b.W()) == 7) {
+        if (aj.c(this.f6618b.W()) == 7) {
             this.e = "rewarded_video";
         } else {
             this.e = "fullscreen_interstitial_ad";
@@ -38,8 +38,8 @@ public class FullRewardExpressBackupView extends BackupView {
     }
 
     private void b() {
-        this.f = ak.c(this.f6615a, this.i.getExpectExpressWidth());
-        this.g = ak.c(this.f6615a, this.i.getExpectExpressWidth());
+        this.f = ak.c(this.f6617a, this.i.getExpectExpressWidth());
+        this.g = ak.c(this.f6617a, this.i.getExpectExpressWidth());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(this.f, this.g);
@@ -50,13 +50,13 @@ public class FullRewardExpressBackupView extends BackupView {
             ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
         }
         setLayoutParams(layoutParams);
-        this.f6616b.h();
+        this.f6618b.h();
         c();
     }
 
     private void c() {
-        this.h = LayoutInflater.from(this.f6615a).inflate(ac.f(this.f6615a, "tt_backup_full_reward"), (ViewGroup) this, true);
-        this.j = (FrameLayout) this.h.findViewById(ac.e(this.f6615a, "tt_bu_video_container"));
+        this.h = LayoutInflater.from(this.f6617a).inflate(ac.f(this.f6617a, "tt_backup_full_reward"), (ViewGroup) this, true);
+        this.j = (FrameLayout) this.h.findViewById(ac.e(this.f6617a, "tt_bu_video_container"));
         this.j.removeAllViews();
     }
 

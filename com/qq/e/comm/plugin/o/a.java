@@ -22,15 +22,15 @@ import com.qq.e.comm.plugin.util.ak;
 import com.qq.e.comm.plugin.util.w;
 import com.qq.e.comm.plugin.y.u;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a implements View.OnClickListener, ACTD, f {
     private static final String h = a.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    private final Activity f12322a;
+    private final Activity f12324a;
 
     /* renamed from: b  reason: collision with root package name */
-    private HybridADListener f12323b;
+    private HybridADListener f12325b;
     private HybridADSetting c;
     private RelativeLayout d;
     private c e;
@@ -39,36 +39,36 @@ public class a implements View.OnClickListener, ACTD, f {
     private boolean i;
 
     public a(Activity activity) {
-        this.f12322a = activity;
+        this.f12324a = activity;
     }
 
     private void a() {
-        this.d = new RelativeLayout(this.f12322a);
-        this.e = new c(this.f12322a, this.c);
+        this.d = new RelativeLayout(this.f12324a);
+        this.e = new c(this.f12324a, this.c);
         this.e.setId(2131755009);
         this.e.a().setOnClickListener(this);
         this.e.b().setOnClickListener(this);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, ak.a((Context) this.f12322a, this.c.getTitleBarHeight()));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, ak.a((Context) this.f12324a, this.c.getTitleBarHeight()));
         layoutParams.addRule(10, -1);
         this.d.addView(this.e, layoutParams);
-        this.f = new e(this.f12322a).a();
+        this.f = new e(this.f12324a).a();
         this.f.a(this);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams2.addRule(3, 2131755009);
         this.d.addView(this.f.c(), layoutParams2);
-        this.g = new ProgressBar(this.f12322a);
+        this.g = new ProgressBar(this.f12324a);
         this.g.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(ak.a((Context) this.f12322a, 46), ak.a((Context) this.f12322a, 46));
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(ak.a((Context) this.f12324a, 46), ak.a((Context) this.f12324a, 46));
         layoutParams3.addRule(13, -1);
         this.d.addView(this.g, layoutParams3);
-        this.f12322a.setContentView(this.d, new ViewGroup.LayoutParams(-1, -1));
+        this.f12324a.setContentView(this.d, new ViewGroup.LayoutParams(-1, -1));
     }
 
     private void a(final int i) {
         w.a(new Runnable() { // from class: com.qq.e.comm.plugin.o.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f12323b.onError(ag.a(i));
+                a.this.f12325b.onError(ag.a(i));
             }
         });
     }
@@ -85,10 +85,10 @@ public class a implements View.OnClickListener, ACTD, f {
         w.a(new Runnable() { // from class: com.qq.e.comm.plugin.o.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f12323b.onClose();
+                a.this.f12325b.onClose();
             }
         });
-        this.f12322a.finish();
+        this.f12324a.finish();
     }
 
     @Override // com.qq.e.comm.plugin.ab.e.f
@@ -99,7 +99,7 @@ public class a implements View.OnClickListener, ACTD, f {
             w.a(new Runnable() { // from class: com.qq.e.comm.plugin.o.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.f12323b.onLoadFinished();
+                    a.this.f12325b.onLoadFinished();
                 }
             });
             u.a(21042, 3, null);
@@ -138,12 +138,12 @@ public class a implements View.OnClickListener, ACTD, f {
     @Override // com.qq.e.comm.pi.ACTD
     public void onAfterCreate(Bundle bundle) {
         ai.a("gdt_tag_callback", "onAfterCreate(savedInstanceState)");
-        this.f12323b = b.a(this.f12322a.getIntent().getIntExtra("id", 0));
-        this.c = (HybridADSetting) this.f12322a.getIntent().getParcelableExtra("setting");
-        String stringExtra = this.f12322a.getIntent().getStringExtra("url");
-        if (this.f12323b == null || this.c == null || TextUtils.isEmpty(stringExtra)) {
+        this.f12325b = b.a(this.f12324a.getIntent().getIntExtra("id", 0));
+        this.c = (HybridADSetting) this.f12324a.getIntent().getParcelableExtra("setting");
+        String stringExtra = this.f12324a.getIntent().getStringExtra("url");
+        if (this.f12325b == null || this.c == null || TextUtils.isEmpty(stringExtra)) {
             GDTLogger.e("HybridAD activity fail to create");
-            this.f12322a.finish();
+            this.f12324a.finish();
             return;
         }
         a();
@@ -157,7 +157,7 @@ public class a implements View.OnClickListener, ACTD, f {
             default:
                 GDTLogger.e("unknow HybridAD type");
                 a(4001);
-                this.f12322a.finish();
+                this.f12324a.finish();
                 return;
         }
     }
@@ -171,7 +171,7 @@ public class a implements View.OnClickListener, ACTD, f {
     @Override // com.qq.e.comm.pi.ACTD
     public void onBeforeCreate(Bundle bundle) {
         ai.a("gdt_tag_callback", "onBeforeCreate(savedInstanceState)");
-        this.f12322a.requestWindowFeature(1);
+        this.f12324a.requestWindowFeature(1);
     }
 
     @Override // android.view.View.OnClickListener

@@ -5,13 +5,15 @@ import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.tbadk.util.v;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
 /* loaded from: classes2.dex */
 public class LoadMoreRequestMessage extends NetMessage {
+    private String adFloorInfo;
     private String forumName;
     private long forum_id;
     private boolean isBrandForum;
@@ -27,6 +29,7 @@ public class LoadMoreRequestMessage extends NetMessage {
 
     public LoadMoreRequestMessage() {
         super(1001704, CmdConfigSocket.CMD_FRS_LOAD_MORE);
+        this.adFloorInfo = "";
     }
 
     public void setLastClickTid(long j) {
@@ -76,12 +79,13 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(equipmentHeight);
         builder.scr_w = Integer.valueOf(equipmentWidth);
-        builder.q_type = Integer.valueOf(au.bsy().bsz() ? 2 : 1);
+        builder.q_type = Integer.valueOf(av.bsS().bsT() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dCd().QM("FRS");
-        t.a(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.c.a.dBW().dCa();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dEl().RF("FRS");
+        builder.ad_ext_params = AdExtParam.a.bEU().DJ(this.adFloorInfo).bEV();
+        v.a(builder, true, false, true);
+        builder.app_pos = com.baidu.tieba.recapp.c.a.dEe().dEi();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
@@ -117,5 +121,9 @@ public class LoadMoreRequestMessage extends NetMessage {
 
     public long getForumId() {
         return this.forum_id;
+    }
+
+    public void setAdFloorInfo(String str) {
+        this.adFloorInfo = str;
     }
 }

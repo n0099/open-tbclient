@@ -7,7 +7,7 @@ import android.content.ContextWrapper;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.Window;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class x {
     public static void a(Context context, boolean z) {
         try {

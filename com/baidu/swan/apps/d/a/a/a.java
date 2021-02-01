@@ -16,7 +16,7 @@ import kotlin.jvm.internal.p;
 import kotlin.text.l;
 import org.json.JSONObject;
 @e
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/setTplBdussSync");
@@ -27,42 +27,42 @@ public final class a extends aa {
         boolean z;
         p.o(unitedSchemeEntity, "entity");
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        f.cBW.eO(true);
+        f.cEs.eQ(true);
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.a.a ajc = f.cBW.ajc();
-            if (ajc != null) {
-                ajc.onResult(-1);
+            com.baidu.swan.apps.a.a ajA = f.cEs.ajA();
+            if (ajA != null) {
+                ajA.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
         int optInt = optParamsAsJo.optInt(BaseJsonData.TAG_ERRNO);
         JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-        ak.l(RunnableC0420a.cCa);
+        ak.k(RunnableC0417a.cEw);
         if (optInt != 0) {
-            com.baidu.swan.apps.a.a ajc2 = f.cBW.ajc();
-            if (ajc2 != null) {
-                ajc2.onResult(-1);
+            com.baidu.swan.apps.a.a ajA2 = f.cEs.ajA();
+            if (ajA2 != null) {
+                ajA2.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
             return false;
         } else if (optJSONObject != null) {
-            String str = h.xl(CookieManager.getInstance().getCookie(".baidu.com")).get("OPENBDUSS");
+            String str = h.xE(CookieManager.getInstance().getCookie(".baidu.com")).get("OPENBDUSS");
             String str2 = str;
             if (!(str2 == null || l.isBlank(str2))) {
-                com.baidu.swan.apps.d.a.h.cBZ.d(optInt, optJSONObject);
-                com.baidu.swan.apps.d.a.a.ad(context, str);
-                f.cBW.eE(true);
-                com.baidu.swan.apps.a.a ajc3 = f.cBW.ajc();
-                if (ajc3 != null) {
-                    ajc3.onResult(0);
+                com.baidu.swan.apps.d.a.h.cEv.d(optInt, optJSONObject);
+                com.baidu.swan.apps.d.a.a.ab(context, str);
+                f.cEs.eG(true);
+                com.baidu.swan.apps.a.a ajA3 = f.cEs.ajA();
+                if (ajA3 != null) {
+                    ajA3.onResult(0);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 z = true;
             } else {
-                com.baidu.swan.apps.a.a ajc4 = f.cBW.ajc();
-                if (ajc4 != null) {
-                    ajc4.onResult(-1);
+                com.baidu.swan.apps.a.a ajA4 = f.cEs.ajA();
+                if (ajA4 != null) {
+                    ajA4.onResult(-1);
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
                 z = false;
@@ -76,16 +76,16 @@ public final class a extends aa {
 
     @e
     /* renamed from: com.baidu.swan.apps.d.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    static final class RunnableC0420a implements Runnable {
-        public static final RunnableC0420a cCa = new RunnableC0420a();
+    /* loaded from: classes9.dex */
+    static final class RunnableC0417a implements Runnable {
+        public static final RunnableC0417a cEw = new RunnableC0417a();
 
-        RunnableC0420a() {
+        RunnableC0417a() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            com.baidu.swan.apps.d.a.e.apn();
+            com.baidu.swan.apps.d.a.e.apL();
         }
     }
 }

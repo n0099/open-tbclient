@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.y;
 
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class f {
     static String a(JSONObject jSONObject, String str) {
         int a2 = h.a();

@@ -3,7 +3,7 @@ package com.baidu.pass.common;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PassUtil implements com.baidu.pass.a {
     public static String getPackageSign(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {

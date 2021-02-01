@@ -5,35 +5,35 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class r {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f6047b = "VNetLog";
+    private static String f6049b = "VNetLog";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f6046a = Log.isLoggable(f6047b, 2);
+    public static boolean f6048a = Log.isLoggable(f6049b, 2);
 
     public static void a(String str, Object... objArr) {
-        if (f6046a) {
-            Log.v(f6047b, k(str, objArr));
+        if (f6048a) {
+            Log.v(f6049b, k(str, objArr));
         }
     }
 
     public static void b(String str, Object... objArr) {
-        Log.d(f6047b, k(str, objArr));
+        Log.d(f6049b, k(str, objArr));
     }
 
     public static void c(String str, Object... objArr) {
-        Log.e(f6047b, k(str, objArr));
+        Log.e(f6049b, k(str, objArr));
     }
 
     public static void a(Throwable th, String str, Object... objArr) {
-        Log.e(f6047b, k(str, objArr), th);
+        Log.e(f6049b, k(str, objArr), th);
     }
 
     public static void d(String str, Object... objArr) {
-        Log.wtf(f6047b, k(str, objArr));
+        Log.wtf(f6049b, k(str, objArr));
     }
 
     private static String k(String str, Object... objArr) {
@@ -60,31 +60,31 @@ public class r {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f6048a = r.f6046a;
+        public static final boolean f6050a = r.f6048a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final List<C0994a> f6049b = new ArrayList();
+        private final List<C0998a> f6051b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.bytedance.sdk.adnet.core.r$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C0994a {
+        /* loaded from: classes6.dex */
+        public static class C0998a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f6050a;
+            public final String f6052a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f6051b;
+            public final long f6053b;
             public final long c;
 
-            public C0994a(String str, long j, long j2) {
-                this.f6050a = str;
-                this.f6051b = j;
+            public C0998a(String str, long j, long j2) {
+                this.f6052a = str;
+                this.f6053b = j;
                 this.c = j2;
             }
         }
@@ -93,19 +93,19 @@ public class r {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.f6049b.add(new C0994a(str, j, SystemClock.elapsedRealtime()));
+            this.f6051b.add(new C0998a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
             this.c = true;
             long a2 = a();
             if (a2 > 0) {
-                long j = this.f6049b.get(0).c;
+                long j = this.f6051b.get(0).c;
                 r.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C0994a c0994a : this.f6049b) {
-                    long j3 = c0994a.c;
-                    r.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0994a.f6051b), c0994a.f6050a);
+                for (C0998a c0998a : this.f6051b) {
+                    long j3 = c0998a.c;
+                    r.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0998a.f6053b), c0998a.f6052a);
                     j2 = j3;
                 }
             }
@@ -119,10 +119,10 @@ public class r {
         }
 
         private long a() {
-            if (this.f6049b.size() == 0) {
+            if (this.f6051b.size() == 0) {
                 return 0L;
             }
-            return this.f6049b.get(this.f6049b.size() - 1).c - this.f6049b.get(0).c;
+            return this.f6051b.get(this.f6051b.size() - 1).c - this.f6051b.get(0).c;
         }
     }
 }

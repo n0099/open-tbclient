@@ -30,14 +30,16 @@ import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.l;
+import com.baidu.tbadk.util.m;
 import com.baidu.tieba.setting.AppsActivityConfig;
+import com.baidu.tieba.setting.ForbiddenForumActivityConfig;
 import com.baidu.tieba.setting.MsgReceiveActivityConfig;
 import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
 import com.baidu.tieba.setting.PrivacyPermissionActivityConfig;
 import com.baidu.tieba.setting.SecretSettingActivityConfig;
 import com.baidu.tieba.setting.SystemHelpSettingActivityConfig;
 import com.baidu.tieba.setting.UserMuteListActivityConfig;
+import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumActivity;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.setting.im.more.SecretSettingActivity;
@@ -55,19 +57,19 @@ import com.baidu.tieba.setting.privacy.PrivacyMarkActivity;
 import com.baidu.tieba.setting.privacy.PrivacyPermissionActivity;
 import com.baidu.tieba.setting.usermutelist.UserMuteListActivity;
 import protobuf.MaskInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SettingStatic {
     private static MaskInfo maskInfo;
-    private static boolean mYt = false;
-    private static boolean mYu = false;
-    private static final com.baidu.adp.framework.listener.c kAg = new com.baidu.adp.framework.listener.c(1001) { // from class: com.baidu.tieba.setting.more.SettingStatic.1
+    private static boolean nib = false;
+    private static boolean nic = false;
+    private static final com.baidu.adp.framework.listener.c kIl = new com.baidu.adp.framework.listener.c(1001) { // from class: com.baidu.tieba.setting.more.SettingStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             MaskInfo maskInfo2;
             if (socketResponsedMessage != null && socketResponsedMessage.getError() == 0 && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && (socketResponsedMessage instanceof ResponseOnlineMessage) && (maskInfo2 = ((ResponseOnlineMessage) socketResponsedMessage).getMaskInfo()) != null) {
                 MaskInfo unused = SettingStatic.maskInfo = maskInfo2;
-                SettingStatic.dGf();
+                SettingStatic.dIq();
             }
         }
     };
@@ -75,18 +77,18 @@ public class SettingStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.mYu = false;
+            boolean unused = SettingStatic.nic = false;
             MaskInfo unused2 = SettingStatic.maskInfo = null;
-            boolean unused3 = SettingStatic.mYt = false;
-            com.baidu.tbadk.getUserInfo.b.bCq().bCr();
+            boolean unused3 = SettingStatic.nib = false;
+            com.baidu.tbadk.getUserInfo.b.bCI().bCJ();
         }
     };
-    private static final CustomMessageListener mYv = new CustomMessageListener(CmdConfigCustom.CMD_SETTING_READ_FINISH) { // from class: com.baidu.tieba.setting.more.SettingStatic.3
+    private static final CustomMessageListener nie = new CustomMessageListener(CmdConfigCustom.CMD_SETTING_READ_FINISH) { // from class: com.baidu.tieba.setting.more.SettingStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.mYt = true;
-            SettingStatic.dGf();
+            boolean unused = SettingStatic.nib = true;
+            SettingStatic.dIq();
         }
     };
 
@@ -105,6 +107,7 @@ public class SettingStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PrivacyPermissionActivityConfig.class, PrivacyPermissionActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(OfficialAccountPushActivityConfig.class, OfficialAccountPushActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PrivacyMarkActivityConfig.class, PrivacyMarkActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(ForbiddenForumActivityConfig.class, ForbiddenForumActivity.class);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MORE, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.setting.more.SettingStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
@@ -121,15 +124,15 @@ public class SettingStatic {
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(mAccountChangeListener);
-        MessageManager.getInstance().registerListener(kAg);
-        MessageManager.getInstance().registerListener(mYv);
+        MessageManager.getInstance().registerListener(kIl);
+        MessageManager.getInstance().registerListener(nie);
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_UPDATE_MASK, ResponseUpdateMaskMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_UPDATE_FORUM_MAST_STAT, ResponseUpdateForumMask.class, false);
-        dGg();
-        dGh();
-        dGi();
-        dGj();
-        dGk();
+        dIr();
+        dIs();
+        dIt();
+        dIu();
+        dIv();
         SwitchManager.getInstance().registerSwitch(com.baidu.tieba.setting.im.more.b.class);
         CustomMessageTask customMessageTask2 = new CustomMessageTask(CmdConfigCustom.CMD_START_USER_MUTE_LIST_ACTIVITY, new CustomMessageTask.CustomRunnable<UserMuteListActivityConfig>() { // from class: com.baidu.tieba.setting.more.SettingStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -142,7 +145,7 @@ public class SettingStatic {
         });
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        dGl();
+        dIw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -150,72 +153,72 @@ public class SettingStatic {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void dGf() {
+    public static final void dIq() {
         boolean z;
         Integer num;
         String[] split;
         String[] split2;
         String[] split3;
-        if (mYt && maskInfo != null && !mYu) {
+        if (nib && maskInfo != null && !nic) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
-                if ((maskInfo.remindMask == null || maskInfo.shieldStatus == null || maskInfo.remindMask.intValue() != 0 || maskInfo.shieldStatus.intValue() != 0 || com.baidu.tbadk.core.sharedPref.b.brx().getBoolean(new StringBuilder().append(SharedPrefConfig.HAD_SYNC_SETTING_SWITCH).append(currentAccount).toString(), false)) ? false : true) {
-                    com.baidu.tbadk.core.sharedPref.b.brx().putBoolean(SharedPrefConfig.HAD_SYNC_SETTING_SWITCH + currentAccount, true);
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxO()) {
+                if ((maskInfo.remindMask == null || maskInfo.shieldStatus == null || maskInfo.remindMask.intValue() != 0 || maskInfo.shieldStatus.intValue() != 0 || com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean(new StringBuilder().append(SharedPrefConfig.HAD_SYNC_SETTING_SWITCH).append(currentAccount).toString(), false)) ? false : true) {
+                    com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean(SharedPrefConfig.HAD_SYNC_SETTING_SWITCH + currentAccount, true);
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.d.bye().byg()) {
                         af(14, false);
                     } else {
-                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxR()) {
+                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bye().byj()) {
                             af(2, false);
                         }
-                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxS()) {
+                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bye().byk()) {
                             af(3, false);
                         }
-                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bxM().byc()) {
+                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bye().byu()) {
                             af(4, false);
                         }
-                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxU()) {
+                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bye().bym()) {
                             af(5, false);
                         }
-                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxT()) {
+                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bye().byl()) {
                             af(1, false);
                         }
-                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bxM().byd()) {
+                        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bye().byv()) {
                             af(20, false);
                         }
                     }
                 } else {
                     if (maskInfo.remindMask != null) {
                         if (maskInfo.remindMask.intValue() == 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bxM().ki(true);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.bye().kl(true);
                             z = true;
                         } else if (maskInfo.remindMask.intValue() == 1) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bxM().ki(false);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.bye().kl(false);
                             z = false;
                         }
                         num = maskInfo.shieldStatus;
                         if (num != null) {
                             int intValue = num.intValue();
                             boolean z2 = (intValue & 16) == 0;
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bxM().kh(z2);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.bye().kk(z2);
                             boolean z3 = (intValue & 1) == 0;
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bxM().kq(z3);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.bye().kt(z3);
                             boolean z4 = (intValue & 2) == 0;
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bxM().kr(z4);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.bye().ku(z4);
                             boolean z5 = (intValue & 4) == 0;
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bxM().ks(z5);
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bxM().kt((intValue & 2048) == 0);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.bye().kv(z5);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.bye().kw((intValue & 2048) == 0);
                             boolean z6 = (intValue & 4096) == 0;
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bxM().kj(z6);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.bye().km(z6);
                             if (z3 || z4 || z5 || z2 || z || z6) {
-                                com.baidu.tbadk.coreExtra.messageCenter.d.bxM().qp(300);
+                                com.baidu.tbadk.coreExtra.messageCenter.d.bye().qu(300);
                             } else {
-                                com.baidu.tbadk.coreExtra.messageCenter.d.bxM().qp(0);
+                                com.baidu.tbadk.coreExtra.messageCenter.d.bye().qu(0);
                             }
                         }
-                        com.baidu.adp.lib.f.h.mC().submitTask(new Runnable() { // from class: com.baidu.tieba.setting.more.SettingStatic.4
+                        com.baidu.adp.lib.f.h.mB().submitTask(new Runnable() { // from class: com.baidu.tieba.setting.more.SettingStatic.4
                             @Override // java.lang.Runnable
                             public void run() {
-                                com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxN();
+                                com.baidu.tbadk.coreExtra.messageCenter.d.bye().byf();
                             }
                         });
                     }
@@ -223,29 +226,29 @@ public class SettingStatic {
                     num = maskInfo.shieldStatus;
                     if (num != null) {
                     }
-                    com.baidu.adp.lib.f.h.mC().submitTask(new Runnable() { // from class: com.baidu.tieba.setting.more.SettingStatic.4
+                    com.baidu.adp.lib.f.h.mB().submitTask(new Runnable() { // from class: com.baidu.tieba.setting.more.SettingStatic.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxN();
+                            com.baidu.tbadk.coreExtra.messageCenter.d.bye().byf();
                         }
                     });
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskFids) && (split3 = maskInfo.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
-                        com.baidu.tieba.im.settingcache.d.cVV().a(currentAccount, str, false, null);
+                        com.baidu.tieba.im.settingcache.d.cXT().a(currentAccount, str, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskGids) && (split2 = maskInfo.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        com.baidu.tieba.im.settingcache.b.cVT().a(currentAccount, str2, false, (l<Void>) null);
+                        com.baidu.tieba.im.settingcache.b.cXR().a(currentAccount, str2, false, (m<Void>) null);
                     }
                 }
                 if (!TextUtils.isEmpty(maskInfo.maskUids) && (split = maskInfo.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
-                        com.baidu.tieba.im.settingcache.e.cVW().a(currentAccount, str3, false, null);
+                        com.baidu.tieba.im.settingcache.e.cXU().a(currentAccount, str3, false, null);
                     }
                 }
-                mYu = true;
+                nic = true;
             }
         }
     }
@@ -263,31 +266,31 @@ public class SettingStatic {
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    private static void dGg() {
+    private static void dIr() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003318, TbConfig.SERVER_ADDRESS + TbConfig.FRIEND_AND_STRANGER_MSG_SWITCH);
         tbHttpMessageTask.setResponsedClass(FriendAndStrangerSwitchResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dGh() {
+    private static void dIs() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003319, TbConfig.SERVER_ADDRESS + TbConfig.GET_FRIEND_AND_STRANGER_MSG_SWITCH);
         tbHttpMessageTask.setResponsedClass(GetFriendAndStrangerSwitchResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dGi() {
+    private static void dIt() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_IMAGE_WATERMARK_TYPE, TbConfig.SERVER_ADDRESS + TbConfig.SET_IMAGE_WATERMARK_TYPE);
         tbHttpMessageTask.setResponsedClass(SetImageWatermarkTypeResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dGj() {
+    private static void dIu() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE, TbConfig.SERVER_ADDRESS + TbConfig.GET_IMAGE_WATERMARK_TYPE);
         tbHttpMessageTask.setResponsedClass(GetImageWatermarkTypeResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dGk() {
+    private static void dIv() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_LOG_OUT, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.setting.more.SettingStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {
@@ -296,7 +299,7 @@ public class SettingStatic {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
                     TbadkCoreApplication.getInst().deleteAccountAllInfo(currentAccount);
-                    com.baidu.tbadk.coreExtra.a.a.bvw().sapiLogout();
+                    com.baidu.tbadk.coreExtra.a.a.bvP().sapiLogout();
                     com.baidu.tbadk.core.d.a.a("account", -1L, 0, "logout_delete_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, data);
                     TbadkCoreApplication.getInst().onUserChanged();
@@ -311,7 +314,7 @@ public class SettingStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dGl() {
+    private static void dIw() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID, TbConfig.SERVER_ADDRESS + TbConfig.URL_YOUNGSTER_VERIFY_AUTHID);
         tbHttpMessageTask.setResponsedClass(YoungsterVerifyHttpResponsedMessage.class);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);

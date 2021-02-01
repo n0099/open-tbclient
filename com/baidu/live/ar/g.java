@@ -1,13 +1,13 @@
 package com.baidu.live.ar;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g {
-    private boolean aBk;
+    private boolean aCP;
 
-    public boolean yO() {
-        return this.aBk;
+    public boolean zv() {
+        return this.aCP;
     }
 
-    public void bd(boolean z) {
-        this.aBk = z;
+    public void bf(boolean z) {
+        this.aCP = z;
     }
 }

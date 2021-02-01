@@ -6,27 +6,27 @@ import com.baidu.adp.lib.e.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.d.j;
 /* loaded from: classes.dex */
 public class a implements com.airbnb.lottie.b {
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private j fSw;
+    private j fUL;
     private boolean isFirstLoadInternal = false;
     private String mPath;
 
     @Override // com.airbnb.lottie.b
     public Bitmap a(g gVar) {
-        if (at.isEmpty(this.mPath)) {
+        if (au.isEmpty(this.mPath)) {
             return null;
         }
-        String str = this.mPath + gVar.il().replace("/", "") + "/" + gVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) d.mx().loadResourceFromMemery(str, 36, new Object[0]);
+        String str = this.mPath + gVar.ik().replace("/", "") + "/" + gVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) d.mw().loadResourceFromMemery(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.fSw == null) {
-                this.fSw = new j();
+            if (this.fUL == null) {
+                this.fUL = new j();
             }
-            aVar = this.fSw.q(str, 0, 0);
+            aVar = this.fUL.q(str, 0, 0);
         }
         if (aVar != null && aVar.getRawBitmap() != null) {
             Bitmap rawBitmap = aVar.getRawBitmap();
@@ -37,7 +37,7 @@ public class a implements com.airbnb.lottie.b {
                 BdLog.e(e);
             }
         }
-        d.mx().a(str, 36, null, null);
+        d.mw().a(str, 36, null, null);
         return null;
     }
 

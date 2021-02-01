@@ -10,7 +10,7 @@ import java.nio.charset.Charset;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FileVideoCapturer implements VideoCapturer {
     private static final String TAG = "FileVideoCapturer";
     private CapturerObserver capturerObserver;
@@ -24,14 +24,14 @@ public class FileVideoCapturer implements VideoCapturer {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface VideoReader {
         void close();
 
         VideoFrame getNextFrame();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class VideoReaderY4M implements VideoReader {
         private static final String TAG = "VideoReaderY4M";
         private final int frameHeight;

@@ -13,18 +13,18 @@ import androidx.annotation.NonNull;
 import com.baidu.tieba.ala.b.i;
 import com.facebook.drawee.view.SimpleDraweeView;
 @TargetApi(17)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f implements h {
-    private View gJA;
-    private g gJB;
-    private Runnable gJC;
-    private SimpleDraweeView gJz;
+    private SimpleDraweeView gMf;
+    private View gMg;
+    private g gMh;
+    private Runnable gMi;
     private Context mContext;
     private Dialog mDialog;
     private TextView mTitle;
-    private Runnable gJx = null;
-    private h gJy = null;
-    private boolean gJD = false;
+    private Runnable gMd = null;
+    private h gMe = null;
+    private boolean gMj = false;
     private String mName = "直播";
     private DialogInterface.OnDismissListener mOnDismissListener = null;
 
@@ -33,47 +33,47 @@ public class f implements h {
     }
 
     public f(Context context, @NonNull g gVar) {
-        this.gJB = null;
-        this.gJB = gVar;
-        fW(context);
+        this.gMh = null;
+        this.gMh = gVar;
+        fV(context);
     }
 
-    private void fW(Context context) {
+    private void fV(Context context) {
         this.mContext = context;
         this.mDialog = new Dialog(this.mContext, i.d.SoLoaderDialogStyle);
         this.mDialog.setContentView(i.b.dialog_soloader);
-        this.gJz = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
-        this.gJz.setController(com.facebook.drawee.a.a.c.eqV().Yn("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").AT(true).erN());
+        this.gMf = (SimpleDraweeView) this.mDialog.findViewById(i.a.soloader_loading_anim);
+        this.gMf.setController(com.facebook.drawee.a.a.c.eto().Zo("https://pic.rmb.bdstatic.com/qmpic_InRooc_1563447539.webp").Bm(true).euf());
         this.mTitle = (TextView) this.mDialog.findViewById(i.a.soloader_title);
-        this.gJA = this.mDialog.findViewById(i.a.soloader_hide);
+        this.gMg = this.mDialog.findViewById(i.a.soloader_hide);
         this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.b.f.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                f.this.gJB.detach();
-                if (f.this.gJy != null) {
-                    f.this.gJB.a(f.this.gJy);
+                f.this.gMh.detach();
+                if (f.this.gMe != null) {
+                    f.this.gMh.a(f.this.gMe);
                 }
-                if (!f.this.gJD && f.this.gJC != null) {
-                    f.this.gJC.run();
+                if (!f.this.gMj && f.this.gMi != null) {
+                    f.this.gMi.run();
                 }
-                f.this.mN(f.this.gJD);
+                f.this.mR(f.this.gMj);
                 if (f.this.mOnDismissListener != null) {
                     f.this.mOnDismissListener.onDismiss(dialogInterface);
                 }
             }
         });
-        this.gJA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.f.2
+        this.gMg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.dismiss();
-                f.this.bSu();
+                f.this.bSX();
             }
         });
-        bSv();
+        bSY();
     }
 
-    protected void mN(boolean z) {
-        Sy();
+    protected void mR(boolean z) {
+        Uf();
     }
 
     public f e(DialogInterface.OnDismissListener onDismissListener) {
@@ -81,21 +81,21 @@ public class f implements h {
         return this;
     }
 
-    protected void bSu() {
+    protected void bSX() {
     }
 
-    public f o(Runnable runnable) {
-        this.gJx = runnable;
+    public f m(Runnable runnable) {
+        this.gMd = runnable;
         return this;
     }
 
-    public f p(Runnable runnable) {
-        this.gJC = runnable;
+    public f n(Runnable runnable) {
+        this.gMi = runnable;
         return this;
     }
 
-    public f bSv() {
-        this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.gJB.getProgress() * 100.0f))));
+    public f bSY() {
+        this.mTitle.setText(String.format("%s加载%s%%…", this.mName, Integer.valueOf((int) (this.gMh.getProgress() * 100.0f))));
         return this;
     }
 
@@ -106,7 +106,7 @@ public class f implements h {
                 return;
             }
         }
-        this.gJB.a(this);
+        this.gMh.a(this);
         this.mDialog.show();
     }
 
@@ -123,25 +123,25 @@ public class f implements h {
             }
         }
         this.mDialog.dismiss();
-        Sy();
+        Uf();
     }
 
     private void complete() {
-        this.gJD = true;
+        this.gMj = true;
         dismiss();
-        if (this.gJx != null) {
-            this.gJx.run();
+        if (this.gMd != null) {
+            this.gMd.run();
         }
-        if (this.gJy != null) {
-            this.gJy.a(this.gJB);
+        if (this.gMe != null) {
+            this.gMe.a(this.gMh);
         }
     }
 
-    private void aTP() {
+    private void aUb() {
         dismiss();
         Toast.makeText(this.mContext, i.c.soloader_failed, 0).show();
-        if (this.gJy != null) {
-            this.gJy.b(this.gJB);
+        if (this.gMe != null) {
+            this.gMe.b(this.gMh);
         }
     }
 
@@ -157,13 +157,13 @@ public class f implements h {
 
     @Override // com.baidu.tieba.ala.b.h
     public void b(g gVar) {
-        aTP();
+        aUb();
     }
 
-    public void Sy() {
-        Animatable erC;
-        if (this.gJz != null && this.gJz.getController() != null && (erC = this.gJz.getController().erC()) != null && erC.isRunning()) {
-            erC.stop();
+    public void Uf() {
+        Animatable etU;
+        if (this.gMf != null && this.gMf.getController() != null && (etU = this.gMf.getController().etU()) != null && etU.isRunning()) {
+            etU.stop();
         }
     }
 }

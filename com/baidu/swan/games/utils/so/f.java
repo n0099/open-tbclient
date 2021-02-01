@@ -1,39 +1,39 @@
 package com.baidu.swan.games.utils.so;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f {
-    private final boolean ejQ;
-    private final boolean ejR;
-    private final boolean ejS;
+    private final boolean elX;
+    private final boolean elY;
+    private final boolean elZ;
 
     private f(boolean z, boolean z2) {
-        this.ejQ = true;
-        this.ejR = z;
-        this.ejS = z2;
+        this.elX = true;
+        this.elY = z;
+        this.elZ = z2;
     }
 
     private f(boolean z) {
-        this.ejQ = false;
-        this.ejR = true;
-        this.ejS = z;
+        this.elX = false;
+        this.elY = true;
+        this.elZ = z;
     }
 
     public boolean isSuccess() {
-        return this.ejQ ? this.ejR && this.ejS : this.ejS;
+        return this.elX ? this.elY && this.elZ : this.elZ;
     }
 
-    public boolean aYW() {
-        return (this.ejQ && this.ejR) ? false : true;
+    public boolean aZi() {
+        return (this.elX && this.elY) ? false : true;
     }
 
-    public static f aYX() {
+    public static f aZj() {
         return new f(true, true);
     }
 
-    public static f u(boolean z, boolean z2) {
+    public static f v(boolean z, boolean z2) {
         return new f(z, z2);
     }
 
-    public static f ik(boolean z) {
+    public static f im(boolean z) {
         return new f(z);
     }
 }

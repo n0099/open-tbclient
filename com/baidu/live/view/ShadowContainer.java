@@ -12,13 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.internal.view.SupportMenu;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ShadowContainer extends ViewGroup {
-    private boolean bQA;
-    private final float bQw;
-    private final float bQx;
-    private final float bQy;
-    private final float bQz;
+    private final float bUm;
+    private final float bUn;
+    private final float bUo;
+    private final float bUp;
+    private boolean bUq;
     private final float cornerRadius;
     private final Paint mShadowPaint;
 
@@ -33,12 +33,12 @@ public class ShadowContainer extends ViewGroup {
     public ShadowContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.ShadowContainer);
-        this.bQw = obtainStyledAttributes.getDimension(a.j.ShadowContainer_topDeltaLength, 0.0f);
-        this.bQx = obtainStyledAttributes.getDimension(a.j.ShadowContainer_bottomDeltaLength, 0.0f);
-        this.bQy = obtainStyledAttributes.getDimension(a.j.ShadowContainer_leftDeltaLength, 0.0f);
-        this.bQz = obtainStyledAttributes.getDimension(a.j.ShadowContainer_rightDeltaLength, 0.0f);
+        this.bUm = obtainStyledAttributes.getDimension(a.j.ShadowContainer_topDeltaLength, 0.0f);
+        this.bUn = obtainStyledAttributes.getDimension(a.j.ShadowContainer_bottomDeltaLength, 0.0f);
+        this.bUo = obtainStyledAttributes.getDimension(a.j.ShadowContainer_leftDeltaLength, 0.0f);
+        this.bUp = obtainStyledAttributes.getDimension(a.j.ShadowContainer_rightDeltaLength, 0.0f);
         this.cornerRadius = obtainStyledAttributes.getDimension(a.j.ShadowContainer_containerCornerRadius, 0.0f);
-        this.bQA = obtainStyledAttributes.getBoolean(a.j.ShadowContainer_enable, true);
+        this.bUq = obtainStyledAttributes.getBoolean(a.j.ShadowContainer_enable, true);
         float dimension = obtainStyledAttributes.getDimension(a.j.ShadowContainer_deltaX, 0.0f);
         float dimension2 = obtainStyledAttributes.getDimension(a.j.ShadowContainer_deltaY, 0.0f);
         float dimension3 = obtainStyledAttributes.getDimension(a.j.ShadowContainer_containerShadowRadius, 0.0f);
@@ -58,7 +58,7 @@ public class ShadowContainer extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.bQA) {
+        if (this.bUq) {
             if (getLayerType() != 1) {
                 setLayerType(1, null);
             }
@@ -87,8 +87,8 @@ public class ShadowContainer extends ViewGroup {
     }
 
     public void setDrawShadow(boolean z) {
-        if (this.bQA != z) {
-            this.bQA = z;
+        if (this.bUq != z) {
+            this.bUq = z;
             postInvalidate();
         }
     }
@@ -109,10 +109,10 @@ public class ShadowContainer extends ViewGroup {
         int mode2 = View.MeasureSpec.getMode(i2);
         View childAt = getChildAt(0);
         ShadowLayoutParams shadowLayoutParams = (ShadowLayoutParams) childAt.getLayoutParams();
-        int i7 = (int) this.bQx;
-        int i8 = (int) this.bQy;
-        int i9 = (int) this.bQz;
-        int i10 = (int) this.bQw;
+        int i7 = (int) this.bUn;
+        int i8 = (int) this.bUo;
+        int i9 = (int) this.bUp;
+        int i10 = (int) this.bUm;
         if (mode == 0) {
             i3 = 0;
             i4 = View.MeasureSpec.getSize(i);
@@ -146,18 +146,18 @@ public class ShadowContainer extends ViewGroup {
         int measuredWidth2 = childAt.getMeasuredWidth();
         int i11 = mode4 == Integer.MIN_VALUE ? measuredHeight2 + i10 + i7 : measuredHeight;
         int i12 = mode3 == Integer.MIN_VALUE ? measuredWidth2 + i9 + i8 : measuredWidth;
-        if (i12 < measuredWidth2 + this.bQy + this.bQz) {
-            i12 = (int) (measuredWidth2 + this.bQy + this.bQz);
+        if (i12 < measuredWidth2 + this.bUo + this.bUp) {
+            i12 = (int) (measuredWidth2 + this.bUo + this.bUp);
         }
-        if (i11 < measuredHeight2 + this.bQw + this.bQx) {
-            i11 = (int) (measuredHeight2 + this.bQw + this.bQx);
+        if (i11 < measuredHeight2 + this.bUm + this.bUn) {
+            i11 = (int) (measuredHeight2 + this.bUm + this.bUn);
         }
         if (i11 != measuredHeight || i12 != measuredWidth) {
             setMeasuredDimension(i12, i11);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class ShadowLayoutParams extends ViewGroup.MarginLayoutParams {
         public ShadowLayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
@@ -191,6 +191,6 @@ public class ShadowContainer extends ViewGroup {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         View childAt = getChildAt(0);
         int measuredWidth = childAt.getMeasuredWidth();
-        childAt.layout((int) this.bQy, (int) this.bQw, (int) (measuredWidth + this.bQy), (int) (childAt.getMeasuredHeight() + this.bQw));
+        childAt.layout((int) this.bUo, (int) this.bUm, (int) (measuredWidth + this.bUo), (int) (childAt.getMeasuredHeight() + this.bUm));
     }
 }

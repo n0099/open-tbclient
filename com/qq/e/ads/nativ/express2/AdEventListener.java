@@ -1,5 +1,5 @@
 package com.qq.e.ads.nativ.express2;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface AdEventListener {
     public static final int EVENT_CLICK = 101;
     public static final int EVENT_CLOSE = 105;

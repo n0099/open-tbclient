@@ -3,28 +3,28 @@ package com.baidu.card;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class h extends a<com.baidu.tbadk.core.data.a> {
-    private int agC;
-    private int agE;
+    private int bottomMargin;
+    private int topMargin;
 
     public h(Context context) {
         super(context);
-        this.agC = 0;
-        this.agE = 0;
+        this.topMargin = 0;
+        this.bottomMargin = 0;
     }
 
     public int getTopMargin() {
-        return this.agC;
+        return this.topMargin;
     }
 
     public void setTopMargin(int i) {
-        this.agC = i;
+        this.topMargin = i;
     }
 
-    public int sY() {
-        return this.agE;
+    public int sV() {
+        return this.bottomMargin;
     }
 
     public void bt(int i) {
-        this.agE = i;
+        this.bottomMargin = i;
     }
 }

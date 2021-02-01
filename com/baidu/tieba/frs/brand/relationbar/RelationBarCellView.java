@@ -14,18 +14,18 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import tbclient.OriForumInfo;
 /* loaded from: classes2.dex */
 public class RelationBarCellView extends RelativeLayout implements View.OnClickListener {
-    private TextView hAQ;
-    private TbImageView iGG;
-    private TextView jjc;
-    private OriForumInfo jjd;
+    private TextView hFa;
+    private TbImageView iMp;
+    private TextView joJ;
+    private OriForumInfo joK;
     private int mHeight;
     private int mSkinType;
     private int mWidth;
@@ -50,14 +50,14 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
-        this.iGG = (TbImageView) findViewById(R.id.frs_brand_bar_cell_img);
-        this.jjc = (TextView) findViewById(R.id.frs_brand_bar_cell_name);
-        this.hAQ = (TextView) findViewById(R.id.frs_brand_bar_cell_attention);
-        this.iGG.setDefaultResource(17170445);
-        this.iGG.setDefaultBgResource(R.color.CAM_X0205);
-        this.iGG.setBorderColor(0);
-        this.iGG.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
-        this.iGG.setConrers(5);
+        this.iMp = (TbImageView) findViewById(R.id.frs_brand_bar_cell_img);
+        this.joJ = (TextView) findViewById(R.id.frs_brand_bar_cell_name);
+        this.hFa = (TextView) findViewById(R.id.frs_brand_bar_cell_attention);
+        this.iMp.setDefaultResource(17170445);
+        this.iMp.setDefaultBgResource(R.color.CAM_X0205);
+        this.iMp.setBorderColor(0);
+        this.iMp.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
+        this.iMp.setConrers(5);
         this.mWidth = l.getDimens(context, R.dimen.tbds471);
         this.mHeight = l.getDimens(context, R.dimen.tbds164);
         setOnClickListener(this);
@@ -76,25 +76,25 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
             return;
         }
         setVisibility(0);
-        this.jjd = oriForumInfo;
-        this.iGG.startLoad(oriForumInfo.ori_avatar, 10, false);
-        this.jjc.setText(oriForumInfo.ori_fname);
-        this.hAQ.setText(String.format(getContext().getString(R.string.frs_brand_relation_bar_attention), at.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
+        this.joK = oriForumInfo;
+        this.iMp.startLoad(oriForumInfo.ori_avatar, 10, false);
+        this.joJ.setText(oriForumInfo.ori_fname);
+        this.hFa.setText(String.format(getContext().getString(R.string.frs_brand_relation_bar_attention), au.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TiebaStatic.log(new aq("c13110").w("obj_id", this.jjd.ori_fid.longValue()));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(getContext()).createNormalCfg(this.jjd.ori_fname, "")));
+        TiebaStatic.log(new ar("c13110").v("obj_id", this.joK.ori_fid.longValue()));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(getContext()).createNormalCfg(this.joK.ori_fname, "")));
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            ao.setBackgroundResource(this, R.drawable.cp_bg_line_d_e_selector);
-            ao.setViewTextColor(this.jjc, R.color.CAM_X0106);
-            ao.setViewTextColor(this.hAQ, R.color.CAM_X0109);
+            ap.setBackgroundResource(this, R.drawable.cp_bg_line_d_e_selector);
+            ap.setViewTextColor(this.joJ, R.color.CAM_X0106);
+            ap.setViewTextColor(this.hFa, R.color.CAM_X0109);
         }
     }
 }

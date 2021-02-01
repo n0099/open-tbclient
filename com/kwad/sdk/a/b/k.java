@@ -2,11 +2,11 @@ package com.kwad.sdk.a.b;
 
 import android.widget.ProgressBar;
 import com.kwad.sdk.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private ProgressBar f8166b;
+    private ProgressBar f8168b;
     private com.kwad.sdk.contentalliance.detail.video.e c = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.k.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
@@ -26,41 +26,41 @@ public class k extends com.kwad.sdk.a.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        this.f8166b.setProgress(i);
-        if (this.f8166b.getVisibility() == 0) {
+        this.f8168b.setProgress(i);
+        if (this.f8168b.getVisibility() == 0) {
             return;
         }
-        this.f8166b.setVisibility(0);
+        this.f8168b.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f8166b.getVisibility() != 0) {
+        if (this.f8168b.getVisibility() != 0) {
             return;
         }
-        this.f8166b.setVisibility(8);
+        this.f8168b.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8166b.setProgress(0);
-        this.f8166b.setVisibility(8);
-        this.f8136a.f.a(this.c);
+        this.f8168b.setProgress(0);
+        this.f8168b.setVisibility(8);
+        this.f8138a.f.a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8136a.f.b(this.c);
+        this.f8138a.f.b(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8166b = (ProgressBar) b(R.id.ksad_video_progress);
+        this.f8168b = (ProgressBar) b(R.id.ksad_video_progress);
     }
 }

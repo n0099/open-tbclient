@@ -2,11 +2,11 @@ package com.kwad.sdk.contentalliance.home.b;
 
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.internal.api.SceneImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    com.kwad.sdk.core.i.a f8698b;
+    com.kwad.sdk.core.i.a f8700b;
     private com.kwad.sdk.core.i.c c;
     private boolean d;
     private SceneImpl e;
@@ -18,14 +18,14 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.h hVar = this.f8734a.f;
+        com.kwad.sdk.contentalliance.home.h hVar = this.f8736a.f;
         if (hVar == null) {
             return;
         }
-        this.f8698b = hVar.f8742a;
-        if (this.f8698b != null) {
-            this.e = this.f8734a.e;
-            this.f = this.f8734a.f8735a;
+        this.f8700b = hVar.f8744a;
+        if (this.f8700b != null) {
+            this.e = this.f8736a.e;
+            this.f = this.f8736a.f8737a;
             this.h = String.valueOf(this.f.hashCode());
             if (this.c == null) {
                 this.c = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.contentalliance.home.b.i.1
@@ -49,7 +49,7 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
                         i.this.g = System.currentTimeMillis();
                     }
                 };
-                this.f8698b.a(this.c);
+                this.f8700b.a(this.c);
             }
         }
     }
@@ -58,10 +58,10 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.c == null || this.f8698b == null) {
+        if (this.c == null || this.f8700b == null) {
             return;
         }
-        this.f8698b.b(this.c);
+        this.f8700b.b(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

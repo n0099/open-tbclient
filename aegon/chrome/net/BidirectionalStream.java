@@ -1,4 +1,4 @@
 package aegon.chrome.net;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class BidirectionalStream {
 }

@@ -11,15 +11,15 @@ import com.baidu.mobstat.Config;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class i {
     public static String c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.location.b.h f2555a = null;
+    public com.baidu.location.b.h f2553a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.location.b.a f2556b = null;
+    public com.baidu.location.b.a f2554b = null;
     private boolean e = true;
     private boolean f = true;
     private boolean g = false;
@@ -27,7 +27,7 @@ public abstract class i {
     private String h = null;
     private String i = null;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         public a() {
         }
@@ -51,14 +51,14 @@ public abstract class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b extends com.baidu.location.d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        String f2558a = null;
+        String f2556a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        String f2559b = null;
+        String f2557b = null;
 
         public b() {
             this.k = new HashMap();
@@ -68,22 +68,22 @@ public abstract class i {
         public void a() {
             this.h = com.baidu.location.d.j.c();
             if ((com.baidu.location.d.j.h || com.baidu.location.d.j.j) && i.this.h != null && i.this.i != null) {
-                this.f2559b += String.format(Locale.CHINA, "&ki=%s&sn=%s", i.this.h, i.this.i);
+                this.f2557b += String.format(Locale.CHINA, "&ki=%s&sn=%s", i.this.h, i.this.i);
             }
-            String encodeTp4 = Jni.encodeTp4(this.f2559b);
-            this.f2559b = null;
-            if (this.f2558a == null) {
-                this.f2558a = w.b();
+            String encodeTp4 = Jni.encodeTp4(this.f2557b);
+            this.f2557b = null;
+            if (this.f2556a == null) {
+                this.f2556a = w.b();
             }
             this.k.put(BaseLocationBox.TYPE, encodeTp4);
-            if (this.f2558a != null) {
-                this.k.put("up", this.f2558a);
+            if (this.f2556a != null) {
+                this.k.put("up", this.f2556a);
             }
             this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 
         public void a(String str) {
-            this.f2559b = str;
+            this.f2557b = str;
             b(com.baidu.location.d.j.f);
         }
 
@@ -111,7 +111,7 @@ public abstract class i {
                         bDLocation = new BDLocation();
                         bDLocation.setLocType(0);
                     }
-                    this.f2558a = null;
+                    this.f2556a = null;
                     if (bDLocation.getLocType() == 0 && bDLocation.getLatitude() == Double.MIN_VALUE && bDLocation.getLongitude() == Double.MIN_VALUE) {
                         Message obtainMessage2 = i.this.d.obtainMessage(63);
                         obtainMessage2.obj = "HttpStatus error";
@@ -141,14 +141,14 @@ public abstract class i {
         if (this.i == null) {
             this.i = j.c(com.baidu.location.f.getServiceContext());
         }
-        if (this.f2556b == null || !this.f2556b.a()) {
-            this.f2556b = com.baidu.location.b.b.a().f();
+        if (this.f2554b == null || !this.f2554b.a()) {
+            this.f2554b = com.baidu.location.b.b.a().f();
         }
-        if (this.f2555a == null || !this.f2555a.i()) {
-            this.f2555a = com.baidu.location.b.i.a().o();
+        if (this.f2553a == null || !this.f2553a.i()) {
+            this.f2553a = com.baidu.location.b.i.a().o();
         }
         Location g = com.baidu.location.b.e.a().i() ? com.baidu.location.b.e.a().g() : null;
-        if ((this.f2556b == null || this.f2556b.d() || this.f2556b.c()) && ((this.f2555a == null || this.f2555a.a() == 0) && g == null)) {
+        if ((this.f2554b == null || this.f2554b.d() || this.f2554b.c()) && ((this.f2553a == null || this.f2553a.a() == 0) && g == null)) {
             return null;
         }
         String b2 = b();
@@ -159,12 +159,12 @@ public abstract class i {
         if (b3 >= 0) {
             b2 = b2 + "&lmd=" + b3;
         }
-        String str2 = ((this.f2555a == null || this.f2555a.a() == 0) && (l = com.baidu.location.b.i.a().l()) != null) ? l + b2 : b2;
+        String str2 = ((this.f2553a == null || this.f2553a.a() == 0) && (l = com.baidu.location.b.i.a().l()) != null) ? l + b2 : b2;
         if (this.f) {
             this.f = false;
-            return com.baidu.location.d.j.a(this.f2556b, this.f2555a, g, str2, 0, true);
+            return com.baidu.location.d.j.a(this.f2554b, this.f2553a, g, str2, 0, true);
         }
-        return com.baidu.location.d.j.a(this.f2556b, this.f2555a, g, str2, 0);
+        return com.baidu.location.d.j.a(this.f2554b, this.f2553a, g, str2, 0);
     }
 
     public abstract void a();

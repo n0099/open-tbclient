@@ -8,7 +8,7 @@ import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class a extends c<SubscribeAppInfo> {
     private static final String SPILTE_TAG = "@#";
     private static final String TAG = "SubscribeAppInfoManager";

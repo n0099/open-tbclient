@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import java.util.HashMap;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IMNotifyRecordStrategy {
     public static final String NET_TYPENAME_2G = "2g";
     public static final String NET_TYPENAME_3G = "3g";

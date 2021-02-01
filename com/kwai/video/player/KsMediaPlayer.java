@@ -52,7 +52,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements KwaiPlayerDebugInfoProvider, AppLiveReatimeInfoProvider {
     private static final int DEFAULT_LIVE_ADAPTIVE_QOS_TICK_DURATION = 2000;
     private static final int DEFAULT_MONITOR_INTERVAL = 1000;
@@ -106,7 +106,7 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
     private int mVideoWidth;
     private PowerManager.WakeLock mWakeLock;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         private AwesomeCacheCallback awesomeCacheCallback;
         private CacheSessionListener cacheSessionListener;
@@ -230,17 +230,17 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnAudioProcessPCMListener {
         void onAudioProcessPCMAvailable(IMediaPlayer iMediaPlayer, ByteBuffer byteBuffer, long j, int i, int i2, int i3);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     interface OnControlMessageListener {
         String onControlResolveSegmentUrl(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnNativeInvokeListener {
         public static final String ARG_RETRY_COUNTER = "retry_counter";
         public static final String ARG_SEGMENT_INDEX = "segment_index";
@@ -253,13 +253,13 @@ public final class KsMediaPlayer extends AbstractNativeMediaPlayer implements Kw
         boolean onNativeInvoke(int i, Bundle bundle);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnVideoTextureListener {
         void onVideoTextureAvailable(IMediaPlayer iMediaPlayer, SurfaceTexture surfaceTexture, int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum PlayerState {
         STATE_IDLE,
         STATE_INITIALIZED,

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.IMConstants;
 import com.bytedance.tea.crash.g.j;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends a<com.bytedance.tea.crash.b.a.a> {
     public b() {
         super("duplicatelog");
@@ -25,7 +25,7 @@ public class b extends a<com.bytedance.tea.crash.b.a.a> {
             return false;
         }
         try {
-            query = sQLiteDatabase.query(this.f7623b, null, "path=?", new String[]{str}, null, null, null);
+            query = sQLiteDatabase.query(this.f7625b, null, "path=?", new String[]{str}, null, null, null);
             i = query.getCount();
         } catch (Exception e) {
             e = e;
@@ -45,10 +45,10 @@ public class b extends a<com.bytedance.tea.crash.b.a.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.tea.crash.b.b.a
     public void a(SQLiteDatabase sQLiteDatabase, com.bytedance.tea.crash.b.a.a aVar) {
-        if (aVar != null && !c(sQLiteDatabase, aVar.f7620a)) {
+        if (aVar != null && !c(sQLiteDatabase, aVar.f7622a)) {
             super.a(sQLiteDatabase, (SQLiteDatabase) aVar);
             try {
-                sQLiteDatabase.execSQL("delete from " + this.f7623b + " where " + IMConstants.MSG_ROW_ID + " in (select " + IMConstants.MSG_ROW_ID + " from " + this.f7623b + " order by insert_time desc limit 1000 offset 500)");
+                sQLiteDatabase.execSQL("delete from " + this.f7625b + " where " + IMConstants.MSG_ROW_ID + " in (select " + IMConstants.MSG_ROW_ID + " from " + this.f7625b + " order by insert_time desc limit 1000 offset 500)");
             } catch (Exception e) {
                 j.b(e);
             }
@@ -71,8 +71,8 @@ public class b extends a<com.bytedance.tea.crash.b.a.a> {
     /* renamed from: b */
     public ContentValues aY(com.bytedance.tea.crash.b.a.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("path", aVar.f7620a);
-        contentValues.put("insert_time", Long.valueOf(aVar.f7621b));
+        contentValues.put("path", aVar.f7622a);
+        contentValues.put("insert_time", Long.valueOf(aVar.f7623b));
         return contentValues;
     }
 }

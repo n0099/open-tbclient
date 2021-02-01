@@ -2,14 +2,14 @@ package com.ss.android.socialbase.appdownloader;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13005a;
+    public String f13007a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13006b = -1;
+    public int f13008b = -1;
     public String c;
     public String d;
     public String e;
@@ -27,8 +27,8 @@ public class a {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                jSONObject.put("anti_plan_type", this.f13005a);
-                jSONObject.put("error_code", String.valueOf(this.f13006b));
+                jSONObject.put("anti_plan_type", this.f13007a);
+                jSONObject.put("error_code", String.valueOf(this.f13008b));
                 jSONObject.put("error_msg", this.c);
                 jSONObject.put("real_device_plan", this.d);
                 jSONObject.put("device_plans", this.e);
@@ -37,7 +37,7 @@ public class a {
         }
     }
 
-    public static a ZN(String str) {
+    public static a aaO(String str) {
         a aVar = null;
         if (!TextUtils.isEmpty(str)) {
             aVar = new a();
@@ -46,12 +46,12 @@ public class a {
                 aVar.e = jSONObject.optString("device_plans", null);
                 aVar.d = jSONObject.optString("real_device_plan", null);
                 aVar.c = jSONObject.optString("error_msg", null);
-                aVar.f13005a = jSONObject.optString("anti_plan_type", null);
+                aVar.f13007a = jSONObject.optString("anti_plan_type", null);
                 String optString = jSONObject.optString("error_code");
                 if (TextUtils.isEmpty(optString)) {
-                    aVar.f13006b = -1;
+                    aVar.f13008b = -1;
                 } else {
-                    aVar.f13006b = Integer.parseInt(optString);
+                    aVar.f13008b = Integer.parseInt(optString);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -61,6 +61,6 @@ public class a {
     }
 
     public String toString() {
-        return "AntiHijackAttempt{anti_plan_type='" + this.f13005a + "', error_code=" + this.f13006b + ", error_msg='" + this.c + "', real_device_plan='" + this.d + "', device_plans='" + this.e + "'}";
+        return "AntiHijackAttempt{anti_plan_type='" + this.f13007a + "', error_code=" + this.f13008b + ", error_msg='" + this.c + "', real_device_plan='" + this.d + "', device_plans='" + this.e + "'}";
     }
 }

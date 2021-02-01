@@ -11,7 +11,7 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
     private static final int ID_PATH_SEGMENTS = 1;
     private static final int NAME_PATH_SEGMENT_INDEX = 1;

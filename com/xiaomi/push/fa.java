@@ -13,7 +13,7 @@ import java.util.Map;
 public class fa {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f14004a;
+    private static a f14006a;
 
     /* renamed from: a  reason: collision with other field name */
     private static Map<String, hw> f389a = null;
@@ -138,8 +138,8 @@ public class fa {
     private static void a(Context context, hq hqVar) {
         if (m299a(context.getApplicationContext())) {
             com.xiaomi.push.service.bj.a(context.getApplicationContext(), hqVar);
-        } else if (f14004a != null) {
-            f14004a.uploader(context, hqVar);
+        } else if (f14006a != null) {
+            f14006a.uploader(context, hqVar);
         }
     }
 
@@ -160,7 +160,7 @@ public class fa {
     }
 
     public static void a(a aVar) {
-        f14004a = aVar;
+        f14006a = aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */

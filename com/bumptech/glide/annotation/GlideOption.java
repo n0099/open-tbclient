@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public @interface GlideOption {
     public static final int OVERRIDE_EXTEND = 1;
     public static final int OVERRIDE_NONE = 0;

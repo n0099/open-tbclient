@@ -5,11 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7638a;
+    private int f7640a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context) {
@@ -24,11 +24,11 @@ public class d {
     }
 
     public int a() {
-        return this.f7638a;
+        return this.f7640a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends BroadcastReceiver {
         private a() {
         }
@@ -36,7 +36,7 @@ public class d {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
-                d.this.f7638a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
+                d.this.f7640a = (int) ((intent.getIntExtra("level", 0) * 100.0f) / intent.getIntExtra("scale", 100));
             }
         }
     }

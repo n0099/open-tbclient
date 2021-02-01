@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import com.baidu.mobstat.bt;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3684a;
+    private String f3687a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3685b;
+    private String f3688b;
     private JSONArray c;
     private String d;
     private String e;
@@ -25,8 +25,8 @@ public class aq {
     private String m;
 
     public aq(String str, String str2, JSONArray jSONArray, String str3, String str4, String str5, boolean z, int i, long j, long j2, long j3, String str6, String str7) {
-        this.f3684a = str;
-        this.f3685b = str2;
+        this.f3687a = str;
+        this.f3688b = str2;
         this.c = jSONArray;
         this.d = str3;
         this.e = str4;
@@ -41,11 +41,11 @@ public class aq {
     }
 
     public String a() {
-        return this.f3684a;
+        return this.f3687a;
     }
 
     public String b() {
-        return this.f3685b;
+        return this.f3688b;
     }
 
     public JSONArray c() {
@@ -109,13 +109,13 @@ public class aq {
     }
 
     public JSONObject a(String str, String str2, String str3) {
-        String a2 = a(this.f3684a, this.f3685b, this.c, this.d, this.e, this.f, this.g);
+        String a2 = a(this.f3687a, this.f3688b, this.c, this.d, this.e, this.f, this.g);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("id", this.f3684a);
+            jSONObject.put("id", this.f3687a);
             jSONObject.put("d", this.l);
             jSONObject.put("p", str);
             jSONObject.put("path", str3);

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.payment.data.PayVcodeInfoData;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ResponsePayNewVcodeInfoMessage extends JsonHttpResponsedMessage {
     private PayVcodeInfoData payNewVcodeInfoData;
 

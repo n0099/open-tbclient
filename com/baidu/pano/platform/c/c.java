@@ -6,29 +6,29 @@ import com.baidu.pano.platform.a.a.m;
 import com.baidu.pano.platform.a.a.n;
 import com.baidu.pano.platform.a.p;
 import java.util.concurrent.ExecutionException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f3907a = null;
+    private static volatile c f3910a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Context f3908b;
-    private p c = n.a(f3908b);
+    private static Context f3911b;
+    private p c = n.a(f3911b);
 
     private c() {
     }
 
     public static c a(Context context) {
-        if (f3907a == null) {
+        if (f3910a == null) {
             synchronized (c.class) {
-                if (f3907a == null) {
-                    f3908b = context;
-                    f3907a = new c();
+                if (f3910a == null) {
+                    f3911b = context;
+                    f3910a = new c();
                 }
             }
         }
-        return f3907a;
+        return f3910a;
     }
 
     public byte[] a(String str) {

@@ -29,14 +29,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Handler f7294b = new Handler(Looper.getMainLooper());
+    private static final Handler f7296b = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f7293a = Charset.forName("UTF-8");
+    public static final Charset f7295a = Charset.forName("UTF-8");
     private static final ExecutorService c = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
     public static void a(Closeable closeable) {
@@ -114,8 +114,8 @@ public final class d {
             while (i2 < size) {
                 i.b bVar = a3.get(i2);
                 if (bVar != null) {
-                    String str = bVar.f7301a;
-                    String str2 = bVar.f7302b;
+                    String str = bVar.f7303a;
+                    String str2 = bVar.f7304b;
                     sb.append(str).append(": ").append(str2).append("\r\n");
                     if (Headers.CONTENT_RANGE.equalsIgnoreCase(str)) {
                         z = false;
@@ -188,7 +188,7 @@ public final class d {
             sb.append("HTTP/1.1 206 Partial Content").append("\r\n");
         }
         sb.append("Accept-Ranges: bytes").append("\r\n");
-        sb.append("Content-Type: ").append(aVar.f7234b).append("\r\n");
+        sb.append("Content-Type: ").append(aVar.f7236b).append("\r\n");
         if (i <= 0) {
             sb.append("Content-Length: ").append(aVar.c).append("\r\n");
         } else {
@@ -214,11 +214,11 @@ public final class d {
             if (!file.exists() || (listFiles = file.listFiles(new FilenameFilter() { // from class: com.bytedance.sdk.openadsdk.j.g.d.1
 
                 /* renamed from: a  reason: collision with root package name */
-                private Pattern f7295a = Pattern.compile("^cpu[0-9]+$");
+                private Pattern f7297a = Pattern.compile("^cpu[0-9]+$");
 
                 @Override // java.io.FilenameFilter
                 public boolean accept(File file2, String str) {
-                    return this.f7295a.matcher(str).matches();
+                    return this.f7297a.matcher(str).matches();
                 }
             })) == null) {
                 return 1;
@@ -319,7 +319,7 @@ public final class d {
             if (b()) {
                 runnable.run();
             } else {
-                f7294b.post(runnable);
+                f7296b.post(runnable);
             }
         }
     }
@@ -334,13 +334,13 @@ public final class d {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 if (list.get(i) != null) {
-                    Log.i("TAG_PROXY_PRE_FILTER", bVar2.f7301a + ": " + bVar2.f7301a);
+                    Log.i("TAG_PROXY_PRE_FILTER", bVar2.f7303a + ": " + bVar2.f7303a);
                 }
             }
         }
         ArrayList arrayList = new ArrayList();
         for (i.b bVar3 : list) {
-            if ("Host".equals(bVar3.f7301a) || HTTP.CONN_KEEP_ALIVE.equals(bVar3.f7301a) || HTTP.CONN_DIRECTIVE.equals(bVar3.f7301a) || "Proxy-Connection".equals(bVar3.f7301a)) {
+            if ("Host".equals(bVar3.f7303a) || HTTP.CONN_KEEP_ALIVE.equals(bVar3.f7303a) || HTTP.CONN_DIRECTIVE.equals(bVar3.f7303a) || "Proxy-Connection".equals(bVar3.f7303a)) {
                 arrayList.add(bVar3);
             }
         }
@@ -349,7 +349,7 @@ public final class d {
             int size2 = list.size();
             for (int i2 = 0; i2 < size2; i2++) {
                 if (list.get(i2) != null) {
-                    Log.i("TAG_PROXY_POST_FILTER", bVar.f7301a + ": " + bVar.f7302b);
+                    Log.i("TAG_PROXY_POST_FILTER", bVar.f7303a + ": " + bVar.f7304b);
                 }
             }
             return list;
@@ -385,7 +385,7 @@ public final class d {
                 String str4 = "";
                 f g = aVar.g();
                 if (g != null) {
-                    str3 = g.f7263b;
+                    str3 = g.f7265b;
                     str4 = b(g.e);
                 }
                 String b2 = b(aVar.c());
@@ -416,7 +416,7 @@ public final class d {
         for (int i = 0; i < size; i++) {
             i.b bVar = list.get(0);
             if (bVar != null) {
-                sb.append(bVar.f7301a).append(": ").append(bVar.f7302b).append("\r\n");
+                sb.append(bVar.f7303a).append(": ").append(bVar.f7304b).append("\r\n");
             }
         }
         return sb.toString();

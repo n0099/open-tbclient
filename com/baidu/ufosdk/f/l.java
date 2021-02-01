@@ -3,14 +3,14 @@ package com.baidu.ufosdk.f;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f5388a = 0;
+    private static int f5390a = 0;
 
     public static int a() {
-        if (f5388a == 0) {
+        if (f5390a == 0) {
             String str = Build.MODEL;
             String str2 = Build.MANUFACTURER;
             String str3 = Build.BRAND;
@@ -24,23 +24,23 @@ public final class l {
                 str3 = str3.toLowerCase();
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                f5388a = 1;
+                f5390a = 1;
             } else if (str.contains(RomUtils.MANUFACTURER_XIAOMI) || str2.contains(RomUtils.MANUFACTURER_XIAOMI) || str3.contains(RomUtils.MANUFACTURER_XIAOMI)) {
-                f5388a = 2;
+                f5390a = 2;
             } else if (str.contains("samsung") || str2.contains("samsung") || str3.contains("samsung")) {
-                f5388a = 3;
+                f5390a = 3;
             } else if (str.contains(RomUtils.MANUFACTURER_HUAWEI) || str2.contains(RomUtils.MANUFACTURER_HUAWEI) || str3.contains(RomUtils.MANUFACTURER_HUAWEI)) {
-                f5388a = 4;
+                f5390a = 4;
             } else if (str.contains(RomUtils.MANUFACTURER_VIVO) || str2.contains(RomUtils.MANUFACTURER_VIVO) || str3.contains(RomUtils.MANUFACTURER_VIVO)) {
-                f5388a = 5;
+                f5390a = 5;
             } else if (str.contains(RomUtils.MANUFACTURER_OPPO) || str2.contains(RomUtils.MANUFACTURER_OPPO) || str3.contains(RomUtils.MANUFACTURER_OPPO)) {
-                f5388a = 6;
+                f5390a = 6;
             } else if (str.contains(RomUtils.MANUFACTURER_MEIZU) || str2.contains(RomUtils.MANUFACTURER_MEIZU) || str3.contains(RomUtils.MANUFACTURER_MEIZU)) {
-                f5388a = 7;
+                f5390a = 7;
             } else {
-                f5388a = 1;
+                f5390a = 1;
             }
         }
-        return f5388a;
+        return f5390a;
     }
 }

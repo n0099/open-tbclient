@@ -6,12 +6,12 @@ import java.util.concurrent.CountDownLatch;
 /* loaded from: classes5.dex */
 public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> implements io.reactivex.disposables.b {
     protected final List<Throwable> errors;
-    protected final CountDownLatch qhB;
-    protected long qhC;
-    protected Thread qhD;
-    protected boolean qhE;
-    protected int qhF;
-    protected int qhG;
+    protected final CountDownLatch qrF;
+    protected long qrG;
+    protected Thread qrH;
+    protected boolean qrI;
+    protected int qrJ;
+    protected int qrK;
     protected final List<T> values;
 
     /* loaded from: classes5.dex */

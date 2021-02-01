@@ -5,7 +5,7 @@ import com.bumptech.glide.load.Key;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 final class Jobs {
     private final Map<Key, EngineJob<?>> jobs = new HashMap();
     private final Map<Key, EngineJob<?>> onlyCacheJobs = new HashMap();

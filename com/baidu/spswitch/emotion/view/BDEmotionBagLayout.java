@@ -22,11 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BDEmotionBagLayout extends LinearLayout {
-    private ViewPager Zi;
-    private PagerAdapter Zj;
-    private CircleIndicator cyQ;
-    private List<GridView> cyR;
-    private int cyS;
+    private ViewPager Ze;
+    private PagerAdapter Zf;
+    private CircleIndicator cBm;
+    private List<GridView> cBn;
+    private int cBo;
     private List<String> mEmotionList;
 
     public BDEmotionBagLayout(Context context) {
@@ -39,28 +39,28 @@ public class BDEmotionBagLayout extends LinearLayout {
 
     public BDEmotionBagLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cyR = new ArrayList();
+        this.cBn = new ArrayList();
         init(context);
     }
 
     private void init(Context context) {
-        if (com.baidu.spswitch.b.a.afp().isNightMode()) {
+        if (com.baidu.spswitch.b.a.afO().isNightMode()) {
             setBackgroundColor(-14540254);
         } else {
             setBackgroundColor(-1);
         }
         setOrientation(1);
-        this.Zi = new ViewPager(context);
-        this.cyQ = new CircleIndicator(context);
+        this.Ze = new ViewPager(context);
+        this.cBm = new CircleIndicator(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
         layoutParams.weight = 1.0f;
-        this.Zi.setLayoutParams(layoutParams);
+        this.Ze.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, (int) d.g(context, 16.0f));
         layoutParams2.weight = 0.0f;
-        this.cyQ.setLayoutParams(layoutParams2);
-        this.Zi.setOverScrollMode(2);
-        addView(this.Zi);
-        addView(this.cyQ);
+        this.cBm.setLayoutParams(layoutParams2);
+        this.Ze.setOverScrollMode(2);
+        addView(this.Ze);
+        addView(this.cBm);
     }
 
     @Override // android.view.View
@@ -69,17 +69,17 @@ public class BDEmotionBagLayout extends LinearLayout {
         int measuredHeight = getChildAt(0).getMeasuredHeight();
         int g = ((int) d.g(getContext(), 48.0f)) * 3;
         int g2 = (int) (((measuredHeight - g) / 4) + d.g(getContext(), 8.0f));
-        this.cyS = ((measuredHeight - g) - (g2 * 2)) / 2;
-        int size = this.cyR.size();
+        this.cBo = ((measuredHeight - g) - (g2 * 2)) / 2;
+        int size = this.cBn.size();
         for (int i5 = 0; i5 < size; i5++) {
-            GridView gridView = this.cyR.get(i5);
+            GridView gridView = this.cBn.get(i5);
             int g3 = (int) d.g(getContext(), 10.0f);
             gridView.setPadding(g3, g2, g3, g2);
-            gridView.setVerticalSpacing(this.cyS);
+            gridView.setVerticalSpacing(this.cBo);
             gridView.setHorizontalSpacing((int) d.g(getContext(), (int) d.g(getContext(), 3.0f)));
             final a aVar = (a) gridView.getAdapter();
-            if (aVar != null && this.Zi != null) {
-                this.Zi.post(new Runnable() { // from class: com.baidu.spswitch.emotion.view.BDEmotionBagLayout.1
+            if (aVar != null && this.Ze != null) {
+                this.Ze.post(new Runnable() { // from class: com.baidu.spswitch.emotion.view.BDEmotionBagLayout.1
                     @Override // java.lang.Runnable
                     public void run() {
                         aVar.notifyDataSetChanged();
@@ -101,28 +101,28 @@ public class BDEmotionBagLayout extends LinearLayout {
                 noScrollGridView.setStretchMode(2);
                 noScrollGridView.setVerticalScrollBarEnabled(false);
                 noScrollGridView.setOverScrollMode(2);
-                c bU = c.bU(getContext().getApplicationContext());
-                noScrollGridView.setOnItemClickListener(bU.a(EmotionType.EMOTION_CLASSIC_TYPE, i2));
-                noScrollGridView.setOnItemLongClickListener(bU.a(EmotionType.EMOTION_CLASSIC_TYPE));
-                noScrollGridView.setOnTouchListener(bU.b(EmotionType.EMOTION_CLASSIC_TYPE));
+                c bT = c.bT(getContext().getApplicationContext());
+                noScrollGridView.setOnItemClickListener(bT.a(EmotionType.EMOTION_CLASSIC_TYPE, i2));
+                noScrollGridView.setOnItemLongClickListener(bT.a(EmotionType.EMOTION_CLASSIC_TYPE));
+                noScrollGridView.setOnTouchListener(bT.b(EmotionType.EMOTION_CLASSIC_TYPE));
                 noScrollGridView.setSelector(new ColorDrawable(0));
-                this.cyR.add(noScrollGridView);
+                this.cBn.add(noScrollGridView);
             }
-            afm();
-            this.Zj = new b(this.cyR);
-            this.Zi.setAdapter(this.Zj);
-            this.cyQ.setViewPager(this.Zi);
+            afL();
+            this.Zf = new b(this.cBn);
+            this.Ze.setAdapter(this.Zf);
+            this.cBm.setViewPager(this.Ze);
         }
     }
 
-    private void afm() {
-        int size = this.cyR.size();
+    private void afL() {
+        int size = this.cBn.size();
         for (int i = 0; i < size; i++) {
-            this.cyR.get(i).setAdapter((ListAdapter) new a(getContext(), fU(i)));
+            this.cBn.get(i).setAdapter((ListAdapter) new a(getContext(), fX(i)));
         }
     }
 
-    private List<String> fU(int i) {
+    private List<String> fX(int i) {
         int i2 = i * 20;
         int min = Math.min(20 + i2, this.mEmotionList.size());
         ArrayList arrayList = new ArrayList();
@@ -208,9 +208,9 @@ public class BDEmotionBagLayout extends LinearLayout {
             }
             ImageView imageView = (ImageView) linearLayout.findViewById(b.c.img_item);
             if (i == getCount() - 1) {
-                imageView.setImageResource(b.C0352b.face_delete);
+                imageView.setImageResource(b.C0349b.face_delete);
             } else if (i < this.mList.size()) {
-                imageView.setImageResource(com.baidu.spswitch.emotion.b.bR(this.mContext).a(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i)));
+                imageView.setImageResource(com.baidu.spswitch.emotion.b.bQ(this.mContext).a(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i)));
             }
             return linearLayout;
         }

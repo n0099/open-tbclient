@@ -34,10 +34,10 @@ public class io implements ix<io, Object>, Serializable, Cloneable {
     private static final jn f757a = new jn("XmPushActionSendFeedbackResult");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14145a = new jf("", Constants.GZIP_CAST_TYPE, 1);
+    private static final jf f14147a = new jf("", Constants.GZIP_CAST_TYPE, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final jf f14146b = new jf("", (byte) 12, 2);
+    private static final jf f14148b = new jf("", (byte) 12, 2);
     private static final jf c = new jf("", Constants.GZIP_CAST_TYPE, 3);
     private static final jf d = new jf("", Constants.GZIP_CAST_TYPE, 4);
     private static final jf e = new jf("", (byte) 10, 6);
@@ -124,7 +124,7 @@ public class io implements ix<io, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 if (!e()) {
                     throw new jj("Required field 'errorCode' was not found in serialized data! Struct: " + toString());
@@ -134,16 +134,16 @@ public class io implements ix<io, Object>, Serializable, Cloneable {
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f760a = jiVar.m516a();
                         break;
                     }
                 case 2:
-                    if (m511a.f14171a != 12) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 12) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f759a = new ib();
@@ -151,16 +151,16 @@ public class io implements ix<io, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 3:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f762b = jiVar.m516a();
                         break;
                     }
                 case 4:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f763c = jiVar.m516a();
@@ -168,11 +168,11 @@ public class io implements ix<io, Object>, Serializable, Cloneable {
                     }
                 case 5:
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
                 case 6:
-                    if (m511a.f14171a != 10) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 10) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f758a = jiVar.m510a();
@@ -180,16 +180,16 @@ public class io implements ix<io, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 7:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f764d = jiVar.m516a();
                         break;
                     }
                 case 8:
-                    if (m511a.f14171a != 11) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 11) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f765e = jiVar.m516a();
@@ -249,12 +249,12 @@ public class io implements ix<io, Object>, Serializable, Cloneable {
         a();
         jiVar.a(f757a);
         if (this.f760a != null && m477a()) {
-            jiVar.a(f14145a);
+            jiVar.a(f14147a);
             jiVar.a(this.f760a);
             jiVar.b();
         }
         if (this.f759a != null && b()) {
-            jiVar.a(f14146b);
+            jiVar.a(f14148b);
             this.f759a.b(jiVar);
             jiVar.b();
         }

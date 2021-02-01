@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import com.baidu.ala.helper.StreamConfig;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -23,7 +22,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EC3TrackImpl extends AbstractTrack {
     private static final long MAX_FRAMES_PER_MMAP = 20;
     private int bitrate;
@@ -313,13 +312,13 @@ public class EC3TrackImpl extends AbstractTrack {
         }
         switch (bitStreamInfo.fscod) {
             case 0:
-                bitStreamInfo.samplerate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+                bitStreamInfo.samplerate = 48000;
                 break;
             case 1:
                 bitStreamInfo.samplerate = 44100;
                 break;
             case 2:
-                bitStreamInfo.samplerate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;
+                bitStreamInfo.samplerate = 32000;
                 break;
             case 3:
                 switch (i) {
@@ -374,7 +373,7 @@ public class EC3TrackImpl extends AbstractTrack {
         return arrayList;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class BitStreamInfo extends EC3SpecificBox.Entry {
         public int bitrate;
         public int chanmap;

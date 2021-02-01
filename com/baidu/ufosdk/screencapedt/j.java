@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.Pair;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static int a(Context context, float f) {
         return (int) (context.getResources().getDisplayMetrics().density * f);

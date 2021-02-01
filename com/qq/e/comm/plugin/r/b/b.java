@@ -7,14 +7,14 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f12377a;
+    private int f12379a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12378b;
+    private String f12380b;
     private String c;
     private int d;
     private int e;
@@ -28,8 +28,8 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f12377a = jSONObject.optInt("ret_code");
-            this.f12378b = jSONObject.optString("config_version");
+            this.f12379a = jSONObject.optInt("ret_code");
+            this.f12380b = jSONObject.optString("config_version");
             this.c = jSONObject.optString("country");
             this.d = jSONObject.optInt(TimeDisplaySetting.TIME_DISPLAY_SETTING);
             this.e = jSONObject.optInt("update_interval");
@@ -49,7 +49,7 @@ public class b {
     }
 
     public String a() {
-        return this.f12378b;
+        return this.f12380b;
     }
 
     public int b() {

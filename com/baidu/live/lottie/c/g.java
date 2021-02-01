@@ -7,7 +7,7 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -118,7 +118,7 @@ public class g {
                 c = 65535;
                 break;
             case 3669:
-                if (str.equals(IXAdRequestInfo.SCREEN_HEIGHT)) {
+                if (str.equals("sh")) {
                     c = 6;
                     break;
                 }

@@ -2,19 +2,18 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import java.lang.Thread;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class ad implements Thread.UncaughtExceptionHandler {
+/* loaded from: classes3.dex */
+class ad implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ad f3643a = new ad();
+    private static final ad f3646a = new ad();
 
     /* renamed from: b  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f3644b;
+    private Thread.UncaughtExceptionHandler f3647b;
     private Context c;
 
     public static ad a() {
-        return f3643a;
+        return f3646a;
     }
 
     private ad() {
@@ -22,8 +21,8 @@ public class ad implements Thread.UncaughtExceptionHandler {
 
     public void a(Context context) {
         this.c = context;
-        if (this.f3644b == null) {
-            this.f3644b = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.f3647b == null) {
+            this.f3647b = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
     }
@@ -31,8 +30,8 @@ public class ad implements Thread.UncaughtExceptionHandler {
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         ExceptionAnalysis.getInstance().saveCrashInfo(this.c, th, true);
-        if (!this.f3644b.equals(this)) {
-            this.f3644b.uncaughtException(thread, th);
+        if (!this.f3647b.equals(this)) {
+            this.f3647b.uncaughtException(thread, th);
         }
     }
 }

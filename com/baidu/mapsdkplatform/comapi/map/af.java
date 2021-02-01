@@ -4,14 +4,14 @@ import android.graphics.Point;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mapsdkplatform.comjni.map.basemap.a f3047a;
+    private com.baidu.mapsdkplatform.comjni.map.basemap.a f3045a;
 
     public af(com.baidu.mapsdkplatform.comjni.map.basemap.a aVar) {
-        this.f3047a = aVar;
+        this.f3045a = aVar;
     }
 
     public Point a(GeoPoint geoPoint) {
@@ -19,7 +19,7 @@ public class af {
             return null;
         }
         Point point = new Point(0, 0);
-        String b2 = this.f3047a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
+        String b2 = this.f3045a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
         if (b2 != null) {
             try {
                 JSONObject jSONObject = new JSONObject(b2);
@@ -35,7 +35,7 @@ public class af {
     }
 
     public GeoPoint a(int i, int i2) {
-        String a2 = this.f3047a.a(i, i2);
+        String a2 = this.f3045a.a(i, i2);
         GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
         if (a2 != null) {
             try {

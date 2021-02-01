@@ -19,7 +19,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.ForwardingListener;
 import androidx.appcompat.widget.TooltipCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ActionMenuItemView extends AppCompatTextView implements View.OnClickListener, MenuView.ItemView, ActionMenuView.ActionMenuChildView {
     private static final int MAX_ICON_SIZE = 32;
     private static final String TAG = "ActionMenuItemView";
@@ -35,7 +35,7 @@ public class ActionMenuItemView extends AppCompatTextView implements View.OnClic
     private int mSavedPaddingLeft;
     private CharSequence mTitle;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static abstract class PopupCallback {
         public abstract ShowableListMenu getPopup();
     }
@@ -236,7 +236,7 @@ public class ActionMenuItemView extends AppCompatTextView implements View.OnClic
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private class ActionMenuItemForwardingListener extends ForwardingListener {
         public ActionMenuItemForwardingListener() {
             super(ActionMenuItemView.this);

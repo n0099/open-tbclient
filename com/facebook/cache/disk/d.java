@@ -22,34 +22,34 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes5.dex */
 public class d implements h, com.facebook.common.a.a {
-    private final g pnE;
-    private final CacheEventListener pnF;
-    private final boolean pnH;
-    private final long pnO;
-    private final long pnP;
-    private final CountDownLatch pnQ;
-    private long pnR;
+    private static final Class<?> pxC = d.class;
+    private static final long pyb = TimeUnit.HOURS.toMillis(2);
+    private static final long pyc = TimeUnit.MINUTES.toMillis(30);
+    private final CacheErrorLogger pxH;
+    private final com.facebook.common.time.a pxI;
+    private final g pxT;
+    private final CacheEventListener pxU;
+    private final boolean pxW;
+    private final long pyd;
+    private final long pye;
+    private final CountDownLatch pyf;
+    private long pyg;
     @GuardedBy("mLock")
-    final Set<String> pnS;
-    private final long pnU;
-    private final c pnW;
-    private boolean pnY;
-    private final CacheErrorLogger pns;
-    private final com.facebook.common.time.a pnt;
-    private static final Class<?> pnn = d.class;
-    private static final long pnM = TimeUnit.HOURS.toMillis(2);
-    private static final long pnN = TimeUnit.MINUTES.toMillis(30);
+    final Set<String> pyh;
+    private final long pyj;
+    private final c pyl;
+    private boolean pyn;
     private final Object mLock = new Object();
-    private final StatFsHelper pnV = StatFsHelper.eqx();
-    private long pnT = -1;
-    private final a pnX = new a();
+    private final StatFsHelper pyk = StatFsHelper.esQ();
+    private long pyi = -1;
+    private final a pym = new a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static class a {
         private boolean mInitialized = false;
         private long mSize = -1;
-        private long gLl = -1;
+        private long gNR = -1;
 
         a() {
         }
@@ -60,20 +60,20 @@ public class d implements h, com.facebook.common.a.a {
 
         public synchronized void reset() {
             this.mInitialized = false;
-            this.gLl = -1L;
+            this.gNR = -1L;
             this.mSize = -1L;
         }
 
-        public synchronized void M(long j, long j2) {
-            this.gLl = j2;
+        public synchronized void Q(long j, long j2) {
+            this.gNR = j2;
             this.mSize = j;
             this.mInitialized = true;
         }
 
-        public synchronized void N(long j, long j2) {
+        public synchronized void R(long j, long j2) {
             if (this.mInitialized) {
                 this.mSize += j;
-                this.gLl += j2;
+                this.gNR += j2;
             }
         }
 
@@ -82,59 +82,59 @@ public class d implements h, com.facebook.common.a.a {
         }
 
         public synchronized long getCount() {
-            return this.gLl;
+            return this.gNR;
         }
     }
 
     /* loaded from: classes5.dex */
     public static class b {
-        public final long pnO;
-        public final long pnP;
-        public final long pnU;
+        public final long pyd;
+        public final long pye;
+        public final long pyj;
 
         public b(long j, long j2, long j3) {
-            this.pnU = j;
-            this.pnO = j2;
-            this.pnP = j3;
+            this.pyj = j;
+            this.pyd = j2;
+            this.pye = j3;
         }
     }
 
     public d(c cVar, g gVar, b bVar, CacheEventListener cacheEventListener, CacheErrorLogger cacheErrorLogger, @Nullable com.facebook.common.a.b bVar2, Context context, Executor executor, boolean z) {
-        this.pnO = bVar.pnO;
-        this.pnP = bVar.pnP;
-        this.pnR = bVar.pnP;
-        this.pnW = cVar;
-        this.pnE = gVar;
-        this.pnF = cacheEventListener;
-        this.pnU = bVar.pnU;
-        this.pns = cacheErrorLogger;
+        this.pyd = bVar.pyd;
+        this.pye = bVar.pye;
+        this.pyg = bVar.pye;
+        this.pyl = cVar;
+        this.pxT = gVar;
+        this.pxU = cacheEventListener;
+        this.pyj = bVar.pyj;
+        this.pxH = cacheErrorLogger;
         if (bVar2 != null) {
             bVar2.a(this);
         }
-        this.pnt = com.facebook.common.time.c.eqB();
-        this.pnH = z;
-        this.pnS = new HashSet();
-        if (this.pnH) {
-            this.pnQ = new CountDownLatch(1);
+        this.pxI = com.facebook.common.time.c.esU();
+        this.pxW = z;
+        this.pyh = new HashSet();
+        if (this.pxW) {
+            this.pyf = new CountDownLatch(1);
             executor.execute(new Runnable() { // from class: com.facebook.cache.disk.d.1
                 @Override // java.lang.Runnable
                 public void run() {
                     synchronized (d.this.mLock) {
-                        d.this.epQ();
+                        d.this.esj();
                     }
-                    d.this.pnY = true;
-                    d.this.pnQ.countDown();
+                    d.this.pyn = true;
+                    d.this.pyf.countDown();
                 }
             });
             return;
         }
-        this.pnQ = new CountDownLatch(0);
+        this.pyf = new CountDownLatch(0);
     }
 
     @Override // com.facebook.cache.disk.h
     public com.facebook.a.a d(com.facebook.cache.common.b bVar) {
         com.facebook.a.a aVar;
-        i h = i.epW().h(bVar);
+        i h = i.esp().h(bVar);
         try {
             try {
                 synchronized (this.mLock) {
@@ -143,26 +143,26 @@ public class d implements h, com.facebook.common.a.a {
                     String str = null;
                     for (int i = 0; i < a2.size(); i++) {
                         str = a2.get(i);
-                        h.Yg(str);
-                        aVar = this.pnW.G(str, bVar);
+                        h.Zh(str);
+                        aVar = this.pyl.F(str, bVar);
                         if (aVar != null) {
                             break;
                         }
                     }
                     if (aVar == null) {
-                        this.pnF.b(h);
-                        this.pnS.remove(str);
+                        this.pxU.b(h);
+                        this.pyh.remove(str);
                     } else {
-                        this.pnF.a(h);
-                        this.pnS.add(str);
+                        this.pxU.a(h);
+                        this.pyh.add(str);
                     }
                 }
                 h.recycle();
                 return aVar;
             } catch (IOException e) {
-                this.pns.a(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, pnn, "getResource", e);
+                this.pxH.a(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, pxC, "getResource", e);
                 h.h(e);
-                this.pnF.e(h);
+                this.pxU.e(h);
                 h.recycle();
                 return null;
             }
@@ -173,16 +173,16 @@ public class d implements h, com.facebook.common.a.a {
     }
 
     private c.b a(String str, com.facebook.cache.common.b bVar) throws IOException {
-        epO();
-        return this.pnW.F(str, bVar);
+        esh();
+        return this.pyl.E(str, bVar);
     }
 
     private com.facebook.a.a a(c.b bVar, com.facebook.cache.common.b bVar2, String str) throws IOException {
         com.facebook.a.a aZ;
         synchronized (this.mLock) {
             aZ = bVar.aZ(bVar2);
-            this.pnS.add(str);
-            this.pnX.N(aZ.size(), 1L);
+            this.pyh.add(str);
+            this.pym.R(aZ.size(), 1L);
         }
         return aZ;
     }
@@ -190,30 +190,30 @@ public class d implements h, com.facebook.common.a.a {
     @Override // com.facebook.cache.disk.h
     public com.facebook.a.a a(com.facebook.cache.common.b bVar, com.facebook.cache.common.h hVar) throws IOException {
         String b2;
-        i h = i.epW().h(bVar);
-        this.pnF.c(h);
+        i h = i.esp().h(bVar);
+        this.pxU.c(h);
         synchronized (this.mLock) {
             b2 = com.facebook.cache.common.c.b(bVar);
         }
-        h.Yg(b2);
+        h.Zh(b2);
         try {
             try {
                 c.b a2 = a(b2, bVar);
                 try {
                     a2.a(hVar, bVar);
                     com.facebook.a.a a3 = a(a2, bVar, b2);
-                    h.ix(a3.size()).iy(this.pnX.getSize());
-                    this.pnF.d(h);
+                    h.iA(a3.size()).iB(this.pym.getSize());
+                    this.pxU.d(h);
                     return a3;
                 } finally {
-                    if (!a2.epB()) {
-                        com.facebook.common.c.a.i(pnn, "Failed to delete temp file");
+                    if (!a2.erU()) {
+                        com.facebook.common.c.a.i(pxC, "Failed to delete temp file");
                     }
                 }
             } catch (IOException e) {
                 h.h(e);
-                this.pnF.f(h);
-                com.facebook.common.c.a.b(pnn, "Failed inserting a file into the cache", e);
+                this.pxU.f(h);
+                com.facebook.common.c.a.b(pxC, "Failed inserting a file into the cache", e);
                 throw e;
             }
         } finally {
@@ -233,27 +233,27 @@ public class d implements h, com.facebook.common.a.a {
                         break;
                     }
                     String str = a2.get(i2);
-                    this.pnW.Yc(str);
-                    this.pnS.remove(str);
+                    this.pyl.Zd(str);
+                    this.pyh.remove(str);
                     i = i2 + 1;
                 }
             } catch (IOException e) {
-                this.pns.a(CacheErrorLogger.CacheErrorCategory.DELETE_FILE, pnn, "delete: " + e.getMessage(), e);
+                this.pxH.a(CacheErrorLogger.CacheErrorCategory.DELETE_FILE, pxC, "delete: " + e.getMessage(), e);
             }
         }
     }
 
-    private void epO() throws IOException {
+    private void esh() throws IOException {
         synchronized (this.mLock) {
-            boolean epQ = epQ();
-            epP();
-            long size = this.pnX.getSize();
-            if (size > this.pnR && !epQ) {
-                this.pnX.reset();
-                epQ();
+            boolean esj = esj();
+            esi();
+            long size = this.pym.getSize();
+            if (size > this.pyg && !esj) {
+                this.pym.reset();
+                esj();
             }
-            if (size > this.pnR) {
-                a((this.pnR * 9) / 10, CacheEventListener.EvictionReason.CACHE_FULL);
+            if (size > this.pyg) {
+                a((this.pyg * 9) / 10, CacheEventListener.EvictionReason.CACHE_FULL);
             }
         }
     }
@@ -262,8 +262,8 @@ public class d implements h, com.facebook.common.a.a {
     private void a(long j, CacheEventListener.EvictionReason evictionReason) throws IOException {
         long j2;
         try {
-            Collection<c.a> l = l(this.pnW.epy());
-            long size = this.pnX.getSize();
+            Collection<c.a> l = l(this.pyl.erR());
+            long size = this.pym.getSize();
             long j3 = size - j;
             int i = 0;
             long j4 = 0;
@@ -277,27 +277,27 @@ public class d implements h, com.facebook.common.a.a {
                 if (j2 > j3) {
                     break;
                 }
-                long a2 = this.pnW.a(next);
-                this.pnS.remove(next.getId());
+                long a2 = this.pyl.a(next);
+                this.pyh.remove(next.getId());
                 if (a2 > 0) {
                     i++;
                     j2 += a2;
-                    i iz = i.epW().Yg(next.getId()).a(evictionReason).ix(a2).iy(size - j2).iz(j);
-                    this.pnF.g(iz);
-                    iz.recycle();
+                    i iC = i.esp().Zh(next.getId()).a(evictionReason).iA(a2).iB(size - j2).iC(j);
+                    this.pxU.g(iC);
+                    iC.recycle();
                 }
                 j4 = j2;
             }
-            this.pnX.N(-j2, -i);
-            this.pnW.epx();
+            this.pym.R(-j2, -i);
+            this.pyl.erQ();
         } catch (IOException e) {
-            this.pns.a(CacheErrorLogger.CacheErrorCategory.EVICTION, pnn, "evictAboveSize: " + e.getMessage(), e);
+            this.pxH.a(CacheErrorLogger.CacheErrorCategory.EVICTION, pxC, "evictAboveSize: " + e.getMessage(), e);
             throw e;
         }
     }
 
     private Collection<c.a> l(Collection<c.a> collection) {
-        long now = pnM + this.pnt.now();
+        long now = pyb + this.pxI.now();
         ArrayList arrayList = new ArrayList(collection.size());
         ArrayList arrayList2 = new ArrayList(collection.size());
         for (c.a aVar : collection) {
@@ -307,17 +307,17 @@ public class d implements h, com.facebook.common.a.a {
                 arrayList2.add(aVar);
             }
         }
-        Collections.sort(arrayList2, this.pnE.epC());
+        Collections.sort(arrayList2, this.pxT.erV());
         arrayList.addAll(arrayList2);
         return arrayList;
     }
 
     @GuardedBy("mLock")
-    private void epP() {
-        if (this.pnV.a(this.pnW.isExternal() ? StatFsHelper.StorageType.EXTERNAL : StatFsHelper.StorageType.INTERNAL, this.pnP - this.pnX.getSize())) {
-            this.pnR = this.pnO;
+    private void esi() {
+        if (this.pyk.a(this.pyl.isExternal() ? StatFsHelper.StorageType.EXTERNAL : StatFsHelper.StorageType.INTERNAL, this.pye - this.pym.getSize())) {
+            this.pyg = this.pyd;
         } else {
-            this.pnR = this.pnP;
+            this.pyg = this.pye;
         }
     }
 
@@ -326,7 +326,7 @@ public class d implements h, com.facebook.common.a.a {
         synchronized (this.mLock) {
             List<String> a2 = com.facebook.cache.common.c.a(bVar);
             for (int i = 0; i < a2.size(); i++) {
-                if (this.pnS.contains(a2.get(i))) {
+                if (this.pyh.contains(a2.get(i))) {
                     return true;
                 }
             }
@@ -344,8 +344,8 @@ public class d implements h, com.facebook.common.a.a {
                 List<String> a2 = com.facebook.cache.common.c.a(bVar);
                 for (int i = 0; i < a2.size(); i++) {
                     String str = a2.get(i);
-                    if (this.pnW.H(str, bVar)) {
-                        this.pnS.add(str);
+                    if (this.pyl.G(str, bVar)) {
+                        this.pyh.add(str);
                         return true;
                     }
                 }
@@ -358,16 +358,16 @@ public class d implements h, com.facebook.common.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     @GuardedBy("mLock")
-    public boolean epQ() {
-        long now = this.pnt.now();
-        if (!this.pnX.isInitialized() || this.pnT == -1 || now - this.pnT > pnN) {
-            return epR();
+    public boolean esj() {
+        long now = this.pxI.now();
+        if (!this.pym.isInitialized() || this.pyi == -1 || now - this.pyi > pyc) {
+            return esk();
         }
         return false;
     }
 
     @GuardedBy("mLock")
-    private boolean epR() {
+    private boolean esk() {
         Set<String> set;
         long j;
         long j2 = 0;
@@ -375,18 +375,18 @@ public class d implements h, com.facebook.common.a.a {
         int i = 0;
         int i2 = 0;
         long j3 = -1;
-        long now = this.pnt.now();
-        long j4 = now + pnM;
-        if (this.pnH && this.pnS.isEmpty()) {
-            set = this.pnS;
-        } else if (this.pnH) {
+        long now = this.pxI.now();
+        long j4 = now + pyb;
+        if (this.pxW && this.pyh.isEmpty()) {
+            set = this.pyh;
+        } else if (this.pxW) {
             set = new HashSet();
         } else {
             set = null;
         }
         try {
             int i3 = 0;
-            for (c.a aVar : this.pnW.epy()) {
+            for (c.a aVar : this.pyl.erR()) {
                 i3++;
                 j2 += aVar.getSize();
                 if (aVar.getTimestamp() > j4) {
@@ -395,7 +395,7 @@ public class d implements h, com.facebook.common.a.a {
                     i2 = (int) (i2 + aVar.getSize());
                     j = Math.max(aVar.getTimestamp() - now, j3);
                 } else {
-                    if (this.pnH) {
+                    if (this.pxW) {
                         set.add(aVar.getId());
                     }
                     j = j3;
@@ -403,19 +403,19 @@ public class d implements h, com.facebook.common.a.a {
                 j3 = j;
             }
             if (z) {
-                this.pns.a(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, pnn, "Future timestamp found in " + i + " files , with a total size of " + i2 + " bytes, and a maximum time delta of " + j3 + "ms", null);
+                this.pxH.a(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, pxC, "Future timestamp found in " + i + " files , with a total size of " + i2 + " bytes, and a maximum time delta of " + j3 + "ms", null);
             }
-            if (this.pnX.getCount() != i3 || this.pnX.getSize() != j2) {
-                if (this.pnH && this.pnS != set) {
-                    this.pnS.clear();
-                    this.pnS.addAll(set);
+            if (this.pym.getCount() != i3 || this.pym.getSize() != j2) {
+                if (this.pxW && this.pyh != set) {
+                    this.pyh.clear();
+                    this.pyh.addAll(set);
                 }
-                this.pnX.M(j2, i3);
+                this.pym.Q(j2, i3);
             }
-            this.pnT = now;
+            this.pyi = now;
             return true;
         } catch (IOException e) {
-            this.pns.a(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, pnn, "calcFileCacheSize: " + e.getMessage(), e);
+            this.pxH.a(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, pxC, "calcFileCacheSize: " + e.getMessage(), e);
             return false;
         }
     }

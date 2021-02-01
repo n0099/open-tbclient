@@ -5,18 +5,18 @@ import android.content.res.Resources;
 import android.os.Handler;
 import android.widget.LinearLayout;
 import com.baidu.live.barrage.view.LandscapeImBarrageTrackView;
-import com.baidu.live.data.aw;
-import com.baidu.live.data.ck;
+import com.baidu.live.data.ba;
+import com.baidu.live.data.cr;
 import com.baidu.live.sdk.a;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ImBarrageTrackListView extends LinearLayout {
-    private List<LandscapeImBarrageTrackView> aCe;
-    private boolean aCf;
-    private Queue<LandscapeImBarrageTrackView> aCg;
+    private List<LandscapeImBarrageTrackView> aDR;
+    private boolean aDS;
+    private Queue<LandscapeImBarrageTrackView> aDT;
     private Handler handler;
     private Runnable runnable;
 
@@ -25,9 +25,9 @@ public class ImBarrageTrackListView extends LinearLayout {
         this.runnable = new Runnable() { // from class: com.baidu.live.barrage.view.ImBarrageTrackListView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (ImBarrageTrackListView.this.aCe != null && !ImBarrageTrackListView.this.aCe.isEmpty() && ImBarrageTrackListView.this.aCf) {
-                    for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : ImBarrageTrackListView.this.aCe) {
-                        landscapeImBarrageTrackView.zA();
+                if (ImBarrageTrackListView.this.aDR != null && !ImBarrageTrackListView.this.aDR.isEmpty() && ImBarrageTrackListView.this.aDS) {
+                    for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : ImBarrageTrackListView.this.aDR) {
+                        landscapeImBarrageTrackView.Ak();
                     }
                     ImBarrageTrackListView.this.handler.postDelayed(ImBarrageTrackListView.this.runnable, 16L);
                 }
@@ -35,8 +35,8 @@ public class ImBarrageTrackListView extends LinearLayout {
         };
         setOrientation(1);
         this.handler = new Handler();
-        this.aCe = new ArrayList(i);
-        this.aCg = new LinkedList();
+        this.aDR = new ArrayList(i);
+        this.aDT = new LinkedList();
         for (int i2 = 0; i2 < i; i2++) {
             LandscapeImBarrageTrackView landscapeImBarrageTrackView = new LandscapeImBarrageTrackView(context);
             Resources resources = context.getResources();
@@ -46,19 +46,19 @@ public class ImBarrageTrackListView extends LinearLayout {
             }
             landscapeImBarrageTrackView.setCallback(aVar);
             addView(landscapeImBarrageTrackView, layoutParams);
-            this.aCe.add(landscapeImBarrageTrackView);
+            this.aDR.add(landscapeImBarrageTrackView);
         }
     }
 
-    public void zx() {
-        if (this.aCe != null && this.aCg != null && !this.aCe.isEmpty()) {
-            this.aCg.clear();
-            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aCe) {
+    public void Ah() {
+        if (this.aDR != null && this.aDT != null && !this.aDR.isEmpty()) {
+            this.aDT.clear();
+            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aDR) {
                 if (landscapeImBarrageTrackView != null) {
-                    this.aCg.offer(landscapeImBarrageTrackView);
+                    this.aDT.offer(landscapeImBarrageTrackView);
                 }
             }
-            this.aCf = true;
+            this.aDS = true;
             if (this.handler != null) {
                 this.handler.post(this.runnable);
             }
@@ -66,26 +66,26 @@ public class ImBarrageTrackListView extends LinearLayout {
     }
 
     public void setCanAddNext() {
-        if (this.aCe != null && !this.aCe.isEmpty()) {
-            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aCe) {
+        if (this.aDR != null && !this.aDR.isEmpty()) {
+            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aDR) {
                 landscapeImBarrageTrackView.setCanAddNext();
             }
         }
     }
 
-    public boolean zy() {
-        return (this.aCg == null || this.aCg.isEmpty()) ? false : true;
+    public boolean Ai() {
+        return (this.aDT == null || this.aDT.isEmpty()) ? false : true;
     }
 
     public void b(LandscapeImBarrageTrackView landscapeImBarrageTrackView) {
-        if (this.aCg != null && !this.aCg.contains(landscapeImBarrageTrackView)) {
-            this.aCg.offer(landscapeImBarrageTrackView);
+        if (this.aDT != null && !this.aDT.contains(landscapeImBarrageTrackView)) {
+            this.aDT.offer(landscapeImBarrageTrackView);
         }
     }
 
-    public void zg() {
-        if (this.aCe != null && !this.aCe.isEmpty()) {
-            for (final LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aCe) {
+    public void zQ() {
+        if (this.aDR != null && !this.aDR.isEmpty()) {
+            for (final LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aDR) {
                 landscapeImBarrageTrackView.post(new Runnable() { // from class: com.baidu.live.barrage.view.ImBarrageTrackListView.2
                     @Override // java.lang.Runnable
                     public void run() {
@@ -96,27 +96,27 @@ public class ImBarrageTrackListView extends LinearLayout {
         }
     }
 
-    public boolean a(ck ckVar, aw awVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
-        if (this.aCg == null || this.aCg.isEmpty()) {
+    public boolean a(cr crVar, ba baVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
+        if (this.aDT == null || this.aDT.isEmpty()) {
             return false;
         }
-        LandscapeImBarrageTrackView poll = this.aCg.poll();
-        if (poll != null && poll.zy()) {
-            poll.b(ckVar, awVar, aVar, str, str2, i);
+        LandscapeImBarrageTrackView poll = this.aDT.poll();
+        if (poll != null && poll.Ai()) {
+            poll.b(crVar, baVar, aVar, str, str2, i);
         }
-        return !this.aCg.isEmpty();
+        return !this.aDT.isEmpty();
     }
 
     public void release() {
-        this.aCf = false;
+        this.aDS = false;
         if (this.handler != null) {
             this.handler.removeCallbacksAndMessages(null);
         }
-        if (this.aCg != null && !this.aCg.isEmpty()) {
-            this.aCg.clear();
+        if (this.aDT != null && !this.aDT.isEmpty()) {
+            this.aDT.clear();
         }
-        if (this.aCe != null && !this.aCe.isEmpty()) {
-            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aCe) {
+        if (this.aDR != null && !this.aDR.isEmpty()) {
+            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aDR) {
                 landscapeImBarrageTrackView.release();
             }
         }

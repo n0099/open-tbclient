@@ -3,13 +3,13 @@ package com.baidu.swan.apps.env.c;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface b {
-    public static final boolean cYz = com.baidu.swan.apps.b.DEBUG;
+    public static final boolean daL = com.baidu.swan.apps.b.DEBUG;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        String atL();
+        String auj();
 
         boolean isValid();
 
@@ -17,11 +17,11 @@ public interface b {
     }
 
     /* renamed from: com.baidu.swan.apps.env.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class C0424b {
-        final Map<String, a> cYA = new HashMap();
+    /* loaded from: classes9.dex */
+    public static final class C0421b {
+        final Map<String, a> daM = new HashMap();
         boolean mIsValid = true;
-        int cYB = 0;
-        int cYC = this.cYB;
+        int daN = 0;
+        int daO = this.daN;
     }
 }

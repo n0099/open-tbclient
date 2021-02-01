@@ -8,7 +8,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.im.data.b;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.yuyinala.emoticon.AlaEmoticonListDialogData;
@@ -16,45 +16,45 @@ import com.baidu.yuyinala.emoticon.message.AlaEmoticonListResponseMessage;
 import com.baidu.yuyinala.emoticon.message.AlaSendEmoticonResponseMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BdBaseModel {
-    private static a oMg;
-    private x aBr;
-    private AlaEmoticonListDialogData oMe = new AlaEmoticonListDialogData();
-    private InterfaceC0955a oMf;
+    private static a oWm;
+    private ab aDd;
+    private AlaEmoticonListDialogData oWk = new AlaEmoticonListDialogData();
+    private InterfaceC0959a oWl;
 
     /* renamed from: com.baidu.yuyinala.emoticon.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0955a {
-        void WT(String str);
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0959a {
+        void XS(String str);
 
         void a(AlaEmoticonListDialogData alaEmoticonListDialogData);
     }
 
-    public static a aM(x xVar) {
-        if (oMg == null) {
-            oMg = new a(xVar);
+    public static a aP(ab abVar) {
+        if (oWm == null) {
+            oWm = new a(abVar);
         }
-        return oMg;
+        return oWm;
     }
 
-    public void aN(x xVar) {
-        this.aBr = xVar;
+    public void aQ(ab abVar) {
+        this.aDd = abVar;
     }
 
-    private a(x xVar) {
-        this.aBr = xVar;
+    private a(ab abVar) {
+        this.aDd = abVar;
         registerListener(new HttpMessageListener(1031004) { // from class: com.baidu.yuyinala.emoticon.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaEmoticonListResponseMessage) {
                     AlaEmoticonListResponseMessage alaEmoticonListResponseMessage = (AlaEmoticonListResponseMessage) httpResponsedMessage;
-                    a.this.oMe.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
-                    a.this.oMe.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
-                    a.this.oMe.setNetError(!alaEmoticonListResponseMessage.isSuccess());
-                    if (a.this.oMf != null) {
-                        a.this.oMf.a(a.this.oMe);
+                    a.this.oWk.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
+                    a.this.oWk.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
+                    a.this.oWk.setNetError(!alaEmoticonListResponseMessage.isSuccess());
+                    if (a.this.oWl != null) {
+                        a.this.oWl.a(a.this.oWk);
                     }
                 }
             }
@@ -67,11 +67,11 @@ public class a extends BdBaseModel {
                     AlaSendEmoticonResponseMessage alaSendEmoticonResponseMessage = (AlaSendEmoticonResponseMessage) httpResponsedMessage;
                     if (httpResponsedMessage.getError() == 0) {
                         a.this.a(alaSendEmoticonResponseMessage);
-                    } else if (a.this.oMf != null) {
+                    } else if (a.this.oWl != null) {
                         if (httpResponsedMessage.getError() == 149010) {
-                            a.this.oMf.WT(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
+                            a.this.oWl.XS(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
                         } else {
-                            a.this.oMf.WT(null);
+                            a.this.oWl.XS(null);
                         }
                     }
                 }
@@ -81,44 +81,44 @@ public class a extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaSendEmoticonResponseMessage alaSendEmoticonResponseMessage) {
-        b Id = Id();
-        Id.setMsgType(13);
+        b JB = JB();
+        JB.setMsgType(13);
         try {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.oMc);
-            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.oMb);
-            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.oMd);
-            jSONObject.put("user_uk", this.aBr.aGd.userUk);
+            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.oWi);
+            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.oWh);
+            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.oWj);
+            jSONObject.put("user_uk", this.aDd.aIz.userUk);
             jSONObject.put("content_type", "audio_emoticon");
             jSONObject.put("emoticon_info", jSONObject2);
-            Id.setContent(jSONObject.toString());
+            JB.setContent(jSONObject.toString());
             com.baidu.live.data.a aVar = new com.baidu.live.data.a();
-            AlaLiveUserInfoData alaLiveUserInfoData = this.aBr.aGd;
+            AlaLiveUserInfoData alaLiveUserInfoData = this.aDd.aIz;
             aVar.userName = alaLiveUserInfoData.userName;
-            aVar.aEk = alaLiveUserInfoData.isAdmin == 1;
-            aVar.aEm = this.aBr.aGo;
-            aVar.aEj = alaLiveUserInfoData.isOfficial == 1;
+            aVar.aFX = alaLiveUserInfoData.isAdmin == 1;
+            aVar.aFZ = this.aDd.aIK;
+            aVar.aFW = alaLiveUserInfoData.isOfficial == 1;
             aVar.portrait = alaLiveUserInfoData.portrait;
             aVar.userId = String.valueOf(ExtraParamsManager.getDecryptUserId(alaLiveUserInfoData.userUk));
             aVar.level_id = alaLiveUserInfoData.levelId;
-            Id.e(aVar);
-            Id.setUserId(Long.parseLong(aVar.userId));
+            JB.e(aVar);
+            JB.setUserId(Long.parseLong(aVar.userId));
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501072, Id));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501072, JB));
     }
 
-    protected b Id() {
+    protected b JB() {
         com.baidu.live.im.a aVar = new com.baidu.live.im.a();
         aVar.setBornTime(System.currentTimeMillis());
         aVar.setTime(System.currentTimeMillis());
         aVar.setMsgId(System.currentTimeMillis());
-        if (TextUtils.isEmpty(String.valueOf(this.aBr.mLiveInfo.getGroupID()))) {
+        if (TextUtils.isEmpty(String.valueOf(this.aDd.mLiveInfo.getGroupID()))) {
             return null;
         }
-        aVar.gy(String.valueOf(this.aBr.aGd.userId));
+        aVar.gW(String.valueOf(this.aDd.aIz.userId));
         return aVar;
     }
 
@@ -132,26 +132,26 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void a(InterfaceC0955a interfaceC0955a) {
-        this.oMf = interfaceC0955a;
+    public void a(InterfaceC0959a interfaceC0959a) {
+        this.oWl = interfaceC0959a;
     }
 
-    public void egJ() {
+    public void ejb() {
         sendMessage(new HttpMessage(1031004));
     }
 
-    public void WU(String str) {
+    public void XT(String str) {
         String str2;
         String str3;
         String str4;
-        if (this.aBr == null || this.aBr.mLiveInfo == null) {
+        if (this.aDd == null || this.aDd.mLiveInfo == null) {
             str2 = null;
             str3 = null;
             str4 = null;
         } else {
-            str4 = String.valueOf(this.aBr.mLiveInfo.live_id);
-            str2 = String.valueOf(this.aBr.mLiveInfo.room_id);
-            str3 = String.valueOf(this.aBr.mLiveInfo.group_id);
+            str4 = String.valueOf(this.aDd.mLiveInfo.live_id);
+            str2 = String.valueOf(this.aDd.mLiveInfo.room_id);
+            str3 = String.valueOf(this.aDd.mLiveInfo.group_id);
         }
         HttpMessage httpMessage = new HttpMessage(1031025);
         httpMessage.addParam("img_id", str);
@@ -163,9 +163,9 @@ public class a extends BdBaseModel {
     }
 
     public String getCustomRoomId() {
-        if (this.aBr == null || this.aBr.aGy == null) {
+        if (this.aDd == null || this.aDd.aIU == null) {
             return null;
         }
-        return this.aBr.aGy.croom_id;
+        return this.aDd.aIU.croom_id;
     }
 }

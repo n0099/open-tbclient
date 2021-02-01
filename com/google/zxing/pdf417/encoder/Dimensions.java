@@ -1,5 +1,5 @@
 package com.google.zxing.pdf417.encoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class Dimensions {
     private final int maxCols;
     private final int maxRows;

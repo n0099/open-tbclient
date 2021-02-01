@@ -15,7 +15,7 @@ import java.lang.Thread;
 public class v implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f13840a = new Object();
+    private static final Object f13842a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
     private static final String[] f161a = {"com.xiaomi.channel.commonutils", "com.xiaomi.common.logger", "com.xiaomi.measite.smack", "com.xiaomi.metoknlp", "com.xiaomi.mipush.sdk", "com.xiaomi.network", "com.xiaomi.push", "com.xiaomi.slim", "com.xiaomi.smack", "com.xiaomi.stats", "com.xiaomi.tinyData", "com.xiaomi.xmpush.thrift", "com.xiaomi.clientreport"};
@@ -125,9 +125,9 @@ public class v implements Thread.UncaughtExceptionHandler {
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         m147a(th);
-        synchronized (f13840a) {
+        synchronized (f13842a) {
             try {
-                f13840a.wait(IMConnection.RETRY_DELAY_TIMES);
+                f13842a.wait(IMConnection.RETRY_DELAY_TIMES);
             } catch (InterruptedException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }

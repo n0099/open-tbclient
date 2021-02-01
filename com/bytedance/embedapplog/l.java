@@ -1,14 +1,14 @@
 package com.bytedance.embedapplog;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5829a;
+    private String f5831a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f5830b;
+    private String f5832b;
     private String c;
     private String d;
     private String e;
@@ -21,8 +21,8 @@ public class l {
     private int n;
     private int o;
     private int p;
-    private j pcd;
-    private k pce;
+    private j pms;
+    private k pmt;
     private String r;
     private String s;
     private String t;
@@ -35,27 +35,27 @@ public class l {
     private boolean y = true;
 
     public l(@NonNull String str, @NonNull String str2) {
-        this.f5829a = str;
-        this.f5830b = str2;
+        this.f5831a = str;
+        this.f5832b = str2;
     }
 
-    public String ele() {
+    public String enx() {
         return this.j;
     }
 
-    public boolean elf() {
+    public boolean eny() {
         return this.h;
     }
 
-    public String uE() {
-        return this.f5829a;
+    public String uB() {
+        return this.f5831a;
     }
 
     public String getChannel() {
-        return this.f5830b;
+        return this.f5832b;
     }
 
-    public String elg() {
+    public String enz() {
         return this.c;
     }
 
@@ -63,16 +63,16 @@ public class l {
         return this.d;
     }
 
-    public String elh() {
+    public String enA() {
         return this.e;
     }
 
-    public String eli() {
+    public String enB() {
         return this.f;
     }
 
     @NonNull
-    public l AE(boolean z) {
+    public l AX(boolean z) {
         this.i = z ? 1 : 2;
         return this;
     }
@@ -81,11 +81,11 @@ public class l {
         return this.i;
     }
 
-    public j elj() {
-        return this.pcd;
+    public j enC() {
+        return this.pms;
     }
 
-    public l NV(int i) {
+    public l Oq(int i) {
         aa.a(i);
         return this;
     }
@@ -98,7 +98,7 @@ public class l {
         return this.l;
     }
 
-    public String elk() {
+    public String enD() {
         return this.m;
     }
 
@@ -106,63 +106,63 @@ public class l {
         return this.n;
     }
 
-    public int ell() {
+    public int enE() {
         return this.o;
     }
 
-    public int elm() {
+    public int enF() {
         return this.p;
     }
 
-    public String eln() {
+    public String enG() {
         return this.r;
     }
 
-    public String elo() {
+    public String enH() {
         return this.s;
     }
 
-    public String elp() {
+    public String enI() {
         return this.t;
     }
 
-    public String elq() {
+    public String enJ() {
         return this.u;
     }
 
-    public String elr() {
+    public String enK() {
         return this.v;
     }
 
-    public String els() {
+    public String enL() {
         return this.w;
     }
 
-    public void AF(boolean z) {
+    public void AY(boolean z) {
         this.x = z;
     }
 
-    public boolean elt() {
+    public boolean enM() {
         return this.y;
     }
 
-    public void AG(boolean z) {
+    public void AZ(boolean z) {
         this.y = z;
     }
 
-    public String elu() {
+    public String enN() {
         return this.z;
     }
 
-    public void Xu(String str) {
+    public void Yv(String str) {
         this.z = str;
     }
 
-    public k elv() {
-        return this.pce;
+    public k enO() {
+        return this.pmt;
     }
 
     public void a(k kVar) {
-        this.pce = kVar;
+        this.pmt = kVar;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.editortools.m;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends m {
     public b(Context context) {
         super(context, context.getString(R.string.editor_privilege), 12);
@@ -16,14 +16,14 @@ public class b extends m {
             BdLog.e(e.getMessage());
             i = 0;
         }
-        this.fzM = i;
-        this.fzO = R.drawable.icon_pure_post_more_bubble64;
-        this.fzP = false;
-        this.fzQ = true;
-        this.fzU = true;
-        this.fyZ = new CommonTabHost(context);
-        ((CommonTabHost) this.fyZ).b(new a());
-        this.fzT = 6;
-        this.fzV = new int[]{1};
+        this.fCb = i;
+        this.fCd = R.drawable.icon_pure_post_more_bubble64;
+        this.fCe = false;
+        this.fCf = true;
+        this.fCj = true;
+        this.fBo = new CommonTabHost(context);
+        ((CommonTabHost) this.fBo).b(new a());
+        this.fCi = 6;
+        this.fCk = new int[]{1};
     }
 }

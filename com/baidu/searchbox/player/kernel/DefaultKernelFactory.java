@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.kernel;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DefaultKernelFactory implements IKernelFactory {
     @Override // com.baidu.searchbox.player.kernel.IKernelFactory
     @NonNull

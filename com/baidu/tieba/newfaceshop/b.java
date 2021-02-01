@@ -5,8 +5,9 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.n;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tbadk.download.DownloadData;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -17,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static void a(final com.baidu.tieba.newfaceshop.b.a aVar, final com.baidu.tieba.newfaceshop.a.b bVar) {
         if (aVar == null || aVar.pics == null || aVar.pics.size() == 0 || TextUtils.isEmpty(aVar.url)) {
@@ -27,7 +28,7 @@ public class b {
             }
             return;
         }
-        final String str = c.lsa + aVar.id + "/";
+        final String str = c.lAf + aVar.id + "/";
         com.baidu.tbadk.download.c cVar = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.newfaceshop.b.1
             @Override // com.baidu.tbadk.download.c
             public void onFileUpdateProgress(DownloadData downloadData) {
@@ -53,7 +54,7 @@ public class b {
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public Boolean doInBackground(Void... voidArr) {
-                        n.deleteFileOrDir(new File(str));
+                        o.deleteFileOrDir(new File(str));
                         if (b.a(downloadData.getPath(), aVar)) {
                             return Boolean.valueOf(b.a(aVar, str));
                         }
@@ -84,8 +85,8 @@ public class b {
                 }
             }
         };
-        new File(c.lsa).mkdirs();
-        a(aVar, c.lsa, cVar);
+        new File(c.lAf).mkdirs();
+        a(aVar, c.lAf, cVar);
     }
 
     public static void a(com.baidu.tieba.newfaceshop.b.a aVar, String str, com.baidu.tbadk.download.c cVar) {
@@ -99,7 +100,7 @@ public class b {
         String str2 = aVar.id + ".zip";
         DownloadData downloadData = new DownloadData(aVar.id, str2, Uri.encode(aVar.url, "-![.:/,%?&=]"), cVar);
         downloadData.setPath(str + str2);
-        com.baidu.tbadk.download.d.bAL().f(downloadData);
+        com.baidu.tbadk.download.d.bBd().f(downloadData);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -158,29 +159,29 @@ public class b {
                         ZipEntry nextEntry = zipInputStream.getNextEntry();
                         if (nextEntry != null) {
                             if (!nextEntry.isDirectory()) {
-                                n.saveFile(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + aVar.id) + "/" + nextEntry.getName(), zipInputStream);
+                                o.saveFile(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + aVar.id) + "/" + nextEntry.getName(), zipInputStream);
                             }
                         } else {
                             zipInputStream.close();
-                            n.deleteFile(new File(str));
-                            com.baidu.adp.lib.util.n.close((InputStream) zipInputStream);
+                            o.deleteFile(new File(str));
+                            n.close((InputStream) zipInputStream);
                             return true;
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
                         e.printStackTrace();
-                        com.baidu.adp.lib.util.n.close((InputStream) zipInputStream);
+                        n.close((InputStream) zipInputStream);
                         return false;
                     } catch (IOException e2) {
                         e = e2;
                         e.printStackTrace();
-                        com.baidu.adp.lib.util.n.close((InputStream) zipInputStream);
+                        n.close((InputStream) zipInputStream);
                         return false;
                     }
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.util.n.close((InputStream) null);
+                n.close((InputStream) null);
                 throw th;
             }
         } catch (FileNotFoundException e3) {
@@ -191,7 +192,7 @@ public class b {
             zipInputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.adp.lib.util.n.close((InputStream) null);
+            n.close((InputStream) null);
             throw th;
         }
     }

@@ -47,7 +47,7 @@ import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.CallBack {
     public static final String ACTION_CALLBACK_LIVE_BUYTBEAN_RESULT = "action_callback_live_buytbean_result";
     public static final String GIFT_TBEAN = "gift_tbean";

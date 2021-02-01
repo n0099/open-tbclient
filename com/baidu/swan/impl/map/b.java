@@ -17,42 +17,42 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements SensorEventListener {
-    private double emg;
-    private LocationClient emh;
-    private BDLocation emj;
+    private double eoq;
+    private LocationClient eor;
+    private BDLocation eot;
     private SensorManager mSensorManager;
-    private boolean emi = false;
-    private boolean emk = false;
-    private List<com.baidu.swan.impl.map.item.c> emf = new ArrayList(1);
+    private boolean eos = false;
+    private boolean eou = false;
+    private List<com.baidu.swan.impl.map.item.c> eop = new ArrayList(1);
 
     public b() {
-        bab();
+        bao();
     }
 
     public boolean a(com.baidu.swan.impl.map.item.c cVar) {
         if (cVar == null) {
             return false;
         }
-        this.emf.add(cVar);
+        this.eop.add(cVar);
         return true;
     }
 
     public boolean remove(String str) {
-        com.baidu.swan.impl.map.item.c xu = xu(str);
-        if (xu != null) {
-            this.emf.remove(xu);
+        com.baidu.swan.impl.map.item.c xN = xN(str);
+        if (xN != null) {
+            this.eop.remove(xN);
             return true;
         }
         return false;
     }
 
-    public com.baidu.swan.impl.map.item.c xu(String str) {
+    public com.baidu.swan.impl.map.item.c xN(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (com.baidu.swan.impl.map.item.c cVar : this.emf) {
+        for (com.baidu.swan.impl.map.item.c cVar : this.eop) {
             if (cVar != null && TextUtils.equals(cVar.id, str)) {
                 return cVar;
             }
@@ -61,65 +61,65 @@ public class b implements SensorEventListener {
     }
 
     public void resume() {
-        bab();
-        for (com.baidu.swan.impl.map.item.c cVar : this.emf) {
-            cVar.enq.onResume();
+        bao();
+        for (com.baidu.swan.impl.map.item.c cVar : this.eop) {
+            cVar.epz.onResume();
         }
     }
 
     public void pause() {
         stopLocation();
-        for (com.baidu.swan.impl.map.item.c cVar : this.emf) {
-            cVar.enq.onPause();
+        for (com.baidu.swan.impl.map.item.c cVar : this.eop) {
+            cVar.epz.onPause();
         }
     }
 
     public void release() {
         stopLocation();
-        this.emk = false;
+        this.eou = false;
         if (Build.VERSION.SDK_INT > 19) {
-            for (com.baidu.swan.impl.map.item.c cVar : this.emf) {
-                cVar.enq.onDestroy();
+            for (com.baidu.swan.impl.map.item.c cVar : this.eop) {
+                cVar.epz.onDestroy();
             }
         }
-        this.emf.clear();
+        this.eop.clear();
     }
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         double d = sensorEvent.values[0];
-        if (Math.abs(d - this.emg) > 1.0d) {
-            for (com.baidu.swan.impl.map.item.c cVar : this.emf) {
-                MyLocationData locationData = cVar.enq.getMap().getLocationData();
+        if (Math.abs(d - this.eoq) > 1.0d) {
+            for (com.baidu.swan.impl.map.item.c cVar : this.eop) {
+                MyLocationData locationData = cVar.epz.getMap().getLocationData();
                 if (locationData != null && cVar.isShowLocation) {
-                    cVar.enq.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).satellitesNum(locationData.satellitesNum).build());
-                    baa();
+                    cVar.epz.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).satellitesNum(locationData.satellitesNum).build());
+                    ban();
                 }
             }
         }
-        this.emg = d;
+        this.eoq = d;
     }
 
     @Override // android.hardware.SensorEventListener
     public void onAccuracyChanged(Sensor sensor, int i) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements BDLocationListener {
         public a() {
         }
 
         @Override // com.baidu.location.BDLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            if (bDLocation == null || b.this.emf.size() <= 0) {
+            if (bDLocation == null || b.this.eop.size() <= 0) {
                 b.this.stopLocation();
                 return;
             }
-            b.this.emj = bDLocation;
-            for (com.baidu.swan.impl.map.item.c cVar : b.this.emf) {
+            b.this.eot = bDLocation;
+            for (com.baidu.swan.impl.map.item.c cVar : b.this.eop) {
                 if (cVar.isShowLocation) {
                     MyLocationData build = new MyLocationData.Builder().direction(bDLocation.getDirection()).accuracy(bDLocation.getGpsAccuracyStatus()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).satellitesNum(bDLocation.getSatelliteNumber()).build();
-                    BaiduMap map = cVar.enq.getMap();
+                    BaiduMap map = cVar.epz.getMap();
                     map.setMyLocationEnabled(true);
                     map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
                     map.setMyLocationData(build);
@@ -128,70 +128,70 @@ public class b implements SensorEventListener {
         }
     }
 
-    private void baa() {
-        if (this.emh == null) {
-            this.emh = new LocationClient(AppRuntime.getAppContext());
-            this.emh.registerLocationListener(new a());
+    private void ban() {
+        if (this.eor == null) {
+            this.eor = new LocationClient(AppRuntime.getAppContext());
+            this.eor.registerLocationListener(new a());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.emh.setLocOption(locationClientOption);
+            this.eor.setLocOption(locationClientOption);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stopLocation() {
-        if (this.emk && this.emh != null && this.emh.isStarted()) {
-            this.emh.stop();
-            bad();
+        if (this.eou && this.eor != null && this.eor.isStarted()) {
+            this.eor.stop();
+            baq();
             com.baidu.swan.apps.console.c.w("map", "stop location");
         }
     }
 
-    private void bab() {
-        if (this.emk) {
-            baa();
-            if (this.emh != null && !this.emh.isStarted()) {
-                this.emh.start();
-                bac();
+    private void bao() {
+        if (this.eou) {
+            ban();
+            if (this.eor != null && !this.eor.isStarted()) {
+                this.eor.start();
+                bap();
                 com.baidu.swan.apps.console.c.w("map", "start location");
             }
         }
     }
 
-    private void bac() {
-        if (!this.emi) {
+    private void bap() {
+        if (!this.eos) {
             this.mSensorManager = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
             if (this.mSensorManager != null) {
                 this.mSensorManager.registerListener(this, this.mSensorManager.getDefaultSensor(3), 2);
-                this.emi = true;
+                this.eos = true;
             }
         }
     }
 
-    private void bad() {
-        if (this.mSensorManager != null && this.emi) {
+    private void baq() {
+        if (this.mSensorManager != null && this.eos) {
             this.mSensorManager.unregisterListener(this);
-            this.emi = false;
+            this.eos = false;
         }
     }
 
-    public boolean bae() {
-        return this.emh != null && this.emh.isStarted();
+    public boolean bar() {
+        return this.eor != null && this.eor.isStarted();
     }
 
-    public BDLocation baf() {
-        return this.emj;
+    public BDLocation bas() {
+        return this.eot;
     }
 
-    public void in(boolean z) {
+    public void ip(boolean z) {
         if (z) {
-            this.emk = true;
-            bab();
+            this.eou = true;
+            bao();
             return;
         }
         stopLocation();
-        this.emk = false;
+        this.eou = false;
     }
 }

@@ -1,132 +1,94 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
-import java.util.HashSet;
-import java.util.Set;
+import androidx.annotation.Nullable;
+import com.baidu.ar.gesture.GestureAR;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    protected static final Set<String> eIN = new HashSet();
-    public boolean aaw;
-    public String eIJ;
-    public String eIK;
-    public String eIL;
-    public String eIM;
-    public String extensionInfo;
-    public String fid;
-    public String page;
-    public int pn;
+    public String appName;
+    public boolean eKP;
+    public String eKQ;
+    public String eKR;
+    public float eKS = -1.0f;
+    @Nullable
+    public b eKT;
+    @Nullable
+    public a eKU;
+    public String version;
 
-    public static void a(c cVar, int i, boolean z) {
-        if (cVar != null && !cVar.aaw && !zA(cVar.extensionInfo)) {
-            com.baidu.tieba.recapp.report.c ad = com.baidu.tieba.recapp.report.h.ad(z ? 13 : 3, i, cVar.pn);
-            ad.QW(cVar.page);
-            ad.gf("isCache", String.valueOf(cVar.eIJ));
-            ad.QT(cVar.eIK);
-            ad.QU(cVar.eIL);
-            ad.QV(cVar.fid);
-            ad.gf("vc", cVar.eIM);
-            ad.setExtInfo(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.e.dCe().a(ad);
-            cVar.aaw = true;
-            eIN.add(cVar.extensionInfo);
+    /* loaded from: classes.dex */
+    public static class b {
+        public String desc;
+        public String url;
+
+        @Nullable
+        public static b dn(JSONObject jSONObject) {
+            if (jSONObject == null) {
+                return null;
+            }
+            b bVar = new b();
+            bVar.desc = jSONObject.optString("desc", "隐私");
+            bVar.url = jSONObject.optString("url");
+            return bVar;
         }
     }
 
-    public static void a(AdvertAppInfo advertAppInfo) {
-        c cVar;
-        if (advertAppInfo != null && (cVar = advertAppInfo.advertAppContext) != null && !cVar.aaw && !zA(cVar.extensionInfo)) {
-            com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(advertAppInfo, 3, cVar.pn);
-            b2.QW(cVar.page);
-            b2.gf("isCache", cVar.eIJ);
-            b2.QT(cVar.eIK);
-            b2.QU(cVar.eIL);
-            b2.QV(cVar.fid);
-            b2.gf("vc", cVar.eIM);
-            b2.setExtInfo(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.e.dCe().a(b2);
-            com.baidu.tieba.lego.card.a.c.b(com.baidu.tieba.lego.card.a.c.c(advertAppInfo));
-            cVar.aaw = true;
-            eIN.add(cVar.extensionInfo);
+    /* loaded from: classes.dex */
+    public static class a {
+        public String desc;
+        public String url;
+
+        @Nullable
+        public static a dm(JSONObject jSONObject) {
+            if (jSONObject == null) {
+                return null;
+            }
+            a aVar = new a();
+            aVar.desc = jSONObject.optString("desc", "权限");
+            aVar.url = jSONObject.optString("url");
+            return aVar;
         }
     }
 
-    public static void a(com.baidu.afd.d dVar) {
-        if (dVar != null && dVar.qV() != null && !dVar.aaw && !TextUtils.isEmpty(dVar.qV().ext) && !zA(dVar.qV().ext)) {
-            com.baidu.tieba.recapp.report.e.dCe().a(com.baidu.tieba.recapp.report.h.a(dVar, 3, dVar.getPageNum()));
-            com.baidu.tieba.lego.card.a.c.b(dVar);
-            dVar.aaw = true;
-            eIN.add(dVar.qV().ext);
+    @Nullable
+    public static c dl(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
-    }
-
-    public static void b(c cVar, int i, boolean z) {
-        if (cVar != null && !cVar.aaw && !zA(cVar.extensionInfo)) {
-            int i2 = z ? 13 : 3;
-            com.baidu.tieba.recapp.report.c cVar2 = new com.baidu.tieba.recapp.report.c();
-            cVar2.HD(i2);
-            if ("PB_BANNER".equals(cVar.page)) {
-                cVar2.HE(-1);
-                cVar2.setPageNumber(-1);
+        c cVar = new c();
+        cVar.eKP = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
+        cVar.eKQ = jSONObject.optString("app_icon");
+        cVar.appName = jSONObject.optString("app_name");
+        cVar.eKR = jSONObject.optString("developer_name");
+        cVar.version = jSONObject.optString("version");
+        cVar.eKT = b.dn(jSONObject.optJSONObject("privacy"));
+        cVar.eKU = a.dm(jSONObject.optJSONObject("permission"));
+        try {
+            float parseFloat = Float.parseFloat(jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE));
+            if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
+                cVar.eKS = parseFloat;
             } else {
-                cVar2.HE(i2);
-                cVar2.setPageNumber(cVar.pn);
+                cVar.eKS = -1.0f;
             }
-            cVar2.QW(cVar.page);
-            cVar2.QT(cVar.eIK);
-            cVar2.QU(cVar.eIL);
-            cVar2.QV(cVar.fid);
-            cVar2.gf("vc", cVar.eIM);
-            cVar2.setExtInfo(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.e.dCe().a(cVar2);
-            cVar.aaw = true;
-            eIN.add(cVar.extensionInfo);
+            return cVar;
+        } catch (NumberFormatException e) {
+            cVar.eKS = -1.0f;
+            return cVar;
         }
     }
 
-    public static void a(com.baidu.tieba.tbadkCore.data.o oVar) {
-        c cVar;
-        if (oVar != null && oVar.dLa() != null && (cVar = oVar.dLa().advertAppContext) != null && !cVar.aaw && !zA(cVar.extensionInfo)) {
-            oVar.eJu = cVar.eIK;
-            oVar.eJv = cVar.eIL;
-            oVar.forumId = cVar.fid;
-            int i = 3;
-            if (oVar != null && oVar.dLb() != null && oVar.dLb().forFree()) {
-                i = 103;
-            }
-            com.baidu.tieba.recapp.report.c b2 = com.baidu.tieba.recapp.report.h.b(oVar, i);
-            b2.setExtInfo(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.e.dCe().a(b2);
-            com.baidu.tieba.lego.card.a.c.b(com.baidu.tieba.lego.card.a.c.c(oVar.qU()));
-            cVar.aaw = true;
-            eIN.add(cVar.extensionInfo);
+    public static boolean a(c cVar) {
+        if (cVar != null && cVar.eKP) {
+            return (TextUtils.isEmpty(cVar.version) || TextUtils.isEmpty(cVar.eKR) || cVar.eKT == null || TextUtils.isEmpty(cVar.eKT.url) || cVar.eKU == null || TextUtils.isEmpty(cVar.eKU.url)) ? false : true;
         }
+        return true;
     }
 
-    public static void c(c cVar, int i, boolean z) {
-        if (cVar != null && !cVar.aaw && !zA(cVar.extensionInfo)) {
-            com.baidu.tieba.recapp.report.c ad = com.baidu.tieba.recapp.report.h.ad(z ? 13 : 3, i, cVar.pn);
-            ad.QW(cVar.page);
-            ad.setExtInfo(cVar.extensionInfo);
-            com.baidu.tieba.recapp.report.e.dCe().a(ad);
-            cVar.aaw = true;
-            eIN.add(cVar.extensionInfo);
+    public static boolean b(c cVar) {
+        if (cVar == null) {
+            return false;
         }
-    }
-
-    public static void a(com.baidu.tieba.card.data.d dVar) {
-        if (dVar != null && dVar.crG() != null && dVar.crG().advertAppContext != null && !dVar.crG().advertAppContext.aaw && !zA(dVar.crG().advertAppContext.extensionInfo)) {
-            dVar.crG().page = dVar.crG().advertAppContext.page;
-            com.baidu.tbadk.distribute.a.bAC().a(dVar.crG(), "", 0L, dVar.crG().page, "show", dVar.crG().advertAppContext.pn);
-            com.baidu.tieba.recapp.report.c c = com.baidu.tieba.recapp.report.h.c(dVar.crG(), 3, dVar.crG().advertAppContext.pn);
-            c.setExtInfo(dVar.crG().advertAppContext.extensionInfo);
-            com.baidu.tieba.recapp.report.e.dCe().a(c);
-            com.baidu.tieba.lego.card.a.c.b(com.baidu.tieba.lego.card.a.c.c(dVar.crG()));
-            dVar.crG().advertAppContext.aaw = true;
-            eIN.add(dVar.crG().advertAppContext.extensionInfo);
-        }
-    }
-
-    private static boolean zA(String str) {
-        return eIN.contains(str);
+        return (TextUtils.isEmpty(cVar.version) && TextUtils.isEmpty(cVar.eKR) && (cVar.eKT == null || TextUtils.isEmpty(cVar.eKT.desc)) && (cVar.eKU == null || TextUtils.isEmpty(cVar.eKU.desc))) ? false : true;
     }
 }

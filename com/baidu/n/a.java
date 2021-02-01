@@ -1,29 +1,29 @@
 package com.baidu.n;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class a {
+    protected boolean mIsSupport;
     protected int mStatusCode;
-    protected boolean oKA;
-    protected boolean oKB;
-    protected String oKC;
-    protected String oKD;
-    protected String oKE;
+    protected boolean oUI;
+    protected String oUJ;
+    protected String oUK;
+    protected String oUL;
 
     public a(boolean z, boolean z2, String str, String str2, String str3, int i) {
-        this.oKA = z;
-        this.oKB = z2;
-        this.oKC = str;
-        this.oKD = str2;
-        this.oKE = str3;
+        this.oUI = z;
+        this.mIsSupport = z2;
+        this.oUJ = str;
+        this.oUK = str2;
+        this.oUL = str3;
         this.mStatusCode = i;
     }
 
-    public String egc() {
-        return TextUtils.isEmpty(this.oKC) ? this.oKC : new com.baidu.n.a.c.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(this.oKC.getBytes());
+    public String eiu() {
+        return TextUtils.isEmpty(this.oUJ) ? this.oUJ : new com.baidu.n.a.c.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(this.oUJ.getBytes());
     }
 
     public String toString() {
-        return "UnionIDInfo{isTrackLimited=" + this.oKA + ", isSupport=" + this.oKB + ", OAID='" + this.oKC + "', EncodedOAID='" + egc() + "', AAID='" + this.oKD + "', VAID='" + this.oKE + "', StatusCode='" + this.mStatusCode + "'}";
+        return "UnionIDInfo{isTrackLimited=" + this.oUI + ", isSupport=" + this.mIsSupport + ", OAID='" + this.oUJ + "', EncodedOAID='" + eiu() + "', AAID='" + this.oUK + "', VAID='" + this.oUL + "', StatusCode='" + this.mStatusCode + "'}";
     }
 }

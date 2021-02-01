@@ -11,12 +11,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class ReplaySubject<T> extends b<T> {
+    static final ReplayDisposable[] qsG = new ReplayDisposable[0];
+    static final ReplayDisposable[] qsH = new ReplayDisposable[0];
+    private static final Object[] qsc = new Object[0];
     boolean done;
     final AtomicReference<ReplayDisposable<T>[]> observers;
-    final a<T> qiB;
-    static final ReplayDisposable[] qiC = new ReplayDisposable[0];
-    static final ReplayDisposable[] qiD = new ReplayDisposable[0];
-    private static final Object[] qhY = new Object[0];
+    final a<T> qsF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
@@ -38,7 +38,7 @@ public final class ReplaySubject<T> extends b<T> {
             if (a(replayDisposable) && replayDisposable.cancelled) {
                 b(replayDisposable);
             } else {
-                this.qiB.replay(replayDisposable);
+                this.qsF.replay(replayDisposable);
             }
         }
     }
@@ -54,7 +54,7 @@ public final class ReplaySubject<T> extends b<T> {
     public void onNext(T t) {
         io.reactivex.internal.functions.a.m(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.done) {
-            a<T> aVar = this.qiB;
+            a<T> aVar = this.qsF;
             aVar.add(t);
             for (ReplayDisposable<T> replayDisposable : this.observers.get()) {
                 aVar.replay(replayDisposable);
@@ -71,7 +71,7 @@ public final class ReplaySubject<T> extends b<T> {
         }
         this.done = true;
         Object error = NotificationLite.error(th);
-        a<T> aVar = this.qiB;
+        a<T> aVar = this.qsF;
         aVar.addFinal(error);
         ReplayDisposable<T>[] bQ = bQ(error);
         for (ReplayDisposable<T> replayDisposable : bQ) {
@@ -84,7 +84,7 @@ public final class ReplaySubject<T> extends b<T> {
         if (!this.done) {
             this.done = true;
             Object complete = NotificationLite.complete();
-            a<T> aVar = this.qiB;
+            a<T> aVar = this.qsF;
             aVar.addFinal(complete);
             ReplayDisposable<T>[] bQ = bQ(complete);
             for (ReplayDisposable<T> replayDisposable : bQ) {
@@ -98,7 +98,7 @@ public final class ReplaySubject<T> extends b<T> {
         ReplayDisposable<T>[] replayDisposableArr2;
         do {
             replayDisposableArr = this.observers.get();
-            if (replayDisposableArr == qiD) {
+            if (replayDisposableArr == qsH) {
                 return false;
             }
             int length = replayDisposableArr.length;
@@ -114,7 +114,7 @@ public final class ReplaySubject<T> extends b<T> {
         ReplayDisposable<T>[] replayDisposableArr2;
         do {
             replayDisposableArr = this.observers.get();
-            if (replayDisposableArr != qiD && replayDisposableArr != qiC) {
+            if (replayDisposableArr != qsH && replayDisposableArr != qsG) {
                 int length = replayDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -130,7 +130,7 @@ public final class ReplaySubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        replayDisposableArr2 = qiC;
+                        replayDisposableArr2 = qsG;
                     } else {
                         replayDisposableArr2 = new ReplayDisposable[length - 1];
                         System.arraycopy(replayDisposableArr, 0, replayDisposableArr2, 0, i);
@@ -146,7 +146,7 @@ public final class ReplaySubject<T> extends b<T> {
     }
 
     ReplayDisposable<T>[] bQ(Object obj) {
-        return this.qiB.compareAndSet(null, obj) ? this.observers.getAndSet(qiD) : qiD;
+        return this.qsF.compareAndSet(null, obj) ? this.observers.getAndSet(qsH) : qsH;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -185,7 +185,7 @@ public final class ReplaySubject<T> extends b<T> {
         volatile int size;
 
         UnboundedReplayBuffer(int i) {
-            this.buffer = new ArrayList(io.reactivex.internal.functions.a.ce(i, "capacityHint"));
+            this.buffer = new ArrayList(io.reactivex.internal.functions.a.cl(i, "capacityHint"));
         }
 
         @Override // io.reactivex.subjects.ReplaySubject.a
@@ -343,7 +343,7 @@ public final class ReplaySubject<T> extends b<T> {
         Node<Object> tail;
 
         SizeBoundReplayBuffer(int i) {
-            this.maxSize = io.reactivex.internal.functions.a.ce(i, "maxSize");
+            this.maxSize = io.reactivex.internal.functions.a.cl(i, "maxSize");
             Node<Object> node = new Node<>(null);
             this.tail = node;
             this.head = node;
@@ -504,8 +504,8 @@ public final class ReplaySubject<T> extends b<T> {
         final TimeUnit unit;
 
         SizeAndTimeBoundReplayBuffer(int i, long j, TimeUnit timeUnit, v vVar) {
-            this.maxSize = io.reactivex.internal.functions.a.ce(i, "maxSize");
-            this.maxAge = io.reactivex.internal.functions.a.C(j, "maxAge");
+            this.maxSize = io.reactivex.internal.functions.a.cl(i, "maxSize");
+            this.maxAge = io.reactivex.internal.functions.a.D(j, "maxAge");
             this.unit = (TimeUnit) io.reactivex.internal.functions.a.m(timeUnit, "unit is null");
             this.scheduler = (v) io.reactivex.internal.functions.a.m(vVar, "scheduler is null");
             TimedNode<Object> timedNode = new TimedNode<>(null, 0L);

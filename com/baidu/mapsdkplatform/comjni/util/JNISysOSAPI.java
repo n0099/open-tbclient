@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comjni.util;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class JNISysOSAPI {
     public static native void create();
 

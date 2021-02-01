@@ -6,11 +6,11 @@ import com.qq.e.comm.managers.plugin.a;
 import com.qq.e.comm.pi.WRI;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class WebReporter {
 
     /* renamed from: a  reason: collision with root package name */
-    private WRI f11423a;
+    private WRI f11425a;
 
     public WebReporter(Context context, String str, String str2, long j) {
         if (StringUtil.isEmpty(str)) {
@@ -19,7 +19,7 @@ public class WebReporter {
         }
         try {
             if (GDTADManager.getInstance().initWith(context, str)) {
-                this.f11423a = GDTADManager.getInstance().getPM().getPOFactory().getWebReporterDelegate(str2, j);
+                this.f11425a = GDTADManager.getInstance().getPM().getPOFactory().getWebReporterDelegate(str2, j);
             } else {
                 GDTLogger.e("SDK is not ready!");
             }
@@ -31,8 +31,8 @@ public class WebReporter {
     }
 
     public void report(String str, int i) {
-        if (this.f11423a != null) {
-            this.f11423a.report(str, i);
+        if (this.f11425a != null) {
+            this.f11425a.report(str, i);
         }
     }
 }

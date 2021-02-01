@@ -34,7 +34,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 @CoordinatorLayout.DefaultBehavior(Behavior.class)
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class AppBarLayout extends LinearLayout {
     private static final int INVALID_SCROLL_RANGE = -1;
     static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
@@ -55,12 +55,12 @@ public class AppBarLayout extends LinearLayout {
     private int[] tmpStatesArray;
     private int totalScrollRange;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface BaseOnOffsetChangedListener<T extends AppBarLayout> {
         void onOffsetChanged(T t, int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface OnOffsetChangedListener extends BaseOnOffsetChangedListener<AppBarLayout> {
         @Override // com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         void onOffsetChanged(AppBarLayout appBarLayout, int i);
@@ -438,7 +438,7 @@ public class AppBarLayout extends LinearLayout {
         return windowInsetsCompat;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         static final int COLLAPSIBLE_FLAGS = 10;
         static final int FLAG_QUICK_RETURN = 5;
@@ -454,7 +454,7 @@ public class AppBarLayout extends LinearLayout {
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes5.dex */
+        /* loaded from: classes15.dex */
         public @interface ScrollFlags {
         }
 
@@ -524,10 +524,10 @@ public class AppBarLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class Behavior extends BaseBehavior<AppBarLayout> {
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes15.dex */
         public static abstract class DragCallback extends BaseBehavior.BaseDragCallback<AppBarLayout> {
         }
 
@@ -605,7 +605,7 @@ public class AppBarLayout extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class BaseBehavior<T extends AppBarLayout> extends HeaderBehavior<T> {
         private static final int INVALID_POSITION = -1;
         private static final int MAX_OFFSET_ANIMATION_DURATION = 600;
@@ -618,7 +618,7 @@ public class AppBarLayout extends LinearLayout {
         private float offsetToChildIndexOnLayoutPerc;
         private BaseDragCallback onDragCallback;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes15.dex */
         public static abstract class BaseDragCallback<T extends AppBarLayout> {
             public abstract boolean canDrag(@NonNull T t);
         }
@@ -1128,7 +1128,7 @@ public class AppBarLayout extends LinearLayout {
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes15.dex */
         public static class SavedState extends AbsSavedState {
             public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.SavedState.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1175,7 +1175,7 @@ public class AppBarLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class ScrollingViewBehavior extends HeaderScrollingViewBehavior {
         @Override // com.google.android.material.appbar.HeaderScrollingViewBehavior
         /* bridge */ /* synthetic */ View findFirstDependency(List list) {

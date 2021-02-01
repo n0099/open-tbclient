@@ -1,30 +1,40 @@
 package com.baidu.live.data;
 
 import com.baidu.live.tbadk.core.data.BaseData;
-import com.baidu.mobstat.Config;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class u extends BaseData {
-    public boolean aFV = true;
-    public List<t> aFW;
-    public int pn;
+    public AlaLiveUserInfoData aId;
+    public AlaLocationData aIe;
+    public AlaRelationData aIf;
+    public long aIg;
+    public int hadPoked;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
-        JSONObject optJSONObject;
         if (jSONObject != null) {
-            this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-            this.aFV = jSONObject.optInt("has_more") == 1;
-            this.aFW = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("live");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length() && (optJSONObject = optJSONArray.optJSONObject(i)) != null; i++) {
-                    t tVar = new t();
-                    tVar.parserJson(optJSONObject);
-                    this.aFW.add(tVar);
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.aId = new AlaLiveUserInfoData();
+                this.aId.parserJson(optJSONObject);
+                this.hadPoked = optJSONObject.optInt("poke_flag", 0);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("location_info");
+            if (optJSONObject2 != null) {
+                this.aIe = new AlaLocationData();
+                this.aIe.parserJson(optJSONObject2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("relation_info");
+            if (optJSONObject3 != null) {
+                this.aIf = new AlaRelationData();
+                this.aIf.parserJson(optJSONObject3);
+            }
+            this.aIg = jSONObject.optLong("rank_num");
+            if (this.aId == null) {
+                try {
+                    this.aId = new AlaLiveUserInfoData();
+                    this.aId.parserJson(jSONObject);
+                } catch (Exception e) {
                 }
             }
         }

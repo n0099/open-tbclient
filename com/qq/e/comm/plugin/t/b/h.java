@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.t.b;
 import com.qq.e.comm.plugin.util.aq;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class h extends b {
     public h(HttpURLConnection httpURLConnection) {
         super(httpURLConnection);

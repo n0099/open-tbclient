@@ -8,15 +8,15 @@ import com.baidu.mapapi.walknavi.model.RouteGuideKind;
 import com.baidu.platform.comapi.walknavi.d.j;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class g extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f4415a;
+    final /* synthetic */ f f4418a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f4415a = fVar;
+        this.f4418a = fVar;
     }
 
     @Override // android.os.Handler
@@ -38,7 +38,7 @@ public class g extends Handler {
         List<a> list14;
         switch (message.what) {
             case 4098:
-                this.f4415a.a(message);
+                this.f4418a.a(message);
                 return;
             case 4099:
             case 4103:
@@ -47,11 +47,11 @@ public class g extends Handler {
             default:
                 return;
             case 4100:
-                list13 = this.f4415a.f4413a;
+                list13 = this.f4418a.f4416a;
                 if (list13 != null) {
                     Bundle bundle = new Bundle();
                     com.baidu.platform.comapi.walknavi.b.a().D().a(bundle);
-                    list14 = this.f4415a.f4413a;
+                    list14 = this.f4418a.f4416a;
                     for (a aVar2 : list14) {
                         if (aVar2 != null) {
                             aVar2.b(bundle);
@@ -61,11 +61,11 @@ public class g extends Handler {
                 }
                 return;
             case 4101:
-                list11 = this.f4415a.f4413a;
+                list11 = this.f4418a.f4416a;
                 if (list11 != null) {
                     Bundle bundle2 = new Bundle();
                     com.baidu.platform.comapi.walknavi.g.a.a.a(bundle2, 2, message.arg1, message.arg2);
-                    list12 = this.f4415a.f4413a;
+                    list12 = this.f4418a.f4416a;
                     for (a aVar3 : list12) {
                         if (aVar3 != null) {
                             aVar3.c(bundle2);
@@ -75,9 +75,9 @@ public class g extends Handler {
                 }
                 return;
             case 4102:
-                list9 = this.f4415a.f4413a;
+                list9 = this.f4418a.f4416a;
                 if (list9 != null) {
-                    list10 = this.f4415a.f4413a;
+                    list10 = this.f4418a.f4416a;
                     for (a aVar4 : list10) {
                         if (aVar4 != null) {
                             aVar4.f(null);
@@ -87,10 +87,10 @@ public class g extends Handler {
                 }
                 return;
             case 4105:
-                list7 = this.f4415a.f4413a;
+                list7 = this.f4418a.f4416a;
                 if (list7 != null) {
                     byte[] l = com.baidu.platform.comapi.walknavi.b.a().D().l();
-                    list8 = this.f4415a.f4413a;
+                    list8 = this.f4418a.f4416a;
                     for (a aVar5 : list8) {
                         if (aVar5 != null) {
                             aVar5.a(l);
@@ -100,10 +100,10 @@ public class g extends Handler {
                 }
                 return;
             case 4106:
-                list5 = this.f4415a.f4413a;
+                list5 = this.f4418a.f4416a;
                 if (list5 != null) {
                     Bundle n = com.baidu.platform.comapi.walknavi.b.a().D().n();
-                    list6 = this.f4415a.f4413a;
+                    list6 = this.f4418a.f4416a;
                     for (a aVar6 : list6) {
                         if (aVar6 != null) {
                             aVar6.e(n);
@@ -113,11 +113,11 @@ public class g extends Handler {
                 }
                 return;
             case UIMsg.WalkNaviMsg.NL_UI_MESSAGE_TYPE_SPEED_UPDATE /* 4107 */:
-                list3 = this.f4415a.f4413a;
+                list3 = this.f4418a.f4416a;
                 if (list3 != null) {
                     Bundle bundle3 = new Bundle();
                     com.baidu.platform.comapi.walknavi.b.a().a(bundle3);
-                    list4 = this.f4415a.f4413a;
+                    list4 = this.f4418a.f4416a;
                     for (a aVar7 : list4) {
                         if (aVar7 != null) {
                             aVar7.a(bundle3);
@@ -125,16 +125,16 @@ public class g extends Handler {
                     }
                 }
                 if (!j.b()) {
-                    this.f4415a.c();
+                    this.f4418a.c();
                     return;
                 }
                 return;
             case 4108:
-                list = this.f4415a.f4413a;
+                list = this.f4418a.f4416a;
                 if (list != null) {
                     Bundle bundle4 = new Bundle();
                     com.baidu.platform.comapi.walknavi.b.a().D().c(bundle4);
-                    list2 = this.f4415a.f4413a;
+                    list2 = this.f4418a.f4416a;
                     for (a aVar8 : list2) {
                         if (aVar8 != null) {
                             aVar8.d(bundle4);

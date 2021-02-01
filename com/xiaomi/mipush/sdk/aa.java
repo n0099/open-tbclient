@@ -6,21 +6,21 @@ import android.content.Intent;
 final class aa implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f13796a;
+    final /* synthetic */ Context f13798a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ Intent f117a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(Context context, Intent intent) {
-        this.f13796a = context;
+        this.f13798a = context;
         this.f117a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.f13796a.startService(this.f117a);
+            this.f13798a.startService(this.f117a);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.m80a(e.getMessage());
         }

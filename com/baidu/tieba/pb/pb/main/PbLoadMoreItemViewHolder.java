@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
-    private String lLO;
-    private CustomMessageListener lcJ;
+    private String lUK;
+    private CustomMessageListener lkM;
     private LinearLayout mContainer;
     private ProgressBar mProgressBar;
     private View mRoot;
@@ -22,7 +22,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
     public PbLoadMoreItemViewHolder(View view, BdUniqueId bdUniqueId) {
         super(view);
-        this.lcJ = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder.1
+        this.lkM = new CustomMessageListener(2921471) { // from class: com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,13 +40,13 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.mTextView = (TextView) view.findViewById(R.id.pb_more_text);
         this.mProgressBar = (ProgressBar) view.findViewById(R.id.progress);
         this.mContainer.setVisibility(0);
-        this.lcJ.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.lcJ);
+        this.lkM.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.lkM);
         onChangeSkinType();
     }
 
-    public void at(String str, int i) {
-        this.lLO = str;
+    public void av(String str, int i) {
+        this.lUK = str;
         this.mTextView.setText(str);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams.height = i;
@@ -55,7 +55,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void onChangeSkinType() {
-        this.mTextView.setTextColor(com.baidu.tbadk.core.util.ao.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0109));
+        this.mTextView.setTextColor(com.baidu.tbadk.core.util.ap.getColor(TbadkCoreApplication.getInst().getSkinType(), R.color.CAM_X0109));
         this.mContainer.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
     }
 
@@ -70,8 +70,8 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
     public void endLoadData() {
         this.mProgressBar.setVisibility(8);
-        if (this.lLO != null) {
-            this.mTextView.setText(this.lLO);
+        if (this.lUK != null) {
+            this.mTextView.setText(this.lUK);
         } else {
             this.mTextView.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
         }

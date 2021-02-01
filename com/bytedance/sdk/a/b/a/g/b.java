@@ -9,18 +9,18 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    final Method f5934a;
+    final Method f5936a;
 
     /* renamed from: b  reason: collision with root package name */
-    final Method f5935b;
+    final Method f5937b;
 
     b(Method method, Method method2) {
-        this.f5934a = method;
-        this.f5935b = method2;
+        this.f5936a = method;
+        this.f5937b = method2;
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
@@ -28,7 +28,7 @@ public final class b extends e {
         try {
             SSLParameters sSLParameters = sSLSocket.getSSLParameters();
             List<String> a2 = a(list);
-            this.f5934a.invoke(sSLParameters, a2.toArray(new String[a2.size()]));
+            this.f5936a.invoke(sSLParameters, a2.toArray(new String[a2.size()]));
             sSLSocket.setSSLParameters(sSLParameters);
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw com.bytedance.sdk.a.b.a.c.f("unable to set ssl parameters", e);
@@ -38,7 +38,7 @@ public final class b extends e {
     @Override // com.bytedance.sdk.a.b.a.g.e
     public String c(SSLSocket sSLSocket) {
         try {
-            String str = (String) this.f5935b.invoke(sSLSocket, new Object[0]);
+            String str = (String) this.f5937b.invoke(sSLSocket, new Object[0]);
             if (str != null) {
                 if (!str.equals("")) {
                     return str;
@@ -55,7 +55,7 @@ public final class b extends e {
         throw new UnsupportedOperationException("clientBuilder.sslSocketFactory(SSLSocketFactory) not supported on JDK 9+");
     }
 
-    public static b enf() {
+    public static b epy() {
         try {
             return new b(SSLParameters.class.getMethod("setApplicationProtocols", String[].class), SSLSocket.class.getMethod("getApplicationProtocol", new Class[0]));
         } catch (NoSuchMethodException e) {

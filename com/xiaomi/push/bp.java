@@ -10,7 +10,7 @@ import com.xiaomi.push.cb;
 public class bp {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile bp f13888a;
+    private static volatile bp f13890a;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f213a;
@@ -37,7 +37,7 @@ public class bp {
     private ai.a f214a = new bq(this);
 
     /* renamed from: b  reason: collision with root package name */
-    private ai.a f13889b = new br(this);
+    private ai.a f13891b = new br(this);
     private ai.a c = new bs(this);
 
     private bp(Context context) {
@@ -45,14 +45,14 @@ public class bp {
     }
 
     public static bp a(Context context) {
-        if (f13888a == null) {
+        if (f13890a == null) {
             synchronized (bp.class) {
-                if (f13888a == null) {
-                    f13888a = new bp(context);
+                if (f13890a == null) {
+                    f13890a = new bp(context);
                 }
             }
         }
-        return f13888a;
+        return f13890a;
     }
 
     private boolean a() {

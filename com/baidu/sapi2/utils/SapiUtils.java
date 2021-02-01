@@ -85,7 +85,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class SapiUtils implements NoProguard {
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
     public static final String COOKIE_URL_PREFIX = "https://www.";
@@ -112,10 +112,10 @@ public class SapiUtils implements NoProguard {
     public static final String QR_LOGIN_LP_PC = "pc";
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f5089a = "cmd";
+    static final String f5091a = "cmd";
 
     /* renamed from: b  reason: collision with root package name */
-    static final String f5090b = "error";
+    static final String f5092b = "error";
     static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     static final String d = Character.toString(2);
     static final String e = Character.toString(3);
@@ -854,7 +854,7 @@ public class SapiUtils implements NoProguard {
                     hashMap2.put("islogin", "1");
                 }
                 hashMap2.put("client", HttpConstants.OS_TYPE_VALUE);
-                k.a(k.f5140a, hashMap2);
+                k.a(k.f5142a, hashMap2);
             }
             return urlParamsToMap;
         } else {

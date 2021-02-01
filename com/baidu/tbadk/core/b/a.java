@@ -6,30 +6,30 @@ import android.util.Log;
 import com.baidu.adp.lib.f.e;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class a {
-    private static a eIx;
-    private Runnable eIy = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
+    private static a eKD;
+    private Runnable eKE = new Runnable() { // from class: com.baidu.tbadk.core.b.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.mP(0);
+            a.this.mS(0);
         }
     };
 
-    public static a bkS() {
-        if (eIx == null) {
+    public static a blk() {
+        if (eKD == null) {
             synchronized (a.class) {
-                if (eIx == null) {
-                    eIx = new a();
+                if (eKD == null) {
+                    eKD = new a();
                 }
             }
         }
-        return eIx;
+        return eKD;
     }
 
-    public void mP(int i) {
+    public void mS(int i) {
         try {
             Bundle bundle = new Bundle();
             bundle.putString("package", "com.baidu.tieba");
@@ -41,14 +41,14 @@ public class a {
         }
     }
 
-    public boolean bkT() {
-        return am.check(RomUtils.ROM_EMUI);
+    public boolean bll() {
+        return an.check(RomUtils.ROM_EMUI);
     }
 
-    public void bkU() {
-        if (bkT()) {
-            mP(1);
-            e.mB().postDelayed(this.eIy, 500L);
+    public void blm() {
+        if (bll()) {
+            mS(1);
+            e.mA().postDelayed(this.eKE, 500L);
         }
     }
 }

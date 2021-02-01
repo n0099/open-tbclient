@@ -1,28 +1,23 @@
 package com.baidu.tieba.quickWebView.message;
 
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
+import java.util.HashMap;
+import java.util.Map;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
+import tbclient.GetWebviewCacheInfo.Offpack;
 /* loaded from: classes.dex */
 public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
-    private String mCacheDownUrl;
-    private String mMd5;
-    private String mVersion;
+    private Map<String, a> mModuleInfos;
 
     public WebViewCacheResHttpMsg() {
         super(1003365);
     }
 
-    public String getCacheDownloadUrl() {
-        return this.mCacheDownUrl;
-    }
-
-    public String getCacheMd5() {
-        return this.mMd5;
-    }
-
-    public String getCacheVersion() {
-        return this.mVersion;
+    public Map<String, a> getModuleInfos() {
+        return this.mModuleInfos;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,10 +26,18 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
         GetWebviewCacheInfoResIdl getWebviewCacheInfoResIdl = (GetWebviewCacheInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetWebviewCacheInfoResIdl.class);
         setError(getWebviewCacheInfoResIdl.error.errorno.intValue());
         setErrorString(getWebviewCacheInfoResIdl.error.usermsg);
-        if (getError() == 0) {
-            this.mCacheDownUrl = getWebviewCacheInfoResIdl.data.src;
-            this.mMd5 = getWebviewCacheInfoResIdl.data.md5;
-            this.mVersion = getWebviewCacheInfoResIdl.data.webview_version;
+        if (this.mModuleInfos == null) {
+            this.mModuleInfos = new HashMap();
+        }
+        if (getError() == 0 && !y.isEmpty(getWebviewCacheInfoResIdl.data.offpack_list)) {
+            this.mModuleInfos.clear();
+            for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
+                if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
+                    a aVar = new a();
+                    aVar.a(offpack);
+                    this.mModuleInfos.put(offpack.mod_name, aVar);
+                }
+            }
         }
     }
 }

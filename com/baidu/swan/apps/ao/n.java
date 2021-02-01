@@ -17,7 +17,7 @@ import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class n {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -113,7 +113,7 @@ public class n {
 
     @NonNull
     @CheckResult
-    public static String ac(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public static String ad(@NonNull String str, @NonNull String str2, @NonNull String str3) {
         try {
             PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
             Cipher cipher = Cipher.getInstance(str3);

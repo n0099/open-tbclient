@@ -5,18 +5,18 @@ import android.widget.FrameLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.lego.card.model.BigImgCard;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BigImgView extends BaseCardView<BigImgCard> {
-    private TbImageView abG;
+    private TbImageView abB;
 
     public BigImgView(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View cZQ() {
-        this.abG = new TbImageView(getContext());
-        return this.abG;
+    protected View dbO() {
+        this.abB = new TbImageView(getContext());
+        return this.abB;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,17 +29,17 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: a */
     public void d(BigImgCard bigImgCard) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.abG.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.abB.getLayoutParams();
         if (bigImgCard.getRatio() > 0.0d) {
             int ratio = (int) (bigImgCard.getRatio() * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()));
             if (Math.abs(ratio - layoutParams.height) > 10) {
                 layoutParams.height = ratio;
-                this.abG.setLayoutParams(layoutParams);
+                this.abB.setLayoutParams(layoutParams);
             }
         } else {
             layoutParams.height = (int) ((com.baidu.adp.lib.util.l.getEquipmentWidth(getContext()) * 0.5f) + 0.5f);
-            this.abG.setLayoutParams(layoutParams);
+            this.abB.setLayoutParams(layoutParams);
         }
-        this.abG.startLoad(bigImgCard.getUrl(), 10, false);
+        this.abB.startLoad(bigImgCard.getUrl(), 10, false);
     }
 }

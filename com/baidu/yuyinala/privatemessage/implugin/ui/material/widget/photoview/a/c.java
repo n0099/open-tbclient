@@ -5,20 +5,20 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 @TargetApi(8)
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends b {
-    protected final ScaleGestureDetector oVF;
+    protected final ScaleGestureDetector pfS;
 
     public c(Context context) {
         super(context);
-        this.oVF = new ScaleGestureDetector(context, new ScaleGestureDetector.OnScaleGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.c.1
+        this.pfS = new ScaleGestureDetector(context, new ScaleGestureDetector.OnScaleGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.c.1
             @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
                 float scaleFactor = scaleGestureDetector.getScaleFactor();
                 if (Float.isNaN(scaleFactor) || Float.isInfinite(scaleFactor)) {
                     return false;
                 }
-                c.this.oVB.onScale(scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+                c.this.pfO.onScale(scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
                 return true;
             }
 
@@ -34,13 +34,13 @@ public class c extends b {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
-    public boolean ejn() {
-        return this.oVF.isInProgress();
+    public boolean elH() {
+        return this.pfS.isInProgress();
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.b, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.oVF.onTouchEvent(motionEvent);
+        this.pfS.onTouchEvent(motionEvent);
         return super.onTouchEvent(motionEvent);
     }
 }

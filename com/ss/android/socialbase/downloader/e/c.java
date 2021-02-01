@@ -1,16 +1,16 @@
 package com.ss.android.socialbase.downloader.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f13142a;
+    private final int f13144a;
 
     public c(int i, int i2, String str) {
         super(i, str);
-        this.f13142a = i2;
+        this.f13144a = i2;
     }
 
     public int c() {
-        return this.f13142a;
+        return this.f13144a;
     }
 }

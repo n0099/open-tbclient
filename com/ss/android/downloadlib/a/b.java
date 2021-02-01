@@ -4,22 +4,22 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static volatile b pQS;
+    private static volatile b qaW;
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f12927b = null;
+    private Handler f12929b = null;
 
-    public static b eCa() {
-        if (pQS == null) {
+    public static b eEr() {
+        if (qaW == null) {
             synchronized (b.class) {
-                if (pQS == null) {
-                    pQS = new b();
+                if (qaW == null) {
+                    qaW = new b();
                 }
             }
         }
-        return pQS;
+        return qaW;
     }
 
     public void a(Context context, com.ss.android.socialbase.downloader.g.c cVar) {
@@ -32,18 +32,18 @@ public class b {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.f12927b == null) {
-                this.f12927b = new Handler(Looper.getMainLooper());
+            if (this.f12929b == null) {
+                this.f12929b = new Handler(Looper.getMainLooper());
             }
             final String j = cVar.j();
-            com.ss.android.socialbase.downloader.downloader.f.iy(context).j(cVar.g());
-            this.f12927b.post(new Runnable() { // from class: com.ss.android.downloadlib.a.b.1
+            com.ss.android.socialbase.downloader.downloader.f.iB(context).j(cVar.g());
+            this.f12929b.post(new Runnable() { // from class: com.ss.android.downloadlib.a.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.eCo().a(3, j.a(), null, "下载失败，请重试！", null, 0);
-                    f ZM = com.ss.android.downloadlib.h.eCM().ZM(j);
-                    if (ZM != null) {
-                        ZM.f();
+                    j.eEF().a(3, j.a(), null, "下载失败，请重试！", null, 0);
+                    f aaN = com.ss.android.downloadlib.h.eFd().aaN(j);
+                    if (aaN != null) {
+                        aaN.f();
                     }
                 }
             });

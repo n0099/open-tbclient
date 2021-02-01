@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.imageloader.core.assist;
 
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ContentLengthInputStream extends InputStream {
     private final int length;
     private final InputStream stream;

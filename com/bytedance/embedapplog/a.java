@@ -4,7 +4,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a extends IInterface {
     String a();
 
@@ -19,8 +19,8 @@ public interface a extends IInterface {
     void f();
 
     /* renamed from: com.bytedance.embedapplog.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static abstract class AbstractBinderC0981a extends Binder implements a {
+    /* loaded from: classes6.dex */
+    public static abstract class AbstractBinderC0985a extends Binder implements a {
         public static a a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -29,7 +29,7 @@ public interface a extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                 return (a) queryLocalInterface;
             }
-            return new C0982a(iBinder);
+            return new C0986a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -79,19 +79,19 @@ public interface a extends IInterface {
         }
 
         /* renamed from: com.bytedance.embedapplog.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        static class C0982a implements a {
+        /* loaded from: classes6.dex */
+        static class C0986a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f5769a;
+            private IBinder f5771a;
 
-            C0982a(IBinder iBinder) {
-                this.f5769a = iBinder;
+            C0986a(IBinder iBinder) {
+                this.f5771a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f5769a;
+                return this.f5771a;
             }
 
             @Override // com.bytedance.embedapplog.a
@@ -100,7 +100,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f5769a.transact(1, obtain, obtain2, 0);
+                    this.f5771a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -115,7 +115,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f5769a.transact(2, obtain, obtain2, 0);
+                    this.f5771a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -130,7 +130,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f5769a.transact(3, obtain, obtain2, 0);
+                    this.f5771a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -145,7 +145,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f5769a.transact(4, obtain, obtain2, 0);
+                    this.f5771a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -160,7 +160,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f5769a.transact(5, obtain, obtain2, 0);
+                    this.f5771a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -175,7 +175,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f5769a.transact(6, obtain, obtain2, 0);
+                    this.f5771a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

@@ -1,24 +1,17 @@
 package com.baidu.mobads.production;
-
-import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class h implements Runnable {
+/* loaded from: classes5.dex */
+class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f3452a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ b f3453b;
+    final /* synthetic */ a f3458a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(b bVar, Context context) {
-        this.f3453b = bVar;
-        this.f3452a = context;
+    public h(a aVar) {
+        this.f3458a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        new Thread(new i(this)).start();
+        this.f3458a.h.resize(this.f3458a.getProdBase().getWidth(), this.f3458a.getProdBase().getHeight());
     }
 }

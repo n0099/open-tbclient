@@ -1,32 +1,32 @@
 package com.qq.e.comm.plugin.ad;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11900a;
+    private String f11902a;
 
     /* renamed from: b  reason: collision with root package name */
-    private e f11901b;
+    private e f11903b;
     private d c;
 
     public m(String str, e eVar, int i) {
-        this.f11900a = str;
-        this.f11901b = eVar;
+        this.f11902a = str;
+        this.f11903b = eVar;
         this.c = c.a(eVar, i);
     }
 
     public m(String str, e eVar, d dVar) {
-        this.f11900a = str;
-        this.f11901b = eVar;
+        this.f11902a = str;
+        this.f11903b = eVar;
         this.c = dVar;
     }
 
     public String a() {
-        return this.f11900a;
+        return this.f11902a;
     }
 
     public e b() {
-        return this.f11901b;
+        return this.f11903b;
     }
 
     public int c() {

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class j extends com.baidu.android.pushservice.g.c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -15,7 +15,7 @@ public class j extends com.baidu.android.pushservice.g.c {
     private a f1274b;
     private String c;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i, String[] strArr);
     }

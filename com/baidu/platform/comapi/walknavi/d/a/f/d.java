@@ -13,18 +13,18 @@ import java.net.URL;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d extends AsyncTask<String, Void, String> implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    f.a<JSONObject> f4237a;
+    f.a<JSONObject> f4240a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f4238b;
+    private String f4241b;
 
     public d(String str, f.a<JSONObject> aVar) {
-        this.f4237a = aVar;
-        this.f4238b = str;
+        this.f4240a = aVar;
+        this.f4241b = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class d extends AsyncTask<String, Void, String> implements c {
     /* renamed from: a */
     public String doInBackground(String... strArr) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f4238b).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f4241b).openConnection();
             httpURLConnection.setConnectTimeout(20000);
             httpURLConnection.setReadTimeout(30000);
             httpURLConnection.setDoOutput(true);
@@ -63,15 +63,15 @@ public class d extends AsyncTask<String, Void, String> implements c {
     /* renamed from: a */
     public void onPostExecute(String str) {
         if (TextUtils.isEmpty(str)) {
-            if (this.f4237a != null) {
-                this.f4237a.b("http error! result is null");
+            if (this.f4240a != null) {
+                this.f4240a.b("http error! result is null");
                 return;
             }
             return;
         }
         try {
-            if (this.f4237a != null) {
-                this.f4237a.a(new JSONObject(str));
+            if (this.f4240a != null) {
+                this.f4240a.a(new JSONObject(str));
             }
         } catch (JSONException e) {
         }
@@ -80,6 +80,6 @@ public class d extends AsyncTask<String, Void, String> implements c {
     @Override // com.baidu.platform.comapi.walknavi.d.a.f.c
     public void a() {
         cancel(true);
-        this.f4237a = null;
+        this.f4240a = null;
     }
 }

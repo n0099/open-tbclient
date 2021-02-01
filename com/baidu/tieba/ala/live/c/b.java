@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.live.c;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import com.baidu.tieba.ala.live.b.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends a {
     public b(BaseActivity baseActivity) {
         super(baseActivity, PayChannelType.NUOMI);

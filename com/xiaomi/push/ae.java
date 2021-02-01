@@ -6,5 +6,5 @@ public class ae {
     public static boolean f172a = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13849a = "10.237.14.141";
+    public static String f13851a = "10.237.14.141";
 }

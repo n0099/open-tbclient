@@ -5,11 +5,11 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class a extends ThreadPoolExecutor {
 
     /* renamed from: com.baidu.android.pushservice.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     protected class C0042a<V> extends FutureTask<V> implements Comparable<C0042a<V>> {
 
         /* renamed from: b  reason: collision with root package name */

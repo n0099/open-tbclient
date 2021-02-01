@@ -19,7 +19,7 @@ import com.baidu.tieba.live.tbean.data.IconInfoData;
 import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BuyTBeanGridAdapter extends BaseAdapter {
     private Context mContext;
     private List<IconInfoData> mIconInfoDatas = new ArrayList();
@@ -102,7 +102,7 @@ public class BuyTBeanGridAdapter extends BaseAdapter {
         return view;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private class BeanHolder {
         TbImageView ivIcon;
         TextView tvBeanName;

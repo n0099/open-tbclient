@@ -1,90 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.tbadkCore.z;
-import com.tencent.connect.common.Constants;
-import java.util.Date;
+import com.baidu.adp.lib.util.s;
+import com.baidu.adp.lib.util.u;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ar;
+import java.io.File;
+import java.io.FileInputStream;
+import java.security.PublicKey;
 /* loaded from: classes.dex */
 public class i {
-    public static String getTiebaApkMd5() {
-        String str = null;
+    public static boolean q(String str, File file) {
+        if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
+            TiebaStatic.log(new ar("c10836").dR("obj_type", "checkRSA input args is null"));
+            return false;
+        }
         try {
-            String versionName = TbadkCoreApplication.getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.VERSION_NAME, "");
-            if (!TextUtils.isEmpty(versionName)) {
-                if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.brx().getString(SharedPrefConfig.APK_MD5, "");
-                } else {
-                    com.baidu.tbadk.core.sharedPref.b.brx().putString(SharedPrefConfig.VERSION_NAME, versionName);
-                    String aPKMd5 = av.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.brx().putString(SharedPrefConfig.APK_MD5, aPKMd5);
-                    str = aPKMd5;
-                }
+            PublicKey loadRSAPublicKey = u.loadRSAPublicKey(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+            if (loadRSAPublicKey == null) {
+                TiebaStatic.log(new ar("c10836").dR("obj_type", "publicKeyCode is null").dR("obj_source", file.getName()));
+                return false;
             }
-        } catch (PackageManager.NameNotFoundException e) {
-            BdLog.detailException(e);
-        }
-        return str;
-    }
-
-    public static boolean a(PackageManager packageManager) {
-        for (PackageInfo packageInfo : packageManager.getInstalledPackages(8192)) {
-            if (packageInfo != null) {
-                String str = packageInfo.packageName;
-                if (!TextUtils.isEmpty(str) && str.equals("com.baidu.appsearch")) {
-                    return packageInfo.versionCode >= 16782633;
-                }
+            byte[] decodeHex = decodeHex(str);
+            if (decodeHex == null || decodeHex.length <= 0) {
+                TiebaStatic.log(new ar("c10836").dR("obj_type", "server_data is null").dR("obj_source", file.getName()));
+                return false;
             }
+            byte[] decryptWithRSA = u.decryptWithRSA(loadRSAPublicKey, decodeHex);
+            if (decryptWithRSA == null || decryptWithRSA.length <= 0) {
+                TiebaStatic.log(new ar("c10836").dR("obj_type", "des is null").dR("obj_source", file.getName()));
+                return false;
+            }
+            String trim = new String(decryptWithRSA, "UTF-8").trim();
+            String md5 = s.toMd5(new FileInputStream(file));
+            if (md5 != null) {
+                md5 = md5.trim();
+            }
+            if (TextUtils.isEmpty(md5) || TextUtils.isEmpty(trim)) {
+                TiebaStatic.log(new ar("c10836").dR("obj_type", "apkMd5 or serverMD5 is null").dR("obj_source", file.getName()));
+                return false;
+            } else if (md5.equalsIgnoreCase(trim)) {
+                return true;
+            } else {
+                TiebaStatic.log(new ar("c10836").dR("obj_type", "apkMd5 != serverMD5").dR("obj_source", file.getName()));
+                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
+                return false;
+            }
+        } catch (Exception e) {
+            TiebaStatic.log(new ar("c10836").dR("obj_type", "exception:" + e.getMessage()).dR("obj_source", file.getName()));
+            BdLog.e("download MD5 RSA ERROR！Exception:" + e.getMessage() + " ; file:" + file.getName());
+            return false;
         }
-        return false;
     }
 
-    public static boolean a(Context context, CombineDownload combineDownload) {
-        return (combineDownload == null || z.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+    private static int e(char c) {
+        int digit = Character.digit(c, 16);
+        if (digit == -1) {
+            throw new RuntimeException("Illegal hexadecimal character " + c);
+        }
+        return digit;
     }
 
-    public static void a(Context context, VersionData versionData) {
-        String str = "-1";
-        try {
-            str = av.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
-        } catch (PackageManager.NameNotFoundException e) {
-            BdLog.detailException(e);
-        } catch (NumberFormatException e2) {
-            BdLog.detailException(e2);
+    public static byte[] decodeHex(String str) {
+        int i = 0;
+        if (str == null) {
+            throw new IllegalArgumentException("binary string is null");
         }
-        Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-        intent.setFlags(268435488);
-        intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-        intent.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-        intent.putExtra("func", Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
-        Bundle bundle = new Bundle();
-        bundle.putInt("versioncode", versionData.getNewVersionCode());
-        bundle.putLong("patch_size", com.baidu.adp.lib.f.b.toLong(versionData.getPatchSize(), 0L));
-        bundle.putString("patch_url", versionData.getPatch());
-        bundle.putString("sname", context.getString(R.string.app_name));
-        bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-        bundle.putString("downurl", versionData.getUrl());
-        bundle.putString("versionname", versionData.getNewVersion());
-        bundle.putString("iconurl", versionData.getTiebaIconUrl());
-        bundle.putString("updatetime", at.getDateStringDay(new Date(System.currentTimeMillis())));
-        bundle.putString(TiebaInitialize.LogFields.SIZE, versionData.getSize());
-        bundle.putString("signmd5", str);
-        bundle.putString("tj", str + context.getString(R.string.app_name));
-        intent.putExtra("extra_client_downloadinfo", bundle);
-        context.startActivity(intent);
+        char[] charArray = str.toCharArray();
+        byte[] bArr = new byte[charArray.length / 2];
+        if (charArray.length % 2 != 0) {
+            return null;
+        }
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 + 1 >= charArray.length || i3 >= bArr.length) {
+                break;
+            }
+            i = i3 + 1;
+            int i4 = i2 + 1;
+            int e = e(charArray[i2]) << 4;
+            i2 = i4 + 1;
+            bArr[i3] = (byte) (e(charArray[i4]) | e);
+        }
+        return bArr;
     }
 }

@@ -8,25 +8,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.j.a.a;
 import com.baidu.sapi2.SapiAccountManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f5169a;
+    private View f5171a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ObjectAnimator f5170b;
+    private ObjectAnimator f5172b;
     private View c;
     private LinearLayout d;
 
     public b(Context context) {
         super(context);
-        this.f5169a = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
-        this.c = this.f5169a.findViewById(a.e.sweep_iv);
-        this.d = (LinearLayout) this.f5169a.findViewById(a.e.sapi_sdk_sweep_light_loading_bg_layout);
+        this.f5171a = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
+        this.c = this.f5171a.findViewById(a.e.sweep_iv);
+        this.d = (LinearLayout) this.f5171a.findViewById(a.e.sapi_sdk_sweep_light_loading_bg_layout);
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode) {
             this.d.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_color));
         }
@@ -36,20 +35,20 @@ public class b extends FrameLayout {
     private void a() {
         b();
         new ObjectAnimator();
-        this.f5170b = ObjectAnimator.ofFloat(this.c, "translationX", -300.0f, 300.0f);
-        this.f5170b.setDuration(1000L);
-        this.f5170b.setRepeatMode(1);
-        this.f5170b.setRepeatCount(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.f5170b.start();
+        this.f5172b = ObjectAnimator.ofFloat(this.c, "translationX", -300.0f, 300.0f);
+        this.f5172b.setDuration(1000L);
+        this.f5172b.setRepeatMode(1);
+        this.f5172b.setRepeatCount(Integer.MAX_VALUE);
+        this.f5172b.start();
     }
 
     @TargetApi(11)
     private void b() {
-        ObjectAnimator objectAnimator = this.f5170b;
+        ObjectAnimator objectAnimator = this.f5172b;
         if (objectAnimator == null || !objectAnimator.isRunning()) {
             return;
         }
-        this.f5170b.end();
+        this.f5172b.end();
     }
 
     @Override // android.view.View

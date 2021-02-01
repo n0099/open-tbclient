@@ -2,7 +2,7 @@ package com.baidu.searchbox.aperf.bosuploader.uploadstrategy;
 
 import java.io.File;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IUpload {
     void upload();
 

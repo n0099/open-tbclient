@@ -1,15 +1,15 @@
 package com.baidu.tieba.recommendlist.model;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpMessage {
-    public int aNM;
-    public int aaq;
-    public long ibN;
+    public int aQN;
+    public int aam;
+    public long igl;
     public long liveId;
-    public int mRt;
-    public int mRu;
-    public long mRv;
+    public int naQ;
+    public int naR;
+    public long naS;
 
     public a() {
         super(1021193);
@@ -17,10 +17,10 @@ public class a extends HttpMessage {
 
     public void setParams() {
         addParam("live_id", this.liveId);
-        addParam("session_id", this.ibN);
-        addParam("refresh_type", this.aaq);
-        addParam("big_refresh_count", this.mRt);
-        addParam("live_recommend_switch", this.aNM);
-        addParam("live_recommend_lastlyliveid", this.mRv);
+        addParam("session_id", this.igl);
+        addParam("refresh_type", this.aam);
+        addParam("big_refresh_count", this.naQ);
+        addParam("live_recommend_switch", this.aQN);
+        addParam("live_recommend_lastlyliveid", this.naS);
     }
 }

@@ -6,7 +6,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TimeInterpolator;
 import android.view.View;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 class TranslationAnimationCreator {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Animator createAnimation(View view, TransitionValues transitionValues, int i, int i2, float f, float f2, float f3, float f4, TimeInterpolator timeInterpolator) {
@@ -32,7 +32,7 @@ class TranslationAnimationCreator {
         return ofPropertyValuesHolder;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     private static class TransitionPositionListener extends AnimatorListenerAdapter {
         private final View mMovingView;
         private float mPausedX;

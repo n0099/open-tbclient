@@ -7,7 +7,7 @@ import com.tencent.mm.opensdk.utils.Log;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class b implements OAuthListener {
     final /* synthetic */ a f;
 

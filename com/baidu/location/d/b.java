@@ -7,14 +7,14 @@ import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.location.a.n;
 import com.tencent.connect.common.Constants;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2625a = null;
+    public String f2623a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2626b = null;
+    public String f2624b = null;
     public String c = null;
     private boolean j = false;
     private static b i = null;
@@ -80,15 +80,15 @@ public class b {
                 stringBuffer.append(j);
             }
         }
-        if (this.f2626b == null) {
+        if (this.f2624b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.f2625a);
+            stringBuffer.append(this.f2623a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(this.f2626b);
-            if (this.f2625a != null && !this.f2625a.equals("NULL") && !this.f2626b.contains(new StringBuffer(this.f2625a).reverse().toString())) {
+            stringBuffer.append(this.f2624b);
+            if (this.f2623a != null && !this.f2623a.equals("NULL") && !this.f2624b.contains(new StringBuffer(this.f2623a).reverse().toString())) {
                 stringBuffer.append("&Aim=");
-                stringBuffer.append(this.f2625a);
+                stringBuffer.append(this.f2623a);
             }
         }
         if (this.c != null) {
@@ -130,14 +130,14 @@ public class b {
             return;
         }
         try {
-            this.f2625a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            this.f2623a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
         } catch (Exception e2) {
-            this.f2625a = "NULL";
+            this.f2623a = "NULL";
         }
         try {
-            this.f2626b = CommonParam.a(context);
+            this.f2624b = CommonParam.a(context);
         } catch (Exception e3) {
-            this.f2626b = null;
+            this.f2624b = null;
         }
         try {
             this.c = com.baidu.android.bbalbs.common.util.b.c(context);
@@ -149,7 +149,7 @@ public class b {
         } catch (Exception e5) {
             d = null;
         }
-        j.o = "" + this.f2626b;
+        j.o = "" + this.f2624b;
         this.j = true;
     }
 

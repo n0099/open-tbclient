@@ -6,24 +6,24 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class d {
     private static final Pattern d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
     private static final Pattern e = Pattern.compile("GET /(.*) HTTP");
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f9482a;
+    public final String f9484a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f9483b;
+    public final long f9485b;
     public final boolean c;
 
     public d(String str) {
         j.a(str);
         long a2 = a(str);
-        this.f9483b = Math.max(0L, a2);
+        this.f9485b = Math.max(0L, a2);
         this.c = a2 >= 0;
-        this.f9482a = b(str);
+        this.f9484a = b(str);
     }
 
     private long a(String str) {
@@ -55,6 +55,6 @@ class d {
     }
 
     public String toString() {
-        return "GetRequest{rangeOffset=" + this.f9483b + ", partial=" + this.c + ", uri='" + this.f9482a + "'}";
+        return "GetRequest{rangeOffset=" + this.f9485b + ", partial=" + this.c + ", uri='" + this.f9484a + "'}";
     }
 }

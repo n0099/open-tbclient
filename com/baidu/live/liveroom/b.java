@@ -1,9 +1,9 @@
 package com.baidu.live.liveroom;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private String key;
 
-    public b gL(String str) {
+    public b hk(String str) {
         this.key = str;
         return this;
     }

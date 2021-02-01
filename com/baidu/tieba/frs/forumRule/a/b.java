@@ -7,5 +7,5 @@ public interface b {
 
     void a(ForumRuleBaseData forumRuleBaseData, boolean z);
 
-    void m(int i, String str, boolean z);
+    void l(int i, String str, boolean z);
 }

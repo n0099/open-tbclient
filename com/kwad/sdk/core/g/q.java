@@ -2,7 +2,7 @@ package com.kwad.sdk.core.g;
 
 import com.kwad.sdk.core.scene.URLPackage;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class q extends com.kwad.sdk.core.network.d {
     public q(com.kwad.sdk.core.g.a.f fVar, long j) {
         JSONArray jSONArray = new JSONArray();

@@ -14,15 +14,15 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableConcatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final h<? super T, ? extends t<? extends U>> mapper;
-    final ErrorMode qfo;
+    final ErrorMode qps;
 
     @Override // io.reactivex.q
     public void a(u<? super U> uVar) {
         if (!ObservableScalarXMap.a(this.source, uVar, this.mapper)) {
-            if (this.qfo == ErrorMode.IMMEDIATE) {
+            if (this.qps == ErrorMode.IMMEDIATE) {
                 this.source.subscribe(new SourceObserver(new io.reactivex.observers.b(uVar), this.mapper, this.bufferSize));
             } else {
-                this.source.subscribe(new ConcatMapDelayErrorObserver(uVar, this.mapper, this.bufferSize, this.qfo == ErrorMode.END));
+                this.source.subscribe(new ConcatMapDelayErrorObserver(uVar, this.mapper, this.bufferSize, this.qps == ErrorMode.END));
             }
         }
     }
@@ -141,7 +141,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                                     this.active = true;
                                     tVar.subscribe(this.inner);
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.O(th);
+                                    io.reactivex.exceptions.a.N(th);
                                     dispose();
                                     this.queue.clear();
                                     this.actual.onError(th);
@@ -149,7 +149,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                                 }
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.O(th2);
+                            io.reactivex.exceptions.a.N(th2);
                             dispose();
                             this.queue.clear();
                             this.actual.onError(th2);
@@ -329,7 +329,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                                                     uVar.onNext(obj);
                                                 }
                                             } catch (Throwable th) {
-                                                io.reactivex.exceptions.a.O(th);
+                                                io.reactivex.exceptions.a.N(th);
                                                 atomicThrowable.addThrowable(th);
                                             }
                                         } else {
@@ -337,7 +337,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                                             tVar.subscribe(this.observer);
                                         }
                                     } catch (Throwable th2) {
-                                        io.reactivex.exceptions.a.O(th2);
+                                        io.reactivex.exceptions.a.N(th2);
                                         this.cancelled = true;
                                         this.d.dispose();
                                         fVar.clear();
@@ -347,7 +347,7 @@ public final class ObservableConcatMap<T, U> extends a<T, U> {
                                     }
                                 }
                             } catch (Throwable th3) {
-                                io.reactivex.exceptions.a.O(th3);
+                                io.reactivex.exceptions.a.N(th3);
                                 this.cancelled = true;
                                 this.d.dispose();
                                 atomicThrowable.addThrowable(th3);

@@ -5,10 +5,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SplashHttpResponse extends JsonHttpResponsedMessage {
     private AdInfo adInfo;
     private int errno;
@@ -41,10 +41,10 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
     }
 
     private void dealVideoAd() {
-        if (n.checkSD()) {
-            b EL = b.EL(com.baidu.tieba.advert.sdk.c.a.bMc());
+        if (o.checkSD()) {
+            b Fj = b.Fj(com.baidu.tieba.advert.sdk.c.a.bMC());
             if (!this.adInfo.shouldDownloadVideo()) {
-                this.adInfo.videoLocalPath = EL.videoLocalPath;
+                this.adInfo.videoLocalPath = Fj.videoLocalPath;
                 com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
             } else if (j.isNetWorkAvailable() && j.isWifiNet()) {
                 com.baidu.tieba.advert.sdk.b.a searchTask = searchTask(this.adInfo.adVideoUrl);

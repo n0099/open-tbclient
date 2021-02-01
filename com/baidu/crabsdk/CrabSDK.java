@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Future;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class CrabSDK {
     public static final int ANR_CLOSE = 0;
     public static final int ANR_OBSERVER_LOGCAT = 1;
@@ -51,11 +51,11 @@ public class CrabSDK {
     }
 
     public static void disableBlockCatch() {
-        if (b.ul() == null) {
+        if (b.ui() == null) {
             com.baidu.crabsdk.c.a.w("Block Monitor has never been enabled!");
             return;
         }
-        b.ul().stop();
+        b.ui().stop();
         c.ad(T);
         c.stop();
     }
@@ -92,7 +92,7 @@ public class CrabSDK {
     }
 
     public static HashMap<String, String> getUsersCustomKV() {
-        return t.ut();
+        return t.uq();
     }
 
     public static void init(Application application, String str) {
@@ -178,7 +178,7 @@ public class CrabSDK {
         if (z) {
             initCrashSwitch(application);
             initCollector(application);
-            f.uw().e(application);
+            f.ut().e(application);
             initAnrCollector(application, str);
         }
     }
@@ -219,13 +219,13 @@ public class CrabSDK {
 
     public static void resumeAnrWatchThread(int i) {
         try {
-            Thread ur = com.baidu.crabsdk.b.c.ur();
-            if (ur == null) {
+            Thread uo = com.baidu.crabsdk.b.c.uo();
+            if (uo == null) {
                 initAnrCollector(T, a.d);
                 com.baidu.crabsdk.c.a.v("ANR watch thread is null, init anrCollector again");
             } else if (a.I == 0) {
                 a.I = i;
-                new Thread(ur).start();
+                new Thread(uo).start();
             } else {
                 com.baidu.crabsdk.c.a.dt("ANR watch thread is running");
             }
@@ -261,9 +261,9 @@ public class CrabSDK {
 
     public static void setChannel(String str) {
         if (str == null || str.length() == 0) {
-            a.f1692b = "alpha";
+            a.f1690b = "alpha";
         } else {
-            a.f1692b = str;
+            a.f1690b = str;
         }
     }
 
@@ -279,7 +279,7 @@ public class CrabSDK {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        com.baidu.crabsdk.b.h.aph = str;
+        com.baidu.crabsdk.b.h.aoX = str;
     }
 
     public static void setDebugAnrExpUrl(String str) {
@@ -295,7 +295,7 @@ public class CrabSDK {
     }
 
     public static void setDeveloperName(String str) {
-        a.f1691a = str;
+        a.f1689a = str;
     }
 
     public static void setEnableLog(boolean z) {
@@ -367,7 +367,7 @@ public class CrabSDK {
     }
 
     public static void setUsersCustomKV(String str, String str2) {
-        t.ut().put(str, str2);
+        t.uq().put(str, str2);
     }
 
     public static void setUsersCustomKV(HashMap<String, String> hashMap) {
@@ -414,13 +414,13 @@ public class CrabSDK {
             str3 = "";
         }
         if (!TextUtils.isEmpty(str2)) {
-            com.baidu.crabsdk.b.h.aph = str2;
+            com.baidu.crabsdk.b.h.aoX = str2;
         }
         return k.b(str.trim(), onUploadFilesCallback, "", "", str3);
     }
 
     private static void uploadRecord(Application application) {
-        if (!h.uy() || a.D) {
+        if (!h.uv() || a.D) {
             return;
         }
         k.a(true, (Context) application);

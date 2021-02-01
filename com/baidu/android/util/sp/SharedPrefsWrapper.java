@@ -7,7 +7,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     private static final boolean DEBUG = false;
     private static final int MAX_STRING_LENGTH = 256;

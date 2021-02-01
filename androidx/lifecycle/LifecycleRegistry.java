@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LifecycleRegistry extends Lifecycle {
     private static final String LOG_TAG = "LifecycleRegistry";
     private final WeakReference<LifecycleOwner> mLifecycleOwner;
@@ -209,7 +209,7 @@ public class LifecycleRegistry extends Lifecycle {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ObserverWithState {
         GenericLifecycleObserver mLifecycleObserver;
         Lifecycle.State mState;

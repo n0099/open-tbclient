@@ -2,10 +2,10 @@ package com.bytedance.sdk.openadsdk.core.video.nativevideo;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface c {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -16,7 +16,7 @@ public interface c {
         void b(long j, int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(long j, long j2);
 
@@ -30,8 +30,8 @@ public interface c {
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.nativevideo.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1007c {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1011c {
         void a(int i, int i2);
 
         void f();
@@ -41,7 +41,7 @@ public interface c {
 
     void a(a aVar);
 
-    void a(InterfaceC1007c interfaceC1007c);
+    void a(InterfaceC1011c interfaceC1011c);
 
     void a(e eVar);
 

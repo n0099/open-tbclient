@@ -2,6 +2,6 @@ package kotlin.a;
 
 import kotlin.e;
 @e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 class c extends b {
 }

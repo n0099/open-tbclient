@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.data;
 
 import com.baidu.live.data.AlaLivePerfBaseData;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLivePlayerPerfData extends AlaLivePerfBaseData {
     public static final int WATCH_STYLE_NORMAL = 1;
     public static final int WATCH_STYLE_PAGE_CHANGE = 3;

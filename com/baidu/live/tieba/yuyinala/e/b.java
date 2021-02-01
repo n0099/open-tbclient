@@ -14,12 +14,12 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.view.BdGridView;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements View.OnClickListener {
-    private TextView bJQ;
-    private BdGridView bJT;
-    private com.baidu.live.tieba.yuyinala.a.a bJU;
-    private String bJj;
+    private String bMT;
+    private TextView bNA;
+    private BdGridView bND;
+    private com.baidu.live.tieba.yuyinala.a.a bNE;
     private String mLiveId;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -34,13 +34,13 @@ public class b implements View.OnClickListener {
 
     private void initView() {
         this.mView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.yuyin_ala_activity_choose_feedback_reason_layout, (ViewGroup) null);
-        this.bJT = (BdGridView) this.mView.findViewById(a.f.id_feedback_gridview);
-        this.bJQ = (TextView) this.mView.findViewById(a.f.id_feenback_confirm_btn);
-        this.bJQ.setEnabled(false);
-        this.bJQ.setOnClickListener(this);
-        this.bJU = new com.baidu.live.tieba.yuyinala.a.a(this.mPageContext);
-        this.bJT.setAdapter((ListAdapter) this.bJU);
-        this.bJT.setOnItemClickListener(new a());
+        this.bND = (BdGridView) this.mView.findViewById(a.f.id_feedback_gridview);
+        this.bNA = (TextView) this.mView.findViewById(a.f.id_feenback_confirm_btn);
+        this.bNA.setEnabled(false);
+        this.bNA.setOnClickListener(this);
+        this.bNE = new com.baidu.live.tieba.yuyinala.a.a(this.mPageContext);
+        this.bND.setAdapter((ListAdapter) this.bNE);
+        this.bND.setOnItemClickListener(new a());
     }
 
     public void aN(String str, String str2) {
@@ -48,10 +48,10 @@ public class b implements View.OnClickListener {
         this.mRoomId = str2;
     }
 
-    public void D(String str, String str2, String str3) {
+    public void E(String str, String str2, String str3) {
         this.mLiveId = str;
         this.mRoomId = str2;
-        this.bJj = str3;
+        this.bMT = str3;
     }
 
     @Override // android.view.View.OnClickListener
@@ -62,7 +62,7 @@ public class b implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements AdapterView.OnItemClickListener {
         private a() {
         }
@@ -71,21 +71,21 @@ public class b implements View.OnClickListener {
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             com.baidu.live.tieba.yuyinala.c.a item = ((com.baidu.live.tieba.yuyinala.a.a) adapterView.getAdapter()).getItem(i);
             if (item != null) {
-                if (item.Tv() != 0) {
-                    if (b.this.bJU.Tt() == i) {
-                        b.this.bJU.eT(-1);
-                        b.this.bJU.notifyDataSetChanged();
-                        b.this.bJQ.setEnabled(false);
+                if (item.Vc() != 0) {
+                    if (b.this.bNE.Va() == i) {
+                        b.this.bNE.eX(-1);
+                        b.this.bNE.notifyDataSetChanged();
+                        b.this.bNA.setEnabled(false);
                         return;
                     }
-                    b.this.bJU.eT(i);
-                    b.this.bJU.notifyDataSetChanged();
-                    b.this.bJQ.setEnabled(true);
+                    b.this.bNE.eX(i);
+                    b.this.bNE.notifyDataSetChanged();
+                    b.this.bNA.setEnabled(true);
                     return;
                 }
                 ab abVar = new ab(b.this.mPageContext.getPageActivity());
                 abVar.ak(b.this.mLiveId, b.this.mRoomId);
-                abVar.eS(b.this.bJj);
+                abVar.fk(b.this.bMT);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, abVar));
                 b.this.mPageContext.getPageActivity().finish();
             }
@@ -100,13 +100,13 @@ public class b implements View.OnClickListener {
     }
 
     public void setData(List<com.baidu.live.tieba.yuyinala.c.a> list) {
-        this.bJU.setData(list);
+        this.bNE.setData(list);
     }
 
-    public com.baidu.live.tieba.yuyinala.c.a TB() {
-        if (this.bJU == null || this.bJU.Tt() < 0) {
+    public com.baidu.live.tieba.yuyinala.c.a Vi() {
+        if (this.bNE == null || this.bNE.Va() < 0) {
             return null;
         }
-        return this.bJU.getItem(this.bJU.Tt());
+        return this.bNE.getItem(this.bNE.Va());
     }
 }

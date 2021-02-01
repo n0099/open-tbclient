@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.frameworkdata;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CmdConfigCustom {
     public static final int ACTIVITY_IMBLACK_LIST = 2008001;
     public static final int ACTIVITY_REFRESH = 2003001;

@@ -3,10 +3,10 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.SetBackground.DataReq;
 import tbclient.SetBackground.SetBackgroundReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BackgroundSetRequestMessage extends NetMessage {
     private boolean isFromDetail;
     private int propId;
@@ -23,7 +23,7 @@ public class BackgroundSetRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.props_id = Integer.valueOf(this.propId);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         SetBackgroundReqIdl.Builder builder2 = new SetBackgroundReqIdl.Builder();
         builder2.data = builder.build(false);

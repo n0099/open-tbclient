@@ -14,18 +14,18 @@ import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
 import com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel;
 import com.baidu.tieba.themeCenter.dressCenter.e;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCategoryActivity> {
-    private c nyq;
-    private PersonalCardCategoryModel nyr;
-    private SetPersonalCardModel nys;
-    private PersonalCardItemView.a nyl = new PersonalCardItemView.a() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity.1
+    private c nIa;
+    private PersonalCardCategoryModel nIb;
+    private SetPersonalCardModel nIc;
+    private PersonalCardItemView.a nHV = new PersonalCardItemView.a() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity.1
         @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardItemView.a
         public void a(com.baidu.tieba.themeCenter.a aVar) {
             if (aVar != null) {
-                if (aVar.getCardId() == com.baidu.tieba.themeCenter.a.nvE) {
-                    if (aVar.dOG() != 1 && PersonalCardCategoryActivity.this.nys != null) {
-                        PersonalCardCategoryActivity.this.nys.L(aVar.getCardId(), 1);
+                if (aVar.getCardId() == com.baidu.tieba.themeCenter.a.nFo) {
+                    if (aVar.dQR() != 1 && PersonalCardCategoryActivity.this.nIc != null) {
+                        PersonalCardCategoryActivity.this.nIc.J(aVar.getCardId(), 1);
                         return;
                     }
                     return;
@@ -34,29 +34,29 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
             }
         }
     };
-    private PersonalCardCategoryModel.a nyt = new PersonalCardCategoryModel.a() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity.2
+    private PersonalCardCategoryModel.a nId = new PersonalCardCategoryModel.a() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity.2
         @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryModel.a
         public void a(int i, String str, e eVar, List<a> list, boolean z) {
-            PersonalCardCategoryActivity.this.hideLoadingView(PersonalCardCategoryActivity.this.nyq.getRootView());
+            PersonalCardCategoryActivity.this.hideLoadingView(PersonalCardCategoryActivity.this.nIa.getRootView());
             if (i != 0) {
                 PersonalCardCategoryActivity.this.showToast(str);
             }
-            PersonalCardCategoryActivity.this.nyq.a(i, eVar, list, true);
+            PersonalCardCategoryActivity.this.nIa.a(i, eVar, list, true);
         }
     };
-    private SetPersonalCardModel.a nyu = new SetPersonalCardModel.a() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity.3
+    private SetPersonalCardModel.a nIe = new SetPersonalCardModel.a() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity.3
         @Override // com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel.a
         public void b(boolean z, long j, int i, String str, int i2) {
-            if (z && PersonalCardCategoryActivity.this.nyr != null) {
-                PersonalCardCategoryActivity.this.nyr.J(j, i);
+            if (z && PersonalCardCategoryActivity.this.nIb != null) {
+                PersonalCardCategoryActivity.this.nIb.H(j, i);
             }
         }
     };
-    private BdListView.e gyE = new BdListView.e() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity.4
+    private BdListView.e gBo = new BdListView.e() { // from class: com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity.4
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (PersonalCardCategoryActivity.this.nyr != null) {
-                PersonalCardCategoryActivity.this.nyr.dOY();
+            if (PersonalCardCategoryActivity.this.nIb != null) {
+                PersonalCardCategoryActivity.this.nIb.dRj();
             }
         }
     };
@@ -65,23 +65,23 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.nyq = new c(this);
-        this.nyq.setOnSrollToBottomListener(this.gyE);
-        this.nyq.setCardViewController(this.nyl);
-        this.nyr = new PersonalCardCategoryModel(this);
-        this.nyr.a(this.nyt);
-        this.nys = new SetPersonalCardModel();
-        this.nys.a(this.nyu);
-        showLoadingView(this.nyq.getRootView());
-        this.nyr.LoadData();
+        this.nIa = new c(this);
+        this.nIa.setOnSrollToBottomListener(this.gBo);
+        this.nIa.setCardViewController(this.nHV);
+        this.nIb = new PersonalCardCategoryModel(this);
+        this.nIb.a(this.nId);
+        this.nIc = new SetPersonalCardModel();
+        this.nIc.a(this.nIe);
+        showLoadingView(this.nIa.getRootView());
+        this.nIb.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nyq != null) {
-            this.nyq.onChangeSkinType();
+        if (this.nIa != null) {
+            this.nIa.onChangeSkinType();
         }
     }
 
@@ -89,20 +89,20 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.nyr != null) {
-            this.nyr.onDestroy();
+        if (this.nIb != null) {
+            this.nIb.onDestroy();
         }
-        if (this.nys != null) {
-            this.nys.onDestroy();
+        if (this.nIc != null) {
+            this.nIc.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nyr != null && this.nyq != null) {
-            showLoadingView(this.nyq.getRootView());
-            this.nyr.LoadData();
+        if (this.nIb != null && this.nIa != null) {
+            showLoadingView(this.nIa.getRootView());
+            this.nIb.LoadData();
         }
     }
 

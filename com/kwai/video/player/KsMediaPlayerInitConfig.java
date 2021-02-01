@@ -9,7 +9,7 @@ import com.kwai.video.hodor.util.OnceReadyBarrier;
 import com.kwai.video.hodor.util.Timber;
 import com.kwai.video.player.kwai_player.KwaiMediaPlayer;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KsMediaPlayerInitConfig {
     private static volatile KsSoLoader sInjectedSoLoader;
     public static String packageName = null;

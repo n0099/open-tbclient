@@ -6,7 +6,7 @@ import com.sdk.base.framework.a.a.c;
 import com.sdk.base.module.manager.SDKManager;
 import com.sdk.mobile.b.a.a;
 import com.sdk.mobile.manager.oauth.cucc.OauthManager;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class OauthManagerCtc extends SDKManager {
     private static volatile OauthManagerCtc manager;
     private Context mContext;

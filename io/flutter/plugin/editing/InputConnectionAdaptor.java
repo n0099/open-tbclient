@@ -16,12 +16,11 @@ import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.CursorAnchorInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import io.flutter.Log;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class InputConnectionAdaptor extends BaseInputConnection {
     private final boolean isSamsung;
     private int mBatchCount;
@@ -41,7 +40,7 @@ public class InputConnectionAdaptor extends BaseInputConnection {
         this.mEditable = editable;
         this.mEditorInfo = editorInfo;
         this.mBatchCount = 0;
-        this.mLayout = new DynamicLayout(this.mEditable, new TextPaint(), ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+        this.mLayout = new DynamicLayout(this.mEditable, new TextPaint(), Integer.MAX_VALUE, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
         this.mImm = (InputMethodManager) view.getContext().getSystemService("input_method");
         this.isSamsung = isSamsung();
     }

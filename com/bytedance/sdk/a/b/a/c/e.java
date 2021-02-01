@@ -1,6 +1,5 @@
 package com.bytedance.sdk.a.b.a.c;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.bytedance.sdk.a.b.o;
 import com.bytedance.sdk.a.b.p;
 import com.bytedance.sdk.a.b.s;
@@ -9,14 +8,14 @@ import java.util.List;
 import java.util.regex.Pattern;
 import org.apache.http.client.methods.HttpHead;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f5878a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
+    private static final Pattern f5880a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
 
     public static long d(com.bytedance.sdk.a.b.b bVar) {
-        return b(bVar.enl());
+        return b(bVar.epE());
     }
 
     public static long b(v vVar) {
@@ -35,7 +34,7 @@ public final class e {
     }
 
     public static void a(p pVar, s sVar, v vVar) {
-        if (pVar != p.peQ) {
+        if (pVar != p.ppg) {
             List<o> a2 = o.a(sVar, vVar);
             if (!a2.isEmpty()) {
                 pVar.a(sVar, a2);
@@ -44,7 +43,7 @@ public final class e {
     }
 
     public static boolean e(com.bytedance.sdk.a.b.b bVar) {
-        if (bVar.emS().b().equals(HttpHead.METHOD_NAME)) {
+        if (bVar.epm().b().equals(HttpHead.METHOD_NAME)) {
             return false;
         }
         int c = bVar.c();
@@ -73,7 +72,7 @@ public final class e {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong > 2147483647L) {
-                return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                return Integer.MAX_VALUE;
             }
             if (parseLong < 0) {
                 return 0;

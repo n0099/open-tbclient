@@ -2,23 +2,23 @@ package com.bytedance.sdk.openadsdk.core.video.renderview;
 
 import android.view.SurfaceHolder;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c implements SurfaceHolder.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<SurfaceHolder.Callback> f6758a;
+    private final WeakReference<SurfaceHolder.Callback> f6760a;
 
     public c(SurfaceHolder.Callback callback) {
-        this.f6758a = new WeakReference<>(callback);
+        this.f6760a = new WeakReference<>(callback);
     }
 
     public SurfaceHolder.Callback a() {
-        return this.f6758a.get();
+        return this.f6760a.get();
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        SurfaceHolder.Callback callback = this.f6758a.get();
+        SurfaceHolder.Callback callback = this.f6760a.get();
         if (callback != null) {
             callback.surfaceCreated(surfaceHolder);
         }
@@ -26,7 +26,7 @@ public class c implements SurfaceHolder.Callback {
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        SurfaceHolder.Callback callback = this.f6758a.get();
+        SurfaceHolder.Callback callback = this.f6760a.get();
         if (callback != null) {
             callback.surfaceChanged(surfaceHolder, i, i2, i3);
         }
@@ -34,7 +34,7 @@ public class c implements SurfaceHolder.Callback {
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        SurfaceHolder.Callback callback = this.f6758a.get();
+        SurfaceHolder.Callback callback = this.f6760a.get();
         if (callback != null) {
             callback.surfaceDestroyed(surfaceHolder);
         }

@@ -17,14 +17,14 @@ import com.kwad.sdk.utils.g;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f10742a;
+    private String f10744a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.detail.video.a f10743b;
+    private com.kwad.sdk.contentalliance.detail.video.a f10745b;
     private KsVideoPlayConfig c;
     private long d;
     private VideoPlayerStatus e;
@@ -59,18 +59,18 @@ public class a implements c {
         this.e = adTemplate.mVideoPlayerStatus;
         File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(H);
         if (b2 != null && b2.exists()) {
-            this.f10742a = b2.getAbsolutePath();
+            this.f10744a = b2.getAbsolutePath();
         }
-        this.f10743b = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
+        this.f10745b = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
         this.d = com.kwad.sdk.core.response.b.a.k(com.kwad.sdk.core.response.b.c.j(adTemplate));
         this.j = adTemplate.mKsPlayerClickTimeParam;
-        this.f10743b.a(new c.e() { // from class: com.kwad.sdk.splashscreen.b.a.2
+        this.f10745b.a(new c.e() { // from class: com.kwad.sdk.splashscreen.b.a.2
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
                 boolean a2 = ao.a((View) detailVideoView, 50, true);
                 com.kwad.sdk.core.d.a.a("SplashPlayModule", " onPrepared" + a2);
                 if (a2) {
-                    a.this.f10743b.f();
+                    a.this.f10745b.f();
                 }
             }
         });
@@ -78,11 +78,11 @@ public class a implements c {
     }
 
     private void h() {
-        this.f10743b.a(new d.a().a(this.e).a(this.f10742a).a(new com.kwad.sdk.contentalliance.detail.video.c(this.d, this.j)).a());
+        this.f10745b.a(new d.a().a(this.e).a(this.f10744a).a(new com.kwad.sdk.contentalliance.detail.video.c(this.d, this.j)).a());
         if (this.c != null) {
             a(this.c.isVideoSoundEnable(), false);
         }
-        this.f10743b.e();
+        this.f10745b.e();
     }
 
     @MainThread
@@ -90,7 +90,7 @@ public class a implements c {
         if (eVar == null) {
             return;
         }
-        this.f10743b.a(eVar);
+        this.f10745b.a(eVar);
     }
 
     public void a(g.a aVar) {
@@ -104,10 +104,10 @@ public class a implements c {
     public void a(boolean z, boolean z2) {
         this.f = z;
         if (!z) {
-            this.f10743b.a(0.0f, 0.0f);
+            this.f10745b.a(0.0f, 0.0f);
             return;
         }
-        this.f10743b.a(1.0f, 1.0f);
+        this.f10745b.a(1.0f, 1.0f);
         if (z2) {
             b.a().a(true);
         }
@@ -123,7 +123,7 @@ public class a implements c {
         if (eVar == null) {
             return;
         }
-        this.f10743b.b(eVar);
+        this.f10745b.b(eVar);
     }
 
     public void b(g.a aVar) {
@@ -131,7 +131,7 @@ public class a implements c {
     }
 
     public long c() {
-        return this.f10743b.o();
+        return this.f10745b.o();
     }
 
     @Override // com.kwad.sdk.core.i.c
@@ -140,7 +140,7 @@ public class a implements c {
     }
 
     public void d() {
-        this.f10743b.h();
+        this.f10745b.h();
         if (this.f && this.g) {
             b.a().a(false);
             if (b.a().b()) {
@@ -151,22 +151,22 @@ public class a implements c {
     }
 
     public void e() {
-        this.f10743b.j();
+        this.f10745b.j();
     }
 
     @MainThread
     public void f() {
-        if (this.f10743b != null) {
-            this.f10743b.p();
-            this.f10743b.k();
+        if (this.f10745b != null) {
+            this.f10745b.p();
+            this.f10745b.k();
         }
         b.a().b(this.i);
     }
 
     public void g() {
-        if (this.f10743b.a() == null) {
+        if (this.f10745b.a() == null) {
             h();
         }
-        this.f10743b.f();
+        this.f10745b.f();
     }
 }

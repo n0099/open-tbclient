@@ -1,13 +1,13 @@
 package com.baidu.live.view.dispatch;
 
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     public static boolean a(View view, a aVar) {
         if (view == null || aVar == null || !aVar.ai(view)) {
             return false;
         }
-        aVar.aj(view);
+        aVar.onViewAdded(view);
         return true;
     }
 
@@ -15,7 +15,7 @@ public class b {
         if (view == null || aVar == null || !aVar.ai(view)) {
             return false;
         }
-        aVar.ak(view);
+        aVar.onViewRemoved(view);
         return true;
     }
 }

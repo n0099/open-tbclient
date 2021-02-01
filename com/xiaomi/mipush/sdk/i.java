@@ -7,7 +7,7 @@ import android.text.TextUtils;
 public final class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f13828a;
+    final /* synthetic */ Context f13830a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ d f155a;
@@ -18,7 +18,7 @@ public final class i implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(String str, Context context, d dVar) {
         this.f156a = str;
-        this.f13828a = context;
+        this.f13830a = context;
         this.f155a = dVar;
     }
 
@@ -47,7 +47,7 @@ public final class i implements Runnable {
             return;
         }
         com.xiaomi.channel.commonutils.logger.b.m80a("ASSEMBLE_PUSH : receive correct token");
-        h.d(this.f13828a, this.f155a, str);
-        h.m138a(this.f13828a);
+        h.d(this.f13830a, this.f155a, str);
+        h.m138a(this.f13830a);
     }
 }

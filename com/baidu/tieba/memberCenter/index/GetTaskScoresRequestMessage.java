@@ -2,10 +2,10 @@ package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.AddTaskScores.AddTaskScoresReqIdl;
 import tbclient.AddTaskScores.DataReq;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetTaskScoresRequestMessage extends NetMessage {
     private int taskId;
     private long userId;
@@ -20,7 +20,7 @@ public class GetTaskScoresRequestMessage extends NetMessage {
         builder.task_id = Integer.valueOf(this.taskId);
         builder.user_id = Long.valueOf(this.userId);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         AddTaskScoresReqIdl.Builder builder2 = new AddTaskScoresReqIdl.Builder();
         builder2.data = builder.build(false);

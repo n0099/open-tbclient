@@ -13,7 +13,7 @@ import com.kwad.sdk.contentalliance.detail.video.b;
 import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.contentalliance.widget.KsAdFrameLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends com.kwad.sdk.contentalliance.detail.b {
     private ImageButton d;
     private com.kwad.sdk.contentalliance.detail.video.b e;
@@ -53,7 +53,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(long j, long j2) {
-            if (com.kwad.sdk.core.response.b.c.B(d.this.f8393a.j) && d.this.f8393a.f8402a != null && d.this.f8393a.f8402a.l) {
+            if (com.kwad.sdk.core.response.b.c.B(d.this.f8395a.j) && d.this.f8395a.f8404a != null && d.this.f8395a.f8404a.l) {
                 d.this.a(1);
                 d.this.d.setVisibility(4);
             }
@@ -62,7 +62,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             d.this.g();
-            d.this.e().a(new C1072d());
+            d.this.e().a(new C1076d());
             d.this.k = false;
         }
 
@@ -73,7 +73,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
-            d.this.e().a(new C1072d());
+            d.this.e().a(new C1076d());
         }
     };
     private Runnable j = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.d.4
@@ -81,17 +81,17 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         public void run() {
             com.kwad.sdk.core.d.a.a("PhotoVideoControlPresenter", "mAutoHidePauseButtonCallback run=" + d.this.f);
             if (d.this.f != null) {
-                d.this.f.a(new C1072d());
+                d.this.f.a(new C1076d());
             }
         }
     };
 
     /* renamed from: b  reason: collision with root package name */
-    View.OnClickListener f8498b = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.d.5
+    View.OnClickListener f8500b = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.d.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.this.g();
-            if (d.this.e() instanceof C1072d) {
+            if (d.this.e() instanceof C1076d) {
                 d.this.e().b();
             } else {
                 d.this.e().a();
@@ -108,19 +108,19 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
     private GestureDetector.SimpleOnGestureListener m = new GestureDetector.SimpleOnGestureListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.d.7
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f8505a = false;
+        boolean f8507a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        long f8506b = 0;
+        long f8508b = 0;
 
         private boolean a() {
-            return SystemClock.elapsedRealtime() - this.f8506b < ((long) ViewConfiguration.getJumpTapTimeout());
+            return SystemClock.elapsedRealtime() - this.f8508b < ((long) ViewConfiguration.getJumpTapTimeout());
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
         public boolean onDoubleTap(MotionEvent motionEvent) {
-            this.f8506b = SystemClock.elapsedRealtime();
-            return this.f8505a;
+            this.f8508b = SystemClock.elapsedRealtime();
+            return this.f8507a;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
@@ -134,14 +134,14 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
             } else {
                 d.this.p.c();
             }
-            this.f8505a = false;
-            this.f8506b = 0L;
+            this.f8507a = false;
+            this.f8508b = 0L;
             return true;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onSingleTapUp(MotionEvent motionEvent) {
-            this.f8505a = false;
+            this.f8507a = false;
             return true;
         }
     };
@@ -152,7 +152,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private abstract class a implements b {
         private a() {
         }
@@ -173,7 +173,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         @MainThread
         void a();
@@ -188,7 +188,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         void c();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class c extends a {
         private c() {
             super();
@@ -212,9 +212,9 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.contentalliance.detail.photo.e.d$d  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1072d extends a {
-        private C1072d() {
+    /* loaded from: classes3.dex */
+    public class C1076d extends a {
+        private C1076d() {
             super();
         }
 
@@ -230,7 +230,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e extends a {
         private e() {
             super();
@@ -289,21 +289,21 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
     public void a() {
         super.a();
         this.k = false;
-        this.o = this.f8393a.l;
-        this.p = this.f8393a.f8402a.g;
-        this.e = this.f8393a.m;
+        this.o = this.f8395a.l;
+        this.p = this.f8395a.f8404a.g;
+        this.e = this.f8395a.m;
         this.e.a(this.l);
         this.e.a(this.i);
-        this.f8393a.f8403b.add(this.h);
+        this.f8395a.f8405b.add(this.h);
         f();
-        this.d.setOnClickListener(this.f8498b);
+        this.d.setOnClickListener(this.f8500b);
         this.n = new GestureDetector(o(), this.m);
         this.g.a(this.n);
-        if (com.kwad.sdk.core.response.b.c.B(this.f8393a.j)) {
-            this.f8393a.a(this.c);
+        if (com.kwad.sdk.core.response.b.c.B(this.f8395a.j)) {
+            this.f8395a.a(this.c);
         }
         a(this.o.getSourceType() == 0 ? 1.0f : 0.0f);
-        this.f8393a.e.add(this.q);
+        this.f8395a.e.add(this.q);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -313,11 +313,11 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         this.e.b(this.l);
         this.e.b(this.i);
         this.d.setOnClickListener(null);
-        this.f8393a.f8403b.remove(this.h);
+        this.f8395a.f8405b.remove(this.h);
         this.g.b(this.n);
         f();
-        this.f8393a.b(this.c);
-        this.f8393a.e.remove(this.q);
+        this.f8395a.b(this.c);
+        this.f8395a.e.remove(this.q);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -331,7 +331,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
 
     public b e() {
         if (this.f == null) {
-            this.f = new C1072d();
+            this.f = new C1076d();
         }
         return this.f;
     }

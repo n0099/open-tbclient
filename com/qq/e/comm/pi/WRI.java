@@ -1,5 +1,5 @@
 package com.qq.e.comm.pi;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface WRI {
     public static final int EVENT_ACTIVITY_GO_BACK = 10;
     public static final int EVENT_ACTIVITY_PAUSE = 11;

@@ -1,8 +1,9 @@
 package com.google.zxing.aztec.encoder;
 
 import com.google.zxing.common.BitArray;
-/* loaded from: classes5.dex */
-final class BinaryShiftToken extends Token {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes4.dex */
+public final class BinaryShiftToken extends Token {
     private final short binaryShiftByteCount;
     private final short binaryShiftStart;
 

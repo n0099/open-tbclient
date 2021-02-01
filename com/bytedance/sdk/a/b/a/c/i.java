@@ -3,16 +3,16 @@ package com.bytedance.sdk.a.b.a.c;
 import com.bytedance.sdk.a.b.ab;
 import com.bytedance.sdk.a.b.s;
 import java.net.Proxy;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class i {
     public static String a(ab abVar, Proxy.Type type) {
         StringBuilder sb = new StringBuilder();
         sb.append(abVar.b());
         sb.append(' ');
         if (b(abVar, type)) {
-            sb.append(abVar.emp());
+            sb.append(abVar.eoJ());
         } else {
-            sb.append(b(abVar.emp()));
+            sb.append(b(abVar.eoJ()));
         }
         sb.append(" HTTP/1.1");
         return sb.toString();

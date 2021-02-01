@@ -1,26 +1,26 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTImage {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6090a;
+    private int f6092a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6091b;
+    private int f6093b;
     private String c;
 
     public TTImage(int i, int i2, String str) {
-        this.f6090a = i;
-        this.f6091b = i2;
+        this.f6092a = i;
+        this.f6093b = i2;
         this.c = str;
     }
 
     public int getHeight() {
-        return this.f6090a;
+        return this.f6092a;
     }
 
     public int getWidth() {
-        return this.f6091b;
+        return this.f6093b;
     }
 
     public String getImageUrl() {
@@ -28,6 +28,6 @@ public class TTImage {
     }
 
     public boolean isValid() {
-        return this.f6090a > 0 && this.f6091b > 0 && this.c != null && this.c.length() > 0;
+        return this.f6092a > 0 && this.f6093b > 0 && this.c != null && this.c.length() > 0;
     }
 }

@@ -19,7 +19,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.gif.GifFrameLoader;
 import com.bumptech.glide.util.Preconditions;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class GifDrawable extends Drawable implements Animatable, GifFrameLoader.FrameCallback {
     private static final int GRAVITY = 119;
     public static final int LOOP_FOREVER = -1;
@@ -253,7 +253,7 @@ public class GifDrawable extends Drawable implements Animatable, GifFrameLoader.
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static final class GifState extends Drawable.ConstantState {
         @VisibleForTesting
         final GifFrameLoader frameLoader;

@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.live.adp.BdUniqueId;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLivePrepareMobileGameData extends com.baidu.live.tieba.b.a.a implements Parcelable {
     public static final String ARG_GAME_DATA = "arg_game_data";
     public static final Parcelable.Creator<AlaLivePrepareMobileGameData> CREATOR = new Parcelable.Creator<AlaLivePrepareMobileGameData>() { // from class: com.baidu.live.data.AlaLivePrepareMobileGameData.1
@@ -16,7 +16,7 @@ public class AlaLivePrepareMobileGameData extends com.baidu.live.tieba.b.a.a imp
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cx */
+        /* renamed from: cC */
         public AlaLivePrepareMobileGameData[] newArray(int i) {
             return new AlaLivePrepareMobileGameData[i];
         }

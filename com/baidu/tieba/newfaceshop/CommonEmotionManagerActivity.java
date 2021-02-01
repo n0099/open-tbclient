@@ -7,10 +7,10 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.CommonEmotionCenterFragment;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
-    private FrameLayout ajf;
-    private CommonEmotionCenterFragment lrE;
+    private FrameLayout aiT;
+    private CommonEmotionCenterFragment lzJ;
     private String mUrl;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -19,19 +19,19 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setContentView(R.layout.common_emotion_manager_activity);
-        this.ajf = (FrameLayout) findViewById(R.id.container);
+        this.aiT = (FrameLayout) findViewById(R.id.container);
         if (isUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.ajf.getLayoutParams()).topMargin = l.getStatusBarHeight(getPageContext().getPageActivity());
+            ((FrameLayout.LayoutParams) this.aiT.getLayoutParams()).topMargin = l.getStatusBarHeight(getPageContext().getPageActivity());
         }
         this.mUrl = getIntent().getStringExtra("url");
         if (TextUtils.isEmpty(this.mUrl)) {
             this.mUrl = "http://tieba.baidu.com/n/interact/emoticoncenter";
         }
-        this.lrE = new CommonEmotionCenterFragment();
+        this.lzJ = new CommonEmotionCenterFragment();
         Bundle bundle2 = new Bundle();
         bundle2.putString("key_load_url", this.mUrl);
-        this.lrE.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.lrE).commit();
+        this.lzJ.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.lzJ).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -41,8 +41,8 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.lrE != null) {
-            this.lrE.onDestroy();
+        if (this.lzJ != null) {
+            this.lzJ.onDestroy();
         }
         super.onDestroy();
     }

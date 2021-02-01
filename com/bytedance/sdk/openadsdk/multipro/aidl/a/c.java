@@ -4,24 +4,24 @@ import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import com.bytedance.sdk.openadsdk.ICommonDialogListener;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f7350a = new HashMap<>();
+    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f7352a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile c f7351b;
+    private static volatile c f7353b;
 
     public static c a() {
-        if (f7351b == null) {
+        if (f7353b == null) {
             synchronized (c.class) {
-                if (f7351b == null) {
-                    f7351b = new c();
+                if (f7353b == null) {
+                    f7353b = new c();
                 }
             }
         }
-        return f7351b;
+        return f7353b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
@@ -29,13 +29,13 @@ public class c extends a {
         if (iCommonDialogListener != null) {
             RemoteCallbackList<ICommonDialogListener> remoteCallbackList = new RemoteCallbackList<>();
             remoteCallbackList.register(iCommonDialogListener);
-            f7350a.put(str, remoteCallbackList);
+            f7352a.put(str, remoteCallbackList);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public void broadcastDialogListener(String str, int i) throws RemoteException {
-        RemoteCallbackList<ICommonDialogListener> remove = f7350a.remove(str);
+        RemoteCallbackList<ICommonDialogListener> remove = f7352a.remove(str);
         if (remove != null) {
             int beginBroadcast = remove.beginBroadcast();
             for (int i2 = 0; i2 < beginBroadcast; i2++) {

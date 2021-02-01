@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UriHelper {
     private static final boolean DEBUG = false;
     private static final String TAG = UriHelper.class.getSimpleName();

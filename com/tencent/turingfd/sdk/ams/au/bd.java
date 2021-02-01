@@ -20,14 +20,14 @@ import java.net.Proxy;
 import java.net.URL;
 import java.util.concurrent.atomic.AtomicReference;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class bd implements ad {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f13508a;
+    public final /* synthetic */ String f13510a;
 
     public bd(String str) {
-        this.f13508a = str;
+        this.f13510a = str;
     }
 
     public ad.a a(int i, byte[] bArr, int i2, int i3) {
@@ -37,36 +37,36 @@ public final class bd implements ad {
         boolean z = true;
         int i5 = -4000;
         v vVar = new v();
-        String str2 = this.f13508a;
+        String str2 = this.f13510a;
         Context a2 = aj.a();
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) a2.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo == null || !(activeNetworkInfo.getState() == NetworkInfo.State.CONNECTING || activeNetworkInfo.getState() == NetworkInfo.State.CONNECTED)) {
                 aVar = v.a.d;
             } else if (activeNetworkInfo.getType() == 1) {
-                aVar = v.a.f13552a;
+                aVar = v.a.f13554a;
             } else if (activeNetworkInfo.getType() == 0) {
                 String a3 = v.a(a2);
-                aVar = (a3 == null || a3.length() <= 0 || v.b(a2) <= 0) ? v.a.c : v.a.f13553b;
+                aVar = (a3 == null || a3.length() <= 0 || v.b(a2) <= 0) ? v.a.c : v.a.f13555b;
             } else {
                 aVar = v.a.c;
             }
         } catch (Throwable th) {
             String message = th.getMessage();
-            aVar = message != null && message.contains("ACCESS_NETWORK_STATE") ? v.a.f13552a : v.a.d;
+            aVar = message != null && message.contains("ACCESS_NETWORK_STATE") ? v.a.f13554a : v.a.d;
         }
         if (aVar == v.a.d) {
             i4 = -1052;
         } else {
             try {
                 URL url = new URL(str2);
-                if (aVar == v.a.f13553b) {
-                    vVar.f13550a = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(v.a(aj.a()), v.b(aj.a()))));
+                if (aVar == v.a.f13555b) {
+                    vVar.f13552a = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(v.a(aj.a()), v.b(aj.a()))));
                 } else {
-                    vVar.f13550a = (HttpURLConnection) url.openConnection();
+                    vVar.f13552a = (HttpURLConnection) url.openConnection();
                 }
-                vVar.f13550a.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
-                vVar.f13550a.setConnectTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+                vVar.f13552a.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+                vVar.f13552a.setConnectTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                 i4 = 0;
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
@@ -90,35 +90,35 @@ public final class bd implements ad {
             }
         }
         if (i4 == 0) {
-            vVar.f13551b = false;
+            vVar.f13553b = false;
             try {
                 try {
                     int length = bArr.length;
-                    vVar.f13550a.setDoOutput(true);
-                    vVar.f13550a.setDoInput(true);
-                    vVar.f13550a.setUseCaches(false);
-                    vVar.f13550a.setRequestMethod("POST");
-                    vVar.f13550a.setRequestProperty("Pragma", "no-cache");
-                    vVar.f13550a.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
-                    vVar.f13550a.setInstanceFollowRedirects(false);
-                    vVar.f13550a.setRequestProperty("User-Agent", "QQPimSecure");
-                    vVar.f13550a.setRequestProperty("Accept", "*/*");
-                    vVar.f13550a.setRequestProperty("Accept-Charset", "utf-8");
-                    vVar.f13550a.setRequestProperty("Content-Type", "application/octet-stream");
-                    vVar.f13550a.setRequestProperty("Content-length", "" + length);
+                    vVar.f13552a.setDoOutput(true);
+                    vVar.f13552a.setDoInput(true);
+                    vVar.f13552a.setUseCaches(false);
+                    vVar.f13552a.setRequestMethod("POST");
+                    vVar.f13552a.setRequestProperty("Pragma", "no-cache");
+                    vVar.f13552a.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
+                    vVar.f13552a.setInstanceFollowRedirects(false);
+                    vVar.f13552a.setRequestProperty("User-Agent", "QQPimSecure");
+                    vVar.f13552a.setRequestProperty("Accept", "*/*");
+                    vVar.f13552a.setRequestProperty("Accept-Charset", "utf-8");
+                    vVar.f13552a.setRequestProperty("Content-Type", "application/octet-stream");
+                    vVar.f13552a.setRequestProperty("Content-length", "" + length);
                     try {
                         if (Build.VERSION.SDK != null && Build.VERSION.SDK_INT > 13) {
-                            vVar.f13550a.setRequestProperty(HTTP.CONN_DIRECTIVE, "close");
+                            vVar.f13552a.setRequestProperty(HTTP.CONN_DIRECTIVE, "close");
                         }
                     } catch (Exception e6) {
                     }
-                    OutputStream outputStream = vVar.f13550a.getOutputStream();
+                    OutputStream outputStream = vVar.f13552a.getOutputStream();
                     outputStream.write(bArr);
                     outputStream.flush();
                     outputStream.close();
-                    int responseCode = vVar.f13550a.getResponseCode();
+                    int responseCode = vVar.f13552a.getResponseCode();
                     if (responseCode == 200) {
-                        vVar.f13551b = true;
+                        vVar.f13553b = true;
                         i4 = 0;
                     } else {
                         i4 = responseCode == -1 ? -2000 : (-2000) - responseCode;
@@ -129,7 +129,7 @@ public final class bd implements ad {
                     if (z) {
                         g a4 = g.a();
                         try {
-                            str = vVar.f13550a.getHeaderField(Headers.LOCATION);
+                            str = vVar.f13552a.getHeaderField(Headers.LOCATION);
                         } catch (Exception e7) {
                             str = "";
                         }
@@ -157,8 +157,8 @@ public final class bd implements ad {
             return ad.a.a(i4, new byte[0]);
         }
         AtomicReference atomicReference = new AtomicReference();
-        HttpURLConnection httpURLConnection = vVar.f13550a;
-        if (httpURLConnection != null && vVar.f13551b) {
+        HttpURLConnection httpURLConnection = vVar.f13552a;
+        if (httpURLConnection != null && vVar.f13553b) {
             byte[] bArr2 = null;
             try {
                 InputStream inputStream = httpURLConnection.getInputStream();
@@ -179,10 +179,10 @@ public final class bd implements ad {
                 e14.printStackTrace();
             }
             atomicReference.set(bArr2);
-            HttpURLConnection httpURLConnection2 = vVar.f13550a;
+            HttpURLConnection httpURLConnection2 = vVar.f13552a;
             if (httpURLConnection2 != null) {
                 httpURLConnection2.disconnect();
-                vVar.f13550a = null;
+                vVar.f13552a = null;
             }
         }
         return i5 != 0 ? ad.a.a(i5, new byte[0]) : ad.a.a(i5, (byte[]) atomicReference.get());

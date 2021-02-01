@@ -5,10 +5,12 @@ import com.baidu.adp.framework.message.HttpMessage;
 public class QuickWebViewHttpReqMsg extends HttpMessage {
     public long begin;
     public String jsCallbackMethod;
+    public String module;
     public String url;
 
     public QuickWebViewHttpReqMsg() {
         super(1003364);
         this.url = null;
+        this.module = null;
     }
 }

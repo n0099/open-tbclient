@@ -3,11 +3,11 @@ package com.baidu.swan.pms.d.a;
 import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.node.c;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface a {
-    g atF();
+    g aud();
 
-    c<JSONArray> atG();
+    c<JSONArray> aue();
 
-    com.baidu.swan.pms.c.d.g atH();
+    com.baidu.swan.pms.c.d.g auf();
 }

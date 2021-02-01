@@ -5,33 +5,33 @@ import com.bytedance.sdk.openadsdk.d.a.c;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ComponentModel {
     @c(a = "packages")
     private Map<String, List<UpdatePackage>> packages;
     @c(a = "universal_strategies")
     private Map<String, b> universalStrategies;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         @c(a = "c")
 
         /* renamed from: a  reason: collision with root package name */
-        public String f7504a;
+        public String f7506a;
         @c(a = "clean_type")
 
         /* renamed from: b  reason: collision with root package name */
-        public int f7505b;
+        public int f7507b;
         @c(a = "version")
         public List<Long> c;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         @c(a = "specified_clean")
 
         /* renamed from: a  reason: collision with root package name */
-        public List<a> f7506a;
+        public List<a> f7508a;
     }
 
     public Map<String, List<UpdatePackage>> getPackages() {

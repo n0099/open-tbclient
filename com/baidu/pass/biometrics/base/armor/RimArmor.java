@@ -1,9 +1,9 @@
 package com.baidu.pass.biometrics.base.armor;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RimArmor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static RimArmor f3939a;
+    private static RimArmor f3942a;
 
     private RimArmor() {
     }
@@ -11,10 +11,10 @@ public class RimArmor {
     public static synchronized RimArmor getInstance() {
         RimArmor rimArmor;
         synchronized (RimArmor.class) {
-            if (f3939a == null) {
-                f3939a = new RimArmor();
+            if (f3942a == null) {
+                f3942a = new RimArmor();
             }
-            rimArmor = f3939a;
+            rimArmor = f3942a;
         }
         return rimArmor;
     }

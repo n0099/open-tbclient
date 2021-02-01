@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.content.Intent;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.video.EditVideoData;
 import java.io.File;
 import java.io.Serializable;
@@ -52,7 +52,7 @@ public class VideoInfo extends OrmObject implements Serializable {
     }
 
     public boolean isVideoMixFinished() {
-        return isAvaliable() && this.editVideoData != null && at.equals(this.videoPath, this.editVideoData.finalPath);
+        return isAvaliable() && this.editVideoData != null && au.equals(this.videoPath, this.editVideoData.finalPath);
     }
 
     public String getVideoPath() {

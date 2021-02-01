@@ -2,10 +2,10 @@ package com.baidu.tieba.themeCenter.card.category;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetCardByCategory.DataReq;
 import tbclient.GetCardByCategory.GetCardByCategoryReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PersonalCardCategoryRequest extends NetMessage {
     private int pn;
     private int rn;
@@ -20,7 +20,7 @@ public class PersonalCardCategoryRequest extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetCardByCategoryReqIdl.Builder builder2 = new GetCardByCategoryReqIdl.Builder();
         builder2.data = builder.build(false);

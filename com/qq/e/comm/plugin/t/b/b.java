@@ -4,23 +4,23 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class b implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final HttpURLConnection f12528a;
+    private final HttpURLConnection f12530a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f12529b;
+    private int f12531b;
 
     public b(HttpURLConnection httpURLConnection) {
-        this.f12529b = 0;
+        this.f12531b = 0;
         if (httpURLConnection == null) {
             throw new AssertionError("AbstractResponse parameter is null");
         }
-        this.f12528a = httpURLConnection;
+        this.f12530a = httpURLConnection;
         try {
-            this.f12529b = this.f12528a.getResponseCode();
+            this.f12531b = this.f12530a.getResponseCode();
         } catch (IOException e) {
             throw new AssertionError(e);
         }
@@ -28,7 +28,7 @@ public abstract class b implements f {
 
     @Override // com.qq.e.comm.plugin.t.b.f
     public String a(String str) {
-        return this.f12528a.getHeaderField(str);
+        return this.f12530a.getHeaderField(str);
     }
 
     public byte[] a() throws IllegalStateException, IOException {
@@ -49,13 +49,13 @@ public abstract class b implements f {
     }
 
     public InputStream b() throws IllegalStateException, IOException {
-        return this.f12528a.getInputStream();
+        return this.f12530a.getInputStream();
     }
 
     @Override // com.qq.e.comm.plugin.t.b.f
     public void c() throws IllegalStateException, IOException {
         b().close();
-        this.f12528a.disconnect();
+        this.f12530a.disconnect();
     }
 
     @Override // com.qq.e.comm.plugin.t.b.f
@@ -69,7 +69,7 @@ public abstract class b implements f {
             return "";
         }
         try {
-            str = this.f12528a.getContentEncoding();
+            str = this.f12530a.getContentEncoding();
         } catch (Throwable th) {
         }
         if (str == null) {
@@ -80,6 +80,6 @@ public abstract class b implements f {
 
     @Override // com.qq.e.comm.plugin.t.b.f
     public int e() {
-        return this.f12529b;
+        return this.f12531b;
     }
 }

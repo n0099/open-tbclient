@@ -8,11 +8,11 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10285a = new com.kwad.sdk.glide.load.engine.bitmap_recycle.f() { // from class: com.kwad.sdk.glide.load.resource.bitmap.l.1
+    private static final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10287a = new com.kwad.sdk.glide.load.engine.bitmap_recycle.f() { // from class: com.kwad.sdk.glide.load.resource.bitmap.l.1
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.f, com.kwad.sdk.glide.load.engine.bitmap_recycle.e
         public void a(Bitmap bitmap) {
         }
@@ -35,7 +35,7 @@ final class l {
             bitmap = b2;
         }
         if (!z) {
-            eVar = f10285a;
+            eVar = f10287a;
         }
         return d.a(bitmap, eVar);
     }

@@ -3,12 +3,12 @@ package com.baidu.swan.videoplayer;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.view.View;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public interface a {
 
     /* renamed from: com.baidu.swan.videoplayer.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public interface InterfaceC0548a {
+    /* loaded from: classes15.dex */
+    public interface InterfaceC0545a {
         void a(b bVar);
 
         void a(b bVar, int i, int i2);
@@ -16,16 +16,16 @@ public interface a {
         void a(b bVar, int i, int i2, int i3);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         void b(MediaPlayer mediaPlayer);
 
-        a bfy();
+        a bfL();
     }
 
-    void a(InterfaceC0548a interfaceC0548a);
+    void a(InterfaceC0545a interfaceC0545a);
 
-    void b(InterfaceC0548a interfaceC0548a);
+    void b(InterfaceC0545a interfaceC0545a);
 
     Bitmap getBitmap();
 

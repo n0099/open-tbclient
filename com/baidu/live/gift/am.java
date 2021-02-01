@@ -3,31 +3,31 @@ package com.baidu.live.gift;
 import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class am {
-    public static final String aUZ = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.dynamicvideo/";
-    public static final String aVa = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
-    private ae aVb;
+    public static final String aYh = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/.dynamicvideo/";
+    public static final String aYi = TbadkCoreApplication.getInst().getFilesDir() + "/" + TbConfig.getTempDirName() + "/" + AlaDynamicGiftLocalInfoConfig.DIR_NAME + "/";
+    private ae aYj;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     private static class a {
-        public static am aVc = new am();
+        public static am aYk = new am();
     }
 
     private am() {
-        this.aVb = new t();
+        this.aYj = new t();
     }
 
-    public static am Em() {
-        return a.aVc;
+    public static am FC() {
+        return a.aYk;
     }
 
-    public void fz(String str) {
-        this.aVb.fz(str);
+    public void fU(String str) {
+        this.aYj.fU(str);
     }
 
-    public void DI() {
-        this.aVb.DI();
+    public void EY() {
+        this.aYj.EY();
     }
 
     public void a(b bVar, boolean z) {
@@ -35,17 +35,19 @@ public class am {
     }
 
     public void a(b bVar, boolean z, boolean z2) {
-        if (bVar != null && bVar.aSl != null && bVar.Ci()) {
-            boolean z3 = com.baidu.live.alphavideo.a.yH().yI() && bVar.Cg();
-            this.aVb.a(bVar.giftId, bVar.giftName, bVar.aSl.zipName, z3 ? bVar.aSl.videoUrl : bVar.aSl.zipDownloadUrl, z3 ? bVar.aSl.videoMd5 : bVar.aSl.zipMD5, z3, z, z2);
+        if (bVar != null && bVar.aVp != null) {
+            if (z2 || bVar.Dx()) {
+                boolean z3 = com.baidu.live.alphavideo.a.zo().zp() && bVar.Dv();
+                this.aYj.a(bVar.giftId, bVar.giftName, bVar.aVp.zipName, z3 ? bVar.aVp.videoUrl : bVar.aVp.zipDownloadUrl, z3 ? bVar.aVp.videoMd5 : bVar.aVp.zipMD5, z3, bVar.Dx(), z, z2, bVar.aVr);
+            }
         }
     }
 
     public boolean at(String str, String str2) {
-        return this.aVb.at(str, str2);
+        return this.aYj.at(str, str2);
     }
 
-    public void DJ() {
-        this.aVb.DJ();
+    public void EZ() {
+        this.aYj.EZ();
     }
 }

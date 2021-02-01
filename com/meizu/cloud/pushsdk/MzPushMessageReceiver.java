@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class MzPushMessageReceiver extends IntentReceiver {
     public static final String TAG = "MzPushMessageReceiver";
 

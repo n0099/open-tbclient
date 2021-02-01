@@ -17,7 +17,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 class FlutterWebViewClient {
     private static final String TAG = "FlutterWebViewClient";
     private boolean hasNavigationDelegate;
@@ -203,7 +203,7 @@ class FlutterWebViewClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class OnNavigationRequestResult implements MethodChannel.Result {
         private final Map<String, String> headers;
         private final String url;

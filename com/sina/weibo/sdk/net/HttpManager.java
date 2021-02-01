@@ -11,6 +11,7 @@ import com.sina.weibo.sdk.exception.WeiboHttpException;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.Utility;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -20,7 +21,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HttpManager {
     private static final String BOUNDARY;
     private static final String END_MP_BOUNDARY;
@@ -264,7 +265,7 @@ public class HttpManager {
                         throw new WeiboHttpException(readConnectResponse(createConnect, true), responseCode);
                     }
                     InputStream inputStream = createConnect.getInputStream();
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(file3, "rw");
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(file3, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                     randomAccessFile.seek(0L);
                     byte[] bArr = new byte[1024];
                     while (true) {

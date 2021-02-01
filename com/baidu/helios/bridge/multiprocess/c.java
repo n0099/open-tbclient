@@ -4,11 +4,11 @@ import android.os.Bundle;
 import com.baidu.helios.bridge.a;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.helios.bridge.a {
-    private volatile h arP;
-    private volatile com.baidu.helios.bridge.a.a arQ;
-    private volatile Future<Boolean> arR;
+    private volatile h arF;
+    private volatile com.baidu.helios.bridge.a.a arG;
+    private volatile Future<Boolean> arH;
     private volatile boolean g;
     private volatile Future<Boolean> h;
     private volatile boolean j;
@@ -30,24 +30,24 @@ public class c extends com.baidu.helios.bridge.a {
             c();
         }
         try {
-            this.arR.get();
+            this.arH.get();
         } catch (Exception e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.f || this.arR != null) {
+        if (this.f || this.arH != null) {
             return;
         }
-        this.arR = this.arq.aru.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.1
+        this.arH = this.arg.ark.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Boolean call() {
-                c.this.arQ = new com.baidu.helios.bridge.a.a();
-                c.this.arQ.a(c.this.arq);
-                c.this.arQ.a(c.this.arr);
+                c.this.arG = new com.baidu.helios.bridge.a.a();
+                c.this.arG.a(c.this.arg);
+                c.this.arG.a(c.this.arh);
                 c.this.f = true;
                 return true;
             }
@@ -72,16 +72,16 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.g || this.h != null) {
             return;
         }
-        this.h = this.arq.aru.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.2
+        this.h = this.arg.ark.submit(new Callable<Boolean>() { // from class: com.baidu.helios.bridge.multiprocess.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Boolean call() {
-                c.this.arP = new h(c.this, c.this.k);
-                c.this.arP.a(c.this.arq);
-                c.this.arP.a(c.this.arr);
+                c.this.arF = new h(c.this, c.this.k);
+                c.this.arF.a(c.this.arg);
+                c.this.arF.a(c.this.arh);
                 c.this.g = true;
-                if (c.this.arP.a()) {
+                if (c.this.arF.a()) {
                     c.this.j = true;
                     return true;
                 }
@@ -104,12 +104,12 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.e) {
             d();
             if (this.j) {
-                this.arP.a(str, bundle, cVar);
+                this.arF.a(str, bundle, cVar);
                 return;
             }
         }
         b();
-        this.arQ.a(str, bundle, cVar);
+        this.arG.a(str, bundle, cVar);
     }
 
     @Override // com.baidu.helios.bridge.a
@@ -130,7 +130,7 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.e) {
             d();
             if (this.j) {
-                a.d d = this.arP.d(str, bundle);
+                a.d d = this.arF.d(str, bundle);
                 if (d.isSuccess()) {
                     return d;
                 }
@@ -138,7 +138,7 @@ public class c extends com.baidu.helios.bridge.a {
             }
         }
         b();
-        return this.arQ.d(str, bundle);
+        return this.arG.d(str, bundle);
     }
 
     @Override // com.baidu.helios.bridge.a
@@ -146,10 +146,10 @@ public class c extends com.baidu.helios.bridge.a {
         if (this.e) {
             d();
             if (this.j) {
-                return this.arP.dU(str);
+                return this.arF.dU(str);
             }
         }
         b();
-        return this.arQ.dU(str);
+        return this.arG.dU(str);
     }
 }

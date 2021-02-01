@@ -7,13 +7,12 @@ import android.view.View;
 import android.view.WindowManager;
 import com.baidu.searchbox.floating.animator.RectEvaluator;
 import com.baidu.searchbox.floating.utils.UtilsKt;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.lang.ref.WeakReference;
 import kotlin.TypeCastException;
 import kotlin.e;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public final class ScaleFloatViewAnimator implements FloatViewAnimator {
     private final long mDuration = 2000;
 
@@ -31,7 +30,7 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
         duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.searchbox.floating.animator.ScaleFloatViewAnimator$enterAnim$1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                p.n(valueAnimator, AdvanceSetting.NETWORK_TYPE);
+                p.n(valueAnimator, "it");
                 Object animatedValue = valueAnimator.getAnimatedValue();
                 if (animatedValue == null) {
                     throw new TypeCastException("null cannot be cast to non-null type com.baidu.searchbox.floating.animator.RectEvaluator.ViewRect");

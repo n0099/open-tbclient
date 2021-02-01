@@ -6,23 +6,23 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CardGroup extends BaseCardInfo {
     private final List<BaseCardInfo> mCards;
     private final int showSep;
 
     public CardGroup(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
-        ICardInfo ex;
+        ICardInfo ey;
         this.showSep = jSONObject.optInt("showSep", 1);
         JSONArray optJSONArray = jSONObject.optJSONArray("cards");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.mCards = new ArrayList(length);
         for (int i = 0; i < length; i++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null && (ex = com.baidu.tieba.lego.card.b.ex(optJSONObject)) != null) {
-                ex.setGroupId(this.itemId);
-                this.mCards.add((BaseCardInfo) ex);
+            if (optJSONObject != null && (ey = com.baidu.tieba.lego.card.b.ey(optJSONObject)) != null) {
+                ey.setGroupId(this.itemId);
+                this.mCards.add((BaseCardInfo) ey);
             }
         }
     }

@@ -3,9 +3,9 @@ package rx.internal.operators;
 import rx.d;
 import rx.h;
 import rx.internal.operators.t;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class v<T> implements d.a<T> {
-    final h.a<T> qrB;
+    final h.a<T> qBE;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,12 +13,12 @@ public final class v<T> implements d.a<T> {
     }
 
     public v(h.a<T> aVar) {
-        this.qrB = aVar;
+        this.qBE = aVar;
     }
 
     public void call(rx.j<? super T> jVar) {
         t.a aVar = new t.a(jVar);
         jVar.add(aVar);
-        this.qrB.call(aVar);
+        this.qBE.call(aVar);
     }
 }

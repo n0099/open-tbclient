@@ -38,7 +38,7 @@ import java.util.List;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static aq f13809a;
+    private static aq f13811a;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f129a;
@@ -53,7 +53,7 @@ public class aq {
     private boolean f136a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f13810b = false;
+    private static boolean f13812b = false;
 
     /* renamed from: a  reason: collision with other field name */
     private static final ArrayList<a> f128a = new ArrayList<>();
@@ -76,7 +76,7 @@ public class aq {
     public static class a<T extends ix<T, ?>> {
 
         /* renamed from: a  reason: collision with root package name */
-        hm f13811a;
+        hm f13813a;
 
         /* renamed from: a  reason: collision with other field name */
         T f137a;
@@ -93,7 +93,7 @@ public class aq {
         this.f131a = null;
         this.f129a = context.getApplicationContext();
         this.f136a = m108c();
-        f13810b = m109d();
+        f13812b = m109d();
         this.f131a = new ar(this, Looper.getMainLooper());
         Intent b2 = b();
         if (b2 != null) {
@@ -120,10 +120,10 @@ public class aq {
     public static synchronized aq a(Context context) {
         aq aqVar;
         synchronized (aq.class) {
-            if (f13809a == null) {
-                f13809a = new aq(context);
+            if (f13811a == null) {
+                f13811a = new aq(context);
             }
-            aqVar = f13809a;
+            aqVar = f13811a;
         }
         return aqVar;
     }
@@ -152,7 +152,7 @@ public class aq {
                 ilVar2.a(str);
                 ilVar = z ? new il(str, true) : null;
             }
-            switch (au.f13815a[avVar.ordinal()]) {
+            switch (au.f13817a[avVar.ordinal()]) {
                 case 1:
                     ilVar2.c(hw.DisablePushMessage.f555a);
                     ilVar.c(hw.DisablePushMessage.f555a);
@@ -243,7 +243,7 @@ public class aq {
     private void c(Intent intent) {
         int a2 = com.xiaomi.push.service.ak.a(this.f129a).a(hr.ServiceBootMode.a(), hn.START.a());
         int a3 = a();
-        boolean z = a2 == hn.BIND.a() && f13810b;
+        boolean z = a2 == hn.BIND.a() && f13812b;
         int a4 = z ? hn.BIND.a() : hn.START.a();
         if (a4 != a3) {
             m114a(a4);
@@ -438,7 +438,7 @@ public class aq {
     public <T extends ix<T, ?>> void a(T t, hm hmVar, boolean z) {
         a aVar = new a();
         aVar.f137a = t;
-        aVar.f13811a = hmVar;
+        aVar.f13813a = hmVar;
         aVar.f138a = z;
         synchronized (f128a) {
             f128a.add(aVar);
@@ -583,7 +583,7 @@ public class aq {
             Iterator<a> it = f128a.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                a(next.f137a, next.f13811a, next.f138a, false, null, true);
+                a(next.f137a, next.f13813a, next.f138a, false, null, true);
             }
             f128a.clear();
         }

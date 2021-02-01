@@ -1,18 +1,18 @@
 package com.baidu.mario.a.c;
 
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
 
-    public static void ip(String str) {
+    public static void iV(String str) {
         File parentFile = new File(str).getParentFile();
         if (!parentFile.exists()) {
             parentFile.mkdirs();
         }
     }
 
-    public static boolean iq(String str) {
+    public static boolean iW(String str) {
         return new File(str).delete();
     }
 }

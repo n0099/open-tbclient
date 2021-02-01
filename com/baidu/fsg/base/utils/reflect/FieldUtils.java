@@ -11,7 +11,7 @@ import java.util.Map;
 public class FieldUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, Field> f2003a = new HashMap();
+    private static Map<String, Field> f2001a = new HashMap();
 
     private static String a(Class<?> cls, String str) {
         StringBuilder sb = new StringBuilder();
@@ -26,8 +26,8 @@ public class FieldUtils {
         Validate.a(cls != null, "The class must not be null", new Object[0]);
         Validate.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
         String a2 = a(cls, str);
-        synchronized (f2003a) {
-            field = f2003a.get(a2);
+        synchronized (f2001a) {
+            field = f2001a.get(a2);
         }
         if (field != null) {
             if (z && !field.isAccessible()) {
@@ -48,8 +48,8 @@ public class FieldUtils {
                     declaredField.setAccessible(true);
                 }
             }
-            synchronized (f2003a) {
-                f2003a.put(a2, declaredField);
+            synchronized (f2001a) {
+                f2001a.put(a2, declaredField);
             }
             return declaredField;
         }
@@ -63,8 +63,8 @@ public class FieldUtils {
             }
             field3 = field2;
         }
-        synchronized (f2003a) {
-            f2003a.put(a2, field3);
+        synchronized (f2001a) {
+            f2001a.put(a2, field3);
         }
         return field3;
     }

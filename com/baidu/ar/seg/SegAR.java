@@ -53,7 +53,7 @@ public class SegAR extends c {
     private int vx = 0;
 
     /* renamed from: io  reason: collision with root package name */
-    private byte[] f1570io = null;
+    private byte[] f1568io = null;
     private long vy = 0;
     private AlgoHandleController cb = null;
     private int vz = -1;
@@ -388,10 +388,10 @@ public class SegAR extends c {
                     SegAR.this.d(hashMap2);
                 }
                 l r = SegAR.this.r();
-                long de2 = bVar.de();
-                if (de2 > 0 && r != null) {
-                    r.a(de2, SegAR.this.bD);
-                    SegAR.this.a(de2);
+                long de = bVar.de();
+                if (de > 0 && r != null) {
+                    r.a(de, SegAR.this.bD);
+                    SegAR.this.a(de);
                 }
                 a gd = ((b) bVar).gd();
                 if (gd != null) {
@@ -405,9 +405,9 @@ public class SegAR extends c {
                     if (r != null) {
                         SegAR.this.vw = gd.getWidth();
                         SegAR.this.vx = gd.getHeight();
-                        SegAR.this.f1570io = gd.gc();
+                        SegAR.this.f1568io = gd.gc();
                         SegAR.this.vy = bVar.getTimestamp();
-                        if (SegAR.this.vw <= 0 || SegAR.this.vx <= 0 || SegAR.this.f1570io == null) {
+                        if (SegAR.this.vw <= 0 || SegAR.this.vx <= 0 || SegAR.this.f1568io == null) {
                             return;
                         }
                         j jVar = new j();

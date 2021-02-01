@@ -1,7 +1,7 @@
 package com.baidu.live.follow.http;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends HttpMessage {
     private String liveId;
 

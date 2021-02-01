@@ -1,8 +1,8 @@
 package aegon.chrome.net;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class UrlResponseInfo {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class HeaderBlock {
     }
 }

@@ -12,14 +12,14 @@ import android.widget.TextView;
 import androidx.core.view.ViewCompat;
 import com.baidu.tieba.R;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j extends Dialog {
 
     /* renamed from: a */
-    private final int f5600a;
+    private final int f5602a;
 
     /* renamed from: b */
-    private final int f5601b;
+    private final int f5603b;
     private final int c;
     private final int d;
     private final int e;
@@ -29,8 +29,8 @@ public final class j extends Dialog {
 
     public j(Context context) {
         super(context);
-        this.f5600a = R.dimen.L_X02;
-        this.f5601b = R.dimen.L_X03;
+        this.f5602a = R.dimen.L_X02;
+        this.f5603b = R.dimen.L_X03;
         this.c = R.dimen.L_X05;
         this.d = R.dimen.L_X06;
         this.e = R.dimen.M_H_X001;

@@ -4,10 +4,10 @@ import com.kwai.sodler.lib.a.a;
 import com.kwai.sodler.lib.a.f;
 import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements b<g, h> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */

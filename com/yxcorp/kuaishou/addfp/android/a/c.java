@@ -17,18 +17,18 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private static volatile c qbW = null;
+    private static volatile c qma = null;
     private ConcurrentHashMap c = new ConcurrentHashMap(10);
     private Context d;
-    private e qbV;
+    private e qlZ;
 
     private c(Context context) {
-        this.qbV = null;
+        this.qlZ = null;
         try {
             this.d = context;
-            this.qbV = new e(this.d);
+            this.qlZ = new e(this.d);
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
         }
@@ -113,15 +113,15 @@ public class c {
         }
     }
 
-    public static c jc(Context context) {
-        if (qbW == null) {
+    public static c jf(Context context) {
+        if (qma == null) {
             synchronized (c.class) {
-                if (qbW == null) {
-                    qbW = new c(context);
+                if (qma == null) {
+                    qma = new c(context);
                 }
             }
         }
-        return qbW;
+        return qma;
     }
 
     public final synchronized Pair a() {
@@ -135,7 +135,7 @@ public class c {
                 }
             }
             this.c.clear();
-            String b2 = this.qbV.b();
+            String b2 = this.qlZ.b();
             if (!TextUtils.isEmpty(b2)) {
                 try {
                     bArr = Base64.decode(b2, 0);
@@ -190,7 +190,7 @@ public class c {
                     }
                 }
                 if (bArr != null) {
-                    this.qbV.a(new String(bArr));
+                    this.qlZ.a(new String(bArr));
                 }
             } catch (Throwable th3) {
             }
@@ -198,28 +198,28 @@ public class c {
                 String a3 = d.a(this.d, "k_w_o_d_out_dtt");
                 if (TextUtils.isEmpty(a3)) {
                     com.yxcorp.kuaishou.addfp.android.b.a.a();
-                    if (com.yxcorp.kuaishou.addfp.android.b.e.e(this.d, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                    if (com.yxcorp.kuaishou.addfp.android.b.e.d(this.d, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                         a3 = b("Lm91a2R0ZnQ=");
                     }
                 }
-                if (!TextUtils.isEmpty(a3) && (linkedHashMap = aaO(a3)) != null) {
-                    String b2 = b.qbU.b();
+                if (!TextUtils.isEmpty(a3) && (linkedHashMap = abP(a3)) != null) {
+                    String b2 = b.qlY.b();
                     if (!TextUtils.isEmpty(b2)) {
                         if (linkedHashMap.containsKey(b2)) {
                             linkedHashMap.remove(b2);
                         }
-                        linkedHashMap.put(b.qbU.b(), str);
+                        linkedHashMap.put(b.qlY.b(), str);
                     }
                 }
                 if (linkedHashMap == null || linkedHashMap.size() == 0) {
                     linkedHashMap = new LinkedHashMap();
-                    linkedHashMap.put(b.qbU.b(), str);
+                    linkedHashMap.put(b.qlY.b(), str);
                 }
                 String a4 = a(linkedHashMap);
                 if (!TextUtils.isEmpty(a4)) {
                     d.a(this.d, "k_w_o_d_out_dtt", a4);
                     com.yxcorp.kuaishou.addfp.android.b.a.a();
-                    if (com.yxcorp.kuaishou.addfp.android.b.e.e(this.d, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                    if (com.yxcorp.kuaishou.addfp.android.b.e.d(this.d, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                         a(this.d, a4);
                     }
                 }
@@ -229,7 +229,7 @@ public class c {
         }
     }
 
-    public final LinkedHashMap aaO(String str) {
+    public final LinkedHashMap abP(String str) {
         ObjectInputStream objectInputStream;
         if (TextUtils.isEmpty(str)) {
             return null;

@@ -1,5 +1,5 @@
 package com.kwai.video.cache;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface CacheSessionListener {
     public static final int STOP_REASON_BYTE_RANGE_INVALID = 7;
     public static final int STOP_REASON_CANCELLED = 2;
@@ -13,7 +13,7 @@ public interface CacheSessionListener {
     public static final int STOP_REASON_UNKNOWN = 0;
     public static final int STOP_REASON_UNNET = -1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Util {
         public static boolean needRetryOnThisStopReasonCode(int i) {
             switch (i) {

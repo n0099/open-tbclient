@@ -10,9 +10,9 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @d
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class GifImage implements c, b {
-    private static volatile boolean pnj;
+    private static volatile boolean pxy;
     @d
     private long mNativeContext;
 
@@ -40,24 +40,24 @@ public class GifImage implements c, b {
 
     private native int nativeGetWidth();
 
-    private static synchronized void epq() {
+    private static synchronized void erJ() {
         synchronized (GifImage.class) {
-            if (!pnj) {
-                pnj = true;
+            if (!pxy) {
+                pxy = true;
                 SoLoaderShim.loadLibrary("gifimage");
             }
         }
     }
 
-    public static GifImage N(long j, int i) {
-        epq();
+    public static GifImage L(long j, int i) {
+        erJ();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
 
     @Override // com.facebook.imagepipeline.animated.a.c
-    public b O(long j, int i) {
-        return N(j, i);
+    public b M(long j, int i) {
+        return L(j, i);
     }
 
     @d
@@ -108,13 +108,13 @@ public class GifImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: Os */
-    public GifFrame Ov(int i) {
+    /* renamed from: ON */
+    public GifFrame OQ(int i) {
         return nativeGetFrame(i);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean epr() {
+    public boolean erK() {
         return false;
     }
 
@@ -124,16 +124,16 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo Ot(int i) {
-        GifFrame Ov = Ov(i);
+    public AnimatedDrawableFrameInfo OO(int i) {
+        GifFrame OQ = OQ(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, Ov.getXOffset(), Ov.getYOffset(), Ov.getWidth(), Ov.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, Ou(Ov.epp()));
+            return new AnimatedDrawableFrameInfo(i, OQ.getXOffset(), OQ.getYOffset(), OQ.getWidth(), OQ.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, OP(OQ.erI()));
         } finally {
-            Ov.dispose();
+            OQ.dispose();
         }
     }
 
-    private static AnimatedDrawableFrameInfo.DisposalMethod Ou(int i) {
+    private static AnimatedDrawableFrameInfo.DisposalMethod OP(int i) {
         if (i == 0) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
         }

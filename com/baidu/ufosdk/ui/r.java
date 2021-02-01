@@ -3,21 +3,21 @@ package com.baidu.ufosdk.ui;
 import java.util.HashMap;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class r implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f5609a;
+    final /* synthetic */ int f5611a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ j f5610b;
+    final /* synthetic */ j f5612b;
     final /* synthetic */ FeedbackEditActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(FeedbackEditActivity feedbackEditActivity, int i, j jVar) {
         this.c = feedbackEditActivity;
-        this.f5609a = i;
-        this.f5610b = jVar;
+        this.f5611a = i;
+        this.f5612b = jVar;
     }
 
     @Override // com.baidu.ufosdk.ui.l
@@ -42,7 +42,7 @@ public final class r implements l {
         HashMap hashMap14;
         List list5;
         com.baidu.ufosdk.f.c.a("DeleteConfirmDialog --> confirm clicked!");
-        if (this.f5609a == 1) {
+        if (this.f5611a == 1) {
             list4 = this.c.q;
             switch (list4.size()) {
                 case 1:
@@ -69,7 +69,7 @@ public final class r implements l {
             }
             list5 = this.c.q;
             list5.remove(0);
-        } else if (this.f5609a == 2) {
+        } else if (this.f5611a == 2) {
             list2 = this.c.q;
             switch (list2.size()) {
                 case 2:
@@ -93,12 +93,12 @@ public final class r implements l {
             list.remove(2);
         }
         this.c.b();
-        this.f5610b.dismiss();
+        this.f5612b.dismiss();
     }
 
     @Override // com.baidu.ufosdk.ui.l
     public final void b() {
         com.baidu.ufosdk.f.c.a("DeleteConfirmDialog --> cancel clicked!");
-        this.f5610b.dismiss();
+        this.f5612b.dismiss();
     }
 }

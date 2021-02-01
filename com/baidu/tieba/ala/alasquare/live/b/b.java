@@ -3,18 +3,18 @@ package com.baidu.tieba.ala.alasquare.live.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId gwy = BdUniqueId.gen();
+    public static final BdUniqueId gzi = BdUniqueId.gen();
     public String bitmapRatio;
     public int categoryType;
     public String entryName;
-    public List<String> gwx;
+    public List<String> gzh;
     public String labelName;
     public int tabId;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return gwy;
+        return gzi;
     }
 }

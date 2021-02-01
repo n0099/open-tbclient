@@ -2,19 +2,19 @@ package com.bytedance.sdk.openadsdk.d.b.b;
 
 import com.bytedance.sdk.openadsdk.d.b.e;
 import java.lang.reflect.AccessibleObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final b f6925a;
+    private static final b f6927a;
 
     public abstract void a(AccessibleObject accessibleObject);
 
     static {
-        f6925a = e.a() < 9 ? new a() : new c();
+        f6927a = e.a() < 9 ? new a() : new c();
     }
 
     public static b a() {
-        return f6925a;
+        return f6927a;
     }
 }

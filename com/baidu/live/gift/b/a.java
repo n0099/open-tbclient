@@ -9,52 +9,52 @@ import com.baidu.live.gift.widget.panel.GiftPanelPackageFragmentItemView;
 import com.baidu.live.sdk.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private List<aa.a> bbl;
-    private int bbm = -1;
+    private List<aa.a> ber;
+    private int bes = -1;
 
     public List<aa.a> getData() {
-        return this.bbl;
+        return this.ber;
     }
 
     public void setData(List<aa.a> list) {
-        if (this.bbl == null) {
-            this.bbl = new ArrayList();
+        if (this.ber == null) {
+            this.ber = new ArrayList();
         }
-        this.bbl.clear();
+        this.ber.clear();
         if (list != null) {
-            this.bbl.addAll(list);
+            this.ber.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void cL(int i) {
-        if (i != this.bbm) {
-            this.bbm = i;
+    public void cQ(int i) {
+        if (i != this.bes) {
+            this.bes = i;
             notifyDataSetChanged();
         }
     }
 
     public void reset() {
         setData(null);
-        cL(-1);
+        cQ(-1);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bbl != null) {
-            return this.bbl.size();
+        if (this.ber != null) {
+            return this.ber.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: dg */
+    /* renamed from: dl */
     public aa.a getItem(int i) {
         if (getCount() > i) {
-            return this.bbl.get(i);
+            return this.ber.get(i);
         }
         return null;
     }
@@ -66,27 +66,27 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0169a c0169a;
+        C0170a c0170a;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.live_gift_panel_package_fragment_list_item, viewGroup, false);
-            C0169a c0169a2 = new C0169a();
-            c0169a2.bbn = (GiftPanelPackageFragmentItemView) view.findViewById(a.f.item);
-            view.setTag(c0169a2);
-            c0169a = c0169a2;
+            C0170a c0170a2 = new C0170a();
+            c0170a2.beu = (GiftPanelPackageFragmentItemView) view.findViewById(a.f.item);
+            view.setTag(c0170a2);
+            c0170a = c0170a2;
         } else {
-            c0169a = (C0169a) view.getTag();
+            c0170a = (C0170a) view.getTag();
         }
         aa.a item = getItem(i);
         if (item != null) {
-            c0169a.bbn.setSelected(this.bbm == i);
-            c0169a.bbn.setData(item);
+            c0170a.beu.setSelected(this.bes == i);
+            c0170a.beu.setData(item);
         }
         return view;
     }
 
     /* renamed from: com.baidu.live.gift.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0169a {
-        private GiftPanelPackageFragmentItemView bbn;
+    /* loaded from: classes11.dex */
+    public static class C0170a {
+        private GiftPanelPackageFragmentItemView beu;
     }
 }

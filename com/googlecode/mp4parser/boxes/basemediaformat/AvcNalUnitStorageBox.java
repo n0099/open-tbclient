@@ -8,17 +8,17 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AvcNalUnitStorageBox extends AbstractBox {
     public static final String TYPE = "avcn";
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_7 = null;
     AvcConfigurationBox.AVCDecoderConfigurationRecord avcDecoderConfigurationRecord;
 
     static {

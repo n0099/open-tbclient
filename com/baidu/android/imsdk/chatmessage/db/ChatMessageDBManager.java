@@ -23,7 +23,6 @@ import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.db.IMUserManager;
 import com.baidu.android.imsdk.db.DBBase;
-import com.baidu.android.imsdk.db.DBResponseCode;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -1758,7 +1757,7 @@ public class ChatMessageDBManager extends DBBase {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     private int setMsgReadByContacterIds(SQLiteDatabase sQLiteDatabase, List<Long> list, long j) {
         if (list == null || list.size() <= 0) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         Cursor cursor = null;
         if (sQLiteDatabase != null) {
@@ -1885,7 +1884,7 @@ public class ChatMessageDBManager extends DBBase {
         ChatSession chatSession;
         int unReadMsgCount;
         if (chatObject == null) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         synchronized (mSyncLock) {
             if (1 == chatObject.getCategory()) {

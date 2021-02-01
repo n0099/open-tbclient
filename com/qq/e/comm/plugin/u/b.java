@@ -27,20 +27,20 @@ import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final b f12544a = new b();
+    private static final b f12546a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Object f12545b = new Object();
+    private final Object f12547b = new Object();
 
     private b() {
     }
 
     public static b a() {
-        return f12544a;
+        return f12546a;
     }
 
     private File a(String str) {
@@ -130,7 +130,7 @@ public class b {
             u.a(100102, optInt2, a2);
             return;
         }
-        synchronized (this.f12545b) {
+        synchronized (this.f12547b) {
             ah.b();
             ah.a(ah.c(str2), optJSONArray.toString());
         }
@@ -180,7 +180,7 @@ public class b {
         JSONArray jSONArray;
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str2)) {
-            synchronized (this.f12545b) {
+            synchronized (this.f12547b) {
                 c = ah.c(ah.c(str2));
             }
             if (!TextUtils.isEmpty(c)) {

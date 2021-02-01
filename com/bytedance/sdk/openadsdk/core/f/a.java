@@ -6,11 +6,11 @@ import android.os.Binder;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f6537a = a.class.getSimpleName();
+    private static final String f6539a = a.class.getSimpleName();
 
     public static boolean a(Context context, String str) {
         return Build.VERSION.SDK_INT >= 19 ? b(context, str) : c(context, str);
@@ -21,7 +21,7 @@ public class a {
         Exception exc;
         boolean z;
         String str2;
-        u.f(f6537a, "checkPermissinKITKATNew，permission：" + str);
+        u.f(f6539a, "checkPermissinKITKATNew，permission：" + str);
         char c = 65535;
         try {
             switch (str.hashCode()) {
@@ -59,15 +59,15 @@ public class a {
                     break;
             }
             int checkOp = ((AppOpsManager) context.getSystemService("appops")).checkOp(str2, Binder.getCallingUid(), context.getPackageName());
-            u.f(f6537a, "checkPermissinKITKATNew，locationOp,permission：" + checkOp + "," + str2);
+            u.f(f6539a, "checkPermissinKITKATNew，locationOp,permission：" + checkOp + "," + str2);
             if (checkOp != 0) {
                 try {
-                    u.f(f6537a, "checkPermissinKITKATNew，false,permission：" + str2);
+                    u.f(f6539a, "checkPermissinKITKATNew，false,permission：" + str2);
                     return false;
                 } catch (Exception e) {
                     exc = e;
                     z = false;
-                    u.f(f6537a, "权限检查出错时默认返回有权限，异常代码：" + exc);
+                    u.f(f6539a, "权限检查出错时默认返回有权限，异常代码：" + exc);
                     return z;
                 }
             }

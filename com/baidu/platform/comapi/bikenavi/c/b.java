@@ -22,14 +22,14 @@ import com.baidu.platform.comapi.wnplatform.h.e;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f4148a;
+    LatLng f4151a;
 
     /* renamed from: b  reason: collision with root package name */
-    LatLng f4149b;
+    LatLng f4152b;
     private View e;
     private Activity f;
     private com.baidu.platform.comapi.bikenavi.widget.a g;
@@ -80,17 +80,17 @@ public class b extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     private LatLng w() {
-        if (this.f4149b == null) {
-            this.f4149b = com.baidu.platform.comapi.walknavi.b.a().N();
+        if (this.f4152b == null) {
+            this.f4152b = com.baidu.platform.comapi.walknavi.b.a().N();
         }
-        return this.f4149b;
+        return this.f4152b;
     }
 
     private LatLng x() {
-        if (this.f4148a == null) {
-            this.f4148a = com.baidu.platform.comapi.walknavi.b.a().M();
+        if (this.f4151a == null) {
+            this.f4151a = com.baidu.platform.comapi.walknavi.b.a().M();
         }
-        return this.f4148a;
+        return this.f4151a;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.n.a
@@ -205,33 +205,33 @@ public class b extends com.baidu.platform.comapi.wnplatform.n.a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends CountDownTimer {
 
         /* renamed from: a  reason: collision with root package name */
-        Activity f4150a;
+        Activity f4153a;
 
         /* renamed from: b  reason: collision with root package name */
-        com.baidu.platform.comapi.walknavi.widget.a f4151b;
+        com.baidu.platform.comapi.walknavi.widget.a f4154b;
 
         public a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
-            this.f4150a = activity;
-            this.f4151b = aVar;
+            this.f4153a = activity;
+            this.f4154b = aVar;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            if (this.f4151b != null) {
-                ((Button) this.f4151b.c()).setText("确定(" + ((j / 1000) - 1) + ")");
+            if (this.f4154b != null) {
+                ((Button) this.f4154b.c()).setText("确定(" + ((j / 1000) - 1) + ")");
             }
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             b.this.q();
-            if (this.f4150a != null && !this.f4150a.isFinishing()) {
-                this.f4151b.dismiss();
+            if (this.f4153a != null && !this.f4153a.isFinishing()) {
+                this.f4154b.dismiss();
             }
         }
     }
@@ -480,7 +480,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.n.a {
                 return;
             }
             com.baidu.platform.comapi.walknavi.widget.a b3 = new com.baidu.platform.comapi.walknavi.widget.a(this.f).a(true).b(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.drawable.res_0x7f080004_avd_show_password__1));
-            if (com.baidu.platform.comapi.walknavi.g.a.b.f4282a == 2) {
+            if (com.baidu.platform.comapi.walknavi.g.a.b.f4285a == 2) {
                 b2 = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, i);
             } else {
                 b2 = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, i);

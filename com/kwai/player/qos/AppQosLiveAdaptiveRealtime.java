@@ -6,7 +6,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AppQosLiveAdaptiveRealtime {
     private static final boolean VERBOSE = false;
     private AppLiveReatimeInfoProvider mAppLiveReatimeInfoProvider;

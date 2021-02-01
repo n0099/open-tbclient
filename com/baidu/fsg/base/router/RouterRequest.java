@@ -7,15 +7,15 @@ import org.json.JSONObject;
 public class RouterRequest {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1926a = "RouterRequest";
+    private static final String f1924a = "RouterRequest";
 
     /* renamed from: b  reason: collision with root package name */
-    private String f1927b = "";
+    private String f1925b = "";
     private String c = "";
     private HashMap d = new HashMap();
 
     public String getProvider() {
-        return this.f1927b;
+        return this.f1925b;
     }
 
     public String getAction() {
@@ -29,7 +29,7 @@ public class RouterRequest {
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("provider", this.f1927b);
+            jSONObject.put("provider", this.f1925b);
             jSONObject.put("action", this.c);
             try {
                 JSONObject jSONObject2 = new JSONObject();
@@ -48,7 +48,7 @@ public class RouterRequest {
     }
 
     public RouterRequest provider(String str) {
-        this.f1927b = str;
+        this.f1925b = str;
         return this;
     }
 

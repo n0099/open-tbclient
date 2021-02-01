@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.core.d;
 import android.text.TextUtils;
 import java.util.HashMap;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6487a;
+    private String f6489a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6488b;
+    private String f6490b;
     private String c;
     private JSONArray d;
     private String e;
@@ -28,19 +28,19 @@ public class c {
     }
 
     public String b() {
-        return this.f6487a;
+        return this.f6489a;
     }
 
     public void a(String str) {
-        this.f6487a = str;
+        this.f6489a = str;
     }
 
     public String c() {
-        return this.f6488b;
+        return this.f6490b;
     }
 
     public void b(String str) {
-        this.f6488b = str;
+        this.f6490b = str;
     }
 
     public String d() {

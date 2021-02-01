@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.kwad.sdk.R;
 import com.kwad.sdk.lib.desigin.CustomActionBarBehavior;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ProfileHomeTitleBarBehavior extends CustomActionBarBehavior {
     private ImageView mLeftBackNormal;
     private ImageView mLeftBackShadow;

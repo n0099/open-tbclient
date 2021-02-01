@@ -1,7 +1,6 @@
 package com.baidu.ar.algo;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes6.dex */
 public class a {
     private static a bV = new a();
@@ -15,7 +14,7 @@ public class a {
     public int width;
 
     static {
-        bV.width = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        bV.width = 1280;
         bV.height = 720;
         bV.ca = true;
         bV.bY = new float[]{1110.8284f, 0.0f, 640.0f, 0.0f, 1111.2183f, 360.0f, 0.0f, 0.0f, 1.0f};

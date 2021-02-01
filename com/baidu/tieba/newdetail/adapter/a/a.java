@@ -4,20 +4,20 @@ import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<T, V> {
-    private boolean lql;
+    private boolean lyq;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
     }
 
-    public void uc(boolean z) {
-        this.lql = z;
+    public void up(boolean z) {
+        this.lyq = z;
     }
 
-    public boolean dgc() {
-        return this.lql;
+    public boolean did() {
+        return this.lyq;
     }
 }

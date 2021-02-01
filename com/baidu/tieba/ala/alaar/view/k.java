@@ -5,40 +5,40 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class k extends j implements View.OnClickListener {
-    private View gus;
-    private TextView gut;
-    private ImageView guu;
+    private View gxc;
+    private TextView gxd;
+    private ImageView gxe;
     private String mTitle;
 
     @Override // com.baidu.tieba.ala.alaar.view.j
     protected void a(ValueAnimator valueAnimator) {
         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-        this.gus.setTranslationY(this.gus.getMeasuredHeight() * floatValue);
-        this.gut.setAlpha(1.0f - floatValue);
-        this.guu.setAlpha(1.0f - floatValue);
+        this.gxc.setTranslationY(this.gxc.getMeasuredHeight() * floatValue);
+        this.gxd.setAlpha(1.0f - floatValue);
+        this.gxe.setAlpha(1.0f - floatValue);
     }
 
     @Override // com.baidu.tieba.ala.alaar.view.j
-    protected void mk(boolean z) {
+    protected void mo(boolean z) {
         if (z) {
-            this.gus.setVisibility(0);
-            this.guu.setVisibility(0);
-            this.gut.setVisibility(0);
+            this.gxc.setVisibility(0);
+            this.gxe.setVisibility(0);
+            this.gxd.setVisibility(0);
             return;
         }
-        this.gus.setVisibility(4);
-        this.guu.setVisibility(4);
-        this.gut.setVisibility(4);
+        this.gxc.setVisibility(4);
+        this.gxe.setVisibility(4);
+        this.gxd.setVisibility(4);
     }
 
-    public void cn(View view) {
-        this.gus = view.findViewById(a.f.detail_content);
-        this.gut = (TextView) view.findViewById(a.f.thin_face_text_view);
-        this.guu = (ImageView) view.findViewById(a.f.thin_face_shrink);
-        this.guu.setOnClickListener(this);
-        mk(isShowing());
+    public void cj(View view) {
+        this.gxc = view.findViewById(a.f.detail_content);
+        this.gxd = (TextView) view.findViewById(a.f.thin_face_text_view);
+        this.gxe = (ImageView) view.findViewById(a.f.thin_face_shrink);
+        this.gxe.setOnClickListener(this);
+        mo(isShowing());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,7 +48,7 @@ public class k extends j implements View.OnClickListener {
         if (this.mTitle == null) {
             this.mTitle = "";
         }
-        this.gut.setText(this.mTitle);
+        this.gxd.setText(this.mTitle);
     }
 
     public void setTitle(String str) {
@@ -57,8 +57,8 @@ public class k extends j implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.guu && this.guo != null) {
-            this.guo.a(this, view);
+        if (view == this.gxe && this.gwY != null) {
+            this.gwY.a(this, view);
         }
     }
 }

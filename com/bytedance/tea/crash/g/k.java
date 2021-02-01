@@ -5,14 +5,14 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class k {
     public static void a(com.bytedance.tea.crash.c.a aVar, com.bytedance.tea.crash.c.b bVar, com.bytedance.tea.crash.c cVar) {
         if (aVar != null && aVar.a() != null && cVar != null) {
             JSONObject a2 = aVar.a();
             long optLong = a2.optLong("crash_time");
             int b2 = b(a("aid"));
-            String a3 = com.bytedance.tea.crash.h.eoN().a();
+            String a3 = com.bytedance.tea.crash.h.erf().a();
             if (optLong > 0 && b2 > 0 && !TextUtils.isEmpty(a3) && !"0".equals(a3) && !TextUtils.isEmpty(cVar.a())) {
                 try {
                     String str = "android_" + b2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a3 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + optLong + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + cVar;
@@ -33,7 +33,7 @@ public final class k {
 
     public static String a(String str) {
         Map<String, Object> a2;
-        if (com.bytedance.tea.crash.h.eoL() != null && (a2 = com.bytedance.tea.crash.h.eoL().a()) != null) {
+        if (com.bytedance.tea.crash.h.erd() != null && (a2 = com.bytedance.tea.crash.h.erd().a()) != null) {
             Object obj = a2.get(str);
             if (obj instanceof String) {
                 return (String) obj;

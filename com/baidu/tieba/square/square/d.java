@@ -1,21 +1,21 @@
 package com.baidu.tieba.square.square;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.tieba.square.data.a {
-    private e nip;
+    private e nrX;
 
-    public e dJQ() {
-        return this.nip;
+    public e dMb() {
+        return this.nrX;
     }
 
     public void b(e eVar) {
-        this.nip = eVar;
+        this.nrX = eVar;
         setErrorMsg(null);
     }
 
     @Override // com.baidu.tieba.square.data.a
-    protected void eJ(JSONObject jSONObject) throws Exception {
+    protected void eK(JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject = jSONObject.optJSONObject("forum_dir");
         if (optJSONObject != null) {
             e eVar = new e();

@@ -20,20 +20,20 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f8104a;
+    private final Context f8106a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8105b;
+    private final String f8107b;
     private final a c;
 
     private b(Context context, String str) {
-        this.f8104a = context.getApplicationContext();
-        this.f8105b = str;
-        this.c = new a(this.f8104a, str);
+        this.f8106a = context.getApplicationContext();
+        this.f8107b = str;
+        this.c = new a(this.f8106a, str);
     }
 
     public static k<d> a(Context context, String str) {
@@ -60,7 +60,7 @@ public class b {
         }
         FileExtension fileExtension = a2.first;
         InputStream inputStream = a2.second;
-        j<d> a3 = fileExtension == FileExtension.Zip ? e.a(new ZipInputStream(inputStream), this.f8105b) : e.a(inputStream, this.f8105b);
+        j<d> a3 = fileExtension == FileExtension.Zip ? e.a(new ZipInputStream(inputStream), this.f8107b) : e.a(inputStream, this.f8107b);
         if (a3.a() != null) {
             return a3.a();
         }
@@ -80,8 +80,8 @@ public class b {
     private j e() {
         FileExtension fileExtension;
         j<d> a2;
-        c.a("Fetching " + this.f8105b);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f8105b).openConnection();
+        c.a("Fetching " + this.f8107b);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f8107b).openConnection();
         httpURLConnection.setRequestMethod("GET");
         httpURLConnection.setRequestProperty("User-Agent", com.kwad.sdk.core.network.k.a());
         httpURLConnection.connect();
@@ -106,12 +106,12 @@ public class b {
                 case 0:
                     c.a("Handling zip response.");
                     fileExtension = FileExtension.Zip;
-                    a2 = e.a(new ZipInputStream(new FileInputStream(this.c.a(httpURLConnection.getInputStream(), fileExtension))), this.f8105b);
+                    a2 = e.a(new ZipInputStream(new FileInputStream(this.c.a(httpURLConnection.getInputStream(), fileExtension))), this.f8107b);
                     break;
                 default:
                     c.a("Received json response.");
                     fileExtension = FileExtension.Json;
-                    a2 = e.a(new FileInputStream(new File(this.c.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.f8105b);
+                    a2 = e.a(new FileInputStream(new File(this.c.a(httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.f8107b);
                     break;
             }
             if (a2.a() != null) {
@@ -125,7 +125,7 @@ public class b {
         while (true) {
             String readLine = bufferedReader.readLine();
             if (readLine == null) {
-                return new j((Throwable) new IllegalArgumentException("Unable to fetch " + this.f8105b + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + ((Object) sb)));
+                return new j((Throwable) new IllegalArgumentException("Unable to fetch " + this.f8107b + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + ((Object) sb)));
             }
             sb.append(readLine).append('\n');
         }
@@ -137,7 +137,7 @@ public class b {
         if (c != null) {
             return new j<>(c);
         }
-        c.a("Animation for " + this.f8105b + " not found in cache. Fetching from network.");
+        c.a("Animation for " + this.f8107b + " not found in cache. Fetching from network.");
         return d();
     }
 }

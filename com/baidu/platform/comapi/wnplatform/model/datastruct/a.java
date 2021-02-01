@@ -1,12 +1,12 @@
 package com.baidu.platform.comapi.wnplatform.model.datastruct;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    public double f4437a;
+    public double f4440a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f4438b;
+    public double f4441b;
     public double c;
     public double d;
     public double e;
@@ -17,8 +17,8 @@ public class a implements Cloneable {
     public a clone() {
         a aVar = new a();
         synchronized (this) {
-            aVar.f4437a = this.f4437a;
-            aVar.f4438b = this.f4438b;
+            aVar.f4440a = this.f4440a;
+            aVar.f4441b = this.f4441b;
             aVar.c = this.c;
             aVar.d = this.d;
             aVar.e = this.e;
@@ -28,6 +28,6 @@ public class a implements Cloneable {
     }
 
     public String toString() {
-        return String.format("SensorData {accx:%1$f accy:%2$f accz:%3$f heading:%4$f pitch:%5$f roll:%6$f}", Double.valueOf(this.f4437a), Double.valueOf(this.f4438b), Double.valueOf(this.c), Double.valueOf(this.d), Double.valueOf(this.e), Double.valueOf(this.f));
+        return String.format("SensorData {accx:%1$f accy:%2$f accz:%3$f heading:%4$f pitch:%5$f roll:%6$f}", Double.valueOf(this.f4440a), Double.valueOf(this.f4441b), Double.valueOf(this.c), Double.valueOf(this.d), Double.valueOf(this.e), Double.valueOf(this.f));
     }
 }

@@ -5,7 +5,7 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class c {
-    private SparseArray<WeakReference<View>> fPX;
+    private SparseArray<WeakReference<View>> fSk;
     private View itemView;
     private int mLayoutId;
 
@@ -15,7 +15,7 @@ public class c {
 
     public c(View view, int i) {
         this.itemView = view;
-        this.fPX = new SparseArray<>();
+        this.fSk = new SparseArray<>();
         this.mLayoutId = i;
     }
 
@@ -28,12 +28,12 @@ public class c {
         return this.itemView;
     }
 
-    public <T extends View> T rM(int i) {
-        WeakReference<View> weakReference = this.fPX.get(i);
+    public <T extends View> T rR(int i) {
+        WeakReference<View> weakReference = this.fSk.get(i);
         if (weakReference == null) {
             T t = (T) this.itemView.findViewById(i);
             if (t != null) {
-                this.fPX.put(i, new WeakReference<>(t));
+                this.fSk.put(i, new WeakReference<>(t));
                 return t;
             }
             return t;

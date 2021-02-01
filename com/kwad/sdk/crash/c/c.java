@@ -10,22 +10,22 @@ import com.kwad.sdk.crash.utils.f;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class c extends b {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final c f9632a = new c();
+        private static final c f9634a = new c();
     }
 
     private c() {
     }
 
     public static c d() {
-        return a.f9632a;
+        return a.f9634a;
     }
 
     @Override // com.kwad.sdk.crash.c.b
@@ -55,13 +55,13 @@ public final class c extends b {
                 z2 = false;
             }
             if (file == null || andIncrement != 0) {
-                file = new File(this.e, f9629a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + ".dump");
+                file = new File(this.e, f9631a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + ".dump");
             }
             if (file2 == null || andIncrement != 0) {
-                file2 = new File(this.e, f9629a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
+                file2 = new File(this.e, f9631a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
             }
             if (file3 == null || andIncrement != 0) {
-                file3 = new File(this.e, f9629a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + ".jtrace");
+                file3 = new File(this.e, f9631a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + andIncrement + ".jtrace");
             }
             f.a(th, exceptionMessage, context);
             f.a(exceptionMessage, c());

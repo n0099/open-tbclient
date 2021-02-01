@@ -14,9 +14,9 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.y;
 import java.util.List;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
@@ -39,7 +39,7 @@ public class ClientStartStatic {
                         if (SystemClock.elapsedRealtime() - this.mTimeStamp > 30000) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new aq(TbadkCoreStatisticKey.HOST_START).an("obj_param1", 1).an(TiebaInitialize.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).an(TiebaInitialize.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
+                        TiebaStatic.log(new ar(TbadkCoreStatisticKey.HOST_START).ap("obj_param1", 1).ap(TiebaInitialize.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).ap(TiebaInitialize.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
                     }
                 }
             });
@@ -57,12 +57,12 @@ public class ClientStartStatic {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-                z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
-                zVar.addPostData("type", "1");
-                zVar.postNetData();
-                if (TbSingleton.getInstance().getBaiduIdForAnti() == null && zVar.brX() != null && zVar.brX().bsH() != null && zVar.brX().bsH().mHeader != null) {
-                    List<String> list = zVar.brX().bsH().mHeader.get(SM.SET_COOKIE);
-                    if (!x.isEmpty(list)) {
+                aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
+                aaVar.addPostData("type", "1");
+                aaVar.postNetData();
+                if (TbSingleton.getInstance().getBaiduIdForAnti() == null && aaVar.bsr() != null && aaVar.bsr().btb() != null && aaVar.bsr().btb().mHeader != null) {
+                    List<String> list = aaVar.bsr().btb().mHeader.get(SM.SET_COOKIE);
+                    if (!y.isEmpty(list)) {
                         boolean z = false;
                         for (int i = 0; i < list.size(); i++) {
                             if (list.get(i) != null && list.get(i).contains("BAIDUID=")) {

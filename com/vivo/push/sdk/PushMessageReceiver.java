@@ -5,7 +5,7 @@ import com.vivo.push.LocalAliasTagsManager;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.model.UnvarnishedMessage;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class PushMessageReceiver extends BasePushMessageReceiver implements LocalAliasTagsManager.LocalMessageCallback {
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public void onTransmissionMessage(Context context, UnvarnishedMessage unvarnishedMessage) {

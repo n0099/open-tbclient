@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class PreFillType {
     @VisibleForTesting
     static final Bitmap.Config DEFAULT_CONFIG = Bitmap.Config.RGB_565;
@@ -56,7 +56,7 @@ public final class PreFillType {
         return "PreFillSize{width=" + this.width + ", height=" + this.height + ", config=" + this.config + ", weight=" + this.weight + '}';
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class Builder {
         private Bitmap.Config config;
         private final int height;

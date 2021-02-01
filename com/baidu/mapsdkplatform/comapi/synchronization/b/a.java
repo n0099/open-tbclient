@@ -18,11 +18,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends Handler {
 
     /* renamed from: b  reason: collision with root package name */
-    private static OnHistoryTraceListener f3084b;
+    private static OnHistoryTraceListener f3082b;
     private HistoryTraceData c;
     private List<HistoryTraceData.HistoryTracePoint> d;
     private b.a e;
@@ -33,7 +33,7 @@ public class a extends Handler {
     private SparseArray<List<HistoryTraceData.HistoryTracePoint>> k;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3083a = a.class.getSimpleName();
+    private static final String f3081a = a.class.getSimpleName();
     private static boolean h = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -49,30 +49,30 @@ public class a extends Handler {
 
     private LatLng a(String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Coord string is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3081a, "Coord string is null");
             return null;
         }
         String[] split = str.split(",");
         if (split.length == 0 || 2 != split.length) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Coord result is error");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3081a, "Coord result is error");
             return null;
         }
         try {
             try {
                 return new LatLng(Double.parseDouble(split[1]), Double.parseDouble(split[0]));
             } catch (NumberFormatException e) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3083a, "Parser coord latitude failed", e);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3081a, "Parser coord latitude failed", e);
                 return null;
             }
         } catch (NumberFormatException e2) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3083a, "Parser coord longitude failed", e2);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3081a, "Parser coord longitude failed", e2);
             return null;
         }
     }
 
     private List<HistoryTraceData.HistoryTracePoint> a(JSONArray jSONArray) {
         if (jSONArray == null || jSONArray.length() == 0) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Request result not contain points info");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3081a, "Request result not contain points info");
             return null;
         }
         ArrayList arrayList = new ArrayList();
@@ -100,25 +100,25 @@ public class a extends Handler {
     }
 
     private void a(int i, String str, int i2, HistoryTraceData historyTraceData) {
-        if (f3084b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "OnHistoryTraceListener is null");
+        if (f3082b == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3081a, "OnHistoryTraceListener is null");
         } else if (1 == i2) {
-            f3084b.onQueryHistroyTraceData(i, str, historyTraceData);
+            f3082b.onQueryHistroyTraceData(i, str, historyTraceData);
         } else {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Undefined message type to notify");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3081a, "Undefined message type to notify");
         }
     }
 
     private boolean a(String str, HistoryTraceData historyTraceData, int i) {
         if (TextUtils.isEmpty(str) || historyTraceData == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Parameter error when parser");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3081a, "Parameter error when parser");
             a(10009, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_PARSER_FAILED, i, null);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (!a(jSONObject, i)) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Request result contain error");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3081a, "Request result contain error");
                 return false;
             }
             this.g = false;
@@ -146,7 +146,7 @@ public class a extends Handler {
             }
             return true;
         } catch (JSONException e) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3083a, "JSONException happened when parser request result", e);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3081a, "JSONException happened when parser request result", e);
             return false;
         }
     }
@@ -154,7 +154,7 @@ public class a extends Handler {
     private boolean a(JSONObject jSONObject, int i) {
         if (jSONObject == null || !jSONObject.has("status")) {
             a(10009, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_PARSER_FAILED, i, null);
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Request result no status");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3081a, "Request result no status");
             return false;
         }
         this.i = jSONObject.optInt("status");
@@ -172,8 +172,8 @@ public class a extends Handler {
     }
 
     public void a() {
-        if (f3084b != null) {
-            f3084b = null;
+        if (f3082b != null) {
+            f3082b = null;
         }
         if (this.d != null) {
             this.d.clear();
@@ -187,7 +187,7 @@ public class a extends Handler {
     }
 
     public void a(OnHistoryTraceListener onHistoryTraceListener) {
-        f3084b = onHistoryTraceListener;
+        f3082b = onHistoryTraceListener;
     }
 
     public void a(b.a aVar) {
@@ -196,7 +196,7 @@ public class a extends Handler {
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f3083a, "Message type = " + message.what);
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f3081a, "Message type = " + message.what);
         switch (message.what) {
             case 3:
                 int i = message.arg1;
@@ -234,7 +234,7 @@ public class a extends Handler {
                 h = false;
                 return;
             default:
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3083a, "Undefined message type");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3081a, "Undefined message type");
                 return;
         }
     }

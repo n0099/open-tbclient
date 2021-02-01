@@ -1,5 +1,6 @@
 package com.baidu.mobads;
 
+import com.baidu.mobads.constants.XAdSDKProxyVersion;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -7,7 +8,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AdSettings {
     private static String c;
     private static String d;
@@ -18,14 +19,18 @@ public class AdSettings {
     private static String i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashSet<String> f3253a = new HashSet<>();
+    private static HashSet<String> f3252a = new HashSet<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private static JSONArray f3254b = new JSONArray();
-    private static String j = b.HTTP_PROTOCOL_TYPE.a() + "";
+    private static JSONArray f3253b = new JSONArray();
+    private static String j = b.HTTPS_PROTOCOL_TYPE.a() + "";
     private static HashSet<String> k = new HashSet<>();
     private static JSONArray l = new JSONArray();
     private static JSONObject m = new JSONObject();
+
+    public static Double getSDKVersion() {
+        return Double.valueOf(XAdSDKProxyVersion.getVersion());
+    }
 
     public static void setSupportHttps(boolean z) {
         if (z) {
@@ -40,7 +45,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum b {
         UNKNOWN_PROTOCOL_TYPE(0),
         HTTP_PROTOCOL_TYPE(1),
@@ -58,7 +63,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum d {
         MALE(0),
         FEMALE(1);
@@ -75,7 +80,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum a {
         PRIMARY(0),
         JUNIOR(1),
@@ -97,7 +102,7 @@ public class AdSettings {
     }
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum c {
         F0T1k(0),
         F1kT2k(1),
@@ -126,13 +131,13 @@ public class AdSettings {
 
     public static JSONObject getAttr() {
         JSONObject jSONObject = new JSONObject();
-        Iterator<String> it = f3253a.iterator();
-        f3254b = new JSONArray();
+        Iterator<String> it = f3252a.iterator();
+        f3253b = new JSONArray();
         while (it.hasNext()) {
-            f3254b.put(it.next());
+            f3253b.put(it.next());
         }
         try {
-            jSONObject.putOpt("KEY", f3254b);
+            jSONObject.putOpt("KEY", f3253b);
             jSONObject.putOpt("RPT", j);
         } catch (Exception e2) {
         }
@@ -142,13 +147,13 @@ public class AdSettings {
     @Deprecated
     public static void setKey(String[] strArr) {
         for (String str : strArr) {
-            f3253a.add(str);
+            f3252a.add(str);
         }
     }
 
     @Deprecated
     public static void setKey(List<String> list) {
-        f3253a.addAll(list);
+        f3252a.addAll(list);
     }
 
     @Deprecated

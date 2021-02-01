@@ -6,13 +6,13 @@ import com.baidu.swan.apps.u.c.b;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
-    String dCy;
-    String dJB;
-    String dJu;
-    String dJw;
-    String dJy;
+    String dEC;
+    String dLA;
+    String dLC;
+    String dLF;
+    String dLy;
     String mAppId;
     String mAppVersion;
     String mFrom;
@@ -22,45 +22,45 @@ public class a {
     public a() {
         this.mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
         this.mAppVersion = "";
-        this.dJu = "";
-        this.dJw = "";
-        this.dJy = "";
+        this.dLy = "";
+        this.dLA = "";
+        this.dLC = "";
         this.mScheme = "";
-        this.dJB = "";
-        if (e.aIs() != null) {
-            b.a aIv = e.aIs().aIv();
-            this.mFrom = h.jr(aIv.getAppFrameType());
-            this.mAppId = aIv.getAppId();
-            this.mSource = aIv.ayC();
-            this.dJw = aIv.ayI().getString("aiapp_extra_need_download", "");
-            this.dJy = aIv.ayI().getString("aiapp_extra_preset_pkg", "");
-            this.mScheme = aIv.ayE();
-            this.dJB = aIv.getPage();
-            this.dCy = aIv.ayV();
-            this.mAppVersion = aIv.getVersion();
-            this.dJu = aIv.getVersionCode();
+        this.dLF = "";
+        if (e.aIL() != null) {
+            b.a aIO = e.aIL().aIO();
+            this.mFrom = h.ju(aIO.getAppFrameType());
+            this.mAppId = aIO.getAppId();
+            this.mSource = aIO.aza();
+            this.dLA = aIO.azg().getString("aiapp_extra_need_download", "");
+            this.dLC = aIO.azg().getString("aiapp_extra_preset_pkg", "");
+            this.mScheme = aIO.azc();
+            this.dLF = aIO.getPage();
+            this.dEC = aIO.azt();
+            this.mAppVersion = aIO.getVersion();
+            this.dLy = aIO.getVersionCode();
         }
     }
 
     public a(JSONObject jSONObject) {
         this.mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
         this.mAppVersion = "";
-        this.dJu = "";
-        this.dJw = "";
-        this.dJy = "";
+        this.dLy = "";
+        this.dLA = "";
+        this.dLC = "";
         this.mScheme = "";
-        this.dJB = "";
+        this.dLF = "";
         if (jSONObject != null && jSONObject.length() != 0) {
             this.mFrom = jSONObject.optString("from", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
             this.mAppId = jSONObject.optString("appId");
             this.mSource = jSONObject.optString("source");
-            this.dJw = jSONObject.optString("needDown");
-            this.dJy = jSONObject.optString("isPreset");
+            this.dLA = jSONObject.optString("needDown");
+            this.dLC = jSONObject.optString("isPreset");
             this.mScheme = jSONObject.optString("scheme");
-            this.dJB = jSONObject.optString("extPage");
-            this.dCy = jSONObject.optString("launchId", null);
+            this.dLF = jSONObject.optString("extPage");
+            this.dEC = jSONObject.optString("launchId", null);
             this.mAppVersion = jSONObject.optString("appVersion");
-            this.dJu = jSONObject.optString("thirdVersion");
+            this.dLy = jSONObject.optString("thirdVersion");
         }
     }
 
@@ -70,13 +70,13 @@ public class a {
             jSONObject.put("from", this.mFrom);
             jSONObject.put("appId", this.mAppId);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("needDown", this.dJw);
-            jSONObject.put("isPreset", this.dJy);
+            jSONObject.put("needDown", this.dLA);
+            jSONObject.put("isPreset", this.dLC);
             jSONObject.put("scheme", this.mScheme);
-            jSONObject.put("extPage", this.dJB);
-            jSONObject.put("launchId", this.dCy);
+            jSONObject.put("extPage", this.dLF);
+            jSONObject.put("launchId", this.dEC);
             jSONObject.put("appVersion", this.mAppVersion);
-            jSONObject.put("thirdVersion", this.dJu);
+            jSONObject.put("thirdVersion", this.dLy);
         } catch (JSONException e) {
             e.printStackTrace();
         }

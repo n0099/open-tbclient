@@ -16,10 +16,10 @@ import com.baidu.adp.lib.voice.h;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.EmotionPackageDetailActivityConfig;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.bg;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
@@ -29,15 +29,15 @@ import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.baidu.tieba.newfaceshop.a.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EmotionHorizontalView extends LinearLayout implements View.OnClickListener {
-    private TextView iOf;
-    private TextView iOg;
-    private NewFaceGroupDownloadModel iOw;
-    private EmotionPackageData iSA;
-    private HListView iTv;
-    private TextView iTw;
-    private a iTx;
+    private TextView iTM;
+    private TextView iTN;
+    private NewFaceGroupDownloadModel iUd;
+    private EmotionPackageData iYh;
+    private HListView iZc;
+    private TextView iZd;
+    private a iZe;
     private TbPageContext mPageContext;
     private TextView mTitle;
     private View mTopLine;
@@ -50,80 +50,80 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_grid_item_layout, this);
-        this.iTv = (HListView) findViewById(R.id.emotion_item_grid);
+        this.iZc = (HListView) findViewById(R.id.emotion_item_grid);
         this.mTitle = (TextView) findViewById(R.id.emotion_title_tv);
-        this.iOf = (TextView) findViewById(R.id.emotion_download_num_tv);
-        this.iOg = (TextView) findViewById(R.id.emotion_share_num_tv);
-        this.iTw = (TextView) findViewById(R.id.emotion_download_tv);
+        this.iTM = (TextView) findViewById(R.id.emotion_download_num_tv);
+        this.iTN = (TextView) findViewById(R.id.emotion_share_num_tv);
+        this.iZd = (TextView) findViewById(R.id.emotion_download_tv);
         this.mTopLine = findViewById(R.id.line);
-        this.iTw.setOnClickListener(this);
+        this.iZd.setOnClickListener(this);
         setOnClickListener(this);
-        this.iTv.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
-        this.iTv.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.faceshop.emotioncenter.view.EmotionHorizontalView.1
+        this.iZc.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
+        this.iZc.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.faceshop.emotioncenter.view.EmotionHorizontalView.1
             @Override // com.baidu.tieba.horizonalList.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                if (EmotionHorizontalView.this.iSA != null) {
-                    EmotionHorizontalView.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(EmotionHorizontalView.this.mPageContext.getPageActivity(), EmotionHorizontalView.this.iSA.id, 0)));
+                if (EmotionHorizontalView.this.iYh != null) {
+                    EmotionHorizontalView.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(EmotionHorizontalView.this.mPageContext.getPageActivity(), EmotionHorizontalView.this.iYh.id, 0)));
                 }
             }
         });
-        this.iTv.setSelector(this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg));
-        this.iTx = new a(this.mPageContext);
-        this.iTv.setAdapter((ListAdapter) this.iTx);
+        this.iZc.setSelector(this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg));
+        this.iZe = new a(this.mPageContext);
+        this.iZc.setAdapter((ListAdapter) this.iZe);
     }
 
     public void onChangeSkin(int i) {
-        ao.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-        ao.setViewTextColor(this.iOf, R.color.CAM_X0109);
-        ao.setViewTextColor(this.iOg, R.color.CAM_X0109);
-        ao.setViewTextColor(this.iTw, R.color.CAM_X0109);
-        ao.setBackgroundColor(this.mTopLine, R.color.CAM_X0204);
+        ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
+        ap.setViewTextColor(this.iTM, R.color.CAM_X0109);
+        ap.setViewTextColor(this.iTN, R.color.CAM_X0109);
+        ap.setViewTextColor(this.iZd, R.color.CAM_X0109);
+        ap.setBackgroundColor(this.mTopLine, R.color.CAM_X0204);
     }
 
     public void setData(EmotionPackageData emotionPackageData) {
-        this.iSA = emotionPackageData;
-        if (this.iSA != null) {
-            this.iTv.setAdapter((ListAdapter) this.iTx);
-            this.iTx.setData(this.iSA.pics, this.iSA.forum_id > 0);
-            if (!TextUtils.isEmpty(this.iSA.forum_name)) {
-                this.mTitle.setText(this.iSA.forum_name + "·" + this.iSA.name);
+        this.iYh = emotionPackageData;
+        if (this.iYh != null) {
+            this.iZc.setAdapter((ListAdapter) this.iZe);
+            this.iZe.setData(this.iYh.pics, this.iYh.forum_id > 0);
+            if (!TextUtils.isEmpty(this.iYh.forum_name)) {
+                this.mTitle.setText(this.iYh.forum_name + "·" + this.iYh.name);
             } else {
-                this.mTitle.setText(this.iSA.name);
+                this.mTitle.setText(this.iYh.name);
             }
-            this.iOf.setText(String.format(h.getString(R.string.package_detail_download_num), at.numberUniform(this.iSA.download)));
-            this.iOg.setText(String.format(h.getString(R.string.package_detail_share_num), at.numberUniform(this.iSA.share)));
-            if (com.baidu.tieba.faceshop.a.cxd().IK("" + this.iSA.id)) {
-                this.iTw.setText(R.string.already_downloaded);
-                this.iTw.setBackgroundDrawable(null);
-                ao.setViewTextColor(this.iTw, R.color.CAM_X0109);
-                this.iTw.setBackgroundDrawable(null);
-                this.iTw.setEnabled(false);
+            this.iTM.setText(String.format(h.getString(R.string.package_detail_download_num), au.numberUniform(this.iYh.download)));
+            this.iTN.setText(String.format(h.getString(R.string.package_detail_share_num), au.numberUniform(this.iYh.share)));
+            if (com.baidu.tieba.faceshop.a.cyo().Jv("" + this.iYh.id)) {
+                this.iZd.setText(R.string.already_downloaded);
+                this.iZd.setBackgroundDrawable(null);
+                ap.setViewTextColor(this.iZd, R.color.CAM_X0109);
+                this.iZd.setBackgroundDrawable(null);
+                this.iZd.setEnabled(false);
                 return;
             }
-            switch (this.iSA.status) {
+            switch (this.iYh.status) {
                 case 0:
                 case 3:
-                    this.iTw.setText(R.string.download);
-                    ao.setViewTextColor(this.iTw, R.color.CAM_X0302);
-                    ao.setBackgroundResource(this.iTw, R.drawable.bg_emotion_download);
-                    this.iTw.setEnabled(true);
+                    this.iZd.setText(R.string.download);
+                    ap.setViewTextColor(this.iZd, R.color.CAM_X0302);
+                    ap.setBackgroundResource(this.iZd, R.drawable.bg_emotion_download);
+                    this.iZd.setEnabled(true);
                     return;
                 case 1:
-                    this.iTw.setText(R.string.download);
-                    ao.setViewTextColor(this.iTw, R.color.CAM_X0302);
-                    ao.setBackgroundResource(this.iTw, R.drawable.bg_emotion_download);
-                    this.iTw.setEnabled(true);
+                    this.iZd.setText(R.string.download);
+                    ap.setViewTextColor(this.iZd, R.color.CAM_X0302);
+                    ap.setBackgroundResource(this.iZd, R.drawable.bg_emotion_download);
+                    this.iZd.setEnabled(true);
                     return;
                 case 2:
-                    this.iTw.setBackgroundDrawable(null);
-                    ao.setViewTextColor(this.iTw, R.color.CAM_X0109);
-                    this.iTw.setEnabled(false);
+                    this.iZd.setBackgroundDrawable(null);
+                    ap.setViewTextColor(this.iZd, R.color.CAM_X0109);
+                    this.iZd.setEnabled(false);
                     return;
                 case 4:
-                    this.iTw.setBackgroundDrawable(null);
-                    ao.setViewTextColor(this.iTw, R.color.CAM_X0109);
-                    this.iTw.setText(R.string.face_package_has_delete);
-                    this.iTw.setEnabled(false);
+                    this.iZd.setBackgroundDrawable(null);
+                    ap.setViewTextColor(this.iZd, R.color.CAM_X0109);
+                    this.iZd.setText(R.string.face_package_has_delete);
+                    this.iZd.setEnabled(false);
                     return;
                 default:
                     return;
@@ -133,31 +133,31 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.iSA != null) {
-            if (view == this.iTw) {
-                cxq();
+        if (this.iYh != null) {
+            if (view == this.iZd) {
+                cyB();
             } else if (view == this) {
-                this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(this.mPageContext.getPageActivity(), this.iSA.id, 0)));
+                this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(this.mPageContext.getPageActivity(), this.iYh.id, 0)));
             } else {
-                this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(this.mPageContext.getPageActivity(), this.iSA.id, 0)));
+                this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(this.mPageContext.getPageActivity(), this.iYh.id, 0)));
             }
         }
     }
 
-    private void cxq() {
-        if (bg.checkUpIsLogin(this.mPageContext.getPageActivity()) && this.iSA != null && this.iSA.id >= 0) {
-            if (this.iOw == null) {
-                this.iOw = new NewFaceGroupDownloadModel();
+    private void cyB() {
+        if (bh.checkUpIsLogin(this.mPageContext.getPageActivity()) && this.iYh != null && this.iYh.id >= 0) {
+            if (this.iUd == null) {
+                this.iUd = new NewFaceGroupDownloadModel();
             }
-            this.iTw.setEnabled(false);
-            this.iOw.a(Integer.toString(this.iSA.id), true, new b() { // from class: com.baidu.tieba.faceshop.emotioncenter.view.EmotionHorizontalView.2
+            this.iZd.setEnabled(false);
+            this.iUd.a(Integer.toString(this.iYh.id), true, new b() { // from class: com.baidu.tieba.faceshop.emotioncenter.view.EmotionHorizontalView.2
                 @Override // com.baidu.tieba.newfaceshop.a.b
                 public void onSuccess(String str) {
                     l.showToast(EmotionHorizontalView.this.mPageContext.getPageActivity(), R.string.down_state_success);
-                    EmotionHorizontalView.this.iTw.setText(R.string.already_downloaded);
-                    ao.setViewTextColor(EmotionHorizontalView.this.iTw, R.color.CAM_X0109);
-                    EmotionHorizontalView.this.iTw.setBackgroundDrawable(null);
-                    EmotionHorizontalView.this.iTw.setEnabled(false);
+                    EmotionHorizontalView.this.iZd.setText(R.string.already_downloaded);
+                    ap.setViewTextColor(EmotionHorizontalView.this.iZd, R.color.CAM_X0109);
+                    EmotionHorizontalView.this.iZd.setBackgroundDrawable(null);
+                    EmotionHorizontalView.this.iZd.setEnabled(false);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_MY_EMOTION_PACKAGE));
                 }
 
@@ -173,27 +173,27 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
                 @Override // com.baidu.tieba.newfaceshop.a.b
                 public void onFail(String str) {
                     l.showToast(EmotionHorizontalView.this.mPageContext.getPageActivity(), R.string.download_error);
-                    EmotionHorizontalView.this.iTw.setEnabled(true);
+                    EmotionHorizontalView.this.iZd.setEnabled(true);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends BaseAdapter {
-        private TbPageContext eSJ;
+        private TbPageContext eUY;
         private List<EmotionPackageData.SingleEmotionData> mDatas = new ArrayList();
-        private boolean iTz = false;
+        private boolean iZg = false;
         private boolean showCover = false;
 
         public a(TbPageContext tbPageContext) {
-            this.eSJ = tbPageContext;
+            this.eUY = tbPageContext;
         }
 
         public void setData(List<EmotionPackageData.SingleEmotionData> list, boolean z) {
-            if (!x.isEmpty(list)) {
-                this.iTz = z;
+            if (!y.isEmpty(list)) {
+                this.iZg = z;
                 if (list.size() > 8) {
                     this.mDatas = list.subList(0, 8);
                     this.showCover = true;
@@ -230,49 +230,49 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
         public View getView(int i, View view, ViewGroup viewGroup) {
             C0717a c0717a;
             if (view == null) {
-                view = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
+                view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
                 C0717a c0717a2 = new C0717a(view);
                 view.setTag(c0717a2);
                 c0717a = c0717a2;
             } else {
                 c0717a = (C0717a) view.getTag();
             }
-            c0717a.a(this.mDatas.get(i), i == 0 && this.iTz, this.showCover, i);
+            c0717a.a(this.mDatas.get(i), i == 0 && this.iZg, this.showCover, i);
             return view;
         }
 
         /* renamed from: com.baidu.tieba.faceshop.emotioncenter.view.EmotionHorizontalView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         static class C0717a {
-            private TextView ajQ;
-            private TbImageView iTA;
-            private View iTB;
+            private TextView ajF;
+            private TbImageView iZh;
+            private View iZi;
             private View mView;
 
             public C0717a(View view) {
                 this.mView = view;
                 this.mView.setEnabled(false);
-                this.iTA = (TbImageView) this.mView.findViewById(R.id.emotion_img);
-                this.ajQ = (TextView) this.mView.findViewById(R.id.emotion_single_bar_icon);
-                this.iTB = this.mView.findViewById(R.id.emotion_cover_view);
-                this.iTB.setVisibility(8);
+                this.iZh = (TbImageView) this.mView.findViewById(R.id.emotion_img);
+                this.ajF = (TextView) this.mView.findViewById(R.id.emotion_single_bar_icon);
+                this.iZi = this.mView.findViewById(R.id.emotion_cover_view);
+                this.iZi.setVisibility(8);
             }
 
             public void a(EmotionPackageData.SingleEmotionData singleEmotionData, boolean z, boolean z2, int i) {
                 if (singleEmotionData != null) {
                     if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                        this.iTA.setDefaultResource(R.drawable.img_default_100);
-                        this.iTA.startLoad(singleEmotionData.thumbnail, 10, false);
+                        this.iZh.setDefaultResource(R.drawable.img_default_100);
+                        this.iZh.startLoad(singleEmotionData.thumbnail, 10, false);
                     }
                     if (z) {
-                        this.ajQ.setVisibility(0);
+                        this.ajF.setVisibility(0);
                     } else {
-                        this.ajQ.setVisibility(8);
+                        this.ajF.setVisibility(8);
                     }
                     if (i == 7 && z2) {
-                        this.iTB.setVisibility(0);
+                        this.iZi.setVisibility(0);
                     } else {
-                        this.iTB.setVisibility(8);
+                        this.iZi.setVisibility(8);
                     }
                 }
             }

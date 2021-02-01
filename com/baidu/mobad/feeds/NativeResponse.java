@@ -5,29 +5,68 @@ import android.view.View;
 import android.webkit.WebView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface NativeResponse {
+    public static final int INFO_FLOW_GROUP_PIC = 35;
+    public static final int INFO_FLOW_GROUP_PIC_LOGO = 36;
+    public static final int INFO_FLOW_LEFT_PIC = 33;
+    public static final int INFO_FLOW_PIC_BOTTOM_TITLE = 28;
+    public static final int INFO_FLOW_PIC_LOGO = 30;
+    public static final int INFO_FLOW_PIC_TOP_TITLE = 29;
+    public static final int INFO_FLOW_RIGHT_PIC = 34;
+    public static final int INFO_FLOW_VIDEO_TOP_TITLE = 37;
 
-    /* loaded from: classes14.dex */
-    public enum MaterialType {
-        NORMAL,
-        VIDEO,
-        HTML
+    /* loaded from: classes5.dex */
+    public interface AdInteractionListener {
+        void onADExposed();
+
+        void onADStatusChanged();
+
+        void onAdClick();
+
+        void onAdUnionClick();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface AdPrivacyListener {
+        void onADPermissionClose();
+
+        void onADPermissionShow();
+
+        void onADPrivacyClick();
     }
 
     String getAdLogoUrl();
 
+    String getAdMaterialType();
+
     String getAppPackage();
 
+    String getAppPermissionLink();
+
+    String getAppPrivacyLink();
+
     long getAppSize();
+
+    String getAppVersion();
 
     String getBaiduLogoUrl();
 
     String getBrandName();
 
+    int getContainerHeight();
+
+    int getContainerSizeType();
+
+    int getContainerWidth();
+
     String getDesc();
 
+    int getDownloadStatus();
+
     int getDuration();
+
+    String getECPMLevel();
 
     Map<String, String> getExtras();
 
@@ -45,6 +84,10 @@ public interface NativeResponse {
 
     List<String> getMultiPicUrls();
 
+    String getPublisher();
+
+    int getStyleType();
+
     String getTitle();
 
     String getVideoUrl();
@@ -57,7 +100,11 @@ public interface NativeResponse {
 
     boolean isAdAvailable(Context context);
 
+    boolean isAutoPlay();
+
     boolean isDownloadApp();
+
+    boolean isNonWifiAutoPlay();
 
     void onClickAd(Context context);
 
@@ -71,5 +118,48 @@ public interface NativeResponse {
 
     void onStart(Context context);
 
+    void pauseAppDownload();
+
+    void permissionClick();
+
+    void privacyClick();
+
     void recordImpression(View view);
+
+    void registerViewForInteraction(View view, AdInteractionListener adInteractionListener);
+
+    void resumeAppDownload();
+
+    void setAdPrivacyListener(AdPrivacyListener adPrivacyListener);
+
+    void unionLogoClick();
+
+    /* loaded from: classes5.dex */
+    public enum MaterialType {
+        NORMAL("normal"),
+        VIDEO("video"),
+        HTML("html");
+        
+
+        /* renamed from: a  reason: collision with root package name */
+        private final String f3229a;
+
+        MaterialType(String str) {
+            this.f3229a = str;
+        }
+
+        public String getValue() {
+            return this.f3229a;
+        }
+
+        public static MaterialType parse(String str) {
+            MaterialType[] values;
+            for (MaterialType materialType : values()) {
+                if (materialType.f3229a.equalsIgnoreCase(str)) {
+                    return materialType;
+                }
+            }
+            return null;
+        }
+    }
 }

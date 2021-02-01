@@ -1,5 +1,5 @@
 package com.baidu.tieba.personPolymeric.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c {
-    void dvQ();
+    void dxZ();
 }

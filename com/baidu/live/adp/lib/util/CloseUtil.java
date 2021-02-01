@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CloseUtil {
     public static void close(InputStream inputStream) {
         if (inputStream != null) {

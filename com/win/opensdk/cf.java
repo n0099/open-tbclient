@@ -15,40 +15,40 @@ public class cf implements ar.a {
     private static final String f50case = cf.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13743a;
+    public boolean f13745a;
     public String java;
-    public Context pYJ;
-    public boolean pYM;
-    public PBInterstitialListener pYO;
-    public bw pYQ;
-    private Handler pZR = new Handler() { // from class: com.win.opensdk.cf.1
+    public Context qiN;
+    public boolean qiQ;
+    public PBInterstitialListener qiS;
+    public bw qiU;
+    private Handler qjV = new Handler() { // from class: com.win.opensdk.cf.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             if (message.what == 11) {
-                cf.this.f13743a = true;
-                cf.this.pZR.removeMessages(11);
+                cf.this.f13745a = true;
+                cf.this.qjV.removeMessages(11);
                 int i = 0;
                 if (cf.this.java()) {
-                    i = cf.this.pZe.getWt();
+                    i = cf.this.qji.getWt();
                 }
-                w.iK(cf.this.pYJ).a(new x(cf.this.pZe), 2002, i * 1000).eGz();
-                cf.this.pYO.onFail(PBError.TIMEOUT);
+                w.iN(cf.this.qiN).a(new x(cf.this.qji), 2002, i * 1000).eIP();
+                cf.this.qiS.onFail(PBError.TIMEOUT);
             }
         }
     };
-    public ad pZS;
-    public Info pZe;
-    private long pZf;
-    public boolean pZm;
+    public ad qjW;
+    public Info qji;
+    private long qjj;
+    public boolean qjq;
 
     public cf(Context context, String str) {
-        this.pYJ = context;
+        this.qiN = context;
         this.java = str;
     }
 
     @Override // com.win.opensdk.ar.a
     public final void f(String str, String str2, Object obj) {
-        if (TextUtils.equals(str, this.pZe.getId() + this.java)) {
+        if (TextUtils.equals(str, this.qji.getId() + this.java)) {
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1122984843:
@@ -72,13 +72,13 @@ public class cf implements ar.a {
             }
             switch (c) {
                 case 0:
-                    this.pYO.onClicked();
+                    this.qiS.onClicked();
                     return;
                 case 1:
-                    this.pYO.onInterstitialDismissed();
+                    this.qiS.onInterstitialDismissed();
                     return;
                 case 2:
-                    this.pYO.onInterstitialDisplayed();
+                    this.qiS.onInterstitialDisplayed();
                     return;
                 default:
                     return;
@@ -87,100 +87,100 @@ public class cf implements ar.a {
     }
 
     public final void a(Info info) {
-        this.f13743a = false;
-        this.pZe = info;
-        this.pZf = System.currentTimeMillis();
-        if (eGX()) {
+        this.f13745a = false;
+        this.qji = info;
+        this.qjj = System.currentTimeMillis();
+        if (eJn()) {
             if (m74a()) {
-                this.pYO.onLoaded();
+                this.qiS.onLoaded();
             } else {
                 a();
             }
         } else if (m75b()) {
             if (c()) {
-                this.pYO.onLoaded();
+                this.qiS.onLoaded();
             } else {
                 b();
             }
         } else {
-            eGA();
+            eIQ();
         }
     }
 
     public final boolean java() {
-        return this.pZe != null;
+        return this.qji != null;
     }
 
-    public final boolean eGX() {
-        return java() && this.pZe.getType() == 21;
+    public final boolean eJn() {
+        return java() && this.qji.getType() == 21;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public final boolean m74a() {
-        return this.pYM && !this.f13743a && java() && !this.pZe.isShown() && this.pZe.isEffective();
+        return this.qiQ && !this.f13745a && java() && !this.qji.isShown() && this.qji.isEffective();
     }
 
-    private void eGA() {
-        this.pYO.onFail(PBError.PID_TYPE_ERROR);
+    private void eIQ() {
+        this.qiS.onFail(PBError.PID_TYPE_ERROR);
     }
 
     private void a() {
-        this.pYQ = new bw(this.pYJ);
-        this.pYQ.pZw = new bq() { // from class: com.win.opensdk.cf.3
+        this.qiU = new bw(this.qiN);
+        this.qiU.qjA = new bq() { // from class: com.win.opensdk.cf.3
             @Override // com.win.opensdk.bq
-            public final void eGz() {
+            public final void eIP() {
             }
 
             @Override // com.win.opensdk.bq
-            public final void eGA() {
-                cf.this.pZR.removeMessages(11);
-                cf.this.pYM = true;
-                w.iK(cf.this.pYJ).a(new x(cf.this.pZe), 200, System.currentTimeMillis() - cf.this.pZf).eGz();
-                if (!cf.this.f13743a) {
-                    cf.this.pYO.onLoaded();
+            public final void eIQ() {
+                cf.this.qjV.removeMessages(11);
+                cf.this.qiQ = true;
+                w.iN(cf.this.qiN).a(new x(cf.this.qji), 200, System.currentTimeMillis() - cf.this.qjj).eIP();
+                if (!cf.this.f13745a) {
+                    cf.this.qiS.onLoaded();
                 }
             }
         };
-        this.pYQ.a(this.pZe.getLoad(), this.pZe);
-        this.pZR.sendEmptyMessageDelayed(11, this.pZe.getWt() * 1000);
+        this.qiU.a(this.qji.getLoad(), this.qji);
+        this.qjV.sendEmptyMessageDelayed(11, this.qji.getWt() * 1000);
     }
 
     /* renamed from: b  reason: collision with other method in class */
     public final boolean m75b() {
-        return java() && this.pZe.getType() == 22;
+        return java() && this.qji.getType() == 22;
     }
 
     public final boolean c() {
-        return this.pZm && !this.f13743a && java() && !this.pZe.isShown() && this.pZe.isEffective();
+        return this.qjq && !this.f13745a && java() && !this.qji.isShown() && this.qji.isEffective();
     }
 
     private void b() {
-        f.eGy().a(this.pYJ, bp.aW(this.pZe.getTraceid(), this.pZe.getId(), this.pZe.getPid()), af.INTERSTITIAL, this.pZe.getLoad(), new bq() { // from class: com.win.opensdk.cf.4
+        f.eIO().a(this.qiN, bp.aX(this.qji.getTraceid(), this.qji.getId(), this.qji.getPid()), af.INTERSTITIAL, this.qji.getLoad(), new bq() { // from class: com.win.opensdk.cf.4
             @Override // com.win.opensdk.bq
-            public final void eGz() {
+            public final void eIP() {
             }
 
             @Override // com.win.opensdk.bq
-            public final void eGA() {
-                cf.this.pZR.removeMessages(11);
-                cf.this.pZm = true;
-                w.iK(cf.this.pYJ).a(new x(cf.this.pZe), 200, System.currentTimeMillis() - cf.this.pZf).eGz();
-                if (!cf.this.f13743a) {
-                    cf.this.pYO.onLoaded();
+            public final void eIQ() {
+                cf.this.qjV.removeMessages(11);
+                cf.this.qjq = true;
+                w.iN(cf.this.qiN).a(new x(cf.this.qji), 200, System.currentTimeMillis() - cf.this.qjj).eIP();
+                if (!cf.this.f13745a) {
+                    cf.this.qiS.onLoaded();
                 }
             }
         });
-        this.pZR.sendEmptyMessageDelayed(11, this.pZe.getWt() * 1000);
+        this.qjV.sendEmptyMessageDelayed(11, this.qji.getWt() * 1000);
     }
 
-    public final void eGz() {
-        this.pZe.setShown(true);
-        br.eGZ().a(bp.aW(this.pZe.getTraceid(), this.pZe.getId(), this.java), this.pZe);
-        if (this.pZe.getPid().equals(az.m65c(this.pYJ))) {
-            PoseidonH5Activity.b(this.pYJ, this.pZe, this.java);
+    public final void eIP() {
+        this.qji.setShown(true);
+        br.eJp().a(bp.aX(this.qji.getTraceid(), this.qji.getId(), this.java), this.qji);
+        if (this.qji.getPid().equals(az.m65c(this.qiN))) {
+            PoseidonH5Activity.b(this.qiN, this.qji, this.java);
         } else {
-            H5Activity.a(this.pYJ, this.pZe, this.java);
+            H5Activity.a(this.qiN, this.qji, this.java);
         }
-        ar.a(this.pZe.getId() + this.java, this);
+        ar.a(this.qji.getId() + this.java, this);
     }
 }

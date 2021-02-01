@@ -48,7 +48,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DefaultMp4Builder implements Mp4Builder {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;
@@ -96,11 +96,11 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
         a aVar = new a(this, movie, hashMap, j, null);
         basicContainer.addBox(aVar);
-        long ezM = aVar.ezM();
+        long eCe = aVar.eCe();
         for (StaticChunkOffsetBox staticChunkOffsetBox : this.chunkOffsetBoxes) {
             long[] chunkOffsets = staticChunkOffsetBox.getChunkOffsets();
             for (int i2 = 0; i2 < chunkOffsets.length; i2++) {
-                chunkOffsets[i2] = chunkOffsets[i2] + ezM;
+                chunkOffsets[i2] = chunkOffsets[i2] + eCe;
             }
         }
         return basicContainer;
@@ -335,10 +335,10 @@ public class DefaultMp4Builder implements Mp4Builder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements Box {
-        List<List<Sample>> pMB;
-        long pMC;
+        List<List<Sample>> pWG;
+        long pWH;
         Container parent;
         List<Track> tracks;
 
@@ -362,8 +362,8 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
 
         private a(Movie movie, Map<Track, int[]> map, long j) {
-            this.pMB = new ArrayList();
-            this.pMC = j;
+            this.pWG = new ArrayList();
+            this.pWH = j;
             this.tracks = movie.getTracks();
             for (int i = 0; i < map.values().iterator().next().length; i++) {
                 for (Track track : this.tracks) {
@@ -372,7 +372,7 @@ public class DefaultMp4Builder implements Mp4Builder {
                     for (int i2 = 0; i2 < i; i2++) {
                         j2 += iArr[i2];
                     }
-                    this.pMB.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
+                    this.pWG.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
                 }
             }
         }
@@ -381,7 +381,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             this(movie, map, j);
         }
 
-        public long ezM() {
+        public long eCe() {
             Box next;
             long j = 16;
             for (Container container = this; container instanceof Box; container = container.getParent()) {
@@ -400,10 +400,10 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return 16 + this.pMC;
+            return 16 + this.pWH;
         }
 
-        private boolean iR(long j) {
+        private boolean iU(long j) {
             return 8 + j < 4294967296L;
         }
 
@@ -411,20 +411,20 @@ public class DefaultMp4Builder implements Mp4Builder {
         public void getBox(WritableByteChannel writableByteChannel) throws IOException {
             ByteBuffer allocate = ByteBuffer.allocate(16);
             long size = getSize();
-            if (iR(size)) {
+            if (iU(size)) {
                 IsoTypeWriter.writeUInt32(allocate, size);
             } else {
                 IsoTypeWriter.writeUInt32(allocate, 1L);
             }
             allocate.put(IsoFile.fourCCtoBytes(MediaDataBox.TYPE));
-            if (iR(size)) {
+            if (iU(size)) {
                 allocate.put(new byte[8]);
             } else {
                 IsoTypeWriter.writeUInt64(allocate, size);
             }
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (List<Sample> list : this.pMB) {
+            for (List<Sample> list : this.pWG) {
                 for (Sample sample : list) {
                     sample.writeTo(writableByteChannel);
                 }

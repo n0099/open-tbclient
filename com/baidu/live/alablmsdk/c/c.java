@@ -1,5 +1,7 @@
 package com.baidu.live.alablmsdk.c;
-/* loaded from: classes10.dex */
+
+import com.baidu.live.alablmsdk.module.rtc.BLMJoinRoomStage;
+/* loaded from: classes11.dex */
 public interface c {
-    void f(int i, int i2, String str);
+    void a(int i, BLMJoinRoomStage bLMJoinRoomStage, com.baidu.live.alablmsdk.module.common.a aVar);
 }

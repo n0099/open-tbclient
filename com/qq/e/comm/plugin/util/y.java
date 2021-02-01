@@ -7,14 +7,14 @@ import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String f12599a = null;
+    private static volatile String f12601a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile String f12600b = null;
+    private static volatile String f12602b = null;
 
     public static String a() {
         String str;
@@ -23,15 +23,15 @@ public class y {
             String string = GDTADManager.getInstance().getSM().getString("markets");
             if (StringUtil.isEmpty(string)) {
                 str = "";
-            } else if (f12600b != null && f12600b.equals(string)) {
+            } else if (f12602b != null && f12602b.equals(string)) {
                 GDTLogger.d("Cache hit");
-                str = f12599a;
+                str = f12601a;
             } else if (appContext == null || StringUtil.isEmpty(string)) {
                 str = "";
             } else {
                 str = a(appContext, a(string.split(",")));
-                f12599a = str;
-                f12600b = string;
+                f12601a = str;
+                f12602b = string;
             }
             return str;
         } catch (Throwable th) {

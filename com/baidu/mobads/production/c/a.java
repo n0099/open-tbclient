@@ -1,137 +1,99 @@
 package com.baidu.mobads.production.c;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.mobad.feeds.RequestParameters;
-import com.baidu.mobads.AdSize;
-import com.baidu.mobads.BaiduNativeH5AdView;
+import android.webkit.WebView;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
-import com.baidu.mobads.interfaces.error.XAdErrorCode;
-import com.baidu.mobads.interfaces.feeds.IXAdDummyContainer;
-import com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters;
-import com.baidu.mobads.production.v;
-import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.mobads.utils.h;
-import com.baidu.mobads.utils.n;
-import java.util.ArrayList;
+import com.baidu.mobads.interfaces.IXHybridAdRenderer;
+import com.baidu.mobads.interfaces.IXNonLinearAdSlot;
+import com.baidu.mobads.interfaces.event.IXAdEvent;
+import com.baidu.mobads.production.p;
+import com.baidu.mobads.vo.c;
+import com.baidu.mobads.vo.d;
 import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes14.dex */
-public class a extends com.baidu.mobads.production.b {
-    private b w;
-    private BaiduNativeH5AdView x;
+import org.json.JSONException;
+/* loaded from: classes5.dex */
+public class a extends com.baidu.mobads.production.a implements IXNonLinearAdSlot {
+    private IXHybridAdRenderer A;
+    private WebView B;
+    private b z;
 
-    public a(Context context, BaiduNativeH5AdView baiduNativeH5AdView) {
-        super(context);
-        this.w = null;
-        this.x = baiduNativeH5AdView;
-        setId(this.x.getAdPlacement().getApId());
-        setActivity(context);
-        setAdSlotBase(this.x);
-        this.o = IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS;
-        this.w = new b(getApplicationContext(), getActivity(), this.o);
-        this.w.d(this.x.getAdPlacement().getApId());
-        h adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(adConstants.getSupportedActionType4RequestingLandingPage());
-        arrayList.add(adConstants.a());
-        XAdSDKFoundationFacade.getInstance().getPackageUtils();
-        if (n.b(this.f)) {
-            arrayList.add(adConstants.getSupportedActionType4RequestingDownload());
-        }
-        this.w.b(XAdSDKFoundationFacade.getInstance().getCommonUtils().a((List<String>) arrayList));
-        this.w.h(0);
-        this.w.f(AdSize.FeedH5TemplateNative.getValue());
-        this.w.g(1);
+    public a(WebView webView) {
+        super(webView.getContext());
+        this.B = webView;
+        setActivity(webView.getContext());
+        this.o = IXAdConstants4PDK.SlotType.SLOT_TYPE_JSSDK;
+        this.z = new b(getApplicationContext(), getActivity(), this.o);
     }
 
-    public void b(int i) {
-        this.w.a(i);
+    @Override // com.baidu.mobads.production.a
+    public void c() {
+        load();
     }
 
-    public void c(int i) {
-        this.w.b(i);
-    }
-
-    public void d(int i) {
-        this.w.c(i);
-    }
-
-    public void a(RequestParameters requestParameters) {
-        int width = requestParameters.getWidth();
-        int height = requestParameters.getHeight();
-        if (width > 0 && height > 0) {
-            this.w.d(width);
-            this.w.e(height);
-        }
+    @Override // com.baidu.mobads.production.a
+    protected void d() {
+        this.m = 10000;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProd
     public void request() {
-        m();
-        a(this.w);
+        a(this.z);
     }
 
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public IXAdRequestInfo getAdRequestInfo() {
-        return this.w;
+    @Override // com.baidu.mobads.production.a
+    protected void b(d dVar) {
+        this.k = dVar;
+        k();
+        a((com.baidu.mobads.openad.b.b) null, (p) null, 5000);
     }
 
-    @Override // com.baidu.mobads.production.b
-    protected void a(com.baidu.mobads.openad.d.c cVar, v vVar, int i) {
-        if (getAdResponseInfo() != null) {
-            b("XAdMouldeLoader ad-server requesting success");
-        } else {
-            vVar.a(cVar, i);
-        }
-    }
-
-    @Override // com.baidu.mobads.production.b
-    protected void c(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-        iXAdContainer.start();
-    }
-
-    @Override // com.baidu.mobads.production.b
-    protected void d(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-    }
-
-    @Override // com.baidu.mobads.production.b
-    public void g() {
-        if (this.h != null) {
-            this.h.load();
-        } else {
-            this.s.e("container is null");
-        }
-    }
-
-    @Override // com.baidu.mobads.production.b
-    protected void h() {
-    }
-
-    @Override // com.baidu.mobads.production.b
-    public void c(IXAdResponseInfo iXAdResponseInfo) {
-        if (iXAdResponseInfo.getAdInstanceList().size() > 0) {
-            if (iXAdResponseInfo.getPrimaryAdInstanceInfo().getHtmlSnippet() == null || iXAdResponseInfo.getPrimaryAdInstanceInfo().getHtmlSnippet().length() <= 0) {
-                a(XAdErrorCode.REQUEST_PARAM_ERROR, "代码位错误，请检查代码位是否是信息流模板");
-                return;
-            }
-            this.x.getAdPlacement().setAdResponse(iXAdResponseInfo);
-            dispatchEvent(new com.baidu.mobads.f.a("AdLoadData"));
-        }
-    }
-
-    public void q() {
-    }
-
-    public void a(View view, IXAdInstanceInfo iXAdInstanceInfo, IXAdFeedsRequestParameters iXAdFeedsRequestParameters) {
+    @Override // com.baidu.mobads.production.a
+    protected void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
         try {
-            ((IXAdDummyContainer) this.h).onImpression(view, iXAdInstanceInfo, iXAdFeedsRequestParameters, new HashMap());
-        } catch (Exception e) {
-            e.printStackTrace();
+            setAdResponseInfo(new c("{'ad':[{'id':99999999,'url':'" + this.z.b() + "', type='" + IXAdInstanceInfo.CreativeType.HYBRID.getValue() + "'}],'n':1}"));
+        } catch (JSONException e) {
         }
+        a("XAdMouldeLoader ad-server requesting success");
+    }
+
+    @Override // com.baidu.mobads.production.a
+    protected void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        try {
+            this.A = (IXHybridAdRenderer) this.h;
+            this.A.setCustomerWebView(this.B);
+        } catch (Exception e) {
+            this.A = null;
+        }
+        start();
+    }
+
+    @Override // com.baidu.mobads.production.a
+    protected void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    /* renamed from: a */
+    public d getAdRequestInfo() {
+        return this.z;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    protected void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        super.p();
+        dispatchEvent(new com.baidu.mobads.e.a(IXAdEvent.AD_USER_CLOSE));
+    }
+
+    public boolean a(WebView webView, String str) {
+        if (this.A == null) {
+            return false;
+        }
+        return this.A.shouldOverrideUrlLoading(webView, str);
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdResponseInfo iXAdResponseInfo) {
     }
 }

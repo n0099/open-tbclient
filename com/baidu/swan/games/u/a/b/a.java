@@ -1,33 +1,32 @@
 package com.baidu.swan.games.u.a.b;
 
 import com.baidu.swan.menu.g;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private g eiC;
-    private boolean eiD = true;
+    private g ekJ;
+    private boolean ekK = true;
 
-    /* renamed from: if  reason: not valid java name */
-    private void m28if(boolean z) {
-        this.eiD = z;
-        if (this.eiC != null) {
+    private void ih(boolean z) {
+        this.ekK = z;
+        if (this.ekJ != null) {
             if (z) {
-                this.eiC.aA(4, 1);
+                this.ekJ.ax(4, 1);
             } else {
-                this.eiC.lA(4);
+                this.ekJ.lD(4);
             }
         }
     }
 
     public void b(g gVar) {
-        this.eiC = gVar;
-        m28if(this.eiD);
+        this.ekJ = gVar;
+        ih(this.ekK);
     }
 
-    public void aXS() {
-        m28if(true);
+    public void aYe() {
+        ih(true);
     }
 
-    public void aXT() {
-        m28if(false);
+    public void aYf() {
+        ih(false);
     }
 }

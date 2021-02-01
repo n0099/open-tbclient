@@ -10,6 +10,7 @@ import com.baidu.ar.arrender.l;
 import com.baidu.ar.c;
 import com.baidu.ar.d.b;
 import com.baidu.ar.d.e;
+import com.yy.videoplayer.decoder.VideoConstant;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
@@ -18,7 +19,7 @@ public class PoseAR extends c {
     public static final String MDL_MAGIC_FILTER_MIN_CUTOFFFREQ = "min_cutofffreq";
     public static final String MDL_START_POSE_FUN_EVENT_TYPE_KEY = "event_type";
     private e mv;
-    private int nO = 320;
+    private int nO = VideoConstant.THUMBNAIL_WIDTH;
     private int nP = 180;
     private PoseDetector tM;
 
@@ -46,7 +47,7 @@ public class PoseAR extends c {
 
     private void dn() {
         int i;
-        int i2 = 320;
+        int i2 = VideoConstant.THUMBNAIL_WIDTH;
         int i3 = this.mInputWidth;
         int i4 = this.mInputHeight;
         if (Float.compare((i3 * 1.0f) / i4, 1.7777778f) == 0) {

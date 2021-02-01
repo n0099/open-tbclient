@@ -4,7 +4,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.person.g;
 import com.squareup.wire.Wire;
@@ -208,7 +208,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
                     this.mLiveGoodsWindowData = new com.baidu.tieba.j.b();
                     this.mLiveGoodsWindowData.a(profileResIdl.data.goods_win);
                 }
-                if (!x.isEmpty(profileResIdl.data.ala_live_record)) {
+                if (!y.isEmpty(profileResIdl.data.ala_live_record)) {
                     this.liveReplayData = new ArrayList();
                     for (AlaLiveInfo alaLiveInfo : profileResIdl.data.ala_live_record) {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -234,26 +234,26 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> dK = com.baidu.tbadk.core.c.a.bpZ().dK("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> dE = com.baidu.tbadk.core.c.a.bqr().dE("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            dK.setForever(PROFILE_CACHE_KEY, bArr);
+            dE.setForever(PROFILE_CACHE_KEY, bArr);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> dL;
+        l<String> dF;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (dL = com.baidu.tbadk.core.c.a.bpZ().dL("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.mjd;
-            if (x.getCount(list) > 4) {
+        if (this.ucCardData != null && (dF = com.baidu.tbadk.core.c.a.bqr().dF("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.mse;
+            if (y.getCount(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
-                    if (aVar.timeStamp > com.baidu.adp.lib.f.b.toLong(dL.get(aVar.title), 0L)) {
-                        aVar.mje = true;
+                    if (aVar.timeStamp > com.baidu.adp.lib.f.b.toLong(dF.get(aVar.title), 0L)) {
+                        aVar.msf = true;
                     } else {
-                        aVar.mje = false;
+                        aVar.msf = false;
                     }
                 }
             }

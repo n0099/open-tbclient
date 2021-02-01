@@ -2,7 +2,7 @@ package com.ss.android.socialbase.appdownloader.a;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j extends a {
     public j(Context context) {
         super(context, null);

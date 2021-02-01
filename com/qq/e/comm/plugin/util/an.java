@@ -5,7 +5,7 @@ import com.qq.e.comm.util.GDTLogger;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class an {
     public static Class a(String str) {
         try {

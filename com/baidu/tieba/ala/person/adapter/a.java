@@ -6,44 +6,44 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.data.bh;
+import com.baidu.live.data.bl;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.person.view.d;
 import com.baidu.tieba.ala.person.view.f;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private int gMm;
-    private InterfaceC0681a hQX;
-    private c hQY;
-    private b hQZ;
+    private int gOS;
+    private InterfaceC0681a hVs;
+    private c hVt;
+    private b hVu;
     private List mList;
     private int mSkinType;
     private int type;
 
     /* renamed from: com.baidu.tieba.ala.person.adapter.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface InterfaceC0681a {
-        void a(bh bhVar, View view);
+        void a(bl blVar, View view);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void a(AlaLiveInfoData alaLiveInfoData, View view);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface c {
-        void b(bh bhVar, View view);
+        void b(bl blVar, View view);
     }
 
     public a(Context context, int i) {
-        this.gMm = 2;
+        this.gOS = 2;
         this.context = context;
-        this.gMm = i;
+        this.gOS = i;
     }
 
     public void a(boolean z, List list, int i) {
@@ -83,22 +83,22 @@ public class a extends BaseAdapter {
         d dVar = null;
         if (view == null) {
             if (this.mList.get(i) != null) {
-                if (this.gMm == 1) {
+                if (this.gOS == 1) {
                     if (this.type == 1 || this.type == 0) {
                         view = LayoutInflater.from(this.context).inflate(a.g.ala_person_list_item_layout, (ViewGroup) null);
-                        dVar = new com.baidu.tieba.ala.person.view.b(view, this.gMm);
+                        dVar = new com.baidu.tieba.ala.person.view.b(view, this.gOS);
                     } else if (this.type == 2) {
                         view = LayoutInflater.from(this.context).inflate(a.g.ala_playbacks_list_item_layout, (ViewGroup) null);
-                        dVar = new f(view, this.gMm);
+                        dVar = new f(view, this.gOS);
                     }
-                } else if (this.gMm == 2) {
+                } else if (this.gOS == 2) {
                     view = LayoutInflater.from(this.context).inflate(a.g.ala_person_card_list_item_layout, (ViewGroup) null);
-                    dVar = new com.baidu.tieba.ala.person.view.b(view, this.gMm);
+                    dVar = new com.baidu.tieba.ala.person.view.b(view, this.gOS);
                 }
                 if (dVar != null) {
-                    dVar.a(this.hQX);
-                    dVar.a(this.hQZ);
-                    dVar.a(this.hQY);
+                    dVar.a(this.hVs);
+                    dVar.a(this.hVu);
+                    dVar.a(this.hVt);
                 }
                 if (view != null) {
                     view.setTag(dVar);
@@ -114,16 +114,16 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void aE(String str, boolean z) {
+    public void aD(String str, boolean z) {
         if (str != null && !ListUtils.isEmpty(this.mList)) {
             for (Object obj : this.mList) {
-                if (this.type != 2 && (obj instanceof bh)) {
-                    bh bhVar = (bh) obj;
-                    if (str.equals(bhVar.id)) {
+                if (this.type != 2 && (obj instanceof bl)) {
+                    bl blVar = (bl) obj;
+                    if (str.equals(blVar.id)) {
                         if (z) {
-                            bhVar.aMc = 1;
+                            blVar.aOZ = 1;
                         } else {
-                            bhVar.aMc = 0;
+                            blVar.aOZ = 0;
                         }
                         notifyDataSetChanged();
                         return;
@@ -138,14 +138,14 @@ public class a extends BaseAdapter {
     }
 
     public void a(InterfaceC0681a interfaceC0681a) {
-        this.hQX = interfaceC0681a;
+        this.hVs = interfaceC0681a;
     }
 
     public void a(c cVar) {
-        this.hQY = cVar;
+        this.hVt = cVar;
     }
 
     public void a(b bVar) {
-        this.hQZ = bVar;
+        this.hVu = bVar;
     }
 }

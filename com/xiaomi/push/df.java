@@ -17,7 +17,7 @@ public class df {
     }
 
     public static int a(ix ixVar, hm hmVar) {
-        switch (dg.f13934a[hmVar.ordinal()]) {
+        switch (dg.f13936a[hmVar.ordinal()]) {
             case 1:
             case 2:
             case 3:

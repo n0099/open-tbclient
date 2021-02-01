@@ -14,7 +14,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleableRes;
 import org.xmlpull.v1.XmlPullParser;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class TypedArrayUtils {
     private static final String NAMESPACE = "http://schemas.android.com/apk/res/android";
 

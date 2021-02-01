@@ -1,7 +1,7 @@
 package com.baidu.android.common.others.lang;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class StringUtils {
     private StringUtils() {
     }

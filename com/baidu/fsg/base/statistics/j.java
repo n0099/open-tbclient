@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1951a = "cu";
+    public static final String f1949a = "cu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1952b = "cu2";
+    public static final String f1950b = "cu2";
     public static final String c = "ua";
     public static final String d = "op";
     public static final String e = "bs";
@@ -34,7 +34,7 @@ public class j {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static j f1953a = new j();
+        private static j f1951a = new j();
 
         private a() {
         }
@@ -44,8 +44,8 @@ public class j {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(c, e(RimStatisticsUtil.getAppContext()));
-            jSONObject.putOpt(f1951a, c(RimStatisticsUtil.getAppContext()));
-            jSONObject.put(f1952b, d(RimStatisticsUtil.getAppContext()));
+            jSONObject.putOpt(f1949a, c(RimStatisticsUtil.getAppContext()));
+            jSONObject.put(f1950b, d(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt("op", f(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt("bs", g(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt(f, h(RimStatisticsUtil.getAppContext()));
@@ -71,7 +71,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static j c() {
-        return a.f1953a;
+        return a.f1951a;
     }
 
     private String c(Context context) {

@@ -6,11 +6,11 @@ import android.opengl.GLES20;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
-import androidx.annotation.Nullable;
 import java.util.concurrent.Callable;
+import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SurfaceTextureHelper {
     private static final String TAG = "SurfaceTextureHelper";
     private final EglBase eglBase;

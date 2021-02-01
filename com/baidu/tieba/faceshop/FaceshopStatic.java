@@ -30,7 +30,7 @@ import com.baidu.tbadk.core.atomData.SelectSingleForumActivityConfig;
 import com.baidu.tbadk.core.atomData.UserAlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.UserCollectManageActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.imageManager.d;
 import com.baidu.tieba.faceshop.emotioncenter.EmotionCenterActivity;
 import com.baidu.tieba.faceshop.emotiondetail.EmotionDetailActivity;
@@ -42,7 +42,7 @@ import com.baidu.tieba.newfaceshop.facemake.PickFaceTabActivity;
 import com.baidu.tieba.newfaceshop.facemake.SelectSingleForumActivity;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FaceshopStatic {
     public static String Tag = "tag";
 
@@ -65,21 +65,21 @@ public class FaceshopStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                     final int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                    com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.1.1
+                    com.baidu.tieba.newfaceshop.a.dij().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            List<MyEmotionGroupData> dgl = com.baidu.tieba.newfaceshop.c.dgk().dgl();
+                            List<MyEmotionGroupData> dim = com.baidu.tieba.newfaceshop.c.dil().dim();
                             final StringBuilder sb = new StringBuilder();
-                            if (dgl != null) {
-                                int size = dgl.size();
+                            if (dim != null) {
+                                int size = dim.size();
                                 for (int i = 0; i < size; i++) {
-                                    sb.append(dgl.get(i).getGroupId());
+                                    sb.append(dim.get(i).getGroupId());
                                     if (i != size - 1) {
                                         sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                                     }
                                 }
                             }
-                            com.baidu.adp.lib.f.e.mB().post(new Runnable() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.1.1.1
+                            com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.1.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(intValue, sb.toString()));
@@ -96,9 +96,9 @@ public class FaceshopStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
                     List list = (List) customResponsedMessage.getData();
-                    list.add(ac.cyy());
-                    list.add(x.cyo());
-                    list.add(v.cyn());
+                    list.add(ac.czJ());
+                    list.add(x.czz());
+                    list.add(v.czy());
                 }
             }
         });
@@ -108,10 +108,10 @@ public class FaceshopStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     if (customResponsedMessage.getData() instanceof String) {
-                        ab.cyv().eU((String) customResponsedMessage.getData(), null);
+                        ab.czG().eU((String) customResponsedMessage.getData(), null);
                     } else if (customResponsedMessage.getData() instanceof d.a) {
                         d.a aVar = (d.a) customResponsedMessage.getData();
-                        ab.cyv().eU(aVar.url, aVar.pkgId);
+                        ab.czG().eU(aVar.url, aVar.pkgId);
                     }
                 }
             }
@@ -120,7 +120,7 @@ public class FaceshopStatic {
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
                 if (intent != null && !TextUtils.isEmpty(intent.getStringExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL)) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    ab.cyv().eU(intent.getStringExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL), intent.getStringExtra(com.baidu.tbadk.imageManager.d.PACKAGE_ID));
+                    ab.czG().eU(intent.getStringExtra(com.baidu.tbadk.imageManager.d.IMAGE_URL), intent.getStringExtra(com.baidu.tbadk.imageManager.d.PACKAGE_ID));
                 }
             }
         };
@@ -130,7 +130,7 @@ public class FaceshopStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.EMOTION_SYNC_DOWNLOAD, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.7
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                com.baidu.tieba.newfaceshop.d.dgo().dgq();
+                com.baidu.tieba.newfaceshop.d.dip().dir();
                 return null;
             }
         });
@@ -139,7 +139,7 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_ADS_EMOTION);
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.EMOTION_COLLECT_GROUPS, new ArrayList()));
         if (com.baidu.adp.lib.util.j.isWifiNet() && TbadkApplication.getCurrentAccount() != null) {
-            com.baidu.tieba.newfaceshop.d.dgo().dgq();
+            com.baidu.tieba.newfaceshop.d.dip().dir();
         }
         CustomMessageTask customMessageTask2 = new CustomMessageTask(CmdConfigCustom.CMD_FACESHOP_FACEBUYWEBVIEW, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.8
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -197,8 +197,8 @@ public class FaceshopStatic {
         });
         customMessageTask6.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask6);
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.3
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.faceshop.FaceshopStatic.3
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;

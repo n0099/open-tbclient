@@ -35,7 +35,7 @@ import com.baidu.platform.comapi.wnplatform.h.e;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.tieba.R;
 import java.math.BigDecimal;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private LinearLayout A;
     private TextView B;
@@ -75,16 +75,16 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private com.baidu.platform.comapi.walknavi.g.b.a n = null;
     private Handler o = new Handler();
     private boolean p = true;
-    private CountDownTimerC0282a q = null;
+    private CountDownTimerC0286a q = null;
     private int v = 0;
     private boolean w = false;
     private boolean z = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f4278a = null;
+    public Bitmap f4281a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f4279b = null;
+    public Bitmap f4282b = null;
     public Bitmap c = null;
     private Bitmap K = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), 2130837564);
     private BitmapDescriptor L = BitmapDescriptorFactory.fromBitmap(this.K);
@@ -101,7 +101,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     final Runnable h = new l(this);
     private com.baidu.platform.comapi.wnplatform.walkmap.c ag = new n(this);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i);
     }
@@ -268,13 +268,13 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     private void F() {
-        if (this.f4278a != null && !this.f4278a.isRecycled()) {
-            this.f4278a.recycle();
-            this.f4278a = null;
+        if (this.f4281a != null && !this.f4281a.isRecycled()) {
+            this.f4281a.recycle();
+            this.f4281a = null;
         }
-        if (this.f4279b != null && !this.f4279b.isRecycled()) {
-            this.f4279b.recycle();
-            this.f4279b = null;
+        if (this.f4282b != null && !this.f4282b.isRecycled()) {
+            this.f4282b.recycle();
+            this.f4282b = null;
         }
         if (this.c != null && !this.c.isRecycled()) {
             this.c.recycle();
@@ -471,8 +471,8 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         this.k.h().setOnClickListener(new u(this));
         DisplayMetrics displayMetrics = new DisplayMetrics();
         this.i.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4361a = displayMetrics.widthPixels;
-        com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "screen width" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4361a);
+        com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4364a = displayMetrics.widthPixels;
+        com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "screen width" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4364a);
         c cVar = new c(this);
         if (cVar != null) {
             this.k.a(cVar);
@@ -541,14 +541,14 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
                 return;
             }
             com.baidu.platform.comapi.walknavi.widget.a b3 = new com.baidu.platform.comapi.walknavi.widget.a(this.i).a(true).b(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080004_avd_show_password__1));
-            if (com.baidu.platform.comapi.walknavi.g.a.b.f4282a == 2) {
+            if (com.baidu.platform.comapi.walknavi.g.a.b.f4285a == 2) {
                 b2 = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080003_avd_show_password__0);
             } else {
                 b2 = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, i);
             }
             this.l = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080000_avd_hide_password__0)).b().b(new e(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.drawable.res_0x7f080005_avd_show_password__2)).a(new d(this));
             if (z) {
-                this.q = new CountDownTimerC0282a(7000L, 1000L, this.i, this.l);
+                this.q = new CountDownTimerC0286a(7000L, 1000L, this.i, this.l);
                 this.q.start();
             }
             if (!this.l.isShowing() && this.i != null && !this.i.isFinishing()) {
@@ -715,7 +715,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     @Override // com.baidu.platform.comapi.wnplatform.h.a
     public void b(Bundle bundle) {
         int i = bundle.getInt("simpleUpdateType");
-        if (i != e.a.f4411a && i != e.a.d && bundle.containsKey("enGuideType")) {
+        if (i != e.a.f4414a && i != e.a.d && bundle.containsKey("enGuideType")) {
             int i2 = bundle.getInt("enGuideType");
             int b2 = com.baidu.platform.comapi.walknavi.g.a.c.b(com.baidu.platform.comapi.wnplatform.h.c.a(RouteGuideKind.values()[i2]));
             if (i2 != 0) {
@@ -951,32 +951,32 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class CountDownTimerC0282a extends CountDownTimer {
+    /* loaded from: classes4.dex */
+    public class CountDownTimerC0286a extends CountDownTimer {
 
         /* renamed from: a  reason: collision with root package name */
-        Activity f4280a;
+        Activity f4283a;
 
         /* renamed from: b  reason: collision with root package name */
-        com.baidu.platform.comapi.walknavi.widget.a f4281b;
+        com.baidu.platform.comapi.walknavi.widget.a f4284b;
 
-        public CountDownTimerC0282a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
+        public CountDownTimerC0286a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
-            this.f4280a = activity;
-            this.f4281b = aVar;
+            this.f4283a = activity;
+            this.f4284b = aVar;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            if (this.f4281b != null) {
-                ((Button) this.f4281b.c()).setText("确定(" + ((j / 1000) - 1) + ")");
+            if (this.f4284b != null) {
+                ((Button) this.f4284b.c()).setText("确定(" + ((j / 1000) - 1) + ")");
             }
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            if (this.f4280a != null && !this.f4280a.isFinishing()) {
-                this.f4281b.dismiss();
+            if (this.f4283a != null && !this.f4283a.isFinishing()) {
+                this.f4284b.dismiss();
             }
             a.this.q();
         }

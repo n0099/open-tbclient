@@ -3,26 +3,26 @@ package com.baidu.ufosdk.b;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f5360a;
+    private static Context f5362a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static PackageManager f5361b;
+    private static PackageManager f5363b;
     private static PackageInfo c;
 
     public static String a() {
-        return f5360a == null ? "N/A" : f5360a.getPackageName();
+        return f5362a == null ? "N/A" : f5362a.getPackageName();
     }
 
     public static void a(Context context) {
-        if (f5360a == null) {
-            f5360a = context;
-            f5361b = context.getPackageManager();
+        if (f5362a == null) {
+            f5362a = context;
+            f5363b = context.getPackageManager();
             try {
-                c = f5361b.getPackageInfo(f5360a.getPackageName(), 0);
+                c = f5363b.getPackageInfo(f5362a.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.ufosdk.f.c.a("PackageCollector.init fail.", e);
             }

@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class p extends o {
     public static final <T> int a(Iterable<? extends T> iterable, int i) {
         kotlin.jvm.internal.p.o(iterable, "$receiver");

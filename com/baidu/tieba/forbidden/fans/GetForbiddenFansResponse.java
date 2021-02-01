@@ -1,14 +1,14 @@
 package com.baidu.tieba.forbidden.fans;
 
-import com.baidu.tbadk.core.data.ax;
+import com.baidu.tbadk.core.data.az;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
     private ArrayList<a> fansList;
-    private ax pageData;
+    private az pageData;
 
     public GetForbiddenFansResponse(int i) {
         super(i);
@@ -32,12 +32,12 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                     }
                 }
             }
-            this.pageData = new ax();
+            this.pageData = new az();
             this.pageData.parserJson(jSONObject.optJSONObject("page"));
         }
     }
 
-    public ax getPageData() {
+    public az getPageData() {
         return this.pageData;
     }
 

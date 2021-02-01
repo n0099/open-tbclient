@@ -10,7 +10,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i extends aa {
     public i(j jVar) {
         super(jVar, "/swanAPI/debug/setReplaceSwanCoreConfig");
@@ -28,7 +28,7 @@ public class i extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
-            eVar.aID().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.i.1
+            eVar.aIW().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -37,15 +37,15 @@ public class i extends aa {
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
                         return;
                     }
-                    boolean hk = com.baidu.swan.apps.extcore.c.a.hk(b2.optInt("emitReplaceSwanCore"));
-                    if (hk && !com.baidu.swan.apps.swancore.b.aLS()) {
-                        com.baidu.swan.apps.res.widget.b.d.u(AppRuntime.getAppContext(), a.h.aiapps_debug_no_swan_core).aHZ();
+                    boolean hn = com.baidu.swan.apps.extcore.c.a.hn(b2.optInt("emitReplaceSwanCore"));
+                    if (hn && !com.baidu.swan.apps.swancore.b.aMl()) {
+                        com.baidu.swan.apps.res.widget.b.d.u(AppRuntime.getAppContext(), a.h.aiapps_debug_no_swan_core).aIs();
                         unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(a.h.aiapps_debug_no_swan_core));
                         return;
                     }
-                    com.baidu.swan.apps.ad.a.a.gv(hk);
+                    com.baidu.swan.apps.ad.a.a.gx(hn);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    com.baidu.swan.apps.ad.a.a.aod();
+                    com.baidu.swan.apps.ad.a.a.aoB();
                 }
             });
             return true;

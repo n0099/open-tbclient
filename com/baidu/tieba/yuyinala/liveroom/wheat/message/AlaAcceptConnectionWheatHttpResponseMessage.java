@@ -1,10 +1,10 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaAcceptConnectionWheatHttpResponseMessage extends BaseJsonHttpResponsedMessage {
-    private String ozm;
-    private String ozn;
+    private String oIU;
+    private String oIV;
 
     public AlaAcceptConnectionWheatHttpResponseMessage() {
         super(1031009);
@@ -15,16 +15,16 @@ public class AlaAcceptConnectionWheatHttpResponseMessage extends BaseJsonHttpRes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031009 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.ozm = optJSONObject.optString("push_url");
-            this.ozn = optJSONObject.optString("push_single_url");
+            this.oIU = optJSONObject.optString("push_url");
+            this.oIV = optJSONObject.optString("push_single_url");
         }
     }
 
     public String getPushUrl() {
-        return this.ozm;
+        return this.oIU;
     }
 
-    public String ecd() {
-        return this.ozn;
+    public String eer() {
+        return this.oIV;
     }
 }

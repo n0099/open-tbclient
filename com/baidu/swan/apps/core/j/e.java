@@ -8,10 +8,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.channels.Channels;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private File cUi = arc();
+    private File cWv = arA();
 
     @Override // com.baidu.swan.apps.core.j.b
     public /* bridge */ /* synthetic */ void a(c cVar, d dVar) {
@@ -19,14 +19,14 @@ public class e extends b {
     }
 
     @Override // com.baidu.swan.apps.core.j.b
-    public /* bridge */ /* synthetic */ HashMap ara() {
-        return super.ara();
+    public /* bridge */ /* synthetic */ HashMap ary() {
+        return super.ary();
     }
 
     @Override // com.baidu.swan.apps.core.j.b
-    protected String aqZ() {
-        if (this.cUi.exists()) {
-            File file = new File(this.cUi, "preset_list.json");
+    protected String arx() {
+        if (this.cWv.exists()) {
+            File file = new File(this.cWv, "preset_list.json");
             if (file.exists()) {
                 return com.baidu.swan.c.d.readFileData(file);
             }
@@ -36,9 +36,9 @@ public class e extends b {
     }
 
     @Override // com.baidu.swan.apps.core.j.b
-    protected String mK(String str) {
-        if (this.cUi.exists()) {
-            File file = new File(this.cUi, str + File.separator + "app_info.json");
+    protected String nc(String str) {
+        if (this.cWv.exists()) {
+            File file = new File(this.cWv, str + File.separator + "app_info.json");
             if (file.exists()) {
                 return com.baidu.swan.c.d.readFileData(file);
             }
@@ -50,8 +50,8 @@ public class e extends b {
     @Override // com.baidu.swan.apps.core.j.b
     protected boolean a(c cVar) {
         boolean z = false;
-        if (cVar != null && this.cUi.exists()) {
-            File file = new File(this.cUi, cVar.erV + File.separator + cVar.cUh);
+        if (cVar != null && this.cWv.exists()) {
+            File file = new File(this.cWv, cVar.euc + File.separator + cVar.cWu);
             if (file.exists()) {
                 try {
                     if (!a(Channels.newChannel(new FileInputStream(file)), cVar.sign)) {
@@ -59,7 +59,7 @@ public class e extends b {
                             Log.e("SdCardPresetController", "校验签名失败");
                         }
                     } else {
-                        File c = c(cVar.category, cVar.erV, cVar.versionCode);
+                        File c = c(cVar.category, cVar.euc, cVar.versionCode);
                         if (c == null) {
                             if (DEBUG) {
                                 Log.e("SdCardPresetController", "获取解压路径失败");
@@ -78,7 +78,7 @@ public class e extends b {
         return z;
     }
 
-    private File arc() {
+    private File arA() {
         return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
     }
 }

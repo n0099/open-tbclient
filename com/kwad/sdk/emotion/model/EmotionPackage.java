@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EmotionPackage extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
     public static final String KEY_EMOTION_PACKAGE_EXTRA_INFO = "extraInfo";
     private static final long serialVersionUID = 1381491558995019696L;

@@ -40,21 +40,21 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Integer f6380a = 1;
+    private static final Integer f6382a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Integer f6381b = 2;
+    private static final Integer f6383b = 2;
     private static final Integer c = 3;
     @SuppressLint({"StaticFieldLeak"})
     private static volatile a d;
     private Context e;
     private e i;
     private f j;
-    private C1000a n;
+    private C1004a n;
     private final am f = new am(Looper.getMainLooper(), this);
     private final WeakHashMap<Integer, c> g = new WeakHashMap<>();
     private final WeakHashMap<Integer, d> h = new WeakHashMap<>();
@@ -62,14 +62,14 @@ public class a implements am.a {
     private long l = 0;
     private AtomicBoolean m = new AtomicBoolean(false);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     interface c {
         void a();
 
         void a(@NonNull o oVar);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     interface d {
         void a();
     }
@@ -146,7 +146,7 @@ public class a implements am.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final String str, @NonNull c cVar) {
-        this.g.put(f6381b, cVar);
+        this.g.put(f6383b, cVar);
         if (TextUtils.isEmpty(str)) {
             Message obtainMessage = this.f.obtainMessage();
             obtainMessage.what = 2;
@@ -182,7 +182,7 @@ public class a implements am.a {
             cVar.a();
             return;
         }
-        this.g.put(f6380a, cVar);
+        this.g.put(f6382a, cVar);
         com.bytedance.sdk.openadsdk.k.a.a().c(e(str), 10);
     }
 
@@ -231,8 +231,8 @@ public class a implements am.a {
             if (currentTimeMillis < a3 || currentTimeMillis >= a2) {
                 z = true;
             }
-            bVar.f6394a = z;
-            bVar.f6395b = a3;
+            bVar.f6396a = z;
+            bVar.f6397b = a3;
             bVar.c = a2;
             bVar.d = currentTimeMillis;
             return bVar;
@@ -244,22 +244,22 @@ public class a implements am.a {
         if (currentTimeMillis2 < j2 || currentTimeMillis2 >= j) {
             z = true;
         }
-        bVar.f6394a = z;
-        bVar.f6395b = j2;
+        bVar.f6396a = z;
+        bVar.f6397b = j2;
         bVar.c = j;
         bVar.d = currentTimeMillis2;
         return bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f6394a = true;
+        boolean f6396a = true;
 
         /* renamed from: b  reason: collision with root package name */
-        long f6395b = 0;
+        long f6397b = 0;
         long c = 0;
         long d = 0;
 
@@ -311,7 +311,7 @@ public class a implements am.a {
     public void a(Message message) {
         d remove;
         if (message.what == 1) {
-            c remove2 = this.g.remove(f6380a);
+            c remove2 = this.g.remove(f6382a);
             if (remove2 != null) {
                 if (message.obj != null && (message.obj instanceof o)) {
                     remove2.a((o) message.obj);
@@ -324,7 +324,7 @@ public class a implements am.a {
             u.b("SplashAdCacheManager", "OnLoadCacheCallback is null: " + (remove2 == null));
             this.f.removeCallbacksAndMessages(null);
         } else if (message.what == 2) {
-            c remove3 = this.g.remove(f6381b);
+            c remove3 = this.g.remove(f6383b);
             if (remove3 != null) {
                 if (message.obj != null && (message.obj instanceof o)) {
                     remove3.a((o) message.obj);
@@ -343,16 +343,16 @@ public class a implements am.a {
 
     public boolean a(AdSlot adSlot, boolean z) {
         b c2 = a(this.e).c(adSlot.getCodeId());
-        if (z && c2.f6394a) {
+        if (z && c2.f6396a) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.putOpt("available_type", 0);
-                jSONObject.putOpt("creative_timeout_duration", Long.valueOf((c2.d - c2.f6395b) / 3600));
+                jSONObject.putOpt("creative_timeout_duration", Long.valueOf((c2.d - c2.f6397b) / 3600));
                 com.bytedance.sdk.openadsdk.h.a.a().n(com.bytedance.sdk.openadsdk.h.a.d.b().a(4).c(adSlot.getCodeId()).b(jSONObject.toString()));
             } catch (Throwable th) {
             }
         }
-        return c2.f6394a;
+        return c2.f6396a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -414,19 +414,19 @@ public class a implements am.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class e implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private String f6397b;
+        private String f6399b;
 
         public e(String str) {
-            this.f6397b = str;
+            this.f6399b = str;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str) {
-            this.f6397b = str;
+            this.f6399b = str;
         }
 
         @Override // java.lang.Runnable
@@ -435,7 +435,7 @@ public class a implements am.a {
             Message obtainMessage = a.this.f.obtainMessage();
             obtainMessage.what = 1;
             try {
-                com.bytedance.sdk.openadsdk.core.d.a f = a.this.f(this.f6397b);
+                com.bytedance.sdk.openadsdk.core.d.a f = a.this.f(this.f6399b);
                 o oVar = new o(f, null, null);
                 if (f != null && f.c() != null && !f.c().isEmpty() && (lVar = f.c().get(0)) != null && lVar.ai()) {
                     String a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(a.this.a(f), a.this.b(f), a.this.b(f), ImageView.ScaleType.CENTER_INSIDE);
@@ -450,7 +450,7 @@ public class a implements am.a {
                         a.this.f.sendMessage(obtainMessage);
                         return;
                     }
-                    com.bytedance.sdk.openadsdk.i.a.b.f7190a = 1;
+                    com.bytedance.sdk.openadsdk.i.a.b.f7192a = 1;
                     u.f("splashLoadAd", " readSplashAdFromCache 获取文件成功 cacheKey " + a2);
                     byte[] a3 = a(file);
                     if (a3 != null && a3.length != 0) {
@@ -464,8 +464,8 @@ public class a implements am.a {
                 a.this.f.sendMessage(obtainMessage);
             }
             try {
-                u.f("splashLoadAd", "获取缓存广告之后将其清空 clearCache " + this.f6397b);
-                a.this.d(this.f6397b);
+                u.f("splashLoadAd", "获取缓存广告之后将其清空 clearCache " + this.f6399b);
+                a.this.d(this.f6399b);
             } catch (Throwable th2) {
             }
         }
@@ -533,18 +533,18 @@ public class a implements am.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class f implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private o f6399b;
+        private o f6401b;
 
         public f(o oVar) {
-            this.f6399b = oVar;
+            this.f6401b = oVar;
         }
 
         public void a(o oVar) {
-            this.f6399b = oVar;
+            this.f6401b = oVar;
         }
 
         @Override // java.lang.Runnable
@@ -560,14 +560,14 @@ public class a implements am.a {
             Message obtainMessage = a.this.f.obtainMessage();
             obtainMessage.what = 3;
             try {
-                int c = com.bytedance.sdk.openadsdk.component.splash.c.c(this.f6399b);
+                int c = com.bytedance.sdk.openadsdk.component.splash.c.c(this.f6401b);
                 if (c <= 0) {
                     a.this.f.sendMessage(obtainMessage);
                 } else if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_materialMeta", "materialMeta" + c, this.f6399b.c().d());
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_materialMeta", "materialMeta" + c, this.f6401b.c().d());
                     a.this.f.sendMessage(obtainMessage);
                 } else {
-                    p.a().getSharedPreferences("tt_materialMeta", 0).edit().putString("materialMeta" + c, this.f6399b.c().d()).apply();
+                    p.a().getSharedPreferences("tt_materialMeta", 0).edit().putString("materialMeta" + c, this.f6401b.c().d()).apply();
                     a.this.f.sendMessage(obtainMessage);
                 }
             } catch (Throwable th) {
@@ -701,34 +701,34 @@ public class a implements am.a {
     public void b(AdSlot adSlot, m mVar) {
         if (adSlot != null && mVar != null) {
             if (this.n == null) {
-                this.n = new C1000a();
+                this.n = new C1004a();
             }
             this.n.a(adSlot, mVar);
         }
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.component.splash.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static class C1000a {
+    /* loaded from: classes6.dex */
+    private static class C1004a {
 
         /* renamed from: a  reason: collision with root package name */
-        a f6389a;
+        a f6391a;
 
         /* renamed from: b  reason: collision with root package name */
-        private ConcurrentHashMap<String, C1001a> f6390b;
+        private ConcurrentHashMap<String, C1005a> f6392b;
 
-        private C1000a() {
-            this.f6389a = a.a(p.a());
-            this.f6390b = new ConcurrentHashMap<>();
+        private C1004a() {
+            this.f6391a = a.a(p.a());
+            this.f6392b = new ConcurrentHashMap<>();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(AdSlot adSlot, m mVar) {
             int z;
             if (adSlot != null && mVar != null && a()) {
-                if (!this.f6390b.containsKey(adSlot.getCodeId())) {
+                if (!this.f6392b.containsKey(adSlot.getCodeId())) {
                     u.f("SplashAdCacheManager", "add adSlot.getCodeId() " + adSlot.getCodeId());
-                    this.f6390b.put(adSlot.getCodeId(), new C1001a(adSlot.getCodeId(), adSlot, mVar));
+                    this.f6392b.put(adSlot.getCodeId(), new C1005a(adSlot.getCodeId(), adSlot, mVar));
                 }
                 if (!p.l() && (z = p.h().z()) > 0) {
                     p.k();
@@ -736,7 +736,7 @@ public class a implements am.a {
                         @Override // java.lang.Runnable
                         public void run() {
                             u.f("SplashAdCacheManager", "触发定时器进行检测实现需要加载开屏广告");
-                            C1000a.this.a(C1000a.this.f6390b);
+                            C1004a.this.a(C1004a.this.f6392b);
                         }
                     }, (z * 60000) + 10000);
                 }
@@ -767,20 +767,20 @@ public class a implements am.a {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void a(ConcurrentHashMap<String, C1001a> concurrentHashMap) {
-            C1001a value;
+        public void a(ConcurrentHashMap<String, C1005a> concurrentHashMap) {
+            C1005a value;
             if (concurrentHashMap == null || concurrentHashMap.size() == 0) {
                 u.f("SplashAdCacheManager", "mloadSplashParaHashMap == null || mloadSplashParaHashMap.size() == 0 ");
                 return;
             }
-            Iterator<Map.Entry<String, C1001a>> it = concurrentHashMap.entrySet().iterator();
+            Iterator<Map.Entry<String, C1005a>> it = concurrentHashMap.entrySet().iterator();
             if (it != null) {
                 while (it.hasNext()) {
-                    Map.Entry<String, C1001a> next = it.next();
+                    Map.Entry<String, C1005a> next = it.next();
                     u.f("SplashAdCacheManager", "entry.getKey()  " + next.getKey() + " entry.getValue() " + next.getValue());
                     if (next != null && (value = next.getValue()) != null) {
                         if (!value.a()) {
-                            AdSlot adSlot = value.f6393b;
+                            AdSlot adSlot = value.f6395b;
                             m mVar = value.c;
                             u.f("SplashAdCacheManager", " loadSplashParamHashMapTest " + concurrentHashMap.size());
                             u.f("SplashAdCacheManager", "byRitLoadSplashAd 开始请求广告");
@@ -798,36 +798,36 @@ public class a implements am.a {
         private void a(String str, AdSlot adSlot, m mVar) {
             if (!TextUtils.isEmpty(str)) {
                 if (a(str)) {
-                    if (this.f6389a != null) {
+                    if (this.f6391a != null) {
                         u.f("SplashAdCacheManager", "adSlot " + adSlot.getExpressViewAcceptedWidth() + "  " + adSlot.getExpressViewAcceptedHeight());
                         u.f(" SplashAdCacheManager", "循环请求广告 adSlot getCodeId " + adSlot.getCodeId());
-                        this.f6389a.a(adSlot, mVar);
+                        this.f6391a.a(adSlot, mVar);
                     }
-                } else if (b(this.f6390b)) {
+                } else if (b(this.f6392b)) {
                     u.f("SplashAdCacheManager", "还存在没有加载的开屏rit需要加载开屏");
-                    a(this.f6390b);
+                    a(this.f6392b);
                 } else {
-                    c(this.f6390b);
+                    c(this.f6392b);
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.bytedance.sdk.openadsdk.component.splash.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C1001a {
+        /* loaded from: classes6.dex */
+        public class C1005a {
 
             /* renamed from: a  reason: collision with root package name */
-            String f6392a;
+            String f6394a;
 
             /* renamed from: b  reason: collision with root package name */
-            AdSlot f6393b;
+            AdSlot f6395b;
             m c;
             boolean d = false;
 
-            C1001a(String str, AdSlot adSlot, m mVar) {
-                this.f6392a = str;
-                this.f6393b = adSlot;
+            C1005a(String str, AdSlot adSlot, m mVar) {
+                this.f6394a = str;
+                this.f6395b = adSlot;
                 this.c = mVar;
             }
 
@@ -842,24 +842,24 @@ public class a implements am.a {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(AdSlot adSlot) {
-            if (adSlot != null && this.f6390b != null) {
+            if (adSlot != null && this.f6392b != null) {
                 u.f("SplashAdCacheManager", "SplashAdCacheManager 已经加载过了 adSlot.getCodeId() " + adSlot.getCodeId());
-                C1001a c1001a = this.f6390b.get(adSlot.getCodeId());
-                if (c1001a != null) {
-                    c1001a.a(true);
+                C1005a c1005a = this.f6392b.get(adSlot.getCodeId());
+                if (c1005a != null) {
+                    c1005a.a(true);
                 }
                 u.f("SplashAdCacheManager", "SplashAdCacheManager 是否需要加载其他rit开屏广告");
-                a(this.f6390b);
-                if (!b(this.f6390b)) {
-                    c(this.f6390b);
+                a(this.f6392b);
+                if (!b(this.f6392b)) {
+                    c(this.f6392b);
                 }
             }
         }
 
-        private boolean b(ConcurrentHashMap<String, C1001a> concurrentHashMap) {
+        private boolean b(ConcurrentHashMap<String, C1005a> concurrentHashMap) {
             if (concurrentHashMap != null && concurrentHashMap.size() != 0) {
-                for (Map.Entry<String, C1001a> entry : concurrentHashMap.entrySet()) {
-                    C1001a value = entry.getValue();
+                for (Map.Entry<String, C1005a> entry : concurrentHashMap.entrySet()) {
+                    C1005a value = entry.getValue();
                     if (value != null && !value.a()) {
                         return true;
                     }
@@ -869,13 +869,13 @@ public class a implements am.a {
             return false;
         }
 
-        private void c(ConcurrentHashMap<String, C1001a> concurrentHashMap) {
+        private void c(ConcurrentHashMap<String, C1005a> concurrentHashMap) {
             if (concurrentHashMap != null && concurrentHashMap.size() != 0) {
                 u.f("SplashAdCacheManager", "重置开屏rit请求状态");
-                Iterator<Map.Entry<String, C1001a>> it = concurrentHashMap.entrySet().iterator();
+                Iterator<Map.Entry<String, C1005a>> it = concurrentHashMap.entrySet().iterator();
                 if (it != null) {
                     while (it.hasNext()) {
-                        C1001a value = it.next().getValue();
+                        C1005a value = it.next().getValue();
                         if (value != null) {
                             value.a(false);
                         }

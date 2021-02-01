@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatViewInflater;
 import androidx.appcompat.widget.AppCompatButton;
 import com.google.android.material.button.MaterialButton;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class MaterialComponentsViewInflater extends AppCompatViewInflater {
     @Override // androidx.appcompat.app.AppCompatViewInflater
     @NonNull

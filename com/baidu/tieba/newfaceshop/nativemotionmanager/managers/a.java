@@ -13,93 +13,93 @@ import com.baidu.tieba.newfaceshop.nativemotionmanager.view.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    List<EmotionPackageData> bWQ;
-    private BdListView luR;
-    private MyEmotionHorizontalAdater luS;
-    private final List<C0812a> luT;
-    private c luU;
-    private com.baidu.tieba.newfaceshop.nativemotionmanager.a.a luV;
+    List<EmotionPackageData> caS;
+    private BdListView lCV;
+    private MyEmotionHorizontalAdater lCW;
+    private final List<C0813a> lCX;
+    private c lCY;
+    private com.baidu.tieba.newfaceshop.nativemotionmanager.a.a lCZ;
 
     public a(TbPageContext<?> tbPageContext, BdListView bdListView, com.baidu.tieba.newfaceshop.nativemotionmanager.a.a aVar) {
-        this.luR = bdListView;
-        this.luU = new c(tbPageContext);
-        this.luU.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.luR.addHeaderView(this.luU.getView());
-        this.bWQ = new ArrayList();
-        this.luT = new ArrayList();
-        this.luS = new MyEmotionHorizontalAdater(this.bWQ, this.luT, tbPageContext);
-        this.luV = aVar;
-        this.luR.setAdapter((ListAdapter) this.luS);
+        this.lCV = bdListView;
+        this.lCY = new c(tbPageContext);
+        this.lCY.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.lCV.addHeaderView(this.lCY.getView());
+        this.caS = new ArrayList();
+        this.lCX = new ArrayList();
+        this.lCW = new MyEmotionHorizontalAdater(this.caS, this.lCX, tbPageContext);
+        this.lCZ = aVar;
+        this.lCV.setAdapter((ListAdapter) this.lCW);
     }
 
-    public void fc(List<EmotionPackageData> list) {
-        if (this.luR != null && this.luS != null) {
-            this.bWQ.clear();
-            this.bWQ.addAll(list);
-            dgU();
-            this.luS.dgX();
-            this.luU.s(Integer.valueOf(this.luS.dgW()));
-            this.luV.cY(0, this.luS.dgW());
-            this.luV.ui(com.baidu.tieba.newfaceshop.nativemotionmanager.a.dgQ().bKD());
-            this.luS.notifyDataSetChanged();
+    public void fa(List<EmotionPackageData> list) {
+        if (this.lCV != null && this.lCW != null) {
+            this.caS.clear();
+            this.caS.addAll(list);
+            diV();
+            this.lCW.diY();
+            this.lCY.t(Integer.valueOf(this.lCW.diX()));
+            this.lCZ.cV(0, this.lCW.diX());
+            this.lCZ.uv(com.baidu.tieba.newfaceshop.nativemotionmanager.a.diR().bKX());
+            this.lCW.notifyDataSetChanged();
         }
     }
 
-    private void dgU() {
-        C0812a c0812a;
-        ArrayList arrayList = new ArrayList(this.luT);
-        this.luT.clear();
-        for (EmotionPackageData emotionPackageData : this.bWQ) {
+    private void diV() {
+        C0813a c0813a;
+        ArrayList arrayList = new ArrayList(this.lCX);
+        this.lCX.clear();
+        for (EmotionPackageData emotionPackageData : this.caS) {
             Iterator it = arrayList.iterator();
             while (true) {
                 if (!it.hasNext()) {
-                    c0812a = null;
+                    c0813a = null;
                     break;
                 }
-                c0812a = (C0812a) it.next();
-                if (c0812a != null && c0812a.id == emotionPackageData.id) {
+                c0813a = (C0813a) it.next();
+                if (c0813a != null && c0813a.id == emotionPackageData.id) {
                     break;
                 }
             }
-            if (c0812a == null) {
-                c0812a = new C0812a();
-                c0812a.id = emotionPackageData.id;
+            if (c0813a == null) {
+                c0813a = new C0813a();
+                c0813a.id = emotionPackageData.id;
             }
-            this.luT.add(c0812a);
+            this.lCX.add(c0813a);
         }
     }
 
-    public void da(int i, int i2) {
-        if (i >= 0 && i < this.bWQ.size() && i2 >= 0 && i2 < this.bWQ.size()) {
-            this.bWQ.add(i2, this.bWQ.remove(i));
-            this.luT.add(i2, this.luT.remove(i));
-            this.luS.notifyDataSetChanged();
+    public void cX(int i, int i2) {
+        if (i >= 0 && i < this.caS.size() && i2 >= 0 && i2 < this.caS.size()) {
+            this.caS.add(i2, this.caS.remove(i));
+            this.lCX.add(i2, this.lCX.remove(i));
+            this.lCW.notifyDataSetChanged();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SWAP_MY_EMOTION_PACKAGE, new Pair(Integer.valueOf(i), Integer.valueOf(i2))));
         }
     }
 
     /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0812a {
+    /* loaded from: classes9.dex */
+    public static class C0813a {
         public int id;
-        public int luW;
-        public int luX;
+        public int lDa;
+        public int lDb;
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("id: ").append(this.id).append(", ").append("firstVisibleItem: ").append(this.luW).append(", ").append("padX: ").append(this.luX);
+            sb.append("id: ").append(this.id).append(", ").append("firstVisibleItem: ").append(this.lDa).append(", ").append("padX: ").append(this.lDb);
             return sb.toString();
         }
     }
 
     public void update() {
-        if (this.luS != null && this.luR != null && this.bWQ != null && this.luU != null && this.luV != null) {
-            this.luU.dgS();
-            this.luV.cY(0, this.luS.dgW());
-            this.luV.ui(com.baidu.tieba.newfaceshop.nativemotionmanager.a.dgQ().bKD());
-            this.luS.notifyDataSetChanged();
+        if (this.lCW != null && this.lCV != null && this.caS != null && this.lCY != null && this.lCZ != null) {
+            this.lCY.diT();
+            this.lCZ.cV(0, this.lCW.diX());
+            this.lCZ.uv(com.baidu.tieba.newfaceshop.nativemotionmanager.a.diR().bKX());
+            this.lCW.notifyDataSetChanged();
         }
     }
 }

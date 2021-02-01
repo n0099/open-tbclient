@@ -10,14 +10,14 @@ import com.bytedance.sdk.openadsdk.dislike.d;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.bytedance.sdk.openadsdk.utils.z;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b implements TTAdDislike {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f7033a;
+    private final Context f7035a;
 
     /* renamed from: b  reason: collision with root package name */
-    private l f7034b;
+    private l f7036b;
     private d c;
     private c d;
     private String e;
@@ -28,14 +28,14 @@ public class b implements TTAdDislike {
 
     public b(Context context, l lVar) {
         z.a(context, "Dislike 初始化必须使用activity,请在TTAdManager.createAdNative(activity)中传入");
-        this.f7033a = context;
+        this.f7035a = context;
         lVar.b("other");
-        this.f7034b = lVar;
+        this.f7036b = lVar;
         a();
     }
 
     private void a() {
-        this.c = new d(this.f7033a, this.f7034b);
+        this.c = new d(this.f7035a, this.f7036b);
         this.c.a(new d.a() { // from class: com.bytedance.sdk.openadsdk.dislike.b.1
             @Override // com.bytedance.sdk.openadsdk.dislike.d.a
             public void a() {
@@ -74,7 +74,7 @@ public class b implements TTAdDislike {
                 b.this.b();
             }
         });
-        this.d = new c(this.f7033a, this.f7034b);
+        this.d = new c(this.f7035a, this.f7036b);
         this.d.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.dislike.b.2
             @Override // com.bytedance.sdk.openadsdk.dislike.c.a
             public void a() {
@@ -113,13 +113,13 @@ public class b implements TTAdDislike {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike
     public void sendDislikeSource(String str) {
-        this.f7034b.b(str);
+        this.f7036b.b(str);
         this.e = str;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike
     public void showDislikeDialog() {
-        if (((this.f7033a instanceof Activity) && !((Activity) this.f7033a).isFinishing()) && !this.g.get()) {
+        if (((this.f7035a instanceof Activity) && !((Activity) this.f7035a).isFinishing()) && !this.g.get()) {
             this.c.a(this.e);
             this.c.show();
             return;
@@ -132,7 +132,7 @@ public class b implements TTAdDislike {
         if (this.h == 1) {
             showDislikeDialog();
         }
-        if ((this.f7033a instanceof Activity) && !((Activity) this.f7033a).isFinishing()) {
+        if ((this.f7035a instanceof Activity) && !((Activity) this.f7035a).isFinishing()) {
             this.c.a(this.e);
             this.c.show();
             this.g.set(false);
@@ -143,7 +143,7 @@ public class b implements TTAdDislike {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if ((this.f7033a instanceof Activity) && !((Activity) this.f7033a).isFinishing()) {
+        if ((this.f7035a instanceof Activity) && !((Activity) this.f7035a).isFinishing()) {
             this.d.show();
         }
     }

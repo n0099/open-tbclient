@@ -1,16 +1,15 @@
 package com.baidu.location.b;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.IMConnection;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2595a;
+    public int f2593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2596b;
+    public int f2594b;
     public int c;
     public int d;
     public int e;
@@ -22,12 +21,12 @@ public class a {
     private boolean k;
 
     public a() {
-        this.f2595a = -1;
-        this.f2596b = -1;
+        this.f2593a = -1;
+        this.f2594b = -1;
         this.c = -1;
         this.d = -1;
-        this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.e = Integer.MAX_VALUE;
+        this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
         this.i = '0';
@@ -37,19 +36,19 @@ public class a {
     }
 
     public a(int i, int i2, int i3, int i4, int i5, char c) {
-        this.f2595a = -1;
-        this.f2596b = -1;
+        this.f2593a = -1;
+        this.f2594b = -1;
         this.c = -1;
         this.d = -1;
-        this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.e = Integer.MAX_VALUE;
+        this.f = Integer.MAX_VALUE;
         this.g = 0L;
         this.h = -1;
         this.i = '0';
         this.j = null;
         this.k = false;
-        this.f2595a = i;
-        this.f2596b = i2;
+        this.f2593a = i;
+        this.f2594b = i2;
         this.c = i3;
         this.d = i4;
         this.h = i5;
@@ -58,7 +57,7 @@ public class a {
     }
 
     public a(a aVar) {
-        this(aVar.f2595a, aVar.f2596b, aVar.c, aVar.d, aVar.h, aVar.i);
+        this(aVar.f2593a, aVar.f2594b, aVar.c, aVar.d, aVar.h, aVar.i);
         this.g = aVar.g;
     }
 
@@ -68,23 +67,23 @@ public class a {
     }
 
     public boolean a(a aVar) {
-        return this.f2595a == aVar.f2595a && this.f2596b == aVar.f2596b && this.d == aVar.d && this.c == aVar.c;
+        return this.f2593a == aVar.f2593a && this.f2594b == aVar.f2594b && this.d == aVar.d && this.c == aVar.c;
     }
 
     public boolean b() {
-        return this.f2595a > -1 && this.f2596b > 0;
+        return this.f2593a > -1 && this.f2594b > 0;
     }
 
     public boolean c() {
-        return this.f2595a == -1 && this.f2596b == -1 && this.d == -1 && this.c == -1;
+        return this.f2593a == -1 && this.f2594b == -1 && this.d == -1 && this.c == -1;
     }
 
     public boolean d() {
-        return this.f2595a > -1 && this.f2596b > -1 && this.d == -1 && this.c == -1;
+        return this.f2593a > -1 && this.f2594b > -1 && this.d == -1 && this.c == -1;
     }
 
     public boolean e() {
-        return this.f2595a > -1 && this.f2596b > -1 && this.d > -1 && this.c > -1;
+        return this.f2593a > -1 && this.f2594b > -1 && this.d > -1 && this.c > -1;
     }
 
     public void f() {
@@ -95,7 +94,7 @@ public class a {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
         stringBuffer.append(this.i);
-        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f2595a), Integer.valueOf(this.f2596b), Integer.valueOf(this.h)));
+        stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f2593a), Integer.valueOf(this.f2594b), Integer.valueOf(this.h)));
         if (this.k) {
             stringBuffer.append("&newcl=1");
         }
@@ -106,7 +105,7 @@ public class a {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw2=");
         stringBuffer.append(this.i);
-        stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f2595a), Integer.valueOf(this.f2596b), Integer.valueOf(this.h)));
+        stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.f2593a), Integer.valueOf(this.f2594b), Integer.valueOf(this.h)));
         return stringBuffer.toString();
     }
 }

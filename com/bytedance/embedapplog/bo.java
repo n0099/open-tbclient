@@ -6,7 +6,7 @@ import android.os.IBinder;
 import com.bytedance.embedapplog.bp;
 import com.bytedance.embedapplog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class bo extends ax<c> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo() {
@@ -14,7 +14,7 @@ public final class bo extends ax<c> {
     }
 
     @Override // com.bytedance.embedapplog.ax
-    protected bp.b<c, String> elz() {
+    protected bp.b<c, String> enS() {
         return new bp.b<c, String>() { // from class: com.bytedance.embedapplog.bo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b

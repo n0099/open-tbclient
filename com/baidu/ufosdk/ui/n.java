@@ -6,18 +6,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class n implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackEditActivity f5604a;
+    final /* synthetic */ FeedbackEditActivity f5606a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f5605b = 0;
+    private long f5607b = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FeedbackEditActivity feedbackEditActivity) {
-        this.f5604a = feedbackEditActivity;
+        this.f5606a = feedbackEditActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -31,33 +31,33 @@ public final class n implements TextWatcher {
         String str;
         EditText editText6;
         EditText editText7;
-        z = this.f5604a.x;
+        z = this.f5606a.x;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f5604a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f5606a);
             dVar.b(dVar.b() + 1);
-            this.f5604a.x = true;
+            this.f5606a.x = true;
         }
         try {
-            editText = this.f5604a.n;
+            editText = this.f5606a.n;
             if (editText != null) {
-                editText4 = this.f5604a.n;
+                editText4 = this.f5606a.n;
                 if (editText4.getText().toString().length() > 30) {
-                    if (System.currentTimeMillis() - this.f5605b > IMConnection.RETRY_DELAY_TIMES) {
-                        Toast.makeText(this.f5604a, com.baidu.ufosdk.f.s.a("32"), 0).show();
-                        this.f5605b = System.currentTimeMillis();
+                    if (System.currentTimeMillis() - this.f5607b > IMConnection.RETRY_DELAY_TIMES) {
+                        Toast.makeText(this.f5606a, com.baidu.ufosdk.f.s.a("32"), 0).show();
+                        this.f5607b = System.currentTimeMillis();
                     }
-                    editText5 = this.f5604a.n;
-                    str = this.f5604a.R;
+                    editText5 = this.f5606a.n;
+                    str = this.f5606a.R;
                     editText5.setText(str);
-                    editText6 = this.f5604a.m;
-                    editText7 = this.f5604a.n;
+                    editText6 = this.f5606a.m;
+                    editText7 = this.f5606a.n;
                     FeedbackEditActivity.b(editText6, editText7.getText().length());
                 }
             }
-            editText2 = this.f5604a.n;
+            editText2 = this.f5606a.n;
             if (editText2 != null) {
-                FeedbackEditActivity feedbackEditActivity = this.f5604a;
-                editText3 = this.f5604a.n;
+                FeedbackEditActivity feedbackEditActivity = this.f5606a;
+                editText3 = this.f5606a.n;
                 feedbackEditActivity.R = editText3.getText().toString().trim();
             }
         } catch (Exception e) {

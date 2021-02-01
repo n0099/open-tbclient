@@ -16,11 +16,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class k extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    SuggestAddrInfo f4491b = null;
+    SuggestAddrInfo f4494b = null;
     protected boolean c;
 
     private SuggestAddrInfo a(JSONObject jSONObject) {
@@ -174,8 +174,8 @@ public class k extends com.baidu.platform.base.d {
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("result")) == null || optJSONObject.optInt("type") != 23 || optJSONObject.optInt(BdStatsConstant.StatsType.ERROR) != 0) {
                 return false;
             }
-            this.f4491b = a(jSONObject);
-            return this.f4491b != null;
+            this.f4494b = a(jSONObject);
+            return this.f4494b != null;
         } catch (JSONException e) {
             e.printStackTrace();
             return false;
@@ -197,7 +197,7 @@ public class k extends com.baidu.platform.base.d {
                     ((m) this).a(str, transitRouteResult);
                     return transitRouteResult;
                 }
-                transitRouteResult.setSuggestAddrInfo(this.f4491b);
+                transitRouteResult.setSuggestAddrInfo(this.f4494b);
                 transitRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 return transitRouteResult;
             case DRIVE_ROUTE:
@@ -206,7 +206,7 @@ public class k extends com.baidu.platform.base.d {
                     ((c) this).a(str, drivingRouteResult);
                     return drivingRouteResult;
                 }
-                drivingRouteResult.setSuggestAddrInfo(this.f4491b);
+                drivingRouteResult.setSuggestAddrInfo(this.f4494b);
                 drivingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 return drivingRouteResult;
             case WALK_ROUTE:
@@ -215,7 +215,7 @@ public class k extends com.baidu.platform.base.d {
                     ((o) this).a(str, walkingRouteResult);
                     return walkingRouteResult;
                 }
-                walkingRouteResult.setSuggestAddrInfo(this.f4491b);
+                walkingRouteResult.setSuggestAddrInfo(this.f4494b);
                 walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                 return walkingRouteResult;
             default:

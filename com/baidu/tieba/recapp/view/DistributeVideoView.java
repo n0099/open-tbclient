@@ -28,9 +28,9 @@ import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.util.ah;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.util.ak;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
@@ -51,127 +51,123 @@ import com.tencent.connect.common.Constants;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
 import tbclient.VideoInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DistributeVideoView extends RelativeLayout implements j {
-    private Animation cdO;
-    boolean enQ;
-    private CyberPlayerManager.OnPreparedListener eyt;
-    private CyberPlayerManager.OnErrorListener eyu;
-    private CyberPlayerManager.OnCompletionListener eyv;
-    private CyberPlayerManager.OnInfoListener eyw;
-    private TbCyberVideoView.a fRT;
-    private TbCyberVideoView gxn;
-    private CustomMessageListener jcq;
-    private ForeDrawableImageView knW;
+    private Animation chW;
+    private CyberPlayerManager.OnPreparedListener eAA;
+    private CyberPlayerManager.OnErrorListener eAB;
+    private CyberPlayerManager.OnCompletionListener eAC;
+    private CyberPlayerManager.OnInfoListener eAD;
+    boolean epX;
+    private TbCyberVideoView.a fUi;
+    private TbCyberVideoView gzX;
+    private CustomMessageListener jhW;
+    private ForeDrawableImageView kwd;
     private Context mContext;
     private int mDuration;
     private Handler mHandler;
     private CustomMessageListener mHeadSetPlugListener;
-    private Runnable mIF;
-    private AdCard.f mIz;
-    private ViewGroup mLI;
-    private d mLJ;
-    private e mLK;
     private View mMaskView;
-    private boolean mOn;
     private View.OnClickListener mOnClickListener;
-    private View mPA;
-    private TextView mPB;
-    private View mPC;
-    private ImageView mPD;
-    private VideoControllerView mPE;
-    private int mPF;
-    private long mPG;
-    private boolean mPH;
-    private long mPI;
-    private b mPJ;
-    boolean mPK;
-    private boolean mPL;
-    private int mPM;
-    boolean mPN;
-    private int mPO;
-    private Runnable mPP;
-    private Runnable mPQ;
-    private CustomMessageListener mPR;
     private String mPage;
     private TbPageContext<?> mPageContext;
-    private View mPq;
-    private boolean mPr;
-    private VideoInfo mPs;
-    private AdCard.a mPt;
-    private AdvertAppInfo mPu;
-    private int mPv;
-    private TBLottieAnimationView mPw;
-    private TextView mPx;
-    private ImageView mPy;
-    private ImageView mPz;
+    private AdCard.f mRI;
+    private Runnable mRN;
     private View mRootView;
     private String mScheme;
     private int mStyle;
+    private ViewGroup mUX;
+    private d mUY;
+    private e mUZ;
     private WeakReference<Context> mWeakContext;
+    private boolean mXC;
+    private View mYN;
+    private boolean mYO;
+    private VideoInfo mYP;
+    private AdCard.a mYQ;
+    private AdvertAppInfo mYR;
+    private int mYS;
+    private TBLottieAnimationView mYT;
+    private TextView mYU;
+    private ImageView mYV;
+    private ImageView mYW;
+    private View mYX;
+    private TextView mYY;
+    private View mYZ;
+    private ImageView mZa;
+    private VideoControllerView mZb;
+    private int mZc;
+    private long mZd;
+    private boolean mZe;
+    private long mZf;
+    private b mZg;
+    boolean mZh;
+    private boolean mZi;
+    private int mZj;
+    boolean mZk;
+    private int mZl;
+    private Runnable mZm;
+    private Runnable mZn;
+    private CustomMessageListener mZo;
 
-    private void dBy() {
-        int i;
-        String str = this.mPu != null ? this.mPu.eJk : "";
+    public int jump2DownloadDetailPage() {
+        return dEB();
+    }
+
+    private int dEB() {
+        String str = this.mYR != null ? this.mYR.eLw : "";
         if (!TextUtils.isEmpty(this.mScheme)) {
             str = this.mScheme;
         }
-        if (!TextUtils.isEmpty(str) && this.mContext != null) {
-            if (s.b(this.mPu, str)) {
-                i = 3;
-            } else {
-                i = s.a(this.mContext, str, this.mPu);
-            }
-            if (i == 1) {
-                ae(706, 1, 0);
-            }
+        if (TextUtils.isEmpty(str) || this.mContext == null) {
+            return 0;
         }
-    }
-
-    public void jump2DownloadDetailPage() {
-        dBy();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dCs() {
-        ae(2, 1, 0);
+        if (s.b(this.mYR, str)) {
+            return 3;
+        }
+        return s.a(this.mContext, str, this.mYR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dyx() {
-        if (this.mPw != null) {
-            this.mPw.clearAnimation();
-            this.mPw.animate().alpha(0.0f).setDuration(200L).setListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.2
+    public void dEC() {
+        ac(2, 1, 0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dAH() {
+        if (this.mYT != null) {
+            this.mYT.clearAnimation();
+            this.mYT.animate().alpha(0.0f).setDuration(200L).setListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.2
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    DistributeVideoView.this.mPw.setVisibility(8);
-                    DistributeVideoView.this.knW.setVisibility(8);
-                    DistributeVideoView.this.xl(DistributeVideoView.this.mPH);
+                    DistributeVideoView.this.mYT.setVisibility(8);
+                    DistributeVideoView.this.kwd.setVisibility(8);
+                    DistributeVideoView.this.xE(DistributeVideoView.this.mZe);
                     if (DistributeVideoView.this.mStyle == 1) {
-                        DistributeVideoView.this.mPx.setVisibility(8);
+                        DistributeVideoView.this.mYU.setVisibility(8);
                         DistributeVideoView.this.mMaskView.setVisibility(8);
                     } else {
-                        DistributeVideoView.this.mPE.setPlayer(DistributeVideoView.this.gxn);
-                        DistributeVideoView.this.mPE.bz(0, (int) TimeUnit.SECONDS.toMillis(DistributeVideoView.this.mPs.video_duration.intValue()));
-                        DistributeVideoView.this.mPE.showProgress();
-                        DistributeVideoView.this.xm(true);
-                        com.baidu.adp.lib.f.e.mB().removeCallbacks(DistributeVideoView.this.mPP);
-                        com.baidu.adp.lib.f.e.mB().postDelayed(DistributeVideoView.this.mPP, TimeUnit.SECONDS.toMillis(3L));
+                        DistributeVideoView.this.mZb.setPlayer(DistributeVideoView.this.gzX);
+                        DistributeVideoView.this.mZb.bw(0, (int) TimeUnit.SECONDS.toMillis(DistributeVideoView.this.mYP.video_duration.intValue()));
+                        DistributeVideoView.this.mZb.showProgress();
+                        DistributeVideoView.this.xF(true);
+                        com.baidu.adp.lib.f.e.mA().removeCallbacks(DistributeVideoView.this.mZm);
+                        com.baidu.adp.lib.f.e.mA().postDelayed(DistributeVideoView.this.mZm, TimeUnit.SECONDS.toMillis(3L));
                     }
-                    DistributeVideoView.this.mPG = DistributeVideoView.this.gxn.getCurrentPosition();
-                    DistributeVideoView.this.xn(true);
+                    DistributeVideoView.this.mZd = DistributeVideoView.this.gzX.getCurrentPosition();
+                    DistributeVideoView.this.xG(true);
                     DistributeVideoView.this.mHandler.removeMessages(1003);
                     DistributeVideoView.this.mHandler.sendEmptyMessageDelayed(1003, TimeUnit.SECONDS.toMillis(3L));
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    DistributeVideoView.this.mPw.setMinFrame(0);
-                    DistributeVideoView.this.mPw.setFrame(0);
+                    DistributeVideoView.this.mYT.setMinFrame(0);
+                    DistributeVideoView.this.mYT.setFrame(0);
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -183,33 +179,36 @@ public class DistributeVideoView extends RelativeLayout implements j {
 
     public DistributeVideoView(Context context) {
         super(context);
-        this.mPr = false;
+        this.mYO = false;
         this.mWeakContext = null;
-        this.mPF = -1;
-        this.mPG = 0L;
-        this.mPH = false;
-        this.mPI = 0L;
+        this.mZc = -1;
+        this.mZd = 0L;
+        this.mZe = false;
+        this.mZf = 0L;
         this.mStyle = 1;
-        this.enQ = false;
-        this.mPK = false;
-        this.mPL = false;
-        this.mPN = false;
-        this.mPO = 2;
+        this.epX = false;
+        this.mZh = false;
+        this.mZi = false;
+        this.mZk = false;
+        this.mZl = 2;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == DistributeVideoView.this.mPA) {
-                    DistributeVideoView.this.mPA.setVisibility(8);
+                if (view == DistributeVideoView.this.mYX) {
+                    DistributeVideoView.this.mYX.setVisibility(8);
                     DistributeVideoView.this.performPlay();
-                } else if (view == DistributeVideoView.this.mPz || view == DistributeVideoView.this.mPy) {
-                    DistributeVideoView.this.xl(!DistributeVideoView.this.mPH);
-                } else if (view == DistributeVideoView.this.mPw || view == DistributeVideoView.this.mPD) {
-                    DistributeVideoView.this.dCw();
-                } else if (!(DistributeVideoView.this.mPJ instanceof AdCard)) {
-                    DistributeVideoView.this.dCw();
+                } else if (view == DistributeVideoView.this.mYW || view == DistributeVideoView.this.mYV) {
+                    DistributeVideoView.this.xE(!DistributeVideoView.this.mZe);
+                } else if (view == DistributeVideoView.this.mYT || view == DistributeVideoView.this.mZa) {
+                    DistributeVideoView.this.dEG();
+                } else if (!(DistributeVideoView.this.mZg instanceof AdCard)) {
+                    DistributeVideoView.this.dEG();
                 } else {
-                    DistributeVideoView.this.jump2DownloadDetailPage();
-                    DistributeVideoView.this.dCs();
+                    int jump2DownloadDetailPage = DistributeVideoView.this.jump2DownloadDetailPage();
+                    DistributeVideoView.this.dEC();
+                    if (s.HL(jump2DownloadDetailPage)) {
+                        DistributeVideoView.this.Ii(jump2DownloadDetailPage);
+                    }
                 }
             }
         };
@@ -218,10 +217,10 @@ public class DistributeVideoView extends RelativeLayout implements j {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1001:
-                        if (DistributeVideoView.this.mPF != 1) {
-                            if (DistributeVideoView.this.gxn.getCurrentPosition() > 0) {
-                                DistributeVideoView.this.mPF = 1;
-                                DistributeVideoView.this.dyx();
+                        if (DistributeVideoView.this.mZc != 1) {
+                            if (DistributeVideoView.this.gzX.getCurrentPosition() > 0) {
+                                DistributeVideoView.this.mZc = 1;
+                                DistributeVideoView.this.dAH();
                                 return;
                             }
                             DistributeVideoView.this.mHandler.sendEmptyMessageDelayed(1001, TimeUnit.MILLISECONDS.toMillis(500L));
@@ -232,11 +231,11 @@ public class DistributeVideoView extends RelativeLayout implements j {
                     default:
                         return;
                     case 1003:
-                        if (DistributeVideoView.this.mPF == 1) {
-                            if (DistributeVideoView.this.mPG == DistributeVideoView.this.gxn.getCurrentPosition()) {
-                                DistributeVideoView.this.bPP();
+                        if (DistributeVideoView.this.mZc == 1) {
+                            if (DistributeVideoView.this.mZd == DistributeVideoView.this.gzX.getCurrentPosition()) {
+                                DistributeVideoView.this.bQt();
                             } else {
-                                DistributeVideoView.this.mPG = DistributeVideoView.this.gxn.getCurrentPosition();
+                                DistributeVideoView.this.mZd = DistributeVideoView.this.gzX.getCurrentPosition();
                                 DistributeVideoView.this.setLoadingAnimShow(false);
                             }
                             DistributeVideoView.this.mHandler.sendEmptyMessageDelayed(1003, TimeUnit.SECONDS.toMillis(3L));
@@ -246,90 +245,90 @@ public class DistributeVideoView extends RelativeLayout implements j {
                 }
             }
         };
-        this.eyt = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
+        this.eAA = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                if (DistributeVideoView.this.gxn != null) {
-                    DistributeVideoView.this.mPM = DistributeVideoView.this.gxn.getCurrentPosition();
-                    DistributeVideoView.this.mDuration = DistributeVideoView.this.gxn.getDuration();
-                    DistributeVideoView.this.gxn.setVolume(0.0f, 0.0f);
+                if (DistributeVideoView.this.gzX != null) {
+                    DistributeVideoView.this.mZj = DistributeVideoView.this.gzX.getCurrentPosition();
+                    DistributeVideoView.this.mDuration = DistributeVideoView.this.gzX.getDuration();
+                    DistributeVideoView.this.gzX.setVolume(0.0f, 0.0f);
                     DistributeVideoView.this.mHandler.removeMessages(1001);
                     DistributeVideoView.this.mHandler.sendEmptyMessage(1001);
-                    if (DistributeVideoView.this.mPH && DistributeVideoView.this.mStyle == 1) {
-                        DistributeVideoView.this.xl(false);
+                    if (DistributeVideoView.this.mZe && DistributeVideoView.this.mStyle == 1) {
+                        DistributeVideoView.this.xE(false);
                     }
                 }
             }
         };
-        this.eyw = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.5
+        this.eAD = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.5
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
             public boolean onInfo(int i, int i2, Object obj) {
                 int i3;
-                if (i == 3 && DistributeVideoView.this.mPu != null) {
-                    if (DistributeVideoView.this.mPN && "DETAIL".equals(DistributeVideoView.this.mPu.page)) {
+                if (i == 3 && DistributeVideoView.this.mYR != null) {
+                    if (DistributeVideoView.this.mZk && "DETAIL".equals(DistributeVideoView.this.mYR.page)) {
                         i3 = 35;
                     } else {
                         i3 = 31;
                     }
-                    DistributeVideoView.this.ae(i3, DistributeVideoView.this.HO(DistributeVideoView.this.mPO), 0);
+                    DistributeVideoView.this.ac(i3, DistributeVideoView.this.Ih(DistributeVideoView.this.mZl), 0);
                 }
                 return false;
             }
         };
-        this.eyu = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.6
+        this.eAB = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.6
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
-                DistributeVideoView.this.dCv();
-                if (DistributeVideoView.this.gxn != null) {
-                    DistributeVideoView.this.ae(36, DistributeVideoView.this.HO(DistributeVideoView.this.mPO), DistributeVideoView.this.gxn.getCurrentPosition());
+                DistributeVideoView.this.dEF();
+                if (DistributeVideoView.this.gzX != null) {
+                    DistributeVideoView.this.ac(36, DistributeVideoView.this.Ih(DistributeVideoView.this.mZl), DistributeVideoView.this.gzX.getCurrentPosition());
                 }
-                DistributeVideoView.this.knW.setForegroundDrawable(0);
+                DistributeVideoView.this.kwd.setForegroundDrawable(0);
                 DistributeVideoView.this.setLoadingAnimShow(false);
-                DistributeVideoView.this.mPA.setVisibility(0);
+                DistributeVideoView.this.mYX.setVisibility(0);
                 return true;
             }
         };
-        this.eyv = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.7
+        this.eAC = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.7
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
-                DistributeVideoView.this.mPI = System.currentTimeMillis();
-                DistributeVideoView.this.mPN = true;
-                if (DistributeVideoView.this.gxn != null) {
-                    DistributeVideoView.this.ae(34, DistributeVideoView.this.HO(DistributeVideoView.this.mPO), DistributeVideoView.this.gxn.getDuration());
+                DistributeVideoView.this.mZf = System.currentTimeMillis();
+                DistributeVideoView.this.mZk = true;
+                if (DistributeVideoView.this.gzX != null) {
+                    DistributeVideoView.this.ac(34, DistributeVideoView.this.Ih(DistributeVideoView.this.mZl), DistributeVideoView.this.gzX.getDuration());
                 }
-                DistributeVideoView.this.dCv();
-                if (DistributeVideoView.this.mLK != null) {
-                    DistributeVideoView.this.mLK.dCl();
-                    DistributeVideoView.this.mPx.setVisibility(8);
+                DistributeVideoView.this.dEF();
+                if (DistributeVideoView.this.mUZ != null) {
+                    DistributeVideoView.this.mUZ.dEt();
+                    DistributeVideoView.this.mYU.setVisibility(8);
                     DistributeVideoView.this.mMaskView.setVisibility(8);
                     DistributeVideoView.this.setLoadingAnimShow(false);
                 }
             }
         };
-        this.fRT = new TbCyberVideoView.a() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.8
+        this.fUi = new TbCyberVideoView.a() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.8
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
                 DistributeVideoView.this.stopPlay();
             }
         };
-        this.mIF = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
+        this.mRN = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
             @Override // java.lang.Runnable
             public void run() {
-                if (DistributeVideoView.this.mPs != null && DistributeVideoView.this.gxn != null && DistributeVideoView.this.canPlay()) {
-                    DistributeVideoView.this.HN(1);
+                if (DistributeVideoView.this.mYP != null && DistributeVideoView.this.gzX != null && DistributeVideoView.this.canPlay()) {
+                    DistributeVideoView.this.Ig(1);
                 }
             }
         };
-        this.mPP = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.10
+        this.mZm = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.10
             @Override // java.lang.Runnable
             public void run() {
-                DistributeVideoView.this.dCx();
+                DistributeVideoView.this.dEH();
             }
         };
-        this.mPQ = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.14
+        this.mZn = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.14
             @Override // java.lang.Runnable
             public void run() {
-                DistributeVideoView.this.xn(false);
+                DistributeVideoView.this.xG(false);
             }
         };
         this.mHeadSetPlugListener = new CustomMessageListener(2921398) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.15
@@ -338,36 +337,36 @@ public class DistributeVideoView extends RelativeLayout implements j {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && DistributeVideoView.this.mStyle == 1 && customResponsedMessage.getCmd() == 2921398 && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (DistributeVideoView.this.mPL) {
-                            DistributeVideoView.this.xl(true);
+                        if (DistributeVideoView.this.mZi) {
+                            DistributeVideoView.this.xE(true);
                             return;
                         } else {
-                            DistributeVideoView.this.xl(false);
+                            DistributeVideoView.this.xE(false);
                             return;
                         }
                     }
-                    DistributeVideoView.this.mPL = DistributeVideoView.this.mPH;
-                    DistributeVideoView.this.xl(true);
+                    DistributeVideoView.this.mZi = DistributeVideoView.this.mZe;
+                    DistributeVideoView.this.xE(true);
                 }
             }
         };
-        this.jcq = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.16
+        this.jhW = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.16
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent) && DistributeVideoView.this.mStyle == 1) {
                     KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
                     if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24) {
-                        DistributeVideoView.this.xl(true);
+                        DistributeVideoView.this.xE(true);
                     }
                 }
             }
         };
-        this.mPR = new CustomMessageListener(2921418) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.17
+        this.mZo = new CustomMessageListener(2921418) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.17
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                DistributeVideoView.this.xn(true);
+                DistributeVideoView.this.xG(true);
             }
         };
         init(context);
@@ -375,33 +374,36 @@ public class DistributeVideoView extends RelativeLayout implements j {
 
     public DistributeVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mPr = false;
+        this.mYO = false;
         this.mWeakContext = null;
-        this.mPF = -1;
-        this.mPG = 0L;
-        this.mPH = false;
-        this.mPI = 0L;
+        this.mZc = -1;
+        this.mZd = 0L;
+        this.mZe = false;
+        this.mZf = 0L;
         this.mStyle = 1;
-        this.enQ = false;
-        this.mPK = false;
-        this.mPL = false;
-        this.mPN = false;
-        this.mPO = 2;
+        this.epX = false;
+        this.mZh = false;
+        this.mZi = false;
+        this.mZk = false;
+        this.mZl = 2;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == DistributeVideoView.this.mPA) {
-                    DistributeVideoView.this.mPA.setVisibility(8);
+                if (view == DistributeVideoView.this.mYX) {
+                    DistributeVideoView.this.mYX.setVisibility(8);
                     DistributeVideoView.this.performPlay();
-                } else if (view == DistributeVideoView.this.mPz || view == DistributeVideoView.this.mPy) {
-                    DistributeVideoView.this.xl(!DistributeVideoView.this.mPH);
-                } else if (view == DistributeVideoView.this.mPw || view == DistributeVideoView.this.mPD) {
-                    DistributeVideoView.this.dCw();
-                } else if (!(DistributeVideoView.this.mPJ instanceof AdCard)) {
-                    DistributeVideoView.this.dCw();
+                } else if (view == DistributeVideoView.this.mYW || view == DistributeVideoView.this.mYV) {
+                    DistributeVideoView.this.xE(!DistributeVideoView.this.mZe);
+                } else if (view == DistributeVideoView.this.mYT || view == DistributeVideoView.this.mZa) {
+                    DistributeVideoView.this.dEG();
+                } else if (!(DistributeVideoView.this.mZg instanceof AdCard)) {
+                    DistributeVideoView.this.dEG();
                 } else {
-                    DistributeVideoView.this.jump2DownloadDetailPage();
-                    DistributeVideoView.this.dCs();
+                    int jump2DownloadDetailPage = DistributeVideoView.this.jump2DownloadDetailPage();
+                    DistributeVideoView.this.dEC();
+                    if (s.HL(jump2DownloadDetailPage)) {
+                        DistributeVideoView.this.Ii(jump2DownloadDetailPage);
+                    }
                 }
             }
         };
@@ -410,10 +412,10 @@ public class DistributeVideoView extends RelativeLayout implements j {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1001:
-                        if (DistributeVideoView.this.mPF != 1) {
-                            if (DistributeVideoView.this.gxn.getCurrentPosition() > 0) {
-                                DistributeVideoView.this.mPF = 1;
-                                DistributeVideoView.this.dyx();
+                        if (DistributeVideoView.this.mZc != 1) {
+                            if (DistributeVideoView.this.gzX.getCurrentPosition() > 0) {
+                                DistributeVideoView.this.mZc = 1;
+                                DistributeVideoView.this.dAH();
                                 return;
                             }
                             DistributeVideoView.this.mHandler.sendEmptyMessageDelayed(1001, TimeUnit.MILLISECONDS.toMillis(500L));
@@ -424,11 +426,11 @@ public class DistributeVideoView extends RelativeLayout implements j {
                     default:
                         return;
                     case 1003:
-                        if (DistributeVideoView.this.mPF == 1) {
-                            if (DistributeVideoView.this.mPG == DistributeVideoView.this.gxn.getCurrentPosition()) {
-                                DistributeVideoView.this.bPP();
+                        if (DistributeVideoView.this.mZc == 1) {
+                            if (DistributeVideoView.this.mZd == DistributeVideoView.this.gzX.getCurrentPosition()) {
+                                DistributeVideoView.this.bQt();
                             } else {
-                                DistributeVideoView.this.mPG = DistributeVideoView.this.gxn.getCurrentPosition();
+                                DistributeVideoView.this.mZd = DistributeVideoView.this.gzX.getCurrentPosition();
                                 DistributeVideoView.this.setLoadingAnimShow(false);
                             }
                             DistributeVideoView.this.mHandler.sendEmptyMessageDelayed(1003, TimeUnit.SECONDS.toMillis(3L));
@@ -438,90 +440,90 @@ public class DistributeVideoView extends RelativeLayout implements j {
                 }
             }
         };
-        this.eyt = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
+        this.eAA = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                if (DistributeVideoView.this.gxn != null) {
-                    DistributeVideoView.this.mPM = DistributeVideoView.this.gxn.getCurrentPosition();
-                    DistributeVideoView.this.mDuration = DistributeVideoView.this.gxn.getDuration();
-                    DistributeVideoView.this.gxn.setVolume(0.0f, 0.0f);
+                if (DistributeVideoView.this.gzX != null) {
+                    DistributeVideoView.this.mZj = DistributeVideoView.this.gzX.getCurrentPosition();
+                    DistributeVideoView.this.mDuration = DistributeVideoView.this.gzX.getDuration();
+                    DistributeVideoView.this.gzX.setVolume(0.0f, 0.0f);
                     DistributeVideoView.this.mHandler.removeMessages(1001);
                     DistributeVideoView.this.mHandler.sendEmptyMessage(1001);
-                    if (DistributeVideoView.this.mPH && DistributeVideoView.this.mStyle == 1) {
-                        DistributeVideoView.this.xl(false);
+                    if (DistributeVideoView.this.mZe && DistributeVideoView.this.mStyle == 1) {
+                        DistributeVideoView.this.xE(false);
                     }
                 }
             }
         };
-        this.eyw = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.5
+        this.eAD = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.5
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
             public boolean onInfo(int i, int i2, Object obj) {
                 int i3;
-                if (i == 3 && DistributeVideoView.this.mPu != null) {
-                    if (DistributeVideoView.this.mPN && "DETAIL".equals(DistributeVideoView.this.mPu.page)) {
+                if (i == 3 && DistributeVideoView.this.mYR != null) {
+                    if (DistributeVideoView.this.mZk && "DETAIL".equals(DistributeVideoView.this.mYR.page)) {
                         i3 = 35;
                     } else {
                         i3 = 31;
                     }
-                    DistributeVideoView.this.ae(i3, DistributeVideoView.this.HO(DistributeVideoView.this.mPO), 0);
+                    DistributeVideoView.this.ac(i3, DistributeVideoView.this.Ih(DistributeVideoView.this.mZl), 0);
                 }
                 return false;
             }
         };
-        this.eyu = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.6
+        this.eAB = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.6
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
-                DistributeVideoView.this.dCv();
-                if (DistributeVideoView.this.gxn != null) {
-                    DistributeVideoView.this.ae(36, DistributeVideoView.this.HO(DistributeVideoView.this.mPO), DistributeVideoView.this.gxn.getCurrentPosition());
+                DistributeVideoView.this.dEF();
+                if (DistributeVideoView.this.gzX != null) {
+                    DistributeVideoView.this.ac(36, DistributeVideoView.this.Ih(DistributeVideoView.this.mZl), DistributeVideoView.this.gzX.getCurrentPosition());
                 }
-                DistributeVideoView.this.knW.setForegroundDrawable(0);
+                DistributeVideoView.this.kwd.setForegroundDrawable(0);
                 DistributeVideoView.this.setLoadingAnimShow(false);
-                DistributeVideoView.this.mPA.setVisibility(0);
+                DistributeVideoView.this.mYX.setVisibility(0);
                 return true;
             }
         };
-        this.eyv = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.7
+        this.eAC = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.7
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
-                DistributeVideoView.this.mPI = System.currentTimeMillis();
-                DistributeVideoView.this.mPN = true;
-                if (DistributeVideoView.this.gxn != null) {
-                    DistributeVideoView.this.ae(34, DistributeVideoView.this.HO(DistributeVideoView.this.mPO), DistributeVideoView.this.gxn.getDuration());
+                DistributeVideoView.this.mZf = System.currentTimeMillis();
+                DistributeVideoView.this.mZk = true;
+                if (DistributeVideoView.this.gzX != null) {
+                    DistributeVideoView.this.ac(34, DistributeVideoView.this.Ih(DistributeVideoView.this.mZl), DistributeVideoView.this.gzX.getDuration());
                 }
-                DistributeVideoView.this.dCv();
-                if (DistributeVideoView.this.mLK != null) {
-                    DistributeVideoView.this.mLK.dCl();
-                    DistributeVideoView.this.mPx.setVisibility(8);
+                DistributeVideoView.this.dEF();
+                if (DistributeVideoView.this.mUZ != null) {
+                    DistributeVideoView.this.mUZ.dEt();
+                    DistributeVideoView.this.mYU.setVisibility(8);
                     DistributeVideoView.this.mMaskView.setVisibility(8);
                     DistributeVideoView.this.setLoadingAnimShow(false);
                 }
             }
         };
-        this.fRT = new TbCyberVideoView.a() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.8
+        this.fUi = new TbCyberVideoView.a() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.8
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
                 DistributeVideoView.this.stopPlay();
             }
         };
-        this.mIF = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
+        this.mRN = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
             @Override // java.lang.Runnable
             public void run() {
-                if (DistributeVideoView.this.mPs != null && DistributeVideoView.this.gxn != null && DistributeVideoView.this.canPlay()) {
-                    DistributeVideoView.this.HN(1);
+                if (DistributeVideoView.this.mYP != null && DistributeVideoView.this.gzX != null && DistributeVideoView.this.canPlay()) {
+                    DistributeVideoView.this.Ig(1);
                 }
             }
         };
-        this.mPP = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.10
+        this.mZm = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.10
             @Override // java.lang.Runnable
             public void run() {
-                DistributeVideoView.this.dCx();
+                DistributeVideoView.this.dEH();
             }
         };
-        this.mPQ = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.14
+        this.mZn = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.14
             @Override // java.lang.Runnable
             public void run() {
-                DistributeVideoView.this.xn(false);
+                DistributeVideoView.this.xG(false);
             }
         };
         this.mHeadSetPlugListener = new CustomMessageListener(2921398) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.15
@@ -530,36 +532,36 @@ public class DistributeVideoView extends RelativeLayout implements j {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && DistributeVideoView.this.mStyle == 1 && customResponsedMessage.getCmd() == 2921398 && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (DistributeVideoView.this.mPL) {
-                            DistributeVideoView.this.xl(true);
+                        if (DistributeVideoView.this.mZi) {
+                            DistributeVideoView.this.xE(true);
                             return;
                         } else {
-                            DistributeVideoView.this.xl(false);
+                            DistributeVideoView.this.xE(false);
                             return;
                         }
                     }
-                    DistributeVideoView.this.mPL = DistributeVideoView.this.mPH;
-                    DistributeVideoView.this.xl(true);
+                    DistributeVideoView.this.mZi = DistributeVideoView.this.mZe;
+                    DistributeVideoView.this.xE(true);
                 }
             }
         };
-        this.jcq = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.16
+        this.jhW = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.16
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent) && DistributeVideoView.this.mStyle == 1) {
                     KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
                     if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24) {
-                        DistributeVideoView.this.xl(true);
+                        DistributeVideoView.this.xE(true);
                     }
                 }
             }
         };
-        this.mPR = new CustomMessageListener(2921418) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.17
+        this.mZo = new CustomMessageListener(2921418) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.17
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                DistributeVideoView.this.xn(true);
+                DistributeVideoView.this.xG(true);
             }
         };
         init(context);
@@ -567,33 +569,36 @@ public class DistributeVideoView extends RelativeLayout implements j {
 
     public DistributeVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mPr = false;
+        this.mYO = false;
         this.mWeakContext = null;
-        this.mPF = -1;
-        this.mPG = 0L;
-        this.mPH = false;
-        this.mPI = 0L;
+        this.mZc = -1;
+        this.mZd = 0L;
+        this.mZe = false;
+        this.mZf = 0L;
         this.mStyle = 1;
-        this.enQ = false;
-        this.mPK = false;
-        this.mPL = false;
-        this.mPN = false;
-        this.mPO = 2;
+        this.epX = false;
+        this.mZh = false;
+        this.mZi = false;
+        this.mZk = false;
+        this.mZl = 2;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == DistributeVideoView.this.mPA) {
-                    DistributeVideoView.this.mPA.setVisibility(8);
+                if (view == DistributeVideoView.this.mYX) {
+                    DistributeVideoView.this.mYX.setVisibility(8);
                     DistributeVideoView.this.performPlay();
-                } else if (view == DistributeVideoView.this.mPz || view == DistributeVideoView.this.mPy) {
-                    DistributeVideoView.this.xl(!DistributeVideoView.this.mPH);
-                } else if (view == DistributeVideoView.this.mPw || view == DistributeVideoView.this.mPD) {
-                    DistributeVideoView.this.dCw();
-                } else if (!(DistributeVideoView.this.mPJ instanceof AdCard)) {
-                    DistributeVideoView.this.dCw();
+                } else if (view == DistributeVideoView.this.mYW || view == DistributeVideoView.this.mYV) {
+                    DistributeVideoView.this.xE(!DistributeVideoView.this.mZe);
+                } else if (view == DistributeVideoView.this.mYT || view == DistributeVideoView.this.mZa) {
+                    DistributeVideoView.this.dEG();
+                } else if (!(DistributeVideoView.this.mZg instanceof AdCard)) {
+                    DistributeVideoView.this.dEG();
                 } else {
-                    DistributeVideoView.this.jump2DownloadDetailPage();
-                    DistributeVideoView.this.dCs();
+                    int jump2DownloadDetailPage = DistributeVideoView.this.jump2DownloadDetailPage();
+                    DistributeVideoView.this.dEC();
+                    if (s.HL(jump2DownloadDetailPage)) {
+                        DistributeVideoView.this.Ii(jump2DownloadDetailPage);
+                    }
                 }
             }
         };
@@ -602,10 +607,10 @@ public class DistributeVideoView extends RelativeLayout implements j {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1001:
-                        if (DistributeVideoView.this.mPF != 1) {
-                            if (DistributeVideoView.this.gxn.getCurrentPosition() > 0) {
-                                DistributeVideoView.this.mPF = 1;
-                                DistributeVideoView.this.dyx();
+                        if (DistributeVideoView.this.mZc != 1) {
+                            if (DistributeVideoView.this.gzX.getCurrentPosition() > 0) {
+                                DistributeVideoView.this.mZc = 1;
+                                DistributeVideoView.this.dAH();
                                 return;
                             }
                             DistributeVideoView.this.mHandler.sendEmptyMessageDelayed(1001, TimeUnit.MILLISECONDS.toMillis(500L));
@@ -616,11 +621,11 @@ public class DistributeVideoView extends RelativeLayout implements j {
                     default:
                         return;
                     case 1003:
-                        if (DistributeVideoView.this.mPF == 1) {
-                            if (DistributeVideoView.this.mPG == DistributeVideoView.this.gxn.getCurrentPosition()) {
-                                DistributeVideoView.this.bPP();
+                        if (DistributeVideoView.this.mZc == 1) {
+                            if (DistributeVideoView.this.mZd == DistributeVideoView.this.gzX.getCurrentPosition()) {
+                                DistributeVideoView.this.bQt();
                             } else {
-                                DistributeVideoView.this.mPG = DistributeVideoView.this.gxn.getCurrentPosition();
+                                DistributeVideoView.this.mZd = DistributeVideoView.this.gzX.getCurrentPosition();
                                 DistributeVideoView.this.setLoadingAnimShow(false);
                             }
                             DistributeVideoView.this.mHandler.sendEmptyMessageDelayed(1003, TimeUnit.SECONDS.toMillis(3L));
@@ -630,90 +635,90 @@ public class DistributeVideoView extends RelativeLayout implements j {
                 }
             }
         };
-        this.eyt = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
+        this.eAA = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.4
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                if (DistributeVideoView.this.gxn != null) {
-                    DistributeVideoView.this.mPM = DistributeVideoView.this.gxn.getCurrentPosition();
-                    DistributeVideoView.this.mDuration = DistributeVideoView.this.gxn.getDuration();
-                    DistributeVideoView.this.gxn.setVolume(0.0f, 0.0f);
+                if (DistributeVideoView.this.gzX != null) {
+                    DistributeVideoView.this.mZj = DistributeVideoView.this.gzX.getCurrentPosition();
+                    DistributeVideoView.this.mDuration = DistributeVideoView.this.gzX.getDuration();
+                    DistributeVideoView.this.gzX.setVolume(0.0f, 0.0f);
                     DistributeVideoView.this.mHandler.removeMessages(1001);
                     DistributeVideoView.this.mHandler.sendEmptyMessage(1001);
-                    if (DistributeVideoView.this.mPH && DistributeVideoView.this.mStyle == 1) {
-                        DistributeVideoView.this.xl(false);
+                    if (DistributeVideoView.this.mZe && DistributeVideoView.this.mStyle == 1) {
+                        DistributeVideoView.this.xE(false);
                     }
                 }
             }
         };
-        this.eyw = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.5
+        this.eAD = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.5
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
             public boolean onInfo(int i2, int i22, Object obj) {
                 int i3;
-                if (i2 == 3 && DistributeVideoView.this.mPu != null) {
-                    if (DistributeVideoView.this.mPN && "DETAIL".equals(DistributeVideoView.this.mPu.page)) {
+                if (i2 == 3 && DistributeVideoView.this.mYR != null) {
+                    if (DistributeVideoView.this.mZk && "DETAIL".equals(DistributeVideoView.this.mYR.page)) {
                         i3 = 35;
                     } else {
                         i3 = 31;
                     }
-                    DistributeVideoView.this.ae(i3, DistributeVideoView.this.HO(DistributeVideoView.this.mPO), 0);
+                    DistributeVideoView.this.ac(i3, DistributeVideoView.this.Ih(DistributeVideoView.this.mZl), 0);
                 }
                 return false;
             }
         };
-        this.eyu = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.6
+        this.eAB = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.6
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i2, int i22, Object obj) {
-                DistributeVideoView.this.dCv();
-                if (DistributeVideoView.this.gxn != null) {
-                    DistributeVideoView.this.ae(36, DistributeVideoView.this.HO(DistributeVideoView.this.mPO), DistributeVideoView.this.gxn.getCurrentPosition());
+                DistributeVideoView.this.dEF();
+                if (DistributeVideoView.this.gzX != null) {
+                    DistributeVideoView.this.ac(36, DistributeVideoView.this.Ih(DistributeVideoView.this.mZl), DistributeVideoView.this.gzX.getCurrentPosition());
                 }
-                DistributeVideoView.this.knW.setForegroundDrawable(0);
+                DistributeVideoView.this.kwd.setForegroundDrawable(0);
                 DistributeVideoView.this.setLoadingAnimShow(false);
-                DistributeVideoView.this.mPA.setVisibility(0);
+                DistributeVideoView.this.mYX.setVisibility(0);
                 return true;
             }
         };
-        this.eyv = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.7
+        this.eAC = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.7
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
-                DistributeVideoView.this.mPI = System.currentTimeMillis();
-                DistributeVideoView.this.mPN = true;
-                if (DistributeVideoView.this.gxn != null) {
-                    DistributeVideoView.this.ae(34, DistributeVideoView.this.HO(DistributeVideoView.this.mPO), DistributeVideoView.this.gxn.getDuration());
+                DistributeVideoView.this.mZf = System.currentTimeMillis();
+                DistributeVideoView.this.mZk = true;
+                if (DistributeVideoView.this.gzX != null) {
+                    DistributeVideoView.this.ac(34, DistributeVideoView.this.Ih(DistributeVideoView.this.mZl), DistributeVideoView.this.gzX.getDuration());
                 }
-                DistributeVideoView.this.dCv();
-                if (DistributeVideoView.this.mLK != null) {
-                    DistributeVideoView.this.mLK.dCl();
-                    DistributeVideoView.this.mPx.setVisibility(8);
+                DistributeVideoView.this.dEF();
+                if (DistributeVideoView.this.mUZ != null) {
+                    DistributeVideoView.this.mUZ.dEt();
+                    DistributeVideoView.this.mYU.setVisibility(8);
                     DistributeVideoView.this.mMaskView.setVisibility(8);
                     DistributeVideoView.this.setLoadingAnimShow(false);
                 }
             }
         };
-        this.fRT = new TbCyberVideoView.a() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.8
+        this.fUi = new TbCyberVideoView.a() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.8
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
                 DistributeVideoView.this.stopPlay();
             }
         };
-        this.mIF = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
+        this.mRN = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.9
             @Override // java.lang.Runnable
             public void run() {
-                if (DistributeVideoView.this.mPs != null && DistributeVideoView.this.gxn != null && DistributeVideoView.this.canPlay()) {
-                    DistributeVideoView.this.HN(1);
+                if (DistributeVideoView.this.mYP != null && DistributeVideoView.this.gzX != null && DistributeVideoView.this.canPlay()) {
+                    DistributeVideoView.this.Ig(1);
                 }
             }
         };
-        this.mPP = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.10
+        this.mZm = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.10
             @Override // java.lang.Runnable
             public void run() {
-                DistributeVideoView.this.dCx();
+                DistributeVideoView.this.dEH();
             }
         };
-        this.mPQ = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.14
+        this.mZn = new Runnable() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.14
             @Override // java.lang.Runnable
             public void run() {
-                DistributeVideoView.this.xn(false);
+                DistributeVideoView.this.xG(false);
             }
         };
         this.mHeadSetPlugListener = new CustomMessageListener(2921398) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.15
@@ -722,36 +727,36 @@ public class DistributeVideoView extends RelativeLayout implements j {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && DistributeVideoView.this.mStyle == 1 && customResponsedMessage.getCmd() == 2921398 && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (DistributeVideoView.this.mPL) {
-                            DistributeVideoView.this.xl(true);
+                        if (DistributeVideoView.this.mZi) {
+                            DistributeVideoView.this.xE(true);
                             return;
                         } else {
-                            DistributeVideoView.this.xl(false);
+                            DistributeVideoView.this.xE(false);
                             return;
                         }
                     }
-                    DistributeVideoView.this.mPL = DistributeVideoView.this.mPH;
-                    DistributeVideoView.this.xl(true);
+                    DistributeVideoView.this.mZi = DistributeVideoView.this.mZe;
+                    DistributeVideoView.this.xE(true);
                 }
             }
         };
-        this.jcq = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.16
+        this.jhW = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.16
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent) && DistributeVideoView.this.mStyle == 1) {
                     KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
                     if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24) {
-                        DistributeVideoView.this.xl(true);
+                        DistributeVideoView.this.xE(true);
                     }
                 }
             }
         };
-        this.mPR = new CustomMessageListener(2921418) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.17
+        this.mZo = new CustomMessageListener(2921418) { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.17
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                DistributeVideoView.this.xn(true);
+                DistributeVideoView.this.xG(true);
             }
         };
         init(context);
@@ -762,38 +767,38 @@ public class DistributeVideoView extends RelativeLayout implements j {
     }
 
     public void setAdInfo(AdCard adCard) {
-        this.mPJ = adCard;
+        this.mZg = adCard;
     }
 
     private void init(Context context) {
         if (context != null) {
             this.mContext = context;
             this.mRootView = LayoutInflater.from(context).inflate(R.layout.distribute_video_view, (ViewGroup) this, true);
-            this.gxn = (TbCyberVideoView) this.mRootView.findViewById(R.id.distribute_texture);
-            this.gxn.setStageType(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR);
-            this.gxn.setNoBussinessStats();
-            this.mPw = (TBLottieAnimationView) this.mRootView.findViewById(R.id.video_play);
-            this.knW = (ForeDrawableImageView) this.mRootView.findViewById(R.id.distribute_thumbnail);
-            this.mPx = (TextView) this.mRootView.findViewById(R.id.distribute_count_process);
+            this.gzX = (TbCyberVideoView) this.mRootView.findViewById(R.id.distribute_texture);
+            this.gzX.setStageType(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR);
+            this.gzX.setNoBussinessStats();
+            this.mYT = (TBLottieAnimationView) this.mRootView.findViewById(R.id.video_play);
+            this.kwd = (ForeDrawableImageView) this.mRootView.findViewById(R.id.distribute_thumbnail);
+            this.mYU = (TextView) this.mRootView.findViewById(R.id.distribute_count_process);
             this.mMaskView = this.mRootView.findViewById(R.id.black_mask_top);
-            this.mPA = this.mRootView.findViewById(R.id.distribute_error_tip);
-            this.mPB = (TextView) this.mRootView.findViewById(R.id.distribute_error_tip_text);
-            this.mPy = (ImageView) this.mRootView.findViewById(R.id.distribute_voice_feed);
-            this.mPC = this.mRootView.findViewById(R.id.distribute_control);
-            this.mPD = (ImageView) this.mPC.findViewById(R.id.distribute_play_icon);
-            this.mPz = (ImageView) this.mPC.findViewById(R.id.distribute_voice);
-            this.mPE = (VideoControllerView) this.mPC.findViewById(R.id.distribute_process);
-            this.mLI = (FrameLayout) this.mRootView.findViewById(R.id.tail_frame_container);
-            this.mLJ = new d(context, this.mLI);
-            this.mPw.setAnimation(R.raw.lotti_video_loading);
-            this.mPw.setMinFrame(0);
-            this.mPw.setFrame(0);
+            this.mYX = this.mRootView.findViewById(R.id.distribute_error_tip);
+            this.mYY = (TextView) this.mRootView.findViewById(R.id.distribute_error_tip_text);
+            this.mYV = (ImageView) this.mRootView.findViewById(R.id.distribute_voice_feed);
+            this.mYZ = this.mRootView.findViewById(R.id.distribute_control);
+            this.mZa = (ImageView) this.mYZ.findViewById(R.id.distribute_play_icon);
+            this.mYW = (ImageView) this.mYZ.findViewById(R.id.distribute_voice);
+            this.mZb = (VideoControllerView) this.mYZ.findViewById(R.id.distribute_process);
+            this.mUX = (FrameLayout) this.mRootView.findViewById(R.id.tail_frame_container);
+            this.mUY = new d(context, this.mUX);
+            this.mYT.setAnimation(R.raw.lotti_video_loading);
+            this.mYT.setMinFrame(0);
+            this.mYT.setFrame(0);
             com.baidu.tbadk.a.b.b.m(this.mMaskView, R.drawable.video_mask_bg);
         }
     }
 
-    private boolean dCt() {
-        return this.mStyle == 1 ? v.dCt() : com.baidu.adp.lib.util.j.isWifiNet();
+    private boolean dED() {
+        return this.mStyle == 1 ? v.dED() : com.baidu.adp.lib.util.j.isWifiNet();
     }
 
     public void setData(VideoInfo videoInfo, int i, TbPageContext<?> tbPageContext) {
@@ -810,11 +815,11 @@ public class DistributeVideoView extends RelativeLayout implements j {
     }
 
     public void setChargeInfo(AdCard.a aVar) {
-        this.mPt = aVar;
+        this.mYQ = aVar;
     }
 
     public void setVideoTailFrameData(AdCard.f fVar) {
-        this.mIz = fVar;
+        this.mRI = fVar;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -822,16 +827,16 @@ public class DistributeVideoView extends RelativeLayout implements j {
             setVisibility(8);
             return;
         }
-        this.mPs = videoInfo;
-        this.mDuration = this.mPs.video_duration.intValue() * 1000;
+        this.mYP = videoInfo;
+        this.mDuration = this.mYP.video_duration.intValue() * 1000;
         this.mWeakContext = new WeakReference<>(this.mContext.getApplicationContext());
-        dCv();
-        ao.setBackgroundColor(this, R.color.CAM_X0201);
+        dEF();
+        ap.setBackgroundColor(this, R.color.CAM_X0201);
         int equipmentWidth = l.getEquipmentWidth(this.mContext) - l.getDimens(this.mContext, R.dimen.ds146);
         if (this.mStyle == 2) {
             equipmentWidth = l.getEquipmentWidth(this.mContext);
         }
-        int intValue = this.mPs.video_width.intValue() > 0 ? (this.mPs.video_height.intValue() * equipmentWidth) / this.mPs.video_width.intValue() : equipmentWidth;
+        int intValue = this.mYP.video_width.intValue() > 0 ? (this.mYP.video_height.intValue() * equipmentWidth) / this.mYP.video_width.intValue() : equipmentWidth;
         ViewGroup.LayoutParams layoutParams = this.mRootView.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = equipmentWidth;
@@ -839,41 +844,41 @@ public class DistributeVideoView extends RelativeLayout implements j {
             this.mRootView.setLayoutParams(layoutParams);
         }
         setOnClickListener(this.mOnClickListener);
-        this.knW.setDefaultResource(0);
-        this.knW.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        if (!at.isEmpty(videoInfo.thumbnail_url)) {
-            this.knW.startLoad(videoInfo.thumbnail_url, 10, false);
+        this.kwd.setDefaultResource(0);
+        this.kwd.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+        if (!au.isEmpty(videoInfo.thumbnail_url)) {
+            this.kwd.startLoad(videoInfo.thumbnail_url, 10, false);
         }
-        this.gxn.setOnPreparedListener(this.eyt);
-        this.gxn.setOnErrorListener(this.eyu);
-        this.gxn.setOnCompletionListener(this.eyv);
-        this.gxn.setOnInfoListener(this.eyw);
-        this.gxn.setOnSurfaceDestroyedListener(this.fRT);
-        ao.setViewTextColor(this.mPx, R.color.cp_cont_m);
-        this.mPx.setText(StringUtils.translateSecondsToString(this.mPs.video_duration.intValue()));
+        this.gzX.setOnPreparedListener(this.eAA);
+        this.gzX.setOnErrorListener(this.eAB);
+        this.gzX.setOnCompletionListener(this.eAC);
+        this.gzX.setOnInfoListener(this.eAD);
+        this.gzX.setOnSurfaceDestroyedListener(this.fUi);
+        ap.setViewTextColor(this.mYU, R.color.cp_cont_m);
+        this.mYU.setText(StringUtils.translateSecondsToString(this.mYP.video_duration.intValue()));
         if (this.mStyle == 1) {
-            this.mPH = false;
-            ao.setImageResource(this.mPy, R.drawable.icon_vedio_npronunciation_small_white);
-            this.mPy.setVisibility(8);
+            this.mZe = false;
+            ap.setImageResource(this.mYV, R.drawable.icon_vedio_npronunciation_small_white);
+            this.mYV.setVisibility(8);
         } else {
-            this.mPH = true;
-            ao.setImageResource(this.mPz, R.drawable.ad_icon_sound_open);
-            this.mPy.setVisibility(8);
+            this.mZe = true;
+            ap.setImageResource(this.mYW, R.drawable.ad_icon_sound_open);
+            this.mYV.setVisibility(8);
         }
-        this.mPz.setOnClickListener(this.mOnClickListener);
-        this.mPy.setOnClickListener(this.mOnClickListener);
-        this.mPA.setOnClickListener(this.mOnClickListener);
-        this.mPA.setVisibility(8);
-        ao.setBackgroundColor(this.mPA, R.color.black_alpha80);
-        ao.setViewTextColor(this.mPB, R.color.CAM_X0101);
+        this.mYW.setOnClickListener(this.mOnClickListener);
+        this.mYV.setOnClickListener(this.mOnClickListener);
+        this.mYX.setOnClickListener(this.mOnClickListener);
+        this.mYX.setVisibility(8);
+        ap.setBackgroundColor(this.mYX, R.color.black_alpha80);
+        ap.setViewTextColor(this.mYY, R.color.CAM_X0101);
         if (this.mStyle == 1) {
             this.mMaskView.setVisibility(0);
-            this.mPx.setVisibility(0);
+            this.mYU.setVisibility(0);
             return;
         }
-        this.mPx.setVisibility(8);
-        this.mPD.setOnClickListener(this.mOnClickListener);
-        this.mPw.setOnClickListener(this.mOnClickListener);
+        this.mYU.setVisibility(8);
+        this.mZa.setOnClickListener(this.mOnClickListener);
+        this.mYT.setOnClickListener(this.mOnClickListener);
     }
 
     public void setData(VideoInfo videoInfo, int i, int i2, int i3) {
@@ -881,75 +886,75 @@ public class DistributeVideoView extends RelativeLayout implements j {
             setVisibility(8);
             return;
         }
-        this.mPs = videoInfo;
+        this.mYP = videoInfo;
         this.mWeakContext = new WeakReference<>(this.mContext.getApplicationContext());
-        dCv();
-        ao.setBackgroundColor(this, R.color.CAM_X0201);
+        dEF();
+        ap.setBackgroundColor(this, R.color.CAM_X0201);
         if (this.mStyle == 2) {
             i = l.getEquipmentWidth(this.mContext);
         }
         a(videoInfo, i, i2, i3);
         setOnClickListener(this.mOnClickListener);
-        this.knW.setDefaultResource(0);
-        this.knW.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        if (!at.isEmpty(videoInfo.thumbnail_url)) {
-            this.knW.startLoad(videoInfo.thumbnail_url, 10, false);
+        this.kwd.setDefaultResource(0);
+        this.kwd.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+        if (!au.isEmpty(videoInfo.thumbnail_url)) {
+            this.kwd.startLoad(videoInfo.thumbnail_url, 10, false);
         }
-        this.gxn.setOnPreparedListener(this.eyt);
-        this.gxn.setOnErrorListener(this.eyu);
-        this.gxn.setOnCompletionListener(this.eyv);
-        this.gxn.setOnInfoListener(this.eyw);
-        this.gxn.setOnSurfaceDestroyedListener(this.fRT);
-        ao.setViewTextColor(this.mPx, R.color.cp_cont_m);
-        this.mPx.setText(StringUtils.translateSecondsToString(this.mPs.video_duration.intValue()));
+        this.gzX.setOnPreparedListener(this.eAA);
+        this.gzX.setOnErrorListener(this.eAB);
+        this.gzX.setOnCompletionListener(this.eAC);
+        this.gzX.setOnInfoListener(this.eAD);
+        this.gzX.setOnSurfaceDestroyedListener(this.fUi);
+        ap.setViewTextColor(this.mYU, R.color.cp_cont_m);
+        this.mYU.setText(StringUtils.translateSecondsToString(this.mYP.video_duration.intValue()));
         if (this.mStyle == 1) {
-            this.mPH = false;
-            ao.setImageResource(this.mPy, R.drawable.icon_vedio_npronunciation_small_white);
-            this.mPy.setVisibility(8);
+            this.mZe = false;
+            ap.setImageResource(this.mYV, R.drawable.icon_vedio_npronunciation_small_white);
+            this.mYV.setVisibility(8);
         } else {
-            this.mPH = true;
-            ao.setImageResource(this.mPz, R.drawable.ad_icon_sound_open);
-            this.mPy.setVisibility(8);
+            this.mZe = true;
+            ap.setImageResource(this.mYW, R.drawable.ad_icon_sound_open);
+            this.mYV.setVisibility(8);
         }
-        this.mPz.setOnClickListener(this.mOnClickListener);
-        this.mPy.setOnClickListener(this.mOnClickListener);
-        this.mPA.setOnClickListener(this.mOnClickListener);
-        this.mPA.setVisibility(8);
-        ao.setBackgroundColor(this.mPA, R.color.black_alpha80);
-        ao.setViewTextColor(this.mPB, R.color.CAM_X0101);
+        this.mYW.setOnClickListener(this.mOnClickListener);
+        this.mYV.setOnClickListener(this.mOnClickListener);
+        this.mYX.setOnClickListener(this.mOnClickListener);
+        this.mYX.setVisibility(8);
+        ap.setBackgroundColor(this.mYX, R.color.black_alpha80);
+        ap.setViewTextColor(this.mYY, R.color.CAM_X0101);
         if (this.mStyle == 1) {
-            this.mPx.setVisibility(0);
+            this.mYU.setVisibility(0);
             this.mMaskView.setVisibility(0);
             return;
         }
-        this.mPx.setVisibility(8);
-        this.mPD.setOnClickListener(this.mOnClickListener);
+        this.mYU.setVisibility(8);
+        this.mZa.setOnClickListener(this.mOnClickListener);
     }
 
     public void updateTailFrameView(AdvertAppInfo advertAppInfo) {
         if (advertAppInfo == null) {
-            advertAppInfo = this.mPu;
+            advertAppInfo = this.mYR;
         }
-        this.mLK = this.mLJ.a(this.mIz, this.mLK);
-        if (this.mLK != null) {
-            this.mLK.setPageContext(this.mPageContext);
-            this.mLK.c(this.mPJ);
-            if (this.mLK instanceof a) {
-                ((a) this.mLK).xj(this.mOn);
+        this.mUZ = this.mUY.a(this.mRI, this.mUZ);
+        if (this.mUZ != null) {
+            this.mUZ.setPageContext(this.mPageContext);
+            this.mUZ.c(this.mZg);
+            if (this.mUZ instanceof a) {
+                ((a) this.mUZ).xC(this.mXC);
             }
-            this.mLK.setAdvertAppInfo(advertAppInfo);
-            this.mLK.a(this.mIz);
-            this.mLK.dCm();
+            this.mUZ.setAdvertAppInfo(advertAppInfo);
+            this.mUZ.a(this.mRI);
+            this.mUZ.dEu();
         }
     }
 
     public void setTailFrameIsMiddlePage(boolean z) {
-        this.mOn = z;
+        this.mXC = z;
     }
 
     public void setDownloadCallback(c cVar) {
-        if (this.mLK != null) {
-            this.mLK.setDownloadAppCallback(cVar);
+        if (this.mUZ != null) {
+            this.mUZ.setDownloadAppCallback(cVar);
         }
     }
 
@@ -985,86 +990,86 @@ public class DistributeVideoView extends RelativeLayout implements j {
     }
 
     public void setOnCompleteListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        this.eyv = onCompletionListener;
+        this.eAC = onCompletionListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HN(int i) {
-        this.mPO = i;
-        if (this.mPs != null && this.mPF == -1) {
-            if (TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - this.mPI) >= TimeUnit.SECONDS.toSeconds(3L)) {
-                if (this.mLK != null) {
-                    this.mLK.dCm();
+    public void Ig(int i) {
+        this.mZl = i;
+        if (this.mYP != null && this.mZc == -1) {
+            if (TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - this.mZf) >= TimeUnit.SECONDS.toSeconds(3L)) {
+                if (this.mUZ != null) {
+                    this.mUZ.dEu();
                 }
-                this.gxn.setVideoPath(this.mPs.video_url);
-                this.gxn.start();
-                this.mPM = this.gxn.getCurrentPosition();
-                ao.setImageResource(this.mPD, R.drawable.icon_video_midplay);
-                bPP();
-                this.mPA.setVisibility(8);
-                this.knW.setForegroundDrawable(0);
-                this.mPF = 0;
+                this.gzX.setVideoPath(this.mYP.video_url);
+                this.gzX.start();
+                this.mZj = this.gzX.getCurrentPosition();
+                ap.setImageResource(this.mZa, R.drawable.icon_video_midplay);
+                bQt();
+                this.mYX.setVisibility(8);
+                this.kwd.setForegroundDrawable(0);
+                this.mZc = 0;
                 if (this.mStyle == 1) {
-                    this.mPx.setVisibility(0);
+                    this.mYU.setVisibility(0);
                     this.mMaskView.setVisibility(0);
                 } else {
-                    this.mPx.setVisibility(8);
+                    this.mYU.setVisibility(8);
                 }
                 if (this.mPageContext != null) {
-                    this.mPageContext.registerListener(this.mPR);
+                    this.mPageContext.registerListener(this.mZo);
                     this.mPageContext.registerListener(this.mHeadSetPlugListener);
-                    this.mPageContext.registerListener(this.jcq);
+                    this.mPageContext.registerListener(this.jhW);
                 }
-                ae(31, HO(this.mPO), 0);
+                ac(31, Ih(this.mZl), 0);
             }
         }
     }
 
     public void performPlay() {
-        HN(2);
+        Ig(2);
     }
 
     @Override // com.baidu.tieba.recapp.j
     public void autoPlay(int i) {
-        if (dCt()) {
+        if (dED()) {
             if (i <= 0) {
-                HN(1);
+                Ig(1);
                 return;
             }
-            com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mIF);
-            com.baidu.adp.lib.f.e.mB().postDelayed(this.mIF, TimeUnit.SECONDS.toMillis(i));
+            com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mRN);
+            com.baidu.adp.lib.f.e.mA().postDelayed(this.mRN, TimeUnit.SECONDS.toMillis(i));
         }
     }
 
     public void pausePlay(int i) {
-        if (this.mPF == 1) {
-            L(32, HO(this.mPO), this.gxn.getCurrentPosition(), i);
-            this.gxn.pause();
-            ah.a(this.mWeakContext, false);
+        if (this.mZc == 1) {
+            J(32, Ih(this.mZl), this.gzX.getCurrentPosition(), i);
+            this.gzX.pause();
+            ak.a(this.mWeakContext, false);
             setLoadingAnimShow(true);
-            ao.setImageResource(this.mPD, R.drawable.icon_video_midpause);
-            this.mPF = 2;
+            ap.setImageResource(this.mZa, R.drawable.icon_video_midpause);
+            this.mZc = 2;
         }
     }
 
     public void autoContinue() {
-        if (!this.mPK) {
+        if (!this.mZh) {
             continuePlay(1);
         }
     }
 
     public void continuePlay(int i) {
-        if (this.mPF == 2) {
-            this.mPO = i;
-            ae(33, HO(i), this.gxn.getCurrentPosition());
-            this.mPM = this.gxn.getCurrentPosition();
-            this.gxn.start();
-            if (this.mPH) {
-                ah.a(this.mWeakContext, true);
+        if (this.mZc == 2) {
+            this.mZl = i;
+            ac(33, Ih(i), this.gzX.getCurrentPosition());
+            this.mZj = this.gzX.getCurrentPosition();
+            this.gzX.start();
+            if (this.mZe) {
+                ak.a(this.mWeakContext, true);
             }
             setLoadingAnimShow(false);
-            ao.setImageResource(this.mPD, R.drawable.icon_video_midplay);
-            this.mPF = 1;
+            ap.setImageResource(this.mZa, R.drawable.icon_video_midplay);
+            this.mZc = 1;
         }
     }
 
@@ -1079,32 +1084,32 @@ public class DistributeVideoView extends RelativeLayout implements j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPP() {
-        if (this.mPw != null) {
-            this.mPw.setAlpha(1.0f);
-            this.mPw.setVisibility(0);
-            this.mPw.loop(true);
-            this.mPw.setMinAndMaxFrame(14, 80);
-            this.mPw.playAnimation();
+    public void bQt() {
+        if (this.mYT != null) {
+            this.mYT.setAlpha(1.0f);
+            this.mYT.setVisibility(0);
+            this.mYT.loop(true);
+            this.mYT.setMinAndMaxFrame(14, 80);
+            this.mYT.playAnimation();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setLoadingAnimShow(boolean z) {
-        dCu();
+        dEE();
         if (z) {
-            this.mPw.setAlpha(1.0f);
-            this.mPw.setVisibility(0);
+            this.mYT.setAlpha(1.0f);
+            this.mYT.setVisibility(0);
             return;
         }
-        this.mPw.setVisibility(8);
+        this.mYT.setVisibility(8);
     }
 
-    private void dCu() {
-        if (this.mPw != null) {
-            this.mPw.setMinFrame(0);
-            this.mPw.setFrame(0);
-            this.mPw.cancelAnimation();
+    private void dEE() {
+        if (this.mYT != null) {
+            this.mYT.setMinFrame(0);
+            this.mYT.setFrame(0);
+            this.mYT.cancelAnimation();
         }
     }
 
@@ -1119,34 +1124,34 @@ public class DistributeVideoView extends RelativeLayout implements j {
     }
 
     public void stopPlay(boolean z) {
-        if (this.gxn.getCurrentPosition() > 0 && this.mPF != -1 && z) {
+        if (this.gzX.getCurrentPosition() > 0 && this.mZc != -1 && z) {
             int i = 32;
-            int currentPosition = this.gxn.getCurrentPosition();
-            if (this.gxn.getDuration() == currentPosition) {
+            int currentPosition = this.gzX.getCurrentPosition();
+            if (this.gzX.getDuration() == currentPosition) {
                 i = 34;
             }
-            e(i, HO(this.mPO), currentPosition, this.gxn.isPlaying());
+            e(i, Ih(this.mZl), currentPosition, this.gzX.isPlaying());
         }
-        dCv();
+        dEF();
     }
 
     public void initVideoViewLayout(boolean z) {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gxn.getLayoutParams();
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.mLI.getLayoutParams();
-        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.knW.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gzX.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.mUX.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.kwd.getLayoutParams();
         if (z) {
             int equipmentWidth = l.getEquipmentWidth(getContext());
-            int Hy = com.baidu.tieba.recapp.lego.a.a.Hy(equipmentWidth);
+            int HR = com.baidu.tieba.recapp.lego.a.a.HR(equipmentWidth);
             layoutParams.width = l.getEquipmentWidth(getContext());
             layoutParams.height = equipmentWidth;
-            layoutParams2.width = Hy;
+            layoutParams2.width = HR;
             layoutParams2.height = equipmentWidth;
-            layoutParams3.width = Hy;
+            layoutParams3.width = HR;
             layoutParams3.height = equipmentWidth;
-            layoutParams4.width = Hy;
+            layoutParams4.width = HR;
             layoutParams4.height = equipmentWidth;
-            ao.setBackgroundColor(this, R.color.black_alpha100);
+            ap.setBackgroundColor(this, R.color.black_alpha100);
         } else {
             layoutParams2.width = -1;
             layoutParams2.height = -1;
@@ -1155,39 +1160,39 @@ public class DistributeVideoView extends RelativeLayout implements j {
             layoutParams4.width = -1;
             layoutParams4.height = -1;
         }
-        this.gxn.requestLayout();
+        this.gzX.requestLayout();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dCv() {
-        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mIF);
-        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mPP);
-        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mPQ);
+    public void dEF() {
+        com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mRN);
+        com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mZm);
+        com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mZn);
         this.mHandler.removeMessages(1001);
         this.mHandler.removeMessages(1003);
-        this.gxn.stopPlayback();
-        this.mPF = -1;
-        ah.a(this.mWeakContext, false);
-        xn(false);
-        this.knW.setForegroundDrawable(0);
-        this.knW.setVisibility(0);
+        this.gzX.stopPlayback();
+        this.mZc = -1;
+        ak.a(this.mWeakContext, false);
+        xG(false);
+        this.kwd.setForegroundDrawable(0);
+        this.kwd.setVisibility(0);
         setLoadingAnimShow(true);
-        ao.setImageResource(this.mPD, R.drawable.icon_video_midpause);
-        this.mPE.aQY();
-        this.mPA.setVisibility(8);
-        if (this.mPs != null) {
-            this.mPx.setText(StringUtils.translateSecondsToString(this.mPs.video_duration.intValue()));
-            this.mPx.setVisibility(0);
+        ap.setImageResource(this.mZa, R.drawable.icon_video_midpause);
+        this.mZb.aRo();
+        this.mYX.setVisibility(8);
+        if (this.mYP != null) {
+            this.mYU.setText(StringUtils.translateSecondsToString(this.mYP.video_duration.intValue()));
+            this.mYU.setVisibility(0);
             this.mMaskView.setVisibility(0);
         }
-        this.mPL = false;
-        MessageManager.getInstance().unRegisterListener(this.mPR);
+        this.mZi = false;
+        MessageManager.getInstance().unRegisterListener(this.mZo);
         MessageManager.getInstance().unRegisterListener(this.mHeadSetPlugListener);
-        MessageManager.getInstance().unRegisterListener(this.jcq);
+        MessageManager.getInstance().unRegisterListener(this.jhW);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int HO(int i) {
+    public int Ih(int i) {
         if (i == 1) {
             return 0;
         }
@@ -1203,59 +1208,59 @@ public class DistributeVideoView extends RelativeLayout implements j {
 
     @Override // com.baidu.tieba.recapp.j
     public String getPlayUrl() {
-        return this.mPs != null ? this.mPs.video_url : "";
+        return this.mYP != null ? this.mYP.video_url : "";
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if ((this.mLK instanceof a) && (this.mPJ instanceof AdCard) && !((AdCard) this.mPJ).directDownload) {
-            ((a) this.mLK).bKR();
+        if ((this.mUZ instanceof a) && (this.mZg instanceof AdCard) && !((AdCard) this.mZg).directDownload) {
+            ((a) this.mUZ).bLl();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if ((this.mLK instanceof a) && (this.mPJ instanceof AdCard) && !((AdCard) this.mPJ).directDownload) {
-            ((a) this.mLK).dCk();
+        if ((this.mUZ instanceof a) && (this.mZg instanceof AdCard) && !((AdCard) this.mZg).directDownload) {
+            ((a) this.mUZ).dEs();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xl(boolean z) {
+    public void xE(boolean z) {
         if (z) {
-            if (this.gxn != null) {
-                this.gxn.setVolume(1.0f, 1.0f);
+            if (this.gzX != null) {
+                this.gzX.setVolume(1.0f, 1.0f);
             }
-            ao.setImageResource(this.mPz, R.drawable.ad_icon_sound_open);
-            ao.setImageResource(this.mPy, R.drawable.icon_vedio_pronunciation_small_white);
-            if (this.mPF == 1) {
-                ah.a(this.mWeakContext, true);
+            ap.setImageResource(this.mYW, R.drawable.ad_icon_sound_open);
+            ap.setImageResource(this.mYV, R.drawable.icon_vedio_pronunciation_small_white);
+            if (this.mZc == 1) {
+                ak.a(this.mWeakContext, true);
             }
         } else {
-            if (this.gxn != null) {
-                this.gxn.setVolume(0.0f, 0.0f);
+            if (this.gzX != null) {
+                this.gzX.setVolume(0.0f, 0.0f);
             }
-            ao.setImageResource(this.mPz, R.drawable.ad_icon_sound_close);
-            ao.setImageResource(this.mPy, R.drawable.icon_vedio_npronunciation_small_white);
-            ah.a(this.mWeakContext, false);
+            ap.setImageResource(this.mYW, R.drawable.ad_icon_sound_close);
+            ap.setImageResource(this.mYV, R.drawable.icon_vedio_npronunciation_small_white);
+            ak.a(this.mWeakContext, false);
         }
-        this.mPH = z;
+        this.mZe = z;
     }
 
     @Override // com.baidu.tieba.recapp.j
     public int getPlayStatus() {
-        return this.mPF;
+        return this.mZc;
     }
 
     public VideoInfo getData() {
-        return this.mPs;
+        return this.mYP;
     }
 
     @Override // com.baidu.tieba.recapp.j
     public long getCurrentPosition() {
-        return this.mPG;
+        return this.mZd;
     }
 
     @Override // com.baidu.tieba.recapp.j
@@ -1267,39 +1272,39 @@ public class DistributeVideoView extends RelativeLayout implements j {
     }
 
     public void setStatisticInfo(AdvertAppInfo advertAppInfo, int i, String str) {
-        this.mPu = advertAppInfo;
-        this.mPv = i;
+        this.mYR = advertAppInfo;
+        this.mYS = i;
         this.mPage = str;
         b(advertAppInfo, i, str);
     }
 
     private void b(AdvertAppInfo advertAppInfo, int i, String str) {
         advertAppInfo.page = str;
-        com.baidu.tieba.recapp.report.c a2 = h.a(this.mPu, 303, i, HO(this.mPO), this.mPs.video_duration.intValue(), this.mDuration, -1);
-        if (this.mLK != null) {
-            this.mLK.e(a2);
+        com.baidu.tieba.recapp.report.c a2 = h.a(this.mYR, 303, i, Ih(this.mZl), this.mYP.video_duration.intValue(), this.mDuration, -1);
+        if (this.mUZ != null) {
+            this.mUZ.e(a2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ae(int i, int i2, int i3) {
-        L(i, i2, i3, -1);
+    public void ac(int i, int i2, int i3) {
+        J(i, i2, i3, -1);
     }
 
     private void e(int i, int i2, int i3, boolean z) {
         b(i, i2, i3, -1, z);
     }
 
-    private void L(int i, int i2, int i3, int i4) {
+    private void J(int i, int i2, int i3, int i4) {
         b(i, i2, i3, i4, true);
     }
 
     private void b(int i, int i2, int i3, int i4, boolean z) {
         String str;
         String str2;
-        if (this.mPu != null && this.mPs != null) {
-            this.mPu.page = this.mPage;
-            com.baidu.tieba.recapp.report.e.dCe().a(h.a(this.mPu, i, this.mPv, i2, this.mPs.video_duration.intValue(), com.baidu.tieba.ad.a.a.sX(i3), i4));
+        if (this.mYR != null && this.mYP != null) {
+            this.mYR.page = this.mPage;
+            com.baidu.tieba.recapp.report.e.dEm().a(h.a(this.mYR, i, this.mYS, i2, this.mYP.video_duration.intValue(), com.baidu.tieba.ad.a.a.tc(i3), i4));
             if (z && i != 31 && i != 33 && i != 35 && i != 2) {
                 if (i == 34) {
                     str = "com";
@@ -1322,18 +1327,33 @@ public class DistributeVideoView extends RelativeLayout implements j {
                 } else {
                     str2 = "oth";
                 }
-                c(str, this.mPM, i3, this.mDuration, str2, HP(i2));
+                c(str, this.mZj, i3, this.mDuration, str2, Ij(i2));
             }
         }
     }
 
-    private void c(String str, int i, int i2, int i3, String str2, String str3) {
-        if (this.mPt != null && AdCard.CHARGE_STYLE_CPV.equals(this.mPt.mJA) && !TextUtils.isEmpty(this.mPt.mJB)) {
-            new com.baidu.tieba.recapp.request.a(this.mPt.mJB).a(str, i, i2, i3, str2, str3);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Ii(int i) {
+        if (this.mYR != null && this.mYP != null) {
+            this.mYR.page = this.mPage;
+            com.baidu.tieba.recapp.report.c a2 = h.a(this.mYR, 706, this.mYS, 1, this.mYP.video_duration.intValue(), com.baidu.tieba.ad.a.a.tc(0), -1);
+            boolean z = i == 1000;
+            a2.RR(z ? "APP" : "URL");
+            if (!z) {
+                a2.HZ(i);
+            }
+            a2.RQ("DEEPLINK");
+            com.baidu.tieba.recapp.report.e.dEm().a(a2);
         }
     }
 
-    private String HP(int i) {
+    private void c(String str, int i, int i2, int i3, String str2, String str3) {
+        if (this.mYQ != null && AdCard.CHARGE_STYLE_CPV.equals(this.mYQ.mSI) && !TextUtils.isEmpty(this.mYQ.mSJ)) {
+            new com.baidu.tieba.recapp.request.a(this.mYQ.mSJ).a(str, i, i2, i3, str2, str3);
+        }
+    }
+
+    private String Ij(int i) {
         if (i == 0) {
             return ActVideoSetting.ACT_URL;
         }
@@ -1345,40 +1365,40 @@ public class DistributeVideoView extends RelativeLayout implements j {
 
     public void setHolderView(View view) {
         if (view != null) {
-            this.mPq = view;
-            this.mPr = true;
+            this.mYN = view;
+            this.mYO = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xm(boolean z) {
+    public void xF(boolean z) {
         if (z) {
-            com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mPP);
-            if (this.cdO != null) {
-                this.cdO.cancel();
+            com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mZm);
+            if (this.chW != null) {
+                this.chW.cancel();
             }
-            this.mPC.setVisibility(0);
-            if (this.mPF == 1) {
-                ao.setImageResource(this.mPD, R.drawable.icon_video_midplay);
+            this.mYZ.setVisibility(0);
+            if (this.mZc == 1) {
+                ap.setImageResource(this.mZa, R.drawable.icon_video_midplay);
                 return;
             } else {
-                ao.setImageResource(this.mPD, R.drawable.icon_video_midpause);
+                ap.setImageResource(this.mZa, R.drawable.icon_video_midpause);
                 return;
             }
         }
-        this.mPC.setVisibility(8);
+        this.mYZ.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dCw() {
-        switch (this.mPF) {
+    public void dEG() {
+        switch (this.mZc) {
             case -1:
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable() && this.mPageContext != null) {
                     this.mPageContext.showToast(R.string.neterror);
                     return;
                 } else if (!com.baidu.adp.lib.util.j.isWifiNet() && this.mPageContext != null) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-                    aVar.nu(R.string.play_video_mobile_tip);
+                    aVar.nx(R.string.play_video_mobile_tip);
                     aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.11
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1392,7 +1412,7 @@ public class DistributeVideoView extends RelativeLayout implements j {
                             aVar2.dismiss();
                         }
                     });
-                    aVar.b(this.mPageContext).bqe();
+                    aVar.b(this.mPageContext).bqx();
                     return;
                 } else {
                     performPlay();
@@ -1402,19 +1422,19 @@ public class DistributeVideoView extends RelativeLayout implements j {
                 stopPlay();
                 return;
             case 1:
-                this.mPK = true;
+                this.mZh = true;
                 pausePlay(0);
                 if (this.mStyle == 2) {
-                    xm(true);
+                    xF(true);
                     return;
                 }
                 return;
             case 2:
-                this.mPK = false;
+                this.mZh = false;
                 continuePlay(2);
                 if (this.mStyle == 2) {
-                    com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mPP);
-                    com.baidu.adp.lib.f.e.mB().postDelayed(this.mPP, TimeUnit.SECONDS.toMillis(3L));
+                    com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mZm);
+                    com.baidu.adp.lib.f.e.mA().postDelayed(this.mZm, TimeUnit.SECONDS.toMillis(3L));
                     return;
                 }
                 return;
@@ -1424,25 +1444,25 @@ public class DistributeVideoView extends RelativeLayout implements j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dCx() {
-        if (!this.enQ && this.cdO != null) {
-            this.mPC.startAnimation(this.cdO);
-            this.enQ = true;
+    public void dEH() {
+        if (!this.epX && this.chW != null) {
+            this.mYZ.startAnimation(this.chW);
+            this.epX = true;
         }
     }
 
     private void initAnimation() {
         if (this.mPageContext != null) {
-            this.cdO = AnimationUtils.loadAnimation(this.mPageContext.getPageActivity(), R.anim.anim_alpha_1_to_0_duration_1000);
-            this.cdO.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.13
+            this.chW = AnimationUtils.loadAnimation(this.mPageContext.getPageActivity(), R.anim.anim_alpha_1_to_0_duration_1000);
+            this.chW.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.recapp.view.DistributeVideoView.13
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    DistributeVideoView.this.mPC.setVisibility(8);
-                    DistributeVideoView.this.enQ = false;
+                    DistributeVideoView.this.mYZ.setVisibility(8);
+                    DistributeVideoView.this.epX = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -1452,20 +1472,20 @@ public class DistributeVideoView extends RelativeLayout implements j {
         }
     }
 
-    private void dCy() {
-        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.mPQ);
-        com.baidu.adp.lib.f.e.mB().postDelayed(this.mPQ, 5000L);
+    private void dEI() {
+        com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mZn);
+        com.baidu.adp.lib.f.e.mA().postDelayed(this.mZn, 5000L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xn(boolean z) {
-        if (this.mPy != null && this.mStyle == 1) {
+    public void xG(boolean z) {
+        if (this.mYV != null && this.mStyle == 1) {
             if (z) {
-                this.mPy.setVisibility(0);
-                dCy();
+                this.mYV.setVisibility(0);
+                dEI();
                 return;
             }
-            this.mPy.setVisibility(8);
+            this.mYV.setVisibility(8);
         }
     }
 

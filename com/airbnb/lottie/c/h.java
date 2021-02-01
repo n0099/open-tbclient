@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h implements aj<com.airbnb.lottie.model.b> {
     public static final h Hq = new h();
 

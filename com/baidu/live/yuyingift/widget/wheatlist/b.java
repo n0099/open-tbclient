@@ -4,25 +4,25 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class b {
-    protected View bWS;
+    protected View caU;
     protected View contentView = getContentView();
     protected Context mContext;
 
-    protected abstract int Xu();
+    protected abstract int Zk();
 
-    abstract void Xv();
+    abstract void Zl();
 
-    abstract void Xw();
+    abstract void Zm();
 
     protected abstract View getContentView();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context) {
         this.mContext = context;
-        this.bWS = LayoutInflater.from(context).inflate(Xu(), (ViewGroup) null, false);
-        Xv();
-        Xw();
+        this.caU = LayoutInflater.from(context).inflate(Zk(), (ViewGroup) null, false);
+        Zl();
+        Zm();
     }
 }

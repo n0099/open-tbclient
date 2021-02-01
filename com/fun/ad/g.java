@@ -17,14 +17,14 @@ import com.win.opensdk.PBInitialize;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Boolean> f7779a = new HashMap();
+    public static Map<String, Boolean> f7781a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f7780b;
+    public static String f7782b;
     public static String c;
     public static String d;
     public static String e;
@@ -226,7 +226,7 @@ public final class g {
             case 24:
             case 25:
             case 26:
-                return f7780b;
+                return f7782b;
             default:
                 return null;
         }
@@ -253,16 +253,17 @@ public final class g {
         } catch (ClassNotFoundException e5) {
             Log.e("FunAdSdk", "SDK依赖性错误：请在build.gradle里正确集成open_ad_sdk.aar");
         }
+        Log.e("FunAdSdk", "=================SDK_VERSION = 2.4.3");
     }
 
     public static void a(FunAdConfig funAdConfig, List<ar> list) {
         Boolean bool;
         for (ar arVar : list) {
-            m.a("AdSdkInitializer init platform type: " + arVar.f7756b + ", id: " + arVar.f7755a);
-            String str = arVar.f7755a;
-            if (!TextUtils.isEmpty(str) && ((bool = f7779a.get(str)) == null || !bool.booleanValue())) {
-                f7779a.put(str, true);
-                String str2 = arVar.f7756b;
+            m.a("AdSdkInitializer init platform type: " + arVar.f7758b + ", id: " + arVar.f7757a);
+            String str = arVar.f7757a;
+            if (!TextUtils.isEmpty(str) && ((bool = f7781a.get(str)) == null || !bool.booleanValue())) {
+                f7781a.put(str, true);
+                String str2 = arVar.f7758b;
                 char c2 = 65535;
                 int hashCode = str2.hashCode();
                 if (hashCode != 3407) {
@@ -299,7 +300,7 @@ public final class g {
                         continue;
                     case 3:
                         Context appContext4 = funAdConfig.getAppContext();
-                        f7780b = str;
+                        f7782b = str;
                         PBInitialize.init(appContext4, str);
                         continue;
                 }

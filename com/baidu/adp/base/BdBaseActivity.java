@@ -39,7 +39,7 @@ public abstract class BdBaseActivity<T> extends Activity implements DialogInterf
         a.j(this);
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        b.kC().pushActivity(getPageContext().getPageActivity());
+        b.kB().pushActivity(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -155,8 +155,8 @@ public abstract class BdBaseActivity<T> extends Activity implements DialogInterf
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.e.d.mx().d(this.mId);
-        b.kC().popActivity(getPageContext().getPageActivity());
+        com.baidu.adp.lib.e.d.mw().d(this.mId);
+        b.kB().popActivity(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -164,7 +164,7 @@ public abstract class BdBaseActivity<T> extends Activity implements DialogInterf
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.e.d.mx().e(this.mId);
+        com.baidu.adp.lib.e.d.mw().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -235,7 +235,7 @@ public abstract class BdBaseActivity<T> extends Activity implements DialogInterf
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = h.kE().getResources();
+        Resources resources = h.kD().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

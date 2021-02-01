@@ -6,7 +6,7 @@ import android.util.JsonToken;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static com.ksad.lottie.model.a.e a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
         ArrayList arrayList = new ArrayList();

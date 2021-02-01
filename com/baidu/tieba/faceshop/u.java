@@ -10,24 +10,24 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class u {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     interface a {
-        void cym();
+        void czx();
 
-        void df(List<String> list);
+        void da(List<String> list);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void b(ImageUploadResult imageUploadResult);
     }
 
     public void a(ArrayList<ImageFileInfo> arrayList, final a aVar) {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(arrayList)) {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(arrayList)) {
             final AtomicInteger atomicInteger = new AtomicInteger();
             atomicInteger.set(arrayList.size());
             final ArrayList arrayList2 = new ArrayList();
@@ -41,10 +41,10 @@ public class u {
                             arrayList2.add(imageUploadResult.picInfo.bigPic.picUrl);
                         }
                         if (atomicInteger.get() == 0) {
-                            if (!com.baidu.tbadk.core.util.x.isEmpty(arrayList2)) {
-                                aVar.df(arrayList2);
+                            if (!com.baidu.tbadk.core.util.y.isEmpty(arrayList2)) {
+                                aVar.da(arrayList2);
                             } else {
-                                aVar.cym();
+                                aVar.czx();
                             }
                         }
                     }
@@ -54,7 +54,7 @@ public class u {
     }
 
     private void a(final ImageFileInfo imageFileInfo, final b bVar) {
-        com.baidu.tieba.newfaceshop.a.dgi().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.u.2
+        com.baidu.tieba.newfaceshop.a.dij().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.u.2
             @Override // java.lang.Runnable
             public void run() {
                 String filePath = imageFileInfo.getFilePath();
@@ -68,14 +68,14 @@ public class u {
                     bVar.b(null);
                     return;
                 }
-                String saveFile = com.baidu.tbadk.core.util.n.saveFile(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), c, 60);
+                String saveFile = com.baidu.tbadk.core.util.o.saveFile(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), c, 60);
                 c.recycle();
                 if (TextUtils.isEmpty(saveFile)) {
                     bVar.b(null);
                     return;
                 }
                 ImageUploadResult f = fVar.f(saveFile, false, false);
-                com.baidu.tbadk.core.util.n.deleteFile(new File(saveFile));
+                com.baidu.tbadk.core.util.o.deleteFile(new File(saveFile));
                 bVar.b(f);
             }
         });

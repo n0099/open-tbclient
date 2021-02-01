@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.b.a.a;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a {
     void j(Context context, File file);
 

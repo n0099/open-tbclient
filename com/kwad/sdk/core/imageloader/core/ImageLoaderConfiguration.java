@@ -17,7 +17,7 @@ import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ImageLoaderConfiguration {
     final boolean customExecutor;
     final boolean customExecutorForCachedImages;
@@ -40,7 +40,7 @@ public final class ImageLoaderConfiguration {
     final int threadPoolSize;
     final int threadPriority;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static final QueueProcessingType DEFAULT_TASK_PROCESSING_TYPE = QueueProcessingType.FIFO;
         public static final int DEFAULT_THREAD_POOL_SIZE = 3;
@@ -298,7 +298,7 @@ public final class ImageLoaderConfiguration {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class NetworkDeniedImageDownloader implements ImageDownloader {
         private final ImageDownloader wrappedDownloader;
 
@@ -318,7 +318,7 @@ public final class ImageLoaderConfiguration {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class SlowNetworkImageDownloader implements ImageDownloader {
         private final ImageDownloader wrappedDownloader;
 

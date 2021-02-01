@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aperf.bosuploader;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BOSResponseEntity {
     private int mErrorCode;
     private String mResponseMessage;

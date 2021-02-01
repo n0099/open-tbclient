@@ -6,14 +6,14 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a extends d {
-    private static a cho;
-    public static JSONObject cht;
-    private c chp;
-    private String chq;
-    private File chr;
-    private boolean chs;
+    private static a clD;
+    public static JSONObject clI;
+    private c clE;
+    private String clF;
+    private File clG;
+    private boolean clH;
     private WeakReference<Context> mContext;
 
     private a() {
@@ -24,23 +24,23 @@ public class a extends d {
     }
 
     public void a(String str, File file, boolean z) {
-        this.chq = str;
-        this.chr = file;
-        this.chs = z;
+        this.clF = str;
+        this.clG = file;
+        this.clH = z;
     }
 
-    public static a bE(Context context) {
-        if (cho == null) {
+    public static a bH(Context context) {
+        if (clD == null) {
             init(context);
         }
-        cho.setContext(context);
-        return cho;
+        clD.setContext(context);
+        return clD;
     }
 
     private static synchronized void init(Context context) {
         synchronized (a.class) {
-            if (cho == null) {
-                cho = new a();
+            if (clD == null) {
+                clD = new a();
             }
         }
     }
@@ -54,99 +54,99 @@ public class a extends d {
 
     @Override // com.baidu.minivideo.arface.utils.d
     protected void run() {
-        boolean aaM = aaM();
-        cht = new JSONObject();
-        if (aaM) {
+        boolean acA = acA();
+        clI = new JSONObject();
+        if (acA) {
             try {
-                cht.put("type", com.baidu.minivideo.arface.c.cfz ? "assets" : "soloader");
-                cht.put("exist", aaM);
-                cht.put("path", this.chr);
+                clI.put("type", com.baidu.minivideo.arface.c.cjJ ? "assets" : "soloader");
+                clI.put("exist", acA);
+                clI.put("path", this.clG);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             if (isDebug()) {
-                i.d("ARSourceCopyManager", "sdk exist + " + cht.toString());
+                i.d("ARSourceCopyManager", "sdk exist + " + clI.toString());
             }
             setState(2);
         } else if (getContext() != null) {
             try {
                 if (isDebug()) {
-                    i.d("ARSourceCopyManager", "sdk loading .. to " + this.chr.getAbsoluteFile());
+                    i.d("ARSourceCopyManager", "sdk loading .. to " + this.clG.getAbsoluteFile());
                 }
-                aaN();
+                acB();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    public boolean aaM() {
-        return this.chr != null && this.chr.isDirectory() && this.chr.exists();
+    public boolean acA() {
+        return this.clG != null && this.clG.isDirectory() && this.clG.exists();
     }
 
-    private void aaN() {
-        this.chp = new c(getContext());
+    private void acB() {
+        this.clE = new c(getContext());
         new AsyncTask<Void, Void, Boolean>() { // from class: com.baidu.minivideo.arface.utils.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             public Boolean doInBackground(Void... voidArr) {
                 boolean renameTo;
-                if (a.cht == null) {
-                    a.cht = new JSONObject();
+                if (a.clI == null) {
+                    a.clI = new JSONObject();
                 }
-                if (a.this.chr != null) {
-                    if (a.this.chs || !a.this.aaM()) {
-                        if (!a.this.chr.isDirectory()) {
+                if (a.this.clG != null) {
+                    if (a.this.clH || !a.this.acA()) {
+                        if (!a.this.clG.isDirectory()) {
                             try {
-                                a.cht.put("file-del", true);
+                                a.clI.put("file-del", true);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            a.this.chr.delete();
+                            a.this.clG.delete();
                         }
-                        File file = new File(a.this.chr.getAbsoluteFile() + ".loading");
-                        boolean assetToSD = a.this.chp.assetToSD(a.this.chq, file);
+                        File file = new File(a.this.clG.getAbsoluteFile() + ".loading");
+                        boolean assetToSD = a.this.clE.assetToSD(a.this.clF, file);
                         if (assetToSD) {
                             try {
-                                a.cht.put("assetsToSD", true);
+                                a.clI.put("assetsToSD", true);
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
-                            renameTo = file.renameTo(a.this.chr);
+                            renameTo = file.renameTo(a.this.clG);
                         } else {
                             renameTo = assetToSD;
                         }
                         if (!renameTo) {
                             try {
-                                a.cht.put("renameTo-del", true);
+                                a.clI.put("renameTo-del", true);
                             } catch (JSONException e3) {
                                 e3.printStackTrace();
                             }
                             f.deleteDir(file);
-                            if (a.this.chr.exists()) {
-                                f.deleteDir(a.this.chr);
+                            if (a.this.clG.exists()) {
+                                f.deleteDir(a.this.clG);
                             }
                         }
                         try {
-                            a.cht.put("result", renameTo);
+                            a.clI.put("result", renameTo);
                         } catch (JSONException e4) {
                             e4.printStackTrace();
                         }
                         if (a.this.isDebug()) {
-                            i.d("ARSourceCopyManager", "sdk exist + " + a.cht.toString());
+                            i.d("ARSourceCopyManager", "sdk exist + " + a.clI.toString());
                         }
                         return Boolean.valueOf(renameTo);
                     }
                     try {
-                        a.cht.put("exist", true);
+                        a.clI.put("exist", true);
                     } catch (JSONException e5) {
                         e5.printStackTrace();
                     }
                     return true;
                 }
                 try {
-                    a.cht.put("sdcardPath", "null");
+                    a.clI.put("sdcardPath", "null");
                 } catch (JSONException e6) {
                     e6.printStackTrace();
                 }

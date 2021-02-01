@@ -4,15 +4,15 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ad extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ac f3046a;
+    final /* synthetic */ ac f3044a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ac acVar) {
-        this.f3046a = acVar;
+        this.f3044a = acVar;
     }
 
     @Override // android.os.Handler
@@ -58,37 +58,37 @@ public class ad extends Handler {
         e eVar35;
         e eVar36;
         super.handleMessage(message);
-        eVar = this.f3046a.i;
+        eVar = this.f3044a.i;
         if (eVar != null) {
-            eVar2 = this.f3046a.i;
+            eVar2 = this.f3044a.i;
             if (eVar2.i == null) {
                 return;
             }
             long longValue = ((Long) message.obj).longValue();
-            eVar3 = this.f3046a.i;
+            eVar3 = this.f3044a.i;
             if (longValue == eVar3.j) {
                 if (message.what == 4000) {
-                    eVar33 = this.f3046a.i;
+                    eVar33 = this.f3044a.i;
                     if (eVar33.h != null) {
-                        eVar34 = this.f3046a.i;
+                        eVar34 = this.f3044a.i;
                         for (l lVar : eVar34.h) {
                             Bitmap bitmap = null;
                             if (message.arg2 == 1) {
-                                int[] iArr = new int[ac.f3044a * ac.f3045b];
-                                int[] iArr2 = new int[ac.f3044a * ac.f3045b];
-                                eVar35 = this.f3046a.i;
+                                int[] iArr = new int[ac.f3042a * ac.f3043b];
+                                int[] iArr2 = new int[ac.f3042a * ac.f3043b];
+                                eVar35 = this.f3044a.i;
                                 if (eVar35.i == null) {
                                     return;
                                 }
-                                eVar36 = this.f3046a.i;
-                                int[] a2 = eVar36.i.a(iArr, ac.f3044a, ac.f3045b);
-                                for (int i = 0; i < ac.f3045b; i++) {
-                                    for (int i2 = 0; i2 < ac.f3044a; i2++) {
-                                        int i3 = a2[(ac.f3044a * i) + i2];
-                                        iArr2[(((ac.f3045b - i) - 1) * ac.f3044a) + i2] = (i3 & (-16711936)) | ((i3 << 16) & 16711680) | ((i3 >> 16) & 255);
+                                eVar36 = this.f3044a.i;
+                                int[] a2 = eVar36.i.a(iArr, ac.f3042a, ac.f3043b);
+                                for (int i = 0; i < ac.f3043b; i++) {
+                                    for (int i2 = 0; i2 < ac.f3042a; i2++) {
+                                        int i3 = a2[(ac.f3042a * i) + i2];
+                                        iArr2[(((ac.f3043b - i) - 1) * ac.f3042a) + i2] = (i3 & (-16711936)) | ((i3 << 16) & 16711680) | ((i3 >> 16) & 255);
                                     }
                                 }
-                                bitmap = Bitmap.createBitmap(iArr2, ac.f3044a, ac.f3045b, Bitmap.Config.ARGB_8888);
+                                bitmap = Bitmap.createBitmap(iArr2, ac.f3042a, ac.f3043b, Bitmap.Config.ARGB_8888);
                             }
                             if (lVar != null) {
                                 lVar.a(bitmap);
@@ -96,49 +96,49 @@ public class ad extends Handler {
                         }
                     }
                 } else if (message.what == 39) {
-                    eVar17 = this.f3046a.i;
+                    eVar17 = this.f3044a.i;
                     if (eVar17 != null) {
                         if (message.arg1 == 100) {
-                            eVar32 = this.f3046a.i;
+                            eVar32 = this.f3044a.i;
                             eVar32.B();
                         } else if (message.arg1 == 200) {
-                            eVar20 = this.f3046a.i;
+                            eVar20 = this.f3044a.i;
                             eVar20.K();
                         } else if (message.arg1 == 1) {
-                            mVar3 = this.f3046a.h;
+                            mVar3 = this.f3044a.h;
                             if (mVar3 != null) {
-                                mVar4 = this.f3046a.h;
+                                mVar4 = this.f3044a.h;
                                 mVar4.a();
                             }
                         } else if (message.arg1 == 0) {
-                            mVar = this.f3046a.h;
+                            mVar = this.f3044a.h;
                             if (mVar != null) {
-                                mVar2 = this.f3046a.h;
+                                mVar2 = this.f3044a.h;
                                 mVar2.a();
                             }
                         } else if (message.arg1 == 2) {
-                            eVar18 = this.f3046a.i;
+                            eVar18 = this.f3044a.i;
                             if (eVar18.h == null) {
                                 return;
                             }
-                            eVar19 = this.f3046a.i;
+                            eVar19 = this.f3044a.i;
                             for (l lVar2 : eVar19.h) {
                                 if (lVar2 != null) {
                                     lVar2.c();
                                 }
                             }
                         }
-                        eVar21 = this.f3046a.i;
-                        if (!eVar21.k && ac.f3045b > 0 && ac.f3044a > 0) {
-                            eVar28 = this.f3046a.i;
+                        eVar21 = this.f3044a.i;
+                        if (!eVar21.k && ac.f3043b > 0 && ac.f3042a > 0) {
+                            eVar28 = this.f3044a.i;
                             if (eVar28.b(0, 0) != null) {
-                                eVar29 = this.f3046a.i;
+                                eVar29 = this.f3044a.i;
                                 eVar29.k = true;
-                                eVar30 = this.f3046a.i;
+                                eVar30 = this.f3044a.i;
                                 if (eVar30.h == null) {
                                     return;
                                 }
-                                eVar31 = this.f3046a.i;
+                                eVar31 = this.f3044a.i;
                                 for (l lVar3 : eVar31.h) {
                                     if (lVar3 != null) {
                                         lVar3.b();
@@ -146,23 +146,23 @@ public class ad extends Handler {
                                 }
                             }
                         }
-                        eVar22 = this.f3046a.i;
+                        eVar22 = this.f3044a.i;
                         if (eVar22.h != null) {
-                            eVar23 = this.f3046a.i;
+                            eVar23 = this.f3044a.i;
                             for (l lVar4 : eVar23.h) {
                                 if (lVar4 != null) {
                                     lVar4.a();
                                 }
                             }
-                            eVar24 = this.f3046a.i;
+                            eVar24 = this.f3044a.i;
                             if (eVar24.q()) {
-                                eVar25 = this.f3046a.i;
+                                eVar25 = this.f3044a.i;
                                 if (eVar25.h != null) {
-                                    eVar26 = this.f3046a.i;
+                                    eVar26 = this.f3044a.i;
                                     for (l lVar5 : eVar26.h) {
                                         if (lVar5 != null) {
-                                            eVar27 = this.f3046a.i;
-                                            if (eVar27.E().f3040a >= 18.0f) {
+                                            eVar27 = this.f3044a.i;
+                                            if (eVar27.E().f3038a >= 18.0f) {
                                                 lVar5.a(true);
                                             } else {
                                                 lVar5.a(false);
@@ -174,26 +174,26 @@ public class ad extends Handler {
                         }
                     }
                 } else if (message.what == 41) {
-                    eVar9 = this.f3046a.i;
+                    eVar9 = this.f3044a.i;
                     if (eVar9 != null) {
-                        eVar10 = this.f3046a.i;
+                        eVar10 = this.f3044a.i;
                         if (!eVar10.n) {
-                            eVar16 = this.f3046a.i;
+                            eVar16 = this.f3044a.i;
                             if (!eVar16.o) {
                                 return;
                             }
                         }
-                        eVar11 = this.f3046a.i;
+                        eVar11 = this.f3044a.i;
                         if (eVar11.h != null) {
-                            eVar12 = this.f3046a.i;
+                            eVar12 = this.f3044a.i;
                             for (l lVar6 : eVar12.h) {
                                 if (lVar6 != null) {
-                                    eVar13 = this.f3046a.i;
+                                    eVar13 = this.f3044a.i;
                                     lVar6.b(eVar13.E());
-                                    eVar14 = this.f3046a.i;
+                                    eVar14 = this.f3044a.i;
                                     if (eVar14.q()) {
-                                        eVar15 = this.f3046a.i;
-                                        if (eVar15.E().f3040a >= 18.0f) {
+                                        eVar15 = this.f3044a.i;
+                                        if (eVar15.E().f3038a >= 18.0f) {
                                             lVar6.a(true);
                                         } else {
                                             lVar6.a(false);
@@ -204,9 +204,9 @@ public class ad extends Handler {
                         }
                     }
                 } else if (message.what == 999) {
-                    eVar7 = this.f3046a.i;
+                    eVar7 = this.f3044a.i;
                     if (eVar7.h != null) {
-                        eVar8 = this.f3046a.i;
+                        eVar8 = this.f3044a.i;
                         for (l lVar7 : eVar8.h) {
                             if (lVar7 != null) {
                                 lVar7.e();
@@ -214,16 +214,16 @@ public class ad extends Handler {
                         }
                     }
                 } else if (message.what == 50) {
-                    eVar4 = this.f3046a.i;
+                    eVar4 = this.f3044a.i;
                     if (eVar4.h != null) {
-                        eVar5 = this.f3046a.i;
+                        eVar5 = this.f3044a.i;
                         for (l lVar8 : eVar5.h) {
                             if (lVar8 != null) {
                                 if (message.arg1 == 0) {
                                     lVar8.a(false);
                                 } else if (message.arg1 == 1) {
-                                    eVar6 = this.f3046a.i;
-                                    if (eVar6.E().f3040a >= 18.0f) {
+                                    eVar6 = this.f3044a.i;
+                                    if (eVar6.E().f3038a >= 18.0f) {
                                         lVar8.a(true);
                                     } else {
                                         lVar8.a(false);

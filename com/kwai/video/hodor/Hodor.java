@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.kwai.video.cache.AwesomeCacheInitConfig;
 import com.kwai.video.hodor.debuginfo.model.HodorDebugInfo;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Hodor extends HodorDeprecatedApi {
     private static final int GET_DEBUG_INFO_INTERVAL_MIN_MS = 500;
     public static final int TaskType_Media = 0;
@@ -12,7 +12,7 @@ public class Hodor extends HodorDeprecatedApi {
     private HodorDebugInfo mHodorDebugInfo = new HodorDebugInfo();
     private long mLastGetDebugInfoTsMs = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class INSTANCE_HOLDER {
         static Hodor INSTANCE = new Hodor();
 

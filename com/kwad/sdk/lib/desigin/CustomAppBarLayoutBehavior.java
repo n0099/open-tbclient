@@ -8,7 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Interpolator;
 import androidx.annotation.Keep;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
 import com.kwad.sdk.R;
@@ -17,7 +16,7 @@ import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implements CustomAppBarCustomAttrListener, CustomAppBarFlingConsumer {
     private static final String TAG = CustomAppBarLayoutBehavior.class.toString();
     private CustomAppBarFlingConsumer mCustomAppBarFlingConsumer;
@@ -233,7 +232,7 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.lib.desigin.KSHeaderBehavior
     public int setHeaderTopBottomOffset(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i) {
-        return setHeaderTopBottomOffset(kSCoordinatorLayout, kSAppBarLayout, i, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return setHeaderTopBottomOffset(kSCoordinatorLayout, kSAppBarLayout, i, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

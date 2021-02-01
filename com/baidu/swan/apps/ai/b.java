@@ -3,31 +3,31 @@ package com.baidu.swan.apps.ai;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.swan.apps.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
-    private FrameLayout dIv = null;
+    private FrameLayout dKz = null;
 
-    public void J(ViewGroup viewGroup) {
+    public void H(ViewGroup viewGroup) {
         if (viewGroup != null) {
-            if (this.dIv == null) {
-                this.dIv = new FrameLayout(viewGroup.getContext());
-                this.dIv.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            if (this.dKz == null) {
+                this.dKz = new FrameLayout(viewGroup.getContext());
+                this.dKz.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.dIv);
-            viewGroup.addView(this.dIv, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.dKz);
+            viewGroup.addView(this.dKz, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void K(ViewGroup viewGroup) {
-        if (viewGroup != null && this.dIv != null) {
-            viewGroup.removeView(this.dIv);
-            this.dIv = null;
+    public void I(ViewGroup viewGroup) {
+        if (viewGroup != null && this.dKz != null) {
+            viewGroup.removeView(this.dKz);
+            this.dKz = null;
         }
     }
 
     public void setVisibility(int i) {
-        if (this.dIv != null) {
-            this.dIv.setVisibility(i);
+        if (this.dKz != null) {
+            this.dKz.setVisibility(i);
         }
     }
 }

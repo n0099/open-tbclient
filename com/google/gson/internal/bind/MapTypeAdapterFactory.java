@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     final boolean complexMapKeySerialization;
     private final com.google.gson.internal.b constructorConstructor;
@@ -28,7 +28,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
         Type type = aVar.getType();
-        if (!Map.class.isAssignableFrom(aVar.ezu())) {
+        if (!Map.class.isAssignableFrom(aVar.eBM())) {
             return null;
         }
         Type[] d = C$Gson$Types.d(type, C$Gson$Types.m(type));
@@ -36,54 +36,54 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     private TypeAdapter<?> a(Gson gson, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.pJE : gson.getAdapter(com.google.gson.b.a.r(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.pTJ : gson.getAdapter(com.google.gson.b.a.r(type));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     private final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
-        private final e<? extends Map<K, V>> pIP;
-        private final TypeAdapter<K> pJa;
-        private final TypeAdapter<V> pJb;
+        private final e<? extends Map<K, V>> pSU;
+        private final TypeAdapter<K> pTf;
+        private final TypeAdapter<V> pTg;
 
         public Adapter(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, e<? extends Map<K, V>> eVar) {
-            this.pJa = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.pJb = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
-            this.pIP = eVar;
+            this.pTf = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.pTg = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
+            this.pSU = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: c */
         public Map<K, V> read(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken eyX = aVar.eyX();
-            if (eyX == JsonToken.NULL) {
-                aVar.ezd();
+            JsonToken eBp = aVar.eBp();
+            if (eBp == JsonToken.NULL) {
+                aVar.eBv();
                 return null;
             }
-            Map<K, V> eyE = this.pIP.eyE();
-            if (eyX == JsonToken.BEGIN_ARRAY) {
-                aVar.eyV();
+            Map<K, V> eAW = this.pSU.eAW();
+            if (eBp == JsonToken.BEGIN_ARRAY) {
+                aVar.eBn();
                 while (aVar.hasNext()) {
-                    aVar.eyV();
-                    K read = this.pJa.read(aVar);
-                    if (eyE.put(read, this.pJb.read(aVar)) != null) {
+                    aVar.eBn();
+                    K read = this.pTf.read(aVar);
+                    if (eAW.put(read, this.pTg.read(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read);
                     }
                     aVar.endArray();
                 }
                 aVar.endArray();
-                return eyE;
+                return eAW;
             }
-            aVar.eyW();
+            aVar.eBo();
             while (aVar.hasNext()) {
-                d.pIi.a(aVar);
-                K read2 = this.pJa.read(aVar);
-                if (eyE.put(read2, this.pJb.read(aVar)) != null) {
+                d.pSn.a(aVar);
+                K read2 = this.pTf.read(aVar);
+                if (eAW.put(read2, this.pTg.read(aVar)) != null) {
                     throw new JsonSyntaxException("duplicate key: " + read2);
                 }
             }
             aVar.endObject();
-            return eyE;
+            return eAW;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,45 +95,45 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
         public void write(com.google.gson.stream.b bVar, Map<K, V> map) throws IOException {
             int i = 0;
             if (map == null) {
-                bVar.ezq();
+                bVar.eBI();
             } else if (!MapTypeAdapterFactory.this.complexMapKeySerialization) {
-                bVar.ezo();
+                bVar.eBG();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    bVar.YJ(String.valueOf(entry.getKey()));
-                    this.pJb.write(bVar, entry.getValue());
+                    bVar.ZK(String.valueOf(entry.getKey()));
+                    this.pTg.write(bVar, entry.getValue());
                 }
-                bVar.ezp();
+                bVar.eBH();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    JsonElement jsonTree = this.pJa.toJsonTree(entry2.getKey());
+                    JsonElement jsonTree = this.pTf.toJsonTree(entry2.getKey());
                     arrayList.add(jsonTree);
                     arrayList2.add(entry2.getValue());
                     z = (jsonTree.isJsonArray() || jsonTree.isJsonObject()) | z;
                 }
                 if (z) {
-                    bVar.ezm();
+                    bVar.eBE();
                     int size = arrayList.size();
                     while (i < size) {
-                        bVar.ezm();
+                        bVar.eBE();
                         h.a((JsonElement) arrayList.get(i), bVar);
-                        this.pJb.write(bVar, arrayList2.get(i));
-                        bVar.ezn();
+                        this.pTg.write(bVar, arrayList2.get(i));
+                        bVar.eBF();
                         i++;
                     }
-                    bVar.ezn();
+                    bVar.eBF();
                     return;
                 }
-                bVar.ezo();
+                bVar.eBG();
                 int size2 = arrayList.size();
                 while (i < size2) {
-                    bVar.YJ(b((JsonElement) arrayList.get(i)));
-                    this.pJb.write(bVar, arrayList2.get(i));
+                    bVar.ZK(b((JsonElement) arrayList.get(i)));
+                    this.pTg.write(bVar, arrayList2.get(i));
                     i++;
                 }
-                bVar.ezp();
+                bVar.eBH();
             }
         }
 

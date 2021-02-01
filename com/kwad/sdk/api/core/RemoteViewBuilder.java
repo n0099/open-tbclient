@@ -10,10 +10,10 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.R;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RemoteViewBuilder {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class CompletedRemoteViewImpl implements ICompletedRemoteView {
         private final Context mContext;
         private final Context mOriginContext;
@@ -65,7 +65,7 @@ public class RemoteViewBuilder {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class ProgressRemoteViewImpl implements IProgressRemoteView {
         private final Context mContext;
         private final Context mOriginContext;

@@ -11,7 +11,7 @@ import com.ss.android.socialbase.downloader.d.r;
 import com.ss.android.socialbase.downloader.downloader.s;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f {
     private boolean A;
     private int C;
@@ -28,10 +28,10 @@ public class f {
     private long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f13040a;
+    private Activity f13042a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f13041b;
+    private Context f13043b;
     private String c;
     private List<String> d;
     private String e;
@@ -39,21 +39,21 @@ public class f {
     private String g;
     private List<com.ss.android.socialbase.downloader.g.e> h;
     private String o;
-    private com.ss.android.socialbase.downloader.d.b pTE;
-    private com.ss.android.socialbase.downloader.d.b pTF;
-    private com.ss.android.socialbase.downloader.downloader.h pTG;
-    private com.ss.android.socialbase.downloader.downloader.i pTH;
-    private s pTI;
-    private com.ss.android.socialbase.downloader.notification.a pTJ;
-    private com.ss.android.socialbase.downloader.d.c pTL;
-    private ad pTM;
-    private com.ss.android.socialbase.appdownloader.c.e pTN;
-    private ah pTO;
-    private af pTP;
-    private r pTQ;
-    private JSONObject pTR;
-    private ab pTS;
     private boolean q;
+    private com.ss.android.socialbase.downloader.d.b qdI;
+    private com.ss.android.socialbase.downloader.d.b qdJ;
+    private com.ss.android.socialbase.downloader.downloader.h qdK;
+    private com.ss.android.socialbase.downloader.downloader.i qdL;
+    private s qdM;
+    private com.ss.android.socialbase.downloader.notification.a qdN;
+    private com.ss.android.socialbase.downloader.d.c qdP;
+    private ad qdQ;
+    private com.ss.android.socialbase.appdownloader.c.e qdR;
+    private ah qdS;
+    private af qdT;
+    private r qdU;
+    private JSONObject qdV;
+    private ab qdW;
     private boolean v;
     private boolean w;
     private String x;
@@ -66,21 +66,21 @@ public class f {
     private String p = "application/vnd.android.package-archive";
     private int B = 5;
     private boolean F = true;
-    private com.ss.android.socialbase.downloader.b.g pTK = com.ss.android.socialbase.downloader.b.g.ENQUEUE_NONE;
+    private com.ss.android.socialbase.downloader.b.g qdO = com.ss.android.socialbase.downloader.b.g.ENQUEUE_NONE;
     private int K = 150;
     private boolean M = true;
 
     public f(@NonNull Context context, @NonNull String str) {
-        this.f13041b = context.getApplicationContext();
+        this.f13043b = context.getApplicationContext();
         this.c = str;
     }
 
-    public Activity eBk() {
-        return this.f13040a;
+    public Activity eDB() {
+        return this.f13042a;
     }
 
     public Context b() {
-        return this.f13041b;
+        return this.f13043b;
     }
 
     public String c() {
@@ -115,12 +115,12 @@ public class f {
         return this.l;
     }
 
-    public com.ss.android.socialbase.downloader.d.b eDf() {
-        return this.pTE;
+    public com.ss.android.socialbase.downloader.d.b eFw() {
+        return this.qdI;
     }
 
-    public com.ss.android.socialbase.downloader.d.b eDg() {
-        return this.pTF;
+    public com.ss.android.socialbase.downloader.d.b eFx() {
+        return this.qdJ;
     }
 
     public String m() {
@@ -135,16 +135,16 @@ public class f {
         return this.q;
     }
 
-    public com.ss.android.socialbase.downloader.notification.a eDh() {
-        return this.pTJ;
+    public com.ss.android.socialbase.downloader.notification.a eFy() {
+        return this.qdN;
     }
 
-    public com.ss.android.socialbase.downloader.downloader.i eDi() {
-        return this.pTH;
+    public com.ss.android.socialbase.downloader.downloader.i eFz() {
+        return this.qdL;
     }
 
-    public com.ss.android.socialbase.downloader.downloader.h eDj() {
-        return this.pTG;
+    public com.ss.android.socialbase.downloader.downloader.h eFA() {
+        return this.qdK;
     }
 
     public boolean s() {
@@ -191,8 +191,8 @@ public class f {
         return this.G;
     }
 
-    public s eDk() {
-        return this.pTI;
+    public s eFB() {
+        return this.qdM;
     }
 
     public int E() {
@@ -219,8 +219,8 @@ public class f {
         return this.S;
     }
 
-    public com.ss.android.socialbase.downloader.b.g eDl() {
-        return this.pTK;
+    public com.ss.android.socialbase.downloader.b.g eFC() {
+        return this.qdO;
     }
 
     public boolean L() {
@@ -231,208 +231,208 @@ public class f {
         return this.f;
     }
 
-    public com.ss.android.socialbase.downloader.d.c eDm() {
-        return this.pTL;
+    public com.ss.android.socialbase.downloader.d.c eFD() {
+        return this.qdP;
     }
 
-    public ad eDn() {
-        return this.pTM;
+    public ad eFE() {
+        return this.qdQ;
     }
 
-    public com.ss.android.socialbase.appdownloader.c.e eDo() {
-        return this.pTN;
+    public com.ss.android.socialbase.appdownloader.c.e eFF() {
+        return this.qdR;
     }
 
-    public ah eDp() {
-        return this.pTO;
+    public ah eFG() {
+        return this.qdS;
     }
 
-    public r eDq() {
-        return this.pTQ;
+    public r eFH() {
+        return this.qdU;
     }
 
-    public ab eDr() {
-        return this.pTS;
+    public ab eFI() {
+        return this.qdW;
     }
 
     public boolean T() {
         return this.U;
     }
 
-    public int eDs() {
+    public int eFJ() {
         return this.Y;
     }
 
-    public long eDt() {
+    public long eFK() {
         return this.Z;
     }
 
-    public f ZQ(String str) {
+    public f aaR(String str) {
         this.e = str;
         return this;
     }
 
-    public f ZR(String str) {
+    public f aaS(String str) {
         this.f = str;
         return this;
     }
 
-    public f ZS(@NonNull String str) {
+    public f aaT(@NonNull String str) {
         this.g = str;
         return this;
     }
 
-    public f gX(List<com.ss.android.socialbase.downloader.g.e> list) {
+    public f gV(List<com.ss.android.socialbase.downloader.g.e> list) {
         this.h = list;
         return this;
     }
 
-    public f BF(boolean z) {
+    public f BZ(boolean z) {
         this.i = z;
         return this;
     }
 
-    public f BG(boolean z) {
+    public f Ca(boolean z) {
         this.j = z;
         return this;
     }
 
-    public f BH(boolean z) {
+    public f Cb(boolean z) {
         this.l = z;
         return this;
     }
 
     public f a(com.ss.android.socialbase.downloader.d.b bVar) {
-        this.pTE = bVar;
+        this.qdI = bVar;
         return this;
     }
 
-    public f ZT(String str) {
+    public f aaU(String str) {
         this.o = str;
         return this;
     }
 
-    public f ZU(String str) {
+    public f aaV(String str) {
         this.p = str;
         return this;
     }
 
-    public f BI(boolean z) {
+    public f Cc(boolean z) {
         this.q = z;
         return this;
     }
 
     public f a(com.ss.android.socialbase.downloader.downloader.i iVar) {
-        this.pTH = iVar;
+        this.qdL = iVar;
         return this;
     }
 
     public f a(com.ss.android.socialbase.downloader.downloader.h hVar) {
-        this.pTG = hVar;
+        this.qdK = hVar;
         return this;
     }
 
-    public f BJ(boolean z) {
+    public f Cd(boolean z) {
         this.v = z;
         return this;
     }
 
-    public f BK(boolean z) {
+    public f Ce(boolean z) {
         this.w = z;
         return this;
     }
 
-    public f ZV(String str) {
+    public f aaW(String str) {
         this.x = str;
         return this;
     }
 
-    public f ZW(String str) {
+    public f aaX(String str) {
         this.y = str;
         return this;
     }
 
-    public f je(long j) {
+    public f jh(long j) {
         this.z = j;
         return this;
     }
 
-    public f QL(int i) {
+    public f Rg(int i) {
         this.B = i;
         return this;
     }
 
-    public f QM(int i) {
+    public f Rh(int i) {
         this.C = i;
         return this;
     }
 
-    public f BL(boolean z) {
+    public f Cf(boolean z) {
         this.D = z;
         return this;
     }
 
-    public f ZX(String str) {
+    public f aaY(String str) {
         this.E = str;
         return this;
     }
 
-    public f BM(boolean z) {
+    public f Cg(boolean z) {
         this.S = z;
         return this;
     }
 
-    public f BN(boolean z) {
+    public f Ch(boolean z) {
         this.F = z;
         return this;
     }
 
-    public f BO(boolean z) {
+    public f Ci(boolean z) {
         this.G = z;
         return this;
     }
 
-    public f BP(boolean z) {
+    public f Cj(boolean z) {
         this.H = z;
         return this;
     }
 
-    public f BQ(boolean z) {
+    public f Ck(boolean z) {
         this.I = z;
         return this;
     }
 
-    public f QN(int i) {
+    public f Ri(int i) {
         this.K = i;
         return this;
     }
 
-    public f QO(int i) {
+    public f Rj(int i) {
         this.L = i;
         return this;
     }
 
-    public f BR(boolean z) {
+    public f Cl(boolean z) {
         this.M = z;
         return this;
     }
 
     public f a(com.ss.android.socialbase.downloader.b.g gVar) {
-        this.pTK = gVar;
+        this.qdO = gVar;
         return this;
     }
 
-    public f BS(boolean z) {
+    public f Cm(boolean z) {
         this.A = z;
         return this;
     }
 
     public f a(ah ahVar) {
-        this.pTO = ahVar;
+        this.qdS = ahVar;
         return this;
     }
 
-    public f ZY(String str) {
+    public f aaZ(String str) {
         this.W = str;
         return this;
     }
@@ -441,40 +441,40 @@ public class f {
         return this.W;
     }
 
-    public f QP(int i) {
+    public f Rk(int i) {
         this.Y = i;
         return this;
     }
 
-    public List<String> eDu() {
+    public List<String> eFL() {
         return this.d;
     }
 
-    public f gY(List<String> list) {
+    public f gW(List<String> list) {
         this.d = list;
         return this;
     }
 
-    public af eDv() {
-        return this.pTP;
+    public af eFM() {
+        return this.qdT;
     }
 
     public f a(af afVar) {
-        this.pTP = afVar;
+        this.qdT = afVar;
         return this;
     }
 
-    public JSONObject eDw() {
-        return this.pTR;
+    public JSONObject eFN() {
+        return this.qdV;
     }
 
-    public f fi(JSONObject jSONObject) {
-        this.pTR = jSONObject;
+    public f fj(JSONObject jSONObject) {
+        this.qdV = jSONObject;
         return this;
     }
 
     public f a(ab abVar) {
-        this.pTS = abVar;
+        this.qdW = abVar;
         return this;
     }
 }

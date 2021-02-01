@@ -1,7 +1,7 @@
 package com.baidu.tieba.payment.data;
 
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PayRequestData implements Serializable {
     public static final String MOBILE_CHECK_READY = "1";
     private static final long serialVersionUID = 8869447293021278630L;

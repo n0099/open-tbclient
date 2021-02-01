@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.d.b.a;
 import com.bytedance.sdk.openadsdk.d.s;
 import com.bytedance.sdk.openadsdk.d.v;
 import com.bytedance.sdk.openadsdk.d.w;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.b.c f6876a;
+    private final com.bytedance.sdk.openadsdk.d.b.c f6878a;
 
     public d(com.bytedance.sdk.openadsdk.d.b.c cVar) {
-        this.f6876a = cVar;
+        this.f6878a = cVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.w
@@ -19,7 +19,7 @@ public final class d implements w {
         if (bVar == null) {
             return null;
         }
-        return (v<T>) a(this.f6876a, fVar, aVar, bVar);
+        return (v<T>) a(this.f6878a, fVar, aVar, bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

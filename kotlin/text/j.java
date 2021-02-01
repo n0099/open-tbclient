@@ -6,33 +6,33 @@ import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j implements i {
-    private final CharSequence qkc;
-    private final MatchResult qkk;
-    private final g qkl;
-    private final Matcher qkm;
+    private final CharSequence qug;
+    private final MatchResult qun;
+    private final g quo;
+    private final Matcher qup;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.p.o(matcher, "matcher");
         kotlin.jvm.internal.p.o(charSequence, Config.INPUT_PART);
-        this.qkm = matcher;
-        this.qkc = charSequence;
-        this.qkk = this.qkm.toMatchResult();
-        this.qkl = new a();
+        this.qup = matcher;
+        this.qug = charSequence;
+        this.qun = this.qup.toMatchResult();
+        this.quo = new a();
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h eJo() {
+    public kotlin.b.h eLE() {
         kotlin.b.h a2;
-        MatchResult matchResult = this.qkk;
+        MatchResult matchResult = this.qun;
         kotlin.jvm.internal.p.n(matchResult, "matchResult");
         a2 = k.a(matchResult);
         return a2;
     }
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends kotlin.collections.a<f> implements h {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
@@ -52,7 +52,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.qkk.groupCount() + 1;
+            return j.this.qun.groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -65,13 +65,13 @@ public final class j implements i {
             return kotlin.sequences.d.c(kotlin.collections.n.i(kotlin.collections.n.o(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public f RZ(int i) {
+        public f Su(int i) {
             kotlin.b.h a2;
-            MatchResult matchResult = j.this.qkk;
+            MatchResult matchResult = j.this.qun;
             kotlin.jvm.internal.p.n(matchResult, "matchResult");
             a2 = k.a(matchResult, i);
-            if (a2.eJf().intValue() >= 0) {
-                String group = j.this.qkk.group(i);
+            if (a2.eLv().intValue() >= 0) {
+                String group = j.this.qun.group(i);
                 kotlin.jvm.internal.p.n(group, "matchResult.group(index)");
                 return new f(group, a2);
             }
@@ -80,11 +80,11 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i eJp() {
+    public i eLF() {
         i a2;
-        int end = (this.qkk.end() == this.qkk.start() ? 1 : 0) + this.qkk.end();
-        if (end <= this.qkc.length()) {
-            a2 = k.a(this.qkm, end, this.qkc);
+        int end = (this.qun.end() == this.qun.start() ? 1 : 0) + this.qun.end();
+        if (end <= this.qug.length()) {
+            a2 = k.a(this.qup, end, this.qug);
             return a2;
         }
         return null;

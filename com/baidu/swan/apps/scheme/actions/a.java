@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.a;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends aa {
     public a(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/abTestConfig");
@@ -24,9 +24,9 @@ public class a extends aa {
             }
             JSONObject optJSONObject = b2.optJSONObject("abtest");
             if (optJSONObject != null) {
-                Toast.makeText(context, bT(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
+                Toast.makeText(context, bQ(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
             } else {
-                aJz();
+                aJS();
                 Toast.makeText(context, a.h.swanapp_delete_debug_abtest_config, 1).show();
             }
             return true;
@@ -34,33 +34,33 @@ public class a extends aa {
         return false;
     }
 
-    private boolean bT(JSONObject jSONObject) {
+    private boolean bQ(JSONObject jSONObject) {
         if (jSONObject == null) {
             return false;
         }
-        String aJA = aJA();
-        if (TextUtils.isEmpty(aJA)) {
+        String aJT = aJT();
+        if (TextUtils.isEmpty(aJT)) {
             return false;
         }
-        return com.baidu.swan.apps.s.a.p(aJA, jSONObject.toString(), false);
+        return com.baidu.swan.apps.s.a.p(aJT, jSONObject.toString(), false);
     }
 
-    private void aJz() {
-        String aJA = aJA();
-        if (!TextUtils.isEmpty(aJA)) {
-            File file = new File(aJA);
+    private void aJS() {
+        String aJT = aJT();
+        if (!TextUtils.isEmpty(aJT)) {
+            File file = new File(aJT);
             if (file.exists()) {
                 file.delete();
             }
         }
     }
 
-    public static String aJA() {
-        File aNt = com.baidu.swan.apps.ao.k.aNt();
-        if (aNt == null) {
+    public static String aJT() {
+        File aNM = com.baidu.swan.apps.ao.k.aNM();
+        if (aNM == null) {
             return null;
         }
-        String path = aNt.getPath();
+        String path = aNM.getPath();
         if (TextUtils.isEmpty(path)) {
             return null;
         }

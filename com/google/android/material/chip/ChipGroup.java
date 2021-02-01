@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import com.google.android.material.R;
 import com.google.android.material.internal.FlowLayout;
 import com.google.android.material.internal.ThemeEnforcement;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ChipGroup extends FlowLayout {
     @IdRes
     private int checkedId;
@@ -31,12 +31,12 @@ public class ChipGroup extends FlowLayout {
     private boolean protectFromCheckedChange;
     private boolean singleSelection;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(ChipGroup chipGroup, @IdRes int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
@@ -272,7 +272,7 @@ public class ChipGroup extends FlowLayout {
         setSingleSelection(getResources().getBoolean(i));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private class CheckedStateTracker implements CompoundButton.OnCheckedChangeListener {
         private CheckedStateTracker() {
         }
@@ -293,7 +293,7 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private class PassThroughHierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
         private ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener;
 

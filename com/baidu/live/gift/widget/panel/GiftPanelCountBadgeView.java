@@ -10,10 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GiftPanelCountBadgeView extends FrameLayout {
-    private boolean beA;
-    private int bez;
+    private int bhH;
+    private boolean bhI;
     private ImageView mImageView;
     private TextView mTextView;
 
@@ -23,17 +23,17 @@ public class GiftPanelCountBadgeView extends FrameLayout {
     }
 
     public void setPlusThreshold(int i, boolean z) {
-        this.bez = i;
-        this.beA = z;
+        this.bhH = i;
+        this.bhI = z;
     }
 
     public void setCount(int i) {
-        boolean z = this.bez > 0 && i > this.bez;
-        if (this.mImageView != null && this.beA) {
+        boolean z = this.bhH > 0 && i > this.bhH;
+        if (this.mImageView != null && this.bhI) {
             this.mImageView.setImageResource(z ? a.e.live_gift_panel_count_badge_large_icon : a.e.live_gift_panel_count_badge_small_icon);
         }
         if (this.mTextView != null) {
-            this.mTextView.setText(z ? this.bez + "+" : String.valueOf(i));
+            this.mTextView.setText(z ? this.bhH + "+" : String.valueOf(i));
         }
     }
 

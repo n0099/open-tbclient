@@ -7,7 +7,7 @@ import android.content.res.Resources;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import com.kwai.player.vr.KwaiVR;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KwaiGestureHelper {
     private static final int MODE_INIT = 0;
     private static final int MODE_PINCH = 1;
@@ -33,7 +33,7 @@ public class KwaiGestureHelper {
     private KwaiFlingConfig mFlingConfig = new KwaiFlingConfig();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class PinchInfo {
         private float currentScale;
         private float oDistance;

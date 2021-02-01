@@ -4,11 +4,11 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a<T> implements c<T> {
-    private final c<T> qjO;
-    private final boolean qjP;
-    private final kotlin.jvm.a.b<T, Boolean> qjQ;
+    private final c<T> qtS;
+    private final boolean qtT;
+    private final kotlin.jvm.a.b<T, Boolean> qtU;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.sequences.c<? extends T> */
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.jvm.a.b<? super T, java.lang.Boolean> */
@@ -16,18 +16,18 @@ public final class a<T> implements c<T> {
     public a(c<? extends T> cVar, boolean z, kotlin.jvm.a.b<? super T, Boolean> bVar) {
         p.o(cVar, "sequence");
         p.o(bVar, "predicate");
-        this.qjO = cVar;
-        this.qjP = z;
-        this.qjQ = bVar;
+        this.qtS = cVar;
+        this.qtT = z;
+        this.qtU = bVar;
     }
 
     @kotlin.e
     /* renamed from: kotlin.sequences.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C1297a implements Iterator<T> {
+    /* loaded from: classes6.dex */
+    public static final class C1307a implements Iterator<T> {
         private final Iterator<T> iterator;
         private T nextItem;
-        private int qjR = -1;
+        private int qtV = -1;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -35,47 +35,47 @@ public final class a<T> implements c<T> {
         }
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        C1297a() {
-            this.iterator = a.this.qjO.iterator();
+        C1307a() {
+            this.iterator = a.this.qtS.iterator();
         }
 
-        private final void eJm() {
+        private final void eLC() {
             while (this.iterator.hasNext()) {
                 T next = this.iterator.next();
-                if (((Boolean) a.this.qjQ.invoke(next)).booleanValue() == a.this.qjP) {
+                if (((Boolean) a.this.qtU.invoke(next)).booleanValue() == a.this.qtT) {
                     this.nextItem = next;
-                    this.qjR = 1;
+                    this.qtV = 1;
                     return;
                 }
             }
-            this.qjR = 0;
+            this.qtV = 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.qjR == -1) {
-                eJm();
+            if (this.qtV == -1) {
+                eLC();
             }
-            if (this.qjR == 0) {
+            if (this.qtV == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             this.nextItem = null;
-            this.qjR = -1;
+            this.qtV = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.qjR == -1) {
-                eJm();
+            if (this.qtV == -1) {
+                eLC();
             }
-            return this.qjR == 1;
+            return this.qtV == 1;
         }
     }
 
     @Override // kotlin.sequences.c
     public Iterator<T> iterator() {
-        return new C1297a();
+        return new C1307a();
     }
 }

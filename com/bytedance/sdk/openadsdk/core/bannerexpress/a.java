@@ -14,14 +14,14 @@ import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
 import com.bytedance.sdk.openadsdk.utils.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6457a;
+    private final Context f6459a;
 
     /* renamed from: b  reason: collision with root package name */
-    private NativeExpressView f6458b;
+    private NativeExpressView f6460b;
     private NativeExpressView c;
     private l d;
     private AdSlot e;
@@ -33,15 +33,15 @@ public class a extends FrameLayout {
     public a(@NonNull Context context, l lVar, AdSlot adSlot) {
         super(context);
         this.i = "banner_ad";
-        this.f6457a = context;
+        this.f6459a = context;
         this.d = lVar;
         this.e = adSlot;
         g();
     }
 
     private void g() {
-        this.f6458b = new NativeExpressView(this.f6457a, this.d, this.e, this.i);
-        addView(this.f6458b, new ViewGroup.LayoutParams(-1, -1));
+        this.f6460b = new NativeExpressView(this.f6459a, this.d, this.e, this.i);
+        addView(this.f6460b, new ViewGroup.LayoutParams(-1, -1));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -50,7 +50,7 @@ public class a extends FrameLayout {
     }
 
     public void a(l lVar, AdSlot adSlot) {
-        this.c = new NativeExpressView(this.f6457a, lVar, adSlot, this.i);
+        this.c = new NativeExpressView(this.f6459a, lVar, adSlot, this.i);
         this.c.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.1
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i) {
@@ -79,7 +79,7 @@ public class a extends FrameLayout {
 
     public void a(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
         this.f = expressAdInteractionListener;
-        this.f6458b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.2
+        this.f6460b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.2
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i) {
                 if (a.this.f != null) {
@@ -112,8 +112,8 @@ public class a extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f, float f2) {
-        int a2 = (int) ak.a(this.f6457a, f);
-        int a3 = (int) ak.a(this.f6457a, f2);
+        int a2 = (int) ak.a(this.f6459a, f);
+        int a3 = (int) ak.a(this.f6459a, f2);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(a2, a3);
@@ -124,16 +124,16 @@ public class a extends FrameLayout {
     }
 
     public void a() {
-        if (this.f6458b != null) {
-            this.f6458b.h();
+        if (this.f6460b != null) {
+            this.f6460b.h();
         }
     }
 
     public void b() {
-        if (this.f6458b != null) {
-            removeView(this.f6458b);
-            this.f6458b.k();
-            this.f6458b = null;
+        if (this.f6460b != null) {
+            removeView(this.f6460b);
+            this.f6460b.k();
+            this.f6460b = null;
         }
         if (this.c != null) {
             removeView(this.c);
@@ -143,7 +143,7 @@ public class a extends FrameLayout {
     }
 
     public NativeExpressView c() {
-        return this.f6458b;
+        return this.f6460b;
     }
 
     public NativeExpressView d() {
@@ -193,7 +193,7 @@ public class a extends FrameLayout {
         try {
             if (!this.h && this.c != null) {
                 AnimatorSet animatorSet = new AnimatorSet();
-                animatorSet.play(a(this.f6458b)).with(b(this.c));
+                animatorSet.play(a(this.f6460b)).with(b(this.c));
                 animatorSet.setDuration(this.g).start();
                 ak.a((View) this.c, 0);
                 this.h = true;
@@ -208,8 +208,8 @@ public class a extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i() {
-        NativeExpressView nativeExpressView = this.f6458b;
-        this.f6458b = this.c;
+        NativeExpressView nativeExpressView = this.f6460b;
+        this.f6460b = this.c;
         this.c = nativeExpressView;
         if (this.c != null) {
             removeView(this.c);

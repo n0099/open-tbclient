@@ -5,7 +5,7 @@ import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PageInfo implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = -86839485012202592L;
     public int pageType;

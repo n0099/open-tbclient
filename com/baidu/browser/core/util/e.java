@@ -2,7 +2,7 @@ package com.baidu.browser.core.util;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e<K, V> {
     private int createCount;
     private int evictionCount;

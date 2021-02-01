@@ -6,15 +6,15 @@ import android.view.View;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class a implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LivenessRecogActivity f4005a;
+    final /* synthetic */ LivenessRecogActivity f4008a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(LivenessRecogActivity livenessRecogActivity) {
-        this.f4005a = livenessRecogActivity;
+        this.f4008a = livenessRecogActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,22 +22,22 @@ public class a implements View.OnClickListener {
         com.baidu.pass.biometrics.face.liveness.view.a aVar;
         PassFaceRecogCallback passFaceRecogCallback;
         PassFaceRecogCallback passFaceRecogCallback2;
-        aVar = this.f4005a.D;
+        aVar = this.f4008a.D;
         aVar.dismiss();
-        this.f4005a.P.y = false;
-        passFaceRecogCallback = this.f4005a.t;
+        this.f4008a.P.y = false;
+        passFaceRecogCallback = this.f4008a.t;
         if (passFaceRecogCallback != null) {
             PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
             passFaceRecogResult.setResultCode(-307);
-            passFaceRecogCallback2 = this.f4005a.t;
+            passFaceRecogCallback2 = this.f4008a.t;
             passFaceRecogCallback2.onFailure(passFaceRecogResult);
         }
-        this.f4005a.a(-307);
+        this.f4008a.a(-307);
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.addFlags(268435456);
-        intent.setData(Uri.fromParts("package", this.f4005a.getPackageName(), null));
-        if (intent.resolveActivity(this.f4005a.getPackageManager()) != null) {
-            this.f4005a.startActivity(intent);
+        intent.setData(Uri.fromParts("package", this.f4008a.getPackageName(), null));
+        if (intent.resolveActivity(this.f4008a.getPackageManager()) != null) {
+            this.f4008a.startActivity(intent);
         }
     }
 }

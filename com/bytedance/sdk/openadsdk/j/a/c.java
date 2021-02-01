@@ -19,14 +19,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.bytedance.sdk.openadsdk.j.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f7222a;
+    public final File f7224a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final LinkedHashMap<String, File> f7223b = new LinkedHashMap<>(0, 0.75f, true);
+    private final LinkedHashMap<String, File> f7225b = new LinkedHashMap<>(0, 0.75f, true);
     private final ReentrantReadWriteLock c = new ReentrantReadWriteLock();
     private final ReentrantReadWriteLock.ReadLock d = this.c.readLock();
     private final ReentrantReadWriteLock.WriteLock e = this.c.writeLock();
@@ -47,7 +47,7 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
     };
     private final Handler k = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(String str);
 
@@ -70,7 +70,7 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
             }
             throw new IOException("dir error!  " + str);
         }
-        this.f7222a = file;
+        this.f7224a = file;
         com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.c.2
             @Override // java.lang.Runnable
             public void run() {
@@ -83,7 +83,7 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
     public void b() {
         this.e.lock();
         try {
-            File[] listFiles = this.f7222a.listFiles();
+            File[] listFiles = this.f7224a.listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 final HashMap hashMap = new HashMap(listFiles.length);
                 ArrayList arrayList = new ArrayList(listFiles.length);
@@ -111,7 +111,7 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     File file2 = (File) it.next();
-                    this.f7223b.put(a(file2), file2);
+                    this.f7225b.put(a(file2), file2);
                 }
             }
             this.e.unlock();
@@ -164,12 +164,12 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
     @Override // com.bytedance.sdk.openadsdk.j.a.a
     public File c(String str) {
         this.d.lock();
-        File file = this.f7223b.get(str);
+        File file = this.f7225b.get(str);
         this.d.unlock();
         if (file == null) {
-            File file2 = new File(this.f7222a, str);
+            File file2 = new File(this.f7224a, str);
             this.e.lock();
-            this.f7223b.put(str, file2);
+            this.f7225b.put(str, file2);
             this.e.unlock();
             for (a aVar : this.f) {
                 aVar.a(str);
@@ -183,7 +183,7 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
     @Override // com.bytedance.sdk.openadsdk.j.a.a
     public File d(String str) {
         if (this.d.tryLock()) {
-            File file = this.f7223b.get(str);
+            File file = this.f7225b.get(str);
             this.d.unlock();
             return file;
         }
@@ -202,7 +202,7 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
         this.e.lock();
         long j2 = 0;
         try {
-            for (Map.Entry<String, File> entry : this.f7223b.entrySet()) {
+            for (Map.Entry<String, File> entry : this.f7225b.entrySet()) {
                 j2 += entry.getValue().length();
             }
         } catch (Throwable th) {
@@ -214,7 +214,7 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
             HashSet hashSet4 = new HashSet();
             try {
                 long j4 = j2;
-                for (Map.Entry<String, File> entry2 : this.f7223b.entrySet()) {
+                for (Map.Entry<String, File> entry2 : this.f7225b.entrySet()) {
                     File value = entry2.getValue();
                     if (value != null && value.exists()) {
                         if (!this.i.c(a(value))) {
@@ -236,7 +236,7 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
                 }
                 Iterator it = hashSet4.iterator();
                 while (it.hasNext()) {
-                    this.f7223b.remove((String) it.next());
+                    this.f7225b.remove((String) it.next());
                 }
                 this.e.unlock();
                 hashSet2 = hashSet4;
@@ -288,40 +288,40 @@ public class c extends com.bytedance.sdk.openadsdk.j.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Map<String, Integer> f7232a;
+        private final Map<String, Integer> f7234a;
 
         private b() {
-            this.f7232a = new HashMap();
+            this.f7234a = new HashMap();
         }
 
         synchronized void a(String str) {
             if (!TextUtils.isEmpty(str)) {
-                Integer num = this.f7232a.get(str);
+                Integer num = this.f7234a.get(str);
                 if (num == null) {
-                    this.f7232a.put(str, 1);
+                    this.f7234a.put(str, 1);
                 } else {
-                    this.f7232a.put(str, Integer.valueOf(num.intValue() + 1));
+                    this.f7234a.put(str, Integer.valueOf(num.intValue() + 1));
                 }
             }
         }
 
         synchronized void b(String str) {
             Integer num;
-            if (!TextUtils.isEmpty(str) && (num = this.f7232a.get(str)) != null) {
+            if (!TextUtils.isEmpty(str) && (num = this.f7234a.get(str)) != null) {
                 if (num.intValue() == 1) {
-                    this.f7232a.remove(str);
+                    this.f7234a.remove(str);
                 } else {
-                    this.f7232a.put(str, Integer.valueOf(num.intValue() - 1));
+                    this.f7234a.put(str, Integer.valueOf(num.intValue() - 1));
                 }
             }
         }
 
         synchronized boolean c(String str) {
-            return !TextUtils.isEmpty(str) ? this.f7232a.containsKey(str) : false;
+            return !TextUtils.isEmpty(str) ? this.f7234a.containsKey(str) : false;
         }
     }
 }

@@ -1,11 +1,11 @@
 package com.tencent.ams.a.a.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13266a;
+    public String f13268a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13267b;
+    public String f13269b;
     public boolean c;
 }

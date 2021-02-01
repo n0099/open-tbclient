@@ -1,5 +1,5 @@
 package com.baidu.live.adp.framework.client.socket.link;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ICanOpenWebSocket {
     boolean canOpenWebSocket();
 }

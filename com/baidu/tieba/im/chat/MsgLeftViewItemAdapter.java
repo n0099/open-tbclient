@@ -15,7 +15,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void sq(boolean z) {
+    public void sD(boolean z) {
         this.mNeedShowName = z;
     }
 
@@ -33,17 +33,17 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgleftView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgleftView cSH = msgViewHolder.cSH();
-        cSH.Cp(this.ksh);
-        cSH.sq(this.mNeedShowName);
+        MsgleftView cUF = msgViewHolder.cUF();
+        cUF.CH(this.kAo);
+        cUF.sD(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        cSH.a(this.krY);
-        cSH.setOnItemViewLongClickListener(this.krZ);
-        cSH.setPosition(i);
-        cSH.gH(this.goc);
-        cSH.gG(chatMessage.getCacheData().getLastMsgTime());
-        cSH.a(viewGroup, chatMessage);
-        cSH.b(viewGroup, chatMessage);
+        cUF.a(this.kAf);
+        cUF.setOnItemViewLongClickListener(this.kAg);
+        cUF.setPosition(i);
+        cUF.gM(this.mCurrentTime);
+        cUF.gL(chatMessage.getCacheData().getLastMsgTime());
+        cUF.a(viewGroup, chatMessage);
+        cUF.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

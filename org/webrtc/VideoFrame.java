@@ -2,13 +2,13 @@ package org.webrtc;
 
 import android.graphics.Matrix;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoFrame implements RefCounted {
     private final Buffer buffer;
     private final int rotation;
     private final long timestampNs;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Buffer extends RefCounted {
         @CalledByNative("Buffer")
         Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6);
@@ -31,7 +31,7 @@ public class VideoFrame implements RefCounted {
         I420Buffer toI420();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface I420Buffer extends Buffer {
         @CalledByNative("I420Buffer")
         ByteBuffer getDataU();
@@ -52,10 +52,10 @@ public class VideoFrame implements RefCounted {
         int getStrideY();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface TextureBuffer extends Buffer {
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum Type {
             OES(36197),
             RGB(3553);

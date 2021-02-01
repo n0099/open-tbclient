@@ -9,7 +9,7 @@ import java.util.List;
 public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile ag f13801a = null;
+    private static volatile ag f13803a = null;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f119a;
@@ -25,14 +25,14 @@ public class ag {
     }
 
     public static ag a(Context context) {
-        if (f13801a == null) {
+        if (f13803a == null) {
             synchronized (ag.class) {
-                if (f13801a == null) {
-                    f13801a = new ag(context);
+                if (f13803a == null) {
+                    f13803a = new ag(context);
                 }
             }
         }
-        return f13801a;
+        return f13803a;
     }
 
     public int a(String str) {
@@ -43,7 +43,7 @@ public class ag {
             if (this.f120a.contains(zVar)) {
                 for (z zVar2 : this.f120a) {
                     if (zVar2.equals(zVar)) {
-                        i = zVar2.f13845a;
+                        i = zVar2.f13847a;
                         break;
                     }
                 }
@@ -66,7 +66,7 @@ public class ag {
     public void m99a(String str) {
         synchronized (this.f120a) {
             z zVar = new z();
-            zVar.f13845a = 0;
+            zVar.f13847a = 0;
             zVar.f167a = str;
             if (this.f120a.contains(zVar)) {
                 this.f120a.remove(zVar);
@@ -101,7 +101,7 @@ public class ag {
                 }
             }
             zVar = zVar2;
-            zVar.f13845a++;
+            zVar.f13847a++;
             this.f120a.remove(zVar);
             this.f120a.add(zVar);
         }

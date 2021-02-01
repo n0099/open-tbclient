@@ -1,32 +1,18 @@
 package com.baidu.mobads;
-/* loaded from: classes14.dex */
-class m implements InterstitialAdListener {
+/* loaded from: classes5.dex */
+final class m extends com.baidu.mobads.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ InterstitialAd f3383a;
+    final /* synthetic */ Runnable f3395a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(InterstitialAd interstitialAd) {
-        this.f3383a = interstitialAd;
+    public m(Runnable runnable) {
+        this.f3395a = runnable;
     }
 
-    @Override // com.baidu.mobads.InterstitialAdListener
-    public void onAdReady() {
-    }
-
-    @Override // com.baidu.mobads.InterstitialAdListener
-    public void onAdPresent() {
-    }
-
-    @Override // com.baidu.mobads.InterstitialAdListener
-    public void onAdClick(InterstitialAd interstitialAd) {
-    }
-
-    @Override // com.baidu.mobads.InterstitialAdListener
-    public void onAdDismissed() {
-    }
-
-    @Override // com.baidu.mobads.InterstitialAdListener
-    public void onAdFailed(String str) {
+    @Override // com.baidu.mobads.f.a
+    protected Object a() {
+        this.f3395a.run();
+        return null;
     }
 }

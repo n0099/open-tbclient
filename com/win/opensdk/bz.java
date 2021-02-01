@@ -3,10 +3,10 @@ package com.win.opensdk;
 public final class bz {
 
     /* renamed from: a  reason: collision with root package name */
-    int f13735a;
+    int f13737a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f13736b;
+    int f13738b;
     int c;
 
     /* renamed from: case  reason: not valid java name */
@@ -18,6 +18,6 @@ public final class bz {
 
     /* renamed from: java  reason: collision with other field name */
     int[] f42java;
-    boolean pYM;
-    boolean pZm;
+    boolean qiQ;
+    boolean qjq;
 }

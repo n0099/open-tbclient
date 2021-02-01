@@ -5,12 +5,12 @@ import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.b.a;
 import com.baidu.live.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes9.dex */
-public class p implements l, a.InterfaceC0185a {
+/* loaded from: classes10.dex */
+public class p implements l, a.InterfaceC0186a {
     private boolean DJ;
+    private final com.baidu.live.lottie.a.b.a<?, Path> bsP;
     @Nullable
-    private r boS;
-    private final com.baidu.live.lottie.a.b.a<?, Path> bpo;
+    private r bst;
     private final com.baidu.live.lottie.h lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -18,13 +18,13 @@ public class p implements l, a.InterfaceC0185a {
     public p(com.baidu.live.lottie.h hVar, com.baidu.live.lottie.model.layer.a aVar, com.baidu.live.lottie.model.content.k kVar) {
         this.name = kVar.getName();
         this.lottieDrawable = hVar;
-        this.bpo = kVar.MB().LU();
-        aVar.a(this.bpo);
-        this.bpo.b(this);
+        this.bsP = kVar.NZ().Ns();
+        aVar.a(this.bsP);
+        this.bsP.b(this);
     }
 
-    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0185a
-    public void is() {
+    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0186a
+    public void ir() {
         invalidate();
     }
 
@@ -40,9 +40,9 @@ public class p implements l, a.InterfaceC0185a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).LK() == ShapeTrimPath.Type.Simultaneously) {
-                    this.boS = (r) bVar;
-                    this.boS.a(this);
+                if ((bVar instanceof r) && ((r) bVar).Ni() == ShapeTrimPath.Type.Simultaneously) {
+                    this.bst = (r) bVar;
+                    this.bst.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -52,14 +52,14 @@ public class p implements l, a.InterfaceC0185a {
     }
 
     @Override // com.baidu.live.lottie.a.a.l
-    public Path iv() {
+    public Path iu() {
         if (this.DJ) {
             return this.path;
         }
         this.path.reset();
-        this.path.set(this.bpo.getValue());
+        this.path.set(this.bsP.getValue());
         this.path.setFillType(Path.FillType.EVEN_ODD);
-        com.baidu.live.lottie.d.f.a(this.path, this.boS);
+        com.baidu.live.lottie.d.f.a(this.path, this.bst);
         this.DJ = true;
         return this.path;
     }

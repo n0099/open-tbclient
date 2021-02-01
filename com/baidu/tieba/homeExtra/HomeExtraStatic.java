@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.t.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HomeExtraStatic {
     public static String Tag = "tag";
 

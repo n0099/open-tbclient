@@ -1,7 +1,7 @@
 package com.baidu.live.liveroom.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    void dA(int i);
+    boolean dF(int i);
 
-    boolean dz(int i);
+    void dG(int i);
 }

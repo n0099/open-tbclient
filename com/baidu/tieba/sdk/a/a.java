@@ -1,5 +1,6 @@
 package com.baidu.tieba.sdk.a;
 
+import com.baidu.live.adp.BuildConfig;
 import com.baidu.live.adp.framework.controller.HttpRule;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.task.HttpMessageTask;
@@ -7,7 +8,7 @@ import com.baidu.live.adp.lib.util.Md5;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpRule {
     public a(int i) {
         super(i);
@@ -35,7 +36,7 @@ public class a extends HttpRule {
     @Override // com.baidu.live.adp.framework.controller.MessageRule
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessage != null && httpMessage.getCmd() < 1030999 && httpMessage.getCmd() >= 1021000) {
-            String str = "release/4.2.0/tieba|2021-01-05 21:36:49|68b4e0e";
+            String str = "release/4.3.0/tieba|2021-01-28 19:54:03|" + BuildConfig.GIT_VERSION;
             try {
                 str = URLEncoder.encode(str);
             } catch (Exception e) {

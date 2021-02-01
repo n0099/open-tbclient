@@ -1,5 +1,5 @@
 package com.baidu.live.alablmsdk.config.enums;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public enum BLMViewShapeType {
     RECTANGLE("r"),
     CIRCLE("c");

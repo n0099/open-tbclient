@@ -2,14 +2,14 @@ package com.baidu.mapapi.synchronization;
 
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.synchronization.SyncCoordinateConverter;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class RoleOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2941a = RoleOptions.class.getSimpleName();
+    private static final String f2939a = RoleOptions.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2942b;
+    private String f2940b;
     private int c;
     private String d;
     private String e;
@@ -25,12 +25,12 @@ public final class RoleOptions {
     private String o = null;
 
     public RoleOptions() {
-        this.f2942b = null;
+        this.f2940b = null;
         this.c = 0;
         this.d = null;
         this.e = null;
         this.f = SyncCoordinateConverter.CoordType.BD09LL;
-        this.f2942b = null;
+        this.f2940b = null;
         this.c = 0;
         this.d = null;
         this.e = null;
@@ -74,7 +74,7 @@ public final class RoleOptions {
     }
 
     public String getOrderId() {
-        return this.f2942b;
+        return this.f2940b;
     }
 
     public int getRoleType() {
@@ -160,7 +160,7 @@ public final class RoleOptions {
         if (str == null || str.isEmpty()) {
             throw new IllegalArgumentException("orderId is null.");
         }
-        this.f2942b = str;
+        this.f2940b = str;
         return this;
     }
 

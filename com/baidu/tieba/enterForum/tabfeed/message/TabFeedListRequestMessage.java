@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.Tabfeedlist.DataReq;
 import tbclient.Tabfeedlist.TabfeedlistReqIdl;
 /* loaded from: classes2.dex */
@@ -34,7 +34,7 @@ public class TabFeedListRequestMessage extends NetMessage {
             builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
             builder.scr_d = Integer.valueOf((int) l.getEquipmentDensity(TbadkCoreApplication.getInst()));
             if (z) {
-                t.b(builder, true);
+                v.b(builder, true);
             }
             TabfeedlistReqIdl.Builder builder2 = new TabfeedlistReqIdl.Builder();
             builder2.data = builder.build(false);

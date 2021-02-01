@@ -8,61 +8,61 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, List<String>> f6058a;
+    private final Map<String, List<String>> f6060a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6059b;
+    private String f6061b;
 
     public i(String str) {
-        this.f6058a = new LinkedHashMap();
-        this.f6059b = str;
+        this.f6060a = new LinkedHashMap();
+        this.f6061b = str;
     }
 
     public i() {
-        this.f6058a = new LinkedHashMap();
-        this.f6059b = null;
+        this.f6060a = new LinkedHashMap();
+        this.f6061b = null;
     }
 
     public void a(String str, int i) {
-        List<String> list = this.f6058a.get(str);
+        List<String> list = this.f6060a.get(str);
         if (list == null) {
             list = new LinkedList<>();
         }
         list.add(String.valueOf(i));
-        this.f6058a.put(str, list);
+        this.f6060a.put(str, list);
     }
 
     public void d(String str, double d) {
-        List<String> list = this.f6058a.get(str);
+        List<String> list = this.f6060a.get(str);
         if (list == null) {
             list = new LinkedList<>();
         }
         list.add(String.valueOf(d));
-        this.f6058a.put(str, list);
+        this.f6060a.put(str, list);
     }
 
     public void a(String str, String str2) {
-        List<String> list = this.f6058a.get(str);
+        List<String> list = this.f6060a.get(str);
         if (list == null) {
             list = new LinkedList<>();
         }
         list.add(String.valueOf(str2));
-        this.f6058a.put(str, list);
+        this.f6060a.put(str, list);
     }
 
     public String a() {
-        if (this.f6058a.isEmpty()) {
-            return this.f6059b;
+        if (this.f6060a.isEmpty()) {
+            return this.f6061b;
         }
-        String a2 = a(this.f6058a, "UTF-8");
-        if (this.f6059b == null || this.f6059b.length() == 0) {
+        String a2 = a(this.f6060a, "UTF-8");
+        if (this.f6061b == null || this.f6061b.length() == 0) {
             return a2;
         }
-        return this.f6059b.indexOf(63) >= 0 ? this.f6059b + ETAG.ITEM_SEPARATOR + a2 : this.f6059b + "?" + a2;
+        return this.f6061b.indexOf(63) >= 0 ? this.f6061b + ETAG.ITEM_SEPARATOR + a2 : this.f6061b + "?" + a2;
     }
 
     public String a(Map<String, List<String>> map, String str) {

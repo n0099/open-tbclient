@@ -2,30 +2,30 @@ package com.bytedance.sdk.openadsdk.core.d;
 
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.TTImage;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6507a;
+    private String f6509a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6508b;
+    private int f6510b;
     private int c;
 
     public String a() {
-        return this.f6507a;
+        return this.f6509a;
     }
 
     public void a(String str) {
-        this.f6507a = str;
+        this.f6509a = str;
     }
 
     public int b() {
-        return this.f6508b;
+        return this.f6510b;
     }
 
     public void a(int i) {
-        this.f6508b = i;
+        this.f6510b = i;
     }
 
     public int c() {
@@ -37,7 +37,7 @@ public class k {
     }
 
     public boolean d() {
-        return !TextUtils.isEmpty(this.f6507a) && this.f6508b > 0 && this.c > 0;
+        return !TextUtils.isEmpty(this.f6509a) && this.f6510b > 0 && this.c > 0;
     }
 
     public static TTImage a(k kVar) {

@@ -9,29 +9,29 @@ import com.baidu.adp.lib.util.s;
 import com.baidu.live.tbadk.img.ImageUploadStrategy;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class e {
-    public static final String fEj = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
-    private b fEk;
-    private ImageFileInfo fEm;
-    private boolean fEl = false;
-    private d fEn = new d() { // from class: com.baidu.tbadk.img.e.1
+    public static final String fGv = o.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
+    private b fGw;
+    private ImageFileInfo fGy;
+    private boolean fGx = false;
+    private d fGz = new d() { // from class: com.baidu.tbadk.img.e.1
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             String a2;
             if (imageFileInfo == null) {
                 return null;
             }
-            if (e.this.fEk == null) {
-                e.this.fEk = new b();
+            if (e.this.fGw == null) {
+                e.this.fGw = new b();
             }
             String filePath = imageFileInfo.getFilePath();
             LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
             imageFileInfo.setPageActionsList(null);
-            com.baidu.adp.widget.ImageView.a a3 = e.this.fEk.a(imageFileInfo, true);
+            com.baidu.adp.widget.ImageView.a a3 = e.this.fGw.a(imageFileInfo, true);
             if (a3 == null) {
                 Bitmap b2 = e.this.b(imageFileInfo);
                 if (b2 == null) {
@@ -49,7 +49,7 @@ public class e {
             return a2;
         }
     };
-    private d fEo = new d() { // from class: com.baidu.tbadk.img.e.2
+    private d fGA = new d() { // from class: com.baidu.tbadk.img.e.2
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -58,8 +58,8 @@ public class e {
             return e.this.compressOriginalImageFile(imageFileInfo.getFilePath());
         }
     };
-    private d fEp = this.fEo;
-    private d fEq = new d() { // from class: com.baidu.tbadk.img.e.3
+    private d fGB = this.fGA;
+    private d fGC = new d() { // from class: com.baidu.tbadk.img.e.3
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
@@ -75,33 +75,33 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        this.fEm = imageFileInfo;
+        this.fGy = imageFileInfo;
         String filePath = imageFileInfo.getFilePath();
-        boolean checkIsLongImage = n.checkIsLongImage(filePath);
-        boolean Ay = n.Ay(filePath);
-        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !Ay)) {
+        boolean checkIsLongImage = o.checkIsLongImage(filePath);
+        boolean AP = o.AP(filePath);
+        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !AP)) {
             if (checkIsLongImage) {
-                dVar = this.fEp;
+                dVar = this.fGB;
                 str = "原始·长图";
             } else {
-                dVar = this.fEo;
+                dVar = this.fGA;
                 str = "原始·图";
             }
         } else if (checkIsLongImage) {
-            dVar = this.fEq;
+            dVar = this.fGC;
             str = "正常·长图";
         } else {
-            dVar = this.fEn;
+            dVar = this.fGz;
             str = "正常·图";
         }
         if (isDebugMode()) {
-            int[] imageFileWH = n.getImageFileWH(filePath);
-            Log.d("UPLOAD_IMG", "" + filePath + "\n   w =" + imageFileWH[0] + " h =" + imageFileWH[1] + "  size =" + (((float) n.getFileSize(filePath)) / 1048576.0f) + "MB\n   isLongImage =" + checkIsLongImage + "  isHeifImage =" + Ay + " resize =" + imageFileInfo.hasActionsWithoutResize() + " uploadStrategy =" + str);
+            int[] imageFileWH = o.getImageFileWH(filePath);
+            Log.d("UPLOAD_IMG", "" + filePath + "\n   w =" + imageFileWH[0] + " h =" + imageFileWH[1] + "  size =" + (((float) o.getFileSize(filePath)) / 1048576.0f) + "MB\n   isLongImage =" + checkIsLongImage + "  isHeifImage =" + AP + " resize =" + imageFileInfo.hasActionsWithoutResize() + " uploadStrategy =" + str);
         }
         String a2 = dVar.a(imageFileInfo);
         if (isDebugMode()) {
-            int[] imageFileWH2 = n.getImageFileWH(a2);
-            Log.d("UPLOAD_IMG", "temp =" + a2 + "\n   w =" + imageFileWH2[0] + " h =" + imageFileWH2[1] + "  size =" + (((float) n.getFileSize(a2)) / 1048576.0f) + "MB");
+            int[] imageFileWH2 = o.getImageFileWH(a2);
+            Log.d("UPLOAD_IMG", "temp =" + a2 + "\n   w =" + imageFileWH2[0] + " h =" + imageFileWH2[1] + "  size =" + (((float) o.getFileSize(a2)) / 1048576.0f) + "MB");
             return a2;
         }
         return a2;
@@ -113,13 +113,13 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.fEk == null) {
-            this.fEk = new b();
+        if (this.fGw == null) {
+            this.fGw = new b();
         }
         if (imageFileInfo.getImageType() == 0) {
-            return this.fEk.b(imageFileInfo, true);
+            return this.fGw.b(imageFileInfo, true);
         }
-        if (imageFileInfo.getImageType() == 1 && (ay = com.baidu.adp.lib.e.d.mx().ay(20)) != null) {
+        if (imageFileInfo.getImageType() == 1 && (ay = com.baidu.adp.lib.e.d.mw().ay(20)) != null) {
             try {
                 Object a2 = ay.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, (com.baidu.adp.lib.e.b) null, null, imageFileInfo.getFilePath(), false, null);
                 if (a2 instanceof com.baidu.adp.widget.ImageView.a) {
@@ -135,7 +135,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public String compressOriginalImageFile(String str) {
         int i;
-        long fileSize = n.getFileSize(str);
+        long fileSize = o.getFileSize(str);
         if (fileSize >= 31457280) {
             i = 80;
         } else if (fileSize >= 20971520) {
@@ -200,16 +200,16 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(Bitmap bitmap, long j, int i) {
-        if (this.fEl) {
-            if (this.fEm != null && !TextUtils.isEmpty(this.fEm.getFilePath())) {
-                return n.a(fEj, s.toMd5(this.fEm.toCachedKey(false)) + CU(this.fEm.getFilePath()), bitmap, (float) j, i);
+        if (this.fGx) {
+            if (this.fGy != null && !TextUtils.isEmpty(this.fGy.getFilePath())) {
+                return o.a(fGv, s.toMd5(this.fGy.toCachedKey(false)) + Dl(this.fGy.getFilePath()), bitmap, (float) j, i);
             }
             return "";
         }
-        return n.compressBitmapToFile("img_upload_temp_file.temp", bitmap, (float) j, i);
+        return o.compressBitmapToFile("img_upload_temp_file.temp", bitmap, (float) j, i);
     }
 
-    private String CU(String str) {
+    private String Dl(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

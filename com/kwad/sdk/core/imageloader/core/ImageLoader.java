@@ -22,7 +22,7 @@ import com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.ImageSizeUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ImageLoader {
     private static final String ERROR_INIT_CONFIG_WITH_NULL = "ImageLoader configuration can not be initialized with null";
     private static final String ERROR_NOT_INIT = "ImageLoader must be init with configuration before using";
@@ -38,7 +38,7 @@ public class ImageLoader {
     private ImageLoaderEngine engine;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class SyncImageLoadingListener extends SimpleImageLoadingListener {
         private Bitmap loadedImage;
 

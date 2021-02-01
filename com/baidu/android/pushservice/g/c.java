@@ -1,7 +1,7 @@
 package com.baidu.android.pushservice.g;
 
 import android.text.TextUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */

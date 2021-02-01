@@ -10,10 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.swan.apps.res.ui.BdShimmerView;
 import java.util.WeakHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG & true;
-    private static final WeakHashMap<ViewGroup, b> dAI = new WeakHashMap<>();
+    private static final WeakHashMap<ViewGroup, b> dCN = new WeakHashMap<>();
 
     public static boolean f(Context context, ViewGroup viewGroup) {
         return a(context, viewGroup, "");
@@ -23,7 +23,7 @@ public final class a {
         if (context == null || viewGroup == null) {
             return false;
         }
-        if (G(viewGroup)) {
+        if (E(viewGroup)) {
             return true;
         }
         LoadingView loadingView = new LoadingView(context);
@@ -53,22 +53,22 @@ public final class a {
             layoutParams3.gravity = 17;
             viewGroup.addView(loadingView2, layoutParams3);
         }
-        dAI.put(viewGroup, loadingView);
+        dCN.put(viewGroup, loadingView);
         loadingView2.setVisibility(0);
         if (DEBUG) {
-            Log.d("LoadingViewHelper", "The count of cached loading views is : " + dAI.size());
-            Log.d("LoadingViewHelper", "The content of cached views is : " + dAI.toString());
+            Log.d("LoadingViewHelper", "The count of cached loading views is : " + dCN.size());
+            Log.d("LoadingViewHelper", "The content of cached views is : " + dCN.toString());
         }
         return true;
     }
 
-    private static boolean G(ViewGroup viewGroup) {
+    private static boolean E(ViewGroup viewGroup) {
         b bVar;
         View loadingView;
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = dAI.get(viewGroup);
+        b bVar2 = dCN.get(viewGroup);
         if (bVar2 != null && bVar2.getLoadingView() != null) {
             bVar2.getLoadingView().setVisibility(0);
             return true;
@@ -76,10 +76,10 @@ public final class a {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(0);
-                dAI.put(viewGroup, bVar);
+                dCN.put(viewGroup, bVar);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + dAI.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + dAI.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + dCN.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + dCN.toString());
                 }
                 return true;
             }
@@ -87,13 +87,13 @@ public final class a {
         return false;
     }
 
-    public static boolean H(ViewGroup viewGroup) {
+    public static boolean F(ViewGroup viewGroup) {
         b bVar;
         View loadingView;
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = dAI.get(viewGroup);
+        b bVar2 = dCN.get(viewGroup);
         if (bVar2 != null && bVar2.getLoadingView() != null) {
             bVar2.getLoadingView().setVisibility(8);
             return true;
@@ -101,10 +101,10 @@ public final class a {
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(8);
-                dAI.put(viewGroup, bVar);
+                dCN.put(viewGroup, bVar);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + dAI.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + dAI.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + dCN.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + dCN.toString());
                 }
                 return true;
             }
@@ -112,25 +112,25 @@ public final class a {
         return false;
     }
 
-    public static boolean I(ViewGroup viewGroup) {
+    public static boolean G(ViewGroup viewGroup) {
         b bVar;
         View loadingView;
         if (viewGroup == null) {
             return false;
         }
-        b bVar2 = dAI.get(viewGroup);
+        b bVar2 = dCN.get(viewGroup);
         if (bVar2 != null) {
             View loadingView2 = bVar2.getLoadingView();
             if (loadingView2 != null) {
                 if (loadingView2 instanceof BdShimmerView) {
-                    ((BdShimmerView) loadingView2).aGv();
+                    ((BdShimmerView) loadingView2).aGP();
                 }
                 loadingView2.setVisibility(8);
                 viewGroup.removeView(loadingView2);
-                dAI.remove(viewGroup);
+                dCN.remove(viewGroup);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + dAI.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + dAI.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + dCN.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + dCN.toString());
                 }
             }
             return true;
@@ -139,10 +139,10 @@ public final class a {
             if ((viewGroup.getChildAt(i) instanceof b) && (loadingView = (bVar = (b) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(8);
                 viewGroup.removeView((View) bVar);
-                dAI.remove(viewGroup);
+                dCN.remove(viewGroup);
                 if (DEBUG) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + dAI.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + dAI.toString());
+                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + dCN.size());
+                    Log.d("LoadingViewHelper", "The content of cached views is : " + dCN.toString());
                 }
                 return true;
             }
@@ -150,13 +150,13 @@ public final class a {
         return false;
     }
 
-    public static void aHO() {
-        for (ViewGroup viewGroup : dAI.keySet()) {
-            b bVar = dAI.get(viewGroup);
+    public static void aIh() {
+        for (ViewGroup viewGroup : dCN.keySet()) {
+            b bVar = dCN.get(viewGroup);
             if (bVar != null && bVar.getLoadingView() != null) {
                 viewGroup.removeView(bVar.getLoadingView());
             }
         }
-        dAI.clear();
+        dCN.clear();
     }
 }

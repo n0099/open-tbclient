@@ -8,7 +8,7 @@ public interface i {
 
     /* loaded from: classes.dex */
     public interface a {
-        int d(Context context, String[] strArr);
+        int c(Context context, String[] strArr);
     }
 
     /* loaded from: classes.dex */
@@ -25,7 +25,7 @@ public interface i {
     public interface d {
     }
 
-    boolean Ee(String str);
+    boolean EC(String str);
 
     void a(Context context, String[] strArr, boolean z, Bundle bundle);
 

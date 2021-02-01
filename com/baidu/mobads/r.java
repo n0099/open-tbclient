@@ -1,26 +1,107 @@
 package com.baidu.mobads;
 
-import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
-import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class r implements IOAdEventListener {
+import android.content.Context;
+import android.util.Log;
+import dalvik.system.DexClassLoader;
+import java.lang.reflect.Method;
+/* loaded from: classes5.dex */
+public class r {
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f3475b = r.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SplashAd f3481a;
+    static com.baidu.mobads.utils.q f3474a = com.baidu.mobads.utils.q.a();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(SplashAd splashAd) {
-        this.f3481a = splashAd;
+    public static Class<?> a(String str, ClassLoader classLoader) {
+        if (classLoader != null) {
+            try {
+                return classLoader.loadClass(str);
+            } catch (Exception e) {
+                f3474a.d(f3475b, Log.getStackTraceString(e));
+                return null;
+            }
+        }
+        return null;
     }
 
-    @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
-    public void run(IOAdEvent iOAdEvent) {
-        SplashAdListener splashAdListener;
-        splashAdListener = this.f3481a.e;
-        if (splashAdListener != null) {
-            XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new s(this, iOAdEvent));
+    public static boolean a(Class<?> cls, String str, Class<?>... clsArr) {
+        try {
+            return cls.getDeclaredMethod(str, clsArr) != null;
+        } catch (Exception e) {
+            f3474a.i(f3475b, Log.getStackTraceString(e));
+            return false;
+        }
+    }
+
+    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
+        try {
+            Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+            if (declaredMethod != null) {
+                declaredMethod.setAccessible(true);
+                return declaredMethod;
+            }
+            return null;
+        } catch (Exception e) {
+            f3474a.i(f3475b, Log.getStackTraceString(e));
+            return null;
+        }
+    }
+
+    public static Object a(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
+        try {
+            return a(obj.getClass(), obj, str, clsArr, objArr);
+        } catch (Exception e) {
+            f3474a.i(f3475b, Log.getStackTraceString(e));
+            return null;
+        }
+    }
+
+    public static Object a(Class<?> cls, Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
+        try {
+            if (a(cls, str, clsArr)) {
+                return b(cls, str, clsArr).invoke(obj, objArr);
+            }
+            return null;
+        } catch (Exception e) {
+            f3474a.i(f3475b, Log.getStackTraceString(e));
+            return null;
+        }
+    }
+
+    public static Object a(String str, ClassLoader classLoader, Class<?>[] clsArr, Object... objArr) {
+        try {
+            Class<?> a2 = a(str, classLoader);
+            if (a2 != null) {
+                return a2.getDeclaredConstructor(clsArr).newInstance(objArr);
+            }
+            return null;
+        } catch (Exception e) {
+            f3474a.i(f3475b, Log.getStackTraceString(e));
+            return null;
+        }
+    }
+
+    public static Object a(String str, Object obj, ClassLoader classLoader, String str2, Class<?>[] clsArr, Object... objArr) {
+        Method declaredMethod;
+        try {
+            Class<?> a2 = a(str, classLoader);
+            if (a2 == null || (declaredMethod = a2.getDeclaredMethod(str2, clsArr)) == null) {
+                return null;
+            }
+            declaredMethod.setAccessible(true);
+            return declaredMethod.invoke(obj, objArr);
+        } catch (Exception e) {
+            f3474a.i(f3475b, Log.getStackTraceString(e));
+            return null;
+        }
+    }
+
+    public static DexClassLoader a(Context context) {
+        try {
+            return new DexClassLoader(com.baidu.mobads.g.g.a(context), context.getFilesDir().getAbsolutePath(), null, r.class.getClass().getClassLoader());
+        } catch (Exception e) {
+            return null;
         }
     }
 }

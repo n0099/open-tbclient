@@ -8,7 +8,7 @@ import com.qq.e.comm.plugin.util.ai;
 import com.qq.e.comm.plugin.w.a.d;
 import com.qq.e.comm.util.StringUtil;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class g {
     private static void a(Context context, com.qq.e.comm.plugin.s.c cVar) {
         String e = cVar.e();
@@ -35,7 +35,7 @@ public class g {
         if (l == null) {
             return false;
         }
-        String a2 = d.a((String) null, aVar.f12639a, bVar.f12642b, bVar.d, bVar.i);
+        String a2 = d.a((String) null, aVar.f12641a, bVar.f12644b, bVar.d, bVar.i);
         if (StringUtil.isEmpty(a2)) {
             return false;
         }
@@ -61,7 +61,7 @@ public class g {
         if (t == null || aVar == null || bVar == null || eVar == null || (l = aVar.c.l()) == null || StringUtil.isEmpty(l.c())) {
             return false;
         }
-        String a2 = d.a((String) null, aVar.f12639a, bVar.f12642b, bVar.d, bVar.i);
+        String a2 = d.a((String) null, aVar.f12641a, bVar.f12644b, bVar.d, bVar.i);
         if (StringUtil.isEmpty(a2)) {
             return false;
         }
@@ -78,7 +78,7 @@ public class g {
         if (StringUtil.isEmpty(d)) {
             return false;
         }
-        String a2 = d.a((String) null, aVar.f12639a, bVar.f12642b, bVar.d, bVar.i);
+        String a2 = d.a((String) null, aVar.f12641a, bVar.f12644b, bVar.d, bVar.i);
         if (StringUtil.isEmpty(a2)) {
             return false;
         }

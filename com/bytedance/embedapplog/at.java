@@ -1,12 +1,12 @@
 package com.bytedance.embedapplog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class at {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f5783a;
+    private static boolean f5785a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f5784b = 0;
+    private static long f5786b = 0;
     private static long c = 0;
 
     public static long a() {
@@ -14,17 +14,17 @@ public class at {
     }
 
     public static void b() {
-        f5784b++;
-        au.a("addFailedCount " + f5784b, null);
+        f5786b++;
+        au.a("addFailedCount " + f5786b, null);
     }
 
     public static boolean c() {
-        au.a("canSave " + f5783a, null);
-        return f5783a;
+        au.a("canSave " + f5785a, null);
+        return f5785a;
     }
 
     public static boolean d() {
-        boolean z = f5784b < 3 && a() != c && f5783a;
+        boolean z = f5786b < 3 && a() != c && f5785a;
         au.a("canSend " + z, null);
         return z;
     }
@@ -35,6 +35,6 @@ public class at {
     }
 
     public static void a(boolean z) {
-        f5783a = z;
+        f5785a = z;
     }
 }

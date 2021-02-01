@@ -5,7 +5,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class MediaType {
     private static final String QUOTED = "\"([^\"]*)\"";
     private static final String TOKEN = "([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)";

@@ -3,7 +3,7 @@ package com.google.android.material.animation;
 import android.util.Property;
 import android.view.ViewGroup;
 import com.google.android.material.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
     public static final Property<ViewGroup, Float> CHILDREN_ALPHA = new ChildrenAlphaProperty("childrenAlpha");
 

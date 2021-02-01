@@ -2,7 +2,7 @@ package com.baidu.swan.bdprivate.a;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends ActivityDelegation implements com.baidu.swan.apps.ao.e.b<Bundle> {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {

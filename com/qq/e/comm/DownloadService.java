@@ -8,18 +8,18 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.SVSD;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class DownloadService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private SVSD f11530a;
+    private SVSD f11532a;
 
     private boolean a(String str) {
-        if (this.f11530a == null) {
+        if (this.f11532a == null) {
             try {
                 if (GDTADManager.getInstance().initWith(getApplicationContext(), str)) {
-                    this.f11530a = GDTADManager.getInstance().getPM().getPOFactory().getAPKDownloadServiceDelegate(this);
-                    this.f11530a.onCreate();
+                    this.f11532a = GDTADManager.getInstance().getPM().getPOFactory().getAPKDownloadServiceDelegate(this);
+                    this.f11532a.onCreate();
                 } else {
                     GDTLogger.report("Init GDTADManager fail in DownloadService.oncreate");
                 }
@@ -27,27 +27,27 @@ public class DownloadService extends Service {
                 th.printStackTrace();
             }
         }
-        return this.f11530a != null;
+        return this.f11532a != null;
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         GDTLogger.d("DownloadService.onBind");
-        if (this.f11530a != null) {
-            return this.f11530a.onBind(intent);
+        if (this.f11532a != null) {
+            return this.f11532a.onBind(intent);
         }
         String stringExtra = intent.getStringExtra("GDT_APPID");
         GDTLogger.d("DownloadService.onBind,appID=" + stringExtra);
         if (StringUtil.isEmpty(stringExtra) || !a(stringExtra)) {
             return null;
         }
-        return this.f11530a.onBind(intent);
+        return this.f11532a.onBind(intent);
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.f11530a != null) {
-            this.f11530a.onConfigurationChanged(configuration);
+        if (this.f11532a != null) {
+            this.f11532a.onConfigurationChanged(configuration);
         }
     }
 
@@ -58,22 +58,22 @@ public class DownloadService extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.f11530a != null) {
-            this.f11530a.onDestroy();
+        if (this.f11532a != null) {
+            this.f11532a.onDestroy();
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
-        if (this.f11530a != null) {
-            this.f11530a.onLowMemory();
+        if (this.f11532a != null) {
+            this.f11532a.onLowMemory();
         }
     }
 
     @Override // android.app.Service
     public void onRebind(Intent intent) {
-        if (this.f11530a != null) {
-            this.f11530a.onRebind(intent);
+        if (this.f11532a != null) {
+            this.f11532a.onRebind(intent);
         }
     }
 
@@ -88,25 +88,25 @@ public class DownloadService extends Service {
             GDTLogger.w("Failto Start new download Service");
             return 2;
         }
-        return this.f11530a.onStartCommand(intent, i, i2);
+        return this.f11532a.onStartCommand(intent, i, i2);
     }
 
     @Override // android.app.Service
     public void onTaskRemoved(Intent intent) {
-        if (this.f11530a != null) {
-            this.f11530a.onTaskRemoved(intent);
+        if (this.f11532a != null) {
+            this.f11532a.onTaskRemoved(intent);
         }
     }
 
     @Override // android.app.Service, android.content.ComponentCallbacks2
     public void onTrimMemory(int i) {
-        if (this.f11530a != null) {
-            this.f11530a.onTrimMemory(i);
+        if (this.f11532a != null) {
+            this.f11532a.onTrimMemory(i);
         }
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return this.f11530a != null ? this.f11530a.onUnbind(intent) : super.onUnbind(intent);
+        return this.f11532a != null ? this.f11532a.onUnbind(intent) : super.onUnbind(intent);
     }
 }

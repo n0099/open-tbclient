@@ -33,7 +33,7 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements CompoundButton.OnCheckedChangeListener, com.baidu.platform.comapi.walknavi.d.b {
     private TextView A;
     private RelativeLayout B;
@@ -55,7 +55,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     private IWNPCLoadAndInitListener W;
 
     /* renamed from: a  reason: collision with root package name */
-    Animation f4295a;
+    Animation f4298a;
     private View aa;
     private View ab;
     private View ac;
@@ -64,7 +64,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     private TextView af;
 
     /* renamed from: b  reason: collision with root package name */
-    Animation f4296b;
+    Animation f4299b;
     CheckBox c;
     CheckBox d;
     CheckBox e;
@@ -99,19 +99,19 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     final Runnable i = new o(this);
     final Runnable j = new v(this);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(com.baidu.platform.comapi.walknavi.segmentbrowse.b bVar);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i);
 
         void a(String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a();
 
@@ -123,10 +123,10 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
         Bitmap imageToNormal;
         this.J = null;
         this.l = context;
-        this.f4295a = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.l, R.attr.actionBarPopupTheme);
-        this.f4295a.setFillAfter(true);
-        this.f4296b = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.l, R.attr.actionBarItemBackground);
-        this.f4296b.setFillAfter(true);
+        this.f4298a = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.l, R.attr.actionBarPopupTheme);
+        this.f4298a.setFillAfter(true);
+        this.f4299b = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.l, R.attr.actionBarItemBackground);
+        this.f4299b.setFillAfter(true);
         this.O.setDuration(300L);
         this.P.setDuration(300L);
         this.m = aVar;
@@ -154,7 +154,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
         }
         this.L.setOnClickListener(new r(this));
         this.p = (RelativeLayout) view.findViewById(R.dimen.abc_dialog_min_width_major);
-        if (com.baidu.platform.comapi.walknavi.b.a().r() != com.baidu.platform.comapi.walknavi.b.f4185a) {
+        if (com.baidu.platform.comapi.walknavi.b.a().r() != com.baidu.platform.comapi.walknavi.b.f4188a) {
         }
         this.q = (ImageButton) view.findViewById(R.dimen.abc_dialog_min_width_minor);
         this.q.setOnClickListener(new w(this));
@@ -249,8 +249,8 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 c(true);
             }
             if (!z) {
-                this.y.startAnimation(this.f4296b);
-                this.H.startAnimation(this.f4296b);
+                this.y.startAnimation(this.f4299b);
+                this.H.startAnimation(this.f4299b);
             }
         } else if (i == 2) {
             this.M = true;
@@ -261,9 +261,9 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 this.I.setVisibility(0);
             } else {
                 this.y.setVisibility(8);
-                this.y.startAnimation(this.f4295a);
-                this.H.startAnimation(this.f4295a);
-                this.f4295a.setAnimationListener(new g(this));
+                this.y.startAnimation(this.f4298a);
+                this.H.startAnimation(this.f4298a);
+                this.f4298a.setAnimationListener(new g(this));
             }
             com.baidu.platform.comapi.walknavi.b.a().D().c(true);
             this.n.postDelayed(this.i, 500L);
@@ -336,7 +336,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     public void c() {
         if (this.T) {
-            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0283c(this));
+            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0287c(this));
             String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
             if (TextUtils.isEmpty(a2)) {
                 b(true);
@@ -351,15 +351,15 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.b.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0283c implements g.a {
+    /* loaded from: classes4.dex */
+    public static class C0287c implements g.a {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<com.baidu.platform.comapi.walknavi.g.b.b> f4297a;
+        private WeakReference<com.baidu.platform.comapi.walknavi.g.b.b> f4300a;
 
-        public C0283c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
-            this.f4297a = null;
-            this.f4297a = new WeakReference<>(bVar);
+        public C0287c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
+            this.f4300a = null;
+            this.f4300a = new WeakReference<>(bVar);
         }
 
         @Override // com.baidu.platform.comapi.walknavi.d.g.a
@@ -403,7 +403,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     public void b() {
         Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(this.l, R.attr.actionBarPopupTheme);
         this.o.b();
-        if (com.baidu.platform.comapi.walknavi.g.a.b.f4282a == 2) {
+        if (com.baidu.platform.comapi.walknavi.g.a.b.f4285a == 2) {
             if (this.r.isShown()) {
                 this.r.setAnimation(c);
             }

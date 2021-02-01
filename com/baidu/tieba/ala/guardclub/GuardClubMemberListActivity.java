@@ -17,15 +17,15 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.view.BackBar;
 import com.baidu.tieba.ala.guardclub.model.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberListActivity> {
-    private TextView bRK;
-    private k gVD;
-    private g.a gWt = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
+    private TextView bVE;
+    private k gYn;
+    private g.a gZd = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
         @Override // com.baidu.tieba.ala.guardclub.model.g.a
-        public void ut(int i) {
-            if (GuardClubMemberListActivity.this.bRK != null) {
-                GuardClubMemberListActivity.this.bRK.setText(String.format(GuardClubMemberListActivity.this.getString(a.h.guard_member_number), Integer.valueOf(i)));
+        public void uz(int i) {
+            if (GuardClubMemberListActivity.this.bVE != null) {
+                GuardClubMemberListActivity.this.bVE.setText(String.format(GuardClubMemberListActivity.this.getString(a.h.guard_member_number), Integer.valueOf(i)));
             }
         }
     };
@@ -56,7 +56,7 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
                 findViewById.setVisibility(8);
             }
             FrameLayout frameLayout = (FrameLayout) findViewById(a.f.container_guard_club_member_list);
-            this.bRK = (TextView) findViewById(a.f.tv_guard_club_list_title);
+            this.bVE = (TextView) findViewById(a.f.tv_guard_club_list_title);
             View findViewById2 = findViewById(a.f.img_guard_club_list_back);
             findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.1
                 @Override // android.view.View.OnClickListener
@@ -78,8 +78,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
                 findViewById2.setVisibility(0);
                 backBar.setVisibility(8);
             }
-            this.gVD = new k(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.gWt);
-            View view = this.gVD.getView();
+            this.gYn = new k(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.gZd);
+            View view = this.gYn.getView();
             if (view != null) {
                 frameLayout.addView(view, new FrameLayout.LayoutParams(-1, -1));
             }
@@ -107,8 +107,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gVD != null) {
-            this.gVD.onPageDestroy();
+        if (this.gYn != null) {
+            this.gYn.onPageDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }

@@ -3,7 +3,7 @@ package androidx.core.database.sqlite;
 import android.database.sqlite.SQLiteCursor;
 import android.os.Build;
 import androidx.annotation.NonNull;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class SQLiteCursorCompat {
     private SQLiteCursorCompat() {
     }

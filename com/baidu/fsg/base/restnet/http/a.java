@@ -22,10 +22,10 @@ import java.util.TimeZone;
 public class a implements b<String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1909a = "Host";
+    public static final String f1907a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f1910b = "Accept";
+    private static final String f1908b = "Accept";
     private static final String c = "Accept-Charset";
     private static final String d = "Accept-Encoding";
     private static final String e = "Accept-Language";
@@ -88,11 +88,11 @@ public class a implements b<String, String> {
     }
 
     public String a() {
-        return c(f1910b);
+        return c(f1908b);
     }
 
     public void a(String str) {
-        a(f1910b, str);
+        a(f1908b, str);
     }
 
     public List<Charset> b() {

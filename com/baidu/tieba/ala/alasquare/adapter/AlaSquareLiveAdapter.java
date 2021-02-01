@@ -9,32 +9,32 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.a.e;
 import com.baidu.tieba.ala.alasquare.widget.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
-    private boolean gvA;
-    private boolean gvB;
-    private int gvt;
-    d gvu;
-    private boolean gvz;
+    private int gyd;
+    d gye;
+    private boolean gyj;
+    private boolean gyk;
+    private boolean gyl;
     private TbPageContext<?> mPageContext;
     private int mTabIndex;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Q */
+    /* renamed from: O */
     public SquareLiveViewHolder e(ViewGroup viewGroup) {
         com.baidu.tieba.ala.alasquare.widget.e eVar;
         if (this.mTabIndex == 1) {
-            eVar = new com.baidu.tieba.ala.alasquare.widget.e(this.mPageContext, com.baidu.tieba.ala.alasquare.widget.a.bRX());
+            eVar = new com.baidu.tieba.ala.alasquare.widget.e(this.mPageContext, com.baidu.tieba.ala.alasquare.widget.a.bSA());
         } else {
             eVar = new com.baidu.tieba.ala.alasquare.widget.e(this.mPageContext);
         }
-        eVar.mL(this.gvz);
-        eVar.mM(this.gvA);
-        eVar.mK(this.gvB);
-        eVar.setFromPage(bQs());
-        eVar.a(this.gvu);
+        eVar.mP(this.gyj);
+        eVar.mQ(this.gyk);
+        eVar.mO(this.gyl);
+        eVar.setFromPage(bQW());
+        eVar.a(this.gye);
         return new SquareLiveViewHolder(eVar);
     }
 
@@ -43,21 +43,21 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, e eVar, SquareLiveViewHolder squareLiveViewHolder) {
         com.baidu.tieba.ala.alasquare.widget.e eVar2;
-        if (squareLiveViewHolder == null || (eVar2 = squareLiveViewHolder.gvC) == null || eVar2.getView() == null) {
+        if (squareLiveViewHolder == null || (eVar2 = squareLiveViewHolder.gym) == null || eVar2.getView() == null) {
             return null;
         }
         if (eVar != null) {
             eVar.locate = i + 1;
         }
         eVar2.a(eVar);
-        com.baidu.tieba.ala.alasquare.b.a.bRu().e(eVar.aA(bQt(), false));
-        if (i == this.gvt) {
+        com.baidu.tieba.ala.alasquare.b.a.bRX().e(eVar.az(bQX(), false));
+        if (i == this.gyd) {
             eVar2.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
         }
         return squareLiveViewHolder.getView();
     }
 
-    private String bQs() {
+    private String bQW() {
         if (this.mTabIndex == 0) {
             return "square_live";
         }
@@ -70,7 +70,7 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
         return null;
     }
 
-    private String bQt() {
+    private String bQX() {
         if (this.mTabIndex == 0) {
             return "c12117";
         }
@@ -83,13 +83,13 @@ public class AlaSquareLiveAdapter extends a<e, SquareLiveViewHolder> {
         return null;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class SquareLiveViewHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.ala.alasquare.widget.e gvC;
+        public com.baidu.tieba.ala.alasquare.widget.e gym;
 
         public SquareLiveViewHolder(com.baidu.tieba.ala.alasquare.widget.e eVar) {
             super(eVar.getView());
-            this.gvC = eVar;
+            this.gym = eVar;
         }
     }
 }

@@ -8,32 +8,32 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private final r f10102a;
+    private final r f10104a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final a f10103b;
+    private final a f10105b;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Map<Class<?>, C1123a<?>> f10104a = new HashMap();
+        private final Map<Class<?>, C1127a<?>> f10106a = new HashMap();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.kwad.sdk.glide.load.b.p$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C1123a<Model> {
+        /* loaded from: classes3.dex */
+        public static class C1127a<Model> {
 
             /* renamed from: a  reason: collision with root package name */
-            final List<n<Model, ?>> f10105a;
+            final List<n<Model, ?>> f10107a;
 
-            public C1123a(List<n<Model, ?>> list) {
-                this.f10105a = list;
+            public C1127a(List<n<Model, ?>> list) {
+                this.f10107a = list;
             }
         }
 
@@ -42,19 +42,19 @@ public class p {
 
         @Nullable
         public <Model> List<n<Model, ?>> a(Class<Model> cls) {
-            C1123a<?> c1123a = this.f10104a.get(cls);
-            if (c1123a == null) {
+            C1127a<?> c1127a = this.f10106a.get(cls);
+            if (c1127a == null) {
                 return null;
             }
-            return (List<n<Model, ?>>) c1123a.f10105a;
+            return (List<n<Model, ?>>) c1127a.f10107a;
         }
 
         public void a() {
-            this.f10104a.clear();
+            this.f10106a.clear();
         }
 
         public <Model> void a(Class<Model> cls, List<n<Model, ?>> list) {
-            if (this.f10104a.put(cls, new C1123a<>(list)) != null) {
+            if (this.f10106a.put(cls, new C1127a<>(list)) != null) {
                 throw new IllegalStateException("Already cached loaders for model: " + cls);
             }
         }
@@ -65,8 +65,8 @@ public class p {
     }
 
     private p(@NonNull r rVar) {
-        this.f10103b = new a();
-        this.f10102a = rVar;
+        this.f10105b = new a();
+        this.f10104a = rVar;
     }
 
     @NonNull
@@ -77,17 +77,17 @@ public class p {
     @NonNull
     private synchronized <A> List<n<A, ?>> b(@NonNull Class<A> cls) {
         List<n<A, ?>> a2;
-        a2 = this.f10103b.a(cls);
+        a2 = this.f10105b.a(cls);
         if (a2 == null) {
-            a2 = Collections.unmodifiableList(this.f10102a.a(cls));
-            this.f10103b.a(cls, a2);
+            a2 = Collections.unmodifiableList(this.f10104a.a(cls));
+            this.f10105b.a(cls, a2);
         }
         return a2;
     }
 
     @NonNull
     public synchronized List<Class<?>> a(@NonNull Class<?> cls) {
-        return this.f10102a.b(cls);
+        return this.f10104a.b(cls);
     }
 
     @NonNull
@@ -110,7 +110,7 @@ public class p {
     }
 
     public synchronized <Model, Data> void a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<? extends Model, ? extends Data> oVar) {
-        this.f10102a.a(cls, cls2, oVar);
-        this.f10103b.a();
+        this.f10104a.a(cls, cls2, oVar);
+        this.f10105b.a();
     }
 }

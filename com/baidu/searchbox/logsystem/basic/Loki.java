@@ -16,7 +16,7 @@ import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.searchbox.logsystem.util.Common;
 import com.baidu.searchbox.track.Track;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Loki {
     private static final String CRASH_PAD_PROCESS_NAME = ":crashpad";
     private static volatile boolean sIsInitialized = false;
@@ -94,7 +94,7 @@ public class Loki {
     }
 
     public static void retryUpload(Context context) {
-        if (a.adJ() && LogSystemUploaderStrategy.checkFlag()) {
+        if (a.aea() && LogSystemUploaderStrategy.checkFlag()) {
             LogSystemServiceUtil.startLogHandlerService(context);
         }
     }

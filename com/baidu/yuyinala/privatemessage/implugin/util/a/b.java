@@ -11,21 +11,20 @@ import android.media.ExifInterface;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final String TAG;
-    private static final boolean oXb;
-    public static double oXc;
+    private static final boolean pho;
+    public static double php;
 
     static {
-        oXb = Build.VERSION.SDK_INT >= 11;
+        pho = Build.VERSION.SDK_INT >= 11;
         TAG = b.class.getSimpleName();
-        oXc = 1.778d;
+        php = 1.778d;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [106=5, 108=4, 109=4, 110=4] */
@@ -130,7 +129,7 @@ public class b {
                 if (Math.max(options.outWidth, options.outHeight) > 0) {
                     float max = f / Math.max(options.outWidth, options.outHeight);
                     float f2 = max <= 1.0f ? max : 1.0f;
-                    options.inSampleSize = bA(f2);
+                    options.inSampleSize = bD(f2);
                     options.inJustDecodeBounds = false;
                     options.inPreferredConfig = Bitmap.Config.ARGB_4444;
                     e(options);
@@ -154,7 +153,7 @@ public class b {
         if (max <= 0.5d) {
             bitmap = a(bitmap, max, true);
         }
-        return b(i, Z(bitmap));
+        return b(i, Y(bitmap));
     }
 
     private static Bitmap a(Bitmap bitmap, float f, boolean z) {
@@ -177,7 +176,7 @@ public class b {
         return bitmap;
     }
 
-    private static Bitmap Z(Bitmap bitmap) {
+    private static Bitmap Y(Bitmap bitmap) {
         if (bitmap != null && bitmap.getConfig() == null) {
             Bitmap copy = bitmap.copy(Bitmap.Config.ARGB_8888, false);
             bitmap.recycle();
@@ -188,7 +187,7 @@ public class b {
 
     @TargetApi(11)
     private static void e(BitmapFactory.Options options) {
-        if (oXb) {
+        if (pho) {
             options.inMutable = true;
         }
     }
@@ -206,7 +205,7 @@ public class b {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (IOException e) {
             Log.e(TAG, e.getMessage());
@@ -214,15 +213,15 @@ public class b {
         }
     }
 
-    private static int bA(float f) {
+    private static int bD(float f) {
         int floor = (int) Math.floor(1.0f / f);
         if (floor <= 1) {
             return 1;
         }
-        return floor <= 8 ? NF(floor) : (floor / 8) * 8;
+        return floor <= 8 ? Oa(floor) : (floor / 8) * 8;
     }
 
-    private static int NF(int i) throws IllegalArgumentException {
+    private static int Oa(int i) throws IllegalArgumentException {
         if (i <= 0) {
             throw new IllegalArgumentException();
         }

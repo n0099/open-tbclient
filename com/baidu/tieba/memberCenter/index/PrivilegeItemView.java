@@ -8,11 +8,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PrivilegeItemView extends RelativeLayout {
-    private TbImageView ldJ;
-    private PrivilegeTextView ldL;
-    private TextView ldM;
+    private TbImageView llM;
+    private PrivilegeTextView llO;
+    private TextView llP;
     private Context mContext;
     private View mRootView;
 
@@ -36,12 +36,12 @@ public class PrivilegeItemView extends RelativeLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.index_privilege_item, this);
-        this.ldJ = (TbImageView) this.mRootView.findViewById(R.id.privilege_icon);
-        this.ldL = (PrivilegeTextView) this.mRootView.findViewById(R.id.privilege_name);
-        this.ldM = (TextView) this.mRootView.findViewById(R.id.privilege_desc);
+        this.llM = (TbImageView) this.mRootView.findViewById(R.id.privilege_icon);
+        this.llO = (PrivilegeTextView) this.mRootView.findViewById(R.id.privilege_name);
+        this.llP = (TextView) this.mRootView.findViewById(R.id.privilege_desc);
     }
 
     public PrivilegeTextView getPrivilegeName() {
-        return this.ldL;
+        return this.llO;
     }
 }

@@ -2,29 +2,29 @@ package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GiftInfo;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g extends BaseCardInfo {
-    public static final BdUniqueId msC = BdUniqueId.gen();
-    public String Or;
+    public static final BdUniqueId mBC = BdUniqueId.gen();
+    public String Op;
     public int giftNum = 0;
+    public boolean mBD;
+    public String mBE;
+    public List<com.baidu.adp.widget.ListView.n> mBF;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
-    public boolean msD;
-    public String msE;
-    public List<com.baidu.adp.widget.ListView.n> msF;
 
     public void parserProtoBuf(User user) {
-        if (user != null && !x.isEmpty(user.gift_list)) {
+        if (user != null && !y.isEmpty(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
-            this.Or = user.name;
-            this.msE = user.name_show;
+            this.Op = user.name;
+            this.mBE = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -32,28 +32,28 @@ public class g extends BaseCardInfo {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.msD = false;
+                this.mBD = false;
             } else {
-                this.msD = true;
+                this.mBD = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.msF = new ArrayList();
+            this.mBF = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.msF.add(oVar);
+                    this.mBF.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !x.isEmpty(this.msF);
+        return !y.isEmpty(this.mBF);
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return msC;
+        return mBC;
     }
 }

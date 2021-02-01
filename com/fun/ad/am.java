@@ -5,39 +5,39 @@ import com.fun.ad.au;
 import com.fun.ad.d;
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunRippedAd;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class am implements ax {
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f7751b;
-    public final /* synthetic */ FunAdInteractionListener pEV;
-    public final /* synthetic */ au.a pEW;
-    public final /* synthetic */ p pEX;
+    public final /* synthetic */ String f7753b;
+    public final /* synthetic */ FunAdInteractionListener pPa;
+    public final /* synthetic */ au.a pPb;
+    public final /* synthetic */ p pPc;
 
     public am(p pVar, FunAdInteractionListener funAdInteractionListener, String str, au.a aVar) {
-        this.pEX = pVar;
-        this.pEV = funAdInteractionListener;
-        this.f7751b = str;
-        this.pEW = aVar;
+        this.pPc = pVar;
+        this.pPa = funAdInteractionListener;
+        this.f7753b = str;
+        this.pPb = aVar;
     }
 
     public void a(String str, View view, int i) {
         m.a("FunAdLoader 穿山甲广告 onAdClicked，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pEV;
+        FunAdInteractionListener funAdInteractionListener = this.pPa;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdClicked(this.pEX.pEF.f7758a);
+            funAdInteractionListener.onAdClicked(this.pPc.pOK.f7760a);
         }
-        bg bgVar = this.pEX.pEG;
-        String str2 = this.f7751b;
-        au.a aVar = this.pEW;
+        bg bgVar = this.pPc.pOL;
+        String str2 = this.f7753b;
+        au.a aVar = this.pPb;
         if (bgVar != null) {
-            bd bdVar = bgVar.f7768a.get(bgVar.a(str2, aVar.f7760a));
-            FunRippedAd exX = bdVar != null ? bdVar.exX() : null;
-            if (exX != null) {
-                ((d.a) d.pEu).a(this.f7751b, this.pEW.f7761b, str, exX.appPackageName, exX.appLinkUrl);
+            bd bdVar = bgVar.f7770a.get(bgVar.a(str2, aVar.f7762a));
+            FunRippedAd eAp = bdVar != null ? bdVar.eAp() : null;
+            if (eAp != null) {
+                ((d.a) d.pOz).a(this.f7753b, this.pPb.f7763b, str, eAp.appPackageName, eAp.appLinkUrl);
                 return;
             } else {
-                ((d.a) d.pEu).a(this.f7751b, this.pEW.f7761b, str, (String) null, (String) null);
+                ((d.a) d.pOz).a(this.f7753b, this.pPb.f7763b, str, (String) null, (String) null);
                 return;
             }
         }
@@ -46,28 +46,28 @@ public class am implements ax {
 
     public void b(String str) {
         m.a("FunAdLoader 穿山甲广告 onAdDismiss，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pEV;
+        FunAdInteractionListener funAdInteractionListener = this.pPa;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdClose(this.pEX.pEF.f7758a);
+            funAdInteractionListener.onAdClose(this.pPc.pOK.f7760a);
         }
-        ((d.a) d.pEu).a(this.f7751b, this.pEW.f7761b, str);
+        ((d.a) d.pOz).a(this.f7753b, this.pPb.f7763b, str);
     }
 
     public void b(String str, View view, int i) {
         m.a("FunAdLoader 穿山甲广告 onAdShow，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pEV;
+        FunAdInteractionListener funAdInteractionListener = this.pPa;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdShow(this.pEX.pEF.f7758a);
+            funAdInteractionListener.onAdShow(this.pPc.pOK.f7760a);
         }
-        ((d.a) d.pEu).d(this.f7751b, this.pEW.f7761b, str);
+        ((d.a) d.pOz).d(this.f7753b, this.pPb.f7763b, str);
     }
 
     public void a(String str) {
         m.a("FunAdLoader 穿山甲广告 onAdClose，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pEV;
+        FunAdInteractionListener funAdInteractionListener = this.pPa;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdClose(this.pEX.pEF.f7758a);
+            funAdInteractionListener.onAdClose(this.pPc.pOK.f7760a);
         }
-        ((d.a) d.pEu).a(this.f7751b, this.pEW.f7761b, str);
+        ((d.a) d.pOz).a(this.f7753b, this.pPb.f7763b, str);
     }
 }

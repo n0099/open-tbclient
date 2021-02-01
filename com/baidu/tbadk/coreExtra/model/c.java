@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.n;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.o;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,11 +56,11 @@ public class c {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        BO(str2);
+                        Cf(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        BO(str2);
+                        Cf(str2);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bym() {
+    public void byE() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
@@ -79,28 +79,28 @@ public class c {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void BO(String str) {
+    public void Cf(String str) {
         String localUrl = getLocalUrl();
         if (!TextUtils.equals(localUrl, str) || !isFileExist(localUrl)) {
-            dZ(str, localUrl);
+            dU(str, localUrl);
         }
     }
 
     private boolean isFileExist(String str) {
-        File GetFile = n.GetFile(av.getNameMd5FromUrl(str));
+        File GetFile = o.GetFile(aw.getNameMd5FromUrl(str));
         return GetFile != null && GetFile.exists() && GetFile.isFile();
     }
 
-    private void dZ(String str, String str2) {
+    private void dU(String str, String str2) {
         if (j.isWifiNet()) {
-            new a(str, av.getNameMd5FromUrl(str), str2).execute(new String[0]);
+            new a(str, aw.getNameMd5FromUrl(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private z chV = null;
+        private aa cml = null;
         private final String mFile;
         private final String mLocalUrl;
         private final String mRemoteUrl;
@@ -117,14 +117,14 @@ public class c {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.chV = new z(this.mRemoteUrl);
-                bool = Boolean.valueOf(this.chV.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
+                this.cml = new aa(this.mRemoteUrl);
+                bool = Boolean.valueOf(this.cml.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(n.renameTo(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.mRemoteUrl) && !this.mRemoteUrl.equals(this.mLocalUrl)) {
-                        n.DelFile(av.getNameMd5FromUrl(this.mLocalUrl));
+                    if (!StringUtils.isNull(o.renameTo(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.mRemoteUrl) && !this.mRemoteUrl.equals(this.mLocalUrl)) {
+                        o.DelFile(aw.getNameMd5FromUrl(this.mLocalUrl));
                     }
                 } else {
-                    n.DelFile(this.mFile + ".tmp");
+                    o.DelFile(this.mFile + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -137,7 +137,7 @@ public class c {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new c().bym();
+                new c().byE();
             }
         }
     }

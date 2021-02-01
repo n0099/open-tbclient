@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
@@ -24,7 +24,7 @@ public class c {
     private a h;
     private int i = 0;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */

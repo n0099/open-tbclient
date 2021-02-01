@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import androidx.annotation.RequiresApi;
 import com.kwad.sdk.api.core.ApiWebView;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KSApiWebView extends ApiWebView {
     public KSApiWebView(Context context) {
         super(a(ao.d(context)));

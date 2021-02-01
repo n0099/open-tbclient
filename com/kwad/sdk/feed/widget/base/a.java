@@ -15,16 +15,16 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.g;
 import com.kwad.sdk.utils.s;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class a extends com.kwad.sdk.core.view.b {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    protected AdTemplate f9860a;
+    protected AdTemplate f9862a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected AdInfo f9861b;
-    protected InterfaceC1114a c;
+    protected AdInfo f9863b;
+    protected InterfaceC1118a c;
     @NonNull
     protected Context d;
     protected s.a e;
@@ -33,8 +33,8 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     private g.a h;
 
     /* renamed from: com.kwad.sdk.feed.widget.base.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1114a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC1118a {
         void a();
 
         void b();
@@ -74,21 +74,21 @@ public abstract class a extends com.kwad.sdk.core.view.b {
             b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(b2);
         }
-        b2.setViewCallback(new a.InterfaceC1099a() { // from class: com.kwad.sdk.feed.widget.base.a.2
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1099a
+        b2.setViewCallback(new a.InterfaceC1103a() { // from class: com.kwad.sdk.feed.widget.base.a.2
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1099a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
             public void a(View view) {
                 a.this.j();
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1099a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1099a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
             public void b() {
             }
         });
@@ -125,8 +125,8 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f9860a = adTemplate;
-        this.f9861b = c.j(adTemplate);
+        this.f9862a = adTemplate;
+        this.f9863b = c.j(adTemplate);
     }
 
     @Override // com.kwad.sdk.core.view.b
@@ -175,15 +175,15 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     }
 
     protected void j() {
-        if (!this.f9860a.mPvReported && this.c != null) {
+        if (!this.f9862a.mPvReported && this.c != null) {
             this.c.b();
         }
-        com.kwad.sdk.core.report.b.a(this.f9860a, (JSONObject) null);
+        com.kwad.sdk.core.report.b.a(this.f9862a, (JSONObject) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void k() {
-        com.kwad.sdk.core.report.b.a(this.f9860a, getTouchCoords());
+        com.kwad.sdk.core.report.b.a(this.f9862a, getTouchCoords());
         if (this.c != null) {
             this.c.a();
         }
@@ -191,7 +191,7 @@ public abstract class a extends com.kwad.sdk.core.view.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void l() {
-        com.kwad.sdk.core.report.b.a(this.f9860a);
+        com.kwad.sdk.core.report.b.a(this.f9862a);
         if (this.c != null) {
             this.c.c();
         }
@@ -207,8 +207,8 @@ public abstract class a extends com.kwad.sdk.core.view.b {
         super.onMeasure(i, i2);
     }
 
-    public void setAdClickListener(InterfaceC1114a interfaceC1114a) {
-        this.c = interfaceC1114a;
+    public void setAdClickListener(InterfaceC1118a interfaceC1118a) {
+        this.c = interfaceC1118a;
     }
 
     public void setMargin(int i) {

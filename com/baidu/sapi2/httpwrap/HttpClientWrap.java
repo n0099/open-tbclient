@@ -20,28 +20,28 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class HttpClientWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    private PassHttpClient f4965a = new PassHttpClient();
+    private PassHttpClient f4967a = new PassHttpClient();
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f4966b;
+    private Context f4968b;
     private String c;
     private String d;
 
     public HttpClientWrap() {
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
         if (confignation != null) {
-            this.f4966b = confignation.context;
+            this.f4968b = confignation.context;
             this.c = confignation.environment.getURL();
             this.d = confignation.appSignKey;
         }
     }
 
     public void cancelRequest() {
-        PassHttpClient passHttpClient = this.f4965a;
+        PassHttpClient passHttpClient = this.f4967a;
         if (passHttpClient != null) {
             passHttpClient.cancelRequests(true);
         }
@@ -95,7 +95,7 @@ public class HttpClientWrap {
         if (!a(httpHandlerWrap)) {
             return;
         }
-        this.f4965a.post(this.f4966b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.5
+        this.f4967a.post(this.f4968b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.5
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onFailure(Throwable th, String str3) {
                 HttpClientWrap.this.a(httpHandlerWrap, th, str3);
@@ -134,7 +134,7 @@ public class HttpClientWrap {
         if (!a(httpHandlerWrap)) {
             return;
         }
-        this.f4965a.get(this.f4966b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
+        this.f4967a.get(this.f4968b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onFailure(Throwable th, String str3) {
                 HttpClientWrap.this.a(httpHandlerWrap, th, str3);
@@ -164,7 +164,7 @@ public class HttpClientWrap {
     }
 
     private boolean a(HttpHandlerWrap httpHandlerWrap) {
-        Context context = this.f4966b;
+        Context context = this.f4968b;
         if (context == null) {
             httpHandlerWrap.onFailure(null, -801, "服务异常，请稍后再试");
             httpHandlerWrap.onFinish();
@@ -187,7 +187,7 @@ public class HttpClientWrap {
         if (!a(binaryHttpHandlerWrap)) {
             return;
         }
-        this.f4965a.get(this.f4966b, a(str, httpHashMap, hashMap, list, str2, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
+        this.f4967a.get(this.f4968b, a(str, httpHashMap, hashMap, list, str2, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onFailure(Throwable th, String str3) {
                 HttpClientWrap.this.a(binaryHttpHandlerWrap, th, str3);

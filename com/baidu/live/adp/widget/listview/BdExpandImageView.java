@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 import com.baidu.live.adp.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdExpandImageView extends ImageView {
     private static final boolean mEnabled = false;
     private final DisplayMetrics dm;

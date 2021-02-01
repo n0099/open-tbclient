@@ -2,7 +2,7 @@ package com.bytedance.sdk.a.b.a.a;
 
 import com.bytedance.sdk.a.b.ab;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface e {
     void a();
 

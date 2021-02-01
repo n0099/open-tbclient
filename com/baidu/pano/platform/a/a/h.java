@@ -6,7 +6,7 @@ import com.baidubce.http.Headers;
 import java.util.Map;
 import org.apache.http.impl.cookie.DateParseException;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static b.a a(com.baidu.pano.platform.a.l lVar) {
         boolean z;
@@ -79,8 +79,8 @@ public class h {
             j4 = j8;
         }
         b.a aVar = new b.a();
-        aVar.f3864a = lVar.f3881b;
-        aVar.f3865b = str5;
+        aVar.f3867a = lVar.f3884b;
+        aVar.f3868b = str5;
         aVar.f = j4;
         aVar.e = j3;
         aVar.c = j5;

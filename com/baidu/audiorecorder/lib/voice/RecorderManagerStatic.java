@@ -9,7 +9,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.m;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RecorderManagerStatic {
     public static String Tag = "tag";
 
@@ -17,7 +17,7 @@ public class RecorderManagerStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_RECORDER_MANAGER_INSTANCE, new CustomMessageTask.CustomRunnable<Activity>() { // from class: com.baidu.audiorecorder.lib.voice.RecorderManagerStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.tbadkCore.voice.a> run(CustomMessage<Activity> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECORDER_MANAGER_INSTANCE, e.rW());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECORDER_MANAGER_INSTANCE, e.rT());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -74,7 +74,7 @@ public class RecorderManagerStatic {
         TbadkCoreApplication.getInst().setAudioRecorderExist(true);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     static class a {
         a() {
         }

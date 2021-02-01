@@ -1,13 +1,13 @@
 package com.baidu.crabsdk.a;
 
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 final class f implements Runnable {
-    final /* synthetic */ e aoB;
+    final /* synthetic */ e aor;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.aoB = eVar;
+        this.aor = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -16,14 +16,14 @@ final class f implements Runnable {
         if ("NONE".equals(I) || RomUtils.UNKNOWN.equals(I)) {
             com.baidu.crabsdk.c.a.v("network is not available!");
         } else if ("WIFI".equals(I)) {
-            e.a(this.aoB);
+            e.a(this.aor);
         } else if (com.baidu.crabsdk.a.s) {
             com.baidu.crabsdk.c.a.v("network is not wifi, and UPLOAD_CRASH_ONLY_WIFI is true!");
         } else if (!"MOBILE".equals(I)) {
             com.baidu.crabsdk.c.a.v("network is not wifi!");
         } else {
             com.baidu.crabsdk.c.a.v("upload without wifi!");
-            e.a(this.aoB);
+            e.a(this.aor);
         }
     }
 }

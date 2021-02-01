@@ -1,15 +1,15 @@
 package com.baidu.live.videochat.d;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface f {
     void C(String str, boolean z);
 
     void D(String str, boolean z);
 
-    void Uj();
+    void VS();
 
-    void Uk();
+    void VT();
 
     void a(int i, boolean z, int i2, String str, String str2, String str3);
 

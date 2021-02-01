@@ -1,7 +1,7 @@
 package com.qq.e.comm.util;
 
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class GDTLogger {
     public static final boolean DEBUG_ENABLE = false;
 

@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnItemTouchListener {
     private GestureDetectorCompat mGestureDetector;
     private RecyclerView mRecyclerView;
@@ -35,7 +35,7 @@ public abstract class SwanAppThumbnailClickListener implements RecyclerView.OnIt
     public void onRequestDisallowInterceptTouchEvent(boolean z) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private class a extends GestureDetector.SimpleOnGestureListener {
         private a() {
         }

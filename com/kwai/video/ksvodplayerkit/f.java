@@ -6,15 +6,15 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f11074a = null;
+    private static f f11076a = null;
     private final Object c = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, a> f11075b = new LinkedHashMap(100);
+    private Map<String, a> f11077b = new LinkedHashMap(100);
     private com.kwai.video.ksvodplayerkit.a d = new com.kwai.video.ksvodplayerkit.a() { // from class: com.kwai.video.ksvodplayerkit.f.1
         @Override // com.kwai.video.ksvodplayerkit.a
         public String a(String str) {
@@ -23,18 +23,18 @@ public class f {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f11077a;
+        boolean f11079a;
 
         /* renamed from: b  reason: collision with root package name */
-        long f11078b;
+        long f11080b;
 
         private a() {
-            this.f11077a = false;
-            this.f11078b = 0L;
+            this.f11079a = false;
+            this.f11080b = 0L;
         }
     }
 
@@ -45,10 +45,10 @@ public class f {
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f11074a == null) {
-                f11074a = new f();
+            if (f11076a == null) {
+                f11076a = new f();
             }
-            fVar = f11074a;
+            fVar = f11076a;
         }
         return fVar;
     }
@@ -61,11 +61,11 @@ public class f {
     public String a(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
-            com.kwai.video.ksvodplayerkit.a.b.a("KSVodPlayStatManager", "size:" + this.f11075b.size() + ", add url:" + str);
+            com.kwai.video.ksvodplayerkit.a.b.a("KSVodPlayStatManager", "size:" + this.f11077b.size() + ", add url:" + str);
             synchronized (this.c) {
-                if (this.f11075b.size() >= 100) {
+                if (this.f11077b.size() >= 100) {
                     int i = 0;
-                    Iterator<Map.Entry<String, a>> it = this.f11075b.entrySet().iterator();
+                    Iterator<Map.Entry<String, a>> it = this.f11077b.entrySet().iterator();
                     while (it.hasNext()) {
                         it.next();
                         it.remove();
@@ -76,10 +76,10 @@ public class f {
                     }
                 }
                 str2 = this.d.a(str);
-                if (!this.f11075b.containsKey(str2)) {
+                if (!this.f11077b.containsKey(str2)) {
                     a aVar = new a();
-                    aVar.f11077a = AwesomeCache.isFullyCached(str2);
-                    this.f11075b.put(str2, aVar);
+                    aVar.f11079a = AwesomeCache.isFullyCached(str2);
+                    this.f11077b.put(str2, aVar);
                 }
             }
         }
@@ -93,12 +93,12 @@ public class f {
         }
         String a2 = this.d.a(str);
         synchronized (this.c) {
-            if (!this.f11075b.containsKey(a2)) {
+            if (!this.f11077b.containsKey(a2)) {
                 a(str);
             }
-            a aVar = this.f11075b.get(a2);
+            a aVar = this.f11077b.get(a2);
             if (aVar != null) {
-                aVar.f11078b = j;
+                aVar.f11080b = j;
             }
         }
     }
@@ -119,9 +119,9 @@ public class f {
         }
         String a2 = this.d.a(str);
         synchronized (this.c) {
-            if (this.f11075b.containsKey(a2)) {
-                a aVar = this.f11075b.get(a2);
-                j = aVar != null ? aVar.f11078b : 0L;
+            if (this.f11077b.containsKey(a2)) {
+                a aVar = this.f11077b.get(a2);
+                j = aVar != null ? aVar.f11080b : 0L;
             } else {
                 j = 0;
             }

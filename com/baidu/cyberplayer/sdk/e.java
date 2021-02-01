@@ -14,11 +14,11 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
 
     /* renamed from: a  reason: collision with root package name */
-    protected a f1760a;
+    protected a f1758a;
     private int h;
     private int i;
     private int j;
@@ -32,7 +32,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     private i.a y;
 
     /* renamed from: b  reason: collision with root package name */
-    private final float[] f1761b = {-1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
+    private final float[] f1759b = {-1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
     private final String d = "uniform mat4 uMVPMatrix;\nuniform mat4 uSTMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n  gl_Position = uMVPMatrix * aPosition;\n  vTextureCoord = (uSTMatrix * aTextureCoord).xy;\n}\n";
     private final String e = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n  gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
     private float[] f = new float[16];
@@ -44,15 +44,15 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     private float v = 1.0f;
     private int w = 0;
     private int x = 0;
-    private FloatBuffer c = ByteBuffer.allocateDirect(this.f1761b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+    private FloatBuffer c = ByteBuffer.allocateDirect(this.f1759b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
     }
 
     public e() {
-        this.c.put(this.f1761b).position(0);
+        this.c.put(this.f1759b).position(0);
         Matrix.setIdentityM(this.g, 0);
         this.s = false;
         this.t = new f();
@@ -162,8 +162,12 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
         a("glEnableVertexAttribArray maTextureHandle");
         Matrix.setIdentityM(this.f, 0);
         float[] c = this.t.c();
+        if (this.t.f()) {
+            float[] e = this.t.e();
+            Matrix.translateM(this.f, 0, e[0], e[1], 0.0f);
+        }
         Matrix.scaleM(this.f, 0, c[0], c[1], 0.0f);
-        Matrix.rotateM(this.f, 0, this.t.d(), 0.0f, 0.0f, 1.0f);
+        Matrix.rotateM(this.f, 0, this.t.g(), 0.0f, 0.0f, 1.0f);
         GLES20.glUniformMatrix4fv(this.j, 1, false, this.f, 0);
         GLES20.glUniformMatrix4fv(this.k, 1, false, this.g, 0);
         GLES20.glDrawArrays(5, 0, 4);
@@ -241,25 +245,25 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                     int i2 = this.x;
                     this.u = false;
                     CyberLog.i("CyberRender", "drawScreenSnapshot called");
-                    int g = this.t.g();
-                    int h = this.t.h();
-                    int round = Math.round(g * this.v);
-                    int round2 = Math.round(h * this.v);
+                    int j = this.t.j();
+                    int k = this.t.k();
+                    int round = Math.round(j * this.v);
+                    int round2 = Math.round(k * this.v);
                     if (round <= 0 || round2 <= 0) {
                         return;
                     }
-                    CyberLog.i("CyberRender", "drawScreenSnapshot called mSurfaceWidth:" + g + " mSurfaceHeight:" + h + " snapWidth:" + round + " snapHeight:" + round2);
+                    CyberLog.i("CyberRender", "drawScreenSnapshot called mSurfaceWidth:" + j + " mSurfaceHeight:" + k + " snapWidth:" + round + " snapHeight:" + round2);
                     GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
                     GLES20.glClear(16640);
                     b(i, i2, round, round2);
                     c(i, i2, round, round2);
-                    if (round != g || round2 != h) {
+                    if (round != j || round2 != k) {
                         GLES20.glClearColor(255.0f, 255.0f, 255.0f, 1.0f);
                         GLES20.glClear(16640);
                     }
-                    GLES20.glViewport(0, 0, this.t.g(), this.t.h());
-                    if (this.f1760a != null) {
-                        this.f1760a.a();
+                    GLES20.glViewport(0, 0, this.t.j(), this.t.k());
+                    if (this.f1758a != null) {
+                        this.f1758a.a();
                     }
                     CyberLog.i("CyberRender", "drawScreenSnapshot called end x:" + i + " y:" + i2);
                 }
@@ -283,8 +287,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
             this.w = i;
             this.x = i2;
         }
-        if (this.f1760a != null) {
-            this.f1760a.a();
+        if (this.f1758a != null) {
+            this.f1758a.a();
         }
     }
 
@@ -301,7 +305,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     }
 
     public void a(a aVar) {
-        this.f1760a = aVar;
+        this.f1758a = aVar;
     }
 
     public void a(i.a aVar) {
@@ -357,8 +361,8 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
                 return;
             }
             this.p = true;
-            if (this.f1760a != null) {
-                this.f1760a.a();
+            if (this.f1758a != null) {
+                this.f1758a.a();
             }
         }
     }

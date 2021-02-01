@@ -171,7 +171,7 @@ public class GroupInfoDAOImpl {
 
     public static int updateGroupInfoMarkTop(Context context, long j, int i, long j2) {
         if (context == null) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -188,7 +188,7 @@ public class GroupInfoDAOImpl {
 
     public static int updateGroupInfo(Context context, GroupInfo groupInfo) {
         if (context == null || groupInfo == null) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -279,7 +279,7 @@ public class GroupInfoDAOImpl {
 
     public static int updateMemberToGroup(Context context, String str, GroupMember groupMember) {
         if (context == null || TextUtils.isEmpty(str) || groupMember == null) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -293,7 +293,7 @@ public class GroupInfoDAOImpl {
 
     public static int updateMemberNickName(Context context, String str, String str2, String str3) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -464,7 +464,7 @@ public class GroupInfoDAOImpl {
 
     public static int quitGroup(Context context, final String str) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -490,7 +490,7 @@ public class GroupInfoDAOImpl {
 
     public static int delGroupMember(Context context, String str, ArrayList<String> arrayList) {
         if (context == null || arrayList == null || arrayList.size() == 0) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         LogUtils.d("GroupInfoDAOIMPL", "delGroupMember " + arrayList.toString());
         DBOperation newDb = DBOperationFactory.getNewDb(context);
@@ -562,7 +562,7 @@ public class GroupInfoDAOImpl {
 
     public static int modifyGroupName(Context context, String str, String str2) {
         if (context == null || TextUtils.isEmpty(str) || str2 == null) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         ConversationManagerImpl.getInstance(context).updateConversationName(str2, 1, String.valueOf(str));
         DBOperation newDb = DBOperationFactory.getNewDb(context);
@@ -576,7 +576,7 @@ public class GroupInfoDAOImpl {
 
     public static int modifyGroupMemberNumber(Context context, String str, int i) {
         if (context == null || TextUtils.isEmpty(str) || i < 0) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -589,7 +589,7 @@ public class GroupInfoDAOImpl {
 
     public static int modifyGroupMemberVersion(Context context, String str, long j) {
         if (context == null || TextUtils.isEmpty(str) || j < 0) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -602,7 +602,7 @@ public class GroupInfoDAOImpl {
 
     public static int setGroupDisturb(Context context, String str, int i) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -618,7 +618,7 @@ public class GroupInfoDAOImpl {
 
     public static int setAllStarDisturbDefault(Context context) {
         if (context == null) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -631,7 +631,7 @@ public class GroupInfoDAOImpl {
 
     public static int setGroupState(Context context, String str, int i) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -665,7 +665,7 @@ public class GroupInfoDAOImpl {
 
     public static int setGroupPermit(Context context, String str, int i) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {
@@ -681,7 +681,7 @@ public class GroupInfoDAOImpl {
 
     public static int setGroupType(Context context, String str, int i) {
         if (context == null || TextUtils.isEmpty(str)) {
-            return DBResponseCode.ERROR_PARAMETER;
+            return -7001;
         }
         DBOperation newDb = DBOperationFactory.getNewDb(context);
         if (newDb == null) {

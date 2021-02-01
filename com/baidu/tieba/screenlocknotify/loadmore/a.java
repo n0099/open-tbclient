@@ -4,7 +4,7 @@ import com.baidu.tieba.screenlocknotify.d;
 import java.util.ArrayList;
 import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.MsgContent;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     private boolean mHasMore = true;
     private ArrayList<d> items = null;
@@ -25,7 +25,7 @@ public class a {
         return this.mHasMore;
     }
 
-    public ArrayList<d> dDe() {
+    public ArrayList<d> dFn() {
         return this.items;
     }
 }

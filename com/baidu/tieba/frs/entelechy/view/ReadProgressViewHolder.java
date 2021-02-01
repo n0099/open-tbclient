@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.u;
 /* loaded from: classes2.dex */
@@ -30,13 +30,13 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public void a(u uVar) {
         if (uVar != null) {
             this.mTipView.setText(R.string.read_here);
-            btV();
+            bup();
         }
     }
 
-    public void btV() {
-        ao.setViewTextColor(this.mTipView, R.color.CAM_X0304);
-        Drawable a2 = WebPManager.a(R.drawable.icon_pure_card_refresh16, ao.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
+    public void bup() {
+        ap.setViewTextColor(this.mTipView, R.color.CAM_X0304);
+        Drawable a2 = WebPManager.a(R.drawable.icon_pure_card_refresh16, ap.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
         a2.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
         this.mTipView.setCompoundDrawables(a2, null, null, null);
     }

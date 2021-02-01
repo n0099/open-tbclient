@@ -4,41 +4,41 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 final class f {
-    private static f oJA;
-    private static SQLiteOpenHelper oJB;
-    private AtomicInteger oJC = new AtomicInteger();
-    private SQLiteDatabase oJD;
+    private static f oTI;
+    private static SQLiteOpenHelper oTJ;
+    private AtomicInteger oTK = new AtomicInteger();
+    private SQLiteDatabase oTL;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (oJA == null) {
-                oJA = new f();
-                oJB = new d(context);
+            if (oTI == null) {
+                oTI = new f();
+                oTJ = new d(context);
             }
         }
     }
 
-    public static synchronized f efI() {
+    public static synchronized f eia() {
         f fVar;
         synchronized (f.class) {
-            if (oJA == null) {
-                b(com.baidu.ubs.analytics.d.efH().getContext());
+            if (oTI == null) {
+                b(com.baidu.ubs.analytics.d.ehZ().getContext());
             }
-            fVar = oJA;
+            fVar = oTI;
         }
         return fVar;
     }
 
-    public final synchronized SQLiteDatabase asC() {
-        if (this.oJC.incrementAndGet() == 1) {
-            com.baidu.ubs.analytics.d.b.WF("***************新建立了 一个数据库的实例****************");
-            this.oJD = oJB.getWritableDatabase();
+    public final synchronized SQLiteDatabase ata() {
+        if (this.oTK.incrementAndGet() == 1) {
+            com.baidu.ubs.analytics.d.b.XE("***************新建立了 一个数据库的实例****************");
+            this.oTL = oTJ.getWritableDatabase();
         }
-        return this.oJD;
+        return this.oTL;
     }
 }

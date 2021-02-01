@@ -21,9 +21,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UploadFaceGroupModel extends FaceBaseModel {
-    private final HttpMessageListener luw = new HttpMessageListener(1003345) { // from class: com.baidu.tieba.newfaceshop.facemake.UploadFaceGroupModel.1
+    private final HttpMessageListener lCA = new HttpMessageListener(1003345) { // from class: com.baidu.tieba.newfaceshop.facemake.UploadFaceGroupModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -59,9 +59,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                     if (cVar != null) {
                         cVar.l(groupId, arrayList);
                     }
-                    e.dgC().w(true, httpResponsedMessage.getErrorString());
+                    e.diD().D(true, httpResponsedMessage.getErrorString());
                     if (z) {
-                        e.dgC().a(groupId, arrayList, (e.b) null);
+                        e.diD().a(groupId, arrayList, (e.b) null);
                         return;
                     }
                     HashMap hashMap2 = new HashMap();
@@ -75,9 +75,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public UploadFaceGroupModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.luw.setTag(getUniqueId());
-        this.luw.setSelfListener(true);
-        registerListener(this.luw);
+        this.lCA.setTag(getUniqueId());
+        this.lCA.setSelfListener(true);
+        registerListener(this.lCA);
     }
 
     private void registerTask() {
@@ -91,7 +91,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         if (cVar != null) {
             cVar.onFail(str);
         }
-        e.dgC().w(false, str);
+        e.diD().D(false, str);
     }
 
     public void b(String str, List<FaceData> list, e.c cVar, int i) {
@@ -132,7 +132,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.luw);
+        MessageManager.getInstance().unRegisterListener(this.lCA);
         MessageManager.getInstance().unRegisterTask(1003345);
         return true;
     }

@@ -5,17 +5,17 @@ import com.baidu.live.gift.g;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public String aKn;
-    public int aSC;
-    public String aTK;
-    public String aTL;
-    public long aTM;
-    public BdUniqueId aTP;
-    public int aUO;
-    public long aZD;
-    public g aZl;
+    public String aNa;
+    public int aVH;
+    public String aWP;
+    public String aWQ;
+    public long aWR;
+    public BdUniqueId aWU;
+    public int aXW;
+    public long bcK;
+    public g bct;
     public String liveId;
     public String mGiftName;
     public String otherParams;
@@ -23,36 +23,36 @@ public class b {
     public String sceneFrom;
     public String userId;
     public String userName;
-    public Map<Long, Long> aZF = new HashMap();
-    public String aZE = TbadkCoreApplication.getCurrentTbs();
+    public Map<Long, Long> bcM = new HashMap();
+    public String bcL = TbadkCoreApplication.getCurrentTbs();
 
     public b(g gVar, long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, long j2) {
-        this.aZD = j;
-        this.aKn = gVar.CC();
+        this.bcK = j;
+        this.aNa = gVar.DR();
         this.userId = str;
         this.userName = str2;
         this.liveId = str3;
         this.roomId = str4;
-        this.aTK = str5;
-        this.mGiftName = gVar.CD();
-        this.aUO = gVar.aSI;
-        this.aSC = gVar.CI();
+        this.aWP = str5;
+        this.mGiftName = gVar.DS();
+        this.aXW = gVar.aVN;
+        this.aVH = gVar.DY();
         this.sceneFrom = gVar.getSceneFrom();
-        this.aZl = gVar;
+        this.bct = gVar;
         this.otherParams = str6;
-        this.aTL = str7;
-        this.aTM = j2;
+        this.aWQ = str7;
+        this.aWR = j2;
     }
 
-    public boolean CO() {
-        return this.aSC == 6;
+    public boolean Ee() {
+        return this.aVH == 6;
     }
 
-    public boolean Fo() {
-        return this.aSC == 7;
+    public boolean GE() {
+        return this.aVH == 7;
     }
 
-    public boolean De() {
-        return this.aSC == 10;
+    public boolean Eu() {
+        return this.aVH == 10;
     }
 }

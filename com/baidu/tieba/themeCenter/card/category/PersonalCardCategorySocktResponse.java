@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetCardByCategory.GetCardByCategoryResIdl;
 import tbclient.GetCardByCategory.ThemeCardInMain;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
     private boolean hasMore;
     private List<a> mCardCategoryList;

@@ -5,14 +5,14 @@ import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class j implements LBSAuthManagerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2560a = new Object();
+    private static Object f2558a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private static j f2561b = null;
+    private static j f2559b = null;
     private int c = 0;
     private Context d = null;
     private long e = 0;
@@ -20,11 +20,11 @@ public class j implements LBSAuthManagerListener {
 
     public static j a() {
         j jVar;
-        synchronized (f2560a) {
-            if (f2561b == null) {
-                f2561b = new j();
+        synchronized (f2558a) {
+            if (f2559b == null) {
+                f2559b = new j();
             }
-            jVar = f2561b;
+            jVar = f2559b;
         }
         return jVar;
     }
@@ -77,9 +77,9 @@ public class j implements LBSAuthManagerListener {
     public void onAuthResult(int i, String str) {
         this.c = i;
         if (this.c == 0) {
-            Log.i(com.baidu.location.d.a.f2623a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
+            Log.i(com.baidu.location.d.a.f2621a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
         } else {
-            Log.i(com.baidu.location.d.a.f2623a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
+            Log.i(com.baidu.location.d.a.f2621a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
         }
         if (str != null) {
             try {

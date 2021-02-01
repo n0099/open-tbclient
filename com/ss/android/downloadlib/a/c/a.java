@@ -7,24 +7,24 @@ import com.ss.android.socialbase.downloader.d.ae;
 import com.ss.android.socialbase.downloader.d.af;
 import com.ss.android.socialbase.downloader.downloader.f;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements af {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f12944a;
+    private int f12946a;
 
     public void a(int i) {
-        this.f12944a = i;
+        this.f12946a = i;
     }
 
     @Override // com.ss.android.socialbase.downloader.d.af
     public boolean a(long j, long j2, ae aeVar) {
-        com.ss.android.socialbase.downloader.k.a RA = com.ss.android.socialbase.downloader.k.a.RA(this.f12944a);
-        if (!a(RA)) {
+        com.ss.android.socialbase.downloader.k.a RV = com.ss.android.socialbase.downloader.k.a.RV(this.f12946a);
+        if (!a(RV)) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        d.eCh().c();
+        d.eEy().c();
         File externalStorageDirectory = Environment.getExternalStorageDirectory();
         long a2 = a(externalStorageDirectory.toString());
         a();
@@ -32,7 +32,7 @@ public class a implements af {
         long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
         long j3 = 0;
         if (a3 < j2) {
-            j3 = b(RA);
+            j3 = b(RV);
             if (j3 > 0) {
                 a3 = a(externalStorageDirectory.toString());
             }
@@ -52,13 +52,13 @@ public class a implements af {
         if (aVar.a("clear_space_use_disk_handler", 0) != 1) {
             return false;
         }
-        return System.currentTimeMillis() - d.eCh().b() >= aVar.a("clear_space_min_time_interval", 600000L);
+        return System.currentTimeMillis() - d.eEy().b() >= aVar.a("clear_space_min_time_interval", 600000L);
     }
 
     private void a() {
-        com.ss.android.a.a.a.e eCz = j.eCz();
-        if (eCz != null) {
-            eCz.a();
+        com.ss.android.a.a.a.e eEQ = j.eEQ();
+        if (eEQ != null) {
+            eEQ.a();
         }
         c.a();
         c.b();
@@ -81,14 +81,14 @@ public class a implements af {
     }
 
     private void a(long j, long j2, long j3, long j4, long j5) {
-        com.ss.android.socialbase.downloader.g.c h = f.iy(j.a()).h(this.f12944a);
+        com.ss.android.socialbase.downloader.g.c h = f.iB(j.a()).h(this.f12946a);
         if (h != null) {
             boolean z = false;
             if (j2 > j3) {
                 z = true;
             }
             try {
-                com.ss.android.downloadlib.b.eBX().a(h, j, j2, j3, j4, j5, z);
+                com.ss.android.downloadlib.b.eEo().a(h, j, j2, j3, j4, j5, z);
             } catch (Exception e) {
                 e.printStackTrace();
             }

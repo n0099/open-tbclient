@@ -3,6 +3,8 @@ package com.baidu.tbadk.editortools;
 public interface n extends b {
     void b(a aVar);
 
+    void display();
+
     int getToolId();
 
     void hide();
@@ -10,8 +12,6 @@ public interface n extends b {
     void init();
 
     void onChangeSkinType(int i);
-
-    void rV();
 
     void setEditorTools(EditorTools editorTools);
 

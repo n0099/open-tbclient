@@ -9,7 +9,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NetRefreshView extends AbsAttachView {
     protected TbImageView emotionView;
     protected TextView refreshButton;

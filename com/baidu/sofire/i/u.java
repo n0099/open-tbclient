@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
-import androidx.appcompat.widget.ActivityChooserView;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,21 +15,21 @@ import java.io.FileReader;
 import java.nio.ByteBuffer;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5283a;
+    public static String f5285a;
     private static u c;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f5284b;
+    private Context f5286b;
     private com.baidu.sofire.g d;
 
     private u(Context context) {
-        this.f5284b = context;
+        this.f5286b = context;
         this.d = new com.baidu.sofire.g(context);
-        f5283a = a();
+        f5285a = a();
     }
 
     public static u a(Context context) {
@@ -66,11 +65,11 @@ public class u {
         String str2;
         synchronized (this) {
             try {
-                com.baidu.sofire.j.a.a().a(this.f5284b, null);
+                com.baidu.sofire.j.a.a().a(this.f5286b, null);
                 ByteBuffer allocate = ByteBuffer.allocate(78);
-                byte[] a2 = v.a(this.f5284b);
+                byte[] a2 = v.a(this.f5286b);
                 allocate.put(a2);
-                String[] g = e.g(this.f5284b);
+                String[] g = e.g(this.f5286b);
                 if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1])) {
                     str2 = g[0];
                 } else {
@@ -98,7 +97,7 @@ public class u {
                 allocate.put(new byte[]{1});
                 allocate.put(new byte[]{1});
                 allocate.put(v.a(0));
-                byte[] a4 = v.a((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                byte[] a4 = v.a(Integer.MAX_VALUE);
                 allocate.put(a4);
                 allocate.put(array);
                 ByteBuffer allocate3 = ByteBuffer.allocate(44);
@@ -106,7 +105,7 @@ public class u {
                 byte[] bArr = new byte[16];
                 System.arraycopy(p.a(allocate3.array()).getBytes(), 0, bArr, 0, 16);
                 allocate.put(bArr);
-                byte[] b2 = a.b(f5283a.getBytes(), allocate.array());
+                byte[] b2 = a.b(f5285a.getBytes(), allocate.array());
                 byte[] bArr2 = new byte[b2.length - 4];
                 int b3 = this.d.b();
                 byte[] a5 = v.a(b3);
@@ -184,16 +183,16 @@ public class u {
             goto L39
         L46:
             com.baidu.sofire.g r2 = r10.d     // Catch: java.lang.Throwable -> L65
-            android.content.SharedPreferences$Editor r3 = r2.f5248b     // Catch: java.lang.Throwable -> L65
+            android.content.SharedPreferences$Editor r3 = r2.f5250b     // Catch: java.lang.Throwable -> L65
             java.lang.String r5 = "t_d_i_dv2"
             r3.putString(r5, r0)     // Catch: java.lang.Throwable -> L65
-            android.content.SharedPreferences$Editor r2 = r2.f5248b     // Catch: java.lang.Throwable -> L65
+            android.content.SharedPreferences$Editor r2 = r2.f5250b     // Catch: java.lang.Throwable -> L65
             r2.commit()     // Catch: java.lang.Throwable -> L65
             com.baidu.sofire.g r2 = r10.d     // Catch: java.lang.Throwable -> L65
-            android.content.SharedPreferences$Editor r3 = r2.f5248b     // Catch: java.lang.Throwable -> L65
+            android.content.SharedPreferences$Editor r3 = r2.f5250b     // Catch: java.lang.Throwable -> L65
             java.lang.String r5 = "t_d_i_d_tv2"
             r3.putLong(r5, r8)     // Catch: java.lang.Throwable -> L65
-            android.content.SharedPreferences$Editor r2 = r2.f5248b     // Catch: java.lang.Throwable -> L65
+            android.content.SharedPreferences$Editor r2 = r2.f5250b     // Catch: java.lang.Throwable -> L65
             r2.commit()     // Catch: java.lang.Throwable -> L65
             goto L1f
         L65:
@@ -321,7 +320,7 @@ public class u {
         L135:
             r0 = 0
             byte[] r0 = android.util.Base64.encode(r3, r0)     // Catch: java.lang.Throwable -> L15e
-            android.content.Context r2 = r10.f5284b     // Catch: java.lang.Throwable -> L15e
+            android.content.Context r2 = r10.f5286b     // Catch: java.lang.Throwable -> L15e
             r3 = 1
             java.lang.String[] r3 = new java.lang.String[r3]     // Catch: java.lang.Throwable -> L15e
             r4 = 0
@@ -329,7 +328,7 @@ public class u {
             r3[r4] = r5     // Catch: java.lang.Throwable -> L15e
             boolean r2 = com.baidu.sofire.i.s.a(r2, r3)     // Catch: java.lang.Throwable -> L15e
             if (r2 == 0) goto Ld5
-            android.content.Context r2 = r10.f5284b     // Catch: java.lang.Throwable -> L15e
+            android.content.Context r2 = r10.f5286b     // Catch: java.lang.Throwable -> L15e
             android.content.ContentResolver r2 = r2.getContentResolver()     // Catch: java.lang.Throwable -> L15e
             java.lang.String r3 = "setting_tdidv2"
             java.lang.String r4 = new java.lang.String     // Catch: java.lang.Throwable -> L15e
@@ -397,8 +396,8 @@ public class u {
         String str3 = "";
         try {
             t d = d();
-            if (d == null || TextUtils.isEmpty(d.f5281a)) {
-                Iterator<ResolveInfo> it = this.f5284b.getPackageManager().queryIntentServices(new Intent("com.baidu.action.SOFIRE.VIEW"), 0).iterator();
+            if (d == null || TextUtils.isEmpty(d.f5283a)) {
+                Iterator<ResolveInfo> it = this.f5286b.getPackageManager().queryIntentServices(new Intent("com.baidu.action.SOFIRE.VIEW"), 0).iterator();
                 String str4 = str3;
                 while (true) {
                     if (!it.hasNext()) {
@@ -410,7 +409,7 @@ public class u {
                     if (next.serviceInfo != null && next.serviceInfo.applicationInfo != null) {
                         File file = new File(new File(next.serviceInfo.applicationInfo.dataDir + File.separator + com.baidu.fsg.face.base.b.c.g), "libtdidv2.so");
                         if (file.exists() && (a2 = a(file)) != null) {
-                            str = a2.f5281a;
+                            str = a2.f5283a;
                             try {
                                 boolean isEmpty = TextUtils.isEmpty(str);
                                 if (isEmpty == 0) {
@@ -427,7 +426,7 @@ public class u {
                     str4 = str;
                 }
             } else {
-                str = d.f5281a;
+                str = d.f5283a;
                 str2 = str3;
             }
         } catch (Throwable th2) {
@@ -442,11 +441,11 @@ public class u {
             f = f();
             t g = g();
             t e = e();
-            t a2 = a(new File(this.f5284b.getFilesDir() + File.separator + "libtdidv2.so"));
-            if (f == null || TextUtils.isEmpty(f.f5281a)) {
-                if (g == null || TextUtils.isEmpty(g.f5281a)) {
-                    if (e == null || TextUtils.isEmpty(e.f5281a)) {
-                        if (a2 == null || TextUtils.isEmpty(a2.f5281a)) {
+            t a2 = a(new File(this.f5286b.getFilesDir() + File.separator + "libtdidv2.so"));
+            if (f == null || TextUtils.isEmpty(f.f5283a)) {
+                if (g == null || TextUtils.isEmpty(g.f5283a)) {
+                    if (e == null || TextUtils.isEmpty(e.f5283a)) {
+                        if (a2 == null || TextUtils.isEmpty(a2.f5283a)) {
                             return null;
                         }
                         return a2;
@@ -461,11 +460,11 @@ public class u {
 
     private t e() {
         try {
-            String string = this.d.f5247a.getString("t_d_i_dv2", "");
-            long j = this.d.f5247a.getLong("t_d_i_d_tv2", 0L);
+            String string = this.d.f5249a.getString("t_d_i_dv2", "");
+            long j = this.d.f5249a.getLong("t_d_i_d_tv2", 0L);
             t tVar = new t();
-            tVar.f5281a = string;
-            tVar.f5282b = j;
+            tVar.f5283a = string;
+            tVar.f5284b = j;
             return tVar;
         } catch (Throwable th) {
             e.a();
@@ -475,7 +474,7 @@ public class u {
 
     private t f() {
         try {
-            String string = Settings.System.getString(this.f5284b.getContentResolver(), "setting_tdidv2");
+            String string = Settings.System.getString(this.f5286b.getContentResolver(), "setting_tdidv2");
             if (TextUtils.isEmpty(string)) {
                 return null;
             }
@@ -566,7 +565,7 @@ public class u {
                     bArr[i] = (byte) (bytes[i] ^ 2);
                 }
                 byte[] encode = Base64.encode(bArr, 0);
-                FileOutputStream openFileOutput = this.f5284b.openFileOutput("libtdidv2.so", 1);
+                FileOutputStream openFileOutput = this.f5286b.openFileOutput("libtdidv2.so", 1);
                 openFileOutput.write(encode);
                 openFileOutput.close();
             }
@@ -584,8 +583,8 @@ public class u {
             String optString = jSONObject.optString("tdid");
             long optLong = jSONObject.optLong("time");
             t tVar = new t();
-            tVar.f5281a = optString;
-            tVar.f5282b = optLong;
+            tVar.f5283a = optString;
+            tVar.f5284b = optLong;
             return tVar;
         } catch (Throwable th) {
             e.a();
@@ -626,7 +625,7 @@ public class u {
             allocate2.put(bArr2);
             allocate2.put(a3);
             byte[] bArr3 = new byte[4];
-            String[] g = e.g(this.f5284b);
+            String[] g = e.g(this.f5286b);
             if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1])) {
                 str2 = g[0];
             } else {
@@ -666,7 +665,7 @@ public class u {
             if (i > 0) {
                 System.arraycopy(new byte[]{(byte) i}, 0, a2, 48, 1);
             }
-            byte[] b2 = a.b(f5283a.getBytes(), a2);
+            byte[] b2 = a.b(f5285a.getBytes(), a2);
             byte[] bArr = new byte[b2.length - 4];
             int b3 = this.d.b();
             byte[] a4 = v.a(b3);
@@ -685,7 +684,7 @@ public class u {
             allocate4.put(bArr2);
             allocate4.put(a4);
             byte[] bArr3 = new byte[4];
-            String[] g = e.g(this.f5284b);
+            String[] g = e.g(this.f5286b);
             if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1])) {
                 str3 = g[0];
             } else {
@@ -723,7 +722,7 @@ public class u {
                 bArr4[i4] = (byte) (bArr2[i4] ^ array[i4]);
             }
             if (z) {
-                return a.a(f5283a.getBytes(), bArr4, false);
+                return a.a(f5285a.getBytes(), bArr4, false);
             }
             return bArr4;
         } catch (Throwable th) {

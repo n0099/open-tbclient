@@ -5,18 +5,18 @@ import com.baidu.adp.lib.c.a;
 import com.baidu.live.tbadk.location.LocationInfo;
 import com.baidu.live.tbadk.location.interfaces.ILocation;
 import com.baidu.live.tbadk.location.interfaces.LocationCallback;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements ILocation {
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public LocationInfo getLocationInfo() {
-        return a(com.baidu.adp.lib.c.a.lI().getAddress(false));
+        return a(com.baidu.adp.lib.c.a.lH().getAddress(false));
     }
 
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public void getLocation(final LocationCallback locationCallback) {
         if (locationCallback != null) {
             try {
-                com.baidu.adp.lib.c.a.lI().a(false, new a.InterfaceC0015a() { // from class: com.baidu.tieba.livesdk.f.b.1
+                com.baidu.adp.lib.c.a.lH().a(false, new a.InterfaceC0015a() { // from class: com.baidu.tieba.livesdk.f.b.1
                     @Override // com.baidu.adp.lib.c.a.InterfaceC0015a
                     public void onLocationGeted(int i, String str, Address address) {
                         try {
@@ -36,7 +36,7 @@ public class b implements ILocation {
 
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public void requestLocate() {
-        com.baidu.adp.lib.c.a.lI().getAddress(true);
+        com.baidu.adp.lib.c.a.lH().getAddress(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

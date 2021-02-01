@@ -6,7 +6,7 @@ import android.net.Uri;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     private final Bitmap bitmap;
     private boolean cached;
@@ -48,18 +48,19 @@ public final class b {
         this.tile = true;
     }
 
-    public static b ic(int i) {
+    /* renamed from: if  reason: not valid java name */
+    public static b m26if(int i) {
         return new b(i);
     }
 
-    public static b pq(String str) {
+    public static b pI(String str) {
         if (str == null) {
             throw new NullPointerException("Asset name must not be null");
         }
-        return pr("file:///android_asset/" + str);
+        return pJ("file:///android_asset/" + str);
     }
 
-    public static b pr(String str) {
+    public static b pJ(String str) {
         if (str == null) {
             throw new NullPointerException("Uri must not be null");
         }
@@ -72,22 +73,22 @@ public final class b {
         return new b(Uri.parse(str));
     }
 
-    public static b n(Bitmap bitmap) {
+    public static b m(Bitmap bitmap) {
         if (bitmap == null) {
             throw new NullPointerException("Bitmap must not be null");
         }
         return new b(bitmap, true);
     }
 
-    public b aBj() {
-        return gb(true);
+    public b aBG() {
+        return gd(true);
     }
 
-    public b aBk() {
-        return gb(false);
+    public b aBH() {
+        return gd(false);
     }
 
-    public b gb(boolean z) {
+    public b gd(boolean z) {
         this.tile = z;
         return this;
     }
@@ -128,7 +129,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean aBl() {
+    public final boolean aBI() {
         return this.cached;
     }
 }

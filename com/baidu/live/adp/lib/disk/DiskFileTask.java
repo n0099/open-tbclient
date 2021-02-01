@@ -4,7 +4,7 @@ import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.disk.ops.DiskFileOperate;
 import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DiskFileTask extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     private DiskFileFactory mDiskFileFactory;
     private DiskFileOperate mDiskFileOperate;

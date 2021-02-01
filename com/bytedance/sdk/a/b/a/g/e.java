@@ -14,13 +14,13 @@ import java.util.logging.Logger;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
-    private static final e pgt = enc();
-    private static final Logger pgg = Logger.getLogger(z.class.getName());
+    private static final e pqL = epw();
+    private static final Logger pqy = Logger.getLogger(z.class.getName());
 
-    public static e eng() {
-        return pgt;
+    public static e epz() {
+        return pqL;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,7 +51,7 @@ public class e {
     }
 
     public void a(int i, String str, Throwable th) {
-        pgg.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
+        pqy.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
     }
 
     public boolean b(String str) {
@@ -59,7 +59,7 @@ public class e {
     }
 
     public Object a(String str) {
-        if (pgg.isLoggable(Level.FINE)) {
+        if (pqy.isLoggable(Level.FINE)) {
             return new Throwable(str);
         }
         return null;
@@ -91,33 +91,33 @@ public class e {
     public com.bytedance.sdk.a.b.a.i.c b(SSLSocketFactory sSLSocketFactory) {
         X509TrustManager a2 = a(sSLSocketFactory);
         if (a2 == null) {
-            throw new IllegalStateException("Unable to extract the trust manager on " + eng() + ", sslSocketFactory is " + sSLSocketFactory.getClass());
+            throw new IllegalStateException("Unable to extract the trust manager on " + epz() + ", sslSocketFactory is " + sSLSocketFactory.getClass());
         }
         return a(a2);
     }
 
-    private static e enc() {
-        e enc = a.enc();
-        if (enc == null) {
-            b enf = b.enf();
-            if (enf == null) {
-                e enc2 = c.enc();
-                return enc2 == null ? new e() : enc2;
+    private static e epw() {
+        e epw = a.epw();
+        if (epw == null) {
+            b epy = b.epy();
+            if (epy == null) {
+                e epw2 = c.epw();
+                return epw2 == null ? new e() : epw2;
             }
-            return enf;
+            return epy;
         }
-        return enc;
+        return epw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static byte[] gH(List<w> list) {
+    public static byte[] gF(List<w> list) {
         com.bytedance.sdk.a.a.c cVar = new com.bytedance.sdk.a.a.c();
         int size = list.size();
         for (int i = 0; i < size; i++) {
             w wVar = list.get(i);
             if (wVar != w.HTTP_1_0) {
-                cVar.Of(wVar.toString().length());
-                cVar.Xz(wVar.toString());
+                cVar.OA(wVar.toString().length());
+                cVar.YA(wVar.toString());
             }
         }
         return cVar.q();

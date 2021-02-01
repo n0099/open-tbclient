@@ -4,7 +4,7 @@ import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import javax.net.ssl.SSLHandshakeException;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class i implements b {
     public abstract void a(int i, Exception exc);
 

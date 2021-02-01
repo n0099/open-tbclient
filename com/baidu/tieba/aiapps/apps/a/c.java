@@ -3,11 +3,11 @@ package com.baidu.tieba.aiapps.apps.a;
 import android.content.Context;
 import android.provider.Settings;
 import com.baidu.swan.apps.adaptation.a.t;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c implements t {
     @Override // com.baidu.swan.apps.adaptation.a.t
-    public String cf(Context context) {
-        return com.baidu.helios.b.aj(context).uF();
+    public String ce(Context context) {
+        return com.baidu.helios.b.aj(context).uC();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.t

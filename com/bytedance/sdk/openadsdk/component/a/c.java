@@ -13,14 +13,14 @@ import com.bytedance.sdk.openadsdk.multipro.b.a;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.x;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
-public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd, c.b, c.InterfaceC1007c, a.InterfaceC1022a {
+/* loaded from: classes6.dex */
+public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd, c.b, c.InterfaceC1011c, a.InterfaceC1026a {
 
     /* renamed from: a  reason: collision with root package name */
-    com.bytedance.sdk.openadsdk.multipro.b.a f6255a;
+    com.bytedance.sdk.openadsdk.multipro.b.a f6257a;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f6256b;
+    boolean f6258b;
     boolean c;
     int d;
     AdSlot e;
@@ -30,10 +30,10 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(@NonNull Context context, @NonNull l lVar, int i) {
         super(context, lVar, i);
-        this.f6256b = false;
+        this.f6258b = false;
         this.c = true;
         this.f = i;
-        this.f6255a = new com.bytedance.sdk.openadsdk.multipro.b.a();
+        this.f6257a = new com.bytedance.sdk.openadsdk.multipro.b.a();
         this.d = aj.d(this.h.W());
         a(this.d);
     }
@@ -41,11 +41,11 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(@NonNull Context context, @NonNull l lVar, int i, AdSlot adSlot) {
         super(context, lVar, i);
-        this.f6256b = false;
+        this.f6258b = false;
         this.c = true;
         this.f = i;
         this.e = adSlot;
-        this.f6255a = new com.bytedance.sdk.openadsdk.multipro.b.a();
+        this.f6257a = new com.bytedance.sdk.openadsdk.multipro.b.a();
         this.d = aj.d(this.h.W());
         a(this.d);
     }
@@ -72,17 +72,17 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
                 nativeVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a() { // from class: com.bytedance.sdk.openadsdk.component.a.c.2
                     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                     public void a(boolean z, long j, long j2, long j3, boolean z2) {
-                        c.this.f6255a.f7400a = z;
-                        c.this.f6255a.e = j;
-                        c.this.f6255a.f = j2;
-                        c.this.f6255a.g = j3;
-                        c.this.f6255a.d = z2;
+                        c.this.f6257a.f7402a = z;
+                        c.this.f6257a.e = j;
+                        c.this.f6257a.f = j2;
+                        c.this.f6257a.g = j3;
+                        c.this.f6257a.d = z2;
                     }
                 });
                 nativeVideoTsView.setVideoAdLoadListener(this);
                 nativeVideoTsView.setVideoAdInteractionListener(this);
                 if (5 == this.f) {
-                    nativeVideoTsView.setIsAutoPlay(this.f6256b ? this.e.isAutoPlay() : this.c);
+                    nativeVideoTsView.setIsAutoPlay(this.f6258b ? this.e.isAutoPlay() : this.c);
                 } else {
                     nativeVideoTsView.setIsAutoPlay(this.c);
                 }
@@ -114,18 +114,18 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     private void a(int i) {
         int c = p.h().c(i);
         if (3 == c) {
-            this.f6256b = false;
+            this.f6258b = false;
             this.c = false;
         } else if (1 == c && x.d(this.i)) {
-            this.f6256b = false;
+            this.f6258b = false;
             this.c = true;
         } else if (2 == c) {
             if (x.e(this.i) || x.d(this.i)) {
-                this.f6256b = false;
+                this.f6258b = false;
                 this.c = true;
             }
         } else if (4 == c) {
-            this.f6256b = true;
+            this.f6258b = true;
         }
     }
 
@@ -183,6 +183,6 @@ public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd,
     }
 
     public com.bytedance.sdk.openadsdk.multipro.b.a a() {
-        return this.f6255a;
+        return this.f6257a;
     }
 }

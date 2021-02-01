@@ -10,19 +10,19 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.ab.c;
 import com.baidu.swan.apps.runtime.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final boolean DEBUG;
-    private long dLe;
-    private b dLf;
-    private final c.a dLg;
+    private long dNi;
+    private b dNj;
+    private final c.a dNk;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.ak.j.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0365a {
-        public static final a dLi = new a();
+    /* loaded from: classes9.dex */
+    public static class C0362a {
+        public static final a dNm = new a();
     }
 
     static {
@@ -31,12 +31,12 @@ public class a {
     }
 
     private a() {
-        this.dLe = 0L;
-        this.dLg = new c.a() { // from class: com.baidu.swan.apps.ak.j.b.a.1
+        this.dNi = 0L;
+        this.dNk = new c.a() { // from class: com.baidu.swan.apps.ak.j.b.a.1
             @Override // com.baidu.swan.apps.ab.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.dLf != null) {
-                    a.this.dLf.cT(a.this.dLe);
+                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.dNj != null) {
+                    a.this.dNj.cZ(a.this.dNi);
                 }
             }
         };
@@ -45,32 +45,32 @@ public class a {
         }
         Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
         if (vibrator != null) {
-            this.dLf = new b(vibrator);
+            this.dNj = new b(vibrator);
         }
     }
 
-    public static a aMx() {
-        return C0365a.dLi;
+    public static a aMQ() {
+        return C0362a.dNm;
     }
 
-    void cT(long j) {
-        this.dLe = j;
-        if (this.dLf == null) {
+    void cZ(long j) {
+        this.dNi = j;
+        if (this.dNj == null) {
             if (DEBUG) {
                 throw new RuntimeException("not support vibration");
             }
-        } else if (aMy()) {
-            this.dLf.cT(this.dLe);
+        } else if (aMR()) {
+            this.dNj.cZ(this.dNi);
         } else {
             String[] strArr = {"android.permission.VIBRATE"};
-            SwanAppActivity aIl = d.aIn().aIl();
-            if (aIl != null) {
-                aIl.a(700, strArr, this.dLg);
+            SwanAppActivity aIE = d.aIG().aIE();
+            if (aIE != null) {
+                aIE.a(700, strArr, this.dNk);
             }
         }
     }
 
-    private boolean aMy() {
+    private boolean aMR() {
         if (com.baidu.swan.apps.ao.c.hasMarshMallow()) {
             Context appContext = AppRuntime.getAppContext();
             return appContext != null && ActivityCompat.checkSelfPermission(appContext, "android.permission.VIBRATE") == 0;
@@ -78,30 +78,30 @@ public class a {
         return true;
     }
 
-    public void aMz() {
-        cT(15L);
+    public void aMS() {
+        cZ(15L);
     }
 
-    public void aMA() {
-        cT(400L);
+    public void aMT() {
+        cZ(400L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
-        private Vibrator dLj;
+        private Vibrator dNn;
 
         b(@NonNull Vibrator vibrator) {
-            this.dLj = vibrator;
+            this.dNn = vibrator;
         }
 
         @SuppressLint({"MissingPermission"})
-        void cT(long j) {
+        void cZ(long j) {
             try {
                 if (com.baidu.swan.apps.ao.c.hasOreo()) {
-                    this.dLj.vibrate(VibrationEffect.createOneShot(j, -1));
+                    this.dNn.vibrate(VibrationEffect.createOneShot(j, -1));
                 } else {
-                    this.dLj.vibrate(j);
+                    this.dNn.vibrate(j);
                 }
             } catch (Exception e) {
             }

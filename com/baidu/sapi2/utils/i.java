@@ -4,17 +4,17 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f5135a;
+    private View f5137a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f5136b;
+    int f5138b;
     private b c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     class a implements ViewTreeObserver.OnGlobalLayoutListener {
         a() {
         }
@@ -22,30 +22,30 @@ public class i {
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Rect rect = new Rect();
-            i.this.f5135a.getWindowVisibleDisplayFrame(rect);
+            i.this.f5137a.getWindowVisibleDisplayFrame(rect);
             int height = rect.height();
             System.out.println("" + height);
             i iVar = i.this;
-            int i = iVar.f5136b;
+            int i = iVar.f5138b;
             if (i == 0) {
-                iVar.f5136b = height;
+                iVar.f5138b = height;
             } else if (i != height) {
                 if (i - height > 200) {
                     if (iVar.c != null) {
-                        i.this.c.keyBoardShow(i.this.f5136b - height);
+                        i.this.c.keyBoardShow(i.this.f5138b - height);
                     }
-                    i.this.f5136b = height;
+                    i.this.f5138b = height;
                 } else if (height - i > 200) {
                     if (iVar.c != null) {
-                        i.this.c.keyBoardHide(height - i.this.f5136b);
+                        i.this.c.keyBoardHide(height - i.this.f5138b);
                     }
-                    i.this.f5136b = height;
+                    i.this.f5138b = height;
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         void keyBoardHide(int i);
 
@@ -53,8 +53,8 @@ public class i {
     }
 
     public i(Activity activity) {
-        this.f5135a = activity.getWindow().getDecorView();
-        this.f5135a.getViewTreeObserver().addOnGlobalLayoutListener(new a());
+        this.f5137a = activity.getWindow().getDecorView();
+        this.f5137a.getViewTreeObserver().addOnGlobalLayoutListener(new a());
     }
 
     private void a(b bVar) {

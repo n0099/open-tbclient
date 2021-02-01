@@ -2,19 +2,19 @@ package com.baidu.mapapi.map;
 
 import android.view.View;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class InfoWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    BitmapDescriptor f2721a;
+    BitmapDescriptor f2719a;
 
     /* renamed from: b  reason: collision with root package name */
-    View f2722b;
+    View f2720b;
     LatLng c;
     OnInfoWindowClickListener d;
     int e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnInfoWindowClickListener {
         void onInfoWindowClick();
     }
@@ -23,7 +23,7 @@ public class InfoWindow {
         if (view == null || latLng == null) {
             throw new IllegalArgumentException("view and position can not be null");
         }
-        this.f2722b = view;
+        this.f2720b = view;
         this.c = latLng;
         this.e = i;
     }
@@ -32,7 +32,7 @@ public class InfoWindow {
         if (bitmapDescriptor == null || latLng == null) {
             throw new IllegalArgumentException("bitmapDescriptor and position can not be null");
         }
-        this.f2721a = bitmapDescriptor;
+        this.f2719a = bitmapDescriptor;
         this.c = latLng;
         this.d = onInfoWindowClickListener;
         this.e = i;

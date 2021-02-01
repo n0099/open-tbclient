@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.performance.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements e {
     private long mStartTime = -1;
     private long mEndTime = -1;
@@ -15,7 +15,7 @@ public class b implements e {
     }
 
     @Override // com.baidu.swan.apps.performance.e.e
-    public long apW() {
+    public long aqu() {
         if (this.mStartTime < 0 || this.mEndTime < 0) {
             return -1L;
         }

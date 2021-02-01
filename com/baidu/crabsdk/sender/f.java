@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class f implements Thread.UncaughtExceptionHandler {
-    public static boolean aqO = false;
-    private static final String aqP = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.p.K() + File.separator + "oom" + File.separator;
-    private static f aqQ = new f();
-    private Thread.UncaughtExceptionHandler aqR = null;
-    private Context aqS = null;
+    public static boolean aqE = false;
+    private static final String aqF = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.p.K() + File.separator + "oom" + File.separator;
+    private static f aqG = new f();
+    private Thread.UncaughtExceptionHandler aqH = null;
+    private Context aqI = null;
 
     private f() {
     }
@@ -29,17 +29,17 @@ public final class f implements Thread.UncaughtExceptionHandler {
         return true;
     }
 
-    public static f uw() {
-        return aqQ;
+    public static f ut() {
+        return aqG;
     }
 
     public final void e(Context context) {
-        if (this.aqR == null) {
-            this.aqR = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.aqH == null) {
+            this.aqH = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.aqS == null) {
-            this.aqS = context.getApplicationContext();
+        if (this.aqI == null) {
+            this.aqI = context.getApplicationContext();
         }
     }
 
@@ -78,7 +78,7 @@ public final class f implements Thread.UncaughtExceptionHandler {
         if (obj != null && !str.trim().equals("")) {
             if (com.baidu.crabsdk.a.n && a(th)) {
                 try {
-                    String str2 = aqP;
+                    String str2 = aqF;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
@@ -94,20 +94,20 @@ public final class f implements Thread.UncaughtExceptionHandler {
                     com.baidu.crabsdk.c.a.w("oom save fail" + th3.getMessage());
                 }
             }
-            if (h.uy() && h.ac() && h.b(th)) {
-                aqO = false;
-                if (this.aqS != null && thread != null && th != null) {
-                    i.c(this.aqS, i.e(g.a(this.aqS, th, false)));
+            if (h.uv() && h.ac() && h.b(th)) {
+                aqE = false;
+                if (this.aqI != null && thread != null && th != null) {
+                    i.c(this.aqI, i.e(g.a(this.aqI, th, false)));
                     h.c(th);
                     h.d(th);
                     h.af();
-                    k.a(false, this.aqS);
+                    k.a(false, this.aqI);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!aqO) {
+                        if (!aqE) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
                                 com.baidu.crabsdk.c.a.v("T^T upload timeout!");
                                 break;
@@ -122,9 +122,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
                 }
             }
         }
-        if (this.aqR.equals(this)) {
+        if (this.aqH.equals(this)) {
             return;
         }
-        this.aqR.uncaughtException(thread, th);
+        this.aqH.uncaughtException(thread, th);
     }
 }

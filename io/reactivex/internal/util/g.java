@@ -4,7 +4,7 @@ public final class g<T> {
     final float loadFactor;
     int mask;
     int maxSize;
-    T[] qhA;
+    T[] qrE;
     int size;
 
     public g() {
@@ -13,31 +13,31 @@ public final class g<T> {
 
     public g(int i, float f) {
         this.loadFactor = f;
-        int RT = h.RT(i);
-        this.mask = RT - 1;
-        this.maxSize = (int) (RT * f);
-        this.qhA = (T[]) new Object[RT];
+        int So = h.So(i);
+        this.mask = So - 1;
+        this.maxSize = (int) (So * f);
+        this.qrE = (T[]) new Object[So];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.qhA;
+        T[] tArr = this.qrE;
         int i = this.mask;
-        int RS = RS(t.hashCode()) & i;
-        T t3 = tArr[RS];
+        int Sn = Sn(t.hashCode()) & i;
+        T t3 = tArr[Sn];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                RS = (RS + 1) & i;
-                t2 = tArr[RS];
+                Sn = (Sn + 1) & i;
+                t2 = tArr[Sn];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[RS] = t;
+        tArr[Sn] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.qhA;
+        T[] tArr = this.qrE;
         int i = this.mask;
-        int RS = RS(t.hashCode()) & i;
-        T t3 = tArr[RS];
+        int Sn = Sn(t.hashCode()) & i;
+        T t3 = tArr[Sn];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return a(RS, tArr, i);
+            return a(Sn, tArr, i);
         }
         do {
-            RS = (RS + 1) & i;
-            t2 = tArr[RS];
+            Sn = (Sn + 1) & i;
+            t2 = tArr[Sn];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return a(RS, tArr, i);
+        return a(Sn, tArr, i);
     }
 
     boolean a(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class g<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int RS = RS(t.hashCode()) & i2;
+                int Sn = Sn(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= RS && RS > i3) {
+                    if (i >= Sn && Sn > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < RS && RS <= i3) {
+                } else if (i < Sn && Sn <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.qhA;
+        T[] tArr = this.qrE;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -109,30 +109,30 @@ public final class g<T> {
                 do {
                     length--;
                 } while (tArr[length] == null);
-                int RS = RS(tArr[length].hashCode()) & i2;
-                if (tArr2[RS] != null) {
+                int Sn = Sn(tArr[length].hashCode()) & i2;
+                if (tArr2[Sn] != null) {
                     do {
-                        RS = (RS + 1) & i2;
-                    } while (tArr2[RS] != null);
+                        Sn = (Sn + 1) & i2;
+                    } while (tArr2[Sn] != null);
                 }
-                tArr2[RS] = tArr[length];
+                tArr2[Sn] = tArr[length];
                 i3 = i4;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.qhA = tArr2;
+                this.qrE = tArr2;
                 return;
             }
         }
     }
 
-    static int RS(int i) {
+    static int Sn(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] eIp() {
-        return this.qhA;
+    public Object[] eKF() {
+        return this.qrE;
     }
 
     public int size() {

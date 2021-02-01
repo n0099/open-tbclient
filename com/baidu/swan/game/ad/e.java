@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class e extends b {
     public e(Context context, AdElementInfo adElementInfo, com.baidu.swan.game.ad.jsbridge.a aVar) {
         super(context, adElementInfo, aVar);
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View aQO() {
+    public View aRe() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_portrait_por_play, (ViewGroup) null);
     }
 
@@ -23,7 +23,7 @@ public class e extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public String aQP() {
+    public String aRf() {
         return "reward_banner_html";
     }
 }

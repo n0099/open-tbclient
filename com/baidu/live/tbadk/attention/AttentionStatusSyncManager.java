@@ -6,7 +6,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AttentionStatusSyncManager {
     private final CustomMessageListener attentionStatusChangeListener;
     private IAttentionStatusCallBack mCallBack;
@@ -38,7 +38,7 @@ public class AttentionStatusSyncManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class InstanceHolder {
         private static final AttentionStatusSyncManager sInst = new AttentionStatusSyncManager();
 

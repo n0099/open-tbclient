@@ -10,7 +10,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DynamicInstallReceiver extends BroadcastReceiver {
     private static final AtomicBoolean HAS_REGISTER = new AtomicBoolean(false);
 
@@ -37,7 +37,7 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                 public void run() {
                     try {
                         if (b.a(context, file.getPath(), stringExtra2)) {
-                            f.a(context, f.f8199a, stringExtra2);
+                            f.a(context, f.f8201a, stringExtra2);
                             g.a(file);
                         }
                     } catch (Exception e) {

@@ -18,7 +18,7 @@ import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class FlutterSplashView extends FrameLayout {
     private static String TAG = "FlutterSplashView";
     @NonNull
@@ -34,6 +34,7 @@ public class FlutterSplashView extends FrameLayout {
     private final Runnable onTransitionComplete;
     @Nullable
     private String previousCompletedSplashIsolate;
+    private long removeDelay;
     @NonNull
     private final FlutterUiDisplayListener removeSplashListener;
     private final FlutterBoostPlugin.EventListener splashEventListener;
@@ -43,6 +44,8 @@ public class FlutterSplashView extends FrameLayout {
     private Bundle splashScreenState;
     @Nullable
     private View splashScreenView;
+    @NonNull
+    private final Runnable transitionToFlutter;
     @Nullable
     private String transitioningIsolateId;
 
@@ -58,6 +61,7 @@ public class FlutterSplashView extends FrameLayout {
         super(context, attributeSet, i);
         this.handler = new Handler();
         this.forceShowSplash = false;
+        this.removeDelay = 0L;
         this.flutterEngineAttachmentListener = new FlutterView.FlutterEngineAttachmentListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.1
             @Override // io.flutter.embedding.android.FlutterView.FlutterEngineAttachmentListener
             public void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine) {
@@ -77,22 +81,29 @@ public class FlutterSplashView extends FrameLayout {
             public void onFlutterUiNoLongerDisplayed() {
             }
         };
-        this.onTransitionComplete = new Runnable() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.3
+        this.transitionToFlutter = new Runnable() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.3
+            @Override // java.lang.Runnable
+            public void run() {
+                FlutterSplashView.this.removeDelay = 0L;
+                FlutterSplashView.this.transitionToFlutter();
+            }
+        };
+        this.onTransitionComplete = new Runnable() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.4
             @Override // java.lang.Runnable
             public void run() {
                 FlutterSplashView.this.removeView(FlutterSplashView.this.splashScreenView);
                 FlutterSplashView.this.previousCompletedSplashIsolate = FlutterSplashView.this.transitioningIsolateId;
             }
         };
-        this.splashEventListener = new FlutterBoostPlugin.EventListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.4
+        this.splashEventListener = new FlutterBoostPlugin.EventListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.5
             @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
             public void onEvent(String str, Map map) {
                 if ("flutterPostFrame".equals(str)) {
-                    FlutterSplashView.this.transitionToFlutter();
+                    FlutterSplashView.this.handler.postDelayed(FlutterSplashView.this.transitionToFlutter, FlutterSplashView.this.removeDelay);
                 }
             }
         };
-        this.removeSplashListener = new FlutterUiDisplayListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.5
+        this.removeSplashListener = new FlutterUiDisplayListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.6
             @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
             public void onFlutterUiDisplayed() {
                 if (FlutterSplashView.this.splashScreen != null) {
@@ -178,5 +189,9 @@ public class FlutterSplashView extends FrameLayout {
         boolean isAttachedToFlutterEngine = this.flutterView.isAttachedToFlutterEngine();
         Debuger.log("BoostFlutterView isAttachedToFlutterEngine:" + isAttachedToFlutterEngine);
         return isAttachedToFlutterEngine;
+    }
+
+    public void removeSplashDelay(long j) {
+        this.removeDelay = j;
     }
 }

@@ -1,8 +1,8 @@
 package com.kuaishou.aegon;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final /* synthetic */ class d implements Runnable {
-    private static final d pNJ = new d();
+    private static final d pXN = new d();
 
     private d() {
     }
@@ -10,11 +10,11 @@ public final /* synthetic */ class d implements Runnable {
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.kuaishou.aegon.Aegon.a(android.content.Context, java.lang.String, java.lang.String, com.kuaishou.aegon.Aegon$a):void] */
     public static Runnable lambdaFactory$() {
-        return pNJ;
+        return pXN;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Aegon.ezY();
+        Aegon.eCp();
     }
 }

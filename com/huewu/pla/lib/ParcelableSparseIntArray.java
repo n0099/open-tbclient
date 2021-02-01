@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ParcelableSparseIntArray extends SparseIntArray implements Parcelable {
     public static final Parcelable.Creator<ParcelableSparseIntArray> CREATOR = new Parcelable.Creator<ParcelableSparseIntArray>() { // from class: com.huewu.pla.lib.ParcelableSparseIntArray.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Qg */
+        /* renamed from: QB */
         public ParcelableSparseIntArray[] newArray(int i) {
             return new ParcelableSparseIntArray[i];
         }
@@ -36,10 +36,10 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeSparseArray(ezX());
+        parcel.writeSparseArray(eCo());
     }
 
-    private SparseArray<Object> ezX() {
+    private SparseArray<Object> eCo() {
         SparseArray<Object> sparseArray = new SparseArray<>();
         int size = size();
         for (int i = 0; i < size; i++) {

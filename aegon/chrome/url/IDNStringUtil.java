@@ -2,7 +2,7 @@ package aegon.chrome.url;
 
 import aegon.chrome.base.annotations.CalledByNative;
 import java.net.IDN;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class IDNStringUtil {
     @CalledByNative
     public static String idnToASCII(String str) {

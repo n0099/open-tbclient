@@ -8,14 +8,14 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ShadowTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f6770a;
+    private Paint f6772a;
 
     /* renamed from: b  reason: collision with root package name */
-    private RectF f6771b;
+    private RectF f6773b;
     private int c;
 
     public ShadowTextView(Context context) {
@@ -34,12 +34,12 @@ public class ShadowTextView extends TextView {
 
     private void a() {
         setTextColor(-1);
-        this.f6770a = new Paint();
-        this.f6770a.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.f6770a.setColor(Color.parseColor("#99333333"));
-        this.f6770a.setAntiAlias(true);
-        this.f6770a.setStrokeWidth(0.0f);
-        this.f6771b = new RectF();
+        this.f6772a = new Paint();
+        this.f6772a.setStyle(Paint.Style.FILL_AND_STROKE);
+        this.f6772a.setColor(Color.parseColor("#99333333"));
+        this.f6772a.setAntiAlias(true);
+        this.f6772a.setStrokeWidth(0.0f);
+        this.f6773b = new RectF();
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -54,16 +54,16 @@ public class ShadowTextView extends TextView {
             }
             int i3 = measuredWidth + ((measuredHeight / 2) * 2);
             setMeasuredDimension(i3, measuredHeight);
-            this.f6771b.set(0.0f, 0.0f, i3, measuredHeight);
+            this.f6773b.set(0.0f, 0.0f, i3, measuredHeight);
             return;
         }
-        this.f6771b.set(0.0f, 0.0f, 0.0f, 0.0f);
+        this.f6773b.set(0.0f, 0.0f, 0.0f, 0.0f);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawRoundRect(this.f6771b, this.f6771b.bottom / 2.0f, this.f6771b.bottom / 2.0f, this.f6770a);
-        canvas.translate((this.f6771b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
+        canvas.drawRoundRect(this.f6773b, this.f6773b.bottom / 2.0f, this.f6773b.bottom / 2.0f, this.f6772a);
+        canvas.translate((this.f6773b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
         super.onDraw(canvas);
     }
 }

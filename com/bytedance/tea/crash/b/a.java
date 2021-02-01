@@ -3,24 +3,24 @@ package com.bytedance.tea.crash.b;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.bytedance.tea.crash.g.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static volatile a plr;
+    private static volatile a pvG;
     private SQLiteDatabase c;
-    private com.bytedance.tea.crash.b.b.b pls;
+    private com.bytedance.tea.crash.b.b.b pvH;
 
     private a() {
     }
 
-    public static a eoD() {
-        if (plr == null) {
+    public static a eqV() {
+        if (pvG == null) {
             synchronized (a.class) {
-                if (plr == null) {
-                    plr = new a();
+                if (pvG == null) {
+                    pvG = new a();
                 }
             }
         }
-        return plr;
+        return pvG;
     }
 
     public void a(Context context) {
@@ -29,16 +29,16 @@ public class a {
         } catch (Throwable th) {
             j.b(th);
         }
-        this.pls = new com.bytedance.tea.crash.b.b.b();
+        this.pvH = new com.bytedance.tea.crash.b.b.b();
     }
 
     public synchronized void a(com.bytedance.tea.crash.b.a.a aVar) {
-        if (this.pls != null) {
-            this.pls.a(this.c, aVar);
+        if (this.pvH != null) {
+            this.pvH.a(this.c, aVar);
         }
     }
 
     public synchronized boolean a(String str) {
-        return this.pls != null ? this.pls.c(this.c, str) : false;
+        return this.pvH != null ? this.pvH.c(this.c, str) : false;
     }
 }

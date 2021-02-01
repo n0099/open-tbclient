@@ -5,9 +5,9 @@ import java.io.FileFilter;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static final FileFilter pQa = new FileFilter() { // from class: com.pgl.sys.ces.a.b.1
+    private static final FileFilter qae = new FileFilter() { // from class: com.pgl.sys.ces.a.b.1
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             return Pattern.matches("cpu[0-9]", file.getName());
@@ -233,7 +233,7 @@ public class b {
 
     private static int c() {
         try {
-            return new File("/sys/devices/system/cpu/").listFiles(pQa).length;
+            return new File("/sys/devices/system/cpu/").listFiles(qae).length;
         } catch (Throwable th) {
             return -1;
         }

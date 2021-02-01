@@ -1,44 +1,21 @@
 package com.baidu.live.ak;
 
-import com.baidu.live.tbadk.ubc.IUbcManager;
-import com.baidu.pyramid.runtime.service.c;
-import com.baidu.ubc.Flow;
-import com.baidu.ubc.ab;
-import org.json.JSONObject;
-/* loaded from: classes10.dex */
-public class a implements IUbcManager {
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void onEvent(String str, JSONObject jSONObject) {
-        ((ab) c.a(ab.SERVICE_REFERENCE)).onEvent(str, jSONObject);
+import com.baidu.live.data.AlaLiveUserInfoData;
+/* loaded from: classes11.dex */
+public interface a {
+
+    /* renamed from: com.baidu.live.ak.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0158a {
     }
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public Object flowBegin(String str, JSONObject jSONObject) {
-        return ((ab) c.a(ab.SERVICE_REFERENCE)).beginFlow(str, jSONObject);
-    }
+    a a(int i, String str, String str2, String str3, String str4, int i2, String str5);
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void flowSetValueWithDuration(Object obj, JSONObject jSONObject) {
-        ab abVar = (ab) c.a(ab.SERVICE_REFERENCE);
-        if (jSONObject != null) {
-            abVar.flowSetValueWithDuration((Flow) obj, jSONObject.toString());
-        } else {
-            abVar.flowSetValueWithDuration((Flow) obj, null);
-        }
-    }
+    void a(InterfaceC0158a interfaceC0158a);
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void flowStartSlot(Object obj, String str, JSONObject jSONObject) {
-        ((ab) c.a(ab.SERVICE_REFERENCE)).a((Flow) obj, str, jSONObject);
-    }
+    void a(AlaLiveUserInfoData alaLiveUserInfoData, String str);
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void flowEndSlot(Object obj, String str) {
-        ((ab) c.a(ab.SERVICE_REFERENCE)).flowEndSlot((Flow) obj, str);
-    }
+    void eZ(int i);
 
-    @Override // com.baidu.live.tbadk.ubc.IUbcManager
-    public void flowEnd(Object obj) {
-        ((ab) c.a(ab.SERVICE_REFERENCE)).flowEnd((Flow) obj);
-    }
+    void onDestroy();
 }

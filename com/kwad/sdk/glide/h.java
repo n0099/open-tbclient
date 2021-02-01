@@ -1,11 +1,11 @@
 package com.kwad.sdk.glide;
 
 import com.kwad.sdk.glide.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class h<CHILD extends h<CHILD, TranscodeType>, TranscodeType> implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.kwad.sdk.glide.request.b.c<? super TranscodeType> f10032a = com.kwad.sdk.glide.request.b.a.a();
+    private com.kwad.sdk.glide.request.b.c<? super TranscodeType> f10034a = com.kwad.sdk.glide.request.b.a.a();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: a */
@@ -19,6 +19,6 @@ public abstract class h<CHILD extends h<CHILD, TranscodeType>, TranscodeType> im
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final com.kwad.sdk.glide.request.b.c<? super TranscodeType> b() {
-        return this.f10032a;
+        return this.f10034a;
     }
 }

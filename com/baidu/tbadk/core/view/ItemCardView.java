@@ -20,7 +20,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
@@ -29,23 +30,24 @@ import java.util.List;
 import tbclient.Item;
 /* loaded from: classes.dex */
 public class ItemCardView extends RelativeLayout {
-    private static final int fep = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int feq = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int fer = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
-    private static final int fes = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int fet = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int feu = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds208);
-    private static final int fev = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-    private static final int few = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    private TbImageView feg;
-    private RankStarView feh;
-    private TextView fei;
-    private TextView fej;
-    private TextView fek;
-    private ImageView fel;
-    private int fem;
-    private int fen;
-    private String feo;
+    private static final int fgF = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
+    private static final int fgG = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
+    private static final int fgH = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
+    private static final int fgI = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    private static final int fgJ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
+    private static final int fgK = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds195);
+    private static final int fgL = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    private static final int fgM = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    private ImageView fgA;
+    private ImageView fgB;
+    private int fgC;
+    private int fgD;
+    private String fgE;
+    private TbImageView fgv;
+    private RankStarView fgw;
+    private TextView fgx;
+    private TextView fgy;
+    private TextView fgz;
     private Path mPath;
     private RectF mRect;
     private TextView mTitleView;
@@ -60,8 +62,8 @@ public class ItemCardView extends RelativeLayout {
 
     public ItemCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fem = R.color.CAM_X0206;
-        this.fen = 0;
+        this.fgC = R.color.CAM_X0206;
+        this.fgD = 0;
         this.mPath = new Path();
         this.mRect = new RectF();
         initUI(context);
@@ -69,163 +71,164 @@ public class ItemCardView extends RelativeLayout {
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.item_card_view_layout, (ViewGroup) this, true);
-        this.feg = (TbImageView) findViewById(R.id.item_image);
+        this.fgv = (TbImageView) findViewById(R.id.item_image);
         this.mTitleView = (TextView) findViewById(R.id.item_title);
-        this.feh = (RankStarView) findViewById(R.id.item_star);
-        this.fei = (TextView) findViewById(R.id.item_score);
-        this.fej = (TextView) findViewById(R.id.item_des);
-        this.fek = (TextView) findViewById(R.id.item_tag);
-        this.fel = (ImageView) findViewById(R.id.bt_del);
-        this.feg.setDrawCorner(true);
-        this.feg.setConrers(15);
-        this.feg.setRadiusById(R.string.J_X04);
-        this.feg.setPlaceHolder(1);
-        this.feg.setDrawBorder(true);
-        this.feh.setStarSpacing(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
+        this.fgw = (RankStarView) findViewById(R.id.item_star);
+        this.fgx = (TextView) findViewById(R.id.item_score);
+        this.fgy = (TextView) findViewById(R.id.item_des);
+        this.fgz = (TextView) findViewById(R.id.item_tag);
+        this.fgA = (ImageView) findViewById(R.id.bt_del);
+        this.fgB = (ImageView) findViewById(R.id.img_right);
+        this.fgv.setDrawCorner(true);
+        this.fgv.setConrers(15);
+        this.fgv.setRadiusById(R.string.J_X04);
+        this.fgv.setPlaceHolder(1);
+        this.fgv.setDrawBorder(true);
+        this.fgw.setStarSpacing(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
         onChangeSkinType();
     }
 
-    private void btz() {
-        if (this.fen == 1) {
-            this.mTitleView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42));
-            this.fej.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds31));
-            this.fek.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds31));
-            ((LinearLayout.LayoutParams) this.feh.getLayoutParams()).height = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds31);
-            this.feh.setStarSpacing(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds3));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fek.getLayoutParams();
+    private void btT() {
+        if (this.fgD == 1) {
+            this.mTitleView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.T_X07));
+            this.fgy.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds31));
+            this.fgz.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.T_X09));
+            ((LinearLayout.LayoutParams) this.fgw.getLayoutParams()).height = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds32);
+            this.fgw.setStarSpacing(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds3));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fgz.getLayoutParams();
             layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds5);
-            this.fek.setLayoutParams(layoutParams);
+            this.fgz.setLayoutParams(layoutParams);
         }
     }
 
     public void setData(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo, int i) {
-        if (!TextUtils.isEmpty(this.feo + tbRichTextEvaluateItemInfo.getTitle())) {
+        if (!TextUtils.isEmpty(this.fgE + tbRichTextEvaluateItemInfo.getTitle())) {
             SpannableString spannableString = new SpannableString(tbRichTextEvaluateItemInfo.getTitle());
-            UtilHelper.setSpan(spannableString, tbRichTextEvaluateItemInfo.getTitle(), this.feo, new ForegroundColorSpan(getResources().getColor(R.color.CAM_X0301)));
+            UtilHelper.setSpan(spannableString, tbRichTextEvaluateItemInfo.getTitle(), this.fgE, new ForegroundColorSpan(getResources().getColor(R.color.CAM_X0301)));
             this.mTitleView.setText(spannableString);
         } else {
             this.mTitleView.setText(tbRichTextEvaluateItemInfo.getTitle());
         }
-        this.feg.startLoad(tbRichTextEvaluateItemInfo.getIconUrl(), i, false);
+        this.fgv.startLoad(tbRichTextEvaluateItemInfo.getIconUrl(), i, false);
         if (tbRichTextEvaluateItemInfo.getStar() >= 0 && tbRichTextEvaluateItemInfo.getStar() <= 5) {
-            this.feh.setStarCount(tbRichTextEvaluateItemInfo.getStar());
+            this.fgw.setStarCount(tbRichTextEvaluateItemInfo.getStar());
         } else {
-            this.feh.setStarCount(0.0f);
+            this.fgw.setStarCount(0.0f);
         }
         if (tbRichTextEvaluateItemInfo.getScore() > 0.0d && tbRichTextEvaluateItemInfo.getScore() <= 10.0d) {
-            this.fei.setText(tbRichTextEvaluateItemInfo.getScore() + "");
+            this.fgx.setText(tbRichTextEvaluateItemInfo.getScore() + "");
         } else {
-            this.fei.setText(R.string.no_evaluate_now);
+            this.fgx.setText(R.string.no_evaluate_now);
         }
         setTag(tbRichTextEvaluateItemInfo.getTags());
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.feg.getLayoutParams();
-        if (this.fen == 1) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fgv.getLayoutParams();
+        if (this.fgD == 1) {
             if (tbRichTextEvaluateItemInfo.getIconSize() == 1.0d) {
-                layoutParams.width = fep;
-                layoutParams.height = feq;
+                layoutParams.width = fgF;
+                layoutParams.height = fgG;
             } else if (tbRichTextEvaluateItemInfo.getIconSize() < 1.0d) {
-                layoutParams.width = fer;
-                layoutParams.height = fes;
+                layoutParams.width = fgH;
+                layoutParams.height = fgI;
             } else {
-                layoutParams.width = fet;
-                layoutParams.height = feu;
+                layoutParams.width = fgJ;
+                layoutParams.height = fgK;
             }
             layoutParams.width -= com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds5);
             layoutParams.height -= com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds5);
         } else if (tbRichTextEvaluateItemInfo.getIconSize() == 1.0d) {
-            layoutParams.width = fep;
-            layoutParams.height = feq;
+            layoutParams.width = fgF;
+            layoutParams.height = fgG;
         } else if (tbRichTextEvaluateItemInfo.getIconSize() == 0.67d) {
-            layoutParams.width = fer;
-            layoutParams.height = fes;
+            layoutParams.width = fgH;
+            layoutParams.height = fgI;
         } else {
-            layoutParams.width = fet;
-            layoutParams.height = feu;
+            layoutParams.width = fgJ;
+            layoutParams.height = fgK;
         }
         ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
         layoutParams2.height = layoutParams.height + com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        this.feg.setLayoutParams(layoutParams);
+        this.fgv.setLayoutParams(layoutParams);
         setLayoutParams(layoutParams2);
     }
 
     public void setData(Item item, int i) {
-        if (!TextUtils.isEmpty(item.item_name + this.feo)) {
-            UtilHelper.setSpan(new SpannableString(item.item_name), item.item_name, this.feo, new ForegroundColorSpan(Color.parseColor("#0AC3BC")));
+        if (!TextUtils.isEmpty(item.item_name + this.fgE)) {
+            UtilHelper.setSpan(new SpannableString(item.item_name), item.item_name, this.fgE, new ForegroundColorSpan(Color.parseColor("#0AC3BC")));
         }
         this.mTitleView.setText(item.item_name);
-        this.feg.startLoad(item.icon_url, i, false);
+        this.fgv.startLoad(item.icon_url, i, false);
         if (item.star.intValue() >= 0 && item.star.intValue() <= 5) {
-            this.feh.setStarCount(item.star.intValue());
+            this.fgw.setStarCount(item.star.intValue());
         } else {
-            this.feh.setStarCount(0.0f);
+            this.fgw.setStarCount(0.0f);
         }
         if (item.score.doubleValue() > 0.0d && item.score.doubleValue() <= 10.0d) {
-            this.fei.setText(item.score + "");
+            this.fgx.setText(item.score + "");
         } else {
-            this.fei.setText(R.string.no_evaluate_now);
+            this.fgx.setText(R.string.no_evaluate_now);
         }
         setTag(item.tags);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.feg.getLayoutParams();
-        if (this.fen == 1) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fgv.getLayoutParams();
+        if (this.fgD == 1) {
             if (item.icon_size.doubleValue() == 1.0d) {
-                layoutParams.width = fep;
-                layoutParams.height = feq;
+                layoutParams.width = fgF;
+                layoutParams.height = fgG;
             } else if (item.icon_size.doubleValue() < 1.0d) {
-                layoutParams.width = fer;
-                layoutParams.height = fes;
+                layoutParams.width = fgH;
+                layoutParams.height = fgI;
             } else {
-                layoutParams.width = fet;
-                layoutParams.height = feu;
+                layoutParams.width = fgJ;
+                layoutParams.height = fgK;
             }
             layoutParams.width -= com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
             layoutParams.height -= com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
         } else if (item.icon_size.doubleValue() == 1.0d) {
-            layoutParams.width = fep;
-            layoutParams.height = feq;
+            layoutParams.width = fgF;
+            layoutParams.height = fgG;
         } else if (item.icon_size.doubleValue() == 0.67d) {
-            layoutParams.width = fer;
-            layoutParams.height = fes;
+            layoutParams.width = fgH;
+            layoutParams.height = fgI;
         } else {
-            layoutParams.width = fet;
-            layoutParams.height = feu;
+            layoutParams.width = fgJ;
+            layoutParams.height = fgK;
         }
         if (item.icon_size.doubleValue() == 1.0d) {
-            if (this.fen == 0) {
-                layoutParams.width = fep;
-                layoutParams.height = feq;
-            } else if (this.fen == 1) {
-                layoutParams.width = fep - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-                layoutParams.height = feq - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+            if (this.fgD == 0) {
+                layoutParams.width = fgF;
+                layoutParams.height = fgG;
+            } else if (this.fgD == 1) {
+                layoutParams.width = fgF - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+                layoutParams.height = fgG - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
             }
         } else if (item.icon_size.doubleValue() == 0.67d) {
-            layoutParams.width = fer;
-            layoutParams.height = fes;
+            layoutParams.width = fgH;
+            layoutParams.height = fgI;
         } else {
-            layoutParams.width = fet;
-            layoutParams.height = feu;
+            layoutParams.width = fgJ;
+            layoutParams.height = fgK;
         }
         ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
         layoutParams2.height = layoutParams.height + com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        this.feg.setLayoutParams(layoutParams);
+        this.fgv.setLayoutParams(layoutParams);
         setLayoutParams(layoutParams2);
     }
 
     private void setTag(List<String> list) {
         if (list == null || list.isEmpty()) {
-            this.fek.setVisibility(8);
+            this.fgz.setVisibility(8);
             return;
         }
-        this.fek.setVisibility(0);
+        this.fgz.setVisibility(0);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         for (int i = 0; i < list.size(); i++) {
             spannableStringBuilder.append((CharSequence) list.get(i));
             if (i != list.size() - 1) {
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" ");
-                spannableStringBuilder2.setSpan(new com.baidu.tbadk.core.view.a.b(few), 0, spannableStringBuilder2.length(), 33);
+                spannableStringBuilder2.setSpan(new com.baidu.tbadk.core.view.a.b(fgM), 0, spannableStringBuilder2.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
             }
         }
-        this.fek.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+        this.fgz.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
     }
 
     @Override // android.view.View
@@ -234,33 +237,36 @@ public class ItemCardView extends RelativeLayout {
         int measuredHeight = getMeasuredHeight();
         this.mPath.reset();
         this.mRect.set(0.0f, 0.0f, measuredWidth, measuredHeight);
-        this.mPath.addRoundRect(this.mRect, fev, fev, Path.Direction.CW);
+        this.mPath.addRoundRect(this.mRect, fgL, fgL, Path.Direction.CW);
         canvas.clipPath(this.mPath);
         super.draw(canvas);
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundColor(this, this.fem);
-        ao.setViewTextColor(this.mTitleView, R.color.CAM_X0105, 1);
-        ao.setViewTextColor(this.fei, R.color.CAM_X0109, 1);
-        ao.setViewTextColor(this.fek, R.color.CAM_X0109, 1);
-        SvgManager.bsx().a(this.fel, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.feg.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-        this.feg.setBorderColor(ao.getColor(R.color.CAM_X0401));
-        this.feh.buF();
+        ap.setBackgroundColor(this, this.fgC);
+        ap.setViewTextColor(this.mTitleView, R.color.CAM_X0107, 1);
+        ap.setViewTextColor(this.fgx, R.color.CAM_X0109, 1);
+        ap.setViewTextColor(this.fgz, R.color.CAM_X0109, 1);
+        SvgManager.bsR().a(this.fgA, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        WebPManager.a(this.fgB, R.drawable.icon_pb_right_n, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
+        this.fgv.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.fgv.setBorderColor(ap.getColor(R.color.CAM_X0401));
+        this.fgw.buZ();
+        this.fgw.invalidate();
+        this.fgv.setPlaceHolder(1);
     }
 
     public void setBackGroundColor(int i) {
-        this.fem = i;
+        this.fgC = i;
         onChangeSkinType();
     }
 
     public RankStarView getStarView() {
-        return this.feh;
+        return this.fgw;
     }
 
     public TbImageView getItemImageView() {
-        return this.feg;
+        return this.fgv;
     }
 
     public TextView getTitleView() {
@@ -268,23 +274,23 @@ public class ItemCardView extends RelativeLayout {
     }
 
     public TextView getTagView() {
-        return this.fek;
+        return this.fgz;
     }
 
-    public void btA() {
-        this.fel.setVisibility(0);
+    public void btU() {
+        this.fgA.setVisibility(0);
     }
 
     public void setOnCloseListener(View.OnClickListener onClickListener) {
-        this.fel.setOnClickListener(onClickListener);
+        this.fgA.setOnClickListener(onClickListener);
     }
 
     public void setHighLightText(String str) {
-        this.feo = str;
+        this.fgE = str;
     }
 
     public void setSizeStyle(int i) {
-        this.fen = i;
-        btz();
+        this.fgD = i;
+        btT();
     }
 }

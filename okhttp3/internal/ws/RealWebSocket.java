@@ -32,7 +32,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCallback {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final long CANCEL_AFTER_CLOSE_MILLIS = 60000;
@@ -423,7 +423,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public final class PingRunnable implements Runnable {
         PingRunnable() {
         }
@@ -476,7 +476,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static final class Message {
         final ByteString data;
         final int formatOpcode;
@@ -488,7 +488,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static final class Close {
         final long cancelAfterCloseMillis;
         final int code;
@@ -501,7 +501,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static abstract class Streams implements Closeable {
         public final boolean client;
         public final BufferedSink sink;
@@ -515,7 +515,7 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public final class CancelRunnable implements Runnable {
         CancelRunnable() {
         }

@@ -5,33 +5,33 @@ import android.os.Bundle;
 import com.baidu.helios.channels.b;
 import com.baidu.helios.ids.b;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
-    protected C0121a arq;
-    protected b arr;
+    protected C0121a arg;
+    protected b arh;
 
     /* renamed from: com.baidu.helios.bridge.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class C0121a {
         public Context applicationContext;
-        public b.a ars;
-        public b.a art;
-        public ExecutorService aru;
-        public ExecutorService arv;
+        public b.a ari;
+        public b.a arj;
+        public ExecutorService ark;
+        public ExecutorService arl;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class b {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
         void a(T t, Bundle bundle);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class d {
         public int errCode;
         public Exception exception;
@@ -66,11 +66,11 @@ public abstract class a {
     }
 
     public void a(C0121a c0121a) {
-        this.arq = c0121a;
+        this.arg = c0121a;
     }
 
     public void a(b bVar) {
-        this.arr = bVar;
+        this.arh = bVar;
         b(bVar);
     }
 

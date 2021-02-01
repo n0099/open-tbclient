@@ -5,11 +5,11 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f6055a = null;
+    private static String f6057a = null;
 
     public static boolean a(Context context) {
         String c = c(context);
@@ -22,21 +22,21 @@ public class g {
     }
 
     public static String c(Context context) {
-        String str = f6055a;
+        String str = f6057a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
                     if (runningAppProcessInfo.pid == myPid) {
-                        f6055a = runningAppProcessInfo.processName;
-                        return f6055a;
+                        f6057a = runningAppProcessInfo.processName;
+                        return f6057a;
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            f6055a = a();
-            return f6055a;
+            f6057a = a();
+            return f6057a;
         }
         return str;
     }

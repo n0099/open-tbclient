@@ -3,11 +3,11 @@ package com.bytedance.tea.crash.g;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Debug;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
-    static final a plJ;
+    static final a pvY;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class a {
         private a() {
         }
@@ -27,9 +27,9 @@ public class b {
 
     @TargetApi(19)
     /* renamed from: com.bytedance.tea.crash.g.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static class C1029b extends a {
-        private C1029b() {
+    /* loaded from: classes6.dex */
+    private static class C1033b extends a {
+        private C1033b() {
             super();
         }
 
@@ -51,21 +51,21 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
-            plJ = new C1029b();
+            pvY = new C1033b();
         } else {
-            plJ = new a();
+            pvY = new a();
         }
     }
 
     public static int a(Debug.MemoryInfo memoryInfo) {
-        return plJ.a(memoryInfo);
+        return pvY.a(memoryInfo);
     }
 
     public static int b(Debug.MemoryInfo memoryInfo) {
-        return plJ.b(memoryInfo);
+        return pvY.b(memoryInfo);
     }
 
     public static int c(Debug.MemoryInfo memoryInfo) {
-        return plJ.c(memoryInfo);
+        return pvY.c(memoryInfo);
     }
 }

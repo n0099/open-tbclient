@@ -1,9 +1,9 @@
 package org.webrtc;
 
-import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+import javax.annotation.Nullable;
+/* loaded from: classes10.dex */
 public class SoftwareVideoDecoderFactory implements VideoDecoderFactory {
     static VideoCodecInfo[] supportedCodecs() {
         ArrayList arrayList = new ArrayList();

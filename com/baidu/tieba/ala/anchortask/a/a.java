@@ -12,13 +12,14 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.data.cc;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
+import com.baidu.live.data.cj;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.tbadk.widget.SlideRatioViewPager;
+import com.baidu.tieba.ala.anchortask.b.c;
 import com.baidu.tieba.ala.anchortask.message.GetAnchorTaskInfoHttpResponseMessage;
 import com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager;
 import com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorViewPagerDot;
@@ -27,134 +28,134 @@ import com.kwad.sdk.collector.AppStatusRules;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a implements com.baidu.live.b.a {
-    private x alaLiveShowData;
+    private ab alaLiveShowData;
     private Context context;
-    private com.baidu.tieba.ala.anchortask.c.a gHX;
-    private com.baidu.tieba.ala.anchortask.b.c gHY;
-    private String gHZ;
-    private int gIc;
-    private int gId;
-    private d gIe;
-    private AlaAnchorBannerViewPager gIf;
-    private MyPagerAdapter gIh;
-    private AlaAnchorViewPagerDot gIi;
-    private int gIj;
+    private com.baidu.tieba.ala.anchortask.c.a gKH;
+    private c gKI;
+    private String gKJ;
+    private int gKM;
+    private int gKN;
+    private b gKO;
+    private AlaAnchorBannerViewPager gKP;
+    private MyPagerAdapter gKR;
+    private AlaAnchorViewPagerDot gKS;
+    private int gKT;
     private Activity mActivity;
     private View mView;
     private Handler handler = new Handler();
-    private Handler gIa = new Handler();
-    private boolean gIb = false;
-    private ArrayList<View> gIg = new ArrayList<>();
+    private Handler gKK = new Handler();
+    private boolean gKL = false;
+    private ArrayList<View> gKQ = new ArrayList<>();
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bSa();
+            a.this.bSD();
             a.this.handler.postDelayed(a.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
         }
     };
-    private Runnable gIk = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
+    private Runnable gKU = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.gIe.gIw.setCanVisible(true);
+            a.this.gKO.gLc.setCanVisible(true);
         }
     };
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!TextUtils.isEmpty(a.this.gHZ)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gHZ));
+            if (!TextUtils.isEmpty(a.this.gKJ)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gKJ));
             }
-            a.this.bSa();
+            a.this.bSD();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
         }
     };
-    private SlideRatioViewPager.OnPageChangeListener gIl = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.4
+    private SlideRatioViewPager.OnPageChangeListener gKV = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.4
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
         }
 
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            a.this.gIi.tV(i);
+            a.this.gKS.ub(i);
         }
 
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
         }
     };
-    private HttpMessageListener gIm = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.5
+    private HttpMessageListener gKW = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gHX != null) {
-                a.this.gHY = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gHY;
-                if (a.this.gHY != null && a.this.gHY.gIU != null) {
-                    a.this.gHZ = a.this.gHY.gHZ;
-                    a.this.bSb();
-                    boolean a2 = a.this.gHX.a(a.this.gHY.gIU);
-                    if (a.this.gIj == 1) {
-                        a.this.gIe.gIw.setCanVisible(true);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gKH != null) {
+                a.this.gKI = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gKI;
+                if (a.this.gKI != null && a.this.gKI.gLA != null) {
+                    a.this.gKJ = a.this.gKI.gKJ;
+                    a.this.bSE();
+                    boolean a2 = a.this.gKH.a(a.this.gKI.gLA);
+                    if (a.this.gKT == 1) {
+                        a.this.gKO.gLc.setCanVisible(true);
                         if (a2) {
-                            if (a.this.gIg.size() <= 1 && a.this.gHX != null) {
-                                a.this.gIg.add(a.this.gHX.getView());
-                                a.this.gIf.setAdapter(new MyPagerAdapter(a.this.context, a.this.gIg));
-                                a.this.gIi.tW(a.this.gIg.size());
+                            if (a.this.gKQ.size() <= 1 && a.this.gKH != null) {
+                                a.this.gKQ.add(a.this.gKH.getView());
+                                a.this.gKP.setAdapter(new MyPagerAdapter(a.this.context, a.this.gKQ));
+                                a.this.gKS.uc(a.this.gKQ.size());
                             }
-                        } else if (a.this.gIg.size() == 2) {
-                            a.this.gIg.remove(1);
-                            a.this.gIf.setAdapter(new MyPagerAdapter(a.this.context, a.this.gIg));
-                            a.this.gIi.tW(a.this.gIg.size());
+                        } else if (a.this.gKQ.size() == 2) {
+                            a.this.gKQ.remove(1);
+                            a.this.gKP.setAdapter(new MyPagerAdapter(a.this.context, a.this.gKQ));
+                            a.this.gKS.uc(a.this.gKQ.size());
                         }
                     } else if (!a2) {
-                        a.this.gIg.clear();
+                        a.this.gKQ.clear();
                         a.this.mView.setVisibility(8);
-                    } else if (a.this.gHX != null) {
-                        a.this.gIg.clear();
-                        a.this.gIg.add(a.this.gHX.getView());
-                        a.this.gIf.setAdapter(new MyPagerAdapter(a.this.context, a.this.gIg));
-                        a.this.gIi.tW(a.this.gIg.size());
+                    } else if (a.this.gKH != null) {
+                        a.this.gKQ.clear();
+                        a.this.gKQ.add(a.this.gKH.getView());
+                        a.this.gKP.setAdapter(new MyPagerAdapter(a.this.context, a.this.gKQ));
+                        a.this.gKS.uc(a.this.gKQ.size());
                     }
-                    if (a.this.gHY.gIU.gII == 2) {
+                    if (a.this.gKI.gLA.gLo == 2) {
                         a.this.handler.removeCallbacksAndMessages(null);
                     }
                 }
             }
         }
     };
-    private Runnable gIn = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.6
+    private Runnable gKX = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.6
         @Override // java.lang.Runnable
         public void run() {
             a.this.mActivity.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.6.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    int currentItem = a.this.gIf.getCurrentItem() + 1;
-                    if (a.this.gIg.size() > 0) {
-                        a.this.gIf.setCurrentItem(currentItem % a.this.gIg.size());
-                        a.this.gIi.tV(currentItem % a.this.gIg.size());
+                    int currentItem = a.this.gKP.getCurrentItem() + 1;
+                    if (a.this.gKQ.size() > 0) {
+                        a.this.gKP.setCurrentItem(currentItem % a.this.gKQ.size());
+                        a.this.gKS.ub(currentItem % a.this.gKQ.size());
                     }
                 }
             });
-            a.this.gIa.postDelayed(a.this.gIn, 10000L);
+            a.this.gKK.postDelayed(a.this.gKX, 10000L);
         }
     };
-    CustomMessageListener gIo = new CustomMessageListener(2913284) { // from class: com.baidu.tieba.ala.anchortask.a.a.7
+    CustomMessageListener gKY = new CustomMessageListener(2913284) { // from class: com.baidu.tieba.ala.anchortask.a.a.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && a.this.gIf != null) {
-                a.this.gIf.setVisibility(8);
+            if (customResponsedMessage != null && a.this.gKP != null) {
+                a.this.gKP.setVisibility(8);
             }
         }
     };
-    CustomMessageListener gIp = new CustomMessageListener(2913283) { // from class: com.baidu.tieba.ala.anchortask.a.a.8
+    CustomMessageListener gKZ = new CustomMessageListener(2913283) { // from class: com.baidu.tieba.ala.anchortask.a.a.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && a.this.gIf != null) {
-                a.this.gIf.setVisibility(0);
+            if (customResponsedMessage != null && a.this.gKP != null) {
+                a.this.gKP.setVisibility(0);
             }
         }
     };
@@ -162,64 +163,64 @@ public class a implements com.baidu.live.b.a {
     public a(Context context) {
         this.context = context;
         initTasks();
-        this.gHX = new com.baidu.tieba.ala.anchortask.c.a(context);
-        this.gIe = new d(context);
-        this.gHX.getView().setId(a.f.ala_main_anthor_task_entry_id);
-        if (this.gHX.getView() != null) {
-            this.gHX.getView().setOnClickListener(this.onClickListener);
+        this.gKH = new com.baidu.tieba.ala.anchortask.c.a(context);
+        this.gKO = new b(context);
+        this.gKH.getView().setId(a.f.ala_main_anthor_task_entry_id);
+        if (this.gKH.getView() != null) {
+            this.gKH.getView().setOnClickListener(this.onClickListener);
         }
     }
 
     @Override // com.baidu.live.b.a
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, Activity activity, int i) {
         boolean z;
-        cc ccVar = com.baidu.live.af.a.OJ().bxp.aMY;
+        cj cjVar = com.baidu.live.ae.a.Qj().bAS.aPW;
         this.mActivity = activity;
-        if (ccVar != null && this.gIe != null) {
-            this.gIe.tU(i);
+        if (cjVar != null && this.gKO != null) {
+            this.gKO.ua(i);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                z = ccVar.aNQ == 1;
+                z = cjVar.aQR == 1;
             } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                z = ccVar.aNR == 1;
+                z = cjVar.aQS == 1;
             } else if (TbadkCoreApplication.getInst().isTieba()) {
-                z = ccVar.aNS == 1;
+                z = cjVar.aQT == 1;
             } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                z = ccVar.aNT == 1;
+                z = cjVar.aQU == 1;
             } else {
                 z = false;
             }
             if (z) {
-                if (this.gHX != null) {
+                if (this.gKH != null) {
                     this.mView = LayoutInflater.from(this.context).inflate(a.g.layout_anchor_viewpager, (ViewGroup) null);
-                    this.gIi = (AlaAnchorViewPagerDot) this.mView.findViewById(a.f.anchor_task_dot);
+                    this.gKS = (AlaAnchorViewPagerDot) this.mView.findViewById(a.f.anchor_task_dot);
                     this.mView.setId(a.f.anthor_task_viewpager_id);
-                    this.gIf = (AlaAnchorBannerViewPager) this.mView.findViewById(a.f.anchor_view_pager);
-                    this.gIf.requestDisallowInterceptTouchEvent(true);
-                    this.gIj = i;
+                    this.gKP = (AlaAnchorBannerViewPager) this.mView.findViewById(a.f.anchor_view_pager);
+                    this.gKP.requestDisallowInterceptTouchEvent(true);
+                    this.gKT = i;
                     if (i == 1) {
-                        this.gIg.add(this.gIe.gIw.getView());
-                        this.gIe.gIw.setCanVisible(false);
-                        this.gIa.postDelayed(this.gIk, 10000L);
+                        this.gKQ.add(this.gKO.gLc.getView());
+                        this.gKO.gLc.setCanVisible(false);
+                        this.gKK.postDelayed(this.gKU, 10000L);
                     }
-                    this.gHX.U(this.gIg);
-                    this.gIh = new MyPagerAdapter(this.context, this.gIg);
-                    this.gIf.setAdapter(this.gIh);
-                    this.gIi.tW(this.gIg.size());
+                    this.gKH.T(this.gKQ);
+                    this.gKR = new MyPagerAdapter(this.context, this.gKQ);
+                    this.gKP.setAdapter(this.gKR);
+                    this.gKS.uc(this.gKQ.size());
                     viewGroup.addView(this.mView, layoutParams);
-                    this.gIa.postDelayed(this.gIn, 10000L);
-                    this.gIf.addOnPageChangeListener(this.gIl);
+                    this.gKK.postDelayed(this.gKX, 10000L);
+                    this.gKP.addOnPageChangeListener(this.gKV);
                 }
                 this.handler.postDelayed(this.runnable, 10000L);
-                MessageManager.getInstance().registerListener(this.gIo);
-                MessageManager.getInstance().registerListener(this.gIp);
+                MessageManager.getInstance().registerListener(this.gKY);
+                MessageManager.getInstance().registerListener(this.gKZ);
             }
         }
     }
 
     @Override // com.baidu.live.b.a
-    public void a(x xVar) {
-        this.alaLiveShowData = xVar;
-        this.gIe.a(xVar);
+    public void a(ab abVar) {
+        this.alaLiveShowData = abVar;
+        this.gKO.a(abVar);
     }
 
     private void initTasks() {
@@ -229,10 +230,10 @@ public class a implements com.baidu.live.b.a {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetAnchorTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gIm);
+        MessageManager.getInstance().registerListener(this.gKW);
     }
 
-    public void bSa() {
+    public void bSD() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;
@@ -245,25 +246,25 @@ public class a implements com.baidu.live.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSb() {
-        if (this.gHY != null && this.gHY.gIU != null) {
-            if (!this.gIb) {
-                this.gIb = true;
-                this.gIc = this.gHY.gIU.gIG;
-                this.gId = this.gHY.gIU.gIH;
+    public void bSE() {
+        if (this.gKI != null && this.gKI.gLA != null) {
+            if (!this.gKL) {
+                this.gKL = true;
+                this.gKM = this.gKI.gLA.gLm;
+                this.gKN = this.gKI.gLA.gLn;
             }
-            int i = this.gHY.gIU.gII;
-            int i2 = this.gHY.gIU.gIJ;
-            int i3 = this.gHY.gIU.gIK;
+            int i = this.gKI.gLA.gLo;
+            int i2 = this.gKI.gLA.gLp;
+            int i3 = this.gKI.gLA.gLq;
             String str = null;
-            if (this.gIc == 1 && i == 2) {
+            if (this.gKM == 1 && i == 2) {
                 str = this.context.getString(a.h.txt_im_identity_is_mcn);
-            } else if (this.gIc == 2 && i == 1) {
+            } else if (this.gKM == 2 && i == 1) {
                 str = String.format(this.context.getString(a.h.txt_im_identity_is_ugc), Integer.valueOf(i3)) + "%";
-            } else if (this.gIc == 1 && i == 1) {
-                if (i2 > this.gId) {
+            } else if (this.gKM == 1 && i == 1) {
+                if (i2 > this.gKN) {
                     str = String.format(this.context.getString(a.h.txt_im_identity_advance), Integer.valueOf(i3)) + "%";
-                } else if (i2 < this.gId) {
+                } else if (i2 < this.gKN) {
                     str = String.format(this.context.getString(a.h.txt_im_identity_reduce), Integer.valueOf(i3)) + "%";
                 }
             }
@@ -277,37 +278,37 @@ public class a implements com.baidu.live.b.a {
                     e.printStackTrace();
                 }
             }
-            this.gIc = i;
-            this.gId = i2;
+            this.gKM = i;
+            this.gKN = i2;
         }
     }
 
     @Override // com.baidu.live.b.a
     public void setCanVisible(boolean z) {
-        if (this.gHX != null) {
-            this.gHX.setCanVisible(z);
+        if (this.gKH != null) {
+            this.gKH.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.b.a
     public void refreshUI() {
-        if (this.gHX != null) {
-            this.gHX.refreshUI();
+        if (this.gKH != null) {
+            this.gKH.refreshUI();
         }
     }
 
     @Override // com.baidu.live.b.a
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        this.gIa.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.gIm);
-        MessageManager.getInstance().unRegisterListener(this.gIo);
-        MessageManager.getInstance().unRegisterListener(this.gIp);
-        if (this.gHX != null) {
-            this.gHX.onDestroy();
+        this.gKK.removeCallbacksAndMessages(null);
+        MessageManager.getInstance().unRegisterListener(this.gKW);
+        MessageManager.getInstance().unRegisterListener(this.gKY);
+        MessageManager.getInstance().unRegisterListener(this.gKZ);
+        if (this.gKH != null) {
+            this.gKH.onDestroy();
         }
-        if (this.gIe != null) {
-            this.gIe.onDestory();
+        if (this.gKO != null) {
+            this.gKO.onDestory();
         }
     }
 }

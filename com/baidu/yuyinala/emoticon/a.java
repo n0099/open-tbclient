@@ -1,36 +1,36 @@
 package com.baidu.yuyinala.emoticon;
 
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static a oLK;
+    private static a oVQ;
     private TbPageContext mPageContext;
-    private b oLL;
+    private b oVR;
 
-    public static a egF() {
-        if (oLK == null) {
+    public static a eiX() {
+        if (oVQ == null) {
             synchronized (a.class) {
-                if (oLK == null) {
-                    oLK = new a();
+                if (oVQ == null) {
+                    oVQ = new a();
                 }
             }
         }
-        return oLK;
+        return oVQ;
     }
 
-    public void b(TbPageContext tbPageContext, x xVar) {
+    public void b(TbPageContext tbPageContext, ab abVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oLL = null;
+            this.oVR = null;
         }
-        this.oLL = new b(tbPageContext, xVar);
-        this.oLL.show();
+        this.oVR = new b(tbPageContext, abVar);
+        this.oVR.show();
     }
 
-    public void Ek() {
-        if (this.oLL != null && this.oLL.isShowing()) {
-            this.oLL.dismiss();
+    public void FA() {
+        if (this.oVR != null && this.oVR.isShowing()) {
+            this.oVR.dismiss();
         }
     }
 }

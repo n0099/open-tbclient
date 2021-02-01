@@ -45,14 +45,14 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1795a = ".video_cache";
+    public static String f1793a = ".video_cache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1796b = "last_file_cache_time";
+    public static String f1794b = "last_file_cache_time";
     public static long c = 86400000;
     public static long d = KsMediaMeta.AV_CH_STEREO_LEFT;
     private static volatile int e = -1;
@@ -64,7 +64,7 @@ public class n {
             long i = d.i();
             d.f();
             long i2 = d.i();
-            CyberCfgManager.getInstance().setPrefLong(f1796b, System.currentTimeMillis());
+            CyberCfgManager.getInstance().setPrefLong(f1794b, System.currentTimeMillis());
             CyberLog.i("sdk_Utils", "delete file success,  beforeSpace = " + i + " afterSpace = " + i2 + " deleteSpaceSize = " + (i - i2));
             return i - i2;
         }
@@ -263,7 +263,7 @@ public class n {
         }
         String str = map.get("User-Agent");
         if (TextUtils.isEmpty(str)) {
-            str = "dumedia/7.12.2.49";
+            str = "dumedia/7.12.2.56";
         } else if (str.indexOf("dumedia") == -1) {
             str = str + " dumedia/" + SDKVersion.VERSION;
         }
@@ -592,7 +592,7 @@ public class n {
     private static boolean r() {
         boolean z = false;
         try {
-            long prefLong = CyberCfgManager.getInstance().getPrefLong(f1796b, 0L);
+            long prefLong = CyberCfgManager.getInstance().getPrefLong(f1794b, 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (prefLong > 0) {
                 boolean z2 = currentTimeMillis - prefLong > s();
@@ -601,7 +601,7 @@ public class n {
                     z = true;
                 }
             } else {
-                CyberCfgManager.getInstance().setPrefLong(f1796b, currentTimeMillis);
+                CyberCfgManager.getInstance().setPrefLong(f1794b, currentTimeMillis);
             }
             return z;
         } catch (Exception e2) {

@@ -6,25 +6,25 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import tbclient.AgreeList;
 /* loaded from: classes2.dex */
 public class a extends BaseCardInfo {
-    public static final BdUniqueId kKS = BdUniqueId.gen();
-    public static final BdUniqueId kKT = BdUniqueId.gen();
-    public static final BdUniqueId kKU = BdUniqueId.gen();
-    public static final BdUniqueId kKV = BdUniqueId.gen();
-    public static final BdUniqueId kKW = BdUniqueId.gen();
-    private boolean eRS;
+    public static final BdUniqueId kSV = BdUniqueId.gen();
+    public static final BdUniqueId kSW = BdUniqueId.gen();
+    public static final BdUniqueId kSX = BdUniqueId.gen();
+    public static final BdUniqueId kSY = BdUniqueId.gen();
+    public static final BdUniqueId kSZ = BdUniqueId.gen();
+    private boolean eUg;
     private String fname;
     private boolean isNew;
-    private BdUniqueId kKX;
-    private String kKY;
+    private BdUniqueId kTa;
+    private String kTb;
     private BaijiahaoData mBaijiahao;
     private long msgId;
     private OriginalThreadInfo originalThreadInfo;
@@ -42,7 +42,7 @@ public class a extends BaseCardInfo {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return this.kKX;
+        return this.kTa;
     }
 
     public void a(AgreeList agreeList) {
@@ -53,27 +53,27 @@ public class a extends BaseCardInfo {
             this.time = agreeList.time.intValue() * 1000;
             if (agreeList.post_info != null) {
                 this.post_id = String.valueOf(agreeList.post_info.id);
-                if (!x.isEmpty(agreeList.post_info.content) && x.getItem(agreeList.post_info.content, 0) != null && agreeList.post_info.author != null) {
+                if (!y.isEmpty(agreeList.post_info.content) && y.getItem(agreeList.post_info.content, 0) != null && agreeList.post_info.author != null) {
                     String str = agreeList.post_info.author.name_show;
-                    if (at.isEmpty(str)) {
+                    if (au.isEmpty(str)) {
                         str = agreeList.post_info.author.name;
                     }
                     this.subTitle = str + "：" + agreeList.post_info.content.get(0).text;
                 }
                 this.quote_pid = agreeList.post_info.quote_id;
             }
-            bz bzVar = new bz();
-            bzVar.a(agreeList.thread_info);
-            this.originalThreadInfo = OriginalThreadInfo.t(bzVar);
-            this.threadAuthor = bzVar.bnx();
-            this.fname = bzVar.bnB();
-            this.thread_id = bzVar.getId();
-            this.threadType = bzVar.threadType;
-            this.isBjh = bzVar.bmg();
-            this.mBaijiahao = bzVar.getBaijiahaoData();
-            this.kKY = "c12927";
+            cb cbVar = new cb();
+            cbVar.a(agreeList.thread_info);
+            this.originalThreadInfo = OriginalThreadInfo.t(cbVar);
+            this.threadAuthor = cbVar.bnQ();
+            this.fname = cbVar.bnU();
+            this.thread_id = cbVar.getId();
+            this.threadType = cbVar.threadType;
+            this.isBjh = cbVar.bmz();
+            this.mBaijiahao = cbVar.getBaijiahaoData();
+            this.kTb = "c12927";
             if (agreeList.type.intValue() == 3) {
-                this.kKX = kKS;
+                this.kTa = kSV;
                 this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_thread);
                 if (this.isBjh) {
                     this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_dynamic);
@@ -81,7 +81,7 @@ public class a extends BaseCardInfo {
                 }
                 return;
             }
-            this.kKX = kKT;
+            this.kTa = kSW;
             this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_post);
         }
     }
@@ -97,7 +97,7 @@ public class a extends BaseCardInfo {
             this.thread_id = feedData.getThread_id();
             this.threadType = feedData.getThread_Type();
             this.title = feedData.getContent();
-            this.eRS = feedData.getIsFloor();
+            this.eUg = feedData.getIsFloor();
             this.postFrom = feedData.getPostFrom();
             this.quote_pid = feedData.getQuote_pid();
             this.isNew = feedData.isNew();
@@ -108,14 +108,14 @@ public class a extends BaseCardInfo {
             this.originalThreadInfo.threadId = this.thread_id;
             this.originalThreadInfo.threadType = this.threadType;
             this.originalThreadInfo.showPicUrl = feedData.getThreadImgUrl();
-            this.originalThreadInfo.eMk = this.isBjh;
+            this.originalThreadInfo.eOw = this.isBjh;
             this.originalThreadInfo.oriUgcInfo = this.mBaijiahao;
-            this.kKY = "c12928";
+            this.kTb = "c12928";
             if (feedData.getType() == 1) {
                 this.originalThreadInfo.postId = feedData.getQuote_pid();
                 String str = "";
                 if (feedData.getQuote_user() != null) {
-                    if (at.equals(feedData.getQuote_user().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                    if (au.equals(feedData.getQuote_user().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
                         str = TbadkCoreApplication.getInst().getString(R.string.me);
                     } else {
                         str = feedData.getQuote_user().getName_show();
@@ -126,9 +126,9 @@ public class a extends BaseCardInfo {
                     this.originalThreadInfo.title = this.originalThreadInfo.title.replace("\n", " ");
                 }
                 if (feedData.getIsFloor()) {
-                    this.kKX = kKU;
+                    this.kTa = kSX;
                 } else {
-                    this.kKX = kKV;
+                    this.kTa = kSY;
                 }
             } else {
                 this.originalThreadInfo.postId = "0";
@@ -137,9 +137,9 @@ public class a extends BaseCardInfo {
                 } else {
                     this.originalThreadInfo.title = feedData.getTitle();
                 }
-                this.kKX = kKW;
+                this.kTa = kSZ;
             }
-            this.originalThreadInfo.bma();
+            this.originalThreadInfo.bmt();
         }
     }
 
@@ -183,11 +183,11 @@ public class a extends BaseCardInfo {
         return this.msgId;
     }
 
-    public boolean cXC() {
-        return this.eRS;
+    public boolean cZA() {
+        return this.eUg;
     }
 
-    public String cXD() {
+    public String cZB() {
         return this.quote_pid;
     }
 
@@ -195,12 +195,12 @@ public class a extends BaseCardInfo {
         return this.isNew;
     }
 
-    public void tg(boolean z) {
+    public void tt(boolean z) {
         this.isNew = z;
     }
 
-    public String cXE() {
-        return this.kKY;
+    public String cZC() {
+        return this.kTb;
     }
 
     public MetaData getThreadAuthor() {

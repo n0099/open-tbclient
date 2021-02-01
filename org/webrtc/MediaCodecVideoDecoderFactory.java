@@ -3,20 +3,22 @@ package org.webrtc;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.os.Build;
-import androidx.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.Arrays;
+import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     private static final String TAG = "MediaCodecVideoDecoderFactory";
-    @Nullable
-    private final Predicate<MediaCodecInfo> codecAllowedPredicate;
+    private final String[] prefixBlacklist;
+    private final String[] prefixWhitelist;
     @Nullable
     private final EglBase.Context sharedContext;
 
-    public MediaCodecVideoDecoderFactory(@Nullable EglBase.Context context, @Nullable Predicate<MediaCodecInfo> predicate) {
+    public MediaCodecVideoDecoderFactory(@Nullable EglBase.Context context, String[] strArr, String[] strArr2) {
         this.sharedContext = context;
-        this.codecAllowedPredicate = predicate;
+        this.prefixWhitelist = (String[]) Arrays.copyOf(strArr, strArr.length);
+        this.prefixBlacklist = (String[]) Arrays.copyOf(strArr2, strArr2.length);
     }
 
     @Nullable
@@ -39,11 +41,13 @@ class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
         return null;
     }
 
-    private boolean isCodecAllowed(MediaCodecInfo mediaCodecInfo) {
-        if (this.codecAllowedPredicate == null) {
-            return true;
+    private boolean isBlacklisted(String str) {
+        for (String str2 : this.prefixBlacklist) {
+            if (str.startsWith(str2)) {
+                return true;
+            }
         }
-        return this.codecAllowedPredicate.test(mediaCodecInfo);
+        return false;
     }
 
     private boolean isH264HighProfileSupported(MediaCodecInfo mediaCodecInfo) {
@@ -55,9 +59,15 @@ class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     }
 
     private boolean isSupportedCodec(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
-        mediaCodecInfo.getName();
-        if (MediaCodecUtils.codecSupportsType(mediaCodecInfo, videoCodecType) && MediaCodecUtils.selectColorFormat(MediaCodecUtils.DECODER_COLOR_FORMATS, mediaCodecInfo.getCapabilitiesForType(videoCodecType.mimeType())) != null) {
-            return isCodecAllowed(mediaCodecInfo);
+        String name = mediaCodecInfo.getName();
+        return MediaCodecUtils.codecSupportsType(mediaCodecInfo, videoCodecType) && MediaCodecUtils.selectColorFormat(MediaCodecUtils.DECODER_COLOR_FORMATS, mediaCodecInfo.getCapabilitiesForType(videoCodecType.mimeType())) != null && isWhitelisted(name) && !isBlacklisted(name);
+    }
+
+    private boolean isWhitelisted(String str) {
+        for (String str2 : this.prefixWhitelist) {
+            if (str.startsWith(str2)) {
+                return true;
+            }
         }
         return false;
     }

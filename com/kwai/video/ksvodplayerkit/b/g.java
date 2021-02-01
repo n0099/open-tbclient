@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public static f a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         f fVar = new f();
-        fVar.f11046a = jSONObject.optString("url", fVar.f11046a);
+        fVar.f11048a = jSONObject.optString("url", fVar.f11048a);
         JSONArray optJSONArray = jSONObject.optJSONArray("backupUrl");
         if (optJSONArray != null) {
             ArrayList arrayList = new ArrayList();
@@ -24,7 +24,7 @@ public final class g {
                 arrayList.add((String) optJSONArray.opt(i2));
                 i = i2 + 1;
             }
-            fVar.f11047b = arrayList;
+            fVar.f11049b = arrayList;
         }
         fVar.c = jSONObject.optString("m3u8", fVar.c);
         fVar.d = jSONObject.optString("baseUrl", fVar.d);
@@ -42,11 +42,11 @@ public final class g {
     public static String a(f fVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("url", fVar.f11046a);
+            jSONObject.put("url", fVar.f11048a);
         } catch (Exception e) {
         }
         try {
-            jSONObject.put("backupUrl", new JSONArray((Collection) fVar.f11047b));
+            jSONObject.put("backupUrl", new JSONArray((Collection) fVar.f11049b));
         } catch (Exception e2) {
         }
         try {

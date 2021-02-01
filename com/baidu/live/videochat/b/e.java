@@ -1,18 +1,18 @@
 package com.baidu.live.videochat.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
-    public int bLv;
-    public String bLw;
+    public int bPf;
+    public String bPg;
 
-    public boolean UL() {
-        return this.bLv == 1;
+    public boolean Wu() {
+        return this.bPf == 1;
     }
 
-    public int UM() {
-        return this.bLv;
+    public int Wv() {
+        return this.bPf;
     }
 
-    public String UN() {
-        return this.bLw;
+    public String Ww() {
+        return this.bPg;
     }
 }

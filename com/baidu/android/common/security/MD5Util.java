@@ -3,7 +3,7 @@ package com.baidu.android.common.security;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class MD5Util {
     private MD5Util() {
     }

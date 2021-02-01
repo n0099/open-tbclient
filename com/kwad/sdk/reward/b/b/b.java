@@ -7,7 +7,7 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.b.b.b.e;
 import com.kwad.sdk.reward.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends d {
     public b(boolean z) {
         if (z) {
@@ -25,7 +25,7 @@ public class b extends d {
     public void a() {
         super.a();
         final View b2 = b(R.id.ksad_play_detail_top_toolbar);
-        this.f10650a.o.add(new com.kwad.sdk.reward.a.d() { // from class: com.kwad.sdk.reward.b.b.b.1
+        this.f10652a.o.add(new com.kwad.sdk.reward.a.d() { // from class: com.kwad.sdk.reward.b.b.b.1
             @Override // com.kwad.sdk.reward.a.d
             public void a() {
                 b2.setVisibility(0);

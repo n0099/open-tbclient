@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Iterator;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
     private static final String TAG = "ConnectManager";

@@ -7,11 +7,11 @@ import com.xiaomi.push.service.be;
 public class hf extends be.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ he f14083a;
+    final /* synthetic */ he f14085a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public hf(he heVar) {
-        this.f14083a = heVar;
+        this.f14085a = heVar;
     }
 
     @Override // com.xiaomi.push.service.be.a

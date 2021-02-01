@@ -22,20 +22,20 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile d f12368b;
+    private static volatile d f12370b;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f12369a;
+    private Context f12371a;
     private volatile com.qq.e.comm.plugin.r.b.b c;
     private long d;
     private boolean e;
 
     private d(Context context) {
-        this.f12369a = context.getApplicationContext();
+        this.f12371a = context.getApplicationContext();
         c(c.a(context));
         if (c()) {
             a(false, true);
@@ -43,23 +43,23 @@ public class d {
     }
 
     public static d a(Context context) {
-        if (f12368b == null) {
+        if (f12370b == null) {
             synchronized (d.class) {
                 try {
-                    if (f12368b == null) {
-                        f12368b = new d(context);
+                    if (f12370b == null) {
+                        f12370b = new d(context);
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12368b;
+        return f12370b;
     }
 
     private String a(boolean z) {
-        if (com.qq.e.comm.plugin.e.a.f11987b != null) {
-            String a2 = com.qq.e.comm.plugin.e.a.f11987b.a();
+        if (com.qq.e.comm.plugin.e.a.f11989b != null) {
+            String a2 = com.qq.e.comm.plugin.e.a.f11989b.a();
             if (!TextUtils.isEmpty(a2)) {
                 return a2;
             }
@@ -75,8 +75,8 @@ public class d {
             jSONObject.put("sdk_st", aj.a());
             jSONObject.put("plugin_ver", String.valueOf(GDTADManager.getInstance().getPM().getPluginVersion()));
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("lat", v.a(this.f12369a).a());
-            jSONObject2.put("lon", v.a(this.f12369a).b());
+            jSONObject2.put("lat", v.a(this.f12371a).a());
+            jSONObject2.put("lon", v.a(this.f12371a).b());
             jSONObject.put("geo", jSONObject2);
             jSONObject.put("app_ver_name", GDTADManager.getInstance().getAppStatus().getAPPVersion());
             jSONObject.put("device_id", o.l());
@@ -99,10 +99,10 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(final String str) {
-        s.f12589a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.r.a.d.2
+        s.f12591a.execute(new Runnable() { // from class: com.qq.e.comm.plugin.r.a.d.2
             @Override // java.lang.Runnable
             public void run() {
-                c.a(d.this.f12369a, str);
+                c.a(d.this.f12371a, str);
                 d.this.e();
             }
         });
@@ -147,7 +147,7 @@ public class d {
                 }
             }
             jSONObject.put("layerConfigs", jSONArray);
-            c.b(this.f12369a, jSONObject.toString());
+            c.b(this.f12371a, jSONObject.toString());
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -221,7 +221,7 @@ public class d {
                         exc.printStackTrace();
                     }
                 };
-                com.qq.e.comm.plugin.t.b.e cVar = !z2 ? new com.qq.e.comm.plugin.t.b.c(a(false), e.a.POST, b(z, false).getBytes(com.qq.e.comm.plugin.f.a.f11990a)) : new g(a(true), b(z, true).getBytes(com.qq.e.comm.plugin.f.a.f11990a));
+                com.qq.e.comm.plugin.t.b.e cVar = !z2 ? new com.qq.e.comm.plugin.t.b.c(a(false), e.a.POST, b(z, false).getBytes(com.qq.e.comm.plugin.f.a.f11992a)) : new g(a(true), b(z, true).getBytes(com.qq.e.comm.plugin.f.a.f11992a));
                 ai.a("gdt_tag_net", ai.a(cVar));
                 com.qq.e.comm.plugin.t.d.a().a(cVar, c.a.High, bVar);
             }

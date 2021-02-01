@@ -15,27 +15,27 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a Ua = null;
-    private HashMap<String, ArrayList<Message<?>>> TZ = null;
+    private static volatile a TY = null;
+    private HashMap<String, ArrayList<Message<?>>> TX = null;
 
-    public static a pn() {
-        if (Ua == null) {
+    public static a pl() {
+        if (TY == null) {
             synchronized (a.class) {
-                if (Ua == null) {
-                    Ua = new a();
+                if (TY == null) {
+                    TY = new a();
                 }
             }
         }
-        return Ua;
+        return TY;
     }
 
     public void init() {
-        this.TZ = new HashMap<>();
-        pp();
-        po();
+        this.TX = new HashMap<>();
+        pn();
+        pm();
     }
 
-    private void po() {
+    private void pm() {
         MessageManager.getInstance().registerListener(MessageConfig.PLUGIN_LOADED, new CustomMessageListener(0) { // from class: com.baidu.adp.plugin.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -44,27 +44,27 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.TY == 0 && a.this.TZ.size() > 0 && (arrayList = (ArrayList) a.this.TZ.get(aVar.TX)) != null && arrayList.size() > 0) {
+                    if (aVar.TW == 0 && a.this.TX.size() > 0 && (arrayList = (ArrayList) a.this.TX.get(aVar.TV)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.TZ.remove(aVar.TX);
+                    a.this.TX.remove(aVar.TV);
                 }
             }
         });
     }
 
-    private void pp() {
+    private void pn() {
         MessageManager.getInstance().setNotFindTaskListener(new b<Message<?>>() { // from class: com.baidu.adp.plugin.c.a.2
             @Override // com.baidu.adp.framework.listener.b
             public boolean a(Message<?> message) {
                 if (message == null) {
                     return false;
                 }
-                String aL = c.pZ().aL(message.getCmd());
-                if (TextUtils.isEmpty(aL) || c.pZ().cL(aL)) {
+                String aL = c.pX().aL(message.getCmd());
+                if (TextUtils.isEmpty(aL) || c.pX().cL(aL)) {
                     return false;
                 }
                 if (!PluginCenter.getInstance().hasInstance(aL)) {
@@ -83,10 +83,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.TZ.get(str);
+            ArrayList<Message<?>> arrayList = this.TX.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.TZ.put(str, arrayList);
+                this.TX.put(str, arrayList);
             }
             arrayList.add(message);
         }

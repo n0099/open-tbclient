@@ -1,11 +1,11 @@
 package com.ss.android.downloadlib;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d implements com.ss.android.socialbase.downloader.h.b {
     @Override // com.ss.android.socialbase.downloader.h.b
     public void a(com.ss.android.socialbase.downloader.g.c cVar, String str, JSONObject jSONObject) {
-        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eCc().j(cVar);
+        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eEt().j(cVar);
         if (j != null) {
             if ("install_view_result".equals(str)) {
                 jSONObject = com.ss.android.downloadlib.f.i.a(jSONObject);
@@ -15,7 +15,7 @@ public class d implements com.ss.android.socialbase.downloader.h.b {
                 } catch (Exception e) {
                 }
             }
-            com.ss.android.downloadlib.e.a.eCL().a(str, jSONObject, j);
+            com.ss.android.downloadlib.e.a.eFc().a(str, jSONObject, j);
         }
     }
 }

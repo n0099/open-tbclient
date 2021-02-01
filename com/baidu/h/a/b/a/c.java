@@ -1,18 +1,18 @@
 package com.baidu.h.a.b.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public String aQH;
-    public a caA;
-    public String caB;
-    public String cal;
-    public String cam;
-    public String cap;
-    public C0116c car;
-    public String cas;
-    public String cau;
-    public String cax;
-    public String cay;
-    public C0116c caz;
+    public String aTK;
+    public String ceB;
+    public C0116c ceD;
+    public String ceE;
+    public String ceG;
+    public String ceJ;
+    public String ceK;
+    public C0116c ceL;
+    public a ceM;
+    public String ceN;
+    public String cex;
+    public String cey;
     public String content;
     public long msgId;
     public String name;
@@ -20,54 +20,54 @@ public class c {
     public long time;
     public String uid;
     public String type = "0";
-    public String can = "0";
-    public String cao = "1005";
-    public String caq = "0";
-    public String cat = "0";
-    public String cav = "0";
-    public String caw = "1005";
+    public String cez = "0";
+    public String ceA = "1005";
+    public String ceC = "0";
+    public String ceF = "0";
+    public String ceH = "0";
+    public String ceI = "1005";
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public int caJ;
-        public int caK;
-        public c caL;
-        public long[] caM;
-        public int caN;
-        public String caO;
-        public String caP;
+        public int ceV;
+        public int ceW;
+        public c ceX;
+        public long[] ceY;
+        public int ceZ;
+        public String cfa;
+        public String cfb;
         public int feedback = 0;
-        public String caC = "";
-        public int caD = 0;
+        public String ceO = "";
+        public int ceP = 0;
         public String duration = "";
-        public String caE = "";
-        public String caF = "";
-        public String caG = "";
-        public String caH = "";
-        public String caI = "";
+        public String ceQ = "";
+        public String ceR = "";
+        public String ceS = "";
+        public String ceT = "";
+        public String ceU = "";
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public String title;
         public String url;
     }
 
     /* renamed from: com.baidu.h.a.b.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class C0116c {
-        public e caQ;
-        public d caR;
-        public f caS;
-        public b caT;
+        public e cfc;
+        public d cfd;
+        public f cfe;
+        public b cff;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d {
-        public a caU;
-        public a caV;
+        public a cfg;
+        public a cfh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class a {
             public String format;
             public int height;
@@ -76,12 +76,12 @@ public class c {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class e {
         public String word;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class f {
         public String duration;
         public String format;
@@ -89,6 +89,6 @@ public class c {
     }
 
     public String toString() {
-        return "LiveMessageBean:{" + this.cal + "}";
+        return "LiveMessageBean:{" + this.cex + "}";
     }
 }

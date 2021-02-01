@@ -14,14 +14,14 @@ import com.baidu.swan.menu.f;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class MainMenuView extends BaseMenuView {
-    private View dyW;
-    private RecyclerView epD;
-    private MenuContentAdapter epE;
-    private RecyclerView epF;
-    private MenuContentAdapter epG;
-    private List<List<h>> epH;
-    private View epI;
-    private boolean epJ;
+    private View dBb;
+    private RecyclerView erK;
+    private MenuContentAdapter erL;
+    private RecyclerView erM;
+    private MenuContentAdapter erN;
+    private List<List<h>> erO;
+    private View erP;
+    private boolean erQ;
     private LinearLayout mContentView;
     private View mHeaderView;
 
@@ -37,28 +37,28 @@ public class MainMenuView extends BaseMenuView {
         super(context, attributeSet, i);
         this.mContentView = new LinearLayout(context, attributeSet, i);
         this.mContentView.setOrientation(1);
-        this.epD = new RecyclerView(context, attributeSet, i);
-        this.epD.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.erK = new RecyclerView(context, attributeSet, i);
+        this.erK.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.epD.setPadding(0, (int) this.mContext.getResources().getDimension(f.b.aiapp_menu_gridview_padding_top), 0, 0);
-        this.mContentView.addView(this.epD, layoutParams);
-        this.dyW = new View(context);
-        this.dyW.setVisibility(8);
+        this.erK.setPadding(0, (int) this.mContext.getResources().getDimension(f.b.aiapp_menu_gridview_padding_top), 0, 0);
+        this.mContentView.addView(this.erK, layoutParams);
+        this.dBb = new View(context);
+        this.dBb.setVisibility(8);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 1);
         int dimensionPixelSize = getResources().getDimensionPixelSize(f.b.main_menu_divider_margin);
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
-        this.mContentView.addView(this.dyW, layoutParams2);
-        this.epF = new RecyclerView(context, attributeSet, i);
-        this.epF.setVisibility(8);
-        this.epF.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        this.mContentView.addView(this.epF, new LinearLayout.LayoutParams(-1, -2));
+        this.mContentView.addView(this.dBb, layoutParams2);
+        this.erM = new RecyclerView(context, attributeSet, i);
+        this.erM.setVisibility(8);
+        this.erM.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
+        this.mContentView.addView(this.erM, new LinearLayout.LayoutParams(-1, -2));
         a(this.mContentView, new FrameLayout.LayoutParams(-1, -2));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean aBV() {
-        return this.epH != null && this.epH.size() > 1;
+    public boolean aCs() {
+        return this.erO != null && this.erO.size() > 1;
     }
 
     public void a(List<List<h>> list, View view, boolean z, int i) {
@@ -78,66 +78,66 @@ public class MainMenuView extends BaseMenuView {
     }
 
     private void a(List<List<h>> list, boolean z, int i) {
-        this.epH = list;
-        this.epJ = z;
+        this.erO = list;
+        this.erQ = z;
         if (z && list.size() > 1) {
-            lx(i);
+            lA(i);
         } else {
-            ly(i);
+            lB(i);
         }
     }
 
-    private void lx(int i) {
-        this.dyW.setVisibility(0);
-        this.epF.setVisibility(0);
-        if (this.epE == null) {
-            this.epE = new MenuContentAdapter(getContext());
-            this.epD.setAdapter(this.epE);
+    private void lA(int i) {
+        this.dBb.setVisibility(0);
+        this.erM.setVisibility(0);
+        if (this.erL == null) {
+            this.erL = new MenuContentAdapter(getContext());
+            this.erK.setAdapter(this.erL);
         }
-        this.epE.b(this.epH.subList(0, 1), this.epJ, i);
-        if (this.epG == null) {
-            this.epG = new MenuContentAdapter(getContext());
-            this.epF.setAdapter(this.epG);
+        this.erL.b(this.erO.subList(0, 1), this.erQ, i);
+        if (this.erN == null) {
+            this.erN = new MenuContentAdapter(getContext());
+            this.erM.setAdapter(this.erN);
         }
-        this.epG.b(this.epH.subList(1, 2), this.epJ, i);
+        this.erN.b(this.erO.subList(1, 2), this.erQ, i);
     }
 
-    private void ly(int i) {
-        this.dyW.setVisibility(8);
-        this.epF.setVisibility(8);
-        if (this.epE == null) {
-            this.epE = new MenuContentAdapter(getContext());
-            this.epD.setAdapter(this.epE);
+    private void lB(int i) {
+        this.dBb.setVisibility(8);
+        this.erM.setVisibility(8);
+        if (this.erL == null) {
+            this.erL = new MenuContentAdapter(getContext());
+            this.erK.setAdapter(this.erL);
         }
-        this.epE.b(this.epH, this.epJ, i);
+        this.erL.b(this.erO, this.erQ, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        if (this.epD != null) {
-            this.epD.scrollToPosition(0);
+        if (this.erK != null) {
+            this.erK.scrollToPosition(0);
         }
-        if (this.epF != null) {
-            this.epD.scrollToPosition(0);
+        if (this.erM != null) {
+            this.erK.scrollToPosition(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bbp() {
-        if (this.epE != null) {
-            this.epE.notifyDataSetChanged();
+    public void bbC() {
+        if (this.erL != null) {
+            this.erL.notifyDataSetChanged();
         }
-        if (this.epG != null) {
-            this.epG.notifyDataSetChanged();
+        if (this.erN != null) {
+            this.erN.notifyDataSetChanged();
         }
     }
 
     @Nullable
     public View getCoverView() {
-        return this.epI;
+        return this.erP;
     }
 
     public void setCoverView(View view) {
-        this.epI = view;
+        this.erP = view;
     }
 }

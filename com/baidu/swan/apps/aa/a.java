@@ -10,27 +10,27 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.core.d.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile a dnK;
+    public static volatile a dpX;
     public String appId;
-    public String dnI;
-    public String dnJ;
-    public com.baidu.k.a.a dnL;
+    public String dpV;
+    public String dpW;
+    public com.baidu.k.a.a dpY;
 
     private a() {
     }
 
-    public static a aDg() {
-        if (dnK == null) {
+    public static a aDC() {
+        if (dpX == null) {
             synchronized (a.class) {
-                if (dnK == null) {
-                    dnK = new a();
+                if (dpX == null) {
+                    dpX = new a();
                 }
             }
         }
-        return dnK;
+        return dpX;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -39,11 +39,11 @@ public class a {
             com.baidu.swan.apps.console.c.i("SwanAppPayLaunchMsg", "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.k.b.abp().bH(context)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).aHZ();
+        } else if (!com.baidu.k.b.add().bK(context)) {
+            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).aIs();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
-        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.cf(a2, a2))) {
+        } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.bZ(a2, a2))) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
@@ -74,7 +74,7 @@ public class a {
         }
     }
 
-    public static int in(int i) {
+    public static int iq(int i) {
         switch (i) {
             case -2:
                 return 2;

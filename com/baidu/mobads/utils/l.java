@@ -1,200 +1,453 @@
 package com.baidu.mobads.utils;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.mobads.interfaces.utils.IXAdIOUtils;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-/* loaded from: classes14.dex */
-public class l implements IXAdIOUtils {
-    public static String a(Context context) {
-        String str;
-        if (!n.a(context)) {
-            return a(context, IXAdIOUtils.DEFAULT_SD_CARD_PATH);
-        }
-        if (n.c(context)) {
-            return a(context, IXAdIOUtils.DEFAULT_SD_CARD_PATH);
-        }
-        File externalFilesDir = context.getExternalFilesDir(null);
-        if (externalFilesDir == null) {
-            externalFilesDir = b(context);
-        }
-        if (externalFilesDir == null) {
-            str = "";
-        } else {
-            str = externalFilesDir.getPath();
-        }
-        return a(str);
+import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import com.baidu.mobads.interfaces.IXAdConstants4PDK;
+import com.baidu.mobads.interfaces.IXAdContainerFactory;
+import com.baidu.mobads.interfaces.utils.IXAdConstants;
+import com.baidu.webkit.internal.GlobalConstants;
+/* loaded from: classes5.dex */
+public class l implements IXAdConstants {
+
+    /* renamed from: a  reason: collision with root package name */
+    private static String[] f3498a = {"com.android.chrome", "com.UCMobile", "com.uc.browser", "com.uc.browser.hd", "com.tencent.mtt", "com.tencent.padbrowser", "com.baidu.browser.apps", "com.android.browser", "com.oupeng.mini.android", "com.oupeng.mobile", "com.oupeng.browser", "com.opera.mini.android", "com.opera.browser", "com.opera.browser.beta", "com.mediawoz.xbrowser", "com.mx.browser", "com.mx.browser.tablet", "org.mozilla.firefox", "com.tiantianmini.android.browser", "com.ijinshan.browser_fast", "sogou.mobile.explorer", "com.dolphin.browser.cn", "com.qihoo.browser", GlobalConstants.SEARCHBOX_PACKAGE_NAME};
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getInfoKeyErrorCode() {
+        return "INFO_KEY_ERROR_CODE";
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdIOUtils
-    @Deprecated
-    public String getStoreagePath(Context context, String str, String str2) {
-        try {
-            return getExternalFilesDir(context).getPath() + str2;
-        } catch (Exception e) {
-            return str + str2;
-        }
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getInfoKeyErrorMessage() {
+        return "INFO_KEY_ERROR_MESSAGE";
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdIOUtils
-    public String getStoreagePath(Context context) {
-        return a(context, IXAdIOUtils.DEFAULT_SD_CARD_PATH);
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getInfoKeyErrorModule() {
+        return "INFO_KEY_ERROR_MODULE";
     }
 
-    public static String a(Context context, String str) {
-        try {
-            return a(b(context).getPath());
-        } catch (Exception e) {
-            return a(str);
-        }
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getAdCreativeTypeText() {
+        return 1;
     }
 
-    public static String a(String str) {
-        return str + IXAdIOUtils.DEFAULT_CACHE_PATH;
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getAdCreativeTypeImage() {
+        return 2;
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdIOUtils
-    public File getExternalFilesDir(Context context) {
-        return b(context);
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String feedsTrackerParameterKeyProgress() {
+        return "progress";
     }
 
-    public static File b(Context context) {
-        File file = null;
-        try {
-            if ("mounted".equals(Environment.getExternalStorageState())) {
-                if (e.b(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    file = a();
-                } else if (Build.VERSION.SDK_INT >= 19) {
-                    file = context.getExternalFilesDir(null);
-                } else {
-                    file = context.getFilesDir();
-                }
-            } else {
-                file = context.getFilesDir();
-            }
-        } catch (Exception e) {
-            XAdSDKFoundationFacade.getInstance().getAdLogger().e("XAdIOUtils", e.getMessage());
-        }
-        return file;
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String feedsTrackerParameterKeyList() {
+        return "trackerUrl";
     }
 
-    private static File a() {
-        return Environment.getExternalStorageDirectory();
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getAdCreativeTypeVideo() {
+        return 8;
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdIOUtils
-    public File deleteFileRecursive(File file) {
-        try {
-            if (file.isDirectory()) {
-                for (File file2 : file.listFiles()) {
-                    File deleteFileRecursive = deleteFileRecursive(file2);
-                    if (deleteFileRecursive != null) {
-                        return deleteFileRecursive;
-                    }
-                }
-            }
-            if (file.delete()) {
-                return null;
-            }
-            return file;
-        } catch (Exception e) {
-            return file.delete() ? null : file;
-        }
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getAdCreativeTypeRichmedia() {
+        return 16;
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdIOUtils
-    public File deleteFileRecursive(String str) {
-        return deleteFileRecursive(new File(str));
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSupportedActionType4RequestingNone() {
+        return "NA";
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdIOUtils
-    public boolean renameFile(String str, String str2) {
-        try {
-            File file = new File(str);
-            File file2 = new File(str2);
-            if (file == null || !file.exists()) {
-                return false;
-            }
-            return file.renameTo(file2);
-        } catch (Exception e) {
-            return false;
-        }
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSupportedActionType4RequestingLandingPage() {
+        return "LP";
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdIOUtils
-    public void copyFileInputStream(InputStream inputStream, String str) {
-        FileOutputStream fileOutputStream;
-        try {
-            fileOutputStream = new FileOutputStream(str);
-        } catch (Throwable th) {
-            th = th;
-            fileOutputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read <= 0) {
-                    break;
-                }
-                fileOutputStream.write(bArr, 0, read);
-            }
-            inputStream.close();
-            fileOutputStream.close();
-            if (inputStream != null) {
-                inputStream.close();
-            }
-            if (fileOutputStream != null) {
-                fileOutputStream.close();
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            if (inputStream != null) {
-                inputStream.close();
-            }
-            if (fileOutputStream != null) {
-                fileOutputStream.close();
-            }
-            throw th;
-        }
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSupportedActionType4RequestingDownload() {
+        return "DL";
     }
 
-    @Override // com.baidu.mobads.interfaces.utils.IXAdIOUtils
-    public void copyFileFromAssetsTo(Context context, String str, String str2) {
-        try {
-            XAdSDKFoundationFacade.getInstance().getIoUtils().copyFileInputStream(context.getAssets().open(str), str2);
-        } catch (Exception e) {
-            XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
-        }
+    public String a() {
+        return "APO";
     }
 
-    public static boolean a(File file) {
-        if (file != null) {
-            try {
-                if (file.exists() && file.canRead()) {
-                    return file.length() > 0;
-                }
-                return false;
-            } catch (Exception e) {
-                return false;
-            }
-        }
-        return false;
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSupportedActionType4RequestingMap() {
+        return "MAP";
     }
 
-    public static boolean b(String str) {
-        File file;
-        try {
-            if (!TextUtils.isEmpty(str) && (file = new File(str)) != null && file.exists() && file.canRead()) {
-                return file.length() > 0;
-            }
-            return false;
-        } catch (Exception e) {
-            return false;
-        }
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSupportedActionType4RequestingSMS() {
+        return "SMS";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSupportedActionType4RequestingMail() {
+        return "MAIL";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSupportedActionType4RequestingMakeCall() {
+        return "PHONE";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSupportedActionType4RequestingVideo() {
+        return "VIDEO";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSupportedActionType4RequestingRichMedia() {
+        return "RM";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getRemoteVersion() {
+        IXAdContainerFactory adContainerFactory = XAdSDKFoundationFacade.getInstance().getAdContainerFactory();
+        return adContainerFactory != null ? "" + adContainerFactory.getRemoteVersion() : "0.0.0";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getSN() {
+        return XAdSDKFoundationFacade.getInstance().getSystemUtils().getEncodedSN(XAdSDKFoundationFacade.getInstance().getApplicationContext());
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getAppSec() {
+        return XAdSDKFoundationFacade.getInstance().getCommonUtils().getAppSec(XAdSDKFoundationFacade.getInstance().getApplicationContext());
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getAppSid() {
+        return XAdSDKFoundationFacade.getInstance().getCommonUtils().getAppId(XAdSDKFoundationFacade.getInstance().getApplicationContext());
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getAppPackageNameOfPublisher() {
+        return XAdSDKFoundationFacade.getInstance().getApplicationContext().getPackageName();
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getCanSendEmail() {
+        return 0;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getCanSendSMS() {
+        return 1;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getCanShowMap() {
+        return 2;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getCanShowDownload() {
+        return 3;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getCanSendCalender() {
+        return 4;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeBanner() {
+        return IXAdConstants4PDK.SlotType.SLOT_TYPE_BANNER.getValue();
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeSplash() {
+        return IXAdConstants4PDK.SlotType.SLOT_TYPE_SPLASH.getValue();
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeRewardVideo() {
+        return IXAdConstants4PDK.SlotType.SLOT_TYPE_REWARD_VIDEO.getValue();
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeFullScreenVideo() {
+        return IXAdConstants4PDK.SlotType.SLOT_TYPE_FULLSCREEN_VIDEO.getValue();
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeWall() {
+        return "wall";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeRWall() {
+        return "rwall";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeVideo() {
+        return "video";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeIcon() {
+        return AlaStaticKeys.ALA_STATIC_VALUE_ICON;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeInterstitial() {
+        return IXAdConstants4PDK.SlotType.SLOT_TYPE_INTERSTITIAL.getValue();
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeNRWall() {
+        return "nrwall";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String getProductionTypeFeeds() {
+        return IXAdConstants4PDK.SlotType.SLOT_TYPE_FEEDS.getValue();
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String[] getSupportedBrowsers() {
+        return f3498a;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public void setSupportedBrowsers(String[] strArr) {
+        f3498a = strArr;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypeLandingPage() {
+        return 1;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypeDownload() {
+        return 2;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypeOpenMap() {
+        return 4;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypeSendSMS() {
+        return 8;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypeSendMail() {
+        return 16;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypeMakeCall() {
+        return 32;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypePlayVideo() {
+        return 64;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypeRichMedia() {
+        return 128;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypeNothing2Do() {
+        return 256;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public int getActTypeOpenExternalApp() {
+        return 512;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String errorIo() {
+        return "errorIo";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String errorTimeout() {
+        return "errorTimeout";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String errorNullAsset() {
+        return "errorNullAsset";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String errorUnknown() {
+        return "errorUnknown";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String videoStateError() {
+        return "videoStateError";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String videoStateIdle() {
+        return "videoStateIdle";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String videoStatePerparing() {
+        return "videoStatePerparing";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String videoStatePrepared() {
+        return "videoStatePrepared";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String videoStatePlaying() {
+        return "videoStatePlaying";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String videoStatePause() {
+        return "videoStatePause";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String videoStatePlaybackCompleted() {
+        return "videoStatePlaybackCompleted";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String resourceRequestStateIdel() {
+        return "resourceRequestStateIdel";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String resourceRequestStateRequesting() {
+        return "resourceRequestStateRequesting";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String resourceRequestStateSuccess() {
+        return "resourceRequestStateSuccess";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String resourceRequestStateFailed() {
+        return "resourceRequestStateFailed";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeWifi() {
+        return "deviceNetworkTypeWifi";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeUnknown() {
+        return "deviceNetworkTypeUnknown";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeGprs() {
+        return "deviceNetworkTypeGprs";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeEdge() {
+        return "deviceNetworkTypeEdge";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeUmts() {
+        return "deviceNetworkTypeUmts";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeCdma() {
+        return "deviceNetworkTypeCdma";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeEvdo0() {
+        return "deviceNetworkTypeEvdo0";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeEvdoA() {
+        return "deviceNetworkTypeEvdoA";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeLxRtt() {
+        return "deviceNetworkTypeLxRtt";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeHsdpa() {
+        return "deviceNetworkTypeHsdpa";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeHsupa() {
+        return "deviceNetworkTypeHsupa";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeHspa() {
+        return "deviceNetworkTypeHspa";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeIden() {
+        return "deviceNetworkTypeIden";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeEvdoB() {
+        return "deviceNetworkTypeEvdoB";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeLte() {
+        return "deviceNetworkTypeLte";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeEhrpd() {
+        return "deviceNetworkTypeEhrpd";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String deviceNetworkTypeHspaPlus() {
+        return "deviceNetworkTypeHspaPlus";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String mraidNetworkTypeWifi() {
+        return "mraidNetworkTypeWifi";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String mraidNetworkTypeCell() {
+        return "mraidNetworkTypeCell";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String mraidNetworkTypeOffline() {
+        return "mraidNetworkTypeOffline";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdConstants
+    public String mraidNetworkTypeUnknown() {
+        return "mraidNetworkTypeUnknown";
     }
 }

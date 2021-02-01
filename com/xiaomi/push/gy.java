@@ -9,11 +9,11 @@ import java.util.List;
 public final class gy extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f14073a;
+    final /* synthetic */ Context f14075a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gy(Context context) {
-        this.f14073a = context;
+        this.f14075a = context;
     }
 
     @Override // com.xiaomi.push.al.b
@@ -29,6 +29,6 @@ public final class gy extends al.b {
             list2 = gx.f491a;
             list2.clear();
         }
-        gx.b(this.f14073a, arrayList);
+        gx.b(this.f14075a, arrayList);
     }
 }

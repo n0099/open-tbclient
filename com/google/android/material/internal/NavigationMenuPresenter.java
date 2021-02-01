@@ -28,7 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.R;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class NavigationMenuPresenter implements MenuPresenter {
     private static final String STATE_ADAPTER = "android:menu:adapter";
     private static final String STATE_HEADER = "android:menu:header";
@@ -64,7 +64,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     ColorStateList textColor;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface NavigationMenuItem {
     }
 
@@ -280,7 +280,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         ViewCompat.dispatchApplyWindowInsets(this.headerLayout, windowInsetsCompat);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static abstract class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View view) {
             super(view);
@@ -288,7 +288,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class NormalViewHolder extends ViewHolder {
         public NormalViewHolder(LayoutInflater layoutInflater, ViewGroup viewGroup, View.OnClickListener onClickListener) {
             super(layoutInflater.inflate(R.layout.design_navigation_item, viewGroup, false));
@@ -297,7 +297,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class SubheaderViewHolder extends ViewHolder {
         public SubheaderViewHolder(LayoutInflater layoutInflater, ViewGroup viewGroup) {
             super(layoutInflater.inflate(R.layout.design_navigation_item_subheader, viewGroup, false));
@@ -305,7 +305,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class SeparatorViewHolder extends ViewHolder {
         public SeparatorViewHolder(LayoutInflater layoutInflater, ViewGroup viewGroup) {
             super(layoutInflater.inflate(R.layout.design_navigation_item_separator, viewGroup, false));
@@ -313,7 +313,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class HeaderViewHolder extends ViewHolder {
         public HeaderViewHolder(View view) {
             super(view);
@@ -321,7 +321,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class NavigationMenuAdapter extends RecyclerView.Adapter<ViewHolder> {
         private static final String STATE_ACTION_VIEWS = "android:menu:action_views";
         private static final String STATE_CHECKED_ITEM = "android:menu:checked";
@@ -596,7 +596,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class NavigationMenuTextItem implements NavigationMenuItem {
         private final MenuItemImpl menuItem;
         boolean needsEmptyIcon;
@@ -611,7 +611,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class NavigationMenuSeparatorItem implements NavigationMenuItem {
         private final int paddingBottom;
         private final int paddingTop;
@@ -631,7 +631,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class NavigationMenuHeaderItem implements NavigationMenuItem {
         NavigationMenuHeaderItem() {
         }

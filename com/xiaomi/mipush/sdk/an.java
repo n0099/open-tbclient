@@ -54,7 +54,7 @@ import org.apache.http.HttpHost;
 public class an {
 
     /* renamed from: a  reason: collision with root package name */
-    private static an f13806a = null;
+    private static an f13808a = null;
 
     /* renamed from: a  reason: collision with other field name */
     private static Object f123a = new Object();
@@ -96,8 +96,8 @@ public class an {
         }
         if (!TextUtils.isEmpty(str4)) {
             i = Integer.parseInt(str4);
-            if (com.xiaomi.push.service.at.f14253a.equals(str3)) {
-                if (com.xiaomi.push.service.at.f14254b.equals(str3)) {
+            if (com.xiaomi.push.service.at.f14255a.equals(str3)) {
+                if (com.xiaomi.push.service.at.f14256b.equals(str3)) {
                     if (map.containsKey("intent_uri")) {
                         String str5 = map.get("intent_uri");
                         if (str5 != null) {
@@ -176,7 +176,7 @@ public class an {
             return null;
         }
         i = -1;
-        if (com.xiaomi.push.service.at.f14253a.equals(str3)) {
+        if (com.xiaomi.push.service.at.f14255a.equals(str3)) {
         }
         if (intent == null) {
         }
@@ -200,7 +200,7 @@ public class an {
             }
             hm a3 = iiVar.a();
             com.xiaomi.channel.commonutils.logger.b.m80a("processing a message, action=" + a3);
-            switch (ap.f13808a[a3.ordinal()]) {
+            switch (ap.f13810a[a3.ordinal()]) {
                 case 1:
                     if (!iiVar.m452b()) {
                         com.xiaomi.channel.commonutils.logger.b.d("receiving an un-encrypt message(SendMessage).");
@@ -593,7 +593,7 @@ public class an {
             }
             hm a3 = iiVar.a();
             com.xiaomi.channel.commonutils.logger.b.m80a("message arrived: processing an arrived message, action=" + a3);
-            switch (ap.f13808a[a3.ordinal()]) {
+            switch (ap.f13810a[a3.ordinal()]) {
                 case 1:
                     if (!iiVar.m452b()) {
                         com.xiaomi.channel.commonutils.logger.b.d("message arrived: receiving an un-encrypt message(SendMessage).");
@@ -627,10 +627,10 @@ public class an {
     }
 
     public static an a(Context context) {
-        if (f13806a == null) {
-            f13806a = new an(context);
+        if (f13808a == null) {
+            f13808a = new an(context);
         }
-        return f13806a;
+        return f13808a;
     }
 
     private void a() {

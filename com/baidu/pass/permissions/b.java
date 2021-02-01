@@ -2,24 +2,24 @@ package com.baidu.pass.permissions;
 
 import android.view.View;
 import com.baidu.pass.common.SharedPreferencesUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PermissionsHelperActivity f4115a;
+    final /* synthetic */ PermissionsHelperActivity f4118a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PermissionsHelperActivity permissionsHelperActivity) {
-        this.f4115a = permissionsHelperActivity;
+        this.f4118a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         StringBuilder sb;
         PermissionsDTO permissionsDTO;
-        sb = this.f4115a.e;
+        sb = this.f4118a.e;
         SharedPreferencesUtil.put(sb.toString(), true);
-        PermissionsHelperActivity permissionsHelperActivity = this.f4115a;
+        PermissionsHelperActivity permissionsHelperActivity = this.f4118a;
         permissionsDTO = permissionsHelperActivity.c;
         permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, 8001);
     }

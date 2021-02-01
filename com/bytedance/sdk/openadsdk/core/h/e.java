@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.core.h;
 
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface e {
     void a() throws Throwable;
 

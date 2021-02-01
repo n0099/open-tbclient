@@ -32,11 +32,11 @@ import com.baidu.tbadk.core.atomData.MembercenterActivityConfig;
 import com.baidu.tbadk.core.atomData.TailManagementActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.editortools.m;
-import com.baidu.tbadk.util.ai;
+import com.baidu.tbadk.util.al;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
@@ -62,7 +62,7 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MemberCenterStatic {
     public static String Tag = "tag";
 
@@ -77,9 +77,9 @@ public class MemberCenterStatic {
         TbadkApplication.getInst().RegisterIntent(CardBoxMemberPayActivityConfig.class, CardBoxMemberPayActivity.class);
         TbadkApplication.getInst().RegisterIntent(MemberPayResultActivityConfig.class, MemberPayResultActivity.class);
         TbadkApplication.getInst().RegisterIntent(MemberExchangeActivityConfig.class, MemberExchangeActivity.class);
-        ddG();
-        ddH();
-        ddI();
+        dfG();
+        dfH();
+        dfI();
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_MEMBER_CENTER_RES_TOOL, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Object> run(CustomMessage<String> customMessage) {
@@ -93,8 +93,8 @@ public class MemberCenterStatic {
             public CustomResponsedMessage<Boolean> run(CustomMessage<TbPageContext> customMessage) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof TbPageContext)) {
                     BubbleListModel bubbleListModel = new BubbleListModel(customMessage.getData());
-                    bubbleListModel.dcZ();
-                    bubbleListModel.Y(0, l.getEquipmentWidth(customMessage.getData().getPageActivity()), l.getEquipmentHeight(customMessage.getData().getPageActivity()));
+                    bubbleListModel.deZ();
+                    bubbleListModel.W(0, l.getEquipmentWidth(customMessage.getData().getPageActivity()), l.getEquipmentHeight(customMessage.getData().getPageActivity()));
                 }
                 return null;
             }
@@ -137,8 +137,8 @@ public class MemberCenterStatic {
         });
         customMessageTask4.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask4);
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.10
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.10
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;
@@ -150,8 +150,8 @@ public class MemberCenterStatic {
                 return 3;
             }
         });
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.11
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.11
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
@@ -160,14 +160,14 @@ public class MemberCenterStatic {
                 if (StringUtils.isNull(str) || !str.equals(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_CENTER) || tbPageContext == null) {
                     return 3;
                 }
-                if (bg.checkUpIsLogin(tbPageContext.getContext())) {
+                if (bh.checkUpIsLogin(tbPageContext.getContext())) {
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(tbPageContext.getPageActivity())));
                 }
                 return 0;
             }
         });
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.12
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.12
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Bundle parserQuery;
                 int i;
@@ -178,7 +178,7 @@ public class MemberCenterStatic {
                 if (StringUtils.isNull(str)) {
                     return 3;
                 }
-                if (!str.contains("jump_tieba_native=1") || !str.contains(UrlSchemaHelper.PAY_MEMBER_PAGE) || (parserQuery = ai.parserQuery(str)) == null || tbPageContext.getPageActivity() == null) {
+                if (!str.contains("jump_tieba_native=1") || !str.contains(UrlSchemaHelper.PAY_MEMBER_PAGE) || (parserQuery = al.parserQuery(str)) == null || tbPageContext.getPageActivity() == null) {
                     return 3;
                 }
                 AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -204,16 +204,16 @@ public class MemberCenterStatic {
                 return 0;
             }
         });
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.13
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.13
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;
                 }
                 String str = strArr[0];
                 if ((str.equals(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY_ASSIST)) && tbPageContext != null) {
-                    String paramFromURL = ai.getParamFromURL(str, "refer_page");
-                    String paramFromURL2 = ai.getParamFromURL(str, "click_zone");
+                    String paramFromURL = al.getParamFromURL(str, "refer_page");
+                    String paramFromURL2 = al.getParamFromURL(str, "click_zone");
                     MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), 0);
                     memberPayActivityConfig.setReferPageClickZone(paramFromURL, paramFromURL2);
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
@@ -222,8 +222,8 @@ public class MemberCenterStatic {
                 return 3;
             }
         });
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.14
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.14
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;
@@ -236,8 +236,8 @@ public class MemberCenterStatic {
                 return 0;
             }
         });
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.2
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.2
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;
@@ -245,20 +245,20 @@ public class MemberCenterStatic {
                 String str = strArr[0];
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_CARD_BOX_MEMBER_BUY) && str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_CARD_BOX_MEMBER_BUY_ASSIST)) {
                     if (!j.isNetWorkAvailable()) {
-                        BdToast.b(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.neterror)).bqk();
-                    } else if (bg.checkUpIsLogin(tbPageContext.getPageActivity())) {
-                        Bundle parserQuery = ai.parserQuery(str);
+                        BdToast.b(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.neterror)).bqD();
+                    } else if (bh.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                        Bundle parserQuery = al.parserQuery(str);
                         String str2 = "";
                         String str3 = "";
                         String str4 = "";
                         if (parserQuery != null) {
-                            if (!at.isEmpty(parserQuery.getString(CardBoxMemberPayActivityConfig.PACKET_ID))) {
+                            if (!au.isEmpty(parserQuery.getString(CardBoxMemberPayActivityConfig.PACKET_ID))) {
                                 str2 = parserQuery.getString(CardBoxMemberPayActivityConfig.PACKET_ID);
                             }
-                            if (!at.isEmpty(parserQuery.getString("refer_page"))) {
+                            if (!au.isEmpty(parserQuery.getString("refer_page"))) {
                                 str3 = parserQuery.getString("refer_page");
                             }
-                            if (!at.isEmpty(parserQuery.getString("click_zone"))) {
+                            if (!au.isEmpty(parserQuery.getString("click_zone"))) {
                                 str4 = parserQuery.getString("click_zone");
                             }
                         }
@@ -271,8 +271,8 @@ public class MemberCenterStatic {
                 return 3;
             }
         });
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.3
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.3
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;
@@ -282,13 +282,13 @@ public class MemberCenterStatic {
                     return 3;
                 }
                 if (!j.isNetWorkAvailable()) {
-                    BdToast.b(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.neterror)).bqk();
-                } else if (bg.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                    BdToast.b(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.neterror)).bqD();
+                } else if (bh.checkUpIsLogin(tbPageContext.getPageActivity())) {
                     String currentPortrait = TbadkCoreApplication.getCurrentPortrait();
-                    String paramFromURL = ai.getParamFromURL(str, MemberExchangeActivityConfig.MEMBER_NAME);
-                    String paramFromURL2 = ai.getParamFromURL(str, MemberExchangeActivityConfig.MEMBER_LEVEL_IMAGE);
-                    String paramFromURL3 = ai.getParamFromURL(str, MemberExchangeActivityConfig.DUE_DATE);
-                    String paramFromURL4 = ai.getParamFromURL(str, MemberExchangeActivityConfig.DESC_STR);
+                    String paramFromURL = al.getParamFromURL(str, MemberExchangeActivityConfig.MEMBER_NAME);
+                    String paramFromURL2 = al.getParamFromURL(str, MemberExchangeActivityConfig.MEMBER_LEVEL_IMAGE);
+                    String paramFromURL3 = al.getParamFromURL(str, MemberExchangeActivityConfig.DUE_DATE);
+                    String paramFromURL4 = al.getParamFromURL(str, MemberExchangeActivityConfig.DESC_STR);
                     if (tbPageContext != null) {
                         tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberExchangeActivityConfig(tbPageContext.getPageActivity(), currentPortrait, paramFromURL, paramFromURL2, paramFromURL3, paramFromURL4)));
                     }
@@ -296,8 +296,8 @@ public class MemberCenterStatic {
                 return 0;
             }
         });
-        be.bsB().a(new be.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.4
-            @Override // com.baidu.tbadk.core.util.be.a
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.4
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
@@ -318,18 +318,18 @@ public class MemberCenterStatic {
             String str = strArr[0];
             if ((str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_DRESSUP_CENTER) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) ? true : true) {
                 if (TbadkCoreApplication.getInst().appResponseToIntentClass(DressupCenterActivityConfig.class)) {
-                    be.bsB().b(tbPageContext, strArr);
+                    bf.bsV().b(tbPageContext, strArr);
                     return;
                 } else {
                     l.showToast(tbPageContext.getPageActivity(), R.string.pluginstatus_tip_unknown);
                     return;
                 }
             }
-            be.bsB().b(tbPageContext, strArr);
+            bf.bsV().b(tbPageContext, strArr);
         }
     }
 
-    private static void ddG() {
+    private static void dfG() {
         a(1003019, CmdConfigSocket.CMD_TAIL_ADD, TbConfig.TAIL_ADD, AddTailHttpResponseMessage.class, AddTailSocketResponseMessage.class);
         a(1003023, CmdConfigSocket.CMD_TAIL_UPDATE, TbConfig.TAIL_UPDATE, UpdateTailHttpResponseMessage.class, UpdateTailSocketResponseMessage.class);
         a(1003022, CmdConfigSocket.CMD_TAIL_SET, TbConfig.TAIL_SET, SetTailHttpResponseMessage.class, SetTailSocketResponseMessage.class);
@@ -342,7 +342,7 @@ public class MemberCenterStatic {
         com.baidu.tieba.tbadkCore.a.a.a(i2, i, str, cls, false, false, false, false);
     }
 
-    private static void ddH() {
+    private static void dfH() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_TAIL_TOOL_CRTL, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
@@ -356,7 +356,7 @@ public class MemberCenterStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void ddI() {
+    private static void dfI() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_PRIVILEGE_TOOL_CRTL, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {

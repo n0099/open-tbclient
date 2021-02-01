@@ -8,14 +8,14 @@ import com.meizu.cloud.pushsdk.platform.b.f;
 import com.meizu.cloud.pushsdk.platform.b.g;
 import java.io.File;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f11351a;
+    private static b f11353a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ScheduledExecutorService f11352b;
+    private ScheduledExecutorService f11354b;
     private Context c;
     private a d;
     private com.meizu.cloud.pushsdk.platform.b.b e;
@@ -35,26 +35,26 @@ public class b {
         this.c = context.getApplicationContext();
         this.d = new a(this.c);
         if (z) {
-            this.f11352b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
+            this.f11354b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
         }
         this.k = z2;
-        this.e = new com.meizu.cloud.pushsdk.platform.b.b(this.c, this.d, this.f11352b, z2);
-        this.f = new g(this.c, this.d, this.f11352b, z2);
-        this.g = new f(this.c, this.d, this.f11352b, z2);
-        this.h = new e(this.c, this.d, this.f11352b, z2);
-        this.i = new d(this.c, this.d, this.f11352b, z2);
-        this.j = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.f11352b, z2);
+        this.e = new com.meizu.cloud.pushsdk.platform.b.b(this.c, this.d, this.f11354b, z2);
+        this.f = new g(this.c, this.d, this.f11354b, z2);
+        this.g = new f(this.c, this.d, this.f11354b, z2);
+        this.h = new e(this.c, this.d, this.f11354b, z2);
+        this.i = new d(this.c, this.d, this.f11354b, z2);
+        this.j = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.f11354b, z2);
     }
 
     public static b a(Context context) {
-        if (f11351a == null) {
+        if (f11353a == null) {
             synchronized (b.class) {
-                if (f11351a == null) {
-                    f11351a = new b(context, true);
+                if (f11353a == null) {
+                    f11353a = new b(context, true);
                 }
             }
         }
-        return f11351a;
+        return f11353a;
     }
 
     public c<String> a(String str, String str2, String str3, File file) {
@@ -70,14 +70,14 @@ public class b {
     }
 
     public boolean a(String str) {
-        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.f11352b, this.k);
+        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.f11354b, this.k);
         aVar.a(0);
         aVar.d(str);
         return aVar.m();
     }
 
     public boolean a(String str, String str2) {
-        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.f11352b, this.k);
+        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.f11354b, this.k);
         aVar.a(2);
         aVar.a(str2);
         aVar.d(str);
@@ -131,7 +131,7 @@ public class b {
     }
 
     public boolean a(String str, int... iArr) {
-        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.f11352b, this.k);
+        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.c, this.f11354b, this.k);
         aVar.a(iArr);
         aVar.d(str);
         aVar.a(1);

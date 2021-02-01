@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int count;
-    private List<com.baidu.live.data.e> ozs;
-    private int ozt;
+    private List<com.baidu.live.data.e> oJa;
+    private int oJb;
     private int phone_order;
     private int position;
 
@@ -21,29 +21,29 @@ public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpRespons
         JSONArray jSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031006) {
-            if (this.ozs == null) {
-                this.ozs = new ArrayList();
+            if (this.oJa == null) {
+                this.oJa = new ArrayList();
             }
-            this.ozs.clear();
+            this.oJa.clear();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null && (jSONArray = optJSONObject.getJSONArray("list")) != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     com.baidu.live.data.e eVar = new com.baidu.live.data.e();
                     eVar.parseJson((JSONObject) jSONArray.get(i2));
-                    this.ozs.add(eVar);
+                    this.oJa.add(eVar);
                 }
             }
             if (optJSONObject != null) {
                 this.count = optJSONObject.optInt("count", 0);
                 this.position = optJSONObject.optInt("pos", 0);
                 this.phone_order = optJSONObject.optInt("phone_order", 0);
-                this.ozt = optJSONObject.optInt("link_status", 0);
+                this.oJb = optJSONObject.optInt("link_status", 0);
             }
         }
     }
 
-    public List<com.baidu.live.data.e> eci() {
-        return this.ozs;
+    public List<com.baidu.live.data.e> eew() {
+        return this.oJa;
     }
 
     public int getPosition() {
@@ -54,11 +54,11 @@ public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpRespons
         return this.count;
     }
 
-    public boolean ecj() {
-        return this.ozt == 1;
+    public boolean eex() {
+        return this.oJb == 1;
     }
 
-    public int eck() {
+    public int eey() {
         return this.phone_order;
     }
 }

@@ -9,20 +9,20 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Presenter f8263a;
+    protected Presenter f8265a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected T f8264b;
+    protected T f8266b;
     protected ViewGroup c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if (this.f8263a != null) {
-            this.f8263a.j();
+        if (this.f8265a != null) {
+            this.f8265a.j();
         }
         this.c = null;
     }
@@ -37,12 +37,12 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f8264b = c();
-        if (this.f8263a == null) {
-            this.f8263a = d();
-            this.f8263a.a((View) this.c);
+        this.f8266b = c();
+        if (this.f8265a == null) {
+            this.f8265a = d();
+            this.f8265a.a((View) this.c);
         }
-        this.f8263a.a(this.f8264b);
+        this.f8265a.a(this.f8266b);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -57,8 +57,8 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
         super.onDestroyView();
-        if (this.f8264b != null) {
-            this.f8264b.a();
+        if (this.f8266b != null) {
+            this.f8266b.a();
         }
         a();
     }

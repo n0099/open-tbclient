@@ -7,24 +7,24 @@ import android.content.pm.PackageManager;
 import android.os.RemoteException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class d {
     private static String e = "com.mdid.msa";
     private Context d;
-    private com.yxcorp.kuaishou.addfp.a.b.b qby;
-    public a qbR = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qlC;
+    public a qlV = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14377b = null;
+    private String f14379b = null;
     private CountDownLatch f = new CountDownLatch(1);
     private ServiceConnection g = new e(this);
 
     private void a(boolean z) {
         try {
             if (z) {
-                this.qby.a(this.qbR);
+                this.qlC.a(this.qlV);
             } else {
-                this.qby.e();
+                this.qlC.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -40,16 +40,16 @@ public final class d {
         }
     }
 
-    public static d eHi() {
+    public static d eJy() {
         d dVar;
-        dVar = f.qbS;
+        dVar = f.qlW;
         return dVar;
     }
 
     public final String a() {
         try {
-            if (this.qbR != null) {
-                return this.qbR.a();
+            if (this.qlV != null) {
+                return this.qlV.a();
             }
         } catch (RemoteException e2) {
         }
@@ -61,8 +61,8 @@ public final class d {
             if (this.g != null && context != null) {
                 context.unbindService(this.g);
             }
-            if (this.qbR != null) {
-                this.qbR.c();
+            if (this.qlV != null) {
+                this.qlV.c();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -71,7 +71,7 @@ public final class d {
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qby = bVar;
+            this.qlC = bVar;
             this.d = context;
             if (b(context)) {
                 String packageName = context.getPackageName();
@@ -97,7 +97,7 @@ public final class d {
                 return;
             }
             this.f.await(2000L, TimeUnit.MILLISECONDS);
-            if (this.qbR != null) {
+            if (this.qlV != null) {
                 a(true);
             } else {
                 a(false);
@@ -110,10 +110,10 @@ public final class d {
 
     public final boolean c() {
         try {
-            if (this.qbR == null) {
+            if (this.qlV == null) {
                 return false;
             }
-            return this.qbR.b();
+            return this.qlV.b();
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
             return false;

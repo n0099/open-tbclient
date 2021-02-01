@@ -6,22 +6,22 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.data.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ConcernTabRecommendTitleView extends com.baidu.tieba.card.b<g> {
-    private ViewHolder gFx;
+    private ViewHolder gIh;
 
     public ConcernTabRecommendTitleView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gFx = new ViewHolder(getView());
+        this.gIh = new ViewHolder(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setViewTextColor(this.gFx.textView, R.color.CAM_X0109);
+        ap.setViewTextColor(this.gIh.textView, R.color.CAM_X0109);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -32,11 +32,11 @@ public class ConcernTabRecommendTitleView extends com.baidu.tieba.card.b<g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(g gVar) {
-        if (this.gFx != null) {
-            if (gVar.gEb) {
-                this.gFx.devider.setVisibility(0);
+        if (this.gIh != null) {
+            if (gVar.gGL) {
+                this.gIh.devider.setVisibility(0);
             } else {
-                this.gFx.devider.setVisibility(8);
+                this.gIh.devider.setVisibility(8);
             }
         }
     }
@@ -45,17 +45,17 @@ public class ConcernTabRecommendTitleView extends com.baidu.tieba.card.b<g> {
     public void onClick(View view) {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public View devider;
-        public View elg;
+        public View eno;
         public TextView textView;
 
         public ViewHolder(View view) {
             super(view);
-            this.elg = view;
-            this.textView = (TextView) this.elg.findViewById(R.id.title);
-            this.devider = this.elg.findViewById(R.id.divider);
+            this.eno = view;
+            this.textView = (TextView) this.eno.findViewById(R.id.title);
+            this.devider = this.eno.findViewById(R.id.divider);
         }
     }
 }

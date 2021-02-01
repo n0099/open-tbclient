@@ -1,7 +1,7 @@
 package com.baidu.live.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class k extends f<com.baidu.live.lottie.e.d> {
     public k(List<com.baidu.live.lottie.e.a<com.baidu.live.lottie.e.d>> list) {
         super(list);
@@ -17,7 +17,7 @@ public class k extends f<com.baidu.live.lottie.e.d> {
         }
         com.baidu.live.lottie.e.d dVar2 = aVar.HL;
         com.baidu.live.lottie.e.d dVar3 = aVar.HM;
-        if (this.bpt != null && (dVar = (com.baidu.live.lottie.e.d) this.bpt.c(aVar.BS, aVar.HO.floatValue(), dVar2, dVar3, f, iI(), getProgress())) != null) {
+        if (this.bsU != null && (dVar = (com.baidu.live.lottie.e.d) this.bsU.c(aVar.BT, aVar.HO.floatValue(), dVar2, dVar3, f, iH(), getProgress())) != null) {
             return dVar;
         }
         return new com.baidu.live.lottie.e.d(com.baidu.live.lottie.d.e.lerp(dVar2.getScaleX(), dVar3.getScaleX(), f), com.baidu.live.lottie.d.e.lerp(dVar2.getScaleY(), dVar3.getScaleY(), f));

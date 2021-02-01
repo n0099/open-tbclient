@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class x {
     public static boolean a(Context context) {
         ConnectivityManager connectivityManager;

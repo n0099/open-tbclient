@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import com.baidu.ala.helper.StreamConfig;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -22,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AC3TrackImpl extends AbstractTrack {
     static int[][][][] bitRateAndFrameSizeTable = (int[][][][]) Array.newInstance(Integer.TYPE, 19, 2, 3, 2);
     private final DataSource dataSource;
@@ -110,13 +109,13 @@ public class AC3TrackImpl extends AbstractTrack {
         int readBits = bitReaderBuffer.readBits(2);
         switch (readBits) {
             case 0:
-                i = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+                i = 48000;
                 break;
             case 1:
                 i = 44100;
                 break;
             case 2:
-                i = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;
+                i = 32000;
                 break;
             default:
                 throw new RuntimeException("Unsupported Sample Rate");
@@ -184,7 +183,7 @@ public class AC3TrackImpl extends AbstractTrack {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements Sample {
         private final DataSource dataSource;
         private final long size;

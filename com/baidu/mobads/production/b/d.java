@@ -3,25 +3,53 @@ package com.baidu.mobads.production.b;
 import android.app.Activity;
 import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class d extends com.baidu.mobads.vo.d {
-    public d(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, String str, String str2) {
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f3438a;
+    private int l;
+    private int m;
+
+    public d(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.f3525b = new c(context.getApplicationContext(), str2, str).a();
+        this.f3438a = 1;
+        this.l = 1;
+        this.m = 1;
+        this.f3529b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        a("androidfeed");
     }
 
     @Override // com.baidu.mobads.vo.d
     protected HashMap<String, String> a() {
-        return new HashMap<>();
+        HashMap<String, String> hashMap = new HashMap<>();
+        if (this.j) {
+            hashMap.put(IXAdRequestInfo.FET, "ANTI,MSSP,NMON,HTML,VIDEO");
+        } else {
+            hashMap.put(IXAdRequestInfo.FET, "ANTI,MSSP,NMON,HTML,CLICK2VIDEO,PAUSE,VIDEO");
+        }
+        hashMap.put("pos", "" + this.l);
+        hashMap.put("seq", "" + this.m);
+        hashMap.put("viewid", "" + this.f3438a);
+        return hashMap;
     }
 
-    public String c() {
-        return this.f3525b;
+    public void a(int i) {
+        this.f3438a = i;
+    }
+
+    public void b(int i) {
+        this.l = i;
+    }
+
+    public void c(int i) {
+        this.m = i;
     }
 
     @Override // com.baidu.mobads.vo.d
     public String b() {
-        return "http://127.0.0.1";
+        return super.b();
     }
 }

@@ -1,27 +1,27 @@
 package com.facebook.common.c;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static c poI = b.eqj();
+    private static c pyT = b.esC();
 
     public static boolean isLoggable(int i) {
-        return poI.isLoggable(i);
+        return pyT.isLoggable(i);
     }
 
     public static void f(Class<?> cls, String str) {
-        if (poI.isLoggable(2)) {
-            poI.v(t(cls), str);
+        if (pyT.isLoggable(2)) {
+            pyT.v(t(cls), str);
         }
     }
 
     public static void c(Class<?> cls, String str, Object obj) {
-        if (poI.isLoggable(2)) {
-            poI.v(t(cls), l(str, obj));
+        if (pyT.isLoggable(2)) {
+            pyT.v(t(cls), l(str, obj));
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2) {
-        if (poI.isLoggable(2)) {
-            poI.v(t(cls), l(str, obj, obj2));
+        if (pyT.isLoggable(2)) {
+            pyT.v(t(cls), l(str, obj, obj2));
         }
     }
 
@@ -32,50 +32,50 @@ public class a {
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
-        if (poI.isLoggable(2)) {
-            poI.v(t(cls), l(str, obj, obj2, obj3, obj4));
+        if (pyT.isLoggable(2)) {
+            pyT.v(t(cls), l(str, obj, obj2, obj3, obj4));
         }
     }
 
     public static void f(String str, String str2, Object... objArr) {
-        if (poI.isLoggable(2)) {
-            poI.v(str, l(str2, objArr));
+        if (pyT.isLoggable(2)) {
+            pyT.v(str, l(str2, objArr));
         }
     }
 
     public static void b(Class<?> cls, String str, Object... objArr) {
-        if (poI.isLoggable(2)) {
-            poI.v(t(cls), l(str, objArr));
+        if (pyT.isLoggable(2)) {
+            pyT.v(t(cls), l(str, objArr));
         }
     }
 
     public static void g(Class<?> cls, String str) {
-        if (poI.isLoggable(3)) {
-            poI.d(t(cls), str);
+        if (pyT.isLoggable(3)) {
+            pyT.d(t(cls), str);
         }
     }
 
     public static void d(Class<?> cls, String str, Object obj) {
-        if (poI.isLoggable(3)) {
-            poI.d(t(cls), l(str, obj));
+        if (pyT.isLoggable(3)) {
+            pyT.d(t(cls), l(str, obj));
         }
     }
 
     public static void h(Class<?> cls, String str) {
-        if (poI.isLoggable(5)) {
-            poI.w(t(cls), str);
+        if (pyT.isLoggable(5)) {
+            pyT.w(t(cls), str);
         }
     }
 
     public static void g(String str, String str2, Object... objArr) {
-        if (poI.isLoggable(5)) {
-            poI.w(str, l(str2, objArr));
+        if (pyT.isLoggable(5)) {
+            pyT.w(str, l(str2, objArr));
         }
     }
 
     public static void c(Class<?> cls, String str, Object... objArr) {
-        if (poI.isLoggable(5)) {
-            poI.w(t(cls), l(str, objArr));
+        if (pyT.isLoggable(5)) {
+            pyT.w(t(cls), l(str, objArr));
         }
     }
 
@@ -86,68 +86,68 @@ public class a {
     }
 
     public static void a(Class<?> cls, String str, Throwable th) {
-        if (poI.isLoggable(5)) {
-            poI.w(t(cls), str, th);
+        if (pyT.isLoggable(5)) {
+            pyT.w(t(cls), str, th);
         }
     }
 
     public static void e(String str, String str2) {
-        if (poI.isLoggable(6)) {
-            poI.e(str, str2);
+        if (pyT.isLoggable(6)) {
+            pyT.e(str, str2);
         }
     }
 
     public static void i(Class<?> cls, String str) {
-        if (poI.isLoggable(6)) {
-            poI.e(t(cls), str);
+        if (pyT.isLoggable(6)) {
+            pyT.e(t(cls), str);
         }
     }
 
     public static void e(String str, String str2, Object... objArr) {
-        if (poI.isLoggable(6)) {
-            poI.e(str, l(str2, objArr));
+        if (pyT.isLoggable(6)) {
+            pyT.e(str, l(str2, objArr));
         }
     }
 
     public static void d(Class<?> cls, String str, Object... objArr) {
-        if (poI.isLoggable(6)) {
-            poI.e(t(cls), l(str, objArr));
+        if (pyT.isLoggable(6)) {
+            pyT.e(t(cls), l(str, objArr));
         }
     }
 
     public static void b(Class<?> cls, Throwable th, String str, Object... objArr) {
-        if (poI.isLoggable(6)) {
-            poI.e(t(cls), l(str, objArr), th);
+        if (pyT.isLoggable(6)) {
+            pyT.e(t(cls), l(str, objArr), th);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (poI.isLoggable(6)) {
-            poI.e(str, str2, th);
+        if (pyT.isLoggable(6)) {
+            pyT.e(str, str2, th);
         }
     }
 
     public static void b(Class<?> cls, String str, Throwable th) {
-        if (poI.isLoggable(6)) {
-            poI.e(t(cls), str, th);
+        if (pyT.isLoggable(6)) {
+            pyT.e(t(cls), str, th);
         }
     }
 
     public static void wtf(String str, String str2) {
-        if (poI.isLoggable(6)) {
-            poI.wtf(str, str2);
+        if (pyT.isLoggable(6)) {
+            pyT.wtf(str, str2);
         }
     }
 
     public static void h(String str, String str2, Object... objArr) {
-        if (poI.isLoggable(6)) {
-            poI.wtf(str, l(str2, objArr));
+        if (pyT.isLoggable(6)) {
+            pyT.wtf(str, l(str2, objArr));
         }
     }
 
     public static void c(Class<?> cls, String str, Throwable th) {
-        if (poI.isLoggable(6)) {
-            poI.wtf(t(cls), str, th);
+        if (pyT.isLoggable(6)) {
+            pyT.wtf(t(cls), str, th);
         }
     }
 

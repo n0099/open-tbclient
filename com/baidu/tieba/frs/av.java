@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface av {
-    void co(int i, int i2);
+    void cl(int i, int i2);
 
-    void e(boolean z, boolean z2, int i);
+    void g(boolean z, boolean z2, int i);
 
-    void yr(int i);
+    void yB(int i);
 }

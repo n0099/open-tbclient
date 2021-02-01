@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk.system;
 import android.annotation.TargetApi;
 import com.baidu.webkit.sdk.WebResourceError;
 @TargetApi(23)
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 final class WebResourceErrorImpl extends WebResourceError {
     private final android.webkit.WebResourceError mError;
 

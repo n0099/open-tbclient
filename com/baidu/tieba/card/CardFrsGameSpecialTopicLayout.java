@@ -8,31 +8,31 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopicSubNode;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class CardFrsGameSpecialTopicLayout extends LinearLayout {
-    private int aBW;
-    private com.baidu.adp.lib.d.b<CardFrsGameSpecialTopicItemView> ipH;
-    private int ipI;
-    private int ipJ;
-    private final ViewGroup.OnHierarchyChangeListener ipK;
+    private int aDJ;
+    private com.baidu.adp.lib.d.b<CardFrsGameSpecialTopicItemView> ivl;
+    private int ivm;
+    private int ivn;
+    private final ViewGroup.OnHierarchyChangeListener ivo;
     private TbPageContext pageContext;
 
     public CardFrsGameSpecialTopicLayout(Context context) {
         super(context);
-        this.ipH = null;
-        this.ipK = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameSpecialTopicLayout.1
+        this.ivl = null;
+        this.ivo = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameSpecialTopicLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof CardFrsGameSpecialTopicItemView) && CardFrsGameSpecialTopicLayout.this.ipH != null) {
-                    CardFrsGameSpecialTopicLayout.this.ipH.returnObject((CardFrsGameSpecialTopicItemView) view2);
+                if ((view2 instanceof CardFrsGameSpecialTopicItemView) && CardFrsGameSpecialTopicLayout.this.ivl != null) {
+                    CardFrsGameSpecialTopicLayout.this.ivl.returnObject((CardFrsGameSpecialTopicItemView) view2);
                 }
             }
         };
@@ -41,16 +41,16 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
 
     public CardFrsGameSpecialTopicLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ipH = null;
-        this.ipK = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameSpecialTopicLayout.1
+        this.ivl = null;
+        this.ivo = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameSpecialTopicLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof CardFrsGameSpecialTopicItemView) && CardFrsGameSpecialTopicLayout.this.ipH != null) {
-                    CardFrsGameSpecialTopicLayout.this.ipH.returnObject((CardFrsGameSpecialTopicItemView) view2);
+                if ((view2 instanceof CardFrsGameSpecialTopicItemView) && CardFrsGameSpecialTopicLayout.this.ivl != null) {
+                    CardFrsGameSpecialTopicLayout.this.ivl.returnObject((CardFrsGameSpecialTopicItemView) view2);
                 }
             }
         };
@@ -59,16 +59,16 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
 
     public CardFrsGameSpecialTopicLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ipH = null;
-        this.ipK = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameSpecialTopicLayout.1
+        this.ivl = null;
+        this.ivo = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tieba.card.CardFrsGameSpecialTopicLayout.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof CardFrsGameSpecialTopicItemView) && CardFrsGameSpecialTopicLayout.this.ipH != null) {
-                    CardFrsGameSpecialTopicLayout.this.ipH.returnObject((CardFrsGameSpecialTopicItemView) view2);
+                if ((view2 instanceof CardFrsGameSpecialTopicItemView) && CardFrsGameSpecialTopicLayout.this.ivl != null) {
+                    CardFrsGameSpecialTopicLayout.this.ivl.returnObject((CardFrsGameSpecialTopicItemView) view2);
                 }
             }
         };
@@ -83,7 +83,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        setOnHierarchyChangeListener(this.ipK);
+        setOnHierarchyChangeListener(this.ivo);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -97,14 +97,14 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     }
 
     public void setData(List<FeatureCardTopicSubNode> list) {
-        if (!com.baidu.tbadk.core.util.x.isEmpty(list)) {
-            this.ipJ = this.aBW + this.ipI;
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
+            this.ivn = this.aDJ + this.ivm;
             int i = 0;
             int childCount = getChildCount();
             while (i < childCount && i < list.size()) {
                 if (getChildAt(i) instanceof CardFrsGameSpecialTopicItemView) {
                     CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView = (CardFrsGameSpecialTopicItemView) getChildAt(i);
-                    a(cardFrsGameSpecialTopicItemView, i, this.aBW);
+                    a(cardFrsGameSpecialTopicItemView, i, this.aDJ);
                     a(cardFrsGameSpecialTopicItemView, list.get(i));
                 }
                 i++;
@@ -117,11 +117,11 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
             while (true) {
                 int i3 = i2;
                 if (i3 < list.size()) {
-                    CardFrsGameSpecialTopicItemView borrowObject = this.ipH.borrowObject();
+                    CardFrsGameSpecialTopicItemView borrowObject = this.ivl.borrowObject();
                     if (borrowObject.getParent() != null) {
                         ((ViewGroup) borrowObject.getParent()).removeView(borrowObject);
                     }
-                    a(borrowObject, i3, this.aBW);
+                    a(borrowObject, i3, this.aDJ);
                     a(borrowObject, list.get(i3));
                     addView(borrowObject);
                     i2 = i3 + 1;
@@ -142,7 +142,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         if (i == 0) {
             layoutParams.leftMargin = 0;
         } else {
-            layoutParams.leftMargin = this.ipI;
+            layoutParams.leftMargin = this.ivm;
         }
         cardFrsGameSpecialTopicItemView.setLayoutParams(layoutParams);
     }
@@ -152,25 +152,25 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
             cardFrsGameSpecialTopicItemView.getSpecialTopicPicView().startLoad(featureCardTopicSubNode.image, 10, false);
             cardFrsGameSpecialTopicItemView.getSpecialTopicNameView().setText(featureCardTopicSubNode.title);
             cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.frs_game_special_card_article_num, String.valueOf(featureCardTopicSubNode.article_num)));
-            cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.frs_game_special_card_last_update_time, at.getTimeInterval(featureCardTopicSubNode.update_time)));
+            cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.frs_game_special_card_last_update_time, au.getTimeInterval(featureCardTopicSubNode.update_time)));
             cardFrsGameSpecialTopicItemView.setTag(featureCardTopicSubNode.url);
             cardFrsGameSpecialTopicItemView.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public int getChildItemWidth() {
-        return this.ipJ;
+        return this.ivn;
     }
 
     public void setViewPool(com.baidu.adp.lib.d.b<CardFrsGameSpecialTopicItemView> bVar) {
-        this.ipH = bVar;
+        this.ivl = bVar;
     }
 
     public void setItemSpace(int i) {
-        this.ipI = i;
+        this.ivm = i;
     }
 
     public void setItemWidth(int i) {
-        this.aBW = i;
+        this.aDJ = i;
     }
 }

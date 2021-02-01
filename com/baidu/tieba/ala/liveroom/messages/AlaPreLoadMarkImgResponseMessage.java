@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaPreLoadMarkImgResponseMessage extends JsonHttpResponsedMessage {
-    private List<String> hFj;
+    private List<String> hJv;
 
     public AlaPreLoadMarkImgResponseMessage() {
         super(1021117);
@@ -19,19 +19,19 @@ public class AlaPreLoadMarkImgResponseMessage extends JsonHttpResponsedMessage {
         JSONArray optJSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("data")) != null && optJSONArray.length() > 0) {
-            if (this.hFj == null) {
-                this.hFj = new ArrayList();
+            if (this.hJv == null) {
+                this.hJv = new ArrayList();
             }
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 String optString = optJSONArray.optString(i2);
                 if (!TextUtils.isEmpty(optString)) {
-                    this.hFj.add(optString);
+                    this.hJv.add(optString);
                 }
             }
         }
     }
 
-    public List<String> chU() {
-        return this.hFj;
+    public List<String> ciN() {
+        return this.hJv;
     }
 }

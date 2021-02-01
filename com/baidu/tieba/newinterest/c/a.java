@@ -13,53 +13,53 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newinterest.data.b;
 import com.baidu.tieba.newinterest.fragment.InterestSelectionFragment;
 import com.baidu.tieba.newinterest.fragment.InterestedForumFragment;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements View.OnClickListener, InterestSelectionFragment.a {
-    private BaseFragmentActivity iEK;
-    private View jdb;
-    private TextView lxk;
-    private InterestedForumFragment lxl;
-    private InterestSelectionFragment lxm;
+    private BaseFragmentActivity iKt;
+    private View jiI;
+    private TextView lFo;
+    private InterestedForumFragment lFp;
+    private InterestSelectionFragment lFq;
     private NavigationBar mNavigationBar;
     private View mRoot;
 
     public a(BaseFragmentActivity baseFragmentActivity) {
-        this.iEK = baseFragmentActivity;
+        this.iKt = baseFragmentActivity;
         initUI();
-        cFy();
+        cGL();
     }
 
     private void initUI() {
-        this.mRoot = LayoutInflater.from(this.iEK).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
+        this.mRoot = LayoutInflater.from(this.iKt).inflate(R.layout.activity_interest_guide_layout, (ViewGroup) null);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.navigation_bar);
-        this.lxk = new TextView(this.iEK);
-        this.lxk.setClickable(true);
-        this.lxk.setText(this.iEK.getString(R.string.skip));
-        this.lxk.setTextSize(0, l.getDimens(this.iEK, R.dimen.tbds37));
-        ao.setViewTextColor(this.lxk, R.color.CAM_X0107);
+        this.lFo = new TextView(this.iKt);
+        this.lFo.setClickable(true);
+        this.lFo.setText(this.iKt.getString(R.string.skip));
+        this.lFo.setTextSize(0, l.getDimens(this.iKt, R.dimen.tbds37));
+        ap.setViewTextColor(this.lFo, R.color.CAM_X0107);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        layoutParams.rightMargin = l.getDimens(this.iEK, R.dimen.tbds44);
-        this.lxk.setLayoutParams(layoutParams);
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.lxk, this);
-        this.jdb = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.lxm = new InterestSelectionFragment();
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.lxm).commitAllowingStateLoss();
-        TiebaStatic.log(new aq("c13681"));
+        layoutParams.rightMargin = l.getDimens(this.iKt, R.dimen.tbds44);
+        this.lFo.setLayoutParams(layoutParams);
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.lFo, this);
+        this.jiI = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.lFq = new InterestSelectionFragment();
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.lFq).commitAllowingStateLoss();
+        TiebaStatic.log(new ar("c13681"));
     }
 
-    private void cFy() {
-        this.lxk.setOnClickListener(this);
-        this.jdb.setOnClickListener(this);
-        this.lxm.a(this);
+    private void cGL() {
+        this.lFo.setOnClickListener(this);
+        this.jiI.setOnClickListener(this);
+        this.lFq.a(this);
     }
 
     public View getView() {
@@ -68,39 +68,39 @@ public class a implements View.OnClickListener, InterestSelectionFragment.a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.jdb && this.iEK != null) {
-            if (this.lxl != null && this.lxl.isVisible()) {
+        if (view == this.jiI && this.iKt != null) {
+            if (this.lFp != null && this.lFp.isVisible()) {
                 getFragmentManager().popBackStack();
             } else {
-                dhx();
+                djy();
             }
-        } else if (view == this.lxk) {
-            dhx();
+        } else if (view == this.lFo) {
+            djy();
         }
     }
 
-    private void dhx() {
-        aq aqVar = new aq("c13682");
-        aqVar.an("obj_type", 1);
-        TiebaStatic.log(aqVar);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.iEK).createNormalCfg(0)));
+    private void djy() {
+        ar arVar = new ar("c13682");
+        arVar.ap("obj_type", 1);
+        TiebaStatic.log(arVar);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.iKt).createNormalCfg(0)));
     }
 
     @Override // com.baidu.tieba.newinterest.fragment.InterestSelectionFragment.a
-    public void fg(List<b> list) {
-        this.lxl = new InterestedForumFragment();
-        this.lxl.fh(list);
-        getFragmentManager().beginTransaction().add(R.id.content_container, this.lxl).addToBackStack(null).commitAllowingStateLoss();
+    public void fe(List<b> list) {
+        this.lFp = new InterestedForumFragment();
+        this.lFp.ff(list);
+        getFragmentManager().beginTransaction().add(R.id.content_container, this.lFp).addToBackStack(null).commitAllowingStateLoss();
     }
 
     private FragmentManager getFragmentManager() {
-        return this.iEK.getSupportFragmentManager();
+        return this.iKt.getSupportFragmentManager();
     }
 
     public void onBackPressed() {
     }
 
     public void onChangeSkinType() {
-        ao.setBackgroundColor(this.mRoot, R.color.CAM_X0201);
+        ap.setBackgroundColor(this.mRoot, R.color.CAM_X0201);
     }
 }

@@ -3,25 +3,25 @@ package com.baidu.sofire;
 import android.content.Context;
 import android.os.FileObserver;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class d extends FileObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5233a;
+    private String f5235a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f5234b;
+    private String f5236b;
     private int c;
     private Context d;
 
     public d(Context context, int i, String str, String str2) {
         super(str, 4095);
         try {
-            this.f5233a = str;
-            this.f5234b = str2;
+            this.f5235a = str;
+            this.f5236b = str2;
             this.c = i;
             this.d = context;
-            new StringBuilder("f=").append(this.f5233a).append(", e=").append(new File(this.f5233a).exists()).append(", b=").append(this.f5234b);
+            new StringBuilder("f=").append(this.f5235a).append(", e=").append(new File(this.f5235a).exists()).append(", b=").append(this.f5236b);
             b.a();
         } catch (Throwable th) {
             com.baidu.sofire.i.e.a();
@@ -30,7 +30,7 @@ public class d extends FileObserver {
 
     public final boolean a() {
         try {
-            File file = new File(this.f5234b);
+            File file = new File(this.f5236b);
             if (file.exists()) {
                 return file.delete();
             }
@@ -60,13 +60,13 @@ public class d extends FileObserver {
                                 super.run();
                                 b.a();
                                 synchronized (d.class) {
-                                    if (!com.baidu.sofire.i.e.c(d.this.f5233a)) {
+                                    if (!com.baidu.sofire.i.e.c(d.this.f5235a)) {
                                         b.a();
-                                        com.baidu.sofire.i.e.a(d.this.f5234b, d.this.f5233a);
-                                        com.baidu.sofire.i.e.a(d.this.f5233a, true);
-                                        c.a(new File(d.this.f5233a));
-                                        c.a(d.this.d, d.this.c, new File(d.this.f5233a), new File(d.this.f5234b));
-                                        new StringBuilder().append(d.this.f5233a.toString());
+                                        com.baidu.sofire.i.e.a(d.this.f5236b, d.this.f5235a);
+                                        com.baidu.sofire.i.e.a(d.this.f5235a, true);
+                                        c.a(new File(d.this.f5235a));
+                                        c.a(d.this.d, d.this.c, new File(d.this.f5235a), new File(d.this.f5236b));
+                                        new StringBuilder().append(d.this.f5235a.toString());
                                         b.a();
                                         com.baidu.sofire.c.a.a(d.this.d).b(d.this.c, -1);
                                     }

@@ -14,13 +14,13 @@ import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.i.m;
 @TargetApi(21)
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PushJobService extends JobService {
 
     /* renamed from: a  reason: collision with root package name */
     private Handler f1442a;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */

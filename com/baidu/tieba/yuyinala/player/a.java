@@ -17,6 +17,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.live.audiolive.c;
 import com.baidu.live.gift.aj;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
@@ -30,96 +31,96 @@ import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 import com.baidu.live.utils.m;
 import com.baidu.tieba.yuyinala.liveroom.messages.AlaCloseLiveRoomResponsedMessage;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes10.dex */
-public class a implements com.baidu.live.e.b {
+/* loaded from: classes11.dex */
+public class a implements c {
     private int availableHeight;
     private ViewTreeObserver.OnGlobalLayoutListener globalListener;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
     private TbPageContext mPageContext;
-    private com.baidu.live.e.a oCI;
-    private b oCJ;
+    private com.baidu.live.audiolive.b oMR;
+    private b oMS;
     private Handler mHandler = new Handler();
     private boolean mIsKeyboardOpen = false;
-    private boolean bJk = true;
-    private boolean hZh = false;
-    private int hBU = -1;
-    private CustomMessageListener hBV = new CustomMessageListener(2913011, false) { // from class: com.baidu.tieba.yuyinala.player.a.1
+    private boolean bMU = true;
+    private boolean idF = false;
+    private int hGd = -1;
+    private CustomMessageListener hGe = new CustomMessageListener(2913011, false) { // from class: com.baidu.tieba.yuyinala.player.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage instanceof AlaCloseLiveRoomResponsedMessage) && a.this.oCJ != null) {
-                a.this.oCJ.U(false, true);
+            if (customResponsedMessage != null && (customResponsedMessage instanceof AlaCloseLiveRoomResponsedMessage) && a.this.oMS != null) {
+                a.this.oMS.U(false, true);
             }
         }
     };
-    private CustomMessageListener hZi = new CustomMessageListener(2913086) { // from class: com.baidu.tieba.yuyinala.player.a.2
+    private CustomMessageListener idG = new CustomMessageListener(2913086) { // from class: com.baidu.tieba.yuyinala.player.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (a.this.oCJ != null) {
-                a.this.oCJ.oV(false);
-                a.this.oCJ.bXW();
+            if (a.this.oMS != null) {
+                a.this.oMS.pf(false);
+                a.this.oMS.bYU();
             }
         }
     };
-    private CustomMessageListener hkv = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.yuyinala.player.a.3
+    private CustomMessageListener hoN = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.yuyinala.player.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int netType = BdNetTypeUtil.netType();
-            if (netType != a.this.hBU) {
-                a.this.hBU = netType;
+            if (netType != a.this.hGd) {
+                a.this.hGd = netType;
                 NetWorkChangedMessage netWorkChangedMessage = (NetWorkChangedMessage) customResponsedMessage;
                 if (netWorkChangedMessage.mLastNetState != netType || !BdNetTypeUtil.isWifiNet() || netWorkChangedMessage.mlastChangedTime != 0) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        a.this.cfU();
-                        if (a.this.oCJ != null) {
-                            a.this.oCJ.oS(false);
+                        a.this.cgN();
+                        if (a.this.oMS != null) {
+                            a.this.oMS.pc(false);
                             return;
                         }
                         return;
                     }
-                    if (BdNetTypeUtil.isMobileNet() && m.TI()) {
-                        a.this.cfT();
+                    if (BdNetTypeUtil.isMobileNet() && m.Vp()) {
+                        a.this.cgM();
                     } else if (BdNetTypeUtil.isWifiNet()) {
-                        a.this.cfV();
+                        a.this.cgO();
                     }
-                    if (a.this.oCJ != null) {
-                        a.this.oCJ.onStart();
-                        a.this.oCJ.cne();
+                    if (a.this.oMS != null) {
+                        a.this.oMS.onStart();
+                        a.this.oMS.coc();
                     }
                 }
             }
         }
     };
-    private CustomMessageListener hZj = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.yuyinala.player.a.4
+    private CustomMessageListener idH = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.yuyinala.player.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof AccountData) {
-                a.this.cmt();
+                a.this.cnr();
             }
         }
     };
-    private CustomMessageListener byv = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.yuyinala.player.a.5
+    private CustomMessageListener bCb = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.yuyinala.player.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    a.this.cfU();
-                    if (a.this.oCJ != null) {
-                        a.this.oCJ.oS(false);
+                    a.this.cgN();
+                    if (a.this.oMS != null) {
+                        a.this.oMS.pc(false);
                     }
-                } else if (a.this.oCJ != null) {
-                    if (a.this.oCJ.cmN()) {
-                        if (!TbadkCoreApplication.isShownNetChangeDialog.booleanValue() && BdNetTypeUtil.isMobileNet() && m.TI()) {
+                } else if (a.this.oMS != null) {
+                    if (a.this.oMS.cnL()) {
+                        if (!TbadkCoreApplication.isShownNetChangeDialog.booleanValue() && BdNetTypeUtil.isMobileNet() && m.Vp()) {
                             TbadkCoreApplication.isShownNetChangeDialog = true;
-                            a.this.cfT();
+                            a.this.cgM();
                         }
-                    } else if (BdNetTypeUtil.isMobileNet() && m.TI()) {
-                        a.this.cfT();
+                    } else if (BdNetTypeUtil.isMobileNet() && m.Vp()) {
+                        a.this.cgM();
                     }
                 }
             }
@@ -131,32 +132,32 @@ public class a implements com.baidu.live.e.b {
         return this.mPageContext;
     }
 
-    @Override // com.baidu.live.e.b
-    public void a(TbPageContext tbPageContext, com.baidu.live.e.a aVar) {
+    @Override // com.baidu.live.audiolive.c
+    public void a(TbPageContext tbPageContext, com.baidu.live.audiolive.b bVar) {
         this.mPageContext = tbPageContext;
-        this.oCI = aVar;
+        this.oMR = bVar;
         init();
     }
 
     private void init() {
         if (MessageManager.getInstance().findTask(2913060) != null) {
-            this.hZh = false;
+            this.idF = false;
             BdUtilHelper.showToast(getPageContext().getPageActivity(), a.h.ala_master_on_live_no_watch_other_live);
             b(false, false, -1L);
             return;
         }
-        this.hZh = true;
+        this.idF = true;
         MessageManager.getInstance().dispatchResponsedMessage(new AlaCloseLiveRoomResponsedMessage());
-        MessageManager.getInstance().registerListener(this.hBV);
-        MessageManager.getInstance().registerListener(this.hZi);
-        MessageManager.getInstance().registerListener(this.hkv);
-        MessageManager.getInstance().registerListener(this.hZj);
-        MessageManager.getInstance().registerListener(this.byv);
+        MessageManager.getInstance().registerListener(this.hGe);
+        MessageManager.getInstance().registerListener(this.idG);
+        MessageManager.getInstance().registerListener(this.hoN);
+        MessageManager.getInstance().registerListener(this.idH);
+        MessageManager.getInstance().registerListener(this.bCb);
         UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         getPageContext().getPageActivity().getWindow().addFlags(128);
         addGlobalLayoutListener();
         initData();
-        com.baidu.live.entereffect.a.BG().bt(false);
+        com.baidu.live.entereffect.a.CV().by(false);
     }
 
     private void initData() {
@@ -164,20 +165,20 @@ public class a implements com.baidu.live.e.b {
         this.mLastScreenHeight = screenDimensions[1];
         this.mLastScreenWidth = screenDimensions[0];
         if (!UtilHelper.isARM()) {
-            cfO();
+            cgH();
             return;
         }
         Intent intent = getPageContext().getPageActivity().getIntent();
         if (intent != null && intent.getExtras() != null) {
-            this.oCJ = new b(getPageContext(), this);
-            this.oCJ.au(intent);
+            this.oMS = new b(getPageContext(), this);
+            this.oMS.au(intent);
             return;
         }
         getPageContext().showToast(getPageContext().getPageActivity().getResources().getString(a.h.ala_entry_live_failed));
         b(false, false, -1L);
     }
 
-    private void cfO() {
+    private void cgH() {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(getPageContext().getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -192,10 +193,10 @@ public class a implements com.baidu.live.e.b {
         bdAlertDialog.create(getPageContext()).show();
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.oCJ != null) {
-            this.oCJ.co(getPageContext().getPageActivity().getResources().getConfiguration().orientation);
+        if (this.oMS != null) {
+            this.oMS.cr(getPageContext().getPageActivity().getResources().getConfiguration().orientation);
         }
     }
 
@@ -210,17 +211,17 @@ public class a implements com.baidu.live.e.b {
                 boolean z = a.this.availableHeight != rect.bottom;
                 a.this.availableHeight = rect.bottom;
                 if (a.this.mLastScreenHeight != screenFullSize[1]) {
-                    if (a.this.oCJ != null) {
-                        a.this.oCJ.cmV();
+                    if (a.this.oMS != null) {
+                        a.this.oMS.cnT();
                     }
                     a.this.mLastScreenHeight = screenFullSize[1];
                 } else if (a.this.mLastScreenWidth != screenFullSize[0]) {
-                    if (a.this.oCJ != null) {
-                        a.this.oCJ.cmV();
+                    if (a.this.oMS != null) {
+                        a.this.oMS.cnT();
                     }
                     a.this.mLastScreenWidth = screenFullSize[0];
                 }
-                if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!a.this.mIsKeyboardOpen || z) && a.this.bJk)) {
+                if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && ((!a.this.mIsKeyboardOpen || z) && a.this.bMU)) {
                     a.this.mIsKeyboardOpen = true;
                     TbadkCoreApplication.getInst().setKeyboardHeight(screenFullSize[1] - rect.bottom);
                     a.this.onKeyboardVisibilityChanged(true);
@@ -233,108 +234,108 @@ public class a implements com.baidu.live.e.b {
         getPageContext().getPageActivity().getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public void onWindowFocusChanged(boolean z) {
         int realScreenOrientation = UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity());
-        if (this.oCJ != null) {
+        if (this.oMS != null) {
             if (realScreenOrientation == 2) {
-                this.oCJ.cmW();
+                this.oMS.cnU();
             } else {
-                this.oCJ.cmX();
+                this.oMS.cnV();
             }
         }
     }
 
-    public boolean cmr() {
+    public boolean cnp() {
         return false;
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public void onResume() {
         TbadkCoreApplication.getInst().AddResumeNum();
-        this.bJk = true;
-        if (this.oCJ != null) {
-            this.oCJ.onResume();
+        this.bMU = true;
+        if (this.oMS != null) {
+            this.oMS.onResume();
         }
         UtilHelper.changeStatusBarIconAndTextColor(true, getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfV() {
+    public void cgO() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getResources().getString(a.h.ala_watch_live_user_has_change_to_wifi));
         }
     }
 
-    public void cfT() {
+    public void cgM() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getResources().getString(a.h.ala_watch_live_mobile_net_tip));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfU() {
+    public void cgN() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getString(a.h.ala_create_no_network));
         }
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public void onStart() {
-        if (this.oCJ != null) {
-            this.oCJ.oX(false);
-            this.oCJ.onStart();
+        if (this.oMS != null) {
+            this.oMS.ph(false);
+            this.oMS.onStart();
         }
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public void onPause() {
         TbadkCoreApplication.getInst().DelResumeNum();
-        if (this.hZh) {
-            this.bJk = false;
-            if (this.oCJ != null) {
-                this.oCJ.onPause();
+        if (this.idF) {
+            this.bMU = false;
+            if (this.oMS != null) {
+                this.oMS.onPause();
             }
         }
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public void onStop() {
-        if (this.oCJ != null) {
-            this.oCJ.oX(true);
-            this.oCJ.oS(true);
+        if (this.oMS != null) {
+            this.oMS.ph(true);
+            this.oMS.pc(true);
         }
         AlaStatManager.getInstance().forceUpload();
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return i == 4 && this.oCJ != null && this.oCJ.onKeyDown(i, keyEvent);
+        return i == 4 && this.oMS != null && this.oMS.onKeyDown(i, keyEvent);
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.oCJ != null) {
-            this.oCJ.onKeyboardVisibilityChanged(z);
+        if (this.oMS != null) {
+            this.oMS.onKeyboardVisibilityChanged(z);
         }
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.oCJ != null) {
-            this.oCJ.onActivityResult(i, i2, intent);
+        if (this.oMS != null) {
+            this.oMS.onActivityResult(i, i2, intent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmt() {
+    public void cnr() {
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.a.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.oCJ != null) {
-                        a.this.oCJ.nJ(true);
-                        a.this.oCJ.cmM();
-                        a.this.oCJ.zX(false);
+                    if (a.this.oMS != null) {
+                        a.this.oMS.nU(true);
+                        a.this.oMS.cnK();
+                        a.this.oMS.Aq(false);
                     }
                 }
             }, 1L);
@@ -345,34 +346,34 @@ public class a implements com.baidu.live.e.b {
         if (BdLog.isDebugMode()) {
             BdLog.e("AlaLivePlayer closeActivity");
         }
-        com.baidu.live.ah.a.b.Pv().release();
-        aj.Ee();
-        com.baidu.live.entereffect.a.BG().release();
-        if (this.oCJ != null) {
-            this.oCJ.cnd();
+        com.baidu.live.storage.opt.b.Rg().release();
+        aj.Fu();
+        com.baidu.live.entereffect.a.CV().release();
+        if (this.oMS != null) {
+            this.oMS.cob();
         }
-        if (this.oCI != null) {
-            this.oCI.a(z, !z2, j);
+        if (this.oMR != null) {
+            this.oMR.a(z, !z2, j);
         } else {
             getPageContext().getPageActivity().finish();
         }
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public void onDestroy() {
-        if (this.hZh) {
-            MessageManager.getInstance().unRegisterListener(this.hZi);
-            MessageManager.getInstance().unRegisterListener(this.hBV);
-            MessageManager.getInstance().unRegisterListener(this.hkv);
-            MessageManager.getInstance().unRegisterListener(this.hZj);
-            MessageManager.getInstance().unRegisterListener(this.byv);
+        if (this.idF) {
+            MessageManager.getInstance().unRegisterListener(this.idG);
+            MessageManager.getInstance().unRegisterListener(this.hGe);
+            MessageManager.getInstance().unRegisterListener(this.hoN);
+            MessageManager.getInstance().unRegisterListener(this.idH);
+            MessageManager.getInstance().unRegisterListener(this.bCb);
             MessageManager.getInstance().unRegisterListener(getPageContext().getUniqueId());
             getPageContext().getPageActivity().getWindow().clearFlags(128);
             getPageContext().getPageActivity().getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.globalListener);
             this.globalListener = null;
-            if (this.oCJ != null) {
-                this.oCJ.destroy();
-                this.oCJ = null;
+            if (this.oMS != null) {
+                this.oMS.destroy();
+                this.oMS = null;
             }
             this.mHandler.removeCallbacksAndMessages(null);
             this.mHandler = null;
@@ -381,7 +382,7 @@ public class a implements com.baidu.live.e.b {
         }
     }
 
-    @Override // com.baidu.live.e.b
+    @Override // com.baidu.live.audiolive.c
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (iArr != null) {
             for (int i2 = 0; i2 < strArr.length; i2++) {

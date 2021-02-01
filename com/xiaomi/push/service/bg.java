@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class bg implements af {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile bg f14271a;
+    private static volatile bg f14273a;
 
     /* renamed from: a  reason: collision with other field name */
     private long f967a;
@@ -29,7 +29,7 @@ public final class bg implements af {
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        long f14272a;
+        long f14274a;
 
         /* renamed from: a  reason: collision with other field name */
         String f972a;
@@ -37,19 +37,19 @@ public final class bg implements af {
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(String str, long j) {
             this.f972a = str;
-            this.f14272a = j;
+            this.f14274a = j;
         }
 
         abstract void a(bg bgVar);
 
         @Override // java.lang.Runnable
         public void run() {
-            if (bg.f14271a != null) {
-                Context context = bg.f14271a.f968a;
+            if (bg.f14273a != null) {
+                Context context = bg.f14273a.f968a;
                 if (com.xiaomi.push.az.c(context)) {
-                    if (System.currentTimeMillis() - bg.f14271a.f969a.getLong(":ts-" + this.f972a, 0L) > this.f14272a || com.xiaomi.push.af.a(context)) {
-                        com.xiaomi.push.r.a(bg.f14271a.f969a.edit().putLong(":ts-" + this.f972a, System.currentTimeMillis()));
-                        a(bg.f14271a);
+                    if (System.currentTimeMillis() - bg.f14273a.f969a.getLong(":ts-" + this.f972a, 0L) > this.f14274a || com.xiaomi.push.af.a(context)) {
+                        com.xiaomi.push.r.a(bg.f14273a.f969a.edit().putLong(":ts-" + this.f972a, System.currentTimeMillis()));
+                        a(bg.f14273a);
                     }
                 }
             }
@@ -62,14 +62,14 @@ public final class bg implements af {
     }
 
     public static bg a(Context context) {
-        if (f14271a == null) {
+        if (f14273a == null) {
             synchronized (bg.class) {
-                if (f14271a == null) {
-                    f14271a = new bg(context);
+                if (f14273a == null) {
+                    f14273a = new bg(context);
                 }
             }
         }
-        return f14271a;
+        return f14273a;
     }
 
     public String a(String str, String str2) {
@@ -97,6 +97,6 @@ public final class bg implements af {
     }
 
     public void a(String str, String str2, String str3) {
-        com.xiaomi.push.r.a(f14271a.f969a.edit().putString(str + ":" + str2, str3));
+        com.xiaomi.push.r.a(f14273a.f969a.edit().putString(str + ":" + str2, str3));
     }
 }

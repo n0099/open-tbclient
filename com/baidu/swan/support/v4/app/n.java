@@ -10,15 +10,15 @@ import android.view.ViewTreeObserver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 class n {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class a {
-        public View euZ;
+        public View exf;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         View getView();
     }
@@ -59,11 +59,11 @@ class n {
     }
 
     public static void setEpicenter(Object obj, View view) {
-        final Rect bl = bl(view);
+        final Rect bh = bh(view);
         ((Transition) obj).setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.1
             @Override // android.transition.Transition.EpicenterCallback
             public Rect onGetEpicenter(Transition transition) {
-                return bl;
+                return bh;
             }
         });
     }
@@ -210,21 +210,21 @@ class n {
     private static void a(Transition transition, final a aVar) {
         if (transition != null) {
             transition.setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.3
-                private Rect euT;
+                private Rect ewZ;
 
                 @Override // android.transition.Transition.EpicenterCallback
                 public Rect onGetEpicenter(Transition transition2) {
-                    if (this.euT == null && a.this.euZ != null) {
-                        this.euT = n.bl(a.this.euZ);
+                    if (this.ewZ == null && a.this.exf != null) {
+                        this.ewZ = n.bh(a.this.exf);
                     }
-                    return this.euT;
+                    return this.ewZ;
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static Rect bl(View view) {
+    public static Rect bh(View view) {
         Rect rect = new Rect();
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);

@@ -21,7 +21,7 @@ import androidx.viewpager.widget.ViewPager;
 import java.lang.ref.WeakReference;
 import java.util.Locale;
 @ViewPager.DecorView
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class PagerTitleStrip extends ViewGroup {
     private static final float SIDE_ALPHA = 0.6f;
     private static final int TEXT_SPACING = 16;
@@ -43,7 +43,7 @@ public class PagerTitleStrip extends ViewGroup {
     private static final int[] TEXT_ATTRS = {16843660};
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class SingleLineAllCapsTransform extends SingleLineTransformationMethod {
         private Locale mLocale;
 
@@ -336,7 +336,7 @@ public class PagerTitleStrip extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public class PageListener extends DataSetObserver implements ViewPager.OnAdapterChangeListener, ViewPager.OnPageChangeListener {
         private int mScrollState;
 

@@ -150,14 +150,14 @@ public class NotificationHelper {
         if (switchData == null) {
             return false;
         }
-        if (at.isEmpty(str)) {
+        if (au.isEmpty(str)) {
             str = context.getString(R.string.app_name);
         }
         try {
             if (Build.VERSION.SDK_INT < 26) {
                 builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
             } else {
-                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.eXW ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
+                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.fal ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
             }
             builder.setContentTitle(str).setContentText(str2).setTicker(str3);
             processNotificationIcon(builder);
@@ -172,11 +172,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.eXX) {
+            if (!switchData.fam) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.eXW) {
+            if (!switchData.fal) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -184,7 +184,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.eXY) {
+            if (switchData.fan) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
@@ -198,7 +198,7 @@ public class NotificationHelper {
 
     private static void processNotificationIcon(NotificationCompat.Builder builder) {
         if (builder != null) {
-            if (am.bso()) {
+            if (an.bsI()) {
                 builder.setSmallIcon(R.drawable.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
             } else {
                 builder.setSmallIcon(R.drawable.tb_launcher_icon_notify);
@@ -216,32 +216,32 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.b.bxl() && com.baidu.tbadk.coreExtra.messageCenter.b.bxk()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.b.bxD() && com.baidu.tbadk.coreExtra.messageCenter.b.bxC()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxV()) {
-                    aVar.eXW = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.bye().byn()) {
+                    aVar.fal = true;
                     if (z || z2) {
-                        aVar.eXW = false;
+                        aVar.fal = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxY()) {
-                    aVar.eXX = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.bye().byq()) {
+                    aVar.fam = true;
                     if (z) {
-                        aVar.eXX = false;
+                        aVar.fam = false;
                     }
                     if (z2) {
-                        aVar.eXX = true;
+                        aVar.fam = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.bxM().bxW()) {
-            aVar.eXY = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.bye().byo()) {
+            aVar.fan = true;
         }
         return aVar;
     }
@@ -249,7 +249,7 @@ public class NotificationHelper {
     private static Notification notif_excption(Context context) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
         builder.setContentTitle(context.getString(R.string.notify_text));
-        if (am.bso()) {
+        if (an.bsI()) {
             builder.setSmallIcon(R.drawable.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
         } else {
             builder.setSmallIcon(R.drawable.tb_launcher_icon_notify);
@@ -283,14 +283,14 @@ public class NotificationHelper {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(aVar.eXW ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(R.string.notify_channel_primary), 3);
+                NotificationChannel notificationChannel = new NotificationChannel(aVar.fal ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(R.string.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
                 notificationChannel.setLockscreenVisibility(0);
-                notificationChannel.enableVibration(aVar.eXX);
-                if (!aVar.eXW) {
+                notificationChannel.enableVibration(aVar.fam);
+                if (!aVar.fal) {
                     notificationChannel.setSound(null, null);
                 }
-                notificationChannel.enableLights(aVar.eXY);
+                notificationChannel.enableLights(aVar.fan);
                 notificationManager.createNotificationChannel(notificationChannel);
             }
             if (notification == null || notificationManager == null) {
@@ -311,9 +311,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean eXW = false;
-        boolean eXX = false;
-        boolean eXY = false;
+        boolean fal = false;
+        boolean fam = false;
+        boolean fan = false;
 
         a() {
         }

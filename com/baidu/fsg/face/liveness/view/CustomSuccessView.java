@@ -17,10 +17,10 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class CustomSuccessView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2335a;
+    private int f2333a;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f2336b;
+    private float f2334b;
     private float c;
     private Paint d;
     private PathMeasure e;
@@ -44,8 +44,8 @@ public class CustomSuccessView extends View {
     public CustomSuccessView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.CustomSuccessView, i, 0);
-        this.f2335a = obtainStyledAttributes.getColor(R.styleable.CustomSuccessView_load_success_color, ContextCompat.getColor(context, R.color.rim_base_white));
-        this.f2336b = obtainStyledAttributes.getDimension(R.styleable.CustomSuccessView_progress_width, 2.0f);
+        this.f2333a = obtainStyledAttributes.getColor(R.styleable.CustomSuccessView_load_success_color, ContextCompat.getColor(context, R.color.rim_base_white));
+        this.f2334b = obtainStyledAttributes.getDimension(R.styleable.CustomSuccessView_progress_width, 2.0f);
         this.c = obtainStyledAttributes.getDimension(R.styleable.CustomSuccessView_progress_radius, 35.0f);
         obtainStyledAttributes.recycle();
         a();
@@ -58,7 +58,7 @@ public class CustomSuccessView extends View {
         this.d.setStyle(Paint.Style.STROKE);
         this.d.setDither(true);
         this.d.setAntiAlias(true);
-        this.d.setStrokeWidth(this.f2336b);
+        this.d.setStrokeWidth(this.f2334b);
         this.d.setStrokeCap(Paint.Cap.ROUND);
     }
 
@@ -78,7 +78,7 @@ public class CustomSuccessView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.translate(getPaddingLeft(), getPaddingTop());
-        this.d.setColor(this.f2335a);
+        this.d.setColor(this.f2333a);
         RectF rectF = new RectF();
         rectF.left = (getWidth() / 2) - this.c;
         rectF.top = (getWidth() / 2) - this.c;
@@ -143,12 +143,12 @@ public class CustomSuccessView extends View {
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
         if (mode != 1073741824) {
-            size = (int) ((this.c * 2.0f) + this.f2336b + getPaddingLeft() + getPaddingRight());
+            size = (int) ((this.c * 2.0f) + this.f2334b + getPaddingLeft() + getPaddingRight());
         }
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode2 != 1073741824) {
-            size2 = (int) ((this.c * 2.0f) + this.f2336b + getPaddingTop() + getPaddingBottom());
+            size2 = (int) ((this.c * 2.0f) + this.f2334b + getPaddingTop() + getPaddingBottom());
         }
         setMeasuredDimension(size, size2);
     }

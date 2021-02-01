@@ -22,17 +22,17 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12707a = UUID.randomUUID().toString();
+    private static final String f12709a = UUID.randomUUID().toString();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private JSONObject f12708a;
+        private JSONObject f12710a;
 
         a() {
             com.qq.e.comm.plugin.util.u uVar = new com.qq.e.comm.plugin.util.u();
@@ -64,7 +64,7 @@ class j {
                 uVar.a("h", a2.second);
             }
             uVar.a("lid", j.b());
-            this.f12708a = uVar.a();
+            this.f12710a = uVar.a();
         }
 
         com.qq.e.comm.plugin.util.u a() {
@@ -79,21 +79,21 @@ class j {
             uVar.a("lg", Locale.getDefault().getLanguage());
             uVar.a("tz", TimeZone.getDefault().getID());
             uVar.a("ca", com.qq.e.comm.plugin.util.o.e(GDTADManager.getInstance().getAppContext()));
-            Iterator<String> keys = this.f12708a.keys();
+            Iterator<String> keys = this.f12710a.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                uVar.a(next, this.f12708a.opt(next));
+                uVar.a(next, this.f12710a.opt(next));
             }
             av.a(uVar, "/log or /event");
             return uVar;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     private static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final a f12709a = new a();
+        private static final a f12711a = new a();
     }
 
     public static com.qq.e.comm.plugin.util.u a() {

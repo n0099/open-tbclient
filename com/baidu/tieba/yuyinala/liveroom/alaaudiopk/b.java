@@ -1,35 +1,28 @@
 package com.baidu.tieba.yuyinala.liveroom.alaaudiopk;
 
-import android.widget.TextView;
-/* loaded from: classes10.dex */
+import com.kwad.sdk.core.response.model.SdkConfigData;
+/* loaded from: classes11.dex */
 public class b {
-    public static float b(d dVar) {
-        if (dVar == null) {
-            return 0.5f;
+    public static String LR(int i) {
+        if (i == 0) {
+            return "00:00";
         }
-        int parseInt = Integer.parseInt(dVar.oiW.f5349a);
-        int parseInt2 = Integer.parseInt(dVar.oiW.f5350b);
-        if (parseInt == 0 && parseInt2 == 0) {
-            return 0.5f;
+        if (i <= 60) {
+            return i + "";
         }
-        float f = parseInt / ((parseInt + parseInt2) + 0.0f);
-        try {
-            return Math.min(Math.max(f, 0.1f), 0.9f);
-        } catch (Exception e) {
-            return f;
+        int i2 = i / SdkConfigData.DEFAULT_REQUEST_INTERVAL;
+        if (i2 > 0) {
+            i -= i2 * SdkConfigData.DEFAULT_REQUEST_INTERVAL;
         }
-    }
-
-    public static float b(TextView textView, TextView textView2) {
-        try {
-            int parseInt = Integer.parseInt(textView.getText().toString());
-            int parseInt2 = Integer.parseInt(textView2.getText().toString());
-            if (parseInt == 0 && parseInt2 == 0) {
-                return 0.5f;
-            }
-            return Math.min(Math.max(parseInt / ((parseInt + parseInt2) + 0.0f), 0.1f), 0.9f);
-        } catch (Exception e) {
-            return 0.5f;
+        int i3 = i / 60;
+        if (i3 > 0) {
+            i -= i3 * 60;
         }
+        String str = i >= 10 ? i + "" : "0" + i;
+        String str2 = i3 >= 10 ? i3 + "" : "0" + i3;
+        if (i2 == 0) {
+            return str2 + ":" + str;
+        }
+        return (i2 >= 10 ? i2 + "" : "0" + i2) + ":" + str2 + ":" + str;
     }
 }

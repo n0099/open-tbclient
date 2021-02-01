@@ -2,17 +2,17 @@ package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
 import com.baidu.live.tbadk.img.effect.ResizeImageAction;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c fEw = new c();
+    private static c fGI = new c();
     private final HashMap<String, Class<? extends b>> imageActions = new HashMap<>();
 
-    public static c bCz() {
-        return fEw;
+    public static c bCR() {
+        return fGI;
     }
 
     private c() {
@@ -26,7 +26,7 @@ public class c {
     public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
         Bitmap processImage;
         d dVar;
-        if (bitmap != null && !x.isEmpty(list)) {
+        if (bitmap != null && !y.isEmpty(list)) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 b a2 = a(list.get(i));
@@ -77,7 +77,7 @@ public class c {
         Bitmap bitmap;
         d dVar;
         int i = 0;
-        if (x.isEmpty(list)) {
+        if (y.isEmpty(list)) {
             return null;
         }
         int size = list.size();

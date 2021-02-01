@@ -5,7 +5,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public int A;
     public String B;
@@ -33,10 +33,10 @@ public class a {
     private long X;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f9385a;
+    public AdTemplate f9387a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f9386b;
+    public SceneImpl f9388b;
     public long c;
     public long d;
     public long e;
@@ -74,7 +74,7 @@ public class a {
         this.V = -1;
         this.W = -1;
         this.c = j;
-        this.f9385a = null;
+        this.f9387a = null;
     }
 
     public a(long j, @NonNull AdTemplate adTemplate) {
@@ -89,7 +89,7 @@ public class a {
         this.V = -1;
         this.W = -1;
         this.c = j;
-        this.f9385a = adTemplate;
+        this.f9387a = adTemplate;
         a(adTemplate.getShowPosition());
     }
 

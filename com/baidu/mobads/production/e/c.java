@@ -1,42 +1,40 @@
 package com.baidu.mobads.production.e;
 
-import android.graphics.Color;
-import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f3439a;
+    final /* synthetic */ b f3450a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f3439a = bVar;
+        this.f3450a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean w;
         RelativeLayout relativeLayout;
-        View x;
-        RelativeLayout.LayoutParams z;
         RelativeLayout relativeLayout2;
-        if (this.f3439a.s()) {
-            relativeLayout2 = this.f3439a.e;
-            relativeLayout2.setBackgroundColor(Color.argb(51, 0, 0, 0));
-        }
-        if (this.f3439a.h.getAdView() != null) {
-            this.f3439a.h.getAdView().setVisibility(0);
-        }
-        w = this.f3439a.w();
-        if (w) {
-            this.f3439a.x.d("add countdown view");
-            this.f3439a.y();
-            relativeLayout = this.f3439a.e;
-            x = this.f3439a.x();
-            z = this.f3439a.z();
-            relativeLayout.addView(x, z);
+        ViewGroup b2;
+        RelativeLayout relativeLayout3;
+        RelativeLayout relativeLayout4;
+        this.f3450a.A.d("remote Interstitial.removeAd");
+        this.f3450a.E = false;
+        try {
+            relativeLayout = this.f3450a.e;
+            relativeLayout.removeAllViews();
+            b bVar = this.f3450a;
+            relativeLayout2 = this.f3450a.e;
+            b2 = bVar.b(relativeLayout2.getContext());
+            relativeLayout3 = this.f3450a.G;
+            relativeLayout3.removeAllViews();
+            relativeLayout4 = this.f3450a.G;
+            b2.removeView(relativeLayout4);
+        } catch (Exception e) {
+            this.f3450a.A.d("Interstitial.removeAd", e);
         }
     }
 }

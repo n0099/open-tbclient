@@ -11,14 +11,14 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.util.ad;
+import com.baidu.tbadk.util.ag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.AlaPlayAnimationView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
     private static final int MAX_USERNAME_LENGTH = 10;
     private HeadImageView alaCardUserHeadImg;
@@ -58,23 +58,23 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         }
     }
 
-    public void setData(bz bzVar) {
-        if (bzVar != null && bzVar.bnQ() != null) {
-            AlaUserInfoData alaUserInfoData = bzVar.bnQ().user_info;
+    public void setData(cb cbVar) {
+        if (cbVar != null && cbVar.boj() != null) {
+            AlaUserInfoData alaUserInfoData = cbVar.boj().user_info;
             String str = "";
-            if (bzVar.bnx() != null) {
-                str = bzVar.bnx().getName_show();
+            if (cbVar.bnQ() != null) {
+                str = cbVar.bnQ().getName_show();
             } else if (alaUserInfoData != null) {
                 str = alaUserInfoData.user_name;
             }
-            if (ad.getTextLengthWithEmoji(str) > 10) {
-                str = ad.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
+            if (ag.getTextLengthWithEmoji(str) > 10) {
+                str = ag.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
             }
             if (alaUserInfoData != null) {
                 this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
             }
             this.alaCardUserName.setText(str);
-            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), at.numFormatOverWan(bzVar.bnQ().audience_count)));
+            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), au.numFormatOverWan(cbVar.boj().audience_count)));
         }
     }
 
@@ -85,8 +85,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
-        ao.setViewTextColor(this.alaCardUserName, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
-        ao.setViewTextColor(this.alaWatchCount, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
+        ap.setViewTextColor(this.alaCardUserName, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
+        ap.setViewTextColor(this.alaWatchCount, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void startPlayAnimation() {

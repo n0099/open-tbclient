@@ -11,19 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolder> {
-    private String enU;
-    private a lcr;
+    private String eqb;
+    private a lkv;
     private Context mContext;
     private List<String> mDataList;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void Nj(String str);
+        void NX(String str);
     }
 
     public SearchMajorResultItemAdapter(Context context) {
@@ -33,7 +33,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: M */
+    /* renamed from: N */
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         return new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.search_major_item_layout, viewGroup, false));
     }
@@ -45,15 +45,15 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         if (this.mDataList != null) {
             final String str = this.mDataList.get(i);
             if (!StringUtils.isNull(str)) {
-                viewHolder.lcv.setText(str);
-                ao.setViewTextColor(viewHolder.lcv, R.color.CAM_X0105);
-                ao.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
-                e(viewHolder.lcv, str);
+                viewHolder.lky.setText(str);
+                ap.setViewTextColor(viewHolder.lky, R.color.CAM_X0105);
+                ap.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
+                e(viewHolder.lky, str);
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (SearchMajorResultItemAdapter.this.lcr != null) {
-                            SearchMajorResultItemAdapter.this.lcr.Nj(str);
+                        if (SearchMajorResultItemAdapter.this.lkv != null) {
+                            SearchMajorResultItemAdapter.this.lkv.NX(str);
                         }
                     }
                 });
@@ -70,7 +70,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     }
 
     public void b(a aVar) {
-        this.lcr = aVar;
+        this.lkv = aVar;
     }
 
     public void setData(List<String> list) {
@@ -78,39 +78,39 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         notifyDataSetChanged();
     }
 
-    public void dcO() {
+    public void deO() {
         if (this.mDataList != null) {
             this.mDataList.clear();
             notifyDataSetChanged();
         }
     }
 
-    public void Nb(String str) {
-        this.enU = str;
+    public void NP(String str) {
+        this.eqb = str;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView lcv;
+        TextView lky;
 
         public ViewHolder(View view) {
             super(view);
-            this.lcv = (TextView) view.findViewById(R.id.tv_major_name);
+            this.lky = (TextView) view.findViewById(R.id.tv_major_name);
         }
     }
 
     private void e(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.enU)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.eqb)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.enU.toLowerCase();
+            String lowerCase2 = this.eqb.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
             }
             int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0301));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0301));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.enU.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.eqb.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

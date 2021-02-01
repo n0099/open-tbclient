@@ -3,7 +3,7 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.live.adp.widget.listview.BdTypeListView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaConnectionWheatListView extends BdTypeListView {
     public AlaConnectionWheatListView(Context context) {
         super(context);

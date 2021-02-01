@@ -2,57 +2,57 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class j {
-    private static int oKu = 1000;
-    private static boolean oKv = true;
+    private static int oUC = 1000;
+    private static boolean oUD = true;
 
     public static void c(boolean z) {
-        oKv = z;
+        oUD = z;
     }
 
     public static void I(String str) {
-        if (oKv) {
+        if (oUD) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (oKv) {
+        if (oUD) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (oKv) {
+        if (oUD) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (oKv) {
+        if (oUD) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= oKu) {
+            if (str2.length() >= oUC) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, oKu));
+                        Log.v(str, str2.substring(0, oUC));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, oKu));
+                        Log.d(str, str2.substring(0, oUC));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, oKu));
+                        Log.i(str, str2.substring(0, oUC));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, oKu));
+                        Log.w(str, str2.substring(0, oUC));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, oKu));
+                        Log.e(str, str2.substring(0, oUC));
                         break;
                 }
             } else {
@@ -79,23 +79,23 @@ public final class j {
             }
         }
         if (th != null) {
-            String j = j(th);
-            if (!TextUtils.isEmpty(j)) {
+            String k = k(th);
+            if (!TextUtils.isEmpty(k)) {
                 switch (i) {
                     case 1:
-                        Log.v(str, j);
+                        Log.v(str, k);
                         return;
                     case 2:
-                        Log.d(str, j);
+                        Log.d(str, k);
                         return;
                     case 3:
-                        Log.i(str, j);
+                        Log.i(str, k);
                         return;
                     case 4:
-                        Log.w(str, j);
+                        Log.w(str, k);
                         return;
                     case 5:
-                        Log.e(str, j);
+                        Log.e(str, k);
                         return;
                     default:
                         Log.d(str, str2);
@@ -113,7 +113,7 @@ public final class j {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    private static java.lang.String j(java.lang.Throwable r5) {
+    private static java.lang.String k(java.lang.Throwable r5) {
         /*
             r3 = 0
             java.lang.String r0 = ""
@@ -181,6 +181,6 @@ public final class j {
             r1 = move-exception
             goto L2a
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.j(java.lang.Throwable):java.lang.String");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.k(java.lang.Throwable):java.lang.String");
     }
 }

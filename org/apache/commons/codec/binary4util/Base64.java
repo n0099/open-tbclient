@@ -1,10 +1,9 @@
 package org.apache.commons.codec.binary4util;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import java.math.BigInteger;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Base64 extends BaseNCodec {
     private static final int BITS_PER_ENCODED_BYTE = 6;
     private static final int BYTES_PER_ENCODED_BLOCK = 4;
@@ -269,7 +268,7 @@ public class Base64 extends BaseNCodec {
     }
 
     public static byte[] encodeBase64(byte[] bArr, boolean z, boolean z2) {
-        return encodeBase64(bArr, z, z2, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return encodeBase64(bArr, z, z2, Integer.MAX_VALUE);
     }
 
     public static byte[] encodeBase64(byte[] bArr, boolean z, boolean z2, int i) {

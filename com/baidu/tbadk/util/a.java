@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 /* loaded from: classes.dex */
 public class a {
-    private static a fKd;
-    private com.baidu.tbadk.coreExtra.data.a frF;
-    private ABTestExtraData frG;
+    private static a fMo;
+    private com.baidu.tbadk.coreExtra.data.a ftX;
+    private ABTestExtraData ftY;
 
-    public static a bEz() {
-        if (fKd == null) {
+    public static a bES() {
+        if (fMo == null) {
             synchronized (a.class) {
-                if (fKd == null) {
-                    fKd = new a();
+                if (fMo == null) {
+                    fMo = new a();
                 }
             }
         }
-        return fKd;
+        return fMo;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -26,26 +26,26 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.frF == null || aVar.bvB() != this.frF.bvB()) ? true : true;
-        this.frF = aVar;
+        z = (aVar == null || this.ftX == null || aVar.bvU() != this.ftX.bvU()) ? true : true;
+        this.ftX = aVar;
         if (z) {
-            Do("zan_or_cai_smallflow");
+            DF("zan_or_cai_smallflow");
         }
     }
 
-    private void Do(String str) {
+    private void DF(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 
     public void a(ABTestExtraData aBTestExtraData) {
-        this.frG = aBTestExtraData;
+        this.ftY = aBTestExtraData;
     }
 
-    public String bEA() {
-        if (this.frG == null) {
-            this.frG = new ABTestExtraData();
-            this.frG.parserABTestExtraFormSharedPref();
+    public String bET() {
+        if (this.ftY == null) {
+            this.ftY = new ABTestExtraData();
+            this.ftY.parserABTestExtraFormSharedPref();
         }
-        return this.frG.getABTestResult();
+        return this.ftY.getABTestResult();
     }
 }

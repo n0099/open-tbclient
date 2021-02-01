@@ -1,39 +1,39 @@
 package com.baidu.tieba.lego.card.view;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements Runnable {
-    private int gwh;
-    private int jcJ;
-    private boolean jdt;
-    private n kRM;
-    private boolean kUD = false;
+    private int gyR;
+    private int jiq;
+    private boolean jja;
+    private n kZO;
+    private boolean lcH = false;
 
     public b(n nVar) {
-        this.kRM = nVar;
+        this.kZO = nVar;
     }
 
-    public void qA(boolean z) {
-        this.jdt = z;
+    public void qK(boolean z) {
+        this.jja = z;
     }
 
-    public void DE(int i) {
-        this.jcJ = i;
+    public void DW(int i) {
+        this.jiq = i;
     }
 
-    public void DF(int i) {
-        this.gwh = i;
+    public void DX(int i) {
+        this.gyR = i;
     }
 
-    public void tx(boolean z) {
-        this.kUD = z;
+    public void tK(boolean z) {
+        this.lcH = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.kRM != null) {
-            if (!this.kUD) {
-                this.kRM.a(this.jcJ, this.gwh, this.jdt, 2);
+        if (this.kZO != null) {
+            if (!this.lcH) {
+                this.kZO.a(this.jiq, this.gyR, this.jja, 2);
             }
-            this.kRM.a(this.jcJ, this.gwh, this.jdt, 1);
+            this.kZO.a(this.jiq, this.gyR, this.jja, 1);
         }
     }
 }

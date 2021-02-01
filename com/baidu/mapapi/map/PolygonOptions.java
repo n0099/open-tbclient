@@ -4,32 +4,32 @@ import android.os.Bundle;
 import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class PolygonOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2754a;
+    int f2752a;
     Bundle c;
     private Stroke d;
     private List<LatLng> f;
     private int e = ViewCompat.MEASURED_STATE_MASK;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2755b = true;
+    boolean f2753b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Polygon polygon = new Polygon();
-        polygon.x = this.f2755b;
-        polygon.w = this.f2754a;
+        polygon.x = this.f2753b;
+        polygon.w = this.f2752a;
         polygon.y = this.c;
         if (this.f == null || this.f.size() < 2) {
             throw new IllegalStateException("when you add polyline, you must at least supply 2 points");
         }
         polygon.c = this.f;
-        polygon.f2753b = this.e;
-        polygon.f2752a = this.d;
+        polygon.f2751b = this.e;
+        polygon.f2750a = this.d;
         return polygon;
     }
 
@@ -60,11 +60,11 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2754a;
+        return this.f2752a;
     }
 
     public boolean isVisible() {
-        return this.f2755b;
+        return this.f2753b;
     }
 
     public PolygonOptions points(List<LatLng> list) {
@@ -104,12 +104,12 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public PolygonOptions visible(boolean z) {
-        this.f2755b = z;
+        this.f2753b = z;
         return this;
     }
 
     public PolygonOptions zIndex(int i) {
-        this.f2754a = i;
+        this.f2752a = i;
         return this;
     }
 }

@@ -3,22 +3,22 @@ package com.yxcorp.kuaishou.addfp.a.b.a;
 import android.content.Context;
 import android.os.IBinder;
 import android.os.IInterface;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.yxcorp.kuaishou.addfp.a.a.a f14339a;
+    private com.yxcorp.kuaishou.addfp.a.a.a f14341a;
     private e f;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14340b = "";
+    private String f14342b = "";
     private String c = "";
     private String d = "";
     private String e = "";
     private boolean g = false;
 
     public a(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f14339a = aVar;
+        this.f14341a = aVar;
         this.f = new e(context);
     }
 
@@ -26,9 +26,9 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final void a(IInterface iInterface) {
         b bVar = (b) iInterface;
         try {
-            this.f14340b = bVar.b();
-            if (this.f14340b == null) {
-                this.f14340b = "";
+            this.f14342b = bVar.b();
+            if (this.f14342b == null) {
+                this.f14342b = "";
             }
         } catch (Throwable th) {
         }
@@ -60,8 +60,8 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         if (this.f != null) {
             this.f.a();
         }
-        if (this.f14339a != null) {
-            this.f14339a.a(this.g, this);
+        if (this.f14341a != null) {
+            this.f14341a.a(this.g, this);
         }
     }
 
@@ -99,8 +99,8 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f14339a != null) {
-            this.f14339a.a(false, this);
+        if (this.f14341a != null) {
+            this.f14341a.a(false, this);
         }
     }
 }

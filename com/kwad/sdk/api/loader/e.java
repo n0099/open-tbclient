@@ -18,17 +18,17 @@ import java.net.URLConnection;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8195a;
+    private String f8197a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f8196b;
+    private String f8198b;
     private int c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -37,13 +37,13 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(String str) {
-        this.f8196b = str;
-        this.f8195a = str;
+        this.f8198b = str;
+        this.f8197a = str;
     }
 
     private String a() {
         Context context = Loader.get().getContext();
-        int i = com.kwad.sdk.api.a.f8174a;
+        int i = com.kwad.sdk.api.a.f8176a;
         int i2 = -1;
         String valueOf = String.valueOf(Loader.get().a(context));
         IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
@@ -159,10 +159,10 @@ class e {
 
     @Nullable
     private HttpURLConnection b() {
-        if (TextUtils.isEmpty(this.f8195a)) {
+        if (TextUtils.isEmpty(this.f8197a)) {
             return null;
         }
-        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f8195a, 10000, 30000, false);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f8197a, 10000, 30000, false);
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         httpURLConnection.setInstanceFollowRedirects(true);
@@ -190,7 +190,7 @@ class e {
                         throw new RuntimeException("response code = " + responseCode);
                     } else {
                         if (this.c < 21) {
-                            this.f8195a = b2.getHeaderField(Headers.LOCATION);
+                            this.f8197a = b2.getHeaderField(Headers.LOCATION);
                             this.c++;
                             b(aVar);
                         }

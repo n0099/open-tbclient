@@ -2,7 +2,7 @@ package com.kwai.video.ksvodplayerkit;
 
 import androidx.annotation.AnyThread;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface b {
     @AnyThread
     void a(@Nullable c cVar);

@@ -6,7 +6,7 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
     public static final int ABSTRACT_CLOSE = 2;
@@ -45,7 +45,7 @@ public class TbConfig {
     public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 1500;
     public static final boolean PROMOTED_DEFAULT = true;
-    public static final String SDK_VERSION = "4.2.0";
+    public static final String SDK_VERSION = "4.3.0";
     public static final String ST_TYPE_USE = "use";
     private static String SUBAPP_NAME = null;
     private static int SUBAPP_VERSION = 0;
@@ -104,7 +104,7 @@ public class TbConfig {
     public static boolean isForceNoticeIm = false;
     public static int forceImType = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class PassConfig {
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";

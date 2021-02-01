@@ -2,17 +2,17 @@ package com.baidu.tieba.ala.gamelist.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
 import tbclient.LiveLabelInfo;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaSubListGameLiveHttpResponseMessage extends HttpResponsedMessage {
     private LinkedList<LiveLabelInfo> entryList;
     private boolean mHasMore;
-    private LinkedList<bz> threadList;
+    private LinkedList<cb> threadList;
 
     public AlaSubListGameLiveHttpResponseMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_SUB_LIVE_LIST);
@@ -30,16 +30,16 @@ public class AlaSubListGameLiveHttpResponseMessage extends HttpResponsedMessage 
             this.entryList.addAll(liveTabliveSubTabResIdl.data.label);
             for (ThreadInfo threadInfo : liveTabliveSubTabResIdl.data.live) {
                 if (threadInfo.thread_type.intValue() == 49) {
-                    bz bzVar = new bz();
-                    bzVar.a(threadInfo);
-                    this.threadList.add(bzVar);
+                    cb cbVar = new cb();
+                    cbVar.a(threadInfo);
+                    this.threadList.add(cbVar);
                 }
             }
             this.mHasMore = liveTabliveSubTabResIdl.data.has_more.intValue() == 1;
         }
     }
 
-    public LinkedList<bz> getThreadLiveList() {
+    public LinkedList<cb> getThreadLiveList() {
         return this.threadList;
     }
 

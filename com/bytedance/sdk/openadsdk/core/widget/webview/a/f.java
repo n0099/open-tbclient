@@ -9,11 +9,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static p f6838a;
+    private static p f6840a;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [50=4] */
     public static void a() {
@@ -28,8 +28,8 @@ public class f {
                     fileInputStream.read(bArr);
                     p a2 = p.a(new JSONObject(new String(bArr, "utf-8")));
                     if (a2 != null) {
-                        f6838a = a2;
-                        u.b("Version", "old version read success: " + f6838a.b());
+                        f6840a = a2;
+                        u.b("Version", "old version read success: " + f6840a.b());
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -73,7 +73,7 @@ public class f {
     public static synchronized p b() {
         p pVar;
         synchronized (f.class) {
-            pVar = f6838a;
+            pVar = f6840a;
         }
         return pVar;
     }
@@ -82,7 +82,7 @@ public class f {
         synchronized (f.class) {
             if (pVar != null) {
                 if (pVar.e()) {
-                    f6838a = pVar;
+                    f6840a = pVar;
                 }
             }
         }
@@ -91,11 +91,11 @@ public class f {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [108=4] */
     public static void c() {
         FileOutputStream fileOutputStream;
-        if (f6838a == null) {
+        if (f6840a == null) {
             u.b("Version", "version save error1");
             return;
         }
-        String f = f6838a.f();
+        String f = f6840a.f();
         if (TextUtils.isEmpty(f)) {
             u.b("Version", "version save error2");
             return;
@@ -208,7 +208,7 @@ public class f {
                     }
                 }
             }
-            f6838a = null;
+            f6840a = null;
         }
     }
 }

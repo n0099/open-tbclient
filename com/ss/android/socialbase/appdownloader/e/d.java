@@ -11,20 +11,20 @@ import com.ss.android.socialbase.appdownloader.c.o;
 import com.ss.android.socialbase.appdownloader.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13037a = d.class.getSimpleName();
+    private static final String f13039a = d.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static List<o> f13038b = new ArrayList();
+    private static List<o> f13040b = new ArrayList();
     private static AlertDialog d;
-    private static com.ss.android.socialbase.appdownloader.view.a pTC;
+    private static com.ss.android.socialbase.appdownloader.view.a qdG;
 
     public static boolean a() {
         try {
-            return NotificationManagerCompat.from(com.ss.android.socialbase.downloader.downloader.b.eEd()).areNotificationsEnabled();
+            return NotificationManagerCompat.from(com.ss.android.socialbase.downloader.downloader.b.eGu()).areNotificationsEnabled();
         } catch (Throwable th) {
             th.printStackTrace();
             return true;
@@ -38,7 +38,7 @@ public class d {
                     d.cancel();
                     d = null;
                 }
-                for (o oVar : f13038b) {
+                for (o oVar : f13040b) {
                     if (oVar != null) {
                         if (z) {
                             oVar.a();
@@ -59,11 +59,11 @@ public class d {
                 if (activity != null) {
                     try {
                         if (!activity.isFinishing()) {
-                            int a2 = i.a(com.ss.android.socialbase.downloader.downloader.b.eEd(), "appdownloader_notification_request_title");
-                            int a3 = i.a(com.ss.android.socialbase.downloader.downloader.b.eEd(), "appdownloader_notification_request_message");
-                            int a4 = i.a(com.ss.android.socialbase.downloader.downloader.b.eEd(), "appdownloader_notification_request_btn_yes");
-                            int a5 = i.a(com.ss.android.socialbase.downloader.downloader.b.eEd(), "appdownloader_notification_request_btn_no");
-                            f13038b.add(oVar);
+                            int a2 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGu(), "appdownloader_notification_request_title");
+                            int a3 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGu(), "appdownloader_notification_request_message");
+                            int a4 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGu(), "appdownloader_notification_request_btn_yes");
+                            int a5 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGu(), "appdownloader_notification_request_btn_no");
+                            f13040b.add(oVar);
                             if (d == null || !d.isShowing()) {
                                 d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.3
                                     @Override // android.content.DialogInterface.OnClickListener
@@ -107,13 +107,13 @@ public class d {
             try {
                 if (!activity.isFinishing()) {
                     FragmentManager fragmentManager = activity.getFragmentManager();
-                    pTC = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f13037a);
-                    if (pTC == null) {
-                        pTC = new com.ss.android.socialbase.appdownloader.view.a();
-                        fragmentManager.beginTransaction().add(pTC, f13037a).commitAllowingStateLoss();
+                    qdG = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f13039a);
+                    if (qdG == null) {
+                        qdG = new com.ss.android.socialbase.appdownloader.view.a();
+                        fragmentManager.beginTransaction().add(qdG, f13039a).commitAllowingStateLoss();
                         fragmentManager.executePendingTransactions();
                     }
-                    pTC.a();
+                    qdG.a();
                     return;
                 }
             } catch (Throwable th) {

@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.download;
 
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_PRIORITY_ENTEREFFECT = 128;
     public static final int FILE_DOWNLOAD_PRIORITY_FORCE = 255;
@@ -29,7 +29,10 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_NOVEL = 15;
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     public static final int FILE_DOWNLOAD_TYPE_PENDANT = 18;
+    public static final int FILE_DOWNLOAD_TYPE_PK_RANK_ANTI_KILL = 27;
+    public static final int FILE_DOWNLOAD_TYPE_PK_RANK_KILL = 25;
     public static final int FILE_DOWNLOAD_TYPE_PK_RANK_START = 21;
+    public static final int FILE_DOWNLOAD_TYPE_PK_RANK_TASK = 26;
     public static final int FILE_DOWNLOAD_TYPE_POKE_START = 22;
     public static final int FILE_DOWNLOAD_TYPE_VIDEO_BG = 24;
     private static final long serialVersionUID = 1402749061179345930L;

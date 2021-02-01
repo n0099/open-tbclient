@@ -4,10 +4,10 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
-    public String eJk;
-    public String ndU;
+    public String eLw;
+    public String nnC;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -15,8 +15,8 @@ public class f {
             return;
         }
         try {
-            this.ndU = jSONObject.optString("banner_pic");
-            this.eJk = jSONObject.optString("banner_url");
+            this.nnC = jSONObject.optString("banner_pic");
+            this.eLw = jSONObject.optString("banner_url");
         } catch (Exception e) {
             BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, TiebaInitialize.LogFields.REASON, e.toString());
             BdLog.e(e.getMessage());

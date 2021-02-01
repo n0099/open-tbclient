@@ -3,18 +3,14 @@ package com.baidu.live.talentshow.d;
 import android.content.Context;
 import android.view.View;
 import com.baidu.ala.recorder.AlaLiveRecorder;
-import com.baidu.live.data.x;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface a {
-    boolean Rb();
+    boolean SK();
 
-    boolean Rc();
+    boolean SL();
 
-    boolean Rd();
-
-    void Re();
-
-    void Rf();
+    boolean SM();
 
     int a(com.baidu.live.talentshow.d.a.b bVar);
 
@@ -22,23 +18,27 @@ public interface a {
 
     void a(f fVar);
 
-    int bh(long j);
+    int bl(long j);
 
-    View bi(long j);
+    View bm(long j);
 
-    boolean bj(long j);
+    boolean bn(long j);
 
-    String bk(long j);
+    String bo(long j);
 
-    long ed(int i);
+    long eh(int i);
 
     void init(Context context);
 
     boolean isFull();
 
+    void onBackground();
+
     void onDestroy();
 
-    void setLiveShowData(x xVar);
+    void onForeground();
+
+    void setLiveShowData(ab abVar);
 
     void setMute(boolean z);
 }

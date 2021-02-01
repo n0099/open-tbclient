@@ -4,12 +4,12 @@ import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends d {
-    public final e dBJ = new e(this, "");
+    public final e dDN = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo aFB() {
+    public SwanAppProcessInfo aFW() {
         return SwanAppProcessInfo.current();
     }
 
@@ -19,33 +19,33 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aFD() {
+    public boolean aFY() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aFC() {
+    public boolean aFX() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppCores aFE() {
+    public SwanAppCores aFZ() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public int afr() {
+    public int getFrameType() {
         return -1;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a aIi() {
+    public com.baidu.swan.apps.process.messaging.client.a aIB() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public e aIj() {
-        return this.dBJ;
+    public e aIC() {
+        return this.dDN;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -58,7 +58,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void aIk() {
+    public void aID() {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -70,12 +70,12 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity aIl() {
+    public SwanAppActivity aIE() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.d
-    protected com.baidu.swan.pms.c.f aIm() {
+    protected com.baidu.swan.pms.c.f aIF() {
         return null;
     }
 }

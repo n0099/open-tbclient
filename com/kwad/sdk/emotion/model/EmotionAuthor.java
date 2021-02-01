@@ -1,7 +1,7 @@
 package com.kwad.sdk.emotion.model;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EmotionAuthor extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = 5379382282699777150L;
     public String followed;

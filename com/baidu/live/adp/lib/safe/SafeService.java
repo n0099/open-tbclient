@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SafeService {
     public static boolean startActivity(Context context, Intent intent) {
         try {

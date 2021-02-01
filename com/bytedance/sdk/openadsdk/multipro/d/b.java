@@ -7,11 +7,11 @@ import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f7410a;
+    private static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f7412a;
 
     private static SharedPreferences c(Context context, String str) {
         if (context == null) {
@@ -27,18 +27,18 @@ class b {
     private static Object a(String str, String str2) {
         ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap;
         Map<String, Object> map;
-        if (f7410a == null || (concurrentHashMap = f7410a.get()) == null || (map = concurrentHashMap.get(a(str))) == null) {
+        if (f7412a == null || (concurrentHashMap = f7412a.get()) == null || (map = concurrentHashMap.get(a(str))) == null) {
             return null;
         }
         return map.get(str2);
     }
 
     private static void a(String str, String str2, Object obj) {
-        if (f7410a == null || f7410a.get() == null) {
-            f7410a = new SoftReference<>(new ConcurrentHashMap());
+        if (f7412a == null || f7412a.get() == null) {
+            f7412a = new SoftReference<>(new ConcurrentHashMap());
         }
         String a2 = a(str);
-        ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f7410a.get();
+        ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f7412a.get();
         if (concurrentHashMap.get(a2) == null) {
             concurrentHashMap.put(a2, new HashMap());
         }
@@ -47,7 +47,7 @@ class b {
 
     private static void b(String str) {
         Map<String, Object> map;
-        if (f7410a != null && f7410a.get() != null && (map = f7410a.get().get(a(str))) != null) {
+        if (f7412a != null && f7412a.get() != null && (map = f7412a.get().get(a(str))) != null) {
             map.clear();
         }
     }
@@ -156,12 +156,12 @@ class b {
                 SharedPreferences.Editor edit = c.edit();
                 edit.remove(str2);
                 edit.apply();
-                if (f7410a != null && f7410a.get() != null) {
+                if (f7412a != null && f7412a.get() != null) {
                     String a2 = a(str);
-                    if (!TextUtils.isEmpty(a2) && (map = f7410a.get().get(a2)) != null && map.size() != 0) {
+                    if (!TextUtils.isEmpty(a2) && (map = f7412a.get().get(a2)) != null && map.size() != 0) {
                         map.remove(str2);
-                        if (f7410a != null && f7410a.get() != null) {
-                            f7410a.get().put(a2, map);
+                        if (f7412a != null && f7412a.get() != null) {
+                            f7412a.get().put(a2, map);
                         }
                     }
                 }

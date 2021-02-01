@@ -3,19 +3,19 @@ package com.baidu.swan.apps.v;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i {
-    private static List<WeakReference<h>> dfd = new ArrayList();
+    private static List<WeakReference<h>> dho = new ArrayList();
 
     public static void a(h hVar) {
         boolean z;
         if (hVar != null) {
-            int size = dfd.size() - 1;
+            int size = dho.size() - 1;
             boolean z2 = false;
             while (size >= 0) {
-                h hVar2 = dfd.get(size).get();
+                h hVar2 = dho.get(size).get();
                 if (hVar2 == null) {
-                    dfd.remove(size);
+                    dho.remove(size);
                     z = z2;
                 } else {
                     z = hVar2 == hVar;
@@ -24,27 +24,27 @@ public class i {
                 z2 = z;
             }
             if (!z2) {
-                dfd.add(new WeakReference<>(hVar));
+                dho.add(new WeakReference<>(hVar));
             }
         }
     }
 
     public static void b(h hVar) {
         if (hVar != null) {
-            for (int size = dfd.size() - 1; size >= 0; size--) {
-                h hVar2 = dfd.get(size).get();
+            for (int size = dho.size() - 1; size >= 0; size--) {
+                h hVar2 = dho.get(size).get();
                 if (hVar2 == null || hVar == hVar2) {
-                    dfd.remove(size);
+                    dho.remove(size);
                 }
             }
         }
     }
 
     public static void a(com.baidu.swan.apps.adaptation.b.e eVar) {
-        for (int size = dfd.size() - 1; size >= 0; size--) {
-            h hVar = dfd.get(size).get();
+        for (int size = dho.size() - 1; size >= 0; size--) {
+            h hVar = dho.get(size).get();
             if (hVar == null) {
-                dfd.remove(size);
+                dho.remove(size);
             } else {
                 hVar.a(eVar);
             }
@@ -52,10 +52,10 @@ public class i {
     }
 
     public static void b(com.baidu.swan.apps.adaptation.b.e eVar) {
-        for (int size = dfd.size() - 1; size >= 0; size--) {
-            h hVar = dfd.get(size).get();
+        for (int size = dho.size() - 1; size >= 0; size--) {
+            h hVar = dho.get(size).get();
             if (hVar == null) {
-                dfd.remove(size);
+                dho.remove(size);
             } else {
                 hVar.b(eVar);
             }
@@ -63,10 +63,10 @@ public class i {
     }
 
     public static void c(com.baidu.swan.apps.adaptation.b.e eVar) {
-        for (int size = dfd.size() - 1; size >= 0; size--) {
-            h hVar = dfd.get(size).get();
+        for (int size = dho.size() - 1; size >= 0; size--) {
+            h hVar = dho.get(size).get();
             if (hVar == null) {
-                dfd.remove(size);
+                dho.remove(size);
             } else {
                 hVar.c(eVar);
             }
@@ -74,10 +74,10 @@ public class i {
     }
 
     public static void d(com.baidu.swan.apps.adaptation.b.e eVar) {
-        for (int size = dfd.size() - 1; size >= 0; size--) {
-            h hVar = dfd.get(size).get();
+        for (int size = dho.size() - 1; size >= 0; size--) {
+            h hVar = dho.get(size).get();
             if (hVar == null) {
-                dfd.remove(size);
+                dho.remove(size);
             } else {
                 hVar.d(eVar);
             }

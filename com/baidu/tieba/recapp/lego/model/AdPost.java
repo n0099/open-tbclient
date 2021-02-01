@@ -4,13 +4,14 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.c;
 import com.baidu.tieba.lego.card.a.b;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.recapp.b.a;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert, b, a {
     public PostAdBaseData.a adData;
     public PostAdBaseData.b feedData;
@@ -32,13 +33,13 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             e.printStackTrace();
             jSONObject2 = null;
         }
-        this.feedData = PostAdBaseData.b.eI(jSONObject2);
+        this.feedData = PostAdBaseData.b.eJ(jSONObject2);
         try {
             jSONObject3 = jSONObject.getJSONObject("ad_content");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.adData = PostAdBaseData.a.eH(jSONObject3);
+        this.adData = PostAdBaseData.a.eI(jSONObject3);
         try {
             this.preloadLegoCardStr = jSONObject.getString(LegoListActivityConfig.PRE_LOAD);
         } catch (JSONException e3) {
@@ -60,7 +61,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
         this.appInfo = advertAppInfo;
         this.feedData.updataThreadData(this.appInfo);
-        this.adData.k(this.appInfo);
+        this.adData.l(this.appInfo);
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
@@ -79,7 +80,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.Hw(i);
+            return this.adData.HP(i);
         }
         return 0;
     }
@@ -136,5 +137,10 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
     @Override // com.baidu.tieba.lego.card.a.b
     public b.a getParallelCharge() {
         return this.parallelChargeInfo;
+    }
+
+    @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
+    public c getAppInfoModel() {
+        return null;
     }
 }

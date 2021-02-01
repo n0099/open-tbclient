@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SlidingTabStrip extends LinearLayout {
     public SlidingTabStrip(Context context) {
         this(context, null);
@@ -18,7 +18,7 @@ public class SlidingTabStrip extends LinearLayout {
         setWillNotDraw(false);
     }
 
-    public void cQ(int i, int i2) {
+    public void cN(int i, int i2) {
         if (i != i2) {
             int childCount = getChildCount();
             if (i >= 0 && i < childCount) {
@@ -27,7 +27,7 @@ public class SlidingTabStrip extends LinearLayout {
                 if (childAt instanceof TextView) {
                     ((TextView) childAt).setTextSize(0, dimension);
                 }
-                ao.setViewTextColor(childAt, R.color.CAM_X0308, 1);
+                ap.setViewTextColor(childAt, R.color.CAM_X0308, 1);
             }
             if (i2 >= 0 && i2 < childCount) {
                 float dimension2 = getResources().getDimension(R.dimen.ds28);
@@ -35,7 +35,7 @@ public class SlidingTabStrip extends LinearLayout {
                 if (childAt2 instanceof TextView) {
                     ((TextView) childAt2).setTextSize(0, dimension2);
                 }
-                ao.setViewTextColor(childAt2, R.color.CAM_X0105, 1);
+                ap.setViewTextColor(childAt2, R.color.CAM_X0105, 1);
             }
         }
     }

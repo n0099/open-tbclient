@@ -3,7 +3,7 @@ package com.baidu.tieba.card;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
@@ -23,23 +23,23 @@ public enum CardLinkageManager {
             RecyclerView.LayoutManager layoutManager = bdTypeRecyclerView.getLayoutManager();
             if (layoutManager != null) {
                 List<com.baidu.adp.widget.ListView.n> data = bdTypeRecyclerView.getData();
-                Object item = com.baidu.tbadk.core.util.x.getItem(data, i);
+                Object item = com.baidu.tbadk.core.util.y.getItem(data, i);
                 if (item instanceof BaseCardInfo) {
                     BaseCardInfo baseCardInfo = (BaseCardInfo) item;
                     int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
                     for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
-                        Object item2 = com.baidu.tbadk.core.util.x.getItem(data, i2 - headerViewsCount);
+                        Object item2 = com.baidu.tbadk.core.util.y.getItem(data, i2 - headerViewsCount);
                         if (item2 instanceof BaseCardInfo) {
                             BaseCardInfo baseCardInfo2 = (BaseCardInfo) item2;
                             if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
                                 if (baseCardInfo2.isSupportFull()) {
-                                    com.baidu.tbadk.core.elementsMaven.c.bv(findViewByPosition).oc(0).od(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    com.baidu.tbadk.core.elementsMaven.c.br(findViewByPosition).of(0).og(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 } else if (baseCardInfo2.isSupportTop()) {
-                                    com.baidu.tbadk.core.elementsMaven.c.bv(findViewByPosition).oc(1).od(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    com.baidu.tbadk.core.elementsMaven.c.br(findViewByPosition).of(1).og(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 } else if (baseCardInfo2.isSupportBottom()) {
-                                    com.baidu.tbadk.core.elementsMaven.c.bv(findViewByPosition).oc(2).od(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    com.baidu.tbadk.core.elementsMaven.c.br(findViewByPosition).of(2).og(R.string.J_X06).setBackGroundColor(z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 } else if (baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
-                                    ao.setBackgroundColor(findViewByPosition, z ? R.color.CAM_X0206 : R.color.CAM_X0205);
+                                    ap.setBackgroundColor(findViewByPosition, z ? R.color.CAM_X0206 : R.color.CAM_X0205);
                                 }
                             }
                         }
@@ -59,11 +59,11 @@ public enum CardLinkageManager {
             if (layoutManager != null) {
                 int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
                 List<com.baidu.adp.widget.ListView.n> data = bdTypeRecyclerView.getData();
-                Object item = com.baidu.tbadk.core.util.x.getItem(data, i - headerViewsCount);
+                Object item = com.baidu.tbadk.core.util.y.getItem(data, i - headerViewsCount);
                 if (item instanceof BaseCardInfo) {
                     BaseCardInfo baseCardInfo = (BaseCardInfo) item;
                     for (int i2 = firstVisiblePosition; i2 <= lastVisiblePosition; i2++) {
-                        Object item2 = com.baidu.tbadk.core.util.x.getItem(data, i2 - headerViewsCount);
+                        Object item2 = com.baidu.tbadk.core.util.y.getItem(data, i2 - headerViewsCount);
                         if (!(item2 instanceof BaseCardInfo)) {
                             if ((item2 instanceof com.baidu.adp.widget.ListView.n) && (findViewByPosition2 = layoutManager.findViewByPosition(i2)) != null) {
                                 findViewByPosition2.setTranslationY(f);

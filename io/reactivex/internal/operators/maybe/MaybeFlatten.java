@@ -53,7 +53,7 @@ public final class MaybeFlatten<T, R> extends a<T, R> {
                     oVar.a(new a());
                 }
             } catch (Exception e) {
-                io.reactivex.exceptions.a.O(e);
+                io.reactivex.exceptions.a.N(e);
                 this.actual.onError(e);
             }
         }

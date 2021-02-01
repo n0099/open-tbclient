@@ -5,11 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapsdkplatform.comapi.util.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3026a = e.class.getSimpleName();
+    public static final String f3024a = e.class.getSimpleName();
 
     public void a(Context context) {
         String currentNetMode = NetworkUtil.getCurrentNetMode(context);

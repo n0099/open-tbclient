@@ -1,11 +1,10 @@
 package com.airbnb.lottie.c;
 
 import android.util.JsonReader;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class af {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.airbnb.lottie.model.content.j x(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
@@ -16,7 +15,7 @@ public class af {
             char c = 65535;
             switch (nextName.hashCode()) {
                 case 3371:
-                    if (nextName.equals(AdvanceSetting.NETWORK_TYPE)) {
+                    if (nextName.equals("it")) {
                         c = 1;
                         break;
                     }

@@ -3,7 +3,7 @@ package androidx.webkit;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.webkit.internal.ServiceWorkerControllerImpl;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public abstract class ServiceWorkerControllerCompat {
     @NonNull
     public abstract ServiceWorkerWebSettingsCompat getServiceWorkerWebSettings();
@@ -15,7 +15,7 @@ public abstract class ServiceWorkerControllerCompat {
         return LAZY_HOLDER.INSTANCE;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     private static class LAZY_HOLDER {
         static final ServiceWorkerControllerCompat INSTANCE = new ServiceWorkerControllerImpl();
 

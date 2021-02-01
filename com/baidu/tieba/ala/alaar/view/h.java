@@ -6,17 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tieba.ala.alaar.view.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements View.OnClickListener {
+    protected int abv;
     protected Context context;
-    protected a gug;
-    private VH guh;
+    protected int gwP = -1;
+    protected a gwQ;
+    private VH gwR;
     protected LIST mData;
     protected LayoutInflater mInflater;
-    protected int abA = -1;
-    protected int guf = -1;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a<VH extends b> {
         void a(VH vh, int i, boolean z);
 
@@ -25,23 +25,24 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
 
     public abstract VH b(int i, ViewGroup viewGroup);
 
-    public abstract D tv(int i);
+    public abstract D tB(int i);
 
     public h(Context context, LIST list) {
+        this.abv = -1;
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = list;
-        bOp();
+        this.abv = -1;
     }
 
     public void setData(LIST list) {
         this.mData = list;
-        bOp();
+        bOT();
         notifyDataSetChanged();
     }
 
-    protected void bOp() {
-        this.abA = -1;
+    protected void bOT() {
+        this.abv = -1;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.ala.alaar.view.h<LIST, D, VH extends com.baidu.tieba.ala.alaar.view.b> */
@@ -60,8 +61,8 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
     }
 
     public void a(int i, final VH vh) {
-        vh.h(i, tv(i));
-        if (this.guf >= 0 && i == this.guf) {
+        vh.h(i, tB(i));
+        if (this.gwP >= 0 && i == this.gwP) {
             vh.itemView.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.h.1
                 /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.ala.alaar.view.h */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -70,24 +71,24 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
                     h.this.a((h) vh, false);
                 }
             });
-        } else if (i == this.abA) {
+        } else if (i == this.abv) {
             b(i, (int) vh);
         }
     }
 
     private void b(int i, VH vh) {
-        if (vh != this.guh) {
-            if (this.guh != null) {
-                this.guh.tr(i);
+        if (vh != this.gwR) {
+            if (this.gwR != null) {
+                this.gwR.tx(i);
             }
-            this.guh = vh;
+            this.gwR = vh;
         }
-        vh.tr(i);
+        vh.tx(i);
     }
 
-    public void tw(int i) {
-        if (i != this.abA) {
-            this.guf = i;
+    public void tC(int i) {
+        if (i != this.abv) {
+            this.gwP = i;
             notifyDataSetChanged();
         }
     }
@@ -110,25 +111,25 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
             com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "onClick with viewHolder null");
             return;
         }
-        boolean z2 = this.gug != null && this.gug.a(vh, vh.position, this.abA, z);
+        boolean z2 = this.gwQ != null && this.gwQ.a(vh, vh.position, this.abv, z);
         if (com.baidu.tieba.ala.alaar.makeup.h.isDebug()) {
             com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "onClick pos= " + vh.position + ", processed= " + z2);
         }
         if (!z2) {
             b(vh.position, (int) vh);
-            this.abA = vh.position;
-            this.guf = -1;
-            if (this.gug != null) {
-                this.gug.a(vh, vh.position, z);
+            this.abv = vh.position;
+            this.gwP = -1;
+            if (this.gwQ != null) {
+                this.gwQ.a(vh, vh.position, z);
             }
         }
     }
 
     public int getCurrentPosition() {
-        return this.abA;
+        return this.abv;
     }
 
     public void a(a aVar) {
-        this.gug = aVar;
+        this.gwQ = aVar;
     }
 }

@@ -5,7 +5,7 @@ import com.kwai.video.hodor.AbstractHodorPreloadTask;
 import com.kwai.video.hodor.VodAdaptivePreloadPriorityTask;
 import com.kwai.video.ksvodplayerkit.b.m;
 import com.kwai.video.ksvodplayerkit.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
     private String h;
     private VodAdaptivePreloadPriorityTask.VodAdaptiveInit i;
@@ -13,11 +13,11 @@ public class a extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask a() {
-        this.f11063a.a(false);
-        if (this.f11063a.f() <= 0 || this.f11063a.e() || this.f11064b.get() >= i.a().e() || !this.f11063a.a()) {
+        this.f11065a.a(false);
+        if (this.f11065a.f() <= 0 || this.f11065a.e() || this.f11066b.get() >= i.a().e() || !this.f11065a.a()) {
             return null;
         }
-        this.h = m.a(this.f11063a.g());
+        this.h = m.a(this.f11065a.g());
         this.e = new VodAdaptivePreloadPriorityTask(this.h, this.i);
         return this.e;
     }

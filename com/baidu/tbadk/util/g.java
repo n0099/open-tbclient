@@ -1,65 +1,96 @@
 package com.baidu.tbadk.util;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.annotation.RequiresApi;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
 /* loaded from: classes.dex */
 public class g {
-    public static float[] a(Bitmap bitmap, Matrix matrix) {
-        float[] fArr = new float[8];
-        matrix.mapPoints(fArr, new float[]{0.0f, 0.0f, bitmap.getWidth(), 0.0f, 0.0f, bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight()});
-        return fArr;
+    private g() {
     }
 
-    public static Bitmap bZ(View view) {
-        Bitmap bitmap = null;
-        if (view == null || view.getWidth() <= 0 || view.getHeight() <= 0) {
+    public static g bFl() {
+        return a.fMC;
+    }
+
+    /* loaded from: classes.dex */
+    private static class a {
+        private static g fMC = new g();
+    }
+
+    public String getLocalMacAddress(Context context) {
+        String str = null;
+        if (context == null) {
             return null;
         }
         try {
-            bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-            view.draw(new Canvas(bitmap));
-            return bitmap;
-        } catch (OutOfMemoryError e) {
-            try {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.RGB_565);
-                view.draw(new Canvas(bitmap));
-                return bitmap;
-            } catch (OutOfMemoryError e2) {
-                BdLog.e(e2);
-                return bitmap;
+            if (Build.VERSION.SDK_INT < 23) {
+                WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
+                if (connectionInfo == null) {
+                    return null;
+                }
+                return connectionInfo.getMacAddress();
             }
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            while (networkInterfaces.hasMoreElements()) {
+                NetworkInterface nextElement = networkInterfaces.nextElement();
+                byte[] hardwareAddress = nextElement.getHardwareAddress();
+                if (hardwareAddress != null && hardwareAddress.length != 0) {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    int length = hardwareAddress.length;
+                    for (int i = 0; i < length; i++) {
+                        stringBuffer.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                    }
+                    if (stringBuffer.length() > 0) {
+                        stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+                    }
+                    str = stringBuffer.toString();
+                    if ("wlan0".equals(nextElement.getName())) {
+                        return str;
+                    }
+                }
+            }
+            return str;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
         }
     }
 
-    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2, int i, int i2) {
-        Bitmap bitmap3 = null;
-        if (bitmap == null || bitmap2 == null || i <= 0 || i2 <= 0) {
-            return null;
+    public String bFm() {
+        return Build.MODEL;
+    }
+
+    public String bFn() {
+        return Build.DEVICE;
+    }
+
+    public String getDeviceBrand() {
+        return Build.BRAND;
+    }
+
+    @RequiresApi(api = 17)
+    public String fx(Context context) {
+        return String.valueOf(getDisplayMetrics(context).widthPixels);
+    }
+
+    @RequiresApi(api = 17)
+    public String fy(Context context) {
+        return String.valueOf(getDisplayMetrics(context).heightPixels);
+    }
+
+    @RequiresApi(api = 17)
+    private DisplayMetrics getDisplayMetrics(Context context) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        if (context == null) {
+            return displayMetrics;
         }
-        try {
-            bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bitmap3);
-            canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-            canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-            return bitmap3;
-        } catch (OutOfMemoryError e) {
-            try {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
-                Canvas canvas2 = new Canvas(bitmap3);
-                canvas2.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                canvas2.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-                return bitmap3;
-            } catch (OutOfMemoryError e2) {
-                BdLog.e(e2);
-                return bitmap3;
-            }
-        }
+        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRealMetrics(displayMetrics);
+        return displayMetrics;
     }
 }

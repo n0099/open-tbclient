@@ -8,32 +8,32 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes2.dex */
 public class VideoContainerLayout extends FrameLayout {
-    private int jcR;
+    private int jiy;
     private int mMaxHeight;
-    private int maN;
-    private int maO;
+    private int mMinHeight;
+    private int mjR;
 
     public VideoContainerLayout(Context context) {
         super(context);
-        this.maO = l.getEquipmentWidth(context) / 10;
+        this.mjR = l.getEquipmentWidth(context) / 10;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.maO = l.getEquipmentWidth(context) / 10;
+        this.mjR = l.getEquipmentWidth(context) / 10;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.maO = l.getEquipmentWidth(context) / 10;
+        this.mjR = l.getEquipmentWidth(context) / 10;
     }
 
     public void setMinHeight(int i) {
-        this.maN = i;
+        this.mMinHeight = i;
     }
 
     public int getMinHeight() {
-        return this.maN;
+        return this.mMinHeight;
     }
 
     public void setMaxHeight(int i) {
@@ -45,16 +45,16 @@ public class VideoContainerLayout extends FrameLayout {
     }
 
     public void setOriginHeight(int i) {
-        this.jcR = i;
+        this.jiy = i;
     }
 
     public int getOriginHeight() {
-        return this.jcR;
+        return this.jiy;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.maO && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.mjR && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
             ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
         }
         return super.onInterceptTouchEvent(motionEvent);

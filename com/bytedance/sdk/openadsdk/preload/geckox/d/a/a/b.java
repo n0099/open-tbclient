@@ -6,7 +6,7 @@ import android.util.Pair;
 import com.bytedance.sdk.openadsdk.preload.a.d;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends d<Pair<Uri, UpdatePackage>, Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> {
     private com.bytedance.sdk.openadsdk.preload.geckox.b d;
     private File e;

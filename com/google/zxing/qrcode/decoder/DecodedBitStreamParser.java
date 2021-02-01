@@ -6,11 +6,12 @@ import com.google.zxing.common.BitSource;
 import com.google.zxing.common.CharacterSetECI;
 import com.google.zxing.common.DecoderResult;
 import com.google.zxing.common.StringUtils;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class DecodedBitStreamParser {
     private static final char[] ALPHANUMERIC_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:".toCharArray();
     private static final int GB2312_SUBSET = 1;
@@ -250,7 +251,7 @@ final class DecodedBitStreamParser {
     private static int parseECIValue(BitSource bitSource) throws FormatException {
         int readBits = bitSource.readBits(8);
         if ((readBits & 128) == 0) {
-            return readBits & 127;
+            return readBits & ThunderNetStateService.NetState.SYSNET_UNKNOWN;
         }
         if ((readBits & 192) == 128) {
             return ((readBits & 63) << 8) | bitSource.readBits(8);

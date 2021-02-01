@@ -1,25 +1,25 @@
 package com.facebook.imagepipeline.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface n {
     void a(h<?, ?> hVar);
 
     void b(h<?, ?> hVar);
 
-    void etA();
+    void evR();
 
-    void etB();
+    void evS();
 
-    void etC();
+    void evT();
 
-    void etD();
+    void evU();
 
-    void etE();
+    void evV();
 
-    void etF();
+    void evW();
 
-    void etG();
+    void evX();
 
-    void etz();
+    void evY();
 
     void p(com.facebook.cache.common.b bVar);
 

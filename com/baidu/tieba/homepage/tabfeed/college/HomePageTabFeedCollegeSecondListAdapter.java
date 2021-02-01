@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.h.f;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -22,10 +22,10 @@ import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapter {
-    private List<SpecialColumnItemData> kfh;
+    private List<SpecialColumnItemData> knp;
     private Context mContext;
     private int mIconResId;
-    private f<SpecialColumnItemData> kfi = null;
+    private f<SpecialColumnItemData> knq = null;
     private final int TYPE_NORMAL = 1;
     private final int TYPE_VIDEO = 2;
     private final int TYPE_LIVE = 3;
@@ -33,7 +33,7 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
 
     public HomePageTabFeedCollegeSecondListAdapter(Context context, List<SpecialColumnItemData> list) {
         this.mContext = context;
-        this.kfh = list;
+        this.knp = list;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -49,7 +49,7 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        SpecialColumnItemData specialColumnItemData = this.kfh.get(i);
+        SpecialColumnItemData specialColumnItemData = this.knp.get(i);
         if (specialColumnItemData.specialType == 1) {
             return 1;
         }
@@ -67,17 +67,17 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int i) {
-        final SpecialColumnItemData BH = BH(i);
+        final SpecialColumnItemData BZ = BZ(i);
         if (viewHolder instanceof b) {
-            ((b) viewHolder).a(BH);
+            ((b) viewHolder).a(BZ);
         } else if (viewHolder instanceof a) {
-            ((a) viewHolder).a(BH);
+            ((a) viewHolder).a(BZ);
         }
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondListAdapter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HomePageTabFeedCollegeSecondListAdapter.this.kfi != null) {
-                    HomePageTabFeedCollegeSecondListAdapter.this.kfi.a(view, BH, i, i);
+                if (HomePageTabFeedCollegeSecondListAdapter.this.knq != null) {
+                    HomePageTabFeedCollegeSecondListAdapter.this.knq.a(view, BZ, i, i);
                 }
             }
         });
@@ -87,53 +87,53 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class b extends RecyclerView.ViewHolder {
-        public TextView ffo;
-        public TextView kfl;
-        public ImageView kfo;
-        public View kfp;
-        public TextView kfr;
-        public TextView kfs;
-        public TbImageView kft;
-        public RelativeLayout kfu;
+        public TextView fhE;
+        public TextView knA;
+        public TbImageView knB;
+        public RelativeLayout knC;
+        public TextView knt;
+        public ImageView knw;
+        public View knx;
+        public TextView knz;
 
         public b(View view) {
             super(view);
-            this.ffo = (TextView) view.findViewById(R.id.tv_title);
-            this.kft = (TbImageView) view.findViewById(R.id.tb_imageview_pic);
-            this.kfr = (TextView) view.findViewById(R.id.tv_left_watch);
-            this.kfs = (TextView) view.findViewById(R.id.tv_left_agree);
-            this.kfo = (ImageView) view.findViewById(R.id.video_play_iv);
-            this.kfl = (TextView) view.findViewById(R.id.text_tv);
-            this.kfp = view.findViewById(R.id.gradient_cover);
-            this.kfu = (RelativeLayout) view.findViewById(R.id.rl_photo_view);
+            this.fhE = (TextView) view.findViewById(R.id.tv_title);
+            this.knB = (TbImageView) view.findViewById(R.id.tb_imageview_pic);
+            this.knz = (TextView) view.findViewById(R.id.tv_left_watch);
+            this.knA = (TextView) view.findViewById(R.id.tv_left_agree);
+            this.knw = (ImageView) view.findViewById(R.id.video_play_iv);
+            this.knt = (TextView) view.findViewById(R.id.text_tv);
+            this.knx = view.findViewById(R.id.gradient_cover);
+            this.knC = (RelativeLayout) view.findViewById(R.id.rl_photo_view);
         }
 
         void a(SpecialColumnItemData specialColumnItemData) {
             if (specialColumnItemData != null) {
-                this.ffo.setText(specialColumnItemData.title);
-                this.kft.setConrers(15);
-                this.kft.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-                this.kft.setDrawCorner(true);
-                this.kft.setPlaceHolder(2);
-                this.kft.startLoad(specialColumnItemData.image, 10, false);
-                this.kft.setGifIconSupport(false);
-                this.kfs.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_item_live_zan_num), at.numberUniformFormatExtra(specialColumnItemData.agree_num)));
-                this.kfl.setText(specialColumnItemData.text);
+                this.fhE.setText(specialColumnItemData.title);
+                this.knB.setConrers(15);
+                this.knB.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+                this.knB.setDrawCorner(true);
+                this.knB.setPlaceHolder(2);
+                this.knB.startLoad(specialColumnItemData.image, 10, false);
+                this.knB.setGifIconSupport(false);
+                this.knA.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_item_live_zan_num), au.numberUniformFormatExtra(specialColumnItemData.agree_num)));
+                this.knt.setText(specialColumnItemData.text);
                 if (specialColumnItemData.specialType == 2) {
-                    this.kfo.setVisibility(0);
-                    this.kfp.setVisibility(0);
-                    this.kfp.setAlpha(0.5f);
-                    this.kfl.setVisibility(0);
+                    this.knw.setVisibility(0);
+                    this.knx.setVisibility(0);
+                    this.knx.setAlpha(0.5f);
+                    this.knt.setVisibility(0);
                     HomePageTabFeedCollegeSecondListAdapter.this.mIconResId = R.drawable.ic_icon_pure_video_play12_svg;
-                    this.kfr.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_play_num), at.numberUniformFormatExtra(specialColumnItemData.freq_num)));
-                    com.baidu.tbadk.core.util.f.a.btb().oJ(0).m(R.color.CAM_X0607, R.color.CAM_X0611).oQ(l.getDimens(HomePageTabFeedCollegeSecondListAdapter.this.mContext, R.dimen.tbds10)).bz(this.kfp);
+                    this.knz.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_play_num), au.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+                    com.baidu.tbadk.core.util.f.a.btv().oO(0).m(R.color.CAM_X0607, R.color.CAM_X0611).oV(l.getDimens(HomePageTabFeedCollegeSecondListAdapter.this.mContext, R.dimen.tbds10)).bv(this.knx);
                     return;
                 }
-                this.kfp.setVisibility(8);
-                this.kfo.setVisibility(8);
-                this.kfl.setVisibility(8);
+                this.knx.setVisibility(8);
+                this.knw.setVisibility(8);
+                this.knt.setVisibility(8);
                 HomePageTabFeedCollegeSecondListAdapter.this.mIconResId = 0;
-                this.kfr.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_num), at.numberUniformFormatExtra(specialColumnItemData.freq_num)));
+                this.knz.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_view_num), au.numberUniformFormatExtra(specialColumnItemData.freq_num)));
             }
         }
     }
@@ -141,66 +141,66 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a extends RecyclerView.ViewHolder {
-        public TextView kfl;
-        public TextView kfm;
-        public TbImageView kfn;
-        public ImageView kfo;
-        public View kfp;
-        public LinearLayout kfq;
+        public TextView knt;
+        public TextView knu;
+        public TbImageView knv;
+        public ImageView knw;
+        public View knx;
+        public LinearLayout kny;
 
         public a(View view) {
             super(view);
-            this.kfn = (TbImageView) view.findViewById(R.id.iv_imageView);
-            this.kfo = (ImageView) view.findViewById(R.id.video_play_iv);
-            this.kfl = (TextView) view.findViewById(R.id.text_tv);
-            this.kfm = (TextView) view.findViewById(R.id.tv_content);
-            this.kfp = view.findViewById(R.id.gradient_cover);
-            this.kfq = (LinearLayout) view.findViewById(R.id.ll_live_main);
+            this.knv = (TbImageView) view.findViewById(R.id.iv_imageView);
+            this.knw = (ImageView) view.findViewById(R.id.video_play_iv);
+            this.knt = (TextView) view.findViewById(R.id.text_tv);
+            this.knu = (TextView) view.findViewById(R.id.tv_content);
+            this.knx = view.findViewById(R.id.gradient_cover);
+            this.kny = (LinearLayout) view.findViewById(R.id.ll_live_main);
         }
 
         void a(SpecialColumnItemData specialColumnItemData) {
             if (specialColumnItemData != null) {
-                this.kfm.setText(specialColumnItemData.title);
-                this.kfn.setConrers(15);
-                this.kfn.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-                this.kfn.setDrawCorner(true);
-                this.kfn.setPlaceHolder(2);
-                this.kfn.startLoad(specialColumnItemData.image, 10, false);
-                this.kfl.setText(specialColumnItemData.text);
-                this.kfo.setVisibility(0);
+                this.knu.setText(specialColumnItemData.title);
+                this.knv.setConrers(15);
+                this.knv.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+                this.knv.setDrawCorner(true);
+                this.knv.setPlaceHolder(2);
+                this.knv.startLoad(specialColumnItemData.image, 10, false);
+                this.knt.setText(specialColumnItemData.text);
+                this.knw.setVisibility(0);
                 HomePageTabFeedCollegeSecondListAdapter.this.mIconResId = R.drawable.ic_icon_pure_common_live12_svg;
-                this.kfp.setAlpha(0.5f);
-                com.baidu.tbadk.core.util.f.a.btb().oJ(0).oQ(l.getDimens(HomePageTabFeedCollegeSecondListAdapter.this.mContext, R.dimen.tbds10)).m(R.color.CAM_X0607, R.color.CAM_X0611).bz(this.kfp);
+                this.knx.setAlpha(0.5f);
+                com.baidu.tbadk.core.util.f.a.btv().oO(0).oV(l.getDimens(HomePageTabFeedCollegeSecondListAdapter.this.mContext, R.dimen.tbds10)).m(R.color.CAM_X0607, R.color.CAM_X0611).bv(this.knx);
             }
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return x.getCount(this.kfh);
+        return y.getCount(this.knp);
     }
 
-    private SpecialColumnItemData BH(int i) {
-        return (SpecialColumnItemData) x.getItem(this.kfh, i);
+    private SpecialColumnItemData BZ(int i) {
+        return (SpecialColumnItemData) y.getItem(this.knp, i);
     }
 
     private void c(RecyclerView.ViewHolder viewHolder) {
         if (viewHolder instanceof b) {
-            ao.setViewTextColor(((b) viewHolder).ffo, R.color.CAM_X0105);
-            ao.setViewTextColor(((b) viewHolder).kfr, R.color.CAM_X0109);
-            ao.setViewTextColor(((b) viewHolder).kfs, R.color.CAM_X0109);
-            ao.setViewTextColor(((b) viewHolder).kfl, R.color.CAM_X0101);
-            SvgManager.bsx().a(((b) viewHolder).kfo, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            com.baidu.tbadk.core.util.f.a.m(((b) viewHolder).kfu, R.color.CAM_X0205, R.color.CAM_X0204);
+            ap.setViewTextColor(((b) viewHolder).fhE, R.color.CAM_X0105);
+            ap.setViewTextColor(((b) viewHolder).knz, R.color.CAM_X0109);
+            ap.setViewTextColor(((b) viewHolder).knA, R.color.CAM_X0109);
+            ap.setViewTextColor(((b) viewHolder).knt, R.color.CAM_X0101);
+            SvgManager.bsR().a(((b) viewHolder).knw, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            com.baidu.tbadk.core.util.f.a.m(((b) viewHolder).knC, R.color.CAM_X0205, R.color.CAM_X0204);
         } else if (viewHolder instanceof a) {
-            ao.setViewTextColor(((a) viewHolder).kfm, R.color.CAM_X0105);
-            ao.setViewTextColor(((a) viewHolder).kfl, R.color.CAM_X0101);
-            SvgManager.bsx().a(((a) viewHolder).kfo, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            com.baidu.tbadk.core.util.f.a.m(((a) viewHolder).kfq, R.color.CAM_X0205, R.color.CAM_X0204);
+            ap.setViewTextColor(((a) viewHolder).knu, R.color.CAM_X0105);
+            ap.setViewTextColor(((a) viewHolder).knt, R.color.CAM_X0101);
+            SvgManager.bsR().a(((a) viewHolder).knw, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            com.baidu.tbadk.core.util.f.a.m(((a) viewHolder).kny, R.color.CAM_X0205, R.color.CAM_X0204);
         }
     }
 
     public void a(f<SpecialColumnItemData> fVar) {
-        this.kfi = fVar;
+        this.knq = fVar;
     }
 }

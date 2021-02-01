@@ -1,27 +1,23 @@
 package com.baidu.live.l;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.x;
-import com.baidu.live.im.data.b;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.ab;
+import com.baidu.live.data.v;
+/* loaded from: classes11.dex */
 public interface a {
-    void a(ViewGroup viewGroup, x xVar, ViewGroup.LayoutParams layoutParams, String str);
+    void Jo();
 
-    void a(x xVar);
+    void a(ab abVar);
 
-    void cF(int i);
+    void a(v vVar);
 
-    boolean isShowing();
+    void ch(boolean z);
 
-    void l(b bVar);
+    void d(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
     void onDestroy();
 
-    void onPause();
-
-    void onResume();
-
     void setCanVisible(boolean z);
 
-    void xk();
+    void xh();
 }

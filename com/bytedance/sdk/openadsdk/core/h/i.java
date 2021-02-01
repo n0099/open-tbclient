@@ -21,16 +21,16 @@ import java.io.File;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i implements Runnable {
     @SuppressLint({"StaticFieldLeak"})
     private static volatile i d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final e f6589a;
+    private final e f6591a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f6590b;
+    private final Context f6592b;
     private static final AtomicLong c = new AtomicLong(0);
     private static boolean e = true;
     private static volatile boolean f = false;
@@ -70,17 +70,17 @@ public class i implements Runnable {
     }
 
     private i(e eVar) {
-        this.f6589a = eVar == null ? p.h() : eVar;
-        this.f6590b = p.a();
+        this.f6591a = eVar == null ? p.h() : eVar;
+        this.f6592b = p.a();
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             try {
-                this.f6590b.registerReceiver(new a(), new IntentFilter("com.bytedance.openadsdk.settingReceiver"));
+                this.f6592b.registerReceiver(new a(), new IntentFilter("com.bytedance.openadsdk.settingReceiver"));
             } catch (Throwable th) {
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class a extends BroadcastReceiver {
         private a() {
         }
@@ -96,8 +96,8 @@ public class i implements Runnable {
                     }
                 } else if (intExtra == 2) {
                     try {
-                        if (i.this.f6589a != null) {
-                            i.this.f6589a.a();
+                        if (i.this.f6591a != null) {
+                            i.this.f6591a.a();
                         }
                     } catch (Throwable th) {
                     }
@@ -158,9 +158,9 @@ public class i implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (!x.a(this.f6590b)) {
+        if (!x.a(this.f6592b)) {
             try {
-                this.f6589a.a();
+                this.f6591a.a();
             } catch (Throwable th) {
             }
         } else if (!g()) {
@@ -169,18 +169,18 @@ public class i implements Runnable {
                 public void a(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                     JSONObject jSONObject;
                     String str;
-                    if (pVar == null || pVar.f6045a == null) {
+                    if (pVar == null || pVar.f6047a == null) {
                         try {
-                            i.this.f6589a.a();
+                            i.this.f6591a.a();
                             return;
                         } catch (Throwable th2) {
                             return;
                         }
                     }
-                    int optInt = pVar.f6045a.optInt("cypher", -1);
-                    JSONObject jSONObject2 = pVar.f6045a;
+                    int optInt = pVar.f6047a.optInt("cypher", -1);
+                    JSONObject jSONObject2 = pVar.f6047a;
                     if (optInt == 1) {
-                        str = com.bytedance.sdk.openadsdk.core.a.b(pVar.f6045a.optString("message"), com.bytedance.sdk.openadsdk.core.b.a());
+                        str = com.bytedance.sdk.openadsdk.core.a.b(pVar.f6047a.optString("message"), com.bytedance.sdk.openadsdk.core.b.a());
                         if (!TextUtils.isEmpty(str)) {
                             try {
                                 u.b("SdkSettingsHelper", "setting data : " + str.toString());
@@ -191,7 +191,7 @@ public class i implements Runnable {
                         }
                         jSONObject = jSONObject2;
                     } else if (optInt == 2) {
-                        str = aj.k(pVar.f6045a.optString("message"));
+                        str = aj.k(pVar.f6047a.optString("message"));
                         if (!TextUtils.isEmpty(str)) {
                             try {
                                 u.b("SdkSettingsHelper", "setting data1 : " + str.toString());
@@ -206,14 +206,14 @@ public class i implements Runnable {
                         str = null;
                     }
                     try {
-                        i.this.a(str, pVar.pkZ == null ? null : pVar.pkZ.h);
+                        i.this.a(str, pVar.pvo == null ? null : pVar.pvo.h);
                     } catch (Throwable th5) {
                     }
                     try {
                         if (!i.f) {
                             boolean unused = i.f = true;
                         }
-                        i.this.f6589a.a(jSONObject);
+                        i.this.f6591a.a(jSONObject);
                     } catch (Throwable th6) {
                     }
                     com.bytedance.sdk.openadsdk.h.a.a().b();
@@ -225,11 +225,11 @@ public class i implements Runnable {
                 @Override // com.bytedance.sdk.adnet.core.p.a
                 public void b(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                     try {
-                        i.this.f6589a.a();
+                        i.this.f6591a.a();
                     } catch (Throwable th2) {
                     }
                 }
-            }).setResponseOnMain(false).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(this.f6590b).d());
+            }).setResponseOnMain(false).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(this.f6592b).d());
         }
     }
 
@@ -260,26 +260,26 @@ public class i implements Runnable {
     private JSONObject h() {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(this.f6590b);
+            com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(this.f6592b);
             if (a2 != null) {
-                jSONObject.put("latitude", a2.f7564a);
-                jSONObject.put("longitude", a2.f7565b);
+                jSONObject.put("latitude", a2.f7566a);
+                jSONObject.put("longitude", a2.f7567b);
             }
         } catch (Exception e2) {
         }
         try {
             jSONObject.put(TableDefine.UserInfoColumns.COLUMN_IP, com.bytedance.sdk.openadsdk.utils.i.a(true));
-            jSONObject.put("imei", com.bytedance.sdk.openadsdk.core.k.d(this.f6590b));
+            jSONObject.put("imei", com.bytedance.sdk.openadsdk.core.k.d(this.f6592b));
             jSONObject.put("oaid", y.a());
             jSONObject.put("model", Build.MODEL);
-            jSONObject.put("conn_type", x.b(this.f6590b));
+            jSONObject.put("conn_type", x.b(this.f6592b));
             jSONObject.put("os", 1);
             jSONObject.put("oversea_version_type", 0);
             jSONObject.put("os_version", String.valueOf(Build.VERSION.RELEASE));
             jSONObject.put(SapiContext.KEY_SDK_VERSION, "3.2.5.1");
             jSONObject.put("download_sdk_version", com.bytedance.sdk.openadsdk.downloadnew.a.a());
             jSONObject.put("package_name", aj.d());
-            jSONObject.put("position", aj.c(this.f6590b, aj.d()) ? 1 : 2);
+            jSONObject.put("position", aj.c(this.f6592b, aj.d()) ? 1 : 2);
             jSONObject.put("app_version", aj.f());
             jSONObject.put("vendor", Build.MANUFACTURER);
             jSONObject.put("app_id", com.bytedance.sdk.openadsdk.core.i.c().e());

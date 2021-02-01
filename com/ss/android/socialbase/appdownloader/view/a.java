@@ -11,11 +11,11 @@ import com.baidu.android.util.devices.RomUtils;
 import com.ss.android.socialbase.appdownloader.e.d;
 import com.ss.android.socialbase.downloader.b.e;
 import com.ss.android.socialbase.downloader.downloader.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends Fragment {
     public void a() {
         try {
-            startActivityForResult(eDy(), 1000);
+            startActivityForResult(eFP(), 1000);
         } catch (Throwable th) {
             try {
                 startActivityForResult(b(), 1000);
@@ -62,11 +62,11 @@ public class a extends Fragment {
     }
 
     private Context e() {
-        Context eEd = b.eEd();
-        if (eEd == null && getActivity() != null && !getActivity().isFinishing()) {
+        Context eGu = b.eGu();
+        if (eGu == null && getActivity() != null && !getActivity().isFinishing()) {
             return getActivity().getApplicationContext();
         }
-        return eEd;
+        return eGu;
     }
 
     public Intent c() {
@@ -77,7 +77,7 @@ public class a extends Fragment {
         return new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + e.getPackageName()));
     }
 
-    private Intent eDy() {
+    private Intent eFP() {
         Context e = e();
         if (e == null) {
             return null;

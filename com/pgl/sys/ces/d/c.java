@@ -1,18 +1,18 @@
 package com.pgl.sys.ces.d;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private static b pQd = null;
+    private static b qah = null;
 
     public static b b(Context context, String str, int i, a aVar) {
-        if (pQd == null) {
+        if (qah == null) {
             synchronized (c.class) {
-                if (pQd == null) {
-                    pQd = com.pgl.sys.ces.b.a(context, str, i, aVar);
+                if (qah == null) {
+                    qah = com.pgl.sys.ces.b.a(context, str, i, aVar);
                 }
             }
         }
-        return pQd;
+        return qah;
     }
 }

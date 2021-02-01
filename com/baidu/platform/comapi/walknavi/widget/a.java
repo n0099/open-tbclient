@@ -8,32 +8,32 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4383a;
+    private TextView f4386a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f4384b;
+    private TextView f4387b;
     private TextView c;
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0285a g;
-    private InterfaceC0285a h;
+    private InterfaceC0289a g;
+    private InterfaceC0289a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0285a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0289a {
         void a();
     }
 
     public a(Context context, int i) {
         super(context);
-        if (com.baidu.platform.comapi.bikenavi.a.a.f4143a) {
+        if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
             Resources.Theme newTheme = com.baidu.platform.comapi.wnplatform.o.a.a.b().newTheme();
             newTheme.applyStyle(i, true);
             com.baidu.platform.comapi.wnplatform.o.a.a.a(this, newTheme);
@@ -48,8 +48,8 @@ public class a extends Dialog {
         this(activity, R.id.BOTH);
         View a2 = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.array.Mask_X005, null);
         setContentView(a2);
-        this.f4383a = (TextView) a2.findViewById(R.dimen.T_X03);
-        this.f4384b = (TextView) a2.findViewById(R.dimen.T_X06);
+        this.f4386a = (TextView) a2.findViewById(R.dimen.T_X03);
+        this.f4387b = (TextView) a2.findViewById(R.dimen.T_X06);
         this.c = (TextView) a2.findViewById(R.dimen.T_X10);
         this.d = (TextView) a2.findViewById(R.dimen._bottom_enter_anim_place_holder_height);
         this.e = (LinearLayout) a2.findViewById(R.dimen.T_X09);
@@ -58,8 +58,8 @@ public class a extends Dialog {
         this.d.setOnClickListener(new c(this));
         this.i = false;
         this.j = false;
-        this.f4383a.setVisibility(8);
-        this.f4384b.setVisibility(8);
+        this.f4386a.setVisibility(8);
+        this.f4387b.setVisibility(8);
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
@@ -69,22 +69,22 @@ public class a extends Dialog {
 
     public a a(String str) {
         if (str == null) {
-            this.f4384b.setVisibility(8);
-            this.f4384b.setText("", TextView.BufferType.SPANNABLE);
+            this.f4387b.setVisibility(8);
+            this.f4387b.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f4384b.setVisibility(0);
-            this.f4384b.setText(str, TextView.BufferType.SPANNABLE);
+            this.f4387b.setVisibility(0);
+            this.f4387b.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
 
     public a b(String str) {
         if (str == null) {
-            this.f4383a.setVisibility(8);
-            this.f4383a.setText("", TextView.BufferType.SPANNABLE);
+            this.f4386a.setVisibility(8);
+            this.f4386a.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f4383a.setVisibility(0);
-            this.f4383a.setText(str, TextView.BufferType.SPANNABLE);
+            this.f4386a.setVisibility(0);
+            this.f4386a.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
@@ -123,13 +123,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0285a interfaceC0285a) {
-        this.g = interfaceC0285a;
+    public a a(InterfaceC0289a interfaceC0289a) {
+        this.g = interfaceC0289a;
         return this;
     }
 
-    public a b(InterfaceC0285a interfaceC0285a) {
-        this.h = interfaceC0285a;
+    public a b(InterfaceC0289a interfaceC0289a) {
+        this.h = interfaceC0289a;
         return this;
     }
 

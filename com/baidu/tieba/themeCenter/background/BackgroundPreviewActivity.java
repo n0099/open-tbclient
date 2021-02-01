@@ -8,23 +8,23 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
     private int mFrom;
-    private int nwX;
-    private BackgroundPreviewModel nxp;
-    private j nxq;
-    private int nxr;
-    private BackgroundPreviewModel.a nxs = new BackgroundPreviewModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity.1
+    private int nGH;
+    private BackgroundPreviewModel nGZ;
+    private j nHa;
+    private int nHb;
+    private BackgroundPreviewModel.a nHc = new BackgroundPreviewModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity.1
         @Override // com.baidu.tieba.themeCenter.background.BackgroundPreviewModel.a
         public void a(int i, String str, DressItemData dressItemData) {
-            BackgroundPreviewActivity.this.hideLoadingView(BackgroundPreviewActivity.this.nxq.getRootView());
+            BackgroundPreviewActivity.this.hideLoadingView(BackgroundPreviewActivity.this.nHa.getRootView());
             if (i == 0) {
-                BackgroundPreviewActivity.this.nxq.g(dressItemData);
+                BackgroundPreviewActivity.this.nHa.g(dressItemData);
                 return;
             }
             BackgroundPreviewActivity.this.showToast(str);
-            BackgroundPreviewActivity.this.nxq.czw();
+            BackgroundPreviewActivity.this.nHa.cAH();
         }
     };
 
@@ -35,15 +35,15 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
         Intent intent = getIntent();
         if (intent != null) {
-            this.nwX = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.PROPID, 0);
-            this.nxr = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.INUSE, 0);
+            this.nGH = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.PROPID, 0);
+            this.nHb = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.INUSE, 0);
             this.mFrom = intent.getIntExtra("from", -1);
         }
-        this.nxp = new BackgroundPreviewModel(this.nwX, this.nxr);
-        this.nxp.a(this.nxs);
-        this.nxq = new j(this);
-        showLoadingView(this.nxq.getRootView());
-        this.nxq.setExpandListRefreshListener(new BdExpandListView.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity.2
+        this.nGZ = new BackgroundPreviewModel(this.nGH, this.nHb);
+        this.nGZ.a(this.nHc);
+        this.nHa = new j(this);
+        showLoadingView(this.nHa.getRootView());
+        this.nHa.setExpandListRefreshListener(new BdExpandListView.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewActivity.2
             @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
             public void onRefresh() {
             }
@@ -56,7 +56,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             public void onExpandingDegree(float f) {
             }
         });
-        this.nxp.LoadData();
+        this.nGZ.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,8 +65,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         super.onResume();
         if (TbadkCoreApplication.getInst().getThemeWebviewOpen()) {
             TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
-            showLoadingView(this.nxq.getRootView());
-            this.nxp.LoadData();
+            showLoadingView(this.nHa.getRootView());
+            this.nGZ.LoadData();
         }
     }
 
@@ -75,7 +75,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
         if (z) {
-            com.baidu.tbadk.getUserInfo.b.bCq().bCr();
+            com.baidu.tbadk.getUserInfo.b.bCI().bCJ();
         }
     }
 
@@ -83,8 +83,8 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nxq != null) {
-            this.nxq.byV();
+        if (this.nHa != null) {
+            this.nHa.bzn();
         }
     }
 
@@ -92,20 +92,20 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.nxp != null) {
-            this.nxp.destroy();
+        if (this.nGZ != null) {
+            this.nGZ.destroy();
         }
-        if (this.nxq != null) {
-            this.nxq.onDestroy();
+        if (this.nHa != null) {
+            this.nHa.onDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nxp != null && this.nxq != null) {
-            showLoadingView(this.nxq.getRootView());
-            this.nxp.LoadData();
+        if (this.nGZ != null && this.nHa != null) {
+            showLoadingView(this.nHa.getRootView());
+            this.nGZ.LoadData();
         }
     }
 
@@ -119,7 +119,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         com.baidu.tbadk.m.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
             pageStayDurationItem.isRouteStat = true;
-            pageStayDurationItem.objID = String.valueOf(this.nwX);
+            pageStayDurationItem.objID = String.valueOf(this.nGH);
         }
         return pageStayDurationItem;
     }

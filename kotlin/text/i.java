@@ -1,8 +1,8 @@
 package kotlin.text;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface i {
-    kotlin.b.h eJo();
+    kotlin.b.h eLE();
 
-    i eJp();
+    i eLF();
 }

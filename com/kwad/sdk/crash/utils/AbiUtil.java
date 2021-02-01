@@ -2,13 +2,13 @@ package com.kwad.sdk.crash.utils;
 
 import android.os.Build;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class AbiUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Abi f9653a;
+    private static Abi f9655a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum Abi {
         UNKNOWN,
         ARMEABI_V7A,
@@ -27,32 +27,32 @@ public final class AbiUtil {
         if (Build.VERSION.SDK_INT < 21) {
             return Abi.ARMEABI_V7A;
         }
-        if (f9653a != null) {
-            return f9653a;
+        if (f9655a != null) {
+            return f9655a;
         }
         try {
             Abi abi = ((Boolean) n.a(n.a("dalvik.system.VMRuntime", "getRuntime", new Object[0]), "is64Bit", new Object[0])).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
-            f9653a = abi;
+            f9655a = abi;
             return abi;
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
             try {
                 Abi abi2 = ((Integer) n.a(n.a("sun.misc.Unsafe", "getUnsafe", new Object[0]), "addressSize", new Object[0])).intValue() == 8 ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
-                f9653a = abi2;
+                f9655a = abi2;
                 return abi2;
             } catch (Throwable th2) {
                 com.kwad.sdk.core.d.a.b(th2);
                 try {
                     if (com.kwad.sdk.crash.d.a().f().getApplicationInfo().nativeLibraryDir.contains("arm64")) {
                         Abi abi3 = Abi.ARM64_V8A;
-                        f9653a = abi3;
+                        f9655a = abi3;
                         return abi3;
                     }
                 } catch (Throwable th3) {
                     com.kwad.sdk.core.d.a.b(th3);
                 }
-                f9653a = Abi.UNKNOWN;
-                return f9653a;
+                f9655a = Abi.UNKNOWN;
+                return f9655a;
             }
         }
     }

@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class co implements ct {
 
     /* renamed from: a  reason: collision with root package name */
-    private static co f13917a;
+    private static co f13919a;
 
     /* renamed from: a  reason: collision with other field name */
     private int f249a;
@@ -32,7 +32,7 @@ public class co implements ct {
     private HashMap<String, cm> f253a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f13918b;
+    private int f13920b;
 
     /* renamed from: b  reason: collision with other field name */
     private String f254b;
@@ -45,7 +45,7 @@ public class co implements ct {
     public static synchronized co a() {
         co coVar;
         synchronized (co.class) {
-            coVar = f13917a;
+            coVar = f13919a;
         }
         return coVar;
     }
@@ -87,13 +87,13 @@ public class co implements ct {
     }
 
     private void a(cm cmVar) {
-        if (this.f253a.containsKey(cmVar.f13915b)) {
+        if (this.f253a.containsKey(cmVar.f13917b)) {
             return;
         }
-        this.f13918b++;
-        cr.m229a("send: " + this.f13918b);
+        this.f13920b++;
+        cr.m229a("send: " + this.f13920b);
         cp cpVar = new cp(this, this.f254b, this.f255c, cmVar);
-        this.f253a.put(cmVar.f13915b, cmVar);
+        this.f253a.put(cmVar.f13917b, cmVar);
         cpVar.execute(new String[0]);
     }
 
@@ -130,21 +130,21 @@ public class co implements ct {
         }
         ArrayList<cl> arrayList = new ArrayList<>();
         arrayList.add(clVar);
-        a(arrayList, "click", clVar.f13913a);
+        a(arrayList, "click", clVar.f13915a);
     }
 
     @Override // com.xiaomi.push.ct
     public void a(Integer num, cm cmVar) {
-        if (this.f253a.containsKey(cmVar.f13915b)) {
+        if (this.f253a.containsKey(cmVar.f13917b)) {
             if (num.intValue() != 0) {
                 this.c++;
-                cr.m229a("faild: " + this.c + " " + cmVar.f13915b + "  " + this.f253a.size());
+                cr.m229a("faild: " + this.c + " " + cmVar.f13917b + "  " + this.f253a.size());
                 b(cmVar);
             } else {
                 this.f249a++;
                 cr.m229a("success: " + this.f249a);
             }
-            this.f253a.remove(cmVar.f13915b);
+            this.f253a.remove(cmVar.f13917b);
         }
     }
 
@@ -154,7 +154,7 @@ public class co implements ct {
         }
         ArrayList<cl> arrayList = new ArrayList<>();
         arrayList.add(clVar);
-        a(arrayList, "remove", clVar.f13913a);
+        a(arrayList, "remove", clVar.f13915a);
     }
 
     public void c(cl clVar) {
@@ -163,6 +163,6 @@ public class co implements ct {
         }
         ArrayList<cl> arrayList = new ArrayList<>();
         arrayList.add(clVar);
-        a(arrayList, "received", clVar.f13913a);
+        a(arrayList, "received", clVar.f13915a);
     }
 }

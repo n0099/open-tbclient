@@ -38,7 +38,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_BDUSS = "bduss";
     public static final String SESSION_DISPLAYNAME = "displayname";
@@ -47,7 +47,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public static final String VERSION_NAME = "8.9.9.3";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4551b = "SapiAccountManager";
+    private static final String f4553b = "SapiAccountManager";
     private static SapiAccountManager c;
     private static SapiConfiguration d;
     private static SapiAccountService e;
@@ -60,27 +60,27 @@ public final class SapiAccountManager implements ISAccountManager {
     private static final List<String> l = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    private char f4552a = 0;
+    private char f4554a = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
         boolean onCheckUrlIsAvailable(String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static abstract class GlobalAuthorizationListener {
         public void onLogoutSuccess(SapiAccount sapiAccount) {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface ReceiveShareListener {
         void onReceiveShare();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface SilentShareListener {
         void onSilentShare();
     }
@@ -436,11 +436,11 @@ public final class SapiAccountManager implements ISAccountManager {
                 SapiContext.getInstance().setSearchBoxSid(k.tidConvertSid(tid.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)));
                 return;
             } else {
-                Log.d(f4551b, "tid is null or empty");
+                Log.d(f4553b, "tid is null or empty");
                 return;
             }
         }
-        Log.d(f4551b, "convert tid to sid failed, because tidConvertSidCallback is null");
+        Log.d(f4553b, "convert tid to sid failed, because tidConvertSidCallback is null");
     }
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
@@ -494,7 +494,7 @@ public final class SapiAccountManager implements ISAccountManager {
 
     public void getOneKeyLoginIsAvailable(GetOneKeyLoginStateDTO getOneKeyLoginStateDTO, OneKeyLoginCallback oneKeyLoginCallback) {
         if (oneKeyLoginCallback == null) {
-            Log.e(f4551b, "When check oneKeyLogin's ability, oneKeyLoginCallback can't be null!");
+            Log.e(f4553b, "When check oneKeyLogin's ability, oneKeyLoginCallback can't be null!");
         } else if (Build.VERSION.SDK_INT < 19) {
             new OneKeyLoginSdkCall().b(oneKeyLoginCallback, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT, null);
         } else if (new OneKeyLoginSdkCall().a()) {
@@ -529,15 +529,15 @@ public final class SapiAccountManager implements ISAccountManager {
     public SapiAccount getSession() {
         a();
         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-        if (this.f4552a == 0) {
+        if (this.f4554a == 0) {
             e sapiOptions = SapiContext.getInstance().getSapiOptions();
             if (sapiOptions.m().contains(getConfignation().tpl) && !sapiOptions.m) {
-                this.f4552a = (char) 1;
+                this.f4554a = (char) 1;
             } else {
-                this.f4552a = (char) 2;
+                this.f4554a = (char) 2;
             }
         }
-        if (currentAccount != null && this.f4552a == 1) {
+        if (currentAccount != null && this.f4554a == 1) {
             currentAccount.uid = "";
             currentAccount.bduss = "";
         }

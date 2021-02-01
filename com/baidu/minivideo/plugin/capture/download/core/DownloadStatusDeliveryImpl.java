@@ -7,7 +7,7 @@ import com.baidu.minivideo.plugin.capture.download.base.DownloadStatusDelivery;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class DownloadStatusDeliveryImpl implements DownloadStatusDelivery {
     private static final String TAG = "DownloadStatusDelivery";
     private Executor mDownloadStatusPoster;
@@ -26,7 +26,7 @@ public class DownloadStatusDeliveryImpl implements DownloadStatusDelivery {
         this.mDownloadStatusPoster.execute(new DownloadStatusDeliveryRunnable(downloadStatus));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     private static class DownloadStatusDeliveryRunnable implements Runnable {
         private final DownloadCallback mCallBack;
         private final DownloadStatus mDownloadStatus;

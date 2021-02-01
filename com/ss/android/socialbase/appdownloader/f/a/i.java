@@ -1,34 +1,34 @@
 package com.ss.android.socialbase.appdownloader.f.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Throwable f13049a;
+    protected Throwable f13051a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected int f13050b;
+    protected int f13052b;
     protected int c;
 
     public i(String str, h hVar, Throwable th) {
         super((str == null ? "" : str + " ") + (hVar == null ? "" : "(position:" + hVar.d() + ") ") + (th == null ? "" : "caused by: " + th));
-        this.f13050b = -1;
+        this.f13052b = -1;
         this.c = -1;
         if (hVar != null) {
-            this.f13050b = hVar.c();
+            this.f13052b = hVar.c();
             this.c = hVar.f();
         }
-        this.f13049a = th;
+        this.f13051a = th;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
-        if (this.f13049a == null) {
+        if (this.f13051a == null) {
             super.printStackTrace();
             return;
         }
         synchronized (System.err) {
             System.err.println(super.getMessage() + "; nested exception is:");
-            this.f13049a.printStackTrace();
+            this.f13051a.printStackTrace();
         }
     }
 }

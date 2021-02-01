@@ -3,25 +3,26 @@ package com.baidu.mobads.vo.a;
 import android.content.Context;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.mobads.constants.XAdSDKProxyVersion;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdProdInfo;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-import com.baidu.mobads.utils.e;
+import com.baidu.mobads.utils.h;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f3516a;
+    public long f3520a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3517b;
+    public String f3521b;
     public String c;
     public String d;
     public String e;
@@ -32,34 +33,34 @@ public abstract class a {
     public String j;
     public String k;
     protected Context l;
-    protected e m;
+    protected h m;
     protected IXAdSystemUtils n;
-    private C0263a o;
+    private C0267a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public static class C0263a {
+    /* loaded from: classes5.dex */
+    public static class C0267a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3518a;
+        String f3522a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f3519b;
+        String f3523b;
         String c;
         String d;
         String e;
 
-        public C0263a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
-            this.f3518a = "";
-            this.f3519b = "";
+        public C0267a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+            this.f3522a = "";
+            this.f3523b = "";
             this.c = "";
             this.d = "";
             this.e = "";
             if (iXAdInstanceInfo != null) {
-                this.f3518a = iXAdInstanceInfo.getAdId();
-                this.f3519b = iXAdInstanceInfo.getQueryKey();
+                this.f3522a = iXAdInstanceInfo.getAdId();
+                this.f3523b = iXAdInstanceInfo.getQueryKey();
                 this.d = iXAdInstanceInfo.getCreativeType().getValue();
             }
             if (iXAdProdInfo != null) {
@@ -69,14 +70,14 @@ public abstract class a {
         }
     }
 
-    public a(C0263a c0263a) {
-        this(c0263a.f3518a, c0263a.f3519b, c0263a.c);
-        this.o = c0263a;
+    public a(C0267a c0267a) {
+        this(c0267a.f3522a, c0267a.f3523b, c0267a.c);
+        this.o = c0267a;
     }
 
     @Deprecated
     public a(String str, String str2, String str3) {
-        this.f3517b = "-1";
+        this.f3521b = "-1";
         this.c = "";
         this.d = "";
         this.e = "";
@@ -89,8 +90,8 @@ public abstract class a {
         this.m = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         this.n = XAdSDKFoundationFacade.getInstance().getSystemUtils();
         this.l = XAdSDKFoundationFacade.getInstance().getApplicationContext();
-        this.f3516a = System.currentTimeMillis();
-        this.f3517b = str;
+        this.f3520a = System.currentTimeMillis();
+        this.f3521b = str;
         this.c = str2;
         this.e = this.m.getAppSec(this.l);
         if (this.l != null) {
@@ -99,25 +100,25 @@ public abstract class a {
         this.f = this.m.getAppId(this.l);
         this.h = this.n.getEncodedSN(this.l);
         this.i = HttpConstants.OS_TYPE_VALUE;
-        this.g = "android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30";
+        this.g = "android_" + com.baidu.mobads.constants.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30";
         this.j = str3;
         this.k = XAdSDKFoundationFacade.getInstance().getSystemUtils().getCUID(this.l);
     }
 
     protected HashMap<String, String> a() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("adid", this.f3517b);
+        hashMap.put("adid", this.f3521b);
         hashMap.put("appsec", this.e);
         hashMap.put("appsid", this.f);
         hashMap.put("pack", this.d);
         hashMap.put("qk", this.c);
         hashMap.put(IXAdRequestInfo.SN, this.h);
-        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, "" + this.f3516a);
+        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, "" + this.f3520a);
         hashMap.put("v", this.g);
         hashMap.put("os", this.i);
         hashMap.put("prod", this.j);
-        hashMap.put("cuid", this.k);
-        hashMap.put(IXAdRequestInfo.P_VER, "8.8146");
+        hashMap.put("cuid", XAdSDKFoundationFacade.getInstance().getBase64().encode(this.k));
+        hashMap.put(IXAdRequestInfo.P_VER, XAdSDKProxyVersion.RELEASE_TAG);
         if (this.o != null) {
             hashMap.put("adt", this.o.d);
             hashMap.put("apid", this.o.e);
@@ -141,7 +142,7 @@ public abstract class a {
     protected String a(HashMap<String, String> hashMap) {
         StringBuilder sb = new StringBuilder();
         try {
-            e commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
+            h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
             StringBuilder sb2 = new StringBuilder();
             for (String str : hashMap.keySet()) {
                 String str2 = hashMap.get(str);

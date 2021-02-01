@@ -3,14 +3,14 @@ package com.googlecode.mp4parser.util;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class Matrix {
 
     /* renamed from: a  reason: collision with root package name */
-    double f7893a;
+    double f7895a;
 
     /* renamed from: b  reason: collision with root package name */
-    double f7894b;
+    double f7896b;
     double c;
     double d;
     double tx;
@@ -27,8 +27,8 @@ public class Matrix {
         this.u = d5;
         this.v = d6;
         this.w = d7;
-        this.f7893a = d;
-        this.f7894b = d2;
+        this.f7895a = d;
+        this.f7896b = d2;
         this.c = d3;
         this.d = d4;
         this.tx = d8;
@@ -43,15 +43,15 @@ public class Matrix {
             return false;
         }
         Matrix matrix = (Matrix) obj;
-        return Double.compare(matrix.f7893a, this.f7893a) == 0 && Double.compare(matrix.f7894b, this.f7894b) == 0 && Double.compare(matrix.c, this.c) == 0 && Double.compare(matrix.d, this.d) == 0 && Double.compare(matrix.tx, this.tx) == 0 && Double.compare(matrix.ty, this.ty) == 0 && Double.compare(matrix.u, this.u) == 0 && Double.compare(matrix.v, this.v) == 0 && Double.compare(matrix.w, this.w) == 0;
+        return Double.compare(matrix.f7895a, this.f7895a) == 0 && Double.compare(matrix.f7896b, this.f7896b) == 0 && Double.compare(matrix.c, this.c) == 0 && Double.compare(matrix.d, this.d) == 0 && Double.compare(matrix.tx, this.tx) == 0 && Double.compare(matrix.ty, this.ty) == 0 && Double.compare(matrix.u, this.u) == 0 && Double.compare(matrix.v, this.v) == 0 && Double.compare(matrix.w, this.w) == 0;
     }
 
     public int hashCode() {
         long doubleToLongBits = Double.doubleToLongBits(this.u);
         long doubleToLongBits2 = Double.doubleToLongBits(this.v);
         long doubleToLongBits3 = Double.doubleToLongBits(this.w);
-        long doubleToLongBits4 = Double.doubleToLongBits(this.f7893a);
-        long doubleToLongBits5 = Double.doubleToLongBits(this.f7894b);
+        long doubleToLongBits4 = Double.doubleToLongBits(this.f7895a);
+        long doubleToLongBits5 = Double.doubleToLongBits(this.f7896b);
         long doubleToLongBits6 = Double.doubleToLongBits(this.c);
         long doubleToLongBits7 = Double.doubleToLongBits(this.d);
         long doubleToLongBits8 = Double.doubleToLongBits(this.tx);
@@ -72,7 +72,7 @@ public class Matrix {
         if (equals(ROTATE_270)) {
             return "Rotate 270°";
         }
-        return "Matrix{u=" + this.u + ", v=" + this.v + ", w=" + this.w + ", a=" + this.f7893a + ", b=" + this.f7894b + ", c=" + this.c + ", d=" + this.d + ", tx=" + this.tx + ", ty=" + this.ty + '}';
+        return "Matrix{u=" + this.u + ", v=" + this.v + ", w=" + this.w + ", a=" + this.f7895a + ", b=" + this.f7896b + ", c=" + this.c + ", d=" + this.d + ", tx=" + this.tx + ", ty=" + this.ty + '}';
     }
 
     public static Matrix fromFileOrder(double d, double d2, double d3, double d4, double d5, double d6, double d7, double d8, double d9) {
@@ -84,8 +84,8 @@ public class Matrix {
     }
 
     public void getContent(ByteBuffer byteBuffer) {
-        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f7893a);
-        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f7894b);
+        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f7895a);
+        IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.f7896b);
         IsoTypeWriter.writeFixedPoint0230(byteBuffer, this.u);
         IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.c);
         IsoTypeWriter.writeFixedPoint1616(byteBuffer, this.d);

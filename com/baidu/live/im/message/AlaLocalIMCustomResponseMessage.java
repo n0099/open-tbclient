@@ -1,28 +1,28 @@
 package com.baidu.live.im.message;
 
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLocalIMCustomResponseMessage extends CustomResponsedMessage {
-    private boolean aEj;
-    private boolean bkp;
-    private boolean bmf;
+    private boolean aFW;
+    private boolean bnI;
+    private boolean bpG;
     private String content;
     private short msgType;
 
-    public short JP() {
+    public short Ln() {
         return this.msgType;
     }
 
     public boolean isOfficial() {
-        return this.aEj;
+        return this.aFW;
     }
 
-    public boolean JY() {
-        return this.bkp;
+    public boolean Lx() {
+        return this.bnI;
     }
 
-    public boolean JZ() {
-        return this.bmf;
+    public boolean Ly() {
+        return this.bpG;
     }
 
     public String getContent() {

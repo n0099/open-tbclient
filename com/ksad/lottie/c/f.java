@@ -3,11 +3,11 @@ package com.ksad.lottie.c;
 import android.graphics.Color;
 import android.util.JsonReader;
 import android.util.JsonToken;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f implements aj<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f f7971a = new f();
+    public static final f f7973a = new f();
 
     private f() {
     }

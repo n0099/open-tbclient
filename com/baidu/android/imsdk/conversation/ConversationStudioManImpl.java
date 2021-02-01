@@ -423,7 +423,7 @@ public class ConversationStudioManImpl {
     }
 
     public void handleMessage(JSONObject jSONObject) {
-        if (!a.aur || jSONObject != null) {
+        if (!a.aug || jSONObject != null) {
         }
         JSONArray jSONArray = new JSONArray();
         try {
@@ -516,8 +516,8 @@ public class ConversationStudioManImpl {
     }
 
     public boolean getConnectState() {
-        if (a.aur) {
-            if (com.baidu.lcp.sdk.client.a.vC() != 0) {
+        if (a.aug) {
+            if (com.baidu.lcp.sdk.client.a.vz() != 0) {
                 return false;
             }
             return true;
@@ -557,7 +557,7 @@ public class ConversationStudioManImpl {
     }
 
     public static void resetHeartBeat(int i) {
-        if (!a.aur) {
+        if (!a.aug) {
             Heartbeat.ALARM_TIMEOUT = i;
             LogUtils.d(TAG, "reset heartbeat time to = " + Heartbeat.ALARM_TIMEOUT);
             IMSDK.getInstance(mContext).mHeartbeatOperator.cancelHearbeat();
@@ -566,7 +566,7 @@ public class ConversationStudioManImpl {
     }
 
     public void setMcastQuickHeartBeat() {
-        if (a.aur && !mOpenPingRequest.get()) {
+        if (a.aug && !mOpenPingRequest.get()) {
             mOpenPingRequest.set(true);
             pingRequest(true, mCastHeartBeatTime);
             return;
@@ -580,7 +580,7 @@ public class ConversationStudioManImpl {
     }
 
     public void cancelMcastQuickHeartBeat() {
-        if (a.aur && mOpenPingRequest.get()) {
+        if (a.aug && mOpenPingRequest.get()) {
             mOpenPingRequest.set(false);
             pingRequest(false, 0L);
             return;
@@ -599,7 +599,7 @@ public class ConversationStudioManImpl {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (!a.aur) {
+                    if (!a.aug) {
                         Intent intent = new Intent(ConversationStudioManImpl.mContext, a.class);
                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                         intent.setPackage(ConversationStudioManImpl.mContext.getPackageName());
@@ -676,7 +676,7 @@ public class ConversationStudioManImpl {
     }
 
     private void registerNetChangedReceiver() {
-        if (!a.aur) {
+        if (!a.aug) {
             try {
                 if (mNetChangedReceiver == null && mContext != null) {
                     mNetChangedReceiver = new IMReceiver();
@@ -695,7 +695,7 @@ public class ConversationStudioManImpl {
     }
 
     private void unRegisterNetChangedReceiver() {
-        if (!a.aur) {
+        if (!a.aug) {
             try {
                 if (this.isRegisterNetReceiver && mContext != null) {
                     mContext.unregisterReceiver(mNetChangedReceiver);

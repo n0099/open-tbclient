@@ -1,12 +1,12 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7521a = false;
+    private static boolean f7523a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a() {
-        return f7521a;
+        return f7523a;
     }
 }

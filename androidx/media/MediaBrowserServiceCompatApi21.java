@@ -13,10 +13,10 @@ import androidx.annotation.RequiresApi;
 import java.util.ArrayList;
 import java.util.List;
 @RequiresApi(21)
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 class MediaBrowserServiceCompatApi21 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public interface ServiceCompatProxy {
         BrowserRoot onGetRoot(String str, int i, Bundle bundle);
 
@@ -43,7 +43,7 @@ class MediaBrowserServiceCompatApi21 {
         ((MediaBrowserService) obj).notifyChildrenChanged(str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static class ResultWrapper<T> {
         MediaBrowserService.Result mResultObj;
 
@@ -85,7 +85,7 @@ class MediaBrowserServiceCompatApi21 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static class BrowserRoot {
         final Bundle mExtras;
         final String mRootId;
@@ -97,7 +97,7 @@ class MediaBrowserServiceCompatApi21 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static class MediaBrowserServiceAdaptor extends MediaBrowserService {
         final ServiceCompatProxy mServiceProxy;
 

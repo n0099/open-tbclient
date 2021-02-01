@@ -2,10 +2,10 @@ package com.baidu.tieba.setting.usermutelist;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.UserMuteQuery.DataReq;
 import tbclient.UserMuteQuery.UserMuteQueryReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UserMuteQueryRequestMessage extends NetMessage {
     private int pn;
     private int rn;
@@ -34,7 +34,7 @@ public class UserMuteQueryRequestMessage extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         UserMuteQueryReqIdl.Builder builder2 = new UserMuteQueryReqIdl.Builder();
         builder2.data = builder.build(false);

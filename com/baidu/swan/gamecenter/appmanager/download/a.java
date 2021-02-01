@@ -8,32 +8,32 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String dZl;
-    private long dZm;
+    private String ebs;
+    private long ebt;
     private String mPackageName;
     private String mUrl;
 
     public a() {
         this.mUrl = "";
-        this.dZl = "";
-        this.dZm = System.currentTimeMillis();
+        this.ebs = "";
+        this.ebt = System.currentTimeMillis();
     }
 
     public a(@NonNull Download download) {
         this.mUrl = "";
-        this.dZl = "";
-        this.dZm = System.currentTimeMillis();
+        this.ebs = "";
+        this.ebt = System.currentTimeMillis();
         this.mUrl = download.getUrl();
         this.mPackageName = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (!TextUtils.isEmpty(fromParam)) {
             try {
                 JSONObject jSONObject = new JSONObject(fromParam);
-                this.dZl = jSONObject.optString("apk_id");
-                this.dZm = jSONObject.optLong("download_time", System.currentTimeMillis());
+                this.ebs = jSONObject.optString("apk_id");
+                this.ebt = jSONObject.optLong("download_time", System.currentTimeMillis());
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -42,14 +42,14 @@ public class a {
         }
     }
 
-    public Download aSV() {
+    public Download aTh() {
         Download download = new Download();
         download.setUrl(this.mUrl);
         download.setKeyByUser(this.mPackageName);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.dZl);
-            jSONObject.put("download_time", this.dZm);
+            jSONObject.put("apk_id", this.ebs);
+            jSONObject.put("download_time", this.ebt);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -66,27 +66,27 @@ public class a {
         return download;
     }
 
-    public a vl(String str) {
+    public a vE(String str) {
         this.mUrl = str;
         return this;
     }
 
-    public a vm(String str) {
+    public a vF(String str) {
         this.mPackageName = str;
         return this;
     }
 
-    public String aSW() {
-        return this.dZl;
+    public String aTi() {
+        return this.ebs;
     }
 
-    public a vn(String str) {
-        this.dZl = str;
+    public a vG(String str) {
+        this.ebs = str;
         return this;
     }
 
     public long getDownloadTime() {
-        return this.dZm;
+        return this.ebt;
     }
 
     private static String getDownloadDir() {

@@ -15,14 +15,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Marker extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2744a;
+    LatLng f2742a;
 
     /* renamed from: b  reason: collision with root package name */
-    BitmapDescriptor f2745b;
+    BitmapDescriptor f2743b;
     float c;
     float d;
     boolean e;
@@ -54,7 +54,7 @@ public final class Marker extends Overlay {
         while (it.hasNext()) {
             ParcelItem parcelItem = new ParcelItem();
             Bundle bundle2 = new Bundle();
-            Bitmap bitmap = it.next().f2698a;
+            Bitmap bitmap = it.next().f2696a;
             ByteBuffer allocate = ByteBuffer.allocate(bitmap.getWidth() * bitmap.getHeight() * 4);
             bitmap.copyPixelsToBuffer(allocate);
             byte[] array = allocate.array();
@@ -90,10 +90,10 @@ public final class Marker extends Overlay {
     Bundle a(Bundle bundle) {
         super.a(bundle);
         Bundle bundle2 = new Bundle();
-        if (this.f2745b != null) {
-            bundle.putBundle("image_info", this.f2745b.b());
+        if (this.f2743b != null) {
+            bundle.putBundle("image_info", this.f2743b.b());
         }
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2744a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2742a);
         bundle.putInt("animatetype", this.m);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
@@ -143,7 +143,7 @@ public final class Marker extends Overlay {
     }
 
     public BitmapDescriptor getIcon() {
-        return this.f2745b;
+        return this.f2743b;
     }
 
     public ArrayList<BitmapDescriptor> getIcons() {
@@ -159,7 +159,7 @@ public final class Marker extends Overlay {
     }
 
     public LatLng getPosition() {
-        return this.f2744a;
+        return this.f2742a;
     }
 
     public float getRotate() {
@@ -255,7 +255,7 @@ public final class Marker extends Overlay {
         if (bitmapDescriptor == null) {
             throw new IllegalArgumentException("marker's icon can not be null");
         }
-        this.f2745b = bitmapDescriptor;
+        this.f2743b = bitmapDescriptor;
         this.listener.b(this);
     }
 
@@ -272,16 +272,16 @@ public final class Marker extends Overlay {
                 int i2 = i;
                 if (i2 >= arrayList.size()) {
                     this.o = (ArrayList) arrayList.clone();
-                    this.f2745b = null;
+                    this.f2743b = null;
                     break;
-                } else if (arrayList.get(i2) == null || arrayList.get(i2).f2698a == null) {
+                } else if (arrayList.get(i2) == null || arrayList.get(i2).f2696a == null) {
                     return;
                 } else {
                     i = i2 + 1;
                 }
             }
         } else {
-            this.f2745b = arrayList.get(0);
+            this.f2743b = arrayList.get(0);
         }
         this.listener.b(this);
     }
@@ -303,7 +303,7 @@ public final class Marker extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("marker's position can not be null");
         }
-        this.f2744a = latLng;
+        this.f2742a = latLng;
         this.listener.b(this);
     }
 

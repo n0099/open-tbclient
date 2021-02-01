@@ -1,16 +1,16 @@
 package com.baidu.poly.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface a {
 
     /* renamed from: com.baidu.poly.a.k.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0301a {
-        public long cks;
-        public long ckt;
-        public String cku;
+    /* loaded from: classes4.dex */
+    public static class C0305a {
+        public long coJ;
+        public long coK;
+        public String coL;
         public String message;
         public int statusCode = 2;
     }
 
-    void a(C0301a c0301a);
+    void a(C0305a c0305a);
 }

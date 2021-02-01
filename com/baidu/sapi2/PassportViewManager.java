@@ -1,26 +1,25 @@
 package com.baidu.sapi2;
 
 import android.graphics.drawable.Drawable;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.j.a.a;
 import com.baidu.sapi2.callback.TitleBtnCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class PassportViewManager implements NoProguard {
     private static SapiConfiguration c;
     private static PassportViewManager d;
 
     /* renamed from: a  reason: collision with root package name */
-    private TitleBtnCallback f4527a;
+    private TitleBtnCallback f4529a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TitleViewModule f4528b = null;
+    private TitleViewModule f4530b = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class TitleViewModule implements NoProguard {
         public static final int DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(a.b.sapi_sdk_edit_text_color);
-        public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        public int bgHeight = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        public int leftBtnImgResId = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        public int bgColor = Integer.MAX_VALUE;
+        public int bgHeight = Integer.MAX_VALUE;
+        public int leftBtnImgResId = Integer.MAX_VALUE;
         public int leftBtnImgVisible = 0;
         public int leftBtnTextColor = DEFAULT_TEXT_COLOR;
         public String leftBtnText = null;
@@ -63,7 +62,7 @@ public class PassportViewManager implements NoProguard {
     }
 
     public void configTitle(TitleViewModule titleViewModule) {
-        this.f4528b = titleViewModule;
+        this.f4530b = titleViewModule;
         if (titleViewModule.bgColor == Integer.MAX_VALUE) {
             titleViewModule.bgColor = -1;
         }
@@ -73,20 +72,20 @@ public class PassportViewManager implements NoProguard {
     }
 
     public TitleBtnCallback getTitleBtnCallback() {
-        return this.f4527a;
+        return this.f4529a;
     }
 
     public TitleViewModule getTitleViewModule() {
-        return this.f4528b;
+        return this.f4530b;
     }
 
     public void release() {
-        this.f4527a = null;
-        this.f4528b = null;
+        this.f4529a = null;
+        this.f4530b = null;
         SapiWebView.statLoadLogin = null;
     }
 
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
-        this.f4527a = titleBtnCallback;
+        this.f4529a = titleBtnCallback;
     }
 }

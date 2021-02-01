@@ -1,9 +1,10 @@
 package com.squareup.wire2;
 
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class d {
     private final BufferedSink sink;
 
@@ -12,7 +13,7 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int Qp(int i) {
+    public static int QK(int i) {
         return varint32Size(a(i, FieldEncoding.VARINT));
     }
 
@@ -140,7 +141,7 @@ public final class d {
 
     public void writeVarint32(int i) throws IOException {
         while ((i & (-128)) != 0) {
-            this.sink.writeByte((i & 127) | 128);
+            this.sink.writeByte((i & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
             i >>>= 7;
         }
         this.sink.writeByte(i);
@@ -148,7 +149,7 @@ public final class d {
 
     public void writeVarint64(long j) throws IOException {
         while (((-128) & j) != 0) {
-            this.sink.writeByte((((int) j) & 127) | 128);
+            this.sink.writeByte((((int) j) & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
             j >>>= 7;
         }
         this.sink.writeByte((int) j);

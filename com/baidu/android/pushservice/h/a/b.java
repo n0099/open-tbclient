@@ -4,11 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.c.e;
 import com.baidu.android.pushservice.h.a.a.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$2  reason: invalid class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     static /* synthetic */ class AnonymousClass2 {
 
         /* renamed from: a  reason: collision with root package name */
@@ -38,7 +38,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
@@ -87,7 +87,7 @@ public class b {
     }
 
     /* renamed from: com.baidu.android.pushservice.h.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class C0059b {
 
         /* renamed from: a  reason: collision with root package name */
@@ -152,7 +152,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
@@ -187,7 +187,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */

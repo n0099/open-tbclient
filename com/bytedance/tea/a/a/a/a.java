@@ -15,16 +15,16 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f7609b = false;
-    private static InterfaceC1027a ple;
+    private static boolean f7611b = false;
+    private static InterfaceC1031a pvt;
 
     /* renamed from: com.bytedance.tea.a.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1027a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1031a {
         boolean a();
 
         boolean b();
@@ -33,7 +33,7 @@ public class a {
     }
 
     public static String a(String str, List<Pair<String, String>> list) {
-        if (!TextUtils.isEmpty(str) && ple != null && !f7609b) {
+        if (!TextUtils.isEmpty(str) && pvt != null && !f7611b) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             try {
                 Uri parse = Uri.parse(str);
@@ -51,12 +51,12 @@ public class a {
                     if (a3 != null) {
                         String encodeToString = Base64.encodeToString(a3, 2);
                         LinkedList linkedList2 = new LinkedList();
-                        if (ple.a()) {
+                        if (pvt.a()) {
                             LinkedList linkedList3 = new LinkedList();
                             linkedList3.add(encodeToString);
                             linkedList2.add(new Pair("ss_queries", linkedList3));
                         }
-                        if (ple.b() && list != null) {
+                        if (pvt.b() && list != null) {
                             list.add(new Pair<>("X-SS-QUERIES", a(encodeToString, "UTF-8")));
                         }
                         if (!linkedHashMap.isEmpty()) {
@@ -84,7 +84,7 @@ public class a {
             return false;
         }
         list.add(new Pair<>(str, map.get(str)));
-        if (!ple.c()) {
+        if (!pvt.c()) {
             map.remove(str);
         }
         return true;

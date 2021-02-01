@@ -3,42 +3,42 @@ package com.baidu.live.im;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface k {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        boolean IJ();
+        boolean Kh();
 
-        void IK();
+        void Ki();
 
-        void IL();
+        void Kj();
 
-        void IM();
+        void Kk();
 
-        void IN();
+        void Kl();
 
-        boolean IO();
+        boolean Km();
 
-        int IP();
+        int Kn();
 
-        boolean IQ();
+        boolean Ko();
 
-        void gD(String str);
+        void hb(String str);
     }
 
-    j IF();
+    j Kd();
 
-    com.baidu.live.view.input.a IG();
+    com.baidu.live.view.input.a Ke();
 
-    com.baidu.live.view.input.b IH();
+    com.baidu.live.view.input.b Kf();
 
-    int II();
+    int Kg();
 
-    void a(ViewGroup viewGroup, x xVar, List<String> list, RelativeLayout.LayoutParams layoutParams);
+    void a(ViewGroup viewGroup, ab abVar, List<String> list, RelativeLayout.LayoutParams layoutParams);
 
     void a(a aVar);
 
@@ -60,5 +60,5 @@ public interface k {
 
     void setLogData(String str, String str2);
 
-    void zh();
+    void zR();
 }

@@ -5,19 +5,19 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    public static boolean e(byte[] bArr, String str) {
+    public static boolean f(byte[] bArr, String str) {
         if (bArr == null) {
             return false;
         }
         com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.lV().setUrl(str);
-        eVar.lV().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.lV().addPostData("", bArr);
+        eVar.lU().setUrl(str);
+        eVar.lU().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        eVar.lU().addPostData("", bArr);
         new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
-        int i = eVar.lW().responseCode;
-        byte[] bArr2 = eVar.lW().retBytes;
+        int i = eVar.lV().responseCode;
+        byte[] bArr2 = eVar.lV().retBytes;
         if (bArr2 == null || i != 200) {
             return false;
         }
@@ -32,7 +32,7 @@ public class c {
         }
     }
 
-    public static byte[] fY(List<String> list) {
+    public static byte[] fW(List<String> list) {
         if (list == null) {
             return null;
         }
@@ -45,7 +45,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] eM(JSONObject jSONObject) {
+    public static byte[] eN(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

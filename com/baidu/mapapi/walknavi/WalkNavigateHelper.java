@@ -27,15 +27,15 @@ import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WalkNavigateHelper {
     private static WalkNavigateHelper d;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mapapi.walknavi.controllers.a.a f2977a = new com.baidu.mapapi.walknavi.controllers.a.a();
+    private com.baidu.mapapi.walknavi.controllers.a.a f2975a = new com.baidu.mapapi.walknavi.controllers.a.a();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f2978b;
+    private boolean f2976b;
     private Activity c;
 
     private WalkNavigateHelper() {
@@ -49,14 +49,14 @@ public class WalkNavigateHelper {
     }
 
     public void initNaviEngine(Activity activity, IWEngineInitListener iWEngineInitListener) {
-        if (this.f2977a != null) {
-            this.f2977a.a(activity, iWEngineInitListener);
+        if (this.f2975a != null) {
+            this.f2975a.a(activity, iWEngineInitListener);
         }
     }
 
     public void routePlanWithParams(WalkNaviLaunchParam walkNaviLaunchParam, IWRoutePlanListener iWRoutePlanListener) {
-        if (this.f2977a != null) {
-            if (!this.f2977a.a()) {
+        if (this.f2975a != null) {
+            if (!this.f2975a.a()) {
                 throw new com.baidu.mapapi.walknavi.controllers.a("naviengine init failed, please init naviengine first");
             }
             if (walkNaviLaunchParam == null || walkNaviLaunchParam.getStartPt() == null || walkNaviLaunchParam.getEndPt() == null) {
@@ -84,26 +84,26 @@ public class WalkNavigateHelper {
                 create.a((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6(), IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER);
                 create.d(0);
                 create.a(new int[]{(int) ll2mc2.getLongitudeE6()}, new int[]{(int) ll2mc2.getLatitudeE6()}, new int[]{IMPushPb.PushImClient.SDK_VERSION_FIELD_NUMBER});
-                this.f2977a.a(create, iWRoutePlanListener);
+                this.f2975a.a(create, iWRoutePlanListener);
             }
         }
     }
 
     public View onCreate(Activity activity) {
-        if (this.f2977a != null) {
+        if (this.f2975a != null) {
             this.c = activity;
-            return this.f2977a.a(activity);
+            return this.f2975a.a(activity);
         }
         return null;
     }
 
     public boolean startWalkNavi(Activity activity) {
         if (b.a().a(activity, (Bundle) null)) {
-            if (!this.f2978b) {
+            if (!this.f2976b) {
                 if (!b.a().p()) {
                     return false;
                 }
-                this.f2978b = true;
+                this.f2976b = true;
             }
             return true;
         }
@@ -111,13 +111,13 @@ public class WalkNavigateHelper {
     }
 
     public void switchWalkNaviMode(Activity activity, int i, WalkNaviModeSwitchListener walkNaviModeSwitchListener) {
-        if (this.f2977a != null) {
-            this.f2977a.a(activity, i, walkNaviModeSwitchListener);
+        if (this.f2975a != null) {
+            this.f2975a.a(activity, i, walkNaviModeSwitchListener);
         }
     }
 
     public void startCameraAndSetMapView(Activity activity) {
-        this.f2977a.b(activity);
+        this.f2975a.b(activity);
     }
 
     private boolean checkDistanceClose(WalkNaviLaunchParam walkNaviLaunchParam) {
@@ -134,7 +134,7 @@ public class WalkNavigateHelper {
 
     public void setRouteGuidanceListener(Activity activity, IWRouteGuidanceListener iWRouteGuidanceListener) {
         if (iWRouteGuidanceListener != null) {
-            this.f2977a.a(activity, iWRouteGuidanceListener);
+            this.f2975a.a(activity, iWRouteGuidanceListener);
         }
     }
 
@@ -143,66 +143,66 @@ public class WalkNavigateHelper {
     }
 
     public void setTTsPlayer(IWTTSPlayer iWTTSPlayer) {
-        if (this.f2977a != null) {
-            this.f2977a.a(iWTTSPlayer);
+        if (this.f2975a != null) {
+            this.f2975a.a(iWTTSPlayer);
         }
     }
 
     public void triggerLocation(WLocData wLocData) {
-        if (this.f2977a != null) {
-            this.f2977a.a(wLocData);
+        if (this.f2975a != null) {
+            this.f2975a.a(wLocData);
         }
     }
 
     public void setWalkNaviDisplayOption(WalkNaviDisplayOption walkNaviDisplayOption) {
-        if (this.f2977a != null) {
-            this.f2977a.a(walkNaviDisplayOption);
+        if (this.f2975a != null) {
+            this.f2975a.a(walkNaviDisplayOption);
         }
     }
 
     public void setWalkNpcModelInfoList(ArrayList<BaseNpcModel> arrayList) {
-        if (this.f2977a != null) {
-            this.f2977a.a(arrayList);
+        if (this.f2975a != null) {
+            this.f2975a.a(arrayList);
         }
     }
 
     public ArrayList<BaseNpcModel> getWalkNpcModelInfoList() {
-        if (this.f2977a != null) {
-            return this.f2977a.b();
+        if (this.f2975a != null) {
+            return this.f2975a.b();
         }
         return null;
     }
 
     public void switchNPCModel(BaseNpcModel baseNpcModel) {
-        if (this.f2977a != null) {
-            this.f2977a.a(baseNpcModel);
+        if (this.f2975a != null) {
+            this.f2975a.a(baseNpcModel);
         }
     }
 
     public void addMoreNPCModelOnClickListener(IWMoreNPCModelOnClickListener iWMoreNPCModelOnClickListener) {
-        if (this.f2977a != null) {
-            this.f2977a.a(iWMoreNPCModelOnClickListener);
+        if (this.f2975a != null) {
+            this.f2975a.a(iWMoreNPCModelOnClickListener);
         }
     }
 
     public void addNPCLoadAndInitListener(IWNPCLoadAndInitListener iWNPCLoadAndInitListener) {
-        if (this.f2977a != null) {
-            this.f2977a.a(iWNPCLoadAndInitListener);
+        if (this.f2975a != null) {
+            this.f2975a.a(iWNPCLoadAndInitListener);
         }
     }
 
     public void pause() {
         b.a().h();
-        if (this.f2977a != null) {
-            this.f2977a.c();
+        if (this.f2975a != null) {
+            this.f2975a.c();
         }
     }
 
     public void resume() {
         if (this.c != null && !this.c.isFinishing()) {
             b.a().g();
-            if (this.f2977a != null) {
-                this.f2977a.d();
+            if (this.f2975a != null) {
+                this.f2975a.d();
             }
         }
     }
@@ -214,11 +214,11 @@ public class WalkNavigateHelper {
         b.a().k();
         b.a().w();
         b.a().i();
-        if (this.f2977a != null) {
-            this.f2977a.e();
-            this.f2977a = null;
+        if (this.f2975a != null) {
+            this.f2975a.e();
+            this.f2975a = null;
         }
-        this.f2978b = false;
+        this.f2976b = false;
         this.c = null;
         if (d != null) {
             d = null;

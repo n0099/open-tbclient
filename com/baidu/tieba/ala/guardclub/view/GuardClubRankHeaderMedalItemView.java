@@ -9,11 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GuardClubRankHeaderMedalItemView extends LinearLayout {
-    private TextView beR;
-    private ImageView gZi;
-    private TextView gZj;
+    private TextView bhZ;
+    private ImageView hbS;
+    private TextView hbT;
 
     public GuardClubRankHeaderMedalItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -21,16 +21,16 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setMedalResource(int i) {
-        this.gZi.setImageResource(i);
+        this.hbS.setImageResource(i);
     }
 
     public void setStyle(int i) {
         switch (i) {
             case 17:
-                this.gZj.setTextColor(-2856249);
+                this.hbT.setTextColor(-2856249);
                 return;
             case 18:
-                this.gZj.setTextColor(-3970070);
+                this.hbT.setTextColor(-3970070);
                 return;
             default:
                 return;
@@ -38,14 +38,14 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setData(int i, String str, String str2) {
-        this.beR.setText(str);
-        this.gZj.setText(str2);
+        this.bhZ.setText(str);
+        this.hbT.setText(str2);
         switch (i) {
             case 1:
-                this.beR.setTextColor(-838860801);
+                this.bhZ.setTextColor(-838860801);
                 return;
             case 2:
-                this.beR.setTextColor(-1);
+                this.bhZ.setTextColor(-1);
                 return;
             default:
                 return;
@@ -57,8 +57,8 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
         setGravity(1);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.live_guard_club_widget_rank_header_medal_item, (ViewGroup) this, true);
-        this.gZi = (ImageView) findViewById(a.f.iv_medal);
-        this.beR = (TextView) findViewById(a.f.tv_name);
-        this.gZj = (TextView) findViewById(a.f.tv_value);
+        this.hbS = (ImageView) findViewById(a.f.iv_medal);
+        this.bhZ = (TextView) findViewById(a.f.tv_name);
+        this.hbT = (TextView) findViewById(a.f.tv_value);
     }
 }

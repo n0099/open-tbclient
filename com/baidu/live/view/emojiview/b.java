@@ -1,10 +1,12 @@
 package com.baidu.live.view.emojiview;
 
 import android.content.Context;
-import android.util.Log;
+import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import java.io.BufferedReader;
 import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,92 +14,135 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class b {
-    public static final String[] bRe = new String[20];
-    public static final String[] bRf = new String[20];
-    public static final String[] bRg = new String[20];
-    public static final String[] bRh = new String[20];
-    public static final String[] bRi = new String[20];
-    public static final String[] bRj = new String[20];
-    public static final String[] bRk = new String[20];
-    public static final String[] bRl = new String[20];
-    public static final String[] bRm = new String[20];
-    public static final String[] bRn = new String[20];
+    public static List<String> bUT = new ArrayList();
     private static final HashMap<String, Integer> mMap = new HashMap<>();
-    private static final HashMap<String, String> bRo = new HashMap<>();
+    private static final HashMap<String, String> bUU = new HashMap<>();
+    private static final HashMap<String, String> bUV = new HashMap<>();
 
     public static String O(Context context, String str) {
-        return bRo.get(str);
+        return bUV.get(str);
     }
 
-    public static void bt(Context context) {
-        if (mMap != null && mMap.size() == 0) {
-            bu(context);
+    public static void bw(Context context) {
+        if (bUU != null && bUU.size() == 0) {
+            bx(context);
         }
     }
 
-    public static HashMap<String, Integer> Wg() {
+    public static HashMap<String, Integer> XP() {
         return mMap;
     }
 
-    private static void bu(Context context) {
-        List<com.baidu.live.view.emojiview.a.a> bv = bv(context);
-        for (int i = 0; i < bv.size(); i++) {
-            com.baidu.live.view.emojiview.a.a aVar = bv.get(i);
-            mMap.put(aVar.text, Integer.valueOf(P(context, aVar.icon.split("\\.")[0])));
-            bRo.put(aVar.text, aVar.id);
-            if (i < 20) {
-                bRe[i] = aVar.text;
-            } else if (i >= 20 && i < 40) {
-                bRf[i - 20] = aVar.text;
-            } else if (i >= 40 && i < 60) {
-                bRg[i - 40] = aVar.text;
-            } else if (i >= 60 && i < 80) {
-                bRh[i - 60] = aVar.text;
-            } else if (i >= 80 && i < 100) {
-                bRi[i - 80] = aVar.text;
-            } else if (i >= 100 && i < 120) {
-                bRj[i - 100] = aVar.text;
-            } else if (i >= 120 && i < 140) {
-                bRk[i - 120] = aVar.text;
-            } else if (i >= 140 && i < 160) {
-                bRl[i - 140] = aVar.text;
-            } else if (i >= 160 && i < 180) {
-                bRm[i - 160] = aVar.text;
-            } else if (i >= 180 && i < 200) {
-                bRn[i - 180] = aVar.text;
+    public static HashMap<String, String> XQ() {
+        return bUU;
+    }
+
+    private static void bx(Context context) {
+        List<com.baidu.live.view.emojiview.a.a> XR = XR();
+        if (XR == null || XR.size() == 0) {
+            List<com.baidu.live.view.emojiview.a.a> by = by(context);
+            bUT.clear();
+            for (int i = 0; i < by.size(); i++) {
+                com.baidu.live.view.emojiview.a.a aVar = by.get(i);
+                mMap.put(aVar.text, Integer.valueOf(P(context, aVar.icon.split("\\.")[0])));
+                bUV.put(aVar.text, aVar.id);
+                bUT.add(aVar.text);
             }
+            return;
+        }
+        bUT.clear();
+        mMap.clear();
+        for (int i2 = 0; i2 < XR.size(); i2++) {
+            com.baidu.live.view.emojiview.a.a aVar2 = XR.get(i2);
+            bUV.put(aVar2.text, aVar2.id);
+            bUU.put(aVar2.text, aVar2.localPath);
+            bUT.add(aVar2.text);
         }
     }
 
-    private static int P(Context context, String str) {
-        return d.hS(str);
+    private static List<com.baidu.live.view.emojiview.a.a> XR() {
+        String str;
+        String in = in(com.baidu.live.storage.b.hG(com.baidu.live.ae.a.Qj().buX.aNt.aRi.CJ().Cv()));
+        if (com.baidu.live.h.a.isDirectory(in)) {
+            String str2 = in + "/info.json";
+            if (com.baidu.live.h.a.existFile(str2)) {
+                try {
+                    FileInputStream fileInputStream = new FileInputStream(new File(str2));
+                    byte[] bArr = new byte[fileInputStream.available()];
+                    fileInputStream.read(bArr);
+                    str = new String(bArr);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    str = "";
+                }
+                List<com.baidu.live.view.emojiview.a.a> io2 = io(str);
+                for (com.baidu.live.view.emojiview.a.a aVar : io2) {
+                    aVar.localPath = in + "/" + aVar.icon;
+                }
+                return io2;
+            }
+            return null;
+        }
+        return null;
     }
 
-    public static List<com.baidu.live.view.emojiview.a.a> bv(Context context) {
-        String Q = Q(context, "audio_emotion_info.json");
-        Log.e("hyder", Q);
+    public static String in(String str) {
+        if (com.baidu.live.h.a.existFile(str)) {
+            if (!com.baidu.live.h.a.isDirectory(str)) {
+                FileHelper.deleteFileOrDir(new File(str));
+                return null;
+            }
+            File[] listFiles = new File(str).listFiles();
+            if (listFiles == null || listFiles.length == 0) {
+                return null;
+            }
+            if (listFiles.length == 1 && listFiles[0] != null && listFiles[0].isDirectory()) {
+                return in(listFiles[0].getAbsolutePath());
+            }
+            return str;
+        }
+        return null;
+    }
+
+    private static int P(Context context, String str) {
+        return d.iq(str);
+    }
+
+    public static List<com.baidu.live.view.emojiview.a.a> by(Context context) {
+        List<com.baidu.live.view.emojiview.a.a> io2 = io(Q(context, "audio_emotion_info.json"));
+        if (io2 != null) {
+            return io2;
+        }
+        return null;
+    }
+
+    private static List<com.baidu.live.view.emojiview.a.a> io(String str) {
+        int i = 0;
         try {
-            JSONArray optJSONArray = new JSONObject(Q).optJSONArray("packages").getJSONObject(0).optJSONArray("emoticons");
+            JSONArray optJSONArray = new JSONObject(str).optJSONArray("packages").getJSONObject(0).optJSONArray("emoticons");
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject = (JSONObject) optJSONArray.get(i);
+            while (true) {
+                int i2 = i;
+                if (i2 >= optJSONArray.length()) {
+                    return arrayList;
+                }
+                JSONObject jSONObject = (JSONObject) optJSONArray.get(i2);
                 com.baidu.live.view.emojiview.a.a aVar = new com.baidu.live.view.emojiview.a.a();
                 aVar.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
                 aVar.id = jSONObject.optString("id");
                 aVar.text = jSONObject.optString("text");
                 arrayList.add(aVar);
+                i = i2 + 1;
             }
-            Log.e("hyder", ((com.baidu.live.view.emojiview.a.a) arrayList.get(0)).icon);
-            return arrayList;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [153=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [208=4] */
     public static String Q(Context context, String str) {
         Closeable closeable;
         InputStreamReader inputStreamReader;

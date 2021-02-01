@@ -2,7 +2,7 @@ package com.baidu.sapi2.result;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class GetTplStokenResult extends SapiResult {
     public static final int ERROR_CODE_BDUSS_NOT_EXIST = -301;
     public static final int ERROR_CODE_GET_STOKEN_FAILURE = 8;
@@ -14,7 +14,7 @@ public class GetTplStokenResult extends SapiResult {
     public Map<String, String> tplStokenMap = new HashMap();
     public FailureType failureType = FailureType.UNKNOWN;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum FailureType {
         PTOKEN_EMPTY,
         BDUSS_PTOKEN_NOT_MATCH,

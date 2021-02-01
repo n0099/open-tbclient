@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class c<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final LinkedHashMap<K, V> f12767a;
+    private final LinkedHashMap<K, V> f12769a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f12768b;
+    private int f12770b;
     private int c;
     private b<K, Long> d;
 
@@ -20,7 +20,7 @@ public class c<K, V> {
             throw new IllegalArgumentException("maxSize <= 0");
         }
         this.c = i;
-        this.f12767a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f12769a = new LinkedHashMap<>(0, 0.75f, true);
         this.d = new b<>(0, 0.75f);
     }
 
@@ -60,15 +60,15 @@ public class c<K, V> {
     private void a(int i) {
         while (true) {
             synchronized (this) {
-                if (this.f12768b <= i || this.f12767a.isEmpty()) {
+                if (this.f12770b <= i || this.f12769a.isEmpty()) {
                     break;
                 }
-                Map.Entry<K, V> next = this.f12767a.entrySet().iterator().next();
+                Map.Entry<K, V> next = this.f12769a.entrySet().iterator().next();
                 K key = next.getKey();
                 V value = next.getValue();
-                this.f12767a.remove(key);
+                this.f12769a.remove(key);
                 this.d.remove(key);
-                this.f12768b -= b(key, value);
+                this.f12770b -= b(key, value);
             }
         }
     }
@@ -86,9 +86,9 @@ public class c<K, V> {
     private int b(K k, V v) {
         int a2 = a((c<K, V>) k, (K) v);
         if (a2 <= 0) {
-            this.f12768b = 0;
-            for (Map.Entry<K, V> entry : this.f12767a.entrySet()) {
-                this.f12768b = a((c<K, V>) entry.getKey(), (K) entry.getValue()) + this.f12768b;
+            this.f12770b = 0;
+            for (Map.Entry<K, V> entry : this.f12769a.entrySet()) {
+                this.f12770b = a((c<K, V>) entry.getKey(), (K) entry.getValue()) + this.f12770b;
             }
         }
         return a2;
@@ -114,10 +114,10 @@ public class c<K, V> {
             throw new NullPointerException("key == null");
         }
         synchronized (this) {
-            remove = this.f12767a.remove(k);
+            remove = this.f12769a.remove(k);
             this.d.remove(k);
             if (remove != null) {
-                this.f12768b -= b(k, remove);
+                this.f12770b -= b(k, remove);
             }
         }
         return remove;
@@ -146,7 +146,7 @@ public class c<K, V> {
                 b((c<K, V>) k);
                 return null;
             }
-            V v = this.f12767a.get(k);
+            V v = this.f12769a.get(k);
             if (v != null) {
                 return v;
             }
@@ -160,11 +160,11 @@ public class c<K, V> {
             throw new NullPointerException("key == null || value == null");
         }
         synchronized (this) {
-            this.f12768b += b(k, v);
-            put = this.f12767a.put(k, v);
+            this.f12770b += b(k, v);
+            put = this.f12769a.put(k, v);
             this.d.put(k, Long.valueOf(j));
             if (put != null) {
-                this.f12768b -= b(k, put);
+                this.f12770b -= b(k, put);
             }
         }
         a(this.c);

@@ -10,9 +10,9 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class YuyinStokeTextView extends TextView {
-    private TextView bYB;
+    private TextView ccF;
 
     public YuyinStokeTextView(Context context) {
         this(context, null);
@@ -24,46 +24,46 @@ public class YuyinStokeTextView extends TextView {
 
     public YuyinStokeTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bYB = null;
-        this.bYB = new TextView(context, attributeSet, i);
+        this.ccF = null;
+        this.ccF = new TextView(context, attributeSet, i);
     }
 
     @Override // android.view.View
     public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        this.bYB.setLayoutParams(layoutParams);
+        this.ccF.setLayoutParams(layoutParams);
         super.setLayoutParams(layoutParams);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
-        CharSequence text = this.bYB.getText();
+        CharSequence text = this.ccF.getText();
         if (text == null || !text.equals(getText())) {
-            this.bYB.setText(getText());
+            this.ccF.setText(getText());
             postInvalidate();
         }
-        this.bYB.measure(i, i2);
+        this.ccF.measure(i, i2);
         super.onMeasure(i, i2);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.bYB.layout(i, i2, i3, i4);
+        this.ccF.layout(i, i2, i3, i4);
         super.onLayout(z, i, i2, i3, i4);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         init();
-        this.bYB.draw(canvas);
+        this.ccF.draw(canvas);
         super.onDraw(canvas);
     }
 
     public void init() {
-        TextPaint paint = this.bYB.getPaint();
+        TextPaint paint = this.ccF.getPaint();
         paint.setStrokeWidth(BdUtilHelper.dip2px(getContext(), 2.0f));
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.bYB.setTextColor(Color.parseColor("#FFEAAA"));
-        this.bYB.setGravity(getGravity());
-        this.bYB.setTypeface(Typeface.defaultFromStyle(1));
+        this.ccF.setTextColor(Color.parseColor("#FFEAAA"));
+        this.ccF.setGravity(getGravity());
+        this.ccF.setTypeface(Typeface.defaultFromStyle(1));
     }
 }

@@ -11,42 +11,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b eDY;
+    private static b eGf;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> biv = biv();
+        HashMap<String, a> biH = biH();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(biv);
+        this.mSwitchs.putAll(biH);
     }
 
-    public static b bit() {
-        if (eDY == null) {
+    public static b biF() {
+        if (eGf == null) {
             synchronized (b.class) {
-                if (eDY == null) {
-                    eDY = new b();
+                if (eGf == null) {
+                    eGf = new b();
                 }
             }
         }
-        return eDY;
+        return eGf;
     }
 
-    private static String biu() {
+    private static String biG() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(biu(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(biG(), 0);
     }
 
-    public synchronized a yW(String str) {
+    public synchronized a zo(String str) {
         return this.mSwitchs.get(str);
     }
 
-    private String dG(String str, String str2) {
-        a yW = yW(str);
-        if (yW != null && !TextUtils.isEmpty(yW.eDW)) {
-            return yW.eDW;
+    private String dA(String str, String str2) {
+        a zo = zo(str);
+        if (zo != null && !TextUtils.isEmpty(zo.eGd)) {
+            return zo.eGd;
         }
         return str2;
     }
@@ -68,7 +68,7 @@ public class b {
         }
     }
 
-    public void N(JSONArray jSONArray) {
+    public void M(JSONArray jSONArray) {
         try {
             if (jSONArray == null) {
                 clearAll();
@@ -87,13 +87,13 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            com.baidu.tbadk.core.sharedPref.b.brx().putInt("perf_start_open", yX("performance_start_small_flow") ? 1 : 0);
+            com.baidu.tbadk.core.sharedPref.b.brQ().putInt("perf_start_open", zp("performance_start_small_flow") ? 1 : 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private HashMap<String, a> biv() {
+    private HashMap<String, a> biH() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -110,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean yX(String str) {
-        return "a".equalsIgnoreCase(bit().dG(str, ""));
+    public static boolean zp(String str) {
+        return "a".equalsIgnoreCase(biF().dA(str, ""));
     }
 }

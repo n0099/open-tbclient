@@ -7,9 +7,9 @@ import com.bytedance.sdk.a.b.n;
 import com.bytedance.sdk.a.b.v;
 import java.net.Socket;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
-    public static a pdN;
+    public static a poa;
 
     public abstract int a(b.a aVar);
 

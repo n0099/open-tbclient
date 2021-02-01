@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class r extends ch {
     private final Context e;
 

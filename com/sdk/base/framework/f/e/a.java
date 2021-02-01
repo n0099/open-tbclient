@@ -9,14 +9,14 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.h.c;
 import com.sdk.base.module.manager.SDKManager;
 import java.net.HttpURLConnection;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12839a = a.class.getName();
+    private static final String f12841a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Boolean f12840b = Boolean.valueOf(f.f12819b);
+    private static final Boolean f12842b = Boolean.valueOf(f.f12821b);
 
     static {
         c.c.a();
@@ -97,7 +97,7 @@ public class a {
                 }
                 return null;
             } catch (Throwable th) {
-                com.sdk.base.framework.a.a.c.b(f12839a, th.getMessage(), f12840b);
+                com.sdk.base.framework.a.a.c.b(f12841a, th.getMessage(), f12842b);
                 return null;
             }
         }

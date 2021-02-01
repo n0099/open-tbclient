@@ -6,21 +6,21 @@ import android.util.Base64;
 import android.util.Log;
 import com.bytedance.embedapplog.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class bm implements bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5805a = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
-    private static final aw<Boolean> pcs = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bm.1
+    private static final String f5807a = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
+    private static final aw<Boolean> pmH = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bm.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
         /* renamed from: N */
         public Boolean M(Object... objArr) {
-            return Boolean.valueOf("1".equals(bm.b(bm.f5805a, "0")));
+            return Boolean.valueOf("1".equals(bm.b(bm.f5807a, "0")));
         }
     };
-    private com.bytedance.a.b pcG;
+    private com.bytedance.a.b pmT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(Context context) {
@@ -29,8 +29,8 @@ public final class bm implements bi {
         } catch (Throwable th) {
         }
         try {
-            this.pcG = new com.bytedance.a.b();
-            this.pcG.hL(context);
+            this.pmT = new com.bytedance.a.b();
+            this.pmT.hO(context);
         } catch (Throwable th2) {
             bb.b("OaidVivo", Log.getStackTraceString(th2));
         }
@@ -38,7 +38,7 @@ public final class bm implements bi {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a() {
-        return pcs.b(new Object[0]).booleanValue();
+        return pmH.b(new Object[0]).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -47,11 +47,11 @@ public final class bm implements bi {
     }
 
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hP(Context context) {
-        if (this.pcG == null) {
+    public bi.a hS(Context context) {
+        if (this.pmT == null) {
             return null;
         }
-        return this.pcG.hN(context);
+        return this.pmT.hQ(context);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

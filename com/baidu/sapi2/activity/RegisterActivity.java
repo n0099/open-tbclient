@@ -11,7 +11,7 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class RegisterActivity extends BaseActivity {
     private WebAuthResult p = new WebAuthResult() { // from class: com.baidu.sapi2.activity.RegisterActivity.1
         @Override // com.baidu.sapi2.shell.result.WebAuthResult

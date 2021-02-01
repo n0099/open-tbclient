@@ -3,20 +3,20 @@ package a.a.a.b.b;
 import android.os.Handler;
 import com.baidu.cloudbase.download.exception.DownloadException;
 import java.util.concurrent.Executor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class h implements com.baidu.cloudbase.download.a.c {
 
     /* renamed from: a  reason: collision with root package name */
     public Executor f1041a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private static class a implements Runnable {
         public final com.baidu.cloudbase.download.a.b zt;
         public final com.baidu.cloudbase.download.a.a zu;
 
         public a(com.baidu.cloudbase.download.a.b bVar) {
             this.zt = bVar;
-            this.zu = this.zt.ub();
+            this.zu = this.zt.tY();
         }
 
         @Override // java.lang.Runnable
@@ -60,7 +60,7 @@ public class h implements com.baidu.cloudbase.download.a.c {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements Executor {
 
         /* renamed from: a  reason: collision with root package name */

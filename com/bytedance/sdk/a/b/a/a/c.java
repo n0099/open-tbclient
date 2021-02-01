@@ -8,14 +8,14 @@ import com.bytedance.sdk.a.b.v;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import okhttp3.internal.http.StatusLine;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class c {
-    public final ab pdS;
-    public final com.bytedance.sdk.a.b.b pdT;
+    public final ab pof;
+    public final com.bytedance.sdk.a.b.b pog;
 
     c(ab abVar, com.bytedance.sdk.a.b.b bVar) {
-        this.pdS = abVar;
-        this.pdT = bVar;
+        this.pof = abVar;
+        this.pog = bVar;
     }
 
     public static boolean a(com.bytedance.sdk.a.b.b bVar, ab abVar) {
@@ -36,19 +36,19 @@ public final class c {
                 return false;
             case 302:
             case 307:
-                if (bVar.a(Headers.EXPIRES) == null && bVar.enp().c() == -1 && !bVar.enp().e() && !bVar.enp().d()) {
+                if (bVar.a(Headers.EXPIRES) == null && bVar.epI().c() == -1 && !bVar.epI().e() && !bVar.epI().d()) {
                     return false;
                 }
                 break;
         }
-        return (bVar.enp().b() || abVar.eoe().b()) ? false : true;
+        return (bVar.epI().b() || abVar.eqx().b()) ? false : true;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final long f5855a;
+        final long f5857a;
         private Date d;
         private String e;
         private String g;
@@ -56,31 +56,31 @@ public final class c {
         private long j;
         private String k;
         private int l;
-        final ab pdU;
-        final com.bytedance.sdk.a.b.b pdV;
-        private Date pdW;
-        private Date pdX;
+        final ab poh;
+        final com.bytedance.sdk.a.b.b poj;
+        private Date pok;
+        private Date pol;
 
         public a(long j, ab abVar, com.bytedance.sdk.a.b.b bVar) {
             this.l = -1;
-            this.f5855a = j;
-            this.pdU = abVar;
-            this.pdV = bVar;
+            this.f5857a = j;
+            this.poh = abVar;
+            this.poj = bVar;
             if (bVar != null) {
                 this.i = bVar.k();
                 this.j = bVar.l();
-                v enl = bVar.enl();
-                int a2 = enl.a();
+                v epE = bVar.epE();
+                int a2 = epE.a();
                 for (int i = 0; i < a2; i++) {
-                    String a3 = enl.a(i);
-                    String b2 = enl.b(i);
+                    String a3 = epE.a(i);
+                    String b2 = epE.b(i);
                     if ("Date".equalsIgnoreCase(a3)) {
                         this.d = com.bytedance.sdk.a.b.a.c.d.a(b2);
                         this.e = b2;
                     } else if (Headers.EXPIRES.equalsIgnoreCase(a3)) {
-                        this.pdX = com.bytedance.sdk.a.b.a.c.d.a(b2);
+                        this.pol = com.bytedance.sdk.a.b.a.c.d.a(b2);
                     } else if (Headers.LAST_MODIFIED.equalsIgnoreCase(a3)) {
-                        this.pdW = com.bytedance.sdk.a.b.a.c.d.a(b2);
+                        this.pok = com.bytedance.sdk.a.b.a.c.d.a(b2);
                         this.g = b2;
                     } else if (Headers.ETAG.equalsIgnoreCase(a3)) {
                         this.k = b2;
@@ -91,86 +91,86 @@ public final class c {
             }
         }
 
-        public c emz() {
-            c emA = emA();
-            if (emA.pdS != null && this.pdU.eoe().i()) {
+        public c eoT() {
+            c eoU = eoU();
+            if (eoU.pof != null && this.poh.eqx().i()) {
                 return new c(null, null);
             }
-            return emA;
+            return eoU;
         }
 
-        private c emA() {
+        private c eoU() {
             String str;
             String str2;
             long j = 0;
-            if (this.pdV == null) {
-                return new c(this.pdU, null);
+            if (this.poj == null) {
+                return new c(this.poh, null);
             }
-            if (this.pdU.g() && this.pdV.enk() == null) {
-                return new c(this.pdU, null);
+            if (this.poh.g() && this.poj.epD() == null) {
+                return new c(this.poh, null);
             }
-            if (!c.a(this.pdV, this.pdU)) {
-                return new c(this.pdU, null);
+            if (!c.a(this.poj, this.poh)) {
+                return new c(this.poh, null);
             }
-            g eoe = this.pdU.eoe();
-            if (eoe.a() || a(this.pdU)) {
-                return new c(this.pdU, null);
+            g eqx = this.poh.eqx();
+            if (eqx.a() || a(this.poh)) {
+                return new c(this.poh, null);
             }
-            g enp = this.pdV.enp();
-            if (enp.j()) {
-                return new c(null, this.pdV);
+            g epI = this.poj.epI();
+            if (epI.j()) {
+                return new c(null, this.poj);
             }
             long d = d();
             long c = c();
-            if (eoe.c() != -1) {
-                c = Math.min(c, TimeUnit.SECONDS.toMillis(eoe.c()));
+            if (eqx.c() != -1) {
+                c = Math.min(c, TimeUnit.SECONDS.toMillis(eqx.c()));
             }
-            long millis = eoe.h() != -1 ? TimeUnit.SECONDS.toMillis(eoe.h()) : 0L;
-            if (!enp.f() && eoe.g() != -1) {
-                j = TimeUnit.SECONDS.toMillis(eoe.g());
+            long millis = eqx.h() != -1 ? TimeUnit.SECONDS.toMillis(eqx.h()) : 0L;
+            if (!epI.f() && eqx.g() != -1) {
+                j = TimeUnit.SECONDS.toMillis(eqx.g());
             }
-            if (!enp.a() && d + millis < j + c) {
-                b.a enn = this.pdV.enn();
+            if (!epI.a() && d + millis < j + c) {
+                b.a epG = this.poj.epG();
                 if (millis + d >= c) {
-                    enn.hb("Warning", "110 HttpURLConnection \"Response is stale\"");
+                    epG.hi("Warning", "110 HttpURLConnection \"Response is stale\"");
                 }
                 if (d > 86400000 && e()) {
-                    enn.hb("Warning", "113 HttpURLConnection \"Heuristic expiration\"");
+                    epG.hi("Warning", "113 HttpURLConnection \"Heuristic expiration\"");
                 }
-                return new c(null, enn.enq());
+                return new c(null, epG.epJ());
             }
             if (this.k != null) {
                 str = "If-None-Match";
                 str2 = this.k;
-            } else if (this.pdW != null) {
+            } else if (this.pok != null) {
                 str = "If-Modified-Since";
                 str2 = this.g;
             } else if (this.d != null) {
                 str = "If-Modified-Since";
                 str2 = this.e;
             } else {
-                return new c(this.pdU, null);
+                return new c(this.poh, null);
             }
-            v.a enB = this.pdU.emV().enB();
-            com.bytedance.sdk.a.b.a.a.pdN.a(enB, str, str2);
-            return new c(this.pdU.eod().e(enB.enC()).eoj(), this.pdV);
+            v.a epU = this.poh.epp().epU();
+            com.bytedance.sdk.a.b.a.a.poa.a(epU, str, str2);
+            return new c(this.poh.eqw().e(epU.epV()).eqB(), this.poj);
         }
 
         private long c() {
-            g enp;
-            if (this.pdV.enp().c() != -1) {
-                return TimeUnit.SECONDS.toMillis(enp.c());
+            g epI;
+            if (this.poj.epI().c() != -1) {
+                return TimeUnit.SECONDS.toMillis(epI.c());
             }
-            if (this.pdX != null) {
-                long time = this.pdX.getTime() - (this.d != null ? this.d.getTime() : this.j);
+            if (this.pol != null) {
+                long time = this.pol.getTime() - (this.d != null ? this.d.getTime() : this.j);
                 if (time <= 0) {
                     time = 0;
                 }
                 return time;
-            } else if (this.pdW == null || this.pdV.emS().emp().k() != null) {
+            } else if (this.pok == null || this.poj.epm().eoJ().k() != null) {
                 return 0L;
             } else {
-                long time2 = (this.d != null ? this.d.getTime() : this.i) - this.pdW.getTime();
+                long time2 = (this.d != null ? this.d.getTime() : this.i) - this.pok.getTime();
                 if (time2 > 0) {
                     return time2 / 10;
                 }
@@ -183,11 +183,11 @@ public final class c {
             if (this.l != -1) {
                 max = Math.max(max, TimeUnit.SECONDS.toMillis(this.l));
             }
-            return max + (this.j - this.i) + (this.f5855a - this.j);
+            return max + (this.j - this.i) + (this.f5857a - this.j);
         }
 
         private boolean e() {
-            return this.pdV.enp().c() == -1 && this.pdX == null;
+            return this.poj.epI().c() == -1 && this.pol == null;
         }
 
         private static boolean a(ab abVar) {

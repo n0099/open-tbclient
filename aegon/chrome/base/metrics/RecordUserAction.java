@@ -1,8 +1,8 @@
 package aegon.chrome.base.metrics;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RecordUserAction {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface UserActionCallback {
         void onActionRecorded(String str);
     }

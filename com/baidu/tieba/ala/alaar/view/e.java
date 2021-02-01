@@ -6,61 +6,61 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
-    private TextView fgZ;
-    private TbImageView gsZ;
-    public ImageView gtL;
-    private TextView gtN;
-    public ImageView gtO;
-    private FrameLayout guc;
+    private TextView fjs;
+    private TbImageView gvJ;
+    private FrameLayout gwM;
+    public ImageView gwv;
+    private TextView gwx;
+    public ImageView gwy;
     public View mRootView;
 
     public e(View view) {
         this.mRootView = view;
-        this.gsZ = (TbImageView) this.mRootView.findViewById(a.f.face_img);
-        this.gsZ.setDefaultBgResource(a.e.filter_beauty_item_bg);
-        this.gsZ.setIsRound(true);
-        this.gsZ.setAutoChangeStyle(false);
-        this.gsZ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.gsZ.setDrawBorder(false);
-        this.gtL = (ImageView) this.mRootView.findViewById(a.f.face_bg);
-        this.fgZ = (TextView) this.mRootView.findViewById(a.f.face_text);
-        this.gtN = (TextView) this.mRootView.findViewById(a.f.line);
-        this.guc = (FrameLayout) this.mRootView.findViewById(a.f.fl_head);
-        this.gtO = (ImageView) this.mRootView.findViewById(a.f.face_redot);
-        this.gtO.setVisibility(8);
+        this.gvJ = (TbImageView) this.mRootView.findViewById(a.f.face_img);
+        this.gvJ.setDefaultBgResource(a.e.filter_beauty_item_bg);
+        this.gvJ.setIsRound(true);
+        this.gvJ.setAutoChangeStyle(false);
+        this.gvJ.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gvJ.setDrawBorder(false);
+        this.gwv = (ImageView) this.mRootView.findViewById(a.f.face_bg);
+        this.fjs = (TextView) this.mRootView.findViewById(a.f.face_text);
+        this.gwx = (TextView) this.mRootView.findViewById(a.f.line);
+        this.gwM = (FrameLayout) this.mRootView.findViewById(a.f.fl_head);
+        this.gwy = (ImageView) this.mRootView.findViewById(a.f.face_redot);
+        this.gwy.setVisibility(8);
     }
 
     public void a(com.baidu.live.ar.h hVar) {
         if (hVar != null) {
-            this.fgZ.setText(hVar.getName());
-            Fw(hVar.yP());
-            if (com.baidu.live.d.xf().getInt("beauty_subitem_redot", 0) == 1) {
-                setRedotVisible(com.baidu.live.d.xf().getBoolean(hVar.getType(), true));
+            this.fjs.setText(hVar.getName());
+            FU(hVar.zw());
+            if (com.baidu.live.d.xc().getInt("beauty_subitem_redot", 0) == 1) {
+                setRedotVisible(com.baidu.live.d.xc().getBoolean(hVar.getType(), true));
             }
         }
     }
 
-    public void Fw(String str) {
-        this.gsZ.startLoad(str, 10, false);
+    public void FU(String str) {
+        this.gvJ.startLoad(str, 10, false);
     }
 
-    public void bQc() {
-        this.fgZ.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_cont_i));
-        this.gtL.setVisibility(4);
+    public void bQG() {
+        this.fjs.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_cont_i));
+        this.gwv.setVisibility(4);
     }
 
-    public void bQd() {
-        this.fgZ.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_other_b));
-        this.gtL.setVisibility(0);
+    public void bQH() {
+        this.fjs.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_other_b));
+        this.gwv.setVisibility(0);
     }
 
     public void setRedotVisible(boolean z) {
         if (z) {
-            this.gtO.setVisibility(0);
+            this.gwy.setVisibility(0);
         } else {
-            this.gtO.setVisibility(8);
+            this.gwy.setVisibility(8);
         }
     }
 }

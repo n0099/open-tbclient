@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     private Scroller mGravityScroller;
     RecyclerView mRecyclerView;

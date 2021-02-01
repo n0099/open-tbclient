@@ -8,13 +8,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AlbumCompressProgressView extends View {
-    private int bGk;
-    private int eSN;
-    private Paint eSO;
-    private Paint eSP;
-    private RectF eSQ;
+    private int bJU;
+    private int eVc;
+    private Paint eVd;
+    private Paint eVe;
+    private RectF eVf;
     private int mValue;
     private int mWidth;
 
@@ -45,24 +45,24 @@ public class AlbumCompressProgressView extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.ds100);
-        this.bGk = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.eSN = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.eSO = new Paint();
-        this.eSO.setStrokeWidth(this.bGk);
-        this.eSO.setColor(getResources().getColor(R.color.CAM_X0201));
-        this.eSO.setStyle(Paint.Style.STROKE);
-        this.eSO.setAntiAlias(true);
-        this.eSP = new Paint();
-        this.eSP.setStrokeWidth(this.eSN);
-        this.eSP.setColor(getResources().getColor(R.color.CAM_X0101));
-        this.eSP.setStyle(Paint.Style.STROKE);
-        this.eSP.setAntiAlias(true);
-        this.eSQ = new RectF(this.bGk, this.bGk, this.mWidth + this.bGk, this.mWidth + this.bGk);
+        this.bJU = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.eVc = getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.eVd = new Paint();
+        this.eVd.setStrokeWidth(this.bJU);
+        this.eVd.setColor(getResources().getColor(R.color.CAM_X0201));
+        this.eVd.setStyle(Paint.Style.STROKE);
+        this.eVd.setAntiAlias(true);
+        this.eVe = new Paint();
+        this.eVe.setStrokeWidth(this.eVc);
+        this.eVe.setColor(getResources().getColor(R.color.CAM_X0101));
+        this.eVe.setStyle(Paint.Style.STROKE);
+        this.eVe.setAntiAlias(true);
+        this.eVf = new RectF(this.bJU, this.bJU, this.mWidth + this.bJU, this.mWidth + this.bJU);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.eSQ, 270.0f, 360.0f, false, this.eSP);
-        canvas.drawArc(this.eSQ, 270.0f, (this.mValue * EncoderTextureDrawer.X264_WIDTH) / 100, false, this.eSO);
+        canvas.drawArc(this.eVf, 270.0f, 360.0f, false, this.eVe);
+        canvas.drawArc(this.eVf, 270.0f, (this.mValue * EncoderTextureDrawer.X264_WIDTH) / 100, false, this.eVd);
     }
 }

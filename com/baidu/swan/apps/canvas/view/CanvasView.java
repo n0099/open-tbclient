@@ -16,17 +16,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CanvasView extends AbsCanvasView {
-    private List<a> cIs;
-    private final DrawFilter cIt;
-    private int cIu;
-    private HashMap<String, Bitmap> cIv;
-    private b cIw;
+    private List<a> cKG;
+    private final DrawFilter cKH;
+    private int cKI;
+    private HashMap<String, Bitmap> cKJ;
+    private b cKK;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
-        void ako();
+        void akM();
     }
 
     public CanvasView(Context context) {
@@ -39,35 +39,35 @@ public class CanvasView extends AbsCanvasView {
 
     public CanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cIs = new ArrayList();
-        this.cIt = new PaintFlagsDrawFilter(0, 3);
-        this.cIu = 0;
-        this.cIv = new HashMap<>();
-        this.cIu = getLayerType();
+        this.cKG = new ArrayList();
+        this.cKH = new PaintFlagsDrawFilter(0, 3);
+        this.cKI = 0;
+        this.cKJ = new HashMap<>();
+        this.cKI = getLayerType();
     }
 
     public void i(List<com.baidu.swan.apps.canvas.a.a.a> list, boolean z) {
-        if (list != null && !this.cIs.contains(list)) {
+        if (list != null && !this.cKG.contains(list)) {
             if (!z) {
-                this.cIs.clear();
+                this.cKG.clear();
             }
-            int size = this.cIs.size();
+            int size = this.cKG.size();
             boolean z2 = z && size > 0;
             a aVar = new a();
             if (z2) {
-                a aVar2 = this.cIs.get(size - 1);
-                aVar.cIy = aVar2.cIy;
-                aVar.cIi = aVar2.cIi;
-                aVar.cIi.addAll(list);
+                a aVar2 = this.cKG.get(size - 1);
+                aVar.cKM = aVar2.cKM;
+                aVar.cKy = aVar2.cKy;
+                aVar.cKy.addAll(list);
             } else {
-                aVar.cIy = new com.baidu.swan.apps.canvas.a.a.b(this);
-                aVar.cIi = list;
+                aVar.cKM = new com.baidu.swan.apps.canvas.a.a.b(this);
+                aVar.cKy = list;
             }
-            this.cIs.add(aVar);
+            this.cKG.add(aVar);
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.canvas.view.CanvasView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    CanvasView.this.akx();
+                    CanvasView.this.akV();
                 }
             });
         }
@@ -75,23 +75,23 @@ public class CanvasView extends AbsCanvasView {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return akw() || super.onTouchEvent(motionEvent);
+        return akU() || super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.cIs.size() > 0) {
+        if (this.cKG.size() > 0) {
             canvas.save();
-            canvas.setDrawFilter(this.cIt);
-            for (a aVar : this.cIs) {
-                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.cIi;
-                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.cIy;
+            canvas.setDrawFilter(this.cKH);
+            for (a aVar : this.cKG) {
+                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.cKy;
+                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.cKM;
                 bVar.init();
                 for (com.baidu.swan.apps.canvas.a.a.a aVar2 : list) {
                     aVar2.a(bVar, canvas);
                     if (aVar2 instanceof k) {
-                        ((k) aVar2).y(this.cIv);
+                        ((k) aVar2).A(this.cKJ);
                     }
                 }
             }
@@ -100,35 +100,35 @@ public class CanvasView extends AbsCanvasView {
     }
 
     public com.baidu.swan.apps.canvas.a.a.b getCanvasContext() {
-        if (this.cIs.size() > 0) {
-            return this.cIs.get(this.cIs.size() - 1).cIy;
+        if (this.cKG.size() > 0) {
+            return this.cKG.get(this.cKG.size() - 1).cKM;
         }
         return null;
     }
 
-    public Bitmap lq(String str) {
+    public Bitmap lI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.cIv.get(str);
+        return this.cKJ.get(str);
     }
 
     public synchronized void onRelease() {
-        this.cIv.clear();
+        this.cKJ.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akx() {
+    public void akV() {
         int i;
-        int i2 = this.cIu;
-        if (this.cIs.size() > 0) {
-            Iterator<a> it = this.cIs.iterator();
+        int i2 = this.cKI;
+        if (this.cKG.size() > 0) {
+            Iterator<a> it = this.cKG.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
                     break;
                 }
-                Iterator<com.baidu.swan.apps.canvas.a.a.a> it2 = it.next().cIi.iterator();
+                Iterator<com.baidu.swan.apps.canvas.a.a.a> it2 = it.next().cKy.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         i2 = i;
@@ -152,16 +152,16 @@ public class CanvasView extends AbsCanvasView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        List<com.baidu.swan.apps.canvas.a.a.a> cIi;
-        com.baidu.swan.apps.canvas.a.a.b cIy;
+        com.baidu.swan.apps.canvas.a.a.b cKM;
+        List<com.baidu.swan.apps.canvas.a.a.a> cKy;
 
         private a() {
         }
     }
 
     public void setOnDrawCompleteLinstener(b bVar) {
-        this.cIw = bVar;
+        this.cKK = bVar;
     }
 }

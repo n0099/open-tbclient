@@ -16,18 +16,18 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected JSONObject f7626a;
+    protected JSONObject f7628a;
 
     public a() {
-        this.f7626a = new JSONObject();
+        this.f7628a = new JSONObject();
     }
 
     public a(JSONObject jSONObject) {
-        this.f7626a = jSONObject;
+        this.f7628a = jSONObject;
     }
 
     public static a a(long j, Context context, @Nullable Thread thread, @NonNull Throwable th) {
@@ -55,7 +55,7 @@ public class a {
     }
 
     public JSONObject a() {
-        return this.f7626a;
+        return this.f7628a;
     }
 
     public a a(b bVar) {
@@ -63,7 +63,7 @@ public class a {
         return this;
     }
 
-    public a iv(long j) {
+    public a iy(long j) {
         try {
             a("start_time", Long.valueOf(j));
             a("app_start_time_readable", new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault()).format(new Date(j)));
@@ -73,7 +73,7 @@ public class a {
         return this;
     }
 
-    public a XR(@NonNull String str) {
+    public a YS(@NonNull String str) {
         if (!TextUtils.isEmpty(str)) {
             a("session_id", str);
         }
@@ -86,11 +86,11 @@ public class a {
         return this;
     }
 
-    public a J(Map<String, Integer> map) {
+    public a L(Map<String, Integer> map) {
         JSONArray jSONArray = new JSONArray();
         try {
             if (map == null) {
-                this.f7626a.put("plugin_info", jSONArray);
+                this.f7628a.put("plugin_info", jSONArray);
             } else {
                 for (String str : map.keySet()) {
                     JSONObject jSONObject = new JSONObject();
@@ -98,14 +98,14 @@ public class a {
                     jSONObject.put("version_code", map.get(str));
                     jSONArray.put(jSONObject);
                 }
-                this.f7626a.put("plugin_info", jSONArray);
+                this.f7628a.put("plugin_info", jSONArray);
             }
         } catch (Exception e) {
         }
         return this;
     }
 
-    public a K(Map<Integer, String> map) {
+    public a M(Map<Integer, String> map) {
         if (map != null && map.size() > 0) {
             JSONObject jSONObject = new JSONObject();
             for (Integer num : map.keySet()) {
@@ -116,7 +116,7 @@ public class a {
                 }
             }
             try {
-                this.f7626a.put("sdk_info", jSONObject);
+                this.f7628a.put("sdk_info", jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -124,17 +124,17 @@ public class a {
         return this;
     }
 
-    public a cb(int i, String str) {
+    public a ci(int i, String str) {
         try {
-            this.f7626a.put("miniapp_id", i);
-            this.f7626a.put("miniapp_version", str);
+            this.f7628a.put("miniapp_id", i);
+            this.f7628a.put("miniapp_version", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return this;
     }
 
-    public a gI(List<String> list) {
+    public a gG(List<String> list) {
         JSONArray jSONArray = new JSONArray();
         if (list == null || list.isEmpty()) {
             a("patch_info", jSONArray);
@@ -147,12 +147,12 @@ public class a {
         return this;
     }
 
-    public a eS(JSONObject jSONObject) {
+    public a eT(JSONObject jSONObject) {
         a("storage", jSONObject);
         return this;
     }
 
-    public a gJ(List<String> list) {
+    public a gH(List<String> list) {
         JSONArray jSONArray = new JSONArray();
         for (String str : list) {
             jSONArray.put(str);
@@ -161,7 +161,7 @@ public class a {
         return this;
     }
 
-    public a L(Map<? extends String, ? extends String> map) {
+    public a N(Map<? extends String, ? extends String> map) {
         if (map != null) {
             JSONObject jSONObject = new JSONObject();
             for (String str : map.keySet()) {
@@ -178,7 +178,7 @@ public class a {
 
     public void a(@NonNull String str, @Nullable Object obj) {
         try {
-            this.f7626a.put(str, obj);
+            this.f7628a.put(str, obj);
         } catch (Exception e) {
             j.b(e);
         }

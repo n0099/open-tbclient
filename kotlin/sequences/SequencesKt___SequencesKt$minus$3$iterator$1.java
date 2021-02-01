@@ -3,7 +3,7 @@ package kotlin.sequences;
 import java.util.Collection;
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class SequencesKt___SequencesKt$minus$3$iterator$1 extends Lambda implements kotlin.jvm.a.b<T, Boolean> {
     final /* synthetic */ Collection $other;
 

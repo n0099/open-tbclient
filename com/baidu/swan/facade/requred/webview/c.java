@@ -1,25 +1,25 @@
 package com.baidu.swan.facade.requred.webview;
 
 import com.baidu.swan.apps.adaptation.a.az;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c implements az {
     @Override // com.baidu.swan.apps.adaptation.a.az
-    public boolean aik() {
-        return !b.aQE().isNeedDownload();
+    public boolean aiI() {
+        return !b.aQX().isNeedDownload();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.az
-    public boolean ail() {
-        return aik() || com.baidu.swan.apps.env.b.c.cXS.ni("zeus");
+    public boolean aiJ() {
+        return aiI() || com.baidu.swan.apps.env.b.c.dac.nA("zeus");
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.az
     public void a(boolean z, com.baidu.swan.apps.core.k.c cVar) {
-        b.aQE().b(z, cVar);
+        b.aQX().b(z, cVar);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.az
-    public com.baidu.swan.pms.e.b aim() {
-        return b.aQE().aim();
+    public com.baidu.swan.pms.e.b aiK() {
+        return b.aQX().aiK();
     }
 }

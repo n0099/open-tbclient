@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.mobstat.Config;
 import java.io.BufferedReader;
@@ -15,7 +14,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ElasticConfig {
     public static final boolean DEBUG = false;
     private static final String ELASTIC_CONFIG_FILE_DIR = "elastic_config";
@@ -180,7 +179,7 @@ public final class ElasticConfig {
 
     private static boolean checkConfigDataVersion(Context context, JSONObject jSONObject) {
         int versionCode = getVersionCode(context);
-        return ((long) versionCode) >= ((long) jSONObject.optInt("min_version", 0)) && ((long) versionCode) <= ((long) jSONObject.optInt("max_version", ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED));
+        return ((long) versionCode) >= ((long) jSONObject.optInt("min_version", 0)) && ((long) versionCode) <= ((long) jSONObject.optInt("max_version", Integer.MAX_VALUE));
     }
 
     private static int getVersionCode(Context context) {

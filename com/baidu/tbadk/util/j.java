@@ -1,85 +1,96 @@
 package com.baidu.tbadk.util;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.util.DaemonServiceManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.Handler;
+import android.os.Looper;
 /* loaded from: classes.dex */
 public class j {
-    private static j fKC = new j();
-    private b fKD;
-    private a fKE;
+    private long fMF;
+    private long fMG;
+    private long fMH;
+    private long fMI;
+    private long fMJ;
+    private a fMK;
+    private long startTime;
+    private Handler handler = new Handler(Looper.getMainLooper());
+    private boolean Wv = false;
+    private Runnable fML = new Runnable() { // from class: com.baidu.tbadk.util.j.1
+        @Override // java.lang.Runnable
+        public void run() {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (j.this.fMJ > j.this.fMI) {
+                j.this.fMI = currentTimeMillis - j.this.fMH;
+                j.this.fMJ = j.this.fMI;
+            }
+            long j = currentTimeMillis - j.this.fMI;
+            j.this.fMG += j.this.fMH;
+            if (j.this.fMG < j.this.fMF) {
+                j.this.handler.postDelayed(j.this.fML, (2 * j.this.fMH) - j);
+                if (j.this.fMK != null) {
+                    j.this.fMK.e(j.this.fMF, j.this.fMF - j.this.fMG);
+                }
+            } else {
+                j.this.fMG = j.this.fMF;
+                j.this.finish();
+            }
+            j.this.fMI = currentTimeMillis;
+        }
+    };
 
     /* loaded from: classes.dex */
     public interface a {
-        void onResult(boolean z);
+        void N(long j);
+
+        void e(long j, long j2);
     }
 
-    private j() {
+    public j(long j, long j2) {
+        this.fMF = j;
+        this.fMH = j2;
     }
 
-    public static j bEX() {
-        return fKC;
+    public void start() {
+        this.startTime = System.currentTimeMillis();
+        this.fMI = this.startTime;
+        if (this.fMK != null) {
+            this.fMK.e(this.fMF, this.fMF - this.fMG);
+        }
+        this.handler.postDelayed(this.fML, this.fMH);
+    }
+
+    public void pause() {
+        if (!this.Wv) {
+            this.Wv = true;
+            this.fMJ = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.fML);
+        }
+    }
+
+    public void resume() {
+        if (this.Wv) {
+            this.Wv = false;
+            this.handler.postDelayed(this.fML, this.fMH - (this.fMJ - this.fMI));
+        }
+    }
+
+    public void stop() {
+        this.Wv = false;
+        this.fMI = this.startTime;
+        this.fMJ = this.fMI;
+        this.handler.removeCallbacks(this.fML);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void finish() {
+        if (this.fMK != null) {
+            this.fMK.N(this.fMF);
+        }
     }
 
     public void a(a aVar) {
-        this.fKE = aVar;
-        if (this.fKD != null) {
-            this.fKD.cancel();
-        }
-        this.fKD = new b();
-        this.fKD.setPriority(4);
-        this.fKD.execute(new String[0]);
+        this.fMK = aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean checkCrashNumOverLimit() {
-        int i;
-        long j = 0;
-        byte[] GetFileData = com.baidu.tbadk.core.util.n.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + DaemonServiceManager.CRASH_HOUR_RECORD_FILE);
-        String str = null;
-        if (GetFileData != null) {
-            str = new String(GetFileData);
-        }
-        long j2 = StringUtils.getyyyyMMddHHTimeForNow();
-        if (TextUtils.isEmpty(str)) {
-            i = 0;
-        } else {
-            String[] split = str.split(":");
-            if (split == null || split.length != 2) {
-                i = 0;
-            } else {
-                i = com.baidu.adp.lib.f.b.toInt(split[0], 0);
-                j = com.baidu.adp.lib.f.b.toLong(split[1], j2);
-            }
-        }
-        if (j == j2 && i > 1) {
-            return true;
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class b extends BdAsyncTask<String, Integer, Boolean> {
-        private b() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(j.this.checkCrashNumOverLimit());
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            if (j.this.fKE != null && bool != null) {
-                j.this.fKE.onResult(bool.booleanValue());
-            }
-        }
+    public long bFp() {
+        return this.fMG;
     }
 }

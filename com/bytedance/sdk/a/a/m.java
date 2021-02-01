@@ -4,23 +4,23 @@ import com.baidu.live.tbadk.log.LogConfig;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class m implements d {
     boolean c;
-    public final c pdq = new c();
-    public final r pdy;
+    public final c pnD = new c();
+    public final r pnL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(r rVar) {
         if (rVar == null) {
             throw new NullPointerException("sink == null");
         }
-        this.pdy = rVar;
+        this.pnL = rVar;
     }
 
     @Override // com.bytedance.sdk.a.a.d, com.bytedance.sdk.a.a.e
-    public c elX() {
-        return this.pdq;
+    public c eor() {
+        return this.pnD;
     }
 
     @Override // com.bytedance.sdk.a.a.r
@@ -28,26 +28,26 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdq.a(cVar, j);
-        emg();
+        this.pnD.a(cVar, j);
+        eoA();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d Xz(String str) throws IOException {
+    public d YA(String str) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdq.Xz(str);
-        return emg();
+        this.pnD.YA(str);
+        return eoA();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d ai(byte[] bArr) throws IOException {
+    public d ah(byte[] bArr) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdq.ai(bArr);
-        return emg();
+        this.pnD.ah(bArr);
+        return eoA();
     }
 
     @Override // com.bytedance.sdk.a.a.d
@@ -55,8 +55,8 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdq.w(bArr, i, i2);
-        return emg();
+        this.pnD.w(bArr, i, i2);
+        return eoA();
     }
 
     @Override // java.nio.channels.WritableByteChannel
@@ -64,64 +64,64 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        int write = this.pdq.write(byteBuffer);
-        emg();
+        int write = this.pnD.write(byteBuffer);
+        eoA();
         return write;
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d Of(int i) throws IOException {
+    public d OA(int i) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdq.Of(i);
-        return emg();
+        this.pnD.OA(i);
+        return eoA();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d Oe(int i) throws IOException {
+    public d Oz(int i) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdq.Oe(i);
-        return emg();
+        this.pnD.Oz(i);
+        return eoA();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d Od(int i) throws IOException {
+    public d Oy(int i) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdq.Od(i);
-        return emg();
+        this.pnD.Oy(i);
+        return eoA();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d il(long j) throws IOException {
+    public d io(long j) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdq.il(j);
-        return emg();
+        this.pnD.io(j);
+        return eoA();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d ik(long j) throws IOException {
+    public d in(long j) throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.pdq.ik(j);
-        return emg();
+        this.pnD.in(j);
+        return eoA();
     }
 
     @Override // com.bytedance.sdk.a.a.d
-    public d emg() throws IOException {
+    public d eoA() throws IOException {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        long g = this.pdq.g();
+        long g = this.pnD.g();
         if (g > 0) {
-            this.pdy.a(this.pdq, g);
+            this.pnL.a(this.pnD, g);
         }
         return this;
     }
@@ -131,10 +131,10 @@ public final class m implements d {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        if (this.pdq.f5840b > 0) {
-            this.pdy.a(this.pdq, this.pdq.f5840b);
+        if (this.pnD.f5842b > 0) {
+            this.pnL.a(this.pnD, this.pnD.f5842b);
         }
-        this.pdy.flush();
+        this.pnL.flush();
     }
 
     @Override // java.nio.channels.Channel
@@ -147,14 +147,14 @@ public final class m implements d {
         if (!this.c) {
             Throwable th = null;
             try {
-                if (this.pdq.f5840b > 0) {
-                    this.pdy.a(this.pdq, this.pdq.f5840b);
+                if (this.pnD.f5842b > 0) {
+                    this.pnL.a(this.pnD, this.pnD.f5842b);
                 }
             } catch (Throwable th2) {
                 th = th2;
             }
             try {
-                this.pdy.close();
+                this.pnL.close();
             } catch (Throwable th3) {
                 if (th == null) {
                     th = th3;
@@ -168,11 +168,11 @@ public final class m implements d {
     }
 
     @Override // com.bytedance.sdk.a.a.r
-    public t elW() {
-        return this.pdy.elW();
+    public t eoq() {
+        return this.pnL.eoq();
     }
 
     public String toString() {
-        return "buffer(" + this.pdy + ")";
+        return "buffer(" + this.pnL + ")";
     }
 }

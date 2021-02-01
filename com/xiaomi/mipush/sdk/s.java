@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile s f13838a;
+    private static volatile s f13840a;
 
     /* renamed from: a  reason: collision with other field name */
     private static final Object f158a = new Object();
@@ -22,14 +22,14 @@ public class s {
     }
 
     public static s a(Context context) {
-        if (f13838a == null) {
+        if (f13840a == null) {
             synchronized (s.class) {
-                if (f13838a == null) {
-                    f13838a = new s(context);
+                if (f13840a == null) {
+                    f13840a = new s(context);
                 }
             }
         }
-        return f13838a;
+        return f13840a;
     }
 
     private File a(String str) {

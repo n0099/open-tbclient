@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.media.MediaFormat;
 import android.media.MediaPlayer;
 import android.os.Build;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AndroidTrackInfo implements ITrackInfo {
     private final MediaPlayer.TrackInfo mTrackInfo;
 

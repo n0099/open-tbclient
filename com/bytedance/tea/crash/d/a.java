@@ -12,15 +12,15 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements Thread.UncaughtExceptionHandler {
-    private static a plt;
+    private static a pvI;
 
     /* renamed from: b  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f7631b;
+    private Thread.UncaughtExceptionHandler f7633b;
     private HashSet<Thread.UncaughtExceptionHandler> c = new HashSet<>();
     private long e = -1;
-    private b plu;
+    private b pvJ;
 
     private a() {
         c();
@@ -47,15 +47,15 @@ public class a implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public static a eoE() {
-        if (plt == null) {
-            plt = new a();
+    public static a eqW() {
+        if (pvI == null) {
+            pvI = new a();
         }
-        return plt;
+        return pvI;
     }
 
     public void a(b bVar) {
-        this.plu = bVar;
+        this.pvJ = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -63,8 +63,8 @@ public class a implements Thread.UncaughtExceptionHandler {
         Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         if (defaultUncaughtExceptionHandler != this) {
             Thread.setDefaultUncaughtExceptionHandler(this);
-            if (this.f7631b == null) {
-                this.f7631b = defaultUncaughtExceptionHandler;
+            if (this.f7633b == null) {
+                this.f7633b = defaultUncaughtExceptionHandler;
             } else {
                 this.c.add(defaultUncaughtExceptionHandler);
             }
@@ -81,8 +81,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 if (c) {
                     com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.JAVA;
                     d(thread, th);
-                    if (c && this.plu != null && this.plu.a(th)) {
-                        this.plu.a(currentTimeMillis, thread, th);
+                    if (c && this.pvJ != null && this.pvJ.a(th)) {
+                        this.pvJ.a(currentTimeMillis, thread, th);
                         Log.i("crash_dispatcher", "end dispose " + th);
                     }
                 }
@@ -97,10 +97,10 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     private boolean c(Thread thread, Throwable th) {
-        f eoC = h.eoM().eoC();
-        if (eoC != null) {
+        f eqU = h.ere().eqU();
+        if (eqU != null) {
             try {
-                return eoC.a(th, thread);
+                return eqU.a(th, thread);
             } catch (Throwable th2) {
                 return true;
             }
@@ -109,7 +109,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     private void d(Thread thread, Throwable th) {
-        List<e> b2 = h.eoM().b();
+        List<e> b2 = h.ere().b();
         com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.JAVA;
         for (e eVar : b2) {
             try {
@@ -129,7 +129,7 @@ public class a implements Thread.UncaughtExceptionHandler {
                 } catch (Throwable th2) {
                 }
             }
-            this.f7631b.uncaughtException(thread, th);
+            this.f7633b.uncaughtException(thread, th);
         } catch (Throwable th3) {
         }
     }

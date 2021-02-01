@@ -5,14 +5,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class p extends j implements View.OnClickListener {
-    private LinearLayout gva;
-    private FrameLayout gvb;
-    l gvc;
-    private a gvd;
+    private LinearLayout gxK;
+    private FrameLayout gxL;
+    l gxM;
+    private a gxN;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(l lVar);
     }
@@ -24,35 +24,35 @@ public class p extends j implements View.OnClickListener {
     @Override // com.baidu.tieba.ala.alaar.view.j
     protected void a(ValueAnimator valueAnimator) {
         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-        this.gvb.setAlpha(1.0f - floatValue);
-        this.gva.setAlpha(1.0f - floatValue);
+        this.gxL.setAlpha(1.0f - floatValue);
+        this.gxK.setAlpha(1.0f - floatValue);
     }
 
     @Override // com.baidu.tieba.ala.alaar.view.j
-    protected void mk(boolean z) {
+    protected void mo(boolean z) {
         if (z) {
-            if (this.gvb != null) {
-                this.gvb.setAlpha(1.0f);
-                this.gva.setAlpha(1.0f);
-                this.gvb.setVisibility(0);
-                this.gva.setVisibility(0);
+            if (this.gxL != null) {
+                this.gxL.setAlpha(1.0f);
+                this.gxK.setAlpha(1.0f);
+                this.gxL.setVisibility(0);
+                this.gxK.setVisibility(0);
             }
-        } else if (this.gvb != null) {
-            this.gvb.setVisibility(4);
-            this.gva.setVisibility(4);
+        } else if (this.gxL != null) {
+            this.gxL.setVisibility(4);
+            this.gxK.setVisibility(4);
         }
     }
 
-    public void cn(View view) {
+    public void cj(View view) {
         this.view = view;
-        this.gva = (LinearLayout) view.findViewById(a.f.tab_title_content);
-        this.gvb = (FrameLayout) view.findViewById(a.f.effect_beauty_select);
+        this.gxK = (LinearLayout) view.findViewById(a.f.tab_title_content);
+        this.gxL = (FrameLayout) view.findViewById(a.f.effect_beauty_select);
     }
 
     public void b(l lVar) {
-        View c = lVar.c(null, this.gva);
-        this.gva.addView(c);
-        this.gvb.addView(lVar.bQf());
+        View c = lVar.c(null, this.gxK);
+        this.gxK.addView(c);
+        this.gxL.addView(lVar.bQJ());
         c.setOnClickListener(this);
         c.setTag(lVar);
     }
@@ -65,21 +65,21 @@ public class p extends j implements View.OnClickListener {
     }
 
     public void c(l lVar) {
-        if (this.gvc != lVar) {
-            if (this.gvc != null) {
-                this.gvc.setSelected(false);
+        if (this.gxM != lVar) {
+            if (this.gxM != null) {
+                this.gxM.setSelected(false);
             }
-            this.gvc = lVar;
-            if (this.gvc != null) {
-                this.gvc.setSelected(true);
+            this.gxM = lVar;
+            if (this.gxM != null) {
+                this.gxM.setSelected(true);
             }
-            if (this.gvd != null) {
-                this.gvd.a(this.gvc);
+            if (this.gxN != null) {
+                this.gxN.a(this.gxM);
             }
         }
     }
 
     public void a(a aVar) {
-        this.gvd = aVar;
+        this.gxN = aVar;
     }
 }

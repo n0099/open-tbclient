@@ -1,44 +1,44 @@
 package com.baidu.yuyinala.mode;
 
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static a oMi;
+    private static a oWo;
     private TbPageContext mPageContext;
-    private b oMj;
+    private b oWp;
 
-    public static a egK() {
-        if (oMi == null) {
+    public static a ejc() {
+        if (oWo == null) {
             synchronized (a.class) {
-                if (oMi == null) {
-                    oMi = new a();
+                if (oWo == null) {
+                    oWo = new a();
                 }
             }
         }
-        return oMi;
+        return oWo;
     }
 
-    public void b(TbPageContext tbPageContext, x xVar) {
+    public void b(TbPageContext tbPageContext, ab abVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oMj = null;
+            this.oWp = null;
         }
         AlaAudioModeDialogData alaAudioModeDialogData = new AlaAudioModeDialogData();
-        alaAudioModeDialogData.setModeList(WV(xVar == null ? "" : xVar.aGx));
-        if (this.oMj == null) {
-            this.oMj = new b(tbPageContext, xVar, alaAudioModeDialogData);
+        alaAudioModeDialogData.setModeList(XU(abVar == null ? "" : abVar.aIT));
+        if (this.oWp == null) {
+            this.oWp = new b(tbPageContext, abVar, alaAudioModeDialogData);
         } else {
-            this.oMj.a(xVar, alaAudioModeDialogData);
+            this.oWp.a(abVar, alaAudioModeDialogData);
         }
-        this.oMj.show();
+        this.oWp.show();
     }
 
-    private List<com.baidu.yuyinala.mode.b.a> WV(String str) {
+    private List<com.baidu.yuyinala.mode.b.a> XU(String str) {
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("mode_list");
             int length = optJSONArray.length();
@@ -56,9 +56,9 @@ public class a {
         }
     }
 
-    public void Ek() {
-        if (this.oMj != null && this.oMj.isShowing()) {
-            this.oMj.dismiss();
+    public void FA() {
+        if (this.oWp != null && this.oWp.isShowing()) {
+            this.oWp.dismiss();
         }
     }
 }

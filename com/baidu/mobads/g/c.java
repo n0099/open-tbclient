@@ -13,12 +13,12 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c extends Thread {
     private static volatile c f;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile String f3329b;
+    private volatile String f3341b;
     private String c;
     private double d;
     private Handler e;
@@ -28,7 +28,7 @@ public class c extends Thread {
     private IXAdLogger j = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     /* renamed from: a  reason: collision with root package name */
-    o.a f3328a = new d(this);
+    o.a f3340a = new d(this);
 
     public static c a(Context context, e eVar, String str, Handler handler) {
         if (f == null) {
@@ -47,7 +47,7 @@ public class c extends Thread {
     }
 
     public void a(String str) {
-        this.f3329b = str;
+        this.f3341b = str;
         interrupt();
     }
 
@@ -60,7 +60,7 @@ public class c extends Thread {
                     this.j.d("XAdApkDownloadThread", "download apk successfully, downloader exit");
                     f = null;
                 } catch (IOException e) {
-                    this.j.e("XAdApkDownloadThread", "create File or HTTP Get failed, exception: " + e.getMessage());
+                    this.j.d("XAdApkDownloadThread", "create File or HTTP Get failed, exception: " + e.getMessage());
                 }
                 this.j.d("XAdApkDownloadThread", "no newer apk, downloader exit");
                 f = null;
@@ -99,30 +99,30 @@ public class c extends Thread {
         double d;
         try {
             try {
-                this.h = new o(this.g, new URL(this.f3329b), this.i, this.f3328a);
+                this.h = new o(this.g, new URL(this.f3341b), this.i, this.f3340a);
             } catch (MalformedURLException e) {
-                this.h = new o(this.g, this.f3329b, this.i, this.f3328a);
+                this.h = new o(this.g, this.f3341b, this.i, this.f3340a);
             }
             if (g.c != null) {
-                d = g.c.f3324a;
-            } else if (g.f3334b == null) {
+                d = g.c.f3336a;
+            } else if (g.f3346b == null) {
                 d = 0.0d;
-            } else if (g.f3334b.f3324a > 0.0d) {
-                d = g.f3334b.f3324a;
+            } else if (g.f3346b.f3336a > 0.0d) {
+                d = g.f3346b.f3336a;
             } else {
-                d = g.f3334b.f3324a;
+                d = g.f3346b.f3336a;
             }
             this.j.d("XAdApkDownloadThread", "isNewApkAvailable: local apk version is: " + d + ", remote apk version: " + this.i.b());
             if (d > 0.0d) {
                 if (this.i.b() > 0.0d) {
-                    this.j.e("XAdApkDownloadThread", "remote not null, local apk version is null, force upgrade");
+                    this.j.d("XAdApkDownloadThread", "remote not null, local apk version is null, force upgrade");
                     this.d = this.i.b();
                     return true;
                 }
-                this.j.e("XAdApkDownloadThread", "remote is null, local apk version is null, do not upgrade");
+                this.j.d("XAdApkDownloadThread", "remote is null, local apk version is null, do not upgrade");
                 return false;
             } else if (this.i.b() <= 0.0d) {
-                this.j.e("XAdApkDownloadThread", "remote apk version is: null, local apk version is: " + d + ", do not upgrade");
+                this.j.d("XAdApkDownloadThread", "remote apk version is: null, local apk version is: " + d + ", do not upgrade");
                 return false;
             } else if (this.i.b() > d) {
                 this.d = this.i.b();
@@ -132,7 +132,7 @@ public class c extends Thread {
             }
         } catch (Exception e2) {
             String str = "parse apk failed, error:" + e2.toString();
-            this.j.e("XAdApkDownloadThread", str);
+            this.j.d("XAdApkDownloadThread", str);
             throw new g.a(str);
         }
     }

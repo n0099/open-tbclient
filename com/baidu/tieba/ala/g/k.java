@@ -17,15 +17,15 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.tieba.ala.messages.CancelPkResponseMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class k extends BdBaseModel {
     private HttpMessageListener messageListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void bq(int i, String str);
+        void bv(int i, String str);
 
-        void clf();
+        void cmd();
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -38,14 +38,14 @@ public class k extends BdBaseModel {
         return false;
     }
 
-    public void fK(long j) {
+    public void fP(long j) {
         HttpMessage httpMessage = new HttpMessage(1021212);
         httpMessage.addParam("anchor_id", j);
         sendMessage(httpMessage);
     }
 
     public void a(a aVar) {
-        cld();
+        cmb();
         b(aVar);
     }
 
@@ -57,10 +57,10 @@ public class k extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021212 && (httpResponsedMessage instanceof CancelPkResponseMessage)) {
                     CancelPkResponseMessage cancelPkResponseMessage = (CancelPkResponseMessage) httpResponsedMessage;
                     if (cancelPkResponseMessage.getError() != 0 || !cancelPkResponseMessage.isSuccess()) {
-                        aVar.bq(cancelPkResponseMessage.getError(), cancelPkResponseMessage.getErrorString());
+                        aVar.bv(cancelPkResponseMessage.getError(), cancelPkResponseMessage.getErrorString());
                         return;
                     }
-                    aVar.clf();
+                    aVar.cmd();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue("lodId", Long.valueOf(cancelPkResponseMessage.getLogId()));
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(cancelPkResponseMessage.getError()));
@@ -79,7 +79,7 @@ public class k extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void cld() {
+    private void cmb() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021212, TbConfig.SERVER_ADDRESS + "ala/pksolo/cancelPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -89,7 +89,7 @@ public class k extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cle() {
+    public void cmc() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021212);
     }

@@ -11,7 +11,7 @@ import com.xiaomi.push.ai;
 public class dx {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile dx f13957a;
+    private static volatile dx f13959a;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f309a;
@@ -25,14 +25,14 @@ public class dx {
     }
 
     public static dx a(Context context) {
-        if (f13957a == null) {
+        if (f13959a == null) {
             synchronized (dx.class) {
-                if (f13957a == null) {
-                    f13957a = new dx(context);
+                if (f13959a == null) {
+                    f13959a = new dx(context);
                 }
             }
         }
-        return f13957a;
+        return f13959a;
     }
 
     private void a(com.xiaomi.push.service.ak akVar, ai aiVar, boolean z) {

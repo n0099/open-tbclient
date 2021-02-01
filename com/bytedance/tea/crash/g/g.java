@@ -3,11 +3,11 @@ package com.bytedance.tea.crash.g;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.os.Build;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g {
-    static final a plK;
+    static final a pvZ;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class a {
         private a() {
         }
@@ -18,7 +18,7 @@ public class g {
     }
 
     @TargetApi(16)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class b extends a {
         private b() {
             super();
@@ -32,13 +32,13 @@ public class g {
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            plK = new b();
+            pvZ = new b();
         } else {
-            plK = new a();
+            pvZ = new a();
         }
     }
 
     public static long a(ActivityManager.MemoryInfo memoryInfo) {
-        return plK.a(memoryInfo);
+        return pvZ.a(memoryInfo);
     }
 }

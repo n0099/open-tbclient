@@ -12,19 +12,19 @@ import android.net.wifi.WifiManager;
 import android.util.Pair;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class NetStateManager {
     public static NetState CUR_NETSTATE = NetState.Mobile;
     private static Context mContext;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum NetState {
         Mobile,
         WIFI,
         NOWAY
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class NetStateReceive extends BroadcastReceiver {
         public NetStateReceive() {
         }

@@ -2,10 +2,10 @@ package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.SearchPostForum.DataReq;
 import tbclient.SearchPostForum.SearchPostForumReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SearchPostForumRequestMessage extends NetMessage {
     private String word;
 
@@ -27,7 +27,7 @@ public class SearchPostForumRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.word = get_word();
             if (z) {
-                t.b(builder, true);
+                v.b(builder, true);
             }
             SearchPostForumReqIdl.Builder builder2 = new SearchPostForumReqIdl.Builder();
             builder2.data = builder.build(false);

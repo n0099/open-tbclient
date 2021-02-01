@@ -17,14 +17,14 @@ import com.baidu.mobstat.Config;
 import com.qq.e.comm.plugin.util.aa;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13276a;
+    private static String f13278a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13277b;
+    private static String f13279b;
     private static String c;
     private static HashMap<String, String> d = new HashMap<>();
 
@@ -99,15 +99,15 @@ public class b {
     }
 
     public static String c(Context context) {
-        if (f13276a != null) {
-            return f13276a;
+        if (f13278a != null) {
+            return f13278a;
         }
         PackageManager packageManager = context.getPackageManager();
         try {
-            f13276a = packageManager.getApplicationInfo(context.getPackageName(), 128).loadLabel(packageManager).toString();
+            f13278a = packageManager.getApplicationInfo(context.getPackageName(), 128).loadLabel(packageManager).toString();
         } catch (PackageManager.NameNotFoundException e) {
         }
-        return f13276a;
+        return f13278a;
     }
 
     private static String c(Context context, String str, int i) {
@@ -138,10 +138,10 @@ public class b {
     }
 
     public static String d(Context context) {
-        if (f13277b == null && context != null) {
-            f13277b = context.getPackageName();
+        if (f13279b == null && context != null) {
+            f13279b = context.getPackageName();
         }
-        return f13277b;
+        return f13279b;
     }
 
     private static String d(Context context, String str, int i) {

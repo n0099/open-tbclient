@@ -9,26 +9,26 @@ import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.a.d;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class l<T> implements d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Uri f10054a;
+    private final Uri f10056a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final ContentResolver f10055b;
+    private final ContentResolver f10057b;
     private T c;
 
     public l(ContentResolver contentResolver, Uri uri) {
-        this.f10055b = contentResolver;
-        this.f10054a = uri;
+        this.f10057b = contentResolver;
+        this.f10056a = uri;
     }
 
     /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     @Override // com.kwad.sdk.glide.load.a.d
     public final void a(@NonNull Priority priority, @NonNull d.a<? super T> aVar) {
         try {
-            this.c = b(this.f10054a, this.f10055b);
+            this.c = b(this.f10056a, this.f10057b);
             aVar.a((d.a<? super T>) ((T) this.c));
         } catch (FileNotFoundException e) {
             if (Log.isLoggable("LocalUriFetcher", 3)) {

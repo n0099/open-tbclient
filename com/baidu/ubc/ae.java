@@ -6,8 +6,8 @@ public class ae extends com.baidu.pyramid.runtime.service.a<ab> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.pyramid.runtime.service.a
-    /* renamed from: efy */
-    public ab aed() throws ServiceNotFoundException {
+    /* renamed from: ehQ */
+    public ab aeu() throws ServiceNotFoundException {
         return new af();
     }
 }

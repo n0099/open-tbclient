@@ -6,14 +6,14 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile Boolean f12597a = null;
+    private static volatile Boolean f12599a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile Boolean f12598b = null;
+    private static volatile Boolean f12600b = null;
     private static volatile Boolean c = null;
     private static volatile Boolean d = null;
     private static volatile String e = null;
@@ -51,38 +51,38 @@ public class x {
 
     public static boolean b() {
         String[] split;
-        if (f12597a == null) {
+        if (f12599a == null) {
             String a2 = a("m_huawei", "HUAWEI");
             if (!TextUtils.isEmpty(a2) && (split = a2.split(",")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase(Build.MANUFACTURER)) {
-                        f12597a = true;
-                        return f12597a.booleanValue();
+                        f12599a = true;
+                        return f12599a.booleanValue();
                     }
                 }
             }
-            f12597a = false;
-            return f12597a.booleanValue();
+            f12599a = false;
+            return f12599a.booleanValue();
         }
-        return f12597a.booleanValue();
+        return f12599a.booleanValue();
     }
 
     public static boolean c() {
         String[] split;
-        if (f12598b == null) {
+        if (f12600b == null) {
             String a2 = a("m_oppo", RomUtils.ROM_OPPO);
             if (!TextUtils.isEmpty(a2) && (split = a2.split(",")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase(Build.MANUFACTURER)) {
-                        f12598b = true;
-                        return f12598b.booleanValue();
+                        f12600b = true;
+                        return f12600b.booleanValue();
                     }
                 }
             }
-            f12598b = false;
-            return f12598b.booleanValue();
+            f12600b = false;
+            return f12600b.booleanValue();
         }
-        return f12598b.booleanValue();
+        return f12600b.booleanValue();
     }
 
     public static boolean d() {

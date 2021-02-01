@@ -7,14 +7,14 @@ import android.os.Build;
 import java.net.InetAddress;
 import java.net.URL;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12844a = a.class.getName();
+    private static final String f12846a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Boolean f12845b = Boolean.valueOf(com.sdk.base.framework.c.f.f12819b);
+    private static final Boolean f12847b = Boolean.valueOf(com.sdk.base.framework.c.f.f12821b);
 
     public static c a(Context context, ArrayList<String> arrayList, boolean z) {
         c cVar;
@@ -29,19 +29,19 @@ public class a {
                 NetworkInfo.State state = connectivityManager.getNetworkInfo(2).getState();
                 NetworkInfo.State state2 = connectivityManager.getNetworkInfo(0).getState();
                 if (state.compareTo(NetworkInfo.State.CONNECTED) == 0 || state2.compareTo(NetworkInfo.State.CONNECTED) == 0) {
-                    return c.f12847b;
+                    return c.f12849b;
                 }
             }
             activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         } catch (Throwable th) {
-            com.sdk.base.framework.a.a.c.b(f12844a, th.getMessage(), f12845b);
+            com.sdk.base.framework.a.a.c.b(f12846a, th.getMessage(), f12847b);
         }
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
             String typeName = activeNetworkInfo.getTypeName();
             if ("MOBILE".equalsIgnoreCase(typeName)) {
-                cVar = c.f12847b;
+                cVar = c.f12849b;
             } else if ("WIFI".equalsIgnoreCase(typeName)) {
-                cVar = c.f12846a;
+                cVar = c.f12848a;
             }
             return cVar;
         }
@@ -65,7 +65,7 @@ public class a {
                     } catch (Throwable th2) {
                         th = th2;
                         arrayList2 = arrayList3;
-                        com.sdk.base.framework.a.a.c.b(f12844a, th.getMessage(), f12845b);
+                        com.sdk.base.framework.a.a.c.b(f12846a, th.getMessage(), f12847b);
                         return arrayList2;
                     }
                 }
@@ -108,7 +108,7 @@ public class a {
             z = false;
         }
         if (connectivityManager == null) {
-            com.sdk.base.framework.a.a.c.a(f12844a, "ConnectivityManager 为null", f12845b);
+            com.sdk.base.framework.a.a.c.a(f12846a, "ConnectivityManager 为null", f12847b);
             return false;
         }
         NetworkInfo.State state = connectivityManager.getNetworkInfo(0).getState();
@@ -130,7 +130,7 @@ public class a {
                 } catch (Throwable th3) {
                     th = th3;
                     z = z2;
-                    com.sdk.base.framework.a.a.c.b(f12844a, th.getMessage(), f12845b);
+                    com.sdk.base.framework.a.a.c.b(f12846a, th.getMessage(), f12847b);
                     boolean z3 = com.sdk.base.framework.c.f.f;
                     if (!z) {
                     }

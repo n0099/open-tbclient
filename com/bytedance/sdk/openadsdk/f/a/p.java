@@ -2,14 +2,14 @@ package com.bytedance.sdk.openadsdk.f.a;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f7130a;
+    public final int f7132a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f7131b;
+    public final String f7133b;
     public final String c;
     public final String d;
     public final String e;
@@ -26,44 +26,44 @@ public class p {
     }
 
     private p(String str, int i) {
-        this.f7131b = null;
+        this.f7133b = null;
         this.c = null;
         this.d = null;
         this.e = null;
         this.f = str;
         this.g = null;
-        this.f7130a = i;
+        this.f7132a = i;
         this.h = null;
     }
 
     private p(a aVar) {
-        this.f7131b = aVar.f7132a;
-        this.c = aVar.f7133b;
+        this.f7133b = aVar.f7134a;
+        this.c = aVar.f7135b;
         this.d = aVar.c;
         this.e = aVar.d;
         this.f = aVar.e;
         this.g = aVar.f;
-        this.f7130a = 1;
+        this.f7132a = 1;
         this.h = aVar.g;
     }
 
     public static boolean a(p pVar) {
-        return pVar == null || pVar.f7130a != 1 || TextUtils.isEmpty(pVar.d) || TextUtils.isEmpty(pVar.e);
+        return pVar == null || pVar.f7132a != 1 || TextUtils.isEmpty(pVar.d) || TextUtils.isEmpty(pVar.e);
     }
 
     @NonNull
     public String toString() {
-        return "methodName: " + this.d + ", params: " + this.e + ", callbackId: " + this.f + ", type: " + this.c + ", version: " + this.f7131b + ", ";
+        return "methodName: " + this.d + ", params: " + this.e + ", callbackId: " + this.f + ", type: " + this.c + ", version: " + this.f7133b + ", ";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f7132a;
+        private String f7134a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f7133b;
+        private String f7135b;
         private String c;
         private String d;
         private String e;
@@ -74,12 +74,12 @@ public class p {
         }
 
         public a a(String str) {
-            this.f7132a = str;
+            this.f7134a = str;
             return this;
         }
 
         public a b(String str) {
-            this.f7133b = str;
+            this.f7135b = str;
             return this;
         }
 

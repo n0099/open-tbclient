@@ -11,7 +11,7 @@ import com.kwai.video.player.KsMediaMeta;
 import com.kwai.video.player.misc.IMediaFormat;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 class Mp4ComposerEngine {
     private static final long PROGRESS_INTERVAL_STEPS = 10;
     private static final float PROGRESS_UNKNOWN = -1.0f;
@@ -21,7 +21,7 @@ class Mp4ComposerEngine {
     private ProgressCallback mProgressCallback;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface ProgressCallback {
         void onProgress(float f);
     }

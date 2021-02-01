@@ -3,15 +3,15 @@ package com.kwad.sdk.pngencrypt;
 import com.kwad.sdk.pngencrypt.ChunkReader;
 import java.io.Closeable;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class b implements f, Closeable {
     static final /* synthetic */ boolean d;
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f10491a;
+    protected boolean f10493a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected boolean f10492b;
+    protected boolean f10494b;
     protected boolean c;
     private final byte[] e;
     private final int f;
@@ -35,15 +35,15 @@ public abstract class b implements f, Closeable {
     public b(byte[] bArr) {
         this.g = new byte[8];
         this.h = 0;
-        this.f10491a = false;
-        this.f10492b = false;
+        this.f10493a = false;
+        this.f10494b = false;
         this.c = false;
         this.i = 0;
         this.j = 0L;
         this.n = ErrorBehaviour.STRICT;
         this.e = bArr;
         this.f = this.e == null ? 0 : this.e.length;
-        this.f10491a = this.f <= 0;
+        this.f10493a = this.f <= 0;
     }
 
     @Override // com.kwad.sdk.pngencrypt.f
@@ -57,7 +57,7 @@ public abstract class b implements f, Closeable {
         if (i2 < 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("This should not happen. Bad length: " + i2));
         }
-        if (!this.f10491a) {
+        if (!this.f10493a) {
             int i3 = this.f - this.h;
             if (i3 <= i2) {
                 i2 = i3;
@@ -67,7 +67,7 @@ public abstract class b implements f, Closeable {
             if (this.h == this.f) {
                 a(this.g);
                 this.h = 0;
-                this.f10491a = true;
+                this.f10493a = true;
             }
             int i4 = 0 + i2;
             this.j += i2;
@@ -176,7 +176,7 @@ public abstract class b implements f, Closeable {
         if (e() == null || !chunkReader.a().c.equals(e())) {
             return;
         }
-        this.f10492b = true;
+        this.f10494b = true;
         close();
     }
 
@@ -194,7 +194,7 @@ public abstract class b implements f, Closeable {
 
     @Override // com.kwad.sdk.pngencrypt.f
     public boolean b() {
-        return this.f10492b;
+        return this.f10494b;
     }
 
     protected boolean b(int i, String str) {

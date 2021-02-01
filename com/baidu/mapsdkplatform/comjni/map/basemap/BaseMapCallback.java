@@ -2,16 +2,16 @@ package com.baidu.mapsdkplatform.comjni.map.basemap;
 
 import android.os.Bundle;
 import android.util.LongSparseArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BaseMapCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LongSparseArray<b> f3170a = new LongSparseArray<>();
+    private static LongSparseArray<b> f3168a = new LongSparseArray<>();
 
     public static int ReqLayerData(Bundle bundle, long j, int i, Bundle bundle2) {
-        int size = f3170a.size();
+        int size = f3168a.size();
         for (int i2 = 0; i2 < size; i2++) {
-            b valueAt = f3170a.valueAt(i2);
+            b valueAt = f3168a.valueAt(i2);
             if (valueAt != null && valueAt.a(j)) {
                 return valueAt.a(bundle, j, i, bundle2);
             }
@@ -20,10 +20,10 @@ public class BaseMapCallback {
     }
 
     public static void addLayerDataInterface(long j, b bVar) {
-        f3170a.put(j, bVar);
+        f3168a.put(j, bVar);
     }
 
     public static void removeLayerDataInterface(long j) {
-        f3170a.remove(j);
+        f3168a.remove(j);
     }
 }

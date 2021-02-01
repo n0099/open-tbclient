@@ -1,7 +1,7 @@
 package com.tencent.ams.a.b;
 
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
     public static void a(String str) {
     }

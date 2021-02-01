@@ -34,7 +34,7 @@ public final class ForEachWhileObserver<T> extends AtomicReference<io.reactivex.
                     onComplete();
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 dispose();
                 onError(th);
             }
@@ -51,7 +51,7 @@ public final class ForEachWhileObserver<T> extends AtomicReference<io.reactivex.
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.O(th2);
+            io.reactivex.exceptions.a.N(th2);
             io.reactivex.d.a.onError(new CompositeException(th, th2));
         }
     }
@@ -63,7 +63,7 @@ public final class ForEachWhileObserver<T> extends AtomicReference<io.reactivex.
             try {
                 this.onComplete.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.O(th);
+                io.reactivex.exceptions.a.N(th);
                 io.reactivex.d.a.onError(th);
             }
         }

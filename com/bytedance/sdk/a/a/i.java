@@ -2,66 +2,66 @@ package com.bytedance.sdk.a.a;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i extends t {
-    private t pdr;
+    private t pnE;
 
     public i(t tVar) {
         if (tVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.pdr = tVar;
+        this.pnE = tVar;
     }
 
-    public final t elW() {
-        return this.pdr;
+    public final t eoq() {
+        return this.pnE;
     }
 
     public final i a(t tVar) {
         if (tVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.pdr = tVar;
+        this.pnE = tVar;
         return this;
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public t c(long j, TimeUnit timeUnit) {
-        return this.pdr.c(j, timeUnit);
+        return this.pnE.c(j, timeUnit);
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public long emi() {
-        return this.pdr.emi();
+    public long eoC() {
+        return this.pnE.eoC();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public boolean c() {
-        return this.pdr.c();
+        return this.pnE.c();
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public long emj() {
-        return this.pdr.emj();
+    public long eoD() {
+        return this.pnE.eoD();
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t im(long j) {
-        return this.pdr.im(j);
+    public t ip(long j) {
+        return this.pnE.ip(j);
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t emk() {
-        return this.pdr.emk();
+    public t eoE() {
+        return this.pnE.eoE();
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t eml() {
-        return this.pdr.eml();
+    public t eoF() {
+        return this.pnE.eoF();
     }
 
     @Override // com.bytedance.sdk.a.a.t
     public void g() throws IOException {
-        this.pdr.g();
+        this.pnE.g();
     }
 }

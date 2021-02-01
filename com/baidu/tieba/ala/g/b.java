@@ -10,30 +10,30 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b extends BdBaseModel {
-    private a gRT;
-    private HttpMessageListener hPh;
+    private a gUD;
+    private HttpMessageListener hTD;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(int i, String str, Object obj);
     }
 
     public b(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.hPh = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.g.b.1
+        this.hTD = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.g.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == b.this.unique_id) {
-                    b.this.gRT.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                    b.this.gUD.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
                 }
             }
         };
-        this.gRT = aVar;
+        this.gUD = aVar;
         registerTask();
-        registerListener(this.hPh);
+        registerListener(this.hTD);
     }
 
     private void registerTask() {
@@ -45,7 +45,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Hz(String str) {
+    public void Id(String str) {
         HttpMessage httpMessage = new HttpMessage(1021118);
         httpMessage.addParam("portrait", str);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);

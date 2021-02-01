@@ -10,14 +10,14 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f7451a;
+    private final Context f7453a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Executor f7452b;
+    private final Executor f7454b;
     private final Executor c;
     private final com.bytedance.sdk.openadsdk.preload.geckox.k.a d;
     private final com.bytedance.sdk.openadsdk.preload.geckox.statistic.a e;
@@ -35,17 +35,17 @@ public class b {
     private final boolean q;
 
     private b(a aVar) {
-        this.f7451a = aVar.d;
-        if (this.f7451a == null) {
+        this.f7453a = aVar.d;
+        if (this.f7453a == null) {
             throw new IllegalArgumentException("context == null");
         }
-        this.g = aVar.f7456b;
+        this.g = aVar.f7458b;
         this.h = aVar.c;
         this.d = aVar.g;
         this.i = aVar.j;
         this.j = aVar.k;
         if (TextUtils.isEmpty(aVar.l)) {
-            this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f7451a);
+            this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f7453a);
         } else {
             this.k = aVar.l;
         }
@@ -53,7 +53,7 @@ public class b {
         this.n = aVar.p;
         this.o = aVar.q;
         if (aVar.o == null) {
-            this.p = new File(this.f7451a.getFilesDir(), "gecko_offline_res_x");
+            this.p = new File(this.f7453a.getFilesDir(), "gecko_offline_res_x");
         } else {
             this.p = aVar.o;
         }
@@ -81,9 +81,9 @@ public class b {
                 }
             });
             threadPoolExecutor.allowCoreThreadTimeOut(true);
-            this.f7452b = threadPoolExecutor;
+            this.f7454b = threadPoolExecutor;
         } else {
-            this.f7452b = aVar.e;
+            this.f7454b = aVar.e;
         }
         if (aVar.f == null) {
             ThreadPoolExecutor threadPoolExecutor2 = new ThreadPoolExecutor(1, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.b.2
@@ -100,17 +100,17 @@ public class b {
         } else {
             this.c = aVar.f;
         }
-        if (aVar.f7455a == null) {
+        if (aVar.f7457a == null) {
             this.f = new com.bytedance.sdk.openadsdk.preload.geckox.i.a();
         } else {
-            this.f = aVar.f7455a;
+            this.f = aVar.f7457a;
         }
         this.e = aVar.h;
         this.q = aVar.i;
     }
 
     public Context a() {
-        return this.f7451a;
+        return this.f7453a;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.a.a.a b() {
@@ -130,7 +130,7 @@ public class b {
     }
 
     public Executor f() {
-        return this.f7452b;
+        return this.f7454b;
     }
 
     public Executor g() {
@@ -177,14 +177,14 @@ public class b {
         return this.l;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private com.bytedance.sdk.openadsdk.preload.geckox.i.b f7455a;
+        private com.bytedance.sdk.openadsdk.preload.geckox.i.b f7457a;
 
         /* renamed from: b  reason: collision with root package name */
-        private List<String> f7456b;
+        private List<String> f7458b;
         private List<String> c;
         private Context d;
         private Executor e;
@@ -214,7 +214,7 @@ public class b {
 
         public a b(String... strArr) {
             if (strArr != null && strArr.length >= 1) {
-                this.f7456b = Arrays.asList(strArr);
+                this.f7458b = Arrays.asList(strArr);
             }
             return this;
         }

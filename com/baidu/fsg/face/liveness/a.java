@@ -22,7 +22,7 @@ public class a {
     }
 
     public static a a() {
-        return C0110a.f2117a;
+        return C0110a.f2115a;
     }
 
     /* renamed from: com.baidu.fsg.face.liveness.a$a  reason: collision with other inner class name */
@@ -30,7 +30,7 @@ public class a {
     private static class C0110a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static a f2117a = new a();
+        private static a f2115a = new a();
 
         private C0110a() {
         }
@@ -48,7 +48,7 @@ public class a {
                 RimStatisticsUtil.onEventWithValues(d.I, arrayList);
             } else {
                 sapiLivenessOperation.operationType = SapiLivenessOperation.OperationType.RECOGNIZE;
-                RimStatisticsUtil.onEventWithValue(d.f2301a, a2 != null ? a2.getSpno() : "");
+                RimStatisticsUtil.onEventWithValue(d.f2299a, a2 != null ? a2.getSpno() : "");
             }
             SapiLivenessRecogManager.getInstance().execute(sapiLivenessOperation, new LivenessRecogCallback() { // from class: com.baidu.fsg.face.liveness.a.1
                 /* JADX DEBUG: Method merged with bridge method */

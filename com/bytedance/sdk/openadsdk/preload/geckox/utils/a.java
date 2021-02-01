@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Process;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static String a(Context context) {
         try {

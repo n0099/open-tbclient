@@ -2,7 +2,7 @@ package com.bytedance.sdk.a.a;
 
 import java.util.Arrays;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class q extends f {
     final transient byte[][] f;
     final transient int[] g;
@@ -10,71 +10,71 @@ public final class q extends f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(c cVar, int i) {
         super(null);
-        u.a(cVar.f5840b, 0L, i);
-        o oVar = cVar.pdp;
+        u.a(cVar.f5842b, 0L, i);
+        o oVar = cVar.pnC;
         int i2 = 0;
         int i3 = 0;
         while (i3 < i) {
-            if (oVar.c == oVar.f5849b) {
+            if (oVar.c == oVar.f5851b) {
                 throw new AssertionError("s.limit == s.pos");
             }
-            i3 += oVar.c - oVar.f5849b;
+            i3 += oVar.c - oVar.f5851b;
             i2++;
-            oVar = oVar.pdB;
+            oVar = oVar.pnO;
         }
         this.f = new byte[i2];
         this.g = new int[i2 * 2];
-        o oVar2 = cVar.pdp;
+        o oVar2 = cVar.pnC;
         int i4 = 0;
         int i5 = 0;
         while (i5 < i) {
-            this.f[i4] = oVar2.f5848a;
-            int i6 = (oVar2.c - oVar2.f5849b) + i5;
+            this.f[i4] = oVar2.f5850a;
+            int i6 = (oVar2.c - oVar2.f5851b) + i5;
             if (i6 > i) {
                 i6 = i;
             }
             this.g[i4] = i6;
-            this.g[this.f.length + i4] = oVar2.f5849b;
+            this.g[this.f.length + i4] = oVar2.f5851b;
             oVar2.d = true;
             i4++;
-            oVar2 = oVar2.pdB;
+            oVar2 = oVar2.pnO;
             i5 = i6;
         }
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String a() {
-        return emo().a();
+        return eoI().a();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String b() {
-        return emo().b();
+        return eoI().b();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String e() {
-        return emo().e();
+        return eoI().e();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f f() {
-        return emo().f();
+        return eoI().f();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f c() {
-        return emo().c();
+        return eoI().c();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f d() {
-        return emo().d();
+        return eoI().d();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f a(int i, int i2) {
-        return emo().a(i, i2);
+        return eoI().a(i, i2);
     }
 
     @Override // com.bytedance.sdk.a.a.f
@@ -120,17 +120,17 @@ public final class q extends f {
             int i3 = this.g[length + i];
             int i4 = this.g[i];
             o oVar = new o(this.f[i], i3, (i3 + i4) - i2, true, false);
-            if (cVar.pdp == null) {
-                oVar.pdC = oVar;
-                oVar.pdB = oVar;
-                cVar.pdp = oVar;
+            if (cVar.pnC == null) {
+                oVar.pnP = oVar;
+                oVar.pnO = oVar;
+                cVar.pnC = oVar;
             } else {
-                cVar.pdp.pdC.a(oVar);
+                cVar.pnC.pnP.a(oVar);
             }
             i++;
             i2 = i4;
         }
-        cVar.f5840b += i2;
+        cVar.f5842b += i2;
     }
 
     @Override // com.bytedance.sdk.a.a.f
@@ -173,7 +173,7 @@ public final class q extends f {
         return true;
     }
 
-    private f emo() {
+    private f eoI() {
         return new f(h());
     }
 
@@ -214,6 +214,6 @@ public final class q extends f {
 
     @Override // com.bytedance.sdk.a.a.f
     public String toString() {
-        return emo().toString();
+        return eoI().toString();
     }
 }

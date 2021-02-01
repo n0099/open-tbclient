@@ -1,14 +1,14 @@
 package com.baidu.location.d;
 
 import com.baidu.mobstat.Config;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2623a = "baidu_location_service";
+    public static String f2621a = "baidu_location_service";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f2624b = 12000;
+    public static int f2622b = 12000;
     public static int c = 20000;
     public static int d = 1;
     public static int e = 2;

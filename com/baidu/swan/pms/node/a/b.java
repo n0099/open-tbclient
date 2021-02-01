@@ -6,36 +6,36 @@ import com.baidu.swan.c.i;
 import com.baidu.swan.pms.node.Node;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private static volatile b etj;
-    private a etk = new a();
+    private static volatile b evp;
+    private a evq = new a();
 
-    public static b bdn() {
-        if (etj == null) {
+    public static b bdA() {
+        if (evp == null) {
             synchronized (b.class) {
-                if (etj == null) {
-                    etj = new b();
+                if (evp == null) {
+                    evp = new b();
                 }
             }
         }
-        return etj;
+        return evp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String bdo() {
-        return this.etk.getString("ceres_info", "0");
+    public String bdB() {
+        return this.evq.getString("ceres_info", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String bdp() {
-        return this.etk.getString("global_info", "0");
+    public String bdC() {
+        return this.evq.getString("global_info", "0");
     }
 
     private b() {
     }
 
-    public com.baidu.swan.pms.node.a.a cU(JSONObject jSONObject) {
+    public com.baidu.swan.pms.node.a.a cR(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -57,11 +57,11 @@ public class b {
         if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
             return null;
         }
-        this.etk.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+        this.evq.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
         return new com.baidu.swan.pms.node.a.a(optJSONArray, optJSONObject3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     private static class a extends i {
         private a() {
             super("updatecore_node_ceres");

@@ -27,47 +27,47 @@ import okio.BufferedSource;
 import okio.Okio;
 import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OkHttp3Interceptor implements Interceptor {
-    private static Constructor<RealResponseBody> oGA;
-    private static Field oGx;
-    private static boolean oGz;
-    private TurbonetEngine oGB;
-    private CookieJar oGy = CookieJar.NO_COOKIES;
+    private static Field oQF;
+    private static boolean oQH;
+    private static Constructor<RealResponseBody> oQI;
+    private CookieJar oQG = CookieJar.NO_COOKIES;
+    private TurbonetEngine oQJ;
 
     static {
-        oGz = false;
+        oQH = false;
         try {
-            oGx = RealResponseBody.class.getDeclaredField("source");
-            oGx.setAccessible(true);
+            oQF = RealResponseBody.class.getDeclaredField("source");
+            oQF.setAccessible(true);
         } catch (NoSuchFieldException e) {
             Log.e("tn_OkHttp3Intercept", "Can not find source field from RealResponseBody.", e);
-            oGx = null;
+            oQF = null;
         }
         try {
-            oGz = OkHttpVersionUtil.eed();
-            if (oGz) {
-                oGA = RealResponseBody.class.getConstructor(String.class, Long.TYPE, BufferedSource.class);
+            oQH = OkHttpVersionUtil.egv();
+            if (oQH) {
+                oQI = RealResponseBody.class.getConstructor(String.class, Long.TYPE, BufferedSource.class);
                 Log.d("tn_OkHttp3Intercept", "found okhttp 3.9+");
                 return;
             }
-            oGA = RealResponseBody.class.getConstructor(Headers.class, BufferedSource.class);
+            oQI = RealResponseBody.class.getConstructor(Headers.class, BufferedSource.class);
             Log.d("tn_OkHttp3Intercept", "found okhttp 3.8-");
         } catch (IllegalArgumentException e2) {
             Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e2);
-            oGA = null;
+            oQI = null;
         } catch (NoSuchMethodException e3) {
             Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e3);
-            oGA = null;
+            oQI = null;
         } catch (NoSuchElementException e4) {
             Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e4);
-            oGA = null;
+            oQI = null;
         }
     }
 
     public OkHttp3Interceptor(TurbonetContext turbonetContext) {
-        this.oGB = turbonetContext.een();
-        if (this.oGB == null) {
+        this.oQJ = turbonetContext.egF();
+        if (this.oQJ == null) {
             throw new NullPointerException("TurbonetEngine is null.");
         }
     }
@@ -78,16 +78,16 @@ public class OkHttp3Interceptor implements Interceptor {
         InputStream errorStream;
         long j;
         Request request = chain.request();
-        if (oGA == null || this.oGB.edR() || (oGz && chain.call() == null)) {
+        if (oQI == null || this.oQJ.egj() || (oQH && chain.call() == null)) {
             return a(chain, request);
         }
-        final d dVar = new d(new URL(request.url().toString()), this.oGB);
-        dVar.eeU();
-        if (oGz && chain.call().isCanceled()) {
+        final d dVar = new d(new URL(request.url().toString()), this.oQJ);
+        dVar.ehm();
+        if (oQH && chain.call().isCanceled()) {
             dVar.disconnect();
             return a(chain, request);
         }
-        if (oGz) {
+        if (oQH) {
             dVar.setReadTimeout(chain.readTimeoutMillis());
             dVar.setConnectTimeout(chain.connectTimeoutMillis());
         }
@@ -95,7 +95,7 @@ public class OkHttp3Interceptor implements Interceptor {
         for (String str : headers.names()) {
             dVar.addRequestProperty(str, headers.get(str));
         }
-        List<Cookie> loadForRequest = this.oGy.loadForRequest(request.url());
+        List<Cookie> loadForRequest = this.oQG.loadForRequest(request.url());
         if (loadForRequest != null && !loadForRequest.isEmpty()) {
             dVar.addRequestProperty(SM.COOKIE, cookieHeader(loadForRequest));
         }
@@ -113,11 +113,11 @@ public class OkHttp3Interceptor implements Interceptor {
                 outputStream.close();
             }
             int responseCode = dVar.getResponseCode();
-            if (oGz && chain.call().isCanceled()) {
+            if (oQH && chain.call().isCanceled()) {
                 dVar.disconnect();
                 return a(chain, request);
             }
-            String str2 = dVar.eeT().eeE().toString();
+            String str2 = dVar.ehl().egW().toString();
             try {
                 protocol = Protocol.get(str2);
             } catch (IOException e) {
@@ -136,10 +136,10 @@ public class OkHttp3Interceptor implements Interceptor {
                 }
             }
             Headers build = builder2.build();
-            if (this.oGy != CookieJar.NO_COOKIES) {
+            if (this.oQG != CookieJar.NO_COOKIES) {
                 List<Cookie> parseAll = Cookie.parseAll(request.url(), build);
                 if (!parseAll.isEmpty()) {
-                    this.oGy.saveFromResponse(request.url(), parseAll);
+                    this.oQG.saveFromResponse(request.url(), parseAll);
                 }
             }
             if (responseCode >= 200 && responseCode < 400) {
@@ -159,7 +159,7 @@ public class OkHttp3Interceptor implements Interceptor {
                 }
 
                 @Override // com.baidu.turbonet.net.proxy.b
-                public void hP(long j2) {
+                public void hS(long j2) {
                     dVar.disconnect();
                 }
             })));
@@ -174,10 +174,10 @@ public class OkHttp3Interceptor implements Interceptor {
                 }
             }
             try {
-                if (oGz) {
-                    builder.body(oGA.newInstance(builder2.get("Content-Type"), j, buffer2));
+                if (oQH) {
+                    builder.body(oQI.newInstance(builder2.get("Content-Type"), j, buffer2));
                 } else {
-                    builder.body(oGA.newInstance(builder2.build(), buffer2));
+                    builder.body(oQI.newInstance(builder2.build(), buffer2));
                 }
             } catch (Exception e3) {
                 Log.e("tn_OkHttp3Intercept", "unexpected error:" + e3.toString());
@@ -208,7 +208,7 @@ public class OkHttp3Interceptor implements Interceptor {
     }
 
     private Response a(Interceptor.Chain chain, Request request) throws IOException {
-        if (oGx == null) {
+        if (oQF == null) {
             return chain.proceed(request);
         }
         final a aVar = new a(request.url().toString());
@@ -232,46 +232,46 @@ public class OkHttp3Interceptor implements Interceptor {
         if (request.header("User-Agent") == null) {
             newBuilder.header("User-Agent", okhttp3.internal.Version.userAgent());
         }
-        List<Cookie> loadForRequest = this.oGy.loadForRequest(request.url());
+        List<Cookie> loadForRequest = this.oQG.loadForRequest(request.url());
         if (!loadForRequest.isEmpty()) {
             newBuilder.header(SM.COOKIE, cookieHeader(loadForRequest));
         }
         Response proceed = chain.proceed(newBuilder.build());
-        aVar.edS();
+        aVar.egk();
         aVar.mHttpStatusCode = proceed.code();
         ResponseBody body2 = proceed.body();
         RealResponseBody realResponseBody = body2 instanceof RealResponseBody ? (RealResponseBody) body2 : null;
-        if (this.oGy != CookieJar.NO_COOKIES) {
+        if (this.oQG != CookieJar.NO_COOKIES) {
             List<Cookie> parseAll = Cookie.parseAll(request.url(), proceed.headers());
             if (!parseAll.isEmpty()) {
-                this.oGy.saveFromResponse(request.url(), parseAll);
+                this.oQG.saveFromResponse(request.url(), parseAll);
             }
         }
         if (realResponseBody != null) {
             try {
-                oGx.set(realResponseBody, Okio.buffer(Okio.source(new com.baidu.turbonet.net.proxy.a(body2.source().inputStream(), new com.baidu.turbonet.net.proxy.b() { // from class: com.baidu.turbonet.net.OkHttp3Interceptor.2
+                oQF.set(realResponseBody, Okio.buffer(Okio.source(new com.baidu.turbonet.net.proxy.a(body2.source().inputStream(), new com.baidu.turbonet.net.proxy.b() { // from class: com.baidu.turbonet.net.OkHttp3Interceptor.2
                     @Override // com.baidu.turbonet.net.proxy.b
                     public void b(Exception exc, long j) {
-                        aVar.oGl = j;
-                        aVar.edT();
+                        aVar.oQt = j;
+                        aVar.egl();
                         aVar.A(exc);
-                        aVar.a(OkHttp3Interceptor.this.oGB);
+                        aVar.a(OkHttp3Interceptor.this.oQJ);
                     }
 
                     @Override // com.baidu.turbonet.net.proxy.b
                     public void onComplete(long j) {
-                        aVar.oGl = j;
-                        aVar.edT();
-                        aVar.oGk = 0;
-                        aVar.a(OkHttp3Interceptor.this.oGB);
+                        aVar.oQt = j;
+                        aVar.egl();
+                        aVar.oQs = 0;
+                        aVar.a(OkHttp3Interceptor.this.oQJ);
                     }
 
                     @Override // com.baidu.turbonet.net.proxy.b
-                    public void hP(long j) {
-                        aVar.oGl = j;
-                        aVar.edT();
-                        aVar.oGk = -12;
-                        aVar.a(OkHttp3Interceptor.this.oGB);
+                    public void hS(long j) {
+                        aVar.oQt = j;
+                        aVar.egl();
+                        aVar.oQs = -12;
+                        aVar.a(OkHttp3Interceptor.this.oQJ);
                     }
                 }))));
             } catch (IllegalAccessException e) {

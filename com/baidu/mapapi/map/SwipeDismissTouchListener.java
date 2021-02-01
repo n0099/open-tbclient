@@ -7,14 +7,14 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SwipeDismissTouchListener implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2763a;
+    private int f2761a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2764b;
+    private int f2762b;
     private int c;
     private long d;
     private View e;
@@ -30,7 +30,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     private boolean o;
     private boolean p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface DismissCallbacks {
         boolean canDismiss(Object obj);
 
@@ -41,8 +41,8 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
 
     public SwipeDismissTouchListener(View view, Object obj, DismissCallbacks dismissCallbacks) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(view.getContext());
-        this.f2763a = viewConfiguration.getScaledTouchSlop();
-        this.f2764b = viewConfiguration.getScaledMinimumFlingVelocity();
+        this.f2761a = viewConfiguration.getScaledTouchSlop();
+        this.f2762b = viewConfiguration.getScaledMinimumFlingVelocity();
         this.c = viewConfiguration.getScaledMaximumFlingVelocity();
         this.d = view.getContext().getResources().getInteger(17694720);
         this.e = view;
@@ -93,7 +93,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                     if (Math.abs(rawX) > this.g / 3 && this.j) {
                         z = rawX > 0.0f;
                         z2 = true;
-                    } else if (this.f2764b > abs || abs > this.c || abs2 >= abs || abs2 >= abs || !this.j) {
+                    } else if (this.f2762b > abs || abs > this.c || abs2 >= abs || abs2 >= abs || !this.j) {
                         z = false;
                         z2 = false;
                     } else {
@@ -120,9 +120,9 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                     this.m.addMovement(motionEvent);
                     float rawX2 = motionEvent.getRawX() - this.h;
                     float rawY = motionEvent.getRawY() - this.i;
-                    if (Math.abs(rawX2) > this.f2763a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
+                    if (Math.abs(rawX2) > this.f2761a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
                         this.j = true;
-                        this.k = rawX2 > 0.0f ? this.f2763a : -this.f2763a;
+                        this.k = rawX2 > 0.0f ? this.f2761a : -this.f2761a;
                         this.e.getParent().requestDisallowInterceptTouchEvent(true);
                         if (!this.o) {
                             this.o = true;

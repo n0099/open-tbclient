@@ -31,7 +31,7 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.loader.app.LoaderManager;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FragmentActivity extends ComponentActivity implements ActivityCompat.OnRequestPermissionsResultCallback, ActivityCompat.RequestPermissionsRequestCodeValidator, ViewModelStoreOwner {
     static final String ALLOCATED_REQUEST_INDICIES_TAG = "android:support:request_indicies";
     static final String FRAGMENTS_TAG = "android:support:fragments";
@@ -65,7 +65,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     final FragmentController mFragments = FragmentController.createController(new HostCallbacks());
     boolean mStopped = true;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class NonConfigurationInstances {
         Object custom;
         FragmentManagerNonConfig fragments;
@@ -575,7 +575,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     class HostCallbacks extends FragmentHostCallback<FragmentActivity> {
         public HostCallbacks() {
             super(FragmentActivity.this);

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.engine.Resource;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class UnitTranscoder<Z> implements ResourceTranscoder<Z, Z> {
     private static final UnitTranscoder<?> UNIT_TRANSCODER = new UnitTranscoder<>();
 

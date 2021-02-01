@@ -16,28 +16,28 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.ar.constants.HttpConstants;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SapiSystemBarTintManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f3981a = -1728053248;
+    private static final int f3984a = -1728053248;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f3982b;
+    private static String f3985b;
     private final SystemBarConfig c;
     private boolean d;
     private boolean e;
     private View f;
     private View g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SystemBarConfig {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f3983a = "status_bar_height";
+        private static final String f3986a = "status_bar_height";
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f3984b = "navigation_bar_height";
+        private static final String f3987b = "navigation_bar_height";
         private static final String c = "navigation_bar_height_landscape";
         private static final String d = "navigation_bar_width";
         private static final String e = "config_showNavigationBar";
@@ -54,7 +54,7 @@ public class SapiSystemBarTintManager {
             if (Build.VERSION.SDK_INT < 14 || !c(context)) {
                 return 0;
             }
-            return a(resources, this.j ? f3984b : c);
+            return a(resources, this.j ? f3987b : c);
         }
 
         @TargetApi(14)
@@ -72,10 +72,10 @@ public class SapiSystemBarTintManager {
             int identifier = resources.getIdentifier(e, "bool", HttpConstants.OS_TYPE_VALUE);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
-                if ("1".equals(SapiSystemBarTintManager.f3982b)) {
+                if ("1".equals(SapiSystemBarTintManager.f3985b)) {
                     return false;
                 }
-                if ("0".equals(SapiSystemBarTintManager.f3982b)) {
+                if ("0".equals(SapiSystemBarTintManager.f3985b)) {
                     return true;
                 }
                 return z;
@@ -107,7 +107,7 @@ public class SapiSystemBarTintManager {
             Resources resources = activity.getResources();
             this.j = resources.getConfiguration().orientation == 1;
             this.k = a(activity);
-            this.f = a(resources, f3983a);
+            this.f = a(resources, f3986a);
             this.h = a((Context) activity);
             this.i = b(activity);
             this.g = this.h > 0;
@@ -141,9 +141,9 @@ public class SapiSystemBarTintManager {
                 declaredMethod.setAccessible(true);
                 Object[] objArr = new Object[1];
                 objArr[0] = "qemu.hw.mainkeys";
-                f3982b = (String) declaredMethod.invoke(null, objArr);
+                f3985b = (String) declaredMethod.invoke(null, objArr);
             } catch (Throwable th) {
-                f3982b = null;
+                f3985b = null;
             }
         }
     }

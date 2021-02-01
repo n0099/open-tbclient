@@ -4,17 +4,17 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public List<String> lcy;
+    public List<String> lkB;
 
     public void parseJson(JSONArray jSONArray) {
-        this.lcy = new ArrayList();
+        this.lkB = new ArrayList();
         if (jSONArray != null && jSONArray.length() > 0) {
             for (int i = 0; i < jSONArray.length(); i++) {
                 String optString = jSONArray.optString(i);
                 if (!StringUtils.isNull(optString)) {
-                    this.lcy.add(optString);
+                    this.lkB.add(optString);
                 }
             }
         }

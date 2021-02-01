@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a extends com.baidu.swan.gamecenter.c.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a() {
@@ -16,20 +16,20 @@ public class a extends com.baidu.swan.gamecenter.c.a {
     public com.baidu.swan.apps.api.c.b b(@NonNull JSONObject jSONObject, @NonNull final com.baidu.swan.apps.o.b bVar) {
         if (DEBUG && jSONObject.optBoolean("debug", false)) {
             Log.i("authorize", "debug mode: true.");
-            bVar.aI(null);
+            bVar.aF(null);
         } else {
-            e aIs = e.aIs();
-            if (aIs == null) {
+            e aIL = e.aIL();
+            if (aIL == null) {
                 bVar.onFail(10001, "authorize fail.");
             } else {
-                aIs.aID().e("mapp_gamecenter_private_api", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.gamecenter.a.a.1
+                aIL.aIW().e("mapp_gamecenter_private_api", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.gamecenter.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ao.e.b
                     /* renamed from: c */
                     public void L(com.baidu.swan.apps.setting.oauth.e eVar) {
                         boolean z = true;
-                        if ((eVar == null || eVar.forbidden || eVar.dHc != 1) ? false : false) {
-                            bVar.aI(null);
+                        if ((eVar == null || eVar.forbidden || eVar.dJg != 1) ? false : false) {
+                            bVar.aF(null);
                         } else {
                             bVar.onFail(10001, "authorize fail.");
                         }

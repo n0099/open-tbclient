@@ -4,43 +4,43 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.swan.pms.model.f;
 import com.baidu.swan.pms.model.g;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
-    public List<C0542a> esL;
+    public List<C0539a> euS;
 
     /* renamed from: com.baidu.swan.pms.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0542a {
+    /* loaded from: classes3.dex */
+    public static class C0539a {
         public int category;
-        public String erV;
         public int errorCode;
-        public f esM;
-        public List<g> esN;
-        public PMSAppInfo esO;
-        public boolean esP;
+        public f euT;
+        public List<g> euU;
+        public PMSAppInfo euV;
+        public boolean euW;
+        public String euc;
 
         public boolean equals(Object obj) {
             if (super.equals(obj)) {
                 return true;
             }
-            if (obj == null || this.esM == null || !(obj instanceof C0542a)) {
+            if (obj == null || this.euT == null || !(obj instanceof C0539a)) {
                 return false;
             }
-            return this.esM.equals(((C0542a) obj).esM);
+            return this.euT.equals(((C0539a) obj).euT);
         }
 
         public int hashCode() {
-            return this.esM == null ? super.hashCode() : this.esM.hashCode();
+            return this.euT == null ? super.hashCode() : this.euT.hashCode();
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("PMS Item: ").append(this.erV);
-            if (this.esM != null) {
-                sb.append(",pkgMain=").append(this.esM);
+            sb.append("PMS Item: ").append(this.euc);
+            if (this.euT != null) {
+                sb.append(",pkgMain=").append(this.euT);
             }
-            if (this.esO != null) {
-                sb.append(",appInfo=").append(this.esO);
+            if (this.euV != null) {
+                sb.append(",appInfo=").append(this.euV);
             }
             return sb.toString();
         }

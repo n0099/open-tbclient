@@ -29,16 +29,16 @@ public class l extends a {
         if (dVar.isDrawableAvalible()) {
             this.mShader = new BitmapShader(dVar.drawable.getBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         } else {
-            this.mShader = dVar.Sz.createBitmapShader();
+            this.mShader = dVar.Sx.createBitmapShader();
         }
         if (this.mShader != null) {
             this.mShader.setLocalMatrix(this.mShaderMatrix);
             this.mPaint.setShader(this.mShader);
             int width2 = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
             this.mTransformBounds.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width2), Math.min(i4, (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom()));
-            if (this.Su.mHasBorder) {
-                float f = this.Su.mBorderWidth / 2.0f;
-                if (!this.Su.mBorderSurroundContent) {
+            if (this.Ss.mHasBorder) {
+                float f = this.Ss.mBorderWidth / 2.0f;
+                if (!this.Ss.mBorderSurroundContent) {
                     this.mBorderRect.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
                 } else {
                     this.mBorderRect.set(this.mTransformBounds.left + f, this.mTransformBounds.top + f, this.mTransformBounds.right - f, this.mTransformBounds.bottom - f);
@@ -51,23 +51,23 @@ public class l extends a {
     public void b(Canvas canvas, d dVar, ImageView imageView) {
         boolean isBdImgAvailable = dVar.isBdImgAvailable();
         if (isBdImgAvailable && dVar.isBdImgAvailable()) {
-            dVar.Sz.changeDrawing(true);
+            dVar.Sx.changeDrawing(true);
         }
-        if (!this.Su.mIsRound) {
-            canvas.drawPath(a(this.mTransformBounds, this.Su.mRadius), this.mPaint);
+        if (!this.Ss.mIsRound) {
+            canvas.drawPath(a(this.mTransformBounds, this.Ss.mRadius), this.mPaint);
         } else {
             canvas.drawCircle((this.mTransformBounds.right + this.mTransformBounds.left) / 2.0f, (this.mTransformBounds.top + this.mTransformBounds.bottom) / 2.0f, Math.min(this.mTransformBounds.width(), this.mTransformBounds.height()) / 2.0f, this.mPaint);
         }
         if (isBdImgAvailable && dVar.isBdImgAvailable()) {
-            dVar.Sz.changeDrawing(false);
+            dVar.Sx.changeDrawing(false);
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void drawBorder(Canvas canvas, ImageView imageView) {
-        if (this.Su.mHasBorder) {
-            if (!this.Su.mIsRound) {
-                canvas.drawPath(a(this.mBorderRect, this.Su.mRadius), this.mBorderPaint);
+        if (this.Ss.mHasBorder) {
+            if (!this.Ss.mIsRound) {
+                canvas.drawPath(a(this.mBorderRect, this.Ss.mRadius), this.mBorderPaint);
                 return;
             }
             float f = (this.mTransformBounds.right + this.mTransformBounds.left) / 2.0f;
@@ -78,24 +78,24 @@ public class l extends a {
                 f2 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
                 min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
             }
-            canvas.drawCircle(f, f2, min - (this.Su.mBorderWidth / 2.0f), this.mBorderPaint);
+            canvas.drawCircle(f, f2, min - (this.Ss.mBorderWidth / 2.0f), this.mBorderPaint);
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void drawForeground(Canvas canvas, ImageView imageView) {
-        if (this.Su.mForegroundColor != 0) {
+        if (this.Ss.mForegroundColor != 0) {
             int scrollX = imageView.getScrollX();
             int scrollY = imageView.getScrollY();
             canvas.translate(scrollX, scrollY);
-            this.mForegroundPaint.setColor(this.Su.mForegroundColor);
-            if (!this.Su.mIsRound) {
+            this.mForegroundPaint.setColor(this.Ss.mForegroundColor);
+            if (!this.Ss.mIsRound) {
                 this.mForegroundRect.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-                canvas.drawPath(a(this.mForegroundRect, this.Su.mRadius), this.mForegroundPaint);
+                canvas.drawPath(a(this.mForegroundRect, this.Ss.mRadius), this.mForegroundPaint);
             } else {
                 float width = imageView.getWidth() / 2.0f;
                 float height = imageView.getHeight() / 2.0f;
-                canvas.drawCircle(width, height, Math.min(width, height) - (this.Su.mBorderWidth / 2.0f), this.mForegroundPaint);
+                canvas.drawCircle(width, height, Math.min(width, height) - (this.Ss.mBorderWidth / 2.0f), this.mForegroundPaint);
             }
             canvas.translate(-scrollX, -scrollY);
         }

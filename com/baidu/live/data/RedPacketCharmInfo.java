@@ -2,7 +2,7 @@ package com.baidu.live.data;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RedPacketCharmInfo implements Serializable {
     public int count;
     public String id;

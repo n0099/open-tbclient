@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.core.video.renderview;
 
 import android.graphics.SurfaceTexture;
 import android.view.SurfaceHolder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void a(SurfaceTexture surfaceTexture, int i, int i2);
 

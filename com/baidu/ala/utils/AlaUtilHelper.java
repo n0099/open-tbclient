@@ -13,7 +13,7 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.widget.TbImageView;
 import java.lang.reflect.Method;
 import org.apache.http.HttpHost;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaUtilHelper {
     private static boolean hasNavBar(Context context) {
         Resources resources = context.getResources();

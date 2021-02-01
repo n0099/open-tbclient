@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public abstract class NativeRestore {
     private static final String CRASH_IMEI = "imei";
     private static final String CRASH_IS_NATIVE = "is_native";

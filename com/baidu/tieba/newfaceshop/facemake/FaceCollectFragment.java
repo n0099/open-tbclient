@@ -12,7 +12,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PickFaceTabActivityConfig;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
@@ -24,11 +24,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FaceCollectFragment extends BaseFragment {
-    private f lsv;
-    private BdListView lsx;
-    private h lsy;
+    private f lAA;
+    private BdListView lAC;
+    private h lAD;
     private Activity mActivity;
     private List<EmotionImageData> mEmotionList;
     private NoDataView mNoDataView;
@@ -38,14 +38,14 @@ public class FaceCollectFragment extends BaseFragment {
         Serializable serializable;
         this.mActivity = getPageContext().getPageActivity();
         View inflate = layoutInflater.inflate(R.layout.fragment_pick_collect, (ViewGroup) null);
-        ao.setBackgroundResource(inflate, R.color.CAM_X0201);
-        this.mNoDataView = NoDataViewFactory.a(this.mActivity, inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mActivity, R.dimen.ds320)), NoDataViewFactory.d.Bk(this.mActivity.getText(R.string.face_group_no_emotion).toString()), null);
+        ap.setBackgroundResource(inflate, R.color.CAM_X0201);
+        this.mNoDataView = NoDataViewFactory.a(this.mActivity, inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mActivity, R.dimen.ds320)), NoDataViewFactory.d.BB(this.mActivity.getText(R.string.face_group_no_emotion).toString()), null);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(8);
-        this.lsx = (BdListView) inflate.findViewById(R.id.listview_emotion);
+        this.lAC = (BdListView) inflate.findViewById(R.id.listview_emotion);
         this.mEmotionList = new ArrayList();
-        this.lsy = new h(this.mEmotionList, 20);
-        this.lsy.b(this.lsv);
+        this.lAD = new h(this.mEmotionList, 20);
+        this.lAD.b(this.lAA);
         if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             Iterator it = ((ArrayList) serializable).iterator();
@@ -55,33 +55,33 @@ public class FaceCollectFragment extends BaseFragment {
                     linkedHashMap.put(faceData.emotionImageData.getPicUrl(), faceData.emotionImageData);
                 }
             }
-            this.lsy.G(linkedHashMap);
+            this.lAD.I(linkedHashMap);
         }
-        this.lsx.setAdapter((ListAdapter) this.lsy);
-        bEv();
+        this.lAC.setAdapter((ListAdapter) this.lAD);
+        bEN();
         return inflate;
     }
 
     public void a(f fVar) {
-        this.lsv = fVar;
-        if (this.lsy != null) {
-            this.lsy.b(this.lsv);
+        this.lAA = fVar;
+        if (this.lAD != null) {
+            this.lAD.b(this.lAA);
         }
     }
 
-    private void bEv() {
+    private void bEN() {
         new BdAsyncTask<Void, Void, List<EmotionImageData>>() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceCollectFragment.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: c */
             public List<EmotionImageData> doInBackground(Void... voidArr) {
-                List<CollectEmotionData> IU = com.baidu.tieba.faceshop.i.cxt().IU(TbadkCoreApplication.getCurrentAccount());
-                if (IU == null) {
+                List<CollectEmotionData> JF = com.baidu.tieba.faceshop.i.cyE().JF(TbadkCoreApplication.getCurrentAccount());
+                if (JF == null) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (CollectEmotionData collectEmotionData : IU) {
+                for (CollectEmotionData collectEmotionData : JF) {
                     if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid)) {
                         EmotionImageData emotionImageData = new EmotionImageData();
                         emotionImageData.setPicId(collectEmotionData.pid);
@@ -101,20 +101,20 @@ public class FaceCollectFragment extends BaseFragment {
             /* renamed from: B */
             public void onPostExecute(List<EmotionImageData> list) {
                 if (list == null || list.isEmpty()) {
-                    FaceCollectFragment.this.lsx.setVisibility(8);
+                    FaceCollectFragment.this.lAC.setVisibility(8);
                     FaceCollectFragment.this.mNoDataView.setVisibility(0);
                     return;
                 }
                 FaceCollectFragment.this.mEmotionList.clear();
                 FaceCollectFragment.this.mEmotionList.addAll(list);
-                FaceCollectFragment.this.lsy.notifyDataSetChanged();
+                FaceCollectFragment.this.lAD.notifyDataSetChanged();
             }
         }.execute(new Void[0]);
     }
 
-    public LinkedHashMap<String, EmotionImageData> dgu() {
-        if (this.lsy != null) {
-            return this.lsy.dgu();
+    public LinkedHashMap<String, EmotionImageData> div() {
+        if (this.lAD != null) {
+            return this.lAD.div();
         }
         return null;
     }

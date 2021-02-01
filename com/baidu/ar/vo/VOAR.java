@@ -11,7 +11,6 @@ import com.baidu.ar.imu.i;
 import com.baidu.ar.vo.b.d;
 import com.baidu.ar.vo.b.e;
 import com.baidu.mobstat.Config;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -83,7 +82,7 @@ public class VOAR extends c {
 
     private d gX() {
         d dVar = new d();
-        dVar.yQ = PlatformPlugin.DEFAULT_SYSTEM_UI;
+        dVar.yQ = 1280;
         dVar.yR = 720;
         dVar.yS = new d.a() { // from class: com.baidu.ar.vo.VOAR.2
             @Override // com.baidu.ar.vo.b.d.a

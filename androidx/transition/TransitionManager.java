@@ -10,7 +10,7 @@ import androidx.core.view.ViewCompat;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class TransitionManager {
     private static final String LOG_TAG = "TransitionManager";
     private static Transition sDefaultTransition = new AutoTransition();
@@ -52,15 +52,15 @@ public class TransitionManager {
                 return;
             }
             sPendingTransitions.add(sceneRoot);
-            Transition m4clone = transition.m4clone();
-            m4clone.setSceneRoot(sceneRoot);
+            Transition m5clone = transition.m5clone();
+            m5clone.setSceneRoot(sceneRoot);
             Scene currentScene = Scene.getCurrentScene(sceneRoot);
             if (currentScene != null && currentScene.isCreatedFromLayoutResource()) {
-                m4clone.setCanRemoveViews(true);
+                m5clone.setCanRemoveViews(true);
             }
-            sceneChangeSetup(sceneRoot, m4clone);
+            sceneChangeSetup(sceneRoot, m5clone);
             scene.enter();
-            sceneChangeRunTransition(sceneRoot, m4clone);
+            sceneChangeRunTransition(sceneRoot, m5clone);
         }
     }
 
@@ -84,7 +84,7 @@ public class TransitionManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class MultiListener implements View.OnAttachStateChangeListener, ViewTreeObserver.OnPreDrawListener {
         ViewGroup mSceneRoot;
         Transition mTransition;
@@ -189,10 +189,10 @@ public class TransitionManager {
             if (transition == null) {
                 transition = sDefaultTransition;
             }
-            Transition m4clone = transition.m4clone();
-            sceneChangeSetup(viewGroup, m4clone);
+            Transition m5clone = transition.m5clone();
+            sceneChangeSetup(viewGroup, m5clone);
             Scene.setCurrentScene(viewGroup, null);
-            sceneChangeRunTransition(viewGroup, m4clone);
+            sceneChangeRunTransition(viewGroup, m5clone);
         }
     }
 

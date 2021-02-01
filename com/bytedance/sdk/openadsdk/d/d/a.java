@@ -8,11 +8,11 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements Closeable {
 
     /* renamed from: b  reason: collision with root package name */
-    private final Reader f6983b;
+    private final Reader f6985b;
     private long i;
     private int j;
     private String k;
@@ -27,7 +27,7 @@ public class a implements Closeable {
     private int h = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    int f6982a = 0;
+    int f6984a = 0;
     private int[] l = new int[32];
 
     public a(Reader reader) {
@@ -41,7 +41,7 @@ public class a implements Closeable {
         if (reader == null) {
             throw new NullPointerException("in == null");
         }
-        this.f6983b = reader;
+        this.f6985b = reader;
     }
 
     public final void a(boolean z) {
@@ -53,21 +53,21 @@ public class a implements Closeable {
     }
 
     public void a() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
         if (i == 3) {
             a(1);
             this.o[this.m - 1] = 0;
-            this.f6982a = 0;
+            this.f6984a = 0;
             return;
         }
         throw new IllegalStateException("Expected BEGIN_ARRAY but was " + f() + s());
     }
 
     public void b() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
@@ -76,27 +76,27 @@ public class a implements Closeable {
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
-            this.f6982a = 0;
+            this.f6984a = 0;
             return;
         }
         throw new IllegalStateException("Expected END_ARRAY but was " + f() + s());
     }
 
     public void c() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
         if (i == 1) {
             a(3);
-            this.f6982a = 0;
+            this.f6984a = 0;
             return;
         }
         throw new IllegalStateException("Expected BEGIN_OBJECT but was " + f() + s());
     }
 
     public void d() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
@@ -106,14 +106,14 @@ public class a implements Closeable {
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
-            this.f6982a = 0;
+            this.f6984a = 0;
             return;
         }
         throw new IllegalStateException("Expected END_OBJECT but was " + f() + s());
     }
 
     public boolean e() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
@@ -121,7 +121,7 @@ public class a implements Closeable {
     }
 
     public b f() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
@@ -171,7 +171,7 @@ public class a implements Closeable {
                     w();
                     break;
                 case 93:
-                    this.f6982a = 4;
+                    this.f6984a = 4;
                     return 4;
                 default:
                     throw b("Unterminated array");
@@ -186,7 +186,7 @@ public class a implements Closeable {
                         w();
                         break;
                     case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:
-                        this.f6982a = 2;
+                        this.f6984a = 2;
                         return 2;
                     default:
                         throw b("Unterminated object");
@@ -195,15 +195,15 @@ public class a implements Closeable {
             int b2 = b(true);
             switch (b2) {
                 case 34:
-                    this.f6982a = 13;
+                    this.f6984a = 13;
                     return 13;
                 case 39:
                     w();
-                    this.f6982a = 12;
+                    this.f6984a = 12;
                     return 12;
                 case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:
                     if (i != 5) {
-                        this.f6982a = 2;
+                        this.f6984a = 2;
                         return 2;
                     }
                     throw b("Expected name");
@@ -211,7 +211,7 @@ public class a implements Closeable {
                     w();
                     this.e--;
                     if (a((char) b2)) {
-                        this.f6982a = 14;
+                        this.f6984a = 14;
                         return 14;
                     }
                     throw b("Expected name");
@@ -240,7 +240,7 @@ public class a implements Closeable {
             this.l[this.m - 1] = 7;
         } else if (i == 7) {
             if (b(false) == -1) {
-                this.f6982a = 17;
+                this.f6984a = 17;
                 return 17;
             }
             w();
@@ -250,26 +250,26 @@ public class a implements Closeable {
         }
         switch (b(true)) {
             case 34:
-                this.f6982a = 9;
+                this.f6984a = 9;
                 return 9;
             case 39:
                 w();
-                this.f6982a = 8;
+                this.f6984a = 8;
                 return 8;
             case 44:
             case 59:
                 break;
             case 91:
-                this.f6982a = 3;
+                this.f6984a = 3;
                 return 3;
             case 93:
                 if (i == 1) {
-                    this.f6982a = 4;
+                    this.f6984a = 4;
                     return 4;
                 }
                 break;
             case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
-                this.f6982a = 1;
+                this.f6984a = 1;
                 return 1;
             default:
                 this.e--;
@@ -281,7 +281,7 @@ public class a implements Closeable {
                             throw b("Expected value");
                         }
                         w();
-                        this.f6982a = 10;
+                        this.f6984a = 10;
                         return 10;
                     }
                     return t;
@@ -291,7 +291,7 @@ public class a implements Closeable {
         if (i == 1 || i == 2) {
             w();
             this.e--;
-            this.f6982a = 7;
+            this.f6984a = 7;
             return 7;
         }
         throw b("Unexpected value");
@@ -331,7 +331,7 @@ public class a implements Closeable {
             return 0;
         }
         this.e += length;
-        this.f6982a = i;
+        this.f6984a = i;
         return i;
     }
 
@@ -365,7 +365,7 @@ public class a implements Closeable {
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0035, code lost:
         r14.i = r6;
         r14.e += r10;
-        r14.f6982a = 15;
+        r14.f6984a = 15;
      */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x0058, code lost:
         if (a(r2) == false) goto L10;
@@ -387,7 +387,7 @@ public class a implements Closeable {
      */
     /* JADX WARN: Code restructure failed: missing block: B:86:0x00d9, code lost:
         r14.j = r10;
-        r14.f6982a = 16;
+        r14.f6984a = 16;
      */
     /* JADX WARN: Code restructure failed: missing block: B:87:0x00e1, code lost:
         return 0;
@@ -512,7 +512,7 @@ public class a implements Closeable {
 
     public String g() throws IOException {
         String b2;
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
@@ -525,14 +525,14 @@ public class a implements Closeable {
         } else {
             throw new IllegalStateException("Expected a name but was " + f() + s());
         }
-        this.f6982a = 0;
+        this.f6984a = 0;
         this.n[this.m - 1] = b2;
         return b2;
     }
 
     public String h() throws IOException {
         String str;
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
@@ -553,7 +553,7 @@ public class a implements Closeable {
         } else {
             throw new IllegalStateException("Expected a string but was " + f() + s());
         }
-        this.f6982a = 0;
+        this.f6984a = 0;
         int[] iArr = this.o;
         int i2 = this.m - 1;
         iArr[i2] = iArr[i2] + 1;
@@ -561,18 +561,18 @@ public class a implements Closeable {
     }
 
     public boolean i() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
         if (i == 5) {
-            this.f6982a = 0;
+            this.f6984a = 0;
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
             return true;
         } else if (i == 6) {
-            this.f6982a = 0;
+            this.f6984a = 0;
             int[] iArr2 = this.o;
             int i3 = this.m - 1;
             iArr2[i3] = iArr2[i3] + 1;
@@ -583,12 +583,12 @@ public class a implements Closeable {
     }
 
     public void j() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
         if (i == 7) {
-            this.f6982a = 0;
+            this.f6984a = 0;
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
@@ -598,12 +598,12 @@ public class a implements Closeable {
     }
 
     public double k() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
         if (i == 15) {
-            this.f6982a = 0;
+            this.f6984a = 0;
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
@@ -619,13 +619,13 @@ public class a implements Closeable {
         } else if (i != 11) {
             throw new IllegalStateException("Expected a double but was " + f() + s());
         }
-        this.f6982a = 11;
+        this.f6984a = 11;
         double parseDouble = Double.parseDouble(this.k);
         if (!this.c && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
             throw new d("JSON forbids NaN and infinities: " + parseDouble + s());
         }
         this.k = null;
-        this.f6982a = 0;
+        this.f6984a = 0;
         int[] iArr2 = this.o;
         int i3 = this.m - 1;
         iArr2[i3] = iArr2[i3] + 1;
@@ -633,12 +633,12 @@ public class a implements Closeable {
     }
 
     public long l() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
         if (i == 15) {
-            this.f6982a = 0;
+            this.f6984a = 0;
             int[] iArr = this.o;
             int i2 = this.m - 1;
             iArr[i2] = iArr[i2] + 1;
@@ -655,7 +655,7 @@ public class a implements Closeable {
             }
             try {
                 long parseLong = Long.parseLong(this.k);
-                this.f6982a = 0;
+                this.f6984a = 0;
                 int[] iArr2 = this.o;
                 int i3 = this.m - 1;
                 iArr2[i3] = iArr2[i3] + 1;
@@ -665,14 +665,14 @@ public class a implements Closeable {
         } else {
             throw new IllegalStateException("Expected a long but was " + f() + s());
         }
-        this.f6982a = 11;
+        this.f6984a = 11;
         double parseDouble = Double.parseDouble(this.k);
         long j = (long) parseDouble;
         if (j != parseDouble) {
             throw new NumberFormatException("Expected a long but was " + this.k + s());
         }
         this.k = null;
-        this.f6982a = 0;
+        this.f6984a = 0;
         int[] iArr3 = this.o;
         int i4 = this.m - 1;
         iArr3[i4] = iArr3[i4] + 1;
@@ -844,7 +844,7 @@ public class a implements Closeable {
     }
 
     public int m() throws IOException {
-        int i = this.f6982a;
+        int i = this.f6984a;
         if (i == 0) {
             i = r();
         }
@@ -853,7 +853,7 @@ public class a implements Closeable {
             if (this.i != i2) {
                 throw new NumberFormatException("Expected an int but was " + this.i + s());
             }
-            this.f6982a = 0;
+            this.f6984a = 0;
             int[] iArr = this.o;
             int i3 = this.m - 1;
             iArr[i3] = iArr[i3] + 1;
@@ -870,7 +870,7 @@ public class a implements Closeable {
             }
             try {
                 int parseInt = Integer.parseInt(this.k);
-                this.f6982a = 0;
+                this.f6984a = 0;
                 int[] iArr2 = this.o;
                 int i4 = this.m - 1;
                 iArr2[i4] = iArr2[i4] + 1;
@@ -880,14 +880,14 @@ public class a implements Closeable {
         } else {
             throw new IllegalStateException("Expected an int but was " + f() + s());
         }
-        this.f6982a = 11;
+        this.f6984a = 11;
         double parseDouble = Double.parseDouble(this.k);
         int i5 = (int) parseDouble;
         if (i5 != parseDouble) {
             throw new NumberFormatException("Expected an int but was " + this.k + s());
         }
         this.k = null;
-        this.f6982a = 0;
+        this.f6984a = 0;
         int[] iArr3 = this.o;
         int i6 = this.m - 1;
         iArr3[i6] = iArr3[i6] + 1;
@@ -896,16 +896,16 @@ public class a implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f6982a = 0;
+        this.f6984a = 0;
         this.l[0] = 8;
         this.m = 1;
-        this.f6983b.close();
+        this.f6985b.close();
     }
 
     public void n() throws IOException {
         int i = 0;
         do {
-            int i2 = this.f6982a;
+            int i2 = this.f6984a;
             if (i2 == 0) {
                 i2 = r();
             }
@@ -930,7 +930,7 @@ public class a implements Closeable {
             } else if (i2 == 16) {
                 this.e += this.j;
             }
-            this.f6982a = 0;
+            this.f6984a = 0;
         } while (i != 0);
         int[] iArr = this.o;
         int i3 = this.m - 1;
@@ -962,7 +962,7 @@ public class a implements Closeable {
         }
         this.e = 0;
         do {
-            int read = this.f6983b.read(cArr, this.f, cArr.length - this.f);
+            int read = this.f6985b.read(cArr, this.f, cArr.length - this.f);
             if (read == -1) {
                 return false;
             }
@@ -1196,23 +1196,23 @@ public class a implements Closeable {
     }
 
     static {
-        f.f6958a = new f() { // from class: com.bytedance.sdk.openadsdk.d.d.a.1
+        f.f6960a = new f() { // from class: com.bytedance.sdk.openadsdk.d.d.a.1
             @Override // com.bytedance.sdk.openadsdk.d.b.f
             public void a(a aVar) throws IOException {
                 if (aVar instanceof e) {
                     ((e) aVar).o();
                     return;
                 }
-                int i = aVar.f6982a;
+                int i = aVar.f6984a;
                 if (i == 0) {
                     i = aVar.r();
                 }
                 if (i == 13) {
-                    aVar.f6982a = 9;
+                    aVar.f6984a = 9;
                 } else if (i == 12) {
-                    aVar.f6982a = 8;
+                    aVar.f6984a = 8;
                 } else if (i == 14) {
-                    aVar.f6982a = 10;
+                    aVar.f6984a = 10;
                 } else {
                     throw new IllegalStateException("Expected a name but was " + aVar.f() + aVar.s());
                 }

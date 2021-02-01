@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GodSquareActivityConfig;
 import com.baidu.tieba.godSquare.model.res.GodSquareHttpResponsedMsg;
 import com.baidu.tieba.godSquare.model.res.GodSquareSocketResponsedMsg;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GodSquareActivityStatic {
     public static String Tag = "tag";
 

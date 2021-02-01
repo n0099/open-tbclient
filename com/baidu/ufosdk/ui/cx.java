@@ -4,22 +4,22 @@ import android.text.TextUtils;
 import android.view.View;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 final class cx implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f5510a;
+    final /* synthetic */ String f5512a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ JSONArray f5511b;
+    final /* synthetic */ JSONArray f5513b;
     final /* synthetic */ int c;
     final /* synthetic */ cg d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cx(cg cgVar, String str, JSONArray jSONArray, int i) {
         this.d = cgVar;
-        this.f5510a = str;
-        this.f5511b = jSONArray;
+        this.f5512a = str;
+        this.f5513b = jSONArray;
         this.c = i;
     }
 
@@ -37,18 +37,18 @@ final class cx implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         com.baidu.ufosdk.f.c.a("点击查看不满意原因");
-        if (!TextUtils.isEmpty(this.f5510a) || (this.f5511b != null && this.f5511b.length() != 0)) {
-            ((Map) this.d.f5489a.h.get(this.c)).put("isClicked", 1);
+        if (!TextUtils.isEmpty(this.f5512a) || (this.f5513b != null && this.f5513b.length() != 0)) {
+            ((Map) this.d.f5491a.h.get(this.c)).put("isClicked", 1);
         }
-        this.d.f5489a.aF = this.c;
-        if (((Map) this.d.f5489a.h.get(this.c)).containsKey("chatId")) {
-            this.d.f5489a.f = new StringBuilder().append(((Map) this.d.f5489a.h.get(this.c)).get("chatId")).toString();
+        this.d.f5491a.aF = this.c;
+        if (((Map) this.d.f5491a.h.get(this.c)).containsKey("chatId")) {
+            this.d.f5491a.f = new StringBuilder().append(((Map) this.d.f5491a.h.get(this.c)).get("chatId")).toString();
         }
-        if (TextUtils.isEmpty(this.f5510a) && (this.f5511b == null || this.f5511b.length() == 0)) {
-            FeedbackInputActivity.a(this.d.f5489a, false, false);
+        if (TextUtils.isEmpty(this.f5512a) && (this.f5513b == null || this.f5513b.length() == 0)) {
+            FeedbackInputActivity.a(this.d.f5491a, false, false);
         } else {
-            FeedbackInputActivity.a(this.d.f5489a, true, false);
+            FeedbackInputActivity.a(this.d.f5491a, true, false);
         }
-        this.d.f5489a.j.notifyDataSetChanged();
+        this.d.f5491a.j.notifyDataSetChanged();
     }
 }

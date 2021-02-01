@@ -6,14 +6,14 @@ import android.util.Log;
 import com.bytedance.sdk.openadsdk.j.a.c;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static volatile com.bytedance.sdk.openadsdk.j.a.b f7256a;
+    static volatile com.bytedance.sdk.openadsdk.j.a.b f7258a;
 
     /* renamed from: b  reason: collision with root package name */
-    static volatile com.bytedance.sdk.openadsdk.j.a.c f7257b;
+    static volatile com.bytedance.sdk.openadsdk.j.a.c f7259b;
     public static volatile boolean d;
     static volatile boolean f;
     public static volatile Integer i;
@@ -46,14 +46,14 @@ public class e {
             throw new IllegalArgumentException("DiskLruCache and Context can't be null !!!");
         }
         k = context.getApplicationContext();
-        if (f7257b == null) {
-            com.bytedance.sdk.openadsdk.j.a.b bVar = f7256a;
-            if (bVar != null && bVar.f7220a.getAbsolutePath().equals(cVar.f7222a.getAbsolutePath())) {
+        if (f7259b == null) {
+            com.bytedance.sdk.openadsdk.j.a.b bVar = f7258a;
+            if (bVar != null && bVar.f7222a.getAbsolutePath().equals(cVar.f7224a.getAbsolutePath())) {
                 throw new IllegalArgumentException("DiskLruCache 和 DiskCache 不能使用相同的目录");
             }
-            f7257b = cVar;
+            f7259b = cVar;
             j = com.bytedance.sdk.openadsdk.j.b.c.a(context);
-            f7257b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.j.e.1
+            f7259b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.j.e.1
                 @Override // com.bytedance.sdk.openadsdk.j.a.c.a
                 public void a(String str) {
                     if (e.c) {
@@ -79,10 +79,10 @@ public class e {
     }
 
     public static com.bytedance.sdk.openadsdk.j.a.c b() {
-        return f7257b;
+        return f7259b;
     }
 
     public static com.bytedance.sdk.openadsdk.j.a.b c() {
-        return f7256a;
+        return f7258a;
     }
 }

@@ -7,7 +7,7 @@ import com.kwad.sdk.emotion.model.CDNUrl;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static boolean a(String str) {
         if (TextUtils.isEmpty(str)) {

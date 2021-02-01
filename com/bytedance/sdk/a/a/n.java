@@ -7,23 +7,23 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class n implements e {
     boolean c;
-    public final c pdq = new c();
-    public final s pdz;
+    public final c pnD = new c();
+    public final s pnM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(s sVar) {
         if (sVar == null) {
             throw new NullPointerException("source == null");
         }
-        this.pdz = sVar;
+        this.pnM = sVar;
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    public c elX() {
-        return this.pdq;
+    public c eor() {
+        return this.pnD;
     }
 
     @Override // com.bytedance.sdk.a.a.s
@@ -37,10 +37,10 @@ public final class n implements e {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        if (this.pdq.f5840b == 0 && this.pdz.b(this.pdq, 8192L) == -1) {
+        if (this.pnD.f5842b == 0 && this.pnM.b(this.pnD, 8192L) == -1) {
             return -1L;
         }
-        return this.pdq.b(cVar, Math.min(j, this.pdq.f5840b));
+        return this.pnD.b(cVar, Math.min(j, this.pnD.f5842b));
     }
 
     @Override // com.bytedance.sdk.a.a.e
@@ -48,7 +48,7 @@ public final class n implements e {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        return this.pdq.e() && this.pdz.b(this.pdq, 8192L) == -1;
+        return this.pnD.e() && this.pnM.b(this.pnD, 8192L) == -1;
     }
 
     @Override // com.bytedance.sdk.a.a.e
@@ -65,8 +65,8 @@ public final class n implements e {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        while (this.pdq.f5840b < j) {
-            if (this.pdz.b(this.pdq, 8192L) == -1) {
+        while (this.pnD.f5842b < j) {
+            if (this.pnM.b(this.pnD, 8192L) == -1) {
                 return false;
             }
         }
@@ -74,33 +74,32 @@ public final class n implements e {
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    public byte ema() throws IOException {
+    public byte eou() throws IOException {
         a(1L);
-        return this.pdq.ema();
+        return this.pnD.eou();
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    /* renamed from: if */
-    public f mo54if(long j) throws IOException {
+    public f ii(long j) throws IOException {
         a(j);
-        return this.pdq.mo54if(j);
+        return this.pnD.ii(j);
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    public byte[] ih(long j) throws IOException {
+    public byte[] ik(long j) throws IOException {
         a(j);
-        return this.pdq.ih(j);
+        return this.pnD.ik(j);
     }
 
     @Override // com.bytedance.sdk.a.a.e
     public void a(byte[] bArr) throws IOException {
         try {
             a(bArr.length);
-            this.pdq.a(bArr);
+            this.pnD.a(bArr);
         } catch (EOFException e) {
             int i = 0;
-            while (this.pdq.f5840b > 0) {
-                int a2 = this.pdq.a(bArr, i, (int) this.pdq.f5840b);
+            while (this.pnD.f5842b > 0) {
+                int a2 = this.pnD.a(bArr, i, (int) this.pnD.f5842b);
                 if (a2 == -1) {
                     throw new AssertionError();
                 }
@@ -112,10 +111,10 @@ public final class n implements e {
 
     @Override // java.nio.channels.ReadableByteChannel
     public int read(ByteBuffer byteBuffer) throws IOException {
-        if (this.pdq.f5840b == 0 && this.pdz.b(this.pdq, 8192L) == -1) {
+        if (this.pnD.f5842b == 0 && this.pnM.b(this.pnD, 8192L) == -1) {
             return -1;
         }
-        return this.pdq.read(byteBuffer);
+        return this.pnD.read(byteBuffer);
     }
 
     @Override // com.bytedance.sdk.a.a.e
@@ -123,8 +122,8 @@ public final class n implements e {
         if (charset == null) {
             throw new IllegalArgumentException("charset == null");
         }
-        this.pdq.b(this.pdz);
-        return this.pdq.b(charset);
+        this.pnD.b(this.pnM);
+        return this.pnD.b(charset);
     }
 
     @Override // com.bytedance.sdk.a.a.e
@@ -140,53 +139,53 @@ public final class n implements e {
         long j2 = j == Long.MAX_VALUE ? Long.MAX_VALUE : j + 1;
         long a2 = a((byte) 10, 0L, j2);
         if (a2 != -1) {
-            return this.pdq.ig(a2);
+            return this.pnD.ij(a2);
         }
-        if (j2 < Long.MAX_VALUE && b(j2) && this.pdq.ie(j2 - 1) == 13 && b(1 + j2) && this.pdq.ie(j2) == 10) {
-            return this.pdq.ig(j2);
+        if (j2 < Long.MAX_VALUE && b(j2) && this.pnD.ih(j2 - 1) == 13 && b(1 + j2) && this.pnD.ih(j2) == 10) {
+            return this.pnD.ij(j2);
         }
         c cVar = new c();
-        this.pdq.a(cVar, 0L, Math.min(32L, this.pdq.b()));
-        throw new EOFException("\\n not found: limit=" + Math.min(this.pdq.b(), j) + " content=" + cVar.emd().e() + (char) 8230);
+        this.pnD.a(cVar, 0L, Math.min(32L, this.pnD.b()));
+        throw new EOFException("\\n not found: limit=" + Math.min(this.pnD.b(), j) + " content=" + cVar.eox().e() + (char) 8230);
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    public short emb() throws IOException {
+    public short eov() throws IOException {
         a(2L);
-        return this.pdq.emb();
+        return this.pnD.eov();
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    public short emc() throws IOException {
+    public short eow() throws IOException {
         a(2L);
-        return this.pdq.emc();
+        return this.pnD.eow();
     }
 
     @Override // com.bytedance.sdk.a.a.e
     public int j() throws IOException {
         a(4L);
-        return this.pdq.j();
+        return this.pnD.j();
     }
 
     @Override // com.bytedance.sdk.a.a.e
     public int l() throws IOException {
         a(4L);
-        return this.pdq.l();
+        return this.pnD.l();
     }
 
     @Override // com.bytedance.sdk.a.a.e
     public long m() throws IOException {
         a(1L);
         for (int i = 0; b(i + 1); i++) {
-            byte ie = this.pdq.ie(i);
-            if ((ie < 48 || ie > 57) && ((ie < 97 || ie > 102) && (ie < 65 || ie > 70))) {
+            byte ih = this.pnD.ih(i);
+            if ((ih < 48 || ih > 57) && ((ih < 97 || ih > 102) && (ih < 65 || ih > 70))) {
                 if (i == 0) {
-                    throw new NumberFormatException(String.format("Expected leading [0-9a-fA-F] character but was %#x", Byte.valueOf(ie)));
+                    throw new NumberFormatException(String.format("Expected leading [0-9a-fA-F] character but was %#x", Byte.valueOf(ih)));
                 }
-                return this.pdq.m();
+                return this.pnD.m();
             }
         }
-        return this.pdq.m();
+        return this.pnD.m();
     }
 
     @Override // com.bytedance.sdk.a.a.e
@@ -195,11 +194,11 @@ public final class n implements e {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         while (j > 0) {
-            if (this.pdq.f5840b == 0 && this.pdz.b(this.pdq, 8192L) == -1) {
+            if (this.pnD.f5842b == 0 && this.pnM.b(this.pnD, 8192L) == -1) {
                 throw new EOFException();
             }
-            long min = Math.min(j, this.pdq.b());
-            this.pdq.h(min);
+            long min = Math.min(j, this.pnD.b());
+            this.pnD.h(min);
             j -= min;
         }
     }
@@ -218,10 +217,10 @@ public final class n implements e {
         }
         long j3 = j;
         while (j3 < j2) {
-            long a2 = this.pdq.a(b2, j3, j2);
+            long a2 = this.pnD.a(b2, j3, j2);
             if (a2 == -1) {
-                long j4 = this.pdq.f5840b;
-                if (j4 >= j2 || this.pdz.b(this.pdq, 8192L) == -1) {
+                long j4 = this.pnD.f5842b;
+                if (j4 >= j2 || this.pnM.b(this.pnD, 8192L) == -1) {
                     return -1L;
                 }
                 j3 = Math.max(j3, j4);
@@ -246,7 +245,7 @@ public final class n implements e {
         }
         for (int i3 = 0; i3 < i2; i3++) {
             long j2 = i3 + j;
-            if (!b(1 + j2) || this.pdq.ie(j2) != fVar.a(i + i3)) {
+            if (!b(1 + j2) || this.pnD.ih(j2) != fVar.a(i + i3)) {
                 return false;
             }
         }
@@ -254,17 +253,17 @@ public final class n implements e {
     }
 
     @Override // com.bytedance.sdk.a.a.e
-    public InputStream elZ() {
+    public InputStream eot() {
         return new InputStream() { // from class: com.bytedance.sdk.a.a.n.1
             @Override // java.io.InputStream
             public int read() throws IOException {
                 if (n.this.c) {
                     throw new IOException(LogConfig.TYPE_CLOSED);
                 }
-                if (n.this.pdq.f5840b == 0 && n.this.pdz.b(n.this.pdq, 8192L) == -1) {
+                if (n.this.pnD.f5842b == 0 && n.this.pnM.b(n.this.pnD, 8192L) == -1) {
                     return -1;
                 }
-                return n.this.pdq.ema() & 255;
+                return n.this.pnD.eou() & 255;
             }
 
             @Override // java.io.InputStream
@@ -273,10 +272,10 @@ public final class n implements e {
                     throw new IOException(LogConfig.TYPE_CLOSED);
                 }
                 u.a(bArr.length, i, i2);
-                if (n.this.pdq.f5840b == 0 && n.this.pdz.b(n.this.pdq, 8192L) == -1) {
+                if (n.this.pnD.f5842b == 0 && n.this.pnM.b(n.this.pnD, 8192L) == -1) {
                     return -1;
                 }
-                return n.this.pdq.a(bArr, i, i2);
+                return n.this.pnD.a(bArr, i, i2);
             }
 
             @Override // java.io.InputStream
@@ -284,7 +283,7 @@ public final class n implements e {
                 if (n.this.c) {
                     throw new IOException(LogConfig.TYPE_CLOSED);
                 }
-                return (int) Math.min(n.this.pdq.f5840b, 2147483647L);
+                return (int) Math.min(n.this.pnD.f5842b, 2147483647L);
             }
 
             @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -307,17 +306,17 @@ public final class n implements e {
     public void close() throws IOException {
         if (!this.c) {
             this.c = true;
-            this.pdz.close();
-            this.pdq.r();
+            this.pnM.close();
+            this.pnD.r();
         }
     }
 
     @Override // com.bytedance.sdk.a.a.s
-    public t elW() {
-        return this.pdz.elW();
+    public t eoq() {
+        return this.pnM.eoq();
     }
 
     public String toString() {
-        return "buffer(" + this.pdz + ")";
+        return "buffer(" + this.pnM + ")";
     }
 }

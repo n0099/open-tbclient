@@ -4,11 +4,11 @@ public class ab {
     public String category;
     public String forumId;
     public String forumName;
-    public boolean iDD;
+    public boolean iJn;
     public String imageUrl;
     public int index;
     public String link;
     public String name;
-    public ac nlQ;
+    public ac nvA;
     public String version;
 }

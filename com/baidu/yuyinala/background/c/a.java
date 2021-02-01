@@ -12,23 +12,23 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
 
     /* renamed from: com.baidu.yuyinala.background.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0952a {
-        void zV(boolean z);
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0956a {
+        void Ao(boolean z);
     }
 
-    public static void a(String str, final String str2, final InterfaceC0952a interfaceC0952a) {
+    public static void a(String str, final String str2, final InterfaceC0956a interfaceC0956a) {
         if (TextUtils.isEmpty(str2)) {
             BdLog.w("warning!! download illegal dir");
         } else if (TextUtils.isEmpty(str)) {
             BdLog.w("warning!! download illegal name");
         } else {
-            final String str3 = com.baidu.live.ah.b.hj(str2) + "/" + str2 + ".zip";
-            final String hl = com.baidu.live.ah.b.hl(str2);
+            final String str3 = com.baidu.live.storage.b.hF(str2) + "/" + str2 + ".zip";
+            final String hH = com.baidu.live.storage.b.hH(str2);
             if (!str3.startsWith(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath())) {
                 BdLog.w("warning!! download illegal dir=" + str3 + " name=" + str2);
                 return;
@@ -39,7 +39,7 @@ public class a {
             downloadData.setUrl(str);
             downloadData.setType(24);
             downloadData.setPath(str3);
-            if (interfaceC0952a != null) {
+            if (interfaceC0956a != null) {
                 downloadData.setPriority(160);
                 downloadData.setForceDownload(true);
             }
@@ -50,7 +50,7 @@ public class a {
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public boolean onPreDownload(DownloadData downloadData2) {
-                    return com.baidu.live.ah.a.b.Pv().G(downloadData2);
+                    return com.baidu.live.storage.opt.b.Rg().G(downloadData2);
                 }
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -60,13 +60,13 @@ public class a {
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
-                    a.a(str3, hl, str2, interfaceC0952a);
+                    a.a(str3, hH, str2, interfaceC0956a);
                 }
 
                 @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                 public void onFileDownloadFailed(DownloadData downloadData2, int i, String str4) {
-                    if (interfaceC0952a != null) {
-                        interfaceC0952a.zV(false);
+                    if (interfaceC0956a != null) {
+                        interfaceC0956a.Ao(false);
                     }
                 }
             });
@@ -75,7 +75,7 @@ public class a {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public Boolean doInBackground(Void... voidArr) {
-                    FileHelper.deleteFileOrDir(new File(com.baidu.live.ah.b.hj(str2)));
+                    FileHelper.deleteFileOrDir(new File(com.baidu.live.storage.b.hF(str2)));
                     return true;
                 }
 
@@ -90,7 +90,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void a(final String str, final String str2, final String str3, final InterfaceC0952a interfaceC0952a) {
+    public static void a(final String str, final String str2, final String str3, final InterfaceC0956a interfaceC0956a) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.yuyinala.background.c.a.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -99,7 +99,7 @@ public class a {
                 public Boolean doInBackground(Void... voidArr) {
                     boolean unZip = a.unZip(str, str2);
                     if (unZip) {
-                        b.gQ(str3, str2);
+                        b.gX(str3, str2);
                     }
                     return Boolean.valueOf(unZip);
                 }
@@ -109,8 +109,8 @@ public class a {
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
-                    if (interfaceC0952a != null) {
-                        interfaceC0952a.zV(bool.booleanValue());
+                    if (interfaceC0956a != null) {
+                        interfaceC0956a.Ao(bool.booleanValue());
                     }
                 }
             }.execute(new Void[0]);
@@ -130,7 +130,7 @@ public class a {
         /*
             r3 = 0
             r0 = 0
-            boolean r1 = com.baidu.live.i.a.existFile(r5)
+            boolean r1 = com.baidu.live.h.a.existFile(r5)
             if (r1 != 0) goto L9
         L8:
             return r0

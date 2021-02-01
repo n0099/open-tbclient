@@ -6,35 +6,35 @@ import com.baidu.tbadk.editortools.m;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a extends m {
-    private boolean fAK;
-    private boolean fgC;
+    private boolean fCZ;
+    private boolean fiV;
 
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_link), 31, i);
-        this.fAK = true;
-        this.fgC = true;
-        this.fzM = R.drawable.icon_pure_post_link24;
-        this.fzP = false;
-        this.fzQ = true;
-        this.fzR = false;
-        this.fzV = new int[]{21};
+        this.fCZ = true;
+        this.fiV = true;
+        this.fCb = R.drawable.icon_pure_post_link24;
+        this.fCe = false;
+        this.fCf = true;
+        this.fCg = false;
+        this.fCk = new int[]{21};
     }
 
     @Override // com.baidu.tbadk.editortools.m
-    public boolean sj() {
-        return this.fAK;
+    public boolean sg() {
+        return this.fCZ;
     }
 
     @Override // com.baidu.tbadk.editortools.m
     public boolean isEnable() {
-        return this.fgC;
+        return this.fiV;
     }
 
-    public void kP(boolean z) {
-        this.fAK = z;
+    public void kS(boolean z) {
+        this.fCZ = z;
     }
 
     public void setEnable(boolean z) {
-        this.fgC = z;
+        this.fiV = z;
     }
 }

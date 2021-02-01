@@ -20,21 +20,21 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.data.c;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private TbPageContext<?> eSJ;
+    private TbPageContext<?> eUY;
     private View rootView;
-    Pattern iSk = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
-    private CoverFlowView<com.baidu.tbadk.core.flow.a.a> ajL = null;
-    private c iSl = null;
-    private d<com.baidu.tbadk.core.flow.a.a> eUQ = new d<com.baidu.tbadk.core.flow.a.a>() { // from class: com.baidu.tieba.faceshop.emotioncenter.a.2
+    Pattern iXR = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    private CoverFlowView<com.baidu.tbadk.core.flow.a.a> ajA = null;
+    private c iXS = null;
+    private d<com.baidu.tbadk.core.flow.a.a> eXg = new d<com.baidu.tbadk.core.flow.a.a>() { // from class: com.baidu.tieba.faceshop.emotioncenter.a.2
         @Override // com.baidu.tbadk.core.flow.a.d
         public void f(int i, String str) {
-            c.a aVar = (c.a) a.this.ajL.oj(i);
+            c.a aVar = (c.a) a.this.ajA.oo(i);
             if (aVar != null) {
-                Matcher matcher = a.this.iSk.matcher(aVar.blt());
+                Matcher matcher = a.this.iXR.matcher(aVar.blL());
                 if (matcher.find()) {
-                    a.this.eSJ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(a.this.eSJ.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
+                    a.this.eUY.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(a.this.eUY.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
                 }
             }
         }
@@ -47,32 +47,32 @@ public class a {
     };
 
     public a(TbPageContext<?> tbPageContext) {
-        this.eSJ = null;
-        this.eSJ = tbPageContext;
+        this.eUY = null;
+        this.eUY = tbPageContext;
         initUI();
     }
 
     private void initUI() {
-        if (this.eSJ != null) {
-            this.rootView = LayoutInflater.from(this.eSJ.getPageActivity()).inflate(R.layout.square_banner_layout, (ViewGroup) null);
+        if (this.eUY != null) {
+            this.rootView = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.square_banner_layout, (ViewGroup) null);
             if (this.rootView != null) {
-                this.ajL = (CoverFlowView) this.rootView.findViewById(R.id.square_banner_cover_flow_view);
+                this.ajA = (CoverFlowView) this.rootView.findViewById(R.id.square_banner_cover_flow_view);
                 b bVar = new b() { // from class: com.baidu.tieba.faceshop.emotioncenter.a.1
                     @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-                    public e tw() {
+                    public e tt() {
                         e eVar = new e();
-                        eVar.setHeight((int) (l.getEquipmentWidth(a.this.eSJ.getPageActivity()) / 2.5714285f));
+                        eVar.setHeight((int) (l.getEquipmentWidth(a.this.eUY.getPageActivity()) / 2.5714285f));
                         return eVar;
                     }
 
                     @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-                    public com.baidu.tbadk.core.flow.a.c tx() {
-                        com.baidu.tbadk.core.flow.a.c tx = super.tx();
-                        if (tx != null) {
-                            tx.setGravity(81);
-                            tx.om(R.dimen.ds20);
+                    public com.baidu.tbadk.core.flow.a.c tu() {
+                        com.baidu.tbadk.core.flow.a.c tu = super.tu();
+                        if (tu != null) {
+                            tu.setGravity(81);
+                            tu.or(R.dimen.ds20);
                         }
-                        return tx;
+                        return tu;
                     }
 
                     @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
@@ -83,9 +83,9 @@ public class a {
                         return tbImageView;
                     }
                 };
-                this.ajL.setDisableParentEvent(false);
-                this.ajL.setCoverFlowFactory(bVar);
-                this.ajL.setCallback(this.eUQ);
+                this.ajA.setDisableParentEvent(false);
+                this.ajA.setCoverFlowFactory(bVar);
+                this.ajA.setCallback(this.eXg);
             }
         }
     }
@@ -94,16 +94,16 @@ public class a {
         return this.rootView;
     }
 
-    public void bvb() {
-        if (this.ajL != null) {
-            this.ajL.bqP();
+    public void bvv() {
+        if (this.ajA != null) {
+            this.ajA.bri();
         }
     }
 
     public void a(c cVar) {
-        if (cVar != null && cVar != this.iSl) {
-            this.ajL.setData(cVar.cyJ());
-            this.iSl = cVar;
+        if (cVar != null && cVar != this.iXS) {
+            this.ajA.setData(cVar.czU());
+            this.iXS = cVar;
         }
     }
 

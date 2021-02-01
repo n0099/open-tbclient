@@ -8,62 +8,62 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends BdBaseModel {
-    private a ofR;
-    private HttpMessageListener gLY = new HttpMessageListener(1031038) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.c.1
+    private a opK;
+    private HttpMessageListener gOE = new HttpMessageListener(1031038) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof BannedListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId()) {
                 BannedListHttpResponseMessage bannedListHttpResponseMessage = (BannedListHttpResponseMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    if (c.this.ofR != null) {
-                        c.this.ofR.a(bannedListHttpResponseMessage.dXU());
+                    if (c.this.opK != null) {
+                        c.this.opK.a(bannedListHttpResponseMessage.eaf());
                     }
-                } else if (c.this.ofR != null) {
-                    c.this.ofR.w(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (c.this.opK != null) {
+                    c.this.opK.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
-    private BdUniqueId brL = BdUniqueId.gen();
+    private BdUniqueId aCW = BdUniqueId.gen();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void a(com.baidu.tieba.yuyinala.charm.bannedpost.a aVar);
+        void A(int i, String str);
 
-        void w(int i, String str);
+        void a(com.baidu.tieba.yuyinala.charm.bannedpost.a aVar);
     }
 
     public void a(a aVar) {
-        this.ofR = aVar;
+        this.opK = aVar;
     }
 
     public c(Context context) {
-        setUniqueId(this.brL);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031038, com.baidu.live.a.avU + "ala/audio/live/blockList");
+        setUniqueId(this.aCW);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031038, com.baidu.live.a.avJ + "ala/audio/live/blockList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(BannedListHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gLY);
+        MessageManager.getInstance().registerListener(this.gOE);
     }
 
-    public void J(String str, String str2, String str3, String str4) {
+    public void H(String str, String str2, String str3, String str4) {
         HttpMessage httpMessage = new HttpMessage(1031038);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam("group_id", str2);
         httpMessage.addParam("room_id", str3);
         httpMessage.addParam("type", str4);
-        httpMessage.setTag(this.brL);
+        httpMessage.setTag(this.aCW);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gLY);
+        MessageManager.getInstance().unRegisterListener(this.gOE);
         MessageManager.getInstance().unRegisterTask(1031038);
         cancelMessage();
     }

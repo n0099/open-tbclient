@@ -15,10 +15,10 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class LrcTipTextview extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2366a;
+    private boolean f2364a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f2367b;
+    private TextView f2365b;
     private TextView c;
     private TextView d;
     private int e;
@@ -45,13 +45,13 @@ public class LrcTipTextview extends LinearLayout {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         this.e = getResources().getDimensionPixelSize(R.dimen.rim_text_size_16);
         this.f = getResources().getDimensionPixelSize(R.dimen.rim_text_size_24);
-        this.f2367b = new TextView(getContext());
-        this.f2367b.setTextColor(Color.rgb(255, 255, 255));
-        this.f2367b.setTextSize(0, this.f);
-        this.f2367b.setText(getContext().getString(R.string.rim_face_video_tips_start_resocrd));
+        this.f2365b = new TextView(getContext());
+        this.f2365b.setTextColor(Color.rgb(255, 255, 255));
+        this.f2365b.setTextSize(0, this.f);
+        this.f2365b.setText(getContext().getString(R.string.rim_face_video_tips_start_resocrd));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.setMargins(0, 0, 0, getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_lrc_tip_text01_gap));
-        this.f2367b.setLayoutParams(layoutParams2);
+        this.f2365b.setLayoutParams(layoutParams2);
         this.c = new TextView(getContext());
         this.c.setTextColor(Color.rgb(255, 255, 255));
         this.c.setTextSize(0, this.e);
@@ -64,7 +64,7 @@ public class LrcTipTextview extends LinearLayout {
         this.d.setTextSize(0, this.e);
         this.d.setText(getContext().getString(R.string.rim_face_video_tips_keep_face_in_box));
         this.d.setLayoutParams(layoutParams);
-        addView(this.f2367b);
+        addView(this.f2365b);
         addView(this.c);
         addView(this.d);
     }
@@ -73,7 +73,7 @@ public class LrcTipTextview extends LinearLayout {
         postDelayed(new Runnable() { // from class: com.baidu.fsg.face.liveness.view.LrcTipTextview.1
             @Override // java.lang.Runnable
             public void run() {
-                LrcTipTextview.this.f2367b.setVisibility(8);
+                LrcTipTextview.this.f2365b.setVisibility(8);
                 final RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) LrcTipTextview.this.getLayoutParams();
                 final int top = LrcTipTextview.this.getTop() + LrcTipTextview.this.getPaddingTop();
                 final int dimensionPixelOffset = LrcTipTextview.this.getResources().getDimensionPixelOffset(R.dimen.liveness_video_lrc_tip_margintop_afteranim);

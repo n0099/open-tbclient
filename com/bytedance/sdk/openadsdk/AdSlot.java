@@ -1,8 +1,9 @@
 package com.bytedance.sdk.openadsdk;
 
 import com.bytedance.sdk.openadsdk.utils.u;
+import com.yy.videoplayer.decoder.VideoConstant;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AdSlot {
     public static final int TYPE_BANNER = 1;
     public static final int TYPE_CACHED_SPLASH = 4;
@@ -14,10 +15,10 @@ public class AdSlot {
     public static final int TYPE_SPLASH = 3;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6065a;
+    private String f6067a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6066b;
+    private int f6068b;
     private int c;
     private float d;
     private float e;
@@ -39,7 +40,7 @@ public class AdSlot {
     }
 
     public String getCodeId() {
-        return this.f6065a;
+        return this.f6067a;
     }
 
     public static int getPosition(int i) {
@@ -66,7 +67,7 @@ public class AdSlot {
     }
 
     public int getImgAcceptedWidth() {
-        return this.f6066b;
+        return this.f6068b;
     }
 
     public int getImgAcceptedHeight() {
@@ -138,15 +139,15 @@ public class AdSlot {
     }
 
     public String toString() {
-        return "AdSlot{mCodeId='" + this.f6065a + "', mImgAcceptedWidth=" + this.f6066b + ", mImgAcceptedHeight=" + this.c + ", mExpressViewAcceptedWidth=" + this.d + ", mExpressViewAcceptedHeight=" + this.e + ", mAdCount=" + this.f + ", mSupportDeepLink=" + this.g + ", mRewardName='" + this.h + "', mRewardAmount=" + this.i + ", mMediaExtra='" + this.j + "', mUserID='" + this.k + "', mOrientation=" + this.l + ", mNativeAdType=" + this.m + ", mIsAutoPlay=" + this.n + ", mPrimeRit" + this.q + ", mAdloadSeq" + this.p + '}';
+        return "AdSlot{mCodeId='" + this.f6067a + "', mImgAcceptedWidth=" + this.f6068b + ", mImgAcceptedHeight=" + this.c + ", mExpressViewAcceptedWidth=" + this.d + ", mExpressViewAcceptedHeight=" + this.e + ", mAdCount=" + this.f + ", mSupportDeepLink=" + this.g + ", mRewardName='" + this.h + "', mRewardAmount=" + this.i + ", mMediaExtra='" + this.j + "', mUserID='" + this.k + "', mOrientation=" + this.l + ", mNativeAdType=" + this.m + ", mIsAutoPlay=" + this.n + ", mPrimeRit" + this.q + ", mAdloadSeq" + this.p + '}';
     }
 
     public JSONObject toJsonObj() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("mCodeId", this.f6065a);
+            jSONObject.put("mCodeId", this.f6067a);
             jSONObject.put("mIsAutoPlay", this.n);
-            jSONObject.put("mImgAcceptedWidth", this.f6066b);
+            jSONObject.put("mImgAcceptedWidth", this.f6068b);
             jSONObject.put("mImgAcceptedHeight", this.c);
             jSONObject.put("mExpressViewAcceptedWidth", this.d);
             jSONObject.put("mExpressViewAcceptedHeight", this.e);
@@ -165,11 +166,11 @@ public class AdSlot {
         return jSONObject;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6067a;
+        private String f6069a;
         private boolean d;
         private String f;
         private int g;
@@ -184,8 +185,8 @@ public class AdSlot {
         private String q;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f6068b = 640;
-        private int c = 320;
+        private int f6070b = 640;
+        private int c = VideoConstant.THUMBNAIL_WIDTH;
         private int e = 1;
         private boolean n = true;
 
@@ -195,12 +196,12 @@ public class AdSlot {
         }
 
         public Builder setCodeId(String str) {
-            this.f6067a = str;
+            this.f6069a = str;
             return this;
         }
 
         public Builder setImageAcceptedSize(int i, int i2) {
-            this.f6068b = i;
+            this.f6070b = i;
             this.c = i2;
             return this;
         }
@@ -281,10 +282,10 @@ public class AdSlot {
 
         public AdSlot build() {
             AdSlot adSlot = new AdSlot();
-            adSlot.f6065a = this.f6067a;
+            adSlot.f6067a = this.f6069a;
             adSlot.f = this.e;
             adSlot.g = this.d;
-            adSlot.f6066b = this.f6068b;
+            adSlot.f6068b = this.f6070b;
             adSlot.c = this.c;
             adSlot.d = this.l;
             adSlot.e = this.m;

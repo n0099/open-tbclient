@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.data;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaChallengeInfoData implements Serializable {
     private static final long serialVersionUID = -7697481412505420403L;
     public long challenge_id;

@@ -1,7 +1,7 @@
 package com.baidu.live.talentshow.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface d {
-    void B(int i, String str);
+    void F(int i, String str);
 
-    void Qf();
+    void RP();
 }

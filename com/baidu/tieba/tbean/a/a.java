@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.tbean.b.b;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends BaseAdapter {
-    private LinkedList<b> jSF = new LinkedList<>();
-    private int jfO;
+    private int jlv;
+    private LinkedList<b> kag = new LinkedList<>();
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -19,27 +19,27 @@ public class a extends BaseAdapter {
     }
 
     public void setDatas(List<b> list) {
-        if (!x.isEmpty(list)) {
-            this.jSF.clear();
-            this.jSF.addAll(list);
+        if (!y.isEmpty(list)) {
+            this.kag.clear();
+            this.kag.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public void JD(int i) {
-        this.jfO = i;
+    public void JX(int i) {
+        this.jlv = i;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return x.getCount(this.jSF);
+        return y.getCount(this.kag);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: JE */
+    /* renamed from: JY */
     public b getItem(int i) {
-        return (b) x.getItem(this.jSF, i);
+        return (b) y.getItem(this.kag, i);
     }
 
     @Override // android.widget.Adapter
@@ -51,7 +51,7 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.tbean.view.a aVar;
         if (view == null) {
-            aVar = new com.baidu.tieba.tbean.view.a(this.mPageContext, this.jfO);
+            aVar = new com.baidu.tieba.tbean.view.a(this.mPageContext, this.jlv);
             view = aVar.getView();
             view.setTag(aVar);
         } else {

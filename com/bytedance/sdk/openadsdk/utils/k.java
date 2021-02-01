@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.utils;
 
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class k {
     public static void a(long j, String str) {
         a("last_load_splash_ad_time" + str, j);

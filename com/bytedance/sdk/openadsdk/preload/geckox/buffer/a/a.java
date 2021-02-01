@@ -1,40 +1,42 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.buffer.a;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends InputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f7457a;
+    private com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f7459a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f7458b;
+    private long f7460b;
 
     public a(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
-        this.f7457a = aVar;
+        this.f7459a = aVar;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        return this.f7457a.b(bArr);
+        return this.f7459a.b(bArr);
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        return this.f7457a.b(bArr, i, i2);
+        return this.f7459a.b(bArr, i, i2);
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        return this.f7457a.a(j);
+        return this.f7459a.a(j);
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        long b2 = this.f7457a.b() - this.f7457a.c();
-        return b2 > 2147483647L ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : (int) b2;
+        long b2 = this.f7459a.b() - this.f7459a.c();
+        if (b2 > 2147483647L) {
+            return Integer.MAX_VALUE;
+        }
+        return (int) b2;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -43,12 +45,12 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream
     public synchronized void mark(int i) {
-        this.f7458b = i;
+        this.f7460b = i;
     }
 
     @Override // java.io.InputStream
     public synchronized void reset() throws IOException {
-        this.f7457a.b(this.f7458b);
+        this.f7459a.b(this.f7460b);
     }
 
     @Override // java.io.InputStream
@@ -58,6 +60,6 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        return this.f7457a.d();
+        return this.f7459a.d();
     }
 }

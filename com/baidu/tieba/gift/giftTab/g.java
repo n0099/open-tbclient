@@ -9,36 +9,36 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static SpannableString m(long j, boolean z) {
-        String formatOverBaiwanNum = at.formatOverBaiwanNum(j);
+        String formatOverBaiwanNum = au.formatOverBaiwanNum(j);
         String str = z ? "=[icon]" + formatOverBaiwanNum : "[icon]" + formatOverBaiwanNum;
         SpannableString spannableString = new SpannableString(str);
-        Drawable drawable = ao.getDrawable(R.drawable.icon_huobi_tdou);
+        Drawable drawable = ap.getDrawable(R.drawable.icon_huobi_tdou);
         int dimens = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds24);
         drawable.setBounds(0, 0, dimens, dimens);
         com.baidu.tbadk.widget.d dVar = new com.baidu.tbadk.widget.d(drawable);
         dVar.setPaddingLeft(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
         dVar.setPaddingRight(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
         UtilHelper.setSpan(spannableString, str, "[icon]", dVar);
-        UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
+        UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(ap.getColor(R.color.CAM_X0305)));
         if (z) {
-            UtilHelper.setSpan(spannableString, str, "=", new ForegroundColorSpan(ao.getColor(R.color.CAM_X0108)));
+            UtilHelper.setSpan(spannableString, str, "=", new ForegroundColorSpan(ap.getColor(R.color.CAM_X0108)));
         }
         return spannableString;
     }
 
-    public static SpannableString aI(String str, String str2, String str3) {
+    public static SpannableString aJ(String str, String str2, String str3) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
         SpannableString spannableString = new SpannableString(str);
-        UtilHelper.setSpan(spannableString, str, str, new ForegroundColorSpan(ao.getColor(R.color.CAM_X0109)));
-        UtilHelper.setSpan(spannableString, str, str2, new ForegroundColorSpan(ao.getColor(R.color.CAM_X0305)));
+        UtilHelper.setSpan(spannableString, str, str, new ForegroundColorSpan(ap.getColor(R.color.CAM_X0109)));
+        UtilHelper.setSpan(spannableString, str, str2, new ForegroundColorSpan(ap.getColor(R.color.CAM_X0305)));
         if (!StringUtils.isNull(str3)) {
             UtilHelper.setSpan(spannableString, str, str3, new StrikethroughSpan());
             return spannableString;
@@ -46,15 +46,15 @@ public class g {
         return spannableString;
     }
 
-    public static SpannableString C(long j, int i) {
+    public static SpannableString A(long j, int i) {
         Drawable drawable;
-        String formatOverBaiwanNum = at.formatOverBaiwanNum(j);
+        String formatOverBaiwanNum = au.formatOverBaiwanNum(j);
         String str = "[icon]" + formatOverBaiwanNum;
         SpannableString spannableString = new SpannableString(str);
         if (i == 1) {
-            drawable = ao.getDrawable(R.drawable.icon_huobi_tdou);
+            drawable = ap.getDrawable(R.drawable.icon_huobi_tdou);
         } else {
-            drawable = ao.getDrawable(R.drawable.icon_gift_bluedrill);
+            drawable = ap.getDrawable(R.drawable.icon_gift_bluedrill);
         }
         if (TbadkApplication.getInst().getSkinType() == 1) {
             drawable.setAlpha(179);
@@ -71,7 +71,7 @@ public class g {
         dVar.setPaddingLeft(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
         dVar.setPaddingRight(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
         UtilHelper.setSpan(spannableString, str, "[icon]", dVar);
-        UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(ao.getColor(R.color.CAM_X0108)));
+        UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(ap.getColor(R.color.CAM_X0108)));
         return spannableString;
     }
 }

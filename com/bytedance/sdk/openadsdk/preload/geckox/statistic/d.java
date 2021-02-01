@@ -10,7 +10,7 @@ import com.bytedance.sdk.openadsdk.preload.geckox.d.h;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import com.bytedance.sdk.openadsdk.preload.geckox.utils.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.bytedance.sdk.openadsdk.preload.a.b.a a(final com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
@@ -49,10 +49,10 @@ class d {
                 a2.r = Long.valueOf(((UpdatePackage) pair.second).getFullPackage().getId());
                 a2.c = ((UpdatePackage) pair.second).getChannel();
                 if (!TextUtils.isEmpty(((UpdatePackage) pair.second).getAccessKey())) {
-                    a2.f7515a = ((UpdatePackage) pair.second).getAccessKey();
+                    a2.f7517a = ((UpdatePackage) pair.second).getAccessKey();
                 }
                 if (!TextUtils.isEmpty(((UpdatePackage) pair.second).getGroupName())) {
-                    a2.f7516b = ((UpdatePackage) pair.second).getGroupName();
+                    a2.f7518b = ((UpdatePackage) pair.second).getGroupName();
                 }
             }
 

@@ -2,14 +2,14 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class f {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f8199a = "newversion";
+    static String f8201a = "newversion";
 
     /* renamed from: b  reason: collision with root package name */
-    static String f8200b = "curversion";
+    static String f8202b = "curversion";
     static String c = "apiversion";
     static String d = "_enable";
 

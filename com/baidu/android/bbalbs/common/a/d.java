@@ -2,7 +2,7 @@ package com.baidu.android.bbalbs.common.a;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static byte[] a(byte[] bArr) {
         try {

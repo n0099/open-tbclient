@@ -2,7 +2,7 @@ package com.airbnb.lottie.a.b;
 
 import android.graphics.Path;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l extends a<com.airbnb.lottie.model.content.h, Path> {
     private final com.airbnb.lottie.model.content.h ED;
     private final Path EE;

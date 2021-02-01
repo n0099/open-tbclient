@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
     boolean useCache;
 
@@ -29,7 +29,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         Collection<String> collection;
         String str;
         StringBuilder sb;
-        l<String> a2 = BdCacheService.lx().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+        l<String> a2 = BdCacheService.lw().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
         if (this.useCache) {
             String str2 = a2.get("dnsproxycachedata");
             if (str2 != null) {
@@ -57,7 +57,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String csK = new a().csK();
+            String ctW = new a().ctW();
             StringBuilder sb2 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb2.length() > 0) {
@@ -65,13 +65,13 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb2.append(str3);
             }
-            String str4 = "http://" + csK + "/domains/resolve?domains=" + ((Object) sb2) + "&t=" + System.currentTimeMillis();
+            String str4 = "http://" + ctW + "/domains/resolve?domains=" + ((Object) sb2) + "&t=" + System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
-            eVar.lV().setUrl(str4);
+            eVar.lU().setUrl(str4);
             cVar.d(-1, -1, -1);
             String str5 = null;
-            byte[] bArr = eVar.lW().retBytes;
+            byte[] bArr = eVar.lV().retBytes;
             StringBuilder sb3 = null;
             if (bArr != null) {
                 try {
@@ -114,7 +114,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.csM().g(hashSet);
+                    b.ctY().g(hashSet);
                     publishProgress(hashMap3);
                     a2.setForever("dnsproxycachedata", str);
                     sb = sb4;
@@ -126,13 +126,13 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     sb = null;
                 }
                 sb3 = sb;
-            } else if (eVar.lY() != null) {
-                str5 = eVar.lY().exception;
+            } else if (eVar.lX() != null) {
+                str5 = eVar.lX().exception;
             } else {
                 StringBuilder sb6 = new StringBuilder();
-                List<com.baidu.adp.lib.network.http.d> lX = eVar.lX();
-                if (lX != null) {
-                    for (com.baidu.adp.lib.network.http.d dVar : lX) {
+                List<com.baidu.adp.lib.network.http.d> lW = eVar.lW();
+                if (lW != null) {
+                    for (com.baidu.adp.lib.network.http.d dVar : lW) {
                         if (dVar != null && !TextUtils.isEmpty(dVar.exception)) {
                             if (sb6.length() > 0) {
                                 sb6.append(",");

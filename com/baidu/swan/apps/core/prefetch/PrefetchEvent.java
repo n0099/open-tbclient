@@ -11,7 +11,7 @@ import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.swan.apps.scheme.actions.k.j;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PrefetchEvent extends SwanAppIPCData {
     public static final Parcelable.Creator<PrefetchEvent> CREATOR = new Parcelable.Creator<PrefetchEvent>() { // from class: com.baidu.swan.apps.core.prefetch.PrefetchEvent.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class PrefetchEvent extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: gX */
+        /* renamed from: ha */
         public PrefetchEvent[] newArray(int i) {
             return new PrefetchEvent[i];
         }
@@ -99,7 +99,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         com.baidu.swan.apps.ac.g.b.c(hashMap, "prefetch event");
         if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
             hashMap.put(EVENT_KEY_PAGE_URL, prefetchEvent.pageUrl);
-            j.f(prefetchEvent.pageUrl, hashMap);
+            j.e(prefetchEvent.pageUrl, hashMap);
         } else if (com.baidu.swan.apps.b.DEBUG) {
             Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
         }
@@ -113,36 +113,36 @@ public class PrefetchEvent extends SwanAppIPCData {
         return new b(hashMap, str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        private PrefetchEvent cTL = new PrefetchEvent();
+        private PrefetchEvent cVY = new PrefetchEvent();
 
-        public a mE(@NonNull String str) {
-            this.cTL.appId = str;
+        public a mW(@NonNull String str) {
+            this.cVY.appId = str;
             return this;
         }
 
-        public a mF(@NonNull String str) {
-            this.cTL.schema = str;
+        public a mX(@NonNull String str) {
+            this.cVY.schema = str;
             return this;
         }
 
-        public a mG(String str) {
-            this.cTL.state = str;
+        public a mY(String str) {
+            this.cVY.state = str;
             return this;
         }
 
-        public a mH(@NonNull String str) {
-            this.cTL.scene = str;
+        public a mZ(@NonNull String str) {
+            this.cVY.scene = str;
             return this;
         }
 
-        public PrefetchEvent aqL() {
-            return this.cTL;
+        public PrefetchEvent arj() {
+            return this.cVY;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends com.baidu.swan.apps.event.a.b {
         b(@Nullable Map<String, String> map, String str) {
             super(str, map);

@@ -30,7 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FileHelper {
     private static final String DIR_DOWNLOAD = "download";
     public static final String DIR_ROOT = "tieba";
@@ -1995,7 +1995,7 @@ public class FileHelper {
         return -1L;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class DataDir {
         public static final String PACKAGE_DATA_DIR = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
         public static final String PACKAGE_VERSION_CUR_DIR = "/package.cur";

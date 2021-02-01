@@ -2,16 +2,16 @@ package com.baidu.live.im.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class YuyinImBarragePayResponseMessage extends JsonHttpResponsedMessage {
-    private long bml;
+    private long bpM;
 
     public YuyinImBarragePayResponseMessage() {
         super(1031047);
     }
 
-    public long Gq() {
-        return this.bml;
+    public long HG() {
+        return this.bpM;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -20,7 +20,7 @@ public class YuyinImBarragePayResponseMessage extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.bml = optJSONObject.optLong("left_scores");
+                this.bpM = optJSONObject.optLong("left_scores");
             }
         }
     }

@@ -3,7 +3,7 @@ package aegon.chrome.net;
 import aegon.chrome.base.annotations.CalledByNative;
 import android.net.TrafficStats;
 import android.os.Process;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AndroidTrafficStats {
     @CalledByNative
     public static long getCurrentUidRxBytes() {

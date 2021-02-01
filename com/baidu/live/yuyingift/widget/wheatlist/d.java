@@ -1,18 +1,18 @@
 package com.baidu.live.yuyingift.widget.wheatlist;
 
 import com.baidu.live.data.AlaWheatInfoData;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d implements Cloneable {
-    public AlaWheatInfoData bXr;
+    public AlaWheatInfoData cbu;
     public String posName;
 
     public d(AlaWheatInfoData alaWheatInfoData, String str) {
-        this.bXr = alaWheatInfoData;
+        this.cbu = alaWheatInfoData;
         this.posName = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: XB */
+    /* renamed from: Zr */
     public d clone() {
         d dVar = null;
         try {
@@ -20,8 +20,8 @@ public class d implements Cloneable {
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-        if (dVar != null && this.bXr != null) {
-            dVar.bXr = (AlaWheatInfoData) this.bXr.clone();
+        if (dVar != null && this.cbu != null) {
+            dVar.cbu = (AlaWheatInfoData) this.cbu.clone();
         }
         return dVar;
     }

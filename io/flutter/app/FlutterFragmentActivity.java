@@ -9,7 +9,7 @@ import io.flutter.app.FlutterActivityDelegate;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterView;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class FlutterFragmentActivity extends FragmentActivity implements FlutterActivityDelegate.ViewFactory, PluginRegistry, FlutterView.Provider {
     private final FlutterActivityDelegate delegate = new FlutterActivityDelegate(this, this);
     private final FlutterActivityEvents eventDelegate = this.delegate;

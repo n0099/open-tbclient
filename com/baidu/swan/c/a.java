@@ -9,7 +9,7 @@ import android.util.DisplayMetrics;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
     public static String getOS() {
         return "Android";

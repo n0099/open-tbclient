@@ -6,30 +6,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f {
-    private TextView llj;
-    private TextView llk;
+    private TextView ltp;
+    private TextView ltq;
     private View mRootView;
 
     public void N(View.OnClickListener onClickListener) {
-        this.llj.setOnClickListener(onClickListener);
+        this.ltp.setOnClickListener(onClickListener);
     }
 
-    public View gA(Context context) {
+    public View gB(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.tail_tool_member_guide_item, (ViewGroup) null);
         this.mRootView.setTag(this);
-        this.llj = (TextView) this.mRootView.findViewById(R.id.tail_tool_member_guide_button);
-        this.llk = (TextView) this.mRootView.findViewById(R.id.tail_tool_member_guide_text);
+        this.ltp = (TextView) this.mRootView.findViewById(R.id.tail_tool_member_guide_button);
+        this.ltq = (TextView) this.mRootView.findViewById(R.id.tail_tool_member_guide_text);
         return this.mRootView;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType() {
-        ao.setBackgroundResource(this.llj, R.drawable.member_privilege_button_new_selector);
-        ao.setViewTextColor(this.llj, R.color.CAM_X0101, 1);
-        ao.setViewTextColor(this.llk, R.color.CAM_X0108, 1);
+        ap.setBackgroundResource(this.ltp, R.drawable.member_privilege_button_new_selector);
+        ap.setViewTextColor(this.ltp, R.color.CAM_X0101, 1);
+        ap.setViewTextColor(this.ltq, R.color.CAM_X0108, 1);
     }
 }

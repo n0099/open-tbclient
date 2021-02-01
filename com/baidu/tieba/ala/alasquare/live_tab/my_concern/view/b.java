@@ -6,30 +6,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private View bPy;
-    private View elg;
-    private TextView gAa;
-    private ImageView gAb;
+    private View bTo;
+    private View eno;
+    private TextView gCK;
+    private ImageView gCL;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.elg = getView();
-        this.gAa = (TextView) getView().findViewById(R.id.tv_empty);
-        this.gAb = (ImageView) getView().findViewById(R.id.iv_empty);
-        this.bPy = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
+        this.eno = getView();
+        this.gCK = (TextView) getView().findViewById(R.id.tv_empty);
+        this.gCL = (ImageView) getView().findViewById(R.id.iv_empty);
+        this.bTo = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ao.setBackgroundResource(this.elg, R.color.CAM_X0201);
-        ao.setViewTextColor(this.gAa, R.color.CAM_X0109);
-        ao.setImageResource(this.gAb, R.drawable.new_pic_emotion_08);
-        ao.setBackgroundResource(this.bPy, R.color.CAM_X0204);
+        ap.setBackgroundResource(this.eno, R.color.CAM_X0201);
+        ap.setViewTextColor(this.gCK, R.color.CAM_X0109);
+        ap.setImageResource(this.gCL, R.drawable.new_pic_emotion_08);
+        ap.setBackgroundResource(this.bTo, R.color.CAM_X0204);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -41,12 +41,12 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.e eVar) {
         if (eVar.followStatus == 1) {
-            this.gAa.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
-            ao.setImageResource(this.gAb, R.drawable.new_pic_emotion_07);
+            this.gCK.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
+            ap.setImageResource(this.gCL, R.drawable.new_pic_emotion_07);
             return;
         }
-        this.gAa.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
-        ao.setImageResource(this.gAb, R.drawable.new_pic_emotion_06);
+        this.gCK.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
+        ap.setImageResource(this.gCL, R.drawable.new_pic_emotion_06);
     }
 
     @Override // android.view.View.OnClickListener

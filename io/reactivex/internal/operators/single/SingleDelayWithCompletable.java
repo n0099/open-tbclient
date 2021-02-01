@@ -10,12 +10,12 @@ import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class SingleDelayWithCompletable<T> extends w<T> {
-    final e qeZ;
+    final e qpd;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.qeZ.a(new OtherObserver(yVar, this.source));
+        this.qpd.a(new OtherObserver(yVar, this.source));
     }
 
     /* loaded from: classes5.dex */

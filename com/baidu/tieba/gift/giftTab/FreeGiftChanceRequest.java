@@ -2,10 +2,10 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetUserFreeChance.DataReq;
 import tbclient.GetUserFreeChance.GetUserFreeChanceReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FreeGiftChanceRequest extends NetMessage {
     private String from;
 
@@ -18,7 +18,7 @@ public class FreeGiftChanceRequest extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.scene_from = this.from;
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetUserFreeChanceReqIdl.Builder builder2 = new GetUserFreeChanceReqIdl.Builder();
         builder2.data = builder.build(false);

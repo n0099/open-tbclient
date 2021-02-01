@@ -3,14 +3,14 @@ package com.baidu.swan.apps.component.c;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.component.container.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private c cKp;
+    private c cMD;
     private Context mContext;
 
     public a(@NonNull Context context, @NonNull com.baidu.swan.apps.view.b.a aVar) {
         this.mContext = context;
-        this.cKp = new c(aVar);
+        this.cMD = new c(aVar);
     }
 
     @NonNull
@@ -19,15 +19,15 @@ public class a {
     }
 
     @NonNull
-    public c akX() {
-        return this.cKp;
+    public c alv() {
+        return this.cMD;
     }
 
     public void onDestroy() {
-        this.cKp.onDestroy();
+        this.cMD.onDestroy();
     }
 
-    public void cE(@NonNull Context context) {
+    public void cD(@NonNull Context context) {
         this.mContext = context;
     }
 }

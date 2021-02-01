@@ -4,7 +4,7 @@ import android.opengl.GLES10;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ImageSizeUtils {
     private static final int DEFAULT_MAX_BITMAP_DIMENSION = 2048;
     private static ImageSize maxBitmapSize;

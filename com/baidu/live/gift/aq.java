@@ -4,28 +4,28 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class aq extends HttpMessage {
-    public long aTM;
-    public Map<Long, Long> aTO;
-    public int aUu;
-    public long aVd;
-    public String aVf;
+    public long aWR;
+    public Map<Long, Long> aWT;
+    public int aXz;
+    public long aYl;
+    public String aYn;
     public String giftId;
     public String giftName;
     public String sceneFrom;
 
     public aq() {
         super(1031057);
-        this.aTO = new HashMap();
+        this.aWT = new HashMap();
     }
 
     public void c(String str, String str2, String str3, String str4, int i, int i2, String str5, String str6, int i3, long j) {
         this.giftId = str;
-        this.sceneFrom = com.baidu.live.utils.t.TN();
-        this.aUu = i;
-        this.aVf = str6;
-        this.aVd = j;
+        this.sceneFrom = com.baidu.live.utils.t.Vu();
+        this.aXz = i;
+        this.aYn = str6;
+        this.aYl = j;
         addParam("scene_from", this.sceneFrom);
         addParam(LegoListActivityConfig.ITEM_ID, str);
         addParam("item_type", str2);
@@ -37,6 +37,6 @@ public class aq extends HttpMessage {
         addParam("is_comboGift", i3);
         addParam("combo_groupid", j);
         addParam("attach", str5);
-        addParam("benefit_info", com.baidu.live.utils.s.hL(str6));
+        addParam("benefit_info", com.baidu.live.utils.s.ig(str6));
     }
 }

@@ -2,7 +2,7 @@ package okio;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Pipe {
     final long maxBufferSize;
     boolean sinkClosed;
@@ -26,7 +26,7 @@ public final class Pipe {
         return this.sink;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     final class PipeSink implements Sink {
         final Timeout timeout = new Timeout();
 
@@ -87,7 +87,7 @@ public final class Pipe {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     final class PipeSource implements Source {
         final Timeout timeout = new Timeout();
 

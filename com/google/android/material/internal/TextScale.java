@@ -9,7 +9,7 @@ import androidx.transition.Transition;
 import androidx.transition.TransitionValues;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class TextScale extends Transition {
     private static final String PROPNAME_SCALE = "android:textscale:scale";
 

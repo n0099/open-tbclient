@@ -1,7 +1,7 @@
 package androidx.webkit.internal;
 
 import org.chromium.support_lib_boundary.WebResourceRequestBoundaryInterface;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class WebResourceRequestAdapter {
     private final WebResourceRequestBoundaryInterface mBoundaryInterface;
 

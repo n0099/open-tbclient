@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class b extends aa {
     public abstract boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar);
 
@@ -31,14 +31,14 @@ public abstract class b extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         boolean e;
-        String rM = rM("insert");
-        String rM2 = rM(IMTrack.DbBuilder.ACTION_UPDATE);
-        String rM3 = rM("remove");
-        if (TextUtils.equals(rM, str)) {
+        String sf = sf("insert");
+        String sf2 = sf(IMTrack.DbBuilder.ACTION_UPDATE);
+        String sf3 = sf("remove");
+        if (TextUtils.equals(sf, str)) {
             e = a(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(rM2, str)) {
+        } else if (TextUtils.equals(sf2, str)) {
             e = b(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(rM3, str)) {
+        } else if (TextUtils.equals(sf3, str)) {
             e = c(context, unitedSchemeEntity, callbackHandler, str, eVar);
         } else {
             e = e(context, unitedSchemeEntity, callbackHandler, str, eVar);
@@ -71,7 +71,7 @@ public abstract class b extends aa {
         return jSONObject;
     }
 
-    private String rM(String str) {
+    private String sf(String str) {
         return getModuleName() + "/" + str;
     }
 

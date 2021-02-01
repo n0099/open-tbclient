@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public final class WireOutput {
@@ -167,7 +168,7 @@ public final class WireOutput {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void writeVarint32(int i) throws IOException {
         while ((i & (-128)) != 0) {
-            writeRawByte((i & 127) | 128);
+            writeRawByte((i & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
             i >>>= 7;
         }
         writeRawByte(i);
@@ -176,7 +177,7 @@ public final class WireOutput {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void writeVarint64(long j) throws IOException {
         while (((-128) & j) != 0) {
-            writeRawByte((((int) j) & 127) | 128);
+            writeRawByte((((int) j) & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
             j >>>= 7;
         }
         writeRawByte((int) j);

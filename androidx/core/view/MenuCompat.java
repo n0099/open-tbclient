@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.Menu;
 import android.view.MenuItem;
 import androidx.core.internal.view.SupportMenu;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class MenuCompat {
     @Deprecated
     public static void setShowAsAction(MenuItem menuItem, int i) {

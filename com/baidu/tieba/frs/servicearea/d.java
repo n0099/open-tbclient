@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.tbadkCore.ab;
 /* loaded from: classes2.dex */
 public class d {
@@ -20,10 +20,10 @@ public class d {
                 tbPageContext = ((BaseFragmentActivity) context).getPageContext();
             }
             if (tbPageContext != null) {
-                if (abVar.nlQ != null) {
-                    com.baidu.tieba.aiapps.a.b(abVar.nlQ.id, abVar.nlQ.link, "1191003700000000", abVar.nlQ.eCi);
+                if (abVar.nvA != null) {
+                    com.baidu.tieba.aiapps.a.b(abVar.nvA.id, abVar.nvA.link, "1191003700000000", abVar.nvA.eEp);
                 } else {
-                    be.bsB().b(tbPageContext, new String[]{abVar.link});
+                    bf.bsV().b(tbPageContext, new String[]{abVar.link});
                 }
             }
         }
@@ -31,25 +31,25 @@ public class d {
 
     public static void b(ab abVar) {
         if (abVar != null) {
-            aq aqVar = new aq("c13627");
-            aqVar.dW("fid", abVar.forumId);
-            aqVar.an("obj_type", abVar.nlQ == null ? 1 : 2);
-            aqVar.an("obj_locate", abVar.index);
-            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.dW("obj_name", abVar.name);
-            TiebaStatic.log(aqVar);
+            ar arVar = new ar("c13627");
+            arVar.dR("fid", abVar.forumId);
+            arVar.ap("obj_type", abVar.nvA == null ? 1 : 2);
+            arVar.ap("obj_locate", abVar.index);
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar.dR("obj_name", abVar.name);
+            TiebaStatic.log(arVar);
         }
     }
 
     public static void c(ab abVar) {
         if (abVar != null) {
-            aq aqVar = new aq("c13626");
-            aqVar.dW("fid", abVar.forumId);
-            aqVar.an("obj_type", abVar.nlQ == null ? 1 : 2);
-            aqVar.an("obj_locate", abVar.index);
-            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar.dW("obj_name", abVar.name);
-            TiebaStatic.log(aqVar);
+            ar arVar = new ar("c13626");
+            arVar.dR("fid", abVar.forumId);
+            arVar.ap("obj_type", abVar.nvA == null ? 1 : 2);
+            arVar.ap("obj_locate", abVar.index);
+            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
+            arVar.dR("obj_name", abVar.name);
+            TiebaStatic.log(arVar);
         }
     }
 }

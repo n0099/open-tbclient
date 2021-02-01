@@ -11,7 +11,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.expandable.ExpandableWidget;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View> {
     private static final int STATE_COLLAPSED = 2;
     private static final int STATE_EXPANDED = 1;

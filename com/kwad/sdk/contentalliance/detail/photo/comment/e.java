@@ -5,22 +5,22 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PhotoComment;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f8452a;
+    private long f8454a;
 
     /* renamed from: b  reason: collision with root package name */
-    private PhotoInfo f8453b;
+    private PhotoInfo f8455b;
     private AdTemplate c;
     private long d;
     private List<PhotoComment> e;
 
     public e(@NonNull AdTemplate adTemplate, long j) {
         this.c = adTemplate;
-        this.f8452a = com.kwad.sdk.core.response.b.c.e(adTemplate);
-        this.f8453b = com.kwad.sdk.core.response.b.c.k(adTemplate);
+        this.f8454a = com.kwad.sdk.core.response.b.c.e(adTemplate);
+        this.f8455b = com.kwad.sdk.core.response.b.c.k(adTemplate);
         this.d = j;
     }
 

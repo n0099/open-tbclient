@@ -2,66 +2,66 @@ package com.baidu.swan.apps.performance.d;
 
 import android.view.View;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b dpH;
+    private b drS;
     private long mCostTime;
     private long mStartTime;
 
     public c() {
         if (isOn()) {
-            this.dpH = new b();
+            this.drS = new b();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void cB(long j) {
-        if (isOn() && this.dpH != null) {
-            this.dpH.cE(j - this.mStartTime);
+    public void cH(long j) {
+        if (isOn() && this.drS != null) {
+            this.drS.cK(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void ca(long j) {
-        if (isOn() && this.dpH != null) {
-            this.dpH.cD(j - this.mStartTime);
+    public void cg(long j) {
+        if (isOn() && this.drS != null) {
+            this.drS.cJ(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void cC(long j) {
-        if (isOn() && this.dpH != null) {
-            this.dpH.cF(j - this.mStartTime);
+    public void cI(long j) {
+        if (isOn() && this.drS != null) {
+            this.drS.cL(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void bZ(long j) {
-        if (isOn() && this.dpH != null) {
-            this.dpH.cG(j - this.mStartTime);
+    public void cf(long j) {
+        if (isOn() && this.drS != null) {
+            this.drS.cM(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void start(long j) {
-        if (isOn() && this.dpH != null) {
+        if (isOn() && this.drS != null) {
             this.mStartTime = j;
-            this.dpH.reset();
+            this.drS.reset();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
-    public void cx(long j) {
-        if (isOn() && this.dpH != null) {
+    public void cD(long j) {
+        if (isOn() && this.drS != null) {
             this.mCostTime = j;
-            this.dpH.m(this.mStartTime, this.mCostTime);
-            this.dpH.done();
+            this.drS.q(this.mStartTime, this.mCostTime);
+            this.drS.done();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
-    public void aG(View view) {
+    public void aC(View view) {
         if (DEBUG && view != null) {
             view.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.swan.apps.performance.d.c.1
                 @Override // android.view.View.OnLongClickListener
@@ -80,17 +80,17 @@ public class c implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void turnOn() {
         AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
-        if (this.dpH == null) {
-            this.dpH = new b();
+        if (this.drS == null) {
+            this.drS = new b();
         }
-        this.dpH.aEm();
+        this.drS.aEH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void turnOff() {
         AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
-        if (this.dpH != null) {
-            this.dpH.aEn();
+        if (this.drS != null) {
+            this.drS.aEI();
         }
     }
 

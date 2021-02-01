@@ -10,13 +10,13 @@ import rx.f;
 import rx.g;
 import rx.j;
 import rx.k;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ReplaySubject<T> extends c<T, T> {
-    private static final Object[] qhY = new Object[0];
+    private static final Object[] qsc = new Object[0];
     final ReplayState<T> state;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a<T> {
         void a(ReplayProducer<T> replayProducer);
 
@@ -42,7 +42,7 @@ public final class ReplaySubject<T> extends c<T, T> {
         this.state.onCompleted();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     static final class ReplayState<T> extends AtomicReference<ReplayProducer<T>[]> implements d.a<T>, e<T> {
         static final ReplayProducer[] EMPTY = new ReplayProducer[0];
         static final ReplayProducer[] TERMINATED = new ReplayProducer[0];
@@ -146,7 +146,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.ho(arrayList);
+            rx.exceptions.a.hk(arrayList);
         }
 
         @Override // rx.e
@@ -163,23 +163,23 @@ public final class ReplaySubject<T> extends c<T, T> {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     static final class ReplaySizeBoundBuffer<T> implements a<T> {
         volatile boolean done;
         Throwable error;
         final int limit;
-        volatile Node<T> qux;
-        Node<T> quy;
+        volatile Node<T> qEA;
+        Node<T> qEB;
         int size;
 
         @Override // rx.subjects.ReplaySubject.a
         public void next(T t) {
             Node<T> node = new Node<>(t);
-            this.quy.set(node);
-            this.quy = node;
+            this.qEB.set(node);
+            this.qEB = node;
             int i = this.size;
             if (i == this.limit) {
-                this.qux = this.qux.get();
+                this.qEA = this.qEA.get();
             } else {
                 this.size = i + 1;
             }
@@ -209,7 +209,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j2 = 0;
                     Node<T> node2 = (Node) replayProducer.node;
                     if (node2 == null) {
-                        node2 = this.qux;
+                        node2 = this.qEA;
                     }
                     while (true) {
                         node = node2;
@@ -271,7 +271,7 @@ public final class ReplaySubject<T> extends c<T, T> {
             }
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         static final class Node<T> extends AtomicReference<Node<T>> {
             private static final long serialVersionUID = 3713592843205853725L;
             final T value;
@@ -282,14 +282,14 @@ public final class ReplaySubject<T> extends c<T, T> {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     static final class ReplaySizeAndTimeBoundBuffer<T> implements a<T> {
         volatile boolean done;
         Throwable error;
         final int limit;
-        final long quu;
-        volatile TimedNode<T> quv;
-        TimedNode<T> quw;
+        final long qEx;
+        volatile TimedNode<T> qEy;
+        TimedNode<T> qEz;
         final g scheduler;
         int size;
 
@@ -298,11 +298,11 @@ public final class ReplaySubject<T> extends c<T, T> {
             TimedNode<T> timedNode;
             long now = this.scheduler.now();
             TimedNode<T> timedNode2 = new TimedNode<>(t, now);
-            this.quw.set(timedNode2);
-            this.quw = timedNode2;
-            long j = now - this.quu;
+            this.qEz.set(timedNode2);
+            this.qEz = timedNode2;
+            long j = now - this.qEx;
             int i = this.size;
-            TimedNode<T> timedNode3 = this.quv;
+            TimedNode<T> timedNode3 = this.qEy;
             if (i == this.limit) {
                 timedNode = timedNode3.get();
             } else {
@@ -319,26 +319,26 @@ public final class ReplaySubject<T> extends c<T, T> {
             }
             this.size = i;
             if (timedNode != timedNode3) {
-                this.quv = timedNode;
+                this.qEy = timedNode;
             }
         }
 
         @Override // rx.subjects.ReplaySubject.a
         public void error(Throwable th) {
-            eLN();
+            eOd();
             this.error = th;
             this.done = true;
         }
 
         @Override // rx.subjects.ReplaySubject.a
         public void complete() {
-            eLN();
+            eOd();
             this.done = true;
         }
 
-        void eLN() {
-            long now = this.scheduler.now() - this.quu;
-            TimedNode<T> timedNode = this.quv;
+        void eOd() {
+            long now = this.scheduler.now() - this.qEx;
+            TimedNode<T> timedNode = this.qEy;
             TimedNode<T> timedNode2 = timedNode;
             while (true) {
                 TimedNode<T> timedNode3 = timedNode2.get();
@@ -348,14 +348,14 @@ public final class ReplaySubject<T> extends c<T, T> {
                 timedNode2 = timedNode3;
             }
             if (timedNode != timedNode2) {
-                this.quv = timedNode2;
+                this.qEy = timedNode2;
             }
         }
 
-        TimedNode<T> eLO() {
+        TimedNode<T> eOe() {
             TimedNode<T> timedNode;
-            long now = this.scheduler.now() - this.quu;
-            TimedNode<T> timedNode2 = this.quv;
+            long now = this.scheduler.now() - this.qEx;
+            TimedNode<T> timedNode2 = this.qEy;
             while (true) {
                 timedNode = timedNode2;
                 timedNode2 = timedNode.get();
@@ -379,7 +379,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j2 = 0;
                     TimedNode<T> timedNode2 = (TimedNode) replayProducer.node;
                     if (timedNode2 == null) {
-                        timedNode2 = eLO();
+                        timedNode2 = eOe();
                     }
                     while (true) {
                         timedNode = timedNode2;
@@ -442,7 +442,7 @@ public final class ReplaySubject<T> extends c<T, T> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         public static final class TimedNode<T> extends AtomicReference<TimedNode<T>> {
             private static final long serialVersionUID = 3713592843205853725L;
             final long timestamp;
@@ -456,7 +456,7 @@ public final class ReplaySubject<T> extends c<T, T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class ReplayProducer<T> extends AtomicInteger implements f, k {
         private static final long serialVersionUID = -5006209596735204567L;
         final j<? super T> actual;

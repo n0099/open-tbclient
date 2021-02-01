@@ -1,10 +1,10 @@
 package com.huewu.pla.lib;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public static void YO(String str) {
+    public static void ZP(String str) {
     }
 
-    public static void YP(String str) {
+    public static void ZQ(String str) {
     }
 
     public static void i(String str) {

@@ -11,32 +11,32 @@ import com.baidu.live.lottie.LottieAnimationView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
 import com.facebook.drawee.generic.RoundingParams;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private LottieAnimationView bLA;
-    private TextView bLB;
-    private InterfaceC0220a bLx;
-    private SimpleDraweeView bLy;
-    private TextView bLz;
-    private View bzb;
-    private TextView bzc;
+    private View bCH;
+    private TextView bCI;
+    private InterfaceC0222a bPh;
+    private SimpleDraweeView bPi;
+    private TextView bPj;
+    private LottieAnimationView bPk;
+    private TextView bPl;
     private Context mContext;
     private TextView mTitle;
 
     /* renamed from: com.baidu.live.videochat.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0220a {
-        void Qc();
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0222a {
+        void RM();
 
-        void Ul();
+        void VU();
 
-        void Um();
+        void VV();
 
-        void Un();
+        void VW();
     }
 
-    public void a(InterfaceC0220a interfaceC0220a) {
-        this.bLx = interfaceC0220a;
+    public void a(InterfaceC0222a interfaceC0222a) {
+        this.bPh = interfaceC0222a;
     }
 
     public a(@NonNull Context context) {
@@ -51,34 +51,34 @@ public class a extends Dialog implements View.OnClickListener {
         resize();
         setCanceledOnTouchOutside(false);
         setCancelable(false);
-        this.bLy = (SimpleDraweeView) findViewById(a.f.ala_link_mic_status_dialog_head_icon);
+        this.bPi = (SimpleDraweeView) findViewById(a.f.ala_link_mic_status_dialog_head_icon);
         this.mTitle = (TextView) findViewById(a.f.ala_link_mic_status_dialog_message);
-        this.bLz = (TextView) findViewById(a.f.ala_link_mic_status_dialog_inviter);
-        this.bzb = findViewById(a.f.ala_link_mic_status_dialog_btn_first);
-        this.bzc = (TextView) findViewById(a.f.ala_link_mic_status_dialog_txt_first);
-        this.bLA = (LottieAnimationView) findViewById(a.f.ala_link_mic_status_dialog_loading);
-        this.bLA.setImageAssetsFolder("images/");
-        this.bLB = (TextView) findViewById(a.f.ala_link_mic_status_dialog_btn_second);
-        this.bLB.setVisibility(8);
-        this.bLy.setBackgroundResource(a.e.sdk_default_avatar);
-        RoundingParams esh = this.bLy.getHierarchy().esh();
-        RoundingParams roundingParams = esh == null ? new RoundingParams() : esh;
-        roundingParams.AY(true);
-        roundingParams.bI(6.0f);
-        roundingParams.OV(-1);
-        this.bLy.getHierarchy().a(roundingParams);
-        this.bLy.setOnClickListener(this);
-        this.bzb.setOnClickListener(this);
-        this.bLB.setOnClickListener(this);
+        this.bPj = (TextView) findViewById(a.f.ala_link_mic_status_dialog_inviter);
+        this.bCH = findViewById(a.f.ala_link_mic_status_dialog_btn_first);
+        this.bCI = (TextView) findViewById(a.f.ala_link_mic_status_dialog_txt_first);
+        this.bPk = (LottieAnimationView) findViewById(a.f.ala_link_mic_status_dialog_loading);
+        this.bPk.setImageAssetsFolder("images/");
+        this.bPl = (TextView) findViewById(a.f.ala_link_mic_status_dialog_btn_second);
+        this.bPl.setVisibility(8);
+        this.bPi.setBackgroundResource(a.e.sdk_default_avatar);
+        RoundingParams euz = this.bPi.getHierarchy().euz();
+        RoundingParams roundingParams = euz == null ? new RoundingParams() : euz;
+        roundingParams.Br(true);
+        roundingParams.bL(6.0f);
+        roundingParams.Pq(-1);
+        this.bPi.getHierarchy().a(roundingParams);
+        this.bPi.setOnClickListener(this);
+        this.bCH.setOnClickListener(this);
+        this.bPl.setOnClickListener(this);
     }
 
     public void resize() {
         getWindow().setGravity(17);
     }
 
-    public void hM(String str) {
+    public void ih(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bLy.setImageURI(str);
+            this.bPi.setImageURI(str);
         }
     }
 
@@ -88,47 +88,47 @@ public class a extends Dialog implements View.OnClickListener {
         }
     }
 
-    public void hN(String str) {
-        this.bLz.setText(str);
+    public void ii(String str) {
+        this.bPj.setText(str);
     }
 
-    public void ho(String str) {
-        this.bzc.setText(str);
+    public void hK(String str) {
+        this.bCI.setText(str);
     }
 
-    public void hO(String str) {
-        this.bLB.setText(str);
+    public void ij(String str) {
+        this.bPl.setText(str);
     }
 
-    public void dX(int i) {
-        this.bzb.setVisibility(i);
+    public void eb(int i) {
+        this.bCH.setVisibility(i);
     }
 
-    public void eZ(int i) {
-        this.bLB.setVisibility(i);
+    public void fd(int i) {
+        this.bPl.setVisibility(i);
     }
 
-    public void fa(int i) {
+    public void fe(int i) {
         if (i == 0) {
-            this.bLA.playAnimation();
+            this.bPk.playAnimation();
         } else {
-            this.bLA.cancelAnimation();
+            this.bPk.cancelAnimation();
         }
-        this.bLA.setVisibility(i);
+        this.bPk.setVisibility(i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bLy) {
-            if (this.bLx != null) {
-                this.bLx.Ul();
+        if (view == this.bPi) {
+            if (this.bPh != null) {
+                this.bPh.VU();
             }
-        } else if (view == this.bzb) {
-            if (this.bLx != null) {
-                this.bLx.Um();
+        } else if (view == this.bCH) {
+            if (this.bPh != null) {
+                this.bPh.VV();
             }
-        } else if (view == this.bLB && this.bLx != null) {
-            this.bLx.Un();
+        } else if (view == this.bPl && this.bPh != null) {
+            this.bPh.VW();
         }
     }
 }

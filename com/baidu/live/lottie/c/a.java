@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static com.baidu.live.lottie.model.a.e a(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -19,7 +19,7 @@ public class a {
             jsonReader.endArray();
             r.m(arrayList);
         } else {
-            arrayList.add(new com.baidu.live.lottie.e.a(p.l(jsonReader, com.baidu.live.lottie.d.f.kA())));
+            arrayList.add(new com.baidu.live.lottie.e.a(p.l(jsonReader, com.baidu.live.lottie.d.f.kz())));
         }
         return new com.baidu.live.lottie.model.a.e(arrayList);
     }

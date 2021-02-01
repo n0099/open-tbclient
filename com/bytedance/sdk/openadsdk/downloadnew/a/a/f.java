@@ -17,14 +17,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final WeakReference<Context> f7080a;
+    protected final WeakReference<Context> f7082a;
 
     public f(Context context) {
-        this.f7080a = new WeakReference<>(context);
+        this.f7082a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.socialbase.downloader.i.h

@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.guide;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 class BuildException extends RuntimeException {
     private static final long serialVersionUID = 6208777692136933357L;
     private final String mDetailMessage;

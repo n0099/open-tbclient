@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
-import android.util.Log;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.mobads.g.g;
@@ -21,15 +20,15 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b extends File {
     private static DexClassLoader f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private e f3326a;
+    private e f3338a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Class<?> f3327b;
+    private Class<?> f3339b;
     private Context c;
     private PublicKey d;
     private IXAdLogger e;
@@ -40,11 +39,11 @@ public class b extends File {
 
     public b(String str, Context context, e eVar) {
         super(str);
-        this.f3327b = null;
+        this.f3339b = null;
         this.c = null;
         this.e = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.c = context;
-        this.f3326a = eVar;
+        this.f3338a = eVar;
         if (eVar != null) {
             try {
                 this.d = c("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBcp8gg3O7bjdnz+pSxg+JH/mbcKfm7dEjcRqVNAFwG7bTpLwDQh40bZJzrcBKQWbD6kArR6TPuQUCMQ09/y55Vk1P2Kq7vJGGisFpjlqv2qlg8drLdhXkLQUt/SeZVJgT+CNxVbuzxAF61EEf8M0MHi1I2dm6n6lOA6fomiCD9wIDAQAB");
@@ -56,28 +55,28 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if (this.f3326a != null) {
+        if (this.f3338a != null) {
             String a2 = a(new File(getAbsolutePath()));
-            String b2 = b(this.f3326a.d());
+            String b2 = b(this.f3338a.d());
             if (!b2.equalsIgnoreCase(a2)) {
                 throw new g.a("doCheckApkIntegrity failed, md5sum: " + a2 + ", checksum in json info: " + b2);
             }
             return;
         }
-        Log.i("XAdLocalApkFile", "built-in apk, no need to check");
+        this.e.d("XAdLocalApkFile", "built-in apk, no need to check");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Class<?> b() {
-        if (this.f3327b == null) {
+        if (this.f3339b == null) {
             File file = new File(getAbsolutePath());
             try {
-                this.f3327b = b(file);
+                this.f3339b = b(file);
             } catch (Exception e) {
                 file.delete();
             }
         }
-        return this.f3327b;
+        return this.f3339b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,10 +86,10 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public double c() {
-        if (this.f3326a == null) {
+        if (this.f3338a == null) {
             return 0.0d;
         }
-        return this.f3326a.b();
+        return this.f3338a.b();
     }
 
     private String b(String str) {
@@ -119,14 +118,12 @@ public class b extends File {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x008a A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private String a(File file) {
         FileInputStream fileInputStream;
-        IXAdLogger iXAdLogger;
-        Object[] objArr;
         String str = "";
         try {
             fileInputStream = new FileInputStream(file);
@@ -143,24 +140,18 @@ public class b extends File {
                         try {
                             fileInputStream.close();
                         } catch (Exception e) {
-                            iXAdLogger = this.e;
-                            objArr = new Object[]{"XAdLocalApkFile", e.getMessage()};
-                            iXAdLogger.e(objArr);
-                            return str;
+                            this.e.d("XAdLocalApkFile", e.getMessage());
                         }
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    this.e.e("XAdLocalApkFile", e.getMessage());
+                    this.e.d("XAdLocalApkFile", e.getMessage());
                     str = "";
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
                         } catch (Exception e3) {
-                            iXAdLogger = this.e;
-                            objArr = new Object[]{"XAdLocalApkFile", e3.getMessage()};
-                            iXAdLogger.e(objArr);
-                            return str;
+                            this.e.d("XAdLocalApkFile", e3.getMessage());
                         }
                     }
                     return str;
@@ -171,7 +162,7 @@ public class b extends File {
                     try {
                         fileInputStream.close();
                     } catch (Exception e4) {
-                        this.e.e("XAdLocalApkFile", e4.getMessage());
+                        this.e.d("XAdLocalApkFile", e4.getMessage());
                     }
                 }
                 throw th;
@@ -198,18 +189,18 @@ public class b extends File {
                 String absolutePath = file.getAbsolutePath();
                 ClassLoader classLoader = getClass().getClassLoader();
                 String absolutePath2 = this.c.getFilesDir().getAbsolutePath();
-                com.baidu.mobads.a.a.o = System.currentTimeMillis();
+                com.baidu.mobads.constants.a.o = System.currentTimeMillis();
                 DexClassLoader dexClassLoader = new DexClassLoader(absolutePath, absolutePath2, null, classLoader);
-                com.baidu.mobads.a.a.p = System.currentTimeMillis();
+                com.baidu.mobads.constants.a.p = System.currentTimeMillis();
                 f = dexClassLoader;
-                this.e.i("XAdLocalApkFile", "dexPath=" + absolutePath + ", cl=" + classLoader + ", dir=" + absolutePath2 + ", loader=" + dexClassLoader + ", len=" + file.length() + ", list=" + file.list());
+                this.e.d("XAdLocalApkFile", "dexPath=" + absolutePath + ", cl=" + classLoader + ", dir=" + absolutePath2 + ", loader=" + dexClassLoader + ", len=" + file.length() + ", list=" + file.list());
                 cls = Class.forName("com.baidu.mobads.container.AllInOneXAdContainerFactory", true, dexClassLoader);
             }
         } catch (Exception e) {
-            this.e.e("XAdLocalApkFile", e.getMessage());
+            this.e.d("XAdLocalApkFile", e.getMessage());
             cls = null;
         }
-        this.e.i("XAdLocalApkFile", "jar.path=" + file.getAbsolutePath() + ", clz=" + cls);
+        this.e.d("XAdLocalApkFile", "jar.path=" + file.getAbsolutePath() + ", clz=" + cls);
         return cls;
     }
 

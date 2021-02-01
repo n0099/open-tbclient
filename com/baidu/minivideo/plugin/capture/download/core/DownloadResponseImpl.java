@@ -5,7 +5,7 @@ import com.baidu.minivideo.plugin.capture.download.base.DownloadResponse;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadStatus;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadStatusDelivery;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class DownloadResponseImpl implements DownloadResponse {
     private DownloadStatusDelivery mDelivery;
     private DownloadStatus mDownloadStatus = new DownloadStatus();

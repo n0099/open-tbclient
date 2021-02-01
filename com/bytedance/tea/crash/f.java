@@ -1,5 +1,5 @@
 package com.bytedance.tea.crash;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface f {
     boolean a(Throwable th, Thread thread);
 }

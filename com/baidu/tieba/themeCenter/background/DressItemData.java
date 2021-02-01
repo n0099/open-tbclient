@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import java.io.Serializable;
 import tbclient.ThemeBgProp;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DressItemData extends OrmObject implements Serializable {
     private int activityFinish;
     private String activityUrl;

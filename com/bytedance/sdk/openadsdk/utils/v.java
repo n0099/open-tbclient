@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.utils;
 
 import android.os.StatFs;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class v {
     public static long a(String str) {
         long j = 0;

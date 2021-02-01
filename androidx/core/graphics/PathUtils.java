@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class PathUtils {
     @NonNull
     @RequiresApi(26)

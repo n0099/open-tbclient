@@ -7,27 +7,27 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.t.b.j;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a implements com.baidu.swan.apps.media.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private j dki;
-    private String dkj;
-    private c dkk;
-    private boolean dkl;
-    private b dkm;
+    private j dmr;
+    private String dms;
+    private c dmt;
+    private boolean dmu;
+    private b dmv;
     private Context mContext;
     private boolean mIsForeground = true;
 
     public a(Context context, @NonNull c cVar) {
         this.mContext = context;
-        this.dkk = cVar;
-        this.dkj = cVar.dge;
-        aBz();
-        aBy();
+        this.dmt = cVar;
+        this.dms = cVar.diq;
+        aBW();
+        aBV();
     }
 
-    private void aBy() {
-        if (!TextUtils.isEmpty(this.dkj)) {
+    private void aBV() {
+        if (!TextUtils.isEmpty(this.dms)) {
             com.baidu.swan.apps.media.b.a(this);
         }
     }
@@ -36,218 +36,218 @@ public class a implements com.baidu.swan.apps.media.a {
         if (DEBUG) {
             Log.e("SwanAppVideoPlayer", "update 接口");
         }
-        if (this.dki != null) {
-            this.dki.a(cVar, true);
+        if (this.dmr != null) {
+            this.dmr.a(cVar, true);
         }
-        this.dkk = cVar;
+        this.dmt = cVar;
     }
 
     public void a(b bVar) {
-        this.dkm = bVar;
+        this.dmv = bVar;
     }
 
-    public c aiW() {
-        return this.dkk;
+    public c aju() {
+        return this.dmt;
     }
 
     public void d(c cVar) {
-        com.baidu.swan.apps.console.c.i("video", "Open Player " + cVar.dge);
-        if (this.dki != null) {
-            this.dki.a(cVar);
+        com.baidu.swan.apps.console.c.i("video", "Open Player " + cVar.diq);
+        if (this.dmr != null) {
+            this.dmr.a(cVar);
         }
-        this.dkk = cVar;
+        this.dmt = cVar;
     }
 
-    public void fP(boolean z) {
-        if (this.dki != null) {
-            this.dki.fP(z);
+    public void fR(boolean z) {
+        if (this.dmr != null) {
+            this.dmr.fR(z);
         }
     }
 
     public void pause() {
-        if (aBA()) {
-            aBz().pause();
+        if (aBX()) {
+            aBW().pause();
         }
     }
 
     public void resume() {
-        if (aBA() && !isPlaying() && this.mIsForeground && this.dki != null) {
-            this.dki.resume();
+        if (aBX() && !isPlaying() && this.mIsForeground && this.dmr != null) {
+            this.dmr.resume();
         }
     }
 
     public void seekTo(int i) {
-        if (aBA() && this.dki != null) {
-            this.dki.seekTo(i);
+        if (aBX() && this.dmr != null) {
+            this.dmr.seekTo(i);
         }
     }
 
     public int getDuration() {
-        return aBz().getDuration();
+        return aBW().getDuration();
     }
 
     public int getCurrentPosition() {
-        return aBz().getCurrentPosition();
+        return aBW().getCurrentPosition();
     }
 
     public boolean isPlaying() {
-        return this.dki != null && this.dki.isPlaying();
+        return this.dmr != null && this.dmr.isPlaying();
     }
 
     public boolean isEnd() {
-        return this.dki != null && this.dki.isEnd();
+        return this.dmr != null && this.dmr.isEnd();
     }
 
     public void f(FrameLayout frameLayout) {
-        if (this.dki != null) {
-            this.dki.f(frameLayout);
+        if (this.dmr != null) {
+            this.dmr.f(frameLayout);
         }
     }
 
     public void i(boolean z, int i) {
-        if (this.dki != null) {
-            this.dki.i(z, i);
+        if (this.dmr != null) {
+            this.dmr.i(z, i);
         }
     }
 
     public void b(b bVar) {
-        this.dkm = bVar;
+        this.dmv = bVar;
     }
 
-    public j aBz() {
-        if (this.dki == null) {
+    public j aBW() {
+        if (this.dmr == null) {
             com.baidu.swan.apps.console.c.i("video", "create player");
-            this.dki = com.baidu.swan.apps.t.a.awL().a(this.mContext, this.dkk);
-            this.dki.a(new j.a() { // from class: com.baidu.swan.apps.media.b.a.1
+            this.dmr = com.baidu.swan.apps.t.a.axj().a(this.mContext, this.dmt);
+            this.dmr.a(new j.a() { // from class: com.baidu.swan.apps.media.b.a.1
                 @Override // com.baidu.swan.apps.t.b.j.a
                 public void b(j jVar) {
-                    if (a.this.dkm != null) {
-                        a.this.dkm.b(jVar);
+                    if (a.this.dmv != null) {
+                        a.this.dmv.b(jVar);
                     }
                 }
             });
-            this.dki.a(new j.b() { // from class: com.baidu.swan.apps.media.b.a.2
+            this.dmr.a(new j.b() { // from class: com.baidu.swan.apps.media.b.a.2
                 @Override // com.baidu.swan.apps.t.b.j.b
                 public boolean a(j jVar, int i, int i2) {
-                    return a.this.dkm != null && a.this.dkm.a(jVar, i, i2);
+                    return a.this.dmv != null && a.this.dmv.a(jVar, i, i2);
                 }
             });
-            this.dki.a(new j.d() { // from class: com.baidu.swan.apps.media.b.a.3
+            this.dmr.a(new j.d() { // from class: com.baidu.swan.apps.media.b.a.3
                 @Override // com.baidu.swan.apps.t.b.j.d
                 public void a(j jVar) {
-                    if (a.this.dkm != null) {
-                        a.this.dkm.a(jVar);
+                    if (a.this.dmv != null) {
+                        a.this.dmv.a(jVar);
                     }
                 }
             });
-            this.dki.a(new j.e() { // from class: com.baidu.swan.apps.media.b.a.4
+            this.dmr.a(new j.e() { // from class: com.baidu.swan.apps.media.b.a.4
                 @Override // com.baidu.swan.apps.t.b.j.e
                 public void c(j jVar) {
-                    if (a.this.dkm != null) {
-                        a.this.dkm.c(jVar);
+                    if (a.this.dmv != null) {
+                        a.this.dmv.c(jVar);
                     }
                 }
             });
-            this.dki.a(new j.f() { // from class: com.baidu.swan.apps.media.b.a.5
+            this.dmr.a(new j.f() { // from class: com.baidu.swan.apps.media.b.a.5
                 @Override // com.baidu.swan.apps.t.b.j.f
                 public void d(j jVar) {
-                    if (a.this.dkm != null) {
-                        a.this.dkm.d(jVar);
+                    if (a.this.dmv != null) {
+                        a.this.dmv.d(jVar);
                     }
                 }
             });
-            this.dki.a(new j.c() { // from class: com.baidu.swan.apps.media.b.a.6
+            this.dmr.a(new j.c() { // from class: com.baidu.swan.apps.media.b.a.6
                 @Override // com.baidu.swan.apps.t.b.j.c
                 public void e(j jVar) {
-                    if (a.this.dkm != null) {
-                        a.this.dkm.e(jVar);
+                    if (a.this.dmv != null) {
+                        a.this.dmv.e(jVar);
                     }
                 }
             });
         }
-        return this.dki;
+        return this.dmr;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String awe() {
-        return this.dkj;
+    public String awC() {
+        return this.dms;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String aAg() {
-        return this.dkk != null ? this.dkk.dkw : "";
+    public String aAE() {
+        return this.dmt != null ? this.dmt.dmG : "";
     }
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.dkk.cJd;
+        return this.dmt.cLr;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object aAh() {
+    public Object aAF() {
         return this;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void fV(boolean z) {
+    public void fX(boolean z) {
         this.mIsForeground = z;
         if (z) {
-            if (this.dkl) {
-                aBz().resume();
+            if (this.dmu) {
+                aBW().resume();
             }
-            aBz().Rf();
-        } else if (this.dki != null) {
-            this.dkl = aBz().isPlaying();
-            aBz().pause();
-            aBz().Re();
+            aBW().onForeground();
+        } else if (this.dmr != null) {
+            this.dmu = aBW().isPlaying();
+            aBW().pause();
+            aBW().onBackground();
         }
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public void fW(boolean z) {
+    public void fY(boolean z) {
     }
 
     @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         com.baidu.swan.apps.console.c.i("video", "onBackPressed");
-        return this.dki != null && this.dki.onBackPressed();
+        return this.dmr != null && this.dmr.onBackPressed();
     }
 
     @Override // com.baidu.swan.apps.media.a
     public void onDestroy() {
         com.baidu.swan.apps.console.c.i("video", MissionEvent.MESSAGE_DESTROY);
-        if (this.dki != null) {
-            this.dki.stop();
-            this.dki = null;
+        if (this.dmr != null) {
+            this.dmr.stop();
+            this.dmr = null;
         }
         com.baidu.swan.apps.media.b.b(this);
     }
 
-    public void oe(String str) {
-        if (this.dki != null) {
-            this.dki.oe(str);
+    public void oy(String str) {
+        if (this.dmr != null) {
+            this.dmr.oy(str);
         }
     }
 
     public void b(c cVar) {
-        if (this.dki != null) {
-            this.dki.b(cVar);
+        if (this.dmr != null) {
+            this.dmr.b(cVar);
         }
     }
 
-    public void ayf() {
-        if (this.dki != null) {
-            this.dki.ayf();
+    public void ayD() {
+        if (this.dmr != null) {
+            this.dmr.ayD();
         }
     }
 
-    private boolean aBA() {
-        return (this.dkk == null || TextUtils.isEmpty(this.dkk.mSrc) || TextUtils.isEmpty(this.dkj) || TextUtils.isEmpty(this.dkk.cJc)) ? false : true;
+    private boolean aBX() {
+        return (this.dmt == null || TextUtils.isEmpty(this.dmt.mSrc) || TextUtils.isEmpty(this.dms) || TextUtils.isEmpty(this.dmt.cLq)) ? false : true;
     }
 
     public void mute(boolean z) {
-        if (this.dki != null) {
-            this.dki.mute(z);
+        if (this.dmr != null) {
+            this.dmr.mute(z);
         }
     }
 }

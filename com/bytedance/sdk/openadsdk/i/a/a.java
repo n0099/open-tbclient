@@ -17,34 +17,34 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.WeakHashMap;
 import org.apache.http.HttpHost;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7186a;
+    private static String f7188a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f7187b;
+    private static String f7189b;
     private static volatile a g;
     private WeakHashMap<String, String> c = new WeakHashMap<>();
-    private final LruCache<String, C1015a> f = new LruCache<String, C1015a>(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE) { // from class: com.bytedance.sdk.openadsdk.i.a.a.1
+    private final LruCache<String, C1019a> f = new LruCache<String, C1019a>(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE) { // from class: com.bytedance.sdk.openadsdk.i.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
         /* renamed from: a */
-        public int sizeOf(String str, C1015a c1015a) {
-            int length = c1015a.f7189a != null ? 0 + c1015a.f7189a.length : 0;
-            return length == 0 ? super.sizeOf(str, c1015a) : length;
+        public int sizeOf(String str, C1019a c1019a) {
+            int length = c1019a.f7191a != null ? 0 + c1019a.f7191a.length : 0;
+            return length == 0 ? super.sizeOf(str, c1019a) : length;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
         /* renamed from: a */
-        public void entryRemoved(boolean z, String str, C1015a c1015a, C1015a c1015a2) {
-            super.entryRemoved(z, str, c1015a, c1015a2);
-            if (z && c1015a != null) {
-                c1015a.f7189a = null;
+        public void entryRemoved(boolean z, String str, C1019a c1019a, C1019a c1019a2) {
+            super.entryRemoved(z, str, c1019a, c1019a2);
+            if (z && c1019a != null) {
+                c1019a.f7191a = null;
             }
         }
     };
@@ -66,8 +66,8 @@ public class a {
     }
 
     public synchronized void a(String str, byte[] bArr) {
-        u.f("splashLoadAd", " put GifLoader.mIsSpalsh " + b.f7191b);
-        if (b.f7191b) {
+        u.f("splashLoadAd", " put GifLoader.mIsSpalsh " + b.f7193b);
+        if (b.f7193b) {
             c(str, bArr);
         } else {
             b(str, bArr);
@@ -79,7 +79,7 @@ public class a {
         u.f("splashLoadAd", " GifCache put 将图片素材保存到本地 key " + str);
         if (!TextUtils.isEmpty(str) && bArr != null) {
             if (!a(bArr)) {
-                this.f.put(str, new C1015a(bArr));
+                this.f.put(str, new C1019a(bArr));
             }
             File file = new File(c(), str);
             if (!file.exists() || !file.isFile() || file.length() <= 0) {
@@ -127,7 +127,7 @@ public class a {
         u.f("splashLoadAd", " GifCache put 将图片素材保存到本地 key " + str);
         if (!TextUtils.isEmpty(str) && bArr != null) {
             if (!a(bArr)) {
-                this.f.put(str, new C1015a(bArr));
+                this.f.put(str, new C1019a(bArr));
             }
             u.f("splashLoadAd", " GifCache put 保存到本地图片的素材路径 getCacheDir() " + b());
             File file = new File(b(), str);
@@ -200,14 +200,14 @@ public class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [256=4, 253=5, 254=5] */
-    public synchronized C1015a a(String str) {
-        C1015a c1015a;
+    public synchronized C1019a a(String str) {
+        C1019a c1019a;
         FileInputStream fileInputStream;
         if (TextUtils.isEmpty(str)) {
-            c1015a = null;
+            c1019a = null;
         } else {
-            c1015a = this.f.get(str);
-            if (c1015a == null) {
+            c1019a = this.f.get(str);
+            if (c1019a == null) {
                 File file = new File(c(), str);
                 if (file.exists()) {
                     try {
@@ -219,7 +219,7 @@ public class a {
                     try {
                         ByteBuffer allocate = ByteBuffer.allocate(Long.valueOf(file.length()).intValue());
                         fileInputStream.getChannel().read(allocate);
-                        c1015a = new C1015a(allocate.array());
+                        c1019a = new C1019a(allocate.array());
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
@@ -235,26 +235,26 @@ public class a {
                             } catch (IOException e2) {
                             }
                         }
-                        c1015a = null;
-                        return c1015a;
+                        c1019a = null;
+                        return c1019a;
                     }
                 }
-                c1015a = null;
+                c1019a = null;
             }
         }
-        return c1015a;
+        return c1019a;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [305=5, 306=5, 308=4] */
-    public synchronized C1015a b(String str) {
-        C1015a c1015a;
+    public synchronized C1019a b(String str) {
+        C1019a c1019a;
         FileInputStream fileInputStream;
         u.f("splashLoadAd", " GifCache get  key " + str);
         if (TextUtils.isEmpty(str)) {
-            c1015a = null;
+            c1019a = null;
         } else {
-            c1015a = this.f.get(str);
-            if (c1015a == null) {
+            c1019a = this.f.get(str);
+            if (c1019a == null) {
                 u.f("splashLoadAd", " GifCache 从缓存文件中获取图片素材，图片路径为" + b() + " key " + str);
                 File file = new File(b(), str);
                 try {
@@ -267,7 +267,7 @@ public class a {
                         try {
                             ByteBuffer allocate = ByteBuffer.allocate(Long.valueOf(file.length()).intValue());
                             fileInputStream.getChannel().read(allocate);
-                            c1015a = new C1015a(allocate.array());
+                            c1019a = new C1019a(allocate.array());
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
@@ -284,8 +284,8 @@ public class a {
                                 }
                             }
                             u.f("splashLoadAd", " GifCache 缓存文件中不存在该图片素材  key " + str);
-                            c1015a = null;
-                            return c1015a;
+                            c1019a = null;
+                            return c1019a;
                         }
                     } catch (Throwable th3) {
                         th = th3;
@@ -293,10 +293,10 @@ public class a {
                     }
                 }
                 u.f("splashLoadAd", " GifCache 缓存文件中不存在该图片素材  key " + str);
-                c1015a = null;
+                c1019a = null;
             }
         }
-        return c1015a;
+        return c1019a;
     }
 
     public synchronized String a(String str, int i, int i2, ImageView.ScaleType scaleType) {
@@ -317,10 +317,10 @@ public class a {
     }
 
     private static String c() {
-        if (TextUtils.isEmpty(f7186a)) {
-            f7186a = c("diskGif");
+        if (TextUtils.isEmpty(f7188a)) {
+            f7188a = c("diskGif");
         }
-        return f7186a;
+        return f7188a;
     }
 
     private static String c(String str) {
@@ -363,21 +363,21 @@ public class a {
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f7187b)) {
-            f7187b = c("splash_image");
+        if (TextUtils.isEmpty(f7189b)) {
+            f7189b = c("splash_image");
         }
-        return f7187b;
+        return f7189b;
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.i.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1015a {
+    /* loaded from: classes6.dex */
+    public static class C1019a {
 
         /* renamed from: a  reason: collision with root package name */
-        byte[] f7189a;
+        byte[] f7191a;
 
-        public C1015a(byte[] bArr) {
-            this.f7189a = bArr;
+        public C1019a(byte[] bArr) {
+            this.f7191a = bArr;
         }
     }
 }

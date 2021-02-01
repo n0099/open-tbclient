@@ -9,7 +9,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.internal.view.SupportSubMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     /* JADX INFO: Access modifiers changed from: package-private */
     public SubMenuWrapperICS(Context context, SupportSubMenu supportSubMenu) {

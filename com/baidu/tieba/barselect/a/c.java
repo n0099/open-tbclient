@@ -2,10 +2,9 @@ package com.baidu.tieba.barselect.a;
 
 import android.graphics.BitmapFactory;
 import android.util.Log;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
-    public static int wK(int i) {
+    public static int wU(int i) {
         if (i == 6) {
             return 90;
         }
@@ -13,12 +12,12 @@ public class c {
             return 180;
         }
         if (i == 8) {
-            return SubsamplingScaleImageView.ORIENTATION_270;
+            return 270;
         }
         return 0;
     }
 
-    public static int ab(byte[] bArr) {
+    public static int aa(byte[] bArr) {
         int i;
         int i2;
         if (bArr == null) {
@@ -94,7 +93,7 @@ public class c {
                         case 6:
                             return 90;
                         case 8:
-                            return SubsamplingScaleImageView.ORIENTATION_270;
+                            return 270;
                     }
                 } else {
                     i5 += 12;

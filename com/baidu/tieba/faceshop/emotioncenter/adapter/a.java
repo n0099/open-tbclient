@@ -5,52 +5,52 @@ import com.baidu.adp.base.f;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private f eTl;
-    private BdTypeListView gwr;
-    private EmotionCategoryAdapter iSv;
-    private EmotionHorizontalAdapter iSw;
-    private final List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
+    private f eVB;
+    private BdTypeListView gzb;
+    private EmotionCategoryAdapter iYc;
+    private EmotionHorizontalAdapter iYd;
+    private final List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
     private List<n> mListData = new ArrayList();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.eTl = tbPageContext;
-        this.gwr = bdTypeListView;
-        IY();
+        this.eVB = tbPageContext;
+        this.gzb = bdTypeListView;
+        Kw();
     }
 
-    private void IY() {
-        this.iSv = new EmotionCategoryAdapter((TbPageContext) this.eTl, com.baidu.tieba.faceshop.emotioncenter.data.a.iSy);
-        this.iSw = new EmotionHorizontalAdapter((TbPageContext) this.eTl, b.iSz);
-        this.bjZ.add(this.iSv);
-        this.bjZ.add(this.iSw);
-        this.gwr.addAdapters(this.bjZ);
+    private void Kw() {
+        this.iYc = new EmotionCategoryAdapter((TbPageContext) this.eVB, com.baidu.tieba.faceshop.emotioncenter.data.a.iYf);
+        this.iYd = new EmotionHorizontalAdapter((TbPageContext) this.eVB, b.iYg);
+        this.bns.add(this.iYc);
+        this.bns.add(this.iYd);
+        this.gzb.addAdapters(this.bns);
     }
 
     public void setDatas(List<n> list) {
-        if (!x.isEmpty(list)) {
-            if (!x.isEmpty(this.mListData)) {
+        if (!y.isEmpty(list)) {
+            if (!y.isEmpty(this.mListData)) {
                 this.mListData.clear();
             }
-            if (this.gwr != null) {
-                this.gwr.setData(list);
+            if (this.gzb != null) {
+                this.gzb.setData(list);
                 this.mListData.addAll(list);
             }
             notifyDataSetChanged();
         }
     }
 
-    public void cJ(List<n> list) {
-        if (!x.isEmpty(list)) {
-            if (this.gwr != null) {
+    public void cE(List<n> list) {
+        if (!y.isEmpty(list)) {
+            if (this.gzb != null) {
                 this.mListData.addAll(list);
-                this.gwr.setData(this.mListData);
+                this.gzb.setData(this.mListData);
             }
             notifyDataSetChanged();
         }
@@ -59,9 +59,9 @@ public class a {
     public void a(EmotionPackageData emotionPackageData) {
         b bVar;
         EmotionPackageData emotionPackageData2;
-        if (emotionPackageData != null && !x.isEmpty(this.mListData)) {
+        if (emotionPackageData != null && !y.isEmpty(this.mListData)) {
             for (n nVar : this.mListData) {
-                if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.iSA) != null && emotionPackageData2.id == emotionPackageData.id) {
+                if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.iYh) != null && emotionPackageData2.id == emotionPackageData.id) {
                     emotionPackageData2.download = emotionPackageData.download;
                     emotionPackageData2.share = emotionPackageData.share;
                     notifyDataSetChanged();
@@ -72,8 +72,8 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.gwr != null && this.gwr.getAdapter() != null && (this.gwr.getAdapter() instanceof BaseAdapter)) {
-            this.gwr.getAdapter().notifyDataSetChanged();
+        if (this.gzb != null && this.gzb.getAdapter() != null && (this.gzb.getAdapter() instanceof BaseAdapter)) {
+            this.gzb.getAdapter().notifyDataSetChanged();
         }
     }
 }

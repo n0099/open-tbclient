@@ -29,14 +29,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VDeviceAPI {
 
     /* renamed from: a  reason: collision with root package name */
-    private static PowerManager.WakeLock f3180a = null;
+    private static PowerManager.WakeLock f3178a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static BroadcastReceiver f3181b = null;
+    private static BroadcastReceiver f3179b = null;
 
     public static String getAppVersion() {
         try {
@@ -292,20 +292,20 @@ public class VDeviceAPI {
 
     public static void setNetworkChangedCallback() {
         unsetNetworkChangedCallback();
-        f3181b = new a();
-        b.a().registerReceiver(f3181b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        f3179b = new a();
+        b.a().registerReceiver(f3179b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
     }
 
     public static void setScreenAlwaysOn(boolean z) {
         if (z) {
-            if (f3180a == null) {
-                f3180a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+            if (f3178a == null) {
+                f3178a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
             }
-            f3180a.acquire();
-        } else if (f3180a == null || !f3180a.isHeld()) {
+            f3178a.acquire();
+        } else if (f3178a == null || !f3178a.isHeld()) {
         } else {
-            f3180a.release();
-            f3180a = null;
+            f3178a.release();
+            f3178a = null;
         }
     }
 
@@ -316,9 +316,9 @@ public class VDeviceAPI {
     }
 
     public static void unsetNetworkChangedCallback() {
-        if (f3181b != null) {
-            b.a().unregisterReceiver(f3181b);
-            f3181b = null;
+        if (f3179b != null) {
+            b.a().unregisterReceiver(f3179b);
+            f3179b = null;
         }
     }
 }

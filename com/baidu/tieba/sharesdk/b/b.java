@@ -1,6 +1,5 @@
 package com.baidu.tieba.sharesdk.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface b {
-    /* renamed from: do */
-    void mo47do(int i, int i2);
+    void dl(int i, int i2);
 }

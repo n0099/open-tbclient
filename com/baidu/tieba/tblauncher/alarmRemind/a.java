@@ -15,11 +15,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean dCZ() {
+    public static boolean dFi() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append(SharedPrefConfig.REMIND_RECOMMEND_SERVER_SWITCH).toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage SS(String str) {
+    public static RemindRecommendMessage TP(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -53,7 +53,7 @@ public class a {
         }
     }
 
-    public static long hD(long j) {
+    public static long hI(long j) {
         int i;
         int i2;
         int i3;
@@ -95,8 +95,8 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long dOf() {
-        return hD(System.currentTimeMillis());
+    public static long dQq() {
+        return hI(System.currentTimeMillis());
     }
 
     public static boolean isTaday(long j) {
@@ -109,7 +109,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean dOg() {
-        return com.baidu.tbadk.core.sharedPref.b.brx().getInt(SharedPrefConfig.SYNC_LOCAL_DOALOG, 1) == 1;
+    public static boolean dQr() {
+        return com.baidu.tbadk.core.sharedPref.b.brQ().getInt(SharedPrefConfig.SYNC_LOCAL_DOALOG, 1) == 1;
     }
 }

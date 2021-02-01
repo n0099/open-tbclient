@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.m;
 
 import android.view.View;
 import com.qq.e.comm.plugin.nativeadunified.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface k {
     void a();
 
@@ -16,7 +16,7 @@ public interface k {
 
     void a(b.a aVar);
 
-    void a(b.EnumC1199b enumC1199b);
+    void a(b.EnumC1203b enumC1203b);
 
     void a(String str);
 
@@ -38,7 +38,7 @@ public interface k {
 
     View q();
 
-    b.EnumC1199b r();
+    b.EnumC1203b r();
 
     int s();
 

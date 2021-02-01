@@ -8,21 +8,21 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.a;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.a, com.baidu.swan.games.h.d.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cYO;
+    private static volatile c dba;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c atV() {
-        if (cYO == null) {
+    public static c aut() {
+        if (dba == null) {
             synchronized (c.class) {
-                if (cYO == null) {
-                    cYO = new c();
+                if (dba == null) {
+                    dba = new c();
                 }
             }
         }
-        return cYO;
+        return dba;
     }
 
     private c() {
@@ -31,9 +31,9 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
 
     @Override // com.baidu.swan.apps.extcore.b.b
     @Nullable
-    public ExtensionCore asc() {
+    public ExtensionCore asB() {
         if (ProcessUtils.isMainProcess()) {
-            return aua();
+            return auy();
         }
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -45,13 +45,13 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
         return extensionCore;
     }
 
-    /* loaded from: classes8.dex */
-    private static class a extends a.C0425a {
+    /* loaded from: classes9.dex */
+    private static class a extends a.C0422a {
         private a() {
         }
 
-        @Override // com.baidu.swan.apps.extcore.a.C0425a
-        protected int afr() {
+        @Override // com.baidu.swan.apps.extcore.a.C0422a
+        protected int getFrameType() {
             return 1;
         }
     }

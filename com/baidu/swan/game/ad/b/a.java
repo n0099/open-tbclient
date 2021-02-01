@@ -12,10 +12,10 @@ import com.baidu.swan.game.ad.b.b;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import okhttp3.Response;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private a.b dWA;
-    private boolean dWB;
+    private a.b dYH;
+    private boolean dYI;
     private Context mContext;
 
     public a(Context context) {
@@ -24,24 +24,24 @@ public class a {
 
     public a(Context context, boolean z) {
         this(context);
-        this.dWB = z;
+        this.dYI = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.game.ad.b.a$1  reason: invalid class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class AnonymousClass1 implements Runnable {
-        final /* synthetic */ d dWC;
-        final /* synthetic */ com.baidu.swan.game.ad.a.b dWD;
+        final /* synthetic */ d dYJ;
+        final /* synthetic */ com.baidu.swan.game.ad.a.b dYK;
 
         AnonymousClass1(d dVar, com.baidu.swan.game.ad.a.b bVar) {
-            this.dWC = dVar;
-            this.dWD = bVar;
+            this.dYJ = dVar;
+            this.dYK = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.dWC != null && this.dWC.dXf != null) {
+            if (this.dYJ != null && this.dYJ.dZl != null) {
                 ResponseCallback<AdResponseInfo> responseCallback = new ResponseCallback<AdResponseInfo>() { // from class: com.baidu.swan.game.ad.b.a.1.1
                     private int count = 0;
 
@@ -56,8 +56,8 @@ public class a {
                                 try {
                                     String string = response.body().string();
                                     if (!TextUtils.isEmpty(string)) {
-                                        if (a.this.dWB) {
-                                            adResponseInfo = new AdResponseInfo(string, a.this.dWB);
+                                        if (a.this.dYI) {
+                                            adResponseInfo = new AdResponseInfo(string, a.this.dYI);
                                         } else {
                                             adResponseInfo = new AdResponseInfo(string);
                                         }
@@ -75,52 +75,52 @@ public class a {
                     /* renamed from: a */
                     public void onSuccess(AdResponseInfo adResponseInfo, int i) {
                         if (adResponseInfo == null) {
-                            a.this.uX("200000");
+                            a.this.vq("200000");
                         } else if (adResponseInfo.getAdInstanceList().size() > 0) {
-                            final AdElementInfo aRL = adResponseInfo.aRL();
+                            final AdElementInfo aSa = adResponseInfo.aSa();
                             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.b.a.1.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (a.this.dWA != null) {
-                                        a.this.dWA.a(aRL);
+                                    if (a.this.dYH != null) {
+                                        a.this.dYH.a(aSa);
                                     }
                                 }
                             });
-                        } else if (this.count == 1 && AnonymousClass1.this.dWC.dXf.rw() == 1 && com.baidu.swan.game.ad.d.f.aSk()) {
-                            a.this.a(AnonymousClass1.this.dWD, AnonymousClass1.this.dWC, this);
+                        } else if (this.count == 1 && AnonymousClass1.this.dYJ.dZl.ru() == 1 && com.baidu.swan.game.ad.d.f.aSw()) {
+                            a.this.a(AnonymousClass1.this.dYK, AnonymousClass1.this.dYJ, this);
                         } else {
                             this.count = 0;
                             String errorCode = adResponseInfo.getErrorCode();
                             if (errorCode.equals("0")) {
                                 errorCode = "201000";
                             }
-                            a.this.uX(errorCode);
+                            a.this.vq(errorCode);
                         }
                     }
 
                     @Override // com.baidu.searchbox.http.callback.ResponseCallback
                     public void onFail(Exception exc) {
-                        a.this.uX("3010002");
+                        a.this.vq("3010002");
                     }
                 };
                 if (SwanAppNetworkUtils.isNetworkConnected(a.this.mContext)) {
-                    if (!a.this.dWB || !(this.dWC instanceof e)) {
-                        a.this.dWB = false;
-                        String aRW = this.dWC.aRW();
-                        if (this.dWD != null) {
-                            this.dWD.a(aRW, responseCallback);
+                    if (!a.this.dYI || !(this.dYJ instanceof e)) {
+                        a.this.dYI = false;
+                        String aSi = this.dYJ.aSi();
+                        if (this.dYK != null) {
+                            this.dYK.a(aSi, responseCallback);
                             return;
                         }
                         return;
                     }
-                    e eVar = (e) this.dWC;
-                    if (this.dWD != null && eVar.aRZ() != null) {
-                        this.dWD.a(eVar.aRW(), eVar.aRZ(), responseCallback);
+                    e eVar = (e) this.dYJ;
+                    if (this.dYK != null && eVar.aSl() != null) {
+                        this.dYK.a(eVar.aSi(), eVar.aSl(), responseCallback);
                         return;
                     }
                     return;
                 }
-                a.this.uX("3010003");
+                a.this.vq("3010003");
             }
         }
     }
@@ -131,36 +131,36 @@ public class a {
 
     public void a(com.baidu.swan.game.ad.a.b bVar, d dVar, ResponseCallback<AdResponseInfo> responseCallback) {
         if (SwanAppNetworkUtils.isNetworkConnected(this.mContext)) {
-            this.dWB = true;
+            this.dYI = true;
             if (dVar instanceof e) {
                 e eVar = (e) dVar;
-                if (bVar != null && eVar.aRZ() != null) {
-                    bVar.a(eVar.aRW(), eVar.aRZ(), responseCallback);
+                if (bVar != null && eVar.aSl() != null) {
+                    bVar.a(eVar.aSi(), eVar.aSl(), responseCallback);
                     return;
                 }
                 return;
             }
-            e eVar2 = new e(this.mContext, new b.a().uY(com.baidu.swan.game.ad.d.f.aSh()).uZ(com.baidu.swan.game.ad.d.f.aSi()).va(dVar.dXf.aRS()).kL(ah.getDisplayWidth(this.mContext)).kM(ah.getDisplayHeight(this.mContext)).aRT(), 5, 5);
-            if (bVar != null && eVar2.aRZ() != null) {
-                bVar.a(eVar2.aRW(), eVar2.aRZ(), responseCallback);
+            e eVar2 = new e(this.mContext, new b.a().vr(com.baidu.swan.game.ad.d.f.aSt()).vs(com.baidu.swan.game.ad.d.f.aSu()).vt(dVar.dZl.aSe()).kO(ah.getDisplayWidth(this.mContext)).kP(ah.getDisplayHeight(this.mContext)).aSf(), 5, 5);
+            if (bVar != null && eVar2.aSl() != null) {
+                bVar.a(eVar2.aSi(), eVar2.aSl(), responseCallback);
                 return;
             }
             return;
         }
-        uX("3010003");
+        vq("3010003");
     }
 
     public void a(a.b bVar) {
-        this.dWA = bVar;
+        this.dYH = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uX(final String str) {
+    public void vq(final String str) {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.dWA != null) {
-                    a.this.dWA.uS(str);
+                if (a.this.dYH != null) {
+                    a.this.dYH.vl(str);
                 }
             }
         });

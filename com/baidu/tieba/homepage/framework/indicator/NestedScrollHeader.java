@@ -30,27 +30,27 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.data.k;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.google.android.material.appbar.AppBarLayout;
 /* loaded from: classes2.dex */
 public class NestedScrollHeader extends RelativeLayout {
-    private float aZx;
-    CustomMessageListener iIi;
-    View.OnClickListener jND;
-    private PublishButton jVG;
-    private TbImageView jVH;
-    private TextView jVI;
-    private a jVJ;
-    private Bitmap jVK;
+    private float alpha;
+    CustomMessageListener iNQ;
+    View.OnClickListener jVf;
+    private PublishButton kdh;
+    private TbImageView kdi;
+    private TextView kdj;
+    private a kdk;
+    private Bitmap kdl;
     private CustomMessageListener mSyncFinishListener;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Lj(String str);
+        void LT(String str);
     }
 
     public NestedScrollHeader(@NonNull Context context) {
@@ -63,36 +63,36 @@ public class NestedScrollHeader extends RelativeLayout {
 
     public NestedScrollHeader(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aZx = 1.0f;
-        this.jND = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.3
+        this.alpha = 1.0f;
+        this.jVf = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    if (NestedScrollHeader.this.jVH == view) {
-                        Object tag = NestedScrollHeader.this.jVH.getTag(R.id.homepage_mission_entrance_url);
+                    if (NestedScrollHeader.this.kdi == view) {
+                        Object tag = NestedScrollHeader.this.kdi.getTag(R.id.homepage_mission_entrance_url);
                         if (tag instanceof String) {
                             String str = (String) tag;
                             if (!TextUtils.isEmpty(str)) {
-                                if (NestedScrollHeader.this.jVJ != null) {
-                                    NestedScrollHeader.this.jVJ.Lj(str);
+                                if (NestedScrollHeader.this.kdk != null) {
+                                    NestedScrollHeader.this.kdk.LT(str);
                                 }
-                                NestedScrollHeader.this.cNy();
+                                NestedScrollHeader.this.cPu();
                             }
                         }
-                    } else if (NestedScrollHeader.this.jVI != view) {
-                        if (NestedScrollHeader.this.jVG == view && !WriteActivityConfig.isAsyncWriting()) {
+                    } else if (NestedScrollHeader.this.kdj != view) {
+                        if (NestedScrollHeader.this.kdh == view && !WriteActivityConfig.isAsyncWriting()) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new k(1)));
-                            TiebaStatic.log(new aq("c13702").dW("uid", TbadkCoreApplication.getCurrentAccount()));
+                            TiebaStatic.log(new ar("c13702").dR("uid", TbadkCoreApplication.getCurrentAccount()));
                         }
                     } else {
-                        TiebaStatic.log(new aq(CommonStatisticKey.SEARCH_BAR_CLICK).an("obj_type", 1));
+                        TiebaStatic.log(new ar(CommonStatisticKey.SEARCH_BAR_CLICK).ap("obj_type", 1));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new SquareSearchActivityConfig(NestedScrollHeader.this.getContext(), "", false)));
                     }
                 } catch (Exception e) {
                 }
             }
         };
-        this.iIi = new CustomMessageListener(2921396) { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.4
+        this.iNQ = new CustomMessageListener(2921396) { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -103,8 +103,8 @@ public class NestedScrollHeader extends RelativeLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && NestedScrollHeader.this.jVH.getVisibility() == 0) {
-                    NestedScrollHeader.this.cNx();
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && NestedScrollHeader.this.kdi.getVisibility() == 0) {
+                    NestedScrollHeader.this.cPt();
                 }
             }
         };
@@ -113,13 +113,13 @@ public class NestedScrollHeader extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_presenlize_scroll_header, (ViewGroup) this, true);
-        this.jVG = (PublishButton) findViewById(R.id.publish_btn);
-        this.jVH = (TbImageView) findViewById(R.id.task);
-        this.jVI = (TextView) findViewById(R.id.search);
-        this.jVG.setOnClickListener(this.jND);
-        this.jVH.setOnClickListener(this.jND);
-        this.jVI.setOnClickListener(this.jND);
-        MessageManager.getInstance().registerListener(this.iIi);
+        this.kdh = (PublishButton) findViewById(R.id.publish_btn);
+        this.kdi = (TbImageView) findViewById(R.id.task);
+        this.kdj = (TextView) findViewById(R.id.search);
+        this.kdh.setOnClickListener(this.jVf);
+        this.kdi.setOnClickListener(this.jVf);
+        this.kdj.setOnClickListener(this.jVf);
+        MessageManager.getInstance().registerListener(this.iNQ);
         MessageManager.getInstance().registerListener(this.mSyncFinishListener);
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.1
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -133,36 +133,36 @@ public class NestedScrollHeader extends RelativeLayout {
                 NestedScrollHeader.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
-        cNx();
+        cPt();
         onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cNx() {
+    public void cPt() {
         final String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
         String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
         if (TextUtils.isEmpty(missionEntranceUrl) || TextUtils.isEmpty(missionEntranceIcon)) {
-            this.jVK = null;
-            this.jVH.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
-            this.jVH.setImageResource(R.drawable.icon_mask_coin44);
+            this.kdl = null;
+            this.kdi.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+            this.kdi.setImageResource(R.drawable.icon_mask_coin44);
             return;
         }
-        d.mx().a(missionEntranceIcon, 10, new c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.2
+        d.mw().a(missionEntranceIcon, 10, new c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass2) aVar, str, i);
                 if (aVar == null || aVar.getRawBitmap() == null || aVar.getRawBitmap().isRecycled()) {
-                    NestedScrollHeader.this.jVK = null;
-                    NestedScrollHeader.this.jVH.setImageResource(R.drawable.icon_mask_coin44);
-                    NestedScrollHeader.this.jVH.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+                    NestedScrollHeader.this.kdl = null;
+                    NestedScrollHeader.this.kdi.setImageResource(R.drawable.icon_mask_coin44);
+                    NestedScrollHeader.this.kdi.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
                     return;
                 }
-                NestedScrollHeader.this.jVK = aVar.getRawBitmap();
-                NestedScrollHeader.this.jVH.setImageBitmap(NestedScrollHeader.this.jVK);
-                NestedScrollHeader.this.jVH.setTag(R.id.homepage_mission_entrance_url, missionEntranceUrl);
-                NestedScrollHeader.this.jVH.invalidate();
+                NestedScrollHeader.this.kdl = aVar.getRawBitmap();
+                NestedScrollHeader.this.kdi.setImageBitmap(NestedScrollHeader.this.kdl);
+                NestedScrollHeader.this.kdi.setTag(R.id.homepage_mission_entrance_url, missionEntranceUrl);
+                NestedScrollHeader.this.kdi.invalidate();
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
@@ -180,71 +180,71 @@ public class NestedScrollHeader extends RelativeLayout {
     }
 
     public void setEntranceJumpListener(a aVar) {
-        this.jVJ = aVar;
+        this.kdk = aVar;
     }
 
     public void setSearchHint(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.jVI.setText(str);
+            this.kdj.setText(str);
         }
     }
 
-    public void aK(float f) {
+    public void aN(float f) {
         if (f >= 0.0f && f <= 1.0f) {
-            this.aZx = f;
-            ao.a(this, R.color.CAM_X0208, 1.0f - f, TbadkCoreApplication.getInst().getSkinType());
-            if (this.jVH.getVisibility() == 0 && this.jVH.getAlpha() != f) {
-                this.jVH.setAlpha(f);
+            this.alpha = f;
+            ap.a(this, R.color.CAM_X0208, 1.0f - f, TbadkCoreApplication.getInst().getSkinType());
+            if (this.kdi.getVisibility() == 0 && this.kdi.getAlpha() != f) {
+                this.kdi.setAlpha(f);
             }
-            if (this.jVI.getAlpha() != f) {
-                this.jVI.setAlpha(f);
+            if (this.kdj.getAlpha() != f) {
+                this.kdj.setAlpha(f);
             }
-            if (this.jVG.getVisibility() == 0 && this.jVG.getAlpha() != f) {
-                this.jVG.setAlpha(f);
-                this.jVG.setScrollAlpha(f);
+            if (this.kdh.getVisibility() == 0 && this.kdh.getAlpha() != f) {
+                this.kdh.setAlpha(f);
+                this.kdh.setScrollAlpha(f);
             }
         }
     }
 
     public void onChangeSkinType() {
-        com.baidu.tbadk.core.elementsMaven.c.bv(this.jVI).nV(R.color.CAM_X0109).od(R.string.J_X01).setBackGroundColor(R.color.CAM_X0210);
-        ao.a(this, R.color.CAM_X0208, 1.0f - this.aZx, TbadkCoreApplication.getInst().getSkinType());
-        if (this.jVK == null) {
-            ao.setImageResource(this.jVH, R.drawable.icon_mask_coin44);
-        } else if (this.jVH != null) {
-            this.jVH.setImageBitmap(this.jVK);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.kdj).nY(R.color.CAM_X0109).og(R.string.J_X01).setBackGroundColor(R.color.CAM_X0210);
+        ap.a(this, R.color.CAM_X0208, 1.0f - this.alpha, TbadkCoreApplication.getInst().getSkinType());
+        if (this.kdl == null) {
+            ap.setImageResource(this.kdi, R.drawable.icon_mask_coin44);
+        } else if (this.kdi != null) {
+            this.kdi.setImageBitmap(this.kdl);
         }
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        Drawable a2 = WebPManager.a(R.drawable.icon_pure_search_import16, ao.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
+        Drawable a2 = WebPManager.a(R.drawable.icon_pure_search_import16, ap.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
         a2.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-        this.jVI.setCompoundDrawables(a2, null, null, null);
+        this.kdj.setCompoundDrawables(a2, null, null, null);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.iIi);
+        MessageManager.getInstance().registerListener(this.iNQ);
         MessageManager.getInstance().registerListener(this.mSyncFinishListener);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.iIi);
+        MessageManager.getInstance().unRegisterListener(this.iNQ);
         MessageManager.getInstance().unRegisterListener(this.mSyncFinishListener);
     }
 
     public ImageView getTaskView() {
-        return this.jVH;
+        return this.kdi;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cNy() {
-        aq aqVar = new aq("c13422");
-        aqVar.an("obj_type", 2);
-        aqVar.an("obj_locate", 1);
-        aqVar.an("ab_tag", TbSingleton.getInstance().getHomePageStyleAbTest());
-        aqVar.dW("obj_source", TbSingleton.getInstance().getMissionEntranceObjSource());
-        TiebaStatic.log(aqVar);
+    public void cPu() {
+        ar arVar = new ar("c13422");
+        arVar.ap("obj_type", 2);
+        arVar.ap("obj_locate", 1);
+        arVar.ap("ab_tag", TbSingleton.getInstance().getHomePageStyleAbTest());
+        arVar.dR("obj_source", TbSingleton.getInstance().getMissionEntranceObjSource());
+        TiebaStatic.log(arVar);
     }
 }

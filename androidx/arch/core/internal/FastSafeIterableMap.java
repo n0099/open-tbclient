@@ -6,7 +6,7 @@ import androidx.arch.core.internal.SafeIterableMap;
 import java.util.HashMap;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FastSafeIterableMap<K, V> extends SafeIterableMap<K, V> {
     private HashMap<K, SafeIterableMap.Entry<K, V>> mHashMap = new HashMap<>();
 

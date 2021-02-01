@@ -3,7 +3,7 @@ package com.baidu.live.d;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class k extends IntentConfig {
     public k(Context context, String str, String str2, String str3, String str4, int i, String str5, String str6, boolean z, int i2, int i3, int i4, boolean z2, int i5, String str7, String str8, boolean z3, int i6) {
         super(context);
@@ -31,39 +31,39 @@ public class k extends IntentConfig {
         super(context);
     }
 
-    public void be(boolean z) {
+    public void bg(boolean z) {
         getIntent().putExtra("is_new_user", z);
     }
 
-    public void bf(boolean z) {
+    public void bh(boolean z) {
         getIntent().putExtra("entry_super_customer", z);
     }
 
-    public void cm(int i) {
+    public void cp(int i) {
         getIntent().putExtra("guard_club_join_amount", i);
     }
 
-    public void bg(boolean z) {
+    public void bi(boolean z) {
         getIntent().putExtra("is_redpkg_unable", z);
     }
 
-    public void bh(boolean z) {
+    public void bj(boolean z) {
         getIntent().putExtra("throne_enabled", z);
     }
 
-    public void bi(boolean z) {
+    public void bk(boolean z) {
         getIntent().putExtra("noble_enabled", z);
     }
 
-    public void eP(String str) {
+    public void fh(String str) {
         getIntent().putExtra("bg_info", str);
     }
 
-    public void eQ(String str) {
+    public void fi(String str) {
         getIntent().putExtra("login_user_id", str);
     }
 
-    public void eR(String str) {
+    public void fj(String str) {
         getIntent().putExtra("active_params", str);
     }
 }

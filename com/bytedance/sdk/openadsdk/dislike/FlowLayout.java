@@ -7,19 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FlowLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<List<View>> f7004a;
+    private List<List<View>> f7006a;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<Integer> f7005b;
+    private List<Integer> f7007b;
 
     public FlowLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f7004a = new ArrayList();
-        this.f7005b = new ArrayList();
+        this.f7006a = new ArrayList();
+        this.f7007b = new ArrayList();
     }
 
     public FlowLayout(Context context, AttributeSet attributeSet) {
@@ -74,8 +74,8 @@ public class FlowLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Log.e("TAG", "onLayout");
-        this.f7004a.clear();
-        this.f7005b.clear();
+        this.f7006a.clear();
+        this.f7007b.clear();
         int width = getWidth();
         int i5 = 0;
         int i6 = 0;
@@ -87,8 +87,8 @@ public class FlowLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (measuredWidth + i5 + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin > (width - getPaddingLeft()) - getPaddingRight()) {
-                this.f7005b.add(Integer.valueOf(i6));
-                this.f7004a.add(arrayList);
+                this.f7007b.add(Integer.valueOf(i6));
+                this.f7006a.add(arrayList);
                 i5 = 0;
                 i6 = marginLayoutParams.bottomMargin + marginLayoutParams.topMargin + measuredHeight;
                 arrayList = new ArrayList();
@@ -97,16 +97,16 @@ public class FlowLayout extends ViewGroup {
             i6 = Math.max(i6, marginLayoutParams.bottomMargin + marginLayoutParams.topMargin + measuredHeight);
             arrayList.add(childAt);
         }
-        this.f7005b.add(Integer.valueOf(i6));
-        this.f7004a.add(arrayList);
+        this.f7007b.add(Integer.valueOf(i6));
+        this.f7006a.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.f7004a.size();
+        int size = this.f7006a.size();
         int i8 = 0;
         int i9 = paddingTop;
         while (i8 < size) {
-            List<View> list = this.f7004a.get(i8);
-            int intValue = this.f7005b.get(i8).intValue();
+            List<View> list = this.f7006a.get(i8);
+            int intValue = this.f7007b.get(i8).intValue();
             int i10 = 0;
             while (true) {
                 int i11 = i10;

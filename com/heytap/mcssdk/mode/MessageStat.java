@@ -2,7 +2,7 @@ package com.heytap.mcssdk.mode;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MessageStat {
     private static final String APP_PACKAGE = "appPackage";
     private static final String EVENT_ID = "eventID";

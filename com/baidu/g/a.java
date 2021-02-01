@@ -32,15 +32,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public static volatile boolean aur;
-    private static volatile a aut;
+    public static volatile boolean aug;
+    private static volatile a aui;
     private static final HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
     private static Context mContext;
     public static Handler mHandler;
     private static volatile Map<Long, Message> msgList;
-    public boolean aus = false;
-    private AtomicInteger auu = new AtomicInteger();
-    private b auv = new b() { // from class: com.baidu.g.a.2
+    public boolean auh = false;
+    private AtomicInteger auj = new AtomicInteger();
+    private b auk = new b() { // from class: com.baidu.g.a.2
         @Override // com.baidu.lcp.sdk.client.bean.b
         public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
             LogUtils.i("IMServiceImpl", "IMService err :" + i + ", methodId :" + j2 + ", data :" + bArr.length + ", Response :" + new String(bArr));
@@ -91,20 +91,20 @@ public class a {
     static {
         handlerThread.start();
         mHandler = new Handler(handlerThread.getLooper());
-        aur = true;
+        aug = true;
         msgList = new LinkedHashMap();
     }
 
     public static a ao(Context context) {
-        if (aut == null) {
+        if (aui == null) {
             synchronized (a.class) {
-                if (aut == null) {
+                if (aui == null) {
                     mContext = context.getApplicationContext();
-                    aut = new a();
+                    aui = new a();
                 }
             }
         }
-        return aut;
+        return aui;
     }
 
     public void e(Context context, final Intent intent) {
@@ -123,10 +123,10 @@ public class a {
 
     private void initService() {
         try {
-            LogUtils.d("IMServiceImpl", "isSmallFlow :" + aur);
+            LogUtils.d("IMServiceImpl", "isSmallFlow :" + aug);
             IMManager.init(mContext.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(mContext.getApplicationContext()));
-            if (aur) {
-                vA();
+            if (aug) {
+                vx();
             } else if (!IMSDK.getInstance(mContext.getApplicationContext()).init()) {
                 IMConnection.getInstance(mContext).disconnectedByPeer();
             }
@@ -134,34 +134,34 @@ public class a {
         }
     }
 
-    private void vA() {
+    private void vx() {
         for (int i : new int[]{96, Constants.METHOD_MEDIA_NOTIFY, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 231}) {
             s(2, Integer.valueOf(i).intValue());
         }
         s(3, 196);
-        this.aus = true;
+        this.auh = true;
     }
 
     private void s(int i, int i2) {
         com.baidu.lcp.sdk.client.bean.a aVar = new com.baidu.lcp.sdk.client.bean.a();
         aVar.serviceId = i;
         aVar.methodId = i2;
-        com.baidu.lcp.sdk.client.a.a(aVar, this.auv);
+        com.baidu.lcp.sdk.client.a.a(aVar, this.auk);
     }
 
     public void onHandleWork(@NonNull Intent intent) {
-        LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + aur);
+        LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + aug);
         if (intent == null) {
             intent = new Intent();
             LogUtils.i("IMServiceImpl", "--- onStart by null intent!");
         }
-        if (aur) {
+        if (aug) {
             try {
                 int intExtra = intent.getIntExtra("method", -1);
                 int intExtra2 = intent.getIntExtra(Constants.EXTRA_SERVICE, -1);
                 if (intExtra != -1 && intExtra2 != -1) {
                     if (intExtra == 50 || intExtra == 201) {
-                        vA();
+                        vx();
                     }
                     Message createNewMessage = MessageFactory.getInstance().createNewMessage(mContext, intExtra, intent);
                     if (createNewMessage != null) {
@@ -186,9 +186,9 @@ public class a {
                         if (intExtra2 == 3 && bLCPRequest.methodId == 55) {
                             bLCPRequest.methodId = 185L;
                         }
-                        bLCPRequest.auG = createNewMessage.getBody().getBytes();
-                        bLCPRequest.auH = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
-                        bLCPRequest.msgId = (bLCPRequest.serviceId * 1000000000000000L) + bLCPRequest.methodId + (Long.valueOf((System.currentTimeMillis() + "").substring((System.currentTimeMillis() + "").length() - 6) + this.auu.incrementAndGet()).longValue() * 1000);
+                        bLCPRequest.auv = createNewMessage.getBody().getBytes();
+                        bLCPRequest.auw = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
+                        bLCPRequest.msgId = (bLCPRequest.serviceId * 1000000000000000L) + bLCPRequest.methodId + (Long.valueOf((System.currentTimeMillis() + "").substring((System.currentTimeMillis() + "").length() - 6) + this.auj.incrementAndGet()).longValue() * 1000);
                         synchronized (msgList) {
                             msgList.put(Long.valueOf(bLCPRequest.msgId), createNewMessage);
                             LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.msgId + ". msg :" + msgList.keySet().toString());
@@ -196,7 +196,7 @@ public class a {
                         if (intExtra == 50) {
                             new IMTrack.RequestBuilder(mContext.getApplicationContext()).method(UbcStatConstant.ContentType.UBC_TYPE_IM_SEND).requestId("2").errorCode(50L).ext("" + bLCPRequest.msgId).aliasId(501112L).build();
                         }
-                        com.baidu.lcp.sdk.client.a.a(bLCPRequest, this.auv);
+                        com.baidu.lcp.sdk.client.a.a(bLCPRequest, this.auk);
                         return;
                     }
                     return;

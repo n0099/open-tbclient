@@ -1,21 +1,21 @@
 package com.baidu.live.lottie.model.a;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class k {
     @Nullable
-    public final a bpP;
+    public final a btr;
     @Nullable
-    public final a bpQ;
+    public final a bts;
     @Nullable
-    public final b bpR;
+    public final b btt;
     @Nullable
-    public final b bpS;
+    public final b btu;
 
     public k(@Nullable a aVar, @Nullable a aVar2, @Nullable b bVar, @Nullable b bVar2) {
-        this.bpP = aVar;
-        this.bpQ = aVar2;
-        this.bpR = bVar;
-        this.bpS = bVar2;
+        this.btr = aVar;
+        this.bts = aVar2;
+        this.btt = bVar;
+        this.btu = bVar2;
     }
 }

@@ -1,7 +1,7 @@
 package com.kwai.video.player;
 
 import android.graphics.SurfaceTexture;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface ISurfaceTextureHolder {
     SurfaceTexture getSurfaceTexture();
 

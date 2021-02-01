@@ -3,65 +3,65 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 /* loaded from: classes.dex */
 public class j {
-    private float XG = 8.0f;
-    private float XH = 15.0f;
-    private float XI = 4.0f;
-    private float XJ = 60.0f;
-    private int XK = 150;
-    private int XL = 150;
-    private int XM = 500;
-    private float XN = 0.4f;
-    private float XO = 1.0f;
-    private float XP = 20.0f;
-    private float XQ = 10.0f;
-    private int XR = EncoderTextureDrawer.X264_WIDTH;
-    private float XS = 5.0f;
+    private float XC = 8.0f;
+    private float XD = 15.0f;
+    private float XE = 4.0f;
+    private float XF = 60.0f;
+    private int XG = 150;
+    private int XH = 150;
+    private int XI = 500;
+    private float XJ = 0.4f;
+    private float XK = 1.0f;
+    private float XL = 20.0f;
+    private float XM = 10.0f;
+    private int XN = EncoderTextureDrawer.X264_WIDTH;
+    private float XO = 5.0f;
+
+    public float qx() {
+        return this.XC;
+    }
+
+    public float qy() {
+        return this.XD;
+    }
 
     public float qz() {
-        return this.XG;
+        return this.XE;
     }
 
     public float qA() {
+        return this.XF;
+    }
+
+    public int qB() {
+        return this.XG;
+    }
+
+    public int qC() {
         return this.XH;
     }
 
-    public float qB() {
+    public int qD() {
         return this.XI;
     }
 
-    public float qC() {
+    public float qE() {
         return this.XJ;
     }
 
-    public int qD() {
+    public float qF() {
         return this.XK;
     }
 
-    public int qE() {
+    public float qG() {
         return this.XL;
     }
 
-    public int qF() {
+    public float qH() {
         return this.XM;
     }
 
-    public float qG() {
+    public int qI() {
         return this.XN;
-    }
-
-    public float qH() {
-        return this.XO;
-    }
-
-    public float qI() {
-        return this.XP;
-    }
-
-    public float qJ() {
-        return this.XQ;
-    }
-
-    public int qK() {
-        return this.XR;
     }
 }

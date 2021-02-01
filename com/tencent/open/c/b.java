@@ -4,7 +4,7 @@ import android.content.Context;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class b extends WebView {
     public b(Context context) {
         super(context);

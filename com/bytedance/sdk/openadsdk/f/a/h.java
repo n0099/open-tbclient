@@ -6,11 +6,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private l f7126a;
+    private l f7128a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static h a(l lVar) {
@@ -18,14 +18,14 @@ public class h {
     }
 
     private h(l lVar) {
-        this.f7126a = lVar;
+        this.f7128a = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public <T> T a(@NonNull String str, @NonNull Type type) throws JSONException {
         a(str);
-        return (type.equals(JSONObject.class) || ((type instanceof Class) && JSONObject.class.isAssignableFrom((Class) type))) ? (T) new JSONObject(str) : (T) this.f7126a.a(str, type);
+        return (type.equals(JSONObject.class) || ((type instanceof Class) && JSONObject.class.isAssignableFrom((Class) type))) ? (T) new JSONObject(str) : (T) this.f7128a.a(str, type);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,7 +38,7 @@ public class h {
         if ((t instanceof JSONObject) || (t instanceof JSONArray)) {
             obj = t.toString();
         } else {
-            obj = this.f7126a.a(t);
+            obj = this.f7128a.a(t);
         }
         a(obj);
         return obj;

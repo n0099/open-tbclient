@@ -17,7 +17,7 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ActionBarContextView extends AbsActionBarView {
     private static final String TAG = "ActionBarContextView";
     private View mClose;

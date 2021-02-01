@@ -31,7 +31,7 @@ public class b {
     private g D;
 
     /* renamed from: b  reason: collision with root package name */
-    private Looper f1490b;
+    private Looper f1488b;
     private a c;
     private DefaultParams d;
     private com.baidu.ar.mdl.b e;
@@ -154,7 +154,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, Looper looper, DefaultParams defaultParams, com.baidu.ar.a.b bVar, com.baidu.ar.filter.a aVar) {
         this.mContext = context;
-        this.f1490b = looper;
+        this.f1488b = looper;
         this.c = new a(looper);
         this.d = defaultParams;
         setMdlModelPath(this.d.getMdlAlgoModelPath());
@@ -371,7 +371,7 @@ public class b {
             return null;
         }
         this.l.put(str, cVar);
-        cVar.a(this.mContext, this.f1490b);
+        cVar.a(this.mContext, this.f1488b);
         cVar.a(this.h, this.g, this.B);
         cVar.a(this.f);
         cVar.a(this.i);
@@ -569,7 +569,7 @@ public class b {
         this.g = cVar;
         this.g.d(this.u);
         l();
-        this.h = new com.baidu.ar.d.g(cVar, this.f1490b);
+        this.h = new com.baidu.ar.d.g(cVar, this.f1488b);
         this.i = com.baidu.ar.a.a();
         try {
             if (this.i != null) {
@@ -852,7 +852,7 @@ public class b {
             this.v = null;
         }
         this.mContext = null;
-        this.f1490b = null;
+        this.f1488b = null;
         this.d = null;
         this.e = null;
         this.B = null;

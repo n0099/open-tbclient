@@ -1,7 +1,7 @@
 package com.ss.android.a.a.b;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface b {
     String a();
 
@@ -13,9 +13,9 @@ public interface b {
 
     String e();
 
-    Object eBC();
+    Object eDT();
 
-    JSONObject eBD();
+    JSONObject eDU();
 
     String f();
 

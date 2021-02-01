@@ -8,34 +8,19 @@ import com.baidu.ar.auth.FeatureCodes;
 import com.kwai.video.player.KsMediaMeta;
 import com.kwai.video.player.misc.IMediaFormat;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class a extends b {
     private static final String TAG = a.class.getSimpleName();
-    private long cdo = 0;
-
-    @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long YV() {
-        return super.YV();
-    }
-
-    @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Zv() {
-        super.Zv();
-    }
-
-    @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Zw() {
-        super.Zw();
-    }
-
-    @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void Zx() {
-        super.Zx();
-    }
+    private long chx = 0;
 
     @Override // com.baidu.mario.a.b.b
     public /* bridge */ /* synthetic */ void a(c cVar) {
         super.a(cVar);
+    }
+
+    @Override // com.baidu.mario.a.b.b
+    public /* bridge */ /* synthetic */ long aaO() {
+        return super.aaO();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -44,8 +29,23 @@ public class a extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void dR(boolean z) {
-        super.dR(z);
+    public /* bridge */ /* synthetic */ void dZ(boolean z) {
+        super.dZ(z);
+    }
+
+    @Override // com.baidu.mario.a.b.b
+    public /* bridge */ /* synthetic */ void releaseEncoder() {
+        super.releaseEncoder();
+    }
+
+    @Override // com.baidu.mario.a.b.b
+    public /* bridge */ /* synthetic */ void startEncoder() {
+        super.startEncoder();
+    }
+
+    @Override // com.baidu.mario.a.b.b
+    public /* bridge */ /* synthetic */ void stopEncoder() {
+        super.stopEncoder();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0065  */
@@ -56,7 +56,7 @@ public class a extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.cdr = eVar;
+            this.chA = eVar;
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.getAudioCodec());
             mediaFormat.setInteger("aac-profile", 2);
@@ -68,46 +68,46 @@ public class a extends b {
                 this.mEncoder = MediaCodec.createEncoderByType(dVar.getAudioCodec());
                 this.mEncoder.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
                 if (!dVar.isVideoIncluded()) {
-                    this.cdu = true;
+                    this.chC = true;
                 } else {
-                    this.cdu = false;
+                    this.chC = false;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.cds == null) {
-                this.cds.dL(z);
+            if (this.chB == null) {
+                this.chB.dT(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.cds == null) {
+        if (this.chB == null) {
         }
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void Zu() {
-        if (this.cdv == 0) {
-            this.cdv = this.mBufferInfo.presentationTimeUs;
+    protected void abm() {
+        if (this.chD == 0) {
+            this.chD = this.mBufferInfo.presentationTimeUs;
         }
-        this.mBufferInfo.presentationTimeUs -= this.cdv;
-        if (this.mBufferInfo.presentationTimeUs < this.cdo) {
+        this.mBufferInfo.presentationTimeUs -= this.chD;
+        if (this.mBufferInfo.presentationTimeUs < this.chx) {
             MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-            long j = this.cdo + 10000;
-            this.cdo = j;
+            long j = this.chx + 10000;
+            this.chx = j;
             bufferInfo.presentationTimeUs = j;
         }
-        if (this.mBufferInfo.presentationTimeUs > cdw + 500000) {
-            if (cdw > this.cdo) {
-                this.mBufferInfo.presentationTimeUs = cdw + 5000;
+        if (this.mBufferInfo.presentationTimeUs > chE + 500000) {
+            if (chE > this.chx) {
+                this.mBufferInfo.presentationTimeUs = chE + 5000;
             } else {
-                this.mBufferInfo.presentationTimeUs = this.cdo + 5000;
+                this.mBufferInfo.presentationTimeUs = this.chx + 5000;
             }
         }
-        if (cdw > this.mBufferInfo.presentationTimeUs + 500000) {
-            cdx = FeatureCodes.FACE;
+        if (chE > this.mBufferInfo.presentationTimeUs + 500000) {
+            chF = FeatureCodes.FACE;
         }
-        this.cdo = this.mBufferInfo.presentationTimeUs;
+        this.chx = this.mBufferInfo.presentationTimeUs;
     }
 }

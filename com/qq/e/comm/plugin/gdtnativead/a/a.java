@@ -20,14 +20,14 @@ import com.qq.e.comm.plugin.util.ak;
 import com.qq.e.comm.plugin.util.ao;
 import com.qq.e.comm.plugin.util.ap;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f11993a = Color.parseColor("#909090");
+    private static final int f11995a = Color.parseColor("#909090");
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f11994b = Color.parseColor("#D5D5D6");
+    private static final int f11996b = Color.parseColor("#D5D5D6");
     private static final int c = Color.parseColor("#00C634");
     private static final int d = Color.parseColor("#3185FC");
     private j e;
@@ -47,12 +47,12 @@ public class a extends RelativeLayout {
     private com.qq.e.comm.plugin.ad.j s;
     private b.a t;
     private Space u;
-    private InterfaceC1191a v;
+    private InterfaceC1195a v;
     private r w;
 
     /* renamed from: com.qq.e.comm.plugin.gdtnativead.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1191a {
+    /* loaded from: classes15.dex */
+    public interface InterfaceC1195a {
         void a();
 
         void b();
@@ -379,8 +379,8 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void a(InterfaceC1191a interfaceC1191a) {
-        this.v = interfaceC1191a;
+    public void a(InterfaceC1195a interfaceC1195a) {
+        this.v = interfaceC1195a;
     }
 
     public void a(b.a aVar) {

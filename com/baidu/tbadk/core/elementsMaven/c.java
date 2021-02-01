@@ -6,142 +6,150 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 /* loaded from: classes.dex */
 public class c {
-    private View eUd;
-    private Drawable eUe;
+    private View eWt;
+    private Drawable eWu;
 
     private c(View view) {
-        this.eUd = view;
-        this.eUe = a.bt(this.eUd);
+        this.eWt = view;
+        this.eWu = a.bp(this.eWt);
     }
 
-    public static c bv(View view) {
+    public static c br(View view) {
         return new c(view);
     }
 
-    public c nV(int i) {
-        if (this.eUd instanceof TextView) {
-            ((TextView) this.eUd).setTextColor(a.getColor(i));
-        }
-        return this;
-    }
-
-    public c nW(int i) {
-        if (this.eUd instanceof TextView) {
-            ((TextView) this.eUd).setTextSize(0, a.nI(i));
-        }
-        return this;
-    }
-
-    public c nX(int i) {
-        if (this.eUd instanceof TextView) {
-            ((TextView) this.eUd).setTypeface(a.Ai(a.getString(i)));
-        }
-        return this;
-    }
-
     public c nY(int i) {
-        if (!(this.eUd instanceof EMTextView)) {
-            throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
+        if (this.eWt instanceof TextView) {
+            ((TextView) this.eWt).setTextColor(a.getColor(i));
         }
-        ((EMTextView) this.eUd).setLineSpacing(a.nI(i), ((EMTextView) this.eUd).getLineSpacingMultiplier());
         return this;
     }
 
     public c nZ(int i) {
-        if (this.eUd instanceof TextView) {
-            ((TextView) this.eUd).setLinkTextColor(a.getColor(i));
+        if (this.eWt instanceof TextView) {
+            ((TextView) this.eWt).setTextSize(0, a.nL(i));
         }
         return this;
     }
 
     public c oa(int i) {
-        if (this.eUd instanceof TextView) {
-            ((TextView) this.eUd).setTextColor(a.nK(i));
+        if (this.eWt instanceof TextView) {
+            ((TextView) this.eWt).setTypeface(a.Az(a.getString(i)));
         }
         return this;
     }
 
-    public void aM(int i, int i2) {
-        if (this.eUd != null) {
-            this.eUe = a.b(this.eUe, i, i2);
-            this.eUd.setBackgroundDrawable(this.eUe);
+    public c ob(int i) {
+        if (!(this.eWt instanceof EMTextView)) {
+            throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
         }
-    }
-
-    public void setBackGroundColor(int i) {
-        Drawable a2;
-        if (this.eUd != null && (a2 = a.a(this.eUe, i)) != null) {
-            this.eUe = a2;
-            this.eUd.setBackgroundDrawable(this.eUe);
-        }
-    }
-
-    public void ob(int i) {
-        Drawable a2;
-        if (this.eUd != null && (a2 = a.a(this.eUe, a.getStringArray(i))) != null) {
-            this.eUe = a2;
-            this.eUd.setBackgroundDrawable(this.eUe);
-        }
-    }
-
-    public void l(int[] iArr) {
-        Drawable a2;
-        if (this.eUd != null && (a2 = a.a(this.eUe, iArr)) != null) {
-            this.eUe = a2;
-            this.eUd.setBackgroundDrawable(this.eUe);
-        }
+        ((EMTextView) this.eWt).setLineSpacing(a.nL(i), ((EMTextView) this.eWt).getLineSpacingMultiplier());
+        return this;
     }
 
     public c oc(int i) {
-        if (this.eUd != null) {
-            this.eUe = a.b(this.eUe, i);
+        if (this.eWt instanceof TextView) {
+            ((TextView) this.eWt).setLinkTextColor(a.getColor(i));
         }
         return this;
     }
 
     public c od(int i) {
-        if (this.eUd != null) {
-            this.eUe = a.c(this.eUe, i);
+        if (this.eWt instanceof TextView) {
+            ((TextView) this.eWt).setTextColor(a.nN(i));
         }
         return this;
     }
 
-    public c oe(int i) {
-        Drawable a2;
-        if (this.eUd != null && (a2 = a.a(this.eUd, this.eUe, a.getStringArray(i))) != null) {
-            this.eUe = a2;
-            this.eUd.setBackgroundDrawable(this.eUe);
-            oi(1);
+    public void aJ(int i, int i2) {
+        if (this.eWt != null) {
+            this.eWu = a.b(this.eWu, i, i2);
+            this.eWt.setBackgroundDrawable(this.eWu);
         }
-        return this;
+    }
+
+    public void setBackGroundColor(int i) {
+        Drawable a2;
+        if (this.eWt != null && (a2 = a.a(this.eWu, i)) != null) {
+            this.eWu = a2;
+            this.eWt.setBackgroundDrawable(this.eWu);
+        }
+    }
+
+    public void oe(int i) {
+        Drawable a2;
+        if (this.eWt != null && (a2 = a.a(this.eWu, a.getStringArray(i))) != null) {
+            this.eWu = a2;
+            this.eWt.setBackgroundDrawable(this.eWu);
+        }
+    }
+
+    public void l(int[] iArr) {
+        Drawable a2;
+        if (this.eWt != null && (a2 = a.a(this.eWu, iArr)) != null) {
+            this.eWu = a2;
+            this.eWt.setBackgroundDrawable(this.eWu);
+        }
     }
 
     public c of(int i) {
-        Drawable d;
-        if (this.eUd != null && (d = a.d(this.eUe, i)) != null) {
-            this.eUe = d;
-            this.eUd.setBackgroundDrawable(this.eUe);
+        if (this.eWt != null) {
+            this.eWu = a.b(this.eWu, i);
         }
         return this;
     }
 
     public c og(int i) {
-        if (this.eUd != null) {
-            this.eUe = a.e(this.eUe, i);
+        if (this.eWt != null) {
+            this.eWu = a.c(this.eWu, i);
         }
         return this;
     }
 
     public c oh(int i) {
-        if (this.eUd != null) {
-            this.eUe = a.f(this.eUe, i);
+        Drawable a2;
+        if (this.eWt != null && (a2 = a.a(this.eWt, this.eWu, a.getStringArray(i))) != null) {
+            this.eWu = a2;
+            this.eWt.setBackgroundDrawable(this.eWu);
+            om(1);
         }
         return this;
     }
 
     public c oi(int i) {
-        if (this.eUd != null) {
-            this.eUd.setLayerType(i, null);
+        if (this.eWt instanceof TextView) {
+            float[] nO = a.nO(i);
+            ((TextView) this.eWt).setShadowLayer(nO[1], nO[2], nO[3], (int) nO[0]);
+        }
+        return this;
+    }
+
+    public c oj(int i) {
+        Drawable d;
+        if (this.eWt != null && (d = a.d(this.eWu, i)) != null) {
+            this.eWu = d;
+            this.eWt.setBackgroundDrawable(this.eWu);
+        }
+        return this;
+    }
+
+    public c ok(int i) {
+        if (this.eWt != null) {
+            this.eWu = a.e(this.eWu, i);
+        }
+        return this;
+    }
+
+    public c ol(int i) {
+        if (this.eWt != null) {
+            this.eWu = a.f(this.eWu, i);
+        }
+        return this;
+    }
+
+    public c om(int i) {
+        if (this.eWt != null) {
+            this.eWt.setLayerType(i, null);
         }
         return this;
     }

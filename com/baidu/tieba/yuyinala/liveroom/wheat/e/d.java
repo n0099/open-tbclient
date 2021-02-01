@@ -1,15 +1,15 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static c oAn;
-    public static boolean otP = false;
+    public static boolean oDA = false;
+    private static c oJW;
 
     public static void bj(String str, boolean z) {
-        if (otP) {
-            if (oAn == null) {
-                oAn = new c();
+        if (oDA) {
+            if (oJW == null) {
+                oJW = new c();
             }
-            oAn.report(str);
+            oJW.report(str);
         }
     }
 }

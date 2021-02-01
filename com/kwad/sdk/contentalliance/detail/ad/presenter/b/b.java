@@ -7,11 +7,11 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f8368b;
+    private AdTemplate f8370b;
     private AdInfo c;
     private List<Integer> d;
     private e e = new f() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.b.b.1
@@ -28,7 +28,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             b.this.e();
-            com.kwad.sdk.core.report.b.a(b.this.f8368b, (JSONObject) null);
+            com.kwad.sdk.core.report.b.a(b.this.f8370b, (JSONObject) null);
         }
     };
 
@@ -40,7 +40,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         }
         for (Integer num : this.d) {
             if (ceil >= num.intValue()) {
-                com.kwad.sdk.core.report.b.b(this.f8368b, ceil, null);
+                com.kwad.sdk.core.report.b.b(this.f8370b, ceil, null);
                 this.d.remove(num);
                 return;
             }
@@ -49,23 +49,23 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        com.kwad.sdk.core.report.b.h(this.f8368b);
+        com.kwad.sdk.core.report.b.h(this.f8370b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.kwad.sdk.core.report.b.i(this.f8368b);
+        com.kwad.sdk.core.report.b.i(this.f8370b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8368b = this.f8393a.j;
-        this.c = c.j(this.f8368b);
+        this.f8370b = this.f8395a.j;
+        this.c = c.j(this.f8370b);
         this.d = com.kwad.sdk.core.response.b.a.M(this.c);
-        if (this.f8393a.m != null) {
-            this.f8393a.m.a(this.e);
+        if (this.f8395a.m != null) {
+            this.f8395a.m.a(this.e);
         }
     }
 
@@ -73,8 +73,8 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.f8393a.m != null) {
-            this.f8393a.m.b(this.e);
+        if (this.f8395a.m != null) {
+            this.f8395a.m.b(this.e);
         }
     }
 }

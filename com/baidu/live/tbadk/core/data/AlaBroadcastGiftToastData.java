@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.tencent.open.SocialConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaBroadcastGiftToastData extends BaseData {
     public static final int BROAD_TYPE_CHELLENGE_MVP = 7;
     public static final int BROAD_TYPE_NOBLE_OPEN = 6;
@@ -14,6 +14,7 @@ public class AlaBroadcastGiftToastData extends BaseData {
     public static final int GIFT_BROADCAST = 1;
     public static final int GIFT_DEFAULT = 0;
     public static final int GUARD_CLUB_UPGRADE = 2;
+    public static final int HOST_AWARD_CONFIRM = 3;
     public static final int HOUR_RANK_CONFIRM = 2;
     public static final int HOUR_RANK_LEFT_ALARM = 1;
     public String endBgColor;

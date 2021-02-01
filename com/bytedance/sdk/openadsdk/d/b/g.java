@@ -1,25 +1,25 @@
 package com.bytedance.sdk.openadsdk.d.b;
 
 import java.math.BigDecimal;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class g extends Number {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f6959a;
+    private final String f6961a;
 
     public g(String str) {
-        this.f6959a = str;
+        this.f6961a = str;
     }
 
     @Override // java.lang.Number
     public int intValue() {
         try {
-            return Integer.parseInt(this.f6959a);
+            return Integer.parseInt(this.f6961a);
         } catch (NumberFormatException e) {
             try {
-                return (int) Long.parseLong(this.f6959a);
+                return (int) Long.parseLong(this.f6961a);
             } catch (NumberFormatException e2) {
-                return new BigDecimal(this.f6959a).intValue();
+                return new BigDecimal(this.f6961a).intValue();
             }
         }
     }
@@ -27,28 +27,28 @@ public final class g extends Number {
     @Override // java.lang.Number
     public long longValue() {
         try {
-            return Long.parseLong(this.f6959a);
+            return Long.parseLong(this.f6961a);
         } catch (NumberFormatException e) {
-            return new BigDecimal(this.f6959a).longValue();
+            return new BigDecimal(this.f6961a).longValue();
         }
     }
 
     @Override // java.lang.Number
     public float floatValue() {
-        return Float.parseFloat(this.f6959a);
+        return Float.parseFloat(this.f6961a);
     }
 
     @Override // java.lang.Number
     public double doubleValue() {
-        return Double.parseDouble(this.f6959a);
+        return Double.parseDouble(this.f6961a);
     }
 
     public String toString() {
-        return this.f6959a;
+        return this.f6961a;
     }
 
     public int hashCode() {
-        return this.f6959a.hashCode();
+        return this.f6961a.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -57,7 +57,7 @@ public final class g extends Number {
         }
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return this.f6959a == gVar.f6959a || this.f6959a.equals(gVar.f6959a);
+            return this.f6961a == gVar.f6961a || this.f6961a.equals(gVar.f6961a);
         }
         return false;
     }

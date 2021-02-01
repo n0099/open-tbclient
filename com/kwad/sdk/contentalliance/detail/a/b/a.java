@@ -11,11 +11,11 @@ import com.kwad.sdk.contentalliance.detail.video.e;
 import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.utils.aq;
 import com.kwad.sdk.utils.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends b {
 
     /* renamed from: b  reason: collision with root package name */
-    private LottieAnimationView f8303b;
+    private LottieAnimationView f8305b;
     private ViewGroup c;
     private TextView d;
     private Handler e;
@@ -24,12 +24,12 @@ public class a extends b {
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
             super.j();
-            if (com.ksad.download.d.b.a(a.this.o()) || a.this.f8393a.m.a()) {
+            if (com.ksad.download.d.b.a(a.this.o()) || a.this.f8395a.m.a()) {
                 a.this.c.setVisibility(8);
             } else {
                 a.this.g();
             }
-            if (a.this.f8393a.m.b() && !a.this.f) {
+            if (a.this.f8395a.m.b() && !a.this.f) {
                 a.this.h();
             }
             a.this.f = true;
@@ -108,11 +108,11 @@ public class a extends b {
         if (!com.ksad.download.d.b.a(o())) {
             f();
             this.c.setVisibility(0);
-        } else if (this.f8303b.getVisibility() == 0 && this.f8303b.c()) {
+        } else if (this.f8305b.getVisibility() == 0 && this.f8305b.c()) {
         } else {
-            this.f8303b.setVisibility(0);
-            if (!this.f8303b.c()) {
-                this.f8303b.b();
+            this.f8305b.setVisibility(0);
+            if (!this.f8305b.c()) {
+                this.f8305b.b();
             }
             this.c.setVisibility(8);
         }
@@ -120,19 +120,19 @@ public class a extends b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f8303b == null) {
+        if (this.f8305b == null) {
             return;
         }
-        if (this.f8303b.c()) {
-            this.f8303b.d();
+        if (this.f8305b.c()) {
+            this.f8305b.d();
         }
-        this.f8303b.setVisibility(8);
+        this.f8305b.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.f8303b.d();
-        this.f8303b.setVisibility(8);
+        this.f8305b.d();
+        this.f8305b.setVisibility(8);
         p.a(o(), "网络错误");
     }
 
@@ -157,14 +157,14 @@ public class a extends b {
             public void onClick(View view) {
                 if (!com.ksad.download.d.b.a(a.this.o())) {
                     p.a(a.this.o(), "网络错误");
-                } else if (a.this.f8393a.m.a()) {
+                } else if (a.this.f8395a.m.a()) {
                 } else {
-                    a.this.f8393a.m.f();
+                    a.this.f8395a.m.f();
                 }
             }
         });
-        this.f8393a.f8403b.add(this.g);
-        this.f8393a.m.a(this.j);
+        this.f8395a.f8405b.add(this.g);
+        this.f8395a.m.a(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -174,9 +174,9 @@ public class a extends b {
         if (this.e != null) {
             this.e.removeCallbacksAndMessages(null);
         }
-        this.f8393a.f8403b.remove(this.g);
-        if (this.f8393a.m != null) {
-            this.f8393a.m.b(this.j);
+        this.f8395a.f8405b.remove(this.g);
+        if (this.f8395a.m != null) {
+            this.f8395a.m.b(this.j);
         }
     }
 
@@ -191,11 +191,11 @@ public class a extends b {
         int i = R.raw.ksad_detail_loading_amin_bottom;
         ((LottieAnimationView) b(R.id.ksad_center_loading_animation_view)).setVisibility(8);
         lottieAnimationView.setVisibility(0);
-        this.f8303b = lottieAnimationView;
-        this.f8303b.setRepeatMode(1);
-        this.f8303b.setRepeatCount(-1);
-        this.f8303b.setAnimation(i);
-        this.f8303b.setRepeatMode(1);
-        this.f8303b.setRepeatCount(-1);
+        this.f8305b = lottieAnimationView;
+        this.f8305b.setRepeatMode(1);
+        this.f8305b.setRepeatCount(-1);
+        this.f8305b.setAnimation(i);
+        this.f8305b.setRepeatMode(1);
+        this.f8305b.setRepeatCount(-1);
     }
 }

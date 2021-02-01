@@ -4,12 +4,12 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes.dex */
 public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
-    public int kjY;
+    public int ksf;
     public View.OnClickListener onClickListener;
 
     public abstract void a(c cVar);
 
-    public abstract ItemViewHolder cK(View view);
+    public abstract ItemViewHolder cI(View view);
 
     public abstract void onChangeSkinType(int i);
 

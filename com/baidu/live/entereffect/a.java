@@ -12,24 +12,24 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private boolean aRd;
-    private com.baidu.live.entereffect.c.a aRe;
-    private List<com.baidu.live.entereffect.a.a> aRf;
+    private boolean aUi;
+    private com.baidu.live.entereffect.c.a aUj;
+    private List<com.baidu.live.entereffect.a.a> aUk;
 
-    public static a BG() {
-        return C0166a.aRh;
+    public static a CV() {
+        return C0168a.aUm;
     }
 
-    public void bt(boolean z) {
-        this.aRd = z;
-        fl(null);
+    public void by(boolean z) {
+        this.aUi = z;
+        fG(null);
     }
 
     public boolean h(b bVar) {
         JSONObject jSONObject;
-        if (bVar == null || bVar.JE()) {
+        if (bVar == null || bVar.Lc()) {
             return false;
         }
         try {
@@ -53,18 +53,18 @@ public class a {
         }
     }
 
-    public List<com.baidu.live.entereffect.a.a> BH() {
-        return c.BK().BH();
+    public List<com.baidu.live.entereffect.a.a> CW() {
+        return c.CZ().CW();
     }
 
-    public com.baidu.live.entereffect.a.a fi(String str) {
-        return c.BK().fi(str);
+    public com.baidu.live.entereffect.a.a fD(String str) {
+        return c.CZ().fD(str);
     }
 
     public void s(String str, boolean z) {
         boolean z2;
-        if (this.aRf != null && !this.aRf.isEmpty() && !TextUtils.isEmpty(str)) {
-            Iterator<com.baidu.live.entereffect.a.a> it = this.aRf.iterator();
+        if (this.aUk != null && !this.aUk.isEmpty() && !TextUtils.isEmpty(str)) {
+            Iterator<com.baidu.live.entereffect.a.a> it = this.aUk.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z2 = false;
@@ -72,24 +72,24 @@ public class a {
                 }
                 com.baidu.live.entereffect.a.a next = it.next();
                 if (next.id.equals(str)) {
-                    next.aRl = true;
-                    c.BK().a(next);
+                    next.aUq = true;
+                    c.CZ().a(next);
                     z2 = true;
                     break;
                 }
             }
             if (z && !z2) {
-                fl(str);
+                fG(str);
             }
         }
     }
 
-    public void fj(String str) {
-        c.BK().fn(str);
+    public void fE(String str) {
+        c.CZ().fI(str);
     }
 
-    public void fk(String str) {
-        c.BK().fk(str);
+    public void fF(String str) {
+        c.CZ().fF(str);
     }
 
     public List<com.baidu.live.entereffect.a.a> i(JSONArray jSONArray) {
@@ -113,10 +113,10 @@ public class a {
             return null;
         }
         try {
-            if (bVar.JB() == null) {
+            if (bVar.KZ() == null) {
                 str = "";
             } else {
-                str = bVar.JB().portrait;
+                str = bVar.KZ().portrait;
             }
             if (bVar.getObjContent() instanceof JSONObject) {
                 jSONObject = (JSONObject) bVar.getObjContent();
@@ -131,30 +131,30 @@ public class a {
     }
 
     public void release() {
-        this.aRd = false;
-        c.BK().release();
-        if (this.aRe != null) {
-            this.aRe.release();
-            this.aRe = null;
+        this.aUi = false;
+        c.CZ().release();
+        if (this.aUj != null) {
+            this.aUj.release();
+            this.aUj = null;
         }
-        if (this.aRf != null) {
-            this.aRf.clear();
+        if (this.aUk != null) {
+            this.aUk.clear();
         }
     }
 
-    private void fl(String str) {
-        if (this.aRe == null) {
-            this.aRe = new com.baidu.live.entereffect.c.a();
+    private void fG(String str) {
+        if (this.aUj == null) {
+            this.aUj = new com.baidu.live.entereffect.c.a();
         }
-        this.aRe.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
+        this.aUj.a(new b.a() { // from class: com.baidu.live.entereffect.a.1
             @Override // com.baidu.live.entereffect.c.b.a
             public void a(boolean z, List<com.baidu.live.entereffect.a.a> list, String str2) {
                 if (z) {
-                    if (a.this.aRf == null || a.this.aRf.isEmpty()) {
-                        c.BK().C(list);
+                    if (a.this.aUk == null || a.this.aUk.isEmpty()) {
+                        c.CZ().C(list);
                     } else if (list != null && !list.isEmpty()) {
                         HashSet hashSet = new HashSet();
-                        for (com.baidu.live.entereffect.a.a aVar : a.this.aRf) {
+                        for (com.baidu.live.entereffect.a.a aVar : a.this.aUk) {
                             if (aVar != null) {
                                 hashSet.add(aVar.id);
                             }
@@ -167,30 +167,30 @@ public class a {
                                 }
                                 com.baidu.live.entereffect.a.a next = it.next();
                                 if (!str2.equals(next.id)) {
-                                    next.aRl = true;
+                                    next.aUq = true;
                                     break;
                                 }
                             }
                         }
-                        c.BK().D(list);
+                        c.CZ().D(list);
                     }
                     a.this.A(list);
                 }
             }
         });
-        this.aRe.e(this.aRd, str);
+        this.aUj.i(this.aUi, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void A(List<com.baidu.live.entereffect.a.a> list) {
         if (list != null && !list.isEmpty()) {
-            if (this.aRf == null) {
-                this.aRf = new ArrayList();
+            if (this.aUk == null) {
+                this.aUk = new ArrayList();
             }
-            this.aRf.clear();
-            this.aRf.addAll(list);
-        } else if (this.aRf != null) {
-            this.aRf.clear();
+            this.aUk.clear();
+            this.aUk.addAll(list);
+        } else if (this.aUk != null) {
+            this.aUk.clear();
         }
     }
 
@@ -198,8 +198,8 @@ public class a {
     }
 
     /* renamed from: com.baidu.live.entereffect.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    private static class C0166a {
-        private static a aRh = new a();
+    /* loaded from: classes11.dex */
+    private static class C0168a {
+        private static a aUm = new a();
     }
 }

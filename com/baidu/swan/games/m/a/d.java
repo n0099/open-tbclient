@@ -2,7 +2,7 @@ package com.baidu.swan.games.m.a;
 
 import android.util.Base64;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d implements com.baidu.swan.games.m.b.d {
     @Override // com.baidu.swan.games.m.b.d
     public byte[] j(String str, byte[] bArr) {

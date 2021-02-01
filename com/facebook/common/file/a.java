@@ -1,13 +1,13 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class a {
-    public static String poA = null;
+    public static String pyL = null;
 
     public static void a(File file, b bVar) {
         File[] b2;
-        bVar.aq(file);
+        bVar.an(file);
         try {
             b2 = file.listFiles();
         } catch (OutOfMemoryError e) {
@@ -19,19 +19,19 @@ public class a {
                 if (file2.isDirectory()) {
                     a(file2, bVar);
                 } else {
-                    bVar.ar(file2);
+                    bVar.ao(file2);
                     String path = file2.getPath();
                     if (path != null) {
-                        if (poA == null) {
-                            poA = path;
-                        } else if (path.length() > poA.length()) {
-                            poA = path;
+                        if (pyL == null) {
+                            pyL = path;
+                        } else if (path.length() > pyL.length()) {
+                            pyL = path;
                         }
                     }
                 }
             }
         }
-        bVar.as(file);
+        bVar.ap(file);
     }
 
     public static boolean deleteContents(File file) {
@@ -39,13 +39,13 @@ public class a {
         boolean z = true;
         if (listFiles != null) {
             for (File file2 : listFiles) {
-                z &= ay(file2);
+                z &= av(file2);
             }
         }
         return z;
     }
 
-    public static boolean ay(File file) {
+    public static boolean av(File file) {
         if (file.isDirectory()) {
             deleteContents(file);
         }
@@ -64,19 +64,19 @@ public class a {
         int length = strArr.length;
         File[] fileArr = new File[length];
         for (int i = 0; i < length; i++) {
-            fileArr[i] = new File(hj(path, strArr[i]));
+            fileArr[i] = new File(hq(path, strArr[i]));
         }
         return fileArr;
     }
 
-    private static String hj(String str, String str2) {
+    private static String hq(String str, String str2) {
         if (str.isEmpty()) {
             return str2;
         }
-        return str2.isEmpty() ? str : hk(str, str2);
+        return str2.isEmpty() ? str : hr(str, str2);
     }
 
-    private static String hk(String str, String str2) {
+    private static String hr(String str, String str2) {
         boolean z = true;
         int length = str.length();
         boolean z2 = length > 0 && str.charAt(length + (-1)) == File.separatorChar;

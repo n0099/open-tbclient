@@ -5,7 +5,7 @@ import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import java.io.FileNotFoundException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a extends l<AssetFileDescriptor> {
     public a(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);

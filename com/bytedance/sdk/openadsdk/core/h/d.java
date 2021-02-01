@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    String f6580a;
+    String f6582a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f6581b;
+    int f6583b;
     JSONArray c;
     List<String> d = new ArrayList();
     long e;
@@ -45,19 +45,19 @@ public class d {
     }
 
     public String a() {
-        return this.f6580a;
+        return this.f6582a;
     }
 
     public void a(String str) {
-        this.f6580a = str;
+        this.f6582a = str;
     }
 
     public int b() {
-        return this.f6581b;
+        return this.f6583b;
     }
 
     public void a(int i) {
-        this.f6581b = i;
+        this.f6583b = i;
     }
 
     public JSONArray c() {

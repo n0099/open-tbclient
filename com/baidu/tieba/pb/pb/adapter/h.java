@@ -17,24 +17,25 @@ import com.baidu.card.as;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.data.l;
+import com.baidu.tieba.card.t;
 import com.baidu.tieba.play.o;
 /* loaded from: classes2.dex */
 public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolder<l>> {
-    private aa<l> ago;
-    private s amu;
-    public BdUniqueId fEN;
-    private as iIR;
+    private ab<l> agg;
+    private s amk;
+    public BdUniqueId fGZ;
+    private as iOz;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view, l lVar) {
-        if (this.iIR != null && this.iIR.tt() != null && this.iIR.tt().dxG() != null) {
-            if (view.getId() == this.iIR.tt().dxG().getId()) {
+        if (this.iOz != null && this.iOz.tq() != null && this.iOz.tq().dzP() != null) {
+            if (view.getId() == this.iOz.tq().dzP().getId()) {
                 com.baidu.tieba.pb.c.a.a(lVar, 4);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.pb.c.a.a(lVar, 1);
@@ -44,16 +45,16 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ago = new aa<l>() { // from class: com.baidu.tieba.pb.pb.adapter.h.1
+        this.agg = new ab<l>() { // from class: com.baidu.tieba.pb.pb.adapter.h.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             public void a(View view, l lVar) {
-                com.baidu.tieba.card.s.crj().mC(true);
-                if (lVar != null && lVar.bkV() != null && !StringUtils.isNull(lVar.bkV().getTid())) {
-                    if (lVar.bkV().eQO <= 0) {
+                t.csu().mG(true);
+                if (lVar != null && lVar.bln() != null && !StringUtils.isNull(lVar.bln().getTid())) {
+                    if (lVar.bln().eTa <= 0) {
                         h.this.b(view, lVar);
                     } else {
-                        TiebaStatic.log(lVar.ai(lVar.bkV()));
+                        TiebaStatic.log(lVar.aj(lVar.bln()));
                     }
                 }
             }
@@ -62,7 +63,7 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
     }
 
     public void a(s sVar) {
-        this.amu = sVar;
+        this.amk = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,31 +73,31 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
     public AutoVideoCardViewHolder<l> e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         final com.baidu.card.g gVar = new com.baidu.card.g(this.mPageContext.getPageActivity());
-        gVar.setPageUniqueId(this.fEN);
+        gVar.setPageUniqueId(this.fGZ);
         gVar.setFrom("pb");
         gVar.a(new a.InterfaceC0088a() { // from class: com.baidu.tieba.pb.pb.adapter.h.2
             @Override // com.baidu.card.a.InterfaceC0088a
             public void a(com.baidu.tbadk.core.data.a aVar2) {
                 if (aVar2 != null) {
-                    Rect bw = ay.bw(gVar.getVideoContainer());
+                    Rect bs = az.bs(gVar.getVideoContainer());
                     if (!(aVar2 instanceof l)) {
-                        ay.a(aVar2, h.this.mContext, 0, false, bw);
+                        az.a(aVar2, h.this.mContext, 0, false, bs);
                         return;
                     }
                     aVar2.objType = 5;
-                    ay.a(aVar2, h.this.mContext, 0, false, bw);
+                    az.a(aVar2, h.this.mContext, 0, false, bs);
                 }
             }
         });
-        this.iIR = gVar;
-        aVar.c(this.iIR);
-        if (this.iIR != null) {
-            this.iIR.setStageType("2002");
+        this.iOz = gVar;
+        aVar.c(this.iOz);
+        if (this.iOz != null) {
+            this.iOz.setStageType("2002");
         }
-        ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amu);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amk);
         AutoVideoCardViewHolder<l> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(a2);
-        autoVideoCardViewHolder.setPageId(this.fEN);
-        a2.a(this.ago);
+        autoVideoCardViewHolder.setPageId(this.fGZ);
+        a2.a(this.agg);
         a2.setSourceForPb(0);
         a(new w() { // from class: com.baidu.tieba.pb.pb.adapter.h.3
             @Override // com.baidu.adp.widget.ListView.w
@@ -105,11 +106,11 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
                     ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view.getTag();
                     l lVar = (l) nVar;
                     lVar.objType = 1;
-                    if (h.this.ago != null) {
-                        h.this.ago.a(threadCardViewHolder.getView(), lVar);
+                    if (h.this.agg != null) {
+                        h.this.agg.a(threadCardViewHolder.getView(), lVar);
                     }
-                    ay.a((com.baidu.tbadk.core.data.a) lVar, view.getContext(), 0, false, com.baidu.card.e.a((s) viewGroup2, view, i));
-                    threadCardViewHolder.tm().b(new a.C0089a(1));
+                    az.a((com.baidu.tbadk.core.data.a) lVar, view.getContext(), 0, false, com.baidu.card.e.a((s) viewGroup2, view, i));
+                    threadCardViewHolder.tj().b(new a.C0089a(1));
                 }
             }
         });
@@ -126,13 +127,13 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
         if (autoVideoCardViewHolder == null) {
             return null;
         }
-        lVar.wT(lVar.position + 1);
-        autoVideoCardViewHolder.tm().setPosition(i);
+        lVar.xd(lVar.position + 1);
+        autoVideoCardViewHolder.tj().setPosition(i);
         lVar.sourceType = 0;
         autoVideoCardViewHolder.setVideoStatsData(c(lVar));
         autoVideoCardViewHolder.b((AutoVideoCardViewHolder<l>) lVar);
-        autoVideoCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        autoVideoCardViewHolder.tm().a(this.ago);
+        autoVideoCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        autoVideoCardViewHolder.tj().a(this.agg);
         return autoVideoCardViewHolder.getView();
     }
 
@@ -141,20 +142,20 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
         if (lVar != null) {
             oVar = new o();
             oVar.mLocate = "6";
-            oVar.amM = lVar.tid;
-            if (lVar.bkV() != null) {
-                oVar.fKR = String.valueOf(lVar.bkV().getFid());
-                if (lVar.bkV().bnO() != null) {
-                    oVar.mzc = lVar.bkV().bnO().video_md5;
-                    oVar.mze = String.valueOf(lVar.bkV().bnO().is_vertical);
+            oVar.amC = lVar.tid;
+            if (lVar.bln() != null) {
+                oVar.fNd = String.valueOf(lVar.bln().getFid());
+                if (lVar.bln().boh() != null) {
+                    oVar.mIj = lVar.bln().boh().video_md5;
+                    oVar.mIl = String.valueOf(lVar.bln().boh().is_vertical);
                 }
             }
-            oVar.eLs = lVar.getExtra();
+            oVar.eNE = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.mzb = lVar.crw();
-            oVar.myY = lVar.getWeight();
+            oVar.mIi = lVar.csI();
+            oVar.mIf = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            oVar.mFloor = String.valueOf(lVar.crv());
+            oVar.mFloor = String.valueOf(lVar.csH());
         }
         return oVar;
     }

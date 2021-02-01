@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ag extends d {
     private static final String h = ag.class.getSimpleName();
     Bundle e;

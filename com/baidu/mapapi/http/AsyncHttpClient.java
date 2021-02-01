@@ -5,18 +5,18 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AsyncHttpClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2683a = 4000;
+    private int f2681a = 4000;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2684b = 4000;
+    private int f2682b = 4000;
     private ExecutorService c = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a implements Runnable {
         private a() {
         }

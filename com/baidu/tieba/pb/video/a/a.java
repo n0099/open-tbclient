@@ -20,17 +20,17 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class a {
-    private static final int jIb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    private static final int jNF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int dimens;
         if (context != null && textView != null && !StringUtils.isNull(str)) {
-            int color = ao.getColor(R.color.CAM_X0107);
+            int color = ap.getColor(R.color.CAM_X0107);
             String str4 = str + "  ";
             TextPaint paint = textView.getPaint();
             int dimens2 = l.getScreenDimensions(context)[0] - (l.getDimens(context, R.dimen.tbds48) * 2);
@@ -46,30 +46,30 @@ public class a {
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str4);
             SpannableString spannableString = new SpannableString(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-            Drawable drawable = ao.getDrawable(R.drawable.icon_video_pb_ad_link);
+            Drawable drawable = ap.getDrawable(R.drawable.icon_video_pb_ad_link);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableString.setSpan(new C0838a(drawable, 0), 0, 1, 17);
+            spannableString.setSpan(new C0841a(drawable, 0), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.pb.video.a.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
                     if (!StringUtils.isNull(str2)) {
-                        aq aqVar = new aq("c13313");
-                        aqVar.dW("tid", str3);
-                        TiebaStatic.log(aqVar);
+                        ar arVar = new ar("c13313");
+                        arVar.dR("tid", str3);
+                        TiebaStatic.log(arVar);
                         com.baidu.tbadk.browser.a.startWebActivity(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
                     }
                 }
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(jIb, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(jNF, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
-            aq aqVar = new aq("c13312");
-            aqVar.dW("tid", str3);
-            TiebaStatic.log(aqVar);
+            ar arVar = new ar("c13312");
+            arVar.dR("tid", str3);
+            TiebaStatic.log(arVar);
         }
     }
 
@@ -83,12 +83,12 @@ public class a {
 
     /* loaded from: classes2.dex */
     private static class b extends ReplacementSpan {
-        private int jId;
-        private int jIe;
+        private int jNH;
+        private int jNI;
 
         public b(int i, int i2) {
-            this.jId = i;
-            this.jIe = i2;
+            this.jNH = i;
+            this.jNI = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -106,16 +106,16 @@ public class a {
 
         private TextPaint c(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.jId);
-            textPaint.setColor(this.jIe);
+            textPaint.setTextSize(this.jNH);
+            textPaint.setColor(this.jNI);
             return textPaint;
         }
     }
 
     /* renamed from: com.baidu.tieba.pb.video.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0838a extends ImageSpan {
-        public C0838a(Drawable drawable, int i) {
+    private static class C0841a extends ImageSpan {
+        public C0841a(Drawable drawable, int i) {
             super(drawable, i);
         }
 

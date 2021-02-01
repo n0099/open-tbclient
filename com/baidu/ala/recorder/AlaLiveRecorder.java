@@ -23,8 +23,8 @@ import com.baidu.ala.helper.AlaLiveRtcConfig;
 import com.baidu.ala.helper.AlaLiveStatConfig;
 import com.baidu.ala.helper.AlaLiveStreamCmdInfo;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
+import com.baidu.ala.helper.AlaSEIMessage;
 import com.baidu.ala.helper.EncodePerformanceHelper;
-import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AlaAudioFrame;
 import com.baidu.ala.ndk.AlaNDKRecorderAdapter;
 import com.baidu.ala.recorder.AlaLiveRecorderConfig;
@@ -51,7 +51,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler, ICameraStatusHandler.Beauty {
     public static final int ALA_STREAM_CONNECT_FAIL = 0;
     public static final int ALA_STREAM_CONNECT_INIT = -1;
@@ -94,6 +94,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     private boolean mIsRecordStoped;
     private volatile boolean mIsRestarting;
     private volatile boolean mIsSendCmd;
+    private int mKeyframeCount;
     private int mLastNetState;
     private long mLastSendVideoDataTime;
     private AlaLiveDebugInfo mLiveDebugInfo;
@@ -132,6 +133,12 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     byte[] outPcm;
     private int outSampleRate;
     private int rtcMixPcmNumForLog;
+
+    static /* synthetic */ int access$1408(AlaLiveRecorder alaLiveRecorder) {
+        int i = alaLiveRecorder.mKeyframeCount;
+        alaLiveRecorder.mKeyframeCount = i + 1;
+        return i;
+    }
 
     static /* synthetic */ int access$2308(AlaLiveRecorder alaLiveRecorder) {
         int i = alaLiveRecorder.rtcMixPcmNumForLog;
@@ -187,6 +194,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         this.mEnableRtcACE = true;
         this.mExternRecordCallbacks = new LinkedList();
         this.mErrLogLimit = 0;
+        this.mKeyframeCount = 0;
         this.mRecordCallback = new RecorderCallback() { // from class: com.baidu.ala.recorder.AlaLiveRecorder.1
             @Override // com.baidu.ala.recorder.RecorderCallback
             public void flashLightSwitched(boolean z) {
@@ -365,15 +373,45 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
 
             @Override // com.baidu.ala.recorder.video.IVideoRecorder.IVideoDataCallBack
             public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j, long j2, int i4) {
+                String str;
+                String str2;
+                String str3;
+                String str4;
                 if (AlaLiveRecorder.this.mCurrentPushState == 1 && AlaLiveRecorder.this.mNdkAdapter != null) {
                     if ((AlaLiveRecorder.this.mNdkAdapter == null || AlaLiveRecorder.this.mNdkAdapter.getNativeObject() != 0) && AlaLiveRecorder.this.mNdkAdapter != null && AlaLiveRecorder.this.mNdkAdapter.getNativeObject() != 0) {
-                        String str = null;
-                        if (AlaLiveRecorder.this.mIsSendCmd) {
-                            AlaLiveRecorder.this.fillCmdData();
-                            str = AlaLiveStreamCmdInfo.genCmd(AlaLiveRecorder.this.mActivity, AlaLiveRecorder.this.mCmdData);
-                            AlaLiveRecorder.this.mIsSendCmd = false;
+                        String str5 = null;
+                        if (AlaLiveRecorder.this.mIsBackground) {
+                            if (AlaLiveRecorder.this.mStartBaseInfo != null) {
+                                str3 = AlaLiveRecorder.this.mStartBaseInfo.mRoomId;
+                            } else {
+                                str3 = "";
+                            }
+                            if (AlaLiveRecorder.this.mStartBaseInfo != null) {
+                                str4 = AlaLiveRecorder.this.mStartBaseInfo.mUid;
+                            } else {
+                                str4 = "";
+                            }
+                            str5 = AlaSEIMessage.buildBackgroundMessage(str3, str4);
+                            AlaLiveRecorder.this.mKeyframeCount = 0;
+                        } else {
+                            if (AlaLiveRecorder.this.mKeyframeCount <= 3) {
+                                if (AlaLiveRecorder.this.mStartBaseInfo != null) {
+                                    str = AlaLiveRecorder.this.mStartBaseInfo.mRoomId;
+                                } else {
+                                    str = "";
+                                }
+                                if (AlaLiveRecorder.this.mStartBaseInfo != null) {
+                                    str2 = AlaLiveRecorder.this.mStartBaseInfo.mUid;
+                                } else {
+                                    str2 = "";
+                                }
+                                str5 = AlaSEIMessage.buildForegroundMessage(str, str2);
+                            }
+                            if (i3 > 0) {
+                                AlaLiveRecorder.access$1408(AlaLiveRecorder.this);
+                            }
                         }
-                        int sendEncodeVideoData = AlaLiveRecorder.this.mNdkAdapter.sendEncodeVideoData(bArr, i2, str, j, j2, i4);
+                        int sendEncodeVideoData = AlaLiveRecorder.this.mNdkAdapter.sendEncodeVideoData(bArr, i2, str5, j, j2, i4);
                         if (sendEncodeVideoData == 0) {
                             AlaLiveRecorder.this.mHasVideo = true;
                             AlaLiveRecorder.this.adjustDynamicBitRate();
@@ -704,7 +742,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
                 return false;
             }
         }
-        if (this.mNdkAdapter.getNativeObject() != 0 && (initAudioEncoderNative = this.mNdkAdapter.initAudioEncoderNative(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1, 16)) != 0) {
+        if (this.mNdkAdapter.getNativeObject() != 0 && (initAudioEncoderNative = this.mNdkAdapter.initAudioEncoderNative(48000, 1, 16)) != 0) {
             BdLog.e("initAudioEncoderNative error. errcode is " + initAudioEncoderNative);
             errLog(14, "setDefaultRtcMode 2 initAudioEncoderNative error. errcode is " + initAudioEncoderNative);
             this.mStreamMode = i;
@@ -784,7 +822,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
                 errLog(14, "switchToRtcMode initRecordNative error. errcode is " + initRecordNative);
                 this.mStreamMode = i3;
                 return false;
-            } else if (this.mNdkAdapter.getNativeObject() != 0 && (initAudioEncoderNative = this.mNdkAdapter.initAudioEncoderNative(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 1, 16)) != 0) {
+            } else if (this.mNdkAdapter.getNativeObject() != 0 && (initAudioEncoderNative = this.mNdkAdapter.initAudioEncoderNative(48000, 1, 16)) != 0) {
                 BdLog.e("initAudioEncoderNative error. errcode is " + initAudioEncoderNative);
                 errLog(14, "switchToRtcMode initAudioEncoderNative error. errcode is " + initAudioEncoderNative);
                 this.mStreamMode = i3;
@@ -932,8 +970,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         this.mNdkAdapter.setNativeObject(0L);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void fillCmdData() {
+    private void fillCmdData() {
         this.mCmdData.mHasAudio = this.mHasAudio;
         this.mCmdData.mHasVideo = this.mHasVideo;
         this.mCmdData.mIsBackground = this.mIsBackground;
@@ -1101,16 +1138,16 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         this.mStatConfig.mUploadUrl = str2;
     }
 
-    public void setStartInfo(String str, String str2, String str3) {
-        this.mStartBaseInfo.mClientIp = str3;
-        this.mStartBaseInfo.mLiveId = str;
-        this.mStartBaseInfo.mSessionId = str2;
-        this.mStartBaseInfo.mNetWork = BdNetTypeUtil.netTypeNameInUpperCase();
-    }
-
-    public void setStartInfo(String str, String str2, String str3, String str4) {
-        setStartInfo(str, str2, str3);
-        this.mStartBaseInfo.mSubAppType = str4;
+    public void setStartInfo(JSONObject jSONObject) {
+        try {
+            this.mStartBaseInfo.mClientIp = jSONObject.optString("clientIp", "");
+            this.mStartBaseInfo.mLiveId = jSONObject.optString("liveId", "");
+            this.mStartBaseInfo.mRoomId = jSONObject.optString("roomId", "");
+            this.mStartBaseInfo.mSubAppType = jSONObject.optString("subApp", "");
+            this.mStartBaseInfo.mNetWork = BdNetTypeUtil.netTypeNameInUpperCase();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void setConfigBeforeStop(String str, String str2, String str3) {
@@ -1368,31 +1405,33 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     private void startAudioDevice() {
         if (this.isEnableExternalAudioCapture) {
             Log.i(LOG_TAG, "startAudioDevice fail, use External audio Capture Device");
-            return;
-        }
-        if (this.mAudioRecorder != null) {
-            this.mAudioRecorder.stop();
-        }
-        if (this.mStreamMode == 1) {
-            this.mAudioRecorder.onCreate(new AlaAudioConfig());
-            this.mAudioRecorder.mute(this.mIsMute);
-        } else if (this.mStreamMode == 2) {
-            AlaAudioConfig alaAudioConfig = new AlaAudioConfig(StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 16, 2);
-            this.mAudioRecorder.mute(this.mIsMute);
-            this.mAudioRecorder.onCreate(alaAudioConfig);
-        }
-        if (this.mAudioRecorder == null) {
-            BdLog.d("mAudioRecorder construct error !!!");
-            return;
-        }
-        boolean start = this.mAudioRecorder.start();
-        if (this.mVideoRecorder != null && this.mVideoRecorder.getRecorderHandler() != null) {
-            this.mVideoRecorder.getRecorderHandler().sendAudioOpened(start);
-        }
-        if (!start) {
-            BdLog.e("mAudioRecorder start failed");
-            errLog(14, "mAudioRecorder start failed ");
-            stopNative(false);
+        } else if (this.mAudioRecorder == null) {
+            Log.i(LOG_TAG, "startAudioDevice mAudioRecorder = null");
+        } else {
+            if (this.mAudioRecorder != null) {
+                this.mAudioRecorder.stop();
+            }
+            if (this.mStreamMode == 1) {
+                this.mAudioRecorder.onCreate(new AlaAudioConfig());
+                this.mAudioRecorder.mute(this.mIsMute);
+            } else if (this.mStreamMode == 2) {
+                AlaAudioConfig alaAudioConfig = new AlaAudioConfig(48000, 16, 2);
+                this.mAudioRecorder.mute(this.mIsMute);
+                this.mAudioRecorder.onCreate(alaAudioConfig);
+            }
+            if (this.mAudioRecorder == null) {
+                BdLog.d("mAudioRecorder construct error !!!");
+                return;
+            }
+            boolean start = this.mAudioRecorder.start();
+            if (this.mVideoRecorder != null && this.mVideoRecorder.getRecorderHandler() != null) {
+                this.mVideoRecorder.getRecorderHandler().sendAudioOpened(start);
+            }
+            if (!start) {
+                BdLog.e("mAudioRecorder start failed");
+                errLog(14, "mAudioRecorder start failed ");
+                stopNative(false);
+            }
         }
     }
 
@@ -1552,11 +1591,13 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
             this.mIsBackground = true;
             notifyBackGroundSwitch(this.mIsBackground);
             stopDevices(false);
-            if (this.mVideoRecorder != null) {
-                this.mVideoRecorder.onPause();
-            }
-            if (this.mAudioRecorder != null) {
-                this.mAudioRecorder.onPause();
+            if (this.mStreamMode == 1) {
+                if (this.mVideoRecorder != null) {
+                    this.mVideoRecorder.onPause();
+                }
+                if (this.mAudioRecorder != null) {
+                    this.mAudioRecorder.onPause();
+                }
             }
         }
     }
@@ -1568,11 +1609,13 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         }
         if (this.mVideoRecorder != null) {
             if (this.mVideoRecorder == null || this.mVideoRecorder.dealBackground()) {
-                if (this.mAudioRecorder != null) {
-                    this.mVideoRecorder.onResume();
-                }
-                if (this.mAudioRecorder != null) {
-                    this.mAudioRecorder.onResume();
+                if (this.mStreamMode == 1) {
+                    if (this.mVideoRecorder != null) {
+                        this.mVideoRecorder.onResume();
+                    }
+                    if (this.mAudioRecorder != null) {
+                        this.mAudioRecorder.onResume();
+                    }
                 }
                 if (!this.mIsAutoStartFromBack) {
                     this.mIsBackground = false;
@@ -1612,6 +1655,9 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         if (this.mStreamMode == 1 && this.mVideoRecorder != null) {
             if (i == 1) {
                 this.mRecorderLog.setPushStreamIp(getPushStreamIp());
+                this.mVideoRecorder.sendBufferChanged(0);
+            } else if (i == 0) {
+                this.mVideoRecorder.sendBufferChanged(80);
             }
             this.mVideoRecorder.sendNetStateInfo(i, i2);
         }
@@ -1750,7 +1796,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     class SendDataInfo {
         public byte[] data;
         public int displayRotate;
@@ -1763,7 +1809,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public class SendHandler extends Handler {
         public SendHandler(Looper looper) {
             super(looper);
@@ -1791,17 +1837,21 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     }
 
     public void sendAndEncodeDataReal(byte[] bArr, int i, int i2, int i3, long j) {
+        int i4;
         if (this.mNdkAdapter != null && this.mNdkAdapter.getNativeObject() != 0) {
-            int i4 = 0;
             String str = null;
-            if (this.mIsSendCmd) {
-                fillCmdData();
-                str = AlaLiveStreamCmdInfo.genCmd(this.mActivity, this.mCmdData);
-                this.mIsSendCmd = false;
+            if (this.mIsBackground) {
+                str = AlaSEIMessage.buildBackgroundMessage(this.mStartBaseInfo != null ? this.mStartBaseInfo.mRoomId : "", this.mStartBaseInfo != null ? this.mStartBaseInfo.mUid : "");
+                this.mKeyframeCount = 0;
+            } else if (this.mKeyframeCount <= 3) {
+                str = AlaSEIMessage.buildForegroundMessage(this.mStartBaseInfo != null ? this.mStartBaseInfo.mRoomId : "", this.mStartBaseInfo != null ? this.mStartBaseInfo.mUid : "");
             }
-            if (this.mNdkAdapter != null && this.mNdkAdapter.getNativeObject() != 0) {
+            int[] iArr = new int[2];
+            if (this.mNdkAdapter == null || this.mNdkAdapter.getNativeObject() == 0) {
+                i4 = 0;
+            } else {
                 EncodePerformanceHelper.getInst().before();
-                i4 = this.mNdkAdapter.sendYuvDataNative(bArr, i, i2, i3, j, j, str, this.mVideoConfig.getVideoCodecId());
+                i4 = this.mNdkAdapter.sendYuvData(bArr, i, i2, i3, j, j, str, this.mVideoConfig.getVideoCodecId(), iArr);
                 EncodePerformanceHelper.getInst().after();
             }
             if (i4 != 0) {
@@ -1819,6 +1869,9 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
                 this.mHasVideo = true;
                 this.mSendDataErrorCount = 0;
                 adjustDynamicBitRate();
+                if (iArr[0] > 0) {
+                    this.mKeyframeCount++;
+                }
             }
             if (i4 != 0) {
                 BdLog.e("sendYuvDataNative error. error is " + i4);

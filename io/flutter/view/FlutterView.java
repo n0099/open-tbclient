@@ -53,7 +53,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class FlutterView extends SurfaceView implements BinaryMessenger, TextureRegistry {
     private static final String TAG = "FlutterView";
     private final AndroidKeyProcessor androidKeyProcessor;
@@ -80,18 +80,18 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     private final SettingsChannel settingsChannel;
     private final SystemChannel systemChannel;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface FirstFrameListener {
         void onFirstFrame();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface Provider {
         FlutterView getFlutterView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public enum ZeroSides {
         NONE,
         LEFT,
@@ -100,7 +100,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static final class ViewportMetrics {
         float devicePixelRatio = 1.0f;
         int physicalWidth = 0;
@@ -610,7 +610,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         return surfaceTextureRegistryEntry;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         private final long id;
         private SurfaceTexture.OnFrameAvailableListener onFrameListener = new SurfaceTexture.OnFrameAvailableListener() { // from class: io.flutter.view.FlutterView.SurfaceTextureRegistryEntry.1

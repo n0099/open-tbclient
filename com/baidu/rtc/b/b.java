@@ -2,56 +2,62 @@ package com.baidu.rtc.b;
 
 import android.util.Log;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.webrtc.StatsReport;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private String cwA;
-    private String cwB;
-    private String cwD;
-    private String cwE;
-    private String cwF;
-    private String cwG;
-    private String cwI;
-    private String cwJ;
-    private String cwM;
-    private int cwN;
-    private int cwO;
-    private String cwP;
-    private String cwQ;
-    private String cwR;
-    private String cwS;
-    private String cwT;
-    private String cwU;
-    private String cwV;
-    private String cwW;
-    private String cwX;
-    private String cwY;
-    private String cwZ;
-    private String cwv;
-    private String cww;
-    private String cwx;
-    private String cwy;
-    private String cxb;
-    private String cxd;
-    private String cxe;
-    private String cxg;
-    private String cxh;
-    private String cxj;
-    private String cxk;
-    private String cxl;
-    private String cxm;
-    private String cxn;
-    private String cxf = "0";
-    private int cxa = 0;
-    private int cwL = 0;
-    c cwz = new c();
-    c cwC = new c();
-    c cwK = new c();
-    c cwH = new c();
-    c cxc = new c();
-    c cxi = new c();
+    private long cyJ;
+    private String cyK;
+    private String cyL;
+    private String cyM;
+    private String cyN;
+    private String cyP;
+    private String cyQ;
+    private String cyS;
+    private String cyT;
+    private String cyU;
+    private String cyV;
+    private String cyX;
+    private String cyY;
+    private String czA;
+    private String czB;
+    private String czC;
+    private String czD;
+    private long czE;
+    private String cza;
+    private String czc;
+    private int czd;
+    private int cze;
+    private String czf;
+    private String czg;
+    private String czh;
+    private String czi;
+    private String czj;
+    private String czk;
+    private String czl;
+    private String czm;
+    private String czn;
+    private String czo;
+    private String czp;
+    private String czr;
+    private String czt;
+    private String czu;
+    private String czw;
+    private String czx;
+    private String czz;
+    private String czv = "0";
+    private ArrayList<Long> cyI = new ArrayList<>();
+    private ArrayList<Long> czF = new ArrayList<>();
+    private int czq = 0;
+    private int czb = 0;
+    c cyO = new c();
+    c cyR = new c();
+    c cyZ = new c();
+    c cyW = new c();
+    c czs = new c();
+    c czy = new c();
 
     private Map<String, String> a(StatsReport statsReport) {
         StatsReport.Value[] valueArr;
@@ -62,106 +68,129 @@ public class b {
         return hashMap;
     }
 
-    private void o(Map<String, String> map) {
+    private void p(Map<String, String> map) {
         try {
-            this.cwz.bQ(Integer.parseInt(map.get("bytesReceived")));
-            this.cwy = this.cwz.aeU();
+            this.cyO.bW(Integer.parseInt(map.get("bytesReceived")));
+            this.cyN = this.cyO.afr();
         } catch (NumberFormatException e) {
             Log.e("HUDStatistic", "parseAudioRecvStatsReport" + e);
         }
-        this.cww = map.get("googCurrentDelayMs");
-        this.cwA = map.get("googCodecName");
-        this.cwx = map.get("googSpeechExpandRate");
-    }
-
-    private void p(Map<String, String> map) {
-        try {
-            this.cwC.bQ(Long.parseLong(map.get("bytesSent")));
-            this.cwB = this.cwC.aeU();
-        } catch (NumberFormatException e) {
-        }
-        this.cwD = map.get("googCodecName");
+        this.cyL = map.get("googCurrentDelayMs");
+        this.cyP = map.get("googCodecName");
+        this.cyM = map.get("googSpeechExpandRate");
     }
 
     private void q(Map<String, String> map) {
         try {
-            this.cwQ = c.m(Double.parseDouble(map.get("googTargetEncBitrate")));
-            this.cwv = c.m(Double.parseDouble(map.get("googActualEncBitrate")));
-            this.cwF = c.m(Double.parseDouble(map.get("googAvailableSendBandwidth")));
-            this.cwE = c.m(Double.parseDouble(map.get("googAvailableReceiveBandwidth")));
+            this.cyR.bW(Long.parseLong(map.get("bytesSent")));
+            this.cyQ = this.cyR.afr();
+        } catch (NumberFormatException e) {
+        }
+        this.cyS = map.get("googCodecName");
+    }
+
+    private void r(Map<String, String> map) {
+        try {
+            this.czg = c.m(Double.parseDouble(map.get("googTargetEncBitrate")));
+            this.cyK = c.m(Double.parseDouble(map.get("googActualEncBitrate")));
+            this.cyU = c.m(Double.parseDouble(map.get("googAvailableSendBandwidth")));
+            this.cyT = c.m(Double.parseDouble(map.get("googAvailableReceiveBandwidth")));
         } catch (NumberFormatException e) {
             Log.e("HUDStatistics", "parseBweStatsReport: " + e);
         }
     }
 
-    private void r(Map<String, String> map) {
+    private void s(Map<String, String> map) {
         String str = map.get("googActiveConnection");
         if (str == null || !str.equals("true")) {
             return;
         }
         try {
-            this.cwH.bQ(Long.parseLong(map.get("bytesReceived")));
-            this.cwG = this.cwH.aeU();
-            this.cwK.bQ(Long.parseLong(map.get("bytesSent")));
-            this.cwJ = this.cwK.aeU();
+            this.cyW.bW(Long.parseLong(map.get("bytesReceived")));
+            this.cyV = this.cyW.afr();
+            this.cyZ.bW(Long.parseLong(map.get("bytesSent")));
+            this.cyY = this.cyZ.afr();
         } catch (NumberFormatException e) {
             Log.e("HUDStatistics", "parseConnectionStatsReport" + e);
         }
-        this.cwI = map.get("googRtt");
-        this.cwM = map.get("googLocalCandidateType");
-        this.cwP = map.get("googRemoteCandidateType");
-        this.cwR = map.get("googTransportType");
-    }
-
-    private void s(Map<String, String> map) {
-        this.cwT = map.get("googDecodeMs");
-        this.cwS = map.get("googFrameRateDecoded");
-        this.cwY = map.get("googFrameRateOutput");
-        this.cxd = map.get("googFrameRateReceived");
-        this.cxc.bQ(Long.parseLong(map.get("bytesReceived")));
-        this.cxb = this.cxc.aeU();
-        this.cxe = map.get("googFrameHeightReceived");
-        this.cxg = map.get("googFrameWidthReceived");
+        this.cyX = map.get("googRtt");
+        this.czc = map.get("googLocalCandidateType");
+        this.czf = map.get("googRemoteCandidateType");
+        this.czh = map.get("googTransportType");
     }
 
     private void t(Map<String, String> map) {
-        this.cwU = map.get("googAvgEncodeMs");
-        this.cwV = map.get("googFrameRateInput");
-        this.cwW = map.get("googFrameHeightInput");
-        this.cwX = map.get("googFrameWidthInput");
-        this.cxk = map.get("googFrameRateSent");
-        this.cxj = map.get("googCodecName");
-        this.cxn = map.get("googFrameWidthSent");
-        this.cxl = map.get("googFrameHeightSent");
-        this.cxm = map.get("packetsLost");
-        this.cwZ = map.get("packetsSent");
+        this.czj = map.get("googDecodeMs");
+        this.czi = map.get("googFrameRateDecoded");
+        this.czo = map.get("googFrameRateOutput");
+        this.czt = map.get("googFrameRateReceived");
+        this.czs.bW(Long.parseLong(map.get("bytesReceived")));
+        this.czr = this.czs.afr();
+        this.czu = map.get("googFrameHeightReceived");
+        this.czw = map.get("googFrameWidthReceived");
+        if (map.containsKey("googEndToEndTime")) {
+            this.cza = map.get("googEndToEndTime");
+        }
+    }
+
+    private void u(Map<String, String> map) {
+        this.czk = map.get("googAvgEncodeMs");
+        this.czl = map.get("googFrameRateInput");
+        this.czm = map.get("googFrameHeightInput");
+        this.czn = map.get("googFrameWidthInput");
+        this.czA = map.get("googFrameRateSent");
+        this.czz = map.get("googCodecName");
+        this.czD = map.get("googFrameWidthSent");
+        this.czB = map.get("googFrameHeightSent");
+        this.czC = map.get("packetsLost");
+        this.czp = map.get("packetsSent");
         try {
             String str = map.get("bytesSent");
             if (str != null) {
-                this.cxi.bQ(Integer.parseInt(str));
+                this.czy.bW(Integer.parseInt(str));
             }
-            this.cxh = this.cxi.aeU();
-            this.cwO = this.cxa;
+            this.czx = this.czy.afr();
+            this.cze = this.czq;
             String str2 = map.get("qpSum");
             if (str2 != null) {
-                this.cxa = Integer.parseInt(str2);
+                this.czq = Integer.parseInt(str2);
             }
-            this.cwN = this.cwL;
+            this.czd = this.czb;
             String str3 = map.get("framesEncoded");
             if (str3 != null) {
-                this.cwL = Integer.parseInt(str3);
+                this.czb = Integer.parseInt(str3);
             }
         } catch (NumberFormatException e) {
             Log.e("HUDStatistic", "parseVideoSendStatsReport: " + e);
         }
     }
 
-    public String aeS() {
-        return this.cxg + "*" + this.cxe;
+    public void afl() {
+        this.cyI.clear();
+        this.czF.clear();
     }
 
-    public String aeT() {
-        return this.cxn + "*" + this.cxl;
+    public int afm() {
+        if (this.cza == null || this.cza == "") {
+            return -1;
+        }
+        return Integer.valueOf(this.cza).intValue();
+    }
+
+    public long afn() {
+        return this.cyJ;
+    }
+
+    public String afo() {
+        return this.czw + "*" + this.czu;
+    }
+
+    public long afp() {
+        return this.czE;
+    }
+
+    public String afq() {
+        return this.czD + "*" + this.czB;
     }
 
     public void b(StatsReport[] statsReportArr) {
@@ -171,53 +200,76 @@ public class b {
                 Map<String, String> a3 = a(statsReport);
                 String str = a3.get("googTrackId");
                 if (str != null && str.contains("ARDAMSv0")) {
-                    t(a3);
+                    u(a3);
                 } else if (str != null && str.contains("ARDAMSa0")) {
-                    p(a3);
+                    q(a3);
                 }
             } else if (statsReport.type.equals("ssrc") && statsReport.id.contains("ssrc") && statsReport.id.contains("recv")) {
                 Map<String, String> a4 = a(statsReport);
                 if (a4.get("googFrameWidthReceived") != null) {
-                    s(a4);
+                    t(a4);
                 }
                 if (a4.get("audioOutputLevel") != null) {
-                    o(a4);
+                    p(a4);
                 }
             } else if (statsReport.id.equals("bweforvideo")) {
                 Map<String, String> a5 = a(statsReport);
                 if (a5.size() > 3) {
-                    q(a5);
+                    r(a5);
                 }
             } else if (statsReport.type.equals("googCandidatePair") && (a2 = a(statsReport)) != null) {
-                r(a2);
+                s(a2);
             }
         }
     }
 
-    public void u(Map<String, Integer> map) {
-        if (this.cxb == null || this.cxf == null || this.cxd == null || map == null) {
+    public void bU(long j) {
+        this.cyJ = j;
+    }
+
+    public void bV(long j) {
+        this.czE = j;
+    }
+
+    public void n(long j, long j2) {
+        this.cyI.add(Long.valueOf(j2 - j));
+    }
+
+    public void o(long j, long j2) {
+        this.czF.add(Long.valueOf(j2 - j));
+    }
+
+    public void v(Map<String, ArrayList<Long>> map) {
+        map.put("aStuck", this.cyI);
+        map.put("vStuck", this.czF);
+    }
+
+    public void w(Map<String, Integer> map) {
+        if (this.czr == null || this.czv == null || this.czt == null || map == null) {
             Log.e("HUDStatistics", "getStatsRecvInfo null");
             return;
         }
-        map.put("bitrate_r", Integer.valueOf(c.jn(this.cxb) / 1000));
-        map.put("packetloss_r", Integer.valueOf(this.cxf));
-        map.put("fps_r", Integer.valueOf(this.cxd));
+        map.put("bitrate_r", Integer.valueOf(c.jG(this.czr) / 1000));
+        map.put("packetloss_r", Integer.valueOf(this.czv));
+        map.put("fps_r", Integer.valueOf(this.czt));
     }
 
-    public void v(Map<String, Integer> map) {
-        if (this.cxh == null || this.cxk == null || this.cwV == null || this.cxl == null || map == null) {
+    public void x(Map<String, Integer> map) {
+        if (this.czx == null || this.czA == null || this.czl == null || this.czB == null || map == null) {
             Log.e("HUDStatistics", "getStatsSendInfo null");
             return;
         }
-        map.put("bitrate_s", Integer.valueOf(c.jn(this.cxh) / 1000));
+        map.put("bitrate_s", Integer.valueOf(c.jG(this.czx) / 1000));
         try {
             Long l = new Long(0L);
-            if (Long.parseLong(this.cwZ) != 0) {
-                l = Long.valueOf((Long.parseLong(this.cxm) * 1000) / Long.parseLong(this.cwZ));
+            if (Long.parseLong(this.czp) != 0) {
+                l = Long.valueOf((Long.parseLong(this.czC) * 1000) / Long.parseLong(this.czp));
             }
+            map.put("packetlost", Integer.valueOf(Integer.parseInt(this.czC)));
+            map.put("packesend", Integer.valueOf(Integer.parseInt(this.czp)));
             map.put("packetloss_s", Integer.valueOf(l.intValue()));
-            map.put("fps_s", Integer.valueOf(this.cxk));
-            map.put("fps_i", Integer.valueOf(this.cwV));
+            map.put("fps_s", Integer.valueOf(this.czA));
+            map.put("fps_i", Integer.valueOf(this.czl));
         } catch (NumberFormatException e) {
             Log.e("HUDStatistics", "getStatsSendInfo: " + e);
         }

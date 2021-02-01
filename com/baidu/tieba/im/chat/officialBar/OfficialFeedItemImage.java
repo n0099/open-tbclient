@@ -10,26 +10,26 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
-    private boolean ktL;
-    private TextView kvF;
-    private TbImageView kvH;
-    private ImageView kvI;
-    private TextView kvJ;
-    private View kvK;
-    private View kvL;
-    private View kvM;
+    private boolean kBS;
+    private TextView kDL;
+    private TbImageView kDN;
+    private ImageView kDO;
+    private TextView kDP;
+    private View kDQ;
+    private View kDR;
+    private View kDS;
     private Context mContext;
 
     public OfficialFeedItemImage(Context context, boolean z) {
         this(context, (AttributeSet) null);
-        this.ktL = z;
+        this.kBS = z;
     }
 
     public OfficialFeedItemImage(Context context, AttributeSet attributeSet) {
@@ -40,62 +40,62 @@ public class OfficialFeedItemImage extends RelativeLayout {
 
     private void initView() {
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
-        this.kvH = (TbImageView) findViewById(R.id.message_image);
-        this.kvI = (ImageView) findViewById(R.id.message_read_icon);
-        this.kvJ = (TextView) findViewById(R.id.message_read_count);
-        this.kvF = (TextView) findViewById(R.id.message_title);
-        this.kvK = findViewById(R.id.black_mask);
-        this.kvH.setConrers(15);
-        this.kvH.setRadius(l.getDimens(this.mContext, R.dimen.tbds21));
-        this.kvL = findViewById(R.id.image_container);
-        this.kvM = findViewById(R.id.msg_read_container);
-        cTh();
+        this.kDN = (TbImageView) findViewById(R.id.message_image);
+        this.kDO = (ImageView) findViewById(R.id.message_read_icon);
+        this.kDP = (TextView) findViewById(R.id.message_read_count);
+        this.kDL = (TextView) findViewById(R.id.message_title);
+        this.kDQ = findViewById(R.id.black_mask);
+        this.kDN.setConrers(15);
+        this.kDN.setRadius(l.getDimens(this.mContext, R.dimen.tbds21));
+        this.kDR = findViewById(R.id.image_container);
+        this.kDS = findViewById(R.id.msg_read_container);
+        cVf();
     }
 
-    public void cTi() {
-        this.kvH.setRadius(l.getDimens(this.mContext, R.dimen.tbds31));
-        this.kvH.setConrers(3);
-        ViewGroup.LayoutParams layoutParams = this.kvL.getLayoutParams();
+    public void cVg() {
+        this.kDN.setRadius(l.getDimens(this.mContext, R.dimen.tbds31));
+        this.kDN.setConrers(3);
+        ViewGroup.LayoutParams layoutParams = this.kDR.getLayoutParams();
         layoutParams.height = l.getDimens(this.mContext, R.dimen.tbds579);
-        this.kvL.setLayoutParams(layoutParams);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.kvM.getLayoutParams();
+        this.kDR.setLayoutParams(layoutParams);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.kDS.getLayoutParams();
         layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds27);
-        this.kvM.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.kvF.getLayoutParams();
+        this.kDS.setLayoutParams(layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.kDL.getLayoutParams();
         layoutParams3.leftMargin = l.getDimens(this.mContext, R.dimen.tbds30);
         layoutParams3.bottomMargin = l.getDimens(this.mContext, R.dimen.tbds27);
-        this.kvF.setLayoutParams(layoutParams3);
+        this.kDL.setLayoutParams(layoutParams3);
     }
 
-    public void cTh() {
-        SvgManager.bsx().a(this.kvI, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        com.baidu.tbadk.core.util.f.a.b m = com.baidu.tbadk.core.util.f.a.btb().oJ(0).m(R.color.CAM_X0601, R.color.CAM_X0606);
-        if (this.ktL) {
-            m.bz(this.kvK);
+    public void cVf() {
+        SvgManager.bsR().a(this.kDO, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        com.baidu.tbadk.core.util.f.a.b m = com.baidu.tbadk.core.util.f.a.btv().oO(0).m(R.color.CAM_X0601, R.color.CAM_X0606);
+        if (this.kBS) {
+            m.bv(this.kDQ);
         } else {
-            m.ai(l.getDimens(getContext(), R.dimen.tbds21)).ah(l.getDimens(getContext(), R.dimen.tbds21)).bz(this.kvK);
+            m.aj(l.getDimens(getContext(), R.dimen.tbds21)).ai(l.getDimens(getContext(), R.dimen.tbds21)).bv(this.kDQ);
         }
-        ao.setViewTextColor(this.kvJ, R.color.CAM_X0101);
-        ao.setViewTextColor(this.kvF, R.color.CAM_X0101);
+        ap.setViewTextColor(this.kDP, R.color.CAM_X0101);
+        ap.setViewTextColor(this.kDL, R.color.CAM_X0101);
     }
 
-    public void setData(a.C0758a c0758a, int i, com.baidu.tieba.im.forum.broadcast.data.b bVar) {
-        this.kvH.startLoad(c0758a.src, 10, false);
-        this.kvF.setText(c0758a.title);
+    public void setData(a.C0760a c0760a, int i, com.baidu.tieba.im.forum.broadcast.data.b bVar) {
+        this.kDN.startLoad(c0760a.src, 10, false);
+        this.kDL.setText(c0760a.title);
         if (bVar != null) {
-            i = bVar.cTZ();
+            i = bVar.cVX();
         }
-        Cv(i);
+        CN(i);
     }
 
-    public void Cv(int i) {
+    public void CN(int i) {
         if (i > 0) {
-            this.kvJ.setText(this.mContext.getString(R.string.person_view_num, at.dV(i)));
-            this.kvJ.setVisibility(0);
-            this.kvI.setVisibility(0);
+            this.kDP.setText(this.mContext.getString(R.string.person_view_num, au.eb(i)));
+            this.kDP.setVisibility(0);
+            this.kDO.setVisibility(0);
             return;
         }
-        this.kvJ.setVisibility(8);
-        this.kvI.setVisibility(8);
+        this.kDP.setVisibility(8);
+        this.kDO.setVisibility(8);
     }
 }

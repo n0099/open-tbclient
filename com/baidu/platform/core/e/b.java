@@ -4,18 +4,18 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.share.LocationShareURLOption;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.platform.base.e {
     public b(LocationShareURLOption locationShareURLOption) {
         a(locationShareURLOption);
     }
 
     private void a(LocationShareURLOption locationShareURLOption) {
-        this.f4140a.a("qt", IXAdRequestInfo.CS);
+        this.f4143a.a("qt", IXAdRequestInfo.CS);
         Point ll2point = CoordUtil.ll2point(locationShareURLOption.mLocation);
-        this.f4140a.a("geo", ll2point.x + "|" + ll2point.y);
-        this.f4140a.a("t", locationShareURLOption.mName);
-        this.f4140a.a("cnt", locationShareURLOption.mSnippet);
+        this.f4143a.a("geo", ll2point.x + "|" + ll2point.y);
+        this.f4143a.a("t", locationShareURLOption.mName);
+        this.f4143a.a("cnt", locationShareURLOption.mSnippet);
         b(false);
         a(false);
     }

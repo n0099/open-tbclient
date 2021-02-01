@@ -25,11 +25,11 @@ import com.kwad.sdk.core.webview.jshandler.o;
 import com.kwad.sdk.draw.b.b.a;
 import com.kwad.sdk.utils.am;
 import com.kwad.sdk.utils.ar;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f9694b;
+    private ViewGroup f9696b;
     private WebView c;
     private i.a d;
     private AdStyleInfo.PlayDetailInfo.DetailWebCardInfo e;
@@ -56,8 +56,8 @@ public class c extends com.kwad.sdk.draw.a.a {
     private a.b m = new a.b() { // from class: com.kwad.sdk.draw.b.b.c.3
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            if (c.this.f9673a.f9674a != null) {
-                c.this.f9673a.f9674a.onAdClicked();
+            if (c.this.f9675a.f9676a != null) {
+                c.this.f9675a.f9676a.onAdClicked();
             }
         }
     };
@@ -65,7 +65,7 @@ public class c extends com.kwad.sdk.draw.a.a {
         @Override // com.kwad.sdk.core.webview.jshandler.i.b
         public void a(i.a aVar) {
             c.this.d = aVar;
-            c.this.c.setTranslationY(aVar.f9585a + aVar.d);
+            c.this.c.setTranslationY(aVar.f9587a + aVar.d);
         }
     };
     private h.a o = new h.a() { // from class: com.kwad.sdk.draw.b.b.c.5
@@ -106,10 +106,10 @@ public class c extends com.kwad.sdk.draw.a.a {
 
     private void f() {
         this.h = new com.kwad.sdk.core.webview.a();
-        this.h.f9537b = this.f9673a.c;
-        this.h.f9536a = 0;
-        this.h.c = this.f9673a.f9675b;
-        this.h.e = this.f9673a.f9675b;
+        this.h.f9539b = this.f9675a.c;
+        this.h.f9538a = 0;
+        this.h.c = this.f9675a.f9677b;
+        this.h.e = this.f9675a.f9677b;
         this.h.f = this.c;
     }
 
@@ -154,9 +154,9 @@ public class c extends com.kwad.sdk.draw.a.a {
             return;
         }
         v();
-        this.f9694b.setVisibility(8);
+        this.f9696b.setVisibility(8);
         this.c.setVisibility(0);
-        this.q = am.b(this.c, this.d.f9585a + this.d.d, 0);
+        this.q = am.b(this.c, this.d.f9587a + this.d.d, 0);
         this.q.setInterpolator(new DecelerateInterpolator(2.0f));
         this.q.setDuration(300L);
         this.q.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.draw.b.b.c.7
@@ -183,7 +183,7 @@ public class c extends com.kwad.sdk.draw.a.a {
         if (this.j != null) {
             this.j.c();
         }
-        this.f9694b.setVisibility(8);
+        this.f9696b.setVisibility(8);
         this.c.setVisibility(0);
         if (this.j != null) {
             this.j.d();
@@ -200,7 +200,7 @@ public class c extends com.kwad.sdk.draw.a.a {
             return;
         }
         v();
-        this.r = am.b(this.c, 0, this.d.f9585a + this.d.d);
+        this.r = am.b(this.c, 0, this.d.f9587a + this.d.d);
         this.r.setInterpolator(new DecelerateInterpolator(2.0f));
         this.r.setDuration(300L);
         this.r.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.draw.b.b.c.8
@@ -208,7 +208,7 @@ public class c extends com.kwad.sdk.draw.a.a {
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 c.this.c.setVisibility(4);
-                c.this.f9694b.setVisibility(0);
+                c.this.f9696b.setVisibility(0);
                 if (c.this.j != null) {
                     c.this.j.f();
                 }
@@ -233,7 +233,7 @@ public class c extends com.kwad.sdk.draw.a.a {
             this.j.e();
         }
         this.c.setVisibility(4);
-        this.f9694b.setVisibility(0);
+        this.f9696b.setVisibility(0);
         if (this.j != null) {
             this.j.f();
         }
@@ -258,10 +258,10 @@ public class c extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = com.kwad.sdk.core.response.b.b.q(this.f9673a.c).playDetailInfo.detailWebCardInfo;
-        this.f9673a.f.a(this.l);
-        this.f = this.f9673a.d;
-        this.f9673a.e.a(this.k);
+        this.e = com.kwad.sdk.core.response.b.b.q(this.f9675a.c).playDetailInfo.detailWebCardInfo;
+        this.f9675a.f.a(this.l);
+        this.f = this.f9675a.d;
+        this.f9675a.e.a(this.k);
         f();
         g();
     }
@@ -270,8 +270,8 @@ public class c extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9673a.f.a((a.b) null);
-        this.f9673a.e.b(this.k);
+        this.f9675a.f.a((a.b) null);
+        this.f9675a.e.b(this.k);
         v();
         e();
     }
@@ -280,7 +280,7 @@ public class c extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9694b = (ViewGroup) b(R.id.ksad_ad_normal_container);
+        this.f9696b = (ViewGroup) b(R.id.ksad_ad_normal_container);
         this.c = (WebView) b(R.id.ksad_play_web_card_webView);
     }
 }

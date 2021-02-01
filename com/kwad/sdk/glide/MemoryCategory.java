@@ -1,5 +1,5 @@
 package com.kwad.sdk.glide;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public enum MemoryCategory {
     LOW(0.5f),
     NORMAL(1.0f),

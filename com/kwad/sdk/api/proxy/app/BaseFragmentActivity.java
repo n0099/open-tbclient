@@ -7,11 +7,11 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyFragmentActivity;
 import com.kwad.sdk.api.proxy.IFragmentActivityProxy;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DeveloperConfigActivity extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -20,7 +20,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class EpisodeDetailActivity extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -30,7 +30,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity1 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -40,7 +40,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity10 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -50,7 +50,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity2 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -60,7 +60,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity3 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -70,7 +70,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity4 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -80,7 +80,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity5 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -90,7 +90,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity6 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -100,7 +100,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity7 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -110,7 +110,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity8 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -120,7 +120,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivity9 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -129,7 +129,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivitySingleInstance1 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -138,7 +138,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivitySingleInstance2 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -148,7 +148,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivitySingleTop1 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -158,7 +158,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FragmentActivitySingleTop2 extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -168,7 +168,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class KsTrendsActivity extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -177,7 +177,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ProfileHomeActivity extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -186,7 +186,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ProfileVideoDetailActivity extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -195,7 +195,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class TubeDetailActivity extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull
@@ -204,7 +204,7 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class TubeProfileActivity extends BaseFragmentActivity {
         @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
         @NonNull

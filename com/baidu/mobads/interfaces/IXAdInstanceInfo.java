@@ -4,13 +4,21 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdInstanceInfo {
     boolean getAPOOpen();
 
     String getAction();
 
     int getActionType();
+
+    int getAdContainerHeight();
+
+    int getAdContainerSizeType();
+
+    int getAdContainerWidth();
+
+    boolean getAdHasDisplayed();
 
     String getAdId();
 
@@ -26,7 +34,13 @@ public interface IXAdInstanceInfo {
 
     long getAppSize();
 
-    float getBtnPosition();
+    String getBannerHtmlSnippet();
+
+    List<String> getCacheExpireTrackers();
+
+    List<String> getCacheFailTrackers();
+
+    List<String> getCacheSuccTrackers();
 
     List<String> getCcardTrackers();
 
@@ -35,6 +49,8 @@ public interface IXAdInstanceInfo {
     String getClklogurl();
 
     List<String> getCloseTrackers();
+
+    int getCloseType();
 
     String getConfirmBorderPercent();
 
@@ -50,6 +66,10 @@ public interface IXAdInstanceInfo {
 
     String getExp2ForSingleAd();
 
+    int getExpiration();
+
+    int getFeedAdStyleType();
+
     List<String> getFullScreenTrackers();
 
     String getFwt();
@@ -62,6 +82,8 @@ public interface IXAdInstanceInfo {
 
     Set<String> getImpressionUrls();
 
+    String getIntHtmlSnippet();
+
     String getLocalCreativeURL();
 
     int getMainMaterialHeight();
@@ -72,6 +94,8 @@ public interface IXAdInstanceInfo {
 
     String getMaterialType();
 
+    String getMute();
+
     JSONArray getNwinurl();
 
     String getOriginClickUrl();
@@ -79,8 +103,6 @@ public interface IXAdInstanceInfo {
     JSONObject getOriginJsonObject();
 
     String getPage();
-
-    int getPattern();
 
     String getPhoneForLocalBranding();
 
@@ -161,6 +183,14 @@ public interface IXAdInstanceInfo {
 
     void setActionType(int i);
 
+    void setAdContainerHeight(int i);
+
+    void setAdContainerSizeType(int i);
+
+    void setAdContainerWidth(int i);
+
+    void setAdHasDisplayed(boolean z);
+
     void setAdId(String str);
 
     void setAdSource(String str);
@@ -177,7 +207,13 @@ public interface IXAdInstanceInfo {
 
     void setAutoOpen(boolean z);
 
-    void setBtnPosition(float f);
+    void setBannerHtmlSnippet(String str);
+
+    void setCacheExpireTrackers(List<String> list);
+
+    void setCacheFailTrackers(List<String> list);
+
+    void setCacheSuccTrackers(List<String> list);
 
     void setCanCancel(boolean z);
 
@@ -193,6 +229,8 @@ public interface IXAdInstanceInfo {
 
     void setCloseTrackers(List<String> list);
 
+    void setCloseType(int i);
+
     void setConfirmBorderPercent(String str);
 
     void setCreateTime(long j);
@@ -206,6 +244,10 @@ public interface IXAdInstanceInfo {
     void setDlTunnel(int i);
 
     void setExp2ForSingleAd(String str);
+
+    void setExpiration(int i);
+
+    void setFeedAdStyleType(int i);
 
     void setFullScreenTrackers(List<String> list);
 
@@ -225,6 +267,8 @@ public interface IXAdInstanceInfo {
 
     void setInapp(boolean z);
 
+    void setIntHtmlSnippet(String str);
+
     void setLocalCreativeURL(String str);
 
     void setMainMaterialHeight(int i);
@@ -235,13 +279,13 @@ public interface IXAdInstanceInfo {
 
     void setMaterialType(String str);
 
+    void setMute(String str);
+
     void setNwinurl(JSONArray jSONArray);
 
     void setOriginClickUrl(String str);
 
     void setPage(String str);
-
-    void setPattern(int i);
 
     void setPhoneForLocalBranding(String str);
 
@@ -295,7 +339,7 @@ public interface IXAdInstanceInfo {
 
     void setWinurl(String str);
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum CreativeType {
         NONE("none"),
         TEXT("text"),
@@ -308,20 +352,20 @@ public interface IXAdInstanceInfo {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3374a;
+        private final String f3385a;
 
         CreativeType(String str) {
-            this.f3374a = str;
+            this.f3385a = str;
         }
 
         public String getValue() {
-            return this.f3374a;
+            return this.f3385a;
         }
 
         public static CreativeType parse(String str) {
             CreativeType[] values;
             for (CreativeType creativeType : values()) {
-                if (creativeType.f3374a.equalsIgnoreCase(str)) {
+                if (creativeType.f3385a.equalsIgnoreCase(str)) {
                     return creativeType;
                 }
             }

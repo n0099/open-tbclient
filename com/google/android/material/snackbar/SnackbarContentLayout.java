@@ -11,7 +11,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
     private Button actionView;
     private int maxInlineActionWidth;

@@ -1,7 +1,7 @@
 package com.google.zxing.client.result;
 
 import com.google.zxing.Result;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class WifiResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

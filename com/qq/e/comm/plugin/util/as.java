@@ -1,21 +1,20 @@
 package com.qq.e.comm.plugin.util;
 
 import android.text.TextUtils;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.SM;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class as {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Random f12562a = new Random(System.currentTimeMillis());
+    private static final Random f12564a = new Random(System.currentTimeMillis());
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile Boolean f12563b = null;
+    private static volatile Boolean f12565b = null;
 
     public static void a() {
-        f12563b = null;
+        f12565b = null;
     }
 
     public static boolean a(int i, int i2) {
@@ -24,7 +23,7 @@ public class as {
         }
         if (i < i2) {
             String b2 = o.b();
-            if (TextUtils.isEmpty(b2) || (b2.hashCode() & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) % i2 > i) {
+            if (TextUtils.isEmpty(b2) || (b2.hashCode() & Integer.MAX_VALUE) % i2 > i) {
                 return false;
             }
         }
@@ -43,17 +42,17 @@ public class as {
         if (i <= 0 || i2 <= 0) {
             return false;
         }
-        return i >= i2 || f12562a.nextInt(i2) < i;
+        return i >= i2 || f12564a.nextInt(i2) < i;
     }
 
     public static boolean c() {
-        if (f12563b != null) {
-            return f12563b.booleanValue();
+        if (f12565b != null) {
+            return f12565b.booleanValue();
         }
         SM sm = GDTADManager.getInstance().getSM();
         if (sm != null) {
-            f12563b = Boolean.valueOf(b(sm.getInteger("collectAntiSpamInfo", 0), 10000));
-            return f12563b.booleanValue();
+            f12565b = Boolean.valueOf(b(sm.getInteger("collectAntiSpamInfo", 0), 10000));
+            return f12565b.booleanValue();
         }
         return false;
     }

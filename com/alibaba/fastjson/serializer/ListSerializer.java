@@ -4,7 +4,7 @@ import com.alibaba.fastjson.util.TypeUtils;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ListSerializer implements ObjectSerializer {
     public static final ListSerializer instance = new ListSerializer();
 

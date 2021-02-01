@@ -1,5 +1,5 @@
 package com.airbnb.lottie;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface i {
-    void c(d dVar);
+    void d(d dVar);
 }

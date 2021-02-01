@@ -3,7 +3,7 @@ package androidx.core.graphics;
 import android.graphics.Bitmap;
 import android.os.Build;
 import androidx.annotation.NonNull;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class BitmapCompat {
     public static boolean hasMipMap(@NonNull Bitmap bitmap) {
         if (Build.VERSION.SDK_INT >= 18) {

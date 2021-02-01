@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class f {
     @CheckReturnValue
     public static boolean equal(@Nullable Object obj, @Nullable Object obj2) {
@@ -27,74 +27,74 @@ public final class f {
         return replaceAll.substring(lastIndexOf + 1);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         private final String className;
-        private C1037a poB;
-        private C1037a poC;
-        private boolean poD;
+        private C1041a pyM;
+        private C1041a pyN;
+        private boolean pyO;
 
         private a(String str) {
-            this.poB = new C1037a();
-            this.poC = this.poB;
-            this.poD = false;
+            this.pyM = new C1041a();
+            this.pyN = this.pyM;
+            this.pyO = false;
             this.className = (String) g.checkNotNull(str);
         }
 
-        public a I(String str, @Nullable Object obj) {
-            return J(str, obj);
+        public a H(String str, @Nullable Object obj) {
+            return I(str, obj);
         }
 
         public a bo(String str, boolean z) {
-            return J(str, String.valueOf(z));
+            return I(str, String.valueOf(z));
         }
 
-        public a ck(String str, int i) {
-            return J(str, String.valueOf(i));
+        public a cl(String str, int i) {
+            return I(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.poD;
+            boolean z = this.pyO;
             String str = "";
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
-            for (C1037a c1037a = this.poB.poE; c1037a != null; c1037a = c1037a.poE) {
-                if (!z || c1037a.value != null) {
+            for (C1041a c1041a = this.pyM.pyP; c1041a != null; c1041a = c1041a.pyP) {
+                if (!z || c1041a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c1037a.name != null) {
-                        append.append(c1037a.name).append('=');
+                    if (c1041a.name != null) {
+                        append.append(c1041a.name).append('=');
                     }
-                    append.append(c1037a.value);
+                    append.append(c1041a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C1037a eqe() {
-            C1037a c1037a = new C1037a();
-            this.poC.poE = c1037a;
-            this.poC = c1037a;
-            return c1037a;
+        private C1041a esx() {
+            C1041a c1041a = new C1041a();
+            this.pyN.pyP = c1041a;
+            this.pyN = c1041a;
+            return c1041a;
         }
 
-        private a J(String str, @Nullable Object obj) {
-            C1037a eqe = eqe();
-            eqe.value = obj;
-            eqe.name = (String) g.checkNotNull(str);
+        private a I(String str, @Nullable Object obj) {
+            C1041a esx = esx();
+            esx.value = obj;
+            esx.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes14.dex */
-        public static final class C1037a {
+        /* loaded from: classes6.dex */
+        public static final class C1041a {
             @Nullable
             String name;
-            C1037a poE;
+            C1041a pyP;
             @Nullable
             Object value;
 
-            private C1037a() {
+            private C1041a() {
             }
         }
     }

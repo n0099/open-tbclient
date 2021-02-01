@@ -2,19 +2,19 @@ package com.google.ar.core;
 
 import com.google.ar.core.ArCoreApk;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 class m implements ArCoreApk.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtomicReference f7861a;
+    final /* synthetic */ AtomicReference f7863a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(AtomicReference atomicReference) {
-        this.f7861a = atomicReference;
+        this.f7863a = atomicReference;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        this.f7861a.set(availability);
+        this.f7863a.set(availability);
     }
 }

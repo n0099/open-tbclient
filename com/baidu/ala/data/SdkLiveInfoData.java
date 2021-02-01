@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.AlaChallengeInfoData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SdkLiveInfoData {
     public static final int TYPE_CHUSHOU_GAME_LIVE = 1;
     public static final int TYPE_TIEBA_GAME_LIVE = 2;
@@ -70,7 +70,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class LiveAuthor {
         public int gender;
         public String name;
@@ -93,7 +93,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class AlaLiveInfo {
         public long audienceCount;
         public AlaChallengeInfoData challengeInfoData;
@@ -126,7 +126,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class UiTransParam {
         public String abTag;
         public String extra;

@@ -1,24 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 /* loaded from: classes.dex */
 public class l {
     private static String preloadId;
-    public static l jah = null;
-    private static bz ale = null;
+    public static l jfN = null;
+    private static cb akU = null;
 
-    public static synchronized void an(bz bzVar) {
+    public static synchronized void ao(cb cbVar) {
         synchronized (l.class) {
-            preloadId = bzVar.tid;
-            ale = bzVar;
+            preloadId = cbVar.tid;
+            akU = cbVar;
         }
     }
 
-    public static bz cAW() {
-        return ale;
+    public static cb cCi() {
+        return akU;
     }
 
-    public static String cAX() {
+    public static String cCj() {
         return preloadId;
     }
 }

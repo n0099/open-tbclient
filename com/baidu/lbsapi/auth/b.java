@@ -16,11 +16,11 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -89,7 +89,7 @@ class b {
         String[] strArr = new String[b2.length];
         for (int i = 0; i < strArr.length; i++) {
             strArr[i] = b2[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
-            if (com.baidu.lbsapi.auth.a.f2483a) {
+            if (com.baidu.lbsapi.auth.a.f2481a) {
                 com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
             }
         }
@@ -169,7 +169,7 @@ class b {
                 str = "";
             }
         }
-        if (com.baidu.lbsapi.auth.a.f2483a) {
+        if (com.baidu.lbsapi.auth.a.f2481a) {
             com.baidu.lbsapi.auth.a.a("getMacID mac_adress: " + str);
         }
         return str;
@@ -177,7 +177,7 @@ class b {
 
     private static boolean c(Context context, String str) {
         boolean z = context.checkCallingOrSelfPermission(str) != -1;
-        if (com.baidu.lbsapi.auth.a.f2483a) {
+        if (com.baidu.lbsapi.auth.a.f2481a) {
             com.baidu.lbsapi.auth.a.a("hasPermission " + z + " | " + str);
         }
         return z;
@@ -187,7 +187,7 @@ class b {
         String str;
         try {
             if (!c(context, "android.permission.ACCESS_WIFI_STATE")) {
-                if (com.baidu.lbsapi.auth.a.f2483a) {
+                if (com.baidu.lbsapi.auth.a.f2481a) {
                     com.baidu.lbsapi.auth.a.a("You need the android.Manifest.permission.ACCESS_WIFI_STATE permission. Open AndroidManifest.xml and just before the final </manifest> tag add:android.permission.ACCESS_WIFI_STATE");
                 }
                 return null;
@@ -198,14 +198,14 @@ class b {
                 if (!TextUtils.isEmpty(str)) {
                     Base64.encode(str.getBytes(), 0);
                 }
-                if (com.baidu.lbsapi.auth.a.f2483a) {
+                if (com.baidu.lbsapi.auth.a.f2481a) {
                     com.baidu.lbsapi.auth.a.a(String.format("ssid=%s mac=%s", connectionInfo.getSSID(), connectionInfo.getMacAddress()));
                     return str;
                 }
                 return str;
             } catch (Exception e) {
                 e = e;
-                if (com.baidu.lbsapi.auth.a.f2483a) {
+                if (com.baidu.lbsapi.auth.a.f2481a) {
                     com.baidu.lbsapi.auth.a.a(e.toString());
                     return str;
                 }

@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.j.e;
 import com.bytedance.sdk.openadsdk.j.i;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    List<i.b> f7258a;
+    List<i.b> f7260a;
 
     /* renamed from: b  reason: collision with root package name */
-    f f7259b;
+    f f7261b;
 
     public abstract int a();
 
@@ -27,7 +27,7 @@ public abstract class a {
     public abstract String f();
 
     public f g() {
-        return this.f7259b;
+        return this.f7261b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,9 +35,9 @@ public abstract class a {
         if (str == null) {
             return null;
         }
-        if (this.f7258a != null && this.f7258a.size() > 0) {
-            for (i.b bVar : this.f7258a) {
-                if (str.equals(bVar.f7301a)) {
+        if (this.f7260a != null && this.f7260a.size() > 0) {
+            for (i.b bVar : this.f7260a) {
+                if (str.equals(bVar.f7303a)) {
                     return bVar;
                 }
             }

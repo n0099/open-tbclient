@@ -8,7 +8,7 @@ import java.util.Date;
 public class dj extends di.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f13943a;
+    final /* synthetic */ int f13945a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ di f293a;
@@ -26,7 +26,7 @@ public class dj extends di.b {
     final /* synthetic */ boolean f297a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f13944b;
+    final /* synthetic */ String f13946b;
 
     /* renamed from: b  reason: collision with other field name */
     final /* synthetic */ Date f298b;
@@ -36,11 +36,11 @@ public class dj extends di.b {
     public dj(di diVar, int i, Date date, Date date2, String str, String str2, boolean z) {
         super();
         this.f293a = diVar;
-        this.f13943a = i;
+        this.f13945a = i;
         this.f296a = date;
         this.f298b = date2;
         this.f295a = str;
-        this.f13944b = str2;
+        this.f13946b = str2;
         this.f297a = z;
     }
 
@@ -52,7 +52,7 @@ public class dj extends di.b {
                 file.mkdirs();
                 if (file.isDirectory()) {
                     dh dhVar = new dh();
-                    dhVar.a(this.f13943a);
+                    dhVar.a(this.f13945a);
                     this.f294a = dhVar.a(this.f293a.f286a, this.f296a, this.f298b, file);
                 }
             } catch (NullPointerException e) {
@@ -64,7 +64,7 @@ public class dj extends di.b {
     /* renamed from: c */
     public void mo255c() {
         if (this.f294a != null && this.f294a.exists()) {
-            this.f293a.f287a.add(new di.c(this.f295a, this.f13944b, this.f294a, this.f297a));
+            this.f293a.f287a.add(new di.c(this.f295a, this.f13946b, this.f294a, this.f297a));
         }
         this.f293a.a(0L);
     }

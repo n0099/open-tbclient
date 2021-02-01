@@ -5,7 +5,7 @@ import android.util.JsonReader;
 import com.baidu.live.lottie.model.content.PolystarShape;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class z {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PolystarShape t(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {

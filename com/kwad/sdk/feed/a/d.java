@@ -11,7 +11,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
     private SceneImpl c;
 
@@ -23,10 +23,10 @@ public class d extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
     protected i<g, AdResultData> a() {
         final h.a aVar = new h.a();
         f fVar = new f(this.c);
-        fVar.f9166b = this.c.getPageScene();
+        fVar.f9168b = this.c.getPageScene();
         fVar.c = 100L;
-        aVar.f9261a.add(fVar);
-        aVar.f9262b = new com.kwad.sdk.core.g.a.c();
+        aVar.f9263a.add(fVar);
+        aVar.f9264b = new com.kwad.sdk.core.g.a.c();
         return new i<g, AdResultData>() { // from class: com.kwad.sdk.feed.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

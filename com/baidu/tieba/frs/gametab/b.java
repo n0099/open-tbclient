@@ -12,36 +12,36 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private boolean fKX = false;
-    private a.InterfaceC0710a izu = new a.InterfaceC0710a() { // from class: com.baidu.tieba.frs.gametab.b.1
+    private boolean fNj = false;
+    private a.InterfaceC0710a iFe = new a.InterfaceC0710a() { // from class: com.baidu.tieba.frs.gametab.b.1
         @Override // com.baidu.tieba.f.a.InterfaceC0710a
         public void G(int i, int i2) {
-            if (aA(i2)) {
-                b.this.qH(true);
+            if (aD(i2)) {
+                b.this.qR(true);
             }
         }
 
         @Override // com.baidu.tieba.f.a.InterfaceC0710a
         public void H(int i, int i2) {
-            if (aA(i2)) {
-                b.this.qH(false);
+            if (aD(i2)) {
+                b.this.qR(false);
             }
         }
 
         @Override // com.baidu.tieba.f.a.InterfaceC0710a
-        public void cj(int i, int i2) {
+        public void cg(int i, int i2) {
         }
 
         @Override // com.baidu.tieba.f.a.InterfaceC0710a
         public void I(int i, int i2) {
         }
 
-        private boolean aA(float f) {
+        private boolean aD(float f) {
             return Math.abs(f) >= 10.0f;
         }
     };
-    private com.baidu.tieba.f.b jfv;
-    private boolean jwm;
+    private boolean jBS;
+    private com.baidu.tieba.f.b jlc;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
@@ -49,10 +49,10 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.jwm = z;
-        if (this.jwm) {
-            this.jfv = new com.baidu.tieba.f.b(context);
-            this.jfv.a(this.izu);
+        this.jBS = z;
+        if (this.jBS) {
+            this.jlc = new com.baidu.tieba.f.b(context);
+            this.jlc.a(this.iFe);
         }
     }
 
@@ -69,15 +69,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.jwm = false;
+                    this.jBS = false;
                     break;
                 } else {
-                    this.jwm = true;
+                    this.jBS = true;
                     break;
                 }
         }
-        if (this.jwm && this.jfv != null) {
-            this.jfv.onTouchEvent(motionEvent);
+        if (this.jBS && this.jlc != null) {
+            this.jlc.onTouchEvent(motionEvent);
         }
     }
 
@@ -90,10 +90,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qH(boolean z) {
-        this.fKX = z;
-        if (this.jwm) {
-            L(!this.fKX, true);
+    public void qR(boolean z) {
+        this.fNj = z;
+        if (this.jBS) {
+            L(!this.fNj, true);
         }
     }
 

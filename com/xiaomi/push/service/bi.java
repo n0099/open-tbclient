@@ -22,15 +22,15 @@ public class bi {
     private static SimpleDateFormat f973a = new SimpleDateFormat("yyyy/MM/dd");
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f14274a = f973a.format(Long.valueOf(System.currentTimeMillis()));
+    private static String f14276a = f973a.format(Long.valueOf(System.currentTimeMillis()));
 
     public static synchronized String a() {
         String str;
         synchronized (bi.class) {
             String format = f973a.format(Long.valueOf(System.currentTimeMillis()));
-            if (!TextUtils.equals(f14274a, format)) {
+            if (!TextUtils.equals(f14276a, format)) {
                 f974a.set(0L);
-                f14274a = format;
+                f14276a = format;
             }
             str = format + Constants.ACCEPT_TIME_SEPARATOR_SERVER + f974a.incrementAndGet();
         }

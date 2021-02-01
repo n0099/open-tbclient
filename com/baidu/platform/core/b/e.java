@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e extends com.baidu.platform.base.d {
     private PoiInfo.ParentPoiInfo a(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() == 0) {

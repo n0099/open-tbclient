@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static PendingIntent a(DownloadTask downloadTask) {
         File file = new File(downloadTask.getTargetFilePath());

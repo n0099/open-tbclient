@@ -5,18 +5,18 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f9179a = false;
+    private static boolean f9181a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f9180b = false;
+    private static volatile boolean f9182b = false;
     private static Context c;
     private static a d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -24,7 +24,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
         b() {
         }
@@ -35,9 +35,9 @@ public class d {
             if (d.d != null) {
                 d.d.a();
             }
-            if (!d.f9179a) {
+            if (!d.f9181a) {
                 com.kwad.sdk.core.report.e.a(d.c);
-                boolean unused = d.f9179a = true;
+                boolean unused = d.f9181a = true;
             }
             d.a();
         }
@@ -104,9 +104,9 @@ public class d {
 
     public static synchronized void a(Context context, a aVar) {
         synchronized (d.class) {
-            if (!f9180b) {
+            if (!f9182b) {
                 c = context;
-                f9180b = true;
+                f9182b = true;
             }
             d = aVar;
             com.kwad.sdk.utils.f.a(new b());

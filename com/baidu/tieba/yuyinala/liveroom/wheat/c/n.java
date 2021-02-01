@@ -1,128 +1,50 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.live.adp.base.BdPageContext;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes10.dex */
+import com.baidu.live.tbadk.core.dialog.BdToast;
+/* loaded from: classes11.dex */
 public class n {
-    private FrameLayout iMU;
-    private View mView;
+    private static n oGG;
 
-    public void a(FrameLayout frameLayout, TextView textView, String str, BdPageContext bdPageContext) {
-        JSONObject optJSONObject;
-        if (o.ebo().eaE() || o.ebo().id(o.ebo().Wz())) {
-            if (!TextUtils.isEmpty(str)) {
-                if (TextUtils.equals("hide_dot", str)) {
-                    hide();
-                    textView.setText("");
-                    textView.setVisibility(8);
-                    return;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    String optString = jSONObject.optString("user_name");
-                    String optString2 = jSONObject.optString("room_id");
-                    if (com.baidu.live.aq.a.Wu().WA() != null && com.baidu.live.aq.a.Wu().WA().aGy != null && TextUtils.equals(optString2, com.baidu.live.aq.a.Wu().WA().aGy.aQH) && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                        String optString3 = optJSONObject.optString("msg");
-                        int optInt = optJSONObject.optInt("count");
-                        if (optInt > 0) {
-                            int i = optInt <= 9 ? optInt : 9;
-                            textView.setVisibility(0);
-                            textView.setText(Integer.toString(i));
-                        } else {
-                            textView.setText("");
-                            textView.setVisibility(8);
-                        }
-                        if (TextUtils.equals("audio_link_apply_toast", jSONObject.optString("content_type"))) {
-                            a(optString + " " + optString3, 0L, 5000, bdPageContext, frameLayout);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return;
-                }
-            }
-            return;
+    public static n edx() {
+        if (oGG == null) {
+            oGG = new n();
         }
-        hide();
-        textView.setText("");
-        textView.setVisibility(8);
+        return oGG;
     }
 
-    private void a(String str, long j, int i, final BdPageContext bdPageContext, final FrameLayout frameLayout) {
-        if (bdPageContext != null && bdPageContext.getPageActivity() != null && frameLayout != null) {
-            hide();
-            this.mView = bdPageContext.getPageActivity().getLayoutInflater().inflate(a.g.toast_gift_guide, (ViewGroup) null);
-            TextView textView = (TextView) this.mView.findViewById(a.f.textView);
-            ImageView imageView = (ImageView) this.mView.findViewById(a.f.arrow_imageView);
-            textView.setText(str);
-            if (TbadkCoreApplication.getInst().isHaokan()) {
-                textView.setBackgroundResource(a.e.bg_guide_gift_toast_hk);
-                imageView.setImageResource(a.e.bg_guide_gift_toast_arrow_hk);
-            } else {
-                textView.setBackgroundResource(a.e.bg_guide_gift_toast_qm);
-                imageView.setImageResource(a.e.bg_guide_gift_toast_arrow_qm);
+    public void Mv(int i) {
+        q.edE().Af(false);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, true));
+        if (i == 4) {
+            edy();
+            if (!q.edE().Yk()) {
+                f.edj().edl().edk();
             }
-            this.iMU = (FrameLayout) bdPageContext.getPageActivity().getWindow().getDecorView();
-            if (this.iMU != null) {
-                this.iMU.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Activity pageActivity;
-                        if (n.this.iMU != null && (pageActivity = bdPageContext.getPageActivity()) != null && !pageActivity.isFinishing()) {
-                            FrameLayout frameLayout2 = frameLayout;
-                            int[] iArr = new int[2];
-                            frameLayout2.getLocationOnScreen(iArr);
-                            int dimensionPixelSize = ((BdUtilHelper.getScreenSize(pageActivity).widthPixels - iArr[0]) - pageActivity.getResources().getDimensionPixelSize(a.d.sdk_ds44)) - (frameLayout2.getWidth() / 2);
-                            n.this.mView.measure(0, 0);
-                            int measuredHeight = (iArr[1] - n.this.mView.getMeasuredHeight()) - pageActivity.getResources().getDimensionPixelSize(a.d.sdk_ds8);
-                            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                            layoutParams.rightMargin = dimensionPixelSize;
-                            layoutParams.topMargin = measuredHeight;
-                            layoutParams.gravity = 5;
-                            ViewGroup viewGroup = (ViewGroup) n.this.mView.getParent();
-                            if (viewGroup != null) {
-                                viewGroup.removeView(n.this.mView);
-                            }
-                            n.this.iMU.addView(n.this.mView, layoutParams);
-                        }
-                    }
-                }, j);
-                this.iMU.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.2
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        if (n.this.iMU != null) {
-                            n.this.iMU.removeView(n.this.mView);
-                        }
-                    }
-                }, i + j);
+        } else if (i == 2) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("auth_success_host_2", true);
+            q.edE().Ah(true);
+            edy();
+            if (q.edE().ebC()) {
+                f.edj().edl().edk();
             }
-            this.mView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.n.3
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    n.this.hide();
-                }
-            });
+        } else if (i == 5) {
+            edy();
+            if (!q.edE().Yk()) {
+                f.edj().edl().edk();
+            }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void hide() {
-        if (this.iMU != null && this.mView != null) {
-            this.iMU.removeView(this.mView);
+    private void edy() {
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.e.a.hj(TbadkCoreApplication.getInst())) {
+            BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_apply_succ_1_text)).show();
+        } else {
+            BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_apply_succ_2_text)).show();
         }
     }
 }

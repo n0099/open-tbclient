@@ -3,32 +3,32 @@ package com.baidu.tieba.personCenter.c;
 import tbclient.SmartApp;
 /* loaded from: classes2.dex */
 public class m implements c {
-    private String OX;
-    private String eMY;
+    private String OV;
+    private String aGR;
+    private String ePk;
     private String mAppKey;
     private String mLink;
     private String mName;
     private int mType;
-    private Long mlj;
-    private String mlk;
-    private String mll;
-    private Integer mlm;
+    private Long mul;
+    private String mum;
+    private Integer mun;
 
     public m(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.mlj = smartApp.swan_app_id;
+            this.mul = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
-            this.eMY = smartApp.avatar;
+            this.ePk = smartApp.avatar;
             this.mName = smartApp.name;
-            this.OX = smartApp._abstract;
-            this.mlk = smartApp.pic;
-            this.mll = smartApp.h5_url;
+            this.OV = smartApp._abstract;
+            this.mum = smartApp.pic;
+            this.aGR = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.mlm = smartApp.is_game;
+            this.mun = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long duy() {
-        return this.mlj;
+    public Long dwH() {
+        return this.mul;
     }
 
     public String getAppKey() {
@@ -46,7 +46,7 @@ public class m implements c {
     }
 
     public String getAvatar() {
-        return this.eMY;
+        return this.ePk;
     }
 
     public String getName() {
@@ -54,14 +54,14 @@ public class m implements c {
     }
 
     public String getH5Url() {
-        return this.mll;
+        return this.aGR;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer duz() {
-        return this.mlm;
+    public Integer dwI() {
+        return this.mun;
     }
 }

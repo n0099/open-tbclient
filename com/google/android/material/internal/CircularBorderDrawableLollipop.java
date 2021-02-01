@@ -5,7 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 @RequiresApi(21)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class CircularBorderDrawableLollipop extends CircularBorderDrawable {
     @Override // android.graphics.drawable.Drawable
     public void getOutline(Outline outline) {

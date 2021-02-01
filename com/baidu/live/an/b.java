@@ -1,11 +1,7 @@
 package com.baidu.live.an;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    boolean TU();
+    void onDismiss();
 
-    void TV();
-
-    void TW();
-
-    void TX();
+    void onShow();
 }

@@ -7,15 +7,15 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
     public static final String TYPE = "odaf";
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1298a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_5 = null;
     private byte allBits;
     private int initVectorLength;
     private int keyIndicatorLength;
@@ -60,12 +60,12 @@ public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
     }
 
     public void setInitVectorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Sb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Sw(i)));
         this.initVectorLength = i;
     }
 
     public void setKeyIndicatorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Sb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Sw(i)));
         this.keyIndicatorLength = i;
     }
 

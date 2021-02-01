@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class QuanminGiftLogger implements IGiftLogger {
     @Override // com.baidu.live.tbadk.log.IGiftLogger
     public void doDisplayGiftTabLog(String str, String str2, String str3) {

@@ -4,14 +4,14 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.platform.core.e.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ShareUrlSearch extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f2936b = false;
+    private boolean f2934b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.platform.core.e.a f2935a = new h();
+    com.baidu.platform.core.e.a f2933a = new h();
 
     ShareUrlSearch() {
     }
@@ -31,36 +31,36 @@ public class ShareUrlSearch extends l {
     }
 
     public void destroy() {
-        if (this.f2936b) {
+        if (this.f2934b) {
             return;
         }
-        this.f2936b = true;
-        this.f2935a.a();
+        this.f2934b = true;
+        this.f2933a.a();
         BMapManager.destroy();
     }
 
     public boolean requestLocationShareUrl(LocationShareURLOption locationShareURLOption) {
-        if (this.f2935a == null) {
+        if (this.f2933a == null) {
             throw new IllegalStateException("searcher has been destroyed");
         }
         if (locationShareURLOption == null || locationShareURLOption.mLocation == null || locationShareURLOption.mName == null || locationShareURLOption.mSnippet == null) {
             throw new IllegalArgumentException("option or name or snippet  can not be null");
         }
-        return this.f2935a.a(locationShareURLOption);
+        return this.f2933a.a(locationShareURLOption);
     }
 
     public boolean requestPoiDetailShareUrl(PoiDetailShareURLOption poiDetailShareURLOption) {
-        if (this.f2935a == null) {
+        if (this.f2933a == null) {
             throw new IllegalStateException("searcher has been destroyed");
         }
         if (poiDetailShareURLOption == null || poiDetailShareURLOption.mUid == null) {
             throw new IllegalArgumentException("option or uid can not be null");
         }
-        return this.f2935a.a(poiDetailShareURLOption);
+        return this.f2933a.a(poiDetailShareURLOption);
     }
 
     public boolean requestRouteShareUrl(RouteShareURLOption routeShareURLOption) {
-        if (this.f2935a == null) {
+        if (this.f2933a == null) {
             throw new IllegalStateException("searcher has been destroyed");
         }
         if (routeShareURLOption == null) {
@@ -83,16 +83,16 @@ public class ShareUrlSearch extends l {
                 throw new IllegalArgumentException("end cityCode must be set if not set end location");
             }
         }
-        return this.f2935a.a(routeShareURLOption);
+        return this.f2933a.a(routeShareURLOption);
     }
 
     public void setOnGetShareUrlResultListener(OnGetShareUrlResultListener onGetShareUrlResultListener) {
-        if (this.f2935a == null) {
+        if (this.f2933a == null) {
             throw new IllegalStateException("searcher has been destroyed");
         }
         if (onGetShareUrlResultListener == null) {
             throw new IllegalArgumentException("listener can not be null");
         }
-        this.f2935a.a(onGetShareUrlResultListener);
+        this.f2933a.a(onGetShareUrlResultListener);
     }
 }

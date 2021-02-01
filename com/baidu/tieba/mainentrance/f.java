@@ -6,7 +6,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -18,15 +18,15 @@ public class f implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        l<String> dL = com.baidu.tbadk.core.c.a.bpZ().dL("tb.searchperson_history", currentAccount);
+        l<String> dF = com.baidu.tbadk.core.c.a.bqr().dF("tb.searchperson_history", currentAccount);
         if (requestSearchPersonHistoryWriteMessage.isClear()) {
-            BdCacheService.lx().a(dL);
+            BdCacheService.lw().a(dF);
         } else {
             Object data = requestSearchPersonHistoryWriteMessage.getData();
             if (data == null || !(data instanceof String)) {
                 return null;
             }
-            dL.setForever((String) data, null);
+            dF.setForever((String) data, null);
         }
         return new ResponseSearchPersonHistoryWriteMessage();
     }

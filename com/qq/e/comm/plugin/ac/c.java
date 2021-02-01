@@ -6,27 +6,27 @@ import android.content.DialogInterface;
 import android.os.Build;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.qq.e.comm.plugin.util.w;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f11835a;
+    private Activity f11837a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11836b;
+    private String f11838b;
     private com.qq.e.comm.plugin.c.a.b c;
     private AlertDialog d;
 
     public c(Activity activity, String str, com.qq.e.comm.plugin.c.a.b bVar) {
-        this.f11835a = activity;
-        this.f11836b = str;
+        this.f11837a = activity;
+        this.f11838b = str;
         this.c = bVar;
         c();
     }
 
     private void c() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f11835a, Build.VERSION.SDK_INT >= 21 ? 16974394 : 0);
-        builder.setMessage(String.format("前往“%s”了解更多", this.f11836b == null ? "APP" : this.f11836b)).setCancelable(false).setPositiveButton("前往", new DialogInterface.OnClickListener() { // from class: com.qq.e.comm.plugin.ac.c.3
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f11837a, Build.VERSION.SDK_INT >= 21 ? 16974394 : 0);
+        builder.setMessage(String.format("前往“%s”了解更多", this.f11838b == null ? "APP" : this.f11838b)).setCancelable(false).setPositiveButton("前往", new DialogInterface.OnClickListener() { // from class: com.qq.e.comm.plugin.ac.c.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 c.this.d.setOnDismissListener(null);
@@ -58,7 +58,7 @@ public class c {
             @Override // java.lang.Runnable
             public void run() {
                 c.this.b();
-                if (c.this.d == null || c.this.f11835a.isFinishing()) {
+                if (c.this.d == null || c.this.f11837a.isFinishing()) {
                     return;
                 }
                 c.this.d.show();

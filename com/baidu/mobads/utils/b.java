@@ -1,92 +1,57 @@
 package com.baidu.mobads.utils;
 
-import android.content.Context;
 import android.text.TextUtils;
-import dalvik.system.DexClassLoader;
-import java.io.File;
-import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
+import android.util.Base64;
+import com.baidu.android.common.security.RSAUtil;
+import java.io.ByteArrayOutputStream;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+/* loaded from: classes5.dex */
 public class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static Context f3490a;
-    private static File e;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f3491b = null;
-    private static String c = "galaxy_sdk_dex.jar";
-    private static String d = null;
-    private static DexClassLoader f = null;
-
-    public static String a(Context context) {
-        Class b2 = b(context);
-        if (b2 != null) {
-            try {
-                Method declaredMethod = b2.getDeclaredMethod("getCUID", Context.class);
-                declaredMethod.setAccessible(true);
-                String str = (String) declaredMethod.invoke(null, context.getApplicationContext());
-                if (TextUtils.isEmpty(str)) {
-                    return "null";
-                }
-                return str;
-            } catch (Exception e2) {
-                return "null";
-            }
+    public static String a(String str, String str2) {
+        byte[] doFinal;
+        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
+            return "";
         }
-        return "null";
-    }
-
-    private static Class b(Context context) {
-        Class cls = null;
         try {
-            return Class.forName("com.baidu.android.common.util.CommonParam");
-        } catch (Exception e2) {
-            if (0 != 0) {
-                return null;
-            }
-            try {
-                if (f != null) {
-                    cls = f.loadClass("com.baidu.android.common.util.CommonParam");
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1PADDING");
+            RSAPublicKey rSAPublicKey = (RSAPublicKey) a(str);
+            cipher.init(1, rSAPublicKey);
+            byte[] bytes = str2.getBytes("UTF-8");
+            int bitLength = rSAPublicKey.getModulus().bitLength() / 8;
+            int length = bytes.length;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            int i = 0;
+            int i2 = 0;
+            while (length - i2 > 0) {
+                if (length - i2 > bitLength) {
+                    doFinal = cipher.doFinal(bytes, i2, bitLength);
                 } else {
-                    c(context);
-                    a();
-                    if (f != null) {
-                        cls = f.loadClass("com.baidu.android.common.util.CommonParam");
-                    }
+                    doFinal = cipher.doFinal(bytes, i2, length - i2);
                 }
-                return cls;
-            } catch (Exception e3) {
-                e3.printStackTrace();
-                return cls;
+                byteArrayOutputStream.write(doFinal, 0, doFinal.length);
+                int i3 = i + 1;
+                i = i3;
+                i2 = i3 * bitLength;
             }
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.close();
+            return Base64.encodeToString(byteArray, 8);
+        } catch (Throwable th) {
+            q.a().d(th);
+            return "";
         }
     }
 
-    private static void c(Context context) {
-        f3490a = context.getApplicationContext();
-        d = f3490a.getFilesDir().getAbsolutePath();
-        d(context);
-        e = new File(f3491b + c);
-    }
-
-    private static void d(Context context) {
-        if (TextUtils.isEmpty(f3491b)) {
-            f3491b = f3490a.getDir("baidu_ad_sdk", 0).getAbsolutePath() + "/";
-        }
-    }
-
-    private static void a() {
+    private static PublicKey a(String str) {
         try {
-            synchronized (b.class) {
-                String absolutePath = e.getAbsolutePath();
-                if (new File(absolutePath).exists()) {
-                    f = new DexClassLoader(absolutePath, d, null, f3490a.getClass().getClassLoader());
-                } else {
-                    f = null;
-                }
-            }
-        } catch (Exception e2) {
-            f = null;
+            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+        } catch (Throwable th) {
+            q.a().d(th);
+            return null;
         }
     }
 }

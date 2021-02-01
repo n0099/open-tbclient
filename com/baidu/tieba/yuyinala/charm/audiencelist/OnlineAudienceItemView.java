@@ -14,13 +14,13 @@ import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.utils.m;
 import com.baidu.live.view.YuyinALALevelView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class OnlineAudienceItemView extends LinearLayout {
-    public TextView aBZ;
-    public HeadImageView gMN;
-    public TbImageView gMO;
-    public TextView gMQ;
-    public YuyinALALevelView ofB;
+    public TextView aDM;
+    public HeadImageView gPt;
+    public TbImageView gPu;
+    public TextView gPw;
+    public YuyinALALevelView opu;
 
     public OnlineAudienceItemView(Context context) {
         this(context, null);
@@ -33,55 +33,55 @@ public class OnlineAudienceItemView extends LinearLayout {
 
     public void setData(int i, String str, String str2, long j, String str3, int i2) {
         if (i >= 1 && i <= 3 && j > 0) {
-            this.gMO.setVisibility(0);
+            this.gPu.setVisibility(0);
         } else {
-            this.gMO.setVisibility(8);
+            this.gPu.setVisibility(8);
         }
-        m.a(this.gMN, str2, true, false);
+        m.a(this.gPt, str2, true, false);
         if (i2 == 7) {
-            this.gMO.setVisibility(0);
-            this.gMO.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
+            this.gPu.setVisibility(0);
+            this.gPu.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
         } else if (i2 == 6) {
-            this.gMO.setVisibility(0);
-            this.gMO.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
+            this.gPu.setVisibility(0);
+            this.gPu.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
         } else if (i2 == 5) {
-            this.gMO.setVisibility(0);
-            this.gMO.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
+            this.gPu.setVisibility(0);
+            this.gPu.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
         } else if (i2 == 4) {
-            this.gMO.setVisibility(0);
-            this.gMO.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
+            this.gPu.setVisibility(0);
+            this.gPu.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
         } else {
-            this.gMO.setVisibility(8);
+            this.gPu.setVisibility(8);
         }
-        this.aBZ.setText(str);
+        this.aDM.setText(str);
         if (j > 0) {
-            this.gMQ.setText(str3 + "魅力");
+            this.gPw.setText(str3 + "魅力");
         } else {
-            this.gMQ.setText("");
+            this.gPw.setText("");
         }
-        this.aBZ.setMaxWidth(ScreenHelper.getScreenWidth(getContext()) - BdUtilHelper.dip2px(getContext(), 230.0f));
+        this.aDM.setMaxWidth(ScreenHelper.getScreenWidth(getContext()) - BdUtilHelper.dip2px(getContext(), 230.0f));
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_online_audience_list_item, (ViewGroup) this, true);
         setOrientation(0);
-        EO();
+        Ge();
         initView();
     }
 
-    private void EO() {
-        this.gMN = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.gMO = (TbImageView) findViewById(a.f.iv_pendant);
-        this.ofB = (YuyinALALevelView) findViewById(a.f.level);
-        this.aBZ = (TextView) findViewById(a.f.tv_name);
-        this.gMQ = (TextView) findViewById(a.f.tv_value);
+    private void Ge() {
+        this.gPt = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.gPu = (TbImageView) findViewById(a.f.iv_pendant);
+        this.opu = (YuyinALALevelView) findViewById(a.f.level);
+        this.aDM = (TextView) findViewById(a.f.tv_name);
+        this.gPw = (TextView) findViewById(a.f.tv_value);
     }
 
     private void initView() {
-        this.gMN.setAutoChangeStyle(false);
-        this.gMN.setDrawBorder(false);
-        this.gMN.setIsRound(true);
-        this.gMO.setDefaultBgResource(a.c.sdk_transparent);
-        this.gMO.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.gPt.setAutoChangeStyle(false);
+        this.gPt.setDrawBorder(false);
+        this.gPt.setIsRound(true);
+        this.gPu.setDefaultBgResource(a.c.sdk_transparent);
+        this.gPu.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 }

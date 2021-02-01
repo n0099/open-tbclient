@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.qq.e.comm.plugin.util.az;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class n {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Intent a(Context context, c cVar) {

@@ -4,7 +4,7 @@ import com.baidu.ar.gesture.GestureAR;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SdkMiddleStrategyInfo {
     public DisplayStrategy displayStrategy;
     public int score;
@@ -28,7 +28,7 @@ public class SdkMiddleStrategyInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class DisplayStrategy {
         public String attention;
         public int imageNum;
@@ -46,7 +46,7 @@ public class SdkMiddleStrategyInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class StrategyExtra {
         public int click;
         public String ctr_fea;

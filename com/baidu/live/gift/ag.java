@@ -1,13 +1,13 @@
 package com.baidu.live.gift;
 
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ag {
-    View Ej();
+    View Fz();
 
-    void bx(boolean z);
+    void bC(boolean z);
 
-    void by(boolean z);
+    void bD(boolean z);
 
     void onDestroy();
 

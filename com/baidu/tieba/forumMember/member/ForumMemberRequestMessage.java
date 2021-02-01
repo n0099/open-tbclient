@@ -2,10 +2,10 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetMemberInfo.DataReq;
 import tbclient.GetMemberInfo.GetMemberInfoReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ForumMemberRequestMessage extends NetMessage {
     private long forumId;
     private String forumName;
@@ -19,7 +19,7 @@ public class ForumMemberRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetMemberInfoReqIdl.Builder builder2 = new GetMemberInfoReqIdl.Builder();
         builder2.data = builder.build(false);

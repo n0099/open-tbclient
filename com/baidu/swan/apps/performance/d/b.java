@@ -8,67 +8,67 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.runtime.e;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 class b {
-    private boolean doZ;
-    private boolean dpG;
+    private boolean drR;
+    private boolean drk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        this.doZ = false;
-        aEn();
-        aEm();
+        this.drk = false;
+        aEI();
+        aEH();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void done() {
-        this.doZ = true;
+        this.drk = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cD(long j) {
+    public void cJ(long j) {
         b(a.f.ftp, j, "#80ff0000", "FTP");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cE(long j) {
+    public void cK(long j) {
         b(a.f.fip, j, "#80ff0000", "FIP");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cF(long j) {
+    public void cL(long j) {
         b(a.f.fcp, j, "#80ff0000", "FCP");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cG(long j) {
+    public void cM(long j) {
         b(a.f.fmp, j, "#8000ff00", "FMP");
     }
 
     private void b(int i, long j, String str, String str2) {
-        ViewGroup aEk;
-        if (!this.doZ && (aEk = aEk()) != null) {
-            TextView textView = (TextView) aEk.findViewById(i);
+        ViewGroup aEF;
+        if (!this.drk && (aEF = aEF()) != null) {
+            TextView textView = (TextView) aEF.findViewById(i);
             textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
             textView.setBackgroundColor(Color.parseColor(str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void m(long j, long j2) {
-        ViewGroup aEk;
-        if (!this.doZ && (aEk = aEk()) != null) {
-            ((TextView) aEk.findViewById(a.f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
+    public void q(long j, long j2) {
+        ViewGroup aEF;
+        if (!this.drk && (aEF = aEF()) != null) {
+            ((TextView) aEF.findViewById(a.f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
         }
     }
 
-    private ViewGroup aEk() {
+    private ViewGroup aEF() {
         ViewGroup viewGroup;
-        if (e.aIs() != null && e.aIs().aIl() != null && (viewGroup = (ViewGroup) e.aIs().aIl().findViewById(16908290)) != null) {
+        if (e.aIL() != null && e.aIL().aIE() != null && (viewGroup = (ViewGroup) e.aIL().aIE().findViewById(16908290)) != null) {
             ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(a.f.start_up_root_container);
             if (viewGroup2 == null) {
-                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.aIs().aIl()).inflate(a.g.swan_app_startup_window, viewGroup);
-                this.dpG = true;
+                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.aIL().aIE()).inflate(a.g.swan_app_startup_window, viewGroup);
+                this.drR = true;
                 return viewGroup3;
             }
             return viewGroup2;
@@ -76,28 +76,28 @@ class b {
         return null;
     }
 
-    private void aEl() {
-        e aIs = e.aIs();
-        if (aIs != null && aIs.aIl() != null) {
-            ViewGroup viewGroup = (ViewGroup) aIs.aIl().findViewById(a.f.start_up_root_container);
+    private void aEG() {
+        e aIL = e.aIL();
+        if (aIL != null && aIL.aIE() != null) {
+            ViewGroup viewGroup = (ViewGroup) aIL.aIE().findViewById(a.f.start_up_root_container);
             if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
                 ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
             }
-            this.dpG = false;
+            this.drR = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aEm() {
-        if (!this.dpG) {
-            aEk();
+    public void aEH() {
+        if (!this.drR) {
+            aEF();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aEn() {
-        if (this.dpG) {
-            aEl();
+    public void aEI() {
+        if (this.drR) {
+            aEG();
         }
     }
 }

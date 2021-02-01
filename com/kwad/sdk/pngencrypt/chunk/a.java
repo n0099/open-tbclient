@@ -1,16 +1,16 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements com.kwad.sdk.pngencrypt.g {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f10496a;
+    boolean f10498a;
 
     public a() {
         this(true);
     }
 
     public a(boolean z) {
-        this.f10496a = z;
+        this.f10498a = z;
     }
 
     @Override // com.kwad.sdk.pngencrypt.g
@@ -23,7 +23,7 @@ public class a implements com.kwad.sdk.pngencrypt.g {
             a2 = b(dVar.c, kVar);
         }
         a2.b(dVar);
-        if (this.f10496a && dVar.d != null) {
+        if (this.f10498a && dVar.d != null) {
             a2.a(dVar);
         }
         return a2;

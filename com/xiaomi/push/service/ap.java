@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ap f14241a;
+    private static ap f14243a;
 
     /* renamed from: a  reason: collision with other field name */
     private ConcurrentHashMap<String, HashMap<String, b>> f929a = new ConcurrentHashMap<>();
@@ -66,13 +66,13 @@ public class ap {
         c f936a = c.unbind;
 
         /* renamed from: a  reason: collision with root package name */
-        private int f14242a = 0;
+        private int f14244a = 0;
 
         /* renamed from: a  reason: collision with other field name */
         private List<a> f939a = new ArrayList();
 
         /* renamed from: b  reason: collision with root package name */
-        c f14243b = null;
+        c f14245b = null;
 
         /* renamed from: b  reason: collision with other field name */
         private boolean f942b = false;
@@ -84,7 +84,7 @@ public class ap {
         IBinder.DeathRecipient f931a = null;
 
         /* renamed from: a  reason: collision with other field name */
-        final C1279b f935a = new C1279b();
+        final C1283b f935a = new C1283b();
 
         /* loaded from: classes6.dex */
         public interface a {
@@ -94,24 +94,24 @@ public class ap {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.xiaomi.push.service.ap$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1279b extends XMPushService.i {
+        public class C1283b extends XMPushService.i {
 
             /* renamed from: a  reason: collision with other field name */
             String f943a;
 
             /* renamed from: b  reason: collision with root package name */
-            int f14245b;
+            int f14247b;
 
             /* renamed from: b  reason: collision with other field name */
             String f944b;
             int c;
 
-            public C1279b() {
+            public C1283b() {
                 super(0);
             }
 
             public XMPushService.i a(int i, int i2, String str, String str2) {
-                this.f14245b = i;
+                this.f14247b = i;
                 this.c = i2;
                 this.f944b = str2;
                 this.f943a = str;
@@ -125,8 +125,8 @@ public class ap {
 
             @Override // com.xiaomi.push.service.XMPushService.i
             public void a() {
-                if (b.this.a(this.f14245b, this.c, this.f944b)) {
-                    b.this.a(this.f14245b, this.c, this.f943a, this.f944b);
+                if (b.this.a(this.f14247b, this.c, this.f944b)) {
+                    b.this.a(this.f14247b, this.c, this.f943a, this.f944b);
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.b(" ignore notify client :" + b.this.g);
                 }
@@ -138,14 +138,14 @@ public class ap {
         public class c implements IBinder.DeathRecipient {
 
             /* renamed from: a  reason: collision with root package name */
-            final Messenger f14246a;
+            final Messenger f14248a;
 
             /* renamed from: a  reason: collision with other field name */
             final b f945a;
 
             c(b bVar, Messenger messenger) {
                 this.f945a = bVar;
-                this.f14246a = messenger;
+                this.f14248a = messenger;
             }
 
             @Override // android.os.IBinder.DeathRecipient
@@ -173,7 +173,7 @@ public class ap {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i, int i2, String str, String str2) {
-            this.f14243b = this.f936a;
+            this.f14245b = this.f936a;
             if (i == 2) {
                 this.f937a.a(this.f930a, this, i2);
             } else if (i == 3) {
@@ -181,9 +181,9 @@ public class ap {
             } else if (i == 1) {
                 boolean z = this.f936a == c.binded;
                 if (!z && "wait".equals(str2)) {
-                    this.f14242a++;
+                    this.f14244a++;
                 } else if (z) {
-                    this.f14242a = 0;
+                    this.f14244a = 0;
                     if (this.f932a != null) {
                         try {
                             this.f932a.send(Message.obtain(null, 16, this.f934a.f878a));
@@ -197,10 +197,10 @@ public class ap {
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean a(int i, int i2, String str) {
-            if (this.f14243b == null || !this.f942b) {
+            if (this.f14245b == null || !this.f942b) {
                 return true;
             }
-            if (this.f14243b == this.f936a) {
+            if (this.f14245b == this.f936a) {
                 com.xiaomi.channel.commonutils.logger.b.b(" status recovered, don't notify client:" + this.g);
                 return false;
             } else if (this.f932a == null || !this.f942b) {
@@ -229,7 +229,7 @@ public class ap {
         }
 
         public long a() {
-            return 1000 * (((long) ((Math.random() * 20.0d) - 10.0d)) + ((this.f14242a + 1) * 15));
+            return 1000 * (((long) ((Math.random() * 20.0d) - 10.0d)) + ((this.f14244a + 1) * 15));
         }
 
         public String a(int i) {
@@ -254,7 +254,7 @@ public class ap {
                 }
             } catch (Exception e) {
             }
-            this.f14243b = null;
+            this.f14245b = null;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -296,7 +296,7 @@ public class ap {
                 com.xiaomi.channel.commonutils.logger.b.d("status changed while the client dispatcher is missing");
             } else if (cVar != c.binding) {
                 int i3 = 10100;
-                if (this.f14243b == null || !this.f942b) {
+                if (this.f14245b == null || !this.f942b) {
                     i3 = 0;
                 } else if (this.f932a != null && this.f942b) {
                     i3 = 1000;
@@ -330,10 +330,10 @@ public class ap {
     public static synchronized ap a() {
         ap apVar;
         synchronized (ap.class) {
-            if (f14241a == null) {
-                f14241a = new ap();
+            if (f14243a == null) {
+                f14243a = new ap();
             }
-            apVar = f14241a;
+            apVar = f14243a;
         }
         return apVar;
     }

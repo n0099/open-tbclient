@@ -8,7 +8,7 @@ import com.baidu.ala.AlaConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.livecard.adapters.FrsAlaShareItemAdapter;
@@ -23,7 +23,7 @@ import com.baidu.tieba.frs.ae;
 import com.baidu.tieba.frs.af;
 import com.baidu.tieba.tbadkCore.g;
 import com.baidu.tieba.tbadkCore.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Static {
     static {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -34,11 +34,11 @@ public class Static {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                         AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                         CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                        absDelegateAdapterList.add(new c(null, bz.eOA, null));
-                        absDelegateAdapterList.add(new f(null, bz.eOz, null));
-                        absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, bz.eOB, null));
-                        absDelegateAdapterList.add(new a(null, g.nky, null));
-                        absDelegateAdapterList.add(new d(null, h.nkB, null));
+                        absDelegateAdapterList.add(new c(null, cb.eQM, null));
+                        absDelegateAdapterList.add(new f(null, cb.eQL, null));
+                        absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, cb.eQN, null));
+                        absDelegateAdapterList.add(new a(null, g.nug, null));
+                        absDelegateAdapterList.add(new d(null, h.nuj, null));
                     }
                 }
             });
@@ -48,10 +48,10 @@ public class Static {
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                         AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                        absDelegateAdapterList.add(new c(null, bz.eOA, null));
-                        absDelegateAdapterList.add(new e(null, bz.eOz, null));
-                        absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, bz.eOB, null));
-                        absDelegateAdapterList.add(new e(null, h.nkB, null));
+                        absDelegateAdapterList.add(new c(null, cb.eQM, null));
+                        absDelegateAdapterList.add(new e(null, cb.eQL, null));
+                        absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, cb.eQN, null));
+                        absDelegateAdapterList.add(new e(null, h.nuj, null));
                     }
                 }
             });
@@ -62,12 +62,12 @@ public class Static {
                     if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof ae)) {
                         ae aeVar = (ae) customResponsedMessage.getData();
                         com.baidu.tieba.ala.livecard.models.a aVar = new com.baidu.tieba.ala.livecard.models.a();
-                        aVar.setTag(aeVar.fEN);
+                        aVar.setTag(aeVar.fGZ);
                         aeVar.a(49, aVar);
                     }
                 }
             });
-            af.cDn().yP(49);
+            af.cEz().yZ(49);
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003390, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_FRS_NEGATIVE_URL);

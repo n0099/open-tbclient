@@ -5,35 +5,35 @@ import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 public class dl implements LoggerInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    private LoggerInterface f13946a;
+    private LoggerInterface f13948a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LoggerInterface f13947b;
+    private LoggerInterface f13949b;
 
     public dl(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
-        this.f13946a = null;
-        this.f13947b = null;
-        this.f13946a = loggerInterface;
-        this.f13947b = loggerInterface2;
+        this.f13948a = null;
+        this.f13949b = null;
+        this.f13948a = loggerInterface;
+        this.f13949b = loggerInterface2;
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str) {
-        if (this.f13946a != null) {
-            this.f13946a.log(str);
+        if (this.f13948a != null) {
+            this.f13948a.log(str);
         }
-        if (this.f13947b != null) {
-            this.f13947b.log(str);
+        if (this.f13949b != null) {
+            this.f13949b.log(str);
         }
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str, Throwable th) {
-        if (this.f13946a != null) {
-            this.f13946a.log(str, th);
+        if (this.f13948a != null) {
+            this.f13948a.log(str, th);
         }
-        if (this.f13947b != null) {
-            this.f13947b.log(str, th);
+        if (this.f13949b != null) {
+            this.f13949b.log(str, th);
         }
     }
 

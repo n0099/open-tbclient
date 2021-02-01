@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
     private static final i t = new i();
     private static TTCustomController w = new TTCustomController() { // from class: com.bytedance.sdk.openadsdk.core.i.1
@@ -26,11 +26,11 @@ public class i {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6601a;
+    private String f6603a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6602b;
+    private String f6604b;
     private boolean c;
     @Nullable
     private String d;
@@ -93,15 +93,15 @@ public class i {
 
     @NonNull
     public TTCustomController d() {
-        if (m.f6608b != null) {
-            return m.f6608b;
+        if (m.f6610b != null) {
+            return m.f6610b;
         }
         return this.q == null ? w : this.q;
     }
 
     @NonNull
     public String e() {
-        return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "app_id", (String) null) : this.f6601a;
+        return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "app_id", (String) null) : this.f6603a;
     }
 
     public void a(@NonNull String str) {
@@ -109,7 +109,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "app_id", str);
         }
-        this.f6601a = str;
+        this.f6603a = str;
         v();
     }
 
@@ -121,12 +121,12 @@ public class i {
         }
         hashMap.put("host_appid", e);
         hashMap.put(SapiContext.KEY_SDK_VERSION, "3.2.5.1");
-        com.bytedance.embedapplog.b.H(hashMap);
+        com.bytedance.embedapplog.b.K(hashMap);
     }
 
     @NonNull
     public String f() {
-        return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "name", (String) null) : this.f6602b;
+        return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "name", (String) null) : this.f6604b;
     }
 
     public void b(@NonNull String str) {
@@ -134,7 +134,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "name", str);
         }
-        this.f6602b = str;
+        this.f6604b = str;
     }
 
     public boolean g() {
@@ -268,8 +268,8 @@ public class i {
     }
 
     public void n() {
-        e(this.f6601a);
-        f(this.f6602b);
+        e(this.f6603a);
+        f(this.f6604b);
     }
 
     private static void e(String str) {
@@ -382,6 +382,6 @@ public class i {
     }
 
     public boolean u() {
-        return "5001121".equals(this.f6601a);
+        return "5001121".equals(this.f6603a);
     }
 }

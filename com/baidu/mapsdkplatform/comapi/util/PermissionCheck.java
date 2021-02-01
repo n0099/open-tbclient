@@ -10,44 +10,45 @@ import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 import java.util.Hashtable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PermissionCheck {
 
     /* renamed from: b  reason: collision with root package name */
-    private static Context f3153b;
+    private static Context f3151b;
     private static String c;
     private static Hashtable<String, String> d;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3152a = PermissionCheck.class.getSimpleName();
+    private static final String f3150a = PermissionCheck.class.getSimpleName();
     private static LBSAuthManager e = null;
     private static LBSAuthManagerListener f = null;
     private static c g = null;
     private static int h = 601;
 
-    /* loaded from: classes6.dex */
-    private static class a implements LBSAuthManagerListener {
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes4.dex */
+    public static class a implements LBSAuthManagerListener {
         private a() {
         }
 
         @Override // com.baidu.lbsapi.auth.LBSAuthManagerListener
         public void onAuthResult(int i, String str) {
             if (str == null) {
-                Log.e(PermissionCheck.f3152a, "The result is null");
-                Log.d(PermissionCheck.f3152a, "onAuthResult try permissionCheck result is: " + PermissionCheck.permissionCheck());
+                Log.e(PermissionCheck.f3150a, "The result is null");
+                Log.d(PermissionCheck.f3150a, "onAuthResult try permissionCheck result is: " + PermissionCheck.permissionCheck());
                 return;
             }
             b bVar = new b();
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("status")) {
-                    bVar.f3154a = jSONObject.optInt("status");
+                    bVar.f3152a = jSONObject.optInt("status");
                 }
                 if (jSONObject.has("appid")) {
                     bVar.c = jSONObject.optString("appid");
                 }
                 if (jSONObject.has("uid")) {
-                    bVar.f3155b = jSONObject.optString("uid");
+                    bVar.f3153b = jSONObject.optString("uid");
                 }
                 if (jSONObject.has("message")) {
                     bVar.d = jSONObject.optString("message");
@@ -58,38 +59,38 @@ public class PermissionCheck {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            int unused = PermissionCheck.h = bVar.f3154a;
+            int unused = PermissionCheck.h = bVar.f3152a;
             if (PermissionCheck.g != null) {
                 PermissionCheck.g.a(bVar);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3154a = 0;
+        public int f3152a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3155b = "-1";
+        public String f3153b = "-1";
         public String c = "-1";
         public String d = "";
         public String e;
 
         public String toString() {
-            return String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f3153b), PermissionCheck.c, Integer.valueOf(this.f3154a), this.f3155b, this.c, this.d);
+            return String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f3151b), PermissionCheck.c, Integer.valueOf(this.f3152a), this.f3153b, this.c, this.d);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(b bVar);
     }
 
     public static void destory() {
         g = null;
-        f3153b = null;
+        f3151b = null;
         f = null;
     }
 
@@ -99,9 +100,9 @@ public class PermissionCheck {
 
     public static void init(Context context) {
         ApplicationInfo applicationInfo;
-        f3153b = context;
+        f3151b = context;
         try {
-            applicationInfo = f3153b.getPackageManager().getApplicationInfo(f3153b.getPackageName(), 128);
+            applicationInfo = f3151b.getPackageManager().getApplicationInfo(f3151b.getPackageName(), 128);
         } catch (PackageManager.NameNotFoundException e2) {
             e2.printStackTrace();
             applicationInfo = null;
@@ -113,14 +114,14 @@ public class PermissionCheck {
             d = new Hashtable<>();
         }
         if (e == null) {
-            e = LBSAuthManager.getInstance(f3153b);
+            e = LBSAuthManager.getInstance(f3151b);
         }
         if (f == null) {
             f = new a();
         }
         String str = "";
         try {
-            str = context.getPackageManager().getPackageInfo(f3153b.getPackageName(), 0).applicationInfo.loadLabel(f3153b.getPackageManager()).toString();
+            str = context.getPackageManager().getPackageInfo(f3151b.getPackageName(), 0).applicationInfo.loadLabel(f3151b.getPackageManager()).toString();
         } catch (Exception e3) {
             e3.printStackTrace();
         }
@@ -148,12 +149,12 @@ public class PermissionCheck {
     public static synchronized int permissionCheck() {
         int i = 0;
         synchronized (PermissionCheck.class) {
-            if (e == null || f == null || f3153b == null) {
-                Log.e(f3152a, "The authManager is: " + e + "; the authCallback is: " + f + "; the mContext is: " + f3153b);
+            if (e == null || f == null || f3151b == null) {
+                Log.e(f3150a, "The authManager is: " + e + "; the authCallback is: " + f + "; the mContext is: " + f3151b);
             } else {
                 i = e.authenticate(false, "lbs_androidsdk", d, f);
                 if (i != 0) {
-                    Log.e(f3152a, "permission check result is: " + i);
+                    Log.e(f3150a, "permission check result is: " + i);
                 }
             }
         }

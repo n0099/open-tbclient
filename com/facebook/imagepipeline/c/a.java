@@ -4,38 +4,38 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
 public class a implements e {
-    private final Executor pxV;
-    private final Executor pxW;
-    private final Executor pxU = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
-    private final Executor pxX = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
+    private final Executor pId;
+    private final Executor pIe;
+    private final Executor pIc = Executors.newFixedThreadPool(2, new k(10, "FrescoIoBoundExecutor", true));
+    private final Executor pIf = Executors.newFixedThreadPool(1, new k(10, "FrescoLightWeightBackgroundExecutor", true));
 
     public a(int i) {
-        this.pxV = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
-        this.pxW = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
+        this.pId = Executors.newFixedThreadPool(i, new k(10, "FrescoDecodeExecutor", true));
+        this.pIe = Executors.newFixedThreadPool(i, new k(10, "FrescoBackgroundExecutor", true));
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor eua() {
-        return this.pxU;
+    public Executor ews() {
+        return this.pIc;
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor eub() {
-        return this.pxU;
+    public Executor ewt() {
+        return this.pIc;
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor euc() {
-        return this.pxV;
+    public Executor ewu() {
+        return this.pId;
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor eud() {
-        return this.pxW;
+    public Executor ewv() {
+        return this.pIe;
     }
 
     @Override // com.facebook.imagepipeline.c.e
-    public Executor eue() {
-        return this.pxX;
+    public Executor eww() {
+        return this.pIf;
     }
 }

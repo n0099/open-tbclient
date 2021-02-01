@@ -3,14 +3,14 @@ package com.ksad.lottie.c;
 import android.util.JsonReader;
 import androidx.annotation.Nullable;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static com.ksad.lottie.model.a.b a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
         return a(jsonReader, dVar, true);
     }
 
     public static com.ksad.lottie.model.a.b a(JsonReader jsonReader, com.ksad.lottie.d dVar, boolean z) {
-        return new com.ksad.lottie.model.a.b(a(jsonReader, z ? com.ksad.lottie.d.f.a() : 1.0f, dVar, i.f7973a));
+        return new com.ksad.lottie.model.a.b(a(jsonReader, z ? com.ksad.lottie.d.f.a() : 1.0f, dVar, i.f7975a));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,31 +30,31 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.a.d b(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.d(a(jsonReader, dVar, o.f7975a));
+        return new com.ksad.lottie.model.a.d(a(jsonReader, dVar, o.f7977a));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.a.f c(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.f(a(jsonReader, com.ksad.lottie.d.f.a(), dVar, y.f7980a));
+        return new com.ksad.lottie.model.a.f(a(jsonReader, com.ksad.lottie.d.f.a(), dVar, y.f7982a));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.a.g d(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.g(a(jsonReader, dVar, ac.f7969a));
+        return new com.ksad.lottie.model.a.g(a(jsonReader, dVar, ac.f7971a));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.a.h e(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.h(a(jsonReader, com.ksad.lottie.d.f.a(), dVar, ad.f7970a));
+        return new com.ksad.lottie.model.a.h(a(jsonReader, com.ksad.lottie.d.f.a(), dVar, ad.f7972a));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.a.j f(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.j(a(jsonReader, dVar, h.f7972a));
+        return new com.ksad.lottie.model.a.j(a(jsonReader, dVar, h.f7974a));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.a.a g(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        return new com.ksad.lottie.model.a.a(a(jsonReader, dVar, f.f7971a));
+        return new com.ksad.lottie.model.a.a(a(jsonReader, dVar, f.f7973a));
     }
 }

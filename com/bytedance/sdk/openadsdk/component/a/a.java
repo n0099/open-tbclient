@@ -12,31 +12,31 @@ import com.bytedance.sdk.openadsdk.utils.aj;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f6248a;
+    private static volatile a f6250a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final q f6249b = p.f();
+    private final q f6251b = p.f();
 
     public static a a() {
-        if (f6248a == null) {
+        if (f6250a == null) {
             synchronized (a.class) {
-                if (f6248a == null) {
-                    f6248a = new a();
+                if (f6250a == null) {
+                    f6250a = new a();
                 }
             }
         }
-        return f6248a;
+        return f6250a;
     }
 
     private a() {
     }
 
     public void a(final Context context, final AdSlot adSlot, final TTAdNative.FeedAdListener feedAdListener) {
-        this.f6249b.a(adSlot, (m) null, 5, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.a.1
+        this.f6251b.a(adSlot, (m) null, 5, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.a.1
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 feedAdListener.onError(i, str);
@@ -54,7 +54,7 @@ public class a {
                         if (lVar.X() == 5 && lVar.F() != null && lVar.F().h() != null) {
                             int d = aj.d(lVar.W());
                             if (p.h().a(String.valueOf(d)) && p.h().q(String.valueOf(d))) {
-                                com.bytedance.sdk.openadsdk.j.f.a.a().a(new com.bytedance.sdk.openadsdk.j.f.b().a(lVar.F().h()).a(com.baidu.fsg.base.statistics.b.f1935b).b(lVar.F().k()));
+                                com.bytedance.sdk.openadsdk.j.f.a.a().a(new com.bytedance.sdk.openadsdk.j.f.b().a(lVar.F().h()).a(com.baidu.fsg.base.statistics.b.f1933b).b(lVar.F().k()));
                             }
                         }
                     }
@@ -72,7 +72,7 @@ public class a {
     }
 
     public void a(final Context context, AdSlot adSlot, final TTAdNative.DrawFeedAdListener drawFeedAdListener) {
-        this.f6249b.a(adSlot, (m) null, 9, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.a.2
+        this.f6251b.a(adSlot, (m) null, 9, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.a.2
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 drawFeedAdListener.onError(i, str);

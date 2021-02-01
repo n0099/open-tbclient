@@ -2,13 +2,13 @@ package com.bytedance.sdk.a.b;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d {
 
     /* renamed from: b  reason: collision with root package name */
-    final Proxy f5956b;
-    final a peq;
-    final InetSocketAddress pgG;
+    final Proxy f5958b;
+    final a poG;
+    final InetSocketAddress pqY;
 
     public d(a aVar, Proxy proxy, InetSocketAddress inetSocketAddress) {
         if (aVar == null) {
@@ -20,36 +20,36 @@ public final class d {
         if (inetSocketAddress == null) {
             throw new NullPointerException("inetSocketAddress == null");
         }
-        this.peq = aVar;
-        this.f5956b = proxy;
-        this.pgG = inetSocketAddress;
+        this.poG = aVar;
+        this.f5958b = proxy;
+        this.pqY = inetSocketAddress;
     }
 
-    public a ens() {
-        return this.peq;
+    public a epL() {
+        return this.poG;
     }
 
-    public Proxy ent() {
-        return this.f5956b;
+    public Proxy epM() {
+        return this.f5958b;
     }
 
-    public InetSocketAddress enu() {
-        return this.pgG;
+    public InetSocketAddress epN() {
+        return this.pqY;
     }
 
     public boolean d() {
-        return this.peq.pdK != null && this.f5956b.type() == Proxy.Type.HTTP;
+        return this.poG.pnX != null && this.f5958b.type() == Proxy.Type.HTTP;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof d) && ((d) obj).peq.equals(this.peq) && ((d) obj).f5956b.equals(this.f5956b) && ((d) obj).pgG.equals(this.pgG);
+        return (obj instanceof d) && ((d) obj).poG.equals(this.poG) && ((d) obj).f5958b.equals(this.f5958b) && ((d) obj).pqY.equals(this.pqY);
     }
 
     public int hashCode() {
-        return ((((this.peq.hashCode() + 527) * 31) + this.f5956b.hashCode()) * 31) + this.pgG.hashCode();
+        return ((((this.poG.hashCode() + 527) * 31) + this.f5958b.hashCode()) * 31) + this.pqY.hashCode();
     }
 
     public String toString() {
-        return "Route{" + this.pgG + "}";
+        return "Route{" + this.pqY + "}";
     }
 }

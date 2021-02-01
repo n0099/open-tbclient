@@ -5,7 +5,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static Object a(String str) {
         Object obj = null;

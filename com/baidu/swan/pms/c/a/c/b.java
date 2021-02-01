@@ -13,44 +13,44 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private f esl;
-    private AtomicBoolean esm = new AtomicBoolean(false);
-    private com.baidu.swan.pms.c.a.d.b esn = new com.baidu.swan.pms.c.a.d.b() { // from class: com.baidu.swan.pms.c.a.c.b.1
+    private f eus;
+    private AtomicBoolean eut = new AtomicBoolean(false);
+    private com.baidu.swan.pms.c.a.d.b euu = new com.baidu.swan.pms.c.a.d.b() { // from class: com.baidu.swan.pms.c.a.c.b.1
         @Override // com.baidu.swan.pms.c.a.d.b
         public <T> void d(f<T> fVar) {
-            b.this.esl = fVar;
+            b.this.eus = fVar;
         }
 
         @Override // com.baidu.swan.pms.c.a.d.b
         public <T> void e(f<T> fVar) {
-            if (b.this.esl == fVar) {
-                b.this.esl = null;
+            if (b.this.eus == fVar) {
+                b.this.eus = null;
             }
         }
     };
-    private l eso = new l(this.esn);
-    private com.baidu.swan.pms.c.a.d.a esp = new com.baidu.swan.pms.c.a.d.a() { // from class: com.baidu.swan.pms.c.a.c.b.2
+    private l euv = new l(this.euu);
+    private com.baidu.swan.pms.c.a.d.a euw = new com.baidu.swan.pms.c.a.d.a() { // from class: com.baidu.swan.pms.c.a.c.b.2
         @Override // com.baidu.swan.pms.c.a.d.a
-        public Runnable iB(boolean z) {
-            return b.this.iA(z);
+        public Runnable iD(boolean z) {
+            return b.this.iC(z);
         }
     };
-    private c esi = new c();
-    private BlockingQueue<Runnable> esj = new LinkedBlockingQueue();
-    private ThreadPoolExecutor esk = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.esj);
+    private c eup = new c();
+    private BlockingQueue<Runnable> euq = new LinkedBlockingQueue();
+    private ThreadPoolExecutor eur = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.euq);
 
     public void a(com.baidu.swan.pms.c.a.d.b bVar) {
-        this.eso.e(bVar);
+        this.euv.e(bVar);
     }
 
     public void b(com.baidu.swan.pms.c.a.d.b bVar) {
-        this.eso.f(bVar);
+        this.euv.f(bVar);
     }
 
     public b() {
-        a(this.esi);
+        a(this.eup);
     }
 
     public synchronized <T> void b(f<T> fVar) {
@@ -59,27 +59,27 @@ public class b {
     }
 
     public synchronized <T> void c(f<T> fVar) {
-        this.esi.f(fVar);
+        this.eup.f(fVar);
         if (d.DEBUG) {
             Log.d("PMSThreadQueue", "put Task:" + fVar);
-            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.esi);
-            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.esj);
+            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.eup);
+            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.euq);
         }
     }
 
     public synchronized void start() {
-        if (this.esj.size() < 1) {
-            this.esk.execute(new g(this.esm, this.eso, this.esp));
+        if (this.euq.size() < 1) {
+            this.eur.execute(new g(this.eut, this.euv, this.euw));
         }
     }
 
-    public synchronized Runnable iA(boolean z) {
+    public synchronized Runnable iC(boolean z) {
         f fVar;
-        if (this.esi != null) {
+        if (this.eup != null) {
             if (z) {
-                fVar = this.esi.bcE();
+                fVar = this.eup.bcR();
             } else {
-                fVar = this.esi.get();
+                fVar = this.eup.get();
             }
         } else {
             fVar = null;
@@ -87,27 +87,27 @@ public class b {
         return fVar;
     }
 
-    public synchronized boolean xz(String str) {
+    public synchronized boolean xS(String str) {
         boolean z;
-        if (this.esl == null) {
+        if (this.eus == null) {
             z = false;
         } else {
-            Object bcL = this.esl.bcL();
-            if (bcL instanceof com.baidu.swan.pms.model.f) {
-                com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) bcL;
+            Object bcY = this.eus.bcY();
+            if (bcY instanceof com.baidu.swan.pms.model.f) {
+                com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) bcY;
                 if (d.DEBUG) {
-                    Log.v("PMSThreadQueue", "Current PMSPkgMain appId: " + fVar.erV + ", checking id: " + str);
+                    Log.v("PMSThreadQueue", "Current PMSPkgMain appId: " + fVar.euc + ", checking id: " + str);
                 }
-                z = TextUtils.equals(fVar.erV, str);
-            } else if (bcL instanceof a.C0542a) {
-                a.C0542a c0542a = (a.C0542a) bcL;
+                z = TextUtils.equals(fVar.euc, str);
+            } else if (bcY instanceof a.C0539a) {
+                a.C0539a c0539a = (a.C0539a) bcY;
                 if (d.DEBUG) {
-                    Log.v("PMSThreadQueue", "Current Item appId: " + c0542a.erV + ", checking id: " + str);
+                    Log.v("PMSThreadQueue", "Current Item appId: " + c0539a.euc + ", checking id: " + str);
                 }
-                z = TextUtils.equals(c0542a.erV, str);
+                z = TextUtils.equals(c0539a.euc, str);
             } else {
                 if (d.DEBUG) {
-                    Log.v("PMSThreadQueue", "Current model type not match: " + bcL.getClass().getSimpleName());
+                    Log.v("PMSThreadQueue", "Current model type not match: " + bcY.getClass().getSimpleName());
                 }
                 z = false;
             }
@@ -115,34 +115,34 @@ public class b {
         return z;
     }
 
-    public synchronized boolean xA(String str) {
+    public synchronized boolean xT(String str) {
         boolean z;
-        Iterator<f> bcF = this.esi.bcF();
+        Iterator<f> bcS = this.eup.bcS();
         while (true) {
-            if (bcF.hasNext()) {
-                f next = bcF.next();
+            if (bcS.hasNext()) {
+                f next = bcS.next();
                 if (next != null) {
-                    Object bcL = next.bcL();
-                    if (bcL instanceof com.baidu.swan.pms.model.f) {
-                        com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) bcL;
+                    Object bcY = next.bcY();
+                    if (bcY instanceof com.baidu.swan.pms.model.f) {
+                        com.baidu.swan.pms.model.f fVar = (com.baidu.swan.pms.model.f) bcY;
                         if (d.DEBUG) {
-                            Log.v("PMSThreadQueue", "Queue PMSPkgMain appId: " + fVar.erV + ", checking id: " + str);
+                            Log.v("PMSThreadQueue", "Queue PMSPkgMain appId: " + fVar.euc + ", checking id: " + str);
                         }
-                        if (TextUtils.equals(fVar.erV, str)) {
+                        if (TextUtils.equals(fVar.euc, str)) {
                             z = true;
                             break;
                         }
-                    } else if (bcL instanceof a.C0542a) {
-                        a.C0542a c0542a = (a.C0542a) bcL;
+                    } else if (bcY instanceof a.C0539a) {
+                        a.C0539a c0539a = (a.C0539a) bcY;
                         if (d.DEBUG) {
-                            Log.v("PMSThreadQueue", "Queue Item appId: " + c0542a.erV + ", checking id: " + str);
+                            Log.v("PMSThreadQueue", "Queue Item appId: " + c0539a.euc + ", checking id: " + str);
                         }
-                        if (TextUtils.equals(c0542a.erV, str)) {
+                        if (TextUtils.equals(c0539a.euc, str)) {
                             z = true;
                             break;
                         }
                     } else if (d.DEBUG) {
-                        Log.v("PMSThreadQueue", "Queue model type not match: " + bcL.getClass().getSimpleName());
+                        Log.v("PMSThreadQueue", "Queue model type not match: " + bcY.getClass().getSimpleName());
                     }
                 }
             } else {

@@ -2,7 +2,7 @@ package com.baidu.appsearchlib;
 
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class Md5Util {
     private static MessageDigest md5;
 

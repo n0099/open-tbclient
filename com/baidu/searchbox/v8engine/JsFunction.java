@@ -2,7 +2,7 @@ package com.baidu.searchbox.v8engine;
 
 import com.baidu.smallgame.sdk.Log;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class JsFunction extends JsReleaser {
     private static final String TAG = "JsFunction";
     private boolean mReleaseAfterInvoke;

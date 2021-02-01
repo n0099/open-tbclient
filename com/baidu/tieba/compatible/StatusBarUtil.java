@@ -9,10 +9,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import com.baidu.ar.constants.HttpConstants;
-import io.flutter.plugin.platform.PlatformPlugin;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class StatusBarUtil {
     View actionBarView;
     boolean lightStatusBar;
@@ -151,14 +150,14 @@ public final class StatusBarUtil {
             systemUiVisibility |= -2147475456;
         }
         if (this.transparentStatusBar) {
-            systemUiVisibility |= PlatformPlugin.DEFAULT_SYSTEM_UI;
+            systemUiVisibility |= 1280;
         }
         this.window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         this.window.setStatusBarColor(0);
         return true;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class Builder {
         private View actionBarView;
         private boolean lightStatusBar = false;

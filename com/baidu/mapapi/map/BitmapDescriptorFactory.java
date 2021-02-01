@@ -10,14 +10,14 @@ import com.baidu.mapapi.common.SysOSUtil;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BitmapDescriptorFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f2700a;
+    static final /* synthetic */ boolean f2698a;
 
     static {
-        f2700a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f2698a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
     }
 
     public static BitmapDescriptor fromAsset(String str) {
@@ -28,7 +28,7 @@ public class BitmapDescriptorFactory {
         try {
             Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
             BitmapDescriptor fromBitmap = fromBitmap(a2);
-            if (f2700a || a2 != null) {
+            if (f2698a || a2 != null) {
                 a2.recycle();
                 return fromBitmap;
             }

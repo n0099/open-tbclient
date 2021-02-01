@@ -1,8 +1,8 @@
 package rx.c;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class b {
     @Deprecated
-    public void E(Throwable th) {
+    public void D(Throwable th) {
     }
 
     public final String ci(Object obj) {
@@ -12,7 +12,7 @@ public abstract class b {
             Thread.currentThread().interrupt();
             return obj.getClass().getName() + ".errorRendering";
         } catch (Throwable th) {
-            rx.exceptions.a.O(th);
+            rx.exceptions.a.N(th);
             return obj.getClass().getName() + ".errorRendering";
         }
     }

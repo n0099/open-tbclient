@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b extends Dialog {
     public static final int p = 9000;
     public static final int q = 0;
@@ -28,10 +28,10 @@ public class b extends Dialog {
     public static final int u = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f4074a;
+    private Activity f4077a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f4075b;
+    private TextView f4078b;
     private ImageView c;
     private RelativeLayout d;
     private RelativeLayout e;
@@ -46,7 +46,7 @@ public class b extends Dialog {
     private h n;
     public int o;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     class a implements View.OnClickListener {
         a() {
         }
@@ -60,9 +60,9 @@ public class b extends Dialog {
     }
 
     /* renamed from: com.baidu.pass.ecommerce.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    class View$OnClickListenerC0274b implements View.OnClickListener {
-        View$OnClickListenerC0274b() {
+    /* loaded from: classes5.dex */
+    class View$OnClickListenerC0278b implements View.OnClickListener {
+        View$OnClickListenerC0278b() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -72,7 +72,7 @@ public class b extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         c() {
         }
@@ -83,7 +83,7 @@ public class b extends Dialog {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     class d implements View.OnClickListener {
         d() {
         }
@@ -91,12 +91,12 @@ public class b extends Dialog {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", b.this.f4074a.getPackageName(), null));
-            b.this.f4074a.startActivityForResult(intent, b.p);
+            intent.setData(Uri.fromParts("package", b.this.f4077a.getPackageName(), null));
+            b.this.f4077a.startActivityForResult(intent, b.p);
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     class e implements View.OnClickListener {
         e() {
         }
@@ -108,7 +108,7 @@ public class b extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class f implements View.OnClickListener {
         f() {
         }
@@ -121,12 +121,12 @@ public class b extends Dialog {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface g {
         void onReset();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface h {
         void onStopSpeech();
     }
@@ -134,7 +134,7 @@ public class b extends Dialog {
     public b(Activity activity) {
         super(activity, R.style.sapi_sdk_speech_dialog);
         this.o = 1;
-        this.f4074a = activity;
+        this.f4077a = activity;
     }
 
     public void c(int i) {
@@ -207,12 +207,12 @@ public class b extends Dialog {
         window.setGravity(80);
         window.setWindowAnimations(R.style.sapi_sdk_anim_speech);
         setContentView(R.layout.layout_sapi_sdk_dialog_speech_recognition);
-        Display defaultDisplay = this.f4074a.getWindowManager().getDefaultDisplay();
+        Display defaultDisplay = this.f4077a.getWindowManager().getDefaultDisplay();
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         attributes.height = SapiUtils.dip2px(getContext(), 297.0f);
         getWindow().setAttributes(attributes);
-        this.f4075b = (TextView) findViewById(R.id.tips_tx);
+        this.f4078b = (TextView) findViewById(R.id.tips_tx);
         this.e = (RelativeLayout) findViewById(R.id.voice_parent_layout);
         this.c = (ImageView) findViewById(R.id.close_button);
         this.d = (RelativeLayout) findViewById(R.id.stop_speech_background_layout);
@@ -223,7 +223,7 @@ public class b extends Dialog {
         this.l.a(this.e);
         this.l.b();
         this.d.setOnClickListener(new a());
-        this.c.setOnClickListener(new View$OnClickListenerC0274b());
+        this.c.setOnClickListener(new View$OnClickListenerC0278b());
     }
 
     public void a(int i) {
@@ -244,7 +244,7 @@ public class b extends Dialog {
     }
 
     public void a(String str) {
-        TextView textView = this.f4075b;
+        TextView textView = this.f4078b;
         if (textView != null) {
             textView.setText(str);
         }

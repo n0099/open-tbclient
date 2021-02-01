@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c implements com.kwad.sdk.glide.load.a<ByteBuffer> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.a

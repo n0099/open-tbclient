@@ -1,29 +1,61 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
-/* loaded from: classes2.dex */
-public class n implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lCC = BdUniqueId.gen();
-    public static final BdUniqueId lCD = BdUniqueId.gen();
-    public BdUniqueId Wq;
-    public boolean isDynamic;
-    public long lCE;
-    public String lCF;
-    public List<PbSortType> lCI;
-    public boolean isNew = true;
-    public int sortType = 0;
-    public String lCG = "";
-    public boolean lCH = false;
+import android.graphics.Bitmap;
+import com.baidu.tieba.tbadkCore.data.PostData;
+/* loaded from: classes.dex */
+public class n {
+    private String content;
+    private PostData kpS;
+    private Bitmap lLn;
+    private String lLo;
+    private com.baidu.tbadk.widget.richText.a lLp;
+    private int threadType;
 
-    public n(BdUniqueId bdUniqueId) {
-        this.Wq = lCD;
-        this.Wq = bdUniqueId;
+    public Bitmap dlQ() {
+        return this.lLn;
     }
 
-    @Override // com.baidu.adp.widget.ListView.n
-    public BdUniqueId getType() {
-        return this.Wq;
+    public void E(Bitmap bitmap) {
+        this.lLn = bitmap;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String str) {
+        this.content = str;
+    }
+
+    public String getThreadImgUrl() {
+        return this.lLo;
+    }
+
+    public void Pm(String str) {
+        this.lLo = str;
+    }
+
+    public void g(PostData postData) {
+        this.kpS = postData;
+    }
+
+    public PostData dlR() {
+        return this.kpS;
+    }
+
+    public com.baidu.tbadk.widget.richText.a dlS() {
+        return this.lLp;
+    }
+
+    public void b(com.baidu.tbadk.widget.richText.a aVar) {
+        this.lLp = aVar;
+    }
+
+    public int getThreadType() {
+        return this.threadType;
+    }
+
+    public void setThreadType(int i) {
+        this.threadType = i;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.sapi2.ServiceManager;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class QrLoginUtils implements NoProguard {
     public static String getJoinQrLoginPromptInfo(String str) {
         if (TextUtils.isEmpty(str)) {

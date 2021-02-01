@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.model.group;
 
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FansFriends implements Serializable {
     public String cmd;
     public String descirbe;

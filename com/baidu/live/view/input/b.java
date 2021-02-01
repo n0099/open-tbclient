@@ -1,32 +1,32 @@
 package com.baidu.live.view.input;
 
 import android.view.View;
-import com.baidu.live.data.x;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface b {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void t(String str, boolean z);
     }
 
-    boolean KN();
+    boolean Ml();
 
-    boolean KO();
+    boolean Mm();
 
-    void cF(int i);
+    void cK(int i);
 
-    void cn(boolean z);
+    void cw(boolean z);
 
-    void co(boolean z);
+    void cx(boolean z);
+
+    void g(ab abVar);
 
     View getView();
-
-    void h(x xVar);
 
     boolean isClicked();
 
     void setClicked(boolean z);
 
-    void xk();
+    void xh();
 }

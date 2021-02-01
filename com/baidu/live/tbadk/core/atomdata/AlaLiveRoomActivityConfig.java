@@ -1,6 +1,7 @@
 package com.baidu.live.tbadk.core.atomdata;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
 import com.baidu.live.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
@@ -9,7 +10,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String EXTRA_LIVE_ID = "live_id";
     public static final String EXTRA_ROOM_ID = "room_id";
@@ -133,6 +134,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     }
 
     public void addExtraByLiveId(long j, String str) {
+        getIntent().putExtra("room_id", String.valueOf(j));
         getIntent().putExtra("live_id", j);
         getIntent().putExtra("live_from_type", "live_sdk");
         getIntent().putExtra("params", str);
@@ -153,6 +155,9 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     }
 
     public void addExtraByLiveId(long j, String str, String str2) {
+        if (TextUtils.isEmpty(str) || "0".equals(str)) {
+            str = String.valueOf(j);
+        }
         getIntent().putExtra("live_id", j);
         getIntent().putExtra("room_id", str);
         getIntent().putExtra("live_from_type", str2);
@@ -167,6 +172,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
 
     public AlaLiveRoomActivityConfig(Context context, long j, String str, ArrayList<AlaBroadcastGiftToastData> arrayList) {
         super(context);
+        str = (TextUtils.isEmpty(str) || "0".equals(str)) ? String.valueOf(j) : str;
         getIntent().putExtra("live_id", j);
         getIntent().putExtra("room_id", str);
         getIntent().putExtra("live_from_type", "live_sdk");

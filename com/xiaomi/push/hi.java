@@ -2,6 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,25 +14,25 @@ import java.util.ArrayList;
 public class hi {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f14088a = false;
+    private static boolean f14090a = false;
 
     /* loaded from: classes6.dex */
     static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f14089a;
+        private Context f14091a;
 
         /* renamed from: a  reason: collision with other field name */
         private hl f514a;
 
         public a(Context context, hl hlVar) {
             this.f514a = hlVar;
-            this.f14089a = context;
+            this.f14091a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            hi.c(this.f14089a, this.f514a);
+            hi.c(this.f14091a, this.f514a);
         }
     }
 
@@ -147,11 +148,11 @@ public class hi {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
         File file;
-        if (f14088a) {
+        if (f14090a) {
             com.xiaomi.channel.commonutils.logger.b.m80a("TinyData extractTinyData is running");
             return;
         }
-        f14088a = true;
+        f14090a = true;
         File file2 = new File(context.getFilesDir(), "tiny_data.data");
         if (!file2.exists()) {
             com.xiaomi.channel.commonutils.logger.b.m80a("TinyData no ready file to get data.");
@@ -162,7 +163,7 @@ public class hi {
         try {
             File file3 = new File(context.getFilesDir(), "tiny_data.lock");
             y.m616a(file3);
-            randomAccessFile = new RandomAccessFile(file3, "rw");
+            randomAccessFile = new RandomAccessFile(file3, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
         } catch (Exception e) {
             e = e;
             fileLock = null;
@@ -232,6 +233,6 @@ public class hi {
         a(context, hlVar, file, a2);
         hh.a(false);
         b(context);
-        f14088a = false;
+        f14090a = false;
     }
 }

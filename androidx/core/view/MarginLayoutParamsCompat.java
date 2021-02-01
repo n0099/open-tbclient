@@ -2,7 +2,7 @@ package androidx.core.view;
 
 import android.os.Build;
 import android.view.ViewGroup;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class MarginLayoutParamsCompat {
     public static int getMarginStart(ViewGroup.MarginLayoutParams marginLayoutParams) {
         return Build.VERSION.SDK_INT >= 17 ? marginLayoutParams.getMarginStart() : marginLayoutParams.leftMargin;

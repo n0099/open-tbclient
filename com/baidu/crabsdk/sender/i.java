@@ -19,7 +19,7 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class i {
     public static synchronized List<String> A(Context context, String str) {
         ArrayList arrayList;

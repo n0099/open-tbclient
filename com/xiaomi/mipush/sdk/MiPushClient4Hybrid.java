@@ -209,7 +209,7 @@ public class MiPushClient4Hybrid {
         isVar.d(str);
         isVar.b(a2.f146a);
         isVar.c(a2.c);
-        isVar.e(a2.f13821b);
+        isVar.e(a2.f13823b);
         il ilVar = new il();
         ilVar.c(hw.HybridUnregister.f555a);
         ilVar.b(b.m120a(context).m121a());

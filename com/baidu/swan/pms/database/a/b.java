@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class b<T> {
     public abstract ContentValues al(T t);
 
@@ -37,7 +37,7 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.erV = string;
+            eVar.euc = string;
             eVar.category = cursor.getInt(columnIndex2);
             eVar.versionName = cursor.getString(columnIndex3);
             eVar.versionCode = cursor.getInt(columnIndex4);
@@ -49,7 +49,7 @@ public abstract class b<T> {
             eVar.currentSize = cursor.getLong(columnIndex11);
             eVar.createTime = cursor.getLong(columnIndex12);
             eVar.updateTime = cursor.getLong(columnIndex13);
-            eVar.erW = cursor.getLong(columnIndex9);
+            eVar.eud = cursor.getLong(columnIndex9);
             eVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -58,7 +58,7 @@ public abstract class b<T> {
 
     public ContentValues e(com.baidu.swan.pms.model.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.erV);
+        contentValues.put("bundle_id", eVar.euc);
         contentValues.put("category", Integer.valueOf(eVar.category));
         contentValues.put(SharedPrefConfig.VERSION_NAME, eVar.versionName);
         contentValues.put("version_code", Long.valueOf(eVar.versionCode));

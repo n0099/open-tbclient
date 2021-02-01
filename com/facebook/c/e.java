@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public class e {
-    public static byte[] Ym(String str) {
+    public static byte[] Zn(String str) {
         g.checkNotNull(str);
         try {
             return str.getBytes(HTTP.ASCII);

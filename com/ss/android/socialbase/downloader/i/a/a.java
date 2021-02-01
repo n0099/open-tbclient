@@ -5,32 +5,32 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f13162a;
+    protected int f13164a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, c> f13163b;
+    private final Map<String, c> f13165b;
     private final Map<String, d> c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, c cVar) {
-        synchronized (this.f13163b) {
-            this.f13163b.put(str, cVar);
+        synchronized (this.f13165b) {
+            this.f13165b.put(str, cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
-        this.f13162a = i;
+        this.f13164a = i;
     }
 
     public c w(String str, List<e> list) {
         c remove;
-        synchronized (this.f13163b) {
-            remove = this.f13163b.remove(str);
+        synchronized (this.f13165b) {
+            remove = this.f13165b.remove(str);
         }
         if (remove != null) {
             if (com.ss.android.socialbase.downloader.m.d.a(remove.h(), list)) {
@@ -52,7 +52,7 @@ public class a {
     }
 
     public boolean a(String str) {
-        c cVar = this.f13163b.get(str);
+        c cVar = this.f13165b.get(str);
         if (cVar != null) {
             if (cVar.g()) {
                 return true;
@@ -87,18 +87,18 @@ public class a {
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.i.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static final class C1249a {
-        private static final a pWe = new a();
+    /* loaded from: classes6.dex */
+    private static final class C1253a {
+        private static final a qgi = new a();
     }
 
-    public static a eFV() {
-        return C1249a.pWe;
+    public static a eIm() {
+        return C1253a.qgi;
     }
 
     private a() {
-        this.f13163b = new HashMap();
+        this.f13165b = new HashMap();
         this.c = new LinkedHashMap(3);
-        this.f13162a = 3;
+        this.f13164a = 3;
     }
 }

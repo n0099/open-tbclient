@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 import java.io.File;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdCommonUtils {
     public static final String APPSEC = "BaiduMobAd_APP_SEC";
     public static final String APPSID = "BaiduMobAd_APP_ID";
@@ -93,8 +93,6 @@ public interface IXAdCommonUtils {
     boolean isStringAvailable(String str);
 
     JSONArray list2Json(List<String[]> list);
-
-    void makeCall(Context context, String str);
 
     String md5(String str);
 

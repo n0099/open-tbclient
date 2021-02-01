@@ -14,32 +14,32 @@ import kotlin.h;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final f cYe;
-    private i cYf = null;
-    private i cYg = null;
-    private com.baidu.swan.apps.al.a cYh = null;
-    private boolean cYi = false;
-    private boolean cYj = false;
-    private final Collection<com.baidu.swan.apps.ao.e.b<e>> cYk = new HashSet();
-    private final Collection<com.baidu.swan.apps.ao.e.b<e>> cYl = new HashSet();
-    private d.b cYm = null;
+    private final f dao;
+    private i dap = null;
+    private i daq = null;
+    private com.baidu.swan.apps.al.a dar = null;
+    private boolean das = false;
+    private boolean dau = false;
+    private final Collection<com.baidu.swan.apps.ao.e.b<e>> dav = new HashSet();
+    private final Collection<com.baidu.swan.apps.ao.e.b<e>> daw = new HashSet();
+    private d.b dax = null;
     private final String mLibName;
 
     public e(@NonNull f fVar, String str) {
-        this.cYe = fVar;
+        this.dao = fVar;
         this.mLibName = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.node.c
-    /* renamed from: B */
+    /* renamed from: A */
     public void W(@NonNull JSONArray jSONArray) {
-        i atx = atx();
+        i atV = atV();
         if (DEBUG) {
-            Log.i("SoUpdating", "decorateParams libName=" + this.mLibName + " localSo=" + atx);
+            Log.i("SoUpdating", "decorateParams libName=" + this.mLibName + " localSo=" + atV);
         }
         try {
             Iterator<AbiType> it = AbiType.currentAbi().getCompatible().iterator();
@@ -55,14 +55,14 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
                     }
                     if (b2 != null) {
                         JSONObject jSONObject = new JSONObject();
-                        boolean z = atx != null && next == atx.esb;
-                        long j = (atx == null || !z) ? 0L : atx.versionCode;
-                        String str = (atx == null || !z) ? "0" : atx.versionName;
+                        boolean z = atV != null && next == atV.eui;
+                        long j = (atV == null || !z) ? 0L : atV.versionCode;
+                        String str = (atV == null || !z) ? "0" : atV.versionName;
                         if (TextUtils.isEmpty(str)) {
                             str = "0";
                         }
                         jSONObject.put("type", "so");
-                        jSONObject.put("bundle_id", b2.erV);
+                        jSONObject.put("bundle_id", b2.euc);
                         jSONObject.put("version_code", j);
                         jSONObject.put(SharedPrefConfig.VERSION_NAME, str);
                         if (DEBUG) {
@@ -80,81 +80,81 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     }
 
     public boolean a(f fVar) {
-        return fVar != null && fVar == this.cYe;
+        return fVar != null && fVar == this.dao;
     }
 
-    public d.b atw() {
-        return this.cYm;
+    public d.b atU() {
+        return this.dax;
     }
 
     public synchronized e j(com.baidu.swan.apps.ao.e.b<e> bVar) {
-        this.cYk.add(bVar);
+        this.dav.add(bVar);
         return this;
     }
 
     public synchronized e k(com.baidu.swan.apps.ao.e.b<e> bVar) {
-        this.cYl.add(bVar);
+        this.daw.add(bVar);
         return this;
     }
 
     public synchronized e l(com.baidu.swan.apps.ao.e.b<e> bVar) {
-        this.cYk.remove(bVar);
+        this.dav.remove(bVar);
         return this;
     }
 
     public synchronized e m(com.baidu.swan.apps.ao.e.b<e> bVar) {
-        this.cYl.remove(bVar);
+        this.daw.remove(bVar);
         return this;
     }
 
-    public String ato() {
+    public String atM() {
         return this.mLibName;
     }
 
-    public i atx() {
-        if (this.cYf == null && !TextUtils.isEmpty(this.mLibName)) {
-            this.cYf = com.baidu.swan.pms.database.a.bci().xB(this.mLibName);
+    public i atV() {
+        if (this.dap == null && !TextUtils.isEmpty(this.mLibName)) {
+            this.dap = com.baidu.swan.pms.database.a.bcv().xU(this.mLibName);
         }
-        return this.cYf;
+        return this.dap;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e a(f fVar, i iVar) {
         if (a(fVar)) {
-            this.cYg = iVar;
+            this.daq = iVar;
         }
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i aty() {
-        return this.cYg;
+    public i atW() {
+        return this.daq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean atz() {
-        return (this.cYg == null || this.cYg == this.cYf) ? false : true;
+    public boolean atX() {
+        return (this.daq == null || this.daq == this.dap) ? false : true;
     }
 
-    public synchronized void atA() {
+    public synchronized void atY() {
         if (DEBUG) {
-            Log.i("SoUpdating", "install: " + ato() + " finished=" + this.cYj + " installing=" + this.cYi);
+            Log.i("SoUpdating", "install: " + atM() + " finished=" + this.dau + " installing=" + this.das);
         }
-        if (!this.cYj && !this.cYi) {
-            this.cYi = true;
+        if (!this.dau && !this.das) {
+            this.das = true;
             if (DEBUG) {
-                Log.i("SoUpdating", "install: " + ato());
+                Log.i("SoUpdating", "install: " + atM());
             }
-            c.cXS.a(ato(), new kotlin.jvm.a.b<com.baidu.swan.apps.al.a, h>() { // from class: com.baidu.swan.apps.env.b.e.1
+            c.dac.a(atM(), new kotlin.jvm.a.b<com.baidu.swan.apps.al.a, h>() { // from class: com.baidu.swan.apps.env.b.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.a.b
                 /* renamed from: c */
                 public h invoke(com.baidu.swan.apps.al.a aVar) {
                     if (e.DEBUG) {
-                        Log.i("SoUpdating", "install: " + e.this.ato() + " onCallback");
+                        Log.i("SoUpdating", "install: " + e.this.atM() + " onCallback");
                     }
                     e.this.b(aVar);
-                    e.this.cYi = false;
+                    e.this.das = false;
                     return null;
                 }
             });
@@ -165,18 +165,18 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     public synchronized e b(com.baidu.swan.apps.al.a aVar) {
         e eVar;
         if (DEBUG) {
-            Log.i("SoUpdating", "finish: " + ato() + " finished=" + this.cYj + " error=" + aVar);
+            Log.i("SoUpdating", "finish: " + atM() + " finished=" + this.dau + " error=" + aVar);
         }
-        if (this.cYj) {
+        if (this.dau) {
             eVar = this;
         } else {
-            this.cYj = true;
-            this.cYh = aVar;
-            if (this.cYh == null) {
-                c.cXS.m(ato(), System.currentTimeMillis());
+            this.dau = true;
+            this.dar = aVar;
+            if (this.dar == null) {
+                c.dac.l(atM(), System.currentTimeMillis());
             }
-            c.cXS.nh(ato());
-            atE();
+            c.dac.nz(atM());
+            auc();
             clearCallback();
             eVar = this;
         }
@@ -184,29 +184,29 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     }
 
     private synchronized void clearCallback() {
-        this.cYk.clear();
-        this.cYl.clear();
+        this.dav.clear();
+        this.daw.clear();
     }
 
-    public boolean atB() {
-        return this.cYj;
+    public boolean atZ() {
+        return this.dau;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean atC() {
-        return atB() && (this.cYh == null || c.cXS.ni(ato()));
+    public boolean aua() {
+        return atZ() && (this.dar == null || c.dac.nA(atM()));
     }
 
-    public boolean atD() {
-        return !atB() && this.cYi;
+    public boolean aub() {
+        return !atZ() && this.das;
     }
 
-    private synchronized void atE() {
+    private synchronized void auc() {
         if (DEBUG) {
-            Log.i("SoUpdating", "notifyFinish: " + ato() + " mCallbacks=" + this.cYk.size());
+            Log.i("SoUpdating", "notifyFinish: " + atM() + " mCallbacks=" + this.dav.size());
         }
-        this.cYj = true;
-        for (com.baidu.swan.apps.ao.e.b<e> bVar : this.cYk) {
+        this.dau = true;
+        for (com.baidu.swan.apps.ao.e.b<e> bVar : this.dav) {
             if (bVar != null) {
                 bVar.L(this);
             }
@@ -214,9 +214,9 @@ public final class e implements com.baidu.swan.pms.node.c<JSONArray> {
     }
 
     public synchronized void a(d.b bVar) {
-        if (!this.cYj && bVar != null && 0 != bVar.cYc) {
-            this.cYm = bVar;
-            for (com.baidu.swan.apps.ao.e.b<e> bVar2 : this.cYl) {
+        if (!this.dau && bVar != null && 0 != bVar.dam) {
+            this.dax = bVar;
+            for (com.baidu.swan.apps.ao.e.b<e> bVar2 : this.daw) {
                 if (bVar2 != null) {
                     bVar2.L(this);
                 }

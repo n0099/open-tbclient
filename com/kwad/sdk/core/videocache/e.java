@@ -6,20 +6,20 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final h f9485a;
+    private final h f9487a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.core.videocache.a.b f9486b;
+    private final com.kwad.sdk.core.videocache.a.b f9488b;
     private b c;
 
     public e(h hVar, com.kwad.sdk.core.videocache.a.b bVar) {
         super(hVar, bVar);
-        this.f9486b = bVar;
-        this.f9485a = hVar;
+        this.f9488b = bVar;
+        this.f9487a = hVar;
     }
 
     private String a(String str, Object... objArr) {
@@ -41,20 +41,20 @@ public class e extends k {
     }
 
     private boolean a(d dVar) {
-        long a2 = this.f9485a.a();
-        return (((a2 > 0L ? 1 : (a2 == 0L ? 0 : -1)) > 0) && dVar.c && ((float) dVar.f9483b) > ((float) this.f9486b.a()) + (((float) a2) * 0.2f)) ? false : true;
+        long a2 = this.f9487a.a();
+        return (((a2 > 0L ? 1 : (a2 == 0L ? 0 : -1)) > 0) && dVar.c && ((float) dVar.f9485b) > ((float) this.f9488b.a()) + (((float) a2) * 0.2f)) ? false : true;
     }
 
     private String b(d dVar) {
-        String c = this.f9485a.c();
+        String c = this.f9487a.c();
         boolean z = !TextUtils.isEmpty(c);
-        long a2 = this.f9486b.d() ? this.f9486b.a() : this.f9485a.a();
+        long a2 = this.f9488b.d() ? this.f9488b.a() : this.f9487a.a();
         boolean z2 = a2 >= 0;
-        return (dVar.c ? "HTTP/1.1 206 PARTIAL CONTENT\n" : "HTTP/1.1 200 OK\n") + "Accept-Ranges: bytes\n" + (z2 ? a("Content-Length: %d\n", Long.valueOf(dVar.c ? a2 - dVar.f9483b : a2)) : "") + (z2 && dVar.c ? a("Content-Range: bytes %d-%d/%d\n", Long.valueOf(dVar.f9483b), Long.valueOf(a2 - 1), Long.valueOf(a2)) : "") + (z ? a("Content-Type: %s\n", c) : "") + "\n";
+        return (dVar.c ? "HTTP/1.1 206 PARTIAL CONTENT\n" : "HTTP/1.1 200 OK\n") + "Accept-Ranges: bytes\n" + (z2 ? a("Content-Length: %d\n", Long.valueOf(dVar.c ? a2 - dVar.f9485b : a2)) : "") + (z2 && dVar.c ? a("Content-Range: bytes %d-%d/%d\n", Long.valueOf(dVar.f9485b), Long.valueOf(a2 - 1), Long.valueOf(a2)) : "") + (z ? a("Content-Type: %s\n", c) : "") + "\n";
     }
 
     private void b(OutputStream outputStream, long j) {
-        h hVar = new h(this.f9485a);
+        h hVar = new h(this.f9487a);
         try {
             hVar.a((int) j);
             byte[] bArr = new byte[8192];
@@ -76,7 +76,7 @@ public class e extends k {
     @Override // com.kwad.sdk.core.videocache.k
     protected void a(int i) {
         if (this.c != null) {
-            this.c.a(this.f9486b.f9473a, this.f9485a.d(), i);
+            this.c.a(this.f9488b.f9475a, this.f9487a.d(), i);
         }
     }
 
@@ -87,7 +87,7 @@ public class e extends k {
     public void a(d dVar, Socket socket) {
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());
         bufferedOutputStream.write(b(dVar).getBytes("UTF-8"));
-        long j = dVar.f9483b;
+        long j = dVar.f9485b;
         if (a(dVar)) {
             a(bufferedOutputStream, j);
         } else {

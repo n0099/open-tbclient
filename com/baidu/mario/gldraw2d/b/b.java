@@ -3,28 +3,28 @@ package com.baidu.mario.gldraw2d.b;
 import android.opengl.EGL14;
 import android.opengl.EGLSurface;
 import android.util.Log;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class b {
     protected static final String TAG = b.class.getSimpleName();
-    protected a cbH;
+    protected a cfS;
     private EGLSurface mEGLSurface = EGL14.EGL_NO_SURFACE;
     private int mWidth = -1;
     private int mHeight = -1;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(a aVar) {
-        this.cbH = aVar;
+        this.cfS = aVar;
     }
 
     public void createWindowSurface(Object obj) {
         if (this.mEGLSurface != EGL14.EGL_NO_SURFACE) {
             throw new IllegalStateException("surface already created");
         }
-        this.mEGLSurface = this.cbH.createWindowSurface(obj);
+        this.mEGLSurface = this.cfS.createWindowSurface(obj);
     }
 
     public void releaseEglSurface() {
-        this.cbH.releaseSurface(this.mEGLSurface);
+        this.cfS.releaseSurface(this.mEGLSurface);
         this.mEGLSurface = EGL14.EGL_NO_SURFACE;
         this.mHeight = -1;
         this.mWidth = -1;
@@ -37,7 +37,7 @@ public class b {
     }
 
     public boolean swapBuffers() {
-        boolean swapBuffers = this.cbH.swapBuffers(this.mEGLSurface);
+        boolean swapBuffers = this.cfS.swapBuffers(this.mEGLSurface);
         if (!swapBuffers) {
             Log.d(TAG, "WARNING: swapBuffers() failed");
         }
@@ -45,6 +45,6 @@ public class b {
     }
 
     public void setPresentationTime(long j) {
-        this.cbH.setPresentationTime(this.mEGLSurface, j);
+        this.cfS.setPresentationTime(this.mEGLSurface, j);
     }
 }

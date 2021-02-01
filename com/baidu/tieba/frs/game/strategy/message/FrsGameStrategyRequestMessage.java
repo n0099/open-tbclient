@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.game.strategy.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GameForumGuideTab.DataReq;
 import tbclient.GameForumGuideTab.GameForumGuideTabReqIdl;
 /* loaded from: classes2.dex */
@@ -30,7 +30,7 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
         builder.sub_label_id = Integer.valueOf(this.mLabelId);
         builder.pn = Integer.valueOf(this.mPn);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GameForumGuideTabReqIdl.Builder builder2 = new GameForumGuideTabReqIdl.Builder();
         builder2.data = builder.build(false);

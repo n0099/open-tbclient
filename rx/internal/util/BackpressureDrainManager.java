@@ -1,7 +1,7 @@
 package rx.internal.util;
 
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class BackpressureDrainManager extends AtomicLong implements rx.f {
     private static final long serialVersionUID = 2826241102729529449L;
     final a actual;
@@ -9,9 +9,9 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
     Throwable exception;
     volatile boolean terminated;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        void Z(Throwable th);
+        void Y(Throwable th);
 
         boolean cd(Object obj);
 
@@ -186,7 +186,7 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
                             if (z2) {
                                 if (aVar.peek() == null) {
                                     try {
-                                        aVar.Z(this.exception);
+                                        aVar.Y(this.exception);
                                         return;
                                     } catch (Throwable th) {
                                         th = th;

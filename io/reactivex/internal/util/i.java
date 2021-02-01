@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes5.dex */
 public final class i {
-    public static <T> io.reactivex.internal.a.f<T> RU(int i) {
+    public static <T> io.reactivex.internal.a.f<T> Sp(int i) {
         return i < 0 ? new io.reactivex.internal.queue.a(-i) : new SpscArrayQueue(i);
     }
 
@@ -17,7 +17,7 @@ public final class i {
         long j2;
         do {
             j2 = atomicLong.get();
-        } while (!atomicLong.compareAndSet(j2, b.T(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
+        } while (!atomicLong.compareAndSet(j2, b.X(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
         if (j2 == Long.MIN_VALUE) {
             b(j | Long.MIN_VALUE, cVar, queue, atomicLong, eVar);
             return true;
@@ -29,7 +29,7 @@ public final class i {
         try {
             return eVar.getAsBoolean();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.O(th);
+            io.reactivex.exceptions.a.N(th);
             return true;
         }
     }

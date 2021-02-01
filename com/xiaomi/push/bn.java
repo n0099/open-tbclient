@@ -6,7 +6,7 @@ import java.util.Date;
 public class bn implements ge {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13884a = false;
+    public static boolean f13886a = false;
 
     /* renamed from: a  reason: collision with other field name */
     private fs f208a;
@@ -18,7 +18,7 @@ public class bn implements ge {
     private a f207a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f13885b = null;
+    private a f13887b = null;
 
     /* renamed from: a  reason: collision with other field name */
     private fv f209a = null;
@@ -39,7 +39,7 @@ public class bn implements ge {
 
         @Override // com.xiaomi.push.fx
         public void a(fl flVar) {
-            if (bn.f13884a) {
+            if (bn.f13886a) {
                 com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + flVar.toString());
             } else {
                 com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " Blob [" + flVar.m306a() + "," + flVar.a() + "," + flVar.e() + "]");
@@ -48,7 +48,7 @@ public class bn implements ge {
 
         @Override // com.xiaomi.push.fx, com.xiaomi.push.gf
         public void a(gj gjVar) {
-            if (bn.f13884a) {
+            if (bn.f13886a) {
                 com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " PKT " + gjVar.m342a());
             } else {
                 com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " PKT [" + gjVar.k() + "," + gjVar.j() + "]");
@@ -69,9 +69,9 @@ public class bn implements ge {
 
     private void a() {
         this.f207a = new a(true);
-        this.f13885b = new a(false);
+        this.f13887b = new a(false);
         this.f208a.a(this.f207a, this.f207a);
-        this.f208a.b(this.f13885b, this.f13885b);
+        this.f208a.b(this.f13887b, this.f13887b);
         this.f209a = new bo(this);
     }
 }

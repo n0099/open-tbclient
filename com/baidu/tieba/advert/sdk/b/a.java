@@ -10,24 +10,24 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends BdAsyncTask<Void, Void, Boolean> {
     private final String TAG = a.class.getSimpleName();
     private AdInfo adInfo;
-    public static final String gif = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public static final String gkK = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
     public static final String FILE_SEP = File.separator;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean doInBackground(Void... voidArr) {
-        String str = gif + FILE_SEP + "advideo.temp";
+        String str = gkK + FILE_SEP + "advideo.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         try {
-            new File(gif).mkdirs();
+            new File(gkK).mkdirs();
             if (!file.createNewFile()) {
                 a(false, null);
                 return false;
@@ -36,7 +36,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
             e.printStackTrace();
         }
         e eVar = new e();
-        eVar.lV().setUrl(this.adInfo.adVideoUrl);
+        eVar.lU().setUrl(this.adInfo.adVideoUrl);
         boolean a2 = new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true);
         try {
         } catch (FileNotFoundException e2) {
@@ -63,7 +63,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
 
     private void a(boolean z, File file) {
         if (z && file != null) {
-            File file2 = new File(gif + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
+            File file2 = new File(gkK + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
             if (file2.exists()) {
                 file2.delete();
             }

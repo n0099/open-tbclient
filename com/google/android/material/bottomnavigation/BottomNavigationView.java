@@ -28,7 +28,7 @@ import androidx.core.view.ViewCompat;
 import androidx.customview.view.AbsSavedState;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class BottomNavigationView extends FrameLayout {
     private static final int MENU_PRESENTER_ID = 1;
     private final MenuBuilder menu;
@@ -38,12 +38,12 @@ public class BottomNavigationView extends FrameLayout {
     private OnNavigationItemReselectedListener reselectedListener;
     private OnNavigationItemSelectedListener selectedListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface OnNavigationItemReselectedListener {
         void onNavigationItemReselected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -275,7 +275,7 @@ public class BottomNavigationView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomnavigation.BottomNavigationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

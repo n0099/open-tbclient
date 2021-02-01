@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CommentResponse extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = 7438022026198734874L;
     public long commentCount;

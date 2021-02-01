@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
 import com.baidu.platform.comapi.wnplatform.o.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RGStateNorth2D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {

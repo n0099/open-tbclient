@@ -6,7 +6,7 @@ import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaLiveBaseInfo {
     public static final String STREAM_TYPE_RECV = "RECV";
     public static final String STREAM_TYPE_SEND = "SEND";
@@ -17,6 +17,7 @@ public class AlaLiveBaseInfo {
     public String mLiveId;
     public String mNetWork;
     public String mPkId;
+    public String mRoomId;
     public String mSessionId;
     public int mSessionLine;
     public String mStreamLine;

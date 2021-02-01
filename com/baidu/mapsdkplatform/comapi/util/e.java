@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f3164a = null;
+    private static volatile e f3162a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3165b = false;
+    private boolean f3163b = false;
     private boolean c = true;
     private final List<d> d = new ArrayList();
     private d e = null;
@@ -30,14 +30,14 @@ public final class e {
     }
 
     public static e a() {
-        if (f3164a == null) {
+        if (f3162a == null) {
             synchronized (e.class) {
-                if (f3164a == null) {
-                    f3164a = new e();
+                if (f3162a == null) {
+                    f3162a = new e();
                 }
             }
         }
-        return f3164a;
+        return f3162a;
     }
 
     private boolean a(String str) {
@@ -216,10 +216,10 @@ public final class e {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:21:0x0045 -> B:63:0x0012). Please submit an issue!!! */
     public void a(Context context) {
         int i = 0;
-        if (this.f3165b) {
+        if (this.f3163b) {
             return;
         }
-        this.f3165b = true;
+        this.f3163b = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 c(context);

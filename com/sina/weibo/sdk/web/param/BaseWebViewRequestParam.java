@@ -7,13 +7,13 @@ import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.web.BaseWebViewRequestData;
 import com.sina.weibo.sdk.web.WebRequestType;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseWebViewRequestParam {
     private BaseWebViewRequestData baseData;
     protected Context context;
     private String transaction;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ExtraTaskCallback {
         void onComplete(String str);
 

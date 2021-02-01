@@ -3,49 +3,49 @@ package com.baidu.minivideo.arface.b;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class d {
-    public String cgo;
-    public String cgp;
-    public File cgr;
+    public File ckB;
+    public String cky;
+    public String ckz;
     public String mMd5;
     public String mUrl;
     public String mVersion = "5.1_v2";
-    public File cgq = null;
+    public File ckA = null;
 
-    public static d aam() {
+    public static d aca() {
         d dVar = new d();
-        dVar.cgo = "so";
-        dVar.cgp = "so2";
+        dVar.cky = "so";
+        dVar.ckz = "so2";
         dVar.mVersion = "5.1_v2";
         dVar.mUrl = dVar.getUrl();
         dVar.mMd5 = g.toMd5(dVar.mUrl);
-        dVar.cgq = dVar.aao();
-        dVar.cgr = dVar.aar();
+        dVar.ckA = dVar.acc();
+        dVar.ckB = dVar.acf();
         return dVar;
     }
 
-    public static d aan() {
+    public static d acb() {
         d dVar = new d();
-        dVar.cgo = "source";
-        dVar.cgp = "so2";
+        dVar.cky = "source";
+        dVar.ckz = "so2";
         dVar.mVersion = "5.1_v2";
         dVar.mUrl = dVar.getUrl();
         dVar.mMd5 = g.toMd5(dVar.mUrl);
-        dVar.cgq = dVar.aao();
-        dVar.cgr = dVar.aar();
+        dVar.ckA = dVar.acc();
+        dVar.ckB = dVar.acf();
         return dVar;
     }
 
     private String getUrl() {
         String str;
-        if (TextUtils.equals("so2", this.cgp)) {
-            if (TextUtils.equals("source", this.cgo)) {
+        if (TextUtils.equals("so2", this.ckz)) {
+            if (TextUtils.equals("source", this.cky)) {
                 str = "https://pic.rmb.bdstatic.com/baidu-ar-source-live-";
             } else {
                 str = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
             }
-        } else if (TextUtils.equals("source", this.cgo)) {
+        } else if (TextUtils.equals("source", this.cky)) {
             str = "https://pic.rmb.bdstatic.com/baidu-ar-source-";
         } else {
             str = "https://pic.rmb.bdstatic.com/baidu-ar-so-";
@@ -57,31 +57,31 @@ public class d {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File aao() {
-        if (this.cgq == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.cgq = new File(aaq(), getName());
+    public File acc() {
+        if (this.ckA == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.ckA = new File(ace(), getName());
         }
-        return this.cgq;
+        return this.ckA;
     }
 
-    public File aap() {
-        return aao();
+    public File acd() {
+        return acc();
     }
 
-    public String aaq() {
-        if (TextUtils.equals(this.cgo, "so")) {
-            if (TextUtils.equals(this.cgp, "so2")) {
-                return e.aaw().getAbsolutePath();
+    public String ace() {
+        if (TextUtils.equals(this.cky, "so")) {
+            if (TextUtils.equals(this.ckz, "so2")) {
+                return e.ack().getAbsolutePath();
             }
-            return e.aav().getAbsolutePath();
+            return e.acj().getAbsolutePath();
         }
-        return e.aas().aau().getAbsolutePath();
+        return e.acg().aci().getAbsolutePath();
     }
 
-    public File aar() {
-        if (this.cgr == null) {
-            File aap = aap();
-            String absolutePath = aap != null ? aap.getAbsolutePath() : null;
+    public File acf() {
+        if (this.ckB == null) {
+            File acd = acd();
+            String absolutePath = acd != null ? acd.getAbsolutePath() : null;
             if (absolutePath == null) {
                 return null;
             }
@@ -91,8 +91,8 @@ public class d {
             if (!absolutePath.endsWith(".loading")) {
                 absolutePath = absolutePath + ".loading";
             }
-            this.cgr = new File(absolutePath);
+            this.ckB = new File(absolutePath);
         }
-        return this.cgr;
+        return this.ckB;
     }
 }

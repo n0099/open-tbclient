@@ -6,7 +6,7 @@ import com.baidu.tbadk.n.k;
 public class PerformanceSwitch extends a {
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected void changeSettingByType(int i) {
-        k.bDO().lk(1 == i);
+        k.bEg().ln(1 == i);
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

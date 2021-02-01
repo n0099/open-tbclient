@@ -1,5 +1,5 @@
 package com.qq.e.comm.plugin.r;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface a {
     int getMediationPrice();
 

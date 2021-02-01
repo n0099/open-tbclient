@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.core.util;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class StatisticItem {
     private String key;
     private List<Object> params = new ArrayList();

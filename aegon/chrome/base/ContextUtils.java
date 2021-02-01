@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ContextUtils {
     public static final /* synthetic */ boolean $assertionsDisabled = !ContextUtils.class.desiredAssertionStatus();
     public static Context sApplicationContext;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class Holder {
         public static SharedPreferences sSharedPreferences = PreferenceManager.getDefaultSharedPreferences(ContextUtils.sApplicationContext);
     }

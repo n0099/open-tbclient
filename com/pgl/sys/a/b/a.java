@@ -9,11 +9,11 @@ import java.net.Proxy;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f11392a = false;
+    private static boolean f11394a = false;
 
     public static String a(String str, byte[] bArr) {
         URL url;
@@ -30,7 +30,7 @@ public class a {
         try {
             if (!"https".equals(url.getProtocol().toLowerCase())) {
                 httpURLConnection = (HttpURLConnection) url.openConnection();
-            } else if (f11392a) {
+            } else if (f11394a) {
                 HttpsURLConnection.setDefaultSSLSocketFactory(SSLContext.getInstance("TLS").getSocketFactory());
                 httpURLConnection = (HttpURLConnection) url.openConnection(Proxy.NO_PROXY);
             } else {

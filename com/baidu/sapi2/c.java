@@ -80,45 +80,45 @@ import javax.security.cert.CertificateException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class c {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4887b = "c";
+    private static final String f4889b = "c";
     private static final int c = 6;
     private static final String d = "3";
 
     /* renamed from: a  reason: collision with root package name */
-    private SapiConfiguration f4888a = SapiAccountManager.getInstance().getSapiConfiguration();
+    private SapiConfiguration f4890a = SapiAccountManager.getInstance().getSapiConfiguration();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class a extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ IqiyiLoginCallback f4889a;
+        final /* synthetic */ IqiyiLoginCallback f4891a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ IqiyiLoginResult f4890b;
+        final /* synthetic */ IqiyiLoginResult f4892b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         a(Looper looper, IqiyiLoginCallback iqiyiLoginCallback, IqiyiLoginResult iqiyiLoginResult) {
             super(looper);
-            this.f4889a = iqiyiLoginCallback;
-            this.f4890b = iqiyiLoginResult;
+            this.f4891a = iqiyiLoginCallback;
+            this.f4892b = iqiyiLoginResult;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            this.f4890b.setResultCode(i);
-            this.f4889a.onFailure(this.f4890b);
+            this.f4892b.setResultCode(i);
+            this.f4891a.onFailure(this.f4892b);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f4889a.onFinish();
+            this.f4891a.onFinish();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -130,16 +130,16 @@ public final class c {
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
             if (c.this.b(str) != 302) {
-                SocialResponse b2 = SapiWebView.b(str, c.this.f4888a.context);
+                SocialResponse b2 = SapiWebView.b(str, c.this.f4890a.context);
                 if (b2 == null) {
-                    this.f4890b.setResultCode(-100);
-                    this.f4890b.setResultMsg("登录失败");
-                    this.f4889a.onFailure(this.f4890b);
+                    this.f4892b.setResultCode(-100);
+                    this.f4892b.setResultMsg("登录失败");
+                    this.f4891a.onFailure(this.f4892b);
                     return;
                 } else if (b2.errorCode != -100) {
-                    this.f4890b.setResultCode(-100);
-                    this.f4890b.setResultMsg("登录失败");
-                    this.f4889a.onFailure(this.f4890b);
+                    this.f4892b.setResultCode(-100);
+                    this.f4892b.setResultMsg("登录失败");
+                    this.f4891a.onFailure(this.f4892b);
                     return;
                 } else {
                     SapiAccount a2 = c.this.a(b2);
@@ -147,16 +147,16 @@ public final class c {
                     a2.putExtra("account_type", Integer.valueOf(b2.accountType.getType()));
                     a2.addDispersionCertification(b2.tplStokenMap);
                     a2.addIsGuestAccount(b2.isGuestAccount);
-                    a2.putExtra("tpl", c.this.f4888a.tpl);
+                    a2.putExtra("tpl", c.this.f4890a.tpl);
                     SapiShareClient.getInstance().validate(a2);
-                    this.f4889a.onSuccess(this.f4890b);
+                    this.f4891a.onSuccess(this.f4892b);
                     return;
                 }
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f4890b.nextUrl = jSONObject.optString("next_url");
-                this.f4889a.onBindWebview(this.f4890b);
+                this.f4892b.nextUrl = jSONObject.optString("next_url");
+                this.f4891a.onBindWebview(this.f4892b);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -164,7 +164,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class b extends HttpHandlerWrap {
         b(Looper looper) {
             super(looper);
@@ -183,80 +183,20 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0322c extends HttpHandlerWrap {
-
-        /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SapiCallback f4892a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ CheckUserFaceIdResult f4893b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        C0322c(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult) {
-            super(looper);
-            this.f4892a = sapiCallback;
-            this.f4893b = checkUserFaceIdResult;
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFailure(Throwable th, int i, String str) {
-            this.f4893b.setResultCode(i);
-            this.f4892a.onFailure(this.f4893b);
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFinish() {
-            this.f4892a.onFinish();
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onStart() {
-            this.f4892a.onStart();
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onSuccess(int i, String str) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
-                this.f4893b.setResultCode(parseInt);
-                this.f4893b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-                if (parseInt == 0) {
-                    this.f4893b.status = jSONObject.optInt("status");
-                    this.f4893b.livingUname = jSONObject.optString("livinguname");
-                    this.f4893b.authsid = jSONObject.optString("authsid");
-                    this.f4893b.authWidgetURL = jSONObject.optString("authurl");
-                    this.f4892a.onSuccess(this.f4893b);
-                } else {
-                    this.f4892a.onFailure(this.f4893b);
-                }
-            } catch (Throwable th) {
-                this.f4893b.setResultCode(-202);
-                this.f4892a.onFailure(this.f4893b);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class d extends HttpHandlerWrap {
+    /* loaded from: classes15.dex */
+    public class C0319c extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ SapiCallback f4894a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ FaceLoginStatusResult f4895b;
+        final /* synthetic */ CheckUserFaceIdResult f4895b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        d(Looper looper, SapiCallback sapiCallback, FaceLoginStatusResult faceLoginStatusResult) {
+        C0319c(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult) {
             super(looper);
             this.f4894a = sapiCallback;
-            this.f4895b = faceLoginStatusResult;
+            this.f4895b = checkUserFaceIdResult;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -291,7 +231,6 @@ public final class c {
                     this.f4895b.livingUname = jSONObject.optString("livinguname");
                     this.f4895b.authsid = jSONObject.optString("authsid");
                     this.f4895b.authWidgetURL = jSONObject.optString("authurl");
-                    this.f4895b.faceLoginSwitch = jSONObject.optInt("faceLoginEnabled") == 1;
                     this.f4894a.onSuccess(this.f4895b);
                 } else {
                     this.f4894a.onFailure(this.f4895b);
@@ -304,22 +243,20 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class e extends HttpHandlerWrap {
+    /* loaded from: classes15.dex */
+    public class d extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ SapiCallback f4896a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ CheckUserFaceIdResult f4897b;
-        final /* synthetic */ boolean c;
+        final /* synthetic */ FaceLoginStatusResult f4897b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        e(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult, boolean z) {
+        d(Looper looper, SapiCallback sapiCallback, FaceLoginStatusResult faceLoginStatusResult) {
             super(looper);
             this.f4896a = sapiCallback;
-            this.f4897b = checkUserFaceIdResult;
-            this.c = z;
+            this.f4897b = faceLoginStatusResult;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -350,16 +287,15 @@ public final class c {
                 this.f4897b.setResultCode(parseInt);
                 this.f4897b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                 if (parseInt == 0) {
-                    if (this.c) {
-                        String optString = jSONObject.optString("livinguname");
-                        if (!TextUtils.isEmpty(optString)) {
-                            new FaceLoginService().syncFaceLoginUID(c.this.f4888a.context, optString);
-                        }
-                    }
+                    this.f4897b.status = jSONObject.optInt("status");
+                    this.f4897b.livingUname = jSONObject.optString("livinguname");
+                    this.f4897b.authsid = jSONObject.optString("authsid");
+                    this.f4897b.authWidgetURL = jSONObject.optString("authurl");
+                    this.f4897b.faceLoginSwitch = jSONObject.optInt("faceLoginEnabled") == 1;
                     this.f4896a.onSuccess(this.f4897b);
-                    return;
+                } else {
+                    this.f4896a.onFailure(this.f4897b);
                 }
-                this.f4896a.onFailure(this.f4897b);
             } catch (Throwable th) {
                 this.f4897b.setResultCode(-202);
                 this.f4896a.onFailure(this.f4897b);
@@ -368,40 +304,41 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class g extends HttpHandlerWrap {
+    /* loaded from: classes15.dex */
+    public class e extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SapiCallback f4900a;
+        final /* synthetic */ SapiCallback f4898a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ SapiResult f4901b;
+        final /* synthetic */ CheckUserFaceIdResult f4899b;
+        final /* synthetic */ boolean c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        g(Looper looper, SapiCallback sapiCallback, SapiResult sapiResult) {
+        e(Looper looper, SapiCallback sapiCallback, CheckUserFaceIdResult checkUserFaceIdResult, boolean z) {
             super(looper);
-            this.f4900a = sapiCallback;
-            this.f4901b = sapiResult;
+            this.f4898a = sapiCallback;
+            this.f4899b = checkUserFaceIdResult;
+            this.c = z;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            this.f4901b.setResultCode(i);
-            this.f4901b.setResultMsg(str);
-            this.f4900a.onFailure(this.f4901b);
+            this.f4899b.setResultCode(i);
+            this.f4898a.onFailure(this.f4899b);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFinish() {
-            this.f4900a.onFinish();
+            this.f4898a.onFinish();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            this.f4900a.onStart();
+            this.f4898a.onStart();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -409,42 +346,105 @@ public final class c {
         public void onSuccess(int i, String str) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f4901b.setResultCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO));
-                this.f4901b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-            } catch (JSONException e) {
-                Log.e(e);
-            }
-            if (this.f4901b.getResultCode() == 0) {
-                this.f4900a.onSuccess(this.f4901b);
-            } else {
-                this.f4900a.onFailure(this.f4901b);
+                int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
+                this.f4899b.setResultCode(parseInt);
+                this.f4899b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+                if (parseInt == 0) {
+                    if (this.c) {
+                        String optString = jSONObject.optString("livinguname");
+                        if (!TextUtils.isEmpty(optString)) {
+                            new FaceLoginService().syncFaceLoginUID(c.this.f4890a.context, optString);
+                        }
+                    }
+                    this.f4898a.onSuccess(this.f4899b);
+                    return;
+                }
+                this.f4898a.onFailure(this.f4899b);
+            } catch (Throwable th) {
+                this.f4899b.setResultCode(-202);
+                this.f4898a.onFailure(this.f4899b);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
+    public class g extends HttpHandlerWrap {
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ SapiCallback f4902a;
+
+        /* renamed from: b  reason: collision with root package name */
+        final /* synthetic */ SapiResult f4903b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        g(Looper looper, SapiCallback sapiCallback, SapiResult sapiResult) {
+            super(looper);
+            this.f4902a = sapiCallback;
+            this.f4903b = sapiResult;
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onFailure(Throwable th, int i, String str) {
+            this.f4903b.setResultCode(i);
+            this.f4903b.setResultMsg(str);
+            this.f4902a.onFailure(this.f4903b);
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onFinish() {
+            this.f4902a.onFinish();
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onStart() {
+            this.f4902a.onStart();
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onSuccess(int i, String str) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.f4903b.setResultCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO));
+                this.f4903b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+            } catch (JSONException e) {
+                Log.e(e);
+            }
+            if (this.f4903b.getResultCode() == 0) {
+                this.f4902a.onSuccess(this.f4903b);
+            } else {
+                this.f4902a.onFailure(this.f4903b);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes15.dex */
     public class h extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ OneKeyLoginResult f4902a;
+        final /* synthetic */ OneKeyLoginResult f4904a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ String f4903b;
+        final /* synthetic */ String f4905b;
         final /* synthetic */ OneKeyLoginCallback c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         h(Looper looper, OneKeyLoginResult oneKeyLoginResult, String str, OneKeyLoginCallback oneKeyLoginCallback) {
             super(looper);
-            this.f4902a = oneKeyLoginResult;
-            this.f4903b = str;
+            this.f4904a = oneKeyLoginResult;
+            this.f4905b = str;
             this.c = oneKeyLoginCallback;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            Log.d(c.f4887b, "onFailure, error = " + th + ", errorCode = " + i + ", responseBody = " + str);
+            Log.d(c.f4889b, "onFailure, error = " + th + ", errorCode = " + i + ", responseBody = " + str);
             new OneKeyLoginSdkCall().b(this.c, i, null);
         }
 
@@ -452,27 +452,27 @@ public final class c {
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
             JSONObject optJSONObject;
-            Log.d(c.f4887b, "onSuccess, statusCode = " + i + ", response = " + str);
+            Log.d(c.f4889b, "onSuccess, statusCode = " + i + ", response = " + str);
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
                 String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 if (optInt == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                    this.f4902a.setResultCode(0);
-                    this.f4902a.enable = optJSONObject.optInt(com.baidu.fsg.face.base.b.c.l, -1) == 1;
-                    this.f4902a.hasHistory = optJSONObject.optInt("hasHistory", -1) == 1;
-                    this.f4902a.encryptPhoneNum = this.f4903b;
-                    this.f4902a.sign = optJSONObject.optString("sign");
-                    this.f4902a.operator = new OneKeyLoginSdkCall().c();
+                    this.f4904a.setResultCode(0);
+                    this.f4904a.enable = optJSONObject.optInt(com.baidu.fsg.face.base.b.c.l, -1) == 1;
+                    this.f4904a.hasHistory = optJSONObject.optInt("hasHistory", -1) == 1;
+                    this.f4904a.encryptPhoneNum = this.f4905b;
+                    this.f4904a.sign = optJSONObject.optString("sign");
+                    this.f4904a.operator = new OneKeyLoginSdkCall().c();
                     String optString2 = optJSONObject.optString("js");
                     String optString3 = optJSONObject.optString("md5");
                     String optString4 = optJSONObject.optString("url");
                     String onekeyLoginJsMd5 = SapiContext.getInstance().getOnekeyLoginJsMd5();
                     if (optString3 == null || !optString3.equals(onekeyLoginJsMd5)) {
-                        c.this.a(this.c, optString4, optString3, optString2, this.f4902a);
+                        c.this.a(this.c, optString4, optString3, optString2, this.f4904a);
                     } else {
                         OneKeyLoginResult.secondJsCode = optString2;
-                        this.c.available(this.f4902a);
+                        this.c.available(this.f4904a);
                     }
                 } else {
                     new OneKeyLoginSdkCall().b(this.c, optInt, optString);
@@ -485,16 +485,16 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class i implements com.baidu.sapi2.callback.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ OneKeyLoginCallback f4904a;
+        final /* synthetic */ OneKeyLoginCallback f4906a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ com.baidu.sapi2.callback.a.b f4905b;
+        final /* synthetic */ com.baidu.sapi2.callback.a.b f4907b;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes15.dex */
         class a extends HttpHandlerWrap {
             a(Looper looper) {
                 super(looper);
@@ -503,15 +503,15 @@ public final class c {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i, String str) {
-                Log.d(c.f4887b, "onFailure, error = " + th + ", errorCode = " + i + ", responseBody = " + str);
-                new OneKeyLoginSdkCall().a(i.this.f4904a, -100, null);
+                Log.d(c.f4889b, "onFailure, error = " + th + ", errorCode = " + i + ", responseBody = " + str);
+                new OneKeyLoginSdkCall().a(i.this.f4906a, -100, null);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
                 String optString;
-                Log.d(c.f4887b, "onSuccess, statusCode = " + i + ", response = " + str);
+                Log.d(c.f4889b, "onSuccess, statusCode = " + i + ", response = " + str);
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     JSONObject optJSONObject = jSONObject.optJSONObject("errInfo");
@@ -521,16 +521,16 @@ public final class c {
                         c.this.a(hashMap);
                         JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
                         if (optJSONObject2 != null) {
-                            SapiAccountManager.getInstance().getAccountService().handleOneKeyLoginResult(i.this.f4904a, optJSONObject2.optString("xml"));
+                            SapiAccountManager.getInstance().getAccountService().handleOneKeyLoginResult(i.this.f4906a, optJSONObject2.optString("xml"));
                             return;
                         } else {
-                            new OneKeyLoginSdkCall().a(i.this.f4904a, -100, null);
+                            new OneKeyLoginSdkCall().a(i.this.f4906a, -100, null);
                             return;
                         }
                     }
                     if (!"400101".equals(optString2) && !"400031".equals(optString2) && !"400023".equals(optString2)) {
                         if (!"400704".equals(optString2) && !"400706".equals(optString2)) {
-                            new OneKeyLoginSdkCall().a(i.this.f4904a, Integer.parseInt(optString2), optString3);
+                            new OneKeyLoginSdkCall().a(i.this.f4906a, Integer.parseInt(optString2), optString3);
                             return;
                         }
                         JSONObject optJSONObject3 = jSONObject.optJSONObject("data");
@@ -548,29 +548,29 @@ public final class c {
                     if (!TextUtils.isEmpty(optString)) {
                         OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
                         oneKeyLoginResult.setResultCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
-                        i.this.f4904a.onGuideProcess(oneKeyLoginResult);
-                        i.this.f4905b.a("", optString);
+                        i.this.f4906a.onGuideProcess(oneKeyLoginResult);
+                        i.this.f4907b.a("", optString);
                         return;
                     }
-                    new OneKeyLoginSdkCall().a(i.this.f4904a, -100, null);
+                    new OneKeyLoginSdkCall().a(i.this.f4906a, -100, null);
                 } catch (Exception e) {
                     Log.e(e);
-                    new OneKeyLoginSdkCall().a(i.this.f4904a, -100, null);
+                    new OneKeyLoginSdkCall().a(i.this.f4906a, -100, null);
                 }
             }
         }
 
         i(OneKeyLoginCallback oneKeyLoginCallback, com.baidu.sapi2.callback.a.b bVar) {
-            this.f4904a = oneKeyLoginCallback;
-            this.f4905b = bVar;
+            this.f4906a = oneKeyLoginCallback;
+            this.f4907b = bVar;
         }
 
         @Override // com.baidu.sapi2.callback.a.a
         public void a(String str) {
             JSONObject jSONObject = null;
             if (TextUtils.isEmpty(str)) {
-                Log.e(c.f4887b, "oneKeyLogin execute JavaScript failed, it only support after KitKat version");
-                new OneKeyLoginSdkCall().a(this.f4904a, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL, null);
+                Log.e(c.f4889b, "oneKeyLogin execute JavaScript failed, it only support after KitKat version");
+                new OneKeyLoginSdkCall().a(this.f4906a, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL, null);
                 return;
             }
             try {
@@ -587,27 +587,27 @@ public final class c {
                 }
             }
             String l = c.this.l();
-            new HttpClientWrap().post(l, httpHashMap, ParamsUtil.buildNaCookie(l, c.this.f4888a), c.this.w(), new a(Looper.getMainLooper()));
+            new HttpClientWrap().post(l, httpHashMap, ParamsUtil.buildNaCookie(l, c.this.f4890a), c.this.w(), new a(Looper.getMainLooper()));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class j extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ String f4907a;
+        final /* synthetic */ String f4909a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ OneKeyLoginCallback f4908b;
+        final /* synthetic */ OneKeyLoginCallback f4910b;
         final /* synthetic */ String c;
         final /* synthetic */ OneKeyLoginResult d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         j(Looper looper, String str, OneKeyLoginCallback oneKeyLoginCallback, String str2, OneKeyLoginResult oneKeyLoginResult) {
             super(looper);
-            this.f4907a = str;
-            this.f4908b = oneKeyLoginCallback;
+            this.f4909a = str;
+            this.f4910b = oneKeyLoginCallback;
             this.c = str2;
             this.d = oneKeyLoginResult;
         }
@@ -615,67 +615,67 @@ public final class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            new OneKeyLoginSdkCall().b(this.f4908b, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, null);
+            new OneKeyLoginSdkCall().b(this.f4910b, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, null);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
             String md5 = SecurityUtil.md5(str.getBytes(), false);
-            String str2 = this.f4907a;
+            String str2 = this.f4909a;
             if (str2 != null && !str2.equals(md5)) {
-                Log.d(c.f4887b, "oneKeyLogin check javsScript MD5 failed");
-                new OneKeyLoginSdkCall().b(this.f4908b, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL, null);
+                Log.d(c.f4889b, "oneKeyLogin check javsScript MD5 failed");
+                new OneKeyLoginSdkCall().b(this.f4910b, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL, null);
                 return;
             }
             SapiContext.getInstance().setOneKeyLoginJSCode(str);
-            SapiContext.getInstance().setOnekeyLoginJsMd5(this.f4907a);
+            SapiContext.getInstance().setOnekeyLoginJsMd5(this.f4909a);
             OneKeyLoginResult.secondJsCode = this.c;
-            this.f4908b.available(this.d);
+            this.f4910b.available(this.d);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class k extends GetUserInfoCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Web2NativeLoginResult f4909a;
+        final /* synthetic */ Web2NativeLoginResult f4911a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ Web2NativeLoginCallback f4910b;
+        final /* synthetic */ Web2NativeLoginCallback f4912b;
         final /* synthetic */ String c;
         final /* synthetic */ String d;
 
         k(Web2NativeLoginResult web2NativeLoginResult, Web2NativeLoginCallback web2NativeLoginCallback, String str, String str2) {
-            this.f4909a = web2NativeLoginResult;
-            this.f4910b = web2NativeLoginCallback;
+            this.f4911a = web2NativeLoginResult;
+            this.f4912b = web2NativeLoginCallback;
             this.c = str;
             this.d = str2;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
-            this.f4910b.onFinish();
+            this.f4912b.onFinish();
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onStart() {
-            this.f4910b.onStart();
+            this.f4912b.onStart();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.LoginStatusAware
         public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-            this.f4909a.setResultCode(400021);
-            this.f4910b.onBdussExpired(this.f4909a);
+            this.f4911a.setResultCode(400021);
+            this.f4912b.onBdussExpired(this.f4911a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(GetUserInfoResult getUserInfoResult) {
-            this.f4909a.setResultCode(-202);
-            this.f4910b.onFailure(this.f4909a);
+            this.f4911a.setResultCode(-202);
+            this.f4912b.onFailure(this.f4911a);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -689,38 +689,38 @@ public final class c {
             if (!TextUtils.isEmpty(this.d)) {
                 sapiAccount.ptoken = this.d;
             }
-            sapiAccount.app = SapiUtils.getAppName(c.this.f4888a.context);
+            sapiAccount.app = SapiUtils.getAppName(c.this.f4890a.context);
             SapiShareClient.getInstance().validate(sapiAccount);
-            this.f4909a.setResultCode(0);
-            this.f4910b.onSuccess(this.f4909a);
+            this.f4911a.setResultCode(0);
+            this.f4912b.onSuccess(this.f4911a);
             new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.g);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class l extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ int f4911a;
+        final /* synthetic */ int f4913a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         l(Looper looper, int i) {
             super(looper);
-            this.f4911a = i;
+            this.f4913a = i;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            SapiStatUtil.statSetCloudShareAccount(this.f4911a, 2);
+            SapiStatUtil.statSetCloudShareAccount(this.f4913a, 2);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
-            Log.d(c.f4887b, "set clound share account start");
-            SapiStatUtil.statSetCloudShareAccount(this.f4911a, 0);
+            Log.d(c.f4889b, "set clound share account start");
+            SapiStatUtil.statSetCloudShareAccount(this.f4913a, 0);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -728,68 +728,19 @@ public final class c {
         public void onSuccess(int i, String str) {
             try {
                 if (new JSONObject(str).optInt("code") == 110000) {
-                    SapiStatUtil.statSetCloudShareAccount(this.f4911a, 1);
+                    SapiStatUtil.statSetCloudShareAccount(this.f4913a, 1);
                     return;
                 }
             } catch (Exception e) {
                 Log.e(e);
             }
-            SapiStatUtil.statSetCloudShareAccount(this.f4911a, 2);
+            SapiStatUtil.statSetCloudShareAccount(this.f4913a, 2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class m extends HttpHandlerWrap {
-
-        /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SapiCallBack f4913a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ boolean f4914b;
-        final /* synthetic */ SapiDataEncryptor c;
-        final /* synthetic */ String d;
-        final /* synthetic */ String e;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        m(Looper looper, SapiCallBack sapiCallBack, boolean z, SapiDataEncryptor sapiDataEncryptor, String str, String str2) {
-            super(looper);
-            this.f4913a = sapiCallBack;
-            this.f4914b = z;
-            this.c = sapiDataEncryptor;
-            this.d = str;
-            this.e = str2;
-        }
-
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFailure(Throwable th, int i, String str) {
-            if (i == -201) {
-                this.f4913a.onNetworkFailed();
-            } else {
-                this.f4913a.onSystemError(i);
-            }
-        }
-
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onSuccess(int i, String str) {
-            super.onSuccess(i, str);
-            if (!TextUtils.isEmpty(str)) {
-                c.this.a(-100, this.f4913a, str, this.f4914b, this.c);
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                c.this.a(this.f4913a, jSONObject.optString("cert"), jSONObject.optString("cert_id"), this.d, this.e, this.f4914b, this.c);
-            } catch (Exception e) {
-                c.this.a(-100, this.f4913a, str, this.f4914b, this.c);
-                Log.e(e);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class n extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
         final /* synthetic */ SapiCallBack f4915a;
@@ -797,18 +748,21 @@ public final class c {
         /* renamed from: b  reason: collision with root package name */
         final /* synthetic */ boolean f4916b;
         final /* synthetic */ SapiDataEncryptor c;
+        final /* synthetic */ String d;
+        final /* synthetic */ String e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        n(Looper looper, SapiCallBack sapiCallBack, boolean z, SapiDataEncryptor sapiDataEncryptor) {
+        m(Looper looper, SapiCallBack sapiCallBack, boolean z, SapiDataEncryptor sapiDataEncryptor, String str, String str2) {
             super(looper);
             this.f4915a = sapiCallBack;
             this.f4916b = z;
             this.c = sapiDataEncryptor;
+            this.d = str;
+            this.e = str2;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            super.onFailure(th, i, str);
             if (i == -201) {
                 this.f4915a.onNetworkFailed();
             } else {
@@ -819,103 +773,72 @@ public final class c {
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
             super.onSuccess(i, str);
-            c cVar = c.this;
-            cVar.a(cVar.b(str), this.f4915a, str, this.f4916b, this.c);
+            if (!TextUtils.isEmpty(str)) {
+                c.this.a(-100, this.f4915a, str, this.f4916b, this.c);
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                c.this.a(this.f4915a, jSONObject.optString("cert"), jSONObject.optString("cert_id"), this.d, this.e, this.f4916b, this.c);
+            } catch (Exception e) {
+                c.this.a(-100, this.f4915a, str, this.f4916b, this.c);
+                Log.e(e);
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
+    public class n extends HttpHandlerWrap {
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ SapiCallBack f4917a;
+
+        /* renamed from: b  reason: collision with root package name */
+        final /* synthetic */ boolean f4918b;
+        final /* synthetic */ SapiDataEncryptor c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        n(Looper looper, SapiCallBack sapiCallBack, boolean z, SapiDataEncryptor sapiDataEncryptor) {
+            super(looper);
+            this.f4917a = sapiCallBack;
+            this.f4918b = z;
+            this.c = sapiDataEncryptor;
+        }
+
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onFailure(Throwable th, int i, String str) {
+            super.onFailure(th, i, str);
+            if (i == -201) {
+                this.f4917a.onNetworkFailed();
+            } else {
+                this.f4917a.onSystemError(i);
+            }
+        }
+
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onSuccess(int i, String str) {
+            super.onSuccess(i, str);
+            c cVar = c.this;
+            cVar.a(cVar.b(str), this.f4917a, str, this.f4918b, this.c);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes15.dex */
     public class o extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ GetUserInfoCallback f4917a;
+        final /* synthetic */ GetUserInfoCallback f4919a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ GetUserInfoResult f4918b;
+        final /* synthetic */ GetUserInfoResult f4920b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         o(Looper looper, GetUserInfoCallback getUserInfoCallback, GetUserInfoResult getUserInfoResult) {
             super(looper);
-            this.f4917a = getUserInfoCallback;
-            this.f4918b = getUserInfoResult;
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFailure(Throwable th, int i, String str) {
-            this.f4918b.setResultCode(i);
-            this.f4917a.onFailure(this.f4918b);
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFinish() {
-            this.f4917a.onFinish();
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onStart() {
-            this.f4917a.onStart();
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onSuccess(int i, String str) {
-            int b2 = c.this.b(str);
-            this.f4918b.setResultCode(b2);
-            if (b2 != 0) {
-                if (b2 != 400021) {
-                    this.f4917a.onFailure(this.f4918b);
-                    return;
-                } else {
-                    this.f4917a.onBdussExpired(this.f4918b);
-                    return;
-                }
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.f4918b.portraitSign = jSONObject.optString("portrait_tag");
-                this.f4918b.isInitialPortrait = "0".equals(this.f4918b.portraitSign);
-                String optString = jSONObject.optString("portrait");
-                if (!TextUtils.isEmpty(optString)) {
-                    this.f4918b.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f4918b.portraitSign);
-                    this.f4918b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f4918b.portraitSign);
-                }
-                this.f4918b.username = jSONObject.optString("username");
-                this.f4918b.uid = jSONObject.optString(DpStatConstants.KEY_USER_ID);
-                this.f4918b.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-                this.f4918b.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
-                this.f4918b.secureMobile = jSONObject.optString("securemobil");
-                this.f4918b.secureEmail = jSONObject.optString("secureemail");
-                this.f4918b.havePwd = "1".equals(jSONObject.optString("have_psw"));
-                this.f4918b.carSdkFace = jSONObject.optInt("carSdkFace");
-                this.f4918b.faceLoginSwitch = jSONObject.optInt("faceLoginSwitch");
-                this.f4917a.onSuccess(this.f4918b);
-            } catch (Exception e) {
-                this.f4917a.onFailure(this.f4918b);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class p extends HttpHandlerWrap {
-
-        /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ FillUsernameCallback f4919a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ FillUsernameResult f4920b;
-        final /* synthetic */ SapiDataEncryptor c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        p(Looper looper, FillUsernameCallback fillUsernameCallback, FillUsernameResult fillUsernameResult, SapiDataEncryptor sapiDataEncryptor) {
-            super(looper);
-            this.f4919a = fillUsernameCallback;
-            this.f4920b = fillUsernameResult;
-            this.c = sapiDataEncryptor;
+            this.f4919a = getUserInfoCallback;
+            this.f4920b = getUserInfoResult;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -942,70 +865,62 @@ public final class c {
         public void onSuccess(int i, String str) {
             int b2 = c.this.b(str);
             this.f4920b.setResultCode(b2);
+            if (b2 != 0) {
+                if (b2 != 400021) {
+                    this.f4919a.onFailure(this.f4920b);
+                    return;
+                } else {
+                    this.f4919a.onBdussExpired(this.f4920b);
+                    return;
+                }
+            }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f4920b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-                JSONObject jSONObject2 = new JSONObject(this.c.decrypt(jSONObject.optString(TableDefine.DB_TABLE_USERINFO)));
-                if (b2 == 0 || b2 == 110000) {
-                    SapiAccount sapiAccount = new SapiAccount();
-                    sapiAccount.bduss = jSONObject2.optString("bduss");
-                    sapiAccount.ptoken = jSONObject2.optString("ptoken");
-                    sapiAccount.stoken = jSONObject2.optString("stoken");
-                    sapiAccount.displayname = jSONObject2.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-                    sapiAccount.username = jSONObject2.optString(BdStatsConstant.StatsKey.UNAME);
-                    sapiAccount.uid = jSONObject2.optString("uid");
-                    sapiAccount.app = SapiUtils.getAppName(c.this.f4888a.context);
-                    sapiAccount.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject2).tplStokenMap);
-                    sapiAccount.putExtra("tpl", c.this.f4888a.tpl);
-                    SapiShareClient.getInstance().validate(sapiAccount);
-                    this.f4920b.session = sapiAccount;
-                    this.f4919a.onSuccess(this.f4920b);
-                    new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f);
-                } else if (b2 == 160103) {
-                    this.f4919a.onBdussExpired(this.f4920b);
-                } else if (b2 != 160104) {
-                    this.f4919a.onFailure(this.f4920b);
-                } else {
-                    this.f4919a.onUserHaveUsername(this.f4920b);
+                this.f4920b.portraitSign = jSONObject.optString("portrait_tag");
+                this.f4920b.isInitialPortrait = "0".equals(this.f4920b.portraitSign);
+                String optString = jSONObject.optString("portrait");
+                if (!TextUtils.isEmpty(optString)) {
+                    this.f4920b.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f4920b.portraitSign);
+                    this.f4920b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.f4920b.portraitSign);
                 }
-            } catch (Throwable th) {
+                this.f4920b.username = jSONObject.optString("username");
+                this.f4920b.uid = jSONObject.optString(DpStatConstants.KEY_USER_ID);
+                this.f4920b.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
+                this.f4920b.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
+                this.f4920b.secureMobile = jSONObject.optString("securemobil");
+                this.f4920b.secureEmail = jSONObject.optString("secureemail");
+                this.f4920b.havePwd = "1".equals(jSONObject.optString("have_psw"));
+                this.f4920b.carSdkFace = jSONObject.optInt("carSdkFace");
+                this.f4920b.faceLoginSwitch = jSONObject.optInt("faceLoginSwitch");
+                this.f4919a.onSuccess(this.f4920b);
+            } catch (Exception e) {
                 this.f4919a.onFailure(this.f4920b);
-                Log.e(th);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class q extends HttpHandlerWrap {
+    /* loaded from: classes15.dex */
+    public class p extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ GetTplStokenCallback f4921a;
+        final /* synthetic */ FillUsernameCallback f4921a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ GetTplStokenResult f4922b;
-        final /* synthetic */ SapiAccount c;
-        final /* synthetic */ List d;
-        final /* synthetic */ boolean e;
-        final /* synthetic */ String f;
+        final /* synthetic */ FillUsernameResult f4922b;
+        final /* synthetic */ SapiDataEncryptor c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        q(Looper looper, GetTplStokenCallback getTplStokenCallback, GetTplStokenResult getTplStokenResult, SapiAccount sapiAccount, List list, boolean z, String str) {
+        p(Looper looper, FillUsernameCallback fillUsernameCallback, FillUsernameResult fillUsernameResult, SapiDataEncryptor sapiDataEncryptor) {
             super(looper);
-            this.f4921a = getTplStokenCallback;
-            this.f4922b = getTplStokenResult;
-            this.c = sapiAccount;
-            this.d = list;
-            this.e = z;
-            this.f = str;
+            this.f4921a = fillUsernameCallback;
+            this.f4922b = fillUsernameResult;
+            this.c = sapiDataEncryptor;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
-            if (TextUtils.isEmpty(this.f)) {
-                return;
-            }
             this.f4922b.setResultCode(i);
             this.f4921a.onFailure(this.f4922b);
         }
@@ -1025,82 +940,72 @@ public final class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
+            int b2 = c.this.b(str);
+            this.f4922b.setResultCode(b2);
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
-                this.f4922b.setResultCode(parseInt);
-                if (parseInt == 0) {
-                    Map<String, String> tplStokenMap = SapiAccount.DispersionCertification.getTplStokenMap(jSONObject.optJSONObject("stoken_list"));
-                    this.f4922b.tplStokenMap = tplStokenMap;
-                    SapiAccount.ExtraProperty extraProperty = new SapiAccount.ExtraProperty();
-                    if (!TextUtils.isEmpty(this.c.extra)) {
-                        extraProperty = SapiAccount.ExtraProperty.fromJSONObject(new JSONObject(this.c.extra));
-                    }
-                    extraProperty.dispersionCertification.tplStokenMap.putAll(tplStokenMap);
-                    this.c.extra = extraProperty.toJSONObject().toString();
-                    if (this.d.size() == tplStokenMap.size()) {
-                        if (this.e) {
-                            SapiShareClient.getInstance().validate(this.c);
-                        } else {
-                            SapiContext.getInstance().setCurrentAccount(this.c);
-                            SapiAccountManager.getInstance().preFetchStoken(this.c, false);
-                            SapiContext.getInstance().addLoginAccount(this.c);
-                            new com.baidu.sapi2.share.b().a(5);
-                        }
-                        this.f4921a.onSuccess(this.f4922b);
-                        return;
-                    }
-                    this.f4922b.setResultCode(-306);
+                this.f4922b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+                JSONObject jSONObject2 = new JSONObject(this.c.decrypt(jSONObject.optString(TableDefine.DB_TABLE_USERINFO)));
+                if (b2 == 0 || b2 == 110000) {
+                    SapiAccount sapiAccount = new SapiAccount();
+                    sapiAccount.bduss = jSONObject2.optString("bduss");
+                    sapiAccount.ptoken = jSONObject2.optString("ptoken");
+                    sapiAccount.stoken = jSONObject2.optString("stoken");
+                    sapiAccount.displayname = jSONObject2.optString(SapiAccountManager.SESSION_DISPLAYNAME);
+                    sapiAccount.username = jSONObject2.optString(BdStatsConstant.StatsKey.UNAME);
+                    sapiAccount.uid = jSONObject2.optString("uid");
+                    sapiAccount.app = SapiUtils.getAppName(c.this.f4890a.context);
+                    sapiAccount.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject2).tplStokenMap);
+                    sapiAccount.putExtra("tpl", c.this.f4890a.tpl);
+                    SapiShareClient.getInstance().validate(sapiAccount);
+                    this.f4922b.session = sapiAccount;
+                    this.f4921a.onSuccess(this.f4922b);
+                    new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f);
+                } else if (b2 == 160103) {
+                    this.f4921a.onBdussExpired(this.f4922b);
+                } else if (b2 != 160104) {
                     this.f4921a.onFailure(this.f4922b);
-                } else if (parseInt != 8) {
-                    if (!TextUtils.isEmpty(this.f)) {
-                        this.f4922b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-                        this.f4921a.onFailure(this.f4922b);
-                    }
-                } else if (!TextUtils.isEmpty(this.f)) {
-                    String optString = jSONObject.optString("ssnerror");
-                    if (TextUtils.isEmpty(optString)) {
-                        optString = "0";
-                    }
-                    int parseInt2 = Integer.parseInt(optString);
-                    if (parseInt2 == GetTplStokenResult.FailureType.BDUSS_PTOKEN_NOT_MATCH.ordinal()) {
-                        this.f4922b.failureType = GetTplStokenResult.FailureType.BDUSS_PTOKEN_NOT_MATCH;
-                    } else if (parseInt2 == GetTplStokenResult.FailureType.BDUSS_EXPIRED.ordinal()) {
-                        this.f4922b.failureType = GetTplStokenResult.FailureType.BDUSS_EXPIRED;
-                    }
-                    this.f4922b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-                    this.f4921a.onFailure(this.f4922b);
+                } else {
+                    this.f4921a.onUserHaveUsername(this.f4922b);
                 }
-            } catch (Exception e) {
-                Log.e(e);
-                if (!TextUtils.isEmpty(this.f)) {
-                    this.f4922b.setResultCode(-205);
-                    this.f4921a.onFailure(this.f4922b);
-                }
+            } catch (Throwable th) {
+                this.f4921a.onFailure(this.f4922b);
+                Log.e(th);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public class r extends HttpHandlerWrap {
+    /* loaded from: classes15.dex */
+    public class q extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SapiCallback f4923a;
+        final /* synthetic */ GetTplStokenCallback f4923a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ OAuthResult f4924b;
+        final /* synthetic */ GetTplStokenResult f4924b;
+        final /* synthetic */ SapiAccount c;
+        final /* synthetic */ List d;
+        final /* synthetic */ boolean e;
+        final /* synthetic */ String f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        r(Looper looper, SapiCallback sapiCallback, OAuthResult oAuthResult) {
+        q(Looper looper, GetTplStokenCallback getTplStokenCallback, GetTplStokenResult getTplStokenResult, SapiAccount sapiAccount, List list, boolean z, String str) {
             super(looper);
-            this.f4923a = sapiCallback;
-            this.f4924b = oAuthResult;
+            this.f4923a = getTplStokenCallback;
+            this.f4924b = getTplStokenResult;
+            this.c = sapiAccount;
+            this.d = list;
+            this.e = z;
+            this.f = str;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
+            if (TextUtils.isEmpty(this.f)) {
+                return;
+            }
             this.f4924b.setResultCode(i);
             this.f4923a.onFailure(this.f4924b);
         }
@@ -1124,69 +1029,164 @@ public final class c {
                 JSONObject jSONObject = new JSONObject(str);
                 int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
                 this.f4924b.setResultCode(parseInt);
-                if (parseInt != 0) {
+                if (parseInt == 0) {
+                    Map<String, String> tplStokenMap = SapiAccount.DispersionCertification.getTplStokenMap(jSONObject.optJSONObject("stoken_list"));
+                    this.f4924b.tplStokenMap = tplStokenMap;
+                    SapiAccount.ExtraProperty extraProperty = new SapiAccount.ExtraProperty();
+                    if (!TextUtils.isEmpty(this.c.extra)) {
+                        extraProperty = SapiAccount.ExtraProperty.fromJSONObject(new JSONObject(this.c.extra));
+                    }
+                    extraProperty.dispersionCertification.tplStokenMap.putAll(tplStokenMap);
+                    this.c.extra = extraProperty.toJSONObject().toString();
+                    if (this.d.size() == tplStokenMap.size()) {
+                        if (this.e) {
+                            SapiShareClient.getInstance().validate(this.c);
+                        } else {
+                            SapiContext.getInstance().setCurrentAccount(this.c);
+                            SapiAccountManager.getInstance().preFetchStoken(this.c, false);
+                            SapiContext.getInstance().addLoginAccount(this.c);
+                            new com.baidu.sapi2.share.b().a(5);
+                        }
+                        this.f4923a.onSuccess(this.f4924b);
+                        return;
+                    }
+                    this.f4924b.setResultCode(-306);
                     this.f4923a.onFailure(this.f4924b);
-                } else {
-                    this.f4924b.accessToken = jSONObject.optString("access_token");
-                    this.f4924b.expiresIn = jSONObject.optInt("expires_in");
-                    this.f4924b.scope = jSONObject.optString("scope");
-                    this.f4924b.refreshToken = jSONObject.optString(Oauth2AccessToken.KEY_REFRESH_TOKEN);
-                    this.f4924b.sessionKey = jSONObject.optString("session_key");
-                    this.f4924b.sessionSecret = jSONObject.optString("session_secret");
-                    this.f4924b.extra = str;
-                    this.f4924b.openid = jSONObject.optString("openid");
-                    this.f4923a.onSuccess(this.f4924b);
+                } else if (parseInt != 8) {
+                    if (!TextUtils.isEmpty(this.f)) {
+                        this.f4924b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+                        this.f4923a.onFailure(this.f4924b);
+                    }
+                } else if (!TextUtils.isEmpty(this.f)) {
+                    String optString = jSONObject.optString("ssnerror");
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "0";
+                    }
+                    int parseInt2 = Integer.parseInt(optString);
+                    if (parseInt2 == GetTplStokenResult.FailureType.BDUSS_PTOKEN_NOT_MATCH.ordinal()) {
+                        this.f4924b.failureType = GetTplStokenResult.FailureType.BDUSS_PTOKEN_NOT_MATCH;
+                    } else if (parseInt2 == GetTplStokenResult.FailureType.BDUSS_EXPIRED.ordinal()) {
+                        this.f4924b.failureType = GetTplStokenResult.FailureType.BDUSS_EXPIRED;
+                    }
+                    this.f4924b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+                    this.f4923a.onFailure(this.f4924b);
                 }
-            } catch (Throwable th) {
-                this.f4924b.setResultCode(-202);
-                this.f4923a.onFailure(this.f4924b);
+            } catch (Exception e) {
+                Log.e(e);
+                if (!TextUtils.isEmpty(this.f)) {
+                    this.f4924b.setResultCode(-205);
+                    this.f4923a.onFailure(this.f4924b);
+                }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
+    public class r extends HttpHandlerWrap {
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ SapiCallback f4925a;
+
+        /* renamed from: b  reason: collision with root package name */
+        final /* synthetic */ OAuthResult f4926b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        r(Looper looper, SapiCallback sapiCallback, OAuthResult oAuthResult) {
+            super(looper);
+            this.f4925a = sapiCallback;
+            this.f4926b = oAuthResult;
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onFailure(Throwable th, int i, String str) {
+            this.f4926b.setResultCode(i);
+            this.f4925a.onFailure(this.f4926b);
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onFinish() {
+            this.f4925a.onFinish();
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onStart() {
+            this.f4925a.onStart();
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+        public void onSuccess(int i, String str) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
+                this.f4926b.setResultCode(parseInt);
+                if (parseInt != 0) {
+                    this.f4925a.onFailure(this.f4926b);
+                } else {
+                    this.f4926b.accessToken = jSONObject.optString("access_token");
+                    this.f4926b.expiresIn = jSONObject.optInt("expires_in");
+                    this.f4926b.scope = jSONObject.optString("scope");
+                    this.f4926b.refreshToken = jSONObject.optString(Oauth2AccessToken.KEY_REFRESH_TOKEN);
+                    this.f4926b.sessionKey = jSONObject.optString("session_key");
+                    this.f4926b.sessionSecret = jSONObject.optString("session_secret");
+                    this.f4926b.extra = str;
+                    this.f4926b.openid = jSONObject.optString("openid");
+                    this.f4925a.onSuccess(this.f4926b);
+                }
+            } catch (Throwable th) {
+                this.f4926b.setResultCode(-202);
+                this.f4925a.onFailure(this.f4926b);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes15.dex */
     public class s extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ SapiCallBack f4925a;
+        final /* synthetic */ SapiCallBack f4927a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         s(Looper looper, SapiCallBack sapiCallBack) {
             super(looper);
-            this.f4925a = sapiCallBack;
+            this.f4927a = sapiCallBack;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i, String str) {
             if (i == -203) {
-                this.f4925a.onSystemError(i);
+                this.f4927a.onSystemError(i);
             } else {
-                c.this.b(this.f4925a, str);
+                c.this.b(this.f4927a, str);
             }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
-            c.this.b(this.f4925a, str);
+            c.this.b(this.f4927a, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class t extends GetUserInfoCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ IqiyiLoginCallback f4927a;
+        final /* synthetic */ IqiyiLoginCallback f4929a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ IqiyiLoginDTO f4928b;
+        final /* synthetic */ IqiyiLoginDTO f4930b;
         final /* synthetic */ IqiyiLoginResult c;
         final /* synthetic */ String d;
 
         t(IqiyiLoginCallback iqiyiLoginCallback, IqiyiLoginDTO iqiyiLoginDTO, IqiyiLoginResult iqiyiLoginResult, String str) {
-            this.f4927a = iqiyiLoginCallback;
-            this.f4928b = iqiyiLoginDTO;
+            this.f4929a = iqiyiLoginCallback;
+            this.f4930b = iqiyiLoginDTO;
             this.c = iqiyiLoginResult;
             this.d = str;
         }
@@ -1202,7 +1202,7 @@ public final class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.LoginStatusAware
         public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-            c.this.a(this.f4927a, this.f4928b, this.c);
+            c.this.a(this.f4929a, this.f4930b, this.c);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1210,7 +1210,7 @@ public final class c {
         public void onFailure(GetUserInfoResult getUserInfoResult) {
             this.c.setResultCode(getUserInfoResult.getResultCode());
             this.c.setResultMsg(getUserInfoResult.getResultMsg());
-            this.f4927a.onFailure(this.c);
+            this.f4929a.onFailure(this.c);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1219,19 +1219,19 @@ public final class c {
             String str = getUserInfoResult.secureMobile;
             boolean z = getUserInfoResult.incompleteUser;
             if (!TextUtils.isEmpty(str)) {
-                this.f4927a.onSuccess(this.c);
+                this.f4929a.onSuccess(this.c);
             } else if (z) {
-                c.this.a(this.f4927a, this.f4928b, this.c);
+                c.this.a(this.f4929a, this.f4930b, this.c);
             } else if (!TextUtils.isEmpty(this.d)) {
-                c.this.a(this.f4927a, this.f4928b, this.c);
+                c.this.a(this.f4929a, this.f4930b, this.c);
             } else {
-                this.f4927a.onSuccess(this.c);
+                this.f4929a.onSuccess(this.c);
             }
         }
     }
 
     private Domain u() {
-        return this.f4888a.environment;
+        return this.f4890a.environment;
     }
 
     private String v() {
@@ -1240,7 +1240,7 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String w() {
-        return "tpl:" + this.f4888a.tpl + ";android_sapi_v8.9.9.3";
+        return "tpl:" + this.f4890a.tpl + ";android_sapi_v8.9.9.3";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1369,7 +1369,7 @@ public final class c {
         } else if (SapiAccountManager.getInstance().isLogin() && !z) {
             SapiAccount currentAccount2 = SapiContext.getInstance().getCurrentAccount();
             if (!cookieBduss.equals(currentAccount2.bduss)) {
-                SapiAccountManager.getInstance().getAccountService().webLogin(this.f4888a.context, currentAccount2.bduss);
+                SapiAccountManager.getInstance().getAccountService().webLogin(this.f4890a.context, currentAccount2.bduss);
             }
             web2NativeLoginResult.setResultCode(0);
             web2NativeLoginCallback.onSuccess(web2NativeLoginResult);
@@ -1379,19 +1379,19 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public class f extends AsyncTask<String, Void, Long> {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ String f4898a;
+        final /* synthetic */ String f4900a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ String f4899b;
+        final /* synthetic */ String f4901b;
         final /* synthetic */ SsoHashCallback c;
 
         f(String str, String str2, SsoHashCallback ssoHashCallback) {
-            this.f4898a = str;
-            this.f4899b = str2;
+            this.f4900a = str;
+            this.f4901b = str2;
             this.c = ssoHashCallback;
         }
 
@@ -1417,7 +1417,7 @@ public final class c {
         /* renamed from: a */
         public void onPostExecute(Long l) {
             SsoHashResult ssoHashResult = new SsoHashResult();
-            ssoHashResult.ssoHash = new com.baidu.sapi2.utils.h().a(l, this.f4898a, this.f4899b);
+            ssoHashResult.ssoHash = new com.baidu.sapi2.utils.h().a(l, this.f4900a, this.f4901b);
             ssoHashResult.setResultCode(0);
             this.c.onSuccess(ssoHashResult);
         }
@@ -1460,7 +1460,7 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2, boolean z) {
-        SapiConfiguration sapiConfiguration = this.f4888a;
+        SapiConfiguration sapiConfiguration = this.f4890a;
         if (sapiConfiguration != null && sapiConfiguration.context != null) {
             SapiUtils.notNull(sapiCallBack, SapiCallBack.class.getSimpleName() + " can't be null");
             new HttpClientWrap().get(v(), null, null, w(), new m(Looper.getMainLooper(), sapiCallBack, z, new SapiDataEncryptor(), str, str2));
@@ -1473,7 +1473,7 @@ public final class c {
     public void a(SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2, String str3, String str4, boolean z, SapiDataEncryptor sapiDataEncryptor) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException, CertificateException, JSONException {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("crypttype", "6");
-        String deviceInfo = SapiDeviceInfo.getDeviceInfo(com.baidu.sapi2.utils.e.f5107a);
+        String deviceInfo = SapiDeviceInfo.getDeviceInfo(com.baidu.sapi2.utils.e.f5109a);
         if (!TextUtils.isEmpty(deviceInfo)) {
             httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
@@ -1488,7 +1488,7 @@ public final class c {
         jSONObject.put(SapiContext.KEY_SDK_VERSION, "2");
         jSONObject.put("pinfo", SapiDeviceUtils.b());
         httpHashMapWrap.put(TableDefine.DB_TABLE_USERINFO, sapiDataEncryptor.encrypt(str, jSONObject.toString()));
-        new HttpClientWrap().post(com.baidu.sapi2.utils.e.f5107a, httpHashMapWrap, null, w(), new n(Looper.getMainLooper(), sapiCallBack, z, sapiDataEncryptor));
+        new HttpClientWrap().post(com.baidu.sapi2.utils.e.f5109a, httpHashMapWrap, null, w(), new n(Looper.getMainLooper(), sapiCallBack, z, sapiDataEncryptor));
     }
 
     void a(int i2, SapiCallBack<SapiAccountResponse> sapiCallBack, String str, boolean z, SapiDataEncryptor sapiDataEncryptor) {
@@ -1522,7 +1522,7 @@ public final class c {
                 if (z) {
                     SapiAccount a2 = a(sapiAccountResponse);
                     a2.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject).tplStokenMap);
-                    a2.putExtra("tpl", this.f4888a.tpl);
+                    a2.putExtra("tpl", this.f4890a.tpl);
                     SapiShareClient.getInstance().validate(a2);
                 }
                 sapiCallBack.onSuccess(sapiAccountResponse);
@@ -1546,11 +1546,11 @@ public final class c {
         if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {
             httpHashMapWrap.put("ptoken", accountFromBduss.ptoken);
         }
-        String deviceInfo = SapiDeviceInfo.getDeviceInfo(com.baidu.sapi2.utils.e.f5108b);
+        String deviceInfo = SapiDeviceInfo.getDeviceInfo(com.baidu.sapi2.utils.e.f5110b);
         if (!TextUtils.isEmpty(deviceInfo)) {
             httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
-        new HttpClientWrap().post(com.baidu.sapi2.utils.e.f5108b, httpHashMapWrap, null, w(), new o(Looper.getMainLooper(), getUserInfoCallback, getUserInfoResult));
+        new HttpClientWrap().post(com.baidu.sapi2.utils.e.f5110b, httpHashMapWrap, null, w(), new o(Looper.getMainLooper(), getUserInfoCallback, getUserInfoResult));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1566,11 +1566,11 @@ public final class c {
         SapiDataEncryptor sapiDataEncryptor = new SapiDataEncryptor();
         try {
             jSONObject.put("bduss", str);
-            if (!TextUtils.isEmpty(this.f4888a.clientId)) {
-                jSONObject.put("clientid", this.f4888a.clientId);
+            if (!TextUtils.isEmpty(this.f4890a.clientId)) {
+                jSONObject.put("clientid", this.f4890a.clientId);
             }
-            if (!TextUtils.isEmpty(this.f4888a.clientIp)) {
-                jSONObject.put("clientip", this.f4888a.clientIp);
+            if (!TextUtils.isEmpty(this.f4890a.clientIp)) {
+                jSONObject.put("clientip", this.f4890a.clientIp);
             }
             jSONObject.put("username", str2);
             jSONObject.put("key", sapiDataEncryptor.getAESKey());
@@ -1670,7 +1670,7 @@ public final class c {
             }
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
             httpHashMapWrap.put("bduss", str);
-            httpHashMapWrap.put("sign", SecurityUtil.md5((this.f4888a.appId + this.f4888a.tpl + str + this.f4888a.appSignKey).getBytes(), false));
+            httpHashMapWrap.put("sign", SecurityUtil.md5((this.f4890a.appId + this.f4890a.tpl + str + this.f4890a.appSignKey).getBytes(), false));
             httpHashMapWrap.put("return_type", "1");
             if (!TextUtils.isEmpty(str2)) {
                 httpHashMapWrap.put("ptoken", str2);
@@ -1688,7 +1688,7 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(SapiCallBack<SapiResponse> sapiCallBack, String str) {
         Context context;
-        SapiConfiguration sapiConfiguration = this.f4888a;
+        SapiConfiguration sapiConfiguration = this.f4890a;
         if (sapiConfiguration == null || (context = sapiConfiguration.context) == null) {
             return false;
         }
@@ -1775,7 +1775,7 @@ public final class c {
         if (map != null && !map.isEmpty()) {
             a2.putAll(map);
         }
-        new HttpClientWrap().post(com.baidu.sapi2.utils.e.C, a2, null, w(), new C0322c(Looper.getMainLooper(), sapiCallback, new CheckUserFaceIdResult()));
+        new HttpClientWrap().post(com.baidu.sapi2.utils.e.C, a2, null, w(), new C0319c(Looper.getMainLooper(), sapiCallback, new CheckUserFaceIdResult()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1840,7 +1840,7 @@ public final class c {
         httpHashMapWrap.put("clientfrom", "native");
         httpHashMapWrap.put("mobile", str);
         String n2 = n();
-        new HttpClientWrap().get(n2, httpHashMapWrap, ParamsUtil.buildNaCookie(n2, this.f4888a), w(), i2, new h(Looper.getMainLooper(), oneKeyLoginResult, str, oneKeyLoginCallback));
+        new HttpClientWrap().get(n2, httpHashMapWrap, ParamsUtil.buildNaCookie(n2, this.f4890a), w(), i2, new h(Looper.getMainLooper(), oneKeyLoginResult, str, oneKeyLoginCallback));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1850,26 +1850,26 @@ public final class c {
         try {
             String c2 = new OneKeyLoginSdkCall().c();
             jSONObject.put("token", str);
-            jSONObject.put("tpl", this.f4888a.tpl);
+            jSONObject.put("tpl", this.f4890a.tpl);
             jSONObject.put("client", HttpConstants.OS_TYPE_VALUE);
             jSONObject.put("clientfrom", "native");
-            jSONObject.put("appid", this.f4888a.appId);
+            jSONObject.put("appid", this.f4890a.appId);
             jSONObject.put("operator", c2);
             jSONObject.put("scene", "api");
             jSONObject.put("sign", str2);
             if ("CM".equals(c2)) {
-                packageName = this.f4888a.chinaMobileAppID;
+                packageName = this.f4890a.chinaMobileAppID;
             } else if ("CT".equals(c2)) {
-                packageName = this.f4888a.chinaTelecomAppKey;
+                packageName = this.f4890a.chinaTelecomAppKey;
             } else {
-                packageName = this.f4888a.context.getPackageName();
+                packageName = this.f4890a.context.getPackageName();
                 jSONObject.put("CUVersion", "2");
             }
             jSONObject.put("appid", packageName);
         } catch (JSONException e2) {
             Log.e(e2);
         }
-        com.baidu.sapi2.utils.d.a(SapiContext.getInstance().getOneKeyLoginJsCode(), OneKeyLoginResult.secondJsCode, jSONObject.toString(), this.f4888a.context, new i(oneKeyLoginCallback, bVar));
+        com.baidu.sapi2.utils.d.a(SapiContext.getInstance().getOneKeyLoginJsCode(), OneKeyLoginResult.secondJsCode, jSONObject.toString(), this.f4890a.context, new i(oneKeyLoginCallback, bVar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1880,7 +1880,7 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i2, ShareStorage.StorageModel storageModel) {
         SapiAccount currentAccount;
-        if (SapiContext.getInstance().getSapiOptions().u.a(e.c.f4949b).c) {
+        if (SapiContext.getInstance().getSapiOptions().u.a(e.c.f4951b).c) {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
             if (i2 == 2) {
                 httpHashMapWrap.put("cmd", "insert");
@@ -1896,8 +1896,8 @@ public final class c {
                 httpHashMapWrap.put("ptoken", currentAccount.ptoken);
                 httpHashMapWrap.put("stoken", currentAccount.stoken);
             }
-            httpHashMapWrap.put("app", SapiUtils.getAppName(this.f4888a.context));
-            httpHashMapWrap.put(Config.INPUT_DEF_PKG, this.f4888a.context.getPackageName());
+            httpHashMapWrap.put("app", SapiUtils.getAppName(this.f4890a.context));
+            httpHashMapWrap.put(Config.INPUT_DEF_PKG, this.f4890a.context.getPackageName());
             new HttpClientWrap().post(com.baidu.sapi2.utils.e.O, httpHashMapWrap, new l(Looper.getMainLooper(), i2));
         }
     }
@@ -1905,8 +1905,8 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(HashMap<String, String> hashMap) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair(this.f4888a.environment.getWap(), hashMap.get("HISTORY")));
-        SapiUtils.syncCookies(this.f4888a.context, arrayList);
+        arrayList.add(new PassNameValuePair(this.f4890a.environment.getWap(), hashMap.get("HISTORY")));
+        SapiUtils.syncCookies(this.f4890a.context, arrayList);
     }
 
     SapiAccount a(SapiAccountResponse sapiAccountResponse) {
@@ -1917,7 +1917,7 @@ public final class c {
         sapiAccount.stoken = sapiAccountResponse.stoken;
         sapiAccount.uid = sapiAccountResponse.uid;
         sapiAccount.username = sapiAccountResponse.username;
-        sapiAccount.app = SapiUtils.getAppName(this.f4888a.context);
+        sapiAccount.app = SapiUtils.getAppName(this.f4890a.context);
         return sapiAccount;
     }
 

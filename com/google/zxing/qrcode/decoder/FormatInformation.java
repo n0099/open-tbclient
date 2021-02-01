@@ -1,8 +1,7 @@
 package com.google.zxing.qrcode.decoder;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.cyberplayer.sdk.rtc.RTCConst;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class FormatInformation {
     private final byte dataMask;
     private final ErrorCorrectionLevel errorCorrectionLevel;
@@ -27,7 +26,7 @@ final class FormatInformation {
 
     private static FormatInformation doDecodeFormatInformation(int i, int i2) {
         int i3;
-        int i4 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i4 = Integer.MAX_VALUE;
         int[][] iArr = FORMAT_INFO_DECODE_LOOKUP;
         int length = iArr.length;
         int i5 = 0;

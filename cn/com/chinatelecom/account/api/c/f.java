@@ -1,7 +1,7 @@
 package cn.com.chinatelecom.account.api.c;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */

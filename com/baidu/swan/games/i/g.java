@@ -3,21 +3,21 @@ package com.baidu.swan.games.i;
 import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g {
-    private HashMap<String, h> eev = new HashMap<>();
+    private HashMap<String, h> egD = new HashMap<>();
 
     public ArrayList<h> H(String... strArr) {
         ArrayList<h> arrayList = null;
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    for (String str2 : this.eev.keySet()) {
+                    for (String str2 : this.egD.keySet()) {
                         if (str2.startsWith(str) || str.startsWith(str2)) {
                             if (arrayList == null) {
                                 arrayList = new ArrayList<>();
                             }
-                            arrayList.add(this.eev.get(str2));
+                            arrayList.add(this.egD.get(str2));
                         }
                     }
                 }
@@ -30,7 +30,7 @@ public class g {
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    this.eev.put(str, hVar);
+                    this.egD.put(str, hVar);
                 }
             }
         }
@@ -39,14 +39,14 @@ public class g {
     public void b(h hVar, String... strArr) {
         if (strArr != null && strArr.length != 0) {
             for (String str : strArr) {
-                if (!TextUtils.isEmpty(str) && this.eev.get(str) == hVar) {
-                    this.eev.remove(str);
+                if (!TextUtils.isEmpty(str) && this.egD.get(str) == hVar) {
+                    this.egD.remove(str);
                 }
             }
         }
     }
 
-    public void avY() {
-        this.eev.clear();
+    public void aww() {
+        this.egD.clear();
     }
 }

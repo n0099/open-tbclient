@@ -21,29 +21,29 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.widget.TbImageView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ScrollTextView extends RelativeLayout {
-    private int bCW;
-    private int bCY;
-    private ViewFlipper iib;
-    private boolean iic;
-    private Drawable iid;
-    private int iie;
-    private int iif;
-    private boolean iig;
+    private int bGG;
+    private int bGI;
+    private ViewFlipper inJ;
+    private boolean inK;
+    private Drawable inL;
+    private int inM;
+    private int inN;
+    private boolean inO;
     @AnimRes
-    private int iih;
+    private int inP;
     @AnimRes
-    private int iii;
-    private boolean iij;
-    private int iik;
-    private int iil;
-    private b iim;
-    private boolean iin;
-    private d iio;
-    private c iip;
-    private a iiq;
-    private boolean iir;
+    private int inQ;
+    private boolean inR;
+    private int inS;
+    private int inT;
+    private b inU;
+    private boolean inV;
+    private d inW;
+    private c inX;
+    private a inY;
+    private boolean inZ;
     private boolean isStarted;
     private List<AlaLiveWishListData> mDatas;
     private int mFlags;
@@ -53,19 +53,19 @@ public class ScrollTextView extends RelativeLayout {
     private int mTextColor;
     private int mTextSize;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void b(AlaLiveWishListData alaLiveWishListData, int i);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface c {
         void a(AlaLiveWishListData alaLiveWishListData, int i);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface d {
-        void cpr();
+        void cqB();
     }
 
     public ScrollTextView(Context context) {
@@ -75,34 +75,34 @@ public class ScrollTextView extends RelativeLayout {
     public ScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mInterval = 3000;
-        this.iic = false;
+        this.inK = false;
         this.mTextColor = getResources().getColor(a.c.sdk_white_alpha100);
         this.mTextSize = getResources().getDimensionPixelSize(a.d.sdk_fontsize24);
         this.mGravity = 21;
-        this.iig = false;
-        this.iih = a.C0194a.anim_bottom_in;
-        this.iii = a.C0194a.anim_top_out;
-        this.iij = false;
-        this.iik = 800;
+        this.inO = false;
+        this.inP = a.C0195a.anim_bottom_in;
+        this.inQ = a.C0195a.anim_top_out;
+        this.inR = false;
+        this.inS = 800;
         this.mFlags = -1;
-        this.iil = 0;
+        this.inT = 0;
         this.mDatas = new ArrayList();
         this.mPosition = 0;
-        this.iiq = new a();
-        this.iir = false;
+        this.inY = new a();
+        this.inZ = false;
         init(context, attributeSet, 0);
     }
 
     private void init(Context context, AttributeSet attributeSet, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.ScrollTextView, i, 0);
         this.mInterval = obtainStyledAttributes.getInteger(a.j.ScrollTextView_setInterval, this.mInterval);
-        this.iic = obtainStyledAttributes.getBoolean(a.j.ScrollTextView_setSingleLine, false);
+        this.inK = obtainStyledAttributes.getBoolean(a.j.ScrollTextView_setSingleLine, false);
         this.mTextColor = obtainStyledAttributes.getColor(a.j.ScrollTextView_setTextColor, this.mTextColor);
-        this.iid = obtainStyledAttributes.getDrawable(a.j.ScrollTextView_setTextBackground);
-        this.bCW = obtainStyledAttributes.getDimensionPixelOffset(a.j.ScrollTextView_setTextPaddingLeft, getResources().getDimensionPixelOffset(a.d.sdk_ds0));
-        this.bCY = obtainStyledAttributes.getDimensionPixelOffset(a.j.ScrollTextView_setTextPaddingRight, getResources().getDimensionPixelOffset(a.d.sdk_ds0));
-        this.iie = obtainStyledAttributes.getDimensionPixelOffset(a.j.ScrollTextView_setTextItemPadding, getResources().getDimensionPixelOffset(a.d.sdk_ds0));
-        this.iif = obtainStyledAttributes.getDimensionPixelOffset(a.j.ScrollTextView_setTextItemHeight, getResources().getDimensionPixelOffset(a.d.sdk_ds0));
+        this.inL = obtainStyledAttributes.getDrawable(a.j.ScrollTextView_setTextBackground);
+        this.bGG = obtainStyledAttributes.getDimensionPixelOffset(a.j.ScrollTextView_setTextPaddingLeft, getResources().getDimensionPixelOffset(a.d.sdk_ds0));
+        this.bGI = obtainStyledAttributes.getDimensionPixelOffset(a.j.ScrollTextView_setTextPaddingRight, getResources().getDimensionPixelOffset(a.d.sdk_ds0));
+        this.inM = obtainStyledAttributes.getDimensionPixelOffset(a.j.ScrollTextView_setTextItemPadding, getResources().getDimensionPixelOffset(a.d.sdk_ds0));
+        this.inN = obtainStyledAttributes.getDimensionPixelOffset(a.j.ScrollTextView_setTextItemHeight, getResources().getDimensionPixelOffset(a.d.sdk_ds0));
         if (obtainStyledAttributes.hasValue(a.j.ScrollTextView_setTextSize)) {
             this.mTextSize = (int) obtainStyledAttributes.getDimension(a.j.ScrollTextView_setTextSize, this.mTextSize);
         }
@@ -117,11 +117,11 @@ public class ScrollTextView extends RelativeLayout {
                 this.mGravity = 21;
                 break;
         }
-        this.iij = obtainStyledAttributes.hasValue(a.j.ScrollTextView_setAnimDuration);
-        this.iik = obtainStyledAttributes.getInt(a.j.ScrollTextView_setAnimDuration, this.iik);
-        this.iig = obtainStyledAttributes.getBoolean(a.j.ScrollTextView_isLooper, this.iig);
-        this.iih = a.C0194a.anim_bottom_in;
-        this.iii = a.C0194a.anim_top_out;
+        this.inR = obtainStyledAttributes.hasValue(a.j.ScrollTextView_setAnimDuration);
+        this.inS = obtainStyledAttributes.getInt(a.j.ScrollTextView_setAnimDuration, this.inS);
+        this.inO = obtainStyledAttributes.getBoolean(a.j.ScrollTextView_isLooper, this.inO);
+        this.inP = a.C0195a.anim_bottom_in;
+        this.inQ = a.C0195a.anim_top_out;
         this.mFlags = obtainStyledAttributes.getInt(a.j.ScrollTextView_setFlags, this.mFlags);
         switch (this.mFlags) {
             case 0:
@@ -134,50 +134,50 @@ public class ScrollTextView extends RelativeLayout {
                 this.mFlags = 1;
                 break;
         }
-        this.iil = obtainStyledAttributes.getInt(a.j.ScrollTextView_setTypeface, this.iil);
-        switch (this.iil) {
+        this.inT = obtainStyledAttributes.getInt(a.j.ScrollTextView_setTypeface, this.inT);
+        switch (this.inT) {
             case 1:
-                this.iil = 1;
+                this.inT = 1;
                 break;
             case 2:
-                this.iil = 2;
+                this.inT = 2;
                 break;
             case 3:
-                this.iil = 3;
+                this.inT = 3;
                 break;
         }
-        this.iib = new ViewFlipper(getContext());
-        this.iib.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
-        addView(this.iib);
-        cpq();
-        if (this.iim != null) {
-            this.iib.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.widget.ScrollTextView.1
+        this.inJ = new ViewFlipper(getContext());
+        this.inJ.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
+        addView(this.inJ);
+        cqA();
+        if (this.inU != null) {
+            this.inJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.widget.ScrollTextView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    int displayedChild = ScrollTextView.this.iib.getDisplayedChild();
-                    ScrollTextView.this.iim.b((AlaLiveWishListData) ScrollTextView.this.mDatas.get(displayedChild), displayedChild);
+                    int displayedChild = ScrollTextView.this.inJ.getDisplayedChild();
+                    ScrollTextView.this.inU.b((AlaLiveWishListData) ScrollTextView.this.mDatas.get(displayedChild), displayedChild);
                 }
             });
         }
         obtainStyledAttributes.recycle();
     }
 
-    public void cpp() {
+    public void cqz() {
         if (this.isStarted) {
-            removeCallbacks(this.iiq);
+            removeCallbacks(this.inY);
             this.isStarted = false;
         }
     }
 
-    public void cpq() {
-        if (!this.isStarted && !this.iin) {
+    public void cqA() {
+        if (!this.isStarted && !this.inV) {
             this.isStarted = true;
-            postDelayed(this.iiq, this.mInterval);
+            postDelayed(this.inY, this.mInterval);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         private a() {
         }
@@ -185,52 +185,52 @@ public class ScrollTextView extends RelativeLayout {
         @Override // java.lang.Runnable
         public void run() {
             if (ScrollTextView.this.isStarted) {
-                if (ScrollTextView.this.iib.getDisplayedChild() + 1 != ScrollTextView.this.iib.getChildCount() || ScrollTextView.this.iig) {
-                    ScrollTextView.this.cc(ScrollTextView.this.iih, ScrollTextView.this.iii);
-                    ScrollTextView.this.iib.showNext();
-                    ScrollTextView.this.postDelayed(this, ScrollTextView.this.mInterval + ScrollTextView.this.iik);
+                if (ScrollTextView.this.inJ.getDisplayedChild() + 1 != ScrollTextView.this.inJ.getChildCount() || ScrollTextView.this.inO) {
+                    ScrollTextView.this.bZ(ScrollTextView.this.inP, ScrollTextView.this.inQ);
+                    ScrollTextView.this.inJ.showNext();
+                    ScrollTextView.this.postDelayed(this, ScrollTextView.this.mInterval + ScrollTextView.this.inS);
                     return;
                 }
                 ScrollTextView.this.mDatas = new ArrayList();
-                ScrollTextView.this.iib.removeAllViews();
-                ScrollTextView.this.cpp();
-                if (ScrollTextView.this.iio != null) {
-                    ScrollTextView.this.iio.cpr();
+                ScrollTextView.this.inJ.removeAllViews();
+                ScrollTextView.this.cqz();
+                if (ScrollTextView.this.inW != null) {
+                    ScrollTextView.this.inW.cqB();
                     return;
                 }
                 return;
             }
-            ScrollTextView.this.cpp();
+            ScrollTextView.this.cqz();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cc(@AnimRes int i, @AnimRes int i2) {
+    public void bZ(@AnimRes int i, @AnimRes int i2) {
         Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), i);
-        loadAnimation.setDuration(this.iik);
-        this.iib.setInAnimation(loadAnimation);
+        loadAnimation.setDuration(this.inS);
+        this.inJ.setInAnimation(loadAnimation);
         Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), i2);
-        loadAnimation2.setDuration(this.iik);
-        this.iib.setOutAnimation(loadAnimation2);
+        loadAnimation2.setDuration(this.inS);
+        this.inJ.setOutAnimation(loadAnimation2);
         loadAnimation2.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.widget.ScrollTextView.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (ScrollTextView.this.iip != null) {
-                    int displayedChild = ScrollTextView.this.mPosition + ScrollTextView.this.iib.getDisplayedChild();
+                if (ScrollTextView.this.inX != null) {
+                    int displayedChild = ScrollTextView.this.mPosition + ScrollTextView.this.inJ.getDisplayedChild();
                     if (displayedChild >= ScrollTextView.this.mDatas.size() - 1) {
-                        ScrollTextView.this.iip.a((AlaLiveWishListData) ScrollTextView.this.mDatas.get(0), displayedChild);
+                        ScrollTextView.this.inX.a((AlaLiveWishListData) ScrollTextView.this.mDatas.get(0), displayedChild);
                     }
                 }
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (ScrollTextView.this.iir) {
-                    ScrollTextView.this.iib.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.widget.ScrollTextView.2.1
+                if (ScrollTextView.this.inZ) {
+                    ScrollTextView.this.inJ.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.widget.ScrollTextView.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             ScrollTextView.this.mDatas.clear();
-                            ScrollTextView.this.iib.removeAllViews();
+                            ScrollTextView.this.inJ.removeAllViews();
                         }
                     }, 500L);
                 }
@@ -250,7 +250,7 @@ public class ScrollTextView extends RelativeLayout {
         this.mDatas = arrayList;
         this.mPosition = i;
         if (!ListUtils.isEmpty(arrayList) && i >= 0 && i < arrayList.size()) {
-            this.iib.removeAllViews();
+            this.inJ.removeAllViews();
             int i2 = 0;
             while (i < arrayList.size()) {
                 View inflate = LayoutInflater.from(getContext()).inflate(a.g.ala_item_scroll_text_view, (ViewGroup) null);
@@ -262,25 +262,25 @@ public class ScrollTextView extends RelativeLayout {
                 tbImageView.setAutoChangeStyle(false);
                 tbImageView.startLoad(alaLiveWishListData.gift_url, 10, false);
                 ((TextView) inflate.findViewById(a.f.wish_count_tv)).setText(alaLiveWishListData.process_num + "/" + alaLiveWishListData.finish_num);
-                this.iib.addView(inflate, i2);
+                this.inJ.addView(inflate, i2);
                 i++;
                 i2++;
             }
         }
     }
 
-    public void ai(ArrayList<AlaLiveWishListData> arrayList) {
+    public void ah(ArrayList<AlaLiveWishListData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.iir = false;
+            this.inZ = false;
             for (int i = 0; i < this.mDatas.size() - 1; i++) {
                 this.mDatas.remove(i);
-                if (this.iib.getChildCount() > 0) {
-                    this.iib.removeViewAt(0);
+                if (this.inJ.getChildCount() > 0) {
+                    this.inJ.removeViewAt(0);
                 }
             }
             this.mDatas.addAll(arrayList);
             int i2 = 0;
-            int childCount = this.iib.getChildCount();
+            int childCount = this.inJ.getChildCount();
             while (i2 < arrayList.size()) {
                 View inflate = LayoutInflater.from(getContext()).inflate(a.g.ala_item_scroll_text_view, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(a.f.wish_image_view);
@@ -291,19 +291,19 @@ public class ScrollTextView extends RelativeLayout {
                 tbImageView.setAutoChangeStyle(false);
                 tbImageView.startLoad(alaLiveWishListData.gift_url, 10, false);
                 ((TextView) inflate.findViewById(a.f.wish_count_tv)).setText(alaLiveWishListData.process_num + "/" + alaLiveWishListData.finish_num);
-                this.iib.addView(inflate, childCount);
+                this.inJ.addView(inflate, childCount);
                 i2++;
                 childCount++;
             }
             return;
         }
-        this.iir = true;
+        this.inZ = true;
     }
 
     public void setDatasWithDrawableIcon(List<AlaLiveWishListData> list, Drawable drawable, int i, int i2) {
         this.mDatas = list;
         if (ListUtils.isEmpty(this.mDatas)) {
-            this.iib.removeAllViews();
+            this.inJ.removeAllViews();
             for (int i3 = 0; i3 < this.mDatas.size(); i3++) {
                 TextView textView = new TextView(getContext());
                 a(textView, list.get(i3).gift_name, i3);
@@ -323,59 +323,59 @@ public class ScrollTextView extends RelativeLayout {
                 linearLayout.setOrientation(0);
                 linearLayout.setGravity(this.mGravity);
                 linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
-                this.iib.addView(linearLayout, i3);
+                this.inJ.addView(linearLayout, i3);
             }
         }
     }
 
     private void a(TextView textView, String str, int i) {
         textView.setText(str);
-        textView.setSingleLine(this.iic);
+        textView.setSingleLine(this.inK);
         textView.setEllipsize(TextUtils.TruncateAt.END);
         textView.setTextColor(this.mTextColor);
         textView.setTextSize(0, this.mTextSize);
         textView.setGravity(this.mGravity);
         textView.getPaint().setFlags(this.mFlags);
-        textView.setTypeface(null, this.iil);
-        textView.setPadding(this.bCW, 0, this.bCY, 0);
-        if (this.iid != null) {
-            textView.setBackgroundDrawable(this.iid);
+        textView.setTypeface(null, this.inT);
+        textView.setPadding(this.bGG, 0, this.bGI, 0);
+        if (this.inL != null) {
+            textView.setBackgroundDrawable(this.inL);
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
         if (layoutParams != null) {
-            if (this.iif > 0) {
-                layoutParams.height = this.iif;
+            if (this.inN > 0) {
+                layoutParams.height = this.inN;
             }
-            if (this.iie > 0) {
-                layoutParams.setMargins(0, this.iie, 0, this.iie);
+            if (this.inM > 0) {
+                layoutParams.setMargins(0, this.inM, 0, this.inM);
             }
             textView.setLayoutParams(layoutParams);
         }
     }
 
     public void setItemOnClickListener(b bVar) {
-        this.iim = bVar;
+        this.inU = bVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.iin = true;
-        cpp();
+        this.inV = true;
+        cqz();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.iin = false;
-        cpq();
+        this.inV = false;
+        cqA();
     }
 
     public void setOnScrollTextViewCompleteListener(d dVar) {
-        this.iio = dVar;
+        this.inW = dVar;
     }
 
     public void setOnScrollTextViewChangeListener(c cVar) {
-        this.iip = cVar;
+        this.inX = cVar;
     }
 }

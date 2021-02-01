@@ -8,27 +8,27 @@ import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.TTCustomController;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static t f6679a;
+    private static t f6681a;
     private String d;
     private volatile boolean c = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.pgl.sys.ces.d.b f6680b = com.pgl.sys.ces.d.c.b(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, b());
+    private com.pgl.sys.ces.d.b f6682b = com.pgl.sys.ces.d.c.b(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, b());
 
     private t(String str) {
         this.d = null;
         this.d = str;
         if (!TextUtils.isEmpty(this.d)) {
-            this.f6680b.setParams(str, null);
+            this.f6682b.setParams(str, null);
         }
         if (i.c().e() != null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("app_id", i.c().e());
-            this.f6680b.setCustomInfo(hashMap);
+            this.f6682b.setCustomInfo(hashMap);
         }
     }
 
@@ -82,7 +82,7 @@ public class t {
                     }
                     return String.valueOf(d.getTTLocation().getLongitude());
                 } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) != null) {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f7565b);
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f7567b);
                 } else {
                     return null;
                 }
@@ -96,7 +96,7 @@ public class t {
                     }
                     return String.valueOf(d.getTTLocation().getLatitude());
                 } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) != null) {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f7564a);
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f7566a);
                 } else {
                     return null;
                 }
@@ -108,30 +108,30 @@ public class t {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(this.d)) {
                 this.d = str;
-                this.f6680b.setParams(this.d, null);
+                this.f6682b.setParams(this.d, null);
             }
             if (i.c().e() != null) {
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("app_id", i.c().e());
-                this.f6680b.setCustomInfo(hashMap);
+                this.f6682b.setCustomInfo(hashMap);
             }
         }
     }
 
     public static t b(String str) {
-        if (f6679a == null) {
+        if (f6681a == null) {
             synchronized (t.class) {
-                if (f6679a == null) {
-                    f6679a = new t(str);
+                if (f6681a == null) {
+                    f6681a = new t(str);
                 }
             }
         }
-        return f6679a;
+        return f6681a;
     }
 
     public void c(@NonNull String str) {
         if (!this.c) {
-            this.f6680b.reportNow(str);
+            this.f6682b.reportNow(str);
             this.c = true;
         }
     }
@@ -139,7 +139,7 @@ public class t {
     public String a() {
         String str;
         try {
-            String pullSg = this.f6680b.pullSg();
+            String pullSg = this.f6682b.pullSg();
             if (e(pullSg)) {
                 str = pullSg.toUpperCase();
             } else {
@@ -177,6 +177,6 @@ public class t {
         if (TextUtils.isEmpty(a2)) {
             return "";
         }
-        return this.f6680b.pullVer(a2);
+        return this.f6682b.pullVer(a2);
     }
 }

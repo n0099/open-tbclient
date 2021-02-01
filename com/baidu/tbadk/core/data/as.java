@@ -1,24 +1,19 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import org.json.JSONObject;
-import tbclient.McnAdInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.LotteryRegular;
 /* loaded from: classes.dex */
 public class as {
-    /* renamed from: do  reason: not valid java name */
-    public static McnAdInfo m32do(JSONObject jSONObject) {
-        McnAdInfo.Builder builder = new McnAdInfo.Builder();
-        if (jSONObject != null) {
-            builder.ad_start_time = Long.valueOf(jSONObject.optLong(SharedPrefConfig.AD_START_TIME));
-            builder.ad_end_time = Long.valueOf(jSONObject.optLong(SharedPrefConfig.AD_END_TIME));
-            builder.pic_url = jSONObject.optString("pic_url");
-            builder.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-            builder.card_title = jSONObject.optString("card_title");
-            builder.button_title = jSONObject.optString("button_title");
-            builder.effect_time = Long.valueOf(jSONObject.optLong("effect_time"));
-            builder.expire_time = Long.valueOf(jSONObject.optLong("expire_time"));
+    private String eOk;
+    private List<Integer> eOl;
+
+    public void a(LotteryRegular lotteryRegular) {
+        this.eOk = lotteryRegular.regular;
+        this.eOl = new ArrayList();
+        int size = lotteryRegular.chance.size();
+        for (int i = 0; i < size; i++) {
+            this.eOl.add(lotteryRegular.chance.get(i));
         }
-        return builder.build(true);
     }
 }

@@ -15,7 +15,7 @@ import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends c {
     protected Context c;
     protected final l d;
@@ -33,7 +33,7 @@ public class b extends c {
     protected TTNativeExpressAd p;
     protected com.bytedance.sdk.openadsdk.core.nativeexpress.a q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(View view, int i);
     }

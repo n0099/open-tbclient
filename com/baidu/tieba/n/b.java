@@ -3,11 +3,11 @@ package com.baidu.tieba.n;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tieba.VideoPlatformStatic;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface b {
-    JSONObject dyJ();
+    JSONObject dAT();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a implements b {
         public final int state;
         private final long timestamp = System.currentTimeMillis();
@@ -17,7 +17,7 @@ public interface b {
         }
 
         @Override // com.baidu.tieba.n.b
-        public JSONObject dyJ() {
+        public JSONObject dAT() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);
@@ -31,19 +31,19 @@ public interface b {
     }
 
     /* renamed from: com.baidu.tieba.n.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static abstract class AbstractC0799b implements b {
+    /* loaded from: classes8.dex */
+    public static abstract class AbstractC0800b implements b {
         private final String source;
         public final int state;
         private final long timestamp = System.currentTimeMillis();
 
-        public AbstractC0799b(int i, String str) {
+        public AbstractC0800b(int i, String str) {
             this.state = i;
             this.source = str;
         }
 
         @Override // com.baidu.tieba.n.b
-        public JSONObject dyJ() {
+        public JSONObject dAT() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);

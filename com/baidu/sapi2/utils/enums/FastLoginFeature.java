@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public enum FastLoginFeature {
     TX_WEIXIN_SSO("tweixin_sso"),
     SINA_WEIBO_SSO("tsina_sso"),
@@ -14,10 +14,10 @@ public enum FastLoginFeature {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5118a;
+    private String f5120a;
 
     FastLoginFeature(String str) {
-        this.f5118a = str;
+        this.f5120a = str;
     }
 
     public static FastLoginFeature getDefault() {
@@ -38,6 +38,6 @@ public enum FastLoginFeature {
     }
 
     public String getStrValue() {
-        return this.f5118a;
+        return this.f5120a;
     }
 }

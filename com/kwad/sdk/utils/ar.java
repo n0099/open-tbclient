@@ -4,7 +4,7 @@ import android.os.Build;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import androidx.annotation.MainThread;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ar {
     @MainThread
     public static WebSettings a(WebView webView) {

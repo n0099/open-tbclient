@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class t {
     public static com.baidu.live.lottie.e i(JsonReader jsonReader) throws IOException {
-        float kA = com.baidu.live.lottie.d.f.kA();
+        float kz = com.baidu.live.lottie.d.f.kz();
         float f = 0.0f;
         float f2 = 0.0f;
         float f3 = 0.0f;
@@ -146,7 +146,7 @@ public class t {
                 f = f6;
             } else {
                 jsonReader.endObject();
-                eVar.b(new Rect(0, 0, (int) (i4 * kA), (int) (i3 * kA)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
+                eVar.b(new Rect(0, 0, (int) (i4 * kz), (int) (i3 * kz)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
                 return eVar;
             }
         }
@@ -157,7 +157,7 @@ public class t {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             Layer q = s.q(jsonReader, eVar);
-            if (q.MF() == Layer.LayerType.Image) {
+            if (q.Od() == Layer.LayerType.Image) {
                 i++;
             }
             list.add(q);

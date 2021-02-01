@@ -48,33 +48,33 @@ import com.baidu.swan.bdprivate.extensions.quicklogin.e;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d implements com.baidu.swan.bdprivate.a.a.a {
-    private com.baidu.swan.apps.res.widget.dialog.c giW;
+    private com.baidu.swan.apps.res.widget.dialog.c glD;
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
-        a.bMs().a(context, bundle, aVar);
+        a.bMT().a(context, bundle, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public boolean isLogin(Context context) {
-        return a.bMs().isLogin();
+        return a.bMT().isLogin();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getBduss(Context context) {
-        return a.bMs().getBduss();
+        return a.bMT().getBduss();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(String str, ArrayList<String> arrayList, b.a aVar) {
-        a.bMs().b(str, arrayList, aVar);
+        a.bMT().b(str, arrayList, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getUid(Context context) {
-        return a.bMs().getUid();
+        return a.bMT().getUid();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -92,16 +92,16 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public aa ei(Context context) {
+    public aa eh(Context context) {
         aa aaVar = new aa();
-        aaVar.displayName = a.bMs().getDisplayName();
-        aaVar.aSf = a.bMs().Cf();
+        aaVar.displayName = a.bMT().getDisplayName();
+        aaVar.aVj = a.bMT().Du();
         return aaVar;
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void b(com.baidu.swan.apps.a.c cVar) {
-        a.bMs().a(cVar);
+        a.bMT().a(cVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -158,8 +158,8 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public String ef(Context context) {
-        return h.aLO().getString("bd_box_ptoken", "");
+    public String ee(Context context) {
+        return h.aMh().getString("bd_box_ptoken", "");
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -168,24 +168,24 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.a.d$2  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     class AnonymousClass2 extends SmsViewLoginCallback {
-        final /* synthetic */ SwanAppPhoneLoginDialog.a giZ;
+        final /* synthetic */ SwanAppPhoneLoginDialog.a glG;
         final /* synthetic */ Context val$context;
 
         AnonymousClass2(SwanAppPhoneLoginDialog.a aVar, Context context) {
-            this.giZ = aVar;
+            this.glG = aVar;
             this.val$context = context;
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
         public void onCheckCodeViewShow() {
-            this.giZ.onCheckCodeViewShow();
+            this.glG.onCheckCodeViewShow();
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
         public void onCheckCodeViewHide() {
-            this.giZ.onCheckCodeViewHide();
+            this.glG.onCheckCodeViewHide();
         }
 
         @Override // com.baidu.sapi2.callback.SmsViewLoginCallback
@@ -197,16 +197,16 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
                 string = this.val$context.getResources().getString(b.g.account_login_dialog_needback_phone);
                 string2 = this.val$context.getResources().getString(b.g.account_login_dialog_needback_positive_btn_register);
             }
-            new g.a(this.val$context).f(this.val$context.getResources().getString(b.g.account_login_dialog_needback_title)).re(string).a(string2, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.2
+            new g.a(this.val$context).f(this.val$context.getResources().getString(b.g.account_login_dialog_needback_title)).rx(string).a(string2, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     com.baidu.swan.bdprivate.a.a.a((Activity) ((FragmentActivity) AnonymousClass2.this.val$context), false, (Bundle) null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.2.1
                         @Override // com.baidu.swan.apps.a.a
                         public void onResult(int i2) {
                             if (i2 == 0) {
-                                AnonymousClass2.this.giZ.onSuccess();
+                                AnonymousClass2.this.glG.onSuccess();
                             } else {
-                                AnonymousClass2.this.giZ.onFailure();
+                                AnonymousClass2.this.glG.onFailure();
                             }
                         }
                     });
@@ -215,20 +215,20 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                 }
-            }).aHE();
+            }).aHX();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onSuccess(WebAuthResult webAuthResult) {
-            a.bMs().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.3
+            a.bMT().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.2.3
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
-                    if (AnonymousClass2.this.giZ != null) {
+                    if (AnonymousClass2.this.glG != null) {
                         if (i == 0) {
-                            AnonymousClass2.this.giZ.onSuccess();
+                            AnonymousClass2.this.glG.onSuccess();
                         } else {
-                            AnonymousClass2.this.giZ.onFailure();
+                            AnonymousClass2.this.glG.onFailure();
                         }
                     }
                 }
@@ -238,7 +238,7 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            this.giZ.onFailure();
+            this.glG.onFailure();
         }
     }
 
@@ -249,11 +249,11 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(final Activity activity, String str, final e eVar) {
-        fM(activity);
-        PassportSDK.getInstance().loadOneKeyLogin(activity, aQ(activity, str), new OneKeyLoginCallback() { // from class: com.baidu.tieba.aiapps.apps.a.d.3
+        fL(activity);
+        PassportSDK.getInstance().loadOneKeyLogin(activity, aP(activity, str), new OneKeyLoginCallback() { // from class: com.baidu.tieba.aiapps.apps.a.d.3
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
-                a.bMs().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.3.1
+                a.bMT().h(new com.baidu.swan.apps.a.a() { // from class: com.baidu.tieba.aiapps.apps.a.d.3.1
                     @Override // com.baidu.swan.apps.a.a
                     public void onResult(int i) {
                         if (i == 0) {
@@ -261,7 +261,7 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
                         } else {
                             eVar.onResult(-1);
                         }
-                        d.this.fN(activity);
+                        d.this.fM(activity);
                     }
                 });
             }
@@ -269,20 +269,20 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void onFail(OneKeyLoginResult oneKeyLoginResult) {
                 eVar.onResult(-1);
-                d.this.fN(activity);
+                d.this.fM(activity);
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
                 eVar.onResult(-1);
-                d.this.fN(activity);
+                d.this.fM(activity);
             }
         });
     }
 
-    private void fM(Context context) {
-        this.giW = new com.baidu.swan.apps.res.widget.dialog.c(context, 16973833);
-        Window window = this.giW.getWindow();
+    private void fL(Context context) {
+        this.glD = new com.baidu.swan.apps.res.widget.dialog.c(context, 16973833);
+        Window window = this.glD.getWindow();
         if (window != null) {
             window.setBackgroundDrawableResource(17170445);
             window.setDimAmount(0.0f);
@@ -291,13 +291,13 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
             attributes.width = -1;
             window.setAttributes(attributes);
         }
-        this.giW.setCanceledOnTouchOutside(false);
-        this.giW.setCancelable(false);
-        this.giW.gL(true);
-        this.giW.setContentView(R.layout.loading_layout);
-        View findViewById = this.giW.findViewById(R.id.root_container);
-        ProgressBar progressBar = (ProgressBar) this.giW.findViewById(R.id.loading_bar);
-        TextView textView = (TextView) this.giW.findViewById(R.id.message);
+        this.glD.setCanceledOnTouchOutside(false);
+        this.glD.setCancelable(false);
+        this.glD.gN(true);
+        this.glD.setContentView(R.layout.loading_layout);
+        View findViewById = this.glD.findViewById(R.id.root_container);
+        ProgressBar progressBar = (ProgressBar) this.glD.findViewById(R.id.loading_bar);
+        TextView textView = (TextView) this.glD.findViewById(R.id.message);
         if (findViewById != null) {
             findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.novel_loading_bg));
         }
@@ -308,16 +308,16 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
             textView.setTextColor(textView.getResources().getColor(R.color.loading_text_color));
             textView.setText(R.string.account_onekey_loading);
         }
-        this.giW.show();
+        this.glD.show();
     }
 
-    public void fN(Context context) {
-        if ((context instanceof Activity) && !((Activity) context).isFinishing() && this.giW != null) {
-            this.giW.dismiss();
+    public void fM(Context context) {
+        if ((context instanceof Activity) && !((Activity) context).isFinishing() && this.glD != null) {
+            this.glD.dismiss();
         }
     }
 
-    private static String aQ(Context context, String str) {
+    private static String aP(Context context, String str) {
         if (TextUtils.isEmpty(str) || str.length() <= 7) {
             return null;
         }
@@ -378,12 +378,12 @@ public class d implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public void a(Context context, a.InterfaceC0488a interfaceC0488a) {
-        a.bMs().a(context, "1", interfaceC0488a);
+    public void a(Context context, a.InterfaceC0485a interfaceC0485a) {
+        a.bMT().a(context, "1", interfaceC0485a);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public void a(Context context, a.InterfaceC0490a interfaceC0490a) {
-        a.bMs().a(context, "1", interfaceC0490a);
+    public void a(Context context, a.InterfaceC0487a interfaceC0487a) {
+        a.bMT().a(context, "1", interfaceC0487a);
     }
 }

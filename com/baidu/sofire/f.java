@@ -1,7 +1,7 @@
 package com.baidu.sofire;
 
 import java.lang.reflect.Field;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class f {
     public static boolean a(Class<?> cls, Object obj, Object obj2) {
         Field[] declaredFields;

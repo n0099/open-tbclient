@@ -4,27 +4,27 @@ import android.content.SharedPreferences;
 import com.baidu.smallgame.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class a {
-    private static int cyc = 1;
-    private static int cyd = 2;
-    private static int cye = 3;
-    private Map<String, String> cyf = new HashMap();
-    private Map<String, String> cyg = new HashMap();
-    private SharedPreferences cyh;
+    private Map<String, String> cAB = new HashMap();
+    private Map<String, String> cAC = new HashMap();
+    private SharedPreferences cAD;
+    private static int cAy = 1;
+    private static int cAz = 2;
+    private static int cAA = 3;
 
     public void b(SharedPreferences sharedPreferences) {
-        this.cyh = sharedPreferences;
+        this.cAD = sharedPreferences;
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == cyc) {
-            this.cyf.put(str, str2);
-        } else if (i == cyd) {
-            this.cyg.put(str, str2);
-        } else if (i == cye) {
-            if (this.cyh != null) {
-                this.cyh.edit().putString(str, str2).commit();
+        if (i == cAy) {
+            this.cAB.put(str, str2);
+        } else if (i == cAz) {
+            this.cAC.put(str, str2);
+        } else if (i == cAA) {
+            if (this.cAD != null) {
+                this.cAD.edit().putString(str, str2).commit();
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -33,13 +33,13 @@ public class a {
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == cyc) {
-            str2 = this.cyf.get(str);
-        } else if (i == cyd) {
-            str2 = this.cyg.get(str);
-        } else if (i == cye) {
-            if (this.cyh != null) {
-                str2 = this.cyh.getString(str, "");
+        if (i == cAy) {
+            str2 = this.cAB.get(str);
+        } else if (i == cAz) {
+            str2 = this.cAC.get(str);
+        } else if (i == cAA) {
+            if (this.cAD != null) {
+                str2 = this.cAD.getString(str, "");
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -51,6 +51,6 @@ public class a {
     }
 
     public void clearARMemory() {
-        this.cyf.clear();
+        this.cAB.clear();
     }
 }

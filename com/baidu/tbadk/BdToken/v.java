@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes.dex */
 public class v {
@@ -26,7 +26,7 @@ public class v {
             if ("tbpb://tieba.baidu.com".equals(uri2)) {
                 return "5";
             }
-            if (!TextUtils.isEmpty(uri.getQueryParameter(f.eBH))) {
+            if (!TextUtils.isEmpty(uri.getQueryParameter(f.eDN))) {
                 return "6";
             }
             return "1";
@@ -45,7 +45,7 @@ public class v {
             if (uri2.contains("unidispatch/hotuserrank")) {
                 return "7";
             }
-            if (f.eBq.equals(uri.getPath())) {
+            if (f.eDw.equals(uri.getPath())) {
                 return "5";
             }
             return Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
@@ -64,34 +64,34 @@ public class v {
                 String queryParameter5 = uri.getQueryParameter(TiebaInitialize.Params.OBJ_PARAM3);
                 String queryParameter6 = uri.getQueryParameter("tid");
                 String queryParameter7 = uri.getQueryParameter("kw");
-                String queryParameter8 = uri.getQueryParameter(f.eBH);
-                String queryParameter9 = uri.getQueryParameter(f.eBI);
-                String queryParameter10 = uri.getQueryParameter(f.eBJ);
-                String queryParameter11 = uri.getQueryParameter(f.eBK);
+                String queryParameter8 = uri.getQueryParameter(f.eDN);
+                String queryParameter9 = uri.getQueryParameter(f.eDO);
+                String queryParameter10 = uri.getQueryParameter(f.eDP);
+                String queryParameter11 = uri.getQueryParameter(f.eDQ);
                 String queryParameter12 = uri.getQueryParameter("obj_name");
                 String queryParameter13 = uri.getQueryParameter("eqid");
                 String queryParameter14 = uri.getQueryParameter("topic_id");
                 String queryParameter15 = uri.getQueryParameter("fid");
-                aq aqVar = new aq("c13561");
-                aqVar.dW("obj_locate", queryParameter2);
-                aqVar.dW("obj_type", t);
-                aqVar.dW("obj_param1", queryParameter3);
-                aqVar.dW(TiebaInitialize.Params.OBJ_PARAM2, queryParameter4);
-                aqVar.dW(TiebaInitialize.Params.OBJ_PARAM3, queryParameter5);
-                aqVar.dW("tid", queryParameter6);
-                aqVar.dW("fid", queryParameter15);
-                aqVar.dW("fname", queryParameter7);
-                aqVar.dW(f.eBH, queryParameter8);
-                aqVar.dW(f.eBI, queryParameter9);
-                aqVar.dW(f.eBJ, queryParameter10);
-                aqVar.dW(f.eBK, queryParameter11);
-                aqVar.dW("obj_source", queryParameter);
-                aqVar.dW("obj_name", queryParameter12);
-                aqVar.dW("query", queryParameter13);
-                aqVar.dW("topic_id", queryParameter14);
-                aqVar.an("obj_id", TbadkCoreApplication.getInst().getStartType());
-                aqVar.an(TiebaInitialize.Params.OBJ_TO, 1);
-                TiebaStatic.log(aqVar);
+                ar arVar = new ar("c13561");
+                arVar.dR("obj_locate", queryParameter2);
+                arVar.dR("obj_type", t);
+                arVar.dR("obj_param1", queryParameter3);
+                arVar.dR(TiebaInitialize.Params.OBJ_PARAM2, queryParameter4);
+                arVar.dR(TiebaInitialize.Params.OBJ_PARAM3, queryParameter5);
+                arVar.dR("tid", queryParameter6);
+                arVar.dR("fid", queryParameter15);
+                arVar.dR("fname", queryParameter7);
+                arVar.dR(f.eDN, queryParameter8);
+                arVar.dR(f.eDO, queryParameter9);
+                arVar.dR(f.eDP, queryParameter10);
+                arVar.dR(f.eDQ, queryParameter11);
+                arVar.dR("obj_source", queryParameter);
+                arVar.dR("obj_name", queryParameter12);
+                arVar.dR("query", queryParameter13);
+                arVar.dR("topic_id", queryParameter14);
+                arVar.ap("obj_id", TbadkCoreApplication.getInst().getStartType());
+                arVar.ap(TiebaInitialize.Params.OBJ_TO, 1);
+                TiebaStatic.log(arVar);
             }
         }
     }
@@ -104,12 +104,12 @@ public class v {
                 String queryParameter3 = uri.getQueryParameter("obj_locate");
                 String queryParameter4 = uri.getQueryParameter("obj_type");
                 String queryParameter5 = uri.getQueryParameter("obj_param1");
-                aq aqVar = new aq("c13998");
-                aqVar.dW("obj_source", queryParameter2);
-                aqVar.dW("obj_locate", queryParameter3);
-                aqVar.dW("obj_type", queryParameter4);
-                aqVar.dW("obj_param1", queryParameter5);
-                TiebaStatic.log(aqVar);
+                ar arVar = new ar("c13998");
+                arVar.dR("obj_source", queryParameter2);
+                arVar.dR("obj_locate", queryParameter3);
+                arVar.dR("obj_type", queryParameter4);
+                arVar.dR("obj_param1", queryParameter5);
+                TiebaStatic.log(arVar);
             }
         }
     }

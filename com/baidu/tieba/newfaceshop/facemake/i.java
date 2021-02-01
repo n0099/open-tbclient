@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i extends BaseAdapter {
-    private static int luo = 3;
+    private static int lCs = 3;
     private Context mContext;
     private List<BazhuInfoData.BaInfo> mDataList = new ArrayList();
 
@@ -54,56 +54,56 @@ public class i extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.btV();
+            aVar.bup();
             aVar.b(this.mDataList.get(i));
         }
         return view;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public TextView fiz;
-        public CheckBox lup;
-        public BarImageView luq;
-        private Drawable lur;
+        public TextView fkQ;
+        public CheckBox lCt;
+        public BarImageView lCu;
+        private Drawable lCv;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.fiz = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.lup = (CheckBox) view.findViewById(R.id.transmit_check_box);
-                this.luq = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.fkQ = (TextView) view.findViewById(R.id.transmit_forum_name);
+                this.lCt = (CheckBox) view.findViewById(R.id.transmit_check_box);
+                this.lCu = (BarImageView) view.findViewById(R.id.forum_avatar);
             }
         }
 
         public void b(BazhuInfoData.BaInfo baInfo) {
             if (baInfo != null) {
-                this.fiz.setText(baInfo.forum_name);
-                this.lup.setChecked(baInfo.isChecked);
-                this.luq.startLoad(baInfo.forum_Avatar, 10, false);
-                this.lup.setButtonDrawable(this.lur);
+                this.fkQ.setText(baInfo.forum_name);
+                this.lCt.setChecked(baInfo.isChecked);
+                this.lCu.startLoad(baInfo.forum_Avatar, 10, false);
+                this.lCt.setButtonDrawable(this.lCv);
             }
         }
 
-        public void btV() {
-            if (i.luo != this.mSkinType) {
-                ao.setViewTextColor(this.fiz, R.color.CAM_X0105);
-                this.lur = ao.getDrawable(R.drawable.transmit_check_box);
+        public void bup() {
+            if (i.lCs != this.mSkinType) {
+                ap.setViewTextColor(this.fkQ, R.color.CAM_X0105);
+                this.lCv = ap.getDrawable(R.drawable.transmit_check_box);
             }
-            this.mSkinType = i.luo;
+            this.mSkinType = i.lCs;
         }
     }
 
-    public void eM(List<BazhuInfoData.BaInfo> list) {
+    public void eK(List<BazhuInfoData.BaInfo> list) {
         this.mDataList.clear();
         this.mDataList.addAll(list);
         notifyDataSetChanged();
     }
 
-    public void EQ(int i) {
-        if (luo != i) {
+    public void Fi(int i) {
+        if (lCs != i) {
             notifyDataSetChanged();
         }
-        luo = i;
+        lCs = i;
     }
 }

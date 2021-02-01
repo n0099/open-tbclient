@@ -24,15 +24,15 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
 
     /* renamed from: b  reason: collision with root package name */
-    private static Object[] f12989b = new Object[0];
+    private static Object[] f12991b = new Object[0];
     private static Object[] c = new Object[73];
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f12988a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    static final char[] f12990a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static String d = null;
 
     public static boolean a(String str) {
@@ -104,7 +104,7 @@ public class i {
 
     public static PackageInfo h(com.ss.android.b.a.b.a aVar) {
         com.ss.android.socialbase.downloader.g.c h;
-        if (aVar == null || (h = com.ss.android.socialbase.downloader.downloader.f.iy(com.ss.android.downloadlib.a.j.a()).h(aVar.t())) == null) {
+        if (aVar == null || (h = com.ss.android.socialbase.downloader.downloader.f.iB(com.ss.android.downloadlib.a.j.a()).h(aVar.t())) == null) {
             return null;
         }
         try {
@@ -176,11 +176,11 @@ public class i {
             try {
                 PackageInfo packageInfo = com.ss.android.downloadlib.a.j.a().getPackageManager().getPackageInfo(str, 0);
                 if (packageInfo != null) {
-                    bVar.Qy(packageInfo.versionCode);
-                    bVar.Qx(com.ss.android.downloadlib.a.b.b.f12932b);
-                    o eCs = com.ss.android.downloadlib.a.j.eCs();
-                    if (eCs != null && eCs.a() && !b(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
-                        bVar.Qx(com.ss.android.downloadlib.a.b.b.c);
+                    bVar.QT(packageInfo.versionCode);
+                    bVar.QS(com.ss.android.downloadlib.a.b.b.f12934b);
+                    o eEJ = com.ss.android.downloadlib.a.j.eEJ();
+                    if (eEJ != null && eEJ.a() && !b(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
+                        bVar.QS(com.ss.android.downloadlib.a.b.b.c);
                     }
                 }
             } catch (Exception e) {
@@ -276,7 +276,7 @@ public class i {
         }
     }
 
-    public static Intent bD(Context context, String str) {
+    public static Intent bC(Context context, String str) {
         Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
         if (launchIntentForPackage == null) {
             return null;
@@ -299,7 +299,7 @@ public class i {
         }
     }
 
-    public static Signature[] bE(Context context, String str) {
+    public static Signature[] bD(Context context, String str) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
             if (packageInfo != null) {
@@ -311,7 +311,7 @@ public class i {
         return null;
     }
 
-    public static Signature[] bF(Context context, String str) {
+    public static Signature[] bE(Context context, String str) {
         try {
             PackageInfo packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 64);
             if (packageArchiveInfo != null) {
@@ -481,7 +481,7 @@ public class i {
     }
 
     public static void a(@NonNull Throwable th) {
-        com.ss.android.downloadlib.a.j.eCr().a(null, new com.ss.android.socialbase.downloader.e.a(1, b(th)), 1);
+        com.ss.android.downloadlib.a.j.eEI().a(null, new com.ss.android.socialbase.downloader.e.a(1, b(th)), 1);
     }
 
     public static String b(Throwable th) {

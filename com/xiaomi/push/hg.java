@@ -8,18 +8,18 @@ import java.util.Hashtable;
 public class hg {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f14084a = fh.PING_RTT.a();
+    private static final int f14086a = fh.PING_RTT.a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static Hashtable<Integer, Long> f14085a = new Hashtable<>();
+        static Hashtable<Integer, Long> f14087a = new Hashtable<>();
     }
 
     public static void a() {
-        a(0, f14084a);
+        a(0, f14086a);
     }
 
     public static void a(int i) {
@@ -32,7 +32,7 @@ public class hg {
     public static synchronized void a(int i, int i2) {
         synchronized (hg.class) {
             if (i2 < 16777215) {
-                a.f14085a.put(Integer.valueOf((i << 24) | i2), Long.valueOf(System.currentTimeMillis()));
+                a.f14087a.put(Integer.valueOf((i << 24) | i2), Long.valueOf(System.currentTimeMillis()));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key should less than 16777215");
             }
@@ -53,16 +53,16 @@ public class hg {
         synchronized (hg.class) {
             long currentTimeMillis = System.currentTimeMillis();
             int i4 = (i << 24) | i2;
-            if (a.f14085a.containsKey(Integer.valueOf(i4))) {
+            if (a.f14087a.containsKey(Integer.valueOf(i4))) {
                 fi m362a = he.m360a().m362a();
                 m362a.a(i2);
-                m362a.b((int) (currentTimeMillis - a.f14085a.get(Integer.valueOf(i4)).longValue()));
+                m362a.b((int) (currentTimeMillis - a.f14087a.get(Integer.valueOf(i4)).longValue()));
                 m362a.b(str);
                 if (i3 > -1) {
                     m362a.c(i3);
                 }
                 he.m360a().a(m362a);
-                a.f14085a.remove(Integer.valueOf(i2));
+                a.f14087a.remove(Integer.valueOf(i2));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
             }
@@ -84,7 +84,7 @@ public class hg {
         }
         try {
             hc.a a2 = hc.a(exc);
-            m362a.a(a2.f14078a.a());
+            m362a.a(a2.f14080a.a());
             m362a.c(a2.f501a);
             m362a.b(str);
             he.m360a().a(m362a);
@@ -96,7 +96,7 @@ public class hg {
         try {
             hc.a b2 = hc.b(exc);
             fi m362a = he.m360a().m362a();
-            m362a.a(b2.f14078a.a());
+            m362a.a(b2.f14080a.a());
             m362a.c(b2.f501a);
             m362a.b(str);
             he.m360a().a(m362a);
@@ -114,14 +114,14 @@ public class hg {
     }
 
     public static void b() {
-        a(0, f14084a, null, -1);
+        a(0, f14086a, null, -1);
     }
 
     public static void b(String str, Exception exc) {
         try {
             hc.a d = hc.d(exc);
             fi m362a = he.m360a().m362a();
-            m362a.a(d.f14078a.a());
+            m362a.a(d.f14080a.a());
             m362a.c(d.f501a);
             m362a.b(str);
             he.m360a().a(m362a);

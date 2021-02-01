@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.Lego.DataReq;
 import tbclient.Lego.LegoReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LegoPageRequest extends NetMessage {
     private String itemId;
     private String lastRank;
@@ -76,7 +76,7 @@ public class LegoPageRequest extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         builder.page_type = Integer.valueOf(this.pageType);
         builder.pn = Integer.valueOf(this.pn);

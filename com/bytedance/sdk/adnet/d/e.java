@@ -2,7 +2,7 @@ package com.bytedance.sdk.adnet.d;
 
 import android.content.Context;
 import java.util.LinkedHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static void a(Context context, int i, String str) {
         try {
@@ -13,7 +13,7 @@ public class e {
                     break;
             }
             d.b("MultiProcessFileUtils", "saveData = " + str);
-            com.bytedance.sdk.adnet.a.eok().a(context, linkedHashMap);
+            com.bytedance.sdk.adnet.a.eqC().a(context, linkedHashMap);
         } catch (Exception e) {
         }
     }
@@ -23,7 +23,7 @@ public class e {
         switch (i) {
             case 1:
                 try {
-                    str = com.bytedance.sdk.adnet.a.eok().a(context, "tnc_config", "");
+                    str = com.bytedance.sdk.adnet.a.eqC().a(context, "tnc_config", "");
                     break;
                 } catch (Exception e) {
                     str = "";

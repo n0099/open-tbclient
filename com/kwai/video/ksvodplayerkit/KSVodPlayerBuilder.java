@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.kwai.video.player.kwai_player.KwaiPlayerVodBuilder;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KSVodPlayerBuilder {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f11036a;
+    public Context f11038a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11037b;
+    public String f11039b;
     public List<String> c;
     public Map<String, String> d;
     public l e;
@@ -28,7 +28,7 @@ public class KSVodPlayerBuilder {
     public int i = 0;
     public String l = "N/A";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public enum VodPlayEnterType {
         SLIDE,
         CLICK
@@ -39,11 +39,11 @@ public class KSVodPlayerBuilder {
             throw new IllegalArgumentException("Wrong Input Arguments! Context con't be null!");
         }
         this.p = new KwaiPlayerVodBuilder(context);
-        this.f11036a = context;
+        this.f11038a = context;
     }
 
     public KSVodPlayerBuilder a(String str) {
-        this.f11037b = str;
+        this.f11039b = str;
         return this;
     }
 
@@ -62,10 +62,10 @@ public class KSVodPlayerBuilder {
     }
 
     public g b() {
-        if (this.f11036a == null) {
+        if (this.f11038a == null) {
             throw new IllegalArgumentException("Wrong Input Arguments! Please set context!");
         }
-        if ((this.f11037b == null || TextUtils.isEmpty(this.f11037b)) && ((this.c == null || this.c.isEmpty()) && (this.h == null || this.h.f11049b == null || this.h.f11049b.isEmpty()))) {
+        if ((this.f11039b == null || TextUtils.isEmpty(this.f11039b)) && ((this.c == null || this.c.isEmpty()) && (this.h == null || this.h.f11051b == null || this.h.f11051b.isEmpty()))) {
             throw new IllegalArgumentException("Wrong Input Arguments! Please SetDatasource!");
         }
         return new g(this);

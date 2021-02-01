@@ -1,34 +1,46 @@
 package com.baidu.live.view.web.a;
 
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import android.util.Log;
+import com.baidu.live.tbadk.ala.AlaLastLiveroomInfo;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class l extends com.baidu.live.view.web.a {
+    private AlaLastLiveroomInfo bVZ;
+    private boolean isHost;
+
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "openNewH5Bridge";
+        return "openLiveBridge";
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hU(String str) {
-        if (str != null) {
+    public void is(String str) {
+        if (!this.isHost) {
+            Log.d("JsInterface", "@@ JsInterface-impl OpenLiveBridgeJsInterface params = " + str);
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject != null) {
-                    com.baidu.live.ap.c cVar = new com.baidu.live.ap.c();
-                    cVar.url = jSONObject.optString("url", "");
-                    cVar.isFullScreen = jSONObject.optBoolean("isFullScreen", false);
-                    if (!cVar.isFullScreen) {
-                        cVar.bSt = (float) jSONObject.optDouble("aspectRatio", 0.7d);
-                    }
-                    if (!cVar.url.isEmpty()) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913244, cVar));
-                    }
+                long optLong = jSONObject.optLong("liveId");
+                if (jSONObject.optInt("isForceEnter") == 1) {
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                com.baidu.live.liveroom.a.Mr().a(com.baidu.live.liveroom.a.Mr().Ms().hk(String.valueOf(optLong)));
+                try {
+                    jSONObject.put("recommend_type", 0);
+                    jSONObject.put("open_giftlist", 0);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                String jSONObject2 = jSONObject.toString();
+                AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(TbadkCoreApplication.getInst());
+                alaLiveRoomActivityConfig.addExtraByLiveId(optLong, jSONObject2);
+                alaLiveRoomActivityConfig.addLastLiveInfoParams(this.bVZ);
+                alaLiveRoomActivityConfig.setNeedStopImWhenClose(true);
+                alaLiveRoomActivityConfig.getIntent().addFlags(268435456);
+                com.baidu.live.liveroom.a.Mr().a(alaLiveRoomActivityConfig);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }

@@ -5,21 +5,21 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b implements e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final b f11727a = new b();
+        static final b f11729a = new b();
     }
 
     private b() {
     }
 
     public static b a() {
-        return a.f11727a;
+        return a.f11729a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e

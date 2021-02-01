@@ -1,5 +1,5 @@
 package com.bumptech.glide.manager;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public interface LifecycleListener {
     void onDestroy();
 

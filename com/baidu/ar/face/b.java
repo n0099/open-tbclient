@@ -3,6 +3,7 @@ package com.baidu.ar.face;
 import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.ar.face.a.a;
+import com.yy.videoplayer.decoder.VideoConstant;
 /* loaded from: classes6.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
@@ -14,7 +15,7 @@ public class b {
     private boolean nF = true;
     private boolean nG = true;
     private int nH = 180;
-    private int nI = 320;
+    private int nI = VideoConstant.THUMBNAIL_WIDTH;
     private boolean nJ = true;
     private boolean nK = false;
     private int nL = 4;
@@ -102,7 +103,7 @@ public class b {
 
     public void dr() {
         this.nH = 180;
-        this.nI = 320;
+        this.nI = VideoConstant.THUMBNAIL_WIDTH;
     }
 
     public void ds() {

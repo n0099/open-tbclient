@@ -2,7 +2,7 @@ package aegon.chrome.base;
 
 import aegon.chrome.base.annotations.CalledByNative;
 import java.lang.Thread;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class JavaExceptionReporter implements Thread.UncaughtExceptionHandler {
     public final boolean mCrashAfterReport;
     public boolean mHandlingException;

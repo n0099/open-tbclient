@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.kwad.sdk.R;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e extends RefreshLayout {
     public e(Context context) {
         this(context, null);

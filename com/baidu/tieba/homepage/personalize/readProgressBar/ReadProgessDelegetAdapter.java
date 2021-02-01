@@ -11,24 +11,24 @@ import com.baidu.adp.widget.ListView.w;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.card.s;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.card.t;
 /* loaded from: classes2.dex */
 public class ReadProgessDelegetAdapter extends com.baidu.adp.widget.ListView.a<b, ViewHolder> {
-    private w kdN;
+    private w klX;
     private final TbPageContext<?> mPageContext;
 
     public ReadProgessDelegetAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.kdN = new w() { // from class: com.baidu.tieba.homepage.personalize.readProgressBar.ReadProgessDelegetAdapter.1
+        this.klX = new w() { // from class: com.baidu.tieba.homepage.personalize.readProgressBar.ReadProgessDelegetAdapter.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
-                TiebaStatic.log(new aq("c11273"));
+                TiebaStatic.log(new ar("c11273"));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
             }
         };
         this.mPageContext = tbPageContext;
-        a(this.kdN);
+        a(this.klX);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,18 +43,18 @@ public class ReadProgessDelegetAdapter extends com.baidu.adp.widget.ListView.a<b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
-        s.crj().e(new aq("c11272"));
-        viewHolder.kdP.a(bVar);
+        t.csu().e(new ar("c11272"));
+        viewHolder.klZ.a(bVar);
         return viewHolder.getView();
     }
 
     /* loaded from: classes2.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
-        public a kdP;
+        public a klZ;
 
         public ViewHolder(a aVar) {
             super(aVar.getView());
-            this.kdP = aVar;
+            this.klZ = aVar;
         }
     }
 }

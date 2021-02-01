@@ -2,7 +2,7 @@ package com.kwad.sdk.emotion;
 
 import com.kwad.sdk.d;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.core.network.b {
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {

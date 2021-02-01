@@ -2,10 +2,10 @@ package com.baidu.tieba.im.recommend.detail;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.Bigvip.BigvipReqIdl;
 import tbclient.Bigvip.DataReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RecommendDetailRequestMessage extends NetMessage {
     private long mUserId;
 
@@ -21,7 +21,7 @@ public class RecommendDetailRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         builder.user_id = Long.valueOf(this.mUserId);
         BigvipReqIdl.Builder builder2 = new BigvipReqIdl.Builder();

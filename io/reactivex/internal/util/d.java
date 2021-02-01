@@ -30,11 +30,11 @@ public final class d {
         return false;
     }
 
-    public static String abd(String str) {
+    public static String ace(String str) {
         return "It is not allowed to subscribe with a(n) " + str + " multiple times. Please create a fresh instance of " + str + " and subscribe that to the target source instead.";
     }
 
     public static void F(Class<?> cls) {
-        io.reactivex.d.a.onError(new ProtocolViolationException(abd(cls.getName())));
+        io.reactivex.d.a.onError(new ProtocolViolationException(ace(cls.getName())));
     }
 }

@@ -10,10 +10,10 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.NavigationBar;
 import com.baidu.live.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.ala.live.personcenter.admin.c.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaAdminListActivity extends BaseFragmentActivity {
-    private NoNetworkView hfD;
-    private a hfE;
+    private NoNetworkView hjT;
+    private a hjU;
     private NavigationBar mNavigationBar;
     private View rootView;
 
@@ -32,9 +32,9 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
             }
             this.rootView = findViewById(a.f.ala_person_adminlist_rootview);
             this.mNavigationBar = (NavigationBar) findViewById(a.f.ala_person_adminlist_navigation_bar);
-            this.hfD = (NoNetworkView) findViewById(a.f.ala_person_adminlist_no_network_view);
-            this.hfE = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
-            this.hfE.onCreate(bundle);
+            this.hjT = (NoNetworkView) findViewById(a.f.ala_person_adminlist_no_network_view);
+            this.hjU = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
+            this.hjU.onCreate(bundle);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(getString(a.h.sdk_prc_person_live_admin));
         }
@@ -48,11 +48,11 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
         }
         SkinManager.setBackgroundResource(this.mNavigationBar, a.c.sdk_cp_bg_line_d);
         SkinManager.setBackgroundResource(this.rootView, a.c.sdk_cp_bg_line_d);
-        if (this.hfD != null) {
-            this.hfD.onChangeSkinType(getPageContext(), i);
+        if (this.hjT != null) {
+            this.hjT.onChangeSkinType(getPageContext(), i);
         }
-        if (this.hfE != null) {
-            this.hfE.onChangeSkinType(i);
+        if (this.hjU != null) {
+            this.hjU.onChangeSkinType(i);
         }
     }
 }

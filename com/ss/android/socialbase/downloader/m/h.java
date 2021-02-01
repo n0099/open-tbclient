@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static StringBuilder a(StringBuilder sb, String str) {
         sb.append('\"').append(str).append('\"');

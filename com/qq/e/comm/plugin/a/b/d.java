@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.a.b;
 
 import android.app.PendingIntent;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface d {
     PendingIntent a();
 

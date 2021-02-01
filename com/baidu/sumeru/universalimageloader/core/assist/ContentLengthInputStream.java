@@ -2,7 +2,7 @@ package com.baidu.sumeru.universalimageloader.core.assist;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ContentLengthInputStream extends InputStream {
     private final long length;
     private long pos;

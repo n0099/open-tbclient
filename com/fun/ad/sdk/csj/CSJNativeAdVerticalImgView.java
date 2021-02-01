@@ -12,7 +12,7 @@ import com.fun.ad.ap;
 import com.fun.ad.f0;
 import com.fun.ad.sdk.R;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class CSJNativeAdVerticalImgView extends f0 {
     public ImageView g;
 
@@ -37,7 +37,7 @@ public final class CSJNativeAdVerticalImgView extends f0 {
             return;
         }
         this.g.setLayoutParams(new LinearLayout.LayoutParams(this.f, (this.f * tTImage.getHeight()) / tTImage.getWidth()));
-        ap.a.pFl.a(getContext(), tTImage.getImageUrl(), this.g);
+        ap.a.pPq.a(getContext(), tTImage.getImageUrl(), this.g);
     }
 
     @Override // com.fun.ad.f0, android.view.View

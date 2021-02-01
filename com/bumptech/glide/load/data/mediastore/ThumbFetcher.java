@@ -16,7 +16,7 @@ import com.bumptech.glide.load.data.ExifOrientationStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class ThumbFetcher implements DataFetcher<InputStream> {
     private static final String TAG = "MediaStoreThumbFetcher";
     private InputStream inputStream;
@@ -86,7 +86,7 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
         return DataSource.LOCAL;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     static class VideoThumbnailQuery implements ThumbnailQuery {
         private static final String[] PATH_PROJECTION = {"_data"};
         private static final String PATH_SELECTION = "kind = 1 AND video_id = ?";
@@ -102,7 +102,7 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     static class ImageThumbnailQuery implements ThumbnailQuery {
         private static final String[] PATH_PROJECTION = {"_data"};
         private static final String PATH_SELECTION = "kind = 1 AND image_id = ?";

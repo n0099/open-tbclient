@@ -161,7 +161,7 @@ public class IMUserLoginByTokenMsg extends Message {
                                 }
                             }
                         }
-                        if (!a.aur) {
+                        if (!a.aug) {
                             ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                         }
                         str2 = optString;

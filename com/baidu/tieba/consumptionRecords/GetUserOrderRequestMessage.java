@@ -2,10 +2,10 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetUserOrder.DataReq;
 import tbclient.GetUserOrder.GetUserOrderReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetUserOrderRequestMessage extends NetMessage {
     private int orderType;
     private int pn;
@@ -24,7 +24,7 @@ public class GetUserOrderRequestMessage extends NetMessage {
         builder.rn = Integer.valueOf(this.rn);
         builder.show_member = Integer.valueOf(this.showMember);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetUserOrderReqIdl.Builder builder2 = new GetUserOrderReqIdl.Builder();
         builder2.data = builder.build(false);

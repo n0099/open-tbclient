@@ -1,21 +1,21 @@
 package com.kwad.sdk.glide.load.engine;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class n<Z> implements s<Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f10240a;
+    private final boolean f10242a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final boolean f10241b;
+    private final boolean f10243b;
     private final s<Z> c;
     private a d;
     private com.kwad.sdk.glide.load.c e;
     private int f;
     private boolean g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     interface a {
         void a(com.kwad.sdk.glide.load.c cVar, n<?> nVar);
     }
@@ -23,8 +23,8 @@ class n<Z> implements s<Z> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(s<Z> sVar, boolean z, boolean z2) {
         this.c = (s) com.kwad.sdk.glide.g.j.a(sVar);
-        this.f10240a = z;
-        this.f10241b = z2;
+        this.f10242a = z;
+        this.f10243b = z2;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -58,7 +58,7 @@ class n<Z> implements s<Z> {
             throw new IllegalStateException("Cannot recycle a resource that has already been recycled");
         }
         this.g = true;
-        if (this.f10241b) {
+        if (this.f10243b) {
             this.c.d_();
         }
     }
@@ -71,7 +71,7 @@ class n<Z> implements s<Z> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean f() {
-        return this.f10240a;
+        return this.f10242a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,6 +99,6 @@ class n<Z> implements s<Z> {
     }
 
     public synchronized String toString() {
-        return "EngineResource{isCacheable=" + this.f10240a + ", listener=" + this.d + ", key=" + this.e + ", acquired=" + this.f + ", isRecycled=" + this.g + ", resource=" + this.c + '}';
+        return "EngineResource{isCacheable=" + this.f10242a + ", listener=" + this.d + ", key=" + this.e + ", acquired=" + this.f + ", isRecycled=" + this.g + ", resource=" + this.c + '}';
     }
 }

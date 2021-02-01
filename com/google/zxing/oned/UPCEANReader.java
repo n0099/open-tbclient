@@ -13,7 +13,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class UPCEANReader extends OneDReader {
     private static final float MAX_AVG_VARIANCE = 0.48f;
     private static final float MAX_INDIVIDUAL_VARIANCE = 0.7f;

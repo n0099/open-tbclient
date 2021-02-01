@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import com.ss.android.socialbase.downloader.downloader.DownloadService;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class h extends com.ss.android.socialbase.downloader.downloader.a {
     private static final String e = h.class.getSimpleName();
 
@@ -20,7 +20,7 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
     @Override // com.ss.android.socialbase.downloader.downloader.a, com.ss.android.socialbase.downloader.downloader.p
     public void c() {
         if (com.ss.android.socialbase.downloader.m.a.a(262144)) {
-            this.f13131b = true;
+            this.f13133b = true;
             this.d = false;
             if (com.ss.android.socialbase.downloader.f.a.a()) {
                 com.ss.android.socialbase.downloader.f.a.b(e, "onStartCommandOnMainThread");
@@ -34,7 +34,7 @@ public class h extends com.ss.android.socialbase.downloader.downloader.a {
             com.ss.android.socialbase.downloader.f.a.b(e, "onStartCommand");
         }
         if (!com.ss.android.socialbase.downloader.m.a.a(262144)) {
-            this.f13131b = true;
+            this.f13133b = true;
         }
         e();
     }

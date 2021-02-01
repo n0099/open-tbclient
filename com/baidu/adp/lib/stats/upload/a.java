@@ -14,7 +14,7 @@ public class a {
     public static BdUploadingLogInfo a(com.baidu.adp.lib.stats.base.a aVar, boolean z) {
         ArrayList arrayList;
         ArrayList<com.baidu.adp.lib.stats.base.d> b2 = b(aVar, z);
-        BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getWriteDir(), aVar.no(), aVar.nq());
+        BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getWriteDir(), aVar.nn(), aVar.np());
         if (b2 != null && b2.size() > 0) {
             if (b2.size() > 1) {
                 Collections.sort(b2, new e());
@@ -25,7 +25,7 @@ public class a {
             long j = 0;
             while (i < size) {
                 com.baidu.adp.lib.stats.base.d dVar = b2.get(i);
-                j += dVar.Pt;
+                j += dVar.Pr;
                 arrayList2.add(dVar);
                 if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
                     bdUploadingLogInfo.add(arrayList2);
@@ -47,12 +47,12 @@ public class a {
     private static ArrayList<com.baidu.adp.lib.stats.base.d> b(com.baidu.adp.lib.stats.base.a aVar, boolean z) {
         ArrayList<com.baidu.adp.lib.stats.base.d> arrayList;
         ArrayList<com.baidu.adp.lib.stats.base.d> arrayList2 = new ArrayList<>();
-        File[] c = com.baidu.adp.lib.stats.base.b.c(aVar.no(), z);
+        File[] c = com.baidu.adp.lib.stats.base.b.c(aVar.nn(), z);
         if (c != null) {
             for (File file : c) {
                 if (file.isFile()) {
                     String name = file.getName();
-                    if (!TextUtils.isEmpty(name) && name.startsWith(aVar.nr()) && name.contains("Uploading")) {
+                    if (!TextUtils.isEmpty(name) && name.startsWith(aVar.nq()) && name.contains("Uploading")) {
                         long length = file.length();
                         if (z && file.getPath().contains("/notUpload")) {
                             name = "notUpload/" + file.getName();
@@ -65,12 +65,12 @@ public class a {
         long currentTimeMillis = System.currentTimeMillis();
         ArrayList<com.baidu.adp.lib.stats.base.d> arrayList3 = new ArrayList<>();
         ArrayList arrayList4 = new ArrayList();
-        if (aVar.nr() != "stat") {
+        if (aVar.nq() != "stat") {
             Iterator<com.baidu.adp.lib.stats.base.d> it = arrayList2.iterator();
             while (it.hasNext()) {
                 com.baidu.adp.lib.stats.base.d next = it.next();
                 if (next != null) {
-                    long j = next.Pu;
+                    long j = next.Ps;
                     if (j != 0 && j + 604800000 < currentTimeMillis) {
                         arrayList4.add(next.mFileName);
                     } else {
@@ -83,7 +83,7 @@ public class a {
             arrayList = arrayList2;
         }
         if (arrayList4.size() > 0) {
-            com.baidu.adp.lib.stats.base.b.a(arrayList4, aVar.no());
+            com.baidu.adp.lib.stats.base.b.a(arrayList4, aVar.nn());
         }
         return arrayList;
     }

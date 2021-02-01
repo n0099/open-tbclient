@@ -8,18 +8,18 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SearchMajorModel extends BdBaseModel {
-    a lcz;
+    a lkC;
     private HttpMessageListener mHttpMessageListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void ai(List<String> list);
+        void aj(List<String> list);
 
         void b(ErrorData errorData);
     }
@@ -48,17 +48,17 @@ public class SearchMajorModel extends BdBaseModel {
                     } else {
                         searchMajorHttpResponsedMessage = (SearchMajorHttpResponsedMessage) httpResponsedMessage;
                     }
-                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !x.isEmpty(searchMajorHttpResponsedMessage.getData().lcy)) {
-                        SearchMajorModel.this.lcz.ai(searchMajorHttpResponsedMessage.getData().lcy);
+                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !y.isEmpty(searchMajorHttpResponsedMessage.getData().lkB)) {
+                        SearchMajorModel.this.lkC.aj(searchMajorHttpResponsedMessage.getData().lkB);
                     } else {
-                        SearchMajorModel.this.lcz.b(errorData);
+                        SearchMajorModel.this.lkC.b(errorData);
                     }
                 }
             }
         };
         this.mHttpMessageListener.setSelfListener(true);
         registerListener(this.mHttpMessageListener);
-        this.lcz = aVar;
+        this.lkC = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

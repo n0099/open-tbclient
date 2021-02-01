@@ -1,7 +1,7 @@
 package com.baidu.searchbox.afx;
 
 import com.baidu.searchbox.afx.callback.OnReportListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class AlphaVideoManager {
     private static OnReportListener sOnReportListener;
 

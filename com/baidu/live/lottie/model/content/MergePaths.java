@@ -1,12 +1,12 @@
 package com.baidu.live.lottie.model.content;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MergePaths implements b {
-    private final MergePathsMode bqn;
+    private final MergePathsMode btP;
     private final String name;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -34,21 +34,21 @@ public class MergePaths implements b {
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.bqn = mergePathsMode;
+        this.btP = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode Mp() {
-        return this.bqn;
+    public MergePathsMode NN() {
+        return this.btP;
     }
 
     @Override // com.baidu.live.lottie.model.content.b
     @Nullable
     public com.baidu.live.lottie.a.a.b a(com.baidu.live.lottie.h hVar, com.baidu.live.lottie.model.layer.a aVar) {
-        if (hVar.ie()) {
+        if (hVar.ic()) {
             return new com.baidu.live.lottie.a.a.k(this);
         }
         com.baidu.live.lottie.d.warn("Animation contains merge paths but they are disabled.");
@@ -56,6 +56,6 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.bqn + '}';
+        return "MergePaths{mode=" + this.btP + '}';
     }
 }

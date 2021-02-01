@@ -1,7 +1,7 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import com.bumptech.glide.load.Option;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public abstract class DownsampleStrategy {
     public static final DownsampleStrategy FIT_CENTER = new FitCenter();
     public static final DownsampleStrategy CENTER_OUTSIDE = new CenterOutside();
@@ -12,7 +12,7 @@ public abstract class DownsampleStrategy {
     public static final DownsampleStrategy DEFAULT = CENTER_OUTSIDE;
     public static final Option<DownsampleStrategy> OPTION = Option.memory("com.bumptech.glide.load.resource.bitmap.Downsampler.DownsampleStrategy", DEFAULT);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public enum SampleSizeRounding {
         MEMORY,
         QUALITY
@@ -22,7 +22,7 @@ public abstract class DownsampleStrategy {
 
     public abstract float getScaleFactor(int i, int i2, int i3, int i4);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class FitCenter extends DownsampleStrategy {
         FitCenter() {
         }
@@ -38,7 +38,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class CenterOutside extends DownsampleStrategy {
         CenterOutside() {
         }
@@ -54,7 +54,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class AtLeast extends DownsampleStrategy {
         AtLeast() {
         }
@@ -74,7 +74,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class AtMost extends DownsampleStrategy {
         AtMost() {
         }
@@ -92,7 +92,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class None extends DownsampleStrategy {
         None() {
         }
@@ -108,7 +108,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private static class CenterInside extends DownsampleStrategy {
         CenterInside() {
         }

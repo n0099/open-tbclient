@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Options extends AbstractList<ByteString> implements RandomAccess {
     final ByteString[] byteStrings;
     final int[] trie;

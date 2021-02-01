@@ -3,7 +3,7 @@ package com.baidu.media.duplayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.TbConfig;
 @Keep
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class Prefetch {
     public static String TAG = "filecache-Prefetch";
 
@@ -19,7 +19,7 @@ public class Prefetch {
         if (b2 == null) {
             b2 = "";
         }
-        if (Utils.a() > Utils.f3197b) {
+        if (Utils.a() > Utils.f3195b) {
             nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b2, i, i2, i4, str4);
         }
     }
@@ -36,7 +36,7 @@ public class Prefetch {
         if (b2 == null) {
             b2 = "";
         }
-        if (Utils.a() > Utils.f3197b) {
+        if (Utils.a() > Utils.f3195b) {
             nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b2, i, 0, i3, str4);
         }
     }

@@ -5,7 +5,7 @@ import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.utils.L;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ProcessAndDisplayImageTask implements Runnable {
     private static final String LOG_POSTPROCESS_IMAGE = "PostProcess image before displaying [%s]";
     private final DecodedResult decodedResult;

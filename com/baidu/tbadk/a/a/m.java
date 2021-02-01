@@ -4,33 +4,34 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m extends a {
-    public static final BdUniqueId eEe = BdUniqueId.gen();
-    private final ArrayList<String> eEf = new ArrayList<>(3);
-    private com.baidu.tbadk.a.e eEg;
+    public static final BdUniqueId eGl = BdUniqueId.gen();
+    public final ArrayList<String> eGm = new ArrayList<>();
+    public com.baidu.tbadk.a.e eGn;
 
     public m() {
-        this.eEf.add("11_9_discover_hot_card");
-        this.eEf.add("11_9_discover_hot_card_slogan");
-        this.eEf.add("11_9_discover_hot_card_hot_text");
+        this.eGm.add("12_1_pb_sub_post_a");
+        this.eGm.add("12_1_pb_sub_post_b");
+        this.eGm.add("12_1_pb_sub_post_c");
+        this.eGm.add("12_1_pb_sub_post_d");
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public BdUniqueId bji() {
-        return eEe;
+    public BdUniqueId bjD() {
+        return eGl;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public ArrayList<String> bjj() {
-        return this.eEf;
+    public ArrayList<String> bjE() {
+        return this.eGm;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public com.baidu.tbadk.a.e bjk() {
-        return this.eEg;
+    public com.baidu.tbadk.a.e bjF() {
+        return this.eGn;
     }
 
     @Override // com.baidu.tbadk.a.a.a
     public void a(com.baidu.tbadk.a.e eVar) {
-        this.eEg = eVar;
+        this.eGn = eVar;
     }
 }

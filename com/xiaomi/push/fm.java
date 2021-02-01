@@ -28,13 +28,13 @@ public class fm {
     private ByteBuffer f424a = ByteBuffer.allocate(2048);
 
     /* renamed from: b  reason: collision with root package name */
-    private ByteBuffer f14021b = ByteBuffer.allocate(4);
+    private ByteBuffer f14023b = ByteBuffer.allocate(4);
 
     /* renamed from: a  reason: collision with other field name */
     private Adler32 f425a = new Adler32();
 
     /* renamed from: a  reason: collision with root package name */
-    private fo f14020a = new fo();
+    private fo f14022a = new fo();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fm(InputStream inputStream, fq fqVar) {
@@ -63,10 +63,10 @@ public class fm {
                 this.f424a = allocate2;
             }
             a(this.f424a, i);
-            this.f14021b.clear();
-            a(this.f14021b, 4);
-            this.f14021b.position(0);
-            int i2 = this.f14021b.getInt();
+            this.f14023b.clear();
+            a(this.f14023b, 4);
+            this.f14023b.position(0);
+            int i2 = this.f14023b.getInt();
             this.f425a.reset();
             this.f425a.update(this.f424a.array(), 0, this.f424a.position());
             if (i2 != ((int) this.f425a.getValue())) {
@@ -131,7 +131,7 @@ public class fm {
                         break;
                     } else {
                         try {
-                            this.f422a.b(this.f14020a.a(m314a2.m311a(com.xiaomi.push.service.ap.a().a(Integer.valueOf(m314a2.a()).toString(), m314a2.g()).h), this.f422a));
+                            this.f422a.b(this.f14022a.a(m314a2.m311a(com.xiaomi.push.service.ap.a().a(Integer.valueOf(m314a2.a()).toString(), m314a2.g()).h), this.f422a));
                             break;
                         } catch (Exception e) {
                             com.xiaomi.channel.commonutils.logger.b.m80a("[Slim] Parse packet from Blob chid=" + m314a2.a() + "; Id=" + m314a2.e() + " failure:" + e.getMessage());
@@ -140,7 +140,7 @@ public class fm {
                     }
                 case 3:
                     try {
-                        this.f422a.b(this.f14020a.a(m314a2.m310a(), this.f422a));
+                        this.f422a.b(this.f14022a.a(m314a2.m310a(), this.f422a));
                         break;
                     } catch (Exception e2) {
                         com.xiaomi.channel.commonutils.logger.b.m80a("[Slim] Parse packet from Blob chid=" + m314a2.a() + "; Id=" + m314a2.e() + " failure:" + e2.getMessage());

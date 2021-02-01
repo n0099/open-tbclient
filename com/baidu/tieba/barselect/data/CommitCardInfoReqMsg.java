@@ -2,10 +2,10 @@ package com.baidu.tieba.barselect.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.CommitCardInfo.CommitCardInfoReqIdl;
 import tbclient.CommitCardInfo.DataReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CommitCardInfoReqMsg extends NetMessage {
     public int card_type;
     public String image_info;
@@ -22,7 +22,7 @@ public class CommitCardInfoReqMsg extends NetMessage {
         builder.card_type = Integer.valueOf(this.card_type);
         builder.image_info = this.image_info;
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         CommitCardInfoReqIdl.Builder builder2 = new CommitCardInfoReqIdl.Builder();
         builder2.data = builder.build(false);

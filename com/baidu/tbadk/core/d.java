@@ -1,50 +1,50 @@
 package com.baidu.tbadk.core;
 
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes.dex */
 public class d {
-    protected z chV;
-    protected NewErrorData eHs = null;
+    protected aa cml;
+    protected NewErrorData eJy = null;
 
     public d() {
-        this.chV = null;
-        this.chV = new z();
+        this.cml = null;
+        this.cml = new aa();
     }
 
     public void cancel() {
-        if (this.chV != null) {
-            this.chV.cancelNetConnect();
+        if (this.cml != null) {
+            this.cml.cancelNetConnect();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setUrl(String str) {
-        this.chV.setUrl(str);
+        this.cml.setUrl(str);
     }
 
     public void addPostData(String str, String str2) {
-        this.chV.addPostData(str, str2);
+        this.cml.addPostData(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getResult() {
-        String postNetData = this.chV.postNetData();
-        this.eHs = new NewErrorData();
-        this.eHs.parserJson(postNetData);
+        String postNetData = this.cml.postNetData();
+        this.eJy = new NewErrorData();
+        this.eJy.parserJson(postNetData);
         return postNetData;
     }
 
     public boolean isRequestSuccess() {
-        if (this.chV != null) {
-            return this.chV.brX().bsH().isRequestSuccess();
+        if (this.cml != null) {
+            return this.cml.bsr().btb().isRequestSuccess();
         }
         return false;
     }
 
-    public String bkz() {
-        if (this.chV != null) {
-            return this.chV.getErrorString();
+    public String bkR() {
+        if (this.cml != null) {
+            return this.cml.getErrorString();
         }
         return null;
     }

@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.diffdev;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface IDiffDevOAuth {
     void addListener(OAuthListener oAuthListener);
 

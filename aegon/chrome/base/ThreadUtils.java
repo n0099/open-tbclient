@@ -7,7 +7,7 @@ import android.os.Process;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ThreadUtils {
     public static final /* synthetic */ boolean $assertionsDisabled = !ThreadUtils.class.desiredAssertionStatus();
     public static final Object sLock = new Object();

@@ -1,5 +1,5 @@
 package com.baidu.swan.pms;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface a {
-    String bcb();
+    String bco();
 }

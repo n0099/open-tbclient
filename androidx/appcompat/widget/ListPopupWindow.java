@@ -26,11 +26,10 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.R;
 import androidx.appcompat.view.menu.ShowableListMenu;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.PopupWindowCompat;
 import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ListPopupWindow implements ShowableListMenu {
     private static final boolean DEBUG = false;
     static final int EXPAND_LIST_TIMEOUT = 250;
@@ -117,7 +116,7 @@ public class ListPopupWindow implements ShowableListMenu {
         this.mDropDownGravity = 0;
         this.mDropDownAlwaysVisible = false;
         this.mForceIgnoreOutsideTouch = false;
-        this.mListItemExpandMaximum = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.mListItemExpandMaximum = Integer.MAX_VALUE;
         this.mPromptPosition = 0;
         this.mResizePopupRunnable = new ResizePopupRunnable();
         this.mTouchInterceptor = new PopupTouchInterceptor();
@@ -520,7 +519,7 @@ public class ListPopupWindow implements ShowableListMenu {
             int selectedItemPosition = this.mDropDownList.getSelectedItemPosition();
             boolean z = !this.mPopup.isAboveAnchor();
             ListAdapter listAdapter = this.mAdapter;
-            int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            int i2 = Integer.MAX_VALUE;
             int i3 = Integer.MIN_VALUE;
             if (listAdapter != null) {
                 boolean areAllItemsEnabled = listAdapter.areAllItemsEnabled();
@@ -734,7 +733,7 @@ public class ListPopupWindow implements ShowableListMenu {
         this.mOverlapAnchor = z;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private class PopupDataSetObserver extends DataSetObserver {
         PopupDataSetObserver() {
         }
@@ -753,7 +752,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class ListSelectorHider implements Runnable {
         ListSelectorHider() {
         }
@@ -765,7 +764,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class ResizePopupRunnable implements Runnable {
         ResizePopupRunnable() {
         }
@@ -780,7 +779,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class PopupTouchInterceptor implements View.OnTouchListener {
         PopupTouchInterceptor() {
         }
@@ -803,7 +802,7 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class PopupScrollListener implements AbsListView.OnScrollListener {
         PopupScrollListener() {
         }

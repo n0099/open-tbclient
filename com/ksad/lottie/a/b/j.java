@@ -2,7 +2,7 @@ package com.ksad.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j extends f<PointF> {
     private final PointF c;
 
@@ -16,12 +16,12 @@ public class j extends f<PointF> {
     /* renamed from: b */
     public PointF a(com.ksad.lottie.e.a<PointF> aVar, float f) {
         PointF pointF;
-        if (aVar.f8001a == null || aVar.f8002b == null) {
+        if (aVar.f8003a == null || aVar.f8004b == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        PointF pointF2 = aVar.f8001a;
-        PointF pointF3 = aVar.f8002b;
-        if (this.f7958b == null || (pointF = (PointF) this.f7958b.a(aVar.d, aVar.e.floatValue(), pointF2, pointF3, f, c(), f())) == null) {
+        PointF pointF2 = aVar.f8003a;
+        PointF pointF3 = aVar.f8004b;
+        if (this.f7960b == null || (pointF = (PointF) this.f7960b.a(aVar.d, aVar.e.floatValue(), pointF2, pointF3, f, c(), f())) == null) {
             this.c.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
             return this.c;
         }

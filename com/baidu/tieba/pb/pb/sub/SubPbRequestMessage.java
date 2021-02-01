@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.sub;
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
 /* loaded from: classes2.dex */
@@ -83,7 +83,7 @@ public class SubPbRequestMessage extends NetMessage {
         builder.top_ugc_pid = this.oriUgcTopPid;
         builder.forum_id = Long.valueOf(this.forumId);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
         builder2.data = builder.build(false);

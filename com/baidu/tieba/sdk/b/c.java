@@ -1,7 +1,7 @@
 package com.baidu.tieba.sdk.b;
 
 import com.baidu.tieba.sdk.activity.LivePlayerActivity;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface c {
     void a(LivePlayerActivity livePlayerActivity);
 

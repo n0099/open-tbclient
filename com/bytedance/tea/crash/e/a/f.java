@@ -4,7 +4,7 @@ import android.content.Context;
 import com.bytedance.tea.crash.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f extends c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(Context context, b bVar, d dVar) {
@@ -14,11 +14,11 @@ public class f extends c {
     @Override // com.bytedance.tea.crash.e.a.c
     public com.bytedance.tea.crash.c.a a(com.bytedance.tea.crash.c.a aVar) {
         com.bytedance.tea.crash.c.a a2 = super.a(aVar);
-        com.bytedance.tea.crash.c.b hX = com.bytedance.tea.crash.c.b.hX(this.f7637b);
-        hX.a(h.eoL().a());
-        hX.a(h.eoN().a());
-        hX.b(this.ply.c());
-        a2.a(hX);
+        com.bytedance.tea.crash.c.b ia = com.bytedance.tea.crash.c.b.ia(this.f7639b);
+        ia.a(h.erd().a());
+        ia.a(h.erf().a());
+        ia.b(this.pvN.c());
+        a2.a(ia);
         return a2;
     }
 }

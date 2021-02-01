@@ -1,14 +1,14 @@
 package com.bytedance.sdk.openadsdk.multipro.b;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f7400a;
+    public boolean f7402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7401b;
+    public boolean f7403b;
     public boolean c;
     public boolean d;
     public long e;
@@ -16,8 +16,8 @@ public class a {
     public long g;
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC1022a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC1026a {
         a a();
     }
 
@@ -27,12 +27,12 @@ public class a {
     }
 
     public a b(boolean z) {
-        this.f7400a = z;
+        this.f7402a = z;
         return this;
     }
 
     public a c(boolean z) {
-        this.f7401b = z;
+        this.f7403b = z;
         return this;
     }
 
@@ -59,8 +59,8 @@ public class a {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isCompleted", this.f7400a);
-            jSONObject.put("isFromVideoDetailPage", this.f7401b);
+            jSONObject.put("isCompleted", this.f7402a);
+            jSONObject.put("isFromVideoDetailPage", this.f7403b);
             jSONObject.put("isFromDetailPage", this.c);
             jSONObject.put("duration", this.e);
             jSONObject.put("totalPlayDuration", this.f);

@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.coreExtra.share.g;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.z;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     private Context mContext;
 
@@ -32,20 +32,20 @@ public class a {
     }
 
     public void a(int i, ShareItem shareItem, boolean z) {
-        Location cst;
+        Location ctF;
         if (shareItem != null) {
             if (!j.isNetWorkAvailable()) {
                 l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                 return;
             }
-            if (z && (cst = cst()) != null) {
-                shareItem.location = cst;
+            if (z && (ctF = ctF()) != null) {
+                shareItem.location = ctF;
             }
             g gVar = new g(this.mContext, null);
             if (i == 3) {
                 IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
                 if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
-                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).bqk();
+                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).bqD();
                     return;
                 }
                 a(shareItem, 4);
@@ -53,11 +53,11 @@ public class a {
             } else if (i == 2) {
                 IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
                 if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
-                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).bqk();
+                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).bqD();
                     return;
                 }
                 a(shareItem, 3);
-                if (shareItem.fso) {
+                if (shareItem.fuG) {
                     shareItem.content = m(shareItem);
                 }
                 gVar.f(shareItem);
@@ -67,20 +67,20 @@ public class a {
                     gVar.h(shareItem);
                     return;
                 }
-                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bqk();
+                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bqD();
             } else if (i == 5) {
-                if (!shareItem.fsn) {
+                if (!shareItem.fuF) {
                     shareItem.content = m(shareItem);
                 }
                 gVar.i(shareItem);
             } else if (i == 6) {
                 a(shareItem, 7);
-                if (!shareItem.fsn) {
+                if (!shareItem.fuF) {
                     shareItem.content = m(shareItem);
                 }
                 gVar.j(shareItem);
             } else if (i == 7) {
-                if (!shareItem.fsn) {
+                if (!shareItem.fuF) {
                     shareItem.content = m(shareItem);
                 }
                 gVar.k(shareItem);
@@ -90,32 +90,32 @@ public class a {
                     gVar.g(shareItem);
                     return;
                 }
-                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bqk();
+                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bqD();
             }
         }
     }
 
     private void a(ShareItem shareItem, int i) {
         if (shareItem != null && shareItem.extData != null) {
-            if (shareItem.fso) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dW("fid", shareItem.extData).an("obj_type", i));
-            } else if (shareItem.fsp || shareItem.fss) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dW("tid", shareItem.extData).an("obj_type", i).an("obj_source", shareItem.fsF).an("obj_param1", shareItem.fsG).dW("fid", shareItem.fid).an(TiebaInitialize.Params.OBJ_PARAM2, shareItem.fsH));
-            } else if (shareItem.fsq) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).dW("tid", shareItem.extData).an("obj_type", i));
-            } else if (shareItem.fsn) {
-                bO(i, shareItem.fsC);
-            } else if (shareItem.fsr) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).an("obj_param1", 7).an("obj_type", i).dW("fid", shareItem.extData));
-            } else if (shareItem.fst) {
-                aq an = new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).an("obj_type", i);
-                an.an("obj_source", shareItem.fsF);
-                if (!at.isEmpty(shareItem.linkUrl) && shareItem.linkUrl.contains("worldcup")) {
-                    an.an("obj_param1", 9);
+            if (shareItem.fuG) {
+                TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dR("fid", shareItem.extData).ap("obj_type", i));
+            } else if (shareItem.fuH || shareItem.fuK) {
+                TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dR("tid", shareItem.extData).ap("obj_type", i).ap("obj_source", shareItem.fuX).ap("obj_param1", shareItem.fuY).dR("fid", shareItem.fid).ap(TiebaInitialize.Params.OBJ_PARAM2, shareItem.fuZ));
+            } else if (shareItem.fuI) {
+                TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_SHARE_PHOTO_LIVE).dR("tid", shareItem.extData).ap("obj_type", i));
+            } else if (shareItem.fuF) {
+                bV(i, shareItem.fuU);
+            } else if (shareItem.fuJ) {
+                TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).ap("obj_param1", 7).ap("obj_type", i).dR("fid", shareItem.extData));
+            } else if (shareItem.fuL) {
+                ar ap = new ar(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).ap("obj_type", i);
+                ap.ap("obj_source", shareItem.fuX);
+                if (!au.isEmpty(shareItem.linkUrl) && shareItem.linkUrl.contains("worldcup")) {
+                    ap.ap("obj_param1", 9);
                 }
-                TiebaStatic.log(an);
-            } else if (shareItem.fsu) {
-                TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dW("tid", shareItem.extData).dW("fid", shareItem.fid).an("obj_type", i).an("obj_source", shareItem.fsF).an("obj_param1", shareItem.fsG).an(TiebaInitialize.Params.OBJ_PARAM2, shareItem.fsH).an(TiebaInitialize.Params.OBJ_PARAM3, shareItem.fsI).an("obj_locate", shareItem.fsJ));
+                TiebaStatic.log(ap);
+            } else if (shareItem.fuM) {
+                TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).dR("tid", shareItem.extData).dR("fid", shareItem.fid).ap("obj_type", i).ap("obj_source", shareItem.fuX).ap("obj_param1", shareItem.fuY).ap(TiebaInitialize.Params.OBJ_PARAM2, shareItem.fuZ).ap(TiebaInitialize.Params.OBJ_PARAM3, shareItem.fva).ap("obj_locate", shareItem.fvb));
             }
         }
     }
@@ -126,12 +126,12 @@ public class a {
         return str;
     }
 
-    private void bO(int i, String str) {
+    private void bV(int i, String str) {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location cst() {
-        if (ad.checkLocationForGoogle(this.mContext)) {
+    private Location ctF() {
+        if (ae.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
             criteria.setAccuracy(1);

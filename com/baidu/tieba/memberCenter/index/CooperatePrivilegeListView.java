@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CooperatePrivilegeListView extends ListView {
     public CooperatePrivilegeListView(Context context) {
         super(context);

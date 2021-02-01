@@ -10,14 +10,14 @@ import com.baidu.swan.apps.ao.ae;
 import com.baidu.swan.apps.core.pms.j;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.model.g> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private final T cSZ;
+    private final T cVm;
 
     public k(@NonNull T t) {
-        this.cSZ = t;
+        this.cVm = t;
     }
 
     public String getAppKey() {
@@ -32,10 +32,10 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
             gVar.appId = getAppKey();
         }
         if (gVar.category == 0) {
-            return com.baidu.swan.apps.core.pms.f.b.bG(gVar.appId, String.valueOf(gVar.versionCode));
+            return com.baidu.swan.apps.core.pms.f.b.bA(gVar.appId, String.valueOf(gVar.versionCode));
         }
         if (gVar.category == 1) {
-            return com.baidu.swan.apps.core.pms.f.b.bH(gVar.appId, String.valueOf(gVar.versionCode));
+            return com.baidu.swan.apps.core.pms.f.b.bB(gVar.appId, String.valueOf(gVar.versionCode));
         }
         return null;
     }
@@ -45,7 +45,7 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     public Bundle a(@NonNull Bundle bundle, Set<String> set) {
         Bundle bundle2 = new Bundle();
         if (set.contains("event_performance_ubc")) {
-            this.cSZ.bv(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+            this.cVm.bp(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
             set.remove("event_performance_ubc");
         }
         return bundle2;
@@ -82,7 +82,7 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     @CallSuper
     public void a(com.baidu.swan.pms.model.g gVar, com.baidu.swan.pms.model.a aVar) {
         super.a((k<T>) gVar, aVar);
-        com.baidu.swan.c.d.yv(gVar.filePath);
+        com.baidu.swan.c.d.yO(gVar.filePath);
         if (DEBUG) {
             Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + gVar + ", error=" + aVar);
         }
@@ -95,11 +95,11 @@ public class k<T extends j> extends com.baidu.swan.pms.a.b<com.baidu.swan.pms.mo
     }
 
     private com.baidu.swan.apps.al.a g(com.baidu.swan.pms.model.g gVar) {
-        if (!ae.f(new File(gVar.filePath), gVar.sign)) {
-            return new com.baidu.swan.apps.al.a().cV(12L).cX(2300L).tm("分包签名校验失败");
+        if (!ae.e(new File(gVar.filePath), gVar.sign)) {
+            return new com.baidu.swan.apps.al.a().db(12L).dd(2300L).tF("分包签名校验失败");
         }
         if (!com.baidu.swan.apps.core.pms.f.b.j(gVar)) {
-            return new com.baidu.swan.apps.al.a().cV(12L).cX(2320L).tm("分包解压失败");
+            return new com.baidu.swan.apps.al.a().db(12L).dd(2320L).tF("分包解压失败");
         }
         return null;
     }

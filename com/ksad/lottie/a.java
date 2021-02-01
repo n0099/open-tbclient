@@ -1,7 +1,7 @@
 package com.ksad.lottie;
 
 import android.graphics.Typeface;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public Typeface a(String str) {
         return null;

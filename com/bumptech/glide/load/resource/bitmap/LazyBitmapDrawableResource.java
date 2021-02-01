@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.Initializable;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class LazyBitmapDrawableResource implements Initializable, Resource<BitmapDrawable> {
     private final Resource<Bitmap> bitmapResource;
     private final Resources resources;

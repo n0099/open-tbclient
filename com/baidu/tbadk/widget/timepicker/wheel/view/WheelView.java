@@ -27,40 +27,40 @@ public class WheelView extends View {
     private float centerY;
     private int change;
     private Context context;
-    private boolean dxT;
-    private boolean dxU;
-    private ScheduledExecutorService dxV;
-    private ScheduledFuture<?> dxW;
-    private Paint dxX;
-    private Paint dxY;
-    private Paint dxZ;
-    private int dyd;
-    private int dye;
-    private int dyf;
-    private float dyg;
-    private int dyh;
-    private int dyi;
-    private int dyj;
-    private float dyk;
-    private boolean dyl;
-    private float dym;
-    private float dyn;
-    private float dyo;
-    private int dyp;
-    private int dyq;
-    private int dyr;
-    private int dys;
-    private int dyt;
-    private int dyu;
-    private float dyv;
-    private int dyw;
-    private int dyx;
-    private int dyy;
-    private DividerType fXz;
-    private b fYm;
-    private a fYn;
-    private float fYo;
-    private final float fYp;
+    private float dAA;
+    private int dAB;
+    private int dAC;
+    private int dAD;
+    private ScheduledExecutorService dAa;
+    private ScheduledFuture<?> dAb;
+    private Paint dAc;
+    private Paint dAd;
+    private Paint dAe;
+    private int dAi;
+    private int dAj;
+    private int dAk;
+    private float dAl;
+    private int dAm;
+    private int dAn;
+    private int dAo;
+    private float dAp;
+    private boolean dAq;
+    private float dAr;
+    private float dAs;
+    private float dAt;
+    private int dAu;
+    private int dAv;
+    private int dAw;
+    private int dAx;
+    private int dAy;
+    private int dAz;
+    private boolean dzY;
+    private boolean dzZ;
+    private DividerType fZP;
+    private b gaD;
+    private a gaE;
+    private float gaF;
+    private final float gaG;
     private GestureDetector gestureDetector;
     private Handler handler;
     private String label;
@@ -90,199 +90,199 @@ public class WheelView extends View {
 
     public WheelView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dxT = false;
-        this.dxU = true;
-        this.dxV = Executors.newSingleThreadScheduledExecutor();
+        this.dzY = false;
+        this.dzZ = true;
+        this.dAa = Executors.newSingleThreadScheduledExecutor();
         this.typeface = Typeface.MONOSPACE;
-        this.dyk = 1.6f;
-        this.dys = 7;
+        this.dAp = 1.6f;
+        this.dAx = 7;
         this.mOffset = 0;
-        this.dyv = 0.0f;
+        this.dAA = 0.0f;
         this.startTime = 0L;
         this.mGravity = 17;
-        this.dyx = 0;
-        this.dyy = 0;
-        this.fYp = 0.5f;
+        this.dAC = 0;
+        this.dAD = 0;
+        this.gaG = 0.5f;
         this.textSize = getResources().getDimensionPixelSize(R.dimen.pickerview_textsize);
         float f = getResources().getDisplayMetrics().density;
         if (f < 1.0f) {
-            this.fYo = 2.4f;
+            this.gaF = 2.4f;
         } else if (1.0f <= f && f < 2.0f) {
-            this.fYo = 3.6f;
+            this.gaF = 3.6f;
         } else if (1.0f <= f && f < 2.0f) {
-            this.fYo = 4.5f;
+            this.gaF = 4.5f;
         } else if (2.0f <= f && f < 3.0f) {
-            this.fYo = 6.0f;
+            this.gaF = 6.0f;
         } else if (f >= 3.0f) {
-            this.fYo = f * 2.5f;
+            this.gaF = f * 2.5f;
         }
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.pickerview, 0, 0);
             this.mGravity = obtainStyledAttributes.getInt(R.styleable.pickerview_wheelview_gravity, 17);
-            this.dyh = obtainStyledAttributes.getColor(R.styleable.pickerview_wheelview_textColorOut, -5723992);
-            this.dyi = obtainStyledAttributes.getColor(R.styleable.pickerview_wheelview_textColorCenter, -14013910);
-            this.dyj = obtainStyledAttributes.getColor(R.styleable.pickerview_wheelview_dividerColor, -2763307);
+            this.dAm = obtainStyledAttributes.getColor(R.styleable.pickerview_wheelview_textColorOut, -5723992);
+            this.dAn = obtainStyledAttributes.getColor(R.styleable.pickerview_wheelview_textColorCenter, -14013910);
+            this.dAo = obtainStyledAttributes.getColor(R.styleable.pickerview_wheelview_dividerColor, -2763307);
             this.textSize = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.pickerview_wheelview_textSize, this.textSize);
-            this.dyk = obtainStyledAttributes.getFloat(R.styleable.pickerview_wheelview_lineSpacingMultiplier, this.dyk);
+            this.dAp = obtainStyledAttributes.getFloat(R.styleable.pickerview_wheelview_lineSpacingMultiplier, this.dAp);
             obtainStyledAttributes.recycle();
         }
-        aHg();
-        di(context);
+        aHz();
+        dh(context);
     }
 
-    private void aHg() {
-        if (this.dyk < 1.0f) {
-            this.dyk = 1.0f;
-        } else if (this.dyk > 4.0f) {
-            this.dyk = 4.0f;
+    private void aHz() {
+        if (this.dAp < 1.0f) {
+            this.dAp = 1.0f;
+        } else if (this.dAp > 4.0f) {
+            this.dAp = 4.0f;
         }
     }
 
-    private void di(Context context) {
+    private void dh(Context context) {
         this.context = context;
         this.handler = new com.baidu.tbadk.widget.timepicker.wheel.d.b(this);
         this.gestureDetector = new GestureDetector(context, new com.baidu.tbadk.widget.timepicker.wheel.c.a(this));
         this.gestureDetector.setIsLongpressEnabled(false);
-        this.dyl = true;
-        this.dyo = 0.0f;
-        this.dyp = -1;
-        aHh();
+        this.dAq = true;
+        this.dAt = 0.0f;
+        this.dAu = -1;
+        aHA();
     }
 
-    private void aHh() {
-        this.dxX = new Paint();
-        this.dxX.setColor(this.dyh);
-        this.dxX.setAntiAlias(true);
-        this.dxX.setTypeface(this.typeface);
-        this.dxX.setTextSize(this.textSize);
-        this.dxY = new Paint();
-        this.dxY.setColor(this.dyi);
-        this.dxY.setAntiAlias(true);
-        this.dxY.setTextScaleX(1.1f);
-        this.dxY.setTypeface(this.typeface);
-        this.dxY.setTextSize(this.textSize);
-        this.dxZ = new Paint();
-        this.dxZ.setColor(this.dyj);
-        this.dxZ.setAntiAlias(true);
+    private void aHA() {
+        this.dAc = new Paint();
+        this.dAc.setColor(this.dAm);
+        this.dAc.setAntiAlias(true);
+        this.dAc.setTypeface(this.typeface);
+        this.dAc.setTextSize(this.textSize);
+        this.dAd = new Paint();
+        this.dAd.setColor(this.dAn);
+        this.dAd.setAntiAlias(true);
+        this.dAd.setTextScaleX(1.1f);
+        this.dAd.setTypeface(this.typeface);
+        this.dAd.setTextSize(this.textSize);
+        this.dAe = new Paint();
+        this.dAe.setColor(this.dAo);
+        this.dAe.setAntiAlias(true);
         setLayerType(1, null);
     }
 
-    private void aHi() {
-        if (this.fYn != null) {
-            aHj();
-            int i = (int) (this.dyg * (this.dys - 1));
-            this.dyt = (int) ((i * 2) / 3.141592653589793d);
+    private void aHB() {
+        if (this.gaE != null) {
+            aHC();
+            int i = (int) (this.dAl * (this.dAx - 1));
+            this.dAy = (int) ((i * 2) / 3.141592653589793d);
             this.radius = (int) (i / 3.141592653589793d);
-            this.dyu = View.MeasureSpec.getSize(this.dyw);
-            this.dym = (this.dyt - this.dyg) / 2.0f;
-            this.dyn = (this.dyt + this.dyg) / 2.0f;
-            this.centerY = (this.dyn - ((this.dyg - this.dye) / 2.0f)) - this.fYo;
-            if (this.dyp == -1) {
-                if (this.dyl) {
-                    this.dyp = (this.fYn.getItemsCount() + 1) / 2;
+            this.dAz = View.MeasureSpec.getSize(this.dAB);
+            this.dAr = (this.dAy - this.dAl) / 2.0f;
+            this.dAs = (this.dAy + this.dAl) / 2.0f;
+            this.centerY = (this.dAs - ((this.dAl - this.dAj) / 2.0f)) - this.gaF;
+            if (this.dAu == -1) {
+                if (this.dAq) {
+                    this.dAu = (this.gaE.getItemsCount() + 1) / 2;
                 } else {
-                    this.dyp = 0;
+                    this.dAu = 0;
                 }
             }
-            this.dyr = this.dyp;
+            this.dAw = this.dAu;
         }
     }
 
-    private void aHj() {
+    private void aHC() {
         Rect rect = new Rect();
-        for (int i = 0; i < this.fYn.getItemsCount(); i++) {
-            String Y = Y(this.fYn.getItem(i));
-            this.dxY.getTextBounds(Y, 0, Y.length(), rect);
+        for (int i = 0; i < this.gaE.getItemsCount(); i++) {
+            String Y = Y(this.gaE.getItem(i));
+            this.dAd.getTextBounds(Y, 0, Y.length(), rect);
             int width = rect.width();
-            if (width > this.dyd) {
-                this.dyd = width;
+            if (width > this.dAi) {
+                this.dAi = width;
             }
-            this.dxY.getTextBounds("星期", 0, 2, rect);
-            this.dye = rect.height() + 2;
+            this.dAd.getTextBounds("星期", 0, 2, rect);
+            this.dAj = rect.height() + 2;
         }
-        this.dyg = this.dyk * this.dye;
+        this.dAl = this.dAp * this.dAj;
     }
 
     public void a(ACTION action) {
-        aHk();
+        aHD();
         if (action == ACTION.FLING || action == ACTION.DAGGLE) {
-            this.mOffset = (int) (((this.dyo % this.dyg) + this.dyg) % this.dyg);
-            if (this.mOffset > this.dyg / 2.0f) {
-                this.mOffset = (int) (this.dyg - this.mOffset);
+            this.mOffset = (int) (((this.dAt % this.dAl) + this.dAl) % this.dAl);
+            if (this.mOffset > this.dAl / 2.0f) {
+                this.mOffset = (int) (this.dAl - this.mOffset);
             } else {
                 this.mOffset = -this.mOffset;
             }
         }
-        this.dxW = this.dxV.scheduleWithFixedDelay(new c(this, this.mOffset), 0L, 10L, TimeUnit.MILLISECONDS);
+        this.dAb = this.dAa.scheduleWithFixedDelay(new c(this, this.mOffset), 0L, 10L, TimeUnit.MILLISECONDS);
     }
 
-    public final void M(float f) {
-        aHk();
-        this.dxW = this.dxV.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.a(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
+    public final void N(float f) {
+        aHD();
+        this.dAb = this.dAa.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.a(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
     }
 
-    public void aHk() {
-        if (this.dxW != null && !this.dxW.isCancelled()) {
-            this.dxW.cancel(true);
-            this.dxW = null;
+    public void aHD() {
+        if (this.dAb != null && !this.dAb.isCancelled()) {
+            this.dAb.cancel(true);
+            this.dAb = null;
         }
     }
 
     public final void setCyclic(boolean z) {
-        this.dyl = z;
+        this.dAq = z;
     }
 
     public final void setTypeface(Typeface typeface) {
         this.typeface = typeface;
-        this.dxX.setTypeface(this.typeface);
-        this.dxY.setTypeface(this.typeface);
+        this.dAc.setTypeface(this.typeface);
+        this.dAd.setTypeface(this.typeface);
     }
 
     public final void setTextSize(float f) {
         if (f > 0.0f) {
             this.textSize = (int) (this.context.getResources().getDisplayMetrics().density * f);
-            this.dxX.setTextSize(this.textSize);
-            this.dxY.setTextSize(this.textSize);
+            this.dAc.setTextSize(this.textSize);
+            this.dAd.setTextSize(this.textSize);
         }
     }
 
     public final void setCurrentItem(int i) {
-        this.dyq = i;
-        this.dyp = i;
-        this.dyo = 0.0f;
+        this.dAv = i;
+        this.dAu = i;
+        this.dAt = 0.0f;
         invalidate();
     }
 
     public final void setOnItemSelectedListener(b bVar) {
-        this.fYm = bVar;
+        this.gaD = bVar;
     }
 
     public final void setAdapter(a aVar) {
-        this.fYn = aVar;
-        aHi();
+        this.gaE = aVar;
+        aHB();
         invalidate();
     }
 
     public final a getAdapter() {
-        return this.fYn;
+        return this.gaE;
     }
 
     public final int getCurrentItem() {
-        if (this.fYn == null) {
+        if (this.gaE == null) {
             return 0;
         }
-        if (this.dyl && (this.dyq < 0 || this.dyq >= this.fYn.getItemsCount())) {
-            return Math.max(0, Math.min(Math.abs(Math.abs(this.dyq) - this.fYn.getItemsCount()), this.fYn.getItemsCount() - 1));
+        if (this.dAq && (this.dAv < 0 || this.dAv >= this.gaE.getItemsCount())) {
+            return Math.max(0, Math.min(Math.abs(Math.abs(this.dAv) - this.gaE.getItemsCount()), this.gaE.getItemsCount() - 1));
         }
-        return Math.max(0, Math.min(this.dyq, this.fYn.getItemsCount() - 1));
+        return Math.max(0, Math.min(this.dAv, this.gaE.getItemsCount() - 1));
     }
 
-    public final void aHl() {
-        if (this.fYm != null) {
+    public final void aHE() {
+        if (this.gaD != null) {
             postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.timepicker.wheel.view.WheelView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    WheelView.this.fYm.sB(WheelView.this.getCurrentItem());
+                    WheelView.this.gaD.sG(WheelView.this.getCurrentItem());
                 }
             }, 200L);
         }
@@ -292,141 +292,141 @@ public class WheelView extends View {
     protected void onDraw(Canvas canvas) {
         String Y;
         int i;
-        if (this.fYn != null) {
-            this.dyp = Math.min(Math.max(0, this.dyp), this.fYn.getItemsCount() - 1);
-            Object[] objArr = new Object[this.dys];
-            this.change = (int) (this.dyo / this.dyg);
+        if (this.gaE != null) {
+            this.dAu = Math.min(Math.max(0, this.dAu), this.gaE.getItemsCount() - 1);
+            Object[] objArr = new Object[this.dAx];
+            this.change = (int) (this.dAt / this.dAl);
             try {
-                this.dyr = this.dyp + (this.change % this.fYn.getItemsCount());
+                this.dAw = this.dAu + (this.change % this.gaE.getItemsCount());
             } catch (ArithmeticException e) {
                 Log.e("WheelView", "出错了！adapter.getItemsCount() == 0，联动数据不匹配");
             }
-            if (!this.dyl) {
-                if (this.dyr < 0) {
-                    this.dyr = 0;
+            if (!this.dAq) {
+                if (this.dAw < 0) {
+                    this.dAw = 0;
                 }
-                if (this.dyr > this.fYn.getItemsCount() - 1) {
-                    this.dyr = this.fYn.getItemsCount() - 1;
+                if (this.dAw > this.gaE.getItemsCount() - 1) {
+                    this.dAw = this.gaE.getItemsCount() - 1;
                 }
             } else {
-                if (this.dyr < 0) {
-                    this.dyr = this.fYn.getItemsCount() + this.dyr;
+                if (this.dAw < 0) {
+                    this.dAw = this.gaE.getItemsCount() + this.dAw;
                 }
-                if (this.dyr > this.fYn.getItemsCount() - 1) {
-                    this.dyr -= this.fYn.getItemsCount();
+                if (this.dAw > this.gaE.getItemsCount() - 1) {
+                    this.dAw -= this.gaE.getItemsCount();
                 }
             }
-            float f = this.dyo % this.dyg;
-            for (int i2 = 0; i2 < this.dys; i2++) {
-                int i3 = this.dyr - ((this.dys / 2) - i2);
-                if (this.dyl) {
-                    objArr[i2] = this.fYn.getItem(iH(i3));
+            float f = this.dAt % this.dAl;
+            for (int i2 = 0; i2 < this.dAx; i2++) {
+                int i3 = this.dAw - ((this.dAx / 2) - i2);
+                if (this.dAq) {
+                    objArr[i2] = this.gaE.getItem(iK(i3));
                 } else if (i3 < 0) {
                     objArr[i2] = "";
-                } else if (i3 > this.fYn.getItemsCount() - 1) {
+                } else if (i3 > this.gaE.getItemsCount() - 1) {
                     objArr[i2] = "";
                 } else {
-                    objArr[i2] = this.fYn.getItem(i3);
+                    objArr[i2] = this.gaE.getItem(i3);
                 }
             }
-            if (this.fXz == DividerType.WRAP) {
-                float f2 = TextUtils.isEmpty(this.label) ? ((this.dyu - this.dyd) / 2) - 12 : ((this.dyu - this.dyd) / 4) - 12;
+            if (this.fZP == DividerType.WRAP) {
+                float f2 = TextUtils.isEmpty(this.label) ? ((this.dAz - this.dAi) / 2) - 12 : ((this.dAz - this.dAi) / 4) - 12;
                 if (f2 <= 0.0f) {
                     f2 = 10.0f;
                 }
-                float f3 = this.dyu - f2;
-                canvas.drawLine(f2, this.dym, f3, this.dym, this.dxZ);
-                canvas.drawLine(f2, this.dyn, f3, this.dyn, this.dxZ);
+                float f3 = this.dAz - f2;
+                canvas.drawLine(f2, this.dAr, f3, this.dAr, this.dAe);
+                canvas.drawLine(f2, this.dAs, f3, this.dAs, this.dAe);
             } else {
-                canvas.drawLine(0.0f, this.dym, this.dyu, this.dym, this.dxZ);
-                canvas.drawLine(0.0f, this.dyn, this.dyu, this.dyn, this.dxZ);
+                canvas.drawLine(0.0f, this.dAr, this.dAz, this.dAr, this.dAe);
+                canvas.drawLine(0.0f, this.dAs, this.dAz, this.dAs, this.dAe);
             }
-            if (!TextUtils.isEmpty(this.label) && this.dxU) {
-                canvas.drawText(this.label, (this.dyu - getTextWidth(this.dxY, this.label)) - this.fYo, this.centerY, this.dxY);
+            if (!TextUtils.isEmpty(this.label) && this.dzZ) {
+                canvas.drawText(this.label, (this.dAz - getTextWidth(this.dAd, this.label)) - this.gaF, this.centerY, this.dAd);
             }
-            for (int i4 = 0; i4 < this.dys; i4++) {
+            for (int i4 = 0; i4 < this.dAx; i4++) {
                 canvas.save();
-                double d = ((this.dyg * i4) - f) / this.radius;
+                double d = ((this.dAl * i4) - f) / this.radius;
                 float f4 = (float) (90.0d - ((d / 3.141592653589793d) * 180.0d));
                 if (f4 >= 90.0f || f4 <= -90.0f) {
                     canvas.restore();
                 } else {
                     float pow = (float) Math.pow(Math.abs(f4) / 90.0f, 2.2d);
-                    if (!this.dxU && !TextUtils.isEmpty(this.label) && !TextUtils.isEmpty(Y(objArr[i4]))) {
+                    if (!this.dzZ && !TextUtils.isEmpty(this.label) && !TextUtils.isEmpty(Y(objArr[i4]))) {
                         Y = Y(objArr[i4]) + this.label;
                     } else {
                         Y = Y(objArr[i4]);
                     }
-                    DM(Y);
-                    qW(Y);
-                    qX(Y);
-                    float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.dye) / 2.0d));
+                    Ej(Y);
+                    rp(Y);
+                    rq(Y);
+                    float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.dAj) / 2.0d));
                     canvas.translate(0.0f, cos);
-                    if (cos <= this.dym && this.dye + cos >= this.dym) {
+                    if (cos <= this.dAr && this.dAj + cos >= this.dAr) {
                         canvas.save();
-                        canvas.clipRect(0.0f, 0.0f, this.dyu, this.dym - cos);
+                        canvas.clipRect(0.0f, 0.0f, this.dAz, this.dAr - cos);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
-                        canvas.drawText(Y, this.dyy, this.dye, this.dxX);
+                        canvas.drawText(Y, this.dAD, this.dAj, this.dAc);
                         canvas.restore();
                         canvas.save();
-                        canvas.clipRect(0.0f, this.dym - cos, this.dyu, (int) this.dyg);
+                        canvas.clipRect(0.0f, this.dAr - cos, this.dAz, (int) this.dAl);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
-                        canvas.drawText(Y, this.dyx, this.dye - this.fYo, this.dxY);
+                        canvas.drawText(Y, this.dAC, this.dAj - this.gaF, this.dAd);
                         canvas.restore();
-                    } else if (cos <= this.dyn && this.dye + cos >= this.dyn) {
+                    } else if (cos <= this.dAs && this.dAj + cos >= this.dAs) {
                         canvas.save();
-                        canvas.clipRect(0.0f, 0.0f, this.dyu, this.dyn - cos);
+                        canvas.clipRect(0.0f, 0.0f, this.dAz, this.dAs - cos);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 1.0f);
-                        canvas.drawText(Y, this.dyx, this.dye - this.fYo, this.dxY);
+                        canvas.drawText(Y, this.dAC, this.dAj - this.gaF, this.dAd);
                         canvas.restore();
                         canvas.save();
-                        canvas.clipRect(0.0f, this.dyn - cos, this.dyu, (int) this.dyg);
+                        canvas.clipRect(0.0f, this.dAs - cos, this.dAz, (int) this.dAl);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
-                        canvas.drawText(Y, this.dyy, this.dye, this.dxX);
+                        canvas.drawText(Y, this.dAD, this.dAj, this.dAc);
                         canvas.restore();
-                    } else if (cos >= this.dym && cos + this.dye <= this.dyn) {
-                        canvas.drawText(Y, this.dyx, this.dye - this.fYo, this.dxY);
-                        this.dyq = this.dyr - ((this.dys / 2) - i4);
+                    } else if (cos >= this.dAr && cos + this.dAj <= this.dAs) {
+                        canvas.drawText(Y, this.dAC, this.dAj - this.gaF, this.dAd);
+                        this.dAv = this.dAw - ((this.dAx / 2) - i4);
                     } else {
                         canvas.save();
-                        canvas.clipRect(0, 0, this.dyu, (int) this.dyg);
+                        canvas.clipRect(0, 0, this.dAz, (int) this.dAl);
                         canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
-                        Paint paint = this.dxX;
-                        if (this.dyf == 0) {
+                        Paint paint = this.dAc;
+                        if (this.dAk == 0) {
                             i = 0;
                         } else {
-                            i = this.dyf > 0 ? 1 : -1;
+                            i = this.dAk > 0 ? 1 : -1;
                         }
                         paint.setTextSkewX((f4 > 0.0f ? -1 : 1) * i * 0.5f * pow);
-                        this.dxX.setAlpha((int) ((1.0f - pow) * 255.0f));
-                        canvas.drawText(Y, this.dyy + (this.dyf * pow), this.dye, this.dxX);
+                        this.dAc.setAlpha((int) ((1.0f - pow) * 255.0f));
+                        canvas.drawText(Y, this.dAD + (this.dAk * pow), this.dAj, this.dAc);
                         canvas.restore();
                     }
                     canvas.restore();
-                    this.dxY.setTextSize(this.textSize);
+                    this.dAd.setTextSize(this.textSize);
                 }
             }
         }
     }
 
-    private void DM(String str) {
+    private void Ej(String str) {
         Rect rect = new Rect();
-        this.dxY.getTextBounds(str, 0, str.length(), rect);
+        this.dAd.getTextBounds(str, 0, str.length(), rect);
         int i = this.textSize;
-        for (int width = rect.width(); width > this.dyu; width = rect.width()) {
+        for (int width = rect.width(); width > this.dAz; width = rect.width()) {
             i--;
-            this.dxY.setTextSize(i);
-            this.dxY.getTextBounds(str, 0, str.length(), rect);
+            this.dAd.setTextSize(i);
+            this.dAd.getTextBounds(str, 0, str.length(), rect);
         }
-        this.dxX.setTextSize(i);
+        this.dAc.setTextSize(i);
     }
 
-    private int iH(int i) {
+    private int iK(int i) {
         if (i < 0) {
-            return iH(this.fYn.getItemsCount() + i);
+            return iK(this.gaE.getItemsCount() + i);
         }
-        if (i > this.fYn.getItemsCount() - 1) {
-            return iH(i - this.fYn.getItemsCount());
+        if (i > this.gaE.getItemsCount() - 1) {
+            return iK(i - this.gaE.getItemsCount());
         }
         return i;
     }
@@ -436,27 +436,27 @@ public class WheelView extends View {
             return "";
         }
         if (obj instanceof com.baidu.tbadk.widget.timepicker.wheel.b.a) {
-            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).aHn();
+            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).aHG();
         }
         return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
     }
 
-    private void qW(String str) {
+    private void rp(String str) {
         Rect rect = new Rect();
-        this.dxY.getTextBounds(str, 0, str.length(), rect);
+        this.dAd.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
             case 3:
-                this.dyx = 0;
+                this.dAC = 0;
                 return;
             case 5:
-                this.dyx = (this.dyu - rect.width()) - ((int) this.fYo);
+                this.dAC = (this.dAz - rect.width()) - ((int) this.gaF);
                 return;
             case 17:
-                if (this.dxT || this.label == null || this.label.equals("") || !this.dxU) {
-                    this.dyx = (int) ((this.dyu - rect.width()) * 0.5d);
+                if (this.dzY || this.label == null || this.label.equals("") || !this.dzZ) {
+                    this.dAC = (int) ((this.dAz - rect.width()) * 0.5d);
                     return;
                 } else {
-                    this.dyx = (int) ((this.dyu - rect.width()) * 0.25d);
+                    this.dAC = (int) ((this.dAz - rect.width()) * 0.25d);
                     return;
                 }
             default:
@@ -464,22 +464,22 @@ public class WheelView extends View {
         }
     }
 
-    private void qX(String str) {
+    private void rq(String str) {
         Rect rect = new Rect();
-        this.dxX.getTextBounds(str, 0, str.length(), rect);
+        this.dAc.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
             case 3:
-                this.dyy = 0;
+                this.dAD = 0;
                 return;
             case 5:
-                this.dyy = (this.dyu - rect.width()) - ((int) this.fYo);
+                this.dAD = (this.dAz - rect.width()) - ((int) this.gaF);
                 return;
             case 17:
-                if (this.dxT || this.label == null || this.label.equals("") || !this.dxU) {
-                    this.dyy = (int) ((this.dyu - rect.width()) * 0.5d);
+                if (this.dzY || this.label == null || this.label.equals("") || !this.dzZ) {
+                    this.dAD = (int) ((this.dAz - rect.width()) * 0.5d);
                     return;
                 } else {
-                    this.dyy = (int) ((this.dyu - rect.width()) * 0.25d);
+                    this.dAD = (int) ((this.dAz - rect.width()) * 0.25d);
                     return;
                 }
             default:
@@ -489,28 +489,28 @@ public class WheelView extends View {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.dyw = i;
-        aHi();
-        setMeasuredDimension(this.dyu, this.dyt);
+        this.dAB = i;
+        aHB();
+        setMeasuredDimension(this.dAz, this.dAy);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean z = false;
         boolean onTouchEvent = this.gestureDetector.onTouchEvent(motionEvent);
-        float f = (-this.dyp) * this.dyg;
-        float itemsCount = ((this.fYn.getItemsCount() - 1) - this.dyp) * this.dyg;
+        float f = (-this.dAu) * this.dAl;
+        float itemsCount = ((this.gaE.getItemsCount() - 1) - this.dAu) * this.dAl;
         switch (motionEvent.getAction()) {
             case 0:
                 this.startTime = System.currentTimeMillis();
-                aHk();
-                this.dyv = motionEvent.getRawY();
+                aHD();
+                this.dAA = motionEvent.getRawY();
                 break;
             case 1:
             default:
                 if (!onTouchEvent) {
                     float y = motionEvent.getY();
-                    this.mOffset = (int) (((((int) (((Math.acos((this.radius - y) / this.radius) * this.radius) + (this.dyg / 2.0f)) / this.dyg)) - (this.dys / 2)) * this.dyg) - (((this.dyo % this.dyg) + this.dyg) % this.dyg));
+                    this.mOffset = (int) (((((int) (((Math.acos((this.radius - y) / this.radius) * this.radius) + (this.dAl / 2.0f)) / this.dAl)) - (this.dAx / 2)) * this.dAl) - (((this.dAt % this.dAl) + this.dAl) % this.dAl));
                     if (System.currentTimeMillis() - this.startTime > 120) {
                         a(ACTION.DAGGLE);
                         break;
@@ -521,11 +521,11 @@ public class WheelView extends View {
                 }
                 break;
             case 2:
-                float rawY = this.dyv - motionEvent.getRawY();
-                this.dyv = motionEvent.getRawY();
-                this.dyo += rawY;
-                if (!this.dyl && ((this.dyo - (this.dyg * 0.25f) < f && rawY < 0.0f) || (this.dyo + (0.25f * this.dyg) > itemsCount && rawY > 0.0f))) {
-                    this.dyo -= rawY;
+                float rawY = this.dAA - motionEvent.getRawY();
+                this.dAA = motionEvent.getRawY();
+                this.dAt += rawY;
+                if (!this.dAq && ((this.dAt - (this.dAl * 0.25f) < f && rawY < 0.0f) || (this.dAt + (0.25f * this.dAl) > itemsCount && rawY > 0.0f))) {
+                    this.dAt -= rawY;
                     z = true;
                     break;
                 }
@@ -538,8 +538,8 @@ public class WheelView extends View {
     }
 
     public int getItemsCount() {
-        if (this.fYn != null) {
-            return this.fYn.getItemsCount();
+        if (this.gaE != null) {
+            return this.gaE.getItemsCount();
         }
         return 0;
     }
@@ -548,8 +548,8 @@ public class WheelView extends View {
         this.label = str;
     }
 
-    public void lO(boolean z) {
-        this.dxU = z;
+    public void lS(boolean z) {
+        this.dzZ = z;
     }
 
     public void setGravity(int i) {
@@ -571,60 +571,60 @@ public class WheelView extends View {
     }
 
     public void setIsOptions(boolean z) {
-        this.dxT = z;
+        this.dzY = z;
     }
 
     public void setTextColorOut(int i) {
-        this.dyh = i;
-        this.dxX.setColor(this.dyh);
+        this.dAm = i;
+        this.dAc.setColor(this.dAm);
     }
 
     public void setTextColorCenter(int i) {
-        this.dyi = i;
-        this.dxY.setColor(this.dyi);
+        this.dAn = i;
+        this.dAd.setColor(this.dAn);
     }
 
     public void setTextXOffset(int i) {
-        this.dyf = i;
+        this.dAk = i;
         if (i != 0) {
-            this.dxY.setTextScaleX(1.0f);
+            this.dAd.setTextScaleX(1.0f);
         }
     }
 
     public void setDividerColor(int i) {
-        this.dyj = i;
-        this.dxZ.setColor(i);
+        this.dAo = i;
+        this.dAe.setColor(i);
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.fXz = dividerType;
+        this.fZP = dividerType;
     }
 
     public void setLineSpacingMultiplier(float f) {
         if (f != 0.0f) {
-            this.dyk = f;
-            aHg();
+            this.dAp = f;
+            aHz();
         }
     }
 
-    public boolean aHm() {
-        return this.dyl;
+    public boolean aHF() {
+        return this.dAq;
     }
 
     public float getTotalScrollY() {
-        return this.dyo;
+        return this.dAt;
     }
 
     public void setTotalScrollY(float f) {
-        this.dyo = f;
+        this.dAt = f;
     }
 
     public float getItemHeight() {
-        return this.dyg;
+        return this.dAl;
     }
 
     public int getInitPosition() {
-        return this.dyp;
+        return this.dAu;
     }
 
     @Override // android.view.View

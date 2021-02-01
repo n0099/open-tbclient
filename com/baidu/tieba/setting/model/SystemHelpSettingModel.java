@@ -12,45 +12,45 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
     private Context mContext;
-    private a mVk;
-    private b mVl;
-    private BaseActivity.LoadDataCallBack mVm;
+    private a neT;
+    private b neU;
+    private BaseActivity.LoadDataCallBack neV;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.mVk = null;
-        this.mVl = null;
+        this.neT = null;
+        this.neU = null;
         this.mContext = null;
-        this.mVm = null;
+        this.neV = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void cqB() {
-        if (this.mVk == null) {
-            this.mVk = new a();
-            this.mVk.execute(new String[0]);
+    public void crL() {
+        if (this.neT == null) {
+            this.neT = new a();
+            this.neT.execute(new String[0]);
         }
     }
 
-    public void dEj() {
+    public void dGu() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
         }
     }
 
-    public void dEk() {
-        if (this.mVl == null) {
-            this.mVl = new b();
-            this.mVl.execute(new String[0]);
+    public void dGv() {
+        if (this.neU == null) {
+            this.neU = new b();
+            this.neU.execute(new String[0]);
         }
     }
 
@@ -58,7 +58,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         TbadkCoreApplication.getInst().setHeadsetModeOn(z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private class a extends BdAsyncTask<String, Integer, String> {
         private a() {
         }
@@ -68,9 +68,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.mVk = null;
-            if (SystemHelpSettingModel.this.mVm != null) {
-                SystemHelpSettingModel.this.mVm.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.neT = null;
+            if (SystemHelpSettingModel.this.neV != null) {
+                SystemHelpSettingModel.this.neV.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -79,11 +79,11 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().deleteDatabase();
-            com.baidu.tbadk.core.voice.a.b.bvl();
+            com.baidu.tbadk.core.voice.a.b.bvF();
             try {
-                n.AC("image");
-                n.AC(TbConfig.IMAGE_CACHE_DIR_NAME);
-                as.bsv().bsw();
+                o.AT("image");
+                o.AT(TbConfig.IMAGE_CACHE_DIR_NAME);
+                at.bsP().bsQ();
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -92,7 +92,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     private class b extends BdAsyncTask<String, String, String> {
         private b() {
         }
@@ -103,9 +103,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         public String doInBackground(String... strArr) {
             com.baidu.adp.lib.Disk.b bVar = new com.baidu.adp.lib.Disk.b();
             String checkDir = bVar.checkDir("image", true, false, true);
-            String cacheDir = n.getCacheDir();
+            String cacheDir = o.getCacheDir();
             String str = cacheDir + "voice";
-            long fileSize = n.getFileSize(cacheDir + "tieba_database.db") + n.getDirectorySize(checkDir, false) + n.getDirectorySize(str, false) + n.getDirectorySize(bVar.checkDir(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
+            long fileSize = o.getFileSize(cacheDir + "tieba_database.db") + o.getDirectorySize(checkDir, false) + o.getDirectorySize(str, false) + o.getDirectorySize(bVar.checkDir(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
             float f = 0.0f + ((float) fileSize);
             if (fileSize >= 10485.76d) {
                 return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + SystemHelpSettingModel.this.mContext.getString(R.string.mebibyte);
@@ -118,9 +118,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.mVl = null;
-            if (SystemHelpSettingModel.this.mVm != null) {
-                SystemHelpSettingModel.this.mVm.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.neU = null;
+            if (SystemHelpSettingModel.this.neV != null) {
+                SystemHelpSettingModel.this.neV.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -136,6 +136,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.mVm = loadDataCallBack;
+        this.neV = loadDataCallBack;
     }
 }

@@ -13,10 +13,10 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b MK = null;
+    private static b MI = null;
     private HashMap<String, com.baidu.adp.lib.network.http.a.a> mCache = new HashMap<>();
-    private a MN = null;
-    private int MO = 0;
+    private a MJ = null;
+    private int MK = 0;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -25,70 +25,70 @@ public class b {
     private b() {
     }
 
-    public static b mg() {
-        if (MK == null) {
+    public static b mf() {
+        if (MI == null) {
             synchronized (b.class) {
-                if (MK == null) {
-                    MK = new b();
+                if (MI == null) {
+                    MI = new b();
                 }
             }
         }
-        return MK;
+        return MI;
     }
 
     public c bI(String str) {
         c cVar = new c();
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.D(System.currentTimeMillis()) && aVar.mf() != null && aVar.mf().size() > 0) {
-            cVar.bK(aVar.mf().get(0));
+        if (aVar != null && !aVar.D(System.currentTimeMillis()) && aVar.me() != null && aVar.me().size() > 0) {
+            cVar.bK(aVar.me().get(0));
         }
         return cVar;
     }
 
-    public c x(String str, String str2) {
+    public c t(String str, String str2) {
         c cVar = new c();
         if (k.isEmpty(str)) {
             return cVar;
         }
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.D(System.currentTimeMillis()) && aVar.mf() != null && aVar.mf().size() > 0) {
-            for (int i = 0; i < aVar.mf().size(); i++) {
-                if (!k.z(str2, aVar.mf().get(i))) {
+        if (aVar != null && !aVar.D(System.currentTimeMillis()) && aVar.me() != null && aVar.me().size() > 0) {
+            for (int i = 0; i < aVar.me().size(); i++) {
+                if (!k.x(str2, aVar.me().get(i))) {
                     cVar.ar(i);
-                    cVar.bK(aVar.mf().get(i));
+                    cVar.bK(aVar.me().get(i));
                     return cVar;
-                } else if (i == aVar.mf().size() - 1) {
+                } else if (i == aVar.me().size() - 1) {
                     cVar.ar(0);
-                    cVar.bK(aVar.mf().get(0));
+                    cVar.bK(aVar.me().get(0));
                     return cVar;
                 }
             }
         }
         for (int i2 = 0; i2 < 3; i2++) {
-            cVar.mi();
+            cVar.mh();
             cVar.au(i2);
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.adp.lib.network.http.a.a a2 = a(str, cVar);
             cVar.E(System.currentTimeMillis() - currentTimeMillis);
-            if (a2 != null && a2.mf() != null && a2.mf().size() > 0) {
+            if (a2 != null && a2.me() != null && a2.me().size() > 0) {
                 a2.C(300L);
                 this.mCache.put(str, a2);
-                for (int i3 = 0; i3 < a2.mf().size(); i3++) {
-                    if (!k.z(str2, a2.mf().get(i2))) {
+                for (int i3 = 0; i3 < a2.me().size(); i3++) {
+                    if (!k.x(str2, a2.me().get(i2))) {
                         cVar.ar(i3);
-                        cVar.bK(a2.mf().get(i3));
+                        cVar.bK(a2.me().get(i3));
                         return cVar;
-                    } else if (i3 == a2.mf().size() - 1) {
+                    } else if (i3 == a2.me().size() - 1) {
                         cVar.ar(0);
-                        cVar.bK(a2.mf().get(0));
+                        cVar.bK(a2.me().get(0));
                         return cVar;
                     }
                 }
                 continue;
             } else {
                 com.baidu.adp.lib.network.http.a.a aVar2 = this.mCache.get(str);
-                if (aVar2 != null && aVar2.mf() != null && aVar2.mf().size() > 0) {
-                    cVar.bK(aVar2.mf().get(0));
+                if (aVar2 != null && aVar2.me() != null && aVar2.me().size() > 0) {
+                    cVar.bK(aVar2.me().get(0));
                     return cVar;
                 }
             }
@@ -121,7 +121,7 @@ public class b {
         cVar.aj(true);
         StringBuffer stringBuffer = new StringBuffer();
         try {
-            if (cVar.mh()) {
+            if (cVar.mg()) {
                 HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL("http://180.76.76.112/v2/0011/?dn=" + str).openConnection();
                 try {
                     httpURLConnection2.setDoOutput(true);
@@ -251,7 +251,7 @@ public class b {
                     }
                     com.baidu.adp.lib.network.http.a.a aVar = new com.baidu.adp.lib.network.http.a.a();
                     aVar.setStartTime(System.currentTimeMillis());
-                    cVar.mi();
+                    cVar.mh();
                     com.baidu.adp.lib.network.http.a.a bH = aVar.bH(stringBuffer.toString());
                     if (inputStreamReader != null) {
                         try {

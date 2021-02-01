@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdInfo implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = -8738827282880419389L;
     public String downloadFilePath;
@@ -37,7 +37,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
     @NonNull
     public AdStyleInfo adStyleInfo = new AdStyleInfo();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AdBaseInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         private static final long serialVersionUID = 1615884096720946547L;
         public String adActionBarColor;
@@ -74,7 +74,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         public String videoPlayedNS;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AdConversionInfo extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -1623240707193173136L;
         public String appDownloadUrl;
@@ -85,14 +85,14 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         public int retryH5TimeStep;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AdMaterialInfo extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 8841259738296866924L;
         @NonNull
         public List<MaterialFeature> materialFeatureList = new ArrayList();
         public int materialType;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class MaterialFeature extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
             private static final long serialVersionUID = -1118440558210936255L;
             public String blurBackgroundUrl;
@@ -137,7 +137,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AdPreloadInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         private static final long serialVersionUID = -1208206464894428350L;
         public String preloadId;
@@ -154,7 +154,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AdSplashInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         private static final long serialVersionUID = 6666286195277235837L;
         public int imageDisplaySecond;
@@ -166,7 +166,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         public String speakerMuteIconUrl;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AdTrackInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 1185757456598461137L;
         public int type;
@@ -201,7 +201,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AdvertiserInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 1779108296418044788L;
         public String adAuthorText;
@@ -239,7 +239,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DownloadSafeInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         private static final long serialVersionUID = -1575212648797728242L;
         public String appPrivacyUrl;
@@ -251,7 +251,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         public boolean webPageTipbarSwitch = false;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class MaterialSize extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 4007237406277888273L;
         public int height;

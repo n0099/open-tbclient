@@ -2,13 +2,13 @@ package com.baidu.swan.apps.d.a;
 
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d {
     private static final String TAG;
-    public static final d cBR = new d();
+    public static final d cEn = new d();
 
     static {
-        String simpleName = cBR.getClass().getSimpleName();
+        String simpleName = cEn.getClass().getSimpleName();
         p.n(simpleName, "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
         TAG = simpleName;
     }
@@ -16,7 +16,7 @@ public final class d {
     private d() {
     }
 
-    public final void aiY() {
-        a.ad(com.baidu.swan.apps.t.a.awy(), "");
+    public final void ajw() {
+        a.ab(com.baidu.swan.apps.t.a.awW(), "");
     }
 }

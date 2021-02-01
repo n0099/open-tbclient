@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.c.d;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +16,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static final boolean DEBUG = b.DEBUG;
 
@@ -138,7 +139,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized String od(String str) {
+    public static synchronized String ox(String str) {
         FileLock fileLock;
         BufferedReader bufferedReader;
         String str2 = null;
@@ -149,7 +150,7 @@ public class a {
             } else {
                 StringBuffer stringBuffer = new StringBuffer();
                 try {
-                    FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
+                    FileChannel channel = new RandomAccessFile(str, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth).getChannel();
                     fileLock = channel.lock(0L, Long.MAX_VALUE, true);
                     try {
                         bufferedReader = new BufferedReader(Channels.newReader(channel, Charset.defaultCharset().name()));

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.bigkoo.svprogresshud.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SVProgressDefaultView extends LinearLayout {
     private SVCircleProgressBar circleProgressBar;
     private ImageView ivBigLoading;

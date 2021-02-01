@@ -1,127 +1,121 @@
 package com.baidu.tieba.ala.liveroom.i;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.Debug;
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
-/* loaded from: classes10.dex */
-public class a {
-    private static volatile a hxP = null;
-    private Long cgZ;
-    private Long cha;
-    private RandomAccessFile chb;
-    private RandomAccessFile chc;
-    private ActivityManager dMv;
-    private String mPackageName;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.core.view.HeadImageView;
+import com.baidu.live.tbadk.log.LogManager;
+import com.baidu.live.utils.m;
+/* loaded from: classes11.dex */
+public class a extends Dialog implements View.OnClickListener {
+    private HeadImageView hCS;
+    private TextView hCT;
+    private TextView hCU;
+    private InterfaceC0666a hCV;
+    private String hCW;
+    private String hCX;
+    private String hCY;
+    private String hCZ;
+    private String hDa;
+    private View mClose;
+    private long roomId;
 
-    private a() {
+    /* renamed from: com.baidu.tieba.ala.liveroom.i.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0666a {
+        void cfb();
+
+        void cfc();
     }
 
-    public static a cdJ() {
-        if (hxP == null) {
-            synchronized (a.class) {
-                if (hxP == null) {
-                    hxP = new a();
-                }
-            }
-        }
-        return hxP;
+    public a(Context context) {
+        super(context, a.i.ala_tips_dialog_style);
     }
 
-    public double aaG() {
-        if (Build.VERSION.SDK_INT >= 26) {
-            String iC = iC(this.mPackageName);
-            if (TextUtils.isEmpty(iC)) {
-                return 0.0d;
-            }
-            try {
-                return Double.valueOf(iC).doubleValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0.0d;
-            }
-        }
-        return aaI();
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(a.g.dialog_anchor_letter);
+        initView();
+        initListener();
+        initData();
     }
 
-    private String iC(String str) {
-        Process exec;
-        BufferedReader bufferedReader;
-        String[] split;
-        try {
-            exec = Runtime.getRuntime().exec(new String[]{IXAdRequestInfo.SCREEN_HEIGHT, "-c", "top -n 1"});
-            bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        do {
-            String readLine = bufferedReader.readLine();
-            if (readLine != null) {
-                split = readLine.trim().split(" ");
-            } else {
-                try {
-                    exec.waitFor();
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
-                }
-                return "";
-            }
-        } while (!str.startsWith(split[split.length - 1].substring(0, split[split.length - 1].length() - 1)));
-        return split[16];
+    private void initData() {
+        this.hCS.setIsRound(true);
+        this.hCS.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds2));
+        this.hCS.setBorderColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
     }
 
-    private double aaI() {
-        double d = 0.0d;
-        try {
-            if (this.chb == null || this.chc == null) {
-                this.chb = new RandomAccessFile("/proc/stat", "r");
-                this.chc = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
-            } else {
-                this.chb.seek(0L);
-                this.chc.seek(0L);
-            }
-            String readLine = this.chb.readLine();
-            String readLine2 = this.chc.readLine();
-            String[] split = readLine.split(" ");
-            String[] split2 = readLine2.split(" ");
-            long parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
-            long parseLong2 = Long.parseLong(split2[14]) + Long.parseLong(split2[13]);
-            if (this.cgZ == null && this.cha == null) {
-                this.cgZ = Long.valueOf(parseLong);
-                this.cha = Long.valueOf(parseLong2);
-            } else {
-                if (this.cgZ != null && this.cha != null) {
-                    d = ((parseLong2 - this.cha.longValue()) / (parseLong - this.cgZ.longValue())) * 100.0d;
-                }
-                this.cgZ = Long.valueOf(parseLong);
-                this.cha = Long.valueOf(parseLong2);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return d;
+    private void initView() {
+        this.hCS = (HeadImageView) findViewById(a.f.user_icon);
+        this.hCT = (TextView) findViewById(a.f.invite_txt);
+        this.hCU = (TextView) findViewById(a.f.go_to_client);
+        this.mClose = findViewById(a.f.close);
+        m.a(this.hCS, this.hCW, true, false);
+        this.hCT.setText(this.hCX);
+        this.hCU.setText(this.hCY);
     }
 
-    public double cdK() {
-        try {
-            Debug.MemoryInfo[] processMemoryInfo = this.dMv.getProcessMemoryInfo(new int[]{Process.myPid()});
-            if (processMemoryInfo.length <= 0) {
-                return 0.0d;
+    private void initListener() {
+        this.hCU.setOnClickListener(this);
+        this.mClose.setOnClickListener(this);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == this.hCU) {
+            if (this.hCV != null) {
+                this.hCV.cfc();
             }
-            int totalPss = processMemoryInfo[0].getTotalPss();
-            if (totalPss < 0) {
-                return 0.0d;
+            dismiss();
+            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.hCZ, this.hDa);
+        } else if (view == this.mClose) {
+            if (this.hCV != null) {
+                this.hCV.cfb();
             }
-            return totalPss / 1024.0d;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0.0d;
+            dismiss();
+            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.hDa);
         }
+    }
+
+    public void HJ(String str) {
+        this.hCW = str;
+        if (this.hCS != null) {
+            m.a(this.hCS, this.hCW, true, false);
+        }
+    }
+
+    public void HK(String str) {
+        this.hCX = str;
+        if (this.hCT != null) {
+            this.hCT.setText(this.hCX);
+        }
+    }
+
+    public void HL(String str) {
+        this.hCY = str;
+        if (this.hCU != null) {
+            this.hCU.setText(this.hCY);
+        }
+    }
+
+    public void setRoomId(long j) {
+        this.roomId = j;
+    }
+
+    public void HM(String str) {
+        this.hCZ = str;
+    }
+
+    public void HN(String str) {
+        this.hDa = str;
+    }
+
+    public void a(InterfaceC0666a interfaceC0666a) {
+        this.hCV = interfaceC0666a;
     }
 }

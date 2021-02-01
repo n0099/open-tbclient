@@ -2,7 +2,7 @@ package aegon.chrome.base;
 
 import android.os.StrictMode;
 import java.io.Closeable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class StrictModeContext implements Closeable {
     public final StrictMode.ThreadPolicy mThreadPolicy;
     public final StrictMode.VmPolicy mVmPolicy;

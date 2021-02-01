@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tbadk.core.data.bx;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
@@ -22,35 +22,35 @@ import com.baidu.tieba.pb.videopb.b;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
 public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implements View.OnClickListener, com.baidu.tieba.pb.pb.adapter.a {
-    private View.OnClickListener aYB;
-    private TbRichTextView.i fSh;
-    private c ftt;
-    private f lFd;
-    private boolean lFe;
-    private boolean lFf;
-    private int lFl;
-    private boolean lHm;
-    private final boolean lHn;
+    private View.OnClickListener bbI;
+    private TbRichTextView.i fUw;
+    private c fvK;
+    private f lNT;
+    private boolean lNU;
+    private boolean lNV;
+    private int lOb;
+    private boolean lQg;
+    private final boolean lQh;
     private View.OnLongClickListener mOnLongClickListener;
-    private boolean mgn;
-    private int mgo;
-    private int mgp;
+    private boolean mpq;
+    private int mpr;
+    private int mps;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
         boolean z = true;
-        this.lFl = 0;
-        this.lFe = true;
-        this.mgn = true;
-        this.lFd = null;
-        this.lFf = true;
-        this.aYB = null;
-        this.fSh = null;
-        this.ftt = null;
+        this.lOb = 0;
+        this.lNU = true;
+        this.mpq = true;
+        this.lNT = null;
+        this.lNV = true;
+        this.bbI = null;
+        this.fUw = null;
+        this.fvK = null;
         this.mOnLongClickListener = null;
-        this.lHm = false;
-        this.lHn = (Build.VERSION.SDK_INT < 14 || Build.VERSION.SDK_INT > 16) ? false : z;
+        this.lQg = false;
+        this.lQh = (Build.VERSION.SDK_INT < 14 || Build.VERSION.SDK_INT > 16) ? false : z;
         a(pbFragment);
     }
 
@@ -58,17 +58,17 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     public void a(b bVar) {
         super.a(bVar);
         if (bVar != null) {
-            this.mgo = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30);
-            this.mgp = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
+            this.mpr = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds30);
+            this.mps = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds60);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cL */
+    /* renamed from: cM */
     public PbInterviewLiveNormalItemViewHolder e(ViewGroup viewGroup) {
-        return new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.mgn, this.lFe, this.lFl, false);
+        return new PbInterviewLiveNormalItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.pb_interview_normal_item, viewGroup, false), this.mpq, this.lNU, this.lOb, false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +76,7 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, PostData postData, PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) postData, (PostData) pbInterviewLiveNormalItemViewHolder);
-        ao.setBackgroundColor(view, R.color.CAM_X0201);
+        ap.setBackgroundColor(view, R.color.CAM_X0201);
         a(pbInterviewLiveNormalItemViewHolder);
         a(pbInterviewLiveNormalItemViewHolder, postData);
         return view;
@@ -85,102 +85,102 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
     private void a(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder, PostData postData) {
         int i;
         if (pbInterviewLiveNormalItemViewHolder != null && postData != null) {
-            a(pbInterviewLiveNormalItemViewHolder.lHw, (int) this.mContext.getResources().getDimension(R.dimen.ds30));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.lHw.getLayoutParams();
+            a(pbInterviewLiveNormalItemViewHolder.lQq, (int) this.mContext.getResources().getDimension(R.dimen.ds30));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.lQq.getLayoutParams();
             layoutParams.bottomMargin = 0;
             layoutParams.topMargin = 0;
-            pbInterviewLiveNormalItemViewHolder.lHw.setLayoutParams(layoutParams);
-            pbInterviewLiveNormalItemViewHolder.lHw.setPadding(0, 0, 0, 0);
-            pbInterviewLiveNormalItemViewHolder.lHw.DK(null);
-            postData.boL();
-            if (postData.dLm() == 1) {
-                pbInterviewLiveNormalItemViewHolder.mgt.setVisibility(0);
+            pbInterviewLiveNormalItemViewHolder.lQq.setLayoutParams(layoutParams);
+            pbInterviewLiveNormalItemViewHolder.lQq.setPadding(0, 0, 0, 0);
+            pbInterviewLiveNormalItemViewHolder.lQq.Eh(null);
+            postData.bpd();
+            if (postData.dNx() == 1) {
+                pbInterviewLiveNormalItemViewHolder.mpw.setVisibility(0);
                 String str = null;
                 String str2 = null;
                 long j = 0;
-                if (postData.bnx() != null) {
-                    j = postData.bnx().getUserIdLong();
-                    str = postData.bnx().getUserName();
-                    str2 = postData.bnx().getName_show();
+                if (postData.bnQ() != null) {
+                    j = postData.bnQ().getUserIdLong();
+                    str = postData.bnQ().getUserName();
+                    str2 = postData.bnQ().getName_show();
                 }
-                pbInterviewLiveNormalItemViewHolder.mgt.a(postData.dLu(), str, str2, j, com.baidu.adp.lib.f.b.toLong(this.lFd.diN().getId(), 0L), com.baidu.adp.lib.f.b.toLong(postData.getId(), 0L));
-                pbInterviewLiveNormalItemViewHolder.mgt.onChangeSkinType();
-                if (this.lFf) {
-                    PraiseData bni = this.lFd.diN().bni();
-                    if (bni != null && bni.getUser() != null && bni.getUser().size() > 0) {
-                        pbInterviewLiveNormalItemViewHolder.mgu.setVisibility(0);
-                        pbInterviewLiveNormalItemViewHolder.mgs.setVisibility(0);
-                        pbInterviewLiveNormalItemViewHolder.mgv.setVisibility(0);
-                        pbInterviewLiveNormalItemViewHolder.mgu.setIsFromPb(true);
-                        pbInterviewLiveNormalItemViewHolder.mgu.setData(bni, this.lFd.diN().getId(), bni.getPostId(), true);
-                        pbInterviewLiveNormalItemViewHolder.mgu.onChangeSkin(this.mSkinType);
+                pbInterviewLiveNormalItemViewHolder.mpw.a(postData.dNF(), str, str2, j, com.baidu.adp.lib.f.b.toLong(this.lNT.dkZ().getId(), 0L), com.baidu.adp.lib.f.b.toLong(postData.getId(), 0L));
+                pbInterviewLiveNormalItemViewHolder.mpw.onChangeSkinType();
+                if (this.lNV) {
+                    PraiseData bnB = this.lNT.dkZ().bnB();
+                    if (bnB != null && bnB.getUser() != null && bnB.getUser().size() > 0) {
+                        pbInterviewLiveNormalItemViewHolder.mpx.setVisibility(0);
+                        pbInterviewLiveNormalItemViewHolder.mpv.setVisibility(0);
+                        pbInterviewLiveNormalItemViewHolder.mpy.setVisibility(0);
+                        pbInterviewLiveNormalItemViewHolder.mpx.setIsFromPb(true);
+                        pbInterviewLiveNormalItemViewHolder.mpx.setData(bnB, this.lNT.dkZ().getId(), bnB.getPostId(), true);
+                        pbInterviewLiveNormalItemViewHolder.mpx.onChangeSkin(this.mSkinType);
                     } else {
-                        pbInterviewLiveNormalItemViewHolder.mgu.setVisibility(8);
-                        pbInterviewLiveNormalItemViewHolder.mgs.setVisibility(8);
-                        pbInterviewLiveNormalItemViewHolder.mgv.setVisibility(8);
+                        pbInterviewLiveNormalItemViewHolder.mpx.setVisibility(8);
+                        pbInterviewLiveNormalItemViewHolder.mpv.setVisibility(8);
+                        pbInterviewLiveNormalItemViewHolder.mpy.setVisibility(8);
                     }
                 } else {
-                    pbInterviewLiveNormalItemViewHolder.mgu.setVisibility(8);
-                    pbInterviewLiveNormalItemViewHolder.mgs.setVisibility(8);
-                    pbInterviewLiveNormalItemViewHolder.mgv.setVisibility(8);
+                    pbInterviewLiveNormalItemViewHolder.mpx.setVisibility(8);
+                    pbInterviewLiveNormalItemViewHolder.mpv.setVisibility(8);
+                    pbInterviewLiveNormalItemViewHolder.mpy.setVisibility(8);
                 }
-                pbInterviewLiveNormalItemViewHolder.mgu.setVisibility(0);
-                pbInterviewLiveNormalItemViewHolder.mgs.setVisibility(0);
-                pbInterviewLiveNormalItemViewHolder.mgv.setVisibility(0);
-                a(pbInterviewLiveNormalItemViewHolder.lHw, (int) this.mContext.getResources().getDimension(R.dimen.ds30));
+                pbInterviewLiveNormalItemViewHolder.mpx.setVisibility(0);
+                pbInterviewLiveNormalItemViewHolder.mpv.setVisibility(0);
+                pbInterviewLiveNormalItemViewHolder.mpy.setVisibility(0);
+                a(pbInterviewLiveNormalItemViewHolder.lQq, (int) this.mContext.getResources().getDimension(R.dimen.ds30));
             } else {
-                pbInterviewLiveNormalItemViewHolder.mgt.setVisibility(8);
+                pbInterviewLiveNormalItemViewHolder.mpw.setVisibility(8);
             }
-            pbInterviewLiveNormalItemViewHolder.lHw.getLayoutStrategy().rS(R.drawable.pic_video);
-            pbInterviewLiveNormalItemViewHolder.lHw.setTextColor(ao.getColor(R.color.common_color_10039));
-            pbInterviewLiveNormalItemViewHolder.lHw.setLinkTextColor(ao.getColor(R.color.CAM_X0304));
-            pbInterviewLiveNormalItemViewHolder.lHw.setLinkTextColor(ao.getColor(R.color.CAM_X0304));
-            if (this.lFe) {
-                pbInterviewLiveNormalItemViewHolder.lHw.getLayoutStrategy().rV(R.drawable.transparent_bg);
+            pbInterviewLiveNormalItemViewHolder.lQq.getLayoutStrategy().rX(R.drawable.pic_video);
+            pbInterviewLiveNormalItemViewHolder.lQq.setTextColor(ap.getColor(R.color.common_color_10039));
+            pbInterviewLiveNormalItemViewHolder.lQq.setLinkTextColor(ap.getColor(R.color.CAM_X0304));
+            pbInterviewLiveNormalItemViewHolder.lQq.setLinkTextColor(ap.getColor(R.color.CAM_X0304));
+            if (this.lNU) {
+                pbInterviewLiveNormalItemViewHolder.lQq.getLayoutStrategy().sa(R.drawable.transparent_bg);
             } else {
-                pbInterviewLiveNormalItemViewHolder.lHw.getLayoutStrategy().rV(R.drawable.icon_click);
+                pbInterviewLiveNormalItemViewHolder.lQq.getLayoutStrategy().sa(R.drawable.icon_click);
             }
-            pbInterviewLiveNormalItemViewHolder.lHw.setIsFromCDN(this.mIsFromCDN);
+            pbInterviewLiveNormalItemViewHolder.lQq.setIsFromCDN(this.mIsFromCDN);
             TbRichText tbRichText = null;
             if (0 == 0) {
-                tbRichText = postData.dLo();
+                tbRichText = postData.dNz();
             }
-            if (this.lHm || !this.lHn) {
-                pbInterviewLiveNormalItemViewHolder.lHw.setText(tbRichText, false);
+            if (this.lQg || !this.lQh) {
+                pbInterviewLiveNormalItemViewHolder.lQq.setText(tbRichText, false);
             } else {
-                pbInterviewLiveNormalItemViewHolder.lHw.setText(tbRichText, true);
+                pbInterviewLiveNormalItemViewHolder.lQq.setText(tbRichText, true);
             }
-            bx bnd = this.lFd.diN().bnd();
-            if (bnd != null) {
-                pbInterviewLiveNormalItemViewHolder.mgr.startLoad(this.lFd.diN().bnd().getThreadImgUrl(), this.mIsFromCDN ? 17 : 18, false);
+            bz bnw = this.lNT.dkZ().bnw();
+            if (bnw != null) {
+                pbInterviewLiveNormalItemViewHolder.mpu.startLoad(this.lNT.dkZ().bnw().getThreadImgUrl(), this.mIsFromCDN ? 17 : 18, false);
                 int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
-                float bmS = bnd.bmS() / bnd.bmR();
-                if (bmS > 1.0f) {
+                float bnl = bnw.bnl() / bnw.bnk();
+                if (bnl > 1.0f) {
                     i = (int) (1.0f * equipmentWidth);
-                } else if (bmS < 0.2f) {
+                } else if (bnl < 0.2f) {
                     i = (int) (equipmentWidth * 0.2f);
                 } else {
-                    i = (int) (equipmentWidth * bmS);
+                    i = (int) (equipmentWidth * bnl);
                 }
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.mgr.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbInterviewLiveNormalItemViewHolder.mpu.getLayoutParams();
                 layoutParams2.height = i;
                 layoutParams2.width = equipmentWidth;
-                pbInterviewLiveNormalItemViewHolder.mgr.setLayoutParams(layoutParams2);
+                pbInterviewLiveNormalItemViewHolder.mpu.setLayoutParams(layoutParams2);
             } else {
-                pbInterviewLiveNormalItemViewHolder.mgr.setVisibility(8);
+                pbInterviewLiveNormalItemViewHolder.mpu.setVisibility(8);
             }
             b(pbInterviewLiveNormalItemViewHolder, postData);
         }
     }
 
     private void b(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder, PostData postData) {
-        if (TextUtils.isEmpty(postData.getBimg_url()) || !this.lFe) {
-            pbInterviewLiveNormalItemViewHolder.lHw.setOnClickListener(null);
+        if (TextUtils.isEmpty(postData.getBimg_url()) || !this.lNU) {
+            pbInterviewLiveNormalItemViewHolder.lQq.setOnClickListener(null);
         } else {
-            pbInterviewLiveNormalItemViewHolder.lHw.setOnClickListener(this.aYB);
+            pbInterviewLiveNormalItemViewHolder.lQq.setOnClickListener(this.bbI);
         }
-        pbInterviewLiveNormalItemViewHolder.lHw.setTextViewCheckSelection(false);
-        pbInterviewLiveNormalItemViewHolder.lHw.setTextViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.adapter.a.1
+        pbInterviewLiveNormalItemViewHolder.lQq.setTextViewCheckSelection(false);
+        pbInterviewLiveNormalItemViewHolder.lQq.setTextViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.adapter.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
@@ -191,17 +191,17 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
         if (tbRichTextView != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
             layoutParams.leftMargin = i;
-            tbRichTextView.getLayoutStrategy().rT(this.mgp - (i - this.mgo));
+            tbRichTextView.getLayoutStrategy().rY(this.mps - (i - this.mpr));
             tbRichTextView.setLayoutParams(layoutParams);
         }
     }
 
     private void a(PbInterviewLiveNormalItemViewHolder pbInterviewLiveNormalItemViewHolder) {
-        pbInterviewLiveNormalItemViewHolder.lHw.setOnLongClickListener(this.mOnLongClickListener);
-        pbInterviewLiveNormalItemViewHolder.lHw.setOnTouchListener(this.ftt);
-        pbInterviewLiveNormalItemViewHolder.lHw.setOnImageClickListener(this.fSh);
-        if (this.lHa != null && this.lHa.dlL() != null) {
-            pbInterviewLiveNormalItemViewHolder.lHw.setOnEmotionClickListener(this.lHa.dlL().lEu.lUV);
+        pbInterviewLiveNormalItemViewHolder.lQq.setOnLongClickListener(this.mOnLongClickListener);
+        pbInterviewLiveNormalItemViewHolder.lQq.setOnTouchListener(this.fvK);
+        pbInterviewLiveNormalItemViewHolder.lQq.setOnImageClickListener(this.fUw);
+        if (this.lPU != null && this.lPU.doa() != null) {
+            pbInterviewLiveNormalItemViewHolder.lQq.setOnEmotionClickListener(this.lPU.doa().lNj.mdZ);
         }
     }
 
@@ -211,30 +211,30 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
     public void setData(f fVar) {
-        this.lFd = fVar;
+        this.lNT = fVar;
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
-    public void gy(String str) {
+    public void gW(String str) {
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
     public void setImageMaxWidth(int i) {
-        this.lFl = i;
+        this.lOb = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
-    public void uv(boolean z) {
-        this.lFe = z;
+    public void uJ(boolean z) {
+        this.lNU = z;
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
-    public void uw(boolean z) {
-        this.lFf = z;
+    public void uK(boolean z) {
+        this.lNV = z;
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
-    public void ux(boolean z) {
+    public void uL(boolean z) {
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
@@ -243,7 +243,7 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.fSh = iVar;
+        this.fUw = iVar;
     }
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
@@ -253,6 +253,6 @@ public class a extends l<PostData, PbInterviewLiveNormalItemViewHolder> implemen
 
     @Override // com.baidu.tieba.pb.pb.adapter.a
     public void C(View.OnClickListener onClickListener) {
-        this.aYB = onClickListener;
+        this.bbI = onClickListener;
     }
 }

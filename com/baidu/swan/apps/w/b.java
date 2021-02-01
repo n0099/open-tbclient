@@ -4,14 +4,14 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private CallbackHandler cZC;
-    private UnitedSchemeEntity dfm;
+    private CallbackHandler dbO;
+    private UnitedSchemeEntity dhx;
 
     private b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        this.dfm = unitedSchemeEntity;
-        this.cZC = callbackHandler;
+        this.dhx = unitedSchemeEntity;
+        this.dbO = callbackHandler;
     }
 
     public static b b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -19,18 +19,18 @@ public class b {
     }
 
     public void onError(int i) {
-        this.dfm.result = UnitedSchemeUtility.wrapCallbackParams(i);
+        this.dhx.result = UnitedSchemeUtility.wrapCallbackParams(i);
     }
 
-    public void aI(JSONObject jSONObject) {
-        this.dfm.result = UnitedSchemeUtility.callCallback(this.cZC, this.dfm, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+    public void aF(JSONObject jSONObject) {
+        this.dhx.result = UnitedSchemeUtility.callCallback(this.dbO, this.dhx, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
     }
 
     public void j(String str, int i, String str2) {
-        UnitedSchemeUtility.safeCallback(this.cZC, this.dfm, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.dbO, this.dhx, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
     }
 
     public void g(String str, JSONObject jSONObject) {
-        UnitedSchemeUtility.safeCallback(this.cZC, this.dfm, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.dbO, this.dhx, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
     }
 }

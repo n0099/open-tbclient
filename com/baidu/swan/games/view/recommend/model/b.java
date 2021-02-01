@@ -7,18 +7,18 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     @NonNull
-    public static c xp(String str) {
+    public static c xI(String str) {
         c cVar = new c();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            cVar.TY = jSONObject.getInt(BaseJsonData.TAG_ERRNO);
+            cVar.TW = jSONObject.getInt(BaseJsonData.TAG_ERRNO);
             cVar.errMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
             cVar.data = jSONObject.optJSONObject("data");
         } catch (JSONException e) {
-            cVar.TY = -1;
+            cVar.TW = -1;
             cVar.errMsg = "network error: response parse failed.";
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.e("RecommendModelParser", "parseResponseModel error:" + e);
@@ -28,27 +28,27 @@ public class b {
     }
 
     @NonNull
-    public static a cK(JSONObject jSONObject) {
+    public static a cH(JSONObject jSONObject) {
         a aVar = new a();
         if (jSONObject == null) {
             return aVar;
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
         if (optJSONObject != null) {
-            aVar.elu = cL(optJSONObject);
+            aVar.enD = cI(optJSONObject);
         }
-        aVar.elv = new ArrayList();
+        aVar.enE = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                aVar.elv.add(cL(optJSONArray.optJSONObject(i)));
+                aVar.enE.add(cI(optJSONArray.optJSONObject(i)));
             }
         }
         return aVar;
     }
 
     @NonNull
-    private static RecommendItemModel cL(@NonNull JSONObject jSONObject) {
+    private static RecommendItemModel cI(@NonNull JSONObject jSONObject) {
         RecommendItemModel recommendItemModel = new RecommendItemModel();
         recommendItemModel.appName = jSONObject.optString("app_name");
         recommendItemModel.appKey = jSONObject.optString("app_key");

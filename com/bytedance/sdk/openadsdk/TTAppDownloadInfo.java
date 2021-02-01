@@ -1,31 +1,31 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTAppDownloadInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f6086a;
+    private long f6088a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6087b;
+    private int f6089b;
     private long c;
     private long d;
     private String e;
     private String f;
 
     public long getId() {
-        return this.f6086a;
+        return this.f6088a;
     }
 
     public void setId(long j) {
-        this.f6086a = j;
+        this.f6088a = j;
     }
 
     public int getInternalStatusKey() {
-        return this.f6087b;
+        return this.f6089b;
     }
 
     public void setInternalStatusKey(int i) {
-        this.f6087b = i;
+        this.f6089b = i;
     }
 
     public long getTotalBytes() {

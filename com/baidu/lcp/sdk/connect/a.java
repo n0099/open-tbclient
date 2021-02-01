@@ -11,9 +11,9 @@ import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class a {
-    private static int auI = 3;
-    public static List<String> auJ = Collections.synchronizedList(new ArrayList());
-    public static int auK = 0;
+    private static int aux = 3;
+    public static List<String> auy = Collections.synchronizedList(new ArrayList());
+    public static int auz = 0;
     private static Context context;
 
     /* loaded from: classes3.dex */
@@ -32,33 +32,33 @@ public class a {
         context = context2.getApplicationContext();
         int aI = com.baidu.lcp.sdk.d.b.aI(context2);
         if (aI == 1 || aI == 2) {
-            auI = 0;
-            return c.vJ();
-        } else if (com.baidu.lcp.sdk.d.e.getBdDnsEnable(context2) && auI == 2) {
+            aux = 0;
+            return c.vG();
+        } else if (com.baidu.lcp.sdk.d.e.getBdDnsEnable(context2) && aux == 2) {
             return C0151a.aC(context2);
         } else {
-            if (auI == 3) {
+            if (aux == 3) {
                 return e.aD(context2);
             }
-            return c.vJ();
+            return c.vG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public static class c implements b {
-        private static c auS;
+        private static c auH;
 
         private c() {
         }
 
-        public static synchronized b vJ() {
+        public static synchronized b vG() {
             c cVar;
             synchronized (c.class) {
-                if (auS == null) {
-                    auS = new c();
+                if (auH == null) {
+                    auH = new c();
                 }
-                cVar = auS;
+                cVar = auH;
             }
             return cVar;
         }
@@ -68,7 +68,7 @@ public class a {
             com.baidu.lcp.sdk.d.d.i("DNSUrlProvider", "DefaultUrlProvider try to getUrlAsync");
             com.baidu.lcp.sdk.a.d.writeLoginFlag(a.context, "12N", "DefaultUrlProvider begin");
             if (dVar != null) {
-                a.vG();
+                a.vD();
                 com.baidu.lcp.sdk.a.d.writeLoginFlag(a.context, "12Y", "DefaultUrlProvider begin");
                 dVar.c(0, "ok", str);
             }
@@ -82,7 +82,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public static class e implements b {
-        private static e auT;
+        private static e auI;
 
         private e(Context context) {
             Context unused = a.context = context.getApplicationContext();
@@ -91,10 +91,10 @@ public class a {
         public static synchronized e aD(Context context) {
             e eVar;
             synchronized (e.class) {
-                if (auT == null) {
-                    auT = new e(context);
+                if (auI == null) {
+                    auI = new e(context);
                 }
-                eVar = auT;
+                eVar = auI;
             }
             return eVar;
         }
@@ -121,29 +121,29 @@ public class a {
     /* renamed from: com.baidu.lcp.sdk.connect.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0151a implements b {
-        private static C0151a auL;
+        private static C0151a auA;
 
         public static synchronized C0151a aC(Context context) {
             C0151a c0151a;
             synchronized (C0151a.class) {
-                if (auL == null) {
-                    auL = new C0151a(context);
+                if (auA == null) {
+                    auA = new C0151a(context);
                 }
-                c0151a = auL;
+                c0151a = auA;
             }
             return c0151a;
         }
 
         private C0151a(Context context) {
             Context unused = a.context = context.getApplicationContext();
-            a.vG();
+            a.vD();
         }
 
         @Override // com.baidu.lcp.sdk.connect.a.b
         public void a(final String str, final d dVar) {
             try {
                 com.baidu.lcp.sdk.d.d.i("DNSUrlProvider", "BDHttpDNSUrlProvider try to getUrlAsync");
-                if (a.auJ == null || a.auJ.size() <= 0) {
+                if (a.auy == null || a.auy.size() <= 0) {
                     com.baidu.lcp.sdk.a.d.writeLoginFlag(a.context, "11N", "BDDNS begin");
                     final Timer timer = new Timer();
                     com.baidu.lcp.sdk.c.a.aF(a.context).submitForNetWork(new Runnable() { // from class: com.baidu.lcp.sdk.connect.a.a.1
@@ -168,14 +168,14 @@ public class a {
                             dnsHelper.setHttpDnsState(false, (HttpDNSStat) null, false, true);
                             a.s(dnsHelper.getIpList(str));
                             com.baidu.lcp.sdk.a.d.writeLoginFlag(a.context, "11N_1", "BDDNS get ips");
-                            if (a.auJ != null && a.auJ.size() > 0) {
-                                com.baidu.lcp.sdk.d.d.d("DNSUrlProvider", "bddns > bdDnsIps = " + a.auJ);
-                                String str2 = a.auJ.get(0);
+                            if (a.auy != null && a.auy.size() > 0) {
+                                com.baidu.lcp.sdk.d.d.d("DNSUrlProvider", "bddns > bdDnsIps = " + a.auy);
+                                String str2 = a.auy.get(0);
                                 com.baidu.lcp.sdk.a.d.writeLoginFlag(a.context, "11Y", "BDDNS success");
                                 if (dVar != null && !atomicBoolean.get()) {
                                     dVar.c(0, "ok", str2);
-                                    if (a.auJ.size() > 1) {
-                                        a.auK++;
+                                    if (a.auy.size() > 1) {
+                                        a.auz++;
                                         a.aS(false);
                                     }
                                 }
@@ -184,13 +184,13 @@ public class a {
                             }
                         }
                     });
-                } else if (a.auK < a.auJ.size()) {
+                } else if (a.auz < a.auy.size()) {
                     com.baidu.lcp.sdk.a.d.writeLoginFlag(a.context, "11Y", "BDDNS retry success");
                     if (dVar != null) {
-                        dVar.c(0, "ok", a.auJ.get(a.auK));
-                        com.baidu.lcp.sdk.d.d.d("DNSUrlProvider", "retry bddns > return ip = " + a.auJ.get(a.auK));
+                        dVar.c(0, "ok", a.auy.get(a.auz));
+                        com.baidu.lcp.sdk.d.d.d("DNSUrlProvider", "retry bddns > return ip = " + a.auy.get(a.auz));
                     }
-                    a.auK++;
+                    a.auz++;
                 } else {
                     a.aS(true);
                     a.aB(a.context).a(str, dVar);
@@ -209,7 +209,7 @@ public class a {
     }
 
     public static void s(List<String> list) {
-        auJ.clear();
+        auy.clear();
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         if (list != null && !list.isEmpty()) {
@@ -232,19 +232,19 @@ public class a {
             com.baidu.lcp.sdk.d.d.e("DNSUrlProvider", "getIpPriority :" + aQ + ", ipv4 :" + arrayList.toString() + ", ipv6 :" + arrayList2.toString());
             switch (aQ) {
                 case 1:
-                    auJ.addAll(arrayList2);
+                    auy.addAll(arrayList2);
                     return;
                 case 2:
-                    auJ.addAll(arrayList2);
-                    auJ.addAll(arrayList);
+                    auy.addAll(arrayList2);
+                    auy.addAll(arrayList);
                     return;
                 case 3:
                 default:
-                    auJ.addAll(arrayList);
-                    auJ.addAll(arrayList2);
+                    auy.addAll(arrayList);
+                    auy.addAll(arrayList2);
                     return;
                 case 4:
-                    auJ.addAll(arrayList);
+                    auy.addAll(arrayList);
                     return;
             }
         }
@@ -255,48 +255,48 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void vG() {
+    public static void vD() {
         try {
-            auK = 0;
-            auJ.clear();
-            auI = 3;
+            auz = 0;
+            auy.clear();
+            aux = 3;
         } catch (Exception e2) {
             com.baidu.lcp.sdk.d.d.e("DNSUrlProvider", "resetBdDns exception", e2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean vH() {
-        return auJ != null && auK <= auJ.size();
+    public static boolean vE() {
+        return auy != null && auz <= auy.size();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void e(Context context2, String str, boolean z) {
-        vG();
-        c.vJ().q(str, true);
+        vD();
+        c.vG().q(str, true);
     }
 
     public static int aS(boolean z) {
         if (z) {
             int aI = com.baidu.lcp.sdk.d.b.aI(context);
             if (aI == 1 || aI == 2) {
-                auI = 0;
+                aux = 0;
             } else {
-                switch (auI) {
+                switch (aux) {
                     case 0:
-                        auI = 2;
+                        aux = 2;
                         break;
                     case 2:
-                        auI = 3;
+                        aux = 3;
                         break;
                     case 3:
-                        auI = 0;
+                        aux = 0;
                         break;
                 }
             }
         }
-        com.baidu.lcp.sdk.d.d.d("DNSUrlProvider", "try to connect ip, now policy =" + auI);
-        return auI;
+        com.baidu.lcp.sdk.d.d.d("DNSUrlProvider", "try to connect ip, now policy =" + aux);
+        return aux;
     }
 
     public static boolean isIpv4(String str) {
@@ -306,7 +306,7 @@ public class a {
         return str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$");
     }
 
-    public static int vI() {
-        return auI;
+    public static int vF() {
+        return aux;
     }
 }

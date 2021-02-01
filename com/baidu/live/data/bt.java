@@ -1,40 +1,64 @@
 package com.baidu.live.data;
 
-import com.coremedia.iso.boxes.TrackReferenceTypeBox;
+import android.os.Build;
+import android.text.TextUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class bt {
-    public int aNu;
-    public int aNv;
-    public int aNw;
-    public int aNx;
-    public int app_size;
-    public String app_version;
-    public String appendix_link;
-    public String appendix_text;
-    public String changelogs;
-    public String hint;
-    public String n_btn_link;
-    public String n_btn_text;
-    public String y_btn_link;
-    public String y_btn_text;
+    private String aPC;
+    private String aPD;
+    private String aPE;
+    private String aPF;
+    private String aPG;
+    private boolean mArReportOriginalValue;
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aNu = jSONObject.optInt("popup_id");
-            this.aNv = jSONObject.optInt("popup_times");
-            this.aNw = jSONObject.optInt("popup_type");
-            this.hint = jSONObject.optString(TrackReferenceTypeBox.TYPE1);
-            this.app_version = jSONObject.optString("app_version");
-            this.app_size = jSONObject.optInt("app_size");
-            this.changelogs = jSONObject.optString("changelogs");
-            this.appendix_text = jSONObject.optString("appendix_text");
-            this.appendix_link = jSONObject.optString("appendix_link");
-            this.aNx = jSONObject.optInt("appendix_optional");
-            this.y_btn_text = jSONObject.optString("y_btn_text");
-            this.y_btn_link = jSONObject.optString("y_btn_link");
-            this.n_btn_text = jSONObject.optString("n_btn_text");
-            this.n_btn_link = jSONObject.optString("n_btn_link");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bt(String str) {
+        parserJson(str);
+    }
+
+    public boolean Cz() {
+        return true;
+    }
+
+    public boolean CA() {
+        return "1".equals(this.aPE);
+    }
+
+    public boolean CB() {
+        return "1".equals(this.aPG);
+    }
+
+    public boolean isArReportOriginalValue() {
+        return this.mArReportOriginalValue;
+    }
+
+    private void parserJson(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.aPC = jSONObject.optString("is_prettify");
+                this.aPD = jSONObject.optString("is_stickers");
+                this.aPE = jSONObject.optString("is_privilegewin");
+                this.aPF = jSONObject.optString("unused_text");
+                this.aPG = jSONObject.optString("is_wishlist", "1");
+                this.mArReportOriginalValue = TextUtils.equals(jSONObject.optString("ar_perf_switch", "0"), "1");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    public static boolean a(bv bvVar) {
+        return false;
+    }
+
+    public static boolean b(bv bvVar) {
+        return Build.VERSION.SDK_INT > 19 && bvVar != null && bvVar.aPK != null && "1".equals(bvVar.aPK.aPC);
+    }
+
+    public static boolean c(bv bvVar) {
+        return !b(bvVar);
     }
 }

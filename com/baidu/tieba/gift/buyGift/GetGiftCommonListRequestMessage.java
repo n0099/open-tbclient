@@ -2,10 +2,10 @@ package com.baidu.tieba.gift.buyGift;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetGiftCommonList.DataReq;
 import tbclient.GetGiftCommonList.GetGiftCommonListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetGiftCommonListRequestMessage extends NetMessage {
     private Integer timestamp;
 
@@ -28,7 +28,7 @@ public class GetGiftCommonListRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.timestamp = 0;
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         GetGiftCommonListReqIdl.Builder builder2 = new GetGiftCommonListReqIdl.Builder();
         builder2.data = builder.build(false);

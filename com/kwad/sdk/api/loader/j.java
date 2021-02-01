@@ -6,22 +6,22 @@ import android.text.TextUtils;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8210a;
+    private final String f8212a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8211b;
+    private final String f8213b;
     private final String c;
     private Resources d;
     private ClassLoader e;
     private IKsAdSDK f;
 
     private j(String str, String str2, String str3) {
-        this.f8210a = str;
-        this.f8211b = str2;
+        this.f8212a = str;
+        this.f8213b = str2;
         this.c = str3;
     }
 
@@ -55,24 +55,24 @@ public class j {
 
     private void a(Context context) {
         d();
-        Resources a2 = o.a(context, context.getResources(), this.f8210a);
-        ClassLoader a3 = d.a(context, this.f8210a, this.f8211b, this.c);
+        Resources a2 = o.a(context, context.getResources(), this.f8212a);
+        ClassLoader a3 = d.a(context, this.f8212a, this.f8213b, this.c);
         IKsAdSDK a4 = Loader.a(a3);
         this.d = a2;
         this.e = a3;
         this.f = a4;
         int sDKType = a4.getSDKType();
-        int i = com.kwad.sdk.api.a.f8174a;
+        int i = com.kwad.sdk.api.a.f8176a;
         if (sDKType != i) {
             throw new RuntimeException("sdkType error apiType: " + i + " , sdkType:" + sDKType);
         }
     }
 
     private void d() {
-        if (TextUtils.isEmpty(this.f8210a)) {
+        if (TextUtils.isEmpty(this.f8212a)) {
             throw new RuntimeException("mApk is null");
         }
-        File file = new File(this.f8210a);
+        File file = new File(this.f8212a);
         if (!file.isFile() || !file.exists()) {
             throw new RuntimeException("mApk not a file");
         }
@@ -94,6 +94,6 @@ public class j {
     }
 
     public String toString() {
-        return "ExternalPackage{mApk='" + this.f8210a + "', mDexDir='" + this.f8211b + "', mNativeLibDir='" + this.c + "', mResource=" + this.d + ", mClassLoader=" + this.e + ", mKsSdk=" + this.f + '}';
+        return "ExternalPackage{mApk='" + this.f8212a + "', mDexDir='" + this.f8213b + "', mNativeLibDir='" + this.c + "', mResource=" + this.d + ", mClassLoader=" + this.e + ", mKsSdk=" + this.f + '}';
     }
 }

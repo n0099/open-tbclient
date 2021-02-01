@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.y;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class g extends b {
     public g(int i) {
         a("pi", Integer.valueOf(i));

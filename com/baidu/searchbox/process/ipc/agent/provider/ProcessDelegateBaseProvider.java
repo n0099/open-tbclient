@@ -15,7 +15,7 @@ import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ProcessDelegateBaseProvider extends ContentProvider implements Agent, DelegateDef {
     private static final boolean DEBUG = false;
     private static final String TAG = "DelegateBaseProvider";

@@ -1,53 +1,16 @@
 package org.webrtc;
 
-import android.media.MediaCodecInfo;
-import androidx.annotation.Nullable;
-import java.util.Arrays;
+import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HardwareVideoDecoderFactory extends MediaCodecVideoDecoderFactory {
-    private static final Predicate<MediaCodecInfo> defaultAllowedPredicate = new Predicate<MediaCodecInfo>() { // from class: org.webrtc.HardwareVideoDecoderFactory.1
-        private String[] prefixBlacklist = (String[]) Arrays.copyOf(MediaCodecUtils.SOFTWARE_IMPLEMENTATION_PREFIXES, MediaCodecUtils.SOFTWARE_IMPLEMENTATION_PREFIXES.length);
-
-        @Override // org.webrtc.Predicate
-        public Predicate<T> and(Predicate<? super T> predicate) {
-            return Predicate_CC.$default$and(this, predicate);
-        }
-
-        @Override // org.webrtc.Predicate
-        public Predicate<T> negate() {
-            return Predicate_CC.$default$negate(this);
-        }
-
-        @Override // org.webrtc.Predicate
-        public Predicate<T> or(Predicate<? super T> predicate) {
-            return Predicate_CC.$default$or(this, predicate);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // org.webrtc.Predicate
-        public boolean test(MediaCodecInfo mediaCodecInfo) {
-            String name = mediaCodecInfo.getName();
-            for (String str : this.prefixBlacklist) {
-                if (name.startsWith(str)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-    };
-
     @Deprecated
     public HardwareVideoDecoderFactory() {
         this(null);
     }
 
     public HardwareVideoDecoderFactory(@Nullable EglBase.Context context) {
-        this(context, null);
-    }
-
-    public HardwareVideoDecoderFactory(@Nullable EglBase.Context context, @Nullable Predicate<MediaCodecInfo> predicate) {
-        super(context, predicate == null ? defaultAllowedPredicate : predicate.and(defaultAllowedPredicate));
+        super(context, new String[]{""}, MediaCodecUtils.SOFTWARE_IMPLEMENTATION_PREFIXES);
     }
 
     @Override // org.webrtc.MediaCodecVideoDecoderFactory, org.webrtc.VideoDecoderFactory

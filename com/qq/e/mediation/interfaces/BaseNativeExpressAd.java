@@ -5,7 +5,7 @@ import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class BaseNativeExpressAd {
     public static final int DEFAULT_PRIORITY = -1;
     public static final int EVENT_TYPE_ON_AD_CLICKED = 6;

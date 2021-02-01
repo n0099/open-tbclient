@@ -6,29 +6,29 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BdBaseModel {
     private String mCustomRoomId;
     private String mLiveId;
     private String mRoomId;
-    private InterfaceC0959a oMU;
+    private InterfaceC0963a oXe;
 
     /* renamed from: com.baidu.yuyinala.more.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0959a {
-        void ehb();
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0963a {
+        void Am(boolean z);
 
-        void zT(boolean z);
+        void eju();
     }
 
-    public a(InterfaceC0959a interfaceC0959a) {
-        this.oMU = interfaceC0959a;
+    public a(InterfaceC0963a interfaceC0963a) {
+        this.oXe = interfaceC0963a;
         registerListener(new HttpMessageListener(1031017) { // from class: com.baidu.yuyinala.more.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage.getCmd() == 1031017 && a.this.oMU != null) {
-                    a.this.oMU.zT(httpResponsedMessage.getError() == 0);
+                if (httpResponsedMessage.getCmd() == 1031017 && a.this.oXe != null) {
+                    a.this.oXe.Am(httpResponsedMessage.getError() == 0);
                 }
             }
         });
@@ -36,8 +36,8 @@ public class a extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage.getCmd() == 1031022 && httpResponsedMessage.getError() != 0 && a.this.oMU != null) {
-                    a.this.oMU.ehb();
+                if (httpResponsedMessage.getCmd() == 1031022 && httpResponsedMessage.getError() != 0 && a.this.oXe != null) {
+                    a.this.oXe.eju();
                 }
             }
         });
@@ -53,20 +53,28 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void N(String str, String str2, String str3, String str4) {
+    public void L(String str, String str2, String str3, String str4) {
         this.mLiveId = str;
         this.mRoomId = str2;
         this.mCustomRoomId = str3;
     }
 
-    public void ehf() {
+    public void ejz() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501024, this.mRoomId));
     }
 
-    public void ehg() {
+    public void ejA() {
         HttpMessage httpMessage = new HttpMessage(1031022);
         httpMessage.addParam("room_id", this.mRoomId);
         httpMessage.addParam("live_id", this.mLiveId);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void XY(String str) {
+        HttpMessage httpMessage = new HttpMessage(1031022);
+        httpMessage.addParam("room_id", this.mRoomId);
+        httpMessage.addParam("live_id", this.mLiveId);
+        httpMessage.addParam("close_reason", str);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

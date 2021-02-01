@@ -2,19 +2,19 @@ package com.kwad.sdk.core.videocache.c;
 
 import android.content.Context;
 import com.kwad.sdk.core.videocache.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f9481a;
+    private static f f9483a;
 
     public static f a(Context context) {
-        if (f9481a == null) {
+        if (f9483a == null) {
             f b2 = b(context);
-            f9481a = b2;
+            f9483a = b2;
             return b2;
         }
-        return f9481a;
+        return f9483a;
     }
 
     private static f b(Context context) {

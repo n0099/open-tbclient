@@ -22,14 +22,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class l extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final com.qq.e.comm.plugin.ab.b.b f11823a = new com.qq.e.comm.plugin.ab.b.b("webviewLayout", null);
+    private static final com.qq.e.comm.plugin.ab.b.b f11825a = new com.qq.e.comm.plugin.ab.b.b("webviewLayout", null);
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ab.b.a f11824b;
+    private com.qq.e.comm.plugin.ab.b.a f11826b;
     private List<com.qq.e.comm.plugin.ab.a.b> c;
     private final c d;
     private Map<String, Object> e;
@@ -171,7 +171,7 @@ class l extends WebView {
     }
 
     public void a(com.qq.e.comm.plugin.ab.b.a aVar) {
-        this.f11824b = aVar;
+        this.f11826b = aVar;
     }
 
     public void a(h.a aVar) {
@@ -181,7 +181,7 @@ class l extends WebView {
     public void a(Collection<com.qq.e.comm.plugin.ab.c.e> collection) {
         if (collection != null) {
             for (com.qq.e.comm.plugin.ab.c.e eVar : collection) {
-                this.f11824b.a(eVar.b(), eVar);
+                this.f11826b.a(eVar.b(), eVar);
             }
         }
     }
@@ -200,7 +200,7 @@ class l extends WebView {
     }
 
     public com.qq.e.comm.plugin.ab.b.a c() {
-        return this.f11824b;
+        return this.f11826b;
     }
 
     public List<com.qq.e.comm.plugin.ab.a.b> d() {
@@ -266,7 +266,7 @@ class l extends WebView {
         super.onLayout(z, i, i2, i3, i4);
         if (!this.i) {
             this.i = true;
-            this.f11824b.a(f11823a);
+            this.f11826b.a(f11825a);
         }
         if (this.k != null) {
             this.k.j();

@@ -1,9 +1,9 @@
 package com.ss.android.c;
 
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface b {
-    void R(long j, long j2) throws IOException;
+    void V(long j, long j2) throws IOException;
 
     void close() throws IOException;
 

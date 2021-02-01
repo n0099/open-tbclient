@@ -2,7 +2,7 @@ package com.baidu.tbadk.distribute;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.LogTogether.AdReq;
@@ -35,7 +35,7 @@ public class DistributeRequest extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
         builder.Ad = this.adReqList;
-        t.b(builder, false);
+        v.b(builder, false);
         builder2.data = builder.build(false);
         return builder2.build(false);
     }

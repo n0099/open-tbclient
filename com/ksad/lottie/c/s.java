@@ -11,7 +11,7 @@ import com.ksad.lottie.model.layer.Layer;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class s {
     public static Layer a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
         String nextString;
@@ -118,7 +118,7 @@ public class s {
                     }
                     break;
                 case 3669:
-                    if (nextName.equals(IXAdRequestInfo.SCREEN_HEIGHT)) {
+                    if (nextName.equals("sh")) {
                         c = 6;
                         break;
                     }

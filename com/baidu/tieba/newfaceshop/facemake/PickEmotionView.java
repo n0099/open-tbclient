@@ -5,14 +5,14 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.EmotionView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PickEmotionView extends FrameLayout {
-    private EmotionView lui;
-    private ImageView luj;
+    private EmotionView lCm;
+    private ImageView lCn;
 
     public PickEmotionView(Context context) {
         super(context);
@@ -30,38 +30,38 @@ public class PickEmotionView extends FrameLayout {
     }
 
     private void init() {
-        this.lui = new EmotionView(getContext());
-        addView(this.lui, new FrameLayout.LayoutParams(-1, -1));
-        this.luj = new ImageView(getContext());
+        this.lCm = new EmotionView(getContext());
+        addView(this.lCm, new FrameLayout.LayoutParams(-1, -1));
+        this.lCn = new ImageView(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 53;
         layoutParams.topMargin = l.getDimens(getContext(), R.dimen.ds8);
         layoutParams.rightMargin = l.getDimens(getContext(), R.dimen.ds8);
-        addView(this.luj, layoutParams);
+        addView(this.lCn, layoutParams);
     }
 
     public void setData(EmotionImageData emotionImageData, int i) {
-        this.lui.setLoadProcType(i);
-        this.lui.cwW();
-        this.lui.a(emotionImageData);
+        this.lCm.setLoadProcType(i);
+        this.lCm.cyh();
+        this.lCm.a(emotionImageData);
     }
 
     public int getLoadType() {
-        if (this.lui != null) {
-            return this.lui.getLoadProcType();
+        if (this.lCm != null) {
+            return this.lCm.getLoadProcType();
         }
         return 10;
     }
 
     public void setChoosed(boolean z) {
         if (z) {
-            ao.setBackgroundResource(this.luj, R.drawable.ic_post_image_selected_s);
+            ap.setBackgroundResource(this.lCn, R.drawable.ic_post_image_selected_s);
         } else {
-            ao.setBackgroundResource(this.luj, R.drawable.ic_post_image_selected_n);
+            ap.setBackgroundResource(this.lCn, R.drawable.ic_post_image_selected_n);
         }
     }
 
     public EmotionView getEmotionView() {
-        return this.lui;
+        return this.lCm;
     }
 }

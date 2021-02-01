@@ -4,32 +4,32 @@ import android.content.Context;
 import com.baidu.card.g;
 /* loaded from: classes2.dex */
 public class b extends g {
-    private c kec;
+    private c kml;
 
     public b(Context context) {
         super(context);
     }
 
     @Override // com.baidu.card.g, com.baidu.card.as
-    protected com.baidu.tieba.play.operableVideoView.a sX() {
-        this.kec = new c(this.mContext, this.agL);
-        this.kec.setStageType("2001");
-        return this.kec;
+    protected com.baidu.tieba.play.operableVideoView.a sU() {
+        this.kml = new c(this.mContext, this.agA);
+        this.kml.setStageType("2001");
+        return this.kml;
     }
 
     @Override // com.baidu.card.as
     public void onPause() {
         super.onPause();
-        if (this.kec != null) {
-            this.kec.onPause();
+        if (this.kml != null) {
+            this.kml.onPause();
         }
     }
 
     @Override // com.baidu.card.as
     public void onResume() {
         super.onResume();
-        if (this.kec != null) {
-            this.kec.onResume();
+        if (this.kml != null) {
+            this.kml.onResume();
         }
     }
 }

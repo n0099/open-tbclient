@@ -2,15 +2,15 @@ package com.baidu.tieba.ala.alaar.view;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class b<T> {
-    protected a gtJ;
+    protected a gwt;
     public T item;
     @NonNull
     public final View itemView;
     public int position;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a<H extends b> {
     }
 
@@ -19,7 +19,7 @@ public abstract class b<T> {
     public b(View view, a aVar) {
         this.itemView = view;
         view.setTag(this);
-        this.gtJ = aVar;
+        this.gwt = aVar;
     }
 
     public void h(int i, T t) {
@@ -34,7 +34,7 @@ public abstract class b<T> {
     public void i(int i, T t) {
     }
 
-    public boolean tr(int i) {
+    public boolean tx(int i) {
         return false;
     }
 }

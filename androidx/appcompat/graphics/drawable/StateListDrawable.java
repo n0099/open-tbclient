@@ -19,7 +19,7 @@ import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class StateListDrawable extends DrawableContainer {
     private static final boolean DEBUG = false;
     private static final String TAG = "StateListDrawable";
@@ -194,7 +194,7 @@ class StateListDrawable extends DrawableContainer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class StateListState extends DrawableContainer.DrawableContainerState {
         int[][] mStateSets;
 

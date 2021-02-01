@@ -9,13 +9,13 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.yuyinala.liveroom.wheat.adapter.d;
-import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
+import com.baidu.tieba.yuyinala.liveroom.wheat.c.q;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ConnectionWheatManagerListView extends BaseConnectionWheatListView {
-    private d oBk;
-    private d.a otx;
+    private d.a oDi;
+    private d oKU;
 
     public ConnectionWheatManagerListView(@NonNull Context context) {
         this(context, null);
@@ -34,36 +34,36 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    protected void dyO() {
-        this.oBk = new d(getContext());
-        this.oxP.setAdapter((ListAdapter) this.oBk);
+    protected void dAY() {
+        this.oKU = new d(getContext());
+        this.oHw.setAdapter((ListAdapter) this.oKU);
     }
 
-    public void ebp() {
-        zR(false);
+    public void edF() {
+        Ak(false);
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            ebH();
+            edV();
         } else {
-            ebI();
+            edW();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    public void zR(boolean z) {
-        this.oBk.LR(o.ebo().Wx().size());
+    public void Ak(boolean z) {
+        this.oKU.Mm(q.edE().Yn().size());
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(o.ebo().Wx());
-        arrayList.addAll(o.ebo().Ww());
-        gs(arrayList);
-        if (this.otx != null && this.oBk != null) {
-            this.otx.LS(this.oBk.getCount());
+        arrayList.addAll(q.edE().Yn());
+        arrayList.addAll(q.edE().Ym());
+        gq(arrayList);
+        if (this.oDi != null && this.oKU != null) {
+            this.oDi.Mn(this.oKU.getCount());
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public int getCount() {
-        if (this.oBk != null) {
-            return this.oBk.getCount();
+        if (this.oKU != null) {
+            return this.oKU.getCount();
         }
         return 0;
     }
@@ -73,16 +73,16 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
         return getContext().getString(a.h.yuyin_ala_connection_wheat_no_user_on_wheat_text);
     }
 
-    private void gs(List<AlaWheatInfoData> list) {
-        if (this.oBk != null) {
-            this.oBk.setData(list);
+    private void gq(List<AlaWheatInfoData> list) {
+        if (this.oKU != null) {
+            this.oKU.setData(list);
         }
     }
 
     public void setListener(d.a aVar) {
-        this.otx = aVar;
-        if (this.oBk != null) {
-            this.oBk.setListener(aVar);
+        this.oDi = aVar;
+        if (this.oKU != null) {
+            this.oKU.setListener(aVar);
         }
     }
 

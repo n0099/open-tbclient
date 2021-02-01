@@ -19,7 +19,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GDiffPatcher {
     public static final int COPY_INT_INT = 254;
     public static final int COPY_INT_UBYTE = 252;

@@ -4,12 +4,11 @@ import com.baidu.ar.arplay.core.pixel.FramePixels;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.d.j;
-import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes6.dex */
 public class b extends j {
     public b() {
         this.nk = new PixelReadParams(PixelType.BGR);
-        this.nk.setOutputWidth(PlatformPlugin.DEFAULT_SYSTEM_UI);
+        this.nk.setOutputWidth(1280);
         this.nk.setOutputHeight(720);
     }
 

@@ -8,31 +8,31 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bjZ = new LinkedList();
+    private List<com.baidu.adp.widget.ListView.a> bns = new LinkedList();
     private TbPageContext<?> mPageContext;
-    private BdTypeRecyclerView nfT;
-    private b nfU;
-    private u nfV;
+    private BdTypeRecyclerView npC;
+    private b npD;
+    private u npE;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.nfT = bdTypeRecyclerView;
-        IY();
+        this.npC = bdTypeRecyclerView;
+        Kw();
     }
 
-    private void IY() {
-        this.nfU = new b(this.mPageContext);
-        this.bjZ.add(this.nfU);
-        this.nfV = new u(this.mPageContext);
-        this.bjZ.add(this.nfV);
-        this.nfT.addAdapters(this.bjZ);
+    private void Kw() {
+        this.npD = new b(this.mPageContext);
+        this.bns.add(this.npD);
+        this.npE = new u(this.mPageContext);
+        this.bns.add(this.npE);
+        this.npC.addAdapters(this.bns);
     }
 
     public void notifyDataSetChanged() {
-        this.nfT.getAdapter().notifyDataSetChanged();
+        this.npC.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(List<n> list) {
-        this.nfT.setData(list);
+        this.npC.setData(list);
     }
 }

@@ -6,21 +6,21 @@ import java.util.HashMap;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<d, a> f13830a = new HashMap<>();
+    private static HashMap<d, a> f13832a = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13831a;
+        public String f13833a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13832b;
+        public String f13834b;
 
         public a(String str, String str2) {
-            this.f13831a = str;
-            this.f13832b = str2;
+            this.f13833a = str;
+            this.f13834b = str2;
         }
     }
 
@@ -48,7 +48,7 @@ public class k {
 
     /* renamed from: a  reason: collision with other method in class */
     public static a m142a(d dVar) {
-        return f13830a.get(dVar);
+        return f13832a.get(dVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -58,7 +58,7 @@ public class k {
 
     private static void a(d dVar, a aVar) {
         if (aVar != null) {
-            f13830a.put(dVar, aVar);
+            f13832a.put(dVar, aVar);
         }
     }
 }

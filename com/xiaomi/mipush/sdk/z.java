@@ -5,7 +5,7 @@ import android.text.TextUtils;
 class z {
 
     /* renamed from: a  reason: collision with root package name */
-    int f13845a = 0;
+    int f13847a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     String f167a = "";

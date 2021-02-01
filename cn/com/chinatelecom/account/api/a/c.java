@@ -1,7 +1,7 @@
 package cn.com.chinatelecom.account.api.a;
 
 import androidx.core.view.InputDeviceCompat;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */

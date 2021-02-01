@@ -1,39 +1,52 @@
 package com.baidu.tieba.ala;
 
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.x;
-import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
-public class f implements com.baidu.live.ai.d {
-    x goj;
-    private CustomMessageListener gok = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.f.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+import android.os.CountDownTimer;
+/* loaded from: classes11.dex */
+public class f extends CountDownTimer {
+    private a gqR;
+    private boolean isRunning;
+
+    /* loaded from: classes11.dex */
+    public interface a {
+        void onFinish();
+
+        void onTick(long j);
+    }
+
+    public f(long j, long j2) {
+        super(j, j2);
+        this.isRunning = false;
+    }
+
+    @Override // android.os.CountDownTimer
+    public void onTick(long j) {
+        if (this.gqR != null) {
+            this.gqR.onTick(j);
         }
-    };
-    private TbPageContext mTbPageContext;
-
-    public f(TbPageContext tbPageContext) {
-        this.mTbPageContext = tbPageContext;
     }
 
-    @Override // com.baidu.live.ai.d
-    public void f(x xVar) {
-        this.goj = xVar;
-        this.gok.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.gok);
+    @Override // android.os.CountDownTimer
+    public void onFinish() {
+        if (this.gqR != null) {
+            this.gqR.onFinish();
+        }
     }
 
-    @Override // com.baidu.live.ai.d
-    public void HJ() {
-        MessageManager.getInstance().unRegisterListener(this.gok);
+    public void startTimer() {
+        this.isRunning = true;
+        start();
     }
 
-    @Override // com.baidu.live.ai.d
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gok);
+    public void cancelTimer() {
+        this.isRunning = false;
+        cancel();
+    }
+
+    public boolean isRunning() {
+        return this.isRunning;
+    }
+
+    public void a(a aVar) {
+        this.gqR = aVar;
     }
 }

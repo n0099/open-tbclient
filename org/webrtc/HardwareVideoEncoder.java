@@ -6,7 +6,6 @@ import android.media.MediaFormat;
 import android.opengl.GLES20;
 import android.os.Bundle;
 import android.view.Surface;
-import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
@@ -15,13 +14,14 @@ import java.util.Map;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
+import javax.annotation.Nullable;
 import org.webrtc.EglBase14;
 import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class HardwareVideoEncoder implements VideoEncoder {
     private static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
     private static final String KEY_BITRATE_MODE = "bitrate-mode";
@@ -70,7 +70,7 @@ class HardwareVideoEncoder implements VideoEncoder {
     private final ThreadUtils.ThreadChecker outputThreadChecker = new ThreadUtils.ThreadChecker();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum YuvFormat {
         I420 { // from class: org.webrtc.HardwareVideoEncoder.YuvFormat.1
             @Override // org.webrtc.HardwareVideoEncoder.YuvFormat

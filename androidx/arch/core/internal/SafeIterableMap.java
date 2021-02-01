@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.WeakHashMap;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     private Entry<K, V> mEnd;
     private WeakHashMap<SupportRemove<K, V>, Boolean> mIterators = new WeakHashMap<>();
@@ -14,7 +14,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     Entry<K, V> mStart;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface SupportRemove<K, V> {
         void supportRemove(@NonNull Entry<K, V> entry);
     }
@@ -162,7 +162,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         return sb.toString();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     private static abstract class ListIterator<K, V> implements SupportRemove<K, V>, Iterator<Map.Entry<K, V>> {
         Entry<K, V> mExpectedEnd;
         Entry<K, V> mNext;
@@ -212,7 +212,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class AscendingIterator<K, V> extends ListIterator<K, V> {
         AscendingIterator(Entry<K, V> entry, Entry<K, V> entry2) {
             super(entry, entry2);
@@ -229,7 +229,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     private static class DescendingIterator<K, V> extends ListIterator<K, V> {
         DescendingIterator(Entry<K, V> entry, Entry<K, V> entry2) {
             super(entry, entry2);
@@ -247,7 +247,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class IteratorWithAdditions implements SupportRemove<K, V>, Iterator<Map.Entry<K, V>> {
         private boolean mBeforeStart = true;
         private Entry<K, V> mCurrent;
@@ -282,7 +282,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Entry<K, V> implements Map.Entry<K, V> {
         @NonNull
         final K mKey;

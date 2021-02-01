@@ -3,21 +3,21 @@ package com.baidu.swan.uuid;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a<T> {
-    private List<com.baidu.swan.uuid.a.b<T>> exs = new ArrayList(6);
+    private List<com.baidu.swan.uuid.a.b<T>> ezB = new ArrayList(6);
 
     public void a(com.baidu.swan.uuid.a.b<T> bVar) {
-        if (bVar != null && !this.exs.contains(bVar)) {
-            this.exs.add(bVar);
+        if (bVar != null && !this.ezB.contains(bVar)) {
+            this.ezB.add(bVar);
         }
     }
 
-    public T bfo() {
+    public T bfB() {
         T t;
         ArrayList<com.baidu.swan.uuid.a.b> arrayList = new ArrayList();
         T t2 = null;
-        Iterator<com.baidu.swan.uuid.a.b<T>> it = this.exs.iterator();
+        Iterator<com.baidu.swan.uuid.a.b<T>> it = this.ezB.iterator();
         while (true) {
             if (!it.hasNext()) {
                 t = t2;
@@ -58,8 +58,8 @@ public class a<T> {
 
     public void ar(T t) {
         if (!aq(t)) {
-            for (com.baidu.swan.uuid.a.b<T> bVar : this.exs) {
-                if (bVar.bfp()) {
+            for (com.baidu.swan.uuid.a.b<T> bVar : this.ezB) {
+                if (bVar.bfC()) {
                     bVar.put(t);
                 }
             }

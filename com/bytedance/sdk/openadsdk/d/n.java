@@ -1,9 +1,9 @@
 package com.bytedance.sdk.openadsdk.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class n extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final n f6998a = new n();
+    public static final n f7000a = new n();
 
     public int hashCode() {
         return n.class.hashCode();

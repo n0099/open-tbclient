@@ -27,7 +27,7 @@ import com.baidu.tbadk.mainTab.d;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.idlefish.flutterboost.containers.FlutterFragment;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FlutterNewCategoryDelegateStatic extends b {
     private Boolean isNew = false;
     private CustomMessageListener mChannelDataGetListener = new CustomMessageListener(2921493) { // from class: com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic.1
@@ -84,7 +84,7 @@ public class FlutterNewCategoryDelegateStatic extends b {
                 FlutterNewCategoryDelegateStatic.this.tipView.setVisibility(8);
             }
         });
-        Resources resources = h.kE().getResources();
+        Resources resources = h.kD().getResources();
         cVar.textResId = resources.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
         cVar.animationResId = resources.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
         cVar.showIconType = c.SHOWBOTH;
@@ -93,16 +93,16 @@ public class FlutterNewCategoryDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.kE().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
+        this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.kD().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.fFj = this.mIndicator;
+        aVar.fHv = this.mIndicator;
         aVar.offsetX = com.baidu.adp.lib.util.l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
         this.tipView.refresh(0);
         if (this.mFinalData != null) {
-            if (this.mFinalData.bvU() == l.fol) {
+            if (this.mFinalData.bwn() == l.fqE) {
                 this.tipView.setVisibility(0);
             } else {
                 this.tipView.setVisibility(8);
@@ -115,29 +115,29 @@ public class FlutterNewCategoryDelegateStatic extends b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadStatus() {
-        this.mFinalData = TbSingleton.getInstance().getChannelConfigModel().byl();
+        this.mFinalData = TbSingleton.getInstance().getChannelConfigModel().byD();
         if (this.mFinalData != null) {
-            if (this.mFinalData.bvU() == l.fom) {
+            if (this.mFinalData.bwn() == l.fqF) {
                 if (!TextUtils.isEmpty(this.mFinalData.getIcon())) {
                     final c cVar = new c();
-                    cVar.fEQ = this.mFinalData.getIcon();
+                    cVar.fHc = this.mFinalData.getIcon();
                     cVar.type = 21;
                     if (!TextUtils.isEmpty(this.mFinalData.getPopText())) {
                         cVar.text = this.mFinalData.getPopText();
                     }
-                    e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic.4
+                    e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic.4
                         @Override // java.lang.Runnable
                         public void run() {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, cVar));
                         }
                     }, 2000L);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().qr(l.fom);
-            } else if (this.mFinalData.bvU() == l.fol) {
+                TbSingleton.getInstance().getChannelConfigModel().qw(l.fqF);
+            } else if (this.mFinalData.bwn() == l.fqE) {
                 if (this.tipView != null) {
                     this.tipView.setVisibility(0);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().qr(l.fol);
+                TbSingleton.getInstance().getChannelConfigModel().qw(l.fqE);
             } else if (this.tipView != null) {
                 this.tipView.setVisibility(8);
             }

@@ -3,7 +3,7 @@ package com.baidu.tieba.gift.myGiftList;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetMyGift.GetMyGiftResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetPersonalGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     private a giftListData;
 

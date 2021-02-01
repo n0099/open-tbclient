@@ -1,5 +1,5 @@
 package com.kwad.sdk.reward.widget.tailframe;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface b {
     void a();
 }

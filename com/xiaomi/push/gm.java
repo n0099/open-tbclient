@@ -3,15 +3,15 @@ package com.xiaomi.push;
 public class gm {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14058a;
+    private String f14060a;
 
     public gm(String str) {
-        this.f14058a = str;
+        this.f14060a = str;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("stream:error (").append(this.f14058a).append(")");
+        sb.append("stream:error (").append(this.f14060a).append(")");
         return sb.toString();
     }
 }

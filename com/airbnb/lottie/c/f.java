@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f implements aj<Integer> {
     public static final f Hp = new f();
 

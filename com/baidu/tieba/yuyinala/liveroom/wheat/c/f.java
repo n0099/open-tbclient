@@ -1,120 +1,66 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 
-import android.widget.RelativeLayout;
-import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionLineView;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+import com.baidu.live.tbadk.TbPageContext;
+/* loaded from: classes11.dex */
 public class f {
-    private RelativeLayout loZ;
-    private final ConcurrentHashMap<String, ConnectionLineView> owH = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<String, Boolean> owI = new ConcurrentHashMap<>();
-    private a owJ;
+    private static f oGd;
+    private TbPageContext oGe;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c oGf;
 
-    /* loaded from: classes10.dex */
-    public interface a {
-        void Vm(String str);
+    public static f edj() {
+        if (oGd == null) {
+            oGd = new f();
+        }
+        return oGd;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0032, code lost:
-        if (r8.loZ.indexOfChild(r8.owH.get(r1)) == (-1)) goto L16;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void a(int[] iArr, RelativeLayout relativeLayout, double[] dArr, double[] dArr2, int i) {
-        if (dArr[0] != dArr2[0] || dArr[1] != dArr2[1]) {
-            String o = o(iArr);
-            if (this.owH.containsKey(o)) {
+    private f() {
+    }
+
+    public void f(TbPageContext tbPageContext) {
+        if (tbPageContext != null && tbPageContext != this.oGe) {
+            this.oGe = tbPageContext;
+            hide();
+        }
+        if (this.oGe == null) {
+            this.oGe = q.edE().edK();
+        }
+        if (this.oGe != null) {
+            if (this.oGf == null) {
+                this.oGf = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c(this.oGe);
             }
-            this.loZ = relativeLayout;
-            ConnectionLineView connectionLineView = new ConnectionLineView(relativeLayout.getContext());
-            int a2 = (int) a(dArr, dArr2);
-            connectionLineView.setLayoutParams(new RelativeLayout.LayoutParams(a2 - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(52.0f, relativeLayout.getContext()), -2));
-            float b2 = (float) b(dArr, dArr2);
-            double[] a3 = a(a2, dArr, dArr2);
-            connectionLineView.setX((float) (a3[0] + (com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(52.0f, relativeLayout.getContext()) / 2)));
-            connectionLineView.setY((float) a3[1]);
-            if (dArr[1] > dArr2[1]) {
-                b2 = 180.0f - b2;
+            if (this.oGf.edU()) {
+                this.oGf.show();
+                return;
             }
-            connectionLineView.setRotation(b2);
-            relativeLayout.addView(connectionLineView, i + 1);
-            this.owH.put(o, connectionLineView);
-            if (this.owJ != null) {
-                this.owJ.Vm(o);
-            }
+            this.oGf.show();
+            this.oGf.startTimer();
         }
     }
 
-    public synchronized void Vk(String str) {
-        if (!ListUtils.isEmpty(this.owH) && this.owH.containsKey(str)) {
-            ConnectionLineView connectionLineView = this.owH.get(str);
-            if (connectionLineView != null && this.loZ.indexOfChild(connectionLineView) != -1) {
-                this.loZ.removeView(connectionLineView);
-            }
-            this.owH.remove(str);
+    public f edk() {
+        if (this.oGf != null) {
+            this.oGf.startTimer();
+        }
+        return this;
+    }
+
+    public f edl() {
+        if (this.oGf != null) {
+            this.oGf.cancelTimer();
+        }
+        return this;
+    }
+
+    private void hide() {
+        if (this.oGf != null) {
+            this.oGf.dismiss();
+            this.oGf = null;
         }
     }
 
-    public synchronized void eba() {
-        if (!ListUtils.isEmpty(this.owH)) {
-            for (Map.Entry<String, ConnectionLineView> entry : this.owH.entrySet()) {
-                Vk(entry.getKey());
-            }
-        }
-    }
-
-    public String o(int[] iArr) {
-        return (iArr == null || iArr.length != 2) ? "" : Integer.toString(iArr[0]) + Integer.toString(iArr[1]);
-    }
-
-    private double a(double[] dArr, double[] dArr2) {
-        double abs = Math.abs(dArr2[0] - dArr[0]);
-        double abs2 = Math.abs(dArr2[1] - dArr[1]);
-        return dArr[1] == dArr2[1] ? abs : Math.sqrt((abs * abs) + (abs2 * abs2));
-    }
-
-    public double b(double[] dArr, double[] dArr2) {
-        return Math.round((Math.asin(Math.abs(dArr2[1] - dArr[1]) / a(dArr, dArr2)) / 3.141592653589793d) * 180.0d);
-    }
-
-    private double[] a(int i, double[] dArr, double[] dArr2) {
-        return new double[]{((dArr[0] + dArr2[0]) - i) / 2.0d, ((dArr[1] + dArr2[1]) / 2.0d) - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(11.0f, this.loZ.getContext())};
-    }
-
-    public void a(a aVar) {
-        this.owJ = aVar;
-    }
-
-    public synchronized void p(int[] iArr) {
-        ConnectionLineView connectionLineView;
-        if (!ListUtils.isEmpty(this.owH) && (connectionLineView = this.owH.get(o(iArr))) != null) {
-            connectionLineView.ecI();
-        }
-    }
-
-    public ConcurrentHashMap<String, ConnectionLineView> ebb() {
-        return this.owH;
-    }
-
-    public synchronized void bh(String str, boolean z) {
-        if (this.owI != null) {
-            if (this.owI.containsKey(str)) {
-                this.owI.remove(str);
-            }
-            this.owI.put(str, Boolean.valueOf(z));
-        }
-    }
-
-    public synchronized boolean Vl(String str) {
-        return (this.owI == null || !this.owI.containsKey(str)) ? false : this.owI.get(str).booleanValue();
-    }
-
-    public synchronized void ebc() {
-        if (this.owI != null) {
-            this.owI.clear();
-        }
+    public void onDestroy() {
+        edl();
+        hide();
     }
 }

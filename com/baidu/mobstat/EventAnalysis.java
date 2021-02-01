@@ -9,11 +9,11 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class EventAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, a> f3593a = new HashMap();
+    private Map<String, a> f3596a = new HashMap();
 
     public void onEvent(Context context, long j, String str, String str2, int i, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         a(context, j, str, str2, i, j2, 0L, extraInfo, map, z);
@@ -30,24 +30,24 @@ public class EventAnalysis {
     public void onEventStart(Context context, String str, String str2, long j) {
         a aVar = new a();
         aVar.c = j;
-        aVar.f3594a = str;
-        aVar.f3595b = str2;
+        aVar.f3597a = str;
+        aVar.f3598b = str2;
         String a2 = a(str, str2);
-        if (this.f3593a.containsKey(a2)) {
+        if (this.f3596a.containsKey(a2)) {
             bc.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
         }
-        this.f3593a.put(a2, aVar);
+        this.f3596a.put(a2, aVar);
     }
 
     public void onEventEnd(Context context, long j, String str, String str2, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         String a2 = a(str, str2);
-        a aVar = this.f3593a.get(a2);
+        a aVar = this.f3596a.get(a2);
         if (aVar == null) {
             bc.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
-        } else if ((str != null && !str.equals(aVar.f3594a)) || (str2 != null && !str2.equals(aVar.f3595b))) {
+        } else if ((str != null && !str.equals(aVar.f3597a)) || (str2 != null && !str2.equals(aVar.f3598b))) {
             bc.c().b("[WARNING] eventId/label pair not match");
         } else {
-            this.f3593a.remove(a2);
+            this.f3596a.remove(a2);
             long j3 = j2 - aVar.c;
             if (j3 < 0) {
                 bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
@@ -82,14 +82,14 @@ public class EventAnalysis {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3594a;
+        String f3597a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f3595b;
+        String f3598b;
         long c;
 
         private a() {

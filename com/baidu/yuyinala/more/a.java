@@ -1,7 +1,8 @@
 package com.baidu.yuyinala.more;
 
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.x;
+import com.baidu.live.audiolive.e;
+import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
@@ -10,63 +11,63 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static a oMx;
+    private static a oWD;
     private TbPageContext mPageContext;
-    private AlaMoreFunctionDialogData oMy = new AlaMoreFunctionDialogData();
-    private b oMz;
+    private AlaMoreFunctionDialogData oWE = new AlaMoreFunctionDialogData();
+    private b oWF;
 
     private a() {
     }
 
-    public static a egW() {
-        if (oMx == null) {
+    public static a ejo() {
+        if (oWD == null) {
             synchronized (a.class) {
-                if (oMx == null) {
-                    oMx = new a();
+                if (oWD == null) {
+                    oWD = new a();
                 }
             }
         }
-        return oMx;
+        return oWD;
     }
 
-    public void aP(x xVar) {
-        if (xVar != null) {
-            if (this.oMz == null || !this.oMz.isShowing()) {
-                this.oMy.parseData(xVar.aGw);
-                this.oMy.setLiveId(xVar.mLiveInfo == null ? null : String.valueOf(xVar.mLiveInfo.live_id));
-                this.oMy.setRoomId(xVar.aGy == null ? null : xVar.aGy.aQH);
-                this.oMy.setCustomRoomId(xVar.aGy == null ? null : xVar.aGy.croom_id);
-                this.oMy.setGroupId(xVar.mLiveInfo != null ? String.valueOf(xVar.mLiveInfo.group_id) : null);
+    public void aS(ab abVar) {
+        if (abVar != null) {
+            if (this.oWF == null || !this.oWF.isShowing()) {
+                this.oWE.parseData(abVar.aIS);
+                this.oWE.setLiveId(abVar.mLiveInfo == null ? null : String.valueOf(abVar.mLiveInfo.live_id));
+                this.oWE.setRoomId(abVar.aIU == null ? null : abVar.aIU.aTK);
+                this.oWE.setCustomRoomId(abVar.aIU == null ? null : abVar.aIU.croom_id);
+                this.oWE.setGroupId(abVar.mLiveInfo != null ? String.valueOf(abVar.mLiveInfo.group_id) : null);
             }
         }
     }
 
-    public void a(TbPageContext tbPageContext, com.baidu.live.e.c cVar) {
+    public void a(TbPageContext tbPageContext, e eVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oMz = null;
+            this.oWF = null;
         }
-        if (this.oMy != null && !ListUtils.isEmpty(this.oMy.getGroupList())) {
-            if (this.oMz == null) {
-                this.oMz = new b(tbPageContext, this.oMy);
-                this.oMz.a(cVar);
+        if (this.oWE != null && !ListUtils.isEmpty(this.oWE.getGroupList())) {
+            if (this.oWF == null) {
+                this.oWF = new b(tbPageContext, this.oWE);
+                this.oWF.a(eVar);
             } else {
-                this.oMz.a((b) this.oMy);
+                this.oWF.a((b) this.oWE);
             }
-            this.oMz.show();
-            egX();
+            this.oWF.show();
+            ejp();
         }
     }
 
-    private void egX() {
+    private void ejp() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.oMy != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oMy.getCustomRoomId());
+            if (this.oWE != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oWE.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -75,12 +76,12 @@ public class a {
     }
 
     public void aG(boolean z, boolean z2) {
-        this.oMy.setShowFirstCharge(z, z2);
+        this.oWE.setShowFirstCharge(z, z2);
     }
 
-    public void Ek() {
-        if (this.oMz != null && this.oMz.isShowing()) {
-            this.oMz.dismiss();
+    public void FA() {
+        if (this.oWF != null && this.oWF.isShowing()) {
+            this.oWF.dismiss();
         }
     }
 }

@@ -4,24 +4,24 @@ import com.bytedance.sdk.openadsdk.j.i;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g extends a {
     private com.bytedance.sdk.adnet.core.b c;
 
     public g(com.bytedance.sdk.adnet.core.b bVar, f fVar) {
         this.c = bVar;
-        this.f7258a = new ArrayList();
+        this.f7260a = new ArrayList();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.c.eot().size()) {
-                com.bytedance.sdk.adnet.core.a aVar = this.c.eot().get(i2);
+            if (i2 < this.c.eqL().size()) {
+                com.bytedance.sdk.adnet.core.a aVar = this.c.eqL().get(i2);
                 if (aVar != null) {
-                    this.f7258a.add(new i.b(aVar.getName(), aVar.getValue()));
+                    this.f7260a.add(new i.b(aVar.getName(), aVar.getValue()));
                 }
                 i = i2 + 1;
             } else {
-                this.f7259b = fVar;
+                this.f7261b = fVar;
                 return;
             }
         }
@@ -40,14 +40,14 @@ public class g extends a {
     @Override // com.bytedance.sdk.openadsdk.j.e.a
     public String a(String str, String str2) {
         if (a(str) != null) {
-            return a(str).f7302b;
+            return a(str).f7304b;
         }
         return str2;
     }
 
     @Override // com.bytedance.sdk.openadsdk.j.e.a
     public List<i.b> c() {
-        return this.f7258a;
+        return this.f7260a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.j.e.a

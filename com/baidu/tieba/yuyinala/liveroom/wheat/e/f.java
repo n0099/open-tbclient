@@ -6,12 +6,12 @@ import android.os.Process;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
     public static boolean a(Context context, Activity activity) {
         try {
             if (!checkPermissionGranted(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
-                aF(activity);
+                ay(activity);
                 return false;
             }
         } catch (Exception e) {
@@ -31,7 +31,7 @@ public class f {
         return context.checkPermission(str, Process.myPid(), Process.myUid());
     }
 
-    private static boolean aF(Activity activity) {
+    private static boolean ay(Activity activity) {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.setDialogClickListener(new PermissionJudgePolicy.PermissionDialogClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.e.f.1
             @Override // com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy.PermissionDialogClickListener

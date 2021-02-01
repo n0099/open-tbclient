@@ -5,10 +5,10 @@ import android.graphics.Rect;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f2087a;
+    public Rect f2085a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f2088b;
+    public Rect f2086b;
     public int c;
     public int d;
 }

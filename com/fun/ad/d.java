@@ -6,11 +6,11 @@ import com.fun.ad.sdk.FunAdCallback;
 import com.fun.ad.sdk.FunAdConfig;
 import com.fun.ad.sdk.FunAdPluginCallback;
 import com.fun.ad.sdk.FunAdSdk;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f7776b = false;
+    public static boolean f7778b = false;
     public static boolean c = false;
     public static boolean d = false;
     public static boolean e = false;
@@ -18,9 +18,9 @@ public final class d {
     public static boolean g;
     public static boolean h;
     public static long i;
-    public static b pEu = new a();
+    public static b pOz = new a();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class a implements b {
         public void a(String str, String str2) {
             FunAdPluginCallback adPluginCallback = FunAdSdk.getAdPluginCallback();
@@ -89,7 +89,7 @@ public final class d {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public interface b {
     }
 
@@ -123,14 +123,14 @@ public final class d {
             case 2:
                 return g.d;
             case 3:
-                return g.f7780b;
+                return g.f7782b;
             default:
                 return null;
         }
     }
 
     public static void a(FunAdConfig funAdConfig) {
-        f7776b = funAdConfig.isVideoSoundEnable();
+        f7778b = funAdConfig.isVideoSoundEnable();
         c = funAdConfig.isVideoDataFlowAutoStart();
         d = funAdConfig.isReportAdMaterials();
         e = funAdConfig.isLogEnabled();

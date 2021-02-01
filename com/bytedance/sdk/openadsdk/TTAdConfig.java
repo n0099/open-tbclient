@@ -1,14 +1,14 @@
 package com.bytedance.sdk.openadsdk;
 
 import com.bytedance.sdk.adnet.e.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class TTAdConfig {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6078a;
+    private String f6080a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6079b;
+    private String f6081b;
     private boolean c;
     private String d;
     private String e;
@@ -38,19 +38,19 @@ public final class TTAdConfig {
     }
 
     public String getAppId() {
-        return this.f6078a;
+        return this.f6080a;
     }
 
     public void setAppId(String str) {
-        this.f6078a = str;
+        this.f6080a = str;
     }
 
     public String getAppName() {
-        return this.f6079b;
+        return this.f6081b;
     }
 
     public void setAppName(String str) {
-        this.f6079b = str;
+        this.f6081b = str;
     }
 
     public boolean isPaid() {
@@ -181,14 +181,14 @@ public final class TTAdConfig {
         this.r = tTCustomController;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6080a;
+        private String f6082a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f6081b;
+        private String f6083b;
         private String d;
         private String e;
         private int[] j;
@@ -207,12 +207,12 @@ public final class TTAdConfig {
         private boolean q = false;
 
         public Builder appId(String str) {
-            this.f6080a = str;
+            this.f6082a = str;
             return this;
         }
 
         public Builder appName(String str) {
-            this.f6081b = str;
+            this.f6083b = str;
             return this;
         }
 
@@ -304,8 +304,8 @@ public final class TTAdConfig {
 
         public TTAdConfig build() {
             TTAdConfig tTAdConfig = new TTAdConfig();
-            tTAdConfig.setAppId(this.f6080a);
-            tTAdConfig.setAppName(this.f6081b);
+            tTAdConfig.setAppId(this.f6082a);
+            tTAdConfig.setAppName(this.f6083b);
             tTAdConfig.setPaid(this.c);
             tTAdConfig.setKeywords(this.d);
             tTAdConfig.setData(this.e);

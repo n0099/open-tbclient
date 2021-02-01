@@ -1,7 +1,7 @@
 package aegon.chrome.base;
 
 import aegon.chrome.base.annotations.CalledByNative;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BundleUtils {
     public static final boolean sIsBundle;
 

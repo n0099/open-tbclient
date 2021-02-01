@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.l.a;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaNetRefreshView extends a {
     private TextView mNetFailTipView;
     private TextView mNetRefreshBtn;
@@ -92,14 +92,14 @@ public class AlaNetRefreshView extends a {
 
     public void onChangeSkinType() {
         if (this.mNetFailTipView != null) {
-            ao.setViewTextColor(this.mNetFailTipView, R.color.CAM_X0106);
+            ap.setViewTextColor(this.mNetFailTipView, R.color.CAM_X0106);
         }
         if (this.mNetRefreshContainer != null) {
-            ao.setBackgroundResource(this.mNetRefreshContainer, R.color.CAM_X0201);
+            ap.setBackgroundResource(this.mNetRefreshContainer, R.color.CAM_X0201);
         }
         if (this.mNetRefreshBtn != null) {
-            ao.setViewTextColor(this.mNetRefreshBtn, R.color.CAM_X0106);
-            ao.setBackgroundResource(this.mNetRefreshBtn, R.drawable.ala_net_refresh_btn_bg);
+            ap.setViewTextColor(this.mNetRefreshBtn, R.color.CAM_X0106);
+            ap.setBackgroundResource(this.mNetRefreshBtn, R.drawable.ala_net_refresh_btn_bg);
         }
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         if (this.mNetRefreshImg != null) {

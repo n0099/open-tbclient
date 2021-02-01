@@ -13,86 +13,86 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.a.b;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, b {
-    private TbPageContext eSJ;
-    private EmotionHorizontalView iSR;
-    private EmotionHorizontalView iSS;
-    private EmotionHorizontalView iST;
-    private ImageView iSU;
-    private LinearLayout iSV;
-    private RelativeLayout iSW;
-    private View iSX;
-    private TextView iSY;
-    private EmotionChangeModel iSZ;
-    private Animation iTa;
+    private TbPageContext eUY;
+    private EmotionHorizontalView iYA;
+    private ImageView iYB;
+    private LinearLayout iYC;
+    private RelativeLayout iYD;
+    private View iYE;
+    private TextView iYF;
+    private EmotionChangeModel iYG;
+    private Animation iYH;
+    private EmotionHorizontalView iYy;
+    private EmotionHorizontalView iYz;
     private List<EmotionPackageData> mDatas;
     private TextView mTitle;
 
     public EmotionCenterChangeView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.iTa = null;
-        this.eSJ = tbPageContext;
+        this.iYH = null;
+        this.eUY = tbPageContext;
         initView();
     }
 
     public EmotionCenterChangeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iTa = null;
+        this.iYH = null;
         initView();
     }
 
     public EmotionCenterChangeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iTa = null;
+        this.iYH = null;
         initView();
     }
 
     private void initView() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_category_layout, this);
-        this.iSR = new EmotionHorizontalView(this.eSJ);
-        this.iSS = new EmotionHorizontalView(this.eSJ);
-        this.iST = new EmotionHorizontalView(this.eSJ);
-        this.iSR.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-        this.iSS.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-        this.iST.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-        addView(this.iSR);
-        addView(this.iSS);
-        addView(this.iST);
-        this.iSR.setVisibility(8);
-        this.iSS.setVisibility(8);
-        this.iST.setVisibility(8);
-        this.iSV = (LinearLayout) findViewById(R.id.emotion_change_item);
-        this.iSW = (RelativeLayout) findViewById(R.id.change_head_layout);
-        this.iSW.setVisibility(8);
-        this.iSU = (ImageView) findViewById(R.id.emotion_change_iv);
-        this.iSU.setOnClickListener(this);
-        this.iSX = findViewById(R.id.category_line_top);
+        this.iYy = new EmotionHorizontalView(this.eUY);
+        this.iYz = new EmotionHorizontalView(this.eUY);
+        this.iYA = new EmotionHorizontalView(this.eUY);
+        this.iYy.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+        this.iYz.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+        this.iYA.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+        addView(this.iYy);
+        addView(this.iYz);
+        addView(this.iYA);
+        this.iYy.setVisibility(8);
+        this.iYz.setVisibility(8);
+        this.iYA.setVisibility(8);
+        this.iYC = (LinearLayout) findViewById(R.id.emotion_change_item);
+        this.iYD = (RelativeLayout) findViewById(R.id.change_head_layout);
+        this.iYD.setVisibility(8);
+        this.iYB = (ImageView) findViewById(R.id.emotion_change_iv);
+        this.iYB.setOnClickListener(this);
+        this.iYE = findViewById(R.id.category_line_top);
         this.mTitle = (TextView) findViewById(R.id.emotion_title);
-        this.iSY = (TextView) findViewById(R.id.emotion_function);
-        this.iSY.setOnClickListener(this);
-        this.iSZ = new EmotionChangeModel(this.eSJ);
+        this.iYF = (TextView) findViewById(R.id.emotion_function);
+        this.iYF.setOnClickListener(this);
+        this.iYG = new EmotionChangeModel(this.eUY);
         onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void onChangeSkin(int i) {
-        ao.setBackgroundColor(this.iSX, R.color.common_color_10312);
-        ao.setViewTextColor(this.mTitle, R.color.CAM_X0107);
-        ao.setImageResource(this.iSU, R.drawable.emotion_icon_refresh);
-        ao.setViewTextColor(this.iSY, R.color.CAM_X0109);
+        ap.setBackgroundColor(this.iYE, R.color.common_color_10312);
+        ap.setViewTextColor(this.mTitle, R.color.CAM_X0107);
+        ap.setImageResource(this.iYB, R.drawable.emotion_icon_refresh);
+        ap.setViewTextColor(this.iYF, R.color.CAM_X0109);
     }
 
     public void a(EmotionPackageData emotionPackageData) {
-        if (emotionPackageData != null && !x.isEmpty(this.mDatas)) {
+        if (emotionPackageData != null && !y.isEmpty(this.mDatas)) {
             for (EmotionPackageData emotionPackageData2 : this.mDatas) {
                 if (emotionPackageData2.id == emotionPackageData.id) {
                     emotionPackageData2.download = emotionPackageData.download;
@@ -108,72 +108,72 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return this.mDatas;
     }
 
-    public void cyL() {
-        if (this.iSZ != null) {
-            this.iSZ.c(this);
+    public void czW() {
+        if (this.iYG != null) {
+            this.iYG.c(this);
         }
     }
 
     public void setData(List<EmotionPackageData> list) {
-        if (!x.isEmpty(list)) {
+        if (!y.isEmpty(list)) {
             this.mDatas = list;
-            this.iSV.setVisibility(0);
-            this.iSW.setVisibility(0);
+            this.iYC.setVisibility(0);
+            this.iYD.setVisibility(0);
             int size = list.size();
             if (size == 1) {
-                this.iSR.setVisibility(0);
-                this.iSR.setData(list.get(0));
-                this.iSS.setVisibility(8);
-                this.iST.setVisibility(8);
+                this.iYy.setVisibility(0);
+                this.iYy.setData(list.get(0));
+                this.iYz.setVisibility(8);
+                this.iYA.setVisibility(8);
             } else if (size == 2) {
-                this.iSR.setVisibility(0);
-                this.iSR.setData(list.get(0));
-                this.iSS.setVisibility(0);
-                this.iSS.setData(list.get(1));
-                this.iST.setVisibility(8);
+                this.iYy.setVisibility(0);
+                this.iYy.setData(list.get(0));
+                this.iYz.setVisibility(0);
+                this.iYz.setData(list.get(1));
+                this.iYA.setVisibility(8);
             } else {
-                this.iSR.setVisibility(0);
-                this.iSR.setData(list.get(0));
-                this.iSS.setVisibility(0);
-                this.iSS.setData(list.get(1));
-                this.iST.setVisibility(0);
-                this.iST.setData(list.get(2));
+                this.iYy.setVisibility(0);
+                this.iYy.setData(list.get(0));
+                this.iYz.setVisibility(0);
+                this.iYz.setData(list.get(1));
+                this.iYA.setVisibility(0);
+                this.iYA.setData(list.get(2));
             }
         }
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.iTa == null) {
-            this.iTa = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
-            this.iTa.setInterpolator(new LinearInterpolator());
-            this.iTa.setFillAfter(true);
+        if (this.iYH == null) {
+            this.iYH = AnimationUtils.loadAnimation(getContext(), R.anim.refresh_rotate);
+            this.iYH.setInterpolator(new LinearInterpolator());
+            this.iYH.setFillAfter(true);
         }
-        return this.iTa;
+        return this.iYH;
     }
 
-    public void cyM() {
-        if (this.iSU != null) {
-            this.iSU.startAnimation(getClickRotateAnimation());
+    public void czX() {
+        if (this.iYB != null) {
+            this.iYB.startAnimation(getClickRotateAnimation());
         }
     }
 
-    public void cyN() {
-        if (this.iSU != null) {
-            this.iSU.clearAnimation();
+    public void czY() {
+        if (this.iYB != null) {
+            this.iYB.clearAnimation();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view == this.iSU || view == this.iSY) && this.iSZ != null) {
-            this.iSZ.c(this);
-            cyM();
+        if ((view == this.iYB || view == this.iYF) && this.iYG != null) {
+            this.iYG.c(this);
+            czX();
         }
     }
 
     @Override // com.baidu.tieba.faceshop.emotioncenter.a.b
     public void a(EmotionCenterData emotionCenterData) {
-        cyN();
+        czY();
     }
 
     @Override // com.baidu.tieba.faceshop.emotioncenter.a.b
@@ -182,8 +182,8 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
 
     @Override // com.baidu.tieba.faceshop.emotioncenter.a.b
     public void c(EmotionCenterData emotionCenterData) {
-        cyN();
-        if (emotionCenterData != null && !x.isEmpty(emotionCenterData.package_list)) {
+        czY();
+        if (emotionCenterData != null && !y.isEmpty(emotionCenterData.package_list)) {
             setData(emotionCenterData.package_list);
         }
     }

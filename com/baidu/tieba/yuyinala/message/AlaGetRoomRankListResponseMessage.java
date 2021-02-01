@@ -3,9 +3,9 @@ package com.baidu.tieba.yuyinala.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.yuyinala.data.i;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaGetRoomRankListResponseMessage extends JsonHttpResponsedMessage {
-    private i oCe;
+    private i oMm;
 
     public AlaGetRoomRankListResponseMessage() {
         super(1031033);
@@ -16,12 +16,12 @@ public class AlaGetRoomRankListResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.oCe = new i();
-            this.oCe.parserJson(optJSONObject);
+            this.oMm = new i();
+            this.oMm.parserJson(optJSONObject);
         }
     }
 
-    public i edg() {
-        return this.oCe;
+    public i efx() {
+        return this.oMm;
     }
 }

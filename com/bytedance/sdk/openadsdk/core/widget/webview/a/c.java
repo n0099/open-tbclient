@@ -13,11 +13,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f6829a;
+    private static volatile c f6831a;
     private LruCache<String, q> c = new LruCache<String, q>(524288) { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.c.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -74,17 +74,17 @@ public class c {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private Set<String> f6830b = Collections.synchronizedSet(new HashSet());
+    private Set<String> f6832b = Collections.synchronizedSet(new HashSet());
 
     public static c a() {
-        if (f6829a == null) {
+        if (f6831a == null) {
             synchronized (c.class) {
-                if (f6829a == null) {
-                    f6829a = new c();
+                if (f6831a == null) {
+                    f6831a = new c();
                 }
             }
         }
-        return f6829a;
+        return f6831a;
     }
 
     private c() {
@@ -110,7 +110,7 @@ public class c {
                     String string4 = a2.getString(a2.getColumnIndex("url"));
                     q a3 = new q().a(string).b(string2).c(string3).d(string4).e(a2.getString(a2.getColumnIndex("data"))).f(a2.getString(a2.getColumnIndex("version"))).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time"))));
                     this.c.put(string2, a3);
-                    this.f6830b.add(string2);
+                    this.f6832b.add(string2);
                 } else if (a2 != null) {
                     a2.close();
                     return null;
@@ -167,7 +167,7 @@ public class c {
                     String string6 = a2.getString(a2.getColumnIndex("version"));
                     arrayList.add(new q().a(string).b(string2).c(string3).d(string4).e(string5).f(string6).a(Long.valueOf(a2.getLong(a2.getColumnIndex("update_time")))));
                     this.c.put(string2, arrayList.get(arrayList.size() - 1));
-                    this.f6830b.add(string2);
+                    this.f6832b.add(string2);
                 } finally {
                     if (a2 != null) {
                         a2.close();
@@ -203,7 +203,7 @@ public class c {
                 com.bytedance.sdk.openadsdk.multipro.a.a.a(p.a(), "template_diff_new", contentValues);
             }
             this.c.put(qVar.b(), qVar);
-            this.f6830b.add(qVar.b());
+            this.f6832b.add(qVar.b());
         }
     }
 

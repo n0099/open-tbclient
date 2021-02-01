@@ -8,31 +8,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private ImageView kqn;
-    private TextView kqo;
-    private View kqp;
-    private SlidingTabLayout kqq;
-    private Animation kqr;
-    private Animation kqs;
-    private boolean kqt = true;
-    private Animation.AnimationListener kqu = new Animation.AnimationListener() { // from class: com.baidu.tieba.hottopic.view.indicator.a.1
+    private boolean kyA = true;
+    private Animation.AnimationListener kyB = new Animation.AnimationListener() { // from class: com.baidu.tieba.hottopic.view.indicator.a.1
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationStart(Animation animation) {
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            if (a.this.kqo != null) {
-                if (animation == a.this.kqr) {
-                    a.this.kqo.setVisibility(0);
-                    a.this.kqo.setClickable(true);
-                } else if (animation == a.this.kqs) {
-                    a.this.kqo.setVisibility(8);
-                    a.this.kqo.setClickable(false);
+            if (a.this.kyv != null) {
+                if (animation == a.this.kyy) {
+                    a.this.kyv.setVisibility(0);
+                    a.this.kyv.setClickable(true);
+                } else if (animation == a.this.kyz) {
+                    a.this.kyv.setVisibility(8);
+                    a.this.kyv.setClickable(false);
                 }
             }
         }
@@ -41,105 +35,111 @@ public class a {
         public void onAnimationRepeat(Animation animation) {
         }
     };
+    private ImageView kyu;
+    private TextView kyv;
+    private View kyw;
+    private SlidingTabLayout kyx;
+    private Animation kyy;
+    private Animation kyz;
     private Context mContext;
     private View rootView;
 
     public a(Context context, View view) {
         this.mContext = context;
         this.rootView = view;
-        this.kqo = (TextView) view.findViewById(R.id.topic_tab_widget_switch);
-        this.kqp = view.findViewById(R.id.topic_tab_widget_line);
-        this.kqn = (ImageView) view.findViewById(R.id.topic_tab_widget_more);
-        this.kqn.setContentDescription("展开");
-        this.kqq = (SlidingTabLayout) view.findViewById(R.id.topic_tab_widget_sliding_tab);
+        this.kyv = (TextView) view.findViewById(R.id.topic_tab_widget_switch);
+        this.kyw = view.findViewById(R.id.topic_tab_widget_line);
+        this.kyu = (ImageView) view.findViewById(R.id.topic_tab_widget_more);
+        this.kyu.setContentDescription("展开");
+        this.kyx = (SlidingTabLayout) view.findViewById(R.id.topic_tab_widget_sliding_tab);
     }
 
     public void G(View.OnClickListener onClickListener) {
-        if (this.kqn != null) {
-            this.kqn.setOnClickListener(onClickListener);
+        if (this.kyu != null) {
+            this.kyu.setOnClickListener(onClickListener);
         }
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.kqq != null) {
-            this.kqq.setViewPager(viewPager);
+        if (this.kyx != null) {
+            this.kyx.setViewPager(viewPager);
         }
     }
 
     public void onChangeSkinType(int i) {
-        ao.setBackgroundColor(this.rootView, R.color.common_color_10274);
-        ao.setBackgroundColor(this.kqo, R.color.CAM_X0205);
-        ao.setViewTextColor(this.kqo, R.color.CAM_X0106, 1);
-        ao.setBackgroundColor(this.kqp, R.color.CAM_X0204);
-        if (this.kqt) {
+        ap.setBackgroundColor(this.rootView, R.color.common_color_10274);
+        ap.setBackgroundColor(this.kyv, R.color.CAM_X0205);
+        ap.setViewTextColor(this.kyv, R.color.CAM_X0106, 1);
+        ap.setBackgroundColor(this.kyw, R.color.CAM_X0204);
+        if (this.kyA) {
             if (1 == i || 4 == i) {
-                this.kqn.setImageResource(R.drawable.icon_topic_triangle_down_normal_1);
-                this.kqn.setBackgroundResource(R.drawable.rec_topic_btn_more_selector_1);
+                this.kyu.setImageResource(R.drawable.icon_topic_triangle_down_normal_1);
+                this.kyu.setBackgroundResource(R.drawable.rec_topic_btn_more_selector_1);
             } else {
-                this.kqn.setImageResource(R.drawable.icon_topic_triangle_down_normal);
-                this.kqn.setBackgroundResource(R.drawable.rec_topic_btn_more_selector);
+                this.kyu.setImageResource(R.drawable.icon_topic_triangle_down_normal);
+                this.kyu.setBackgroundResource(R.drawable.rec_topic_btn_more_selector);
             }
         } else if (1 == i || 4 == i) {
-            this.kqn.setImageResource(R.drawable.icon_topic_triangle_up_normal_1);
-            this.kqn.setBackgroundResource(R.drawable.rec_topic_btn_more_up_selector_1);
+            this.kyu.setImageResource(R.drawable.icon_topic_triangle_up_normal_1);
+            this.kyu.setBackgroundResource(R.drawable.rec_topic_btn_more_up_selector_1);
         } else {
-            this.kqn.setImageResource(R.drawable.icon_topic_triangle_up_normal);
-            this.kqn.setBackgroundResource(R.drawable.rec_topic_btn_more_up_selector);
+            this.kyu.setImageResource(R.drawable.icon_topic_triangle_up_normal);
+            this.kyu.setBackgroundResource(R.drawable.rec_topic_btn_more_up_selector);
         }
-        if (this.kqq != null) {
-            this.kqq.onChangeSkinType(i);
+        if (this.kyx != null) {
+            this.kyx.onChangeSkinType(i);
         }
     }
 
-    public void bkm() {
-        this.kqt = false;
-        if (this.kqo != null) {
-            this.kqo.clearAnimation();
-            this.kqo.setVisibility(0);
-            this.kqo.startAnimation(getInAnimation());
+    public void bkE() {
+        this.kyA = false;
+        if (this.kyv != null) {
+            this.kyv.clearAnimation();
+            this.kyv.setVisibility(0);
+            this.kyv.startAnimation(getInAnimation());
         }
         if (1 == TbadkCoreApplication.getInst().getSkinType() || 4 == TbadkCoreApplication.getInst().getSkinType()) {
-            this.kqn.setImageResource(R.drawable.icon_topic_triangle_up_normal_1);
-            this.kqn.setBackgroundResource(R.drawable.rec_topic_btn_more_up_selector_1);
+            this.kyu.setImageResource(R.drawable.icon_topic_triangle_up_normal_1);
+            this.kyu.setBackgroundResource(R.drawable.rec_topic_btn_more_up_selector_1);
         } else {
-            this.kqn.setImageResource(R.drawable.icon_topic_triangle_up_normal);
-            this.kqn.setBackgroundResource(R.drawable.rec_topic_btn_more_up_selector);
+            this.kyu.setImageResource(R.drawable.icon_topic_triangle_up_normal);
+            this.kyu.setBackgroundResource(R.drawable.rec_topic_btn_more_up_selector);
         }
-        this.kqq.setDrawBottomLine(false);
-        this.kqp.setVisibility(8);
+        this.kyx.setDrawBottomLine(false);
+        this.kyw.setVisibility(8);
     }
 
-    public void cRS() {
-        this.kqt = true;
-        if (this.kqo != null) {
-            this.kqo.clearAnimation();
-            this.kqo.startAnimation(getOutAnimation());
+    public void cTR() {
+        this.kyA = true;
+        if (this.kyv != null) {
+            this.kyv.clearAnimation();
+            this.kyv.startAnimation(getOutAnimation());
         }
         if (1 == TbadkCoreApplication.getInst().getSkinType() || 4 == TbadkCoreApplication.getInst().getSkinType()) {
-            this.kqn.setImageResource(R.drawable.icon_topic_triangle_down_normal_1);
-            this.kqn.setBackgroundResource(R.drawable.rec_topic_btn_more_selector_1);
+            this.kyu.setImageResource(R.drawable.icon_topic_triangle_down_normal_1);
+            this.kyu.setBackgroundResource(R.drawable.rec_topic_btn_more_selector_1);
         } else {
-            this.kqn.setImageResource(R.drawable.icon_topic_triangle_down_normal);
-            this.kqn.setBackgroundResource(R.drawable.rec_topic_btn_more_selector);
+            this.kyu.setImageResource(R.drawable.icon_topic_triangle_down_normal);
+            this.kyu.setBackgroundResource(R.drawable.rec_topic_btn_more_selector);
         }
-        this.kqq.setDrawBottomLine(true);
-        this.kqp.setVisibility(0);
+        this.kyx.setDrawBottomLine(true);
+        this.kyw.setVisibility(0);
     }
 
     private Animation getInAnimation() {
-        if (this.kqr == null) {
-            this.kqr = AnimationUtils.loadAnimation(this.mContext, R.anim.fade_in);
-            this.kqr.setAnimationListener(this.kqu);
+        if (this.kyy == null) {
+            this.kyy = AnimationUtils.loadAnimation(this.mContext, R.anim.fade_in);
+            this.kyy.setAnimationListener(this.kyB);
         }
-        return this.kqr;
+        return this.kyy;
     }
 
     private Animation getOutAnimation() {
-        if (this.kqs == null) {
-            this.kqs = AnimationUtils.loadAnimation(this.mContext, R.anim.fade_out);
-            this.kqs.setAnimationListener(this.kqu);
+        if (this.kyz == null) {
+            this.kyz = AnimationUtils.loadAnimation(this.mContext, R.anim.fade_out);
+            this.kyz.setAnimationListener(this.kyB);
         }
-        return this.kqs;
+        return this.kyz;
     }
 
     public void setVisibility(int i) {

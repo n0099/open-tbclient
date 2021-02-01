@@ -24,7 +24,7 @@ import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runnable {
     private static final int BUFFER_SIZE = 32768;
     private static final String ERROR_POST_PROCESSOR_NULL = "Post-processor returned null [%s]";
@@ -446,7 +446,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class TaskCancelledException extends Exception {
         TaskCancelledException() {
         }

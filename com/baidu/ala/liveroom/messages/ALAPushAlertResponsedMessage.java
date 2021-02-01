@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.imageManager.c;
 import com.squareup.wire.Wire;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
     private Handler mHandler;
 
@@ -47,9 +47,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                         int optInt2 = jSONObject.optInt("video_channel_id", 0);
                         intent.putExtra("video_channel_id", optInt2);
                         intent.putExtra("id", jSONObject.optString("tid"));
-                        TiebaStatic.log(new aq("c11917").an("obj_id", optInt2));
+                        TiebaStatic.log(new ar("c11917").ap("obj_id", optInt2));
                     } else if (optInt == 126) {
-                        TiebaStatic.log(new aq("c12100"));
+                        TiebaStatic.log(new ar("c12100"));
                         intent.putExtra("is_live", 1);
                         intent.putExtra("is_live_lcs", 1);
                     }
@@ -64,9 +64,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             optString2 = "";
                         }
                         if (!StringUtils.isNull(optString3)) {
-                            a CT = c.bCx().CT(optString4 + 10);
-                            if (CT != null && CT.getRawBitmap() != null) {
-                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, CT.getRawBitmap(), false);
+                            a Dk = c.bCP().Dk(optString4 + 10);
+                            if (Dk != null && Dk.getRawBitmap() != null) {
+                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, Dk.getRawBitmap(), false);
                                 return;
                             } else if (!StringUtils.isNull(optString4)) {
                                 final String str = optString2;
@@ -74,7 +74,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                 this.mHandler.post(new Runnable() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        d.mx().a(optString4, 10, new com.baidu.adp.lib.e.c<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                                        d.mw().a(optString4, 10, new com.baidu.adp.lib.e.c<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
                                             /* JADX DEBUG: Method merged with bridge method */
                                             /* JADX INFO: Access modifiers changed from: protected */
                                             @Override // com.baidu.adp.lib.e.c

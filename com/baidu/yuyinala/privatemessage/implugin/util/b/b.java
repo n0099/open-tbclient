@@ -3,41 +3,41 @@ package com.baidu.yuyinala.privatemessage.implugin.util.b;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements ViewTreeObserver.OnGlobalLayoutListener {
-    private int cJF = 0;
+    private int cLT = 0;
     private View mView;
-    private final Rect oXf;
-    private final int oXg;
-    private c oXh;
+    private final Rect phs;
+    private final int pht;
+    private c phu;
 
     public b(View view, c cVar) {
         this.mView = view;
-        a.hH(this.mView.getContext().getApplicationContext());
-        this.oXf = new Rect();
-        this.oXg = (int) d.bB(60.0f);
-        this.oXh = cVar;
+        a.hK(this.mView.getContext().getApplicationContext());
+        this.phs = new Rect();
+        this.pht = (int) d.bE(60.0f);
+        this.phu = cVar;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         if (this.mView != null) {
-            ekg();
+            emy();
         }
     }
 
-    private void ekg() {
-        this.mView.getRootView().getWindowVisibleDisplayFrame(this.oXf);
-        int i = a.eke().heightPixels - this.oXf.bottom;
-        if (this.cJF != i && i > this.oXg) {
-            this.cJF = i;
-            if (this.oXh != null) {
-                this.oXh.a(true, this.cJF, this.oXf.width(), this.oXf.bottom);
+    private void emy() {
+        this.mView.getRootView().getWindowVisibleDisplayFrame(this.phs);
+        int i = a.emw().heightPixels - this.phs.bottom;
+        if (this.cLT != i && i > this.pht) {
+            this.cLT = i;
+            if (this.phu != null) {
+                this.phu.a(true, this.cLT, this.phs.width(), this.phs.bottom);
             }
-        } else if (this.cJF != 0 && i <= this.oXg) {
-            this.cJF = 0;
-            if (this.oXh != null) {
-                this.oXh.a(false, this.cJF, this.oXf.width(), this.oXf.bottom);
+        } else if (this.cLT != 0 && i <= this.pht) {
+            this.cLT = 0;
+            if (this.phu != null) {
+                this.phu.a(false, this.cLT, this.phs.width(), this.phs.bottom);
             }
         }
     }

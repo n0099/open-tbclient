@@ -6,30 +6,30 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class v {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String[] f5978a;
+    private final String[] f5980a;
 
     v(a aVar) {
-        this.f5978a = (String[]) aVar.f5979a.toArray(new String[aVar.f5979a.size()]);
+        this.f5980a = (String[]) aVar.f5981a.toArray(new String[aVar.f5981a.size()]);
     }
 
     public String a(String str) {
-        return a(this.f5978a, str);
+        return a(this.f5980a, str);
     }
 
     public int a() {
-        return this.f5978a.length / 2;
+        return this.f5980a.length / 2;
     }
 
     public String a(int i) {
-        return this.f5978a[i * 2];
+        return this.f5980a[i * 2];
     }
 
     public String b(int i) {
-        return this.f5978a[(i * 2) + 1];
+        return this.f5980a[(i * 2) + 1];
     }
 
     public Set<String> b() {
@@ -58,18 +58,18 @@ public final class v {
         return Collections.emptyList();
     }
 
-    public a enB() {
+    public a epU() {
         a aVar = new a();
-        Collections.addAll(aVar.f5979a, this.f5978a);
+        Collections.addAll(aVar.f5981a, this.f5980a);
         return aVar;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof v) && Arrays.equals(((v) obj).f5978a, this.f5978a);
+        return (obj instanceof v) && Arrays.equals(((v) obj).f5980a, this.f5980a);
     }
 
     public int hashCode() {
-        return Arrays.hashCode(this.f5978a);
+        return Arrays.hashCode(this.f5980a);
     }
 
     public String toString() {
@@ -90,44 +90,44 @@ public final class v {
         return null;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final List<String> f5979a = new ArrayList(20);
+        final List<String> f5981a = new ArrayList(20);
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a XD(String str) {
+        public a YE(String str) {
             int indexOf = str.indexOf(":", 1);
             if (indexOf != -1) {
-                return hd(str.substring(0, indexOf), str.substring(indexOf + 1));
+                return hk(str.substring(0, indexOf), str.substring(indexOf + 1));
             }
             if (str.startsWith(":")) {
-                return hd("", str.substring(1));
+                return hk("", str.substring(1));
             }
-            return hd("", str);
+            return hk("", str);
         }
 
-        public a hc(String str, String str2) {
+        public a hj(String str, String str2) {
             d(str, str2);
-            return hd(str, str2);
+            return hk(str, str2);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a hd(String str, String str2) {
-            this.f5979a.add(str);
-            this.f5979a.add(str2.trim());
+        public a hk(String str, String str2) {
+            this.f5981a.add(str);
+            this.f5981a.add(str2.trim());
             return this;
         }
 
-        public a XE(String str) {
+        public a YF(String str) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.f5979a.size()) {
-                    if (str.equalsIgnoreCase(this.f5979a.get(i2))) {
-                        this.f5979a.remove(i2);
-                        this.f5979a.remove(i2);
+                if (i2 < this.f5981a.size()) {
+                    if (str.equalsIgnoreCase(this.f5981a.get(i2))) {
+                        this.f5981a.remove(i2);
+                        this.f5981a.remove(i2);
                         i2 -= 2;
                     }
                     i = i2 + 2;
@@ -137,10 +137,10 @@ public final class v {
             }
         }
 
-        public a he(String str, String str2) {
+        public a hl(String str, String str2) {
             d(str, str2);
-            XE(str);
-            hd(str, str2);
+            YF(str);
+            hk(str, str2);
             return this;
         }
 
@@ -170,7 +170,7 @@ public final class v {
             }
         }
 
-        public v enC() {
+        public v epV() {
             return new v(this);
         }
     }

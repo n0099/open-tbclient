@@ -23,7 +23,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.RemoteViews;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
@@ -65,7 +64,7 @@ import org.json.JSONObject;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f14220a = 0;
+    public static long f14222a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     private static final LinkedList<Pair<Integer, ii>> f908a = new LinkedList<>();
@@ -78,7 +77,7 @@ public class aa {
     public static class a implements Callable<Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f14221a;
+        private Context f14223a;
 
         /* renamed from: a  reason: collision with other field name */
         private String f910a;
@@ -87,7 +86,7 @@ public class aa {
         private boolean f911a;
 
         public a(String str, Context context, boolean z) {
-            this.f14221a = context;
+            this.f14223a = context;
             this.f910a = str;
             this.f911a = z;
         }
@@ -100,14 +99,14 @@ public class aa {
                 com.xiaomi.channel.commonutils.logger.b.m80a("Failed get online picture/icon resource cause picUrl is empty");
                 return null;
             } else if (this.f910a.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                ai.b a2 = ai.a(this.f14221a, this.f910a, this.f911a);
+                ai.b a2 = ai.a(this.f14223a, this.f910a, this.f911a);
                 if (a2 != null) {
                     return a2.f923a;
                 }
                 com.xiaomi.channel.commonutils.logger.b.m80a("Failed get online picture/icon resource");
                 return null;
             } else {
-                Bitmap a3 = ai.a(this.f14221a, this.f910a);
+                Bitmap a3 = ai.a(this.f14223a, this.f910a);
                 if (a3 == null) {
                     com.xiaomi.channel.commonutils.logger.b.m80a("Failed get online picture/icon resource");
                     return a3;
@@ -121,7 +120,7 @@ public class aa {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        long f14222a = 0;
+        long f14224a = 0;
 
         /* renamed from: a  reason: collision with other field name */
         Notification f912a;
@@ -131,14 +130,14 @@ public class aa {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f14223a = 0;
+        public long f14225a = 0;
 
         /* renamed from: a  reason: collision with other field name */
         public String f913a;
     }
 
     static int a(Context context, String str) {
-        return context.getSharedPreferences("pref_notify_type", 0).getInt(str, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return context.getSharedPreferences("pref_notify_type", 0).getInt(str, Integer.MAX_VALUE);
     }
 
     private static int a(Context context, String str, String str2) {
@@ -287,7 +286,7 @@ public class aa {
         if (TextUtils.isEmpty(str2)) {
             return null;
         }
-        if (at.f14253a.equals(str2)) {
+        if (at.f14255a.equals(str2)) {
             try {
                 intent = context.getPackageManager().getLaunchIntentForPackage(str);
             } catch (Exception e2) {
@@ -295,7 +294,7 @@ public class aa {
                 intent = null;
             }
         } else {
-            if (at.f14254b.equals(str2)) {
+            if (at.f14256b.equals(str2)) {
                 String str3 = i < 2 ? "notification_style_button_left_intent_uri" : i < 3 ? "notification_style_button_mid_intent_uri" : "notification_style_button_right_intent_uri";
                 String str4 = i < 2 ? "notification_style_button_left_intent_class" : i < 3 ? "notification_style_button_mid_intent_class" : "notification_style_button_right_intent_class";
                 if (map.containsKey(str3)) {
@@ -594,7 +593,7 @@ public class aa {
                 ai.b a13 = ai.a(context, str4, true);
                 if (a13 != null) {
                     bitmap = a13.f923a;
-                    bVar.f14222a = a13.f14234a;
+                    bVar.f14224a = a13.f14236a;
                 }
             } else {
                 bitmap = ai.a(context, str4);
@@ -622,8 +621,8 @@ public class aa {
                 }
                 int i2 = -100;
                 Uri uri = null;
-                if (currentTimeMillis - f14220a > 10000) {
-                    f14220a = currentTimeMillis;
+                if (currentTimeMillis - f14222a > 10000) {
+                    f14222a = currentTimeMillis;
                     i2 = m562b(context, a6) ? a(context, a6) : m444a.f586a;
                     a8.setDefaults(i2);
                     if (m404a != null && (i2 & 1) != 0) {
@@ -786,7 +785,7 @@ public class aa {
         }
         int i22 = -100;
         Uri uri2 = null;
-        if (currentTimeMillis - f14220a > 10000) {
+        if (currentTimeMillis - f14222a > 10000) {
         }
         i = i22;
         if (m404a == null) {
@@ -830,7 +829,7 @@ public class aa {
         }
         if (Build.VERSION.SDK_INT >= 11) {
             b a4 = a(context, iiVar, bArr, a2, a3);
-            cVar.f14223a = a4.f14222a;
+            cVar.f14225a = a4.f14224a;
             cVar.f913a = a(iiVar);
             notification = a4.f912a;
         } else {
@@ -864,8 +863,8 @@ public class aa {
                 notification2.tickerText = m404a.get(ALaKeepAliveService.KEY_TICKER);
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - f14220a > 10000) {
-                f14220a = currentTimeMillis;
+            if (currentTimeMillis - f14222a > 10000) {
+                f14222a = currentTimeMillis;
                 int a6 = m562b(context, a(iiVar)) ? a(context, a(iiVar)) : m444a2.f586a;
                 notification2.defaults = a6;
                 if (m404a != null && (a6 & 1) != 0) {

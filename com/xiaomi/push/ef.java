@@ -10,25 +10,25 @@ import android.view.WindowManager;
 public class ef extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f13965a;
+    private boolean f13967a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f13966b;
+    private boolean f13968b;
     private boolean c;
     private boolean d;
     private boolean e;
 
     public ef(Context context, int i, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
         super(context, i);
-        this.f13965a = z;
-        this.f13966b = z2;
+        this.f13967a = z;
+        this.f13968b = z2;
         this.c = z3;
         this.d = z4;
         this.e = z5;
     }
 
     private String b() {
-        if (this.f13965a) {
+        if (this.f13967a) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 ((WindowManager) this.f310a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
@@ -41,7 +41,7 @@ public class ef extends ed {
     }
 
     private String c() {
-        if (this.f13966b) {
+        if (this.f13968b) {
             try {
                 return Build.VERSION.RELEASE;
             } catch (Throwable th) {

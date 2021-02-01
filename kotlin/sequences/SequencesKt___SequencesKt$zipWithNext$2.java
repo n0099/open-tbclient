@@ -5,7 +5,7 @@ import kotlin.coroutines.experimental.jvm.internal.CoroutineImpl;
 import kotlin.h;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implements kotlin.jvm.a.c<kotlin.coroutines.experimental.f<? super R>, kotlin.coroutines.experimental.b<? super h>, Object> {
     final /* synthetic */ kotlin.jvm.a.c $transform;
     Object L$0;
@@ -40,7 +40,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
         p.o(fVar, "$receiver");
         p.o(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qiK, null);
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qsO, null);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0031  */
@@ -56,7 +56,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
         kotlin.coroutines.experimental.f fVar;
         Object obj3;
         Iterator it2;
-        Object eIS = kotlin.coroutines.experimental.a.a.eIS();
+        Object eLi = kotlin.coroutines.experimental.a.a.eLi();
         switch (this.label) {
             case 0:
                 if (th == null) {
@@ -67,7 +67,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
                         fVar = fVar2;
                         break;
                     } else {
-                        return h.qiK;
+                        return h.qsO;
                     }
                 } else {
                     throw th;
@@ -97,14 +97,14 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             this.L$2 = obj3;
             this.L$3 = obj2;
             this.label = 1;
-            if (fVar.a(invoke, this) == eIS) {
-                return eIS;
+            if (fVar.a(invoke, this) == eLi) {
+                return eLi;
             }
             it = it2;
             obj3 = obj2;
             it2 = it;
             if (!it2.hasNext()) {
-                return h.qiK;
+                return h.qsO;
             }
         }
     }

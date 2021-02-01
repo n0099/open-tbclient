@@ -17,7 +17,7 @@ class cq {
         LinkedList linkedList = new LinkedList();
         linkedList.add(new BasicNameValuePair("logValue", cmVar.f247a));
         linkedList.add(new BasicNameValuePair("appId", str));
-        linkedList.add(new BasicNameValuePair("showType", cmVar.f13914a + ""));
+        linkedList.add(new BasicNameValuePair("showType", cmVar.f13916a + ""));
         linkedList.add(new BasicNameValuePair("s", cr.a(linkedList, str2)));
         try {
             httpPost = new HttpPost("http://new.api.ad.xiaomi.com/logNotificationAdActions");

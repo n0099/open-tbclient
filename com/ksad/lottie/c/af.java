@@ -1,10 +1,9 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class af {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.content.j a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
@@ -15,7 +14,7 @@ public class af {
             char c = 65535;
             switch (nextName.hashCode()) {
                 case 3371:
-                    if (nextName.equals(AdvanceSetting.NETWORK_TYPE)) {
+                    if (nextName.equals("it")) {
                         c = 1;
                         break;
                     }

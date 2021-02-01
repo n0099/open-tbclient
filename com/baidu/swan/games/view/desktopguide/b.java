@@ -1,5 +1,5 @@
 package com.baidu.swan.games.view.desktopguide;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface b {
-    public static final String ekr = null;
+    public static final String emy = null;
 }

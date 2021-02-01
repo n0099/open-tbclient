@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 @TargetApi(19)
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class k implements i, l {
     private final String d;
     private final MergePaths f;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f7942a = new Path();
+    private final Path f7944a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Path f7943b = new Path();
+    private final Path f7945b = new Path();
     private final Path c = new Path();
     private final List<l> e = new ArrayList();
 
@@ -43,8 +43,8 @@ public class k implements i, l {
 
     @TargetApi(19)
     private void a(Path.Op op) {
-        this.f7943b.reset();
-        this.f7942a.reset();
+        this.f7945b.reset();
+        this.f7944a.reset();
         int size = this.e.size() - 1;
         while (true) {
             int i = size;
@@ -57,10 +57,10 @@ public class k implements i, l {
                 for (int size2 = b2.size() - 1; size2 >= 0; size2--) {
                     Path d = b2.get(size2).d();
                     d.transform(((c) lVar).c());
-                    this.f7943b.addPath(d);
+                    this.f7945b.addPath(d);
                 }
             } else {
-                this.f7943b.addPath(lVar.d());
+                this.f7945b.addPath(lVar.d());
             }
             size = i - 1;
         }
@@ -70,12 +70,12 @@ public class k implements i, l {
             for (int i2 = 0; i2 < b3.size(); i2++) {
                 Path d2 = b3.get(i2).d();
                 d2.transform(((c) lVar2).c());
-                this.f7942a.addPath(d2);
+                this.f7944a.addPath(d2);
             }
         } else {
-            this.f7942a.set(lVar2.d());
+            this.f7944a.set(lVar2.d());
         }
-        this.c.op(this.f7942a, this.f7943b, op);
+        this.c.op(this.f7944a, this.f7945b, op);
     }
 
     @Override // com.ksad.lottie.a.a.b

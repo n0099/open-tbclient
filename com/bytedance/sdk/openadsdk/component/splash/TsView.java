@@ -16,14 +16,14 @@ import com.bytedance.sdk.openadsdk.core.widget.gif.GifView;
 import com.bytedance.sdk.openadsdk.utils.ac;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.z;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TsView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6378a;
+    private final Context f6380a;
 
     /* renamed from: b  reason: collision with root package name */
-    private GifView f6379b;
+    private GifView f6381b;
     private TTCountdownView c;
     private ImageView d;
     private FrameLayout e;
@@ -33,19 +33,19 @@ public class TsView extends FrameLayout {
 
     public TsView(@NonNull Context context) {
         super(context);
-        this.f6378a = context;
+        this.f6380a = context;
         a();
     }
 
     private void a() {
         setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        View inflate = inflate(this.f6378a, ac.f(this.f6378a, "tt_splash_view"), this);
-        this.f6379b = (GifView) inflate.findViewById(ac.e(this.f6378a, "tt_splash_ad_gif"));
-        this.c = (TTCountdownView) inflate.findViewById(ac.e(this.f6378a, "tt_splash_skip_btn"));
-        this.d = (ImageView) inflate.findViewById(ac.e(this.f6378a, "tt_splash_video_ad_mute"));
-        this.e = (FrameLayout) inflate.findViewById(ac.e(this.f6378a, "tt_splash_video_container"));
-        this.f = (FrameLayout) inflate.findViewById(ac.e(this.f6378a, "tt_splash_express_container"));
-        this.g = (TextView) inflate.findViewById(ac.e(this.f6378a, "tt_ad_logo"));
+        View inflate = inflate(this.f6380a, ac.f(this.f6380a, "tt_splash_view"), this);
+        this.f6381b = (GifView) inflate.findViewById(ac.e(this.f6380a, "tt_splash_ad_gif"));
+        this.c = (TTCountdownView) inflate.findViewById(ac.e(this.f6380a, "tt_splash_skip_btn"));
+        this.d = (ImageView) inflate.findViewById(ac.e(this.f6380a, "tt_splash_video_ad_mute"));
+        this.e = (FrameLayout) inflate.findViewById(ac.e(this.f6380a, "tt_splash_video_container"));
+        this.f = (FrameLayout) inflate.findViewById(ac.e(this.f6380a, "tt_splash_express_container"));
+        this.g = (TextView) inflate.findViewById(ac.e(this.f6380a, "tt_ad_logo"));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -89,7 +89,7 @@ public class TsView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setImageViewVisibility(int i) {
-        ak.a((View) this.f6379b, i);
+        ak.a((View) this.f6381b, i);
     }
 
     void setExpressViewVisibility(int i) {
@@ -98,14 +98,14 @@ public class TsView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setDrawable(Drawable drawable) {
-        this.f6379b.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f6379b.setImageDrawable(drawable);
+        this.f6381b.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f6381b.setImageDrawable(drawable);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setGifView(byte[] bArr) {
-        this.f6379b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f6379b.a(bArr, false);
+        this.f6381b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f6381b.a(bArr, false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

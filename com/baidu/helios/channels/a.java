@@ -9,7 +9,7 @@ import java.util.Comparator;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public abstract class a {
-    public static Comparator<a> arY = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
+    public static Comparator<a> arO = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -18,33 +18,33 @@ public abstract class a {
             return priority != 0 ? priority > 0 ? -1 : 1 : aVar.getName().compareTo(aVar2.getName());
         }
     };
-    protected C0128a arW;
-    protected a.C0133a arX;
+    protected C0128a arM;
+    protected a.C0133a arN;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f2416b;
+    private final String f2414b;
     private long c;
 
     /* renamed from: com.baidu.helios.channels.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0128a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a arZ;
-        public com.baidu.helios.ids.b asa;
+        public com.baidu.helios.common.c.a arP;
+        public com.baidu.helios.ids.b arQ;
     }
 
     /* loaded from: classes6.dex */
     public static abstract class b {
-        private a.C0133a arI;
+        private a.C0133a ary;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2417b;
+        private String f2415b;
         private String c;
         private boolean d = true;
 
         public b(a.C0133a c0133a, String str) {
-            this.arI = c0133a;
-            this.f2417b = str;
+            this.ary = c0133a;
+            this.f2415b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
@@ -56,8 +56,8 @@ public abstract class a {
 
         public abstract void r(JSONObject jSONObject);
 
-        public boolean uM() {
-            String p = this.arI.p(this.c, true);
+        public boolean uJ() {
+            String p = this.ary.p(this.c, true);
             if (!TextUtils.isEmpty(p)) {
                 try {
                     q(new JSONObject(p));
@@ -69,12 +69,12 @@ public abstract class a {
             return false;
         }
 
-        public boolean uN() {
+        public boolean uK() {
             if (this.d) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     r(jSONObject);
-                    this.arI.c(this.c, jSONObject.toString(), true);
+                    this.ary.c(this.c, jSONObject.toString(), true);
                     aR(false);
                     return true;
                 } catch (Exception e) {
@@ -96,15 +96,15 @@ public abstract class a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2418a;
+        private int f2416a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f2419b;
+        private int f2417b;
         public Exception exception;
 
         public e(int i, int i2, Exception exc) {
-            this.f2418a = i;
-            this.f2419b = i2;
+            this.f2416a = i;
+            this.f2417b = i2;
             this.exception = exc;
         }
 
@@ -116,11 +116,11 @@ public abstract class a {
             return new e(-1, 0, exc);
         }
 
-        public static e uO() {
+        public static e uL() {
             return new e(0, 0, null);
         }
 
-        public static e uP() {
+        public static e uM() {
             return bK(0);
         }
     }
@@ -164,7 +164,7 @@ public abstract class a {
     }
 
     public a(String str, long j) {
-        this.f2416b = str;
+        this.f2414b = str;
         this.c = j;
     }
 
@@ -173,14 +173,14 @@ public abstract class a {
     public abstract g a(String str, f fVar);
 
     public final void a(C0128a c0128a) {
-        this.arW = c0128a;
-        this.arX = c0128a.arZ.vk().ea(IXAdRequestInfo.CS);
+        this.arM = c0128a;
+        this.arN = c0128a.arP.vh().ea(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);
 
     public String getName() {
-        return this.f2416b;
+        return this.f2414b;
     }
 
     public long getPriority() {

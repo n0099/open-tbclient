@@ -4,21 +4,21 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MapRenderer implements GLSurfaceView.Renderer {
     private static final String d = MapRenderer.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3036a;
+    public int f3034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3037b;
+    public int f3035b;
     public int c;
     private long e;
     private a f;
     private final j g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void f();
     }
@@ -54,7 +54,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
             return;
         }
         if (this.c <= 1) {
-            nativeResize(this.e, this.f3036a, this.f3037b);
+            nativeResize(this.e, this.f3034a, this.f3035b);
             this.c++;
         }
         this.f.f();

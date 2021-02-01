@@ -1,7 +1,7 @@
 package com.baidu.mapapi.walknavi.controllers.a;
 
 import com.baidu.mapapi.walknavi.adapter.IWTTSPlayer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 final class d implements com.baidu.platform.comapi.wnplatform.m.c {
     @Override // com.baidu.platform.comapi.wnplatform.m.c
     public void a() {
@@ -16,9 +16,9 @@ final class d implements com.baidu.platform.comapi.wnplatform.m.c {
     public int a(String str, boolean z) {
         IWTTSPlayer iWTTSPlayer;
         IWTTSPlayer iWTTSPlayer2;
-        iWTTSPlayer = a.f2979b;
+        iWTTSPlayer = a.f2977b;
         if (iWTTSPlayer != null) {
-            iWTTSPlayer2 = a.f2979b;
+            iWTTSPlayer2 = a.f2977b;
             return iWTTSPlayer2.playTTSText(str, z);
         }
         return 0;

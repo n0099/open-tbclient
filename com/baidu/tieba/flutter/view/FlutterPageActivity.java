@@ -38,9 +38,9 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.m.a;
 import com.baidu.tbadk.m.d;
 import com.baidu.tbadk.m.e;
@@ -56,7 +56,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>, TbPageContextSupport, a {
     private long lastResumeTime;
     private com.baidu.tbadk.core.a mLayoutInflateFactory;
@@ -101,7 +101,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = h.kE().getResources();
+        Resources resources = h.kD().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 
@@ -159,9 +159,9 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
         this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
         this.mLayoutInflateFactory.a(this.mLayoutMode);
         TbadkCoreApplication.setIsAppRunning(true);
-        bc.setCurrentActivity(getClass().getName());
+        bd.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
-        b.kC().pushActivity(getPageContext().getPageActivity());
+        b.kB().pushActivity(getPageContext().getPageActivity());
         if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
             z = true;
         }
@@ -187,7 +187,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
     public SplashScreen provideSplashScreen() {
         FrameLayout frameLayout = new FrameLayout(getActivity());
         frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        Resources resources = h.kE().getResources();
+        Resources resources = h.kD().getResources();
         if (getBackgroundMode() == BoostFlutterActivity.BackgroundMode.transparent) {
             frameLayout.setBackgroundColor(0);
         } else {
@@ -196,12 +196,12 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
             if (identifier == 0) {
                 frameLayout.setBackgroundColor(i);
             } else {
-                frameLayout.setBackgroundColor(ao.getColor(identifier));
+                frameLayout.setBackgroundColor(ap.getColor(identifier));
             }
         }
         if (getIntent() == null || getIntent().getBooleanExtra("showloading", true)) {
             ContinuousAnimationView continuousAnimationView = new ContinuousAnimationView(getActivity());
-            ao.a(continuousAnimationView, resources.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
+            ap.a(continuousAnimationView, resources.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
             continuousAnimationView.setSpeed(1.2f);
             continuousAnimationView.setLayoutParams(new FrameLayout.LayoutParams(resources.getDimensionPixelSize(resources.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), resources.getDimensionPixelSize(resources.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
             frameLayout.addView(continuousAnimationView);
@@ -239,14 +239,14 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
         com.baidu.tieba.t.a.getInstance().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         TbadkCoreApplication.getInst().AddResumeNum();
-        bc.setCurrentActivity(getClass().getName());
+        bd.setCurrentActivity(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         TbadkCoreApplication.isLogin();
         if (TbadkCoreApplication.getInst().canSendForegroundMessage()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_ENTER_FOREGROUND, this));
         }
         TbSingleton.getInstance().setLastResumeTime(System.currentTimeMillis());
-        r.n(getPageId(), 0L);
+        r.o(getPageId(), 0L);
         TbSingleton.getInstance().getClass();
         if (!"FlutterPageActivity".equals(TbSingleton.getInstance().isSwitchActivity)) {
             TbSingleton tbSingleton = TbSingleton.getInstance();
@@ -279,7 +279,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            e.bDA().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
+            e.bDS().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -315,7 +315,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
         }
         MessageManager.getInstance().unRegisterListener(this.skinTypeChangeListener);
         super.onDestroy();
-        b.kC().popActivity(getPageContext().getPageActivity());
+        b.kB().popActivity(getPageContext().getPageActivity());
     }
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
@@ -360,7 +360,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
         ArrayList arrayList;
         ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
         String currentPageKey = getCurrentPageKey();
-        if (x.isEmpty(arrayList2)) {
+        if (y.isEmpty(arrayList2)) {
             arrayList = null;
         } else {
             ArrayList arrayList3 = new ArrayList();
@@ -393,7 +393,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return e.bDA().getMaxCostFromServer();
+                return e.bDS().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b

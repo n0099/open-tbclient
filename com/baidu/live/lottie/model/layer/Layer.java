@@ -8,9 +8,9 @@ import com.baidu.live.lottie.model.content.Mask;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Layer {
-    private final float BS;
+    private final float BT;
     private final List<Mask> Ey;
     private final String GN;
     private final long GO;
@@ -24,19 +24,19 @@ public class Layer {
     private final int GY;
     private final int GZ;
     private final List<com.baidu.live.lottie.e.a<Float>> Hd;
-    private final LayerType bqJ;
+    private final l btY;
+    private final LayerType bum;
     @Nullable
-    private final j bqK;
+    private final j bun;
     @Nullable
-    private final k bqL;
+    private final k buo;
     @Nullable
-    private final com.baidu.live.lottie.model.a.b bqM;
-    private final MatteType bqN;
-    private final l bqw;
+    private final com.baidu.live.lottie.model.a.b bup;
+    private final MatteType buq;
     private final com.baidu.live.lottie.e composition;
     private final List<com.baidu.live.lottie.model.content.b> shapes;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum LayerType {
         PreComp,
         Solid,
@@ -47,7 +47,7 @@ public class Layer {
         Unknown
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum MatteType {
         None,
         Add,
@@ -60,23 +60,23 @@ public class Layer {
         this.composition = eVar;
         this.GN = str;
         this.GO = j;
-        this.bqJ = layerType;
+        this.bum = layerType;
         this.GQ = j2;
         this.GR = str2;
         this.Ey = list2;
-        this.bqw = lVar;
+        this.btY = lVar;
         this.GU = i;
         this.GV = i2;
         this.GW = i3;
         this.GX = f;
-        this.BS = f2;
+        this.BT = f2;
         this.GY = i4;
         this.GZ = i5;
-        this.bqK = jVar;
-        this.bqL = kVar;
+        this.bun = jVar;
+        this.buo = kVar;
         this.Hd = list3;
-        this.bqN = matteType;
-        this.bqM = bVar;
+        this.buq = matteType;
+        this.bup = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -85,17 +85,17 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public float jX() {
+    public float jW() {
         return this.GX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public float jY() {
-        return this.BS / this.composition.ia();
+    public float jX() {
+        return this.BT / this.composition.hZ();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<com.baidu.live.lottie.e.a<Float>> jZ() {
+    public List<com.baidu.live.lottie.e.a<Float>> jY() {
         return this.Hd;
     }
 
@@ -115,42 +115,42 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int ka() {
+    public int jZ() {
         return this.GY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int kb() {
+    public int ka() {
         return this.GZ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<Mask> iM() {
+    public List<Mask> iL() {
         return this.Ey;
     }
 
-    public LayerType MF() {
-        return this.bqJ;
+    public LayerType Od() {
+        return this.bum;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType MG() {
-        return this.bqN;
+    public MatteType Oe() {
+        return this.buq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long ke() {
+    public long kd() {
         return this.GQ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<com.baidu.live.lottie.model.content.b> iY() {
+    public List<com.baidu.live.lottie.model.content.b> iX() {
         return this.shapes;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l Mz() {
-        return this.bqw;
+    public l NX() {
+        return this.btY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -159,31 +159,31 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int kf() {
+    public int ke() {
         return this.GV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int kg() {
+    public int kf() {
         return this.GU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public j MH() {
-        return this.bqK;
+    public j Of() {
+        return this.bun;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public k MI() {
-        return this.bqL;
+    public k Og() {
+        return this.buo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public com.baidu.live.lottie.model.a.b MJ() {
-        return this.bqM;
+    public com.baidu.live.lottie.model.a.b Oh() {
+        return this.bup;
     }
 
     public String toString() {
@@ -193,21 +193,21 @@ public class Layer {
     public String toString(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str).append(getName()).append("\n");
-        Layer aY = this.composition.aY(ke());
-        if (aY != null) {
-            sb.append("\t\tParents: ").append(aY.getName());
-            Layer aY2 = this.composition.aY(aY.ke());
-            while (aY2 != null) {
-                sb.append(PerfFrameTrackUIUtil.SEPERATOR_ARROR).append(aY2.getName());
-                aY2 = this.composition.aY(aY2.ke());
+        Layer bc = this.composition.bc(kd());
+        if (bc != null) {
+            sb.append("\t\tParents: ").append(bc.getName());
+            Layer bc2 = this.composition.bc(bc.kd());
+            while (bc2 != null) {
+                sb.append(PerfFrameTrackUIUtil.SEPERATOR_ARROR).append(bc2.getName());
+                bc2 = this.composition.bc(bc2.kd());
             }
             sb.append(str).append("\n");
         }
-        if (!iM().isEmpty()) {
-            sb.append(str).append("\tMasks: ").append(iM().size()).append("\n");
+        if (!iL().isEmpty()) {
+            sb.append(str).append("\tMasks: ").append(iL().size()).append("\n");
         }
-        if (kg() != 0 && kf() != 0) {
-            sb.append(str).append("\tBackground: ").append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(kg()), Integer.valueOf(kf()), Integer.valueOf(getSolidColor())));
+        if (kf() != 0 && ke() != 0) {
+            sb.append(str).append("\tBackground: ").append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(kf()), Integer.valueOf(ke()), Integer.valueOf(getSolidColor())));
         }
         if (!this.shapes.isEmpty()) {
             sb.append(str).append("\tShapes:\n");

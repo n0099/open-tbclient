@@ -6,7 +6,7 @@ import com.xiaomi.clientreport.data.EventClientReport;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EventClientReport f13774a;
+    final /* synthetic */ EventClientReport f13776a;
 
     /* renamed from: a  reason: collision with other field name */
     final /* synthetic */ a f97a;
@@ -14,11 +14,11 @@ public class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, EventClientReport eventClientReport) {
         this.f97a = aVar;
-        this.f13774a = eventClientReport;
+        this.f13776a = eventClientReport;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f97a.b(this.f13774a);
+        this.f97a.b(this.f13776a);
     }
 }

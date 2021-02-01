@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SystemInfoUtil {
     private static final String MODEL_NULL = "0";
     private static final int SDK_INT_21 = 21;

@@ -8,15 +8,15 @@ import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> {
-    private boolean ksq;
+    private boolean kAx;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.ksq = false;
+        this.kAx = false;
     }
 
-    public void sr(boolean z) {
-        this.ksq = z;
+    public void sE(boolean z) {
+        this.kAx = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,17 +33,17 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgrightView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgrightView cSH = msgViewHolder.cSH();
-        cSH.Cp(this.ksh);
-        cSH.sr(this.ksq);
+        MsgrightView cUF = msgViewHolder.cUF();
+        cUF.CH(this.kAo);
+        cUF.sE(this.kAx);
         chatMessage.getCacheData().setIs_left(0);
-        cSH.a(this.krY);
-        cSH.setOnItemViewLongClickListener(this.krZ);
-        cSH.setPosition(i);
-        cSH.gH(this.goc);
-        cSH.gG(chatMessage.getCacheData().getLastMsgTime());
-        cSH.a(viewGroup, chatMessage);
-        cSH.b(viewGroup, chatMessage);
+        cUF.a(this.kAf);
+        cUF.setOnItemViewLongClickListener(this.kAg);
+        cUF.setPosition(i);
+        cUF.gM(this.mCurrentTime);
+        cUF.gL(chatMessage.getCacheData().getLastMsgTime());
+        cUF.a(viewGroup, chatMessage);
+        cUF.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

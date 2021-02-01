@@ -3,28 +3,28 @@ package com.baidu.sofire.m;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class c implements com.baidu.sofire.j.b {
 
     /* renamed from: a  reason: collision with root package name */
-    b f5305a;
+    b f5307a;
 
     /* renamed from: b  reason: collision with root package name */
-    String f5306b;
+    String f5308b;
     private Context c;
     private a d;
 
     @Override // com.baidu.sofire.j.b
     public final String b() {
-        if (TextUtils.isEmpty(this.f5306b)) {
-            this.f5306b = this.f5305a.a();
+        if (TextUtils.isEmpty(this.f5308b)) {
+            this.f5308b = this.f5307a.a();
         }
-        return this.f5306b;
+        return this.f5308b;
     }
 
     @Override // com.baidu.sofire.j.b
     public final void a(Context context, com.baidu.sofire.j.c cVar) {
-        this.f5305a = new b(context);
+        this.f5307a = new b(context);
         this.c = context;
         if ("1".equals(com.baidu.sofire.o.a.a("persist.sys.identifierid.supported", "0"))) {
             this.d = new a(this);

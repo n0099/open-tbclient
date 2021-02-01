@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class f extends b<com.baidu.swan.pms.model.f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
@@ -39,7 +39,7 @@ public class f extends b<com.baidu.swan.pms.model.f> {
     /* renamed from: g */
     public ContentValues al(com.baidu.swan.pms.model.f fVar) {
         ContentValues e = super.e(fVar);
-        e.put("pkg_type", Integer.valueOf(fVar.erZ));
+        e.put("pkg_type", Integer.valueOf(fVar.eug));
         return e;
     }
 }

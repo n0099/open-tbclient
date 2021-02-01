@@ -8,15 +8,15 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.SignleGraphicTextMsg;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class e {
     private Context mContext;
-    public TextView oNJ;
-    public ImageView oNM;
-    public ImageView oNO;
-    public ImageView oNP;
-    public View oNQ;
-    public ProgressBar oNR;
+    public TextView oXT;
+    public ImageView oXW;
+    public ImageView oXY;
+    public ImageView oXZ;
+    public View oYa;
+    public ProgressBar oYb;
 
     public abstract View getContentView();
 
@@ -24,29 +24,29 @@ public abstract class e {
 
     public void d(ChatMsg chatMsg) {
         if (chatMsg.isMsgSendSuccess()) {
-            this.oNQ.setVisibility(4);
+            this.oYa.setVisibility(4);
             return;
         }
-        this.oNQ.setVisibility(0);
+        this.oYa.setVisibility(0);
         if (chatMsg.getStatus() == 2) {
-            this.oNP.setVisibility(0);
-            this.oNR.setVisibility(8);
+            this.oXZ.setVisibility(0);
+            this.oYb.setVisibility(8);
         } else if (chatMsg.getStatus() == 1) {
-            this.oNP.setVisibility(8);
+            this.oXZ.setVisibility(8);
             SingleGraphicTextMsgExt singleGraphicTextMsgExt = null;
             if (chatMsg instanceof SignleGraphicTextMsg) {
                 singleGraphicTextMsgExt = new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
             }
-            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.ekl() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
+            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.emD() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
                 if (chatMsg.isReSend()) {
-                    this.oNR.setVisibility(0);
+                    this.oYb.setVisibility(0);
                     return;
                 } else {
-                    this.oNR.setVisibility(8);
+                    this.oYb.setVisibility(8);
                     return;
                 }
             }
-            this.oNR.setVisibility(0);
+            this.oYb.setVisibility(0);
         }
     }
 

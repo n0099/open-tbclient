@@ -4,20 +4,20 @@ import android.os.Bundle;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4435a = 0;
+    private int f4438a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4436b = 0;
+    private int f4439b = 0;
     private int c = 1;
     private ArrayList<LatLng> d = new ArrayList<>();
 
     public void a() {
-        this.f4435a = 0;
-        this.f4436b = 0;
+        this.f4438a = 0;
+        this.f4439b = 0;
         this.d = new ArrayList<>();
     }
 
@@ -25,8 +25,8 @@ public class d extends a {
         a();
         if (bundle != null) {
             this.c = i;
-            this.f4435a = bundle.getInt("totaldistance");
-            this.f4436b = bundle.getInt("totaltime");
+            this.f4438a = bundle.getInt("totaldistance");
+            this.f4439b = bundle.getInt("totaltime");
             double[] doubleArray = bundle.getDoubleArray("ptShapeX");
             double[] doubleArray2 = bundle.getDoubleArray("ptShapeY");
             if (doubleArray != null && doubleArray2 != null) {
@@ -43,6 +43,6 @@ public class d extends a {
     }
 
     public int b() {
-        return this.f4435a;
+        return this.f4438a;
     }
 }

@@ -8,13 +8,13 @@ import java.util.Locale;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f14306a;
+    public final int f14308a;
 
     /* renamed from: a  reason: collision with other field name */
     public final String f994a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f14307b;
+    public final String f14309b;
     public final String c;
     public final String d;
     public final String e;
@@ -22,12 +22,12 @@ public class k {
 
     public k(String str, String str2, String str3, String str4, String str5, String str6, int i) {
         this.f994a = str;
-        this.f14307b = str2;
+        this.f14309b = str2;
         this.c = str3;
         this.d = str4;
         this.e = str5;
         this.f = str6;
-        this.f14306a = i;
+        this.f14308a = i;
     }
 
     public static boolean a() {
@@ -56,7 +56,7 @@ public class k {
         bVar.f938a = context.getPackageName();
         bVar.f941b = this.f994a;
         bVar.h = this.c;
-        bVar.c = this.f14307b;
+        bVar.c = this.f14309b;
         bVar.g = "5";
         bVar.d = "XMPUSH-PASS";
         bVar.f940a = false;

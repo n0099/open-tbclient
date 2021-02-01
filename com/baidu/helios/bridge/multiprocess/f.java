@@ -5,28 +5,28 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public interface f extends IInterface {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        static final int f2412a = 1;
+        static final int f2410a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        static final int f2413b = 2;
+        static final int f2411b = 2;
         private static final String c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes6.dex */
         private static class C0127a implements f {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f2414a;
+            private IBinder f2412a;
 
             C0127a(IBinder iBinder) {
-                this.f2414a = iBinder;
+                this.f2412a = iBinder;
             }
 
             public String a() {
@@ -46,7 +46,7 @@ public interface f extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f2414a.transact(2, obtain, obtain2, 0);
+                    this.f2412a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -67,7 +67,7 @@ public interface f extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f2414a.transact(1, obtain, obtain2, 0);
+                    this.f2412a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -77,7 +77,7 @@ public interface f extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f2414a;
+                return this.f2412a;
             }
         }
 

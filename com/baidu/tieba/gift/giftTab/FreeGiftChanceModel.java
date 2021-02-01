@@ -4,13 +4,13 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     private int freeChance;
-    private com.baidu.adp.framework.listener.a iWa;
-    private a jNr;
+    private a jUT;
+    private com.baidu.adp.framework.listener.a jbH;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void c(int i, String str, int i2);
     }
@@ -27,7 +27,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
 
     public FreeGiftChanceModel(com.baidu.adp.base.f<GiftTabActivity> fVar) {
         super(fVar);
-        this.iWa = new com.baidu.adp.framework.listener.a(1003047, CmdConfigSocket.CMD_USER_FREE_CHANCE) { // from class: com.baidu.tieba.gift.giftTab.FreeGiftChanceModel.1
+        this.jbH = new com.baidu.adp.framework.listener.a(1003047, CmdConfigSocket.CMD_USER_FREE_CHANCE) { // from class: com.baidu.tieba.gift.giftTab.FreeGiftChanceModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -37,8 +37,8 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                         } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
                             FreeGiftChanceModel.this.freeChance = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                         }
-                        if (FreeGiftChanceModel.this.jNr != null) {
-                            FreeGiftChanceModel.this.jNr.c(responsedMessage.getError(), responsedMessage.getErrorString(), FreeGiftChanceModel.this.freeChance);
+                        if (FreeGiftChanceModel.this.jUT != null) {
+                            FreeGiftChanceModel.this.jUT.c(responsedMessage.getError(), responsedMessage.getErrorString(), FreeGiftChanceModel.this.freeChance);
                         }
                     }
                 }
@@ -48,14 +48,14 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         registerTask();
     }
 
-    public void gn(String str) {
+    public void gL(String str) {
         FreeGiftChanceRequest freeGiftChanceRequest = new FreeGiftChanceRequest();
         freeGiftChanceRequest.setFrom(str);
         sendMessage(freeGiftChanceRequest);
     }
 
     private void registerListener() {
-        registerListener(this.iWa);
+        registerListener(this.jbH);
     }
 
     private void registerTask() {
@@ -64,6 +64,6 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public void a(a aVar) {
-        this.jNr = aVar;
+        this.jUT = aVar;
     }
 }

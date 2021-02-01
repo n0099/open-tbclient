@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class p {
-    private static PackageManager aps;
-    private static PackageInfo apt;
-    private static String apu;
+    private static PackageManager apg;
+    private static PackageInfo aph;
+    private static String api;
     private static Context mContext;
 
     public static String J() {
@@ -16,35 +16,35 @@ public final class p {
     }
 
     public static String K() {
-        if (apu == null) {
-            if (apt == null) {
+        if (api == null) {
+            if (aph == null) {
                 return "N/A";
             }
-            apu = apt.applicationInfo.loadLabel(aps).toString();
+            api = aph.applicationInfo.loadLabel(apg).toString();
         }
-        return apu;
+        return api;
     }
 
     public static String L() {
-        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? apt == null ? "N/A" : apt.versionName : com.baidu.crabsdk.a.o;
+        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? aph == null ? "N/A" : aph.versionName : com.baidu.crabsdk.a.o;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            aps = context.getPackageManager();
+            apg = context.getPackageManager();
             try {
-                apt = aps.getPackageInfo(mContext.getPackageName(), 0);
+                aph = apg.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.a("PackageCollector.init fail.", e);
             }
         }
     }
 
-    public static int us() {
-        if (apt == null) {
+    public static int up() {
+        if (aph == null) {
             return 0;
         }
-        return apt.versionCode;
+        return aph.versionCode;
     }
 }

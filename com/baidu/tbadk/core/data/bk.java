@@ -1,18 +1,47 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
+import android.content.Intent;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class bk extends bz {
-    public static final BdUniqueId eMW = BdUniqueId.gen();
-    private ArrayList<RecommendForumData> eMX = new ArrayList<>();
+public class bk {
+    private String ePg;
+    private String recomExtra;
+    private String recomSource;
+    private String recomWeight;
 
-    public ArrayList<RecommendForumData> bmA() {
-        return this.eMX;
+    public void u(cb cbVar) {
+        if (cbVar != null) {
+            this.recomWeight = cbVar.mRecomWeight;
+            this.recomSource = cbVar.mRecomSource;
+            this.ePg = cbVar.mRecomAbTag;
+            this.recomExtra = cbVar.mRecomExtra;
+        }
     }
 
-    @Override // com.baidu.tbadk.core.data.bz, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
-    public BdUniqueId getType() {
-        return eMW;
+    public void D(Intent intent) {
+        if (intent != null) {
+            this.recomWeight = intent.getStringExtra("recom_weight");
+            this.recomSource = intent.getStringExtra(IntentConfig.RECOM_SOURCE);
+            this.ePg = intent.getStringExtra("recom_abtag");
+            this.recomExtra = intent.getStringExtra("recom_extra");
+        }
+    }
+
+    public void E(Intent intent) {
+        if (intent != null) {
+            intent.putExtra("recom_weight", this.recomWeight);
+            intent.putExtra(IntentConfig.RECOM_SOURCE, this.recomSource);
+            intent.putExtra("recom_abtag", this.ePg);
+            intent.putExtra("recom_extra", this.recomExtra);
+        }
+    }
+
+    public void a(com.baidu.tieba.play.o oVar) {
+        if (oVar != null) {
+            oVar.mIe = this.recomWeight;
+            oVar.mSource = this.recomSource;
+            oVar.mIi = this.ePg;
+            oVar.mExtra = this.recomExtra;
+        }
     }
 }

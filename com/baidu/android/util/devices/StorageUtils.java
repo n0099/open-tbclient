@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class StorageUtils {
     private static boolean DEBUG = false;
     private static final int DIVIDER = 1024;
@@ -32,7 +32,7 @@ public final class StorageUtils {
     private StorageUtils() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class StorageInfo {
         public final int mDisplayNumber;
         public final boolean mInternal;

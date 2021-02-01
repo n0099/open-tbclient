@@ -1,54 +1,54 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private String fph;
-    private long fpi;
-    private long fpj;
-    private long fpk;
-    private String fpl;
-    private String fpm;
+    private String frB;
+    private long frC;
+    private long frD;
+    private long frE;
+    private String frF;
+    private String frG;
 
     public void parseJson(String str) {
-        if (!at.isEmpty(str)) {
+        if (!au.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.fph = jSONObject.optString("splash_video_url");
-                this.fpi = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.fpj = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.fpk = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.fpl = jSONObject.optString("splash_video_h5_url");
-                this.fpm = jSONObject.optString("splash_video_h5_text");
+                this.frB = jSONObject.optString("splash_video_url");
+                this.frC = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.frD = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.frE = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.frF = jSONObject.optString("splash_video_h5_url");
+                this.frG = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String bwo() {
-        return this.fph;
+    public String bwG() {
+        return this.frB;
     }
 
-    public long bwp() {
-        return this.fpi;
+    public long bwH() {
+        return this.frC;
     }
 
-    public long bwq() {
-        return this.fpj;
+    public long bwI() {
+        return this.frD;
     }
 
-    public long bwr() {
-        return this.fpk;
+    public long bwJ() {
+        return this.frE;
     }
 
-    public String bws() {
-        return this.fpl;
+    public String bwK() {
+        return this.frF;
     }
 
-    public String bwt() {
-        return this.fpm;
+    public String bwL() {
+        return this.frG;
     }
 }

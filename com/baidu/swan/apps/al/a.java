@@ -2,25 +2,25 @@ package com.baidu.swan.apps.al;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
-    private a dLN = null;
-    private long dLO = 0;
-    private long dLP = 0;
-    private long dLQ = 2;
+    private a dNR = null;
+    private long dNS = 0;
+    private long dNT = 0;
+    private long dNU = 2;
     private String mDesc = "";
-    private String dLR = "";
+    private String dNV = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean dLS = false;
+    private boolean dNW = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aMM()), Long.valueOf(aMG()), Long.valueOf(aMH()), Long.valueOf(aMI()), aMJ()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aNf()), Long.valueOf(aMZ()), Long.valueOf(aNa()), Long.valueOf(aNb()), aNc()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aMG()), Long.valueOf(aMH()), Long.valueOf(aMI())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aMZ()), Long.valueOf(aNa()), Long.valueOf(aNb())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aML()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aNe()));
         }
         return sb.toString();
     }
@@ -29,34 +29,34 @@ public final class a {
         return toString(-100);
     }
 
-    public a cU(long j) {
-        this.dLQ = a(j, 9L, "platform");
+    public a da(long j) {
+        this.dNU = b(j, 9L, "platform");
         return this;
     }
 
-    public long aMG() {
-        return this.dLQ;
+    public long aMZ() {
+        return this.dNU;
     }
 
-    public a cV(long j) {
-        this.dLO = a(j, 999L, "feature");
+    public a db(long j) {
+        this.dNS = b(j, 999L, "feature");
         return this;
     }
 
-    public long aMH() {
-        return this.dLO;
+    public long aNa() {
+        return this.dNS;
     }
 
-    public a cW(long j) {
-        this.dLP = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+    public a dc(long j) {
+        this.dNT = b(j, 9999L, BdStatsConstant.StatsType.ERROR);
         return this;
     }
 
-    public long aMI() {
-        return this.dLP;
+    public long aNb() {
+        return this.dNT;
     }
 
-    public a tm(String str) {
+    public a tF(String str) {
         if (str == null) {
             str = "";
         }
@@ -64,55 +64,55 @@ public final class a {
         return this;
     }
 
-    public String aMJ() {
+    public String aNc() {
         return this.mDesc;
     }
 
-    public a tn(String str) {
+    public a tG(String str) {
         if (str == null) {
             str = "";
         }
-        this.dLR = str;
+        this.dNV = str;
         return this;
     }
 
-    public String aMK() {
-        return this.dLR;
+    public String aNd() {
+        return this.dNV;
     }
 
-    public a to(String str) {
+    public a tH(String str) {
         this.mDetails.append(str).append("\n");
         return this;
     }
 
-    public StringBuilder aML() {
+    public StringBuilder aNe() {
         return this.mDetails;
     }
 
-    public long aMM() {
-        return (aMG() * 10000000) + (aMH() * 10000) + (aMI() * 1);
+    public long aNf() {
+        return (aMZ() * 10000000) + (aNa() * 10000) + (aNb() * 1);
     }
 
-    public a cX(long j) {
-        cU(j / 10000000);
+    public a dd(long j) {
+        da(j / 10000000);
         long j2 = j % 10000000;
-        cV(j2 / 10000);
-        cW((j2 % 10000) / 1);
+        db(j2 / 10000);
+        dc((j2 % 10000) / 1);
         return this;
     }
 
-    public boolean aMN() {
-        return this.dLS;
+    public boolean aNg() {
+        return this.dNW;
     }
 
-    public void aMO() {
-        this.dLS = true;
+    public void aNh() {
+        this.dNW = true;
     }
 
-    private long a(long j, long j2, String str) {
+    private long b(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            to("illegalFallback " + str + "::" + j);
+            tH("illegalFallback " + str + "::" + j);
         }
         return z ? j2 : j;
     }

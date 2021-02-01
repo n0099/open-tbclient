@@ -1,9 +1,8 @@
 package kotlin.text;
 
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class StringsKt__StringsKt$splitToSequence$2 extends Lambda implements kotlin.jvm.a.b<kotlin.b.h, String> {
     final /* synthetic */ CharSequence receiver$0;
 
@@ -16,7 +15,7 @@ final class StringsKt__StringsKt$splitToSequence$2 extends Lambda implements kot
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(kotlin.b.h hVar) {
-        kotlin.jvm.internal.p.o(hVar, AdvanceSetting.NETWORK_TYPE);
+        kotlin.jvm.internal.p.o(hVar, "it");
         return l.a(this.receiver$0, hVar);
     }
 }

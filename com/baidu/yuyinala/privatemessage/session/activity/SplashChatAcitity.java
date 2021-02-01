@@ -24,10 +24,10 @@ import com.baidu.yuyinala.privatemessage.session.b.g;
 import com.baidu.yuyinala.privatemessage.session.b.h;
 import com.baidu.yuyinala.privatemessage.session.util.a;
 import com.baidu.yuyinala.privatemessage.session.view.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SplashChatAcitity extends ActivityChat {
-    public static String oYP = SplashChatAcitity.class.getName();
-    public CustomMessageListener bdo = new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.4
+    public static String pjf = SplashChatAcitity.class.getName();
+    public CustomMessageListener bgy = new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -36,7 +36,7 @@ public class SplashChatAcitity extends ActivityChat {
             }
         }
     };
-    private CustomMessageListener oYH = new CustomMessageListener(2501070) { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.5
+    private CustomMessageListener piX = new CustomMessageListener(2501070) { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -50,38 +50,38 @@ public class SplashChatAcitity extends ActivityChat {
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat, com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        MessageManager.getInstance().registerListener(this.bdo);
-        MessageManager.getInstance().registerListener(this.oYH);
+        MessageManager.getInstance().registerListener(this.bgy);
+        MessageManager.getInstance().registerListener(this.piX);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat, com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.bdo);
-        MessageManager.getInstance().unRegisterListener(this.oYH);
+        MessageManager.getInstance().unRegisterListener(this.bgy);
+        MessageManager.getInstance().unRegisterListener(this.piX);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat
-    protected void hW(long j) {
+    protected void hZ(long j) {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat
-    protected void ehQ() {
-        b bVar = new b(this, ChatInfo.mUid, this.oQF, this.mPaid);
-        bVar.a(new b.InterfaceC0976b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.1
-            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0976b
-            public void ekx() {
+    protected void ekk() {
+        b bVar = new b(this, ChatInfo.mUid, this.paR, this.mPaid);
+        bVar.a(new b.InterfaceC0980b() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.1
+            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0980b
+            public void emP() {
                 BIMManager.deleteMsgs(SplashChatAcitity.this.getApplicationContext(), 0, ChatInfo.mContacter, false);
-                a.ib(ChatInfo.mContacter);
-                c Xm = d.eiJ().Xm(d.eiJ().eiK());
-                if (Xm != null) {
-                    Xm.eih();
+                a.ie(ChatInfo.mContacter);
+                c Yn = d.eld().Yn(d.eld().ele());
+                if (Yn != null) {
+                    Yn.ekB();
                 }
                 SplashChatAcitity.this.showToast("操作成功");
             }
 
-            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0976b
-            public void NK(int i) {
+            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0980b
+            public void Of(int i) {
                 if (SplashChatAcitity.this.mPaid > 0) {
                     SplashChatAcitity.this.j(SplashChatAcitity.this.mPaid, i, 7);
                 } else {
@@ -89,7 +89,7 @@ public class SplashChatAcitity extends ActivityChat {
                 }
             }
 
-            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0976b
+            @Override // com.baidu.yuyinala.privatemessage.session.view.b.InterfaceC0980b
             public void onCancel() {
             }
         });
@@ -126,18 +126,18 @@ public class SplashChatAcitity extends ActivityChat {
     public void a(String str, final com.baidu.yuyinala.privatemessage.implugin.ui.activity.b bVar) {
         if (!TextUtils.isEmpty(str)) {
             final String encryptionUserId = ExtraParamsManager.getEncryptionUserId(str);
-            String Xr = h.ekz().Xr(encryptionUserId);
-            if (!TextUtils.isEmpty(Xr)) {
-                bVar.WY(Xr);
+            String Ys = h.emR().Ys(encryptionUserId);
+            if (!TextUtils.isEmpty(Ys)) {
+                bVar.XZ(Ys);
             }
-            h.ekz().a(BdBaseApplication.getInst(), encryptionUserId, 3, new g() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.3
+            h.emR().a(BdBaseApplication.getInst(), encryptionUserId, 3, new g() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.3
                 @Override // com.baidu.yuyinala.privatemessage.session.b.g
-                public void aTP() {
+                public void aUb() {
                     SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.activity.SplashChatAcitity.3.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (bVar != null) {
-                                bVar.WY(encryptionUserId);
+                                bVar.XZ(encryptionUserId);
                             }
                         }
                     });
@@ -152,12 +152,12 @@ public class SplashChatAcitity extends ActivityChat {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat
-    protected void ehS() {
+    protected void ekm() {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat, com.baidu.yuyinala.privatemessage.implugin.ui.activity.c
-    public void Xg(String str) {
-        super.Xg(str);
+    public void Yh(String str) {
+        super.Yh(str);
         char c = 65535;
         switch (str.hashCode()) {
             case -1503905936:
@@ -181,10 +181,10 @@ public class SplashChatAcitity extends ActivityChat {
         }
         switch (c) {
             case 0:
-                if (this.oQD != null && this.oQD.mInfo != null) {
+                if (this.paP != null && this.paP.mInfo != null) {
                     Bundle bundle = new Bundle();
-                    bundle.putParcelable("params", this.oQD);
-                    bundle.putString("groupicon", this.oQD.mInfo.getHeadUrl());
+                    bundle.putParcelable("params", this.paP);
+                    bundle.putString("groupicon", this.paP.mInfo.getHeadUrl());
                     return;
                 }
                 return;

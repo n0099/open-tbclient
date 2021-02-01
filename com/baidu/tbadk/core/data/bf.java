@@ -1,36 +1,73 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import tbclient.FrsPage.PrivateForumShareinfo;
-import tbclient.FrsPage.PrivateForumTotalInfo;
-import tbclient.PrivateForumInfo;
-import tbclient.PrivatePopInfo;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bf {
-    private PrivateForumShareinfo eMK = null;
-    private PrivatePopInfo eML = null;
-    private PrivateForumInfo eMM = null;
-    private Integer eMN = null;
+    private ArrayList<UserData> bGk = new ArrayList<>();
+    private ArrayList<UserData> eOQ = new ArrayList<>();
+    private az eOR = new az();
+    private int eOS = 0;
+    private int eOT = 0;
 
-    public PrivatePopInfo getPrivatePopInfo() {
-        return this.eML;
+    public void setPage(az azVar) {
+        this.eOR = azVar;
     }
 
-    public PrivateForumInfo bmt() {
-        return this.eMM;
+    public az getPage() {
+        return this.eOR;
     }
 
-    public Integer bmu() {
-        return this.eMN;
+    public ArrayList<UserData> bmI() {
+        return this.bGk;
     }
 
-    public void a(PrivateForumTotalInfo privateForumTotalInfo) {
-        if (privateForumTotalInfo != null) {
+    public ArrayList<UserData> bmJ() {
+        return this.eOQ;
+    }
+
+    public int bmK() {
+        return this.eOS;
+    }
+
+    public int bmL() {
+        return this.eOT;
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                this.eMK = privateForumTotalInfo.private_forum_shareinfo;
-                this.eMM = privateForumTotalInfo.private_forum_info;
-                this.eMN = privateForumTotalInfo.private_forum_taskpercent;
-                this.eML = privateForumTotalInfo.private_forum_popinfo;
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        userData.mAttentionType = 2;
+                        this.bGk.add(userData);
+                    }
+                }
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        userData2.mAttentionType = 1;
+                        this.eOQ.add(userData2);
+                    }
+                }
+                this.eOR.parserJson(jSONObject.optJSONObject("page"));
+                this.eOS = jSONObject.optInt("tafriendnum", 0);
+                this.eOT = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

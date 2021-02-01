@@ -6,7 +6,7 @@ import com.baidu.live.adp.lib.disk.ops.DiskFileOperate;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LogDiskFileOperate extends DiskFileOperate implements DiskFileComparator {
     private ArrayList<String> list;
 

@@ -5,17 +5,17 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UbcFlowEvent {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String doS = "NA";
-    private RecordType doT = RecordType.KEEP;
-    private boolean doU = false;
+    private String drd = "NA";
+    private RecordType dre = RecordType.KEEP;
+    private boolean drf = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum RecordType {
         KEEP,
         UPDATE,
@@ -27,7 +27,7 @@ public class UbcFlowEvent {
         this.id = str;
     }
 
-    public UbcFlowEvent cy(long j) {
+    public UbcFlowEvent cE(long j) {
         if (j < 0) {
             j = 0;
         }
@@ -35,7 +35,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long aDK() {
+    public long aEf() {
         return this.mTime;
     }
 
@@ -43,39 +43,39 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent qj(String str) {
-        this.doS = str;
+    public UbcFlowEvent qB(String str) {
+        this.drd = str;
         return this;
     }
 
-    public String aDL() {
-        return this.doS;
+    public String aEg() {
+        return this.drd;
     }
 
-    public UbcFlowEvent gp(boolean z) {
-        this.doU = z;
+    public UbcFlowEvent gr(boolean z) {
+        this.drf = z;
         return this;
     }
 
-    public boolean aDM() {
-        return this.doU;
+    public boolean aEh() {
+        return this.drf;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.doT = recordType;
+        this.dre = recordType;
         return this;
     }
 
-    public RecordType aDN() {
-        return this.doT;
+    public RecordType aEi() {
+        return this.dre;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(aDK());
+        objArr[0] = Long.valueOf(aEf());
         objArr[1] = this.id;
-        objArr[2] = aDM() ? "(justLocalRecord)" : "";
+        objArr[2] = aEh() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 

@@ -4,7 +4,7 @@ import android.os.Build;
 import android.os.StatFs;
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static long a(String str) {
         StatFs statFs = new StatFs(str);

@@ -22,7 +22,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0024a {
-        public boolean VG;
+        public boolean VE;
         public String mErrMsg;
     }
 
@@ -73,7 +73,7 @@ public class a {
                         @Override // java.util.Comparator
                         public int compare(Object obj, Object obj2) {
                             if ((obj instanceof String) && (obj2 instanceof String)) {
-                                return a.I((String) obj, (String) obj2);
+                                return a.G((String) obj, (String) obj2);
                             }
                             return 0;
                         }
@@ -126,14 +126,14 @@ public class a {
                 declaredMethod.invoke(pathList, str2, null);
                 Object combineArray = combineArray(A(pathList), A(pathList2));
                 if (combineArray instanceof File[]) {
-                    Arrays.sort((File[]) combineArray, qh());
+                    Arrays.sort((File[]) combineArray, qf());
                     list = combineArray;
                 } else {
                     boolean z2 = combineArray instanceof List;
                     list = combineArray;
                     if (z2) {
                         List list4 = (List) combineArray;
-                        Collections.sort(list4, qh());
+                        Collections.sort(list4, qf());
                         list = list4;
                     }
                 }
@@ -147,14 +147,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(z(pathList), z(pathList2)) : combineArray(z(pathList2), z(pathList)));
                 Object combineArray2 = combineArray(A(pathList), A(pathList2));
                 if (combineArray2 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray2, qh());
+                    Arrays.sort((File[]) combineArray2, qf());
                     list3 = combineArray2;
                 } else {
                     boolean z3 = combineArray2 instanceof List;
                     list3 = combineArray2;
                     if (z3) {
                         List list5 = (List) combineArray2;
-                        Collections.sort(list5, qh());
+                        Collections.sort(list5, qf());
                         list3 = list5;
                     }
                 }
@@ -168,14 +168,14 @@ public class a {
                 setField(pathList, pathList.getClass(), "dexElements", z ? combineArray(z(pathList), z(pathList2)) : combineArray(z(pathList2), z(pathList)));
                 Object combineArray3 = combineArray(A(pathList), A(pathList2));
                 if (combineArray3 instanceof File[]) {
-                    Arrays.sort((File[]) combineArray3, qh());
+                    Arrays.sort((File[]) combineArray3, qf());
                     list2 = combineArray3;
                 } else {
                     boolean z4 = combineArray3 instanceof List;
                     list2 = combineArray3;
                     if (z4) {
                         List list6 = (List) combineArray3;
-                        Collections.sort(list6, qh());
+                        Collections.sort(list6, qf());
                         list2 = list6;
                     }
                 }
@@ -293,7 +293,7 @@ public class a {
 
     private static C0024a a(boolean z, Throwable th) {
         C0024a c0024a = new C0024a();
-        c0024a.VG = z;
+        c0024a.VE = z;
         c0024a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0024a;
     }
@@ -330,22 +330,21 @@ public class a {
         }
     }
 
-    private static final Comparator<File> qh() {
+    private static final Comparator<File> qf() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
-            /* renamed from: c */
             public int compare(File file, File file2) {
                 if (file == null || file2 == null) {
                     return 0;
                 }
-                return a.I(file.getAbsolutePath(), file2.getAbsolutePath());
+                return a.G(file.getAbsolutePath(), file2.getAbsolutePath());
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int I(String str, String str2) {
+    public static final int G(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

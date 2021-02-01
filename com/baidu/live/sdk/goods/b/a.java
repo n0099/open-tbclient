@@ -1,7 +1,7 @@
 package com.baidu.live.sdk.goods.b;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
     void a(int i, String str, boolean z, long j, int i2, List<com.baidu.live.sdk.goods.a.a> list);
 

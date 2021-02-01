@@ -1,12 +1,11 @@
 package com.google.zxing.datamatrix.encoder;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.mapapi.UIMsg;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class HighLevelEncoder {
     static final int ASCII_ENCODATION = 0;
     static final int BASE256_ENCODATION = 5;
@@ -149,7 +148,7 @@ public final class HighLevelEncoder {
             if (i3 >= 4) {
                 int[] iArr = new int[6];
                 byte[] bArr = new byte[6];
-                findMinimums(fArr, iArr, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, bArr);
+                findMinimums(fArr, iArr, Integer.MAX_VALUE, bArr);
                 int minimumCount = getMinimumCount(bArr);
                 if (iArr[0] < iArr[5] && iArr[0] < iArr[1] && iArr[0] < iArr[2] && iArr[0] < iArr[3] && iArr[0] < iArr[4]) {
                     return 0;
@@ -192,7 +191,7 @@ public final class HighLevelEncoder {
         }
         byte[] bArr2 = new byte[6];
         int[] iArr2 = new int[6];
-        int findMinimums = findMinimums(fArr, iArr2, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, bArr2);
+        int findMinimums = findMinimums(fArr, iArr2, Integer.MAX_VALUE, bArr2);
         int minimumCount2 = getMinimumCount(bArr2);
         if (iArr2[0] != findMinimums) {
             if (minimumCount2 == 1 && bArr2[5] > 0) {

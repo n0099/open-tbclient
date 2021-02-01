@@ -6,55 +6,55 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: com.baidu.poly.a.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    static class RunnableC0294a implements Runnable {
-        final /* synthetic */ com.baidu.poly.b.a ciV;
+    /* loaded from: classes4.dex */
+    static class RunnableC0298a implements Runnable {
+        final /* synthetic */ com.baidu.poly.b.a cnk;
 
         /* renamed from: com.baidu.poly.a.c.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        class C0295a extends com.baidu.poly.b.a {
-            final /* synthetic */ JSONArray ciT;
+        /* loaded from: classes4.dex */
+        class C0299a extends com.baidu.poly.b.a {
+            final /* synthetic */ JSONArray cni;
 
-            C0295a(JSONArray jSONArray) {
-                this.ciT = jSONArray;
+            C0299a(JSONArray jSONArray) {
+                this.cni = jSONArray;
             }
 
             @Override // com.baidu.poly.b.a
             public void onResult(int i, String str) {
-                com.baidu.poly.b.a aVar = RunnableC0294a.this.ciV;
+                com.baidu.poly.b.a aVar = RunnableC0298a.this.cnk;
                 if (aVar != null) {
                     aVar.onResult(i, str);
                 }
                 if (i == 1) {
-                    a.b(this.ciT);
+                    a.b(this.cni);
                 }
             }
         }
 
-        RunnableC0294a(com.baidu.poly.b.a aVar) {
-            this.ciV = aVar;
+        RunnableC0298a(com.baidu.poly.b.a aVar) {
+            this.cnk = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            JSONArray aby = a.aby();
-            if (aby == null) {
+            JSONArray adm = a.adm();
+            if (adm == null) {
                 return;
             }
-            com.baidu.poly.a.b.a.a(aby, new C0295a(aby));
+            com.baidu.poly.a.b.a.a(adm, new C0299a(adm));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static synchronized JSONArray aby() {
+    public static synchronized JSONArray adm() {
         JSONArray jSONArray;
         JSONArray jSONArray2 = null;
         synchronized (a.class) {
-            File file = new File(g.abT().getFilesDir(), "poly_cashier_commission_record_cache.json");
+            File file = new File(g.adH().getFilesDir(), "poly_cashier_commission_record_cache.json");
             if (file.exists()) {
                 try {
                     jSONArray = new JSONArray(c.b(file));
@@ -76,14 +76,14 @@ public class a {
         synchronized (a.class) {
             if (jSONArray != null) {
                 if (jSONArray.length() != 0) {
-                    c.a(jSONArray.toString(), new File(g.abT().getFilesDir(), "poly_cashier_commission_record_cache.json"));
+                    c.a(jSONArray.toString(), new File(g.adH().getFilesDir(), "poly_cashier_commission_record_cache.json"));
                 }
             }
         }
     }
 
     public static void b(com.baidu.poly.b.a aVar) {
-        com.baidu.poly.c.a.execute(new RunnableC0294a(aVar));
+        com.baidu.poly.c.a.execute(new RunnableC0298a(aVar));
     }
 
     public static void c(JSONObject jSONObject) {
@@ -92,15 +92,15 @@ public class a {
                 jSONObject.put("operateTime", String.valueOf(System.currentTimeMillis() / 1000));
             } catch (JSONException e) {
             }
-            JSONArray aby = aby();
-            if (aby == null) {
-                aby = new JSONArray();
+            JSONArray adm = adm();
+            if (adm == null) {
+                adm = new JSONArray();
             }
-            aby.put(jSONObject);
-            if (aby.length() > 100) {
-                aby.remove(0);
+            adm.put(jSONObject);
+            if (adm.length() > 100) {
+                adm.remove(0);
             }
-            b(aby);
+            b(adm);
         }
     }
 }

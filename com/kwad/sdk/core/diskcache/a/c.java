@@ -4,14 +4,14 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Charset f9075a = Charset.forName("US-ASCII");
+    static final Charset f9077a = Charset.forName("US-ASCII");
 
     /* renamed from: b  reason: collision with root package name */
-    static final Charset f9076b = Charset.forName("UTF-8");
+    static final Charset f9078b = Charset.forName("UTF-8");
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Closeable closeable) {

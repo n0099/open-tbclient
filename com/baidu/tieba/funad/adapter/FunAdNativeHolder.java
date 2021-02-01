@@ -14,64 +14,64 @@ import com.baidu.tieba.h.a;
 import com.baidu.tieba.tbadkCore.data.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class FunAdNativeHolder extends TypeAdapter.ViewHolder {
-    public ViewGroup jLJ;
-    public List<View> jLK;
-    public List<View> jLL;
-    public ImageView jLM;
-    public ImageView jLN;
-    public TextView jLO;
-    public TextView jLP;
-    public FrameLayout jLQ;
-    public Button jLR;
-    public ImageView jMe;
-    public CardView jMf;
-    public TextView jMg;
-    public View jMh;
-    public View jMi;
-    public a.C0741a jMs;
+    public ViewGroup jSJ;
+    public List<View> jSK;
+    public List<View> jSL;
+    public ImageView jSM;
+    public ImageView jSN;
+    public TextView jSO;
+    public TextView jSP;
+    public FrameLayout jSQ;
+    public Button jSR;
+    public ImageView jTg;
+    public CardView jTh;
+    public TextView jTi;
+    public View jTj;
+    public View jTk;
+    public a.C0742a jTx;
 
     public FunAdNativeHolder(View view) {
         super(view);
-        ap(view);
+        am(view);
     }
 
-    private void ap(View view) {
-        this.jLJ = (ViewGroup) view;
-        this.jLO = (TextView) view.findViewById(R.id.fun_ad_name);
-        this.jLP = (TextView) view.findViewById(R.id.fun_card_title);
-        this.jLQ = (FrameLayout) view.findViewById(R.id.fun_card_content);
-        this.jLR = (Button) view.findViewById(R.id.fun_ad_button);
-        this.jMe = (ImageView) view.findViewById(R.id.fun_ad_feedback);
-        this.jMh = view.findViewById(R.id.divider_with_reply_title);
-        this.jMg = (TextView) view.findViewById(R.id.fun_ad_lable);
-        this.jMf = (CardView) view.findViewById(R.id.media_bg);
-        this.jMi = view.findViewById(R.id.media_mask);
-        this.jLK = new ArrayList(6);
-        this.jLK.add(this.jLJ);
-        this.jLK.add(this.jMf);
-        this.jLK.add(this.jLQ);
-        this.jLK.add(this.jLR);
-        this.jLK.add(this.jMi);
-        this.jLK.add((RelativeLayout) view.findViewById(R.id.fun_card_layout));
-        this.jLL = new ArrayList(1);
-        this.jLL.add(this.jLR);
+    private void am(View view) {
+        this.jSJ = (ViewGroup) view;
+        this.jSO = (TextView) view.findViewById(R.id.fun_ad_name);
+        this.jSP = (TextView) view.findViewById(R.id.fun_card_title);
+        this.jSQ = (FrameLayout) view.findViewById(R.id.fun_card_content);
+        this.jSR = (Button) view.findViewById(R.id.fun_ad_button);
+        this.jTg = (ImageView) view.findViewById(R.id.fun_ad_feedback);
+        this.jTj = view.findViewById(R.id.divider_with_reply_title);
+        this.jTi = (TextView) view.findViewById(R.id.fun_ad_lable);
+        this.jTh = (CardView) view.findViewById(R.id.media_bg);
+        this.jTk = view.findViewById(R.id.media_mask);
+        this.jSK = new ArrayList(6);
+        this.jSK.add(this.jSJ);
+        this.jSK.add(this.jTh);
+        this.jSK.add(this.jSQ);
+        this.jSK.add(this.jSR);
+        this.jSK.add(this.jTk);
+        this.jSK.add((RelativeLayout) view.findViewById(R.id.fun_card_layout));
+        this.jSL = new ArrayList(1);
+        this.jSL.add(this.jSR);
     }
 
     public void b(n nVar) {
-        if (this.jMs == null) {
-            this.jMs = new a.C0741a();
-            this.jMs.eRU = nVar;
-            this.jMs.jLJ = this.jLJ;
-            this.jMs.jLK = this.jLK;
-            this.jMs.jLL = this.jLL;
-            this.jMs.jLM = this.jLM;
-            this.jMs.jLN = this.jLN;
-            this.jMs.jLO = this.jLO;
-            this.jMs.jLP = this.jLP;
-            this.jMs.jLQ = this.jLQ;
-            this.jMs.jLR = this.jLR;
+        if (this.jTx == null) {
+            this.jTx = new a.C0742a();
+            this.jTx.eUi = nVar;
+            this.jTx.jSJ = this.jSJ;
+            this.jTx.jSK = this.jSK;
+            this.jTx.jSL = this.jSL;
+            this.jTx.jSM = this.jSM;
+            this.jTx.jSN = this.jSN;
+            this.jTx.jSO = this.jSO;
+            this.jTx.jSP = this.jSP;
+            this.jTx.jSQ = this.jSQ;
+            this.jTx.jSR = this.jSR;
         }
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.ubs.analytics.d;
 
 import com.baidu.ubs.analytics.SampleResult;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class i {
-    public static SampleResult WK(String str) {
+    public static SampleResult XJ(String str) {
         if (str == null || str.equals("")) {
             return SampleResult.OTHERE;
         }

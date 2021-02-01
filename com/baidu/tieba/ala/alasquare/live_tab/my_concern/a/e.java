@@ -10,20 +10,20 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernOfflineViewHolder;
-import com.baidu.tieba.card.aa;
-/* loaded from: classes9.dex */
+import com.baidu.tieba.card.ab;
+/* loaded from: classes10.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b, LiveTabConcernOfflineViewHolder> {
-    private aa<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> gzB;
+    private ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> gCl;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.gzG);
-        this.gzB = new aa<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.gCq);
+        this.gCl = new ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar) {
                 e.this.a(bVar);
             }
@@ -34,10 +34,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ac */
+    /* renamed from: aa */
     public LiveTabConcernOfflineViewHolder e(ViewGroup viewGroup) {
         com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.f fVar = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.f(this.mPageContext, viewGroup);
-        fVar.c(this.gzB);
+        fVar.c(this.gCl);
         return new LiveTabConcernOfflineViewHolder(fVar);
     }
 
@@ -45,10 +45,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
-        if (liveTabConcernOfflineViewHolder == null || liveTabConcernOfflineViewHolder.gAH == null) {
+        if (liveTabConcernOfflineViewHolder == null || liveTabConcernOfflineViewHolder.gDr == null) {
             return null;
         }
-        liveTabConcernOfflineViewHolder.gAH.a(bVar);
+        liveTabConcernOfflineViewHolder.gDr.a(bVar);
         return liveTabConcernOfflineViewHolder.getView();
     }
 
@@ -58,7 +58,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
             String str = bVar.user_id;
             if (!StringUtils.isNull(str) && com.baidu.adp.lib.f.b.toLong(str, 0L) != 0) {
                 if (!TbadkCoreApplication.isLogin()) {
-                    bg.skipToLoginActivity(this.mPageContext.getPageActivity());
+                    bh.skipToLoginActivity(this.mPageContext.getPageActivity());
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(str, 0L), !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str), false)));
                 }

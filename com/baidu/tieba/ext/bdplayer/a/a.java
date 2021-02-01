@@ -7,21 +7,21 @@ import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.swan.games.utils.so.SoUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends UniversalPlayer {
-    private String iMz;
+    private String iSg;
 
     public a(Context context, String str) {
         super(context);
-        this.iMz = str;
-        cwS();
+        this.iSg = str;
+        cyd();
     }
 
-    public void cwS() {
+    public final void cyd() {
         setOption(CyberPlayerManager.OPT_IS_LIVE_VIDEO, "true");
         HashMap hashMap = new HashMap();
         hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, SoUtils.SO_EVENT_ID_DEFAULT);
-        hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, this.iMz);
+        hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, this.iSg);
         setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, hashMap);
     }
 

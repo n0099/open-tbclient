@@ -6,7 +6,7 @@ import android.provider.DocumentsContract;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 @RequiresApi(19)
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 class SingleDocumentFile extends DocumentFile {
     private Context mContext;
     private Uri mUri;

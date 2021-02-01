@@ -3,7 +3,7 @@ package kotlin.collections;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import java.util.Collection;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a<E> implements Collection<E> {
     @Override // java.util.Collection
     public boolean add(E e) {

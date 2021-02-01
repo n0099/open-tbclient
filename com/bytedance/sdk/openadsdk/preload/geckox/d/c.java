@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.bytedance.sdk.openadsdk.preload.a.d<Map<String, List<Pair<String, Long>>>, List<UpdatePackage>> {
     private com.bytedance.sdk.openadsdk.preload.geckox.b d;
     private Map<String, Map<String, Object>> e;
@@ -209,9 +209,9 @@ public class c extends com.bytedance.sdk.openadsdk.preload.a.d<Map<String, List<
             com.bytedance.sdk.openadsdk.preload.geckox.i.c a2 = this.d.h().a(str, c);
             this.i.g = a2.c;
             this.i.d = a2.d;
-            this.i.e = com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b.a(a2.f7493a);
+            this.i.e = com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.b.a(a2.f7495a);
             if (a2.c == 200) {
-                String str2 = a2.f7494b;
+                String str2 = a2.f7496b;
                 com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "response:", str2);
                 try {
                     Response response = (Response) com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(str2, new com.bytedance.sdk.openadsdk.d.c.a<Response<ComponentModel>>() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.d.c.3
@@ -256,7 +256,7 @@ public class c extends com.bytedance.sdk.openadsdk.preload.a.d<Map<String, List<
             throw new NetworkErrorException("net work get failed, code: " + a2.c + ", url:" + str);
         } catch (Exception e2) {
             com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.d, this.i);
-            throw new C1026c("request failed：url:" + str + ", caused by:" + e2.getMessage(), e2);
+            throw new C1030c("request failed：url:" + str + ", caused by:" + e2.getMessage(), e2);
         }
     }
 
@@ -284,7 +284,7 @@ public class c extends com.bytedance.sdk.openadsdk.preload.a.d<Map<String, List<
             }
             hashMap.put(entry.getKey(), hashMap2);
         }
-        this.i.f7517a = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(hashMap);
+        this.i.f7519a = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(hashMap);
         checkRequestBodyModel.setLocal(hashMap);
         HashMap hashMap3 = new HashMap();
         for (String str : this.d.e()) {
@@ -296,7 +296,7 @@ public class c extends com.bytedance.sdk.openadsdk.preload.a.d<Map<String, List<
             }
             hashMap3.put(str, group);
         }
-        this.i.f7518b = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(hashMap3);
+        this.i.f7520b = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(hashMap3);
         checkRequestBodyModel.setDeployments(hashMap3);
         if (this.e != null) {
             this.i.c = com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(this.e);
@@ -306,21 +306,21 @@ public class c extends com.bytedance.sdk.openadsdk.preload.a.d<Map<String, List<
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.d.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1026c extends RuntimeException {
-        C1026c(String str, Throwable th) {
+    /* loaded from: classes6.dex */
+    public static class C1030c extends RuntimeException {
+        C1030c(String str, Throwable th) {
             super(str, th);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b extends RuntimeException {
         b(String str, Throwable th) {
             super(str, th);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends RuntimeException {
         a(String str) {
             super(str);

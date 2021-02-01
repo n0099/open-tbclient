@@ -5,14 +5,14 @@ import android.content.Intent;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.ufosdk.b.d;
 import com.baidu.ufosdk.f.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5351a;
+    private Context f5353a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f5352b;
+    private String f5354b;
     private String c;
     private boolean d = false;
     private boolean e = false;
@@ -20,10 +20,10 @@ public final class a extends Thread {
     private final long g = 300;
 
     public a(Context context, String str, String str2) {
-        this.f5352b = "";
+        this.f5354b = "";
         this.c = "";
-        this.f5351a = context;
-        this.f5352b = str;
+        this.f5353a = context;
+        this.f5354b = str;
         this.c = str2;
     }
 
@@ -32,7 +32,7 @@ public final class a extends Thread {
     }
 
     public final void a(String str) {
-        this.f5352b = str;
+        this.f5354b = str;
     }
 
     public final void b() {
@@ -51,14 +51,14 @@ public final class a extends Thread {
             } catch (InterruptedException e) {
                 c.a("Interrupted!", e);
             }
-            if (!this.e && this.f5352b != null && !this.f5352b.equals("newMessage")) {
-                if (d.c(this.f5351a)) {
-                    Context context = this.f5351a;
+            if (!this.e && this.f5354b != null && !this.f5354b.equals("newMessage")) {
+                if (d.c(this.f5353a)) {
+                    Context context = this.f5353a;
                     String str = UfoSDK.clientid;
-                    com.baidu.ufosdk.e.a.a(context, this.f5352b, this.c);
+                    com.baidu.ufosdk.e.a.a(context, this.f5354b, this.c);
                 } else {
-                    this.f5351a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
-                    this.f5351a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
+                    this.f5353a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+                    this.f5353a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
                 }
             }
             try {

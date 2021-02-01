@@ -12,16 +12,16 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class c extends a {
-    private ActivityManager aqF;
+    private ActivityManager aqv;
     private int bB;
 
     public c(Context context) {
         super(context);
-        this.aqF = null;
+        this.aqv = null;
         this.bB = -100;
-        this.aqF = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.aqv = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
     }
 
     private static Map<String, Object> a(ActivityManager.ProcessErrorStateInfo processErrorStateInfo, String str) {
@@ -73,28 +73,28 @@ public final class c extends a {
 
     private boolean h(String str) {
         try {
-            ActivityManager.ProcessErrorStateInfo uv = uv();
-            if (uv == null) {
+            ActivityManager.ProcessErrorStateInfo us = us();
+            if (us == null) {
                 return false;
             }
-            if (uv.pid == Process.myPid()) {
+            if (us.pid == Process.myPid()) {
                 com.baidu.crabsdk.c.a.ds("anr info catched...");
-                Map<String, Object> a2 = a(uv, str);
+                Map<String, Object> a2 = a(us, str);
                 if (com.baidu.crabsdk.a.P != null) {
                     com.baidu.crabsdk.a.P.onAnrStarted(a2);
                 }
-                Map<String, Object> a3 = g.a(this.aqC, (Throwable) null, false);
+                Map<String, Object> a3 = g.a(this.aqs, (Throwable) null, false);
                 if (a3 == null) {
                     com.baidu.crabsdk.c.a.dt("info map is null!");
                     return true;
                 }
                 a3.putAll(a2);
                 g.b(a3);
-                i.a(this.aqC, i.e(a3));
+                i.a(this.aqs, i.e(a3));
                 h.ag();
-                if (h.uy()) {
+                if (h.uv()) {
                     com.baidu.crabsdk.c.a.ds("begin to upload anr info...");
-                    k.a(false, this.aqC);
+                    k.a(false, this.aqs);
                 }
             } else {
                 com.baidu.crabsdk.c.a.ds("Anr occur! But not the current pid!" + Process.myPid());
@@ -110,9 +110,9 @@ public final class c extends a {
         }
     }
 
-    private ActivityManager.ProcessErrorStateInfo uv() {
+    private ActivityManager.ProcessErrorStateInfo us() {
         try {
-            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.aqF.getProcessesInErrorState();
+            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.aqv.getProcessesInErrorState();
             if (processesInErrorState != null) {
                 for (ActivityManager.ProcessErrorStateInfo processErrorStateInfo : processesInErrorState) {
                     if (processErrorStateInfo.condition == 2) {

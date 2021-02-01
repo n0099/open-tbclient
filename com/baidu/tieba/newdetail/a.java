@@ -3,13 +3,13 @@ package com.baidu.tieba.newdetail;
 import android.view.View;
 import com.baidu.tieba.hottopic.data.d;
 import com.baidu.tieba.hottopic.data.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface a {
 
     /* renamed from: com.baidu.tieba.newdetail.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0800a {
-        void Ez(int i);
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0801a {
+        void ER(int i);
 
         void a(int i, long j, long j2, int i2);
 
@@ -20,41 +20,41 @@ public interface a {
         void d(e eVar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void E(boolean z, int i);
 
-        void EC(int i);
+        void EU(int i);
 
-        void ED(int i);
+        void EV(int i);
 
-        void EE(int i);
+        void EW(int i);
 
-        d EF(int i);
+        d EX(int i);
 
-        void G(long j, long j2);
+        void K(long j, long j2);
 
         void a(d dVar, boolean z, int i);
 
-        void bQX();
+        void bRB();
 
         void destroy();
 
-        void dfS();
+        void dhT();
 
-        void dfT();
+        void dhU();
 
-        void dfU();
+        void dhV();
 
-        e dfV();
+        e dhW();
 
-        int dfW();
+        int dhX();
 
-        void dfX();
+        void dhY();
+
+        void e(long j, long j2, int i);
 
         void e(e eVar);
-
-        void f(long j, long j2, int i);
 
         void f(e eVar);
 
@@ -66,6 +66,6 @@ public interface a {
 
         void resume();
 
-        void ub(boolean z);
+        void uo(boolean z);
     }
 }

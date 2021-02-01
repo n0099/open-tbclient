@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.WindowInsets;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class WindowInsetsCompat {
     private final Object mInsets;
 

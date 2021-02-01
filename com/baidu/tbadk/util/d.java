@@ -1,322 +1,256 @@
 package com.baidu.tbadk.util;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
-import com.baidu.tieba.R;
-import java.lang.ref.WeakReference;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import rx.schedulers.Schedulers;
 /* loaded from: classes.dex */
 public class d {
-    private static boolean dpG = false;
-    private final com.baidu.tbadk.h.g fFs;
-    private ArrayList<WeakReference<Activity>> fKn;
-    private ArrayList<WeakReference<Activity>> fKo;
-    private int mSkinType;
-    private final CustomMessageListener skinTypeChangeListener;
+    private static JSONObject fMr = null;
+    private static ArrayList<Long> fMs = new ArrayList<>();
+    private static final Hashtable<String, ArrayList<a<Integer, Integer>>> fMt = new Hashtable<>();
+    private static boolean fMu = true;
 
-    private d() {
-        this.fKn = new ArrayList<>();
-        this.fKo = new ArrayList<>();
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.skinTypeChangeListener = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tbadk.util.d.1
+    public static void DK(final String str) {
+        rx.d.bX("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.d.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                int skinType;
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && d.this.mSkinType != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
-                    d.this.mSkinType = skinType;
-                    if (d.dpG) {
-                        d.this.onChangeSkinType();
-                    }
+            @Override // rx.functions.b
+            public void call(String str2) {
+                String string = com.baidu.tbadk.core.sharedPref.b.brQ().getString("old_sniff_url", "");
+                if (TextUtils.isEmpty(str) || str.equals(string)) {
+                    d.ls(false);
+                    return;
                 }
-            }
-        };
-        this.fFs = new com.baidu.tbadk.h.g() { // from class: com.baidu.tbadk.util.d.2
-            @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityCreated(Activity activity, Bundle bundle) {
-                d.this.fKo.add(new WeakReference(activity));
-            }
-
-            @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityStarted(Activity activity) {
-                if (d.dpG && d.this.g(d.this.ak(activity))) {
-                    d.this.fKn.add(new WeakReference(activity));
+                File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+                if (!file.exists()) {
+                    file.mkdir();
                 }
-            }
-
-            @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityStopped(Activity activity) {
-                if (d.dpG && d.this.h(d.this.ak(activity))) {
-                    Iterator it = d.this.fKn.iterator();
-                    while (it.hasNext()) {
-                        WeakReference weakReference = (WeakReference) it.next();
-                        if (activity != null && activity == weakReference.get()) {
-                            d.this.fKn.remove(weakReference);
-                            return;
-                        }
-                    }
+                if (b.bEW().f(new File(file, "sniff.json"), str) > 0) {
+                    com.baidu.tbadk.core.sharedPref.b.brQ().putString("old_sniff_url", "");
                 }
+                d.ls(true);
             }
-
-            @Override // com.baidu.tbadk.h.g, android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityDestroyed(Activity activity) {
-                Iterator it = d.this.fKo.iterator();
-                while (it.hasNext()) {
-                    WeakReference weakReference = (WeakReference) it.next();
-                    if (weakReference.get() != null && weakReference.get() == activity) {
-                        d.this.fKo.remove(weakReference);
-                        return;
-                    }
-                }
-            }
-        };
-        MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
-    }
-
-    public static final d bEN() {
-        return a.fKq;
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a {
-        private static final d fKq = new d();
-    }
-
-    public void f(Application application) {
-        if (application != null) {
-            try {
-                application.registerActivityLifecycleCallbacks(this.fFs);
-            } catch (Exception e) {
-                e.printStackTrace();
+    public static void ls(final boolean z) {
+        rx.d.bX("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.d.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // rx.functions.b
+            public void call(String str) {
+                if (d.fMr == null || z) {
+                    d.bFa();
+                }
+                d.bEZ();
             }
-        }
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onChangeSkinType() {
-        FrameLayout ak;
-        Iterator<WeakReference<Activity>> it = this.fKn.iterator();
-        while (it.hasNext()) {
-            WeakReference<Activity> next = it.next();
-            if (next != null && next.get() != null && !next.get().isFinishing() && (ak = ak(next.get())) != null) {
-                Object tag = ak.getTag(R.id.tag_scheme_baidu_box_app_back_view);
-                if (tag instanceof ViewGroup) {
-                    b((ViewGroup) tag, ak.getContext());
+    public static void bEZ() {
+        JSONArray optJSONArray;
+        JSONObject jSONObject = fMr;
+        if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("data")) != null) {
+            int length = optJSONArray.length();
+            int size = fMs.size();
+            ArrayList<Long> arrayList = new ArrayList<>();
+            for (int i = 0; i < length; i++) {
+                if (i < size) {
+                    arrayList.add(fMs.get(i));
+                } else {
+                    arrayList.add(0L);
                 }
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean g(FrameLayout frameLayout) {
-        if (frameLayout == null) {
-            return false;
-        }
-        try {
-            Object tag = frameLayout.getTag(R.id.tag_scheme_baidu_box_app_back_view);
-            ViewGroup viewGroup = tag instanceof ViewGroup ? (ViewGroup) tag : null;
-            if (viewGroup != null && viewGroup.getParent() != null) {
-                if (viewGroup.getParent() == frameLayout) {
-                    return false;
+            fMs = arrayList;
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                if (optJSONObject != null) {
+                    a(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), fMu);
+                } else {
+                    return;
                 }
-                frameLayout.setTag(R.id.tag_scheme_baidu_box_app_back_view, null);
-                viewGroup = null;
             }
-            if (viewGroup == null) {
-                viewGroup = fw(frameLayout.getContext());
+            if (fMu) {
+                fMu = false;
             }
-            if (viewGroup == null) {
-                return false;
+        }
+    }
+
+    private static void a(int i, String str, int i2, JSONArray jSONArray, boolean z) {
+        if (i >= 0 && !TextUtils.isEmpty(str) && i2 >= 0 && jSONArray != null && jSONArray.length() != 0) {
+            long time = new Date().getTime();
+            String str2 = "AD_SNIFF_RESULT_KEY_" + str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "TS";
+            long j = com.baidu.tbadk.core.sharedPref.b.brQ().getLong(str2, 0L);
+            long millis = TimeUnit.MINUTES.toMillis(i2);
+            boolean z2 = j == 0;
+            boolean z3 = j > 0 && time - j > millis;
+            if (z || z2 || z3) {
+                com.baidu.tbadk.core.sharedPref.b.brQ().putLong(str2, time);
+                b(i, jSONArray);
             }
-            frameLayout.addView(viewGroup);
-            frameLayout.setTag(R.id.tag_scheme_baidu_box_app_back_view, viewGroup);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds339), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds89));
-            layoutParams.gravity = 83;
-            layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds442) + UtilHelper.getNavigationBarHeight(frameLayout.getContext());
-            viewGroup.setLayoutParams(layoutParams);
-            View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.util.d.3
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    d.this.fx(view.getContext());
-                    d.this.ls(false);
-                    d.this.bEO();
+        }
+    }
+
+    private static void b(int i, JSONArray jSONArray) {
+        if (i >= fMs.size()) {
+            Log.e("AD_SNIFF_RESULT_KEY", "group index should NOT greater or equal group size!!!");
+            return;
+        }
+        PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
+        rD(i);
+        int i2 = 0;
+        while (true) {
+            int i3 = i2;
+            if (i3 < jSONArray.length()) {
+                String optString = jSONArray.optString(i3);
+                int i4 = i3 + 1;
+                a<Integer, Integer> aVar = new a<>(Integer.valueOf(i), Integer.valueOf(i4));
+                ArrayList<a<Integer, Integer>> arrayList = fMt.get(optString);
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
                 }
-            };
-            viewGroup.setClickable(true);
-            viewGroup.setOnClickListener(onClickListener);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean h(FrameLayout frameLayout) {
-        if (frameLayout == null) {
-            return false;
-        }
-        try {
-            Object tag = frameLayout.getTag(R.id.tag_scheme_baidu_box_app_back_view);
-            ViewGroup viewGroup = tag instanceof ViewGroup ? (ViewGroup) tag : null;
-            if (viewGroup != null && viewGroup.getParent() != null && viewGroup.getParent() == frameLayout && isTokenValid(frameLayout) && isTokenValid(viewGroup)) {
-                frameLayout.removeView(viewGroup);
-                frameLayout.setTag(R.id.tag_scheme_baidu_box_app_back_view, null);
-                return true;
-            }
-        } catch (Exception e) {
-        }
-        return false;
-    }
-
-    private ViewGroup fw(Context context) {
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.layout_baiduboxapp_back_view, (ViewGroup) null);
-        b(viewGroup, context);
-        return viewGroup;
-    }
-
-    public void lr(boolean z) {
-        FrameLayout ak;
-        if (dpG && (ak = ak(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            try {
-                Object tag = ak.getTag(R.id.tag_scheme_baidu_box_app_back_view);
-                if (tag instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) tag;
-                    if (z) {
-                        viewGroup.bringToFront();
-                        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds339), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds89));
-                        layoutParams.gravity = 83;
-                        layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds207);
-                        viewGroup.setLayoutParams(layoutParams);
-                    } else {
-                        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds339), com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds89));
-                        layoutParams2.gravity = 83;
-                        layoutParams2.bottomMargin = UtilHelper.getNavigationBarHeight(ak.getContext()) + com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds442);
-                        viewGroup.setLayoutParams(layoutParams2);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void b(ViewGroup viewGroup, Context context) {
-        if (viewGroup != null && context != null) {
-            ao.setViewTextColor((TextView) viewGroup.findViewById(R.id.tv_back_shoubai_text), R.color.CAM_X0101);
-            int dimens = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds424);
-            com.baidu.tbadk.core.util.f.a.btb().oJ(0).oS(1).af(dimens).ah(dimens).oK(R.color.topic_disagree_des_color).bz(viewGroup);
-            SvgManager.bsx().a((ImageView) viewGroup.findViewById(R.id.shoubai_back_icon), R.drawable.ic_icon_pure_list_arrow16_left_n_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.bsx().a((ImageView) viewGroup.findViewById(R.id.shoubai_logo_icon), R.drawable.ic_icon_mask_home_backbtn_logo_n_svg, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public FrameLayout ak(Activity activity) {
-        if (activity != null) {
-            try {
-                if (!activity.isFinishing()) {
-                    if (activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
-                        return null;
-                    }
-                    View decorView = activity.getWindow().getDecorView();
-                    if (decorView instanceof FrameLayout) {
-                        return (FrameLayout) decorView;
-                    }
-                    return null;
-                }
-            } catch (Exception e) {
-                return null;
-            }
-        }
-        return null;
-    }
-
-    public void ls(boolean z) {
-        if (dpG != z) {
-            dpG = z;
-            if (dpG) {
-                Iterator<WeakReference<Activity>> it = this.fKo.iterator();
-                while (it.hasNext()) {
-                    WeakReference<Activity> next = it.next();
-                    if (next.get() != null && !next.get().isFinishing()) {
-                        Activity activity = next.get();
-                        if (g(ak(activity))) {
-                            this.fKn.add(new WeakReference<>(activity));
-                        }
-                    }
-                }
+                arrayList.add(aVar);
+                fMt.put(optString, arrayList);
+                a(packageManager, optString, i, i4);
+                i2 = i3 + 1;
+            } else {
+                rE(i);
+                com.baidu.tbadk.core.sharedPref.b.brQ().putString("AD_SNIFF_RESULT_KEY", bFc());
                 return;
             }
-            Iterator<WeakReference<Activity>> it2 = this.fKo.iterator();
-            while (it2.hasNext()) {
-                WeakReference<Activity> next2 = it2.next();
-                if (next2.get() != null && !next2.get().isFinishing()) {
-                    h(ak(next2.get()));
-                }
-            }
-            this.fKn.clear();
         }
     }
 
-    public void bEO() {
-        BackBaiduBoxViewEvent backBaiduBoxViewEvent = new BackBaiduBoxViewEvent();
-        backBaiduBoxViewEvent.isShow = dpG;
-        com.baidu.tbadk.mutiprocess.g.publishEvent(backBaiduBoxViewEvent);
-    }
-
-    public void fx(Context context) {
-        if (context != null) {
-            try {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("baiduboxapp://donothing"));
-                if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
-                    context.startActivity(intent);
-                } else {
-                    bEP();
-                }
-            } catch (Exception e) {
-                bEP();
-            }
-        }
-    }
-
-    private void bEP() {
-        com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), R.string.not_install_baidu_box_app_tip);
-    }
-
-    private boolean isTokenValid(View view) {
-        IBinder windowToken;
-        if (view != null && (windowToken = view.getWindowToken()) != null) {
-            try {
-                if (windowToken.isBinderAlive()) {
-                    if (windowToken.pingBinder()) {
-                        return true;
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void bFa() {
+        File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+        if (file.exists()) {
+            File file2 = new File(file, "sniff.json");
+            if (file2.exists()) {
+                String readFileData = FileUtils.readFileData(file2);
+                if (!TextUtils.isEmpty(readFileData)) {
+                    synchronized (d.class) {
+                        try {
+                            fMr = new JSONObject(readFileData);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
-            } catch (Exception e) {
             }
         }
-        return false;
+    }
+
+    private static void a(PackageManager packageManager, String str, int i, int i2) {
+        try {
+            packageManager.getApplicationInfo(str, 0);
+            be(i, i2);
+        } catch (PackageManager.NameNotFoundException e) {
+            bf(i, i2);
+        }
+    }
+
+    private static void rD(int i) {
+        bf(i, 0);
+    }
+
+    private static void rE(int i) {
+        be(i, 0);
+    }
+
+    private static void be(int i, int i2) {
+        ArrayList<Long> arrayList = fMs;
+        if (i < arrayList.size()) {
+            arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() | (1 << i2)));
+        }
+    }
+
+    private static void bf(int i, int i2) {
+        ArrayList<Long> arrayList = fMs;
+        if (i < arrayList.size()) {
+            arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() & ((1 << i2) ^ (-1))));
+        }
+    }
+
+    public static void L(Intent intent) {
+        if (!TextUtils.isEmpty(intent.getDataString())) {
+            String substring = intent.getDataString().substring(8);
+            String action = intent.getAction();
+            ArrayList<a<Integer, Integer>> arrayList = fMt.get(substring);
+            if (arrayList != null && arrayList.size() != 0) {
+                Iterator<a<Integer, Integer>> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    a<Integer, Integer> next = it.next();
+                    if (next != null) {
+                        int intValue = next.fMw.intValue();
+                        int intValue2 = next.fMx.intValue();
+                        if ("android.intent.action.PACKAGE_ADDED".equals(action)) {
+                            be(intValue, intValue2);
+                        } else {
+                            bf(intValue, intValue2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static String bFb() {
+        if (fMs.size() > 0) {
+            return bFc();
+        }
+        return bFd();
+    }
+
+    private static String bFc() {
+        ArrayList<Long> arrayList = fMs;
+        if (arrayList == null || arrayList.size() == 0) {
+            return "";
+        }
+        ArrayList arrayList2 = new ArrayList();
+        Iterator<Long> it = arrayList.iterator();
+        while (it.hasNext()) {
+            arrayList2.add(String.valueOf(it.next()));
+        }
+        return TextUtils.join(",", arrayList2);
+    }
+
+    private static String bFd() {
+        String string = com.baidu.tbadk.core.sharedPref.b.brQ().getString("AD_SNIFF_RESULT_KEY", "");
+        if (!TextUtils.isEmpty(string)) {
+            ArrayList<Long> arrayList = new ArrayList<>();
+            for (String str : string.split(",")) {
+                arrayList.add(Long.valueOf(str));
+            }
+            fMs = arrayList;
+        } else {
+            ls(false);
+        }
+        return string;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a<X, Y> {
+        public final X fMw;
+        public final Y fMx;
+
+        public a(X x, Y y) {
+            this.fMw = x;
+            this.fMx = y;
+        }
     }
 }

@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CronetEngineBuilderImpl extends ICronetEngineBuilder {
     public final Context mApplicationContext;
     public boolean mDisableCache;
@@ -25,7 +25,7 @@ public abstract class CronetEngineBuilderImpl extends ICronetEngineBuilder {
     public boolean mHttp2Enabled = true;
     public boolean mBrotiEnabled = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Pkp {
         public final Date mExpirationDate;
         public final byte[][] mHashes;
@@ -33,7 +33,7 @@ public abstract class CronetEngineBuilderImpl extends ICronetEngineBuilder {
         public final boolean mIncludeSubdomains;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class QuicHint {
         public final int mAlternatePort;
         public final String mHost;

@@ -22,23 +22,24 @@ import com.qq.e.comm.net.rr.S2SSRequest;
 import com.qq.e.comm.services.RetCodeService;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
+import com.yy.videoplayer.stat.VideoPlayerStatistic;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a f12749a = new a();
+    private static final a f12751a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile Boolean f12750b = Boolean.FALSE;
+    private volatile Boolean f12752b = Boolean.FALSE;
 
     public static a a() {
-        return f12749a;
+        return f12751a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0005 */
@@ -59,7 +60,7 @@ public class a {
             jSONObject2.put("sig", jSONObject3);
             JSONObject jSONObject4 = new JSONObject();
             if (deviceStatus != null) {
-                jSONObject4.putOpt("did", deviceStatus.getPlainDid());
+                jSONObject4.putOpt(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, deviceStatus.getPlainDid());
                 jSONObject4.putOpt(IXAdRequestInfo.TEST_MODE, deviceStatus.model);
                 jSONObject4.putOpt("lg", deviceStatus.getLanguage());
                 jSONObject4.putOpt("w", Integer.valueOf(deviceStatus.getDeviceWidth()));
@@ -112,12 +113,12 @@ public class a {
     }
 
     public final void a(Context context, SM sm, final PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
-        if (this.f12750b.booleanValue()) {
+        if (this.f12752b.booleanValue()) {
             return;
         }
         synchronized (a.class) {
             try {
-                if (!this.f12750b.booleanValue()) {
+                if (!this.f12752b.booleanValue()) {
                     String a2 = a(sm, pm, deviceStatus, aPPStatus, j);
                     GDTLogger.d("launch request: " + a2);
                     String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/activate" : "http://sdk.e.qq.com/launch";
@@ -168,7 +169,7 @@ public class a {
                             }
                         }
                     });
-                    this.f12750b = Boolean.TRUE;
+                    this.f12752b = Boolean.TRUE;
                 }
             } catch (Throwable th) {
                 throw th;

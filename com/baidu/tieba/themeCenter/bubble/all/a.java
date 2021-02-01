@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.b;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     private TbPageContext<?> mPageContext;
-    private int nwX;
+    private int nGH;
 
     public a(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -27,10 +27,10 @@ public class a {
                 a2 = h(dressItemData);
             }
             if (a2) {
-                this.nwX = dressItemData.getPropsId();
+                this.nGH = dressItemData.getPropsId();
                 HttpMessage httpMessage = new HttpMessage(1003056);
-                httpMessage.setExtra(Integer.valueOf(this.nwX));
-                httpMessage.addParam("bcode", String.valueOf(this.nwX));
+                httpMessage.setExtra(Integer.valueOf(this.nGH));
+                httpMessage.addParam("bcode", String.valueOf(this.nGH));
                 MessageManager.getInstance().sendMessage(httpMessage);
             } else if (dressItemData.getFreeUserLevel() == 100) {
                 if (dressItemData.getActivityFinish() == 0) {

@@ -4,7 +4,7 @@ import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 /* loaded from: classes3.dex */
 public class a extends BLCPRequest {
     public a() {
-        this.auG = null;
-        this.auH = BLCPRequest.SendTimeoutSecond.TIMEOUT_120s;
+        this.auv = null;
+        this.auw = BLCPRequest.SendTimeoutSecond.TIMEOUT_120s;
     }
 }

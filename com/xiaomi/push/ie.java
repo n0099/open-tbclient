@@ -18,10 +18,10 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     private static final jn f646a = new jn("XmPushActionCheckClientInfo");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14128a = new jf("", (byte) 8, 1);
+    private static final jf f14130a = new jf("", (byte) 8, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final jf f14129b = new jf("", (byte) 8, 2);
+    private static final jf f14131b = new jf("", (byte) 8, 2);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -63,7 +63,7 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 if (!m431a()) {
                     throw new jj("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
@@ -76,8 +76,8 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a != 8) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 8) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f647a = jiVar.m509a();
@@ -85,8 +85,8 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
                         break;
                     }
                 case 2:
-                    if (m511a.f14171a != 8) {
-                        jl.a(jiVar, m511a.f14171a);
+                    if (m511a.f14173a != 8) {
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     } else {
                         this.f649b = jiVar.m509a();
@@ -94,7 +94,7 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
             }
             jiVar.g();
@@ -125,10 +125,10 @@ public class ie implements ix<ie, Object>, Serializable, Cloneable {
     public void b(ji jiVar) {
         a();
         jiVar.a(f646a);
-        jiVar.a(f14128a);
+        jiVar.a(f14130a);
         jiVar.a(this.f647a);
         jiVar.b();
-        jiVar.a(f14129b);
+        jiVar.a(f14131b);
         jiVar.a(this.f649b);
         jiVar.b();
         jiVar.c();

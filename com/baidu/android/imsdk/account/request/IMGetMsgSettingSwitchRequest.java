@@ -154,7 +154,7 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
                     break;
                 }
             case 1:
-                str = Constants.URL_HTTP_RD;
+                str = "http://rd-im-server.bcc-szth.baidu.com:8080/";
                 break;
             case 2:
                 str = "http://10.232.27.22:8090/";

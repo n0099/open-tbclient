@@ -16,11 +16,11 @@ import com.baidu.swan.pms.model.PMSAppInfo;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
-    private long ddG;
+    private long dfS;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends b<a> {
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.a.c
         public /* synthetic */ com.baidu.swan.apps.u.c.a.c D(Bundle bundle) {
@@ -28,59 +28,59 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e ck(long j) {
-            return super.ck(j);
+        public /* synthetic */ e cq(long j) {
+            return super.cq(j);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e hM(int i) {
-            return super.hM(i);
+        public /* synthetic */ e hP(int i) {
+            return super.hP(i);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e oA(String str) {
-            return super.oA(str);
+        public /* synthetic */ e oM(String str) {
+            return super.oM(str);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e oB(String str) {
-            return super.oB(str);
+        public /* synthetic */ e oN(String str) {
+            return super.oN(str);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e ou(String str) {
-            return super.ou(str);
+        public /* synthetic */ e oO(String str) {
+            return super.oO(str);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e ov(String str) {
-            return super.ov(str);
+        public /* synthetic */ e oP(String str) {
+            return super.oP(str);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e ow(String str) {
-            return super.ow(str);
+        public /* synthetic */ e oQ(String str) {
+            return super.oQ(str);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e ox(String str) {
-            return super.ox(str);
+        public /* synthetic */ e oR(String str) {
+            return super.oR(str);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e oy(String str) {
-            return super.oy(str);
+        public /* synthetic */ e oS(String str) {
+            return super.oS(str);
         }
 
         @Override // com.baidu.swan.apps.u.c.b, com.baidu.swan.apps.u.c.e
-        public /* synthetic */ e oz(String str) {
-            return super.oz(str);
+        public /* synthetic */ e oT(String str) {
+            return super.oT(str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ao.e.d
-        /* renamed from: ayx */
-        public a ayy() {
+        /* renamed from: ayV */
+        public a ayW() {
             return this;
         }
     }
@@ -94,14 +94,14 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     public SelfT u(Intent intent) {
         if (intent == null) {
-            return (SelfT) ayy();
+            return (SelfT) ayW();
         }
         D(intent.getExtras());
         if (d.v(intent)) {
-            oC("1250000000000000");
-            p("box_cold_launch", -1L);
+            oU("1250000000000000");
+            o("box_cold_launch", -1L);
         }
-        return (SelfT) ayy();
+        return (SelfT) ayW();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -109,15 +109,15 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     /* renamed from: C */
     public SelfT D(Bundle bundle) {
         if (bundle == null) {
-            return (SelfT) ayy();
+            return (SelfT) ayW();
         }
         com.baidu.swan.apps.console.debugger.b.n(bundle);
-        k.aDJ().J(bundle);
+        k.aEe().J(bundle);
         super.D(bundle);
         if (TextUtils.isEmpty(bundle.getString("mPage"))) {
-            oL("mPage");
+            pd("mPage");
         }
-        return (SelfT) ayy();
+        return (SelfT) ayW();
     }
 
     @Override // com.baidu.swan.apps.u.c.a.c
@@ -131,23 +131,23 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return bundle;
     }
 
-    public static b ayk() {
+    public static b ayI() {
         a aVar = new a();
-        aVar.oB("小程序测试");
-        aVar.oz("wSfMyKIbrbNg7ogTFTcBuk1P8mgGTlB1");
-        aVar.cl(Color.parseColor("#FF308EF0"));
-        aVar.oC("1230000000000000");
-        aVar.ox("小程序简介");
-        aVar.ow("测试服务类目");
-        aVar.ov("测试主体信息");
-        aVar.oA("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
-        aVar.ou("1.0");
-        aVar.oy("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");
+        aVar.oT("小程序测试");
+        aVar.oR("wSfMyKIbrbNg7ogTFTcBuk1P8mgGTlB1");
+        aVar.cr(Color.parseColor("#FF308EF0"));
+        aVar.oU("1230000000000000");
+        aVar.oP("小程序简介");
+        aVar.oO("测试服务类目");
+        aVar.oN("测试主体信息");
+        aVar.oS("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
+        aVar.oM("1.0");
+        aVar.oQ("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");
         return aVar;
     }
 
     public static String a(b bVar, SwanAppConfigData swanAppConfigData) {
-        return b(ok(bVar.getPage()), swanAppConfigData);
+        return b(oD(bVar.getPage()), swanAppConfigData);
     }
 
     public static String a(String str, SwanAppConfigData swanAppConfigData) {
@@ -165,21 +165,21 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             }
             return null;
         }
-        String b2 = b(l, parse);
-        if (TextUtils.isEmpty(b2)) {
+        String a2 = a(l, parse);
+        if (TextUtils.isEmpty(a2)) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchInfo", "getPageInfo no launchPath ");
             }
             return null;
         }
-        String deleteQueryParam = ai.deleteQueryParam(parse.getEncodedQuery(), com.baidu.swan.apps.scheme.a.a.dFW);
+        String deleteQueryParam = ai.deleteQueryParam(parse.getEncodedQuery(), com.baidu.swan.apps.scheme.a.a.dIa);
         if (!TextUtils.isEmpty(deleteQueryParam)) {
-            b2 = b2 + "?" + deleteQueryParam;
+            a2 = a2 + "?" + deleteQueryParam;
         }
-        return b(ok(b2), swanAppConfigData);
+        return b(oD(a2), swanAppConfigData);
     }
 
-    private static String b(String str, Uri uri) {
+    private static String a(String str, Uri uri) {
         String path = uri.getPath();
         if (TextUtils.isEmpty(path)) {
             return null;
@@ -191,7 +191,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return substring.replaceAll("/+", "/");
     }
 
-    public static String ok(String str) {
+    public static String oD(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(File.separator)) {
             return str.substring(1);
         }
@@ -203,19 +203,19 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             return null;
         }
         String delAllParamsFromUrl = ai.delAllParamsFromUrl(str);
-        if (com.baidu.swan.apps.ac.b.a.qq(delAllParamsFromUrl)) {
-            return ai.deleteQueryParam(str, com.baidu.swan.apps.scheme.a.a.dFW);
+        if (com.baidu.swan.apps.ac.b.a.qI(delAllParamsFromUrl)) {
+            return ai.deleteQueryParam(str, com.baidu.swan.apps.scheme.a.a.dIa);
         }
-        if (swanAppConfigData.ry(j.rX(delAllParamsFromUrl))) {
+        if (swanAppConfigData.rR(j.sq(delAllParamsFromUrl))) {
             return str;
         }
         return null;
     }
 
-    public JSONObject ayl() {
-        String ayE = ayE();
-        if (ayE != null) {
-            String queryParameter = Uri.parse(ayE).getQueryParameter("_swaninfo");
+    public JSONObject ayJ() {
+        String azc = azc();
+        if (azc != null) {
+            String queryParameter = Uri.parse(azc).getQueryParameter("_swaninfo");
             if (!TextUtils.isEmpty(queryParameter)) {
                 try {
                     return new JSONObject(queryParameter).optJSONObject("baidusearch");
@@ -229,170 +229,170 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return new JSONObject();
     }
 
-    public String asD() {
-        return "SwanAppLaunchInfo{mAppId='" + getAppId() + "', mAppKey='" + getAppKey() + "', mAppTitle='" + asE() + "', pmsAppInfo is null='" + ayT() + "', launchFrom='" + ayC() + "', launchScheme='" + ayE() + "', page='" + getPage() + "', mErrorCode=" + ayn() + ", mErrorDetail='" + ayo() + "', mErrorMsg='" + ayp() + "', mResumeDate='" + ayq() + "', maxSwanVersion='" + ayF() + "', minSwanVersion='" + ayG() + "', mVersion='" + getVersion() + "', mType=" + getType() + ", extraData=" + ayH() + ", isDebug=" + isDebug() + ", targetSwanVersion='" + ayN() + "', swanCoreVersion=" + asb() + ", appFrameType=" + getAppFrameType() + ", consoleSwitch=" + ayO() + ", orientation=" + getOrientation() + ", versionCode='" + getVersionCode() + "', launchFlags=" + ayP() + ", swanAppStartTime=" + ayw() + ", extStartTimestamp=" + ayQ() + ", remoteDebug='" + ayR() + "', extJSonObject=" + ayU() + ", launchId=" + ayV() + '}';
+    public String atb() {
+        return "SwanAppLaunchInfo{mAppId='" + getAppId() + "', mAppKey='" + getAppKey() + "', mAppTitle='" + atc() + "', pmsAppInfo is null='" + azr() + "', launchFrom='" + aza() + "', launchScheme='" + azc() + "', page='" + getPage() + "', mErrorCode=" + ayL() + ", mErrorDetail='" + ayM() + "', mErrorMsg='" + ayN() + "', mResumeDate='" + ayO() + "', maxSwanVersion='" + azd() + "', minSwanVersion='" + aze() + "', mVersion='" + getVersion() + "', mType=" + getType() + ", extraData=" + azf() + ", isDebug=" + isDebug() + ", targetSwanVersion='" + azl() + "', swanCoreVersion=" + asA() + ", appFrameType=" + getAppFrameType() + ", consoleSwitch=" + azm() + ", orientation=" + getOrientation() + ", versionCode='" + getVersionCode() + "', launchFlags=" + azn() + ", swanAppStartTime=" + ayU() + ", extStartTimestamp=" + azo() + ", remoteDebug='" + azp() + "', extJSonObject=" + azs() + ", launchId=" + azt() + '}';
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public String asE() {
-        PMSAppInfo ayS = ayS();
-        return (ayS == null || TextUtils.isEmpty(ayS.appName)) ? super.asE() : ayS.appName;
+    public String atc() {
+        PMSAppInfo azq = azq();
+        return (azq == null || TextUtils.isEmpty(azq.appName)) ? super.atc() : azq.appName;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: ol */
-    public SelfT oB(String str) {
-        PMSAppInfo ayS = ayS();
-        if (ayS != null) {
-            ayS.appName = str;
+    /* renamed from: oE */
+    public SelfT oT(String str) {
+        PMSAppInfo azq = azq();
+        if (azq != null) {
+            azq.appName = str;
         }
-        return (SelfT) super.oB(str);
+        return (SelfT) super.oT(str);
     }
 
     @Override // com.baidu.swan.apps.u.c.e
     public String getAppKey() {
-        PMSAppInfo ayS = ayS();
-        return (ayS == null || TextUtils.isEmpty(ayS.appKey)) ? super.getAppKey() : ayS.appKey;
+        PMSAppInfo azq = azq();
+        return (azq == null || TextUtils.isEmpty(azq.appKey)) ? super.getAppKey() : azq.appKey;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: om */
-    public SelfT oA(String str) {
-        PMSAppInfo ayS = ayS();
-        if (ayS != null) {
-            ayS.appKey = str;
+    /* renamed from: oF */
+    public SelfT oS(String str) {
+        PMSAppInfo azq = azq();
+        if (azq != null) {
+            azq.appKey = str;
         }
-        return (SelfT) super.oA(str);
+        return (SelfT) super.oS(str);
     }
 
     @Override // com.baidu.swan.apps.u.c.e
     public String getAppId() {
-        PMSAppInfo ayS = ayS();
-        return (ayS == null || TextUtils.isEmpty(ayS.appId)) ? super.getAppId() : ayS.appId;
+        PMSAppInfo azq = azq();
+        return (azq == null || TextUtils.isEmpty(azq.appId)) ? super.getAppId() : azq.appId;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: oo */
-    public SelfT oz(String str) {
-        super.oz(str);
-        PMSAppInfo ayS = ayS();
-        if (ayS != null) {
-            ayS.appId = str;
-            return (SelfT) super.oz(str);
+    /* renamed from: oG */
+    public SelfT oR(String str) {
+        super.oR(str);
+        PMSAppInfo azq = azq();
+        if (azq != null) {
+            azq.appId = str;
+            return (SelfT) super.oR(str);
         }
-        return (SelfT) ayy();
+        return (SelfT) ayW();
     }
 
     @Override // com.baidu.swan.apps.u.c.e
     public String getIconUrl() {
-        PMSAppInfo ayS = ayS();
-        return (ayS == null || TextUtils.isEmpty(ayS.iconUrl)) ? super.getIconUrl() : ayS.iconUrl;
+        PMSAppInfo azq = azq();
+        return (azq == null || TextUtils.isEmpty(azq.iconUrl)) ? super.getIconUrl() : azq.iconUrl;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: op */
-    public SelfT oy(String str) {
-        super.oy(str);
-        PMSAppInfo ayS = ayS();
-        if (ayS != null) {
-            ayS.iconUrl = str;
-            return (SelfT) super.oy(str);
+    /* renamed from: oH */
+    public SelfT oQ(String str) {
+        super.oQ(str);
+        PMSAppInfo azq = azq();
+        if (azq != null) {
+            azq.iconUrl = str;
+            return (SelfT) super.oQ(str);
         }
-        return (SelfT) ayy();
+        return (SelfT) ayW();
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public String aym() {
-        PMSAppInfo ayS = ayS();
-        return ayS == null ? "" : ayS.description;
+    public String ayK() {
+        PMSAppInfo azq = azq();
+        return azq == null ? "" : azq.description;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: oq */
-    public SelfT ox(String str) {
-        PMSAppInfo ayS = ayS();
-        if (ayS != null) {
-            ayS.description = str;
-            return (SelfT) super.ox(str);
+    /* renamed from: oI */
+    public SelfT oP(String str) {
+        PMSAppInfo azq = azq();
+        if (azq != null) {
+            azq.description = str;
+            return (SelfT) super.oP(str);
         }
-        return (SelfT) ayy();
+        return (SelfT) ayW();
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public int ayn() {
-        PMSAppInfo ayS = ayS();
-        if (ayS == null) {
+    public int ayL() {
+        PMSAppInfo azq = azq();
+        if (azq == null) {
             return 0;
         }
-        return ayS.appStatus;
+        return azq.appStatus;
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public String ayo() {
-        PMSAppInfo ayS = ayS();
-        return ayS == null ? "" : ayS.statusDetail;
+    public String ayM() {
+        PMSAppInfo azq = azq();
+        return azq == null ? "" : azq.statusDetail;
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public String ayp() {
-        PMSAppInfo ayS = ayS();
-        return ayS == null ? "" : ayS.statusDesc;
+    public String ayN() {
+        PMSAppInfo azq = azq();
+        return azq == null ? "" : azq.statusDesc;
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public String ayq() {
-        PMSAppInfo ayS = ayS();
-        return ayS == null ? "" : ayS.resumeDate;
+    public String ayO() {
+        PMSAppInfo azq = azq();
+        return azq == null ? "" : azq.resumeDate;
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public String ayr() {
-        PMSAppInfo ayS = ayS();
-        return ayS == null ? "" : ayS.serviceCategory;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: or */
-    public SelfT ow(String str) {
-        PMSAppInfo ayS = ayS();
-        if (ayS != null) {
-            ayS.serviceCategory = str;
-            return (SelfT) super.ow(str);
-        }
-        return (SelfT) ayy();
-    }
-
-    @Override // com.baidu.swan.apps.u.c.e
-    public String ays() {
-        PMSAppInfo ayS = ayS();
-        return ayS == null ? "" : ayS.subjectInfo;
+    public String ayP() {
+        PMSAppInfo azq = azq();
+        return azq == null ? "" : azq.serviceCategory;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: os */
-    public SelfT ov(String str) {
-        PMSAppInfo ayS = ayS();
-        if (ayS != null) {
-            ayS.subjectInfo = str;
-            return (SelfT) super.ov(str);
+    /* renamed from: oJ */
+    public SelfT oO(String str) {
+        PMSAppInfo azq = azq();
+        if (azq != null) {
+            azq.serviceCategory = str;
+            return (SelfT) super.oO(str);
         }
-        return (SelfT) ayy();
+        return (SelfT) ayW();
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public SwanAppBearInfo ayt() {
-        PMSAppInfo ayS = ayS();
-        if (ayS == null) {
+    public String ayQ() {
+        PMSAppInfo azq = azq();
+        return azq == null ? "" : azq.subjectInfo;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.swan.apps.u.c.e
+    /* renamed from: oK */
+    public SelfT oN(String str) {
+        PMSAppInfo azq = azq();
+        if (azq != null) {
+            azq.subjectInfo = str;
+            return (SelfT) super.oN(str);
+        }
+        return (SelfT) ayW();
+    }
+
+    @Override // com.baidu.swan.apps.u.c.e
+    public SwanAppBearInfo ayR() {
+        PMSAppInfo azq = azq();
+        if (azq == null) {
             return null;
         }
-        String str = ayS.bearInfo;
+        String str = azq.bearInfo;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -400,94 +400,94 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public String ayu() {
-        PMSAppInfo ayS = ayS();
-        if (ayS == null) {
+    public String ayS() {
+        PMSAppInfo azq = azq();
+        if (azq == null) {
             return null;
         }
-        return ayS.quickAppKey;
+        return azq.quickAppKey;
     }
 
     @Override // com.baidu.swan.apps.u.c.e
     public String getVersion() {
-        PMSAppInfo ayS = ayS();
-        return ayS == null ? "" : String.valueOf(ayS.versionCode);
+        PMSAppInfo azq = azq();
+        return azq == null ? "" : String.valueOf(azq.versionCode);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: ot */
-    public SelfT ou(String str) {
-        PMSAppInfo ayS = ayS();
-        if (!TextUtils.isEmpty(str) && ayS != null) {
+    /* renamed from: oL */
+    public SelfT oM(String str) {
+        PMSAppInfo azq = azq();
+        if (!TextUtils.isEmpty(str) && azq != null) {
             try {
-                ayS.versionCode = Integer.parseInt(str);
-                return (SelfT) super.ou(str);
+                azq.versionCode = Integer.parseInt(str);
+                return (SelfT) super.oM(str);
             } catch (NumberFormatException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return (SelfT) ayy();
+        return (SelfT) ayW();
     }
 
     @Override // com.baidu.swan.apps.u.c.e
     public String getVersionCode() {
-        PMSAppInfo ayS = ayS();
-        return ayS == null ? "" : ayS.versionName;
+        PMSAppInfo azq = azq();
+        return azq == null ? "" : azq.versionName;
     }
 
     @Override // com.baidu.swan.apps.u.c.e
     public int getType() {
-        PMSAppInfo ayS = ayS();
-        if (ayS == null) {
+        PMSAppInfo azq = azq();
+        if (azq == null) {
             return 0;
         }
-        return ayS.type;
+        return azq.type;
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public long ayv() {
-        PMSAppInfo ayS = ayS();
-        if (ayS == null) {
+    public long ayT() {
+        PMSAppInfo azq = azq();
+        if (azq == null) {
             return 0L;
         }
-        return ayS.pkgSize;
+        return azq.pkgSize;
     }
 
     @Override // com.baidu.swan.apps.u.c.e
     public int getOrientation() {
-        PMSAppInfo ayS = ayS();
-        int orientation = ayS == null ? -1 : ayS.getOrientation();
+        PMSAppInfo azq = azq();
+        int orientation = azq == null ? -1 : azq.getOrientation();
         return -1 < orientation ? orientation : super.getOrientation();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: hL */
-    public SelfT hM(int i) {
-        PMSAppInfo ayS = ayS();
-        if (ayS != null) {
-            ayS.setOrientation(i);
-            return (SelfT) super.hM(i);
+    /* renamed from: hO */
+    public SelfT hP(int i) {
+        PMSAppInfo azq = azq();
+        if (azq != null) {
+            azq.setOrientation(i);
+            return (SelfT) super.hP(i);
         }
-        return (SelfT) ayy();
+        return (SelfT) ayW();
     }
 
     @Override // com.baidu.swan.apps.u.c.e
-    public long ayw() {
-        return this.ddG;
+    public long ayU() {
+        return this.dfS;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.u.c.e
-    /* renamed from: cj */
-    public SelfT ck(long j) {
-        if (this.ddG >= 1 || j <= 0) {
-            return (SelfT) ayy();
+    /* renamed from: cp */
+    public SelfT cq(long j) {
+        if (this.dfS >= 1 || j <= 0) {
+            return (SelfT) ayW();
         }
-        this.ddG = j;
-        return (SelfT) super.ck(j);
+        this.dfS = j;
+        return (SelfT) super.cq(j);
     }
 }

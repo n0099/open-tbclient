@@ -1,34 +1,49 @@
 package com.baidu.mobads;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.mobads.CpuInfoManager;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public final class j implements Runnable {
+import java.util.HashMap;
+/* loaded from: classes5.dex */
+public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f3378a;
+    private static Context f3389a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ int f3379b;
-    final /* synthetic */ String c;
-    final /* synthetic */ CpuInfoManager.UrlListener d;
+    private static long f3390b;
+    private static volatile j d = null;
+    private HashMap<String, String> c = new HashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(Context context, int i, String str, CpuInfoManager.UrlListener urlListener) {
-        this.f3378a = context;
-        this.f3379b = i;
-        this.c = str;
-        this.d = urlListener;
+    private j() {
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String a2 = new com.baidu.mobads.production.b.c(this.f3378a.getApplicationContext(), this.f3379b, this.c).a();
-        if (this.d != null) {
-            new Handler(Looper.getMainLooper()).post(new k(this, a2));
+    public static j a() {
+        if (d == null) {
+            synchronized (j.class) {
+                if (d == null) {
+                    d = new j();
+                }
+            }
         }
+        return d;
+    }
+
+    public void a(Context context) {
+        f3389a = context.getApplicationContext();
+        this.c = new HashMap<>();
+    }
+
+    public void a(int i) {
+        try {
+            if (this.c != null && !this.c.containsKey(String.valueOf(i))) {
+                f3390b = System.currentTimeMillis();
+                this.c.put(String.valueOf(i), String.valueOf(f3390b));
+            }
+        } catch (Throwable th) {
+        }
+    }
+
+    public void b() {
+        com.baidu.mobads.b.a.a().a(f3389a, 801, null, this.c);
+        this.c.clear();
     }
 }

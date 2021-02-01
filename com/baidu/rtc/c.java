@@ -3,11 +3,13 @@ package com.baidu.rtc;
 import com.baidu.rtc.BaiduRtcRoom;
 import java.math.BigInteger;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void a(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str);
 
     void a(BigInteger bigInteger, int i, boolean z);
+
+    void a(BigInteger bigInteger, long j);
 
     void a(BigInteger bigInteger, String str);
 
@@ -17,13 +19,15 @@ public interface c {
 
     void a(BigInteger bigInteger, JSONObject jSONObject);
 
-    void aeh();
+    void aeA();
 
-    void aei();
+    void aeB();
 
-    void aej();
+    void aex();
 
-    void aek();
+    void aey();
+
+    void aez();
 
     void b(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str);
 
@@ -33,11 +37,11 @@ public interface c {
 
     void b(BigInteger bigInteger, JSONObject jSONObject);
 
-    void bL(long j);
+    void bP(long j);
 
-    void bM(long j);
+    void bQ(long j);
 
-    void bN(long j);
+    void bR(long j);
 
     void c(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str);
 
@@ -51,7 +55,7 @@ public interface c {
 
     void f(BigInteger bigInteger);
 
-    void fP(int i);
+    void fS(int i);
 
     void g(boolean z, int i);
 }

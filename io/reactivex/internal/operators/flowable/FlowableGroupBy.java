@@ -21,7 +21,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super io.reactivex.a.b<K, V>> cVar) {
-        this.qdS.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
+        this.qnW.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
     /* loaded from: classes5.dex */
@@ -89,12 +89,12 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                             drain();
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.O(th);
+                        io.reactivex.exceptions.a.N(th);
                         this.s.cancel();
                         onError(th);
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.O(th2);
+                    io.reactivex.exceptions.a.N(th2);
                     this.s.cancel();
                     onError(th2);
                 }
@@ -294,7 +294,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class a<K, T> extends io.reactivex.a.b<K, T> {
-        final State<T, K> qel;
+        final State<T, K> qop;
 
         public static <T, K> a<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
             return new a<>(k, new State(i, groupBySubscriber, k, z));
@@ -302,24 +302,24 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.qel = state;
+            this.qop = state;
         }
 
         @Override // io.reactivex.g
         protected void a(org.a.c<? super T> cVar) {
-            this.qel.subscribe(cVar);
+            this.qop.subscribe(cVar);
         }
 
         public void onNext(T t) {
-            this.qel.onNext(t);
+            this.qop.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.qel.onError(th);
+            this.qop.onError(th);
         }
 
         public void onComplete() {
-            this.qel.onComplete();
+            this.qop.onComplete();
         }
     }
 

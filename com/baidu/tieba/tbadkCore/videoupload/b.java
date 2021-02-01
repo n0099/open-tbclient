@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static void dMD() {
+    public static void dOO() {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
             mainDBDatabaseManager.execSQLNoException("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
         }
     }
 
-    public static void SF(String str) {
+    public static void TC(String str) {
         BdLog.e("deleteVieoChunkUploadData Called");
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
@@ -35,7 +35,7 @@ public class b {
         return mainDBDatabaseManager.execSQLNoException("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static c SG(String str) {
+    public static c TD(String str) {
         Cursor cursor;
         c cVar;
         if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
@@ -49,8 +49,8 @@ public class b {
                     if (cursor.moveToFirst()) {
                         cVar = new c();
                         try {
-                            cVar.nqp = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.nqq = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.nzY = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.nzZ = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                         } catch (Exception e) {
                             e = e;
                             mainDBDatabaseManager.notifySQLException(e, "getChunkUploadDataByMd5");

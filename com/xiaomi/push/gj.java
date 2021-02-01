@@ -23,7 +23,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public abstract class gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f14050a;
+    private static long f14052a;
     private static String c;
 
     /* renamed from: a  reason: collision with other field name */
@@ -45,7 +45,7 @@ public abstract class gj {
     protected static final String f472a = Locale.getDefault().getLanguage().toLowerCase();
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f14051b = null;
+    private static String f14053b = null;
 
     /* renamed from: a  reason: collision with other field name */
     public static final DateFormat f473a = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
@@ -53,11 +53,11 @@ public abstract class gj {
     static {
         f473a.setTimeZone(TimeZone.getTimeZone("UTC"));
         c = gu.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
-        f14050a = 0L;
+        f14052a = 0L;
     }
 
     public gj() {
-        this.d = f14051b;
+        this.d = f14053b;
         this.e = null;
         this.f = null;
         this.g = null;
@@ -69,7 +69,7 @@ public abstract class gj {
     }
 
     public gj(Bundle bundle) {
-        this.d = f14051b;
+        this.d = f14053b;
         this.e = null;
         this.f = null;
         this.g = null;
@@ -102,8 +102,8 @@ public abstract class gj {
         String sb;
         synchronized (gj.class) {
             StringBuilder append = new StringBuilder().append(c);
-            long j = f14050a;
-            f14050a = 1 + j;
+            long j = f14052a;
+            f14052a = 1 + j;
             sb = append.append(Long.toString(j)).toString();
         }
         return sb;

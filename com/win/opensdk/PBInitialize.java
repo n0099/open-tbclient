@@ -35,15 +35,15 @@ public class PBInitialize {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        final ao eGN = ao.eGN();
+        final ao eJd = ao.eJd();
         if (context == null) {
             throw new RuntimeException("Error:Context is not allowed to be null");
         }
-        eGN.pYJ = context.getApplicationContext();
+        eJd.qiN = context.getApplicationContext();
         if (!TextUtils.isEmpty(str)) {
-            az.bL(context, str);
+            az.bK(context, str);
         }
-        ba.D(new Runnable() { // from class: com.win.opensdk.ao.1
+        ba.C(new Runnable() { // from class: com.win.opensdk.ao.1
             @Override // java.lang.Runnable
             public final void run() {
                 final Context context2 = context;
@@ -51,9 +51,9 @@ public class PBInitialize {
                     if (Build.VERSION.SDK_INT >= 28) {
                         try {
                             Process.myPid();
-                            String iP = be.iP(context2);
-                            if (!TextUtils.equals(context2.getPackageName(), iP)) {
-                                WebView.setDataDirectorySuffix(iP);
+                            String iS = be.iS(context2);
+                            if (!TextUtils.equals(context2.getPackageName(), iS)) {
+                                WebView.setDataDirectorySuffix(iS);
                             }
                         } catch (Exception e3) {
                         }
@@ -64,7 +64,7 @@ public class PBInitialize {
                     } else if (Looper.myLooper() == Looper.getMainLooper()) {
                         be.java = new WebView(context2).getSettings().getUserAgentString();
                     } else {
-                        bb.D(new Runnable() { // from class: com.win.opensdk.be.1
+                        bb.C(new Runnable() { // from class: com.win.opensdk.be.1
                             @Override // java.lang.Runnable
                             public final void run() {
                                 be.java = new WebView(context2).getSettings().getUserAgentString();
@@ -75,15 +75,15 @@ public class PBInitialize {
                 }
             }
         });
-        final ab iL = ab.iL(context);
-        if (iL.m59java()) {
-            iL.pZf = System.currentTimeMillis();
-            ba.D(new Runnable() { // from class: com.win.opensdk.ab.1
+        final ab iO = ab.iO(context);
+        if (iO.m59java()) {
+            iO.qjj = System.currentTimeMillis();
+            ba.C(new Runnable() { // from class: com.win.opensdk.ab.1
                 @Override // java.lang.Runnable
                 public final void run() {
                     String str2 = "";
                     try {
-                        str2 = ab.f7case + ak.R(ak.iM(iL.pYJ));
+                        str2 = ab.f7case + ak.T(ak.iP(iO.qiN));
                     } catch (UnsupportedEncodingException e3) {
                     }
                     ai.a(str2, new r<am>() { // from class: com.win.opensdk.ab.1.1
@@ -93,24 +93,24 @@ public class PBInitialize {
 
                         @Override // com.win.opensdk.r
                         public final /* synthetic */ void bH(am amVar) {
-                            iL.pZL = System.currentTimeMillis() - iL.pZf;
-                            ab.a(iL, amVar);
+                            iO.qjP = System.currentTimeMillis() - iO.qjj;
+                            ab.a(iO, amVar);
                         }
 
                         @Override // com.win.opensdk.r
-                        public final void eGz() {
+                        public final void eIP() {
                         }
 
                         @Override // com.win.opensdk.r
-                        public final void cd(int i, String str3) {
-                            iL.pZL = System.currentTimeMillis() - iL.pZf;
-                            w.iK(iL.pYJ).F(i, iL.pZL).eGz();
+                        public final void ck(int i, String str3) {
+                            iO.qjP = System.currentTimeMillis() - iO.qjj;
+                            w.iN(iO.qiN).H(i, iO.qjP).eIP();
                         }
                     });
                 }
             });
         }
-        v.iI(context);
-        au.iI(context);
+        v.iL(context);
+        au.iL(context);
     }
 }

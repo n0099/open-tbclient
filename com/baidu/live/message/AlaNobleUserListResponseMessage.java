@@ -2,9 +2,9 @@ package com.baidu.live.message;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaNobleUserListResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.live.noble.data.d brp;
+    private com.baidu.live.noble.data.d buS;
 
     public AlaNobleUserListResponseMessage() {
         super(1031032);
@@ -15,12 +15,12 @@ public class AlaNobleUserListResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && getError() == 0) {
-            this.brp = new com.baidu.live.noble.data.d();
-            this.brp.parserJson(optJSONObject);
+            this.buS = new com.baidu.live.noble.data.d();
+            this.buS.parserJson(optJSONObject);
         }
     }
 
-    public com.baidu.live.noble.data.d MS() {
-        return this.brp;
+    public com.baidu.live.noble.data.d Oq() {
+        return this.buS;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken.activeConfig;
 
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -60,7 +60,7 @@ public class ActiveCenterData implements Serializable {
     }
 
     public ActiveCenterStatusData getTodayMissionStatus() {
-        if (x.isEmpty(this.mission_status_list)) {
+        if (y.isEmpty(this.mission_status_list)) {
             return null;
         }
         Iterator<ActiveCenterStatusData> it = this.mission_status_list.iterator();

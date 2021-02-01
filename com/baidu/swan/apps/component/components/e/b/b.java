@@ -7,39 +7,39 @@ import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerVie
 import com.facebook.drawee.drawable.p;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.f.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeView, c> {
-    private a cJt;
-    private SwanAppComponentContainerView cJu;
-    private SimpleDraweeView cJv;
+    private a cLH;
+    private SwanAppComponentContainerView cLI;
+    private SimpleDraweeView cLJ;
 
     public b(@NonNull Context context, @NonNull c cVar) {
         super(context, cVar);
-        gn(4);
-        this.cJu = new SwanAppComponentContainerView(context);
-        this.cJv = new SimpleDraweeView(context);
+        gr(4);
+        this.cLI = new SwanAppComponentContainerView(context);
+        this.cLJ = new SimpleDraweeView(context);
     }
 
     public void a(a aVar) {
-        this.cJt = aVar;
+        this.cLH = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: cC */
-    public SimpleDraweeView cw(@NonNull Context context) {
-        return this.cJv;
+    /* renamed from: cB */
+    public SimpleDraweeView cv(@NonNull Context context) {
+        return this.cLJ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     /* renamed from: a */
-    public void ax(@NonNull SimpleDraweeView simpleDraweeView) {
-        super.ax(simpleDraweeView);
-        simpleDraweeView.getHierarchy().b(p.b.pth);
+    public void as(@NonNull SimpleDraweeView simpleDraweeView) {
+        super.as(simpleDraweeView);
+        simpleDraweeView.getHierarchy().b(p.b.pDq);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,8 +48,8 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     @NonNull
     public com.baidu.swan.apps.component.d.b a(@NonNull c cVar, @NonNull c cVar2) {
         com.baidu.swan.apps.component.d.b a2 = super.a(cVar, cVar2);
-        if (cVar.cJz != cVar2.cJz) {
-            a2.gs(9);
+        if (cVar.cLN != cVar2.cLN) {
+            a2.gv(9);
         }
         return a2;
     }
@@ -69,13 +69,13 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     }
 
     private com.facebook.drawee.controller.b<f> b(@NonNull final SimpleDraweeView simpleDraweeView, @NonNull c cVar) {
-        final boolean z = cVar.cJz;
+        final boolean z = cVar.cLN;
         return new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.swan.apps.component.components.e.b.b.1
             @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
             public void h(String str, Throwable th) {
                 super.h(str, th);
-                if (z && b.this.cJt != null) {
-                    b.this.cJt.a(0, simpleDraweeView, null);
+                if (z && b.this.cLH != null) {
+                    b.this.cLH.a(0, simpleDraweeView, null);
                 }
             }
 
@@ -83,8 +83,8 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
             @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
             public void a(String str, f fVar, Animatable animatable) {
                 super.a(str, (String) fVar, animatable);
-                if (z && b.this.cJt != null) {
-                    b.this.cJt.a(1, simpleDraweeView, null);
+                if (z && b.this.cLH != null) {
+                    b.this.cLH.a(1, simpleDraweeView, null);
                 }
             }
         };
@@ -92,7 +92,7 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
 
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    protected SwanAppComponentContainerView cx(@NonNull Context context) {
-        return this.cJu;
+    protected SwanAppComponentContainerView cw(@NonNull Context context) {
+        return this.cLI;
     }
 }

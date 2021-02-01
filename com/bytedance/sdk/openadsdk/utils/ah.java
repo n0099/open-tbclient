@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.utils;
 
 import android.text.TextUtils;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ah {
     public static Method a(String str, String str2, Class<?>... clsArr) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {

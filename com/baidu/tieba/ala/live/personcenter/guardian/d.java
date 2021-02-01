@@ -7,35 +7,38 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private LinearLayout hhG;
-    private TextView hhH;
+    private LinearLayout hlW;
+    private TextView hlX;
     protected Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
-        ap(bXo());
+        if (this.mRootView == null) {
+            this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_guardian_header, (ViewGroup) null);
+        }
+        am(this.mRootView);
     }
 
-    public View bXo() {
+    public View bYo() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }
         return this.mRootView;
     }
 
-    private void ap(View view) {
-        this.hhG = (LinearLayout) view.findViewById(a.f.ala_guardian_header_root);
-        this.hhH = (TextView) view.findViewById(a.f.ala_guardian_header_title);
+    private void am(View view) {
+        this.hlW = (LinearLayout) view.findViewById(a.f.ala_guardian_header_root);
+        this.hlX = (TextView) view.findViewById(a.f.ala_guardian_header_title);
     }
 
-    public void GG(String str) {
-        this.hhH.setText(str);
+    public void Hl(String str) {
+        this.hlX.setText(str);
     }
 
     public void a(AlaGuardianListActivity alaGuardianListActivity, int i) {
-        alaGuardianListActivity.getLayoutMode().onModeChanged(this.hhG);
+        alaGuardianListActivity.getLayoutMode().onModeChanged(this.hlW);
     }
 }

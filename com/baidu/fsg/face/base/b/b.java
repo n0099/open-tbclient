@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f2060a = 100;
+    public static final int f2058a = 100;
     private static final String c = ".BD_SAPI_CACHE";
     private static final String d = "so_zips";
     private static final String e = "1.0.1";
@@ -26,17 +26,17 @@ public class b {
     private static b i;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2061b;
+    private String f2059b;
     private SharedPreferences j;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2062a;
+        public String f2060a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2063b;
+        public String f2061b;
         public String c;
         public String[] d;
     }
@@ -62,11 +62,11 @@ public class b {
     }
 
     public static String c(Context context, a aVar) {
-        return new File(a(context, aVar) + File.separator + aVar.f2062a + File.separator + aVar.f2062a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.f2063b + ".zip").getAbsolutePath();
+        return new File(a(context, aVar) + File.separator + aVar.f2060a + File.separator + aVar.f2060a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.f2061b + ".zip").getAbsolutePath();
     }
 
     public static String a(a aVar) {
-        return ".BD_SAPI_CACHE/" + aVar.f2062a + "/" + aVar.f2062a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.f2063b + ".zip";
+        return ".BD_SAPI_CACHE/" + aVar.f2060a + "/" + aVar.f2060a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.f2061b + ".zip";
     }
 
     private String a(String str) {
@@ -103,22 +103,22 @@ public class b {
     }
 
     private String b(Context context) {
-        if (TextUtils.isEmpty(this.f2061b)) {
+        if (TextUtils.isEmpty(this.f2059b)) {
             try {
-                this.f2061b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                this.f2059b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 com.baidu.fsg.face.base.d.d.a(e2);
             }
         }
-        return this.f2061b;
+        return this.f2059b;
     }
 
     public static a a(int i2) {
         a aVar = new a();
         switch (i2) {
             case 4:
-                aVar.f2062a = d;
-                aVar.f2063b = "1.0.3";
+                aVar.f2060a = d;
+                aVar.f2061b = "1.0.3";
                 aVar.c = g;
                 aVar.d = h;
                 return aVar;

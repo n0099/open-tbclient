@@ -5,7 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PowerMonitor {
     public static final /* synthetic */ boolean $assertionsDisabled = !PowerMonitor.class.desiredAssertionStatus();
     public static PowerMonitor sInstance;

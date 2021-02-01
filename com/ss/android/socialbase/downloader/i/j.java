@@ -2,34 +2,34 @@ package com.ss.android.socialbase.downloader.i;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13174a = j.class.getSimpleName();
+    private static final String f13176a = j.class.getSimpleName();
     private volatile boolean c;
     private final AtomicReference<k> d;
     private AtomicReference<k> e;
     private final ArrayList<b> f;
     private int g;
-    private final c pWm;
+    private final c qgq;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class a {
-        public static final j pWn = new j();
+        public static final j qgr = new j();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(k kVar);
     }
 
-    public static j eFX() {
-        return a.pWn;
+    public static j eIo() {
+        return a.qgr;
     }
 
     private j() {
-        this.pWm = new c(0.05d);
+        this.qgq = new c(0.05d);
         this.c = false;
         this.d = new AtomicReference<>(k.UNKNOWN);
         this.f = new ArrayList<>();
@@ -39,11 +39,11 @@ public class j {
         double d = ((j * 1.0d) / j2) * 8.0d;
         if (j2 != 0 && d >= 3.0d) {
             try {
-                this.pWm.a(d);
-                k eFY = eFY();
+                this.qgq.a(d);
+                k eIp = eIp();
                 if (this.c) {
                     this.g++;
-                    if (eFY != this.e.get()) {
+                    if (eIp != this.e.get()) {
                         this.c = false;
                         this.g = 1;
                     }
@@ -53,9 +53,9 @@ public class j {
                         this.d.set(this.e.get());
                         d();
                     }
-                } else if (this.d.get() != eFY) {
+                } else if (this.d.get() != eIp) {
                     this.c = true;
-                    this.e = new AtomicReference<>(eFY);
+                    this.e = new AtomicReference<>(eIp);
                 }
             } catch (Throwable th) {
             }
@@ -65,7 +65,7 @@ public class j {
     private boolean c() {
         double d;
         double d2;
-        if (this.pWm == null) {
+        if (this.qgq == null) {
             return false;
         }
         try {
@@ -89,7 +89,7 @@ public class j {
                 default:
                     return true;
             }
-            double a2 = this.pWm.a();
+            double a2 = this.qgq.a();
             if (a2 > d) {
                 if (a2 > d * 1.25d) {
                     return true;
@@ -103,12 +103,12 @@ public class j {
         return false;
     }
 
-    public synchronized k eFY() {
+    public synchronized k eIp() {
         k L;
-        if (this.pWm == null) {
+        if (this.qgq == null) {
             L = k.UNKNOWN;
         } else {
-            L = L(this.pWm.a());
+            L = L(this.qgq.a());
         }
         return L;
     }

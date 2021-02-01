@@ -1,11 +1,10 @@
 package com.baidu.mobads.interfaces;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdRequestInfo {
     public static final String AD_COUNT = "n";
     public static final String AD_LOCAL_PIC = "local_pic";
     public static final String AD_TYPE = "at";
     public static final String APPID = "appid";
-    public static final String APP_VERSION_NAME = "app_ver";
     public static final String BDR = "bdr";
     public static final String BRAND = "brd";
     public static final String CELL_ID = "cid";

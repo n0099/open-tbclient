@@ -9,24 +9,24 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class RecommendForumItemView extends LinearLayout implements View.OnClickListener {
-    private View iHN;
-    private View iHO;
-    private BarImageView iHP;
-    private TextView iHQ;
-    private TextView iHR;
-    private TextView iHS;
-    private TextView iHT;
-    private TBSpecificationBtn iHU;
-    private a iHV;
-    private com.baidu.tieba.enterForum.recommend.b.b iHW;
+    private TextView iNA;
+    private TextView iNB;
+    private TBSpecificationBtn iNC;
+    private a iND;
+    private com.baidu.tieba.enterForum.recommend.b.b iNE;
+    private View iNv;
+    private View iNw;
+    private BarImageView iNx;
+    private TextView iNy;
+    private TextView iNz;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -48,101 +48,101 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.recommend_forum_item_layout, this);
         View rootView = getRootView();
-        this.iHN = rootView.findViewById(R.id.view_top);
-        this.iHO = rootView.findViewById(R.id.view_bottom);
-        this.iHP = (BarImageView) rootView.findViewById(R.id.forum_image);
-        this.iHQ = (TextView) rootView.findViewById(R.id.forum_name);
-        this.iHR = (TextView) rootView.findViewById(R.id.forum_attention);
-        this.iHS = (TextView) rootView.findViewById(R.id.forum_thread);
-        this.iHT = (TextView) rootView.findViewById(R.id.forum_introduce);
-        this.iHU = (TBSpecificationBtn) rootView.findViewById(R.id.forum_like_button);
+        this.iNv = rootView.findViewById(R.id.view_top);
+        this.iNw = rootView.findViewById(R.id.view_bottom);
+        this.iNx = (BarImageView) rootView.findViewById(R.id.forum_image);
+        this.iNy = (TextView) rootView.findViewById(R.id.forum_name);
+        this.iNz = (TextView) rootView.findViewById(R.id.forum_attention);
+        this.iNA = (TextView) rootView.findViewById(R.id.forum_thread);
+        this.iNB = (TextView) rootView.findViewById(R.id.forum_introduce);
+        this.iNC = (TBSpecificationBtn) rootView.findViewById(R.id.forum_like_button);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        bVar.pM(R.color.CAM_X0302);
-        this.iHU.setConfig(bVar);
-        this.iHU.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
-        this.iHP.setPlaceHolder(1);
-        this.iHP.setOnClickListener(this);
-        this.iHU.setOnClickListener(this);
+        bVar.pR(R.color.CAM_X0302);
+        this.iNC.setConfig(bVar);
+        this.iNC.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+        this.iNx.setPlaceHolder(1);
+        this.iNx.setOnClickListener(this);
+        this.iNC.setOnClickListener(this);
         rootView.setOnClickListener(this);
     }
 
     public void setForumItemClickListener(a aVar) {
         if (aVar != null) {
-            this.iHV = aVar;
+            this.iND = aVar;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iHU) {
-            if (this.iHW.eNy) {
-                this.iHV.e(this.iHW);
+        if (view == this.iNC) {
+            if (this.iNE.ePK) {
+                this.iND.e(this.iNE);
                 return;
             } else {
-                this.iHV.d(this.iHW);
+                this.iND.d(this.iNE);
                 return;
             }
         }
-        this.iHV.e(this.iHW);
+        this.iND.e(this.iNE);
     }
 
     public void onChangeSkinType() {
-        ao.setViewTextColor(this.iHQ, R.color.CAM_X0105);
-        ao.setViewTextColor(this.iHR, R.color.CAM_X0109);
-        ao.setViewTextColor(this.iHS, R.color.CAM_X0109);
-        ao.setViewTextColor(this.iHT, R.color.CAM_X0107);
+        ap.setViewTextColor(this.iNy, R.color.CAM_X0105);
+        ap.setViewTextColor(this.iNz, R.color.CAM_X0109);
+        ap.setViewTextColor(this.iNA, R.color.CAM_X0109);
+        ap.setViewTextColor(this.iNB, R.color.CAM_X0107);
     }
 
     public void f(com.baidu.tieba.enterForum.recommend.b.b bVar) {
         if (bVar != null) {
-            this.iHW = bVar;
-            this.iHP.startLoad(bVar.avatar, 15, false);
-            this.iHP.setStrokeColorResId(R.color.CAM_X0201);
-            this.iHP.setStrokeWith(3);
-            this.iHP.setShowOval(true);
+            this.iNE = bVar;
+            this.iNx.startLoad(bVar.avatar, 15, false);
+            this.iNx.setStrokeColorResId(R.color.CAM_X0201);
+            this.iNx.setStrokeWith(3);
+            this.iNx.setShowOval(true);
             String str = bVar.forumName;
-            if (at.isEmpty(str)) {
+            if (au.isEmpty(str)) {
                 str = "";
             }
-            this.iHQ.setText(str);
-            this.iHR.setText("关注 " + at.numFormatOverWan(bVar.memberCount));
-            this.iHS.setText("贴子 " + at.numFormatOverWan(bVar.threadCount));
-            if (!at.isEmpty(bVar.iGo)) {
-                this.iHT.setText(bVar.iGo);
+            this.iNy.setText(str);
+            this.iNz.setText("关注 " + au.numFormatOverWan(bVar.memberCount));
+            this.iNA.setText("贴子 " + au.numFormatOverWan(bVar.threadCount));
+            if (!au.isEmpty(bVar.iLX)) {
+                this.iNB.setText(bVar.iLX);
             } else {
-                this.iHT.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_forum_default_introduce));
+                this.iNB.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_forum_default_introduce));
             }
-            pO(bVar.eNy);
-            com.baidu.tbadk.core.util.f.a.b.btc().ag(l.getDimens(getContext(), R.dimen.tbds10)).af(l.getDimens(getContext(), R.dimen.tbds10)).oK(R.color.CAM_X0901).bz(this.iHN);
-            com.baidu.tbadk.core.util.f.a.bta().pb(R.color.CAM_X0901).oW(l.getDimens(getContext(), R.dimen.tbds10)).oX(R.color.CAM_X0804).oV(4353).oY(l.getDimens(getContext(), R.dimen.tbds10)).oZ(0).pa(l.getDimens(getContext(), R.dimen.tbds5)).bz(this.iHO);
+            pY(bVar.ePK);
+            com.baidu.tbadk.core.util.f.a.b.btw().ah(l.getDimens(getContext(), R.dimen.tbds10)).ag(l.getDimens(getContext(), R.dimen.tbds10)).oP(R.color.CAM_X0901).bv(this.iNv);
+            com.baidu.tbadk.core.util.f.a.btu().pg(R.color.CAM_X0901).pb(l.getDimens(getContext(), R.dimen.tbds10)).pc(R.color.CAM_X0804).pa(4353).pd(l.getDimens(getContext(), R.dimen.tbds10)).pe(0).pf(l.getDimens(getContext(), R.dimen.tbds5)).bv(this.iNw);
             g(bVar);
         }
     }
 
-    public void pO(boolean z) {
+    public void pY(boolean z) {
         if (z) {
             com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar.pO(R.color.CAM_X0109);
-            this.iHU.setConfig(bVar);
-            this.iHU.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
-            this.iHU.setClickState(false);
+            bVar.pT(R.color.CAM_X0109);
+            this.iNC.setConfig(bVar);
+            this.iNC.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
+            this.iNC.setClickState(false);
         } else {
             com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar2.pM(R.color.CAM_X0302);
-            this.iHU.setConfig(bVar2);
-            this.iHU.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
-            this.iHU.setClickState(true);
+            bVar2.pR(R.color.CAM_X0302);
+            this.iNC.setConfig(bVar2);
+            this.iNC.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+            this.iNC.setClickState(true);
         }
-        this.iHW.eNy = z;
+        this.iNE.ePK = z;
     }
 
     private void g(com.baidu.tieba.enterForum.recommend.b.b bVar) {
         if (bVar != null) {
-            aq aqVar = new aq("c13374");
-            aqVar.dW("obj_type", String.valueOf(bVar.iGs));
-            aqVar.w("fid", bVar.forumId);
-            aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(aqVar);
+            ar arVar = new ar("c13374");
+            arVar.dR("obj_type", String.valueOf(bVar.iMb));
+            arVar.v("fid", bVar.forumId);
+            arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(arVar);
         }
     }
 }

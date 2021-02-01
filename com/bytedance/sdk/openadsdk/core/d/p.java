@@ -5,31 +5,31 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6519a;
+    private String f6521a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6520b;
+    private String f6522b;
     private String c;
     private List<a> d;
 
     public String a() {
-        return this.f6519a;
+        return this.f6521a;
     }
 
     public void a(String str) {
-        this.f6519a = str;
+        this.f6521a = str;
     }
 
     public String b() {
-        return this.f6520b;
+        return this.f6522b;
     }
 
     public void b(String str) {
-        this.f6520b = str;
+        this.f6522b = str;
     }
 
     public String c() {
@@ -83,37 +83,37 @@ public class p {
         return null;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6521a;
+        private String f6523a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f6522b;
+        private String f6524b;
         private int c;
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
-                return this.f6521a != null && this.f6521a.equals(((a) obj).a());
+                return this.f6523a != null && this.f6523a.equals(((a) obj).a());
             }
             return super.equals(obj);
         }
 
         public String a() {
-            return this.f6521a;
+            return this.f6523a;
         }
 
         public void a(String str) {
-            this.f6521a = str;
+            this.f6523a = str;
         }
 
         public String b() {
-            return this.f6522b;
+            return this.f6524b;
         }
 
         public void b(String str) {
-            this.f6522b = str;
+            this.f6524b = str;
         }
 
         public int c() {

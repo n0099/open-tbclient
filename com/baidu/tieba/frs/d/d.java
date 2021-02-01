@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.d;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class d {
@@ -14,17 +14,17 @@ public class d {
         this.fid = str2;
     }
 
-    private String cJl() {
+    private String cKy() {
         return this.uid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.fid;
     }
 
-    public boolean cJm() {
-        if (eh(this.uid, this.fid)) {
-            String cJl = cJl();
-            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.brx().getLong(cJl, 0L));
+    public boolean cKz() {
+        if (ee(this.uid, this.fid)) {
+            String cKy = cKy();
+            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.brQ().getLong(cKy, 0L));
             long currentTimeMillis = System.currentTimeMillis();
-            if (bd.b(new Date(currentTimeMillis), date) >= 2) {
-                com.baidu.tbadk.core.sharedPref.b.brx().putLong(cJl, currentTimeMillis);
+            if (be.b(new Date(currentTimeMillis), date) >= 2) {
+                com.baidu.tbadk.core.sharedPref.b.brQ().putLong(cKy, currentTimeMillis);
                 return true;
             }
             return false;
@@ -32,7 +32,7 @@ public class d {
         return false;
     }
 
-    private boolean eh(String str, String str2) {
+    private boolean ee(String str, String str2) {
         return (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true;
     }
 }

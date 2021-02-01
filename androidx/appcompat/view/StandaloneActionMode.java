@@ -13,7 +13,7 @@ import androidx.appcompat.view.menu.SubMenuBuilder;
 import androidx.appcompat.widget.ActionBarContextView;
 import java.lang.ref.WeakReference;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class StandaloneActionMode extends ActionMode implements MenuBuilder.Callback {
     private ActionMode.Callback mCallback;
     private Context mContext;

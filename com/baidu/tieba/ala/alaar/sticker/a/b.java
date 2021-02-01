@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.alaar.sticker.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class b {
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.d> bPn() {
-        return c.bPn();
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.d> bPR() {
+        return c.bPR();
     }
 
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bPo() {
-        return c.bPo();
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bPS() {
+        return c.bPS();
     }
 }

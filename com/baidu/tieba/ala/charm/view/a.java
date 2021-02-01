@@ -10,65 +10,65 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> eTF = new ArrayList<>();
-    private View.OnClickListener gMj;
-    private View.OnClickListener gMk;
-    private View.OnClickListener gMl;
-    private int gMm;
+    private ArrayList<ALaCharmData> eVV = new ArrayList<>();
+    private View.OnClickListener gOP;
+    private View.OnClickListener gOQ;
+    private View.OnClickListener gOR;
+    private int gOS;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.gMm = 1;
+        this.gOS = 1;
         this.mPageContext = tbPageContext;
-        this.gMm = i;
+        this.gOS = i;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.gMj = onClickListener;
+        this.gOP = onClickListener;
     }
 
     public void p(View.OnClickListener onClickListener) {
-        this.gMl = onClickListener;
+        this.gOR = onClickListener;
     }
 
     public void q(View.OnClickListener onClickListener) {
-        this.gMk = onClickListener;
+        this.gOQ = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.eTF.clear();
-            this.eTF.addAll(arrayList);
+            this.eVV.clear();
+            this.eVV.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
-    public void X(ArrayList<ALaCharmData> arrayList) {
+    public void W(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.eTF.addAll(arrayList);
+            this.eVV.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eTF == null) {
+        if (this.eVV == null) {
             return 0;
         }
-        return this.eTF.size();
+        return this.eVV.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ud */
+    /* renamed from: uj */
     public ALaCharmData getItem(int i) {
-        if (this.eTF == null) {
+        if (this.eVV == null) {
             return null;
         }
-        return this.eTF.get(i);
+        return this.eVV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.gMm == 1) {
+            if (this.gOS == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.gMm == 2) {
+            } else if (this.gOS == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            dVar = new d(inflate, this.gMm);
-            dVar.r(this.gMl);
-            dVar.o(this.gMj);
-            dVar.s(this.gMk);
+            dVar = new d(inflate, this.gOS);
+            dVar.r(this.gOR);
+            dVar.o(this.gOP);
+            dVar.s(this.gOQ);
             inflate.setTag(dVar);
             view = inflate;
         } else {
@@ -104,9 +104,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void aB(String str, boolean z) {
-        if (this.eTF != null && str != null) {
-            Iterator<ALaCharmData> it = this.eTF.iterator();
+    public void aA(String str, boolean z) {
+        if (this.eVV != null && str != null) {
+            Iterator<ALaCharmData> it = this.eVV.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

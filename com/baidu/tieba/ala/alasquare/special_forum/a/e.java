@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.RecommendActivityView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.c, RecommendActivityView.ViewHolder> {
     private TbPageContext mPageContext;
 
@@ -16,7 +16,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aj */
+    /* renamed from: ah */
     public RecommendActivityView.ViewHolder e(ViewGroup viewGroup) {
         return new RecommendActivityView.ViewHolder(new RecommendActivityView(this.mPageContext, viewGroup));
     }
@@ -28,7 +28,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (viewHolder == null || cVar == null) {
             return null;
         }
-        viewHolder.gFF.a(cVar);
+        viewHolder.gIp.a(cVar);
         return viewHolder.getView();
     }
 }

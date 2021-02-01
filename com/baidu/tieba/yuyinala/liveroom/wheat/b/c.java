@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.b;
 
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaWheatInfoData;
-import com.baidu.live.data.x;
+import com.baidu.live.data.ab;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
@@ -11,14 +11,14 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
-    public void al(x xVar) {
-        if (xVar != null) {
+    public void al(ab abVar) {
+        if (abVar != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, xVar.aGy.croom_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, abVar.aIU.croom_id);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -30,10 +30,10 @@ public class c {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x WA = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eax().WA();
-            if (WA != null && WA.aGy != null) {
-                jSONObject.put("live_id", WA.aGy.live_id);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, WA.aGy.croom_id);
+            ab Yq = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().Yq();
+            if (Yq != null && Yq.aIU != null) {
+                jSONObject.put("live_id", Yq.aIU.live_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Yq.aIU.croom_id);
             }
             jSONObject.put("loc", i);
             boolean z = false;

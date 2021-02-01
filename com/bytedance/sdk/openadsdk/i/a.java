@@ -13,11 +13,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.WeakHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends com.bytedance.sdk.adnet.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f7185b;
+    private static String f7187b;
     private WeakHashMap<String, String> c = new WeakHashMap<>();
     private final com.bytedance.sdk.openadsdk.b.a d = new com.bytedance.sdk.openadsdk.b.d();
 
@@ -142,11 +142,11 @@ public class a extends com.bytedance.sdk.adnet.b.a {
     }
 
     private static String b() {
-        if (TextUtils.isEmpty(f7185b)) {
+        if (TextUtils.isEmpty(f7187b)) {
             File file = new File(com.bytedance.sdk.adnet.a.b(p.a()), "diskImage");
             file.mkdirs();
-            f7185b = file.getAbsolutePath();
+            f7187b = file.getAbsolutePath();
         }
-        return f7185b;
+        return f7187b;
     }
 }

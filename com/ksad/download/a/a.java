@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.api.proxy.app.DownloadService;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static void a(Context context, String str) {
         com.kwad.sdk.core.d.a.a("DownloadClient", "pauseDownload");

@@ -10,18 +10,18 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.f;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Object f7341b = new Object();
+    private static final Object f7343b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7342a;
+    private Context f7344a;
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f7342a = context;
+        this.f7344a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -43,14 +43,14 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     private Context c() {
-        return this.f7342a == null ? p.a() : this.f7342a;
+        return this.f7344a == null ? p.a() : this.f7344a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public Cursor a(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         Cursor cursor = null;
         u.b("DBMultiProviderImpl", "query: " + String.valueOf(uri));
-        synchronized (f7341b) {
+        synchronized (f7343b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 4) {
@@ -68,7 +68,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public String a(@NonNull Uri uri) {
         u.b("DBMultiProviderImpl", "getType: " + String.valueOf(uri));
-        synchronized (f7341b) {
+        synchronized (f7343b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 5) {
@@ -95,7 +95,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public Uri a(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         u.b("DBMultiProviderImpl", "insert: " + String.valueOf(uri));
-        synchronized (f7341b) {
+        synchronized (f7343b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 4) {
@@ -114,7 +114,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public int a(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         int i = 0;
         u.b("DBMultiProviderImpl", "delete: " + String.valueOf(uri));
-        synchronized (f7341b) {
+        synchronized (f7343b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 4) {
@@ -133,7 +133,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public int a(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         int i = 0;
         u.b("DBMultiProviderImpl", "update: " + String.valueOf(uri));
-        synchronized (f7341b) {
+        synchronized (f7343b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 4) {

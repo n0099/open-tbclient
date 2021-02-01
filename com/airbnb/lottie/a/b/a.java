@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a<K, A> {
     private final List<? extends com.airbnb.lottie.e.a<K>> Es;
     @Nullable
@@ -17,9 +17,9 @@ public abstract class a<K, A> {
     private float progress = 0.0f;
 
     /* renamed from: com.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface InterfaceC0007a {
-        void is();
+        void ir();
     }
 
     abstract A a(com.airbnb.lottie.e.a<K> aVar, float f);
@@ -29,7 +29,7 @@ public abstract class a<K, A> {
         this.Es = list;
     }
 
-    public void iG() {
+    public void iF() {
         this.Er = true;
     }
 
@@ -38,23 +38,23 @@ public abstract class a<K, A> {
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f < iK()) {
+        if (f < iJ()) {
+            f = iJ();
+        } else if (f > iK()) {
             f = iK();
-        } else if (f > iL()) {
-            f = iL();
         }
         if (f != this.progress) {
             this.progress = f;
-            in();
+            im();
         }
     }
 
-    public void in() {
+    public void im() {
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.listeners.size()) {
-                this.listeners.get(i2).is();
+                this.listeners.get(i2).ir();
                 i = i2 + 1;
             } else {
                 return;
@@ -62,12 +62,12 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.airbnb.lottie.e.a<K> iH() {
+    private com.airbnb.lottie.e.a<K> iG() {
         if (this.Eu != null && this.Eu.l(this.progress)) {
             return this.Eu;
         }
         com.airbnb.lottie.e.a<K> aVar = this.Es.get(this.Es.size() - 1);
-        if (this.progress < aVar.jY()) {
+        if (this.progress < aVar.jX()) {
             for (int size = this.Es.size() - 1; size >= 0; size--) {
                 aVar = this.Es.get(size);
                 if (aVar.l(this.progress)) {
@@ -80,43 +80,43 @@ public abstract class a<K, A> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public float iI() {
+    public float iH() {
         if (this.Er) {
             return 0.0f;
         }
-        com.airbnb.lottie.e.a<K> iH = iH();
-        if (iH.kB()) {
+        com.airbnb.lottie.e.a<K> iG = iG();
+        if (iG.kA()) {
             return 0.0f;
         }
-        return (this.progress - iH.jY()) / (iH.iL() - iH.jY());
+        return (this.progress - iG.jX()) / (iG.iK() - iG.jX());
     }
 
-    private float iJ() {
-        com.airbnb.lottie.e.a<K> iH = iH();
-        if (iH.kB()) {
+    private float iI() {
+        com.airbnb.lottie.e.a<K> iG = iG();
+        if (iG.kA()) {
             return 0.0f;
         }
-        return iH.HN.getInterpolation(iI());
+        return iG.HN.getInterpolation(iH());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
-    private float iK() {
+    private float iJ() {
         if (this.Es.isEmpty()) {
             return 0.0f;
         }
-        return this.Es.get(0).jY();
+        return this.Es.get(0).jX();
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
-    float iL() {
+    float iK() {
         if (this.Es.isEmpty()) {
             return 1.0f;
         }
-        return this.Es.get(this.Es.size() - 1).iL();
+        return this.Es.get(this.Es.size() - 1).iK();
     }
 
     public A getValue() {
-        return a(iH(), iJ());
+        return a(iG(), iI());
     }
 
     public float getProgress() {

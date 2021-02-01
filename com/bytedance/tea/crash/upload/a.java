@@ -7,23 +7,23 @@ import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.bytedance.tea.crash.h;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     @SuppressLint({"StaticFieldLeak"})
-    private static volatile a plP;
+    private static volatile a pwe;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile Context f7672b;
+    private volatile Context f7674b;
 
-    public static a eoQ() {
-        if (plP == null) {
-            plP = new a(h.d());
+    public static a eri() {
+        if (pwe == null) {
+            pwe = new a(h.d());
         }
-        return plP;
+        return pwe;
     }
 
     private a(@NonNull Context context) {
-        this.f7672b = context;
+        this.f7674b = context;
     }
 
     @Nullable
@@ -32,7 +32,7 @@ public class a {
             return null;
         }
         try {
-            return com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.a(this.f7672b), com.bytedance.tea.crash.g.h.a(), b.a(h.eoL().a()), jSONObject, b.a());
+            return com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.a(this.f7674b), com.bytedance.tea.crash.g.h.a(), b.a(h.erd().a()), jSONObject, b.a());
         } catch (Throwable th) {
             return null;
         }
@@ -41,10 +41,10 @@ public class a {
     public void b(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject.length() > 0) {
             try {
-                String a2 = b.a(h.eoL().a());
-                String a3 = com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.a(this.f7672b), com.bytedance.tea.crash.g.h.b(), a2, jSONObject, b.b());
+                String a2 = b.a(h.erd().a());
+                String a3 = com.bytedance.tea.crash.g.d.a(com.bytedance.tea.crash.g.h.a(this.f7674b), com.bytedance.tea.crash.g.h.b(), a2, jSONObject, b.b());
                 jSONObject.put("upload_scene", UbcStatConstant.ContentType.UBC_TYPE_PK_DIRECT);
-                if (b.hi(a2, jSONObject.toString()).a()) {
+                if (b.hp(a2, jSONObject.toString()).a()) {
                     com.bytedance.tea.crash.g.d.a(a3);
                 }
             } catch (Throwable th) {

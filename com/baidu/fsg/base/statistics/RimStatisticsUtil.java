@@ -21,14 +21,14 @@ public final class RimStatisticsUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static RimStatisticsUtil f1928a = new RimStatisticsUtil();
+        private static RimStatisticsUtil f1926a = new RimStatisticsUtil();
 
         private a() {
         }
     }
 
     public static RimStatisticsUtil getInstance() {
-        return a.f1928a;
+        return a.f1926a;
     }
 
     private RimStatisticsUtil() {

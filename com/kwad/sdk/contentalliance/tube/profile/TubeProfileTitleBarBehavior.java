@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.Keep;
 import com.kwad.sdk.R;
 import com.kwad.sdk.lib.desigin.CustomActionBarBehavior;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TubeProfileTitleBarBehavior extends CustomActionBarBehavior {
     private ImageView mLeftBackNormal;
     private ImageView mLeftBackShadow;

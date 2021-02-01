@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ao {
     private String forumId;
-    private View iZO;
-    private RecyclerView iZP;
+    private View jfu;
+    private RecyclerView jfv;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
@@ -28,50 +28,50 @@ public class FrsAllThreadFragment extends BaseFragment implements ao {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        cAN();
-        return this.iZO;
+        cBY();
+        return this.jfu;
     }
 
     public void setView(View view) {
-        this.iZO = view;
-        this.iZP = (RecyclerView) this.iZO.findViewById(R.id.frs_lv_thread);
-        cAN();
+        this.jfu = view;
+        this.jfv = (RecyclerView) this.jfu.findViewById(R.id.frs_lv_thread);
+        cBY();
     }
 
-    private void cAN() {
-        if (this.iZO != null && (this.iZO.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.iZO.getParent()).removeView(this.iZO);
-            this.iZO.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void cBY() {
+        if (this.jfu != null && (this.jfu.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.jfu.getParent()).removeView(this.jfu);
+            this.jfu.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void cAO() {
-        if (this.iZP != null) {
-            this.iZP.scrollToPosition(0);
+    public void cBZ() {
+        if (this.jfv != null) {
+            this.jfv.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void bRN() {
-        cAO();
+    public void bSq() {
+        cBZ();
         t tVar = new t();
         tVar.tabId = 1;
-        tVar.gae = true;
+        tVar.gcx = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            bv(2, "4");
+            bA(2, "4");
         } else {
-            bv(2, "5");
+            bA(2, "5");
         }
     }
 
-    private void bv(int i, String str) {
-        TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13008").dW("fid", this.forumId).dW("obj_type", str).an("obj_locate", i).dW("uid", TbadkCoreApplication.getCurrentAccount()));
+    private void bA(int i, String str) {
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c13008").dR("fid", this.forumId).dR("obj_type", str).ap("obj_locate", i).dR("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment

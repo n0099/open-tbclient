@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.liveroom.messages;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GuardClubInfoRenameResponseMessage extends JsonHttpResponsedMessage {
-    public com.baidu.live.guardclub.a bfP;
+    public com.baidu.live.guardclub.a biY;
 
     public GuardClubInfoRenameResponseMessage() {
         super(1021231);
@@ -18,8 +18,8 @@ public class GuardClubInfoRenameResponseMessage extends JsonHttpResponsedMessage
         if (getError() == 0) {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("guard_club_info")) != null) {
-                this.bfP = new com.baidu.live.guardclub.a();
-                this.bfP.parseJson(optJSONObject);
+                this.biY = new com.baidu.live.guardclub.a();
+                this.biY.parseJson(optJSONObject);
                 return;
             }
             return;

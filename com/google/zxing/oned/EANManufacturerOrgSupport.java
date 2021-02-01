@@ -9,7 +9,7 @@ import com.google.zxing.client.result.ExpandedProductParsedResult;
 import com.qq.e.comm.constants.ErrorCode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class EANManufacturerOrgSupport {
     private final List<int[]> ranges = new ArrayList();
     private final List<String> countryIdentifiers = new ArrayList();

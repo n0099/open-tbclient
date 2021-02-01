@@ -12,14 +12,14 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.ak;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RewardDislikeToast extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f6373a;
+    private Handler f6375a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f6374b;
+    private TextView f6376b;
 
     public RewardDislikeToast(Context context) {
         this(context, null);
@@ -31,7 +31,7 @@ public class RewardDislikeToast extends FrameLayout {
 
     public RewardDislikeToast(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f6373a = new Handler(Looper.getMainLooper());
+        this.f6375a = new Handler(Looper.getMainLooper());
         setVisibility(8);
         setClickable(false);
         setFocusable(false);
@@ -39,39 +39,39 @@ public class RewardDislikeToast extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.f6374b = new TextView(context);
-        this.f6374b.setClickable(false);
-        this.f6374b.setFocusable(false);
+        this.f6376b = new TextView(context);
+        this.f6376b.setClickable(false);
+        this.f6376b.setFocusable(false);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
         int a2 = (int) ak.a(p.a(), 20.0f);
         int a3 = (int) ak.a(p.a(), 12.0f);
-        this.f6374b.setPadding(a2, a3, a2, a3);
-        this.f6374b.setLayoutParams(layoutParams);
-        this.f6374b.setTextColor(-1);
-        this.f6374b.setTextSize(16.0f);
-        this.f6374b.setGravity(17);
+        this.f6376b.setPadding(a2, a3, a2, a3);
+        this.f6376b.setLayoutParams(layoutParams);
+        this.f6376b.setTextColor(-1);
+        this.f6376b.setTextSize(16.0f);
+        this.f6376b.setGravity(17);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);
         gradientDrawable.setColor(Color.parseColor("#CC000000"));
         gradientDrawable.setCornerRadius(ak.a(p.a(), 6.0f));
-        this.f6374b.setBackgroundDrawable(gradientDrawable);
-        addView(this.f6374b);
+        this.f6376b.setBackgroundDrawable(gradientDrawable);
+        addView(this.f6376b);
     }
 
     public void a(final String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f6373a.removeCallbacksAndMessages(null);
-            this.f6373a.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeToast.1
+            this.f6375a.removeCallbacksAndMessages(null);
+            this.f6375a.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeToast.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (RewardDislikeToast.this.f6374b != null) {
-                        RewardDislikeToast.this.f6374b.setText(String.valueOf(str));
+                    if (RewardDislikeToast.this.f6376b != null) {
+                        RewardDislikeToast.this.f6376b.setText(String.valueOf(str));
                     }
                     RewardDislikeToast.this.setVisibility(0);
                 }
             });
-            this.f6373a.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeToast.2
+            this.f6375a.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeToast.2
                 @Override // java.lang.Runnable
                 public void run() {
                     RewardDislikeToast.this.setVisibility(8);
@@ -82,11 +82,11 @@ public class RewardDislikeToast extends FrameLayout {
 
     public void a() {
         setVisibility(8);
-        this.f6373a.removeCallbacksAndMessages(null);
+        this.f6375a.removeCallbacksAndMessages(null);
     }
 
     public void b() {
         setVisibility(8);
-        this.f6373a.removeCallbacksAndMessages(null);
+        this.f6375a.removeCallbacksAndMessages(null);
     }
 }

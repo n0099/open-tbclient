@@ -1,6 +1,5 @@
 package com.google.zxing.oned;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
@@ -9,7 +8,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class CodaBarReader extends OneDReader {
     private static final float MAX_ACCEPTABLE = 2.0f;
     private static final int MIN_CHARACTER_LENGTH = 3;
@@ -192,7 +191,7 @@ public final class CodaBarReader extends OneDReader {
     }
 
     private int toNarrowWidePattern(int i) {
-        int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i2 = Integer.MAX_VALUE;
         int i3 = i + 7;
         if (i3 >= this.counterLength) {
             return -1;

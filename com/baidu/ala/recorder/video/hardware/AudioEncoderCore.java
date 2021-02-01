@@ -8,7 +8,7 @@ import com.kwai.video.player.KsMediaMeta;
 import com.kwai.video.player.misc.IMediaFormat;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AudioEncoderCore {
     private static final int AUDIO_FORMAT = 2;
     private static final String MIME_TYPE = "audio/mp4a-latm";
@@ -20,7 +20,7 @@ public class AudioEncoderCore {
     private EncodeConfig mEncodeConfig = new EncodeConfig();
     private MediaCodec mEncoder = null;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static class EncodeConfig {
         public static final int BIT_RATE = 64000;
         public static final int CHANEL_COUNT = 1;
@@ -30,7 +30,7 @@ public class AudioEncoderCore {
         public int bitRate = BIT_RATE;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public interface OutputCallback {
         public static final int KEY_FRAME = 2;
         public static final int MC_ENCODER_CONFIGURE_ERR = 1;

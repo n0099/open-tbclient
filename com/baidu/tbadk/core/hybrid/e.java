@@ -4,18 +4,18 @@ import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b eVn = new a();
-    private static final b eVo = new c();
-    private static final boolean eVp;
+    private static final b eXD = new a();
+    private static final b eXE = new c();
+    private static final boolean eXF;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void al(String str, String str2, String str3);
+        void am(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -24,7 +24,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void al(String str, String str2, String str3) {
+        public void am(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -38,35 +38,35 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
-        public void al(String str, String str2, String str3) {
-            aq aqVar = new aq("c10729");
-            aqVar.dW("obj_param1", str);
-            aqVar.dW(TiebaInitialize.Params.OBJ_PARAM2, str2);
-            aqVar.dW(TiebaInitialize.Params.OBJ_PARAM3, str3);
+        public void am(String str, String str2, String str3) {
+            ar arVar = new ar("c10729");
+            arVar.dR("obj_param1", str);
+            arVar.dR(TiebaInitialize.Params.OBJ_PARAM2, str2);
+            arVar.dR(TiebaInitialize.Params.OBJ_PARAM3, str3);
             if (BdBaseApplication.getInst() != null) {
-                TiebaStatic.log(aqVar);
+                TiebaStatic.log(arVar);
             }
         }
     }
 
-    public static void al(String str, String str2, String str3) {
-        if (eVp) {
-            eVn.al(str, str2, str3);
+    public static void am(String str, String str2, String str3) {
+        if (eXF) {
+            eXD.am(str, str2, str3);
         }
-        eVo.al(str, str2, str3);
+        eXE.am(str, str2, str3);
     }
 
     public static void debug(String str) {
-        if (eVp) {
-            eVn.al(null, null, str);
+        if (eXF) {
+            eXD.am(null, null, str);
         }
     }
 
-    public static void am(String str, String str2, String str3) {
+    public static void an(String str, String str2, String str3) {
         debug(str3);
     }
 
     static {
-        eVp = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        eXF = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

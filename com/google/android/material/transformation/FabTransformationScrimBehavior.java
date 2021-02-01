@@ -15,7 +15,7 @@ import com.google.android.material.animation.MotionTiming;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class FabTransformationScrimBehavior extends ExpandableTransformationBehavior {
     public static final long COLLAPSE_DELAY = 0;
     public static final long COLLAPSE_DURATION = 150;

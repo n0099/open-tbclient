@@ -62,7 +62,7 @@ public final class ObservableRetryPredicate<T> extends a<T, T> {
                     subscribeNext();
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.O(th2);
+                io.reactivex.exceptions.a.N(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

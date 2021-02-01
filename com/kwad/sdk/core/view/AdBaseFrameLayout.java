@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.MainThread;
 import com.kwad.sdk.utils.s;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdBaseFrameLayout extends FrameLayout {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final s.a f9508b = new s.a();
+    private static final s.a f9510b = new s.a();
 
     /* renamed from: a  reason: collision with root package name */
-    private View.OnTouchListener f9509a;
+    private View.OnTouchListener f9511a;
 
     public AdBaseFrameLayout(Context context) {
         super(context);
@@ -32,16 +32,16 @@ public class AdBaseFrameLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.f9509a != null) {
-            this.f9509a.onTouch(this, motionEvent);
+        if (this.f9511a != null) {
+            this.f9511a.onTouch(this, motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
-                f9508b.a(getWidth(), getHeight());
-                f9508b.a(motionEvent.getX(), motionEvent.getY());
+                f9510b.a(getWidth(), getHeight());
+                f9510b.a(motionEvent.getX(), motionEvent.getY());
                 break;
             case 1:
-                f9508b.b(motionEvent.getX(), motionEvent.getY());
+                f9510b.b(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -49,7 +49,7 @@ public class AdBaseFrameLayout extends FrameLayout {
 
     @MainThread
     public s.a getTouchCoords() {
-        return f9508b;
+        return f9510b;
     }
 
     @Override // android.view.View
@@ -57,6 +57,6 @@ public class AdBaseFrameLayout extends FrameLayout {
     }
 
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
-        this.f9509a = onTouchListener;
+        this.f9511a = onTouchListener;
     }
 }

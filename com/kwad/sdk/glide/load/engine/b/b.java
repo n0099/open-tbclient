@@ -6,7 +6,7 @@ import android.util.Log;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 final class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a() {

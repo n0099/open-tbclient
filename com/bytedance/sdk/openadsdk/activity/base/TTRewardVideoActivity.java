@@ -38,7 +38,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTRewardVideoActivity extends TTBaseVideoActivity {
     private static TTRewardVideoAd.RewardAdInteractionListener aW;
     private q aR;
@@ -543,9 +543,9 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                     int a2 = cVar.c.a();
                     String b2 = cVar.c.b();
                     if (b.b()) {
-                        TTRewardVideoActivity.this.a("onRewardVerify", cVar.f6676b, a2, b2);
+                        TTRewardVideoActivity.this.a("onRewardVerify", cVar.f6678b, a2, b2);
                     } else if (TTRewardVideoActivity.this.bb != null) {
-                        TTRewardVideoActivity.this.bb.onRewardVerify(cVar.f6676b, a2, b2);
+                        TTRewardVideoActivity.this.bb.onRewardVerify(cVar.f6678b, a2, b2);
                     }
                 }
             });
@@ -554,8 +554,8 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
 
     private JSONObject V() {
         JSONObject jSONObject = new JSONObject();
-        float f = com.bytedance.sdk.openadsdk.utils.d.a(this.e) == null ? 0.0f : com.bytedance.sdk.openadsdk.utils.d.a(this.e).f7564a;
-        float f2 = com.bytedance.sdk.openadsdk.utils.d.a(this.e) != null ? com.bytedance.sdk.openadsdk.utils.d.a(this.e).f7565b : 0.0f;
+        float f = com.bytedance.sdk.openadsdk.utils.d.a(this.e) == null ? 0.0f : com.bytedance.sdk.openadsdk.utils.d.a(this.e).f7566a;
+        float f2 = com.bytedance.sdk.openadsdk.utils.d.a(this.e) != null ? com.bytedance.sdk.openadsdk.utils.d.a(this.e).f7567b : 0.0f;
         int r = this.D != null ? (int) this.D.r() : 0;
         try {
             jSONObject.put("oversea_version_type", 0);

@@ -7,9 +7,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SelectorImageView extends BdBaseImageView {
-    private static int dTq = 255;
+    private static int dVw = 255;
 
     public SelectorImageView(Context context) {
         super(context);
@@ -30,7 +30,7 @@ public class SelectorImageView extends BdBaseImageView {
         if (!z) {
             setImageAlpha(255);
         } else {
-            setImageAlpha(dTq);
+            setImageAlpha(dVw);
         }
     }
 
@@ -45,7 +45,7 @@ public class SelectorImageView extends BdBaseImageView {
                 case 1:
                 case 3:
                     Log.d("ACTION_UP", "ACTION_UP");
-                    setImageAlpha(dTq);
+                    setImageAlpha(dVw);
                     break;
             }
         }

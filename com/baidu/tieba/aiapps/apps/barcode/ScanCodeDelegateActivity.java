@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.barcode;
 import android.content.Intent;
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ScanCodeDelegateActivity extends ProcessDelegateBaseActivity {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {

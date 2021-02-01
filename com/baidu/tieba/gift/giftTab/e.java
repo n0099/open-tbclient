@@ -1,7 +1,7 @@
 package com.baidu.tieba.gift.giftTab;
 
 import tbclient.GetGiftList.PresentNumInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
     private String name;
     private int number;

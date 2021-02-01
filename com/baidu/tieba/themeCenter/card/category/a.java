@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetCardByCategory.ThemeCardInMain;
 import tbclient.ThemeCardPropMain;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private String aEF;
-    private ArrayList<com.baidu.tieba.themeCenter.a> nyj;
+    private String aGs;
+    private ArrayList<com.baidu.tieba.themeCenter.a> nHT;
 
     public void a(ThemeCardInMain themeCardInMain) {
         if (themeCardInMain != null) {
-            this.aEF = themeCardInMain.card_category;
+            this.aGs = themeCardInMain.card_category;
             List<ThemeCardPropMain> list = themeCardInMain.props;
             if (list != null && list.size() > 0) {
-                this.nyj = new ArrayList<>();
+                this.nHT = new ArrayList<>();
                 for (ThemeCardPropMain themeCardPropMain : list) {
                     if (themeCardPropMain != null) {
                         com.baidu.tieba.themeCenter.a aVar = new com.baidu.tieba.themeCenter.a();
                         aVar.a(themeCardPropMain);
-                        this.nyj.add(aVar);
+                        this.nHT.add(aVar);
                     }
                 }
             }
@@ -27,10 +27,10 @@ public class a {
     }
 
     public String getCategoryName() {
-        return this.aEF;
+        return this.aGs;
     }
 
-    public ArrayList<com.baidu.tieba.themeCenter.a> dOX() {
-        return this.nyj;
+    public ArrayList<com.baidu.tieba.themeCenter.a> dRi() {
+        return this.nHT;
     }
 }

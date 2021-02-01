@@ -19,17 +19,17 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class FaceLoginService {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f5070b = "FaceLoginService";
+    private static final String f5072b = "FaceLoginService";
     private static final String c = "face_login_model_v2";
     private static final String d = "livingunames";
     private static final int e = 10;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5071a = SapiAccountManager.getInstance().getConfignation().context;
+    private Context f5073a = SapiAccountManager.getInstance().getConfignation().context;
 
     private String a(Map<String, Long> map) {
         JSONObject jSONObject = new JSONObject();
@@ -111,7 +111,7 @@ public class FaceLoginService {
             shareStorage.setSd(SecurityUtil.md5(c.getBytes(), false), str);
             return;
         }
-        Log.i(f5070b, "setV2ShareFaceUids false");
+        Log.i(f5072b, "setV2ShareFaceUids false");
     }
 
     private Map<String, Long> a(List<a> list) {
@@ -121,8 +121,8 @@ public class FaceLoginService {
         }
         Collections.sort(list);
         for (a aVar : list) {
-            if (!linkedHashMap.containsKey(aVar.f5072a)) {
-                linkedHashMap.put(aVar.f5072a, Long.valueOf(aVar.f5073b));
+            if (!linkedHashMap.containsKey(aVar.f5074a)) {
+                linkedHashMap.put(aVar.f5074a, Long.valueOf(aVar.f5075b));
             }
         }
         if (linkedHashMap.size() > 10) {
@@ -139,7 +139,7 @@ public class FaceLoginService {
     private List<a> a() {
         ArrayList arrayList = new ArrayList();
         if (SapiContext.getInstance().shareLivingunameEnable()) {
-            List<Intent> c2 = e.c(this.f5071a);
+            List<Intent> c2 = e.c(this.f5073a);
             if (c2.isEmpty()) {
                 return arrayList;
             }

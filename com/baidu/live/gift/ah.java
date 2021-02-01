@@ -2,7 +2,7 @@ package com.baidu.live.gift;
 
 import android.content.DialogInterface;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ah {
     void initView();
 
@@ -12,7 +12,7 @@ public interface ah {
 
     void setGiftItem(g gVar);
 
-    void setLiveShowData(com.baidu.live.data.x xVar);
+    void setLiveShowData(com.baidu.live.data.ab abVar);
 
     void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener);
 

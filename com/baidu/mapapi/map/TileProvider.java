@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface TileProvider {
     int getMaxDisLevel();
 

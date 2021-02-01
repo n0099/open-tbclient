@@ -5,14 +5,14 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONObject f12696a = new JSONObject();
+    private JSONObject f12698a = new JSONObject();
 
     public JSONObject a() {
-        return this.f12696a;
+        return this.f12698a;
     }
 
     void a(int i) {
@@ -41,13 +41,13 @@ class b {
             return;
         }
         try {
-            this.f12696a.put(str, obj);
+            this.f12698a.put(str, obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     public String toString() {
-        return this.f12696a.toString();
+        return this.f12698a.toString();
     }
 }

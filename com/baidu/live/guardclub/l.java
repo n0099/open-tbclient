@@ -1,5 +1,5 @@
 package com.baidu.live.guardclub;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface l {
-    void HI();
+    void IY();
 }

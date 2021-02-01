@@ -3,6 +3,7 @@ package com.google.zxing.aztec.encoder;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.google.zxing.common.BitArray;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
@@ -10,7 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class HighLevelEncoder {
     private static final int[][] CHAR_MAP;
     static final int MODE_DIGIT = 2;
@@ -40,7 +41,7 @@ public final class HighLevelEncoder {
         }
         CHAR_MAP[2][44] = 12;
         CHAR_MAP[2][46] = 13;
-        int[] iArr2 = {0, 32, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 27, 28, 29, 30, 31, 64, 92, 94, 95, 96, Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER, Opcodes.IAND, 127};
+        int[] iArr2 = {0, 32, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 27, 28, 29, 30, 31, 64, 92, 94, 95, 96, Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER, Opcodes.IAND, ThunderNetStateService.NetState.SYSNET_UNKNOWN};
         for (int i4 = 0; i4 < 28; i4++) {
             CHAR_MAP[3][iArr2[i4]] = i4;
         }

@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
-    private XfremodeRoundLayout mLm;
-    private TbImageView mLn;
-    private View mLo;
-    private TextView mLp;
+    private XfremodeRoundLayout mUA;
+    private TbImageView mUB;
+    private View mUC;
+    private TextView mUD;
 
     public AdCardSinglePicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -32,44 +32,44 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void ec(View view) {
-        float Hz = Hz(R.string.J_X05);
+    protected void ea(View view) {
+        float HS = HS(R.string.J_X05);
         if (view instanceof XfremodeRoundLayout) {
-            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{Hz, Hz, Hz, Hz, Hz, Hz, Hz, Hz});
+            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{HS, HS, HS, HS, HS, HS, HS, HS});
         }
-        this.mLm = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
-        this.mLn = (TbImageView) view.findViewById(R.id.ad_img);
-        this.mLn.setPlaceHolder(3);
-        this.mLo = view.findViewById(R.id.channel_ad);
-        this.mLp = (TextView) view.findViewById(R.id.advert_source_img);
-        this.mLm.setRoundLayoutRadius(new float[]{Hz, Hz, Hz, Hz, Hz, Hz, Hz, Hz});
+        this.mUA = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+        this.mUB = (TbImageView) view.findViewById(R.id.ad_img);
+        this.mUB.setPlaceHolder(3);
+        this.mUC = view.findViewById(R.id.channel_ad);
+        this.mUD = (TextView) view.findViewById(R.id.advert_source_img);
+        this.mUA.setRoundLayoutRadius(new float[]{HS, HS, HS, HS, HS, HS, HS, HS});
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList == null || adCard.threadPicList.length < 1) {
-            this.mJT.setVisibility(8);
+            this.mTc.setVisibility(8);
             return;
         }
         String str = adCard.threadPicList[0].pic;
-        boolean a2 = a(this.mLn, adCard);
+        boolean a2 = a(this.mUB, adCard);
         if (!TextUtils.isEmpty(str) && a2) {
-            this.mJT.setVisibility(0);
-            this.mLn.startLoad(str, 17, false);
+            this.mTc.setVisibility(0);
+            this.mUB.startLoad(str, 17, false);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             if (!StringUtils.isNull(adCard.adSource, true)) {
-                this.mLp.setText(adCard.adSource);
-                this.mLo.setVisibility(0);
-            } else if (advertAppInfo != null && advertAppInfo.eJr != null && !TextUtils.isEmpty(advertAppInfo.eJr.adSource)) {
-                this.mLp.setText(advertAppInfo.eJr.adSource);
-                this.mLo.setVisibility(0);
+                this.mUD.setText(adCard.adSource);
+                this.mUC.setVisibility(0);
+            } else if (advertAppInfo != null && advertAppInfo.eLD != null && !TextUtils.isEmpty(advertAppInfo.eLD.adSource)) {
+                this.mUD.setText(advertAppInfo.eLD.adSource);
+                this.mUC.setVisibility(0);
             } else {
-                this.mLo.setVisibility(8);
+                this.mUC.setVisibility(8);
             }
-            a(this.mLn, adCard.threadPicList[0].mJG);
+            a(this.mUB, adCard.threadPicList[0].mSO);
             return;
         }
-        this.mJT.setVisibility(8);
+        this.mTc.setVisibility(8);
     }
 
     protected boolean a(TbImageView tbImageView, AdCard adCard) {
@@ -109,7 +109,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
                 layoutParams.height = i;
                 layoutParams.width = i2;
             }
-            this.mLm.setLayoutParams(layoutParams);
+            this.mUA.setLayoutParams(layoutParams);
             tbImageView.setLayoutParams(layoutParams);
         }
     }

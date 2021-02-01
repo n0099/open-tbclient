@@ -2,7 +2,7 @@ package com.baidu.live.lottie.c;
 
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.live.lottie.model.c h(JsonReader jsonReader) throws IOException {

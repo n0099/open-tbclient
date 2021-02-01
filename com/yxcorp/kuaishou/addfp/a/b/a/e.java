@@ -6,26 +6,26 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f14342b;
+    private Context f14344b;
     private CountDownLatch d = new CountDownLatch(1);
-    private ServiceConnection pbD = new f(this);
-    public b qbx;
-    private com.yxcorp.kuaishou.addfp.a.b.b qby;
+    private ServiceConnection plS = new f(this);
+    public b qlB;
+    private com.yxcorp.kuaishou.addfp.a.b.b qlC;
 
     public e(Context context) {
-        this.f14342b = context;
+        this.f14344b = context;
     }
 
     private void a(boolean z) {
         try {
             if (z) {
-                this.qby.a(this.qbx);
+                this.qlC.a(this.qlB);
             } else {
-                this.qby.e();
+                this.qlC.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -33,22 +33,22 @@ public final class e {
     }
 
     public final void a() {
-        if (this.pbD == null || this.f14342b == null) {
+        if (this.plS == null || this.f14344b == null) {
             return;
         }
-        this.f14342b.unbindService(this.pbD);
+        this.f14344b.unbindService(this.plS);
     }
 
     public final void a(com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qby = bVar;
+            this.qlC = bVar;
             Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
             ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
             Intent intent2 = new Intent(intent);
             intent2.setComponent(componentName);
-            if (this.f14342b.bindService(intent2, this.pbD, 1)) {
+            if (this.f14344b.bindService(intent2, this.plS, 1)) {
                 this.d.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qbx != null) {
+                if (this.qlB != null) {
                     a(true);
                 } else {
                     a(false);

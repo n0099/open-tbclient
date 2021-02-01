@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LiveTabConcernEmptyViewHolder extends TypeAdapter.ViewHolder {
-    public b gAc;
+    public b gCM;
 
     public LiveTabConcernEmptyViewHolder(b bVar) {
         super(bVar.getView());
-        this.gAc = bVar;
+        this.gCM = bVar;
     }
 }

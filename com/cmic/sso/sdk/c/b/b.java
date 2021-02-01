@@ -2,14 +2,14 @@ package com.cmic.sso.sdk.c.b;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7702a;
+    private String f7704a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7703b;
+    private String f7705b;
     private String c;
     private String d;
     private String e;
@@ -26,8 +26,8 @@ public class b extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f7702a);
-            jSONObject.put("apptype", this.f7703b);
+            jSONObject.put("version", this.f7704a);
+            jSONObject.put("apptype", this.f7705b);
             jSONObject.put("phone_ID", this.c);
             jSONObject.put("certflag", this.d);
             jSONObject.put("sdkversion", this.e);
@@ -41,11 +41,11 @@ public class b extends g {
     }
 
     public void a(String str) {
-        this.f7702a = str;
+        this.f7704a = str;
     }
 
     public void b(String str) {
-        this.f7703b = str;
+        this.f7705b = str;
     }
 
     public void c(String str) {
@@ -69,6 +69,6 @@ public class b extends g {
     }
 
     public String c() {
-        return dD(this.f7702a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
+        return dD(this.f7704a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
     }
 }

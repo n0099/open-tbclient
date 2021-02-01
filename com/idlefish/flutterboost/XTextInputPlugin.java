@@ -16,7 +16,7 @@ import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class XTextInputPlugin {
     private static XTextInputPlugin xTextInputPlugin;
     @Nullable
@@ -262,14 +262,14 @@ public class XTextInputPlugin {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class InputTarget {
         int id;
         @NonNull
         Type type;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         public enum Type {
             NO_TARGET,
             FRAMEWORK_CLIENT,

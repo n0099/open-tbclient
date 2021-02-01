@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tieba.lego.card.c.d;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LPBigImgCard extends BaseCardInfo implements com.baidu.tieba.lego.card.b.a<LPBigImgCard> {
     private final int bgColor;
     private final int bgColorNight;
@@ -25,16 +25,16 @@ public class LPBigImgCard extends BaseCardInfo implements com.baidu.tieba.lego.c
     public LPBigImgCard(JSONObject jSONObject) {
         super(jSONObject);
         this.picUrl = jSONObject.optString("pic_url");
-        this.picWidth = d.DC(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-        this.picHeight = d.DC(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-        this.bgColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("bg_color"));
-        this.bgColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("bg_color_n"));
+        this.picWidth = d.DU(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
+        this.picHeight = d.DU(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+        this.bgColor = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("bg_color"));
+        this.bgColorNight = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("bg_color_n"));
         this.btnText = jSONObject.optString("btn_text");
-        this.btnColor = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("btn_color"));
-        this.btnColorNight = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("btn_color_n"));
+        this.btnColor = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("btn_color"));
+        this.btnColorNight = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("btn_color_n"));
         this.btnImgUrl = jSONObject.optString("btn_img");
-        this.btnWidth = d.DC(jSONObject.optInt("btn_width"));
-        this.btnHeight = d.DC(jSONObject.optInt("btn_height"));
+        this.btnWidth = d.DU(jSONObject.optInt("btn_width"));
+        this.btnHeight = d.DU(jSONObject.optInt("btn_height"));
         this.btnPosRatio = jSONObject.optDouble("btn_pos", 0.5d);
         this.btnLink = jSONObject.optString("link");
     }
@@ -96,7 +96,7 @@ public class LPBigImgCard extends BaseCardInfo implements com.baidu.tieba.lego.c
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         if (lPBigImgCard != null && tbPageContext != null) {
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-            com.baidu.adp.lib.e.d.mx().a(lPBigImgCard.getPicUrl(), 17, null, equipmentWidth, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * equipmentWidth), tbPageContext.getUniqueId(), new Object[0]);
+            com.baidu.adp.lib.e.d.mw().a(lPBigImgCard.getPicUrl(), 17, null, equipmentWidth, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * equipmentWidth), tbPageContext.getUniqueId(), new Object[0]);
         }
     }
 

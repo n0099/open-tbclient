@@ -15,20 +15,20 @@ import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes.dex */
 public class PullLeftRefreshLayout extends FrameLayout {
-    private int fQA;
-    private int fQB;
-    private float fQC;
-    private ValueAnimator fQD;
-    private ValueAnimator fQE;
-    private int fQF;
-    private int fQG;
-    private float fQH;
-    private a fQI;
-    private boolean fQJ;
-    private com.baidu.tbadk.widget.horizontalpullview.a fQw;
-    private View fQx;
-    private int fQy;
-    private int fQz;
+    private com.baidu.tbadk.widget.horizontalpullview.a fSJ;
+    private View fSK;
+    private int fSL;
+    private int fSM;
+    private int fSN;
+    private int fSO;
+    private float fSP;
+    private ValueAnimator fSQ;
+    private ValueAnimator fSR;
+    private int fSS;
+    private int fST;
+    private float fSU;
+    private a fSV;
+    private boolean fSW;
     private int mLastX;
     private int mLastY;
     RecyclerView.OnScrollListener mOnScrollListener;
@@ -36,31 +36,31 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bGC();
+        void bGW();
     }
 
     public PullLeftRefreshLayout(@NonNull Context context) {
         super(context);
-        this.fQH = 0.0f;
-        this.fQJ = false;
+        this.fSU = 0.0f;
+        this.fSW = false;
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.1
-            private boolean fQK = true;
-            private int fQL = 0;
+            private boolean fSX = true;
+            private int fSY = 0;
             private int state;
             private ValueAnimator valueAnimator;
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
                 this.state = i;
-                if (PullLeftRefreshLayout.this.fQJ && this.state == 0 && !this.fQK) {
+                if (PullLeftRefreshLayout.this.fSW && this.state == 0 && !this.fSX) {
                     if (this.valueAnimator != null) {
                         this.valueAnimator.cancel();
                     }
-                    int i2 = (int) (PullLeftRefreshLayout.this.fQC - 1.0f);
-                    if (this.fQL > i2) {
-                        this.fQL = i2;
+                    int i2 = (int) (PullLeftRefreshLayout.this.fSP - 1.0f);
+                    if (this.fSY > i2) {
+                        this.fSY = i2;
                     }
-                    this.valueAnimator = ValueAnimator.ofInt(this.fQL, 0);
+                    this.valueAnimator = ValueAnimator.ofInt(this.fSY, 0);
                     this.valueAnimator.setDuration(100L);
                     this.valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.1.1
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -76,7 +76,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            PullLeftRefreshLayout.this.bGy();
+                            PullLeftRefreshLayout.this.bGS();
                         }
                     });
                     this.valueAnimator.start();
@@ -85,11 +85,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
-                this.fQL = i;
+                this.fSY = i;
                 if (!recyclerView.canScrollHorizontally(1) && i > 0) {
-                    this.fQK = false;
+                    this.fSX = false;
                 } else {
-                    this.fQK = true;
+                    this.fSX = true;
                 }
             }
         };
@@ -98,26 +98,26 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
     public PullLeftRefreshLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fQH = 0.0f;
-        this.fQJ = false;
+        this.fSU = 0.0f;
+        this.fSW = false;
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.1
-            private boolean fQK = true;
-            private int fQL = 0;
+            private boolean fSX = true;
+            private int fSY = 0;
             private int state;
             private ValueAnimator valueAnimator;
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
                 this.state = i;
-                if (PullLeftRefreshLayout.this.fQJ && this.state == 0 && !this.fQK) {
+                if (PullLeftRefreshLayout.this.fSW && this.state == 0 && !this.fSX) {
                     if (this.valueAnimator != null) {
                         this.valueAnimator.cancel();
                     }
-                    int i2 = (int) (PullLeftRefreshLayout.this.fQC - 1.0f);
-                    if (this.fQL > i2) {
-                        this.fQL = i2;
+                    int i2 = (int) (PullLeftRefreshLayout.this.fSP - 1.0f);
+                    if (this.fSY > i2) {
+                        this.fSY = i2;
                     }
-                    this.valueAnimator = ValueAnimator.ofInt(this.fQL, 0);
+                    this.valueAnimator = ValueAnimator.ofInt(this.fSY, 0);
                     this.valueAnimator.setDuration(100L);
                     this.valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.1.1
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -133,7 +133,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            PullLeftRefreshLayout.this.bGy();
+                            PullLeftRefreshLayout.this.bGS();
                         }
                     });
                     this.valueAnimator.start();
@@ -142,11 +142,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
-                this.fQL = i;
+                this.fSY = i;
                 if (!recyclerView.canScrollHorizontally(1) && i > 0) {
-                    this.fQK = false;
+                    this.fSX = false;
                 } else {
-                    this.fQK = true;
+                    this.fSX = true;
                 }
             }
         };
@@ -155,26 +155,26 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
     public PullLeftRefreshLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fQH = 0.0f;
-        this.fQJ = false;
+        this.fSU = 0.0f;
+        this.fSW = false;
         this.mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.1
-            private boolean fQK = true;
-            private int fQL = 0;
+            private boolean fSX = true;
+            private int fSY = 0;
             private int state;
             private ValueAnimator valueAnimator;
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i2) {
                 this.state = i2;
-                if (PullLeftRefreshLayout.this.fQJ && this.state == 0 && !this.fQK) {
+                if (PullLeftRefreshLayout.this.fSW && this.state == 0 && !this.fSX) {
                     if (this.valueAnimator != null) {
                         this.valueAnimator.cancel();
                     }
-                    int i22 = (int) (PullLeftRefreshLayout.this.fQC - 1.0f);
-                    if (this.fQL > i22) {
-                        this.fQL = i22;
+                    int i22 = (int) (PullLeftRefreshLayout.this.fSP - 1.0f);
+                    if (this.fSY > i22) {
+                        this.fSY = i22;
                     }
-                    this.valueAnimator = ValueAnimator.ofInt(this.fQL, 0);
+                    this.valueAnimator = ValueAnimator.ofInt(this.fSY, 0);
                     this.valueAnimator.setDuration(100L);
                     this.valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.1.1
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -190,7 +190,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            PullLeftRefreshLayout.this.bGy();
+                            PullLeftRefreshLayout.this.bGS();
                         }
                     });
                     this.valueAnimator.start();
@@ -199,11 +199,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrolled(@NonNull RecyclerView recyclerView, int i2, int i22) {
-                this.fQL = i2;
+                this.fSY = i2;
                 if (!recyclerView.canScrollHorizontally(1) && i2 > 0) {
-                    this.fQK = false;
+                    this.fSX = false;
                 } else {
-                    this.fQK = true;
+                    this.fSX = true;
                 }
             }
         };
@@ -214,24 +214,24 @@ public class PullLeftRefreshLayout extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.fQI = aVar;
+        this.fSV = aVar;
     }
 
     public void setRefreshViewAndListener(com.baidu.tbadk.widget.horizontalpullview.a aVar) {
-        this.fQw = aVar;
-        this.fQx = aVar.getView();
+        this.fSJ = aVar;
+        this.fSK = aVar.getView();
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = GravityCompat.END;
-        this.fQx.setLayoutParams(layoutParams);
-        addView(this.fQx, 0);
+        this.fSK.setLayoutParams(layoutParams);
+        addView(this.fSK, 0);
     }
 
     public void setEnablePull(boolean z) {
-        this.fQJ = z;
+        this.fSW = z;
     }
 
-    public boolean bGw() {
-        return this.fQJ;
+    public boolean bGQ() {
+        return this.fSW;
     }
 
     @Override // android.view.View
@@ -258,18 +258,18 @@ public class PullLeftRefreshLayout extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.fQx != null) {
-            this.fQz = this.fQx.getMeasuredWidth();
-            this.fQB = this.fQz * 2;
-            this.fQA = this.fQz + this.fQB;
-            this.fQC = this.fQz;
+        if (this.fSK != null) {
+            this.fSM = this.fSK.getMeasuredWidth();
+            this.fSO = this.fSM * 2;
+            this.fSN = this.fSM + this.fSO;
+            this.fSP = this.fSM;
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.fQy == 0) {
-            this.fQx.setTranslationX(this.fQz);
+        if (this.fSL == 0) {
+            this.fSK.setTranslationX(this.fSM);
         }
         super.onLayout(z, i, i2, i3, i4);
     }
@@ -280,29 +280,29 @@ public class PullLeftRefreshLayout extends FrameLayout {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.fQF = x;
+                this.fSS = x;
                 this.mLastX = x;
-                this.fQG = y;
+                this.fST = y;
                 this.mLastY = y;
                 break;
             case 1:
             case 3:
-                this.fQF = 0;
-                this.fQG = 0;
+                this.fSS = 0;
+                this.fST = 0;
                 break;
             case 2:
-                int i = x - this.fQF;
-                this.fQF = x;
+                int i = x - this.fSS;
+                this.fSS = x;
                 this.mLastX = x;
-                this.fQG = y;
+                this.fST = y;
                 this.mLastY = y;
-                if (Math.abs(i) > Math.abs(y - this.fQG) && this.fQJ && i < 0 && !bGA() && this.fQy == 0) {
+                if (Math.abs(i) > Math.abs(y - this.fST) && this.fSW && i < 0 && !bGU() && this.fSL == 0) {
                     if (getParent() != null) {
                         getParent().requestDisallowInterceptTouchEvent(true);
                     }
-                    this.fQy = 2;
-                    if (this.fQw != null) {
-                        this.fQw.cb(this.fQx);
+                    this.fSL = 2;
+                    if (this.fSJ != null) {
+                        this.fSJ.bX(this.fSK);
                         return true;
                     }
                     return true;
@@ -315,7 +315,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.fQJ) {
+        if (!this.fSW) {
             return super.onTouchEvent(motionEvent);
         }
         int x = (int) motionEvent.getX();
@@ -327,45 +327,45 @@ public class PullLeftRefreshLayout extends FrameLayout {
                 break;
             case 1:
             case 3:
-                this.fQF = 0;
+                this.fSS = 0;
                 this.mLastX = 0;
-                this.fQG = 0;
+                this.fST = 0;
                 this.mLastY = 0;
-                if (Math.abs(this.fQH) < this.fQC) {
-                    bGx();
+                if (Math.abs(this.fSU) < this.fSP) {
+                    bGR();
                     return true;
                 }
-                bGz();
+                bGT();
                 return true;
             case 2:
                 int i = x - this.mLastX;
                 this.mLastX = x;
                 this.mLastY = y;
-                this.fQH = ((1.0f - Math.abs(this.fQH / this.fQA)) * i) + this.fQH;
-                if (this.fQH >= 0.0f) {
-                    this.fQH = 0.0f;
-                    this.mRecyclerView.setTranslationX(this.fQH);
-                    if (this.fQw != null) {
-                        this.fQw.cb(this.fQx);
+                this.fSU = ((1.0f - Math.abs(this.fSU / this.fSN)) * i) + this.fSU;
+                if (this.fSU >= 0.0f) {
+                    this.fSU = 0.0f;
+                    this.mRecyclerView.setTranslationX(this.fSU);
+                    if (this.fSJ != null) {
+                        this.fSJ.bX(this.fSK);
                     }
-                } else if (this.fQH <= (-this.fQA)) {
-                    this.fQH = -this.fQA;
-                    this.mRecyclerView.setTranslationX(this.fQH);
-                    if (this.fQw != null) {
-                        this.fQw.cc(this.fQx);
+                } else if (this.fSU <= (-this.fSN)) {
+                    this.fSU = -this.fSN;
+                    this.mRecyclerView.setTranslationX(this.fSU);
+                    if (this.fSJ != null) {
+                        this.fSJ.bY(this.fSK);
                     }
                 } else {
-                    this.mRecyclerView.setTranslationX(this.fQH);
-                    if (Math.abs(this.fQH) > this.fQC) {
-                        if (this.fQw != null) {
-                            this.fQw.cc(this.fQx);
+                    this.mRecyclerView.setTranslationX(this.fSU);
+                    if (Math.abs(this.fSU) > this.fSP) {
+                        if (this.fSJ != null) {
+                            this.fSJ.bY(this.fSK);
                         }
-                    } else if (this.fQw != null) {
-                        this.fQw.cb(this.fQx);
+                    } else if (this.fSJ != null) {
+                        this.fSJ.bX(this.fSK);
                     }
                 }
-                if (this.fQx != null) {
-                    this.fQx.setTranslationX(this.fQz + this.fQH);
+                if (this.fSK != null) {
+                    this.fSK.setTranslationX(this.fSM + this.fSU);
                     return true;
                 }
                 return true;
@@ -373,13 +373,13 @@ public class PullLeftRefreshLayout extends FrameLayout {
         return super.onTouchEvent(motionEvent);
     }
 
-    private void bGx() {
-        if (this.fQD != null) {
-            this.fQD.cancel();
+    private void bGR() {
+        if (this.fSQ != null) {
+            this.fSQ.cancel();
         }
-        this.fQD = ValueAnimator.ofFloat(Math.abs(this.fQH), 0.0f);
-        this.fQD.setDuration(150L);
-        this.fQD.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.2
+        this.fSQ = ValueAnimator.ofFloat(Math.abs(this.fSU), 0.0f);
+        this.fSQ.setDuration(150L);
+        this.fSQ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator != null) {
@@ -387,7 +387,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
                 }
             }
         });
-        this.fQD.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.3
+        this.fSQ.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.3
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 onAnimationEnd(animator);
@@ -395,12 +395,12 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                PullLeftRefreshLayout.this.bGy();
+                PullLeftRefreshLayout.this.bGS();
             }
         });
-        this.fQD.start();
-        if (this.fQx != null) {
-            this.fQw.cb(this.fQx);
+        this.fSQ.start();
+        if (this.fSK != null) {
+            this.fSJ.bX(this.fSK);
         }
     }
 
@@ -409,25 +409,25 @@ public class PullLeftRefreshLayout extends FrameLayout {
         if (this.mRecyclerView != null) {
             this.mRecyclerView.setTranslationX(f);
         }
-        if (this.fQx != null) {
-            this.fQx.setTranslationX(this.fQz + f);
+        if (this.fSK != null) {
+            this.fSK.setTranslationX(this.fSM + f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGy() {
-        this.fQy = 0;
-        this.fQH = 0.0f;
+    public void bGS() {
+        this.fSL = 0;
+        this.fSU = 0.0f;
         setTranslationStatus(0.0f);
     }
 
-    private void bGz() {
-        if (this.fQE != null) {
-            this.fQE.cancel();
+    private void bGT() {
+        if (this.fSR != null) {
+            this.fSR.cancel();
         }
-        this.fQE = ValueAnimator.ofFloat(Math.abs(this.fQH), 0.0f);
-        this.fQE.setDuration(150L);
-        this.fQE.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.4
+        this.fSR = ValueAnimator.ofFloat(Math.abs(this.fSU), 0.0f);
+        this.fSR.setDuration(150L);
+        this.fSR.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.4
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator != null) {
@@ -435,7 +435,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
                 }
             }
         });
-        this.fQE.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.5
+        this.fSR.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.5
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 onAnimationEnd(animator);
@@ -443,18 +443,18 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                PullLeftRefreshLayout.this.bGy();
+                PullLeftRefreshLayout.this.bGS();
                 PullLeftRefreshLayout.this.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.5.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        PullLeftRefreshLayout.this.bGB();
+                        PullLeftRefreshLayout.this.bGV();
                     }
                 }, 50L);
             }
         });
-        this.fQE.start();
-        if (this.fQx != null) {
-            this.fQw.cb(this.fQx);
+        this.fSR.start();
+        if (this.fSK != null) {
+            this.fSJ.bX(this.fSK);
         }
     }
 
@@ -474,13 +474,13 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    public boolean bGA() {
+    public boolean bGU() {
         return ViewCompat.canScrollHorizontally(this.mRecyclerView, 1);
     }
 
-    public void bGB() {
-        if (this.fQI != null) {
-            this.fQI.bGC();
+    public void bGV() {
+        if (this.fSV != null) {
+            this.fSV.bGW();
         }
     }
 }

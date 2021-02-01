@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.impls;
 
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i implements com.ss.android.socialbase.downloader.downloader.l {
     @Override // com.ss.android.socialbase.downloader.downloader.l
     public int a(String str, String str2) {

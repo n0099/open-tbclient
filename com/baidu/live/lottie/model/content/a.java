@@ -2,17 +2,17 @@ package com.baidu.live.lottie.model.content;
 
 import android.graphics.PointF;
 import com.baidu.live.lottie.model.a.m;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements b {
     private final boolean FD;
-    private final m<PointF, PointF> bpU;
-    private final com.baidu.live.lottie.model.a.f bqa;
+    private final com.baidu.live.lottie.model.a.f btC;
+    private final m<PointF, PointF> btw;
     private final String name;
 
     public a(String str, m<PointF, PointF> mVar, com.baidu.live.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.bpU = mVar;
-        this.bqa = fVar;
+        this.btw = mVar;
+        this.btC = fVar;
         this.FD = z;
     }
 
@@ -25,12 +25,12 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> LX() {
-        return this.bpU;
+    public m<PointF, PointF> Nv() {
+        return this.btw;
     }
 
-    public com.baidu.live.lottie.model.a.f Me() {
-        return this.bqa;
+    public com.baidu.live.lottie.model.a.f NC() {
+        return this.btC;
     }
 
     public boolean isReversed() {

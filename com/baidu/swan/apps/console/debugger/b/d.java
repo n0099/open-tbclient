@@ -3,37 +3,37 @@ package com.baidu.swan.apps.console.debugger.b;
 import android.os.Bundle;
 import com.baidu.swan.apps.ao.u;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d implements com.baidu.swan.apps.console.debugger.a {
-    private static String Rb;
+    private static String QZ;
 
-    public static String alV() {
-        return Rb;
+    public static String amt() {
+        return QZ;
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
-    public String als() {
-        return b.alz().getPath();
+    public String alQ() {
+        return b.alX().getPath();
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
     public void n(Bundle bundle) {
-        Rb = u.g(bundle, "extraWSUrl");
-        com.baidu.swan.apps.console.debugger.b.lC(u.g(bundle, "masterPreload"));
-        com.baidu.swan.apps.console.debugger.b.lD(u.g(bundle, "slavePreload"));
+        QZ = u.g(bundle, "extraWSUrl");
+        com.baidu.swan.apps.console.debugger.b.lU(u.g(bundle, "masterPreload"));
+        com.baidu.swan.apps.console.debugger.b.lV(u.g(bundle, "slavePreload"));
     }
 
     @Override // com.baidu.swan.apps.console.debugger.a
     public void o(Bundle bundle) {
-        bundle.putString("extraWSUrl", Rb);
-        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.alu());
-        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.alt());
+        bundle.putString("extraWSUrl", QZ);
+        bundle.putString("slavePreload", com.baidu.swan.apps.console.debugger.b.alS());
+        bundle.putString("masterPreload", com.baidu.swan.apps.console.debugger.b.alR());
     }
 
-    public static void alW() {
-        e aIr = e.aIr();
-        if (aIr != null) {
-            com.baidu.swan.apps.ao.e.N(aIr.getActivity());
+    public static void amu() {
+        e aIK = e.aIK();
+        if (aIK != null) {
+            com.baidu.swan.apps.ao.e.H(aIK.getActivity());
             System.exit(0);
         }
     }

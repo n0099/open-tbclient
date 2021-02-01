@@ -6,15 +6,15 @@ import java.io.File;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public BdUniqueId aAE;
-    public String aAw;
-    private boolean eKr;
-    private boolean gpD;
-    private boolean gpE;
-    protected b gpF;
-    protected boolean gpt;
+    public String aCb;
+    public BdUniqueId aCj;
+    private boolean eMD;
+    protected boolean gsc;
+    private boolean gsm;
+    private boolean gsn;
+    protected b gso;
     private File mFolder;
 
     public c() {
@@ -25,71 +25,71 @@ public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
     }
 
     public String getSign() {
-        return this.gpF.getSign();
+        return this.gso.getSign();
     }
 
     public int getPosition() {
-        return this.gpF.getPosition();
+        return this.gso.getPosition();
     }
 
     public void setPosition(int i) {
-        this.gpF.setPosition(i);
+        this.gso.setPosition(i);
     }
 
     public void setData(List<d> list) {
-        this.gpF.setData(list);
+        this.gso.setData(list);
     }
 
-    public b bOQ() {
-        return this.gpF;
+    public b bPu() {
+        return this.gso;
     }
 
-    public boolean bOR() {
-        return this.gpD;
+    public boolean bPv() {
+        return this.gsm;
     }
 
-    public boolean yO() {
-        return this.eKr;
+    public boolean zv() {
+        return this.eMD;
     }
 
     public int size() {
-        if (this.gpF == null) {
+        if (this.gso == null) {
             return 0;
         }
-        return this.gpF.size();
+        return this.gso.size();
     }
 
-    public boolean bOS() {
-        return this.gpE;
+    public boolean bPw() {
+        return this.gsn;
     }
 
-    public void mh(boolean z) {
-        this.gpE = z;
+    public void ml(boolean z) {
+        this.gsn = z;
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dD(JSONObject jSONObject) {
+    public boolean dE(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() == 0) {
             return false;
         }
-        this.eKr = jSONObject.optInt("switch", 0) == 1;
-        this.gpD = jSONObject.optInt("red_dot_switch", 0) == 1;
-        this.gpE = jSONObject.optInt("is_user_clicked", 0) == 1;
-        this.gpt = jSONObject.optInt("is_male", 0) == 1;
+        this.eMD = jSONObject.optInt("switch", 0) == 1;
+        this.gsm = jSONObject.optInt("red_dot_switch", 0) == 1;
+        this.gsn = jSONObject.optInt("is_user_clicked", 0) == 1;
+        this.gsc = jSONObject.optInt("is_male", 0) == 1;
         JSONObject optJSONObject = jSONObject.optJSONObject("beauty_conf");
-        this.gpF = new b();
-        this.gpF.Y(this.mFolder);
-        return optJSONObject != null && this.gpF.dD(optJSONObject);
+        this.gso = new b();
+        this.gso.V(this.mFolder);
+        return optJSONObject != null && this.gso.dE(optJSONObject);
     }
 
     public JSONObject toJson() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("switch", this.eKr ? 1 : 0);
-            jSONObject.put("red_dot_switch", this.gpD ? 1 : 0);
-            jSONObject.put("is_user_clicked", this.gpE ? 1 : 0);
-            jSONObject.put("is_male", this.gpt ? 1 : 0);
-            jSONObject.put("beauty_conf", this.gpF != null ? this.gpF.toJson() : null);
+            jSONObject.put("switch", this.eMD ? 1 : 0);
+            jSONObject.put("red_dot_switch", this.gsm ? 1 : 0);
+            jSONObject.put("is_user_clicked", this.gsn ? 1 : 0);
+            jSONObject.put("is_male", this.gsc ? 1 : 0);
+            jSONObject.put("beauty_conf", this.gso != null ? this.gso.toJson() : null);
             return jSONObject;
         } catch (JSONException e) {
             e.printStackTrace();

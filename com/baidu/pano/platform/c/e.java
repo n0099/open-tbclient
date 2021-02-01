@@ -5,14 +5,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3909a = false;
+    public static boolean f3912a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3910b = "";
+    public static String f3913b = "";
     public static int c = 0;
 
     public static NetworkInfo a(Context context) {

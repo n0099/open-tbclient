@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.model.h;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     @Nullable
     private com.airbnb.lottie.a ET;
@@ -33,7 +33,7 @@ public class a {
         this.ET = aVar;
     }
 
-    public Typeface q(String str, String str2) {
+    public Typeface n(String str, String str2) {
         this.EP.set(str, str2);
         Typeface typeface = this.ER.get(this.EP);
         if (typeface == null) {

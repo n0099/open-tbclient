@@ -13,7 +13,7 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
     private static final jn f686a = new jn("XmPushActionCustomConfig");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14137a = new jf("", (byte) 15, 1);
+    private static final jf f14139a = new jf("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -49,14 +49,14 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 m453a();
                 return;
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a == 15) {
+                    if (m511a.f14173a == 15) {
                         jg m512a = jiVar.m512a();
                         this.f687a = new ArrayList(m512a.f858a);
                         for (int i = 0; i < m512a.f858a; i++) {
@@ -67,11 +67,11 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
             }
             jiVar.g();
@@ -98,7 +98,7 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
         m453a();
         jiVar.a(f686a);
         if (this.f687a != null) {
-            jiVar.a(f14137a);
+            jiVar.a(f14139a);
             jiVar.a(new jg((byte) 12, this.f687a.size()));
             for (hx hxVar : this.f687a) {
                 hxVar.b(jiVar);

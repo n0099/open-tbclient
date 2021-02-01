@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
     private List<Fragment> list;
 
@@ -12,7 +12,7 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
         super(fragmentManager);
     }
 
-    public void cv(List<Fragment> list) {
+    public void cq(List<Fragment> list) {
         this.list = list;
     }
 

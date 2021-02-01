@@ -1,7 +1,7 @@
 package com.ksad.lottie.a.b;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends f<Integer> {
     public b(List<com.ksad.lottie.e.a<Integer>> list) {
         super(list);
@@ -12,11 +12,11 @@ public class b extends f<Integer> {
     /* renamed from: b */
     public Integer a(com.ksad.lottie.e.a<Integer> aVar, float f) {
         Integer num;
-        if (aVar.f8001a == null || aVar.f8002b == null) {
+        if (aVar.f8003a == null || aVar.f8004b == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        int intValue = aVar.f8001a.intValue();
-        int intValue2 = aVar.f8002b.intValue();
-        return (this.f7958b == null || (num = (Integer) this.f7958b.a(aVar.d, aVar.e.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, c(), f())) == null) ? Integer.valueOf(com.ksad.lottie.d.b.a(f, intValue, intValue2)) : num;
+        int intValue = aVar.f8003a.intValue();
+        int intValue2 = aVar.f8004b.intValue();
+        return (this.f7960b == null || (num = (Integer) this.f7960b.a(aVar.d, aVar.e.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, c(), f())) == null) ? Integer.valueOf(com.ksad.lottie.d.b.a(f, intValue, intValue2)) : num;
     }
 }

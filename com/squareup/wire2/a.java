@@ -9,19 +9,19 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     private ProtoAdapter<Object> adapter;
     private final Field messageField;
     public final String name;
-    public final WireField.Label pQe;
-    private final String pQf;
-    private final String pQg;
-    public final boolean pQh;
-    private final Field pQi;
-    private final Method pQj;
-    private ProtoAdapter<?> pQk;
-    private ProtoAdapter<?> pQl;
+    public final WireField.Label qai;
+    private final String qaj;
+    private final String qak;
+    public final boolean qal;
+    private final Field qam;
+    private final Method qan;
+    private ProtoAdapter<?> qao;
+    private ProtoAdapter<?> qap;
     public final int tag;
 
     private static Field j(Class<?> cls, String str) {
@@ -42,40 +42,40 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.pQe = wireField.eBy();
+        this.qai = wireField.eDP();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.pQf = wireField.eBw();
-        this.pQg = wireField.eBx();
-        this.pQh = wireField.eBz();
+        this.qaj = wireField.eDN();
+        this.qak = wireField.eDO();
+        this.qal = wireField.eDQ();
         this.messageField = field;
-        this.pQi = j(cls, this.name);
-        this.pQj = a(cls, this.name, field.getType());
+        this.qam = j(cls, this.name);
+        this.qan = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean eBm() {
-        return !this.pQf.isEmpty();
+    public boolean eDD() {
+        return !this.qaj.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ProtoAdapter<?> eBn() {
-        ProtoAdapter<?> protoAdapter = this.pQk;
+    public ProtoAdapter<?> eDE() {
+        ProtoAdapter<?> protoAdapter = this.qao;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pQg);
-        this.pQk = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.qak);
+        this.qao = protoAdapter2;
         return protoAdapter2;
     }
 
-    ProtoAdapter<?> eBo() {
-        ProtoAdapter<?> protoAdapter = this.pQl;
+    ProtoAdapter<?> eDF() {
+        ProtoAdapter<?> protoAdapter = this.qap;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pQf);
-        this.pQl = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.qaj);
+        this.qap = protoAdapter2;
         return protoAdapter2;
     }
 
@@ -83,12 +83,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public ProtoAdapter<Object> adapter() {
         ProtoAdapter<Object> protoAdapter = this.adapter;
         if (protoAdapter == null) {
-            if (eBm()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(eBo(), eBn());
+            if (eDD()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(eDF(), eDE());
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = eBn().withLabel(this.pQe);
+            ProtoAdapter<?> withLabel = eDE().withLabel(this.qai);
             this.adapter = withLabel;
             return withLabel;
         }
@@ -97,9 +97,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(B b2, Object obj) {
-        if (this.pQe.isRepeated()) {
+        if (this.qai.isRepeated()) {
             ((List) a((a<M, B>) b2)).add(obj);
-        } else if (!this.pQf.isEmpty()) {
+        } else if (!this.qaj.isEmpty()) {
             ((Map) a((a<M, B>) b2)).putAll((Map) obj);
         } else {
             b(b2, obj);
@@ -109,10 +109,10 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(B b2, Object obj) {
         try {
-            if (this.pQe.isOneOf()) {
-                this.pQj.invoke(b2, obj);
+            if (this.qai.isOneOf()) {
+                this.qan.invoke(b2, obj);
             } else {
-                this.pQi.set(b2, obj);
+                this.qam.set(b2, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new AssertionError(e);
@@ -131,7 +131,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a(B b2) {
         try {
-            return this.pQi.get(b2);
+            return this.qam.get(b2);
         } catch (IllegalAccessException e) {
             throw new AssertionError(e);
         }

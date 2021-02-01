@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class BoundaryInterfaceReflectionUtil {
     public static Method dupeMethod(Method method, ClassLoader classLoader) throws ClassNotFoundException, NoSuchMethodException {
         return Class.forName(method.getDeclaringClass().getName(), true, classLoader).getDeclaredMethod(method.getName(), method.getParameterTypes());
@@ -25,7 +25,7 @@ public class BoundaryInterfaceReflectionUtil {
     }
 
     @TargetApi(19)
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     private static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
         private final Object mDelegate;
 

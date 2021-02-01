@@ -2,7 +2,7 @@ package androidx.transition;
 
 import androidx.annotation.NonNull;
 import androidx.transition.Transition;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class TransitionListenerAdapter implements Transition.TransitionListener {
     @Override // androidx.transition.Transition.TransitionListener
     public void onTransitionStart(@NonNull Transition transition) {

@@ -1,28 +1,28 @@
 package com.baidu.mapsdkplatform.comjni.map.commonmemcache;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f3174a = 0;
+    private long f3172a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private JNICommonMemCache f3175b;
+    private JNICommonMemCache f3173b;
 
     public a() {
-        this.f3175b = null;
-        this.f3175b = new JNICommonMemCache();
+        this.f3173b = null;
+        this.f3173b = new JNICommonMemCache();
     }
 
     public long a() {
-        if (this.f3174a == 0) {
-            this.f3174a = this.f3175b.Create();
+        if (this.f3172a == 0) {
+            this.f3172a = this.f3173b.Create();
         }
-        return this.f3174a;
+        return this.f3172a;
     }
 
     public void b() {
-        if (this.f3174a != 0) {
-            this.f3175b.Init(this.f3174a);
+        if (this.f3172a != 0) {
+            this.f3173b.Init(this.f3172a);
         }
     }
 }

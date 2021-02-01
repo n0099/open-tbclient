@@ -3,18 +3,18 @@ package com.baidu.tbadk.core.util.d;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.aw;
 import java.io.File;
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.lib.e.e<a> {
-    private final n faB = new n();
+    private final n fcR = new n();
 
     public e() {
-        this.faB.jO(true);
+        this.fcR.jR(true);
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public boolean my() {
+    public boolean mx() {
         return true;
     }
 
@@ -25,17 +25,17 @@ public class e implements com.baidu.adp.lib.e.e<a> {
         return null;
     }
 
-    private void bsW() {
+    private void btq() {
         b bVar = new b(TbConfig.SHARE_HUB_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
         bVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         bVar.setSubFolder(true);
         bVar.setSavedCache(true);
         bVar.setSdCard(true);
-        com.baidu.adp.lib.Disk.d.lh().b(bVar);
+        com.baidu.adp.lib.Disk.d.lg().b(bVar);
     }
 
     private DiskFileOperate a(com.baidu.adp.widget.ImageView.a aVar, String str) {
-        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, av.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE_FORCE);
+        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, aw.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE_FORCE);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         diskFileOperate.setSubFolder(true);
         diskFileOperate.setSavedCache(true);
@@ -48,11 +48,11 @@ public class e implements com.baidu.adp.lib.e.e<a> {
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: e */
     public a a(String str, String str2, int i, int i2, com.baidu.adp.lib.e.b bVar, Object... objArr) {
-        bsW();
-        com.baidu.adp.widget.ImageView.a a2 = this.faB.a(str, str2, i, i2, bVar, objArr);
+        btq();
+        com.baidu.adp.widget.ImageView.a a2 = this.fcR.a(str, str2, i, i2, bVar, objArr);
         if (a2 != null && a2.getByteData() != null) {
             DiskFileOperate a3 = a(a2, str2);
-            if (com.baidu.adp.lib.Disk.d.lh().b(a3) && a3.getFileInfo() != null) {
+            if (com.baidu.adp.lib.Disk.d.lg().b(a3) && a3.getFileInfo() != null) {
                 return new a(a2, a3.getFileInfo().getAbsolutePath());
             }
         }
@@ -63,11 +63,11 @@ public class e implements com.baidu.adp.lib.e.e<a> {
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: f */
     public a b(String str, String str2, int i, int i2, com.baidu.adp.lib.e.b bVar, Object... objArr) {
-        bsW();
-        com.baidu.adp.widget.ImageView.a b2 = this.faB.b(str, str2, i, i2, bVar, objArr);
+        btq();
+        com.baidu.adp.widget.ImageView.a b2 = this.fcR.b(str, str2, i, i2, bVar, objArr);
         if (b2 != null && b2.getByteData() != null) {
             DiskFileOperate a2 = a(b2, str2);
-            if (com.baidu.adp.lib.Disk.d.lh().b(a2) && a2.getFileInfo() != null) {
+            if (com.baidu.adp.lib.Disk.d.lg().b(a2) && a2.getFileInfo() != null) {
                 return new a(b2, a2.getFileInfo().getAbsolutePath());
             }
         }
@@ -76,17 +76,17 @@ public class e implements com.baidu.adp.lib.e.e<a> {
 
     @Override // com.baidu.adp.lib.e.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
-        this.faB.a(str, obj, i, i2, objArr);
+        this.fcR.a(str, obj, i, i2, objArr);
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel mz() {
-        return this.faB.mz();
+    public BdAsyncTaskParallel my() {
+        return this.fcR.my();
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int mA() {
-        return this.faB.mA();
+    public int mz() {
+        return this.fcR.mz();
     }
 
     /* loaded from: classes.dex */
@@ -103,11 +103,11 @@ public class e implements com.baidu.adp.lib.e.e<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public com.baidu.adp.widget.ImageView.a faC;
+        public com.baidu.adp.widget.ImageView.a fcS;
         public String path;
 
         public a(com.baidu.adp.widget.ImageView.a aVar, String str) {
-            this.faC = aVar;
+            this.fcS = aVar;
             this.path = str;
         }
     }

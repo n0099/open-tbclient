@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private a nNr;
-    private int nNs;
-    private boolean nNt;
+    private a nXv;
+    private int nXw;
+    private boolean nXx;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -30,12 +30,12 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
 
     public FollowUserButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nNs = 0;
-        this.nNt = true;
+        this.nXw = 0;
+        this.nXx = true;
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
         bVar.setIconSize(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-        bVar.a(this.nNs, 0, TBSpecificationButtonConfig.IconType.SVG);
-        bVar.pM(R.color.CAM_X0304);
+        bVar.a(this.nXw, 0, TBSpecificationButtonConfig.IconType.SVG);
+        bVar.pR(R.color.CAM_X0304);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }
@@ -43,9 +43,9 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
     public void aM(boolean z) {
         if (z) {
             setVisibility(0);
-            setClickable(this.nNt);
+            setClickable(this.nXx);
             com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar.pO(R.color.CAM_X0109);
+            bVar.pT(R.color.CAM_X0109);
             bVar.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
             setConfig(bVar);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -53,8 +53,8 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
             setVisibility(0);
             com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
             bVar2.setIconSize(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-            bVar2.a(this.nNs, 0, TBSpecificationButtonConfig.IconType.SVG);
-            bVar2.pM(R.color.CAM_X0304);
+            bVar2.a(this.nXw, 0, TBSpecificationButtonConfig.IconType.SVG);
+            bVar2.pR(R.color.CAM_X0304);
             setConfig(bVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));
@@ -77,13 +77,13 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void pW(int i) {
+    public void qb(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void bK(View view) {
-        if (this.nNr != null) {
-            this.nNr.onClick(view);
+    public void bG(View view) {
+        if (this.nXv != null) {
+            this.nXv.onClick(view);
         }
     }
 
@@ -93,19 +93,19 @@ public class FollowUserButton extends TBSpecificationBtn implements com.baidu.tb
     }
 
     public void onChangeSkinType(int i) {
-        btV();
+        bup();
     }
 
     public void setOnClickEvent(a aVar) {
-        this.nNr = aVar;
+        this.nXv = aVar;
     }
 
     public void setSvgIconResId(int i) {
-        this.nNs = i;
-        btV();
+        this.nXw = i;
+        bup();
     }
 
     public void setClickableUnLike(boolean z) {
-        this.nNt = z;
+        this.nXx = z;
     }
 }

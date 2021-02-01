@@ -12,9 +12,9 @@ public interface a {
 
     void cU(String str);
 
-    void rX();
+    void rU();
 
-    boolean rY();
+    boolean rV();
 
     void release();
 

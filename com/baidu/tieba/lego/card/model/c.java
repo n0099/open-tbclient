@@ -1,50 +1,49 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import androidx.appcompat.widget.ActivityChooserView;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
-    private final String kTQ;
-    private final int kTR;
-    private final int kTS;
-    private final String kTT;
+    private final String lbT;
+    private final int lbU;
+    private final int lbV;
+    private final String lbW;
 
     private c(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.kTQ = jSONObject.optString("moreText");
-            this.kTR = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("moreColor", ""));
-            this.kTS = com.baidu.tieba.lego.card.c.b.rt(jSONObject.optString("moreColorNight", ""));
-            this.kTT = jSONObject.optString("moreScheme");
+            this.lbT = jSONObject.optString("moreText");
+            this.lbU = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("moreColor", ""));
+            this.lbV = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("moreColorNight", ""));
+            this.lbW = jSONObject.optString("moreScheme");
             return;
         }
-        this.kTQ = "";
-        this.kTR = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.kTS = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-        this.kTT = "";
+        this.lbT = "";
+        this.lbU = Integer.MAX_VALUE;
+        this.lbV = Integer.MAX_VALUE;
+        this.lbW = "";
     }
 
-    public static c ey(JSONObject jSONObject) {
+    public static c ez(JSONObject jSONObject) {
         return new c(jSONObject);
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.kTQ);
+        return !TextUtils.isEmpty(this.lbT);
     }
 
-    public String cZK() {
-        return this.kTQ;
+    public String dbI() {
+        return this.lbT;
     }
 
-    public int cZL() {
-        return this.kTR;
+    public int dbJ() {
+        return this.lbU;
     }
 
-    public String cZM() {
-        return this.kTT;
+    public String dbK() {
+        return this.lbW;
     }
 
-    public int cZN() {
-        return this.kTS;
+    public int dbL() {
+        return this.lbV;
     }
 }

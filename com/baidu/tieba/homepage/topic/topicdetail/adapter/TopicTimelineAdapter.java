@@ -3,14 +3,14 @@ package com.baidu.tieba.homepage.topic.topicdetail.adapter;
 import android.content.Context;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.homepage.topic.topicdetail.a.e;
 import com.baidu.tieba.homepage.topic.topicdetail.holder.TopicTimelineHolder;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicTimelineCellCardView;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHolder> {
-    private List<e> kgk;
+    private List<e> kos;
     private Context mContext;
 
     public TopicTimelineAdapter(Context context) {
@@ -19,14 +19,14 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: J */
+    /* renamed from: K */
     public TopicTimelineHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new TopicTimelineHolder(new TopicTimelineCellCardView(this.mContext));
     }
 
     public void setData(List<e> list) {
-        if (!x.isEmpty(list)) {
-            this.kgk = list;
+        if (!y.isEmpty(list)) {
+            this.kos = list;
         }
     }
 
@@ -34,9 +34,9 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(TopicTimelineHolder topicTimelineHolder, int i) {
-        e eVar = (e) x.getItem(this.kgk, i);
+        e eVar = (e) y.getItem(this.kos, i);
         if (eVar != null) {
-            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.cQj();
+            TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.cSi();
             topicTimelineCellCardView.setData(eVar);
             topicTimelineCellCardView.onChangeSkinType();
         }
@@ -44,6 +44,6 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return x.getCount(this.kgk);
+        return y.getCount(this.kos);
     }
 }

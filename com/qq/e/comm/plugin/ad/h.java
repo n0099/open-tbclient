@@ -1,14 +1,14 @@
 package com.qq.e.comm.plugin.ad;
 
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f11890a = -999.0f;
+    private float f11892a = -999.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f11891b = -999.0f;
+    private float f11893b = -999.0f;
     private float c = -999.0f;
     private float d = -999.0f;
     private long e = 0;
@@ -29,7 +29,7 @@ public class h {
     }
 
     public void a(float f) {
-        this.f11890a = f;
+        this.f11892a = f;
     }
 
     public void a(int i) {
@@ -53,7 +53,7 @@ public class h {
     }
 
     public void b(float f) {
-        this.f11891b = f;
+        this.f11893b = f;
     }
 
     public void b(int i) {
@@ -105,11 +105,11 @@ public class h {
     }
 
     public float e() {
-        return this.f11890a;
+        return this.f11892a;
     }
 
     public float f() {
-        return this.f11891b;
+        return this.f11893b;
     }
 
     public float g() {
@@ -141,8 +141,8 @@ public class h {
     }
 
     public void n() {
-        this.f11890a = -999.0f;
-        this.f11891b = -999.0f;
+        this.f11892a = -999.0f;
+        this.f11893b = -999.0f;
         this.c = -999.0f;
         this.d = -999.0f;
         this.f = 0L;

@@ -3,10 +3,10 @@ package com.baidu.swan.apps.f;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.swan.apps.u.c.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     @Deprecated
-    public static boolean li(String str) {
+    public static boolean lA(String str) {
         return (TextUtils.isEmpty(str) || str.contains(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) ? false : true;
     }
 
@@ -22,7 +22,7 @@ public class a {
         return bVar != null && bVar.getType() == 2;
     }
 
-    public static int lj(String str) {
+    public static int lB(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -35,7 +35,7 @@ public class a {
         return str.contains("_trial") ? 2 : 0;
     }
 
-    public static String lk(String str) {
+    public static String lC(String str) {
         if (!TextUtils.isEmpty(str)) {
             int indexOf = str.indexOf("_dev");
             if (indexOf > 0) {
@@ -50,7 +50,7 @@ public class a {
         return str;
     }
 
-    public static String ll(String str) {
+    public static String lD(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

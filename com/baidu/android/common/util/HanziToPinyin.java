@@ -5,7 +5,7 @@ import android.util.SparseArray;
 import androidx.core.internal.view.SupportMenu;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HanziToPinyin {
     private static final boolean DEBUG = false;
     private static final String FIRST_PINYIN_UNIHAN = "吖";
@@ -28,7 +28,7 @@ public class HanziToPinyin {
     private short[] PINYIN_TABLE = new short[SupportMenu.USER_MASK];
     private final boolean mHasChinaCollator;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Token {
         public static final int DIGIT = 3;
         public static final int LATIN = 1;

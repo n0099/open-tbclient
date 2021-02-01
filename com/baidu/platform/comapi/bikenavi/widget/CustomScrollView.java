@@ -17,15 +17,15 @@ import android.widget.ScrollView;
 import android.widget.Scroller;
 import com.baidu.tieba.R;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private VelocityTracker f4161a;
+    private VelocityTracker f4164a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4162b;
+    private int f4165b;
     public int bottom;
     private int c;
     private b d;
@@ -42,7 +42,7 @@ public class CustomScrollView extends ScrollView {
     protected Field scrollerField;
     public int top;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i);
 
@@ -113,15 +113,15 @@ public class CustomScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         ViewConfiguration.get(getContext());
-        this.f4162b = ViewConfiguration.getMaximumFlingVelocity();
+        this.f4165b = ViewConfiguration.getMaximumFlingVelocity();
         if ((this.k == null ? false : canMoveMap(motionEvent, this.k)) && this.n == com.baidu.platform.comapi.wnplatform.n.b.BOTTOM) {
             return false;
         }
         acquireVelocityTracker(motionEvent);
         switch (motionEvent.getAction()) {
             case 1:
-                VelocityTracker velocityTracker = this.f4161a;
-                velocityTracker.computeCurrentVelocity(1000, this.f4162b);
+                VelocityTracker velocityTracker = this.f4164a;
+                velocityTracker.computeCurrentVelocity(1000, this.f4165b);
                 com.baidu.platform.comapi.wnplatform.n.b calculateNextStatus = calculateNextStatus((int) velocityTracker.getYVelocity(), getScrollY());
                 if (calculateNextStatus != com.baidu.platform.comapi.wnplatform.n.b.NULL) {
                     updateStatus(calculateNextStatus, true);
@@ -165,10 +165,10 @@ public class CustomScrollView extends ScrollView {
     }
 
     private void acquireVelocityTracker(MotionEvent motionEvent) {
-        if (this.f4161a == null) {
-            this.f4161a = VelocityTracker.obtain();
+        if (this.f4164a == null) {
+            this.f4164a = VelocityTracker.obtain();
         }
-        this.f4161a.addMovement(motionEvent);
+        this.f4164a.addMovement(motionEvent);
     }
 
     private boolean canMoveMap(MotionEvent motionEvent, View view) {
@@ -235,7 +235,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c extends GestureDetector.SimpleOnGestureListener {
         c() {
         }
@@ -247,7 +247,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         a() {
         }

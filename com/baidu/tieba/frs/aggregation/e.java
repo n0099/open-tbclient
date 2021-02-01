@@ -7,102 +7,102 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<b>> {
-    private List<b> aaM;
-    private b jhW;
-    private boolean jhX;
-    private a jhY;
-    private boolean jhZ;
-    private aa<g> jia;
+    private List<b> aaI;
+    private b jnE;
+    private boolean jnF;
+    private a jnG;
+    private boolean jnH;
+    private ab<g> jnI;
     private Handler mHandler;
     private TbPageContext mPageContext;
 
     public e(TbPageContext<?> tbPageContext, a aVar, boolean z) {
-        super(tbPageContext.getPageActivity().getBaseContext(), g.jig);
-        this.aaM = new ArrayList();
+        super(tbPageContext.getPageActivity().getBaseContext(), g.jnN);
+        this.aaI = new ArrayList();
         this.mHandler = new Handler();
-        this.jia = new aa<g>() { // from class: com.baidu.tieba.frs.aggregation.e.1
+        this.jnI = new ab<g>() { // from class: com.baidu.tieba.frs.aggregation.e.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             public void a(View view, g gVar) {
                 if (view != null && gVar != null) {
                     if ((view.getId() == R.id.video_container || view.getId() == R.id.video_agg_container || view.getId() == R.id.mobile_network_play) && view.getTag() != null && (view.getTag() instanceof b)) {
                         b bVar = (b) view.getTag();
-                        if (e.this.jhW != null && e.this.jhW != bVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
-                            e.this.jhW.stopVideo();
+                        if (e.this.jnE != null && e.this.jnE != bVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
+                            e.this.jnE.stopVideo();
                         }
-                        if (e.this.jhW != bVar) {
-                            e.this.jhW = bVar;
+                        if (e.this.jnE != bVar) {
+                            e.this.jnE = bVar;
                         }
                     }
                     if (view.getId() == R.id.title) {
-                        aq aqVar = new aq("c12411");
-                        aqVar.dW("fid", gVar.forumId);
+                        ar arVar = new ar("c12411");
+                        arVar.dR("fid", gVar.forumId);
                         if (TbadkCoreApplication.isLogin()) {
-                            aqVar.dW("uid", TbadkCoreApplication.getCurrentAccount());
+                            arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
                         }
-                        TiebaStatic.log(aqVar);
+                        TiebaStatic.log(arVar);
                     } else if (view.getId() == R.id.agree_view_container) {
-                        aq aqVar2 = new aq("c12414");
-                        aqVar2.dW("fid", gVar.forumId);
+                        ar arVar2 = new ar("c12414");
+                        arVar2.dR("fid", gVar.forumId);
                         if (TbadkCoreApplication.isLogin()) {
-                            aqVar2.dW("uid", TbadkCoreApplication.getCurrentAccount());
+                            arVar2.dR("uid", TbadkCoreApplication.getCurrentAccount());
                         }
-                        TiebaStatic.log(aqVar2);
+                        TiebaStatic.log(arVar2);
                     } else if (view.getId() == R.id.thread_info_commont_container || view.getId() == R.id.card_root_view) {
-                        aq aqVar3 = new aq("c12415");
-                        aqVar3.dW("fid", gVar.forumId);
+                        ar arVar3 = new ar("c12415");
+                        arVar3.dR("fid", gVar.forumId);
                         if (TbadkCoreApplication.isLogin()) {
-                            aqVar3.dW("uid", TbadkCoreApplication.getCurrentAccount());
+                            arVar3.dR("uid", TbadkCoreApplication.getCurrentAccount());
                         }
-                        TiebaStatic.log(aqVar3);
+                        TiebaStatic.log(arVar3);
                     } else if (view.getId() == R.id.user_icon || view.getId() == R.id.user_name) {
-                        aq aqVar4 = new aq("c12412");
-                        aqVar4.dW("fid", gVar.forumId);
+                        ar arVar4 = new ar("c12412");
+                        arVar4.dR("fid", gVar.forumId);
                         if (TbadkCoreApplication.isLogin()) {
-                            aqVar4.dW("uid", TbadkCoreApplication.getCurrentAccount());
+                            arVar4.dR("uid", TbadkCoreApplication.getCurrentAccount());
                         }
-                        TiebaStatic.log(aqVar4);
+                        TiebaStatic.log(arVar4);
                     } else if (view.getId() == R.id.attention) {
-                        aq aqVar5 = new aq("c12413");
-                        aqVar5.dW("fid", gVar.forumId);
+                        ar arVar5 = new ar("c12413");
+                        arVar5.dR("fid", gVar.forumId);
                         if (TbadkCoreApplication.isLogin()) {
-                            aqVar5.dW("uid", TbadkCoreApplication.getCurrentAccount());
+                            arVar5.dR("uid", TbadkCoreApplication.getCurrentAccount());
                         }
-                        TiebaStatic.log(aqVar5);
+                        TiebaStatic.log(arVar5);
                     } else if (view.getId() == R.id.mobile_network_play) {
-                        aq aqVar6 = new aq("c12416");
-                        aqVar6.dW("fid", gVar.forumId);
+                        ar arVar6 = new ar("c12416");
+                        arVar6.dR("fid", gVar.forumId);
                         if (TbadkCoreApplication.isLogin()) {
-                            aqVar6.dW("uid", TbadkCoreApplication.getCurrentAccount());
+                            arVar6.dR("uid", TbadkCoreApplication.getCurrentAccount());
                         }
-                        TiebaStatic.log(aqVar6);
+                        TiebaStatic.log(arVar6);
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.jhY = aVar;
-        this.jhZ = z;
+        this.jnG = aVar;
+        this.jnH = z;
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.jhW != null) {
-            this.jhX = true;
-            this.jhW.onConfigurationChanged(configuration);
+        if (this.jnE != null) {
+            this.jnF = true;
+            this.jnE.onConfigurationChanged(configuration);
             if (configuration.orientation == 1) {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.aggregation.e.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.this.jhX) {
-                            e.this.jhX = false;
+                        if (e.this.jnF) {
+                            e.this.jnF = false;
                         }
                     }
                 }, 500L);
@@ -115,9 +115,9 @@ public class e extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<b>> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<b> e(ViewGroup viewGroup) {
-        b bVar = new b(this.mPageContext, this.jhZ);
-        bVar.c(this.jia);
-        this.aaM.add(bVar);
+        b bVar = new b(this.mPageContext, this.jnH);
+        bVar.c(this.jnI);
+        this.aaI.add(bVar);
         return new CardViewHolder<>(bVar);
     }
 
@@ -128,44 +128,44 @@ public class e extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<b>> {
         if (gVar == null || cardViewHolder == null) {
             return null;
         }
-        if (!this.jhX) {
-            cardViewHolder.crP().a(gVar, i, this.jhY);
-            cardViewHolder.crP().mPosition = i;
+        if (!this.jnF) {
+            cardViewHolder.ctb().a(gVar, i, this.jnG);
+            cardViewHolder.ctb().mPosition = i;
         }
         return cardViewHolder.getView();
     }
 
-    public boolean rb() {
-        if (this.jhW != null) {
-            return this.jhW.isPlaying();
+    public boolean qZ() {
+        if (this.jnE != null) {
+            return this.jnE.isPlaying();
         }
         return false;
     }
 
-    public void qZ() {
-        if (this.jhW != null) {
-            this.jhW.pauseVideo();
+    public void qX() {
+        if (this.jnE != null) {
+            this.jnE.pauseVideo();
         }
     }
 
-    public void ra() {
-        if (this.jhW != null) {
-            this.jhW.stopVideo();
+    public void qY() {
+        if (this.jnE != null) {
+            this.jnE.stopVideo();
         }
     }
 
     public void onDestroy() {
-        for (b bVar : this.aaM) {
+        for (b bVar : this.aaI) {
             if (bVar != null) {
                 bVar.onDestroy();
             }
         }
     }
 
-    public boolean yV(int i) {
-        if (this.jhW == null) {
+    public boolean zf(int i) {
+        if (this.jnE == null) {
             return false;
         }
-        return this.jhW.yV(i);
+        return this.jnE.zf(i);
     }
 }

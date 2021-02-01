@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.push.ai;
+import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -13,13 +14,13 @@ import java.nio.channels.FileLock;
 public abstract class ed extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f13962a;
+    protected int f13964a;
 
     /* renamed from: a  reason: collision with other field name */
     protected Context f310a;
 
     public ed(Context context, int i) {
-        this.f13962a = i;
+        this.f13964a = i;
         this.f310a = context;
     }
 
@@ -40,11 +41,11 @@ public abstract class ed extends ai.a {
         if (b2 == null || b2.length == 0) {
             return;
         }
-        synchronized (dv.f13955a) {
+        synchronized (dv.f13957a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
                 y.m616a(file);
-                randomAccessFile = new RandomAccessFile(file, "rw");
+                randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
                 } catch (IOException e) {
@@ -134,7 +135,7 @@ public abstract class ed extends ai.a {
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
     public boolean mo192a() {
-        return du.a(this.f310a, String.valueOf(mo192a()), this.f13962a);
+        return du.a(this.f310a, String.valueOf(mo192a()), this.f13964a);
     }
 
     protected boolean b() {

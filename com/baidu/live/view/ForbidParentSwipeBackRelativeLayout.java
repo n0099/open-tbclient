@@ -8,9 +8,9 @@ import android.widget.RelativeLayout;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.live.adp.widget.SwipeBackLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
-    private SwipeBackLayout.SwipeControlInterface bPM;
+    private SwipeBackLayout.SwipeControlInterface bTC;
     private boolean isIntercept;
     private int mActivePointerId;
     private float mInitialMotionX;
@@ -43,7 +43,7 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     }
 
     public void setSwipeControlInterface(SwipeBackLayout.SwipeControlInterface swipeControlInterface) {
-        this.bPM = swipeControlInterface;
+        this.bTC = swipeControlInterface;
     }
 
     @Override // android.view.View
@@ -54,8 +54,8 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
         int action = motionEvent.getAction() & 255;
         if (action == 3 || action == 1) {
             this.isIntercept = false;
-            if (this.bPM != null) {
-                this.bPM.enableSwipeBack();
+            if (this.bTC != null) {
+                this.bTC.enableSwipeBack();
             }
             return super.onFilterTouchEventForSecurity(motionEvent);
         }
@@ -66,22 +66,22 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
                 if (this.mActivePointerId != -1) {
                     this.mInitialMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
                     this.mInitialMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
-                    if (this.bPM != null) {
-                        this.bPM.disableSwipeBack();
+                    if (this.bTC != null) {
+                        this.bTC.disableSwipeBack();
                         break;
                     }
                 }
                 break;
             case 1:
             default:
-                if (this.bPM != null) {
-                    this.bPM.enableSwipeBack();
+                if (this.bTC != null) {
+                    this.bTC.enableSwipeBack();
                     break;
                 }
                 break;
             case 2:
-                if (this.bPM != null) {
-                    this.bPM.disableSwipeBack();
+                if (this.bTC != null) {
+                    this.bTC.disableSwipeBack();
                 }
                 determinIntercept(motionEvent);
                 if (this.isIntercept) {
@@ -97,21 +97,21 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
-                if (this.bPM != null) {
-                    this.bPM.disableSwipeBack();
+                if (this.bTC != null) {
+                    this.bTC.disableSwipeBack();
                     break;
                 }
                 break;
             case 1:
                 this.isIntercept = false;
-                if (this.bPM != null) {
-                    this.bPM.enableSwipeBack();
+                if (this.bTC != null) {
+                    this.bTC.enableSwipeBack();
                     break;
                 }
                 break;
             case 2:
-                if (this.bPM != null) {
-                    this.bPM.disableSwipeBack();
+                if (this.bTC != null) {
+                    this.bTC.disableSwipeBack();
                 }
                 if (!this.isIntercept) {
                     determinIntercept(motionEvent);
@@ -122,8 +122,8 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
                 }
                 break;
             default:
-                if (this.bPM != null) {
-                    this.bPM.enableSwipeBack();
+                if (this.bTC != null) {
+                    this.bTC.enableSwipeBack();
                     break;
                 }
                 break;

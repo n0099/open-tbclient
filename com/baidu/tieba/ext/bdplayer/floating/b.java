@@ -7,19 +7,19 @@ import androidx.annotation.NonNull;
 import com.baidu.live.liveroom.e.h;
 import com.baidu.searchbox.player.constants.PlayerConstant;
 import com.baidu.tieba.ext.bdplayer.floating.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b implements com.baidu.live.liveroom.e.b {
     private static final String TAG = com.baidu.tieba.ext.bdplayer.a.d.class.getSimpleName();
-    private d iMg;
-    private com.baidu.live.liveroom.e.a iMh;
-    private com.baidu.tieba.ext.bdplayer.a.a iMi;
-    private String iMj;
-    private f iMk;
+    private d iRO;
+    private com.baidu.live.liveroom.e.a iRP;
+    private com.baidu.tieba.ext.bdplayer.a.a iRQ;
+    private String iRR;
+    private f iRS;
     private Context mContext;
 
     public b(Context context, @NonNull f fVar) {
         this.mContext = context;
-        this.iMk = fVar;
+        this.iRS = fVar;
     }
 
     @Override // com.baidu.live.liveroom.e.b
@@ -28,25 +28,25 @@ public class b implements com.baidu.live.liveroom.e.b {
             Log.d(TAG, "showFloatingPlayer " + dVar);
         }
         if (dVar != null && (dVar instanceof com.baidu.tieba.ext.bdplayer.a.d)) {
-            this.iMi = ((com.baidu.tieba.ext.bdplayer.a.d) dVar).cwT();
-            this.iMj = str;
-            this.iMh = aVar;
-            if (this.iMi != null) {
-                if (this.iMk != null) {
-                    this.iMk.cwR();
+            this.iRQ = ((com.baidu.tieba.ext.bdplayer.a.d) dVar).cye();
+            this.iRR = str;
+            this.iRP = aVar;
+            if (this.iRQ != null) {
+                if (this.iRS != null) {
+                    this.iRS.cyc();
                 }
-                if (this.iMg == null) {
-                    this.iMg = new d(this.mContext);
+                if (this.iRO == null) {
+                    this.iRO = new d(this.mContext);
                 }
-                this.iMg.setContentView(view);
-                this.iMg.setPlayer(this.iMi);
-                this.iMg.setContext(this.mContext);
-                this.iMg.cwO();
-                this.iMg.a(new d.b() { // from class: com.baidu.tieba.ext.bdplayer.floating.b.1
+                this.iRO.setContentView(view);
+                this.iRO.setPlayer(this.iRQ);
+                this.iRO.setContext(this.mContext);
+                this.iRO.cxZ();
+                this.iRO.a(new d.b() { // from class: com.baidu.tieba.ext.bdplayer.floating.b.1
                     @Override // com.baidu.tieba.ext.bdplayer.floating.d.b
-                    public boolean cwL() {
-                        if (b.this.iMh != null) {
-                            return b.this.iMh.Lp();
+                    public boolean cxX() {
+                        if (b.this.iRP != null) {
+                            return b.this.iRP.MN();
                         }
                         return false;
                     }
@@ -56,34 +56,34 @@ public class b implements com.baidu.live.liveroom.e.b {
     }
 
     @Override // com.baidu.live.liveroom.e.b
-    public void cx(boolean z) {
+    public void cG(boolean z) {
         if (isDebug()) {
             Log.d(TAG, "hideFloatingPlayer");
         }
-        if (this.iMg != null) {
+        if (this.iRO != null) {
             if (!z) {
-                this.iMi.setPlayerMode(PlayerConstant.HALF_MODE);
+                this.iRQ.setPlayerMode(PlayerConstant.HALF_MODE);
             }
-            this.iMg.dismiss(true);
+            this.iRO.dismiss(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.b
-    public void Lq() {
-        if (this.iMg != null) {
-            this.iMg.UH();
+    public void MO() {
+        if (this.iRO != null) {
+            this.iRO.Wq();
         }
-        this.iMk.IF(this.iMj);
+        this.iRS.Jq(this.iRR);
     }
 
     @Override // com.baidu.live.liveroom.e.b
-    public boolean Lr() {
-        return d.Lr();
+    public boolean MP() {
+        return d.MP();
     }
 
     @Override // com.baidu.live.liveroom.e.b
-    public boolean Ls() {
-        return (this.iMg != null && this.iMg.cwQ()) || (this.iMi != null && this.iMi.isFloatingMode());
+    public boolean MQ() {
+        return (this.iRO != null && this.iRO.cyb()) || (this.iRQ != null && this.iRQ.isFloatingMode());
     }
 
     private boolean isDebug() {

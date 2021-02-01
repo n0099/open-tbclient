@@ -1,12 +1,11 @@
 package okhttp3;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpHeaders;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class CacheControl {
     @Nullable
     String headerValue;
@@ -23,7 +22,7 @@ public final class CacheControl {
     private final boolean onlyIfCached;
     private final int sMaxAgeSeconds;
     public static final CacheControl FORCE_NETWORK = new Builder().noCache().build();
-    public static final CacheControl FORCE_CACHE = new Builder().onlyIfCached().maxStale(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.SECONDS).build();
+    public static final CacheControl FORCE_CACHE = new Builder().onlyIfCached().maxStale(Integer.MAX_VALUE, TimeUnit.SECONDS).build();
 
     private CacheControl(boolean z, boolean z2, int i, int i2, boolean z3, boolean z4, boolean z5, int i3, int i4, boolean z6, boolean z7, boolean z8, @Nullable String str) {
         this.noCache = z;
@@ -174,7 +173,7 @@ public final class CacheControl {
                 } else if ("must-revalidate".equalsIgnoreCase(trim)) {
                     z6 = true;
                 } else if ("max-stale".equalsIgnoreCase(trim)) {
-                    i4 = HttpHeaders.parseSeconds(str, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                    i4 = HttpHeaders.parseSeconds(str, Integer.MAX_VALUE);
                 } else if ("min-fresh".equalsIgnoreCase(trim)) {
                     i5 = HttpHeaders.parseSeconds(str, -1);
                 } else if ("only-if-cached".equalsIgnoreCase(trim)) {
@@ -246,7 +245,7 @@ public final class CacheControl {
         return sb.toString();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static final class Builder {
         boolean immutable;
         int maxAgeSeconds = -1;
@@ -272,7 +271,7 @@ public final class CacheControl {
                 throw new IllegalArgumentException("maxAge < 0: " + i);
             }
             long seconds = timeUnit.toSeconds(i);
-            this.maxAgeSeconds = seconds > 2147483647L ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : (int) seconds;
+            this.maxAgeSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
             return this;
         }
 
@@ -281,7 +280,7 @@ public final class CacheControl {
                 throw new IllegalArgumentException("maxStale < 0: " + i);
             }
             long seconds = timeUnit.toSeconds(i);
-            this.maxStaleSeconds = seconds > 2147483647L ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : (int) seconds;
+            this.maxStaleSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
             return this;
         }
 
@@ -290,7 +289,7 @@ public final class CacheControl {
                 throw new IllegalArgumentException("minFresh < 0: " + i);
             }
             long seconds = timeUnit.toSeconds(i);
-            this.minFreshSeconds = seconds > 2147483647L ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : (int) seconds;
+            this.minFreshSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
             return this;
         }
 

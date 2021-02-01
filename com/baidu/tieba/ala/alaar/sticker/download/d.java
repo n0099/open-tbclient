@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alaar.sticker.download;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class d {
     private int progress;
     private String savePath;

@@ -6,9 +6,9 @@ import android.os.Environment;
 import com.baidu.adp.base.BdBaseApplication;
 import java.io.File;
 @TargetApi(14)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private static File bSl() {
+    private static File bSO() {
         File file = new File(BdBaseApplication.getInst().getFilesDir(), "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -16,7 +16,7 @@ public class c {
         return file;
     }
 
-    private static File bSm() {
+    private static File bSP() {
         File file = new File(Environment.getExternalStorageState().equals("mounted") ? BdBaseApplication.getInst().getExternalFilesDir(null) : null, "duar");
         if (!file.exists()) {
             file.mkdirs();
@@ -24,35 +24,35 @@ public class c {
         return file;
     }
 
-    public static File bSn() {
-        File file = new File(bSl(), "ar-solibs");
+    public static File bSQ() {
+        File file = new File(bSO(), "ar-solibs");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static File bSo() {
-        File file = new File(bSm(), "ar-resource");
+    public static File bSR() {
+        File file = new File(bSP(), "ar-resource");
         if (!file.exists()) {
             file.mkdirs();
         }
         return file;
     }
 
-    public static d FC(String str) {
-        return d.ep("5.1_v2", str);
+    public static d Ga(String str) {
+        return d.eo("5.1_v2", str);
     }
 
-    public static boolean bB(Context context) {
-        d FC = FC("so");
-        if (FC == null) {
+    public static boolean bE(Context context) {
+        d Ga = Ga("so");
+        if (Ga == null) {
             return false;
         }
-        if (com.baidu.tieba.ala.b.a.a.f.k(context, FC.aao())) {
+        if (com.baidu.tieba.ala.b.a.a.f.k(context, Ga.acc())) {
             return true;
         }
-        com.baidu.tieba.ala.b.a.a.f.j(context, FC.aao());
-        return com.baidu.tieba.ala.b.a.a.f.k(context, FC.aao());
+        com.baidu.tieba.ala.b.a.a.f.j(context, Ga.acc());
+        return com.baidu.tieba.ala.b.a.a.f.k(context, Ga.acc());
     }
 }

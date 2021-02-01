@@ -2,7 +2,7 @@ package com.baidu.down.common.intercepter;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ResponseInfo {
     public String method;
     public Map<String, String> requestHeaders;

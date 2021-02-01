@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.component.splash.b;
 import com.bytedance.sdk.openadsdk.component.splash.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TTC2Proxy {
     private TTC2Proxy() {
     }

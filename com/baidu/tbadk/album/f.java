@@ -10,8 +10,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.File;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private a eEK;
+    private a eGR;
     private final Context mContext;
     private final String TIEBA = TbConfig.getTempDirName();
     private int mMediaLoaderType = 0;
@@ -36,7 +36,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public g bjB() {
+    public g bjW() {
         this.mAlbumHashMap.clear();
         g gVar = new g();
         List<ImageFileInfo> imageList = getImageList();
@@ -45,13 +45,13 @@ public class f {
             list = getVideoFileList();
         }
         ArrayList arrayList = new ArrayList();
-        if (!x.isEmpty(imageList)) {
+        if (!y.isEmpty(imageList)) {
             arrayList.addAll(imageList);
         }
-        if (!x.isEmpty(list)) {
+        if (!y.isEmpty(list)) {
             arrayList.addAll(list);
         }
-        if (!x.isEmpty(arrayList)) {
+        if (!y.isEmpty(arrayList)) {
             Collections.sort(arrayList, new Comparator<MediaFileInfo>() { // from class: com.baidu.tbadk.album.f.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -66,7 +66,7 @@ public class f {
             });
         }
         ArrayList arrayList2 = new ArrayList(this.mAlbumHashMap.values());
-        if (!x.isEmpty(arrayList2)) {
+        if (!y.isEmpty(arrayList2)) {
             Collections.sort(arrayList2, new Comparator<com.baidu.tbadk.album.a>() { // from class: com.baidu.tbadk.album.f.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -78,7 +78,7 @@ public class f {
                     if (f.this.TIEBA.equals(aVar2.getName())) {
                         return 1;
                     }
-                    long sortTime = aVar2.bjw().getSortTime() - aVar.bjw().getSortTime();
+                    long sortTime = aVar2.bjR().getSortTime() - aVar.bjR().getSortTime();
                     if (sortTime == 0) {
                         return 0;
                     }
@@ -138,7 +138,7 @@ public class f {
                                     imageFileInfo.setContentUriStr(str);
                                     imageFileInfo.setFilePath(string3);
                                     imageFileInfo.setIsGif(endsWith);
-                                    imageFileInfo.setModifyTime(at.getChineseFormatTimeString(j2));
+                                    imageFileInfo.setModifyTime(au.getChineseFormatTimeString(j2));
                                     imageFileInfo.setSortTime(j);
                                     arrayList.add(imageFileInfo);
                                     com.baidu.tbadk.album.a aVar2 = this.mAlbumHashMap.get(string);
@@ -152,7 +152,7 @@ public class f {
                                     aVar.setAlbumId(string);
                                     aVar.setName(string2);
                                     aVar.addCount();
-                                    if (aVar.bjw() == null) {
+                                    if (aVar.bjR() == null) {
                                         aVar.a(imageFileInfo);
                                     }
                                     List<MediaFileInfo> fileList = aVar.getFileList();
@@ -263,19 +263,19 @@ public class f {
         }
         cancelLoadTask();
         this.mMediaLoaderType = i;
-        this.eEK = new a(eVar);
-        this.eEK.setPriority(3);
-        this.eEK.execute(new Object[0]);
+        this.eGR = new a(eVar);
+        this.eGR.setPriority(3);
+        this.eGR.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, g> {
-        private final e eEM;
+        private final e eGT;
 
         public a(e eVar) {
-            this.eEM = eVar;
+            this.eGT = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -283,15 +283,15 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: p */
         public g doInBackground(Object... objArr) {
-            return f.this.bjB();
+            return f.this.bjW();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.eEM != null) {
-                this.eEM.onPreLoad();
+            if (this.eGT != null) {
+                this.eGT.onPreLoad();
             }
         }
 
@@ -301,16 +301,16 @@ public class f {
         /* renamed from: b */
         public void onPostExecute(g gVar) {
             super.onPostExecute(gVar);
-            if (this.eEM != null) {
-                this.eEM.a(gVar);
+            if (this.eGT != null) {
+                this.eGT.a(gVar);
             }
         }
     }
 
     public void cancelLoadTask() {
-        if (this.eEK != null) {
-            this.eEK.cancel();
-            this.eEK = null;
+        if (this.eGR != null) {
+            this.eGR.cancel();
+            this.eGR = null;
         }
     }
 }

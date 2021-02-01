@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.view.MotionEvent;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface l {
     void a();
 

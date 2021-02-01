@@ -8,10 +8,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
 import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.data.s;
+import com.baidu.tieba.pb.data.t;
 import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumViewHolder;
 /* loaded from: classes2.dex */
-public class c extends com.baidu.adp.widget.ListView.a<s, VideoPbEnterForumViewHolder> {
+public class c extends com.baidu.adp.widget.ListView.a<t, VideoPbEnterForumViewHolder> {
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -20,7 +20,7 @@ public class c extends com.baidu.adp.widget.ListView.a<s, VideoPbEnterForumViewH
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cJ */
+    /* renamed from: cK */
     public VideoPbEnterForumViewHolder e(ViewGroup viewGroup) {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
@@ -36,11 +36,11 @@ public class c extends com.baidu.adp.widget.ListView.a<s, VideoPbEnterForumViewH
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, s sVar, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
-        if (sVar != null) {
-            videoPbEnterForumViewHolder.setData(sVar.eHK);
+    public View a(int i, View view, ViewGroup viewGroup, t tVar, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
+        if (tVar != null) {
+            videoPbEnterForumViewHolder.setData(tVar.eJQ);
         }
-        videoPbEnterForumViewHolder.btV();
+        videoPbEnterForumViewHolder.bup();
         return view;
     }
 }

@@ -17,26 +17,27 @@ import com.bytedance.tea.crash.g.l;
 import com.bytedance.tea.crash.h;
 import com.kwai.video.player.KsMediaMeta;
 import com.xiaomi.mipush.sdk.Constants;
+import com.yy.videoplayer.decoder.VideoConstant;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f7627a = {"version_code", "manifest_version_code", "aid", "update_version_code"};
+    private static final String[] f7629a = {"version_code", "manifest_version_code", "aid", "update_version_code"};
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f7628b;
+    private Context f7630b;
     private JSONObject c = new JSONObject();
 
     public b(Context context) {
-        this.f7628b = context;
+        this.f7630b = context;
     }
 
-    public static b hX(Context context) {
+    public static b ia(Context context) {
         b bVar = new b(context);
         JSONObject a2 = bVar.a();
         bVar.a(a2);
@@ -53,9 +54,9 @@ public final class b {
     private void a(JSONObject jSONObject) {
         int i;
         try {
-            PackageInfo packageInfo = this.f7628b.getPackageManager().getPackageInfo(this.f7628b.getPackageName(), 0);
+            PackageInfo packageInfo = this.f7630b.getPackageManager().getPackageInfo(this.f7630b.getPackageName(), 0);
             if (packageInfo.applicationInfo != null && (i = packageInfo.applicationInfo.labelRes) > 0) {
-                jSONObject.put("display_name", this.f7628b.getString(i));
+                jSONObject.put("display_name", this.f7630b.getString(i));
             }
             jSONObject.put(SapiContext.KEY_SDK_VERSION, 22130);
             jSONObject.put(HttpConstants.SDK_VERSION_NAME, "2.2.1-alpha.30");
@@ -96,8 +97,8 @@ public final class b {
     private void b(JSONObject jSONObject) {
         Map<String, Object> b2;
         Object obj;
-        com.bytedance.tea.crash.e.a eoL = h.eoL();
-        if (eoL != null && jSONObject != null && (b2 = eoL.b()) != null) {
+        com.bytedance.tea.crash.e.a erd = h.erd();
+        if (erd != null && jSONObject != null && (b2 = erd.b()) != null) {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 for (String str : b2.keySet()) {
@@ -120,7 +121,7 @@ public final class b {
     private void c(JSONObject jSONObject) {
         String str;
         try {
-            DisplayMetrics displayMetrics = this.f7628b.getResources().getDisplayMetrics();
+            DisplayMetrics displayMetrics = this.f7630b.getResources().getDisplayMetrics();
             int i = displayMetrics.densityDpi;
             switch (i) {
                 case 120:
@@ -129,7 +130,7 @@ public final class b {
                 case 240:
                     str = "hdpi";
                     break;
-                case 320:
+                case VideoConstant.THUMBNAIL_WIDTH /* 320 */:
                     str = "xhdpi";
                     break;
                 default:
@@ -145,7 +146,7 @@ public final class b {
 
     private void d(JSONObject jSONObject) {
         try {
-            String language = this.f7628b.getResources().getConfiguration().locale.getLanguage();
+            String language = this.f7630b.getResources().getConfiguration().locale.getLanguage();
             if (!TextUtils.isEmpty(language)) {
                 jSONObject.put(KsMediaMeta.KSM_KEY_LANGUAGE, language);
             }
@@ -187,7 +188,7 @@ public final class b {
 
     private void f(JSONObject jSONObject) {
         try {
-            jSONObject.put("access", i.a(this.f7628b));
+            jSONObject.put("access", i.a(this.f7630b));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -195,7 +196,7 @@ public final class b {
 
     private void g(JSONObject jSONObject) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f7628b.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f7630b.getSystemService("phone");
             if (telephonyManager != null) {
                 String networkOperatorName = telephonyManager.getNetworkOperatorName();
                 if (!TextUtils.isEmpty(networkOperatorName)) {
@@ -221,7 +222,7 @@ public final class b {
                 this.c.put(entry.getKey(), entry.getValue());
             }
         }
-        for (String str : f7627a) {
+        for (String str : f7629a) {
             if (map.containsKey(str)) {
                 try {
                     this.c.put(str, Integer.parseInt((String) map.get(str)));

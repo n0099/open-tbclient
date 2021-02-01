@@ -9,13 +9,13 @@ public class gu {
     private static final char[] f485a = "&quot;".toCharArray();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final char[] f14067b = "&apos;".toCharArray();
+    private static final char[] f14069b = "&apos;".toCharArray();
     private static final char[] c = "&amp;".toCharArray();
     private static final char[] d = "&lt;".toCharArray();
     private static final char[] e = "&gt;".toCharArray();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Random f14066a = new Random();
+    private static Random f14068a = new Random();
     private static char[] f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     public static String a(int i) {
@@ -24,7 +24,7 @@ public class gu {
         }
         char[] cArr = new char[i];
         for (int i2 = 0; i2 < cArr.length; i2++) {
-            cArr[i2] = f[f14066a.nextInt(71)];
+            cArr[i2] = f[f14068a.nextInt(71)];
         }
         return new String(cArr);
     }
@@ -72,7 +72,7 @@ public class gu {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(f14067b);
+                    sb.append(f14069b);
                 }
             }
             i2++;

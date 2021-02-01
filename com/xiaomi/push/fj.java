@@ -20,10 +20,10 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
     private static final jn f413a = new jn("StatsEvents");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14016a = new jf("", Constants.GZIP_CAST_TYPE, 1);
+    private static final jf f14018a = new jf("", Constants.GZIP_CAST_TYPE, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final jf f14017b = new jf("", Constants.GZIP_CAST_TYPE, 2);
+    private static final jf f14019b = new jf("", Constants.GZIP_CAST_TYPE, 2);
     private static final jf c = new jf("", (byte) 15, 3);
 
     public fj() {
@@ -88,30 +88,30 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 a();
                 return;
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f414a = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 2:
-                    if (m511a.f14171a == 11) {
+                    if (m511a.f14173a == 11) {
                         this.f416b = jiVar.m516a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 3:
-                    if (m511a.f14171a == 15) {
+                    if (m511a.f14173a == 15) {
                         jg m512a = jiVar.m512a();
                         this.f415a = new ArrayList(m512a.f858a);
                         for (int i = 0; i < m512a.f858a; i++) {
@@ -122,11 +122,11 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
             }
             jiVar.g();
@@ -163,12 +163,12 @@ public class fj implements ix<fj, Object>, Serializable, Cloneable {
         a();
         jiVar.a(f413a);
         if (this.f414a != null) {
-            jiVar.a(f14016a);
+            jiVar.a(f14018a);
             jiVar.a(this.f414a);
             jiVar.b();
         }
         if (this.f416b != null && b()) {
-            jiVar.a(f14017b);
+            jiVar.a(f14019b);
             jiVar.a(this.f416b);
             jiVar.b();
         }

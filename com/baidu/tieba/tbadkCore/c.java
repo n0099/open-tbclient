@@ -1,14 +1,13 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.graphics.Color;
-import androidx.appcompat.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class c {
-    public static int m(int i, float f) {
+    public static int l(int i, float f) {
         return (((int) ((i >>> 24) * f)) << 24) | (16777215 & i);
     }
 
-    public static int IZ(int i) {
+    public static int Jt(int i) {
         float[] fArr = new float[3];
         Color.colorToHSV(i, fArr);
         if ((fArr[0] >= 0.0f && fArr[0] < 60.0f) || ((fArr[0] >= 120.0f && fArr[0] < 180.0f) || fArr[0] >= 240.0f || fArr[0] < 300.0f)) {
@@ -19,9 +18,9 @@ public class c {
         return Color.HSVToColor(fArr);
     }
 
-    public static int rt(String str) {
+    public static int rM(String str) {
         if (str == null || str.length() == 0) {
-            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            return Integer.MAX_VALUE;
         }
         try {
             if (!str.startsWith("#")) {
@@ -29,7 +28,7 @@ public class c {
             }
             return Color.parseColor(str);
         } catch (Exception e) {
-            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+            return Integer.MAX_VALUE;
         }
     }
 }

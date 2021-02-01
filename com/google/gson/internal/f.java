@@ -3,17 +3,17 @@ package com.google.gson.internal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f {
-    public static DateFormat PZ(int i) {
-        return new SimpleDateFormat(Qa(i), Locale.US);
+    public static DateFormat Qu(int i) {
+        return new SimpleDateFormat(Qv(i), Locale.US);
     }
 
-    public static DateFormat ei(int i, int i2) {
-        return new SimpleDateFormat(Qb(i) + " " + Qc(i2), Locale.US);
+    public static DateFormat ef(int i, int i2) {
+        return new SimpleDateFormat(Qw(i) + " " + Qx(i2), Locale.US);
     }
 
-    private static String Qa(int i) {
+    private static String Qv(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, y";
@@ -28,7 +28,7 @@ public class f {
         }
     }
 
-    private static String Qb(int i) {
+    private static String Qw(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, yyyy";
@@ -43,7 +43,7 @@ public class f {
         }
     }
 
-    private static String Qc(int i) {
+    private static String Qx(int i) {
         switch (i) {
             case 0:
             case 1:

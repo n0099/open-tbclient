@@ -4,19 +4,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabLiveItemView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.f, ConcernTabLiveItemView.ViewHolder> {
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.f.gzF);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.f.gCp);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ag */
+    /* renamed from: ae */
     public ConcernTabLiveItemView.ViewHolder e(ViewGroup viewGroup) {
         ConcernTabLiveItemView concernTabLiveItemView = new ConcernTabLiveItemView(this.mPageContext, viewGroup);
         concernTabLiveItemView.getClass();
@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (viewHolder == null || fVar == null) {
             return null;
         }
-        viewHolder.gFq.a(fVar);
+        viewHolder.gIa.a(fVar);
         return viewHolder.getView();
     }
 }

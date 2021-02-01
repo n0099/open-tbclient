@@ -11,6 +11,8 @@ import android.os.Build;
 import android.os.Process;
 import androidx.annotation.Nullable;
 import com.baidu.rtc.a.a;
+import com.baidu.rtc.b.e;
+import com.baidu.rtc.b.f;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import org.webrtc.CalledByNative;
@@ -18,7 +20,7 @@ import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
 import org.webrtc.audio.JavaAudioDeviceModule;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WebRtcAudioTrack {
     private static final long AUDIO_TRACK_THREAD_JOIN_TIMEOUT_MS = 2000;
     private static final int BITS_PER_SAMPLE = 16;
@@ -37,13 +39,15 @@ public class WebRtcAudioTrack {
     private final Context context;
     private byte[] emptyBytes;
     private final JavaAudioDeviceModule.AudioTrackErrorCallback errorCallback;
+    private boolean isEnableSLIReport;
     private long nativeAudioTrack;
     private int sampleRateInHz;
     private volatile boolean speakerMute;
+    private f stuckDataCalculator;
     private final ThreadUtils.ThreadChecker threadChecker;
     private final VolumeLogger volumeLogger;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     private class AudioTrackThread extends Thread {
         private volatile boolean keepAlive;
 
@@ -75,6 +79,9 @@ public class WebRtcAudioTrack {
                     WebRtcAudioTrack.this.byteBuffer.put(WebRtcAudioTrack.this.emptyBytes);
                     WebRtcAudioTrack.this.byteBuffer.position(0);
                 }
+                if (WebRtcAudioTrack.this.isEnableSLIReport) {
+                    WebRtcAudioTrack.this.stuckDataCalculator.afu();
+                }
                 if (WebRtcAudioTrack.this.audioSamplesReadyCallback != null) {
                     WebRtcAudioTrack.this.audioSamplesReadyCallback.onWebRtcAudioRemoteSamplesReady(new JavaAudioDeviceModule.AudioSamples(WebRtcAudioTrack.this.audioFormat, WebRtcAudioTrack.this.channelConfig, WebRtcAudioTrack.this.sampleRateInHz, Arrays.copyOfRange(WebRtcAudioTrack.this.byteBuffer.array(), WebRtcAudioTrack.this.byteBuffer.arrayOffset(), WebRtcAudioTrack.this.byteBuffer.capacity() + WebRtcAudioTrack.this.byteBuffer.arrayOffset())));
                 }
@@ -103,6 +110,7 @@ public class WebRtcAudioTrack {
         public void stopThread() {
             Logging.d(WebRtcAudioTrack.TAG, "stopThread");
             this.keepAlive = false;
+            WebRtcAudioTrack.this.stuckDataCalculator.reset();
         }
     }
 
@@ -113,6 +121,8 @@ public class WebRtcAudioTrack {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public WebRtcAudioTrack(Context context, AudioManager audioManager, @Nullable JavaAudioDeviceModule.RemoteSamplesReadyCallback remoteSamplesReadyCallback, JavaAudioDeviceModule.AudioTrackErrorCallback audioTrackErrorCallback) {
+        this.stuckDataCalculator = new f(200);
+        this.isEnableSLIReport = false;
         this.threadChecker = new ThreadUtils.ThreadChecker();
         this.audioTrack = null;
         this.audioThread = null;
@@ -145,7 +155,7 @@ public class WebRtcAudioTrack {
             Logging.w(TAG, "Unable to use fast mode since requested sample rate is not native");
         }
         String str = Build.MODEL;
-        return (a.cuG == 2 || str.contains("NV6001") || str.contains("NV6101") || str.contains("XDH-0F-A1") || str.contains("NV5001")) ? new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0) : new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0);
+        return (a.cwN == 2 || str.contains("NV6001") || str.contains("NV6101") || str.contains("XDH-0F-A1") || str.contains("NV5001")) ? new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0) : new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0);
     }
 
     private static AudioTrack createAudioTrackOnLowerThanLollipop(int i, int i2, int i3) {
@@ -349,6 +359,10 @@ public class WebRtcAudioTrack {
         return true;
     }
 
+    public void setEnableSLIReport(boolean z) {
+        this.isEnableSLIReport = z;
+    }
+
     @CalledByNative
     public void setNativeAudioTrack(long j) {
         this.nativeAudioTrack = j;
@@ -357,5 +371,9 @@ public class WebRtcAudioTrack {
     public void setSpeakerMute(boolean z) {
         Logging.w(TAG, "setSpeakerMute(" + z + ")");
         this.speakerMute = z;
+    }
+
+    public void setStuckEventListener(e eVar) {
+        this.stuckDataCalculator.setStuckEventListener(eVar);
     }
 }

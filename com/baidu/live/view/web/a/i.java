@@ -6,9 +6,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i extends com.baidu.live.view.web.a {
-    private AlaLastLiveroomInfo bSf;
+    private AlaLastLiveroomInfo bVZ;
     private boolean isHost;
 
     @Override // com.baidu.live.view.web.a
@@ -17,12 +17,12 @@ public class i extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void hU(String str) {
+    public void is(String str) {
         if (!this.isHost) {
             Log.d("JsInterface", "@@ JsInterface-impl LiveBridgeJsInterface params = " + str);
             try {
                 long parseLong = Long.parseLong(str);
-                com.baidu.live.liveroom.a.KT().a(com.baidu.live.liveroom.a.KT().KU().gL(String.valueOf(parseLong)));
+                com.baidu.live.liveroom.a.Mr().a(com.baidu.live.liveroom.a.Mr().Ms().hk(String.valueOf(parseLong)));
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("recommend_type", 0);
@@ -33,10 +33,10 @@ public class i extends com.baidu.live.view.web.a {
                 String jSONObject2 = jSONObject.toString();
                 AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(TbadkCoreApplication.getInst());
                 alaLiveRoomActivityConfig.addExtraByLiveId(parseLong, jSONObject2);
-                alaLiveRoomActivityConfig.addLastLiveInfoParams(this.bSf);
+                alaLiveRoomActivityConfig.addLastLiveInfoParams(this.bVZ);
                 alaLiveRoomActivityConfig.setNeedStopImWhenClose(true);
                 alaLiveRoomActivityConfig.getIntent().addFlags(268435456);
-                com.baidu.live.liveroom.a.KT().a(alaLiveRoomActivityConfig);
+                com.baidu.live.liveroom.a.Mr().a(alaLiveRoomActivityConfig);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -48,6 +48,6 @@ public class i extends com.baidu.live.view.web.a {
     }
 
     public void b(AlaLastLiveroomInfo alaLastLiveroomInfo) {
-        this.bSf = alaLastLiveroomInfo;
+        this.bVZ = alaLastLiveroomInfo;
     }
 }

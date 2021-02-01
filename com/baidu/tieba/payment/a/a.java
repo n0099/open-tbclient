@@ -7,11 +7,11 @@ import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static String encrypt(String str, String str2) {
         try {
-            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(c.decode(Oo(str2))));
+            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(c.decode(Pf(str2))));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
             return c.encodeBytes(cipher.doFinal(str.getBytes("GBK")));
@@ -21,7 +21,7 @@ public class a {
         }
     }
 
-    private static String Oo(String str) {
+    private static String Pf(String str) {
         return StringUtils.isNull(str) ? "" : str.replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "");
     }
 }

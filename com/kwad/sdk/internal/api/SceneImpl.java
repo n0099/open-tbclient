@@ -5,7 +5,7 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SceneImpl implements KsScene, Serializable {
     private static final long serialVersionUID = 93865491903408451L;
     private int action;

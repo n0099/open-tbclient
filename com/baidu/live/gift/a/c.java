@@ -9,29 +9,29 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c implements Cloneable {
-    public long aTM;
-    public List<l> aUk;
-    public boolean aZG;
-    public g aZH;
-    public String aZI;
-    public int aZJ;
-    public boolean aZK;
-    public JSONObject aZL;
-    public long aZM;
-    public long aZN;
-    private long aZO;
-    public boolean aZP;
-    public String aZQ;
-    private boolean aZR;
-    public boolean aZS;
-    public boolean aZT;
-    public boolean aZU;
-    public r aZV;
-    public boolean aZW;
-    public String aZX;
+    public long aWR;
+    public List<l> aXp;
     public String appId;
+    public boolean bcN;
+    public g bcO;
+    public String bcP;
+    public int bcQ;
+    public boolean bcR;
+    public JSONObject bcS;
+    public long bcT;
+    public long bcU;
+    private long bcV;
+    public boolean bcW;
+    public String bcX;
+    private boolean bcY;
+    public boolean bcZ;
+    public boolean bda;
+    public boolean bdb;
+    public r bdc;
+    public boolean bdd;
+    public String bde;
     public String chatMCastId;
     public String description;
     public String ensureMCastId;
@@ -50,63 +50,63 @@ public class c implements Cloneable {
     public int userStatus;
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2, boolean z2, JSONObject jSONObject) {
-        this.aZG = false;
-        this.aZI = "";
+        this.bcN = false;
+        this.bcP = "";
         this.followCount = 0L;
         this.fansCount = 0L;
         this.location = "";
         this.priority = 1;
-        this.aZN = 0L;
-        this.aZR = true;
-        this.aZS = false;
-        this.aZT = false;
-        this.aZU = false;
-        this.aZW = false;
+        this.bcU = 0L;
+        this.bcY = true;
+        this.bcZ = false;
+        this.bda = false;
+        this.bdb = false;
+        this.bdd = false;
         this.giftId = str;
-        this.aZM = j;
-        this.aZH = gVar;
+        this.bcT = j;
+        this.bcO = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.aZP = z;
-        this.aZQ = str7;
+        this.bcW = z;
+        this.bcX = str7;
         this.appId = str8;
         this.msgId = j2;
-        this.aZK = z2;
-        this.aZL = jSONObject;
-        this.aUk = new ArrayList();
-        this.aZV = new r();
+        this.bcR = z2;
+        this.bcS = jSONObject;
+        this.aXp = new ArrayList();
+        this.bdc = new r();
         if (jSONObject != null) {
-            this.aZV.parserJson(jSONObject);
-            this.aZU = jSONObject.optString("content_type").equals(UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT) && this.aZV.aUA == 1;
+            this.bdc.parserJson(jSONObject);
+            this.bdb = jSONObject.optString("content_type").equals(UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT) && this.bdc.aXF == 1;
         }
-        Fq();
+        GG();
     }
 
     public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2) {
         this(str, j, gVar, str2, str3, str4, str5, str6, z, str7, str8, j2, false, null);
     }
 
-    public void aP(long j) {
-        this.aZO = j;
+    public void aS(long j) {
+        this.bcV = j;
     }
 
-    public long Fp() {
-        return this.aZO;
+    public long GF() {
+        return this.bcV;
     }
 
-    private void Fq() {
-        this.aZI = this.userId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.giftId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.userName;
+    private void GG() {
+        this.bcP = this.userId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.giftId + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.userName;
     }
 
-    public String Fr() {
-        return this.aZI;
+    public String GH() {
+        return this.bcP;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Fs */
+    /* renamed from: GI */
     public c clone() {
         try {
             return (c) super.clone();
@@ -116,15 +116,15 @@ public class c implements Cloneable {
         }
     }
 
-    public boolean Ft() {
-        return this.aZR;
+    public boolean GJ() {
+        return this.bcY;
     }
 
-    public void bS(boolean z) {
-        this.aZR = z;
+    public void bX(boolean z) {
+        this.bcY = z;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Comparator<c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -137,14 +137,14 @@ public class c implements Cloneable {
                 if (cVar.priority < cVar2.priority) {
                     return -1;
                 }
-                if (cVar.aZH != null && cVar2.aZH != null) {
+                if (cVar.bcO != null && cVar2.bcO != null) {
                     try {
-                        long parseLong = Long.parseLong(cVar.aZH.getPrice());
-                        long parseLong2 = Long.parseLong(cVar2.aZH.getPrice());
-                        if (parseLong <= parseLong2) {
-                            return parseLong < parseLong2 ? -1 : 0;
+                        long DU = cVar.bcO.DU();
+                        long DU2 = cVar2.bcO.DU();
+                        if (DU >= DU2) {
+                            return DU == DU2 ? 0 : 1;
                         }
-                        return 1;
+                        return -1;
                     } catch (Exception e) {
                         return 0;
                     }

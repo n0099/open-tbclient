@@ -8,7 +8,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static void a(JSONObject jSONObject) {
         boolean z = false;
@@ -66,7 +66,7 @@ public class c {
     }
 
     private static boolean c(int i) {
-        return System.currentTimeMillis() - j.a().getSharedPreferences("sp_install_guide", 0).getLong("guide_last_show_time", 0L) >= ((long) (com.ss.android.downloadlib.f.d.fC(i) * 86400000));
+        return System.currentTimeMillis() - j.a().getSharedPreferences("sp_install_guide", 0).getLong("guide_last_show_time", 0L) >= ((long) (com.ss.android.downloadlib.f.d.fI(i) * 86400000));
     }
 
     private static boolean d(int i) {
@@ -74,16 +74,16 @@ public class c {
         calendar.setTimeInMillis(System.currentTimeMillis());
         int i2 = 0;
         int i3 = 0;
-        for (int fD = com.ss.android.downloadlib.f.d.fD(i); fD > 0; fD--) {
-            Pair<Integer, Integer> jd = jd(calendar.getTimeInMillis());
-            i3 += ((Integer) jd.first).intValue();
-            i2 += ((Integer) jd.second).intValue();
+        for (int fJ = com.ss.android.downloadlib.f.d.fJ(i); fJ > 0; fJ--) {
+            Pair<Integer, Integer> jg = jg(calendar.getTimeInMillis());
+            i3 += ((Integer) jg.first).intValue();
+            i2 += ((Integer) jg.second).intValue();
             calendar.setTimeInMillis(calendar.getTimeInMillis() - 86400000);
         }
-        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.QC(i);
+        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.QX(i);
     }
 
-    private static Pair<Integer, Integer> jd(long j) {
+    private static Pair<Integer, Integer> jg(long j) {
         try {
             JSONObject jSONObject = new JSONObject(j.a().getSharedPreferences("sp_install_guide", 0).getString(b(j), "{}"));
             return new Pair<>(Integer.valueOf(jSONObject.optInt("key_install_finish")), Integer.valueOf(jSONObject.optInt("key_install_finish_hijack")));

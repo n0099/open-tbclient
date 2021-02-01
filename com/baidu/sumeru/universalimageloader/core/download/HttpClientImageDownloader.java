@@ -6,7 +6,7 @@ import java.io.InputStream;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.BufferedHttpEntity;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class HttpClientImageDownloader extends BaseImageDownloader {
     private HttpClient httpClient;
 

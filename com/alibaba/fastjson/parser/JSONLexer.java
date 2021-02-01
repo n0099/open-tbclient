@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface JSONLexer {
     public static final int ARRAY = 2;
     public static final int END = 4;

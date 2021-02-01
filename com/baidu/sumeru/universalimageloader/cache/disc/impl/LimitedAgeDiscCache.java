@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class LimitedAgeDiscCache extends BaseDiscCache {
     private final Map<File, Long> loadingDates;
     private final long maxFileAge;

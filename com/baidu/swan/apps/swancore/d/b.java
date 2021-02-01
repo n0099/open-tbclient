@@ -2,49 +2,49 @@ package com.baidu.swan.apps.swancore.d;
 
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.u.c.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public boolean dKu;
-    public boolean dKv;
     @Nullable
-    public c dKw;
-    public String dKx;
+    public c dMA;
+    public String dMB;
+    public boolean dMy;
+    public boolean dMz;
 
     private b() {
-        this.dKu = false;
-        this.dKv = false;
-        this.dKw = null;
-        this.dKx = "";
+        this.dMy = false;
+        this.dMz = false;
+        this.dMA = null;
+        this.dMB = "";
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        private boolean dKu = false;
-        private boolean dKv = false;
+        private boolean dMy = false;
+        private boolean dMz = false;
         @Nullable
-        private c dKw = null;
-        private String dKx = "";
+        private c dMA = null;
+        private String dMB = "";
 
-        public static a aMd() {
+        public static a aMw() {
             return new a();
         }
 
-        public a hs(boolean z) {
-            this.dKu = z;
+        public a hu(boolean z) {
+            this.dMy = z;
             return this;
         }
 
-        public a tf(String str) {
-            this.dKx = str;
+        public a ty(String str) {
+            this.dMB = str;
             return this;
         }
 
-        public b aMe() {
+        public b aMx() {
             b bVar = new b();
-            bVar.dKu = this.dKu;
-            bVar.dKv = this.dKv;
-            bVar.dKw = this.dKw;
-            bVar.dKx = this.dKx;
+            bVar.dMy = this.dMy;
+            bVar.dMz = this.dMz;
+            bVar.dMA = this.dMA;
+            bVar.dMB = this.dMB;
             return bVar;
         }
     }

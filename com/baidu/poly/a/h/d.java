@@ -14,17 +14,17 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
-    public static String cjP;
-    public static String cjQ;
-    public static String cjR;
-    public static String cjS;
-    private static List<com.baidu.poly.a.h.b> cjT;
-    private static Object cjU = new Object();
+    public static String cof;
+    public static String cog;
+    public static String coh;
+    public static String coi;
+    private static List<com.baidu.poly.a.h.b> coj;
+    private static Object cok = new Object();
     public static String pd;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static class a implements Runnable {
         a() {
         }
@@ -36,14 +36,14 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends com.baidu.poly.a.a.a {
-        final /* synthetic */ com.baidu.poly.a.a.c ciG;
-        final /* synthetic */ com.baidu.poly.a.a.b ciH;
+        final /* synthetic */ com.baidu.poly.a.a.c cmV;
+        final /* synthetic */ com.baidu.poly.a.a.b cmW;
 
         b(com.baidu.poly.a.a.c cVar, com.baidu.poly.a.a.b bVar) {
-            this.ciG = cVar;
-            this.ciH = bVar;
+            this.cmV = cVar;
+            this.cmW = bVar;
         }
 
         @Override // com.baidu.poly.a.a.a
@@ -52,19 +52,19 @@ public class d {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            d.b(this.ciG.getMap(), this.ciH.getMap());
+            d.b(this.cmV.getMap(), this.cmW.getMap());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends com.baidu.poly.a.a.a {
-        final /* synthetic */ JSONArray cjN;
-        final /* synthetic */ JSONObject cjO;
+        final /* synthetic */ JSONArray cod;
+        final /* synthetic */ JSONObject coe;
 
         c(JSONArray jSONArray, JSONObject jSONObject) {
-            this.cjN = jSONArray;
-            this.cjO = jSONObject;
+            this.cod = jSONArray;
+            this.coe = jSONObject;
         }
 
         @Override // com.baidu.poly.a.a.a
@@ -73,68 +73,41 @@ public class d {
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            this.cjN.put(this.cjO);
+            this.cod.put(this.coe);
         }
     }
 
     public static void H() {
-        cjP = null;
-        cjQ = null;
+        cof = null;
+        cog = null;
         pd = null;
-        cjR = null;
-        cjS = null;
+        coh = null;
+        coi = null;
     }
 
-    private static void abK() {
-        JSONArray aby = aby();
-        if (aby != null && aby.length() != 0) {
-            try {
-                JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < aby.length(); i++) {
-                    JSONObject jSONObject = aby.getJSONObject(i);
-                    com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
-                    cVar.b(e.av(jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER)));
-                    com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
-                    bVar.b(e.av(jSONObject.optJSONObject("body")));
-                    new com.baidu.poly.a.h.c().a(cVar, bVar, new c(jSONArray, jSONObject));
-                }
-                p(jSONArray);
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    private static com.baidu.poly.a.a.c abL() {
-        com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
-        if (!TextUtils.isEmpty(cjP)) {
-            cVar.g(SM.COOKIE, "BDUSS=" + cjP);
-        }
-        return cVar;
-    }
-
-    private static com.baidu.poly.a.a.b abM() {
+    private static com.baidu.poly.a.a.b adA() {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         bVar.g("dm", "cashier");
         bVar.g("os", HttpConstants.OS_TYPE_VALUE);
         bVar.g("v", "2.7.5");
-        if (!TextUtils.isEmpty(cjS)) {
-            bVar.g("n", cjS);
+        if (!TextUtils.isEmpty(coi)) {
+            bVar.g("n", coi);
         }
-        if (!TextUtils.isEmpty(cjQ)) {
-            bVar.g("d", cjQ);
+        if (!TextUtils.isEmpty(cog)) {
+            bVar.g("d", cog);
         }
         if (!TextUtils.isEmpty(pd)) {
             bVar.g("dt", pd);
         }
-        if (!TextUtils.isEmpty(cjR)) {
-            bVar.g("dp", cjR);
+        if (!TextUtils.isEmpty(coh)) {
+            bVar.g("dp", coh);
         }
         return bVar;
     }
 
-    private static JSONArray aby() {
+    private static JSONArray adm() {
         JSONArray jSONArray;
-        File file = new File(g.abT().getFilesDir(), "poly_cashier_statistics.json");
+        File file = new File(g.adH().getFilesDir(), "poly_cashier_statistics.json");
         if (file.exists()) {
             try {
                 jSONArray = new JSONArray(com.baidu.poly.util.c.b(file));
@@ -150,8 +123,35 @@ public class d {
         return null;
     }
 
+    private static void ady() {
+        JSONArray adm = adm();
+        if (adm != null && adm.length() != 0) {
+            try {
+                JSONArray jSONArray = new JSONArray();
+                for (int i = 0; i < adm.length(); i++) {
+                    JSONObject jSONObject = adm.getJSONObject(i);
+                    com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
+                    cVar.b(e.ax(jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER)));
+                    com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
+                    bVar.b(e.ax(jSONObject.optJSONObject("body")));
+                    new com.baidu.poly.a.h.c().a(cVar, bVar, new c(jSONArray, jSONObject));
+                }
+                p(jSONArray);
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    private static com.baidu.poly.a.a.c adz() {
+        com.baidu.poly.a.a.c cVar = new com.baidu.poly.a.a.c();
+        if (!TextUtils.isEmpty(cof)) {
+            cVar.g(SM.COOKIE, "BDUSS=" + cof);
+        }
+        return cVar;
+    }
+
     private static void clear() {
-        List<com.baidu.poly.a.h.b> list = cjT;
+        List<com.baidu.poly.a.h.b> list = coj;
         if (list != null) {
             list.clear();
         }
@@ -160,27 +160,27 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized void doFlush() {
         synchronized (d.class) {
-            List<com.baidu.poly.a.h.b> list = cjT;
+            List<com.baidu.poly.a.h.b> list = coj;
             if (list != null && !list.isEmpty()) {
-                com.baidu.poly.a.a.b abM = abM();
-                synchronized (cjU) {
+                com.baidu.poly.a.a.b adA = adA();
+                synchronized (cok) {
                     JSONArray jSONArray = new JSONArray();
-                    for (com.baidu.poly.a.h.b bVar : cjT) {
-                        JSONObject abJ = bVar.abJ();
-                        if (abJ != null) {
-                            jSONArray.put(abJ);
+                    for (com.baidu.poly.a.h.b bVar : coj) {
+                        JSONObject adx = bVar.adx();
+                        if (adx != null) {
+                            jSONArray.put(adx);
                         }
                     }
-                    abM.g("data", jSONArray.toString());
-                    abM.g("s", HttpSigner.a(abM, "key", com.baidu.poly.a.b.a.q()));
+                    adA.g("data", jSONArray.toString());
+                    adA.g("s", HttpSigner.a(adA, "key", com.baidu.poly.a.b.a.q()));
                     clear();
                 }
-                com.baidu.poly.a.a.c abL = abL();
+                com.baidu.poly.a.a.c adz = adz();
                 if (f.J()) {
-                    abK();
-                    new com.baidu.poly.a.h.c().a(abL, abM, new b(abL, abM));
+                    ady();
+                    new com.baidu.poly.a.h.c().a(adz, adA, new b(adz, adA));
                 } else {
-                    b(abL.getMap(), abM.getMap());
+                    b(adz.getMap(), adA.getMap());
                 }
             }
         }
@@ -192,17 +192,17 @@ public class d {
 
     private static void p(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() != 0) {
-            com.baidu.poly.util.c.a(jSONArray.toString(), new File(g.abT().getFilesDir(), "poly_cashier_statistics.json"));
+            com.baidu.poly.util.c.a(jSONArray.toString(), new File(g.adH().getFilesDir(), "poly_cashier_statistics.json"));
         }
     }
 
     public static void a(com.baidu.poly.a.h.b bVar) {
-        if (cjT == null) {
-            cjT = new ArrayList();
+        if (coj == null) {
+            coj = new ArrayList();
         }
         if (bVar != null) {
-            synchronized (cjU) {
-                cjT.add(bVar);
+            synchronized (cok) {
+                coj.add(bVar);
             }
         }
     }
@@ -217,7 +217,7 @@ public class d {
             bVar = new com.baidu.poly.a.h.b("3");
         }
         if (bVar != null) {
-            bVar.iM(str);
+            bVar.jr(str);
             a(bVar);
         }
     }
@@ -225,21 +225,21 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Map map, Map map2) {
         try {
-            JSONArray aby = aby();
-            if (aby != null) {
-                if (aby.length() >= 20) {
-                    aby.remove(0);
+            JSONArray adm = adm();
+            if (adm != null) {
+                if (adm.length() >= 20) {
+                    adm.remove(0);
                 }
             } else {
-                aby = new JSONArray();
+                adm = new JSONArray();
             }
             JSONObject jSONObject = new JSONObject();
             JSONObject n = e.n(map);
             JSONObject n2 = e.n(map2);
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, n);
             jSONObject.put("body", n2);
-            aby.put(jSONObject);
-            p(aby);
+            adm.put(jSONObject);
+            p(adm);
         } catch (Exception e) {
         }
     }

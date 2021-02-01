@@ -2,11 +2,11 @@ package com.bytedance.sdk.a.b.a.e;
 
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface m {
-    public static final m pgm = new m() { // from class: com.bytedance.sdk.a.b.a.e.m.1
+    public static final m pqE = new m() { // from class: com.bytedance.sdk.a.b.a.e.m.1
         @Override // com.bytedance.sdk.a.b.a.e.m
-        public boolean q(int i, List<c> list) {
+        public boolean r(int i, List<c> list) {
             return true;
         }
 
@@ -32,5 +32,5 @@ public interface m {
 
     boolean c(int i, List<c> list, boolean z);
 
-    boolean q(int i, List<c> list);
+    boolean r(int i, List<c> list);
 }

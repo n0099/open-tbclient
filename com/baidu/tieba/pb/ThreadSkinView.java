@@ -10,15 +10,15 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.d.a;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo lzn;
-    private a.C0869a lzo;
+    private SkinInfo lIa;
+    private a.C0872a lIb;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -40,22 +40,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0869a c0869a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0872a c0872a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.lzn != skinInfo && c0869a != null) {
-            this.lzo = c0869a;
-            this.lzo.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.lzo.gs("obj_id", skinInfo.obj_id);
-            this.lzo.gs(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
-            this.lzo.gs("obj_name", skinInfo.monitor_id);
-            this.lzo.gs(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.lzo.save();
+        if (this.lIa != skinInfo && c0872a != null) {
+            this.lIb = c0872a;
+            this.lIb.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.lIb.gy("obj_id", skinInfo.obj_id);
+            this.lIb.gy(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
+            this.lIb.gy("obj_name", skinInfo.monitor_id);
+            this.lIb.gy(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.lIb.save();
         }
-        this.lzn = skinInfo;
+        this.lIa = skinInfo;
         int equipmentWidth = l.getEquipmentWidth(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = equipmentWidth;
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.lzn != null && !StringUtils.isNull(this.lzn.url)) {
-            if (this.lzo != null) {
-                this.lzo.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.lzo.gs(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.lzo.save();
+        if (this.lIa != null && !StringUtils.isNull(this.lIa.url)) {
+            if (this.lIb != null) {
+                this.lIb.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.lIb.gy(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.lIb.save();
             }
-            be.bsB().b(this.mTbPageContext, new String[]{this.lzn.url});
+            bf.bsV().b(this.mTbPageContext, new String[]{this.lIa.url});
         }
     }
 }

@@ -3,60 +3,60 @@ package org.brotli.dec;
 import java.io.IOException;
 import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class j {
     int distance;
     int j;
     byte[] output;
-    int qlC;
-    boolean qlD;
-    boolean qlE;
-    boolean qlF;
-    int qlQ;
-    int qlR;
-    byte[] qlS;
-    byte[] qlT;
-    int qlU;
-    int qlV;
-    int qlW;
-    int qlX;
-    int qlY;
-    int qlZ;
-    int qlx;
-    byte[] qlz;
-    byte[] qma;
-    int qmb;
-    int qmc;
-    int qmd;
-    int qme;
-    int qmf;
-    int qmg;
-    int qmh;
-    int qmm;
-    int qmn;
-    int qmo;
-    int qmp;
-    int qmq;
-    int qlw = 0;
-    final a qly = new a();
-    final int[] qlA = new int[3240];
-    final int[] qlB = new int[3240];
-    final g qlG = new g();
-    final g qlH = new g();
-    final g qlI = new g();
-    final int[] qlJ = new int[3];
-    final int[] qlK = new int[3];
-    final int[] qlL = new int[6];
-    final int[] qlM = {16, 15, 11, 4};
+    int qvA;
+    byte[] qvC;
+    int qvF;
+    boolean qvG;
+    boolean qvH;
+    boolean qvI;
+    int qvT;
+    int qvU;
+    byte[] qvV;
+    byte[] qvW;
+    int qvX;
+    int qvY;
+    int qvZ;
+    int qwa;
+    int qwb;
+    int qwc;
+    byte[] qwd;
+    int qwe;
+    int qwf;
+    int qwg;
+    int qwh;
+    int qwi;
+    int qwj;
+    int qwk;
+    int qwp;
+    int qwq;
+    int qwr;
+    int qws;
+    int qwt;
+    int qvz = 0;
+    final a qvB = new a();
+    final int[] qvD = new int[3240];
+    final int[] qvE = new int[3240];
+    final g qvJ = new g();
+    final g qvK = new g();
+    final g qvL = new g();
+    final int[] qvM = new int[3];
+    final int[] qvN = new int[3];
+    final int[] qvO = new int[6];
+    final int[] qvP = {16, 15, 11, 4};
     int pos = 0;
-    int hgg = 0;
-    int qlN = 0;
-    boolean qlO = false;
-    int qlP = 0;
-    int qmi = 0;
-    long qmj = 0;
-    byte[] qmk = new byte[0];
-    int qml = 0;
+    int hkw = 0;
+    int qvQ = 0;
+    boolean qvR = false;
+    int qvS = 0;
+    int qwl = 0;
+    long qwm = 0;
+    byte[] qwn = new byte[0];
+    int qwo = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.qlw != 0) {
+        if (jVar.qvz != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.qly, inputStream);
-        int i = i(jVar.qly);
+        a.a(jVar.qvB, inputStream);
+        int i = i(jVar.qvB);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.qmh = 1 << i;
-        jVar.qmg = jVar.qmh - 16;
-        jVar.qlw = 1;
+        jVar.qwk = 1 << i;
+        jVar.qwj = jVar.qwk - 16;
+        jVar.qvz = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.qlw == 0) {
+        if (jVar.qvz == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.qlw != 11) {
-            jVar.qlw = 11;
-            a.e(jVar.qly);
+        if (jVar.qvz != 11) {
+            jVar.qvz = 11;
+            a.e(jVar.qvB);
         }
     }
 }

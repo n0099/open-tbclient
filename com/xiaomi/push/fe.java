@@ -13,7 +13,7 @@ import com.xiaomi.push.service.XMJobService;
 public class fe implements fc.a {
 
     /* renamed from: a  reason: collision with root package name */
-    JobScheduler f14008a;
+    JobScheduler f14010a;
 
     /* renamed from: a  reason: collision with other field name */
     Context f395a;
@@ -23,13 +23,13 @@ public class fe implements fc.a {
 
     fe(Context context) {
         this.f395a = context;
-        this.f14008a = (JobScheduler) context.getSystemService("jobscheduler");
+        this.f14010a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
     @Override // com.xiaomi.push.fc.a
     public void a() {
         this.f396a = false;
-        this.f14008a.cancel(1);
+        this.f14010a.cancel(1);
     }
 
     void a(long j) {
@@ -39,7 +39,7 @@ public class fe implements fc.a {
         builder.setRequiredNetworkType(1);
         builder.setPersisted(false);
         com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + builder.build().getId() + " in " + j);
-        this.f14008a.schedule(builder.build());
+        this.f14010a.schedule(builder.build());
     }
 
     @Override // com.xiaomi.push.fc.a

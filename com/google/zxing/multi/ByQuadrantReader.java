@@ -9,7 +9,7 @@ import com.google.zxing.Reader;
 import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class ByQuadrantReader implements Reader {
     private final Reader delegate;
 

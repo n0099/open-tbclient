@@ -3,28 +3,28 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DotOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2707a;
+    int f2705a;
     Bundle c;
     private LatLng d;
     private int e = ViewCompat.MEASURED_STATE_MASK;
     private int f = 5;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2708b = true;
+    boolean f2706b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Dot dot = new Dot();
-        dot.x = this.f2708b;
-        dot.w = this.f2707a;
+        dot.x = this.f2706b;
+        dot.w = this.f2705a;
         dot.y = this.c;
-        dot.f2706b = this.e;
-        dot.f2705a = this.d;
+        dot.f2704b = this.e;
+        dot.f2703a = this.d;
         dot.c = this.f;
         return dot;
     }
@@ -64,11 +64,11 @@ public final class DotOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2707a;
+        return this.f2705a;
     }
 
     public boolean isVisible() {
-        return this.f2708b;
+        return this.f2706b;
     }
 
     public DotOptions radius(int i) {
@@ -79,12 +79,12 @@ public final class DotOptions extends OverlayOptions {
     }
 
     public DotOptions visible(boolean z) {
-        this.f2708b = z;
+        this.f2706b = z;
         return this;
     }
 
     public DotOptions zIndex(int i) {
-        this.f2707a = i;
+        this.f2705a = i;
         return this;
     }
 }

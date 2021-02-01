@@ -3,18 +3,18 @@ package kotlin.b;
 import java.util.NoSuchElementException;
 import kotlin.collections.z;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j extends z {
     private boolean hasNext;
-    private final long qjI;
-    private final long qjK;
-    private long qjL;
+    private final long qtM;
+    private final long qtO;
+    private long qtP;
 
     public j(long j, long j2, long j3) {
         boolean z = true;
-        this.qjI = j3;
-        this.qjK = j2;
-        if (this.qjI > 0) {
+        this.qtM = j3;
+        this.qtO = j2;
+        if (this.qtM > 0) {
             if (j > j2) {
                 z = false;
             }
@@ -22,7 +22,7 @@ public final class j extends z {
             z = false;
         }
         this.hasNext = z;
-        this.qjL = this.hasNext ? j : this.qjK;
+        this.qtP = this.hasNext ? j : this.qtO;
     }
 
     @Override // java.util.Iterator
@@ -31,15 +31,15 @@ public final class j extends z {
     }
 
     @Override // kotlin.collections.z
-    public long ezf() {
-        long j = this.qjL;
-        if (j == this.qjK) {
+    public long eBx() {
+        long j = this.qtP;
+        if (j == this.qtO) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }
             this.hasNext = false;
         } else {
-            this.qjL += this.qjI;
+            this.qtP += this.qtM;
         }
         return j;
     }

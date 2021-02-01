@@ -13,11 +13,11 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwai.filedownloader.d.c f10907a;
+    private final com.kwai.filedownloader.d.c f10909a;
     private final a c;
     private final int d;
     private final int e;
@@ -33,16 +33,16 @@ public class d implements Handler.Callback {
     private boolean o = true;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwai.filedownloader.b.a f10908b = b.a().c();
+    private final com.kwai.filedownloader.b.a f10910b = b.a().c();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f10909a;
+        private boolean f10911a;
 
         /* renamed from: b  reason: collision with root package name */
-        private Exception f10910b;
+        private Exception f10912b;
         private int c;
 
         void a(int i) {
@@ -50,19 +50,19 @@ public class d implements Handler.Callback {
         }
 
         void a(Exception exc) {
-            this.f10910b = exc;
+            this.f10912b = exc;
         }
 
         void a(boolean z) {
-            this.f10909a = z;
+            this.f10911a = z;
         }
 
         public boolean a() {
-            return this.f10909a;
+            return this.f10911a;
         }
 
         public Exception b() {
-            return this.f10910b;
+            return this.f10912b;
         }
 
         public int c() {
@@ -72,7 +72,7 @@ public class d implements Handler.Callback {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(com.kwai.filedownloader.d.c cVar, int i, int i2, int i3) {
-        this.f10907a = cVar;
+        this.f10909a = cVar;
         this.e = i2 < 5 ? 5 : i2;
         this.f = i3;
         this.c = new a();
@@ -95,20 +95,20 @@ public class d implements Handler.Callback {
 
     private void a(byte b2) {
         if (b2 != -2) {
-            com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(b2, this.f10907a, this.c));
-        } else if (com.kwai.filedownloader.f.d.f10928a) {
-            com.kwai.filedownloader.f.d.c(this, "High concurrent cause, Already paused and we don't need to call-back to Task in here, %d", Integer.valueOf(this.f10907a.a()));
+            com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(b2, this.f10909a, this.c));
+        } else if (com.kwai.filedownloader.f.d.f10930a) {
+            com.kwai.filedownloader.f.d.c(this, "High concurrent cause, Already paused and we don't need to call-back to Task in here, %d", Integer.valueOf(this.f10909a.a()));
         }
     }
 
     private void a(long j, boolean z) {
-        if (this.f10907a.g() == this.f10907a.h()) {
-            this.f10908b.a(this.f10907a.a(), this.f10907a.g());
+        if (this.f10909a.g() == this.f10909a.h()) {
+            this.f10910b.a(this.f10909a.a(), this.f10909a.g());
             return;
         }
         if (this.n) {
             this.n = false;
-            this.f10907a.a((byte) 3);
+            this.f10909a.a((byte) 3);
         }
         if (z) {
             this.l = j;
@@ -118,14 +118,14 @@ public class d implements Handler.Callback {
     }
 
     private void a(SQLiteFullException sQLiteFullException) {
-        int a2 = this.f10907a.a();
-        if (com.kwai.filedownloader.f.d.f10928a) {
+        int a2 = this.f10909a.a();
+        if (com.kwai.filedownloader.f.d.f10930a) {
             com.kwai.filedownloader.f.d.c(this, "the data of the task[%d] is dirty, because the SQLite full exception[%s], so remove it from the database directly.", Integer.valueOf(a2), sQLiteFullException.toString());
         }
-        this.f10907a.c(sQLiteFullException.toString());
-        this.f10907a.a((byte) -1);
-        this.f10908b.e(a2);
-        this.f10908b.d(a2);
+        this.f10909a.c(sQLiteFullException.toString());
+        this.f10909a.a((byte) -1);
+        this.f10910b.e(a2);
+        this.f10910b.d(a2);
     }
 
     private synchronized void a(Message message) {
@@ -136,11 +136,11 @@ public class d implements Handler.Callback {
                 if (this.i.isAlive()) {
                     throw e;
                 }
-                if (com.kwai.filedownloader.f.d.f10928a) {
+                if (com.kwai.filedownloader.f.d.f10930a) {
                     com.kwai.filedownloader.f.d.c(this, "require callback %d but the host thread of the flow has already dead, what is occurred because of there are several reason can final this flow on different thread.", Integer.valueOf(message.what));
                 }
             }
-        } else if (com.kwai.filedownloader.f.d.f10928a) {
+        } else if (com.kwai.filedownloader.f.d.f10930a) {
             com.kwai.filedownloader.f.d.c(this, "require callback %d but the host thread of the flow has already dead, what is occurred because of there are several reason can final this flow on different thread.", Integer.valueOf(message.what));
         }
     }
@@ -149,15 +149,15 @@ public class d implements Handler.Callback {
         Exception b2 = b(exc);
         this.c.a(b2);
         this.c.a(this.d - i);
-        this.f10907a.a((byte) 5);
-        this.f10907a.c(b2.toString());
-        this.f10908b.a(this.f10907a.a(), b2);
+        this.f10909a.a((byte) 5);
+        this.f10909a.c(b2.toString());
+        this.f10910b.a(this.f10909a.a(), b2);
         a((byte) 5);
     }
 
     private Exception b(Exception exc) {
-        String e = this.f10907a.e();
-        if ((this.f10907a.i() || com.kwai.filedownloader.f.e.a().f) && (exc instanceof IOException) && new File(e).exists()) {
+        String e = this.f10909a.e();
+        if ((this.f10909a.i() || com.kwai.filedownloader.f.e.a().f) && (exc instanceof IOException) && new File(e).exists()) {
             long f = com.kwai.filedownloader.f.f.f(e);
             if (f <= 4096) {
                 long j = 0;
@@ -188,9 +188,9 @@ public class d implements Handler.Callback {
             a((SQLiteFullException) e);
         } else {
             try {
-                this.f10907a.a((byte) -1);
-                this.f10907a.c(exc.toString());
-                this.f10908b.a(this.f10907a.a(), e, this.f10907a.g());
+                this.f10909a.a((byte) -1);
+                this.f10909a.c(exc.toString());
+                this.f10910b.a(this.f10909a.a(), e, this.f10909a.g());
             } catch (SQLiteFullException e2) {
                 e = e2;
                 a((SQLiteFullException) e);
@@ -201,8 +201,8 @@ public class d implements Handler.Callback {
     }
 
     private void h() {
-        String e = this.f10907a.e();
-        String d = this.f10907a.d();
+        String e = this.f10909a.e();
+        String d = this.f10909a.d();
         File file = new File(e);
         try {
             File file2 = new File(d);
@@ -230,35 +230,35 @@ public class d implements Handler.Callback {
 
     private void i() {
         h();
-        this.f10907a.a((byte) -3);
-        this.f10908b.b(this.f10907a.a(), this.f10907a.h());
-        this.f10908b.d(this.f10907a.a());
+        this.f10909a.a((byte) -3);
+        this.f10910b.b(this.f10909a.a(), this.f10909a.h());
+        this.f10910b.d(this.f10909a.a());
         a((byte) -3);
         if (com.kwai.filedownloader.f.e.a().g) {
-            com.kwai.filedownloader.services.f.a(this.f10907a);
+            com.kwai.filedownloader.services.f.a(this.f10909a);
         }
     }
 
     private boolean j() {
-        if (this.f10907a.i()) {
-            this.f10907a.c(this.f10907a.g());
-        } else if (this.f10907a.g() != this.f10907a.h()) {
-            a(new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("sofar[%d] not equal total[%d]", Long.valueOf(this.f10907a.g()), Long.valueOf(this.f10907a.h()))));
+        if (this.f10909a.i()) {
+            this.f10909a.c(this.f10909a.g());
+        } else if (this.f10909a.g() != this.f10909a.h()) {
+            a(new FileDownloadGiveUpRetryException(com.kwai.filedownloader.f.f.a("sofar[%d] not equal total[%d]", Long.valueOf(this.f10909a.g()), Long.valueOf(this.f10909a.h()))));
             return true;
         }
         return false;
     }
 
     private void k() {
-        this.f10907a.a((byte) -2);
-        this.f10908b.c(this.f10907a.a(), this.f10907a.g());
+        this.f10909a.a((byte) -2);
+        this.f10910b.c(this.f10909a.a(), this.f10909a.g());
         a((byte) -2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(long j) {
         this.m.addAndGet(j);
-        this.f10907a.b(j);
+        this.f10909a.b(j);
         long elapsedRealtime = SystemClock.elapsedRealtime();
         boolean b2 = b(elapsedRealtime);
         if (this.h == null) {
@@ -276,7 +276,7 @@ public class d implements Handler.Callback {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Exception exc, int i, long j) {
         this.m.set(0L);
-        this.f10907a.b(-j);
+        this.f10909a.b(-j);
         if (this.h == null) {
             a(exc, i);
         } else {
@@ -286,16 +286,16 @@ public class d implements Handler.Callback {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(boolean z, long j, String str, String str2) {
-        String j2 = this.f10907a.j();
+        String j2 = this.f10909a.j();
         if (j2 != null && !j2.equals(str)) {
             throw new IllegalArgumentException(com.kwai.filedownloader.f.f.a("callback onConnected must with precondition succeed, but the etag is changes(%s != %s)", str, j2));
         }
         this.c.a(z);
-        this.f10907a.a((byte) 2);
-        this.f10907a.c(j);
-        this.f10907a.b(str);
-        this.f10907a.d(str2);
-        this.f10908b.a(this.f10907a.a(), j, str, str2);
+        this.f10909a.a((byte) 2);
+        this.f10909a.c(j);
+        this.f10909a.b(str);
+        this.f10909a.d(str2);
+        this.f10910b.a(this.f10909a.a(), j, str, str2);
         a((byte) 2);
         this.g = a(j, this.f);
         this.n = true;
@@ -319,16 +319,16 @@ public class d implements Handler.Callback {
     }
 
     public void c() {
-        this.f10907a.a((byte) 1);
-        this.f10908b.f(this.f10907a.a());
+        this.f10909a.a((byte) 1);
+        this.f10910b.f(this.f10909a.a());
         a((byte) 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d() {
-        this.f10907a.a((byte) 6);
+        this.f10909a.a((byte) 6);
         a((byte) 6);
-        this.f10908b.a(this.f10907a.a());
+        this.f10910b.a(this.f10909a.a());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop.forumpackage.adapter;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    void cyZ();
+    void cAk();
 
-    void xU(int i);
+    void ye(int i);
 }

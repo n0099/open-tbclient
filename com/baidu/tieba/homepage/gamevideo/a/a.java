@@ -11,92 +11,92 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private BdTypeRecyclerView Ya;
-    private LinkedList<com.baidu.adp.widget.ListView.a> jXd = new LinkedList<>();
-    private f jXe;
-    private c jXf;
-    private d jXg;
-    private e jXh;
+    private BdTypeRecyclerView XW;
+    private LinkedList<com.baidu.adp.widget.ListView.a> keF = new LinkedList<>();
+    private f keG;
+    private c keH;
+    private d keI;
+    private e keJ;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Ya = bdTypeRecyclerView;
-        IY();
+        this.XW = bdTypeRecyclerView;
+        Kw();
     }
 
-    private void IY() {
-        this.jXe = new f(this.mPageContext, k.ivd);
-        this.jXf = new c(this.mPageContext, l.eOy);
-        this.jXg = new d(this.mPageContext, k.ivk);
-        this.jXh = new e(this.mPageContext, k.ivi);
-        this.jXe.a(this.Ya);
-        this.jXf.a(this.Ya);
-        this.jXg.a(this.Ya);
-        this.jXh.a(this.Ya);
-        this.jXd.add(this.jXe);
-        this.jXd.add(this.jXf);
-        this.jXd.add(this.jXg);
-        this.jXd.add(this.jXh);
-        this.Ya.addAdapters(this.jXd);
+    private void Kw() {
+        this.keG = new f(this.mPageContext, k.iAN);
+        this.keH = new c(this.mPageContext, l.eQK);
+        this.keI = new d(this.mPageContext, k.iAU);
+        this.keJ = new e(this.mPageContext, k.iAS);
+        this.keG.a(this.XW);
+        this.keH.a(this.XW);
+        this.keI.a(this.XW);
+        this.keJ.a(this.XW);
+        this.keF.add(this.keG);
+        this.keF.add(this.keH);
+        this.keF.add(this.keI);
+        this.keF.add(this.keJ);
+        this.XW.addAdapters(this.keF);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Ya != null) {
-            this.Ya.getListAdapter().notifyDataSetChanged();
+        if (this.XW != null) {
+            this.XW.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.jXe != null) {
-            this.jXe.setPageUniqueId(bdUniqueId);
+        if (this.keG != null) {
+            this.keG.setPageUniqueId(bdUniqueId);
         }
-        if (this.jXf != null) {
-            this.jXf.setPageUniqueId(bdUniqueId);
+        if (this.keH != null) {
+            this.keH.setPageUniqueId(bdUniqueId);
         }
-        if (this.jXg != null) {
-            this.jXg.setPageUniqueId(bdUniqueId);
+        if (this.keI != null) {
+            this.keI.setPageUniqueId(bdUniqueId);
         }
-        if (this.jXh != null) {
-            this.jXh.setPageUniqueId(bdUniqueId);
+        if (this.keJ != null) {
+            this.keJ.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<n> list) {
-        this.Ya.setData(list);
+        this.XW.setData(list);
     }
 
     public List<n> getDataList() {
-        if (this.Ya != null) {
-            return this.Ya.getData();
+        if (this.XW != null) {
+            return this.XW.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.jXh != null) {
-            this.jXh.setEventCallback(aVar);
+        if (this.keJ != null) {
+            this.keJ.setEventCallback(aVar);
         }
     }
 
-    public void Bx(int i) {
-        if (this.jXe != null) {
-            this.jXe.Bx(i);
+    public void BN(int i) {
+        if (this.keG != null) {
+            this.keG.BN(i);
         }
-        if (this.jXf != null) {
-            this.jXf.Bx(i);
+        if (this.keH != null) {
+            this.keH.BN(i);
         }
-        if (this.jXg != null) {
-            this.jXg.Bx(i);
+        if (this.keI != null) {
+            this.keI.BN(i);
         }
-        if (this.jXh != null) {
-            this.jXh.Bx(i);
+        if (this.keJ != null) {
+            this.keJ.BN(i);
         }
     }
 
     public void onPause() {
-        if (this.jXf != null) {
-            this.jXf.onPause();
+        if (this.keH != null) {
+            this.keH.onPause();
         }
     }
 

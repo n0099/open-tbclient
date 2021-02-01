@@ -2,16 +2,16 @@ package com.kwai.video.ksvodplayerkit.b;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static String a(a aVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("adaptationId", aVar.f11041a);
+            jSONObject.put("adaptationId", aVar.f11043a);
         } catch (Exception e) {
         }
         try {
-            jSONObject.put("duration", aVar.f11042b);
+            jSONObject.put("duration", aVar.f11044b);
         } catch (Exception e2) {
         }
         try {

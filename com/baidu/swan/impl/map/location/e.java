@@ -15,18 +15,18 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private BaiduMap emI;
-    private Marker emJ;
-    private LocationClient emh;
-    private BDLocation emj;
-    private boolean emk = false;
-    private BitmapDescriptor eoo;
-    private b eop;
+    private BaiduMap eoS;
+    private Marker eoT;
+    private LocationClient eor;
+    private BDLocation eot;
+    private boolean eou = false;
+    private BitmapDescriptor equ;
+    private b eqv;
     private Context mContext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void d(BDLocation bDLocation);
     }
@@ -34,49 +34,49 @@ public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Context context, BaiduMap baiduMap) {
         this.mContext = context;
-        this.emI = baiduMap;
+        this.eoS = baiduMap;
     }
 
-    private void baa() {
-        if (this.emh == null) {
-            this.emh = new LocationClient(this.mContext.getApplicationContext());
-            this.emh.registerLocationListener(new a());
+    private void ban() {
+        if (this.eor == null) {
+            this.eor = new LocationClient(this.mContext.getApplicationContext());
+            this.eor.registerLocationListener(new a());
             LocationClientOption locationClientOption = new LocationClientOption();
             locationClientOption.setOpenGps(true);
             locationClientOption.setCoorType(CoordType.GCJ02.name());
             locationClientOption.setScanSpan(1000);
-            this.emh.setLocOption(locationClientOption);
-            this.eoo = BitmapDescriptorFactory.fromResource(R.drawable.aiapps_location_my_point);
+            this.eor.setLocOption(locationClientOption);
+            this.equ = BitmapDescriptorFactory.fromResource(R.drawable.aiapps_location_my_point);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stopLocation() {
-        if (this.emk && this.emh != null && this.emh.isStarted()) {
-            this.emh.stop();
-            this.emk = false;
+        if (this.eou && this.eor != null && this.eor.isStarted()) {
+            this.eor.stop();
+            this.eou = false;
         }
     }
 
-    private void bab() {
-        if (!this.emk) {
-            baa();
-            if (this.emh != null && !this.emh.isStarted()) {
-                this.emh.start();
-                this.emk = true;
+    private void bao() {
+        if (!this.eou) {
+            ban();
+            if (this.eor != null && !this.eor.isStarted()) {
+                this.eor.start();
+                this.eou = true;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BDLocation baf() {
-        return this.emj;
+    public BDLocation bas() {
+        return this.eot;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void in(boolean z) {
+    public void ip(boolean z) {
         if (z) {
-            bab();
+            bao();
         } else {
             stopLocation();
         }
@@ -84,11 +84,11 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.eop = bVar;
+        this.eqv = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends BDAbstractLocationListener {
         a() {
         }
@@ -99,20 +99,20 @@ public class e {
                 e.this.stopLocation();
                 return;
             }
-            e.this.emI.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-            if (e.this.emJ != null) {
-                e.this.emJ.remove();
-                e.this.emJ = null;
+            e.this.eoS.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
+            if (e.this.eoT != null) {
+                e.this.eoT.remove();
+                e.this.eoT = null;
             }
-            MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(e.this.eoo);
-            e.this.emJ = (Marker) e.this.emI.addOverlay(icon);
-            if (e.this.emj == null) {
-                e.this.emI.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
-                if (e.this.eop != null) {
-                    e.this.eop.d(bDLocation);
+            MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(e.this.equ);
+            e.this.eoT = (Marker) e.this.eoS.addOverlay(icon);
+            if (e.this.eot == null) {
+                e.this.eoS.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
+                if (e.this.eqv != null) {
+                    e.this.eqv.d(bDLocation);
                 }
             }
-            e.this.emj = bDLocation;
+            e.this.eot = bDLocation;
         }
     }
 }

@@ -1,12 +1,12 @@
 package com.ss.android.a.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f12895a;
+    private long f12897a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12896b;
+    private String f12898b;
     private String c;
     private String d;
     private String e;
@@ -37,10 +37,10 @@ public class b {
     }
 
     public void a(long j) {
-        this.f12895a = j;
+        this.f12897a = j;
     }
 
     public void d(String str) {
-        this.f12896b = str;
+        this.f12898b = str;
     }
 }

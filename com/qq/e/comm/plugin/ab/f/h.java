@@ -6,14 +6,14 @@ import com.tencent.smtt.export.external.interfaces.GeolocationPermissionsCallbac
 import com.tencent.smtt.export.external.interfaces.JsPromptResult;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class h extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f11807a;
+    private e f11809a;
 
     public void a(e eVar) {
-        this.f11807a = eVar;
+        this.f11809a = eVar;
     }
 
     public void onGeolocationPermissionsShowPrompt(String str, GeolocationPermissionsCallback geolocationPermissionsCallback) {
@@ -22,11 +22,11 @@ public class h extends WebChromeClient {
     }
 
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (this.f11807a == null) {
+        if (this.f11809a == null) {
             u.a(100292, 2, null, new com.qq.e.comm.plugin.y.d().a("msg", str2));
             return false;
         }
-        com.qq.e.comm.plugin.ab.c.f<String> a2 = this.f11807a.a(str2);
+        com.qq.e.comm.plugin.ab.c.f<String> a2 = this.f11809a.a(str2);
         if (a2.d()) {
             jsPromptResult.confirm(a2.a());
             return true;

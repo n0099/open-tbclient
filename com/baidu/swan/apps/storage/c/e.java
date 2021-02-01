@@ -2,32 +2,32 @@ package com.baidu.swan.apps.storage.c;
 
 import android.os.Bundle;
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e extends d {
     @Override // com.baidu.swan.apps.storage.c.d
     protected Bundle a(c cVar) {
         Bundle bundle = new Bundle();
-        b tb = h.tb(cVar.dKe);
-        if (tb == null) {
+        b tu = h.tu(cVar.dMi);
+        if (tu == null) {
             if (DEBUG) {
                 throw new IllegalArgumentException("illegal sp.");
             }
         } else {
             switch (cVar.mDataType) {
                 case 1:
-                    bundle.putInt("result_value", tb.getInt(cVar.dKf, Integer.parseInt(cVar.dKg)));
+                    bundle.putInt("result_value", tu.getInt(cVar.dMj, Integer.parseInt(cVar.dMk)));
                     break;
                 case 2:
-                    bundle.putLong("result_value", tb.getLong(cVar.dKf, Long.parseLong(cVar.dKg)));
+                    bundle.putLong("result_value", tu.getLong(cVar.dMj, Long.parseLong(cVar.dMk)));
                     break;
                 case 3:
-                    bundle.putBoolean("result_value", tb.getBoolean(cVar.dKf, Boolean.parseBoolean(cVar.dKg)));
+                    bundle.putBoolean("result_value", tu.getBoolean(cVar.dMj, Boolean.parseBoolean(cVar.dMk)));
                     break;
                 case 4:
-                    bundle.putString("result_value", tb.getString(cVar.dKf, cVar.dKg));
+                    bundle.putString("result_value", tu.getString(cVar.dMj, cVar.dMk));
                     break;
                 case 5:
-                    bundle.putFloat("result_value", tb.getFloat(cVar.dKf, Float.parseFloat(cVar.dKg)));
+                    bundle.putFloat("result_value", tu.getFloat(cVar.dMj, Float.parseFloat(cVar.dMk)));
                     break;
                 default:
                     if (DEBUG) {

@@ -8,10 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface TTNativeAd {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface AdInteractionListener {
         void onAdClicked(View view, TTNativeAd tTNativeAd);
 

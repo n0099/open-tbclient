@@ -9,7 +9,7 @@ import android.view.ViewConfiguration;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoSystemHelper {
     private static final String TAG = "VideoSystemHelper";
 

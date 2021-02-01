@@ -2,20 +2,20 @@ package com.facebook.drawee.a.a.a.a;
 
 import com.facebook.drawee.a.a.a.g;
 import com.facebook.drawee.a.a.a.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class b implements com.facebook.drawee.a.a.a.b {
-    private final h pqP;
-    private final g pqm;
+    private final h pAY;
+    private final g pAv;
 
     public b(h hVar, g gVar) {
-        this.pqP = hVar;
-        this.pqm = gVar;
+        this.pAY = hVar;
+        this.pAv = gVar;
     }
 
     @Override // com.facebook.drawee.a.a.a.b
     public void g(String str, int i, boolean z) {
-        this.pqP.OF(i);
-        this.pqP.AP(z);
-        this.pqm.a(this.pqP, 1);
+        this.pAY.Pa(i);
+        this.pAY.Bi(z);
+        this.pAv.a(this.pAY, 1);
     }
 }

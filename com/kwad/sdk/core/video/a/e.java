@@ -11,14 +11,14 @@ import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 import com.kwai.video.ksvodplayerkit.j;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicBoolean f9453a = new AtomicBoolean(false);
+    private static final AtomicBoolean f9455a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    private static AtomicBoolean f9454b;
+    private static AtomicBoolean f9456b;
 
     public static void a(Context context) {
         com.kwad.sdk.core.d.a.b("KwaiPlayHelper", "initConfigSync()");
@@ -30,23 +30,23 @@ public class e {
     }
 
     public static boolean a() {
-        if (f9454b != null) {
-            return f9454b.get();
+        if (f9456b != null) {
+            return f9456b.get();
         }
         try {
             if (Class.forName("com.kwai.video.player.KsMediaMeta") != null) {
-                f9454b = new AtomicBoolean(true);
+                f9456b = new AtomicBoolean(true);
                 return true;
             }
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }
-        f9454b = new AtomicBoolean(false);
+        f9456b = new AtomicBoolean(false);
         return false;
     }
 
     public static boolean b() {
-        return f9453a.get() || KsAdSDKImpl.get().getIsExternal();
+        return f9455a.get() || KsAdSDKImpl.get().getIsExternal();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,8 +81,8 @@ public class e {
                 com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
                 bVar.c = Z;
                 bVar.e = true;
-                bVar.f11003a = str;
-                bVar.f11004b = "3.0";
+                bVar.f11005a = str;
+                bVar.f11006b = "3.0";
                 bVar.g = true;
                 return bVar;
             }
@@ -92,19 +92,19 @@ public class e {
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(h hVar) {
                 super.a(hVar);
-                e.f9453a.set(false);
+                e.f9455a.set(false);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(h hVar, PluginError pluginError) {
-                e.f9453a.set(false);
+                e.f9455a.set(false);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(h hVar, g gVar) {
-                e.f9453a.set(true);
+                e.f9455a.set(true);
                 e.c(context);
                 e.e();
             }

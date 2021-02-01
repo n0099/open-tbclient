@@ -9,18 +9,18 @@ import com.baidu.live.tbadk.download.FileSerialDownLoader;
 import com.baidu.yuyinala.background.c.a;
 import java.io.File;
 import org.json.JSONArray;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public static String oLE = "video_bg_md5_";
+    public static String oVK = "video_bg_md5_";
 
-    public static void b(final String str, final String str2, final a.InterfaceC0952a interfaceC0952a) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !Vy(str)) {
+    public static void b(final String str, final String str2, final a.InterfaceC0956a interfaceC0956a) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !Wx(str)) {
             new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.yuyinala.background.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public Boolean doInBackground(Void... voidArr) {
-                    return Boolean.valueOf(b.Vz(str2));
+                    return Boolean.valueOf(b.Wy(str2));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -29,60 +29,60 @@ public class b {
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass1) bool);
                     if (bool.booleanValue()) {
-                        if (interfaceC0952a != null) {
-                            interfaceC0952a.zV(true);
+                        if (interfaceC0956a != null) {
+                            interfaceC0956a.Ao(true);
                             return;
                         }
                         return;
                     }
-                    a.a(str, str2, interfaceC0952a);
+                    a.a(str, str2, interfaceC0956a);
                 }
             }.execute(new Void[0]);
         }
     }
 
-    private static boolean Vy(String str) {
+    private static boolean Wx(String str) {
         return FileSerialDownLoader.getInstance().isDownloading(str, 24);
     }
 
-    public static boolean Vz(String str) {
+    public static boolean Wy(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
-        String str2 = oLE + str;
-        String VA = VA(com.baidu.live.ah.b.hl(str));
-        return com.baidu.live.i.a.existFile(VA) && com.baidu.live.i.a.isDirectory(VA) && !com.baidu.live.i.b.b(VA, com.baidu.live.i.b.fh(str2));
+        String str2 = oVK + str;
+        String in = in(com.baidu.live.storage.b.hH(str));
+        return com.baidu.live.h.a.existFile(in) && com.baidu.live.h.a.isDirectory(in) && !com.baidu.live.h.b.b(in, com.baidu.live.h.b.fC(str2));
     }
 
-    public static boolean WR(String str) {
+    public static boolean XQ(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
-        String str2 = oLE + str;
-        String VA = VA(com.baidu.live.ah.b.hl(str));
-        return com.baidu.live.i.a.existFile(VA) && com.baidu.live.i.a.isDirectory(VA);
+        String str2 = oVK + str;
+        String in = in(com.baidu.live.storage.b.hH(str));
+        return com.baidu.live.h.a.existFile(in) && com.baidu.live.h.a.isDirectory(in);
     }
 
-    public static void gQ(String str, String str2) {
+    public static void gX(String str, String str2) {
         File[] listFiles;
         String fileMd5;
         if (!TextUtils.isEmpty(str)) {
-            String VA = VA(str2);
-            if (com.baidu.live.i.a.existFile(VA) && com.baidu.live.i.a.isDirectory(VA) && (listFiles = new File(VA).listFiles()) != null) {
+            String in = in(str2);
+            if (com.baidu.live.h.a.existFile(in) && com.baidu.live.h.a.isDirectory(in) && (listFiles = new File(in).listFiles()) != null) {
                 JSONArray jSONArray = new JSONArray();
                 for (File file : listFiles) {
-                    if (file != null && !file.isDirectory() && (fileMd5 = com.baidu.live.i.a.getFileMd5(file)) != null) {
+                    if (file != null && !file.isDirectory() && (fileMd5 = com.baidu.live.h.a.getFileMd5(file)) != null) {
                         jSONArray.put(fileMd5);
                     }
                 }
-                d.xf().putString(oLE + str, jSONArray.toString());
+                d.xc().putString(oVK + str, jSONArray.toString());
             }
         }
     }
 
-    public static String VA(String str) {
-        if (com.baidu.live.i.a.existFile(str)) {
-            if (!com.baidu.live.i.a.isDirectory(str)) {
+    public static String in(String str) {
+        if (com.baidu.live.h.a.existFile(str)) {
+            if (!com.baidu.live.h.a.isDirectory(str)) {
                 FileHelper.deleteFileOrDir(new File(str));
                 return null;
             }
@@ -91,7 +91,7 @@ public class b {
                 return null;
             }
             if (listFiles.length == 1 && listFiles[0] != null && listFiles[0].isDirectory()) {
-                return VA(listFiles[0].getAbsolutePath());
+                return in(listFiles[0].getAbsolutePath());
             }
             return str;
         }

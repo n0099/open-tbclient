@@ -9,15 +9,15 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.ab;
 import javax.microedition.khronos.opengles.GL10;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class k implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MapView f2798a;
+    final /* synthetic */ MapView f2796a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(MapView mapView) {
-        this.f2798a = mapView;
+        this.f2796a = mapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -36,44 +36,44 @@ public class k implements com.baidu.mapsdkplatform.comapi.map.l {
         TextView textView;
         TextView textView2;
         com.baidu.mapsdkplatform.comapi.map.j jVar8;
-        jVar = this.f2798a.d;
+        jVar = this.f2796a.d;
         if (jVar != null) {
-            jVar2 = this.f2798a.d;
+            jVar2 = this.f2796a.d;
             if (jVar2.a() == null) {
                 return;
             }
-            jVar3 = this.f2798a.d;
-            float f3 = jVar3.a().E().f3040a;
-            jVar4 = this.f2798a.d;
-            if (f3 < jVar4.a().f3053b) {
-                jVar8 = this.f2798a.d;
-                f = jVar8.a().f3053b;
+            jVar3 = this.f2796a.d;
+            float f3 = jVar3.a().E().f3038a;
+            jVar4 = this.f2796a.d;
+            if (f3 < jVar4.a().f3051b) {
+                jVar8 = this.f2796a.d;
+                f = jVar8.a().f3051b;
             } else {
-                jVar5 = this.f2798a.d;
-                if (f3 > jVar5.a().f3052a) {
-                    jVar6 = this.f2798a.d;
-                    f = jVar6.a().f3052a;
+                jVar5 = this.f2796a.d;
+                if (f3 > jVar5.a().f3050a) {
+                    jVar6 = this.f2796a.d;
+                    f = jVar6.a().f3050a;
                 } else {
                     f = f3;
                 }
             }
-            f2 = this.f2798a.t;
+            f2 = this.f2796a.t;
             if (Math.abs(f2 - f) > 0.0f) {
                 sparseArray = MapView.p;
                 int intValue = ((Integer) sparseArray.get(Math.round(f))).intValue();
-                jVar7 = this.f2798a.d;
+                jVar7 = this.f2796a.d;
                 int i = (int) (intValue / jVar7.a().E().m);
-                imageView = this.f2798a.n;
+                imageView = this.f2796a.n;
                 imageView.setPadding(i / 2, 0, i / 2, 0);
                 String format = intValue >= 1000 ? String.format(" %d公里 ", Integer.valueOf(intValue / 1000)) : String.format(" %d米 ", Integer.valueOf(intValue));
-                textView = this.f2798a.l;
+                textView = this.f2796a.l;
                 textView.setText(format);
-                textView2 = this.f2798a.m;
+                textView2 = this.f2796a.m;
                 textView2.setText(format);
-                this.f2798a.t = f;
+                this.f2796a.t = f;
             }
-            this.f2798a.b();
-            this.f2798a.requestLayout();
+            this.f2796a.b();
+            this.f2796a.requestLayout();
         }
     }
 

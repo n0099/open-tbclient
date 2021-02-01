@@ -6,13 +6,13 @@ import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class g extends com.baidu.live.yuyingift.yuyinhousegift.a.a {
-    private a bXV;
+    private a cbY;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void XH();
+        void Zx();
     }
 
     public g(View view) {
@@ -20,18 +20,18 @@ public class g extends com.baidu.live.yuyingift.yuyinhousegift.a.a {
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.a
-    protected AnimatorSet XG() {
+    protected AnimatorSet Zw() {
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat("scaleX", 0.0f, 1.2f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.0f, 1.2f, 1.0f), PropertyValuesHolder.ofFloat("alpha", 1.0f, 1.0f));
         ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.yuyingift.yuyinhousegift.a.g.1
-            boolean bXT;
+            boolean cbW;
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (!this.bXT && ((Float) valueAnimator.getAnimatedValue()).floatValue() > 0.01d) {
-                    this.bXT = true;
-                    if (g.this.bXV != null) {
-                        g.this.bXV.XH();
+                if (!this.cbW && ((Float) valueAnimator.getAnimatedValue()).floatValue() > 0.01d) {
+                    this.cbW = true;
+                    if (g.this.cbY != null) {
+                        g.this.cbY.Zx();
                     }
                 }
             }
@@ -43,6 +43,6 @@ public class g extends com.baidu.live.yuyingift.yuyinhousegift.a.a {
     }
 
     public void a(a aVar) {
-        this.bXV = aVar;
+        this.cbY = aVar;
     }
 }

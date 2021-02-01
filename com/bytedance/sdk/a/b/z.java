@@ -20,14 +20,14 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class z implements Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final List<w> f5984a = com.bytedance.sdk.a.b.a.c.P(w.HTTP_2, w.HTTP_1_1);
+    static final List<w> f5986a = com.bytedance.sdk.a.b.a.c.P(w.HTTP_2, w.HTTP_1_1);
 
     /* renamed from: b  reason: collision with root package name */
-    static final List<n> f5985b = com.bytedance.sdk.a.b.a.c.P(n.pje, n.pjg);
+    static final List<n> f5987b = com.bytedance.sdk.a.b.a.c.P(n.ptu, n.ptw);
     final int A;
     final int B;
     final int C;
@@ -35,37 +35,37 @@ public class z implements Cloneable {
     final List<n> f;
     final List<x> g;
     final List<x> h;
-    final m pjA;
-    final r pjB;
-    final q pjm;
-    final Proxy pjn;
-    final t.a pjo;
-    final ProxySelector pjp;
-    final p pjq;
-    final f pjr;
-    final com.bytedance.sdk.a.b.a.a.e pjs;
-    final SocketFactory pjt;
-    final SSLSocketFactory pju;
-    final com.bytedance.sdk.a.b.a.i.c pjv;
-    final HostnameVerifier pjw;
-    final j pjx;
-    final e pjy;
-    final e pjz;
+    final q ptC;
+    final Proxy ptD;
+    final t.a ptE;
+    final ProxySelector ptF;
+    final p ptG;
+    final f ptH;
+    final com.bytedance.sdk.a.b.a.a.e ptI;
+    final SocketFactory ptJ;
+    final SSLSocketFactory ptK;
+    final com.bytedance.sdk.a.b.a.i.c ptL;
+    final HostnameVerifier ptM;
+    final j ptN;
+    final e ptO;
+    final e ptP;
+    final m ptQ;
+    final r ptR;
     final boolean w;
     final boolean x;
     final boolean y;
     final int z;
 
     static {
-        com.bytedance.sdk.a.b.a.a.pdN = new com.bytedance.sdk.a.b.a.a() { // from class: com.bytedance.sdk.a.b.z.1
+        com.bytedance.sdk.a.b.a.a.poa = new com.bytedance.sdk.a.b.a.a() { // from class: com.bytedance.sdk.a.b.z.1
             @Override // com.bytedance.sdk.a.b.a.a
             public void a(v.a aVar, String str) {
-                aVar.XD(str);
+                aVar.YE(str);
             }
 
             @Override // com.bytedance.sdk.a.b.a.a
             public void a(v.a aVar, String str, String str2) {
-                aVar.hd(str, str2);
+                aVar.hk(str, str2);
             }
 
             @Override // com.bytedance.sdk.a.b.a.a
@@ -95,7 +95,7 @@ public class z implements Cloneable {
 
             @Override // com.bytedance.sdk.a.b.a.a
             public com.bytedance.sdk.a.b.a.b.d a(m mVar) {
-                return mVar.pjb;
+                return mVar.ptq;
             }
 
             @Override // com.bytedance.sdk.a.b.a.a
@@ -115,36 +115,36 @@ public class z implements Cloneable {
     }
 
     z(a aVar) {
-        this.pjm = aVar.pjC;
-        this.pjn = aVar.f5986b;
+        this.ptC = aVar.ptS;
+        this.ptD = aVar.f5988b;
         this.e = aVar.c;
         this.f = aVar.d;
         this.g = com.bytedance.sdk.a.b.a.c.a(aVar.e);
         this.h = com.bytedance.sdk.a.b.a.c.a(aVar.f);
-        this.pjo = aVar.pjD;
-        this.pjp = aVar.pjE;
-        this.pjq = aVar.pjF;
-        this.pjr = aVar.pjG;
-        this.pjs = aVar.pjH;
-        this.pjt = aVar.pjI;
+        this.ptE = aVar.ptT;
+        this.ptF = aVar.ptU;
+        this.ptG = aVar.ptV;
+        this.ptH = aVar.ptW;
+        this.ptI = aVar.ptX;
+        this.ptJ = aVar.ptY;
         boolean z = false;
         for (n nVar : this.f) {
             z = z || nVar.a();
         }
         if (aVar.m != null || !z) {
-            this.pju = aVar.m;
-            this.pjv = aVar.pjJ;
+            this.ptK = aVar.m;
+            this.ptL = aVar.ptZ;
         } else {
-            X509TrustManager enJ = enJ();
-            this.pju = c(enJ);
-            this.pjv = com.bytedance.sdk.a.b.a.i.c.a(enJ);
+            X509TrustManager eqc = eqc();
+            this.ptK = c(eqc);
+            this.ptL = com.bytedance.sdk.a.b.a.i.c.a(eqc);
         }
-        this.pjw = aVar.pjK;
-        this.pjx = aVar.pjL.a(this.pjv);
-        this.pjy = aVar.pjM;
-        this.pjz = aVar.pjN;
-        this.pjA = aVar.pjO;
-        this.pjB = aVar.pjP;
+        this.ptM = aVar.pua;
+        this.ptN = aVar.pub.a(this.ptL);
+        this.ptO = aVar.puc;
+        this.ptP = aVar.pud;
+        this.ptQ = aVar.pue;
+        this.ptR = aVar.puf;
         this.w = aVar.u;
         this.x = aVar.v;
         this.y = aVar.w;
@@ -160,7 +160,7 @@ public class z implements Cloneable {
         }
     }
 
-    private X509TrustManager enJ() {
+    private X509TrustManager eqc() {
         try {
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init((KeyStore) null);
@@ -196,53 +196,53 @@ public class z implements Cloneable {
         return this.B;
     }
 
-    public Proxy emG() {
-        return this.pjn;
+    public Proxy epa() {
+        return this.ptD;
     }
 
-    public ProxySelector enK() {
-        return this.pjp;
+    public ProxySelector eqd() {
+        return this.ptF;
     }
 
-    public p enL() {
-        return this.pjq;
+    public p eqe() {
+        return this.ptG;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.bytedance.sdk.a.b.a.a.e enM() {
-        return this.pjr != null ? this.pjr.pdO : this.pjs;
+    public com.bytedance.sdk.a.b.a.a.e eqf() {
+        return this.ptH != null ? this.ptH.pob : this.ptI;
     }
 
-    public r enN() {
-        return this.pjB;
+    public r eqg() {
+        return this.ptR;
     }
 
-    public SocketFactory enO() {
-        return this.pjt;
+    public SocketFactory eqh() {
+        return this.ptJ;
     }
 
-    public SSLSocketFactory enP() {
-        return this.pju;
+    public SSLSocketFactory eqi() {
+        return this.ptK;
     }
 
-    public HostnameVerifier enQ() {
-        return this.pjw;
+    public HostnameVerifier eqj() {
+        return this.ptM;
     }
 
-    public j enR() {
-        return this.pjx;
+    public j eqk() {
+        return this.ptN;
     }
 
-    public e enS() {
-        return this.pjz;
+    public e eql() {
+        return this.ptP;
     }
 
-    public e enT() {
-        return this.pjy;
+    public e eqm() {
+        return this.ptO;
     }
 
-    public m enU() {
-        return this.pjA;
+    public m eqn() {
+        return this.ptQ;
     }
 
     public boolean p() {
@@ -257,8 +257,8 @@ public class z implements Cloneable {
         return this.y;
     }
 
-    public q enV() {
-        return this.pjm;
+    public q eqo() {
+        return this.ptC;
     }
 
     public List<w> t() {
@@ -269,7 +269,7 @@ public class z implements Cloneable {
         return this.f;
     }
 
-    public List<x> enW() {
+    public List<x> eqp() {
         return this.g;
     }
 
@@ -277,43 +277,43 @@ public class z implements Cloneable {
         return this.h;
     }
 
-    public t.a enX() {
-        return this.pjo;
+    public t.a eqq() {
+        return this.ptE;
     }
 
     public h g(ab abVar) {
         return aa.a(this, abVar, false);
     }
 
-    public a enY() {
+    public a eqr() {
         return new a(this);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         int A;
 
         /* renamed from: b  reason: collision with root package name */
-        Proxy f5986b;
+        Proxy f5988b;
         List<w> c;
         List<n> d;
         final List<x> e;
         final List<x> f;
         SSLSocketFactory m;
-        q pjC;
-        t.a pjD;
-        ProxySelector pjE;
-        p pjF;
-        f pjG;
-        com.bytedance.sdk.a.b.a.a.e pjH;
-        SocketFactory pjI;
-        com.bytedance.sdk.a.b.a.i.c pjJ;
-        HostnameVerifier pjK;
-        j pjL;
-        e pjM;
-        e pjN;
-        m pjO;
-        r pjP;
+        q ptS;
+        t.a ptT;
+        ProxySelector ptU;
+        p ptV;
+        f ptW;
+        com.bytedance.sdk.a.b.a.a.e ptX;
+        SocketFactory ptY;
+        com.bytedance.sdk.a.b.a.i.c ptZ;
+        HostnameVerifier pua;
+        j pub;
+        e puc;
+        e pud;
+        m pue;
+        r puf;
         boolean u;
         boolean v;
         boolean w;
@@ -324,19 +324,19 @@ public class z implements Cloneable {
         public a() {
             this.e = new ArrayList();
             this.f = new ArrayList();
-            this.pjC = new q();
-            this.c = z.f5984a;
-            this.d = z.f5985b;
-            this.pjD = t.a(t.pjl);
-            this.pjE = ProxySelector.getDefault();
-            this.pjF = p.peQ;
-            this.pjI = SocketFactory.getDefault();
-            this.pjK = com.bytedance.sdk.a.b.a.i.e.pgw;
-            this.pjL = j.pgL;
-            this.pjM = e.pgH;
-            this.pjN = e.pgH;
-            this.pjO = new m();
-            this.pjP = r.pjk;
+            this.ptS = new q();
+            this.c = z.f5986a;
+            this.d = z.f5987b;
+            this.ptT = t.a(t.ptB);
+            this.ptU = ProxySelector.getDefault();
+            this.ptV = p.ppg;
+            this.ptY = SocketFactory.getDefault();
+            this.pua = com.bytedance.sdk.a.b.a.i.e.pqO;
+            this.pub = j.prd;
+            this.puc = e.pqZ;
+            this.pud = e.pqZ;
+            this.pue = new m();
+            this.puf = r.ptA;
             this.u = true;
             this.v = true;
             this.w = true;
@@ -349,26 +349,26 @@ public class z implements Cloneable {
         a(z zVar) {
             this.e = new ArrayList();
             this.f = new ArrayList();
-            this.pjC = zVar.pjm;
-            this.f5986b = zVar.pjn;
+            this.ptS = zVar.ptC;
+            this.f5988b = zVar.ptD;
             this.c = zVar.e;
             this.d = zVar.f;
             this.e.addAll(zVar.g);
             this.f.addAll(zVar.h);
-            this.pjD = zVar.pjo;
-            this.pjE = zVar.pjp;
-            this.pjF = zVar.pjq;
-            this.pjH = zVar.pjs;
-            this.pjG = zVar.pjr;
-            this.pjI = zVar.pjt;
-            this.m = zVar.pju;
-            this.pjJ = zVar.pjv;
-            this.pjK = zVar.pjw;
-            this.pjL = zVar.pjx;
-            this.pjM = zVar.pjy;
-            this.pjN = zVar.pjz;
-            this.pjO = zVar.pjA;
-            this.pjP = zVar.pjB;
+            this.ptT = zVar.ptE;
+            this.ptU = zVar.ptF;
+            this.ptV = zVar.ptG;
+            this.ptX = zVar.ptI;
+            this.ptW = zVar.ptH;
+            this.ptY = zVar.ptJ;
+            this.m = zVar.ptK;
+            this.ptZ = zVar.ptL;
+            this.pua = zVar.ptM;
+            this.pub = zVar.ptN;
+            this.puc = zVar.ptO;
+            this.pud = zVar.ptP;
+            this.pue = zVar.ptQ;
+            this.puf = zVar.ptR;
             this.u = zVar.w;
             this.v = zVar.x;
             this.w = zVar.y;
@@ -398,7 +398,7 @@ public class z implements Cloneable {
                 throw new NullPointerException("sslSocketFactory == null");
             }
             this.m = sSLSocketFactory;
-            this.pjJ = com.bytedance.sdk.a.b.a.g.e.eng().b(sSLSocketFactory);
+            this.ptZ = com.bytedance.sdk.a.b.a.g.e.epz().b(sSLSocketFactory);
             return this;
         }
 
@@ -410,7 +410,7 @@ public class z implements Cloneable {
                 throw new NullPointerException("trustManager == null");
             }
             this.m = sSLSocketFactory;
-            this.pjJ = com.bytedance.sdk.a.b.a.i.c.a(x509TrustManager);
+            this.ptZ = com.bytedance.sdk.a.b.a.i.c.a(x509TrustManager);
             return this;
         }
 
@@ -418,21 +418,21 @@ public class z implements Cloneable {
             if (hostnameVerifier == null) {
                 throw new NullPointerException("hostnameVerifier == null");
             }
-            this.pjK = hostnameVerifier;
+            this.pua = hostnameVerifier;
             return this;
         }
 
-        public a AJ(boolean z) {
+        public a Bc(boolean z) {
             this.u = z;
             return this;
         }
 
-        public a AK(boolean z) {
+        public a Bd(boolean z) {
             this.v = z;
             return this;
         }
 
-        public z enZ() {
+        public z eqs() {
             return new z(this);
         }
     }

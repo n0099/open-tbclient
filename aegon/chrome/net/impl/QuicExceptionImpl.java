@@ -1,7 +1,7 @@
 package aegon.chrome.net.impl;
 
 import aegon.chrome.net.NetworkException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class QuicExceptionImpl extends NetworkException {
     public final NetworkExceptionImpl mNetworkException;
     public final int mQuicDetailedErrorCode;

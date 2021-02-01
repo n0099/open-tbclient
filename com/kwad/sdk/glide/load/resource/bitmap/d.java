@@ -3,18 +3,18 @@ package com.kwad.sdk.glide.load.resource.bitmap;
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.glide.load.engine.s<Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Bitmap f10272a;
+    private final Bitmap f10274a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10273b;
+    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10275b;
 
     public d(@NonNull Bitmap bitmap, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar) {
-        this.f10272a = (Bitmap) com.kwad.sdk.glide.g.j.a(bitmap, "Bitmap must not be null");
-        this.f10273b = (com.kwad.sdk.glide.load.engine.bitmap_recycle.e) com.kwad.sdk.glide.g.j.a(eVar, "BitmapPool must not be null");
+        this.f10274a = (Bitmap) com.kwad.sdk.glide.g.j.a(bitmap, "Bitmap must not be null");
+        this.f10275b = (com.kwad.sdk.glide.load.engine.bitmap_recycle.e) com.kwad.sdk.glide.g.j.a(eVar, "BitmapPool must not be null");
     }
 
     @Nullable
@@ -33,17 +33,17 @@ public class d implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.glide.l
 
     @Override // com.kwad.sdk.glide.load.engine.o
     public void b() {
-        this.f10272a.prepareToDraw();
+        this.f10274a.prepareToDraw();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return com.kwad.sdk.glide.g.k.a(this.f10272a);
+        return com.kwad.sdk.glide.g.k.a(this.f10274a);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public void d_() {
-        this.f10273b.a(this.f10272a);
+        this.f10275b.a(this.f10274a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,6 +51,6 @@ public class d implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.glide.l
     @NonNull
     /* renamed from: f */
     public Bitmap e() {
-        return this.f10272a;
+        return this.f10274a;
     }
 }

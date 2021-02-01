@@ -1,7 +1,7 @@
 package com.kwai.player.vr;
 
 import android.opengl.Matrix;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MDVector3D {
     private float[] values = new float[4];
 

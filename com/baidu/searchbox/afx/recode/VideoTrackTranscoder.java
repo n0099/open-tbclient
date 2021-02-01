@@ -10,7 +10,7 @@ import com.kwai.video.player.KsMediaMeta;
 import com.kwai.video.player.misc.IMediaFormat;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class VideoTrackTranscoder {
     private static final int DRAIN_STATE_CONSUMED = 2;
     private static final int DRAIN_STATE_NONE = 0;

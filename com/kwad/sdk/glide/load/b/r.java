@@ -10,20 +10,20 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final c f10110a = new c();
+    private static final c f10112a = new c();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final n<Object, Object> f10111b = new a();
+    private static final n<Object, Object> f10113b = new a();
     private final List<b<?, ?>> c;
     private final c d;
     private final Set<b<?, ?>> e;
     private final Pools.Pool<List<Throwable>> f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class a implements n<Object, Object> {
         a() {
         }
@@ -41,20 +41,20 @@ public class r {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b<Model, Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        final Class<Data> f10112a;
+        final Class<Data> f10114a;
 
         /* renamed from: b  reason: collision with root package name */
-        final o<? extends Model, ? extends Data> f10113b;
+        final o<? extends Model, ? extends Data> f10115b;
         private final Class<Model> c;
 
         public b(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<? extends Model, ? extends Data> oVar) {
             this.c = cls;
-            this.f10112a = cls2;
-            this.f10113b = oVar;
+            this.f10114a = cls2;
+            this.f10115b = oVar;
         }
 
         public boolean a(@NonNull Class<?> cls) {
@@ -62,11 +62,11 @@ public class r {
         }
 
         public boolean a(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return a(cls) && this.f10112a.isAssignableFrom(cls2);
+            return a(cls) && this.f10114a.isAssignableFrom(cls2);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     static class c {
         c() {
         }
@@ -78,7 +78,7 @@ public class r {
     }
 
     public r(@NonNull Pools.Pool<List<Throwable>> pool) {
-        this(pool, f10110a);
+        this(pool, f10112a);
     }
 
     @VisibleForTesting
@@ -91,12 +91,12 @@ public class r {
 
     @NonNull
     private static <Model, Data> n<Model, Data> a() {
-        return (n<Model, Data>) f10111b;
+        return (n<Model, Data>) f10113b;
     }
 
     @NonNull
     private <Model, Data> n<Model, Data> a(@NonNull b<?, ?> bVar) {
-        return (n) com.kwad.sdk.glide.g.j.a(bVar.f10113b.a(this));
+        return (n) com.kwad.sdk.glide.g.j.a(bVar.f10115b.a(this));
     }
 
     private <Model, Data> void a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<? extends Model, ? extends Data> oVar, boolean z) {
@@ -167,8 +167,8 @@ public class r {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (b<?, ?> bVar : this.c) {
-            if (!arrayList.contains(bVar.f10112a) && bVar.a(cls)) {
-                arrayList.add(bVar.f10112a);
+            if (!arrayList.contains(bVar.f10114a) && bVar.a(cls)) {
+                arrayList.add(bVar.f10114a);
             }
         }
         return arrayList;

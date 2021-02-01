@@ -1,38 +1,34 @@
 package com.baidu.tbadk.util;
 
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
 /* loaded from: classes.dex */
-public class q {
-    private static String amM;
-    private static String mPid;
-    private static String fKM = "";
-    private static int mThreadType = 0;
-    public static String fKN = "floor";
-    public static String fKO = "pbPage";
+public class q extends ClickableSpan {
+    private Context mContext;
 
-    public static void a(String str, String str2, String str3, int i, com.baidu.adp.base.f fVar, BaijiahaoData baijiahaoData) {
-        amM = str;
-        mPid = str2;
-        fKM = str3;
-        mThreadType = i;
-        if (!StringUtils.isNull(fKM) && fVar != null && fVar.getPageActivity() != null) {
-            if (fKN.equals(fKM)) {
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(fVar.getPageActivity()).createSubPbActivityConfig(amM, mPid, "search_post", true);
-                createSubPbActivityConfig.setKeyPageStartFrom(8);
-                createSubPbActivityConfig.setBjhData(baijiahaoData);
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
-                return;
-            }
-            PbActivityConfig createNormalCfg = new PbActivityConfig(fVar.getPageActivity()).createNormalCfg(amM, mPid, "search_post");
-            createNormalCfg.setStartFrom(8);
-            createNormalCfg.setBjhData(baijiahaoData);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-        }
+    public q(Context context) {
+        this.mContext = null;
+        this.mContext = context;
+    }
+
+    public Context getContext() {
+        return this.mContext;
+    }
+
+    public void DO(String str) {
+        com.baidu.tbadk.browser.a.startWebActivity(this.mContext, str);
+    }
+
+    public void DP(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 }

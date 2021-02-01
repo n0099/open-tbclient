@@ -12,48 +12,48 @@ import com.facebook.drawee.drawable.h;
 import com.facebook.drawee.drawable.o;
 import com.facebook.drawee.drawable.p;
 import javax.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a implements com.facebook.drawee.d.c {
     private final Resources mResources;
     @Nullable
-    private RoundingParams ptt;
-    private final d ptu;
-    private final f ptv;
-    private final Drawable ptr = new ColorDrawable(0);
-    private final g ptw = new g(this.ptr);
+    private RoundingParams pDB;
+    private final d pDC;
+    private final f pDD;
+    private final Drawable pDA = new ColorDrawable(0);
+    private final g pDE = new g(this.pDA);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b bVar) {
         int i = 0;
         this.mResources = bVar.getResources();
-        this.ptt = bVar.esh();
-        int size = (bVar.esw() != null ? bVar.esw().size() : 1) + (bVar.esx() != null ? 1 : 0);
+        this.pDB = bVar.euz();
+        int size = (bVar.euO() != null ? bVar.euO().size() : 1) + (bVar.euP() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = a(bVar.getBackground(), (p.b) null);
-        drawableArr[1] = a(bVar.esl(), bVar.esm());
-        drawableArr[2] = a(this.ptw, bVar.est(), bVar.esu(), bVar.esv());
-        drawableArr[3] = a(bVar.esr(), bVar.ess());
-        drawableArr[4] = a(bVar.esn(), bVar.eso());
-        drawableArr[5] = a(bVar.esp(), bVar.esq());
+        drawableArr[1] = a(bVar.euD(), bVar.euE());
+        drawableArr[2] = a(this.pDE, bVar.euL(), bVar.euM(), bVar.euN());
+        drawableArr[3] = a(bVar.euJ(), bVar.euK());
+        drawableArr[4] = a(bVar.euF(), bVar.euG());
+        drawableArr[5] = a(bVar.euH(), bVar.euI());
         if (size > 0) {
-            if (bVar.esw() != null) {
-                for (Drawable drawable : bVar.esw()) {
+            if (bVar.euO() != null) {
+                for (Drawable drawable : bVar.euO()) {
                     drawableArr[i + 6] = a(drawable, (p.b) null);
                     i++;
                 }
             } else {
                 i = 1;
             }
-            if (bVar.esx() != null) {
-                drawableArr[i + 6] = a(bVar.esx(), (p.b) null);
+            if (bVar.euP() != null) {
+                drawableArr[i + 6] = a(bVar.euP(), (p.b) null);
             }
         }
-        this.ptv = new f(drawableArr);
-        this.ptv.OM(bVar.esi());
-        this.ptu = new d(e.a(this.ptv, this.ptt));
-        this.ptu.AX(bVar.esj());
-        this.ptu.mutate();
-        esf();
+        this.pDD = new f(drawableArr);
+        this.pDD.Ph(bVar.euA());
+        this.pDC = new d(e.a(this.pDD, this.pDB));
+        this.pDC.Bq(bVar.euB());
+        this.pDC.mutate();
+        eux();
     }
 
     @Nullable
@@ -64,57 +64,57 @@ public class a implements com.facebook.drawee.d.c {
 
     @Nullable
     private Drawable a(@Nullable Drawable drawable, @Nullable p.b bVar) {
-        return e.d(e.a(drawable, this.ptt, this.mResources), bVar);
+        return e.d(e.a(drawable, this.pDB, this.mResources), bVar);
     }
 
-    private void ese() {
-        this.ptw.v(this.ptr);
+    private void euw() {
+        this.pDE.v(this.pDA);
     }
 
-    private void esf() {
-        if (this.ptv != null) {
-            this.ptv.erT();
-            this.ptv.erV();
-            esg();
-            ON(1);
-            this.ptv.erW();
-            this.ptv.erU();
+    private void eux() {
+        if (this.pDD != null) {
+            this.pDD.eul();
+            this.pDD.eun();
+            euy();
+            Pi(1);
+            this.pDD.euo();
+            this.pDD.eum();
         }
     }
 
-    private void esg() {
-        OO(1);
-        OO(2);
-        OO(3);
-        OO(4);
-        OO(5);
+    private void euy() {
+        Pj(1);
+        Pj(2);
+        Pj(3);
+        Pj(4);
+        Pj(5);
     }
 
-    private void ON(int i) {
+    private void Pi(int i) {
         if (i >= 0) {
-            this.ptv.ON(i);
+            this.pDD.Pi(i);
         }
     }
 
-    private void OO(int i) {
+    private void Pj(int i) {
         if (i >= 0) {
-            this.ptv.OO(i);
+            this.pDD.Pj(i);
         }
     }
 
     private void setProgress(float f) {
-        Drawable drawable = this.ptv.getDrawable(3);
+        Drawable drawable = this.pDD.getDrawable(3);
         if (drawable != null) {
             if (f >= 0.999f) {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).stop();
                 }
-                OO(3);
+                Pj(3);
             } else {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).start();
                 }
-                ON(3);
+                Pi(3);
             }
             drawable.setLevel(Math.round(10000.0f * f));
         }
@@ -122,98 +122,98 @@ public class a implements com.facebook.drawee.d.c {
 
     @Override // com.facebook.drawee.d.b
     public Drawable getTopLevelDrawable() {
-        return this.ptu;
+        return this.pDC;
     }
 
     @Override // com.facebook.drawee.d.c
     public void reset() {
-        ese();
-        esf();
+        euw();
+        eux();
     }
 
     @Override // com.facebook.drawee.d.c
     public void a(Drawable drawable, float f, boolean z) {
-        Drawable a2 = e.a(drawable, this.ptt, this.mResources);
+        Drawable a2 = e.a(drawable, this.pDB, this.mResources);
         a2.mutate();
-        this.ptw.v(a2);
-        this.ptv.erT();
-        esg();
-        ON(2);
+        this.pDE.v(a2);
+        this.pDD.eul();
+        euy();
+        Pi(2);
         setProgress(f);
         if (z) {
-            this.ptv.erW();
+            this.pDD.euo();
         }
-        this.ptv.erU();
+        this.pDD.eum();
     }
 
     @Override // com.facebook.drawee.d.c
     public void d(float f, boolean z) {
-        if (this.ptv.getDrawable(3) != null) {
-            this.ptv.erT();
+        if (this.pDD.getDrawable(3) != null) {
+            this.pDD.eul();
             setProgress(f);
             if (z) {
-                this.ptv.erW();
+                this.pDD.euo();
             }
-            this.ptv.erU();
+            this.pDD.eum();
         }
+    }
+
+    @Override // com.facebook.drawee.d.c
+    public void z(Throwable th) {
+        this.pDD.eul();
+        euy();
+        if (this.pDD.getDrawable(5) != null) {
+            Pi(5);
+        } else {
+            Pi(1);
+        }
+        this.pDD.eum();
     }
 
     @Override // com.facebook.drawee.d.c
     public void A(Throwable th) {
-        this.ptv.erT();
-        esg();
-        if (this.ptv.getDrawable(5) != null) {
-            ON(5);
+        this.pDD.eul();
+        euy();
+        if (this.pDD.getDrawable(4) != null) {
+            Pi(4);
         } else {
-            ON(1);
+            Pi(1);
         }
-        this.ptv.erU();
-    }
-
-    @Override // com.facebook.drawee.d.c
-    public void B(Throwable th) {
-        this.ptv.erT();
-        esg();
-        if (this.ptv.getDrawable(4) != null) {
-            ON(4);
-        } else {
-            ON(1);
-        }
-        this.ptv.erU();
+        this.pDD.eum();
     }
 
     @Override // com.facebook.drawee.d.c
     public void u(@Nullable Drawable drawable) {
-        this.ptu.u(drawable);
+        this.pDC.u(drawable);
     }
 
-    private com.facebook.drawee.drawable.c OP(int i) {
-        com.facebook.drawee.drawable.c OJ = this.ptv.OJ(i);
-        if (OJ.getDrawable() instanceof h) {
-            OJ = (h) OJ.getDrawable();
+    private com.facebook.drawee.drawable.c Pk(int i) {
+        com.facebook.drawee.drawable.c Pe = this.pDD.Pe(i);
+        if (Pe.getDrawable() instanceof h) {
+            Pe = (h) Pe.getDrawable();
         }
-        if (OJ.getDrawable() instanceof o) {
-            return (o) OJ.getDrawable();
+        if (Pe.getDrawable() instanceof o) {
+            return (o) Pe.getDrawable();
         }
-        return OJ;
+        return Pe;
     }
 
     private void b(int i, @Nullable Drawable drawable) {
         if (drawable == null) {
-            this.ptv.a(i, null);
+            this.pDD.a(i, null);
             return;
         }
-        OP(i).v(e.a(drawable, this.ptt, this.mResources));
+        Pk(i).v(e.a(drawable, this.pDB, this.mResources));
     }
 
-    private o OQ(int i) {
-        com.facebook.drawee.drawable.c OP = OP(i);
-        return OP instanceof o ? (o) OP : e.a(OP, p.b.pth);
+    private o Pl(int i) {
+        com.facebook.drawee.drawable.c Pk = Pk(i);
+        return Pk instanceof o ? (o) Pk : e.a(Pk, p.b.pDq);
     }
 
     public void b(p.b bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        OQ(2).a(bVar);
+        Pl(2).a(bVar);
     }
 
     public void A(@Nullable Drawable drawable) {
@@ -222,10 +222,10 @@ public class a implements com.facebook.drawee.d.c {
 
     public void b(Drawable drawable, p.b bVar) {
         b(1, drawable);
-        OQ(1).a(bVar);
+        Pl(1).a(bVar);
     }
 
-    public void OR(int i) {
+    public void Pm(int i) {
         A(this.mResources.getDrawable(i));
     }
 
@@ -235,7 +235,7 @@ public class a implements com.facebook.drawee.d.c {
 
     public void c(Drawable drawable, p.b bVar) {
         b(5, drawable);
-        OQ(5).a(bVar);
+        Pl(5).a(bVar);
     }
 
     public void b(int i, p.b bVar) {
@@ -243,15 +243,15 @@ public class a implements com.facebook.drawee.d.c {
     }
 
     public void a(@Nullable RoundingParams roundingParams) {
-        this.ptt = roundingParams;
-        e.a((com.facebook.drawee.drawable.c) this.ptu, this.ptt);
-        for (int i = 0; i < this.ptv.erQ(); i++) {
-            e.a(OP(i), this.ptt, this.mResources);
+        this.pDB = roundingParams;
+        e.a((com.facebook.drawee.drawable.c) this.pDC, this.pDB);
+        for (int i = 0; i < this.pDD.eui(); i++) {
+            e.a(Pk(i), this.pDB, this.mResources);
         }
     }
 
     @Nullable
-    public RoundingParams esh() {
-        return this.ptt;
+    public RoundingParams euz() {
+        return this.pDB;
     }
 }

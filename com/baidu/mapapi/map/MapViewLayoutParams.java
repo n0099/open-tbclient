@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.graphics.Point;
 import android.view.ViewGroup;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public static final int ALIGN_BOTTOM = 16;
     public static final int ALIGN_CENTER_HORIZONTAL = 4;
@@ -13,23 +13,23 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2740a;
+    LatLng f2738a;
 
     /* renamed from: b  reason: collision with root package name */
-    Point f2741b;
+    Point f2739b;
     ELayoutMode c;
     float d;
     float e;
     int f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2742a;
+        private int f2740a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f2743b;
+        private int f2741b;
         private LatLng c;
         private Point d;
         private ELayoutMode e = ELayoutMode.absoluteMode;
@@ -55,11 +55,11 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             if (z) {
                 throw new IllegalStateException("if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
             }
-            return new MapViewLayoutParams(this.f2742a, this.f2743b, this.c, this.d, this.e, this.f, this.g, this.h);
+            return new MapViewLayoutParams(this.f2740a, this.f2741b, this.c, this.d, this.e, this.f, this.g, this.h);
         }
 
         public Builder height(int i) {
-            this.f2743b = i;
+            this.f2741b = i;
             return this;
         }
 
@@ -79,7 +79,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
         }
 
         public Builder width(int i) {
-            this.f2742a = i;
+            this.f2740a = i;
             return this;
         }
 
@@ -89,7 +89,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum ELayoutMode {
         mapMode,
         absoluteMode
@@ -97,8 +97,8 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
 
     MapViewLayoutParams(int i, int i2, LatLng latLng, Point point, ELayoutMode eLayoutMode, int i3, int i4, int i5) {
         super(i, i2);
-        this.f2740a = latLng;
-        this.f2741b = point;
+        this.f2738a = latLng;
+        this.f2739b = point;
         this.c = eLayoutMode;
         switch (i3) {
             case 1:

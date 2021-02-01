@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.ViewCompat;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class ChangeTransform extends Transition {
     private static final String PROPNAME_INTERMEDIATE_MATRIX = "android:changeTransform:intermediateMatrix";
     private static final String PROPNAME_INTERMEDIATE_PARENT_MATRIX = "android:changeTransform:intermediateParentMatrix";
@@ -294,7 +294,7 @@ public class ChangeTransform extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class Transforms {
         final float mRotationX;
         final float mRotationY;
@@ -334,7 +334,7 @@ public class ChangeTransform extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class GhostListener extends TransitionListenerAdapter {
         private GhostViewImpl mGhostView;
         private View mView;
@@ -364,7 +364,7 @@ public class ChangeTransform extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class PathAnimatorMatrix {
         private final Matrix mMatrix = new Matrix();
         private float mTranslationX;

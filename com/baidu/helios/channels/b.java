@@ -6,24 +6,24 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class b {
-    private a asb;
+    private a arR;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, com.baidu.helios.channels.a> f2420b = new HashMap();
+    private Map<String, com.baidu.helios.channels.a> f2418b = new HashMap();
 
     /* loaded from: classes6.dex */
     public interface a {
-        List<com.baidu.helios.channels.a> uR();
+        List<com.baidu.helios.channels.a> uO();
     }
 
     public b(a aVar) {
-        this.asb = aVar;
-        for (com.baidu.helios.channels.a aVar2 : aVar.uR()) {
-            this.f2420b.put(aVar2.getName(), aVar2);
+        this.arR = aVar;
+        for (com.baidu.helios.channels.a aVar2 : aVar.uO()) {
+            this.f2418b.put(aVar2.getName(), aVar2);
         }
     }
 
-    public List<com.baidu.helios.channels.a> uQ() {
-        return new ArrayList(this.f2420b.values());
+    public List<com.baidu.helios.channels.a> uN() {
+        return new ArrayList(this.f2418b.values());
     }
 }

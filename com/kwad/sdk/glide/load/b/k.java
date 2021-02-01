@@ -11,42 +11,42 @@ import com.kwad.sdk.glide.load.a.d;
 import com.kwad.sdk.glide.load.b.n;
 import java.io.File;
 import java.io.FileNotFoundException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class k implements n<Uri, File> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f10092a;
+    private final Context f10094a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements o<Uri, File> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Context f10093a;
+        private final Context f10095a;
 
         public a(Context context) {
-            this.f10093a = context;
+            this.f10095a = context;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Uri, File> a(r rVar) {
-            return new k(this.f10093a);
+            return new k(this.f10095a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b implements com.kwad.sdk.glide.load.a.d<File> {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String[] f10094a = {"_data"};
+        private static final String[] f10096a = {"_data"};
 
         /* renamed from: b  reason: collision with root package name */
-        private final Context f10095b;
+        private final Context f10097b;
         private final Uri c;
 
         b(Context context, Uri uri) {
-            this.f10095b = context;
+            this.f10097b = context;
             this.c = uri;
         }
 
@@ -58,7 +58,7 @@ public final class k implements n<Uri, File> {
 
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super File> aVar) {
-            Cursor query = this.f10095b.getContentResolver().query(this.c, f10094a, null, null, null);
+            Cursor query = this.f10097b.getContentResolver().query(this.c, f10096a, null, null, null);
             if (query != null) {
                 try {
                     r3 = query.moveToFirst() ? query.getString(query.getColumnIndexOrThrow("_data")) : null;
@@ -89,13 +89,13 @@ public final class k implements n<Uri, File> {
     }
 
     public k(Context context) {
-        this.f10092a = context;
+        this.f10094a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<File> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return new n.a<>(new com.kwad.sdk.glide.f.b(uri), new b(this.f10092a, uri));
+        return new n.a<>(new com.kwad.sdk.glide.f.b(uri), new b(this.f10094a, uri));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

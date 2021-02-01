@@ -2,7 +2,7 @@ package com.baidu.tieba.model.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.AddPollPost.AddPollPostReqIdl;
 import tbclient.AddPollPost.DataReq;
 /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public class AddPollPostRequestNetMessage extends NetMessage {
         builder.options = this.options;
         builder.forum_id = Long.valueOf(this.forumId);
         if (z) {
-            t.b(builder, true);
+            v.b(builder, true);
         }
         AddPollPostReqIdl.Builder builder2 = new AddPollPostReqIdl.Builder();
         builder2.data = builder.build(false);

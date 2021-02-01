@@ -7,7 +7,7 @@ import com.baidu.mapapi.synchronization.DisplayOptions;
 import com.baidu.mapapi.synchronization.RoleOptions;
 import com.kwad.sdk.collector.AppStatusRules;
 import java.lang.Thread;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d {
     private static g c;
     private static Thread d;
@@ -15,39 +15,39 @@ public class d {
     private boolean k;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3116a = d.class.getSimpleName();
+    private static final String f3114a = d.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f3117b = 0;
+    private static int f3115b = 0;
     private static volatile boolean e = true;
     private static volatile long g = 5000;
     private static long h = 5000;
     private static volatile boolean i = false;
     private static int j = 1000;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final d f3118a = new d();
+        private static final d f3116a = new d();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3119a;
+        private String f3117a;
 
         b(String str) {
-            this.f3119a = str;
+            this.f3117a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             while (!d.e) {
                 if (d.c != null) {
-                    d.c.a(d.f3117b, d.i);
+                    d.c.a(d.f3115b, d.i);
                     boolean unused = d.i = false;
                 }
                 try {
@@ -66,7 +66,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     private static class c extends Handler {
         c() {
         }
@@ -82,7 +82,7 @@ public class d {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(d.f3116a, "The order state is: " + message.what);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(d.f3114a, "The order state is: " + message.what);
             a(message.what);
             switch (message.what) {
                 case 0:
@@ -96,7 +96,7 @@ public class d {
                     d.q();
                     return;
                 default:
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(d.f3116a, "The order state is undefined");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(d.f3114a, "The order state is undefined");
                     return;
             }
         }
@@ -108,7 +108,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static d a() {
-        return a.f3118a;
+        return a.f3116a;
     }
 
     private void o() {
@@ -145,10 +145,10 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(int i2) {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f3116a, "The order state = " + i2);
-        f3117b = i2;
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f3114a, "The order state = " + i2);
+        f3115b = i2;
         if (this.f == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3116a, "SyncDataRequestHandler is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3114a, "SyncDataRequestHandler is null");
         } else {
             Message obtainMessage = this.f.obtainMessage();
             obtainMessage.what = i2;
@@ -230,7 +230,7 @@ public class d {
     public void d() {
         o();
         this.f.removeCallbacksAndMessages(null);
-        f3117b = 0;
+        f3115b = 0;
         h = 5000L;
         i = false;
         j = 1000;

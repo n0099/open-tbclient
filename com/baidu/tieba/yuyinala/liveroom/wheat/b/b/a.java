@@ -1,49 +1,49 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.b.b;
 
 import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.tieba.yuyinala.liveroom.wheat.c.e;
-import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
-/* loaded from: classes10.dex */
+import com.baidu.tieba.yuyinala.liveroom.wheat.c.f;
+import com.baidu.tieba.yuyinala.liveroom.wheat.c.q;
+/* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Vf(String str) {
-        if (o.ebo().eaE()) {
-            eaN();
-        } else if (o.ebo().ebs()) {
-            eaN();
-        } else if (o.ebo().ib(str)) {
-            e.eaX().h(this.mPageContext);
+    public void Wc(String str) {
+        if (q.edE().Yk()) {
+            ecZ();
+        } else if (q.edE().edI()) {
+            ecZ();
+        } else if (q.edE().iH(str)) {
+            f.edj().f(this.mPageContext);
         } else {
-            eaM();
+            ecY();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Vg(String str) {
-        if (eaH()) {
-            eaO();
-        } else if (eaI()) {
-            if (o.ebo().eaE()) {
-                if (o.ebo().ib(str)) {
-                    if (o.ebo().id(str)) {
-                        eaN();
+    public void Wd(String str) {
+        if (ecT()) {
+            eda();
+        } else if (ecU()) {
+            if (q.edE().Yk()) {
+                if (q.edE().iH(str)) {
+                    if (q.edE().iJ(str)) {
+                        ecZ();
                         return;
                     } else {
-                        eaP();
+                        edb();
                         return;
                     }
                 }
-                eaN();
-            } else if (o.ebo().id(str)) {
-                eaN();
-            } else if (o.ebo().Vs(str)) {
-                eaP();
+                ecZ();
+            } else if (q.edE().iJ(str)) {
+                ecZ();
+            } else if (q.edE().Wr(str)) {
+                edb();
             } else {
-                eaM();
+                ecY();
             }
         }
     }

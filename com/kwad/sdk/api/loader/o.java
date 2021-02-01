@@ -12,17 +12,17 @@ import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.kwad.sdk.api.loader.Reflect;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, Resources> f8240a = new HashMap();
+    private static Map<String, Resources> f8242a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Object f8241b = new Object();
+    private static final Object f8243b = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: private */
         public static Resources b(Resources resources, AssetManager assetManager) {
@@ -39,7 +39,7 @@ class o {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         /* JADX INFO: Access modifiers changed from: private */
         public static Resources b(Resources resources, AssetManager assetManager) {
@@ -66,7 +66,7 @@ class o {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class c {
         /* JADX INFO: Access modifiers changed from: private */
         public static Resources b(Resources resources, AssetManager assetManager) {
@@ -93,7 +93,7 @@ class o {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class d {
         /* JADX INFO: Access modifiers changed from: private */
         public static Resources b(Resources resources, AssetManager assetManager) {
@@ -120,7 +120,7 @@ class o {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class e {
         /* JADX INFO: Access modifiers changed from: private */
         public static Resources b(Resources resources, AssetManager assetManager) {
@@ -147,7 +147,7 @@ class o {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class f {
         /* JADX INFO: Access modifiers changed from: private */
         public static Resources b(Context context, Resources resources, AssetManager assetManager) {
@@ -192,14 +192,14 @@ class o {
     @NonNull
     public static Resources a(Context context, Resources resources, String str) {
         Resources resources2;
-        synchronized (f8241b) {
-            resources2 = f8240a.get(str);
+        synchronized (f8243b) {
+            resources2 = f8242a.get(str);
             if (resources2 == null) {
                 resources2 = b(context, resources, str);
                 if (resources2 == null) {
                     throw new RuntimeException("Can not createResources for " + str);
                 }
-                f8240a.put(str, resources);
+                f8242a.put(str, resources);
             }
         }
         return resources2;

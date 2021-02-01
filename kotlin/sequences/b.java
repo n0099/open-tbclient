@@ -6,16 +6,16 @@ import kotlin.TypeCastException;
 import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> qjT;
-    private final kotlin.jvm.a.b<T, T> qjU;
+    private final kotlin.jvm.a.a<T> qtX;
+    private final kotlin.jvm.a.b<T, T> qtY;
 
     @kotlin.e
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements Iterator<T> {
         private T nextItem;
-        private int qjR = -2;
+        private int qtV = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void eJm() {
+        private final void eLC() {
             T t;
-            if (this.qjR == -2) {
-                t = (T) b.this.qjT.invoke();
+            if (this.qtV == -2) {
+                t = (T) b.this.qtX.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.qjU;
+                kotlin.jvm.a.b bVar = b.this.qtY;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    p.eIW();
+                    p.eLm();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.qjR = this.nextItem == null ? 0 : 1;
+            this.qtV = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.qjR < 0) {
-                eJm();
+            if (this.qtV < 0) {
+                eLC();
             }
-            if (this.qjR == 0) {
+            if (this.qtV == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.qjR = -1;
+            this.qtV = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.qjR < 0) {
-                eJm();
+            if (this.qtV < 0) {
+                eLC();
             }
-            return this.qjR == 1;
+            return this.qtV == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         p.o(aVar, "getInitialValue");
         p.o(bVar, "getNextValue");
-        this.qjT = aVar;
-        this.qjU = bVar;
+        this.qtX = aVar;
+        this.qtY = bVar;
     }
 
     @Override // kotlin.sequences.c

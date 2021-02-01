@@ -11,11 +11,11 @@ import com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal;
 import com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeVertical;
 import com.kwad.sdk.reward.widget.tailframe.TailFramePortraitHorizontal;
 import com.kwad.sdk.reward.widget.tailframe.TailFramePortraitVertical;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    private TailFramePortraitVertical f10617b;
+    private TailFramePortraitVertical f10619b;
     private TailFramePortraitHorizontal c;
     private TailFrameLandscapeVertical d;
     private TailFrameLandscapeHorizontal e;
@@ -38,8 +38,8 @@ public class a extends d {
 
     private void e() {
         if (this.i) {
-            this.f10617b.b();
-            this.f10617b.setVisibility(8);
+            this.f10619b.b();
+            this.f10619b.setVisibility(8);
             this.c.b();
             this.c.setVisibility(8);
             this.d.b();
@@ -51,7 +51,7 @@ public class a extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f10650a.e == 0) {
+        if (this.f10652a.e == 0) {
             if (g()) {
                 h();
             } else {
@@ -70,17 +70,17 @@ public class a extends d {
     }
 
     private void h() {
-        this.f10617b.a(this.f, this.f10650a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.2
+        this.f10619b.a(this.f, this.f10652a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.2
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 a.this.s();
             }
         });
-        this.f10617b.setVisibility(0);
+        this.f10619b.setVisibility(0);
     }
 
     private void p() {
-        this.c.a(this.f, this.f10650a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.3
+        this.c.a(this.f, this.f10652a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.3
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 a.this.s();
@@ -90,7 +90,7 @@ public class a extends d {
     }
 
     private void q() {
-        this.d.a(this.f, this.f10650a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.4
+        this.d.a(this.f, this.f10652a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.4
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 a.this.s();
@@ -100,7 +100,7 @@ public class a extends d {
     }
 
     private void r() {
-        this.e.a(this.f, this.f10650a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.5
+        this.e.a(this.f, this.f10652a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.c.a.a.5
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 a.this.s();
@@ -111,18 +111,18 @@ public class a extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
-        com.kwad.sdk.core.report.b.a(this.f, 2, this.f10650a.h.getTouchCoords(), this.f10650a.d);
-        this.f10650a.f10525b.a();
+        com.kwad.sdk.core.report.b.a(this.f, 2, this.f10652a.h.getTouchCoords(), this.f10652a.d);
+        this.f10652a.f10527b.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f = this.f10650a.f;
+        this.f = this.f10652a.f;
         this.g = com.kwad.sdk.core.response.b.c.j(this.f);
-        this.h = this.f10650a.l;
-        this.f10650a.n.add(this.j);
+        this.h = this.f10652a.l;
+        this.f10652a.n.add(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -130,14 +130,14 @@ public class a extends d {
     public void b_() {
         super.b_();
         e();
-        this.f10650a.n.remove(this.j);
+        this.f10652a.n.remove(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10617b = (TailFramePortraitVertical) b(R.id.ksad_video_portrait_vertical);
+        this.f10619b = (TailFramePortraitVertical) b(R.id.ksad_video_portrait_vertical);
         this.c = (TailFramePortraitHorizontal) b(R.id.ksad_video_portrait_horizontal);
         this.d = (TailFrameLandscapeVertical) b(R.id.ksad_video_landscape_vertical);
         this.e = (TailFrameLandscapeHorizontal) b(R.id.ksad_video_landscape_horizontal);

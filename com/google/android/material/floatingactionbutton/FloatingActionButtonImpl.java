@@ -38,7 +38,7 @@ import com.google.android.material.shadow.ShadowViewDelegate;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class FloatingActionButtonImpl {
     static final int ANIM_STATE_HIDING = 1;
     static final int ANIM_STATE_NONE = 0;
@@ -91,7 +91,7 @@ public class FloatingActionButtonImpl {
     private final Matrix tmpMatrix = new Matrix();
     private final StateListAnimator stateListAnimator = new StateListAnimator();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     interface InternalVisibilityChangedListener {
         void onHidden();
 
@@ -545,7 +545,7 @@ public class FloatingActionButtonImpl {
         return valueAnimator;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private abstract class ShadowAnimatorImpl extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
         private float shadowSizeEnd;
         private float shadowSizeStart;
@@ -573,7 +573,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private class ResetElevationAnimation extends ShadowAnimatorImpl {
         ResetElevationAnimation() {
             super();
@@ -585,7 +585,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private class ElevateToHoveredFocusedTranslationZAnimation extends ShadowAnimatorImpl {
         ElevateToHoveredFocusedTranslationZAnimation() {
             super();
@@ -597,7 +597,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private class ElevateToPressedTranslationZAnimation extends ShadowAnimatorImpl {
         ElevateToPressedTranslationZAnimation() {
             super();
@@ -609,7 +609,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     private class DisabledElevationAnimation extends ShadowAnimatorImpl {
         DisabledElevationAnimation() {
             super();

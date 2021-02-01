@@ -6,10 +6,10 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaSquareLiveRequestMessage extends NetMessage {
     private Integer mPn;
 
@@ -30,7 +30,7 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
             builder.scr_dip = Integer.valueOf((int) l.getEquipmentDensity(TbadkCoreApplication.getInst()));
             builder.network_type = String.valueOf(j.netTypeNameInUpperCase());
             if (z) {
-                t.b(builder, true);
+                v.b(builder, true);
             }
             LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
             builder2.data = builder.build(false);

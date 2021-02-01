@@ -23,7 +23,7 @@ public final class NetworkUtils {
     public static final int NETWORK_WIFI = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1985a = "NetworkUtils";
+    private static final String f1983a = "NetworkUtils";
 
     private NetworkUtils() {
     }
@@ -31,26 +31,26 @@ public final class NetworkUtils {
     public static boolean isNetworkAvailable(Context context) {
         if (context == null) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.d(f1985a, "context is null!");
+                LogUtil.d(f1983a, "context is null!");
             }
             return false;
         }
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.d(f1985a, "couldn't get connectivity manager");
+                LogUtil.d(f1983a, "couldn't get connectivity manager");
             }
             return false;
         }
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.d(f1985a, "network is not available");
+                LogUtil.d(f1983a, "network is not available");
             }
             return false;
         }
         if (ApollonConstants.DEBUG) {
-            LogUtil.d(f1985a, "network is available");
+            LogUtil.d(f1983a, "network is available");
         }
         return true;
     }
@@ -60,7 +60,7 @@ public final class NetworkUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.v(f1985a, "couldn't get connectivity manager");
+                LogUtil.v(f1983a, "couldn't get connectivity manager");
             }
             return false;
         }
@@ -69,7 +69,7 @@ public final class NetworkUtils {
             return false;
         }
         if (ApollonConstants.DEBUG) {
-            LogUtil.v(f1985a, "network is roaming");
+            LogUtil.v(f1983a, "network is roaming");
         }
         return true;
     }
@@ -78,7 +78,7 @@ public final class NetworkUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
-                LogUtil.d(f1985a, "couldn't get connectivity manager");
+                LogUtil.d(f1983a, "couldn't get connectivity manager");
                 return false;
             }
             return false;
@@ -151,19 +151,19 @@ public final class NetworkUtils {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
-                Log.d(f1985a, "couldn't get connectivity manager");
+                Log.d(f1983a, "couldn't get connectivity manager");
             }
             return false;
         }
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
             if (ApollonConstants.DEBUG) {
-                Log.d(f1985a, "network is not available");
+                Log.d(f1983a, "network is not available");
             }
             return false;
         }
         if (ApollonConstants.DEBUG) {
-            Log.d(f1985a, "network is available");
+            Log.d(f1983a, "network is available");
         }
         return true;
     }

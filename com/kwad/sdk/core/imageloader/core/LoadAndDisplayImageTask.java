@@ -24,7 +24,7 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runnable {
     private static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
     private static final String ERROR_POST_PROCESSOR_NULL = "Post-processor returned null [%s]";
@@ -66,7 +66,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     final String uri;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FireCancelEventRunnable implements Runnable {
         private WeakReference<LoadAndDisplayImageTask> weakReference;
 
@@ -84,7 +84,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FireFailEventRunnable implements Runnable {
         final Throwable failCause;
         final FailReason.FailType failType;
@@ -109,7 +109,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class TaskCancelledException extends Exception {
         TaskCancelledException() {
         }

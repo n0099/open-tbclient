@@ -21,32 +21,32 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f12458a = new Object();
+    private static Object f12460a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile b f12459b;
+    private static volatile b f12461b;
 
     private b() {
         a(GDTADManager.getInstance().getAppContext());
     }
 
     public static b a() {
-        if (f12459b == null) {
+        if (f12461b == null) {
             synchronized (b.class) {
                 try {
-                    if (f12459b == null) {
-                        f12459b = new b();
+                    if (f12461b == null) {
+                        f12461b = new b();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12459b;
+        return f12461b;
     }
 
     private void a(Context context) {
@@ -61,10 +61,10 @@ public class b extends BroadcastReceiver {
         if (aVar == null || TextUtils.isEmpty(aVar.b())) {
             return;
         }
-        s.f12589a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.splash.a.b.2
+        s.f12591a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.splash.a.b.2
             @Override // java.lang.Runnable
             public void run() {
-                synchronized (b.f12458a) {
+                synchronized (b.f12460a) {
                     String a2 = a.this.a();
                     if (!TextUtils.isEmpty(a2)) {
                         ah.a(new File(ah.c() + File.separator + a.this.b()), a2);
@@ -170,7 +170,7 @@ public class b extends BroadcastReceiver {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        synchronized (f12458a) {
+        synchronized (f12460a) {
             for (File file : listFiles) {
                 arrayList.add(new a(ah.c(file)));
                 GDTLogger.d("bean " + aVar.toString());
@@ -181,7 +181,7 @@ public class b extends BroadcastReceiver {
     }
 
     public void b() {
-        s.f12589a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.splash.a.b.1
+        s.f12591a.submit(new Runnable() { // from class: com.qq.e.comm.plugin.splash.a.b.1
             @Override // java.lang.Runnable
             public void run() {
                 List<a> j = b.j();

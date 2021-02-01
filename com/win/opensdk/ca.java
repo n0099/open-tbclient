@@ -6,16 +6,16 @@ import java.util.List;
 public final class ca {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13737a;
+    public int f13739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13738b;
+    public int f13740b;
     int c;
     int d;
     int e;
     int f;
-    boolean pYM;
-    bz qaS;
+    boolean qiQ;
+    bz qkW;
 
     /* renamed from: java  reason: collision with other field name */
     int[] f44java = null;
@@ -23,6 +23,6 @@ public final class ca {
 
     /* renamed from: case  reason: not valid java name */
     public int f43case = 0;
-    public List<bz> pZN = new ArrayList();
+    public List<bz> qjR = new ArrayList();
     public int g = 0;
 }

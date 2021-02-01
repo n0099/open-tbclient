@@ -8,7 +8,7 @@ import java.util.Map;
 public class e implements AbstractPushManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f13824a;
+    private static volatile e f13826a;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f151a;
@@ -27,14 +27,14 @@ public class e implements AbstractPushManager {
     }
 
     public static e a(Context context) {
-        if (f13824a == null) {
+        if (f13826a == null) {
             synchronized (e.class) {
-                if (f13824a == null) {
-                    f13824a = new e(context);
+                if (f13826a == null) {
+                    f13826a = new e(context);
                 }
             }
         }
-        return f13824a;
+        return f13826a;
     }
 
     private void a() {
@@ -120,7 +120,7 @@ public class e implements AbstractPushManager {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public boolean b(d dVar) {
         boolean z = false;
-        switch (g.f13826a[dVar.ordinal()]) {
+        switch (g.f13828a[dVar.ordinal()]) {
             case 1:
                 if (this.f152a != null) {
                     return this.f152a.getOpenHmsPush();

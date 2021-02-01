@@ -9,19 +9,19 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.HashMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class i extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile i f12703a;
+    private static volatile i f12705a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, t> f12704b;
+    private Map<String, t> f12706b;
 
     private i(Context context) {
         super(new com.qq.e.comm.plugin.g.a(context), "gdt_stat.db", (SQLiteDatabase.CursorFactory) null, 2);
-        this.f12704b = new HashMap(5);
-        this.f12704b.put("event", new t("event", new t.a<k>() { // from class: com.qq.e.comm.plugin.y.i.1
+        this.f12706b = new HashMap(5);
+        this.f12706b.put("event", new t("event", new t.a<k>() { // from class: com.qq.e.comm.plugin.y.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.qq.e.comm.plugin.y.t.a
             /* renamed from: a */
@@ -29,7 +29,7 @@ public class i extends SQLiteOpenHelper {
                 return l.a(i, str);
             }
         }));
-        this.f12704b.put("performance", new t("performance", new t.a<o>() { // from class: com.qq.e.comm.plugin.y.i.2
+        this.f12706b.put("performance", new t("performance", new t.a<o>() { // from class: com.qq.e.comm.plugin.y.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.qq.e.comm.plugin.y.t.a
             /* renamed from: a */
@@ -40,18 +40,18 @@ public class i extends SQLiteOpenHelper {
     }
 
     public static i a(Context context) {
-        if (f12703a == null) {
+        if (f12705a == null) {
             synchronized (i.class) {
                 try {
-                    if (f12703a == null) {
-                        f12703a = new i(context);
+                    if (f12705a == null) {
+                        f12705a = new i(context);
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12703a;
+        return f12705a;
     }
 
     private void a(SQLiteDatabase sQLiteDatabase) {
@@ -61,7 +61,7 @@ public class i extends SQLiteOpenHelper {
         }
         try {
             sQLiteDatabase.beginTransaction();
-            for (t tVar : this.f12704b.values()) {
+            for (t tVar : this.f12706b.values()) {
                 tVar.b(sQLiteDatabase);
             }
             sQLiteDatabase.setTransactionSuccessful();
@@ -82,7 +82,7 @@ public class i extends SQLiteOpenHelper {
         }
         try {
             sQLiteDatabase.beginTransaction();
-            for (t tVar : this.f12704b.values()) {
+            for (t tVar : this.f12706b.values()) {
                 tVar.a(sQLiteDatabase);
             }
             sQLiteDatabase.setTransactionSuccessful();
@@ -97,19 +97,19 @@ public class i extends SQLiteOpenHelper {
     }
 
     public void a() {
-        for (t tVar : this.f12704b.values()) {
+        for (t tVar : this.f12706b.values()) {
             tVar.a(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t b() {
-        return this.f12704b.get("event");
+        return this.f12706b.get("event");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t c() {
-        return this.f12704b.get("performance");
+        return this.f12706b.get("performance");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

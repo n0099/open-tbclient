@@ -1,21 +1,21 @@
 package com.bytedance.sdk.openadsdk.core.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6525a;
+    private int f6527a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6526b;
+    private int f6528b;
     private int c;
     private String d;
 
     public void a(int i) {
-        this.f6525a = i;
+        this.f6527a = i;
     }
 
     public void b(int i) {
-        this.f6526b = i;
+        this.f6528b = i;
     }
 
     public int a() {

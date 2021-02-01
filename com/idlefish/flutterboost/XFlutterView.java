@@ -35,7 +35,7 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class XFlutterView extends FrameLayout {
     @Nullable
     private AccessibilityBridge accessibilityBridge;

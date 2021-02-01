@@ -14,12 +14,12 @@ import androidx.core.app.NotificationCompat;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KsNotificationCompat {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         private final NotificationCompat.Builder mBuilder;
 

@@ -2,6 +2,7 @@ package okhttp3.internal.ws;
 
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.live.tbadk.log.LogConfig;
+import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import java.util.Random;
 import okio.Buffer;
@@ -9,7 +10,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Sink;
 import okio.Timeout;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 final class WebSocketWriter {
     boolean activeWriter;
     final Buffer buffer = new Buffer();
@@ -126,7 +127,7 @@ final class WebSocketWriter {
             this.sinkBuffer.writeByte(i3 | Opcodes.IAND);
             this.sinkBuffer.writeShort((int) j);
         } else {
-            this.sinkBuffer.writeByte(i3 | 127);
+            this.sinkBuffer.writeByte(i3 | ThunderNetStateService.NetState.SYSNET_UNKNOWN);
             this.sinkBuffer.writeLong(j);
         }
         if (this.isClient) {
@@ -146,7 +147,7 @@ final class WebSocketWriter {
         this.sink.emit();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     final class FrameSink implements Sink {
         boolean closed;
         long contentLength;

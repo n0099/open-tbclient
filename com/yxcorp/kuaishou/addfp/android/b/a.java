@@ -12,10 +12,10 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a {
     static {
-        String[] strArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "getNetworkIso", com.baidu.pass.biometrics.face.liveness.d.b.f4043a, "c", "d", "e", "f"};
+        String[] strArr = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "getNetworkIso", com.baidu.pass.biometrics.face.liveness.d.b.f4046a, "c", "d", "e", "f"};
     }
 
     public static boolean a() {
@@ -115,7 +115,7 @@ public final class a {
         return bArr3;
     }
 
-    public static String[] jd(Context context) {
+    public static String[] jg(Context context) {
         List<SubscriptionInfo> activeSubscriptionInfoList;
         String str;
         try {

@@ -1,7 +1,7 @@
 package androidx.core.content.res;
 
 import java.lang.reflect.Array;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 final class GrowingArrayUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
 

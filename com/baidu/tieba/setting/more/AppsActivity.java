@@ -13,29 +13,29 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AppsActivity extends BaseActivity<AppsActivity> {
     private String mUrl = null;
     private BaseWebView mWebView = null;
     private ImageView mBack = null;
-    private a mWa = null;
-    private LinearLayout mWb = null;
-    private ProgressBar mWc = null;
-    private ImageView mWd = null;
-    private RelativeLayout loZ = null;
-    private RelativeLayout mWe = null;
-    private TextView bIw = null;
+    private a nfJ = null;
+    private LinearLayout nfK = null;
+    private ProgressBar nfL = null;
+    private ImageView nfM = null;
+    private RelativeLayout lxd = null;
+    private RelativeLayout nfN = null;
+    private TextView bMg = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.app_activity);
-        bKx();
+        bKR();
         aG(bundle);
     }
 
@@ -45,51 +45,51 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         } else {
             this.mUrl = getIntent().getStringExtra("url");
         }
-        if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brx().getLong(SharedPrefConfig.APP_PULL_TIME, 0L) > 86400000) {
+        if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brQ().getLong(SharedPrefConfig.APP_PULL_TIME, 0L) > 86400000) {
             refresh();
-        } else if (!dEu()) {
+        } else if (!dGF()) {
             refresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refresh() {
-        if (this.mWa != null) {
-            this.mWa.cancel();
+        if (this.nfJ != null) {
+            this.nfJ.cancel();
         }
-        this.mWa = new a(this.mUrl);
-        this.mWa.setPriority(3);
-        this.mWa.execute(new Object[0]);
+        this.nfJ = new a(this.mUrl);
+        this.nfJ.setPriority(3);
+        this.nfJ.execute(new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ao.setBgColor(this.loZ, i);
-        ao.setBgColor(this.mWebView, i);
-        ao.setTopBarBgImage(this.mWe, i);
-        ao.setTopBarBackBgImage(this.mBack, i);
-        ao.setTopBarTitleColor(this.bIw, i);
-        ao.setTopBarRefrshBgImage(this.mWd, i);
+        ap.setBgColor(this.lxd, i);
+        ap.setBgColor(this.mWebView, i);
+        ap.setTopBarBgImage(this.nfN, i);
+        ap.setTopBarBackBgImage(this.mBack, i);
+        ap.setTopBarTitleColor(this.bMg, i);
+        ap.setTopBarRefrshBgImage(this.nfM, i);
     }
 
-    private void bKx() {
-        this.loZ = (RelativeLayout) findViewById(R.id.parent);
-        this.mWe = (RelativeLayout) findViewById(R.id.title);
-        this.bIw = (TextView) findViewById(R.id.title_text);
+    private void bKR() {
+        this.lxd = (RelativeLayout) findViewById(R.id.parent);
+        this.nfN = (RelativeLayout) findViewById(R.id.title);
+        this.bMg = (TextView) findViewById(R.id.title_text);
         this.mWebView = (BaseWebView) findViewById(R.id.app_webView);
         this.mWebView.setDownloadEnabled(true);
-        this.mWc = (ProgressBar) findViewById(R.id.app_progress);
-        this.mWb = (LinearLayout) findViewById(R.id.webview_fail_imageview);
-        this.mWb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.AppsActivity.1
+        this.nfL = (ProgressBar) findViewById(R.id.app_progress);
+        this.nfK = (LinearLayout) findViewById(R.id.webview_fail_imageview);
+        this.nfK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.AppsActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AppsActivity.this.refresh();
             }
         });
-        this.mWd = (ImageView) findViewById(R.id.refresh);
-        this.mWd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.AppsActivity.2
+        this.nfM = (ImageView) findViewById(R.id.refresh);
+        this.nfM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.AppsActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AppsActivity.this.refresh();
@@ -105,9 +105,9 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private z chV = null;
+        private aa cml = null;
         private String url;
 
         public a(String str) {
@@ -118,8 +118,8 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            AppsActivity.this.mWc.setVisibility(0);
-            AppsActivity.this.mWb.setVisibility(8);
+            AppsActivity.this.nfL.setVisibility(0);
+            AppsActivity.this.nfK.setVisibility(8);
             AppsActivity.this.mWebView.setVisibility(0);
         }
 
@@ -131,19 +131,19 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             if (this.url == null) {
                 return null;
             }
-            this.chV = new z(this.url);
-            this.chV.brX().bsG().bsK().mIsJson = false;
-            this.chV.addPostData("client", HttpConstants.OS_TYPE_VALUE);
-            return this.chV.postNetData();
+            this.cml = new aa(this.url);
+            this.cml.bsr().bta().bte().mIsJson = false;
+            this.cml.addPostData("client", HttpConstants.OS_TYPE_VALUE);
+            return this.cml.postNetData();
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.chV != null) {
-                this.chV.cancelNetConnect();
+            if (this.cml != null) {
+                this.cml.cancelNetConnect();
             }
-            AppsActivity.this.mWc.setVisibility(8);
-            AppsActivity.this.mWa = null;
+            AppsActivity.this.nfL.setVisibility(8);
+            AppsActivity.this.nfJ = null;
             super.cancel(true);
         }
 
@@ -151,19 +151,19 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(final String str) {
-            AppsActivity.this.mWc.setVisibility(8);
-            if (this.chV != null && this.chV.isNetSuccess() && str != null && str.length() > 0) {
-                com.baidu.adp.lib.f.h.mC().submitTask(new Runnable() { // from class: com.baidu.tieba.setting.more.AppsActivity.a.1
+            AppsActivity.this.nfL.setVisibility(8);
+            if (this.cml != null && this.cml.isNetSuccess() && str != null && str.length() > 0) {
+                com.baidu.adp.lib.f.h.mB().submitTask(new Runnable() { // from class: com.baidu.tieba.setting.more.AppsActivity.a.1
                     @Override // java.lang.Runnable
                     public void run() {
                         TbadkCoreApplication.getInst().cashNoAccountData(str, 7);
                     }
                 });
-                com.baidu.tbadk.core.sharedPref.b.brx().putLong(SharedPrefConfig.APP_PULL_TIME, System.currentTimeMillis());
+                com.baidu.tbadk.core.sharedPref.b.brQ().putLong(SharedPrefConfig.APP_PULL_TIME, System.currentTimeMillis());
                 AppsActivity.this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
-            } else if (!AppsActivity.this.dEu() && str == null) {
+            } else if (!AppsActivity.this.dGF() && str == null) {
                 AppsActivity.this.mWebView.setVisibility(8);
-                AppsActivity.this.mWb.setVisibility(0);
+                AppsActivity.this.nfK.setVisibility(0);
                 AppsActivity.this.showToast(AppsActivity.this.getPageContext().getString(R.string.neterror));
             } else {
                 AppsActivity.this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, AppsActivity.this.getPageContext().getString(R.string.server_404), "text/html", "utf-8", "");
@@ -172,12 +172,12 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dEu() {
+    public boolean dGF() {
         String noAccountData = TbadkCoreApplication.getInst().getNoAccountData(7);
         if (noAccountData == null || noAccountData.length() <= 1) {
             return false;
         }
-        this.mWc.setVisibility(8);
+        this.nfL.setVisibility(8);
         this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, noAccountData, "text/html", "utf-8", "");
         return true;
     }

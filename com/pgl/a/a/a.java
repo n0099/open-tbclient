@@ -1,12 +1,12 @@
 package com.pgl.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f11381a = 255;
+    public static int f11383a = 255;
 
     public static String a() {
-        switch (f11381a) {
+        switch (f11383a) {
             case 0:
                 return "https://bds.snssdk.com";
             default:
@@ -16,12 +16,12 @@ public class a {
 
     public static synchronized void a(int i) {
         synchronized (a.class) {
-            f11381a = i;
+            f11383a = i;
         }
     }
 
     public static String b() {
-        switch (f11381a) {
+        switch (f11383a) {
             case 0:
                 return "https://sdfp.snssdk.com";
             default:

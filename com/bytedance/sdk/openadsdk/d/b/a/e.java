@@ -7,11 +7,11 @@ import java.io.Reader;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class e extends com.bytedance.sdk.openadsdk.d.d.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Reader f6877b = new Reader() { // from class: com.bytedance.sdk.openadsdk.d.b.a.e.1
+    private static final Reader f6879b = new Reader() { // from class: com.bytedance.sdk.openadsdk.d.b.a.e.1
         @Override // java.io.Reader
         public int read(char[] cArr, int i, int i2) throws IOException {
             throw new AssertionError();

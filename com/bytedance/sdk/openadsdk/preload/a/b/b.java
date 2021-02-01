@@ -4,27 +4,27 @@ import com.bytedance.sdk.openadsdk.preload.a.d;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<a> f7417a = new CopyOnWriteArrayList();
+    private List<a> f7419a = new CopyOnWriteArrayList();
 
     public b(a... aVarArr) {
         if (aVarArr != null) {
-            this.f7417a.addAll(Arrays.asList(aVarArr));
+            this.f7419a.addAll(Arrays.asList(aVarArr));
         }
     }
 
     public void a(a aVar) {
         if (aVar != null) {
-            this.f7417a.add(aVar);
+            this.f7419a.add(aVar);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
     public <T> void c(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, d dVar) {
-        for (a aVar : this.f7417a) {
+        for (a aVar : this.f7419a) {
             if (aVar != null) {
                 aVar.c(bVar, dVar);
             }
@@ -33,7 +33,7 @@ public final class b extends a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
     public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, d dVar) {
-        for (a aVar : this.f7417a) {
+        for (a aVar : this.f7419a) {
             if (aVar != null) {
                 aVar.b(bVar, dVar);
             }
@@ -42,7 +42,7 @@ public final class b extends a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
     public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, d dVar) {
-        for (a aVar : this.f7417a) {
+        for (a aVar : this.f7419a) {
             if (aVar != null) {
                 aVar.a(bVar, dVar);
             }
@@ -51,7 +51,7 @@ public final class b extends a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
     public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, d dVar, Throwable th) {
-        for (a aVar : this.f7417a) {
+        for (a aVar : this.f7419a) {
             if (aVar != null) {
                 aVar.a(bVar, dVar, th);
             }
@@ -60,7 +60,7 @@ public final class b extends a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
     public <T> void f(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, d dVar, Throwable th) {
-        for (a aVar : this.f7417a) {
+        for (a aVar : this.f7419a) {
             if (aVar != null) {
                 aVar.f(bVar, dVar, th);
             }
@@ -69,7 +69,7 @@ public final class b extends a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
     public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, d dVar, Throwable th) {
-        for (a aVar : this.f7417a) {
+        for (a aVar : this.f7419a) {
             if (aVar != null) {
                 aVar.b(bVar, dVar, th);
             }

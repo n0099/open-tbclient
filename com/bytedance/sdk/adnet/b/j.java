@@ -6,7 +6,7 @@ import com.bytedance.sdk.adnet.core.Request;
 import com.bytedance.sdk.adnet.core.l;
 import com.bytedance.sdk.adnet.core.p;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j extends Request<String> {
     private final Object c;
     @Nullable
@@ -44,9 +44,9 @@ public class j extends Request<String> {
     public p<String> a(l lVar) {
         String str;
         try {
-            str = new String(lVar.f6041b, com.bytedance.sdk.adnet.d.c.a(lVar.c));
+            str = new String(lVar.f6043b, com.bytedance.sdk.adnet.d.c.a(lVar.c));
         } catch (UnsupportedEncodingException e) {
-            str = new String(lVar.f6041b);
+            str = new String(lVar.f6043b);
         }
         return p.a(str, com.bytedance.sdk.adnet.d.c.c(lVar));
     }

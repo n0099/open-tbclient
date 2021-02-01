@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.content;
 import androidx.annotation.Nullable;
 import com.airbnb.lottie.a.a.o;
 import com.airbnb.lottie.model.a.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g implements b {
     private final com.airbnb.lottie.model.a.b Gd;
     private final com.airbnb.lottie.model.a.b Ge;
@@ -21,15 +21,15 @@ public class g implements b {
         return this.name;
     }
 
-    public com.airbnb.lottie.model.a.b jJ() {
+    public com.airbnb.lottie.model.a.b jI() {
         return this.Gd;
     }
 
-    public com.airbnb.lottie.model.a.b jK() {
+    public com.airbnb.lottie.model.a.b jJ() {
         return this.Ge;
     }
 
-    public l jL() {
+    public l jK() {
         return this.Gf;
     }
 

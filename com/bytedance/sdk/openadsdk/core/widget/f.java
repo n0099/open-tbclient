@@ -15,16 +15,16 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.ac;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class f extends Drawable {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6808a;
+    private int f6810a;
     @ColorInt
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6809b;
+    private int f6811b;
     @Nullable
     private int[] c;
     @Nullable
@@ -41,10 +41,10 @@ public class f extends Drawable {
     private Paint k;
 
     public f(@ColorInt int i, @Nullable int[] iArr, @Nullable float[] fArr, @ColorInt int i2, @Nullable LinearGradient linearGradient, int i3, int i4, int i5, int i6) {
-        this.f6808a = i;
+        this.f6810a = i;
         this.c = iArr;
         this.d = fArr;
-        this.f6809b = i2;
+        this.f6811b = i2;
         this.e = linearGradient;
         this.f = i3;
         this.g = i4;
@@ -87,7 +87,7 @@ public class f extends Drawable {
         LinearGradient linearGradient;
         this.k = new Paint();
         this.k.setAntiAlias(true);
-        this.k.setShadowLayer(this.g, this.h, this.i, this.f6809b);
+        this.k.setShadowLayer(this.g, this.h, this.i, this.f6811b);
         if (this.j != null && this.c != null && this.c.length > 1) {
             boolean z = this.d != null && this.d.length > 0 && this.d.length == this.c.length;
             Paint paint = this.k;
@@ -99,7 +99,7 @@ public class f extends Drawable {
             paint.setShader(linearGradient);
             return;
         }
-        this.k.setColor(this.f6808a);
+        this.k.setColor(this.f6810a);
     }
 
     public static void a(View view, a aVar) {
@@ -109,7 +109,7 @@ public class f extends Drawable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private int[] c;
         @Nullable
@@ -120,11 +120,11 @@ public class f extends Drawable {
         @ColorInt
 
         /* renamed from: a  reason: collision with root package name */
-        private int f6810a = ac.j(p.a(), "tt_ssxinmian8");
+        private int f6812a = ac.j(p.a(), "tt_ssxinmian8");
         @ColorInt
 
         /* renamed from: b  reason: collision with root package name */
-        private int f6811b = ac.j(p.a(), "tt_ssxinxian3");
+        private int f6813b = ac.j(p.a(), "tt_ssxinxian3");
         private int f = 10;
         private int g = 16;
 
@@ -136,12 +136,12 @@ public class f extends Drawable {
         }
 
         public a a(@ColorInt int i) {
-            this.f6810a = i;
+            this.f6812a = i;
             return this;
         }
 
         public a b(@ColorInt int i) {
-            this.f6811b = i;
+            this.f6813b = i;
             return this;
         }
 
@@ -166,7 +166,7 @@ public class f extends Drawable {
         }
 
         public f a() {
-            return new f(this.f6810a, this.c, this.d, this.f6811b, this.e, this.f, this.g, this.h, this.i);
+            return new f(this.f6812a, this.c, this.d, this.f6813b, this.e, this.f, this.g, this.h, this.i);
         }
     }
 }

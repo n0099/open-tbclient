@@ -4,53 +4,53 @@ import android.text.TextUtils;
 import com.baidu.swan.pms.c.c.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static f<com.baidu.swan.pms.model.d> a(com.baidu.swan.pms.model.d dVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(dVar, gVar.aqp())) {
-            return new f<>(new e(dVar), dVar, new c(gVar.aqp()));
+        if (gVar != null && a(dVar, gVar.aqN())) {
+            return new f<>(new e(dVar), dVar, new c(gVar.aqN()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.f> a(com.baidu.swan.pms.model.f fVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(fVar, gVar.aqo())) {
-            return new f<>(new e(fVar), fVar, new c(gVar.aqo()));
+        if (gVar != null && a(fVar, gVar.aqM())) {
+            return new f<>(new e(fVar), fVar, new c(gVar.aqM()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.b> a(com.baidu.swan.pms.model.b bVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(bVar, gVar.aqq())) {
-            return new f<>(new e(bVar), bVar, new c(gVar.aqq()));
+        if (gVar != null && a(bVar, gVar.aqO())) {
+            return new f<>(new e(bVar), bVar, new c(gVar.aqO()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.h> a(com.baidu.swan.pms.model.h hVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(hVar, gVar.aEr())) {
-            return new f<>(new e(hVar), hVar, new c(gVar.aEr()));
+        if (gVar != null && a(hVar, gVar.aEM())) {
+            return new f<>(new e(hVar), hVar, new c(gVar.aEM()));
         }
         return null;
     }
 
     public static f<com.baidu.swan.pms.model.i> a(com.baidu.swan.pms.model.i iVar, com.baidu.swan.pms.a.g gVar) {
-        if (gVar != null && a(iVar, gVar.atI())) {
-            return new f<>(new e(iVar), iVar, new c(gVar.atI()));
+        if (gVar != null && a(iVar, gVar.aug())) {
+            return new f<>(new e(iVar), iVar, new c(gVar.aug()));
         }
         return null;
     }
 
-    public static List<f<a.C0542a>> a(List<a.C0542a> list, com.baidu.swan.pms.a.g gVar) {
+    public static List<f<a.C0539a>> a(List<a.C0539a> list, com.baidu.swan.pms.a.g gVar) {
         ArrayList arrayList = new ArrayList();
         if (gVar == null) {
             return arrayList;
         }
         if (list != null && list.size() > 0) {
-            for (a.C0542a c0542a : list) {
-                com.baidu.swan.pms.model.f fVar = c0542a.esM;
-                if (fVar != null && a(c0542a, gVar.aqk())) {
-                    arrayList.add(new f(new e(fVar), c0542a, new c(gVar.aqk())));
+            for (a.C0539a c0539a : list) {
+                com.baidu.swan.pms.model.f fVar = c0539a.euT;
+                if (fVar != null && a(c0539a, gVar.aqI())) {
+                    arrayList.add(new f(new e(fVar), c0539a, new c(gVar.aqI())));
                 }
             }
         }
@@ -64,8 +64,8 @@ public class h {
         }
         if (list != null && list.size() > 0) {
             for (com.baidu.swan.pms.model.g gVar2 : list) {
-                if (a(gVar2, gVar.aql())) {
-                    arrayList.add(new f(new e(gVar2), gVar2, new c(gVar.aql())));
+                if (a(gVar2, gVar.aqJ())) {
+                    arrayList.add(new f(new e(gVar2), gVar2, new c(gVar.aqJ())));
                 }
             }
         }
@@ -79,8 +79,8 @@ public class h {
         if (t instanceof com.baidu.swan.pms.model.e) {
             com.baidu.swan.pms.model.e eVar = (com.baidu.swan.pms.model.e) t;
             return a(cVar, t, eVar.md5, eVar.downloadUrl);
-        } else if (t instanceof a.C0542a) {
-            com.baidu.swan.pms.model.f fVar = ((a.C0542a) t).esM;
+        } else if (t instanceof a.C0539a) {
+            com.baidu.swan.pms.model.f fVar = ((a.C0539a) t).euT;
             return a(cVar, t, fVar.md5, fVar.downloadUrl);
         } else {
             return false;

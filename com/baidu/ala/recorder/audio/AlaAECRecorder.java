@@ -9,7 +9,7 @@ import com.baidu.ala.ndk.AlaAudioFrame;
 import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.ala.recorder.audio.IAudioService;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AlaAECRecorder implements IAudioService {
     private int mFramesPerBuffer = 256;
     private volatile AudioRecord mAudioRecord = null;

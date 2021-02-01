@@ -6,11 +6,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
-    public TextView iXw;
-    public TextView iXx;
-    public RelativeLayout iXy;
+    public TextView jdd;
+    public TextView jde;
+    public RelativeLayout jdf;
     public View mLineView;
     public LinearLayout mRootLayout;
     public int mSkinType;
@@ -20,8 +20,8 @@ public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
         this.mSkinType = 3;
         this.mRootLayout = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
         this.mLineView = view.findViewById(R.id.private_apply_line);
-        this.iXw = (TextView) view.findViewById(R.id.private_apply_tip);
-        this.iXx = (TextView) view.findViewById(R.id.private_left_tv);
-        this.iXy = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
+        this.jdd = (TextView) view.findViewById(R.id.private_apply_tip);
+        this.jde = (TextView) view.findViewById(R.id.private_left_tv);
+        this.jdf = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
     }
 }

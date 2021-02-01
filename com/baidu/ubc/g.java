@@ -9,246 +9,246 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes5.dex */
 public class g {
-    private static volatile g oIM;
-    private int ewe;
-    private int ewf;
-    private int ewg;
+    private static volatile g oSU;
+    private int eyn;
+    private int eyo;
+    private int eyp;
     private Context mContext;
-    private int oIN = 614400;
-    private int oIO = 153600;
-    private f oIP = new f();
-    private af oHU = new af();
+    private int oSV = 614400;
+    private int oSW = 153600;
+    private f oSX = new f();
+    private af oSc = new af();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static g eff() {
-        if (oIM == null) {
+    public static g ehx() {
+        if (oSU == null) {
             synchronized (e.class) {
-                if (oIM == null) {
-                    oIM = new g();
+                if (oSU == null) {
+                    oSU = new g();
                 }
             }
         }
-        return oIM;
+        return oSU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
-        this.ewe = 360000;
-        ai efB = ai.efB();
-        this.ewf = efB.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
-        this.ewg = efB.getInt("ubc_database_limit", 10000);
-        cVar.efa().a(this.oIP);
-        this.oIN = efB.getInt("ubc_launch_upload_max_limit", 614400);
-        this.oIO = efB.getInt("ubc_single_log_max_limit", 153600);
+        this.eyn = 360000;
+        ai ehT = ai.ehT();
+        this.eyo = ehT.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
+        this.eyp = ehT.getInt("ubc_database_limit", 10000);
+        cVar.ehs().a(this.oSX);
+        this.oSV = ehT.getInt("ubc_launch_upload_max_limit", 614400);
+        this.oSW = ehT.getInt("ubc_single_log_max_limit", 153600);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bj(List<k> list) {
+    public void be(List<k> list) {
         for (k kVar : list) {
             String id = kVar.getId();
             if (!TextUtils.isEmpty(id)) {
-                if ("0".equals(kVar.bew())) {
-                    this.oIP.oIz.add(id);
-                    this.oIP.oIC.remove(id);
+                if ("0".equals(kVar.beJ())) {
+                    this.oSX.oSH.add(id);
+                    this.oSX.oSK.remove(id);
                 } else {
-                    this.oIP.oIz.remove(id);
-                    this.oIP.oIC.add(id);
+                    this.oSX.oSH.remove(id);
+                    this.oSX.oSK.add(id);
                 }
-                if ("1".equals(kVar.bex())) {
-                    this.oIP.oIA.add(id);
+                if ("1".equals(kVar.beK())) {
+                    this.oSX.oSI.add(id);
                 } else {
-                    this.oIP.oIA.remove(id);
+                    this.oSX.oSI.remove(id);
                 }
-                if ("1".equals(kVar.bey())) {
-                    this.oIP.oIB.add(id);
+                if ("1".equals(kVar.beL())) {
+                    this.oSX.oSJ.add(id);
                 } else {
-                    this.oIP.oIB.remove(id);
+                    this.oSX.oSJ.remove(id);
                 }
-                if ("1".equals(kVar.efj())) {
-                    this.oIP.oID.add(id);
+                if ("1".equals(kVar.ehB())) {
+                    this.oSX.oSL.add(id);
                 } else {
-                    this.oIP.oID.remove(id);
+                    this.oSX.oSL.remove(id);
                 }
-                if (kVar.bez() >= 1 && kVar.bez() <= 100) {
-                    this.oIP.oIE.put(id, String.valueOf(kVar.bez()));
+                if (kVar.beM() >= 1 && kVar.beM() <= 100) {
+                    this.oSX.oSM.put(id, String.valueOf(kVar.beM()));
                 } else {
-                    this.oIP.oIE.remove(id);
+                    this.oSX.oSM.remove(id);
                 }
                 if (!TextUtils.isEmpty(kVar.getCategory())) {
-                    this.oIP.oIF.put(id, kVar.getCategory());
+                    this.oSX.oSN.put(id, kVar.getCategory());
                 } else {
-                    this.oIP.oIF.remove(id);
+                    this.oSX.oSN.remove(id);
                 }
-                if (kVar.beB() != 0 && kVar.beA() != 0) {
-                    m mVar = new m(id, kVar.beA(), kVar.beB());
-                    this.oIP.oIG.put(mVar.getId(), mVar);
+                if (kVar.beO() != 0 && kVar.beN() != 0) {
+                    m mVar = new m(id, kVar.beN(), kVar.beO());
+                    this.oSX.oSO.put(mVar.getId(), mVar);
                 }
-                if (TextUtils.equals(kVar.beC(), "1")) {
-                    this.oIP.oIH.add(id);
+                if (TextUtils.equals(kVar.beP(), "1")) {
+                    this.oSX.oSP.add(id);
                 } else {
-                    this.oIP.oIH.remove(id);
+                    this.oSX.oSP.remove(id);
                 }
-                if (TextUtils.equals(kVar.efl(), "1")) {
-                    this.oIP.oII.add(id);
+                if (TextUtils.equals(kVar.ehD(), "1")) {
+                    this.oSX.oSQ.add(id);
                 } else {
-                    this.oIP.oII.remove(id);
+                    this.oSX.oSQ.remove(id);
                 }
-                String efm = kVar.efm();
-                if (!TextUtils.isEmpty(efm) && !TextUtils.equals(efm, "0")) {
-                    this.oIP.oIJ.put(id, efm);
+                String ehE = kVar.ehE();
+                if (!TextUtils.isEmpty(ehE) && !TextUtils.equals(ehE, "0")) {
+                    this.oSX.oSR.put(id, ehE);
                 } else {
-                    this.oIP.oIJ.remove(id);
+                    this.oSX.oSR.remove(id);
                 }
-                String efn = kVar.efn();
-                if (!TextUtils.isEmpty(efn)) {
-                    this.oIP.oIK.put(id, efn);
+                String ehF = kVar.ehF();
+                if (!TextUtils.isEmpty(ehF)) {
+                    this.oSX.oSS.put(id, ehF);
                 } else {
-                    this.oIP.oIK.remove(id);
+                    this.oSX.oSS.remove(id);
                 }
-                int efo = kVar.efo();
-                if (efo != 2) {
-                    this.oIP.oIL.put(id, Integer.valueOf(efo));
+                int ehG = kVar.ehG();
+                if (ehG != 2) {
+                    this.oSX.oST.put(id, Integer.valueOf(ehG));
                 } else {
-                    this.oIP.oIL.remove(id);
+                    this.oSX.oST.remove(id);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean aj(String str, int i) {
-        if (this.oIP.oIz.contains(str)) {
+    public boolean al(String str, int i) {
+        if (this.oSX.oSH.contains(str)) {
             return false;
         }
-        return ((i & 16) == 0 && (i & 32) == 0) || this.oIP.oIC.contains(str);
+        return ((i & 16) == 0 && (i & 32) == 0) || this.oSX.oSK.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean yd(String str) {
-        if (this.oHU.efw()) {
+    public boolean yw(String str) {
+        if (this.oSc.ehO()) {
             return true;
         }
-        return this.oIP.oIA.contains(str);
+        return this.oSX.oSI.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Wd(String str) {
-        if (!isBeta() && this.oHU.efz() && yg(str) > 0) {
-            return new Random().nextInt(100) >= yg(str);
+    public boolean Xc(String str) {
+        if (!isBeta() && this.oSc.ehR() && yz(str) > 0) {
+            return new Random().nextInt(100) >= yz(str);
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean ye(String str) {
-        return this.oIP.oIB.contains(str);
+    public boolean yx(String str) {
+        return this.oSX.oSJ.contains(str);
     }
 
-    boolean We(String str) {
-        return this.oIP.oID.contains(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String yf(String str) {
-        return this.oIP.oIF.containsKey(str) ? this.oIP.oIF.get(str) : "";
+    boolean Xd(String str) {
+        return this.oSX.oSL.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int ber() {
-        return this.ewe;
+    public String yy(String str) {
+        return this.oSX.oSN.containsKey(str) ? this.oSX.oSN.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void md(int i) {
-        if (i * 60000 >= this.ewe) {
-            this.ewe = i * 60000;
+    public int beE() {
+        return this.eyn;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void mg(int i) {
+        if (i * 60000 >= this.eyn) {
+            this.eyn = i * 60000;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bes() {
-        return this.ewf;
+    public int beF() {
+        return this.eyo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void me(int i) {
-        if (i >= this.ewf) {
-            this.ewf = i;
-            ai.efB().putInt("ubc_data_expire_time", i);
+    public void mh(int i) {
+        if (i >= this.eyo) {
+            this.eyo = i;
+            ai.ehT().putInt("ubc_data_expire_time", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bet() {
-        return this.ewg;
+    public int beG() {
+        return this.eyp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void mf(int i) {
-        if (i >= this.ewg) {
-            this.ewg = i;
-            ai.efB().putInt("ubc_database_limit", i);
+    public void mi(int i) {
+        if (i >= this.eyp) {
+            this.eyp = i;
+            ai.ehT().putInt("ubc_database_limit", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int efg() {
-        return this.oIN;
+    public int ehy() {
+        return this.oSV;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void MK(int i) {
+    public void Ng(int i) {
         if (i >= 307200) {
-            this.oIN = i;
-            ai.efB().putInt("ubc_launch_upload_max_limit", i);
+            this.oSV = i;
+            ai.ehT().putInt("ubc_launch_upload_max_limit", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int efh() {
-        return this.oIO;
+    public int ehz() {
+        return this.oSW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ML(int i) {
+    public void Nh(int i) {
         if (i >= 30720) {
-            this.oIO = i;
-            ai.efB().putInt("ubc_single_log_max_limit", i);
+            this.oSW = i;
+            ai.ehT().putInt("ubc_single_log_max_limit", i);
         }
     }
 
-    int yg(String str) {
-        if (TextUtils.isEmpty(str) || !this.oIP.oIE.containsKey(str)) {
+    int yz(String str) {
+        if (TextUtils.isEmpty(str) || !this.oSX.oSM.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.oIP.oIE.get(str));
+        return Integer.parseInt(this.oSX.oSM.get(str));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean yh(String str) {
-        if (this.oIP.oIG == null || !this.oIP.oIG.containsKey(str)) {
+    public boolean yA(String str) {
+        if (this.oSX.oSO == null || !this.oSX.oSO.containsKey(str)) {
             return false;
         }
-        return this.oIP.oIG.get(str).beD();
+        return this.oSX.oSO.get(str).beQ();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean yi(String str) {
-        if (this.oIP.oIG == null || !this.oIP.oIG.containsKey(str)) {
+    public boolean yB(String str) {
+        if (this.oSX.oSO == null || !this.oSX.oSO.containsKey(str)) {
             return false;
         }
-        return this.oIP.oIG.get(str).beE();
+        return this.oSX.oSO.get(str).beR();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String yj(String str) {
-        return (TextUtils.isEmpty(str) || !this.oIP.oIH.contains(str)) ? "0" : "1";
+    public String yC(String str) {
+        return (TextUtils.isEmpty(str) || !this.oSX.oSP.contains(str)) ? "0" : "1";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Wf(String str) {
-        return this.mContext == null || isNetworkConnected(this.mContext) || !We(str);
+    public boolean Xe(String str) {
+        return this.mContext == null || isNetworkConnected(this.mContext) || !Xd(str);
     }
 
     public boolean isNetworkConnected(Context context) {
@@ -257,26 +257,26 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Wg(String str) {
-        return this.oIP.oII.contains(str);
+    public boolean Xf(String str) {
+        return this.oSX.oSQ.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Wh(String str) {
-        return this.oIP.oIA.contains(str);
+    public boolean Xg(String str) {
+        return this.oSX.oSI.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Wi(String str) {
-        return this.oIP.oIJ.containsKey(str) ? this.oIP.oIJ.get(str) : "";
+    public String Xh(String str) {
+        return this.oSX.oSR.containsKey(str) ? this.oSX.oSR.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getUploadType(String str) {
-        return this.oIP.oIK.containsKey(str) ? this.oIP.oIK.get(str) : "";
+        return this.oSX.oSS.containsKey(str) ? this.oSX.oSS.get(str) : "";
     }
 
-    public boolean Wj(String str) {
+    public boolean Xi(String str) {
         return TextUtils.equals("0", getUploadType(str));
     }
 
@@ -290,9 +290,9 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int Wk(String str) {
+    public int Xj(String str) {
         Integer num;
-        if (!this.oIP.oIL.containsKey(str) || (num = this.oIP.oIL.get(str)) == null) {
+        if (!this.oSX.oST.containsKey(str) || (num = this.oSX.oST.get(str)) == null) {
             return 2;
         }
         return num.intValue();

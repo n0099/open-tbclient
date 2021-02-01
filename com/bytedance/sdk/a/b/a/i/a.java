@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class a extends c {
-    private final f pgv;
+    private final f pqN;
 
     public a(f fVar) {
-        this.pgv = fVar;
+        this.pqN = fVar;
     }
 
     @Override // com.bytedance.sdk.a.b.a.i.c
-    public List<Certificate> u(List<Certificate> list, String str) throws SSLPeerUnverifiedException {
+    public List<Certificate> s(List<Certificate> list, String str) throws SSLPeerUnverifiedException {
         boolean z = false;
         ArrayDeque arrayDeque = new ArrayDeque(list);
         ArrayList arrayList = new ArrayList();
@@ -27,7 +27,7 @@ public final class a extends c {
             boolean z2 = z;
             if (i < 9) {
                 X509Certificate x509Certificate = (X509Certificate) arrayList.get(arrayList.size() - 1);
-                X509Certificate b2 = this.pgv.b(x509Certificate);
+                X509Certificate b2 = this.pqN.b(x509Certificate);
                 if (b2 != null) {
                     if (arrayList.size() > 1 || !x509Certificate.equals(b2)) {
                         arrayList.add(b2);
@@ -71,13 +71,13 @@ public final class a extends c {
     }
 
     public int hashCode() {
-        return this.pgv.hashCode();
+        return this.pqN.hashCode();
     }
 
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
         }
-        return (obj instanceof a) && ((a) obj).pgv.equals(this.pgv);
+        return (obj instanceof a) && ((a) obj).pqN.equals(this.pqN);
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.android.pushservice.i.m;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.webkit.internal.GlobalConstants;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static String a(Context context) {
         return context.getSharedPreferences("pst", 4).getString("s_e", DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);

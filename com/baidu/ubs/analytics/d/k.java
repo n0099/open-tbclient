@@ -6,23 +6,23 @@ import com.baidu.ubs.analytics.b.b;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public final class k {
     public static void init() {
         c.a(new d() { // from class: com.baidu.ubs.analytics.d.k.1
             @Override // com.baidu.ubs.analytics.d.d
             public final void a() {
-                if (g.WI(a.oKi)) {
-                    for (File file : k.WL(a.oKi)) {
+                if (g.XH(a.oUq)) {
+                    for (File file : k.XK(a.oUq)) {
                         if (com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), (b.a) null)) {
-                            g.WJ(file.getPath());
+                            g.XI(file.getPath());
                         }
                     }
                 }
-                if (g.WI(a.oKj)) {
-                    for (File file2 : k.WL(a.oKj)) {
-                        if (!file2.getName().equals(b.efW()) && com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), (b.a) null)) {
-                            g.WJ(file2.getPath());
+                if (g.XH(a.oUr)) {
+                    for (File file2 : k.XK(a.oUr)) {
+                        if (!file2.getName().equals(b.eio()) && com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), (b.a) null)) {
+                            g.XI(file2.getPath());
                         }
                     }
                 }
@@ -30,7 +30,7 @@ public final class k {
         });
     }
 
-    static /* synthetic */ List WL(String str) {
+    static /* synthetic */ List XK(String str) {
         ArrayList arrayList = new ArrayList();
         File[] listFiles = new File(str).listFiles();
         if (listFiles != null) {

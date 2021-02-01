@@ -44,7 +44,7 @@ public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.intern
                 try {
                     this.actual.onNext(io.reactivex.internal.functions.a.m(this.combiner.apply(t, u), "The combiner returned a null value"));
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.O(th);
+                    io.reactivex.exceptions.a.N(th);
                     dispose();
                     this.actual.onError(th);
                 }
@@ -86,25 +86,25 @@ public final class ObservableWithLatestFrom<T, U, R> extends io.reactivex.intern
 
     /* loaded from: classes5.dex */
     final class a implements u<U> {
-        private final WithLatestFromObserver<T, U, R> qfM;
+        private final WithLatestFromObserver<T, U, R> qpQ;
 
         a(WithLatestFromObserver<T, U, R> withLatestFromObserver) {
-            this.qfM = withLatestFromObserver;
+            this.qpQ = withLatestFromObserver;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.qfM.setOther(bVar);
+            this.qpQ.setOther(bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(U u) {
-            this.qfM.lazySet(u);
+            this.qpQ.lazySet(u);
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            this.qfM.otherError(th);
+            this.qpQ.otherError(th);
         }
 
         @Override // io.reactivex.u

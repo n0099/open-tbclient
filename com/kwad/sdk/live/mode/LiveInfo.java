@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LiveInfo implements b, Serializable {
     private static final long serialVersionUID = -6382708726460249425L;
     public String audienceCount;
@@ -20,7 +20,7 @@ public class LiveInfo implements b, Serializable {
     public User user = new User();
     public List<CoverThumbnailUrl> cover_thumbnail_urls = new ArrayList();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class CoverThumbnailUrl implements b, Serializable {
         private static final long serialVersionUID = -9411857293708312L;
         public String cdn;
@@ -46,14 +46,14 @@ public class LiveInfo implements b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class User implements b, Serializable {
         private static final long serialVersionUID = 8394855164198099170L;
         public List<HeadUrl> headurls = new ArrayList();
         public long user_id;
         public String user_name;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class HeadUrl implements b, Serializable {
             private static final long serialVersionUID = 7710129978455547652L;
             public String cdn;

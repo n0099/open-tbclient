@@ -10,15 +10,15 @@ import com.baidu.mapsdkplatform.comapi.map.ab;
 import com.baidu.mapsdkplatform.comapi.map.ac;
 import javax.microedition.khronos.opengles.GL10;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class s implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TextureMapView f2812a;
+    final /* synthetic */ TextureMapView f2810a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(TextureMapView textureMapView) {
-        this.f2812a = textureMapView;
+        this.f2810a = textureMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -37,44 +37,44 @@ public class s implements com.baidu.mapsdkplatform.comapi.map.l {
         TextView textView;
         TextView textView2;
         ac acVar8;
-        acVar = this.f2812a.f2773b;
+        acVar = this.f2810a.f2771b;
         if (acVar != null) {
-            acVar2 = this.f2812a.f2773b;
+            acVar2 = this.f2810a.f2771b;
             if (acVar2.b() == null) {
                 return;
             }
-            acVar3 = this.f2812a.f2773b;
-            float f3 = acVar3.b().E().f3040a;
-            acVar4 = this.f2812a.f2773b;
-            if (f3 < acVar4.b().f3053b) {
-                acVar8 = this.f2812a.f2773b;
-                f = acVar8.b().f3053b;
+            acVar3 = this.f2810a.f2771b;
+            float f3 = acVar3.b().E().f3038a;
+            acVar4 = this.f2810a.f2771b;
+            if (f3 < acVar4.b().f3051b) {
+                acVar8 = this.f2810a.f2771b;
+                f = acVar8.b().f3051b;
             } else {
-                acVar5 = this.f2812a.f2773b;
-                if (f3 > acVar5.b().f3052a) {
-                    acVar6 = this.f2812a.f2773b;
-                    f = acVar6.b().f3052a;
+                acVar5 = this.f2810a.f2771b;
+                if (f3 > acVar5.b().f3050a) {
+                    acVar6 = this.f2810a.f2771b;
+                    f = acVar6.b().f3050a;
                 } else {
                     f = f3;
                 }
             }
-            f2 = this.f2812a.q;
+            f2 = this.f2810a.q;
             if (Math.abs(f2 - f) > 0.0f) {
                 sparseArray = TextureMapView.p;
                 int intValue = ((Integer) sparseArray.get(Math.round(f))).intValue();
-                acVar7 = this.f2812a.f2773b;
+                acVar7 = this.f2810a.f2771b;
                 int i = (int) (intValue / acVar7.b().E().m);
-                imageView = this.f2812a.n;
+                imageView = this.f2810a.n;
                 imageView.setPadding(i / 2, 0, i / 2, 0);
                 String format = intValue >= 1000 ? String.format(" %d公里 ", Integer.valueOf(intValue / 1000)) : String.format(" %d米 ", Integer.valueOf(intValue));
-                textView = this.f2812a.l;
+                textView = this.f2810a.l;
                 textView.setText(format);
-                textView2 = this.f2812a.m;
+                textView2 = this.f2810a.m;
                 textView2.setText(format);
-                this.f2812a.q = f;
+                this.f2810a.q = f;
             }
-            this.f2812a.b();
-            this.f2812a.requestLayout();
+            this.f2810a.b();
+            this.f2810a.requestLayout();
         }
     }
 

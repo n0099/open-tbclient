@@ -3,14 +3,14 @@ package com.baidu.tieba.memberCenter.index.a;
 import com.baidu.adp.BdUniqueId;
 import tbclient.GetVipInfo.VipRank;
 import tbclient.GetVipInfo.VipUser;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class p implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lfo = BdUniqueId.gen();
+    public static final BdUniqueId lnr = BdUniqueId.gen();
     public String cardId;
-    public boolean leh = false;
-    public boolean lei = true;
-    private d leo;
-    private VipUser lfp;
+    public boolean lmk = false;
+    public boolean lml = true;
+    private d lmq;
+    private VipUser lns;
     private String portrait;
     private int rankScore;
 
@@ -18,18 +18,18 @@ public class p implements com.baidu.adp.widget.ListView.n {
         this.cardId = "";
         if (vipRank != null) {
             this.cardId = vipRank.card_id;
-            this.leo = new d();
-            this.leo.setCategoryName(vipRank.class_name);
-            this.leo.Nl(vipRank.class_url_name);
-            this.leo.Nm(vipRank.class_url);
+            this.lmq = new d();
+            this.lmq.setCategoryName(vipRank.class_name);
+            this.lmq.NZ(vipRank.class_url_name);
+            this.lmq.Oa(vipRank.class_url);
             this.rankScore = vipRank.my_score_rank.intValue();
             this.portrait = vipUser.portrait;
-            this.lfp = vipUser;
+            this.lns = vipUser;
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lfo;
+        return lnr;
     }
 }

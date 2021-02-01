@@ -12,7 +12,7 @@ import android.view.Surface;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 @TargetApi(17)
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class DummySurface extends Surface {
     private static final String TAG = "DummySurface";
     private static int secureMode;
@@ -22,7 +22,7 @@ public final class DummySurface extends Surface {
     private boolean threadReleased;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DummySurfaceThread extends HandlerThread implements Handler.Callback {
         private static final int MSG_INIT = 1;
         private static final int MSG_RELEASE = 2;

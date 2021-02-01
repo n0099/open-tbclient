@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.Toast;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -52,7 +52,7 @@ public final class e {
         return b(context, intent, false);
     }
 
-    public static void N(Activity activity) {
+    public static void H(Activity activity) {
         if (DEBUG) {
             Log.i("ActivityUtils", "tryFinishAndRemoveTask: " + activity);
         }
@@ -71,27 +71,27 @@ public final class e {
         }
     }
 
-    public static void O(Activity activity) {
+    public static void I(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aNj());
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aNC());
         }
     }
 
-    public static void P(Activity activity) {
+    public static void J(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aNj() ^ (-1));
-            if (com.baidu.swan.apps.res.widget.a.dyP) {
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aNC() ^ (-1));
+            if (com.baidu.swan.apps.res.widget.a.dAU) {
                 systemUiVisibility |= Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
             }
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         }
     }
 
-    public static int aNj() {
+    public static int aNC() {
         return 5894;
     }
 }

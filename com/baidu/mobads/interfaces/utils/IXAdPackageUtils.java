@@ -6,7 +6,7 @@ import android.content.pm.PackageInfo;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface IXAdPackageUtils {
     int getAppVersion(Context context);
 
@@ -28,22 +28,21 @@ public interface IXAdPackageUtils {
 
     void sendDialerIsSuccess(Context context, boolean z, int i, String str);
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class ApkInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        private PackageInfo f3377a;
-        public final String appName;
+        private PackageInfo f3388a;
+        public final String appName = "";
         public final String packageName;
         public final int versionCode;
         public final String versionName;
 
         public ApkInfo(Context context, PackageInfo packageInfo) {
-            this.f3377a = packageInfo;
+            this.f3388a = packageInfo;
             this.packageName = packageInfo.packageName;
             this.versionName = packageInfo.versionName;
             this.versionCode = packageInfo.versionCode;
-            this.appName = packageInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
         }
 
         public JSONObject toJSONObject() {
@@ -52,7 +51,7 @@ public interface IXAdPackageUtils {
                 jSONObject.put("p", this.packageName);
                 jSONObject.put("v", this.versionName);
                 jSONObject.put("c", this.versionCode);
-                jSONObject.put("s", new File(this.f3377a.applicationInfo.sourceDir).lastModified());
+                jSONObject.put("s", new File(this.f3388a.applicationInfo.sourceDir).lastModified());
             } catch (JSONException e) {
             }
             return jSONObject;

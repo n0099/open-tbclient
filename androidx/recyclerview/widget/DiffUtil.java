@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public class DiffUtil {
     private static final Comparator<Snake> SNAKE_COMPARATOR = new Comparator<Snake>() { // from class: androidx.recyclerview.widget.DiffUtil.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,7 +151,7 @@ public class DiffUtil {
         throw new IllegalStateException("DiffUtil hit an unexpected case while trying to calculate the optimal path. Please make sure your data is not changing during the diff calculation.");
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static abstract class Callback {
         public abstract boolean areContentsTheSame(int i, int i2);
 
@@ -167,7 +167,7 @@ public class DiffUtil {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static abstract class ItemCallback<T> {
         public abstract boolean areContentsTheSame(@NonNull T t, @NonNull T t2);
 
@@ -180,7 +180,7 @@ public class DiffUtil {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class Snake {
         boolean removal;
         boolean reverse;
@@ -193,7 +193,7 @@ public class DiffUtil {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class Range {
         int newListEnd;
         int newListStart;
@@ -211,7 +211,7 @@ public class DiffUtil {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class DiffResult {
         private static final int FLAG_CHANGED = 2;
         private static final int FLAG_IGNORE = 16;
@@ -498,7 +498,7 @@ public class DiffUtil {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes15.dex */
     public static class PostponedUpdate {
         int currentPos;
         int posInOwnerList;

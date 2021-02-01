@@ -2,35 +2,35 @@ package com.qq.e.ads.cfg;
 
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class VideoOption {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f11441a;
+    private final boolean f11443a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f11442b;
+    private final int f11444b;
     private final boolean c;
     private final boolean d;
     private final boolean e;
     private final boolean f;
     private final boolean g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class AutoPlayPolicy {
         public static final int ALWAYS = 1;
         public static final int NEVER = 2;
         public static final int WIFI = 0;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f11443a = true;
+        private boolean f11445a = true;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f11444b = 1;
+        private int f11446b = 1;
         private boolean c = true;
         private boolean d = true;
         private boolean e = true;
@@ -42,7 +42,7 @@ public class VideoOption {
         }
 
         public final Builder setAutoPlayMuted(boolean z) {
-            this.f11443a = z;
+            this.f11445a = z;
             return this;
         }
 
@@ -51,7 +51,7 @@ public class VideoOption {
                 GDTLogger.e("invalid value of autoPlayPolicy, can only be [0, 2], reset to : 1");
                 i = 1;
             }
-            this.f11444b = i;
+            this.f11446b = i;
             return this;
         }
 
@@ -81,14 +81,14 @@ public class VideoOption {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class VideoADContainerRender {
         public static final int DEV = 2;
         public static final int SDK = 1;
         public static final int UNKNOWN = 0;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static final class VideoPlayPolicy {
         public static final int AUTO = 1;
         public static final int MANUAL = 2;
@@ -96,8 +96,8 @@ public class VideoOption {
     }
 
     private VideoOption(Builder builder) {
-        this.f11441a = builder.f11443a;
-        this.f11442b = builder.f11444b;
+        this.f11443a = builder.f11445a;
+        this.f11444b = builder.f11446b;
         this.c = builder.c;
         this.d = builder.d;
         this.e = builder.e;
@@ -110,18 +110,18 @@ public class VideoOption {
     }
 
     public boolean getAutoPlayMuted() {
-        return this.f11441a;
+        return this.f11443a;
     }
 
     public int getAutoPlayPolicy() {
-        return this.f11442b;
+        return this.f11444b;
     }
 
     public JSONObject getOptions() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt("autoPlayMuted", Boolean.valueOf(this.f11441a));
-            jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f11442b));
+            jSONObject.putOpt("autoPlayMuted", Boolean.valueOf(this.f11443a));
+            jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f11444b));
             jSONObject.putOpt("detailPageMuted", Boolean.valueOf(this.g));
         } catch (Exception e) {
             GDTLogger.e("Get video options error: " + e.getMessage());

@@ -6,22 +6,22 @@ import android.net.Proxy;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
 import com.baidu.mapsdkplatform.comjni.engine.AppEngine;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f3022a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
+    static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f3020a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f3023b = false;
+    public static boolean f3021b = false;
     public static String c = "";
     public static int d = 0;
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     public void init() {
-        if (f3022a != null) {
-            f3022a.a();
-            f3022a.b();
+        if (f3020a != null) {
+            f3020a.a();
+            f3020a.b();
         }
     }
 
@@ -39,22 +39,22 @@ public class SysUpdateUtil implements SysUpdateObserver {
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
-            f3023b = false;
+            f3021b = false;
         } else if (lowerCase.equals("mobile") || (lowerCase.equals("wifi") && !NetworkUtil.isWifiConnected(activeNetworkInfo))) {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            f3023b = false;
+            f3021b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
                 if (lowerCase2.startsWith("cmwap") || lowerCase2.startsWith("uniwap") || lowerCase2.startsWith("3gwap")) {
                     c = "10.0.0.172";
                     d = 80;
-                    f3023b = true;
+                    f3021b = true;
                 } else if (lowerCase2.startsWith("ctwap")) {
                     c = "10.0.0.200";
                     d = 80;
-                    f3023b = true;
+                    f3021b = true;
                 } else if (lowerCase2.startsWith("cmnet") || lowerCase2.startsWith("uninet") || lowerCase2.startsWith("ctnet") || lowerCase2.startsWith("3gnet")) {
-                    f3023b = false;
+                    f3021b = false;
                 }
             } else {
                 String defaultHost = Proxy.getDefaultHost();
@@ -63,15 +63,15 @@ public class SysUpdateUtil implements SysUpdateObserver {
                     if ("10.0.0.172".equals(defaultHost.trim())) {
                         c = "10.0.0.172";
                         d = defaultPort;
-                        f3023b = true;
+                        f3021b = true;
                     } else if ("10.0.0.200".equals(defaultHost.trim())) {
                         c = "10.0.0.200";
                         d = 80;
-                        f3023b = true;
+                        f3021b = true;
                     }
                 }
             }
-            if (f3023b) {
+            if (f3021b) {
                 AppEngine.SetProxyInfo(c, d);
             } else {
                 AppEngine.SetProxyInfo(null, 0);
@@ -81,8 +81,8 @@ public class SysUpdateUtil implements SysUpdateObserver {
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     public void updatePhoneInfo() {
-        if (f3022a != null) {
-            f3022a.b();
+        if (f3020a != null) {
+            f3020a.b();
         }
     }
 }

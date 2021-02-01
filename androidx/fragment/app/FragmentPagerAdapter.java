@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class FragmentPagerAdapter extends PagerAdapter {
     private static final boolean DEBUG = false;
     private static final String TAG = "FragmentPagerAdapter";

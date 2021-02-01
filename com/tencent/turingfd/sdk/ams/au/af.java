@@ -1,7 +1,7 @@
 package com.tencent.turingfd.sdk.ams.au;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f13467a = 105498;
+    public static int f13469a = 105498;
 }

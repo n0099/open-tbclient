@@ -11,113 +11,113 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.s;
+import com.baidu.tbadk.core.util.t;
 /* loaded from: classes.dex */
 public class b {
-    public boolean eXK;
-    private final g eZz = new g();
+    public boolean eZZ;
+    private final g fbO = new g();
     public boolean mIsNeedTbs = false;
     public boolean mNeedBackgroundLogin = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
-    public boolean MA = false;
+    public boolean My = false;
     public boolean mIsFromCDN = false;
     public boolean mIsRequestImage = false;
     public int mImageType = 0;
 
-    public g bsK() {
-        return this.eZz;
+    public g bte() {
+        return this.fbO;
     }
 
-    public void a(s sVar) {
+    public void a(t tVar) {
         String bduss;
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null && (bduss = currentAccountInfo.getBDUSS()) != null && this.mIsUseCurrentBDUSS) {
-            sVar.addPostData("BDUSS", bduss);
+            tVar.addPostData("BDUSS", bduss);
             String c = com.baidu.tbadk.core.a.d.c(currentAccountInfo);
             if (!StringUtils.isNull(c)) {
-                sVar.addPostData("stoken", c);
+                tVar.addPostData("stoken", c);
             }
         }
     }
 
-    public void b(s sVar) {
+    public void b(t tVar) {
         boolean z;
-        sVar.addPostData("_client_type", "2");
+        tVar.addPostData("_client_type", "2");
         if (!TbadkCoreApplication.getInst().isOfficial()) {
-            sVar.addPostData("apid", "sw");
+            tVar.addPostData("apid", "sw");
         }
-        sVar.addPostData("_client_version", TbConfig.getVersion());
+        tVar.addPostData("_client_version", TbConfig.getVersion());
         if (TbadkCoreApplication.getInst().getImei() != null) {
-            sVar.addPostData("_phone_imei", TbadkCoreApplication.getInst().getImei());
+            tVar.addPostData("_phone_imei", TbadkCoreApplication.getInst().getImei());
         }
         String clientId = TbadkCoreApplication.getClientId();
         if (clientId != null) {
-            sVar.addPostData("_client_id", clientId);
+            tVar.addPostData("_client_id", clientId);
         }
         String subappType = TbConfig.getSubappType();
         if (!TextUtils.isEmpty(subappType)) {
-            sVar.addPostData("subapp_type", subappType);
+            tVar.addPostData("subapp_type", subappType);
         }
         String from = TbadkCoreApplication.getFrom();
         if (from != null && from.length() > 0) {
-            sVar.addPostData("from", from);
+            tVar.addPostData("from", from);
         }
         int netType = j.netType();
-        sVar.addPostData("net_type", String.valueOf(netType));
-        String bvA = com.baidu.tbadk.coreExtra.b.a.bvx().bvA();
+        tVar.addPostData("net_type", String.valueOf(netType));
+        String bvT = com.baidu.tbadk.coreExtra.b.a.bvQ().bvT();
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
-            bvA = bvA + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+            bvT = bvT + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
         }
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                bvA = bvA + "ka=open";
+                bvT = bvT + "ka=open";
                 z = true;
             }
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                bvA = bvA + "ka=open";
+                bvT = bvT + "ka=open";
                 z = true;
             }
             z = false;
         }
         com.baidu.adp.lib.network.a.a.al(z);
-        com.baidu.adp.lib.network.a.a.bM(bvA);
+        com.baidu.adp.lib.network.a.a.bM(bvT);
         if (this.mIsNeedTbs) {
             if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                sVar.addPostData("tbs", com.baidu.tbadk.mutiprocess.f.getTbs());
+                tVar.addPostData("tbs", com.baidu.tbadk.mutiprocess.f.getTbs());
             } else {
-                sVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+                tVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
             }
         }
-        sVar.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-        sVar.addPostData("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
-        sVar.addPostData("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
-        sVar.addPostData("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
-        sVar.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
-        sVar.addPostData("model", Build.MODEL);
-        if (com.baidu.tbadk.core.sharedPref.b.brx().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
-            sVar.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
+        tVar.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
+        tVar.addPostData("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
+        tVar.addPostData("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
+        tVar.addPostData("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
+        tVar.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
+        tVar.addPostData("model", Build.MODEL);
+        if (com.baidu.tbadk.core.sharedPref.b.brQ().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+            tVar.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
         }
-        sVar.addPostData("active_timestamp", String.valueOf(TbSingleton.getInstance().getActiveTimeStamp()));
-        sVar.addPostData("first_install_time", String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime()));
-        sVar.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
-        sVar.addPostData("event_day", TbSingleton.getInstance().getData());
+        tVar.addPostData("active_timestamp", String.valueOf(TbSingleton.getInstance().getActiveTimeStamp()));
+        tVar.addPostData("first_install_time", String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime()));
+        tVar.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
+        tVar.addPostData("event_day", TbSingleton.getInstance().getData());
     }
 
     public String getApiName() {
-        if (this.eZz.mUrl == null) {
+        if (this.fbO.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.eZz.mUrl.startsWith(str)) {
-            int indexOf = this.eZz.mUrl.indexOf(63);
+        if (this.fbO.mUrl.startsWith(str)) {
+            int indexOf = this.fbO.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.eZz.mUrl.length();
+                indexOf = this.fbO.mUrl.length();
             }
-            return this.eZz.mUrl.substring(str.length(), indexOf);
+            return this.fbO.mUrl.substring(str.length(), indexOf);
         }
-        return this.eZz.mUrl;
+        return this.fbO.mUrl;
     }
 }

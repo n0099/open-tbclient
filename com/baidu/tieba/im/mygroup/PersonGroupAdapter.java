@@ -5,51 +5,51 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonGroupAdapter extends FragmentPagerAdapter {
-    public static int kBY = 1;
-    private int[] gUa;
-    private ArrayList<PersonalGroupFragment> kBZ;
+    public static int kKd = 1;
+    private int[] gWK;
+    private ArrayList<PersonalGroupFragment> kKe;
 
     public PersonGroupAdapter(PersonGroupActivity personGroupActivity, boolean z) {
         super(personGroupActivity.getSupportFragmentManager());
-        this.kBZ = new ArrayList<>();
+        this.kKe = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.kBZ.add(personalGroupFragment);
+        this.kKe.add(personalGroupFragment);
         if (z) {
-            this.gUa = new int[]{0};
+            this.gWK = new int[]{0};
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.kBZ.add(personalGroupFragment2);
-            this.gUa = new int[]{0, 1};
+            this.kKe.add(personalGroupFragment2);
+            this.gWK = new int[]{0, 1};
         }
-        kBY = this.gUa.length;
-        Iterator<PersonalGroupFragment> it = this.kBZ.iterator();
+        kKd = this.gWK.length;
+        Iterator<PersonalGroupFragment> it = this.kKe.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.kBZ.size());
+            it.next().getArguments().putInt("page_size", this.kKe.size());
         }
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= kBY || i < 0) {
+        if (i >= kKd || i < 0) {
             return null;
         }
-        return this.kBZ.get(i);
+        return this.kKe.get(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return kBY;
+        return kKd;
     }
 
-    public int CR(int i) {
-        return this.gUa[i];
+    public int Dj(int i) {
+        return this.gWK[i];
     }
 }

@@ -7,14 +7,14 @@ import androidx.annotation.Nullable;
 import com.baidu.live.lottie.a.b.a;
 import com.baidu.live.lottie.model.content.ShapeTrimPath;
 import java.util.List;
-/* loaded from: classes9.dex */
-public class n implements j, l, a.InterfaceC0185a {
+/* loaded from: classes10.dex */
+public class n implements j, l, a.InterfaceC0186a {
     private boolean DJ;
+    private final com.baidu.live.lottie.a.b.a<?, Float> bsK;
     @Nullable
-    private r boS;
-    private final com.baidu.live.lottie.a.b.a<?, PointF> boU;
-    private final com.baidu.live.lottie.a.b.a<?, PointF> boV;
-    private final com.baidu.live.lottie.a.b.a<?, Float> bpj;
+    private r bst;
+    private final com.baidu.live.lottie.a.b.a<?, PointF> bsv;
+    private final com.baidu.live.lottie.a.b.a<?, PointF> bsw;
     private final com.baidu.live.lottie.h lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -23,15 +23,15 @@ public class n implements j, l, a.InterfaceC0185a {
     public n(com.baidu.live.lottie.h hVar, com.baidu.live.lottie.model.layer.a aVar, com.baidu.live.lottie.model.content.f fVar) {
         this.name = fVar.getName();
         this.lottieDrawable = hVar;
-        this.boV = fVar.LX().LU();
-        this.boU = fVar.Me().LU();
-        this.bpj = fVar.Mw().LU();
-        aVar.a(this.boV);
-        aVar.a(this.boU);
-        aVar.a(this.bpj);
-        this.boV.b(this);
-        this.boU.b(this);
-        this.bpj.b(this);
+        this.bsw = fVar.Nv().Ns();
+        this.bsv = fVar.NC().Ns();
+        this.bsK = fVar.NU().Ns();
+        aVar.a(this.bsw);
+        aVar.a(this.bsv);
+        aVar.a(this.bsK);
+        this.bsw.b(this);
+        this.bsv.b(this);
+        this.bsK.b(this);
     }
 
     @Override // com.baidu.live.lottie.a.a.b
@@ -39,8 +39,8 @@ public class n implements j, l, a.InterfaceC0185a {
         return this.name;
     }
 
-    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0185a
-    public void is() {
+    @Override // com.baidu.live.lottie.a.b.a.InterfaceC0186a
+    public void ir() {
         invalidate();
     }
 
@@ -56,9 +56,9 @@ public class n implements j, l, a.InterfaceC0185a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).LK() == ShapeTrimPath.Type.Simultaneously) {
-                    this.boS = (r) bVar;
-                    this.boS.a(this);
+                if ((bVar instanceof r) && ((r) bVar).Ni() == ShapeTrimPath.Type.Simultaneously) {
+                    this.bst = (r) bVar;
+                    this.bst.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -68,20 +68,20 @@ public class n implements j, l, a.InterfaceC0185a {
     }
 
     @Override // com.baidu.live.lottie.a.a.l
-    public Path iv() {
+    public Path iu() {
         if (this.DJ) {
             return this.path;
         }
         this.path.reset();
-        PointF value = this.boU.getValue();
+        PointF value = this.bsv.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
-        float floatValue = this.bpj == null ? 0.0f : this.bpj.getValue().floatValue();
+        float floatValue = this.bsK == null ? 0.0f : this.bsK.getValue().floatValue();
         float min = Math.min(f, f2);
         if (floatValue <= min) {
             min = floatValue;
         }
-        PointF value2 = this.boV.getValue();
+        PointF value2 = this.bsw.getValue();
         this.path.moveTo(value2.x + f, (value2.y - f2) + min);
         this.path.lineTo(value2.x + f, (value2.y + f2) - min);
         if (min > 0.0f) {
@@ -104,7 +104,7 @@ public class n implements j, l, a.InterfaceC0185a {
             this.path.arcTo(this.rect, 270.0f, 90.0f, false);
         }
         this.path.close();
-        com.baidu.live.lottie.d.f.a(this.path, this.boS);
+        com.baidu.live.lottie.d.f.a(this.path, this.bst);
         this.DJ = true;
         return this.path;
     }

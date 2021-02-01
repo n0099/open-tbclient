@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.security.MessageDigest;
 import java.util.Calendar;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static String a() {
         try {
-            Context applicationContext = b.a().f11397b != null ? b.a().f11397b : com.pgl.sys.ces.a.a.eBl().getApplicationContext();
+            Context applicationContext = b.a().f11399b != null ? b.a().f11399b : com.pgl.sys.ces.a.a.eDC().getApplicationContext();
             return com.pgl.a.b.a.a(MessageDigest.getInstance("SHA1").digest(applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 64).signatures[0].toByteArray())).toUpperCase();
         } catch (Throwable th) {
             return "0000000000000000000000000000000000000000";

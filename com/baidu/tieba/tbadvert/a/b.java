@@ -3,13 +3,13 @@ package com.baidu.tieba.tbadvert.a;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public int ePK;
+    public int eRW;
     public long endTime;
     public int id;
     public String linkUrl;
-    public String nrH;
+    public String nBq;
     public long showTime = IMConnection.RETRY_DELAY_TIMES;
     public int showType;
     public long startTime;
@@ -22,13 +22,13 @@ public class b {
             this.startTime = jSONObject.optLong("start_time", 0L);
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE, 0);
-            this.ePK = jSONObject.optInt("show_status", 0);
-            this.nrH = jSONObject.optString("resource_url");
+            this.eRW = jSONObject.optInt("show_status", 0);
+            this.nBq = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean dNl() {
+    public boolean dPw() {
         return this.showType == 1;
     }
 

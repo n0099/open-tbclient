@@ -5,13 +5,13 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class i extends g {
     private final Matrix mTempMatrix;
     private final RectF mTempRectF;
-    final Matrix psB;
-    private int psC;
-    private int psD;
+    final Matrix pCK;
+    private int pCL;
+    private int pCM;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Drawable drawable, int i, int i2) {
@@ -21,61 +21,61 @@ public class i extends g {
         this.mTempRectF = new RectF();
         com.facebook.common.internal.g.checkArgument(i % 90 == 0);
         com.facebook.common.internal.g.checkArgument((i2 < 0 || i2 > 8) ? false : z);
-        this.psB = new Matrix();
-        this.psC = i;
-        this.psD = i2;
+        this.pCK = new Matrix();
+        this.pCL = i;
+        this.pCM = i2;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.psC <= 0 && (this.psD == 0 || this.psD == 1)) {
+        if (this.pCL <= 0 && (this.pCM == 0 || this.pCM == 1)) {
             super.draw(canvas);
             return;
         }
         int save = canvas.save();
-        canvas.concat(this.psB);
+        canvas.concat(this.pCK);
         super.draw(canvas);
         canvas.restoreToCount(save);
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return (this.psD == 5 || this.psD == 7 || this.psC % 180 != 0) ? super.getIntrinsicHeight() : super.getIntrinsicWidth();
+        return (this.pCM == 5 || this.pCM == 7 || this.pCL % 180 != 0) ? super.getIntrinsicHeight() : super.getIntrinsicWidth();
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return (this.psD == 5 || this.psD == 7 || this.psC % 180 != 0) ? super.getIntrinsicWidth() : super.getIntrinsicHeight();
+        return (this.pCM == 5 || this.pCM == 7 || this.pCL % 180 != 0) ? super.getIntrinsicWidth() : super.getIntrinsicHeight();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         Drawable current = getCurrent();
-        if (this.psC > 0 || (this.psD != 0 && this.psD != 1)) {
-            switch (this.psD) {
+        if (this.pCL > 0 || (this.pCM != 0 && this.pCM != 1)) {
+            switch (this.pCM) {
                 case 2:
-                    this.psB.setScale(-1.0f, 1.0f);
+                    this.pCK.setScale(-1.0f, 1.0f);
                     break;
                 case 3:
                 case 6:
                 default:
-                    this.psB.setRotate(this.psC, rect.centerX(), rect.centerY());
+                    this.pCK.setRotate(this.pCL, rect.centerX(), rect.centerY());
                     break;
                 case 4:
-                    this.psB.setScale(1.0f, -1.0f);
+                    this.pCK.setScale(1.0f, -1.0f);
                     break;
                 case 5:
-                    this.psB.setRotate(270.0f, rect.centerX(), rect.centerY());
-                    this.psB.postScale(1.0f, -1.0f);
+                    this.pCK.setRotate(270.0f, rect.centerX(), rect.centerY());
+                    this.pCK.postScale(1.0f, -1.0f);
                     break;
                 case 7:
-                    this.psB.setRotate(270.0f, rect.centerX(), rect.centerY());
-                    this.psB.postScale(-1.0f, 1.0f);
+                    this.pCK.setRotate(270.0f, rect.centerX(), rect.centerY());
+                    this.pCK.postScale(-1.0f, 1.0f);
                     break;
             }
             this.mTempMatrix.reset();
-            this.psB.invert(this.mTempMatrix);
+            this.pCK.invert(this.mTempMatrix);
             this.mTempRectF.set(rect);
             this.mTempMatrix.mapRect(this.mTempRectF);
             current.setBounds((int) this.mTempRectF.left, (int) this.mTempRectF.top, (int) this.mTempRectF.right, (int) this.mTempRectF.bottom);
@@ -87,8 +87,8 @@ public class i extends g {
     @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.r
     public void f(Matrix matrix) {
         g(matrix);
-        if (!this.psB.isIdentity()) {
-            matrix.preConcat(this.psB);
+        if (!this.pCK.isIdentity()) {
+            matrix.preConcat(this.pCK);
         }
     }
 }

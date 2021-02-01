@@ -3,9 +3,9 @@ package com.baidu.tieba.yuyinala.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.yuyinala.data.a;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaGetRedPacketInfoResponseMessage extends JsonHttpResponsedMessage {
-    private a oCd;
+    private a oMl;
 
     public AlaGetRedPacketInfoResponseMessage() {
         super(1031073);
@@ -16,12 +16,12 @@ public class AlaGetRedPacketInfoResponseMessage extends JsonHttpResponsedMessage
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.oCd = new a();
-            this.oCd.parserJson(optJSONObject);
+            this.oMl = new a();
+            this.oMl.parserJson(optJSONObject);
         }
     }
 
-    public a edf() {
-        return this.oCd;
+    public a efw() {
+        return this.oMl;
     }
 }

@@ -2,17 +2,17 @@ package com.baidu.live.sdk.goods.d;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.data.bq;
+import com.baidu.live.data.bv;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static void o(Context context, String str, String str2) {
-        bq bqVar = com.baidu.live.af.a.OJ().bxp;
-        if (bqVar != null && bqVar.aMS != null) {
-            String str3 = bqVar.aMS.aPD;
+        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
+        if (bvVar != null && bvVar.aPQ != null) {
+            String str3 = bvVar.aPQ.aSF;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }

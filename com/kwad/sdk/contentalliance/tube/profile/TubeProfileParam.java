@@ -3,7 +3,7 @@ package com.kwad.sdk.contentalliance.tube.profile;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TubeProfileParam implements Serializable {
     private static final long serialVersionUID = -5238032101385027454L;
     public AdTemplate mAdTemplate;

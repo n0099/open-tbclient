@@ -6,11 +6,11 @@ import android.os.IBinder;
 import android.os.Parcel;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class q extends o {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f13545b = y.a(y.i);
+    public static final String f13547b = y.a(y.i);
 
     @Override // com.tencent.turingfd.sdk.ams.au.o
     public String a(IBinder iBinder) throws Exception {
@@ -43,7 +43,7 @@ public class q extends o {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
-            obtain.writeInterfaceToken(f13545b);
+            obtain.writeInterfaceToken(f13547b);
             obtain.writeString(packageName);
             obtain.writeString(str);
             obtain.writeString(a3);

@@ -1,17 +1,17 @@
 package com.qq.e.ads.nativ.express2;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class VideoOption2 {
 
     /* renamed from: a  reason: collision with root package name */
-    private AutoPlayPolicy f11497a;
+    private AutoPlayPolicy f11499a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f11498b;
+    private boolean f11500b;
     private boolean c;
     private int d;
     private int e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum AutoPlayPolicy {
         WIFI(0),
         ALWAYS(1),
@@ -19,25 +19,25 @@ public class VideoOption2 {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f11500a;
+        private int f11502a;
 
         AutoPlayPolicy(int i) {
-            this.f11500a = i;
+            this.f11502a = i;
         }
 
         public final int getPolicy() {
-            return this.f11500a;
+            return this.f11502a;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        AutoPlayPolicy f11501a = AutoPlayPolicy.WIFI;
+        AutoPlayPolicy f11503a = AutoPlayPolicy.WIFI;
 
         /* renamed from: b  reason: collision with root package name */
-        boolean f11502b = true;
+        boolean f11504b = true;
         boolean c = false;
         int d;
         int e;
@@ -47,13 +47,13 @@ public class VideoOption2 {
         }
 
         public Builder setAutoPlayMuted(boolean z) {
-            this.f11502b = z;
+            this.f11504b = z;
             return this;
         }
 
         public Builder setAutoPlayPolicy(AutoPlayPolicy autoPlayPolicy) {
             if (autoPlayPolicy != null) {
-                this.f11501a = autoPlayPolicy;
+                this.f11503a = autoPlayPolicy;
             }
             return this;
         }
@@ -75,8 +75,8 @@ public class VideoOption2 {
     }
 
     private VideoOption2(Builder builder) {
-        this.f11497a = builder.f11501a;
-        this.f11498b = builder.f11502b;
+        this.f11499a = builder.f11503a;
+        this.f11500b = builder.f11504b;
         this.c = builder.c;
         this.d = builder.d;
         this.e = builder.e;
@@ -87,7 +87,7 @@ public class VideoOption2 {
     }
 
     public AutoPlayPolicy getAutoPlayPolicy() {
-        return this.f11497a;
+        return this.f11499a;
     }
 
     public int getMaxVideoDuration() {
@@ -99,7 +99,7 @@ public class VideoOption2 {
     }
 
     public boolean isAutoPlayMuted() {
-        return this.f11498b;
+        return this.f11500b;
     }
 
     public boolean isDetailPageMuted() {

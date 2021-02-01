@@ -12,7 +12,7 @@ import java.util.List;
 public class au {
     public static final String java = au.class.getSimpleName();
 
-    public static void iI(Context context) {
+    public static void iL(Context context) {
         b bVar = new b((byte) 0);
         try {
             LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
@@ -47,8 +47,8 @@ public class au {
 
         @Override // android.location.LocationListener
         public final void onLocationChanged(Location location) {
-            a.eGO().qag = location.getLatitude();
-            a.eGO().qah = location.getLongitude();
+            a.eJe().qkk = location.getLatitude();
+            a.eJe().qkl = location.getLongitude();
         }
 
         @Override // android.location.LocationListener
@@ -66,12 +66,12 @@ public class au {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private static final a qaf = new a();
-        public double qag;
-        public double qah;
+        private static final a qkj = new a();
+        public double qkk;
+        public double qkl;
 
-        public static a eGO() {
-            return qaf;
+        public static a eJe() {
+            return qkj;
         }
     }
 }

@@ -7,19 +7,19 @@ import android.opengl.Matrix;
 import android.view.Display;
 import com.google.b.a.a.a.g;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Display f7885a;
+    private final Display f7887a;
     private volatile boolean j;
     private long p;
-    private com.google.b.a.a.a.a pMq;
-    private d pMr;
-    private a pMs;
+    private com.google.b.a.a.a.a pWv;
+    private d pWw;
+    private a pWx;
 
     /* renamed from: b  reason: collision with root package name */
-    private final float[] f7886b = new float[16];
+    private final float[] f7888b = new float[16];
     private final float[] c = new float[16];
     private float d = -1.0f;
     private final float[] e = new float[16];
@@ -29,16 +29,16 @@ public class c implements SensorEventListener {
     private final Object i = new Object();
     private final Object l = new Object();
     private volatile boolean q = true;
-    private float[] pMt = new float[3];
-    private final g pMu = new g();
-    private final g pLE = new g();
-    private final g pMv = new g();
-    private final com.google.b.a.a.a.d pMp = new com.google.b.a.a.a.d();
+    private float[] pWy = new float[3];
+    private final g pWz = new g();
+    private final g pVJ = new g();
+    private final g pWA = new g();
+    private final com.google.b.a.a.a.d pWu = new com.google.b.a.a.a.d();
 
     public c(d dVar, a aVar, Display display) {
-        this.pMs = aVar;
-        this.pMr = dVar;
-        this.f7885a = display;
+        this.pWx = aVar;
+        this.pWw = dVar;
+        this.f7887a = display;
         a(true);
         Matrix.setIdentityM(this.e, 0);
     }
@@ -47,16 +47,16 @@ public class c implements SensorEventListener {
         if (this.j) {
             return;
         }
-        this.pMp.a();
+        this.pWu.a();
         Object obj = this.l;
         synchronized (this.l) {
-            if (this.pMq != null) {
-                this.pMq.a();
+            if (this.pWv != null) {
+                this.pWv.a();
             }
         }
         this.q = true;
-        this.pMr.a(this);
-        this.pMr.a();
+        this.pWw.a(this);
+        this.pWw.a();
         this.j = true;
     }
 
@@ -64,9 +64,9 @@ public class c implements SensorEventListener {
         Object obj = this.l;
         synchronized (this.l) {
             if (!z) {
-                this.pMq = null;
-            } else if (this.pMq == null) {
-                this.pMq = new com.google.b.a.a.a.a();
+                this.pWv = null;
+            } else if (this.pWv == null) {
+                this.pWv = new com.google.b.a.a.a.a();
             }
         }
     }
@@ -76,7 +76,7 @@ public class c implements SensorEventListener {
         if (i + 16 > fArr.length) {
             throw new IllegalArgumentException("Not enough space to write the result");
         }
-        switch (this.f7885a.getRotation()) {
+        switch (this.f7887a.getRotation()) {
             case 0:
                 f = 0.0f;
                 break;
@@ -96,17 +96,17 @@ public class c implements SensorEventListener {
         if (f != this.d) {
             this.d = f;
             Matrix.setRotateEulerM(this.c, 0, 0.0f, 0.0f, -f);
-            Matrix.setRotateEulerM(this.f7886b, 0, -90.0f, 0.0f, f);
+            Matrix.setRotateEulerM(this.f7888b, 0, -90.0f, 0.0f, f);
         }
-        com.google.b.a.a.a.d dVar = this.pMp;
-        synchronized (this.pMp) {
-            if (this.pMp.b()) {
-                double[] K = this.pMp.K(TimeUnit.NANOSECONDS.toSeconds(this.pMs.a() - this.p) + 0.057999998331069946d);
+        com.google.b.a.a.a.d dVar = this.pWu;
+        synchronized (this.pWu) {
+            if (this.pWu.b()) {
+                double[] K = this.pWu.K(TimeUnit.NANOSECONDS.toSeconds(this.pWx.a() - this.p) + 0.057999998331069946d);
                 for (int i2 = 0; i2 < fArr.length; i2++) {
                     this.f[i2] = (float) K[i2];
                 }
                 Matrix.multiplyMM(this.g, 0, this.c, 0, this.f, 0);
-                Matrix.multiplyMM(fArr, i, this.g, 0, this.f7886b, 0);
+                Matrix.multiplyMM(fArr, i, this.g, 0, this.f7888b, 0);
                 Matrix.setIdentityM(this.e, 0);
                 Matrix.translateM(this.e, 0, 0.0f, (-this.h) * 0.075f, this.h * 0.08f);
                 Matrix.multiplyMM(this.f, 0, this.e, 0, fArr, i);
@@ -117,8 +117,8 @@ public class c implements SensorEventListener {
 
     public void b() {
         if (this.j) {
-            this.pMr.b(this);
-            this.pMr.b();
+            this.pWw.b(this);
+            this.pWw.b();
             this.j = false;
         }
     }
@@ -130,36 +130,36 @@ public class c implements SensorEventListener {
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == 1) {
-            this.pMv.a(sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2]);
-            this.pMp.b(this.pMv, sensorEvent.timestamp);
+            this.pWA.a(sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2]);
+            this.pWu.b(this.pWA, sensorEvent.timestamp);
             Object obj = this.l;
             synchronized (this.l) {
-                if (this.pMq != null) {
-                    this.pMq.b(this.pMv, sensorEvent.timestamp);
+                if (this.pWv != null) {
+                    this.pWv.b(this.pWA, sensorEvent.timestamp);
                 }
             }
         } else if (sensorEvent.sensor.getType() == 4 || sensorEvent.sensor.getType() == 16) {
-            this.p = this.pMs.a();
+            this.p = this.pWx.a();
             if (sensorEvent.sensor.getType() == 16) {
                 if (this.q && sensorEvent.values.length == 6) {
-                    this.pMt[0] = sensorEvent.values[3];
-                    this.pMt[1] = sensorEvent.values[4];
-                    this.pMt[2] = sensorEvent.values[5];
+                    this.pWy[0] = sensorEvent.values[3];
+                    this.pWy[1] = sensorEvent.values[4];
+                    this.pWy[2] = sensorEvent.values[5];
                 }
-                this.pLE.a(sensorEvent.values[0] - this.pMt[0], sensorEvent.values[1] - this.pMt[1], sensorEvent.values[2] - this.pMt[2]);
+                this.pVJ.a(sensorEvent.values[0] - this.pWy[0], sensorEvent.values[1] - this.pWy[1], sensorEvent.values[2] - this.pWy[2]);
             } else {
-                this.pLE.a(sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2]);
+                this.pVJ.a(sensorEvent.values[0], sensorEvent.values[1], sensorEvent.values[2]);
             }
             this.q = false;
             Object obj2 = this.l;
             synchronized (this.l) {
-                if (this.pMq != null) {
-                    this.pMq.a(this.pLE, sensorEvent.timestamp);
-                    this.pMq.a(this.pMu);
-                    g.b(this.pLE, this.pMu, this.pLE);
+                if (this.pWv != null) {
+                    this.pWv.a(this.pVJ, sensorEvent.timestamp);
+                    this.pWv.a(this.pWz);
+                    g.b(this.pVJ, this.pWz, this.pVJ);
                 }
             }
-            this.pMp.a(this.pLE, sensorEvent.timestamp);
+            this.pWu.a(this.pVJ, sensorEvent.timestamp);
         }
     }
 }

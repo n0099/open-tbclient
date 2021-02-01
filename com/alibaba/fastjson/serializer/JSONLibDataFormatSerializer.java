@@ -5,7 +5,7 @@ import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class JSONLibDataFormatSerializer implements ObjectSerializer {
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {

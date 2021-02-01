@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.RelativeLayout;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.g;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f extends g.a {
     private Context mContext;
 
@@ -14,18 +14,18 @@ public class f extends g.a {
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-    public g apM() {
-        this.dzu = this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_list_item);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.dzu);
+    public g aqk() {
+        this.dBz = this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_list_item);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.dBz);
         layoutParams.addRule(12);
-        this.dAd.dzt.setLayoutParams(layoutParams);
+        this.dCi.dBy.setLayoutParams(layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider));
-        layoutParams2.addRule(2, this.dAd.dzt.getId());
-        this.dAd.dzn.setLayoutParams(layoutParams2);
-        iY(a.c.aiapps_action_sheet_split_color);
+        layoutParams2.addRule(2, this.dCi.dBy.getId());
+        this.dCi.dBs.setLayoutParams(layoutParams2);
+        jb(a.c.aiapps_action_sheet_split_color);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams3.addRule(2, this.dAd.dzn.getId());
-        this.dAd.dAk.setLayoutParams(layoutParams3);
-        return super.apM();
+        layoutParams3.addRule(2, this.dCi.dBs.getId());
+        this.dCi.dCp.setLayoutParams(layoutParams3);
+        return super.aqk();
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class j extends HttpMessage {
     public j(String str, String str2, String str3) {
         super(1031012);

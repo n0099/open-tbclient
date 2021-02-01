@@ -1,14 +1,14 @@
 package com.baidu.pass.biometrics.base.restnet;
 
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RestNameValuePair implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final long f3971a = 847806714499261896L;
+    private static final long f3974a = 847806714499261896L;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3972b;
+    private String f3975b;
     private String c;
 
     public RestNameValuePair() {
@@ -16,7 +16,7 @@ public class RestNameValuePair implements Serializable {
     }
 
     public String getName() {
-        return this.f3972b;
+        return this.f3975b;
     }
 
     public String getValue() {
@@ -24,7 +24,7 @@ public class RestNameValuePair implements Serializable {
     }
 
     public void setName(String str) {
-        this.f3972b = str;
+        this.f3975b = str;
     }
 
     public void setValue(String str) {
@@ -32,11 +32,11 @@ public class RestNameValuePair implements Serializable {
     }
 
     public String toString() {
-        return "name = " + this.f3972b + ", value = " + this.c;
+        return "name = " + this.f3975b + ", value = " + this.c;
     }
 
     public RestNameValuePair(String str, String str2) {
-        this.f3972b = str;
+        this.f3975b = str;
         this.c = str2;
     }
 }

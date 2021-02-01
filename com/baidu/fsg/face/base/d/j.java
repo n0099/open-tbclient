@@ -20,10 +20,10 @@ import java.lang.reflect.Method;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f2101a = -1728053248;
+    public static final int f2099a = -1728053248;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f2102b;
+    private static String f2100b;
     private final a c;
     private boolean d;
     private boolean e;
@@ -35,9 +35,9 @@ public class j {
             try {
                 Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
-                f2102b = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+                f2100b = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable th) {
-                f2102b = null;
+                f2100b = null;
             }
         }
     }
@@ -137,10 +137,10 @@ public class j {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2103a = "status_bar_height";
+        private static final String f2101a = "status_bar_height";
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f2104b = "navigation_bar_height";
+        private static final String f2102b = "navigation_bar_height";
         private static final String c = "navigation_bar_height_landscape";
         private static final String d = "navigation_bar_width";
         private static final String e = "config_showNavigationBar";
@@ -155,7 +155,7 @@ public class j {
             Resources resources = activity.getResources();
             this.j = resources.getConfiguration().orientation == 1;
             this.k = a(activity);
-            this.f = a(resources, f2103a);
+            this.f = a(resources, f2101a);
             this.h = a((Context) activity);
             this.i = b(activity);
             this.g = this.h > 0;
@@ -169,7 +169,7 @@ public class j {
                 return 0;
             }
             if (this.j) {
-                str = f2104b;
+                str = f2102b;
             } else {
                 str = c;
             }
@@ -199,10 +199,10 @@ public class j {
             int identifier = resources.getIdentifier(e, "bool", HttpConstants.OS_TYPE_VALUE);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
-                if ("1".equals(j.f2102b)) {
+                if ("1".equals(j.f2100b)) {
                     return false;
                 }
-                if ("0".equals(j.f2102b)) {
+                if ("0".equals(j.f2100b)) {
                     return true;
                 }
                 return z;

@@ -4,53 +4,53 @@ import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends t {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final long f5837b = TimeUnit.SECONDS.toMillis(60);
-    private static final long d = TimeUnit.MILLISECONDS.toNanos(f5837b);
-    static a pdk;
+    private static final long f5839b = TimeUnit.SECONDS.toMillis(60);
+    private static final long d = TimeUnit.MILLISECONDS.toNanos(f5839b);
+    static a pnx;
     private boolean e;
     private long g;
-    private a pdl;
+    private a pny;
 
     public final void a() {
         if (this.e) {
             throw new IllegalStateException("Unbalanced enter/exit");
         }
-        long emi = emi();
+        long eoC = eoC();
         boolean c = c();
-        if (emi != 0 || c) {
+        if (eoC != 0 || c) {
             this.e = true;
-            a(this, emi, c);
+            a(this, eoC, c);
         }
     }
 
     private static synchronized void a(a aVar, long j, boolean z) {
         synchronized (a.class) {
-            if (pdk == null) {
-                pdk = new a();
-                new C0988a().start();
+            if (pnx == null) {
+                pnx = new a();
+                new C0992a().start();
             }
             long nanoTime = System.nanoTime();
             if (j != 0 && z) {
-                aVar.g = Math.min(j, aVar.emj() - nanoTime) + nanoTime;
+                aVar.g = Math.min(j, aVar.eoD() - nanoTime) + nanoTime;
             } else if (j != 0) {
                 aVar.g = nanoTime + j;
             } else if (z) {
-                aVar.g = aVar.emj();
+                aVar.g = aVar.eoD();
             } else {
                 throw new AssertionError();
             }
             long b2 = aVar.b(nanoTime);
-            a aVar2 = pdk;
-            while (aVar2.pdl != null && b2 >= aVar2.pdl.b(nanoTime)) {
-                aVar2 = aVar2.pdl;
+            a aVar2 = pnx;
+            while (aVar2.pny != null && b2 >= aVar2.pny.b(nanoTime)) {
+                aVar2 = aVar2.pny;
             }
-            aVar.pdl = aVar2.pdl;
-            aVar2.pdl = aVar;
-            if (aVar2 == pdk) {
+            aVar.pny = aVar2.pny;
+            aVar2.pny = aVar;
+            if (aVar2 == pnx) {
                 a.class.notify();
             }
         }
@@ -65,8 +65,8 @@ public class a extends t {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x000b, code lost:
-        r0.pdl = r3.pdl;
-        r3.pdl = null;
+        r0.pny = r3.pny;
+        r3.pny = null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0012, code lost:
         r0 = false;
@@ -77,13 +77,13 @@ public class a extends t {
     private static synchronized boolean a(a aVar) {
         boolean z;
         synchronized (a.class) {
-            a aVar2 = pdk;
+            a aVar2 = pnx;
             while (true) {
                 if (aVar2 != null) {
-                    if (aVar2.pdl == aVar) {
+                    if (aVar2.pny == aVar) {
                         break;
                     }
-                    aVar2 = aVar2.pdl;
+                    aVar2 = aVar2.pny;
                 } else {
                     z = true;
                     break;
@@ -97,28 +97,28 @@ public class a extends t {
         return this.g - j;
     }
 
-    protected void elU() {
+    protected void eoo() {
     }
 
     public final r a(final r rVar) {
         return new r() { // from class: com.bytedance.sdk.a.a.a.1
             @Override // com.bytedance.sdk.a.a.r
             public void a(c cVar, long j) throws IOException {
-                u.a(cVar.f5840b, 0L, j);
+                u.a(cVar.f5842b, 0L, j);
                 long j2 = j;
                 while (j2 > 0) {
-                    o oVar = cVar.pdp;
+                    o oVar = cVar.pnC;
                     long j3 = 0;
                     while (true) {
                         if (j3 >= 65536) {
                             break;
                         }
-                        j3 += oVar.c - oVar.f5849b;
+                        j3 += oVar.c - oVar.f5851b;
                         if (j3 >= j2) {
                             j3 = j2;
                             break;
                         }
-                        oVar = oVar.pdB;
+                        oVar = oVar.pnO;
                     }
                     a.this.a();
                     try {
@@ -169,7 +169,7 @@ public class a extends t {
             }
 
             @Override // com.bytedance.sdk.a.a.r
-            public t elW() {
+            public t eoq() {
                 return a.this;
             }
 
@@ -215,7 +215,7 @@ public class a extends t {
             }
 
             @Override // com.bytedance.sdk.a.a.s
-            public t elW() {
+            public t eoq() {
                 return a.this;
             }
 
@@ -245,15 +245,15 @@ public class a extends t {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C0988a extends Thread {
-        C0988a() {
+    /* loaded from: classes6.dex */
+    public static final class C0992a extends Thread {
+        C0992a() {
             super("Okio Watchdog");
             setDaemon(true);
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:19:0x001a, code lost:
-            r0.elU();
+            r0.eoo();
          */
         @Override // java.lang.Thread, java.lang.Runnable
         /*
@@ -262,10 +262,10 @@ public class a extends t {
         public void run() {
             while (true) {
                 synchronized (a.class) {
-                    a elV = a.elV();
-                    if (elV != null) {
-                        if (elV == a.pdk) {
-                            a.pdk = null;
+                    a eop = a.eop();
+                    if (eop != null) {
+                        if (eop == a.pnx) {
+                            a.pnx = null;
                             return;
                         }
                     }
@@ -274,15 +274,15 @@ public class a extends t {
         }
     }
 
-    static a elV() throws InterruptedException {
-        a aVar = pdk.pdl;
+    static a eop() throws InterruptedException {
+        a aVar = pnx.pny;
         if (aVar == null) {
             long nanoTime = System.nanoTime();
-            a.class.wait(f5837b);
-            if (pdk.pdl != null || System.nanoTime() - nanoTime < d) {
+            a.class.wait(f5839b);
+            if (pnx.pny != null || System.nanoTime() - nanoTime < d) {
                 return null;
             }
-            return pdk;
+            return pnx;
         }
         long b2 = aVar.b(System.nanoTime());
         if (b2 > 0) {
@@ -290,8 +290,8 @@ public class a extends t {
             a.class.wait(j, (int) (b2 - (TimeUtils.NANOS_PER_MS * j)));
             return null;
         }
-        pdk.pdl = aVar.pdl;
-        aVar.pdl = null;
+        pnx.pny = aVar.pny;
+        aVar.pny = null;
         return aVar;
     }
 }

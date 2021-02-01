@@ -3,17 +3,17 @@ package com.kwad.sdk.core.video.a.a;
 import android.content.Context;
 import com.kwad.sdk.core.report.h;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.core.report.c<c, b> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f9442a = new a();
+    private static a f9444a = new a();
 
     private a() {
     }
 
     public static void a(final String str, final String str2) {
-        f9442a.a(new h<c>() { // from class: com.kwad.sdk.core.video.a.a.a.1
+        f9444a.a(new h<c>() { // from class: com.kwad.sdk.core.video.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -24,7 +24,7 @@ public class a extends com.kwad.sdk.core.report.c<c, b> {
     }
 
     public static a c() {
-        return f9442a;
+        return f9444a;
     }
 
     @Override // com.kwad.sdk.core.report.c

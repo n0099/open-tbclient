@@ -5,18 +5,18 @@ import android.text.Editable;
 class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardPopupWindow f2042a;
+    final /* synthetic */ SafeKeyBoardPopupWindow f2040a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-        this.f2042a = safeKeyBoardPopupWindow;
+        this.f2040a = safeKeyBoardPopupWindow;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int selectionStart = this.f2042a.mySafeEditText.getSelectionStart();
-        int selectionEnd = this.f2042a.mySafeEditText.getSelectionEnd();
-        Editable text = this.f2042a.mySafeEditText.getText();
+        int selectionStart = this.f2040a.mySafeEditText.getSelectionStart();
+        int selectionEnd = this.f2040a.mySafeEditText.getSelectionEnd();
+        Editable text = this.f2040a.mySafeEditText.getText();
         if (selectionStart >= 0) {
             if (selectionStart < selectionEnd) {
                 text.replace(selectionStart, selectionEnd, "", 0, 0);

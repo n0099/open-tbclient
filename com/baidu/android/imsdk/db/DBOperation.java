@@ -91,7 +91,7 @@ public class DBOperation {
         LogUtils.enter(valueOf2);
         if (TextUtils.isEmpty(str)) {
             LogUtils.e(TAG, "parameter is null");
-            return Integer.valueOf((int) DBResponseCode.ERROR_PARAMETER);
+            return -7001;
         }
         LogUtils.d(TAG, str + " delete: whereClause: " + str2 + " ,whereArgs :" + strArr);
         Integer.valueOf(0);
@@ -111,7 +111,7 @@ public class DBOperation {
         LogUtils.enter(valueOf2);
         if (contentValues == null || TextUtils.isEmpty(str)) {
             LogUtils.e(TAG, "parameter is null");
-            return Integer.valueOf((int) DBResponseCode.ERROR_PARAMETER);
+            return -7001;
         }
         LogUtils.d(TAG, str + " update: whereClause: " + str2 + " ,whereArgs :" + strArr + " cv : " + contentValues);
         Integer.valueOf(0);
@@ -150,7 +150,7 @@ public class DBOperation {
         LogUtils.enter(valueOf2);
         if (TextUtils.isEmpty(str)) {
             LogUtils.e(TAG, "parameter is null");
-            return Integer.valueOf((int) DBResponseCode.ERROR_PARAMETER);
+            return -7001;
         }
         LogUtils.d(TAG, " execSQL: " + str);
         Integer.valueOf(0);
@@ -170,7 +170,7 @@ public class DBOperation {
         LogUtils.enter(valueOf2);
         if (iTransaction == null) {
             LogUtils.e(TAG, "parameter is null");
-            return Integer.valueOf((int) DBResponseCode.ERROR_PARAMETER);
+            return -7001;
         }
         Future submitForLocalCallable = TaskManager.getInstance(this.mContext).submitForLocalCallable(new ExecTransaction(valueOf2, iTransaction));
         Integer.valueOf(0);

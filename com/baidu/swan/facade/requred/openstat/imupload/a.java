@@ -4,10 +4,10 @@ import android.annotation.SuppressLint;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
     @SuppressLint({"DefaultLocale"})
-    public static String u(String str, long j) {
+    public static String t(String str, long j) {
         return md5(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j)));
     }
 

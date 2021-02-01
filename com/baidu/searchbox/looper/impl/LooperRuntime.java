@@ -15,7 +15,7 @@ import com.baidu.searchbox.looper.ioc.ILooperRegister_LooperRuntime_ListProvider
 import com.baidu.searchbox.looper.ioc.ILooperUIContext;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LooperRuntime {
     private static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT = new ILooperUIContext() { // from class: com.baidu.searchbox.looper.impl.LooperRuntime.1
         @Override // com.baidu.searchbox.looper.ioc.ILooperUIContext
@@ -29,12 +29,12 @@ public class LooperRuntime {
     private c<ILooperUIContext> mLooperUIContext;
 
     public void initmLooperMonitordList() {
-        this.mLooperMonitordList = b.adH();
+        this.mLooperMonitordList = b.adY();
         this.mLooperMonitordList.b(new ILooperRegister_LooperRuntime_ListProvider());
     }
 
     public void initmLooperNeedContext() {
-        this.mLooperNeedContext = a.adG();
+        this.mLooperNeedContext = a.adX();
         this.mLooperNeedContext.a(new ILooperNeedContext_LooperRuntime_Provider());
     }
 
@@ -82,7 +82,7 @@ public class LooperRuntime {
 
     public void dispatchBlock(Context context, com.github.a.a.a.a aVar) {
         if (this.mLooperMonitordList != null && this.mLooperMonitordList.getList() != null) {
-            LooperBlock looperBlock = new LooperBlock(aVar.duration, aVar.pHa, aVar.pGX, aVar.pGY, aVar.pHf);
+            LooperBlock looperBlock = new LooperBlock(aVar.duration, aVar.pRf, aVar.pRc, aVar.pRd, aVar.pRk);
             TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
             if (lastTrackUI != null) {
                 if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {

@@ -36,7 +36,7 @@ import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
     private String A;
     private String B;
@@ -46,10 +46,10 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
     private long G;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f12394a;
+    private Activity f12396a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.qq.e.comm.plugin.ab.d.a f12395b;
+    private com.qq.e.comm.plugin.ab.d.a f12397b;
     private long c;
     private long d;
     private long e;
@@ -82,7 +82,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
     private int m = GDTADManager.getInstance().getSM().getInteger("rewardPageEffectiveTime", 15);
 
     public g(Activity activity) {
-        this.f12394a = activity;
+        this.f12396a = activity;
         this.n = GDTADManager.getInstance().getSM().getInteger("rewardPageCloseTime", 15);
         if (this.n > this.m) {
             this.n = this.m;
@@ -103,14 +103,14 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f12395b.d()) {
-            this.f12395b.e();
+        if (this.f12397b.d()) {
+            this.f12397b.e();
         } else if (this.p) {
             if (this.v != null) {
                 this.v.a(this.f, com.qq.e.comm.plugin.ab.b.e);
             }
             this.t.d();
-            this.f12394a.finish();
+            this.f12396a.finish();
             a(2050005, this.f);
         } else if (!this.l || this.i == null) {
         } else {
@@ -125,7 +125,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
             @Override // com.qq.e.comm.plugin.util.ax
             public void a() {
                 g.this.p = true;
-                if (g.this.i == null || g.this.f12395b == null) {
+                if (g.this.i == null || g.this.f12397b == null) {
                     return;
                 }
                 g.this.t.f();
@@ -169,13 +169,13 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
         String str2 = TextUtils.isEmpty(this.B) ? "继续浏览" : this.B;
         String str3 = TextUtils.isEmpty(this.C) ? "放弃奖励" : this.C;
         if (this.k == null) {
-            this.k = new com.qq.e.comm.plugin.rewardvideo.b.a(this.f12394a);
+            this.k = new com.qq.e.comm.plugin.rewardvideo.b.a(this.f12396a);
         }
         this.k.setCancelable(false);
         if (!this.k.isShowing()) {
             this.k.show();
         }
-        LinearLayout a2 = this.k.a(this.f12394a, String.format(Locale.getDefault(), str, Integer.valueOf(this.m)), str2, str3);
+        LinearLayout a2 = this.k.a(this.f12396a, String.format(Locale.getDefault(), str, Integer.valueOf(this.m)), str2, str3);
         this.k.setContentView(a2);
         if (this.k.getWindow() != null) {
             WindowManager.LayoutParams attributes = this.k.getWindow().getAttributes();
@@ -184,7 +184,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
             attributes.height = a2.getMeasuredHeight();
             attributes.gravity = 17;
             this.k.getWindow().setAttributes(attributes);
-            this.k.getWindow().setBackgroundDrawable(ap.a(ak.a((Context) this.f12394a, 10), -1, 255));
+            this.k.getWindow().setBackgroundDrawable(ap.a(ak.a((Context) this.f12396a, 10), -1, 255));
         }
         this.k.a().setOnClickListener(new View.OnClickListener() { // from class: com.qq.e.comm.plugin.rewardvideo.g.6
             @Override // android.view.View.OnClickListener
@@ -193,7 +193,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
                     g.this.v.a(g.this.f, com.qq.e.comm.plugin.ab.b.e);
                 }
                 g.this.t.d();
-                g.this.f12394a.finish();
+                g.this.f12396a.finish();
                 g.this.a(2050005, g.this.f);
             }
         });
@@ -207,7 +207,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
     }
 
     private String i() {
-        View b2 = this.f12395b.b();
+        View b2 = this.f12397b.b();
         this.D.a().a(b2.getHeight());
         this.D.a().b(b2.getWidth());
         try {
@@ -245,7 +245,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
         }
         this.t.a(5027);
         h.a(false, i, str2, str, this.E);
-        this.f12394a.finish();
+        this.f12396a.finish();
         if (this.L) {
             return;
         }
@@ -259,7 +259,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
             return;
         }
         this.x = valueCallback;
-        this.f12394a.startActivityForResult(intent, 2);
+        this.f12396a.startActivityForResult(intent, 2);
     }
 
     @Override // com.qq.e.comm.plugin.ab.d.f
@@ -281,7 +281,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
     @Override // com.qq.e.comm.plugin.ab.d.f
     public void a(String str, Bitmap bitmap) {
         if (this.v != null) {
-            this.v.a(str, com.qq.e.comm.plugin.ab.b.f11703b);
+            this.v.a(str, com.qq.e.comm.plugin.ab.b.f11705b);
         }
         if (this.K) {
             return;
@@ -297,15 +297,15 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
         this.G = System.currentTimeMillis();
         this.D.a(2);
         h.b(e.PAGE, this.E);
-        com.qq.e.comm.plugin.ad.a.a().a(this.f12395b.b());
-        this.f12395b.b().post(new Runnable() { // from class: com.qq.e.comm.plugin.rewardvideo.g.8
+        com.qq.e.comm.plugin.ad.a.a().a(this.f12397b.b());
+        this.f12397b.b().post(new Runnable() { // from class: com.qq.e.comm.plugin.rewardvideo.g.8
             @Override // java.lang.Runnable
             public void run() {
-                if (g.this.f12395b == null || g.this.f12395b.b() == null) {
+                if (g.this.f12397b == null || g.this.f12397b.b() == null) {
                     return;
                 }
                 String q = g.this.s.q();
-                com.qq.e.comm.plugin.w.i.a(g.this.D.a(g.this.f12395b.b(), g.this.D.a().m(), g.this.s.x(), null), com.qq.e.comm.plugin.ad.a.a().b(g.this.f12395b.b()), g.this.s, new com.qq.e.comm.plugin.w.b(g.this.s.D(), com.qq.e.comm.plugin.ad.e.REWARDVIDEOAD, g.this.s.B()), q, new d.b() { // from class: com.qq.e.comm.plugin.rewardvideo.g.8.1
+                com.qq.e.comm.plugin.w.i.a(g.this.D.a(g.this.f12397b.b(), g.this.D.a().m(), g.this.s.x(), null), com.qq.e.comm.plugin.ad.a.a().b(g.this.f12397b.b()), g.this.s, new com.qq.e.comm.plugin.w.b(g.this.s.D(), com.qq.e.comm.plugin.ad.e.REWARDVIDEOAD, g.this.s.B()), q, new d.b() { // from class: com.qq.e.comm.plugin.rewardvideo.g.8.1
                     @Override // com.qq.e.comm.plugin.w.d.b
                     public void a() {
                         GDTLogger.d("RewardPage exposure success");
@@ -347,7 +347,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
             return false;
         }
         this.w = valueCallback;
-        this.f12394a.startActivityForResult(intent, 1);
+        this.f12396a.startActivityForResult(intent, 1);
         return true;
     }
 
@@ -364,7 +364,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
         }
         this.D.b(System.currentTimeMillis());
         this.D.a(2);
-        this.F.a(this.s, i(), this.f12395b.b());
+        this.F.a(this.s, i(), this.f12397b.b());
         this.t.e();
         this.H = false;
     }
@@ -399,14 +399,14 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
     @Override // com.qq.e.comm.pi.ACTD
     public void onAfterCreate(Bundle bundle) {
         JSONObject jSONObject;
-        this.f12394a.getWindow().setBackgroundDrawable(null);
-        FrameLayout frameLayout = new FrameLayout(this.f12394a);
-        this.f12394a.setContentView(frameLayout, new ViewGroup.LayoutParams(-1, -1));
-        this.c = this.f12394a.getIntent().getLongExtra("clickStartTime", System.currentTimeMillis());
-        String stringExtra = this.f12394a.getIntent().getStringExtra(Constants.KEYS.AD_INFO);
-        String stringExtra2 = this.f12394a.getIntent().getStringExtra("appid");
-        String stringExtra3 = this.f12394a.getIntent().getStringExtra("posId");
-        this.s = new d(stringExtra, stringExtra2, stringExtra3, this.f12394a.getIntent().getStringExtra("adThreadId"));
+        this.f12396a.getWindow().setBackgroundDrawable(null);
+        FrameLayout frameLayout = new FrameLayout(this.f12396a);
+        this.f12396a.setContentView(frameLayout, new ViewGroup.LayoutParams(-1, -1));
+        this.c = this.f12396a.getIntent().getLongExtra("clickStartTime", System.currentTimeMillis());
+        String stringExtra = this.f12396a.getIntent().getStringExtra(Constants.KEYS.AD_INFO);
+        String stringExtra2 = this.f12396a.getIntent().getStringExtra("appid");
+        String stringExtra3 = this.f12396a.getIntent().getStringExtra("posId");
+        this.s = new d(stringExtra, stringExtra2, stringExtra3, this.f12396a.getIntent().getStringExtra("adThreadId"));
         this.s.a(e.PAGE);
         this.f = this.s.a();
         String an = this.s.an();
@@ -416,13 +416,13 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
         this.E.a(stringExtra3);
         this.E.b(this.s.j());
         this.E.c(this.s.H());
-        this.t = j.b(this.f12394a.getIntent().getIntExtra("objectId", 0));
+        this.t = j.b(this.f12396a.getIntent().getIntExtra("objectId", 0));
         if (this.t == null) {
             GDTLogger.e("RewardPage activity fail to create ! ad instance pass failed");
             if (this.v != null) {
                 this.v.a(this.f, com.qq.e.comm.plugin.ab.b.e);
             }
-            this.f12394a.finish();
+            this.f12396a.finish();
             a(2050005, this.f);
             return;
         }
@@ -432,7 +432,7 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
             if (this.v != null) {
                 this.v.a(this.f, com.qq.e.comm.plugin.ab.b.e);
             }
-            this.f12394a.finish();
+            this.f12396a.finish();
             a(2050005, this.f);
             return;
         }
@@ -446,8 +446,8 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
                 e.printStackTrace();
             }
         }
-        this.h = new com.qq.e.comm.plugin.rewardvideo.b.b(this.f12394a);
-        int applyDimension = (int) TypedValue.applyDimension(1, 45.0f, this.f12394a.getResources().getDisplayMetrics());
+        this.h = new com.qq.e.comm.plugin.rewardvideo.b.b(this.f12396a);
+        int applyDimension = (int) TypedValue.applyDimension(1, 45.0f, this.f12396a.getResources().getDisplayMetrics());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, applyDimension);
         layoutParams.gravity = 48;
         this.h.setLayoutParams(layoutParams);
@@ -473,23 +473,23 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
         } else {
             jSONObject = null;
         }
-        this.f12395b = new com.qq.e.comm.plugin.ab.d.e(this.f12394a, jSONObject).a();
-        this.f12395b.a(this);
-        this.f12395b.a(this.f);
+        this.f12397b = new com.qq.e.comm.plugin.ab.d.e(this.f12396a, jSONObject).a();
+        this.f12397b.a(this);
+        this.f12397b.a(this.f);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
         layoutParams2.topMargin = applyDimension;
-        this.f12395b.b().setLayoutParams(layoutParams2);
-        this.f12395b.c().a("rewardAD", new com.qq.e.comm.plugin.rewardvideo.a.a(this));
-        this.f12395b.b().setOnTouchListener(new View.OnTouchListener() { // from class: com.qq.e.comm.plugin.rewardvideo.g.2
+        this.f12397b.b().setLayoutParams(layoutParams2);
+        this.f12397b.c().a("rewardAD", new com.qq.e.comm.plugin.rewardvideo.a.a(this));
+        this.f12397b.b().setOnTouchListener(new View.OnTouchListener() { // from class: com.qq.e.comm.plugin.rewardvideo.g.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (g.this.D != null) {
                     g.this.D.a(motionEvent, true);
                 }
-                return g.this.f12395b.b().onTouchEvent(motionEvent);
+                return g.this.f12397b.b().onTouchEvent(motionEvent);
             }
         });
-        frameLayout.addView(this.f12395b.b());
+        frameLayout.addView(this.f12397b.b());
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.qq.e.comm.plugin.rewardvideo.g.3
             @Override // java.lang.Runnable
             public void run() {
@@ -502,12 +502,12 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
                 g.this.b();
             }
         }, this.j * 1000);
-        this.y = this.f12394a.getIntent().getStringExtra("rewardAdUnmetLeftTopText");
-        this.z = this.f12394a.getIntent().getStringExtra("rewardAdHasDoneLeftTopText");
-        this.A = this.f12394a.getIntent().getStringExtra("rewardAdCloseDialogText");
-        this.B = this.f12394a.getIntent().getStringExtra("rewardAdConfirmButtonText");
-        this.C = this.f12394a.getIntent().getStringExtra("rewardAdCancelButtonText");
-        this.F = new f(new com.qq.e.comm.plugin.c.a.c(this.f12394a) { // from class: com.qq.e.comm.plugin.rewardvideo.g.4
+        this.y = this.f12396a.getIntent().getStringExtra("rewardAdUnmetLeftTopText");
+        this.z = this.f12396a.getIntent().getStringExtra("rewardAdHasDoneLeftTopText");
+        this.A = this.f12396a.getIntent().getStringExtra("rewardAdCloseDialogText");
+        this.B = this.f12396a.getIntent().getStringExtra("rewardAdConfirmButtonText");
+        this.C = this.f12396a.getIntent().getStringExtra("rewardAdCancelButtonText");
+        this.F = new f(new com.qq.e.comm.plugin.c.a.c(this.f12396a) { // from class: com.qq.e.comm.plugin.rewardvideo.g.4
             @Override // com.qq.e.comm.plugin.c.a.c, com.qq.e.comm.plugin.c.a.a
             public void a() {
                 if (g.this.s.v()) {
@@ -526,9 +526,9 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
 
     @Override // com.qq.e.comm.pi.ACTD
     public void onBeforeCreate(Bundle bundle) {
-        this.f12394a.requestWindowFeature(1);
+        this.f12396a.requestWindowFeature(1);
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f12394a.getWindow().setStatusBarColor(ViewCompat.MEASURED_STATE_MASK);
+            this.f12396a.getWindow().setStatusBarColor(ViewCompat.MEASURED_STATE_MASK);
         }
     }
 
@@ -542,9 +542,9 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
         if (this.v != null) {
             this.v.a(this.f, com.qq.e.comm.plugin.ab.b.g);
         }
-        if (this.f12395b != null) {
-            this.f12395b.a();
-            this.f12395b = null;
+        if (this.f12397b != null) {
+            this.f12397b.a();
+            this.f12397b = null;
         }
         if (this.i != null) {
             this.i.c();
@@ -561,8 +561,8 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
             this.v.a(this.f, com.qq.e.comm.plugin.ab.b.f);
         }
         try {
-            if (this.f12395b.b() != null) {
-                this.f12395b.b().getClass().getMethod(MissionEvent.MESSAGE_PAUSE, new Class[0]).invoke(this.f12395b.b(), null);
+            if (this.f12397b.b() != null) {
+                this.f12397b.b().getClass().getMethod(MissionEvent.MESSAGE_PAUSE, new Class[0]).invoke(this.f12397b.b(), null);
                 this.g = true;
             }
         } catch (Exception e) {
@@ -577,8 +577,8 @@ public class g implements ACTD, com.qq.e.comm.plugin.ab.d.f {
         }
         try {
             if (this.g) {
-                if (this.f12395b.b() != null) {
-                    this.f12395b.b().getClass().getMethod(MissionEvent.MESSAGE_RESUME, new Class[0]).invoke(this.f12395b.b(), null);
+                if (this.f12397b.b() != null) {
+                    this.f12397b.b().getClass().getMethod(MissionEvent.MESSAGE_RESUME, new Class[0]).invoke(this.f12397b.b(), null);
                 }
                 this.g = false;
             }

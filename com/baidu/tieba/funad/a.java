@@ -1,77 +1,53 @@
 package com.baidu.tieba.funad;
 
-import android.app.Activity;
 import com.baidu.adp.widget.ListView.n;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.h.a;
+import com.baidu.tbadk.core.data.cb;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    public int jLU;
+    public int jSU;
 
     private a() {
     }
 
-    public static a rC(boolean z) {
-        if (z && cLz()) {
+    public static a rM(boolean z) {
+        if (z && cNn()) {
             return new a();
         }
         return null;
     }
 
-    public static boolean cLz() {
-        return com.baidu.tbadk.a.d.biJ();
+    public static boolean cNn() {
+        return com.baidu.tbadk.a.d.biV();
     }
 
-    public static void aw(Activity activity) {
-        if (com.baidu.tbadk.a.d.biJ()) {
-            List<bz> KD = com.baidu.tieba.h.a.cLv().KD("6051001535-87847998");
-            if (x.isEmpty(KD) || KD.size() < 3) {
-                com.baidu.tieba.h.a.cLv().b(activity, "6051001535-87847998", new a.d() { // from class: com.baidu.tieba.funad.a.1
-                    @Override // com.baidu.tieba.h.a.d
-                    public void bb(String str, int i) {
-                        aq.AM("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", 0).an("resource_id", i).bsu();
-                    }
-
-                    @Override // com.baidu.tieba.h.a.d
-                    public void onError(String str) {
-                        aq.AM("c14005").an("obj_source", 6).dW("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", 1).an("resource_id", 0).bsu();
-                    }
-                });
-            }
-        }
-    }
-
-    public void q(List<n> list, boolean z) {
+    public void r(List<n> list, boolean z) {
         int i;
-        int cLx = com.baidu.tieba.h.a.cLv().cLx();
+        int cNl = com.baidu.tieba.h.a.cNj().cNl();
         if (z) {
-            int cLw = com.baidu.tieba.h.a.cLv().cLw() - 1;
+            int cNk = com.baidu.tieba.h.a.cNj().cNk() - 1;
             Iterator<n> it = list.iterator();
             while (true) {
-                i = cLw;
+                i = cNk;
                 if (!it.hasNext()) {
                     break;
                 }
                 n next = it.next();
-                if (!(next instanceof bz)) {
-                    cLw = i;
-                } else if (((bz) next).bns() != 1) {
+                if (!(next instanceof cb)) {
+                    cNk = i;
+                } else if (((cb) next).bnL() != 1) {
                     break;
                 } else {
-                    cLw = i + 1;
+                    cNk = i + 1;
                 }
             }
         } else {
-            i = this.jLU;
+            i = this.jSU;
         }
-        this.jLU = a(i, cLx, list);
+        this.jSU = a(i, cNl, list);
     }
 
     private int a(int i, int i2, List<n> list) {
@@ -79,11 +55,11 @@ public class a {
             return 0;
         }
         for (int i3 = 0; i3 < list.size(); i3++) {
-            bz bzVar = new bz();
+            cb cbVar = new cb();
             com.baidu.tieba.tbadkCore.data.n nVar = new com.baidu.tieba.tbadkCore.data.n(null);
-            nVar.xX(true);
-            bzVar.eRU = nVar;
-            list.add(i, bzVar);
+            nVar.yq(true);
+            cbVar.eUi = nVar;
+            list.add(i, cbVar);
             i = i + i2 + 1;
             if (i > list.size() - 1) {
                 return (i - (list.size() - 1)) - 1;

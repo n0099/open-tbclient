@@ -7,14 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.ah;
 import com.kwad.sdk.utils.an;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends com.kwad.sdk.feed.widget.base.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f10854a;
+    private long f10856a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f10855b;
+    private boolean f10857b;
     private boolean c;
     private int d;
     private ViewTreeObserver.OnScrollChangedListener e;
@@ -23,14 +23,14 @@ public class b extends com.kwad.sdk.feed.widget.base.b {
 
     public b(@NonNull Context context) {
         super(context);
-        this.f10854a = 500L;
+        this.f10856a = 500L;
         this.c = true;
         b();
     }
 
     public b(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f10854a = 500L;
+        this.f10856a = 500L;
         this.c = true;
         b();
     }
@@ -51,7 +51,7 @@ public class b extends com.kwad.sdk.feed.widget.base.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g() {
-        return this.g.a() && ((float) Math.abs(this.g.f10804a.height() - getHeight())) <= ((float) getHeight()) * 0.9f && getHeight() > 0 && getWidth() > 0 && this.g.f10804a.bottom > 0 && this.g.f10804a.top < this.d;
+        return this.g.a() && ((float) Math.abs(this.g.f10806a.height() - getHeight())) <= ((float) getHeight()) * 0.9f && getHeight() > 0 && getWidth() > 0 && this.g.f10806a.bottom > 0 && this.g.f10806a.top < this.d;
     }
 
     private void h() {
@@ -108,16 +108,16 @@ public class b extends com.kwad.sdk.feed.widget.base.b {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         f();
-        this.f10855b = false;
+        this.f10857b = false;
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         boolean z = true;
-        if (this.f10855b || (i3 | i4) != 0 || (i | i2) == 0) {
+        if (this.f10857b || (i3 | i4) != 0 || (i | i2) == 0) {
             z = false;
         } else {
-            this.f10855b = true;
+            this.f10857b = true;
         }
         super.onSizeChanged(i, i2, i3, i4);
         if (z) {

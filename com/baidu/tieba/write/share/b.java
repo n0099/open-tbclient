@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_CHECK_SHARE_SDK) { // from class: com.baidu.tieba.write.share.b.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,14 +22,14 @@ public class b {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.share_sdk_check_no_resp));
                 }
-                if (b.this.nVR != null) {
-                    b.this.nVR.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (b.this.ofY != null) {
+                    b.this.ofY.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
     private BdUniqueId mPageId;
-    private a nVR;
+    private a ofY;
 
     public b(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -38,12 +38,12 @@ public class b {
 
     private void init() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(dUW());
+        messageManager.registerTask(dXk());
         this.mHttpMessageListener.setTag(this.mPageId);
         messageManager.registerListener(this.mHttpMessageListener);
     }
 
-    private HttpMessageTask dUW() {
+    private HttpMessageTask dXk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setRetry(3);
@@ -52,13 +52,13 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.nVR = aVar;
+        this.ofY = aVar;
     }
 
-    public void gG(String str, String str2) {
+    public void gM(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            if (this.nVR != null) {
-                this.nVR.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
+            if (this.ofY != null) {
+                this.ofY.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
                 return;
             }
             return;

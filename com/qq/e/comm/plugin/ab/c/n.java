@@ -4,21 +4,21 @@ import com.qq.e.comm.services.RetCodeService;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class n implements e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static n f11745a = new n();
+        static n f11747a = new n();
     }
 
     private n() {
     }
 
     public static n a() {
-        return a.f11745a;
+        return a.f11747a;
     }
 
     private void a(JSONObject jSONObject) {

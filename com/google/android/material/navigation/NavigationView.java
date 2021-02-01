@@ -35,7 +35,7 @@ import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.internal.NavigationMenuPresenter;
 import com.google.android.material.internal.ScrimInsetsFrameLayout;
 import com.google.android.material.internal.ThemeEnforcement;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
     private static final int[] CHECKED_STATE_SET = {16842912};
     private static final int[] DISABLED_STATE_SET = {-16842910};
@@ -46,7 +46,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     private MenuInflater menuInflater;
     private final NavigationMenuPresenter presenter;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -300,7 +300,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         return null;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.navigation.NavigationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

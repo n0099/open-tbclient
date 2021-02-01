@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CollectEmotionData extends EmotionData {
     public int height;
     public ImageFileInfo imageFileInfo;

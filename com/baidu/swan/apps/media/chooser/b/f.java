@@ -3,15 +3,15 @@ package com.baidu.swan.apps.media.chooser.b;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f {
     public String callback;
     public int sourceType = 3;
-    public boolean diZ = true;
-    public String dja = "back";
-    public int djb = 60;
+    public boolean dlk = true;
+    public String dll = "back";
+    public int dlm = 60;
 
-    public static f bp(JSONObject jSONObject) {
+    public static f bm(JSONObject jSONObject) {
         f fVar = new f();
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
@@ -46,13 +46,13 @@ public class f {
                 }
                 fVar.sourceType = i;
             }
-            fVar.diZ = jSONObject.optBoolean("compressed", true);
+            fVar.dlk = jSONObject.optBoolean("compressed", true);
             int optInt = jSONObject.optInt("maxDuration", 60);
             if (optInt > 60) {
                 optInt = 60;
             }
-            fVar.djb = optInt;
-            fVar.dja = jSONObject.optString(PixelReadParams.DEFAULT_FILTER_ID);
+            fVar.dlm = optInt;
+            fVar.dll = jSONObject.optString(PixelReadParams.DEFAULT_FILTER_ID);
             fVar.callback = jSONObject.optString("cb");
         }
         return fVar;

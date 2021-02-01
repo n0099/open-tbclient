@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class u {
-    private static com.baidu.crabsdk.c.b<List> apw = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static com.baidu.crabsdk.c.b<List> apl = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
     private static String bv = "";
     private static String bc = "";
-    private static int apx = 0;
-    private static int apy = 0;
+    private static int apm = 0;
+    private static int apn = 0;
 
     private static WebView J(View view) {
         if (view instanceof ViewGroup) {
@@ -25,7 +25,7 @@ public final class u {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, apx, apy)))) {
+                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, apm, apn)))) {
                         continue;
                     } else if (childAt instanceof WebView) {
                         return (WebView) childAt;
@@ -42,7 +42,7 @@ public final class u {
     }
 
     public static String U() {
-        return apw.size() > 0 ? new JSONArray((Collection) apw).toString() : "";
+        return apl.size() > 0 ? new JSONArray((Collection) apl).toString() : "";
     }
 
     public static boolean V() {
@@ -59,11 +59,11 @@ public final class u {
         if (activity == null) {
             return;
         }
-        if (apx == 0 || apy == 0) {
+        if (apm == 0 || apn == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            apy = displayMetrics.heightPixels;
-            apx = displayMetrics.widthPixels;
+            apn = displayMetrics.heightPixels;
+            apm = displayMetrics.widthPixels;
         }
         switch (motionEvent.getAction()) {
             case 0:
@@ -71,7 +71,7 @@ public final class u {
                 if (!name.equals(bc)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
                     bc = name;
-                    apw.clear();
+                    apl.clear();
                 }
                 if (activity != null) {
                     try {
@@ -90,7 +90,7 @@ public final class u {
                                 arrayList.add(J.getTitle());
                                 arrayList.add(bv);
                                 com.baidu.crabsdk.c.a.v("title:" + J.getTitle() + "; url:" + bv);
-                                apw.add(arrayList);
+                                apl.add(arrayList);
                                 com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + U());
                                 return;
                             }

@@ -13,7 +13,7 @@ import com.baidu.sumeru.universalimageloader.utils.IoUtils;
 import com.baidu.sumeru.universalimageloader.utils.L;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class BaseImageDecoder implements ImageDecoder {
     protected static final String ERROR_CANT_DECODE_IMAGE = "Image can't be decoded [%s]";
     protected static final String LOG_FLIP_IMAGE = "Flip image horizontally [%s]";
@@ -169,7 +169,7 @@ public class BaseImageDecoder implements ImageDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class ExifInfo {
         public final boolean flipHorizontal;
         public final int rotation;
@@ -186,7 +186,7 @@ public class BaseImageDecoder implements ImageDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class ImageFileInfo {
         public final ExifInfo exif;
         public final ImageSize imageSize;

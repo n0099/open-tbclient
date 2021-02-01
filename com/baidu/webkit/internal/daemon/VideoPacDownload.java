@@ -15,7 +15,7 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class VideoPacDownload implements IResourceTask, INetListener {
     private static final String LOG_TAG = "VideoPacDownload";
     private static boolean mDownloading;

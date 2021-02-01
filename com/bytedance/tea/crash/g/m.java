@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class m {
     public static String a(StackTraceElement[] stackTraceElementArr) {
         StringBuilder sb = new StringBuilder();
@@ -33,7 +33,7 @@ public final class m {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
         try {
-            if (r(th)) {
+            if (q(th)) {
                 a(th, printWriter);
             } else {
                 th.printStackTrace(printWriter);
@@ -123,22 +123,22 @@ public final class m {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final PrintWriter f7669a;
+        private final PrintWriter f7671a;
 
         a(PrintWriter printWriter) {
-            this.f7669a = printWriter;
+            this.f7671a = printWriter;
         }
 
         Object a() {
-            return this.f7669a;
+            return this.f7671a;
         }
 
         void a(Object obj) {
-            this.f7669a.println(obj);
+            this.f7671a.println(obj);
         }
     }
 
@@ -215,7 +215,7 @@ public final class m {
         }
     }
 
-    private static boolean r(Throwable th) {
+    private static boolean q(Throwable th) {
         int i = 0;
         while (th != null) {
             if (th instanceof StackOverflowError) {

@@ -18,18 +18,18 @@ import android.widget.TextView;
 import com.baidu.live.lottie.LottieAnimationView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RedPacketCharmView extends RelativeLayout {
-    private HeadImageView aBE;
-    private View bbq;
-    private String eMY;
-    private View gLA;
-    private TextView gLB;
-    private TextView gLC;
-    private ImageView gLD;
-    private TextView gLE;
-    private LottieAnimationView gLy;
-    private ImageView gLz;
+    private HeadImageView aDr;
+    private View bex;
+    private String ePk;
+    private LottieAnimationView gOe;
+    private ImageView gOf;
+    private View gOg;
+    private TextView gOh;
+    private TextView gOi;
+    private ImageView gOj;
+    private TextView gOk;
     private int mStyle;
 
     public RedPacketCharmView(Context context) {
@@ -37,36 +37,36 @@ public class RedPacketCharmView extends RelativeLayout {
         init();
     }
 
-    public void ub(int i) {
+    public void uh(int i) {
         if (this.mStyle != i) {
             this.mStyle = i;
-            bTc();
-            bTe();
+            bTF();
+            bTH();
             switch (i) {
                 case 1:
-                    this.gLz.setImageResource(a.e.icon_redpacket_charm_body_02);
-                    this.aBE.setVisibility(0);
-                    this.bbq.setVisibility(8);
-                    this.gLE.setVisibility(0);
+                    this.gOf.setImageResource(a.e.icon_redpacket_charm_body_02);
+                    this.aDr.setVisibility(0);
+                    this.bex.setVisibility(8);
+                    this.gOk.setVisibility(0);
                     return;
                 case 2:
-                    this.gLz.setImageResource(a.e.icon_redpacket_charm_body_02);
-                    bTa();
+                    this.gOf.setImageResource(a.e.icon_redpacket_charm_body_02);
+                    bTD();
                     return;
                 case 3:
-                    this.gLz.setImageResource(a.e.icon_redpacket_charm_body_01);
-                    bTa();
-                    bTb();
+                    this.gOf.setImageResource(a.e.icon_redpacket_charm_body_01);
+                    bTD();
+                    bTE();
                     return;
                 case 4:
-                    this.gLz.setImageResource(a.e.icon_redpacket_charm_body_01);
-                    this.aBE.setVisibility(8);
-                    this.bbq.setVisibility(0);
-                    this.gLC.setVisibility(8);
-                    this.gLD.setVisibility(0);
-                    this.gLE.setVisibility(4);
-                    bTb();
-                    bTd();
+                    this.gOf.setImageResource(a.e.icon_redpacket_charm_body_01);
+                    this.aDr.setVisibility(8);
+                    this.bex.setVisibility(0);
+                    this.gOi.setVisibility(8);
+                    this.gOj.setVisibility(0);
+                    this.gOk.setVisibility(4);
+                    bTE();
+                    bTG();
                     return;
                 default:
                     return;
@@ -76,107 +76,107 @@ public class RedPacketCharmView extends RelativeLayout {
 
     public void setBadge(boolean z, String str) {
         if (z) {
-            this.gLA.setVisibility(0);
-            if (TextUtils.isEmpty(this.gLB.getText()) || !this.gLB.getText().equals(str)) {
-                this.gLB.setText(str);
-                Drawable background = this.gLA.getBackground();
+            this.gOg.setVisibility(0);
+            if (TextUtils.isEmpty(this.gOh.getText()) || !this.gOh.getText().equals(str)) {
+                this.gOh.setText(str);
+                Drawable background = this.gOg.getBackground();
                 if (background instanceof GradientDrawable) {
                     ((GradientDrawable) background).setShape(str.length() == 1 ? 1 : 0);
-                    this.gLA.setBackgroundDrawable(background);
+                    this.gOg.setBackgroundDrawable(background);
                 }
-                Drawable background2 = this.gLB.getBackground();
+                Drawable background2 = this.gOh.getBackground();
                 if (background2 instanceof GradientDrawable) {
                     ((GradientDrawable) background2).setShape(str.length() != 1 ? 0 : 1);
-                    this.gLB.setBackgroundDrawable(background2);
+                    this.gOh.setBackgroundDrawable(background2);
                     return;
                 }
                 return;
             }
             return;
         }
-        this.gLA.setVisibility(8);
+        this.gOg.setVisibility(8);
     }
 
     public void setAvatar(String str) {
-        if (TextUtils.isEmpty(this.eMY) || !this.eMY.equals(str)) {
-            this.eMY = str;
-            this.aBE.startLoad(this.eMY, 12, false, false);
+        if (TextUtils.isEmpty(this.ePk) || !this.ePk.equals(str)) {
+            this.ePk = str;
+            this.aDr.startLoad(this.ePk, 12, false, false);
         }
     }
 
     public void setCountDownTimer(String str, String str2) {
-        this.gLC.setText(str);
-        this.gLE.setText(str2);
+        this.gOi.setText(str);
+        this.gOk.setText(str2);
     }
 
     public void release() {
-        this.eMY = "";
-        bTc();
-        bTe();
+        this.ePk = "";
+        bTF();
+        bTH();
     }
 
     private void init() {
         setBackgroundColor(0);
         LayoutInflater.from(getContext()).inflate(a.g.red_packet_widget_charm, (ViewGroup) this, true);
-        this.gLy = (LottieAnimationView) findViewById(a.f.lottie_redpacket_charm);
-        this.gLz = (ImageView) findViewById(a.f.iv_redpacket_charm_body);
-        this.gLA = findViewById(a.f.layout_badge);
-        this.gLB = (TextView) findViewById(a.f.tv_badge);
-        this.aBE = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.bbq = findViewById(a.f.layout_action);
-        this.gLC = (TextView) findViewById(a.f.tv_countdown_action);
-        this.gLD = (ImageView) findViewById(a.f.iv_process);
-        this.gLE = (TextView) findViewById(a.f.tv_countdown_format);
-        this.gLy.loop(true);
-        this.gLy.setAnimation("sdk_redpacket_charm_coin.json");
-        this.aBE.setIsRound(true);
-        this.aBE.setAutoChangeStyle(false);
-        this.aBE.setBorderColor(-4981);
-        this.aBE.setBorderWidth((int) TypedValue.applyDimension(1, 1.0f, getResources().getDisplayMetrics()));
-        this.aBE.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gOe = (LottieAnimationView) findViewById(a.f.lottie_redpacket_charm);
+        this.gOf = (ImageView) findViewById(a.f.iv_redpacket_charm_body);
+        this.gOg = findViewById(a.f.layout_badge);
+        this.gOh = (TextView) findViewById(a.f.tv_badge);
+        this.aDr = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.bex = findViewById(a.f.layout_action);
+        this.gOi = (TextView) findViewById(a.f.tv_countdown_action);
+        this.gOj = (ImageView) findViewById(a.f.iv_process);
+        this.gOk = (TextView) findViewById(a.f.tv_countdown_format);
+        this.gOe.loop(true);
+        this.gOe.setAnimation("sdk_redpacket_charm_coin.json");
+        this.aDr.setIsRound(true);
+        this.aDr.setAutoChangeStyle(false);
+        this.aDr.setBorderColor(-4981);
+        this.aDr.setBorderWidth((int) TypedValue.applyDimension(1, 1.0f, getResources().getDisplayMetrics()));
+        this.aDr.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
-    private void bTa() {
-        this.aBE.setVisibility(8);
-        this.bbq.setVisibility(0);
-        this.gLC.setVisibility(0);
-        this.gLD.setVisibility(8);
-        this.gLE.setVisibility(4);
+    private void bTD() {
+        this.aDr.setVisibility(8);
+        this.bex.setVisibility(0);
+        this.gOi.setVisibility(0);
+        this.gOj.setVisibility(8);
+        this.gOk.setVisibility(4);
     }
 
-    private void bTb() {
-        if (this.gLy != null) {
-            this.gLy.setVisibility(0);
-            this.gLy.playAnimation();
+    private void bTE() {
+        if (this.gOe != null) {
+            this.gOe.setVisibility(0);
+            this.gOe.playAnimation();
         }
     }
 
-    private void bTc() {
-        if (this.gLy != null) {
-            this.gLy.cancelAnimation();
-            this.gLy.setVisibility(4);
+    private void bTF() {
+        if (this.gOe != null) {
+            this.gOe.cancelAnimation();
+            this.gOe.setVisibility(4);
         }
     }
 
-    private void bTd() {
-        if (this.bbq != null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bbq, "scaleX", 1.0f, 0.8f, 1.0f);
+    private void bTG() {
+        if (this.bex != null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bex, "scaleX", 1.0f, 0.8f, 1.0f);
             ofFloat.setDuration(500L);
             ofFloat.setRepeatCount(-1);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.bbq, "scaleY", 1.0f, 0.8f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.bex, "scaleY", 1.0f, 0.8f, 1.0f);
             ofFloat2.setDuration(500L);
             ofFloat2.setRepeatCount(-1);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.setInterpolator(new LinearInterpolator());
             animatorSet.playTogether(ofFloat, ofFloat2);
-            this.bbq.setTag(animatorSet);
+            this.bex.setTag(animatorSet);
             animatorSet.start();
         }
     }
 
-    private void bTe() {
-        if (this.bbq != null && (this.bbq.getTag() instanceof Animator)) {
-            ((Animator) this.bbq.getTag()).cancel();
+    private void bTH() {
+        if (this.bex != null && (this.bex.getTag() instanceof Animator)) {
+            ((Animator) this.bex.getTag()).cancel();
         }
     }
 }

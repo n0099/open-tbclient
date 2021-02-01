@@ -6,24 +6,24 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaLoadingView extends RelativeLayout {
     public AlaLoadingView(Context context) {
         super(context);
-        bs(context);
+        bv(context);
     }
 
     public AlaLoadingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        bs(context);
+        bv(context);
     }
 
     public AlaLoadingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        bs(context);
+        bv(context);
     }
 
-    protected void bs(Context context) {
+    protected void bv(Context context) {
         LayoutInflater.from(context).inflate(a.g.yuyin_ala_loading_view, (ViewGroup) this, true);
         setGravity(17);
         setBackgroundColor(-1);

@@ -22,31 +22,31 @@ import plugin.writeSettings.ReqData;
 import plugin.writeSettings.WriteSettingsReqIdl;
 /* loaded from: classes.dex */
 public class b {
-    private static b Vi;
-    private a Vj;
-    private e Vl;
+    private static b Vg;
+    private a Vh;
+    private e Vj;
     private boolean isReading;
-    private static final BdUniqueId Vh = BdUniqueId.gen();
-    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, Vh);
-    private PluginSettings Vk = new PluginSettings();
+    private static final BdUniqueId Vf = BdUniqueId.gen();
+    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, Vf);
+    private PluginSettings Vi = new PluginSettings();
     private final int BUFFER_SIZE = 1024;
 
-    public static b pV() {
-        if (Vi == null) {
+    public static b pT() {
+        if (Vg == null) {
             synchronized (b.class) {
-                if (Vi == null) {
-                    Vi = new b();
+                if (Vg == null) {
+                    Vg = new b();
                 }
             }
         }
-        return Vi;
+        return Vg;
     }
 
     private b() {
     }
 
-    public PluginSettings pW() {
-        return this.Vk;
+    public PluginSettings pU() {
+        return this.Vi;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0021  */
@@ -59,12 +59,12 @@ public class b {
     public void a(e eVar) {
         String str;
         boolean z;
-        PluginSettings pX;
+        PluginSettings pV;
         PluginSettings pluginSettings;
         if (!this.isReading) {
-            this.Vl = eVar;
+            this.Vj = eVar;
             try {
-                str = pY();
+                str = pW();
             } catch (Exception e) {
                 e = e;
                 str = null;
@@ -73,56 +73,56 @@ public class b {
                 z = new File(str).exists();
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.adp.plugin.b.b.E("PluginSettingIOManager_readSettings", "path_" + str + "-exception_" + e.getMessage());
+                com.baidu.adp.plugin.b.b.C("PluginSettingIOManager_readSettings", "path_" + str + "-exception_" + e.getMessage());
                 z = true;
                 this.isReading = true;
-                pX = pX();
+                pV = pV();
                 this.isReading = false;
-                if (pX == null) {
+                if (pV == null) {
                 }
-                if (this.Vl == null) {
+                if (this.Vj == null) {
                 }
             }
             this.isReading = true;
-            pX = pX();
+            pV = pV();
             this.isReading = false;
-            if (pX == null) {
-                this.Vk = pX;
-                pluginSettings = pX;
+            if (pV == null) {
+                this.Vi = pV;
+                pluginSettings = pV;
             } else {
                 this.isReading = true;
-                PluginSettings pX2 = pX();
+                PluginSettings pV2 = pV();
                 this.isReading = false;
-                if (pX2 != null) {
-                    this.Vk = pX2;
-                    pluginSettings = pX2;
+                if (pV2 != null) {
+                    this.Vi = pV2;
+                    pluginSettings = pV2;
                 } else {
-                    com.baidu.adp.plugin.b.b.E("PluginSettingIOManager_readSettings", "isExist_" + z + "-PluginSettings_is_null");
+                    com.baidu.adp.plugin.b.b.C("PluginSettingIOManager_readSettings", "isExist_" + z + "-PluginSettings_is_null");
                     if (z) {
-                        com.baidu.adp.plugin.b.a.pg().log(PluginPackageManager.px().isMainProcess() ? "plugin_setting_read_null_main" : "plugin_setting_read_null");
-                        com.baidu.adp.plugin.b.a.pg().f("plugin_setting", "setting_read_null", null, null);
+                        com.baidu.adp.plugin.b.a.pe().log(PluginPackageManager.pv().isMainProcess() ? "plugin_setting_read_null_main" : "plugin_setting_read_null");
+                        com.baidu.adp.plugin.b.a.pe().f("plugin_setting", "setting_read_null", null, null);
                     }
-                    pluginSettings = pX2;
+                    pluginSettings = pV2;
                 }
             }
-            if (this.Vl == null) {
-                this.Vl.c(pluginSettings);
-                this.Vl = null;
+            if (this.Vj == null) {
+                this.Vj.c(pluginSettings);
+                this.Vj = null;
             }
         }
     }
 
-    private PluginSettings pX() {
+    private PluginSettings pV() {
         Wire wire = new Wire(new Class[0]);
         try {
-            byte[] cH = cH(pV().pY());
+            byte[] cH = cH(pT().pW());
             if (cH == null) {
-                com.baidu.adp.plugin.b.b.E("PluginSettingIOManager_read0", "data_is_null");
+                com.baidu.adp.plugin.b.b.C("PluginSettingIOManager_read0", "data_is_null");
                 return null;
             }
             WriteSettingsReqIdl writeSettingsReqIdl = (WriteSettingsReqIdl) wire.parseFrom(cH, WriteSettingsReqIdl.class);
             if (writeSettingsReqIdl == null || writeSettingsReqIdl.data == null) {
-                com.baidu.adp.plugin.b.b.E("PluginSettingIOManager_read0", writeSettingsReqIdl == null ? "res_is_null" : "res_data_is_null");
+                com.baidu.adp.plugin.b.b.C("PluginSettingIOManager_read0", writeSettingsReqIdl == null ? "res_is_null" : "res_data_is_null");
                 return null;
             }
             PluginSettings pluginSettings = new PluginSettings();
@@ -180,9 +180,9 @@ public class b {
             }
             return pluginSettings;
         } catch (Throwable th) {
-            com.baidu.adp.plugin.b.b.E("PluginSettingIOManager_read0", "exception_" + th.getMessage());
-            com.baidu.adp.plugin.b.a.pg().log("plugin_settings_read_error");
-            com.baidu.adp.plugin.b.a.pg().f("plugin_setting", "settings_read_error", null, th.getMessage());
+            com.baidu.adp.plugin.b.b.C("PluginSettingIOManager_read0", "exception_" + th.getMessage());
+            com.baidu.adp.plugin.b.a.pe().log("plugin_settings_read_error");
+            com.baidu.adp.plugin.b.a.pe().f("plugin_setting", "settings_read_error", null, th.getMessage());
             th.printStackTrace();
             return null;
         }
@@ -216,7 +216,7 @@ public class b {
         byte[] bArr2;
         byte[] bArr3 = null;
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.plugin.b.b.E("PluginSettingIOManager_read1", "path_is_null");
+            com.baidu.adp.plugin.b.b.C("PluginSettingIOManager_read1", "path_is_null");
         } else {
             try {
                 File file = new File(str);
@@ -265,7 +265,7 @@ public class b {
                         throw th;
                     }
                 } else {
-                    com.baidu.adp.plugin.b.b.E("PluginSettingIOManager_read1", "file_is_null");
+                    com.baidu.adp.plugin.b.b.C("PluginSettingIOManager_read1", "file_is_null");
                     com.baidu.adp.lib.f.a.close((InputStream) null);
                     com.baidu.adp.lib.f.a.close((OutputStream) null);
                 }
@@ -284,46 +284,46 @@ public class b {
 
     public void save(PluginSettings pluginSettings, d dVar) {
         if (pluginSettings != null) {
-            this.Vk = pluginSettings;
-            if (this.isReading && this.Vl != null) {
-                this.Vl.c(this.Vk);
-                this.Vl = null;
+            this.Vi = pluginSettings;
+            if (this.isReading && this.Vj != null) {
+                this.Vj.c(this.Vi);
+                this.Vj = null;
                 this.isReading = false;
             }
-            if (this.Vj != null) {
-                this.Vj.cancel();
-                this.Vj = null;
+            if (this.Vh != null) {
+                this.Vh.cancel();
+                this.Vh = null;
             }
             if (TextUtils.isEmpty(pluginSettings.getContainerVersion())) {
                 pluginSettings.setContainerSetting("");
             }
-            this.Vj = new a(pluginSettings, dVar);
-            this.Vj.setParallel(sBdAsyncTaskParallel);
-            this.Vj.execute(new String[0]);
+            this.Vh = new a(pluginSettings, dVar);
+            this.Vh.setParallel(sBdAsyncTaskParallel);
+            this.Vh.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
-        private PluginSettings Vm;
-        private d Vn;
+        private PluginSettings Vk;
+        private d Vl;
 
         public a(PluginSettings pluginSettings, d dVar) {
-            this.Vm = pluginSettings;
-            this.Vn = dVar;
+            this.Vk = pluginSettings;
+            this.Vl = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.Vm == null || this.Vm.getPlugins() == null) {
+            if (this.Vk == null || this.Vk.getPlugins() == null) {
                 return false;
             }
             ReqData.Builder builder = new ReqData.Builder();
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, PluginSetting> entry : this.Vm.getPlugins().entrySet()) {
+            for (Map.Entry<String, PluginSetting> entry : this.Vk.getPlugins().entrySet()) {
                 PluginSetting value = entry.getValue();
                 if (value != null) {
                     Plugin_setting.Builder builder2 = new Plugin_setting.Builder();
@@ -365,15 +365,15 @@ public class b {
                 }
             }
             builder.plugin_settings_list = arrayList;
-            builder.container_version = this.Vm.getContainerVersion();
-            builder.forbidden_feature = this.Vm.getForbiddenFeatures();
+            builder.container_version = this.Vk.getContainerVersion();
+            builder.forbidden_feature = this.Vk.getForbiddenFeatures();
             WriteSettingsReqIdl.Builder builder3 = new WriteSettingsReqIdl.Builder();
             try {
                 builder3.data = builder.build(false);
-                return Boolean.valueOf(b.this.f(b.this.pY(), builder3.build(false).toByteArray()));
+                return Boolean.valueOf(b.this.f(b.this.pW(), builder3.build(false).toByteArray()));
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.pg().log("plugin_settings_write_error");
-                com.baidu.adp.plugin.b.a.pg().f("plugin_setting", "settings_write_error", null, th.getMessage());
+                com.baidu.adp.plugin.b.a.pe().log("plugin_settings_write_error");
+                com.baidu.adp.plugin.b.a.pe().f("plugin_setting", "settings_write_error", null, th.getMessage());
                 return false;
             }
         }
@@ -383,11 +383,11 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            if (this.Vn != null) {
+            if (this.Vl != null) {
                 if (bool != null && bool.booleanValue()) {
-                    this.Vn.qc();
+                    this.Vl.qa();
                 } else {
-                    this.Vn.qd();
+                    this.Vl.qb();
                 }
             }
         }
@@ -395,8 +395,8 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.Vn != null) {
-                this.Vn.qd();
+            if (this.Vl != null) {
+                this.Vl.qb();
             }
         }
     }
@@ -451,10 +451,10 @@ public class b {
         }
     }
 
-    public String pY() {
-        if (Util.qj() == null) {
+    public String pW() {
+        if (Util.qh() == null) {
             return null;
         }
-        return Util.qj().getAbsoluteFile() + File.separator + "plugin_settings";
+        return Util.qh().getAbsoluteFile() + File.separator + "plugin_settings";
     }
 }

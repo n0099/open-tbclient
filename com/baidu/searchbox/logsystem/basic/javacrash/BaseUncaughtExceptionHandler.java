@@ -16,7 +16,7 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingProcess
 import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BaseUncaughtExceptionHandler extends BUncaughtExceptionHandler {
     private final Supplier<List<ProcessEventSceneHandler>> mSupplier;
 

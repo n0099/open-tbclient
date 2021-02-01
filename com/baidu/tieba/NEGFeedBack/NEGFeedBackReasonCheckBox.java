@@ -12,15 +12,15 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NEGFeedBackReasonCheckBox extends CheckBox {
-    private CustomMessageListener eTp;
-    private GradientDrawable gaY;
-    private GradientDrawable gaZ;
-    private GradientDrawable gba;
-    private StateListDrawable gbb;
+    private CustomMessageListener eVF;
+    private GradientDrawable gdn;
+    private GradientDrawable gdo;
+    private GradientDrawable gdp;
+    private StateListDrawable gdq;
     private Context mContext;
     private int mSkinType;
 
@@ -28,12 +28,12 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         super(context);
         this.mContext = null;
         this.mSkinType = 3;
-        this.eTp = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox.1
+        this.eVF = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                    NEGFeedBackReasonCheckBox.this.btV();
+                    NEGFeedBackReasonCheckBox.this.bup();
                 }
             }
         };
@@ -45,12 +45,12 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         super(context, attributeSet);
         this.mContext = null;
         this.mSkinType = 3;
-        this.eTp = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox.1
+        this.eVF = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                    NEGFeedBackReasonCheckBox.this.btV();
+                    NEGFeedBackReasonCheckBox.this.bup();
                 }
             }
         };
@@ -62,12 +62,12 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         super(context, attributeSet, i);
         this.mContext = null;
         this.mSkinType = 3;
-        this.eTp = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox.1
+        this.eVF = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                    NEGFeedBackReasonCheckBox.this.btV();
+                    NEGFeedBackReasonCheckBox.this.bup();
                 }
             }
         };
@@ -81,11 +81,11 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         setButtonDrawable((Drawable) null);
     }
 
-    public void btV() {
+    public void bup() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             e(R.string.J_X07, l.getDimens(this.mContext, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
-            ao.b(this, R.color.CAM_X0105, R.color.CAM_X0302, R.color.CAM_X0105);
+            ap.b(this, R.color.CAM_X0105, R.color.CAM_X0302, R.color.CAM_X0105);
             this.mSkinType = skinType;
         }
     }
@@ -93,33 +93,33 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.eTp);
+        MessageManager.getInstance().registerListener(this.eVF);
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.eTp);
+        MessageManager.getInstance().unRegisterListener(this.eVF);
     }
 
     private void e(int i, int i2, int i3, int i4, int i5) {
         int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
-        this.gaY = new GradientDrawable();
-        this.gaY.setShape(0);
-        this.gaY.setCornerRadius(parseInt);
-        this.gaY.setStroke(i2, ao.getColor(i3));
-        this.gaZ = new GradientDrawable();
-        this.gaZ.setShape(0);
-        this.gaZ.setCornerRadius(parseInt);
-        this.gaZ.setStroke(i2, com.baidu.tieba.tbadkCore.c.m(ao.getColor(i4), ao.eYy));
-        this.gba = new GradientDrawable();
-        this.gba.setShape(0);
-        this.gba.setCornerRadius(parseInt);
-        this.gba.setStroke(i2, com.baidu.tieba.tbadkCore.c.m(ao.getColor(i5), ao.eYz));
-        this.gbb = new StateListDrawable();
-        this.gbb.addState(new int[]{16842912}, this.gaZ);
-        this.gbb.addState(new int[]{-16842910}, this.gba);
-        this.gbb.addState(new int[0], this.gaY);
-        setBackgroundDrawable(this.gbb);
+        this.gdn = new GradientDrawable();
+        this.gdn.setShape(0);
+        this.gdn.setCornerRadius(parseInt);
+        this.gdn.setStroke(i2, ap.getColor(i3));
+        this.gdo = new GradientDrawable();
+        this.gdo.setShape(0);
+        this.gdo.setCornerRadius(parseInt);
+        this.gdo.setStroke(i2, com.baidu.tieba.tbadkCore.c.l(ap.getColor(i4), ap.faN));
+        this.gdp = new GradientDrawable();
+        this.gdp.setShape(0);
+        this.gdp.setCornerRadius(parseInt);
+        this.gdp.setStroke(i2, com.baidu.tieba.tbadkCore.c.l(ap.getColor(i5), ap.faO));
+        this.gdq = new StateListDrawable();
+        this.gdq.addState(new int[]{16842912}, this.gdo);
+        this.gdq.addState(new int[]{-16842910}, this.gdp);
+        this.gdq.addState(new int[0], this.gdn);
+        setBackgroundDrawable(this.gdq);
     }
 }

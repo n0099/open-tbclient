@@ -3,9 +3,9 @@ package com.baidu.tieba.ala.alaar.messages;
 import android.util.Log;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaArGradingQualityConfigResponseMessage extends JsonHttpResponsedMessage {
-    private JSONObject gpI;
+    private JSONObject gsr;
 
     public AlaArGradingQualityConfigResponseMessage() {
         super(1021204);
@@ -26,12 +26,12 @@ public class AlaArGradingQualityConfigResponseMessage extends JsonHttpResponsedM
                 if (isDebug()) {
                     Log.e("GradingQualityConfig", "onResponse data >>>> " + optJSONObject.toString());
                 }
-                JSONObject dE = com.baidu.tieba.ala.alaar.a.b.bOY().dE(optJSONObject);
-                if (isDebug() && dE != null) {
-                    Log.e("GradingQualityConfig", "reStructData >>>> " + dE.toString());
+                JSONObject dF = com.baidu.tieba.ala.alaar.a.b.bPC().dF(optJSONObject);
+                if (isDebug() && dF != null) {
+                    Log.e("GradingQualityConfig", "reStructData >>>> " + dF.toString());
                 }
-                this.gpI = dE;
-                com.baidu.tieba.ala.alaar.a.b.bOY().f(dE, true);
+                this.gsr = dF;
+                com.baidu.tieba.ala.alaar.a.b.bPC().f(dF, true);
             }
         }
     }

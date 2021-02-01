@@ -9,7 +9,7 @@ import org.json.JSONObject;
 class de implements Comparable<de> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f13933a;
+    protected int f13935a;
 
     /* renamed from: a  reason: collision with other field name */
     private long f278a;
@@ -32,7 +32,7 @@ class de implements Comparable<de> {
         this.f280a = new LinkedList<>();
         this.f278a = 0L;
         this.f279a = str;
-        this.f13933a = i;
+        this.f13935a = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,12 +42,12 @@ class de implements Comparable<de> {
         if (deVar == null) {
             return 1;
         }
-        return deVar.f13933a - this.f13933a;
+        return deVar.f13935a - this.f13935a;
     }
 
     public synchronized de a(JSONObject jSONObject) {
         this.f278a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
-        this.f13933a = jSONObject.getInt("wt");
+        this.f13935a = jSONObject.getInt("wt");
         this.f279a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("ah");
         for (int i = 0; i < jSONArray.length(); i++) {
@@ -60,7 +60,7 @@ class de implements Comparable<de> {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f278a);
-        jSONObject.put("wt", this.f13933a);
+        jSONObject.put("wt", this.f13935a);
         jSONObject.put("host", this.f279a);
         JSONArray jSONArray = new JSONArray();
         Iterator<cu> it = this.f280a.iterator();
@@ -77,21 +77,21 @@ class de implements Comparable<de> {
             this.f280a.add(cuVar);
             int a2 = cuVar.a();
             if (a2 > 0) {
-                this.f13933a += cuVar.a();
+                this.f13935a += cuVar.a();
             } else {
                 int i = 0;
                 for (int size = this.f280a.size() - 1; size >= 0 && this.f280a.get(size).a() < 0; size--) {
                     i++;
                 }
-                this.f13933a += a2 * i;
+                this.f13935a += a2 * i;
             }
             if (this.f280a.size() > 30) {
-                this.f13933a -= this.f280a.remove().a();
+                this.f13935a -= this.f280a.remove().a();
             }
         }
     }
 
     public String toString() {
-        return this.f279a + ":" + this.f13933a;
+        return this.f279a + ":" + this.f13935a;
     }
 }

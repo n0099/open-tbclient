@@ -4,7 +4,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.livesdk.share.b.a;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
     private a data;
 

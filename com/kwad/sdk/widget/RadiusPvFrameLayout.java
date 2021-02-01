@@ -8,18 +8,18 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RadiusPvFrameLayout extends com.kwad.sdk.widget.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f10846a;
+    private float f10848a;
 
     /* renamed from: b  reason: collision with root package name */
-    private RectF f10847b;
+    private RectF f10849b;
     private Path c;
     private a d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
     }
@@ -34,7 +34,7 @@ public class RadiusPvFrameLayout extends com.kwad.sdk.widget.a {
     }
 
     private void c() {
-        this.f10846a = ao.a(getContext(), 4.0f);
+        this.f10848a = ao.a(getContext(), 4.0f);
         setLayerType(1, null);
     }
 
@@ -57,36 +57,36 @@ public class RadiusPvFrameLayout extends com.kwad.sdk.widget.a {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.f10846a == 0.0f) {
+        if (this.f10848a == 0.0f) {
             super.dispatchDraw(canvas);
             return;
         }
         int save = canvas.save();
-        if (this.f10847b == null) {
+        if (this.f10849b == null) {
             this.c = new Path();
-            this.f10847b = new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
+            this.f10849b = new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
         } else {
-            this.f10847b.right = canvas.getWidth();
-            this.f10847b.bottom = canvas.getHeight();
+            this.f10849b.right = canvas.getWidth();
+            this.f10849b.bottom = canvas.getHeight();
             this.c.reset();
         }
         float[] fArr = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-        fArr[0] = this.f10846a;
-        fArr[1] = this.f10846a;
-        fArr[2] = this.f10846a;
-        fArr[3] = this.f10846a;
-        fArr[4] = this.f10846a;
-        fArr[5] = this.f10846a;
-        fArr[6] = this.f10846a;
-        fArr[7] = this.f10846a;
-        this.c.addRoundRect(this.f10847b, fArr, Path.Direction.CW);
+        fArr[0] = this.f10848a;
+        fArr[1] = this.f10848a;
+        fArr[2] = this.f10848a;
+        fArr[3] = this.f10848a;
+        fArr[4] = this.f10848a;
+        fArr[5] = this.f10848a;
+        fArr[6] = this.f10848a;
+        fArr[7] = this.f10848a;
+        this.c.addRoundRect(this.f10849b, fArr, Path.Direction.CW);
         canvas.clipPath(this.c);
         super.dispatchDraw(canvas);
         canvas.restoreToCount(save);
     }
 
     public void setRadius(float f) {
-        this.f10846a = f;
+        this.f10848a = f;
         invalidate();
     }
 }

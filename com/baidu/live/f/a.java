@@ -1,40 +1,29 @@
 package com.baidu.live.f;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.live.data.x;
-import com.baidu.live.im.d;
-/* loaded from: classes10.dex */
-public interface a {
+import com.baidu.live.adp.widget.IGuideTab;
+/* loaded from: classes11.dex */
+public class a {
+    private static volatile a aFG;
+    private b aFH;
 
-    /* renamed from: com.baidu.live.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0168a {
+    private a() {
     }
 
-    void a(InterfaceC0168a interfaceC0168a);
+    public static a AR() {
+        if (aFG == null) {
+            synchronized (a.class) {
+                if (aFG == null) {
+                    aFG = new a();
+                }
+            }
+        }
+        return aFG;
+    }
 
-    void a(d dVar, boolean z, boolean z2);
-
-    void b(x xVar);
-
-    void bk(boolean z);
-
-    void c(ViewGroup viewGroup, x xVar);
-
-    void cr(int i);
-
-    View getRootView();
-
-    void onDestroy();
-
-    void setCanVisible(boolean z);
-
-    void setVisible(int i);
-
-    boolean zG();
-
-    void zH();
-
-    void zI();
+    public IGuideTab AS() {
+        if (this.aFH != null) {
+            return this.aFH.AT();
+        }
+        return null;
+    }
 }

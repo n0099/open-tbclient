@@ -9,7 +9,6 @@ import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.d.j;
-import io.flutter.plugin.platform.PlatformPlugin;
 /* loaded from: classes6.dex */
 public class e extends j {
     private static final String TAG = e.class.getSimpleName();
@@ -50,7 +49,7 @@ public class e extends j {
     public e(com.baidu.ar.vo.a.b bVar, b bVar2) {
         this.yU = bVar2;
         this.nk = new PixelReadParams(PixelType.NV21);
-        this.nk.setOutputWidth(PlatformPlugin.DEFAULT_SYSTEM_UI);
+        this.nk.setOutputWidth(1280);
         this.nk.setOutputHeight(720);
     }
 

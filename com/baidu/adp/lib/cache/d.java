@@ -4,7 +4,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final e KZ;
+    protected final e KX;
     protected final boolean prefixNameSpaceToKey;
 
     public abstract g<T> bw(String str);
@@ -16,7 +16,7 @@ public abstract class d<T> implements k<T> {
     protected abstract void removeExpiredItem(String str);
 
     public d(e eVar, boolean z) {
-        this.KZ = eVar;
+        this.KX = eVar;
         this.prefixNameSpaceToKey = z;
     }
 
@@ -27,7 +27,7 @@ public abstract class d<T> implements k<T> {
         return str2;
     }
 
-    protected g<T> s(String str, String str2) {
+    protected g<T> q(String str, String str2) {
         String buildUniqueKey = buildUniqueKey(str, str2);
         g<T> bw = bw(buildUniqueKey);
         if (bw == null) {
@@ -40,7 +40,7 @@ public abstract class d<T> implements k<T> {
             }
             return null;
         } else {
-            if (this.KZ.shouldUpdateLastHitTime()) {
+            if (this.KX.shouldUpdateLastHitTime()) {
                 bw.lastHitTime = System.currentTimeMillis();
                 c(bw);
             }
@@ -52,24 +52,24 @@ public abstract class d<T> implements k<T> {
 
     @Override // com.baidu.adp.lib.cache.k
     public T get(String str, String str2) {
-        g<T> s = s(str, str2);
-        if (s == null) {
+        g<T> q = q(str, str2);
+        if (q == null) {
             return null;
         }
-        return s.value;
+        return q.value;
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public l.b<T> t(String str, String str2) {
-        g<T> s = s(str, str2);
-        if (s == null) {
+    public l.b<T> r(String str, String str2) {
+        g<T> q = q(str, str2);
+        if (q == null) {
             return null;
         }
         l.b<T> bVar = new l.b<>();
         bVar.key = str2;
-        bVar.value = s.value;
-        bVar.timeToExpire = s.timeToExpire;
-        bVar.lastSaveTime = s.saveTime;
+        bVar.value = q.value;
+        bVar.timeToExpire = q.timeToExpire;
+        bVar.lastSaveTime = q.saveTime;
         return bVar;
     }
 
@@ -91,7 +91,7 @@ public abstract class d<T> implements k<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public e lu() {
-        return this.KZ;
+    public e lt() {
+        return this.KX;
     }
 }

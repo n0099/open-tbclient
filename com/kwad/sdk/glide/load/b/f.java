@@ -12,30 +12,30 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f<Data> implements n<File, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final d<Data> f10082a;
+    private final d<Data> f10084a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a<Data> implements o<File, Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final d<Data> f10083a;
+        private final d<Data> f10085a;
 
         public a(d<Data> dVar) {
-            this.f10083a = dVar;
+            this.f10085a = dVar;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public final n<File, Data> a(@NonNull r rVar) {
-            return new f(this.f10083a);
+            return new f(this.f10085a);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b extends a<ParcelFileDescriptor> {
         public b() {
             super(new d<ParcelFileDescriptor>() { // from class: com.kwad.sdk.glide.load.b.f.b.1
@@ -61,32 +61,32 @@ public class f<Data> implements n<File, Data> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class c<Data> implements com.kwad.sdk.glide.load.a.d<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final File f10084a;
+        private final File f10086a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final d<Data> f10085b;
+        private final d<Data> f10087b;
         private Data c;
 
         c(File file, d<Data> dVar) {
-            this.f10084a = file;
-            this.f10085b = dVar;
+            this.f10086a = file;
+            this.f10087b = dVar;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         @NonNull
         public Class<Data> a() {
-            return this.f10085b.a();
+            return this.f10087b.a();
         }
 
         /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: Data, ? super Data */
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super Data> aVar) {
             try {
-                this.c = this.f10085b.b(this.f10084a);
+                this.c = this.f10087b.b(this.f10086a);
                 aVar.a((d.a<? super Data>) ((Data) this.c));
             } catch (FileNotFoundException e) {
                 if (Log.isLoggable("FileLoader", 3)) {
@@ -100,7 +100,7 @@ public class f<Data> implements n<File, Data> {
         public void b() {
             if (this.c != null) {
                 try {
-                    this.f10085b.a(this.c);
+                    this.f10087b.a(this.c);
                 } catch (IOException e) {
                 }
             }
@@ -117,7 +117,7 @@ public class f<Data> implements n<File, Data> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d<Data> {
         Class<Data> a();
 
@@ -126,7 +126,7 @@ public class f<Data> implements n<File, Data> {
         Data b(File file);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class e extends a<InputStream> {
         public e() {
             super(new d<InputStream>() { // from class: com.kwad.sdk.glide.load.b.f.e.1
@@ -152,13 +152,13 @@ public class f<Data> implements n<File, Data> {
     }
 
     public f(d<Data> dVar) {
-        this.f10082a = dVar;
+        this.f10084a = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull File file, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return new n.a<>(new com.kwad.sdk.glide.f.b(file), new c(file, this.f10082a));
+        return new n.a<>(new com.kwad.sdk.glide.f.b(file), new c(file, this.f10084a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BIMKickResponseRtcInfo extends BIMKickRequestRtcInfo {
     private static final String TAG = "BIMKickResponseRtcInfo";
     private int mKickedStatus = 0;

@@ -1,53 +1,96 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.User;
+import tbclient.RecomTopicInfo;
+import tbclient.RecomTopicList;
 /* loaded from: classes.dex */
-public class br extends a {
-    public static final BdUniqueId eKJ = BdUniqueId.gen();
-    public int eNa;
-    private boolean eNl;
-    public String title;
-    public boolean eNn = true;
-    private List<MetaData> eNm = new ArrayList();
+public class br {
+    private String ePr;
+    private List<a> ePs = new ArrayList();
 
-    public void bu(List<User> list) {
-        if (list != null) {
-            int min = Math.min(list.size(), this.eNn ? 10 : list.size());
-            for (int i = 0; i < min; i++) {
-                MetaData metaData = new MetaData();
-                metaData.parserProtobuf(list.get(i));
-                this.eNm.add(metaData);
+    public String bmY() {
+        return StringUtils.isNull(this.ePr) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.ePr;
+    }
+
+    public com.baidu.tieba.card.data.n bmZ() {
+        com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
+        ArrayList arrayList = null;
+        nVar.iBg = bmY();
+        if (this.ePs != null) {
+            ArrayList arrayList2 = new ArrayList();
+            for (a aVar : this.ePs) {
+                if (aVar != null) {
+                    arrayList2.add(aVar.bna());
+                }
+            }
+            arrayList = arrayList2;
+        }
+        nVar.iBh = arrayList;
+        return nVar;
+    }
+
+    public void a(RecomTopicInfo recomTopicInfo) {
+        if (recomTopicInfo != null) {
+            this.ePr = recomTopicInfo.recom_title;
+            if (com.baidu.tbadk.core.util.y.getCount(recomTopicInfo.topic_list) > 0) {
+                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
+                    if (recomTopicList != null) {
+                        a aVar = new a();
+                        aVar.a(recomTopicList);
+                        if (!a(aVar)) {
+                            this.ePs.add(aVar);
+                        }
+                    }
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
-    public BdUniqueId getType() {
-        return eKJ;
+    private boolean a(a aVar) {
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.getTopicId() <= 0;
     }
 
-    @Override // com.baidu.tbadk.core.data.a
-    public bz bkV() {
-        return null;
-    }
+    /* loaded from: classes.dex */
+    public static class a {
+        private String ePt;
+        private long ePu;
+        private String ePv;
+        private String ePw;
+        private int tag;
+        private long topicId;
+        private int type;
 
-    @Override // com.baidu.tbadk.core.data.a
-    public at bkX() {
-        return new at();
-    }
+        public long getTopicId() {
+            return this.topicId;
+        }
 
-    public List<MetaData> bmK() {
-        return this.eNm;
-    }
+        public String getTopicName() {
+            return this.ePt;
+        }
 
-    public boolean bmL() {
-        return this.eNl;
-    }
+        public void a(RecomTopicList recomTopicList) {
+            if (recomTopicList != null) {
+                this.topicId = recomTopicList.topic_id.longValue();
+                this.ePt = recomTopicList.topic_name;
+                this.type = recomTopicList.type.intValue();
+                this.ePu = recomTopicList.discuss_num.longValue();
+                this.tag = recomTopicList.tag.intValue();
+                this.ePv = recomTopicList.topic_desc;
+                this.ePw = recomTopicList.topic_pic;
+            }
+        }
 
-    public void jt(boolean z) {
-        this.eNl = z;
+        public com.baidu.tieba.card.data.m bna() {
+            com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
+            mVar.tag = this.tag;
+            mVar.desc = this.ePv;
+            mVar.topicId = this.topicId;
+            mVar.ePt = this.ePt;
+            return mVar;
+        }
     }
 }

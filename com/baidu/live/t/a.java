@@ -1,20 +1,24 @@
 package com.baidu.live.t;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.x;
-/* loaded from: classes10.dex */
+import com.baidu.live.data.ab;
+/* loaded from: classes11.dex */
 public interface a {
-    void HJ();
+    boolean Aq();
 
-    void b(x xVar);
+    boolean J(com.baidu.live.im.data.b bVar);
 
-    void co(int i);
+    boolean Pi();
 
-    void f(x xVar);
+    void a(ViewGroup viewGroup, ab abVar);
 
-    void onDestory();
+    void a(ab abVar);
 
-    void onKeyboardVisibilityChanged(boolean z);
+    void onDestroy();
 
-    void p(ViewGroup viewGroup);
+    void setCanVisible(boolean z);
+
+    void setIsHost(boolean z);
+
+    void xh();
 }

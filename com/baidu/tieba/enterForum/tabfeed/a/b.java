@@ -13,39 +13,40 @@ import com.baidu.card.ak;
 import com.baidu.card.o;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.data.ca;
+import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.card.t;
 /* loaded from: classes2.dex */
-public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<bz>> {
-    private aa<bz> ago;
-    private boolean akY;
-    private s amu;
-    public BdUniqueId fEN;
-    private com.baidu.adp.lib.d.b<ImageView> fRW;
-    private com.baidu.adp.lib.d.b<GifView> fRX;
+public class b extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<cb>> {
+    private ab<cb> agg;
+    private boolean akO;
+    private s amk;
+    public BdUniqueId fGZ;
+    private com.baidu.adp.lib.d.b<ImageView> fUl;
+    private com.baidu.adp.lib.d.b<GifView> fUm;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akY = true;
-        this.fRW = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.1
+        this.akO = true;
+        this.fUl = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bIa */
+            /* renamed from: bIt */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(b.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.bkB().isShowImages();
-                foreDrawableImageView.setDefaultBg(ao.getDrawable(R.color.common_color_10220));
+                boolean isShowImages = com.baidu.tbadk.core.k.bkT().isShowImages();
+                foreDrawableImageView.setDefaultBg(ap.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     foreDrawableImageView.setAdjustViewBounds(false);
                     foreDrawableImageView.setInterceptOnClick(false);
@@ -80,7 +81,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (com.baidu.tbadk.core.k.bkB().isShowImages()) {
+                    if (com.baidu.tbadk.core.k.bkT().isShowImages()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -110,14 +111,14 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
                 return imageView;
             }
         }, 12, 0);
-        this.fRX = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.2
+        this.fUm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cvN */
+            /* renamed from: cwZ */
             public GifView makeObject() {
                 GifView gifView = new GifView(b.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.bkB().isShowImages();
-                gifView.setDefaultBg(ao.getDrawable(R.color.common_color_10220));
+                boolean isShowImages = com.baidu.tbadk.core.k.bkT().isShowImages();
+                gifView.setDefaultBg(ap.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
@@ -146,7 +147,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
             /* renamed from: h */
             public GifView activateObject(GifView gifView) {
                 gifView.setTag(null);
-                if (com.baidu.tbadk.core.k.bkB().isShowImages()) {
+                if (com.baidu.tbadk.core.k.bkT().isShowImages()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -164,7 +165,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
                 gifView.release();
                 gifView.onDestroy();
                 gifView.setImageDrawable(null);
-                gifView.bCv();
+                gifView.bCN();
                 gifView.setBackgroundDrawable(null);
                 gifView.setTag(null);
                 gifView.setOnClickListener(null);
@@ -172,22 +173,22 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
                 return gifView;
             }
         }, 20, 0);
-        this.ago = new aa<bz>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.3
+        this.agg = new ab<cb>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.3
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.aa
+            @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
-            public void a(View view, bz bzVar) {
-                com.baidu.tieba.card.s.crj().mC(true);
-                com.baidu.tieba.enterForum.a.a(view, bzVar, b.this.mTabName);
+            public void a(View view, cb cbVar) {
+                t.csu().mG(true);
+                com.baidu.tieba.enterForum.a.a(view, cbVar, b.this.mTabName);
             }
         };
         this.mPageContext = tbPageContext;
-        this.fEN = bdUniqueId2;
+        this.fGZ = bdUniqueId2;
         this.mTabName = str;
     }
 
     public void a(s sVar) {
-        this.amu = sVar;
+        this.amk = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -199,27 +200,27 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
         o oVar = new o(this.mPageContext.getPageActivity());
         oVar.setFrom("index");
         oVar.setFromForPb(2);
-        oVar.setObjectPool(this.fRW, this.fRX);
-        oVar.e(com.baidu.tbadk.a.b.b.bjq(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), com.baidu.tbadk.a.b.b.bjq(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
-        oVar.setFromCDN(this.akY);
+        oVar.setObjectPool(this.fUl, this.fUm);
+        oVar.e(com.baidu.tbadk.a.b.b.bjL(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), com.baidu.tbadk.a.b.b.bjL(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
+        oVar.setFromCDN(this.akO);
         oVar.setCornerStyle(1);
         aVar.c(oVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amu);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amk);
         a2.setSourceForPb(2);
         ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(a2);
-        threadCardViewHolder.setPageId(this.fEN);
+        threadCardViewHolder.setPageId(this.fGZ);
         a(new w() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.4
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if ((nVar instanceof by) && (view.getTag() instanceof ThreadCardViewHolder)) {
+                if ((nVar instanceof ca) && (view.getTag() instanceof ThreadCardViewHolder)) {
                     ThreadCardViewHolder threadCardViewHolder2 = (ThreadCardViewHolder) view.getTag();
-                    bz bzVar = ((by) nVar).eHK;
-                    bzVar.objType = 1;
-                    if (b.this.ago != null) {
-                        b.this.ago.a(threadCardViewHolder2.getView(), bzVar);
+                    cb cbVar = ((ca) nVar).eJQ;
+                    cbVar.objType = 1;
+                    if (b.this.agg != null) {
+                        b.this.agg.a(threadCardViewHolder2.getView(), cbVar);
                     }
-                    ay.a((com.baidu.tbadk.core.data.a) bzVar, view.getContext(), 2, false);
-                    threadCardViewHolder2.tm().b(new a.C0089a(1));
+                    az.a((com.baidu.tbadk.core.data.a) cbVar, view.getContext(), 2, false);
+                    threadCardViewHolder2.tj().b(new a.C0089a(1));
                 }
             }
         });
@@ -229,20 +230,20 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, by byVar, ThreadCardViewHolder<bz> threadCardViewHolder) {
-        if (byVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || byVar.eHK == null) {
+    public View a(int i, View view, ViewGroup viewGroup, ca caVar, ThreadCardViewHolder<cb> threadCardViewHolder) {
+        if (caVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || caVar.eJQ == null) {
             return null;
         }
-        byVar.eHK.eMg = getPositionByType(i) + 1;
-        threadCardViewHolder.tm().setPosition(i);
-        threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eHK);
-        threadCardViewHolder.tm().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        threadCardViewHolder.tm().a(this.ago);
-        com.baidu.tieba.enterForum.a.a(byVar, this.mTabName);
+        caVar.eJQ.eOs = getPositionByType(i) + 1;
+        threadCardViewHolder.tj().setPosition(i);
+        threadCardViewHolder.b((ThreadCardViewHolder<cb>) caVar.eJQ);
+        threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        threadCardViewHolder.tj().a(this.agg);
+        com.baidu.tieba.enterForum.a.a(caVar, this.mTabName);
         return threadCardViewHolder.getView();
     }
 
     public void setFromCDN(boolean z) {
-        this.akY = z;
+        this.akO = z;
     }
 }

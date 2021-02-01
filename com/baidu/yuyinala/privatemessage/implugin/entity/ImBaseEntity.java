@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.implugin.entity;
 
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ImBaseEntity implements Serializable {
     public String action;
     public int category;
@@ -15,19 +15,19 @@ public class ImBaseEntity implements Serializable {
     public String name;
     public int type;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class ImCreateGroupNotify implements Serializable {
         public String messageContent;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class ImPrivateInvite implements Serializable {
         public String cover;
         public long groupId;
         public String inviteText;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class ImVideoEntity implements Serializable {
         public String cmd;
         public String describe;

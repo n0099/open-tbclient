@@ -8,35 +8,35 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LoadingLayout extends LinearLayout {
-    private ProgressBar dPh;
-    private boolean oPA;
-    private LinearLayout oPx;
-    private TextView oPy;
-    private a oPz;
+    private ProgressBar dRn;
+    private LinearLayout oZH;
+    private TextView oZI;
+    private a oZJ;
+    private boolean oZK;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void ehp();
+        void ejJ();
     }
 
     public LoadingLayout(Context context) {
         super(context);
-        this.dPh = null;
-        this.oPx = null;
-        this.oPy = null;
-        this.oPz = null;
-        this.oPA = true;
+        this.dRn = null;
+        this.oZH = null;
+        this.oZI = null;
+        this.oZJ = null;
+        this.oZK = true;
     }
 
     public LoadingLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dPh = null;
-        this.oPx = null;
-        this.oPy = null;
-        this.oPz = null;
-        this.oPA = true;
+        this.dRn = null;
+        this.oZH = null;
+        this.oZI = null;
+        this.oZJ = null;
+        this.oZK = true;
     }
 
     @Override // android.view.View
@@ -46,24 +46,24 @@ public class LoadingLayout extends LinearLayout {
     }
 
     private void initView() {
-        this.dPh = (ProgressBar) findViewById(a.f.loading_pb);
-        this.oPx = (LinearLayout) findViewById(a.f.loading_fail_layout);
-        this.oPx.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.imagechooser.LoadingLayout.1
+        this.dRn = (ProgressBar) findViewById(a.f.loading_pb);
+        this.oZH = (LinearLayout) findViewById(a.f.loading_fail_layout);
+        this.oZH.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.imagechooser.LoadingLayout.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (!LoadingLayout.this.oPA) {
+                if (!LoadingLayout.this.oZK) {
                     return false;
                 }
-                if (motionEvent.getAction() == 0 && LoadingLayout.this.oPz != null) {
-                    LoadingLayout.this.oPz.ehp();
+                if (motionEvent.getAction() == 0 && LoadingLayout.this.oZJ != null) {
+                    LoadingLayout.this.oZJ.ejJ();
                 }
                 return true;
             }
         });
-        this.oPy = (TextView) findViewById(a.f.loading_fail_tv);
+        this.oZI = (TextView) findViewById(a.f.loading_fail_tv);
     }
 
     public void setRetryListener(a aVar) {
-        this.oPz = aVar;
+        this.oZJ = aVar;
     }
 }

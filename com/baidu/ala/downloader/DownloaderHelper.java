@@ -3,10 +3,11 @@ package com.baidu.ala.downloader;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.n;
 import com.baidu.adp.lib.util.s;
 import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.o;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,10 +21,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DownloaderHelper {
     public static String getFileMd5(File file) {
-        String md5 = s.toMd5(n.GetStreamFromFile(file));
+        String md5 = s.toMd5(o.GetStreamFromFile(file));
         if (!StringUtils.isNull(md5)) {
             return md5.toLowerCase();
         }
@@ -35,7 +36,7 @@ public class DownloaderHelper {
         boolean z = false;
         if (existFile(str)) {
             if (!isDirectory(str)) {
-                n.deleteFileOrDir(new File(str));
+                o.deleteFileOrDir(new File(str));
                 return true;
             } else if (arrayList == null || arrayList.size() <= 0 || (listFiles = new File(str).listFiles()) == null || listFiles.length == 0) {
                 return true;
@@ -114,25 +115,25 @@ public class DownloaderHelper {
                             }
                         } else {
                             zipInputStream.close();
-                            n.deleteFile(new File(str));
-                            com.baidu.adp.lib.util.n.close((InputStream) zipInputStream);
+                            o.deleteFile(new File(str));
+                            n.close((InputStream) zipInputStream);
                             return true;
                         }
                     } catch (FileNotFoundException e) {
                         e = e;
                         e.printStackTrace();
-                        com.baidu.adp.lib.util.n.close((InputStream) zipInputStream);
+                        n.close((InputStream) zipInputStream);
                         return false;
                     } catch (IOException e2) {
                         e = e2;
                         e.printStackTrace();
-                        com.baidu.adp.lib.util.n.close((InputStream) zipInputStream);
+                        n.close((InputStream) zipInputStream);
                         return false;
                     }
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.util.n.close((InputStream) null);
+                n.close((InputStream) null);
                 throw th;
             }
         } catch (FileNotFoundException e3) {
@@ -143,7 +144,7 @@ public class DownloaderHelper {
             zipInputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.adp.lib.util.n.close((InputStream) null);
+            n.close((InputStream) null);
             throw th;
         }
     }
@@ -196,10 +197,10 @@ public class DownloaderHelper {
         }
         try {
             if (file.exists() && !file.delete()) {
-                com.baidu.adp.lib.util.n.close((OutputStream) null);
+                n.close((OutputStream) null);
                 return null;
             } else if (!file.createNewFile()) {
-                com.baidu.adp.lib.util.n.close((OutputStream) null);
+                n.close((OutputStream) null);
                 return null;
             } else {
                 fileOutputStream = new FileOutputStream(file);
@@ -211,7 +212,7 @@ public class DownloaderHelper {
                             if (read == -1) {
                                 fileOutputStream.flush();
                                 String path = file.getPath();
-                                com.baidu.adp.lib.util.n.close((OutputStream) fileOutputStream);
+                                n.close((OutputStream) fileOutputStream);
                                 return path;
                             }
                             fileOutputStream.write(bArr, 0, read);
@@ -220,12 +221,12 @@ public class DownloaderHelper {
                         e = e2;
                         BdLog.e(e.getMessage());
                         TiebaStatic.file(e, "FileHelper.saveFile " + str + "/" + str3);
-                        com.baidu.adp.lib.util.n.close((OutputStream) fileOutputStream);
+                        n.close((OutputStream) fileOutputStream);
                         return null;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.adp.lib.util.n.close((OutputStream) fileOutputStream);
+                    n.close((OutputStream) fileOutputStream);
                     throw th;
                 }
             }
@@ -235,7 +236,7 @@ public class DownloaderHelper {
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
-            com.baidu.adp.lib.util.n.close((OutputStream) fileOutputStream);
+            n.close((OutputStream) fileOutputStream);
             throw th;
         }
     }

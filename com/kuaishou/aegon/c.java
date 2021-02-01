@@ -1,14 +1,14 @@
 package com.kuaishou.aegon;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final /* synthetic */ class c implements Runnable {
-    private static final c pNI = new c();
+    private static final c pXM = new c();
 
     private c() {
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.kuaishou.aegon.Aegon.ezY():aegon.chrome.net.CronetEngine] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.kuaishou.aegon.Aegon.eCp():aegon.chrome.net.CronetEngine] */
     public static Runnable lambdaFactory$() {
-        return pNI;
+        return pXM;
     }
 
     @Override // java.lang.Runnable

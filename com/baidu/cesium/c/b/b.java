@@ -1,13 +1,12 @@
 package com.baidu.cesium.c.b;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static final int[] f = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     private final int g;
@@ -101,7 +100,7 @@ public class b {
     }
 
     public byte[] a(byte[] bArr, byte[] bArr2) {
-        if (bArr.length > ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED - a()) {
+        if (bArr.length > Integer.MAX_VALUE - a()) {
             throw new GeneralSecurityException("data too long");
         }
         ByteBuffer allocate = ByteBuffer.allocate(a() + bArr.length);

@@ -1,15 +1,15 @@
 package com.baidu.platform.comapi.walknavi.g.b;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f4316a;
+    final /* synthetic */ c f4319a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(c cVar) {
-        this.f4316a = cVar;
+        this.f4319a = cVar;
     }
 
     @Override // android.view.View.OnClickListener

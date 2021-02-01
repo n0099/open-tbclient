@@ -1,13 +1,6 @@
 package com.baidu.live.data;
-
-import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ay {
-    public long aLH;
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aLH = jSONObject.optLong("challenge_info_interval");
-        }
-    }
+    public long mTDouScores = 0;
+    public long mPetalTotal = 0;
 }

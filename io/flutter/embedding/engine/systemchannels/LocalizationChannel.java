@@ -9,7 +9,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class LocalizationChannel {
     private static final String TAG = "LocalizationChannel";
     @NonNull

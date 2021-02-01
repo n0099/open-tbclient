@@ -3,7 +3,7 @@ package com.kwad.sdk.glide.load.a;
 import android.content.res.AssetManager;
 import androidx.annotation.NonNull;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class m extends b<InputStream> {
     public m(AssetManager assetManager, String str) {
         super(assetManager, str);

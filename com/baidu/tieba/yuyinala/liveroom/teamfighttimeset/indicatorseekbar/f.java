@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar;
 
 import android.content.Context;
 import android.util.TypedValue;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class f {
     public static int dp2px(Context context, float f) {
         return (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics());

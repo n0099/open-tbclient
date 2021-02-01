@@ -7,39 +7,39 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.at;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.util.au;
+/* loaded from: classes9.dex */
 public class FaceBuyModel extends BdBaseModel {
-    private b iOX;
-    private a iOY;
-    private int iOZ;
+    private b iUE;
+    private a iUF;
+    private int iUG;
 
     public FaceBuyModel(Context context) {
         super(null);
-        this.iOZ = 3;
-        this.iOX = null;
-        this.iOY = null;
+        this.iUG = 3;
+        this.iUE = null;
+        this.iUF = null;
     }
 
-    public void IW(String str) {
-        if (this.iOX == null) {
-            this.iOX = new b();
-            this.iOX.setPriority(3);
-            this.iOX.execute(str);
+    public void JH(String str) {
+        if (this.iUE == null) {
+            this.iUE = new b();
+            this.iUE.setPriority(3);
+            this.iUE.execute(str);
         }
     }
 
-    public void IX(String str) {
-        if (this.iOY == null) {
-            this.iOY = new a();
-            this.iOY.setPriority(3);
-            this.iOY.execute(str);
+    public void JI(String str) {
+        if (this.iUF == null) {
+            this.iUF = new a();
+            this.iUF.setPriority(3);
+            this.iUF.execute(str);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private class b extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
-        private com.baidu.tbadk.core.util.z chV;
+        private com.baidu.tbadk.core.util.aa cml;
 
         private b() {
         }
@@ -51,9 +51,9 @@ public class FaceBuyModel extends BdBaseModel {
         public FaceBuyData doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
             try {
-                this.chV = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
-                this.chV.addPostData("pid", obj);
-                return (FaceBuyData) OrmObject.objectWithJsonStr(this.chV.postNetData(), FaceBuyData.class);
+                this.cml = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
+                this.cml.addPostData("pid", obj);
+                return (FaceBuyData) OrmObject.objectWithJsonStr(this.cml.postNetData(), FaceBuyData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
@@ -63,10 +63,10 @@ public class FaceBuyModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.chV != null) {
-                this.chV.cancelNetConnect();
+            if (this.cml != null) {
+                this.cml.cancelNetConnect();
             }
-            FaceBuyModel.this.iOX = null;
+            FaceBuyModel.this.iUE = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(null);
         }
 
@@ -76,14 +76,14 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: a */
         public void onPostExecute(FaceBuyData faceBuyData) {
             super.onPostExecute(faceBuyData);
-            FaceBuyModel.this.iOX = null;
+            FaceBuyModel.this.iUE = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyData);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     private class a extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
-        private com.baidu.tbadk.core.util.z chV;
+        private com.baidu.tbadk.core.util.aa cml;
         private volatile boolean mCanceled;
 
         private a() {
@@ -98,11 +98,11 @@ public class FaceBuyModel extends BdBaseModel {
             int i = 0;
             FaceBuyQueryData faceBuyQueryData = null;
             String obj = objArr[0].toString();
-            if (!at.isEmpty(obj)) {
-                this.chV = new com.baidu.tbadk.core.util.z(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
-                this.chV.addPostData("order_id", obj);
-                while (!this.mCanceled && i < FaceBuyModel.this.iOZ) {
-                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.chV.postNetData(), FaceBuyQueryData.class);
+            if (!au.isEmpty(obj)) {
+                this.cml = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
+                this.cml.addPostData("order_id", obj);
+                while (!this.mCanceled && i < FaceBuyModel.this.iUG) {
+                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.cml.postNetData(), FaceBuyQueryData.class);
                     if (faceBuyQueryData != null && faceBuyQueryData.buy_result != null) {
                         if (faceBuyQueryData.buy_result.status == 2) {
                             break;
@@ -132,7 +132,7 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: a */
         public void onPostExecute(FaceBuyQueryData faceBuyQueryData) {
             super.onPostExecute(faceBuyQueryData);
-            FaceBuyModel.this.iOY = null;
+            FaceBuyModel.this.iUF = null;
             this.mCanceled = true;
             FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyQueryData);
         }
@@ -140,10 +140,10 @@ public class FaceBuyModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.chV != null) {
-                this.chV.cancelNetConnect();
+            if (this.cml != null) {
+                this.cml.cancelNetConnect();
             }
-            FaceBuyModel.this.iOY = null;
+            FaceBuyModel.this.iUF = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(null);
         }
     }
@@ -155,8 +155,8 @@ public class FaceBuyModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iOX != null) {
-            this.iOX.cancel();
+        if (this.iUE != null) {
+            this.iUE.cancel();
             return true;
         }
         return true;

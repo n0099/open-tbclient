@@ -4,14 +4,14 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.contentalliance.home.a.i;
 import com.kwad.sdk.contentalliance.refreshview.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public i f8767a;
+    public i f8769a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsFragment f8768b;
+    public KsFragment f8770b;
     public SlidePlayViewPager c;
     @Nullable
     public e d;

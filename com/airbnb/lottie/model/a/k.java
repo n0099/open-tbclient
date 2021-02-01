@@ -1,7 +1,7 @@
 package com.airbnb.lottie.model.a;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class k {
     @Nullable
     public final a Fr;

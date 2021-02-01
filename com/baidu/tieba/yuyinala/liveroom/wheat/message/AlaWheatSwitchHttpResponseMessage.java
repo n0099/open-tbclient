@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AlaWheatSwitchHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     public AlaWheatSwitchHttpResponseMessage() {
         super(1031026);

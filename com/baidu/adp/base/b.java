@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class b {
-    private static b Ib;
+    private static b Ia;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private a Ic;
+    private a Ib;
     private int mActivityStackMaxSize = 0;
 
     /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public final class b {
     }
 
     public void a(a aVar) {
-        this.Ic = aVar;
+        this.Ib = aVar;
     }
 
     private b() {
@@ -31,11 +31,11 @@ public final class b {
         }
     }
 
-    public static b kC() {
-        if (Ib == null) {
-            Ib = new b();
+    public static b kB() {
+        if (Ia == null) {
+            Ia = new b();
         }
-        return Ib;
+        return Ia;
     }
 
     public int getSize() {
@@ -116,8 +116,8 @@ public final class b {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.Ic != null) {
-                    this.Ic.onActivityClosed();
+                if (this.Ib != null) {
+                    this.Ib.onActivityClosed();
                     return;
                 }
                 return;
@@ -128,13 +128,13 @@ public final class b {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.Ic != null) {
-                        this.Ic.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.Ib != null) {
+                        this.Ib.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.Ic != null) {
-                    this.Ic.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.Ib != null) {
+                    this.Ib.onActivityClosed();
                 }
             }
         }
@@ -183,8 +183,8 @@ public final class b {
                 }
             }
         }
-        if (this.Ic != null) {
-            this.Ic.onActivityClosed();
+        if (this.Ib != null) {
+            this.Ib.onActivityClosed();
         }
     }
 
@@ -194,10 +194,10 @@ public final class b {
 
     private void checkAndMaintainActivityStack(int i) {
         if (i != 0) {
-            int size = kC().getSize();
+            int size = kB().getSize();
             while (size > i) {
                 size--;
-                Activity popActivity = kC().popActivity(1);
+                Activity popActivity = kB().popActivity(1);
                 if (popActivity != null) {
                     popActivity.finish();
                 }
@@ -205,7 +205,7 @@ public final class b {
         }
     }
 
-    public String kD() {
+    public String kC() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         String str;

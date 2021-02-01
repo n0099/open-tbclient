@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class SerializeFilterable {
     protected List<BeforeFilter> beforeFilters = null;
     protected List<AfterFilter> afterFilters = null;

@@ -26,7 +26,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class FlutterFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
     protected static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
     protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
@@ -60,7 +60,7 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return new NewEngineFragmentBuilder();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class NewEngineFragmentBuilder {
         private final Class<? extends FlutterFragment> fragmentClass;
         private boolean isUseTabHost;

@@ -1,5 +1,5 @@
 package com.baidu.down.utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Constants {
     public static final String CONFIG_URL = "http://flow.app.baidu.com/flow/api/flowset?";
     public static final boolean DEBUG = false;

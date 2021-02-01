@@ -1,7 +1,7 @@
 package com.airbnb.lottie.network;
 
 import com.airbnb.lottie.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum FileExtension {
     Json(".json"),
     Zip(".zip");

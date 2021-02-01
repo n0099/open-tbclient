@@ -7,14 +7,14 @@ import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.f.a.k;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    WebView f7128a;
+    WebView f7130a;
 
     /* renamed from: b  reason: collision with root package name */
-    a f7129b;
+    a f7131b;
     h d;
     Context e;
     boolean f;
@@ -32,7 +32,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(@NonNull WebView webView) {
-        this.f7128a = webView;
+        this.f7130a = webView;
     }
 
     j() {
@@ -69,7 +69,7 @@ public class j {
     }
 
     private void c() {
-        if ((this.f7128a == null && !this.n && this.f7129b == null) || ((TextUtils.isEmpty(this.c) && this.f7128a != null) || this.d == null)) {
+        if ((this.f7130a == null && !this.n && this.f7131b == null) || ((TextUtils.isEmpty(this.c) && this.f7130a != null) || this.d == null)) {
             throw new IllegalArgumentException("Requested arguments aren't set properly when building JsBridge.");
         }
     }

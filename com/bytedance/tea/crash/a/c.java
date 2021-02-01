@@ -22,35 +22,35 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static volatile boolean f7612a = true;
+    static volatile boolean f7614a = true;
     private final Context d;
     private volatile long e;
     private volatile boolean f = false;
-    private final SharedPreferences pcg;
-    private a plh;
-    private d pli;
+    private final SharedPreferences pmv;
+    private a pvw;
+    private d pvx;
 
     public c(Context context) {
         if (context == null || !(context instanceof Application)) {
             throw new IllegalArgumentException("context must not be null or not application");
         }
         this.d = context;
-        this.pcg = this.d.getSharedPreferences("anr_monitor_table", 0);
-        this.e = this.pcg.getLong("trace_anr_happen_time", 0L);
+        this.pmv = this.d.getSharedPreferences("anr_monitor_table", 0);
+        this.e = this.pmv.getLong("trace_anr_happen_time", 0L);
         g.a(100, 100);
     }
 
     public void a() {
         if (!this.f) {
             if (Build.VERSION.SDK_INT < 21) {
-                this.plh = new a(this, "/data/anr/", 8);
-                this.plh.startWatching();
+                this.pvw = new a(this, "/data/anr/", 8);
+                this.pvw.startWatching();
             } else {
-                this.pli = new d(this);
+                this.pvx = new d(this);
             }
             this.f = true;
         }
@@ -62,10 +62,10 @@ public class c {
         JSONObject jSONObject = null;
         JSONArray b2 = g.b();
         long uptimeMillis = SystemClock.uptimeMillis();
-        JSONObject it = g.it(uptimeMillis);
-        JSONArray C = g.C(100, uptimeMillis);
+        JSONObject iw = g.iw(uptimeMillis);
+        JSONArray E = g.E(100, uptimeMillis);
         try {
-            jSONObject = e.AL(f7612a);
+            jSONObject = e.Be(f7614a);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -87,15 +87,15 @@ public class c {
                 aVar.a("timestamp", Long.valueOf(System.currentTimeMillis()));
                 aVar.a(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, "anr");
                 aVar.a("history_message", b2);
-                aVar.a("current_message", it);
-                aVar.a("pending_messages", C);
+                aVar.a("current_message", iw);
+                aVar.a("pending_messages", E);
                 aVar.a("anr_time", Long.valueOf(System.currentTimeMillis()));
                 aVar.a("crash_time", Long.valueOf(System.currentTimeMillis()));
                 aVar.a("anr_info", a2);
                 aVar.a("all_thread_stacks", m.a((String) null));
-                com.bytedance.tea.crash.c.a a3 = com.bytedance.tea.crash.e.a.e.eoG().a(com.bytedance.tea.crash.c.ANR, aVar);
+                com.bytedance.tea.crash.c.a a3 = com.bytedance.tea.crash.e.a.e.eqY().a(com.bytedance.tea.crash.c.ANR, aVar);
                 com.bytedance.tea.crash.g.d.a(this.d, com.bytedance.tea.crash.c.ANR.a(), null);
-                com.bytedance.tea.crash.upload.a.eoQ().b(a3.a());
+                com.bytedance.tea.crash.upload.a.eri().b(a3.a());
                 a(a2);
             } catch (Throwable th) {
                 j.b(th);
@@ -105,7 +105,7 @@ public class c {
     }
 
     private static void a(String str) {
-        for (com.bytedance.tea.crash.e eVar : h.eoM().c()) {
+        for (com.bytedance.tea.crash.e eVar : h.ere().c()) {
             eVar.a(com.bytedance.tea.crash.c.ANR, str, null);
         }
     }
@@ -150,8 +150,8 @@ public class c {
                         return null;
                     } else {
                         this.e = time;
-                        if (this.pcg != null) {
-                            this.pcg.edit().putLong("trace_anr_happen_time", this.e).apply();
+                        if (this.pmv != null) {
+                            this.pmv.edit().putLong("trace_anr_happen_time", this.e).apply();
                         }
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("anrTime", time);

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.util.TagTextHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.h.f;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.hotTopic.tab.b.c;
@@ -27,76 +27,76 @@ import com.baidu.tieba.homepage.hotTopic.tab.b.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class HotTopicTabRankListLayout extends RecyclerView {
-    private int jZf;
-    private a jZg;
+    private int kgI;
+    private a kgJ;
 
     public void setOnItemCoverListener(f<c> fVar) {
-        this.jZg.setOnItemCoverListener(fVar);
+        this.kgJ.setOnItemCoverListener(fVar);
     }
 
     public HotTopicTabRankListLayout(Context context) {
         super(context);
-        this.jZf = 3;
+        this.kgI = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jZf = 3;
+        this.kgI = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jZf = 3;
+        this.kgI = 3;
         initView();
     }
 
     private void initView() {
         setLayoutManager(new GridLayoutManager(getContext(), 2));
         setOverScrollMode(2);
-        this.jZg = new a();
-        setAdapter(this.jZg);
+        this.kgJ = new a();
+        setAdapter(this.kgJ);
     }
 
     public void a(d dVar) {
-        if (dVar != null && dVar.cOM() != null) {
-            this.jZg.ec(dVar.cOM());
+        if (dVar != null && dVar.cQJ() != null) {
+            this.kgJ.dZ(dVar.cQJ());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jZf != i) {
-            this.jZg.notifyDataSetChanged();
-            this.jZf = i;
+        if (this.kgI != i) {
+            this.kgJ.notifyDataSetChanged();
+            this.kgI = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a extends RecyclerView.Adapter<b> {
-        private f<c> ajB;
-        private List<c> jZd;
+        private f<c> ajq;
+        private List<c> kgG;
 
         a() {
         }
 
         public void setOnItemCoverListener(f<c> fVar) {
-            this.ajB = fVar;
+            this.ajq = fVar;
         }
 
-        void ec(@NonNull List<c> list) {
-            this.jZd = list;
+        void dZ(@NonNull List<c> list) {
+            this.kgG = list;
             notifyDataSetChanged();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         @NonNull
-        /* renamed from: G */
+        /* renamed from: H */
         public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             b bVar = new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hot_topic_tab_rank_list_item, viewGroup, false));
-            bVar.setOnItemCoverListener(this.ajB);
+            bVar.setOnItemCoverListener(this.ajq);
             bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return bVar;
         }
@@ -105,123 +105,123 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: a */
         public void onBindViewHolder(@NonNull b bVar, int i) {
-            List<c> list = this.jZd;
+            List<c> list = this.kgG;
             if (list != null && list.size() > i) {
                 c cVar = list.get(i);
                 bVar.a(cVar);
                 bVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                if (this.ajB != null) {
-                    this.ajB.b(bVar.itemView, cVar, i, i);
+                if (this.ajq != null) {
+                    this.ajq.b(bVar.itemView, cVar, i, i);
                 }
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            if (this.jZd == null) {
+            if (this.kgG == null) {
                 return 0;
             }
-            return this.jZd.size();
+            return this.kgG.size();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private f<c> ajB;
-        private TextView aka;
-        private TextView akb;
-        private TextView eFr;
-        private int jZf;
-        private View jZh;
-        private View jZi;
-        private TextView jZj;
-        private ImageView jZk;
+        private TextView ajP;
+        private TextView ajQ;
+        private f<c> ajq;
+        private TextView eHx;
+        private int kgI;
+        private View kgK;
+        private View kgL;
+        private TextView kgM;
+        private ImageView kgN;
 
         b(View view) {
             super(view);
-            this.jZf = 3;
-            this.jZh = view.findViewById(R.id.itemLayout);
-            this.aka = (TextView) view.findViewById(R.id.indexView);
-            this.eFr = (TextView) view.findViewById(R.id.titleView);
-            this.akb = (TextView) view.findViewById(R.id.tagView);
-            this.jZi = view.findViewById(R.id.moreLayout);
-            this.jZj = (TextView) view.findViewById(R.id.moreText);
-            this.jZk = (ImageView) view.findViewById(R.id.moreIcon);
+            this.kgI = 3;
+            this.kgK = view.findViewById(R.id.itemLayout);
+            this.ajP = (TextView) view.findViewById(R.id.indexView);
+            this.eHx = (TextView) view.findViewById(R.id.titleView);
+            this.ajQ = (TextView) view.findViewById(R.id.tagView);
+            this.kgL = view.findViewById(R.id.moreLayout);
+            this.kgM = (TextView) view.findViewById(R.id.moreText);
+            this.kgN = (ImageView) view.findViewById(R.id.moreIcon);
         }
 
         void a(final c cVar) {
             if (cVar != null) {
-                if (cVar.jZc) {
-                    this.jZh.setVisibility(8);
-                    this.jZi.setVisibility(0);
-                    this.jZi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
+                if (cVar.kgF) {
+                    this.kgK.setVisibility(8);
+                    this.kgL.setVisibility(0);
+                    this.kgL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hotforum", "all").start();
-                            if (b.this.ajB != null) {
+                            if (b.this.ajq != null) {
                                 int adapterPosition = b.this.getAdapterPosition();
-                                b.this.ajB.a(view, cVar, adapterPosition, adapterPosition);
+                                b.this.ajq.a(view, cVar, adapterPosition, adapterPosition);
                             }
                         }
                     });
                     return;
                 }
-                this.jZh.setVisibility(0);
-                this.jZh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
+                this.kgK.setVisibility(0);
+                this.kgK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         new HotTopicActivityConfig(view.getContext()).createNormalConfig("" + cVar.topicId, null, "3").start();
-                        if (b.this.ajB != null) {
+                        if (b.this.ajq != null) {
                             int adapterPosition = b.this.getAdapterPosition();
-                            b.this.ajB.a(view, cVar, adapterPosition, adapterPosition);
+                            b.this.ajq.a(view, cVar, adapterPosition, adapterPosition);
                         }
                     }
                 });
-                this.jZi.setVisibility(8);
+                this.kgL.setVisibility(8);
                 if (cVar.index > 0) {
-                    this.aka.setText(String.valueOf(cVar.index));
-                    this.aka.setVisibility(0);
+                    this.ajP.setText(String.valueOf(cVar.index));
+                    this.ajP.setVisibility(0);
                 } else {
-                    this.aka.setVisibility(8);
+                    this.ajP.setVisibility(8);
                 }
-                this.eFr.setText(cVar.eNh);
-                String D = TagTextHelper.D(this.akb.getContext(), cVar.tag);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.eFr.getLayoutParams();
+                this.eHx.setText(cVar.ePt);
+                String D = TagTextHelper.D(this.ajQ.getContext(), cVar.tag);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.eHx.getLayoutParams();
                 if (TextUtils.isEmpty(D)) {
-                    this.akb.setVisibility(8);
-                    marginLayoutParams.rightMargin = l.getDimens(this.akb.getContext(), R.dimen.tbds22);
-                    this.eFr.setLayoutParams(marginLayoutParams);
+                    this.ajQ.setVisibility(8);
+                    marginLayoutParams.rightMargin = l.getDimens(this.ajQ.getContext(), R.dimen.tbds22);
+                    this.eHx.setLayoutParams(marginLayoutParams);
                 } else {
-                    marginLayoutParams.rightMargin = l.getDimens(this.akb.getContext(), R.dimen.tbds74);
-                    this.eFr.setLayoutParams(marginLayoutParams);
-                    this.akb.setVisibility(0);
-                    this.akb.setText(D);
+                    marginLayoutParams.rightMargin = l.getDimens(this.ajQ.getContext(), R.dimen.tbds74);
+                    this.eHx.setLayoutParams(marginLayoutParams);
+                    this.ajQ.setVisibility(0);
+                    this.ajQ.setText(D);
                 }
-                ao.setViewTextColor(this.aka, TagTextHelper.oE(cVar.index));
-                com.baidu.tbadk.core.elementsMaven.c.bv(this.akb).od(R.string.J_X04).setBackGroundColor(TagTextHelper.oD(cVar.tag));
+                ap.setViewTextColor(this.ajP, TagTextHelper.oJ(cVar.index));
+                com.baidu.tbadk.core.elementsMaven.c.br(this.ajQ).og(R.string.J_X04).setBackGroundColor(TagTextHelper.oI(cVar.tag));
             }
         }
 
         void setOnItemCoverListener(f<c> fVar) {
-            this.ajB = fVar;
+            this.ajq = fVar;
         }
 
         void onChangeSkinType(int i) {
-            if (this.jZf != i) {
+            if (this.kgI != i) {
                 int i2 = R.color.CAM_X0204;
-                com.baidu.tbadk.core.util.f.a.m(this.jZh, R.color.CAM_X0205, i2);
-                com.baidu.tbadk.core.util.f.a.m(this.jZi, R.color.CAM_X0205, i2);
-                ao.setViewTextColor(this.eFr, R.color.CAM_X0105);
-                ao.setViewTextColor(this.akb, R.color.CAM_X0101);
-                if (this.jZi.getVisibility() == 0) {
-                    ao.setViewTextColor(this.jZj, R.color.CAM_X0304);
-                    int color = ao.getColor(R.color.CAM_X0304);
-                    Drawable drawable = this.jZk.getDrawable();
+                com.baidu.tbadk.core.util.f.a.m(this.kgK, R.color.CAM_X0205, i2);
+                com.baidu.tbadk.core.util.f.a.m(this.kgL, R.color.CAM_X0205, i2);
+                ap.setViewTextColor(this.eHx, R.color.CAM_X0105);
+                ap.setViewTextColor(this.ajQ, R.color.CAM_X0101);
+                if (this.kgL.getVisibility() == 0) {
+                    ap.setViewTextColor(this.kgM, R.color.CAM_X0304);
+                    int color = ap.getColor(R.color.CAM_X0304);
+                    Drawable drawable = this.kgN.getDrawable();
                     DrawableCompat.setTint(drawable, color);
-                    this.jZk.setImageDrawable(drawable);
+                    this.kgN.setImageDrawable(drawable);
                 }
-                this.jZf = i;
+                this.kgI = i;
             }
         }
     }

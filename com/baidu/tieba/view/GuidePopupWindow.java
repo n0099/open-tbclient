@@ -24,9 +24,9 @@ import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
@@ -38,52 +38,52 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GuidePopupWindow extends Dialog {
-    private TextView hvw;
+    private TextView hzG;
     private Context mContext;
     private String mForumId;
     private String mForumName;
     private View mLine;
     private View mRootView;
-    private TextView mmj;
-    private HeadPendantView nNT;
-    private ImageView nNU;
-    private TextView nNV;
-    private TextView nNW;
-    private TextView nNX;
-    private TextView nNY;
-    private TextView nNZ;
-    private TextView nOa;
-    private TextView nOb;
-    private TextView nOc;
-    private TextView nOd;
-    private TextView nOe;
-    private RelativeLayout nOf;
-    private RelativeLayout nOg;
-    private RelativeLayout nOh;
-    private RelativeLayout nOi;
-    private TBSpecificationBtn nOj;
-    private TBSpecificationBtn nOk;
-    private GuideScrollView nOl;
-    private View nOm;
-    private HeadBorder nOn;
-    private ForegroundColorSpan nOo;
-    private ForegroundColorSpan nOp;
-    private boolean nOq;
-    private final String nOr;
-    private final String nOs;
-    private View.OnClickListener nOt;
-    private View.OnClickListener nOu;
-    private View.OnClickListener nOv;
-    private View.OnClickListener nOw;
-    private View.OnClickListener nOx;
-    private View.OnClickListener nOy;
-    private GuideScrollView.a nOz;
+    private TextView mvk;
+    private HeadPendantView nXX;
+    private ImageView nXY;
+    private TextView nXZ;
+    private View.OnClickListener nYA;
+    private View.OnClickListener nYB;
+    private View.OnClickListener nYC;
+    private GuideScrollView.a nYD;
+    private TextView nYa;
+    private TextView nYb;
+    private TextView nYc;
+    private TextView nYd;
+    private TextView nYe;
+    private TextView nYf;
+    private TextView nYg;
+    private TextView nYh;
+    private TextView nYi;
+    private RelativeLayout nYj;
+    private RelativeLayout nYk;
+    private RelativeLayout nYl;
+    private RelativeLayout nYm;
+    private TBSpecificationBtn nYn;
+    private TBSpecificationBtn nYo;
+    private GuideScrollView nYp;
+    private View nYq;
+    private HeadBorder nYr;
+    private ForegroundColorSpan nYs;
+    private ForegroundColorSpan nYt;
+    private boolean nYu;
+    private final String nYv;
+    private final String nYw;
+    private View.OnClickListener nYx;
+    private View.OnClickListener nYy;
+    private View.OnClickListener nYz;
 
     public GuidePopupWindow(Context context) {
         super(context, R.style.dialog);
-        this.nOr = "认证：";
-        this.nOs = "c13887";
-        this.nOt = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.1
+        this.nYv = "认证：";
+        this.nYw = "c13887";
+        this.nYx = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 HashMap hashMap = new HashMap();
@@ -92,92 +92,92 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("obj_source", "5");
                 hashMap.put("swipeback", false);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(GuidePopupWindow.this.mContext, "BarBroadcastEdit", hashMap)));
-                aq aqVar = new aq("c13887");
-                if (com.baidu.tbadk.getUserInfo.b.bCq() != null && com.baidu.tbadk.getUserInfo.b.bCq().bCs() != null) {
-                    aqVar.dW("uid", com.baidu.tbadk.getUserInfo.b.bCq().bCs().getUserId());
+                ar arVar = new ar("c13887");
+                if (com.baidu.tbadk.getUserInfo.b.bCI() != null && com.baidu.tbadk.getUserInfo.b.bCI().bCK() != null) {
+                    arVar.dR("uid", com.baidu.tbadk.getUserInfo.b.bCI().bCK().getUserId());
                 }
-                aqVar.dW("fid", GuidePopupWindow.this.mForumId);
-                aqVar.an("obj_locate", 1);
-                TiebaStatic.log(aqVar);
+                arVar.dR("fid", GuidePopupWindow.this.mForumId);
+                arVar.ap("obj_locate", 1);
+                TiebaStatic.log(arVar);
             }
         };
-        this.nOu = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.2
+        this.nYy = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("forum_id", GuidePopupWindow.this.mForumId);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(GuidePopupWindow.this.mContext, "RecommendHistoryPage", hashMap)));
-                aq aqVar = new aq("c13887");
-                if (com.baidu.tbadk.getUserInfo.b.bCq() != null && com.baidu.tbadk.getUserInfo.b.bCq().bCs() != null) {
-                    aqVar.dW("uid", com.baidu.tbadk.getUserInfo.b.bCq().bCs().getUserId());
+                ar arVar = new ar("c13887");
+                if (com.baidu.tbadk.getUserInfo.b.bCI() != null && com.baidu.tbadk.getUserInfo.b.bCI().bCK() != null) {
+                    arVar.dR("uid", com.baidu.tbadk.getUserInfo.b.bCI().bCK().getUserId());
                 }
-                aqVar.dW("fid", GuidePopupWindow.this.mForumId);
-                aqVar.an("obj_locate", 4);
-                TiebaStatic.log(aqVar);
+                arVar.dR("fid", GuidePopupWindow.this.mForumId);
+                arVar.ap("obj_locate", 4);
+                TiebaStatic.log(arVar);
             }
         };
-        this.nOv = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.3
+        this.nYz = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("forum_id", GuidePopupWindow.this.mForumId);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(GuidePopupWindow.this.mContext, "DataCenterPage", hashMap)));
-                aq aqVar = new aq("c13887");
-                if (com.baidu.tbadk.getUserInfo.b.bCq() != null && com.baidu.tbadk.getUserInfo.b.bCq().bCs() != null) {
-                    aqVar.dW("uid", com.baidu.tbadk.getUserInfo.b.bCq().bCs().getUserId());
+                ar arVar = new ar("c13887");
+                if (com.baidu.tbadk.getUserInfo.b.bCI() != null && com.baidu.tbadk.getUserInfo.b.bCI().bCK() != null) {
+                    arVar.dR("uid", com.baidu.tbadk.getUserInfo.b.bCI().bCK().getUserId());
                 }
-                aqVar.dW("fid", GuidePopupWindow.this.mForumId);
-                aqVar.an("obj_locate", 3);
-                TiebaStatic.log(aqVar);
+                arVar.dR("fid", GuidePopupWindow.this.mForumId);
+                arVar.ap("obj_locate", 3);
+                TiebaStatic.log(arVar);
             }
         };
-        this.nOw = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.4
+        this.nYA = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("forum_id", GuidePopupWindow.this.mForumId);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(GuidePopupWindow.this.mContext, "ForumSectionPage", hashMap)));
-                aq aqVar = new aq("c13887");
-                if (com.baidu.tbadk.getUserInfo.b.bCq() != null && com.baidu.tbadk.getUserInfo.b.bCq().bCs() != null) {
-                    aqVar.dW("uid", com.baidu.tbadk.getUserInfo.b.bCq().bCs().getUserId());
+                ar arVar = new ar("c13887");
+                if (com.baidu.tbadk.getUserInfo.b.bCI() != null && com.baidu.tbadk.getUserInfo.b.bCI().bCK() != null) {
+                    arVar.dR("uid", com.baidu.tbadk.getUserInfo.b.bCI().bCK().getUserId());
                 }
-                aqVar.dW("fid", GuidePopupWindow.this.mForumId);
-                aqVar.an("obj_locate", 2);
-                TiebaStatic.log(aqVar);
+                arVar.dR("fid", GuidePopupWindow.this.mForumId);
+                arVar.ap("obj_locate", 2);
+                TiebaStatic.log(arVar);
             }
         };
-        this.nOx = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.5
+        this.nYB = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("forum_id", GuidePopupWindow.this.mForumId);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(GuidePopupWindow.this.mContext, OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
-                aq aqVar = new aq("c13887");
-                if (com.baidu.tbadk.getUserInfo.b.bCq() != null && com.baidu.tbadk.getUserInfo.b.bCq().bCs() != null) {
-                    aqVar.dW("uid", com.baidu.tbadk.getUserInfo.b.bCq().bCs().getUserId());
+                ar arVar = new ar("c13887");
+                if (com.baidu.tbadk.getUserInfo.b.bCI() != null && com.baidu.tbadk.getUserInfo.b.bCI().bCK() != null) {
+                    arVar.dR("uid", com.baidu.tbadk.getUserInfo.b.bCI().bCK().getUserId());
                 }
-                aqVar.dW("fid", GuidePopupWindow.this.mForumId);
-                aqVar.an("obj_locate", 6);
-                TiebaStatic.log(aqVar);
+                arVar.dR("fid", GuidePopupWindow.this.mForumId);
+                arVar.ap("obj_locate", 6);
+                TiebaStatic.log(arVar);
             }
         };
-        this.nOy = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.6
+        this.nYC = new View.OnClickListener() { // from class: com.baidu.tieba.view.GuidePopupWindow.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 GuidePopupWindow.this.dismiss();
-                aq aqVar = new aq("c13887");
-                if (com.baidu.tbadk.getUserInfo.b.bCq() != null && com.baidu.tbadk.getUserInfo.b.bCq().bCs() != null) {
-                    aqVar.dW("uid", com.baidu.tbadk.getUserInfo.b.bCq().bCs().getUserId());
+                ar arVar = new ar("c13887");
+                if (com.baidu.tbadk.getUserInfo.b.bCI() != null && com.baidu.tbadk.getUserInfo.b.bCI().bCK() != null) {
+                    arVar.dR("uid", com.baidu.tbadk.getUserInfo.b.bCI().bCK().getUserId());
                 }
-                aqVar.dW("fid", GuidePopupWindow.this.mForumId);
-                aqVar.an("obj_locate", 5);
-                TiebaStatic.log(aqVar);
+                arVar.dR("fid", GuidePopupWindow.this.mForumId);
+                arVar.ap("obj_locate", 5);
+                TiebaStatic.log(arVar);
             }
         };
-        this.nOz = new GuideScrollView.a() { // from class: com.baidu.tieba.view.GuidePopupWindow.8
+        this.nYD = new GuideScrollView.a() { // from class: com.baidu.tieba.view.GuidePopupWindow.8
             @Override // com.baidu.tieba.view.GuideScrollView.a
             public void onScrollChanged(int i, int i2, int i3, int i4) {
-                GuidePopupWindow.this.nOm.setAlpha(GuidePopupWindow.this.nOl.getScrollY() / 150.0f);
+                GuidePopupWindow.this.nYq.setAlpha(GuidePopupWindow.this.nYp.getScrollY() / 150.0f);
             }
         };
         this.mContext = context;
@@ -196,168 +196,168 @@ public class GuidePopupWindow extends Dialog {
         com.baidu.tieba.v.c.a(1, getWindow().getAttributes(), getWindow());
     }
 
-    public void TR(String str) {
-        this.nNV.setText("认证：" + str + getContext().getResources().getString(R.string.guide_popup_window_join_field_bar_owner));
+    public void UP(String str) {
+        this.nXZ.setText("认证：" + str + getContext().getResources().getString(R.string.guide_popup_window_join_field_bar_owner));
     }
 
-    public void ge(List<String> list) {
+    public void gc(List<String> list) {
         if (list != null) {
             List<String> list2 = null;
             if (list.size() > 3) {
-                this.nOq = true;
+                this.nYu = true;
                 list2 = list.subList(0, 3);
             }
             if (list2 != null) {
                 list = list2;
             }
-            gf(list);
+            gd(list);
         }
     }
 
-    public void K(long j, long j2) {
+    public void O(long j, long j2) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) this.mContext.getResources().getString(R.string.guide_popup_window_concern_desc1));
-        int length = at.dW(j).length();
-        spannableStringBuilder.append((CharSequence) at.dW(j));
+        int length = au.ec(j).length();
+        spannableStringBuilder.append((CharSequence) au.ec(j));
         spannableStringBuilder.append((CharSequence) this.mContext.getResources().getString(R.string.guide_popup_window_concern_desc2));
-        int length2 = at.dW(j2).length();
-        spannableStringBuilder.append((CharSequence) at.dW(j2));
+        int length2 = au.ec(j2).length();
+        spannableStringBuilder.append((CharSequence) au.ec(j2));
         spannableStringBuilder.append((CharSequence) this.mContext.getResources().getString(R.string.guide_popup_window_concern_desc3));
-        spannableStringBuilder.setSpan(this.nOo, 14, length + 14, 18);
-        spannableStringBuilder.setSpan(this.nOp, length + 14 + 8, length + 22 + length2, 18);
-        this.nNW.setText(spannableStringBuilder);
+        spannableStringBuilder.setSpan(this.nYs, 14, length + 14, 18);
+        spannableStringBuilder.setSpan(this.nYt, length + 14 + 8, length + 22 + length2, 18);
+        this.nYa.setText(spannableStringBuilder);
     }
 
     public void setForumId(int i) {
         this.mForumId = String.valueOf(i);
     }
 
-    public void zK(String str) {
+    public void Ab(String str) {
         this.mForumName = str;
     }
 
     public void onChangeSkinType() {
-        this.nOo = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0302));
-        this.nOp = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0302));
-        ao.setBackgroundResource(this.mRootView, R.color.CAM_X0609);
-        ao.setViewTextColor(this.hvw, R.color.CAM_X0101);
-        ao.setViewTextColor(this.nNW, R.color.CAM_X0101);
-        ao.setBackgroundResource(this.mLine, R.color.CAM_X0616);
-        ao.setViewTextColor(this.mmj, R.color.CAM_X0108);
-        ao.setViewTextColor(this.nNX, R.color.CAM_X0101);
-        ao.setViewTextColor(this.nNY, R.color.CAM_X0108);
-        ao.setViewTextColor(this.nNZ, R.color.CAM_X0101);
-        ao.setViewTextColor(this.nOa, R.color.CAM_X0108);
-        ao.setViewTextColor(this.nOb, R.color.CAM_X0101);
-        ao.setViewTextColor(this.nOc, R.color.CAM_X0108);
-        ao.setViewTextColor(this.nOd, R.color.CAM_X0101);
-        ao.setViewTextColor(this.nOe, R.color.CAM_X0108);
-        ao.setViewTextColor(this.nNV, R.color.CAM_X0108);
-        ao.setViewTextColor(this.nOk, R.color.cp_cont_a_alpha20);
+        this.nYs = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0302));
+        this.nYt = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0302));
+        ap.setBackgroundResource(this.mRootView, R.color.CAM_X0609);
+        ap.setViewTextColor(this.hzG, R.color.CAM_X0101);
+        ap.setViewTextColor(this.nYa, R.color.CAM_X0101);
+        ap.setBackgroundResource(this.mLine, R.color.CAM_X0616);
+        ap.setViewTextColor(this.mvk, R.color.CAM_X0108);
+        ap.setViewTextColor(this.nYb, R.color.CAM_X0101);
+        ap.setViewTextColor(this.nYc, R.color.CAM_X0108);
+        ap.setViewTextColor(this.nYd, R.color.CAM_X0101);
+        ap.setViewTextColor(this.nYe, R.color.CAM_X0108);
+        ap.setViewTextColor(this.nYf, R.color.CAM_X0101);
+        ap.setViewTextColor(this.nYg, R.color.CAM_X0108);
+        ap.setViewTextColor(this.nYh, R.color.CAM_X0101);
+        ap.setViewTextColor(this.nYi, R.color.CAM_X0108);
+        ap.setViewTextColor(this.nXZ, R.color.CAM_X0108);
+        ap.setViewTextColor(this.nYo, R.color.cp_cont_a_alpha20);
         int dimens = l.getDimens(this.mContext, R.dimen.tbds60);
-        ao.b(this.nOj, dimens, R.color.CAM_X0611, R.color.CAM_X0611, R.color.CAM_X0302, R.color.CAM_X0302, 1);
-        ao.b(this.nOk, dimens, R.color.CAM_X0611, R.color.CAM_X0611, R.color.CAM_X0618, R.color.CAM_X0618, 1);
+        ap.b(this.nYn, dimens, R.color.CAM_X0611, R.color.CAM_X0611, R.color.CAM_X0302, R.color.CAM_X0302, 1);
+        ap.b(this.nYo, dimens, R.color.CAM_X0611, R.color.CAM_X0611, R.color.CAM_X0618, R.color.CAM_X0618, 1);
     }
 
-    public void dTJ() {
-        if (com.baidu.tbadk.getUserInfo.b.bCq() != null && com.baidu.tbadk.getUserInfo.b.bCq().bCs() != null) {
-            this.hvw.setText(com.baidu.tbadk.getUserInfo.b.bCq().bCs().getName_show());
+    public void dVX() {
+        if (com.baidu.tbadk.getUserInfo.b.bCI() != null && com.baidu.tbadk.getUserInfo.b.bCI().bCK() != null) {
+            this.hzG.setText(com.baidu.tbadk.getUserInfo.b.bCI().bCK().getName_show());
         }
     }
 
-    public void dTK() {
-        if (com.baidu.tbadk.getUserInfo.b.bCq() != null && com.baidu.tbadk.getUserInfo.b.bCq().bCs() != null) {
-            this.nNT.a(com.baidu.tbadk.getUserInfo.b.bCq().bCs());
+    public void dVY() {
+        if (com.baidu.tbadk.getUserInfo.b.bCI() != null && com.baidu.tbadk.getUserInfo.b.bCI().bCK() != null) {
+            this.nXX.a(com.baidu.tbadk.getUserInfo.b.bCI().bCK());
         }
     }
 
     public void e(UserData userData) {
         if (userData != null) {
-            this.nNT.a(userData);
+            this.nXX.a(userData);
         }
     }
 
-    public void TS(String str) {
-        this.nNU.setImageResource(UtilHelper.getBazhuIconId(str, false));
+    public void UQ(String str) {
+        this.nXY.setImageResource(UtilHelper.getBazhuIconId(str, false));
     }
 
     private void initView() {
-        this.nOl = (GuideScrollView) this.mRootView.findViewById(R.id.guid_popup_window_container);
-        this.nOl.setScrollChangedListener(this.nOz);
+        this.nYp = (GuideScrollView) this.mRootView.findViewById(R.id.guid_popup_window_container);
+        this.nYp.setScrollChangedListener(this.nYD);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(1000L);
         this.mRootView.startAnimation(alphaAnimation);
-        this.nNT = (HeadPendantView) this.mRootView.findViewById(R.id.user_head);
-        this.nNT.setHasPendantStyle();
-        this.nNT.setDefalutResid(R.drawable.default_head);
-        this.nNT.getHeadView().setIsRound(true);
-        this.nNT.getHeadView().setDrawBorder(true);
-        this.nNT.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.nNT.setShowSimpleIcon(true);
-        this.nNU = (ImageView) this.mRootView.findViewById(R.id.user_leavel);
-        this.hvw = (TextView) this.mRootView.findViewById(R.id.user_name);
-        this.nNV = (TextView) this.mRootView.findViewById(R.id.user_tb_list);
-        this.nNW = (TextView) this.mRootView.findViewById(R.id.user_tb_concern_info);
+        this.nXX = (HeadPendantView) this.mRootView.findViewById(R.id.user_head);
+        this.nXX.setHasPendantStyle();
+        this.nXX.setDefalutResid(R.drawable.default_head);
+        this.nXX.getHeadView().setIsRound(true);
+        this.nXX.getHeadView().setDrawBorder(true);
+        this.nXX.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.nXX.setShowSimpleIcon(true);
+        this.nXY = (ImageView) this.mRootView.findViewById(R.id.user_leavel);
+        this.hzG = (TextView) this.mRootView.findViewById(R.id.user_name);
+        this.nXZ = (TextView) this.mRootView.findViewById(R.id.user_tb_list);
+        this.nYa = (TextView) this.mRootView.findViewById(R.id.user_tb_concern_info);
         this.mLine = this.mRootView.findViewById(R.id.guid_popup_window_line);
-        this.mmj = (TextView) this.mRootView.findViewById(R.id.function_desc);
-        this.nOf = (RelativeLayout) this.mRootView.findViewById(R.id.personalba_broadcast);
-        this.nNX = (TextView) this.mRootView.findViewById(R.id.personalba_broadcast_name);
-        this.nNY = (TextView) this.mRootView.findViewById(R.id.personalba_broadcast_digest);
-        this.nOg = (RelativeLayout) this.mRootView.findViewById(R.id.personalba_recommend);
-        this.nNZ = (TextView) this.mRootView.findViewById(R.id.personalba_recommend_name);
-        this.nOa = (TextView) this.mRootView.findViewById(R.id.personalba_recommend_digest);
-        this.nOh = (RelativeLayout) this.mRootView.findViewById(R.id.personalba_data);
-        this.nOb = (TextView) this.mRootView.findViewById(R.id.personalba_data_name);
-        this.nOc = (TextView) this.mRootView.findViewById(R.id.personalba_data_digest);
-        this.nOi = (RelativeLayout) this.mRootView.findViewById(R.id.personalba_partition);
-        this.nOd = (TextView) this.mRootView.findViewById(R.id.personalba_partition_name);
-        this.nOe = (TextView) this.mRootView.findViewById(R.id.personalba_partition_digest);
-        this.nOj = (TBSpecificationBtn) this.mRootView.findViewById(R.id.btn_go_away);
-        this.nOj.setTextSize(R.dimen.tbds42);
+        this.mvk = (TextView) this.mRootView.findViewById(R.id.function_desc);
+        this.nYj = (RelativeLayout) this.mRootView.findViewById(R.id.personalba_broadcast);
+        this.nYb = (TextView) this.mRootView.findViewById(R.id.personalba_broadcast_name);
+        this.nYc = (TextView) this.mRootView.findViewById(R.id.personalba_broadcast_digest);
+        this.nYk = (RelativeLayout) this.mRootView.findViewById(R.id.personalba_recommend);
+        this.nYd = (TextView) this.mRootView.findViewById(R.id.personalba_recommend_name);
+        this.nYe = (TextView) this.mRootView.findViewById(R.id.personalba_recommend_digest);
+        this.nYl = (RelativeLayout) this.mRootView.findViewById(R.id.personalba_data);
+        this.nYf = (TextView) this.mRootView.findViewById(R.id.personalba_data_name);
+        this.nYg = (TextView) this.mRootView.findViewById(R.id.personalba_data_digest);
+        this.nYm = (RelativeLayout) this.mRootView.findViewById(R.id.personalba_partition);
+        this.nYh = (TextView) this.mRootView.findViewById(R.id.personalba_partition_name);
+        this.nYi = (TextView) this.mRootView.findViewById(R.id.personalba_partition_digest);
+        this.nYn = (TBSpecificationBtn) this.mRootView.findViewById(R.id.btn_go_away);
+        this.nYn.setTextSize(R.dimen.tbds42);
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.pM(R.color.CAM_X0302);
-        this.nOj.setConfig(cVar);
-        this.nOj.setText(this.mContext.getResources().getString(R.string.guide_popup_window_go_away));
-        this.nOk = (TBSpecificationBtn) this.mRootView.findViewById(R.id.btn_known);
+        cVar.pR(R.color.CAM_X0302);
+        this.nYn.setConfig(cVar);
+        this.nYn.setText(this.mContext.getResources().getString(R.string.guide_popup_window_go_away));
+        this.nYo = (TBSpecificationBtn) this.mRootView.findViewById(R.id.btn_known);
         com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar2.pM(R.color.CAM_X0618);
-        this.nOk.setConfig(cVar2);
-        this.nOk.setTextSize(R.dimen.tbds42);
-        this.nOk.setText(this.mContext.getResources().getString(R.string.guide_popup_window_known));
-        this.nOm = this.mRootView.findViewById(R.id.shadow_top);
-        this.nOm.setAlpha(0.0f);
-        this.nOn = (HeadBorder) this.mRootView.findViewById(R.id.head_border);
-        this.nOn.setBorderColor(ao.getColor(R.color.CAM_X0614));
-        this.nOn.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10));
-        this.nOn.setRedio(l.getDimens(this.mContext, R.dimen.tbds119));
-        dTL();
+        cVar2.pR(R.color.CAM_X0618);
+        this.nYo.setConfig(cVar2);
+        this.nYo.setTextSize(R.dimen.tbds42);
+        this.nYo.setText(this.mContext.getResources().getString(R.string.guide_popup_window_known));
+        this.nYq = this.mRootView.findViewById(R.id.shadow_top);
+        this.nYq.setAlpha(0.0f);
+        this.nYr = (HeadBorder) this.mRootView.findViewById(R.id.head_border);
+        this.nYr.setBorderColor(ap.getColor(R.color.CAM_X0614));
+        this.nYr.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10));
+        this.nYr.setRedio(l.getDimens(this.mContext, R.dimen.tbds119));
+        dVZ();
     }
 
-    private void dTL() {
-        this.nOf.setOnClickListener(this.nOt);
-        this.nOg.setOnClickListener(this.nOu);
-        this.nOh.setOnClickListener(this.nOv);
-        this.nOi.setOnClickListener(this.nOw);
-        this.nOj.setOnClickListener(this.nOx);
-        this.nOk.setOnClickListener(this.nOy);
+    private void dVZ() {
+        this.nYj.setOnClickListener(this.nYx);
+        this.nYk.setOnClickListener(this.nYy);
+        this.nYl.setOnClickListener(this.nYz);
+        this.nYm.setOnClickListener(this.nYA);
+        this.nYn.setOnClickListener(this.nYB);
+        this.nYo.setOnClickListener(this.nYC);
     }
 
-    private void gf(final List<String> list) {
-        this.nNV.post(new Runnable() { // from class: com.baidu.tieba.view.GuidePopupWindow.7
+    private void gd(final List<String> list) {
+        this.nXZ.post(new Runnable() { // from class: com.baidu.tieba.view.GuidePopupWindow.7
             @Override // java.lang.Runnable
             public void run() {
-                GuidePopupWindow.this.nNV.setText(GuidePopupWindow.this.gg(list));
+                GuidePopupWindow.this.nXZ.setText(GuidePopupWindow.this.ge(list));
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String gg(List<String> list) {
+    public String ge(List<String> list) {
         String a2 = a(list, 0, true);
-        if (TT(a2) >= this.nNV.getWidth()) {
+        if (UR(a2) >= this.nXZ.getWidth()) {
             for (int i = 5; 1 < i; i--) {
                 String a3 = a(list, i, false);
-                if (TT(a3) < this.nNV.getWidth()) {
+                if (UR(a3) < this.nXZ.getWidth()) {
                     return a3;
                 }
             }
@@ -366,12 +366,12 @@ public class GuidePopupWindow extends Dialog {
         return a2;
     }
 
-    private int TT(String str) {
+    private int UR(String str) {
         Float valueOf = Float.valueOf(0.0f);
         if (Build.VERSION.SDK_INT >= 21) {
-            valueOf = Float.valueOf(this.nNV.getLetterSpacing());
+            valueOf = Float.valueOf(this.nXZ.getLetterSpacing());
         }
-        return (((int) (valueOf.floatValue() + 0.5f)) * (str.length() - 1)) + ((int) (this.nNV.getPaint().measureText(str) + 0.5f));
+        return (((int) (valueOf.floatValue() + 0.5f)) * (str.length() - 1)) + ((int) (this.nXZ.getPaint().measureText(str) + 0.5f));
     }
 
     private String a(List<String> list, int i, boolean z) {
@@ -389,7 +389,7 @@ public class GuidePopupWindow extends Dialog {
             }
             sb.append(str + "    ");
         }
-        if (this.nOq) {
+        if (this.nYu) {
             return sb.toString().substring(0, sb.toString().length() - 4) + getContext().getResources().getString(R.string.guide_popup_window_join_field_omit);
         }
         return sb.toString().substring(0, sb.toString().length() - 4);
@@ -397,7 +397,7 @@ public class GuidePopupWindow extends Dialog {
 
     /* loaded from: classes.dex */
     public static class HeadBorder extends View {
-        private int nOC;
+        private int nYG;
         private Paint paint;
 
         public HeadBorder(Context context) {
@@ -417,7 +417,7 @@ public class GuidePopupWindow extends Dialog {
 
         @Override // android.view.View
         protected void onDraw(Canvas canvas) {
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.nOC, this.paint);
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.nYG, this.paint);
         }
 
         public void setBorderColor(int i) {
@@ -429,7 +429,7 @@ public class GuidePopupWindow extends Dialog {
         }
 
         public void setRedio(int i) {
-            this.nOC = i;
+            this.nYG = i;
         }
     }
 }

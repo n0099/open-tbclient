@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l<T> {
     public static Executor Dc = Executors.newCachedThreadPool();
     @Nullable
@@ -47,7 +47,7 @@ public class l<T> {
             }
         }
         Dc.execute(this.Dg);
-        ip();
+        in();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -56,7 +56,7 @@ public class l<T> {
             throw new IllegalStateException("A task may only be set once.");
         }
         this.Dh = kVar;
-        in();
+        im();
     }
 
     public synchronized l<T> a(h<T> hVar) {
@@ -64,32 +64,32 @@ public class l<T> {
             hVar.onResult(this.Dh.getValue());
         }
         this.De.add(hVar);
-        ip();
+        in();
         return this;
     }
 
     public synchronized l<T> b(h<T> hVar) {
         this.De.remove(hVar);
-        iq();
+        ip();
         return this;
     }
 
     public synchronized l<T> c(h<Throwable> hVar) {
-        if (this.Dh != null && this.Dh.im() != null) {
-            hVar.onResult(this.Dh.im());
+        if (this.Dh != null && this.Dh.il() != null) {
+            hVar.onResult(this.Dh.il());
         }
         this.Df.add(hVar);
-        ip();
+        in();
         return this;
     }
 
     public synchronized l<T> d(h<Throwable> hVar) {
         this.Df.remove(hVar);
-        iq();
+        ip();
         return this;
     }
 
-    private void in() {
+    private void im() {
         this.handler.post(new Runnable() { // from class: com.airbnb.lottie.l.1
             @Override // java.lang.Runnable
             public void run() {
@@ -98,7 +98,7 @@ public class l<T> {
                     if (kVar.getValue() != null) {
                         l.this.l(kVar.getValue());
                     } else {
-                        l.this.f(kVar.im());
+                        l.this.g(kVar.il());
                     }
                 }
             }
@@ -113,7 +113,7 @@ public class l<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f(Throwable th) {
+    public void g(Throwable th) {
         ArrayList<h> arrayList = new ArrayList(this.Df);
         if (arrayList.isEmpty()) {
             Log.w("LOTTIE", "Lottie encountered an error but no failure listener was added.", th);
@@ -124,8 +124,8 @@ public class l<T> {
         }
     }
 
-    private synchronized void ip() {
-        if (!ir() && this.Dh == null) {
+    private synchronized void in() {
+        if (!iq() && this.Dh == null) {
             this.Dd = new Thread("LottieTaskObserver") { // from class: com.airbnb.lottie.l.2
                 private boolean Dj = false;
 
@@ -139,7 +139,7 @@ public class l<T> {
                                 l.this.a(new k(e));
                             }
                             this.Dj = true;
-                            l.this.iq();
+                            l.this.ip();
                         }
                     }
                 }
@@ -150,15 +150,15 @@ public class l<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void iq() {
-        if (ir() && (this.De.isEmpty() || this.Dh != null)) {
+    public synchronized void ip() {
+        if (iq() && (this.De.isEmpty() || this.Dh != null)) {
             this.Dd.interrupt();
             this.Dd = null;
             c.debug("Stopping TaskObserver thread");
         }
     }
 
-    private boolean ir() {
+    private boolean iq() {
         return this.Dd != null && this.Dd.isAlive();
     }
 }

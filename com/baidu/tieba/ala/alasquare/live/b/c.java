@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.alasquare.live.b;
 
-import com.baidu.tbadk.core.data.bz;
-/* loaded from: classes9.dex */
+import com.baidu.tbadk.core.data.cb;
+/* loaded from: classes10.dex */
 public class c {
-    public bz ale;
-    public int gwz;
+    public cb akU;
+    public int gzj;
 }

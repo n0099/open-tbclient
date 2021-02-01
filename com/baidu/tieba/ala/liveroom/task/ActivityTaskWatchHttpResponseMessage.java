@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.liveroom.task;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ActivityTaskWatchHttpResponseMessage extends JsonHttpResponsedMessage {
-    private a hJS;
+    private a hOq;
 
     public ActivityTaskWatchHttpResponseMessage() {
         super(1021127);
@@ -15,12 +15,12 @@ public class ActivityTaskWatchHttpResponseMessage extends JsonHttpResponsedMessa
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            this.hJS = new a();
-            this.hJS.parseJson(optJSONObject);
+            this.hOq = new a();
+            this.hOq.parseJson(optJSONObject);
         }
     }
 
-    public a cjz() {
-        return this.hJS;
+    public a cky() {
+        return this.hOq;
     }
 }

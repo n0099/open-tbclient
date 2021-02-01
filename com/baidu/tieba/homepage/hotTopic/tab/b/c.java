@@ -4,26 +4,26 @@ import androidx.annotation.NonNull;
 import tbclient.RecomTopicList;
 /* loaded from: classes2.dex */
 public class c {
-    public String eNh;
+    public String ePt;
     public int index;
-    public boolean jZc;
+    public boolean kgF;
     public int tag;
     public long topicId;
 
     public c() {
-        this.jZc = true;
+        this.kgF = true;
     }
 
     public c(@NonNull RecomTopicList recomTopicList, int i) {
         this.topicId = recomTopicList.topic_id.longValue();
-        this.eNh = recomTopicList.topic_name;
+        this.ePt = recomTopicList.topic_name;
         this.tag = recomTopicList.tag.intValue();
         this.index = i + 1;
     }
 
     public c(@NonNull RecomTopicList recomTopicList) {
         this.topicId = recomTopicList.topic_id.longValue();
-        this.eNh = recomTopicList.topic_name;
+        this.ePt = recomTopicList.topic_name;
         this.tag = recomTopicList.tag.intValue();
         this.index = -1;
     }

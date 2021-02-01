@@ -1,10 +1,9 @@
 package kotlin.collections;
 
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.util.Map;
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 final class AbstractMap$toString$1 extends Lambda implements kotlin.jvm.a.b<Map.Entry<? extends K, ? extends V>, String> {
     final /* synthetic */ e this$0;
 
@@ -19,7 +18,7 @@ final class AbstractMap$toString$1 extends Lambda implements kotlin.jvm.a.b<Map.
     @Override // kotlin.jvm.a.b
     public final String invoke(Map.Entry<? extends K, ? extends V> entry) {
         String d;
-        kotlin.jvm.internal.p.o(entry, AdvanceSetting.NETWORK_TYPE);
+        kotlin.jvm.internal.p.o(entry, "it");
         d = this.this$0.d(entry);
         return d;
     }

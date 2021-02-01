@@ -11,5 +11,5 @@ public class bt {
     public static long f220a = Config.RAVEN_LOG_LIMIT;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f13893a = 200;
+    public static int f13895a = 200;
 }

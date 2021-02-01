@@ -7,11 +7,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.b.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 import java.util.HashMap;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.tbadk.b.a {
     private String mKey;
 
@@ -30,27 +30,27 @@ public class a extends com.baidu.tbadk.b.a {
         if (hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
             String str2 = hashMap.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                C0851a c0851a = new C0851a(str, str2, hashMap, eVar);
-                c0851a.setPriority(2);
-                c0851a.execute(new Object[0]);
+                C0854a c0854a = new C0854a(str, str2, hashMap, eVar);
+                c0854a.setPriority(2);
+                c0854a.execute(new Object[0]);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private class C0851a extends BdAsyncTask<Object, Integer, h> {
-        private String eEs;
-        private HashMap<String, String> kSh;
-        private e kSi;
-        private volatile z mNetwork = null;
+    /* loaded from: classes8.dex */
+    private class C0854a extends BdAsyncTask<Object, Integer, h> {
+        private String eGz;
+        private HashMap<String, String> laj;
+        private e lak;
+        private volatile aa mNetwork = null;
         private String postUrl;
 
-        public C0851a(String str, String str2, HashMap<String, String> hashMap, e eVar) {
-            this.eEs = str;
+        public C0854a(String str, String str2, HashMap<String, String> hashMap, e eVar) {
+            this.eGz = str;
             this.postUrl = str2;
-            this.kSh = hashMap;
-            this.kSi = eVar;
+            this.laj = hashMap;
+            this.lak = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,32 +60,32 @@ public class a extends com.baidu.tbadk.b.a {
         public h doInBackground(Object... objArr) {
             h hVar = new h();
             try {
-                this.mNetwork = new z(this.postUrl);
-                Set<String> keySet = this.kSh.keySet();
+                this.mNetwork = new aa(this.postUrl);
+                Set<String> keySet = this.laj.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.addPostData(str, this.kSh.get(str));
+                            this.mNetwork.addPostData(str, this.laj.get(str));
                         }
                     }
                 }
                 this.mNetwork.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.mNetwork.brX().bsG().mIsNeedTbs = true;
+                this.mNetwork.bsr().bta().mIsNeedTbs = true;
                 String postNetData = this.mNetwork.postNetData();
-                if (!this.mNetwork.brX().bsH().isNetSuccess()) {
+                if (!this.mNetwork.bsr().btb().isNetSuccess()) {
                     hVar.errorCode = this.mNetwork.getNetErrorCode();
                     hVar.errorString = this.mNetwork.getNetString();
                 } else {
                     hVar.errorCode = this.mNetwork.getServerErrorCode();
                     hVar.errorString = this.mNetwork.getErrorString();
                 }
-                if (this.mNetwork.brX().bsH().isRequestSuccess() && !TextUtils.isEmpty(postNetData)) {
+                if (this.mNetwork.bsr().btb().isRequestSuccess() && !TextUtils.isEmpty(postNetData)) {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     if (jSONObject.has("code")) {
                         if (jSONObject.optInt("code", -1) == 0) {
                             hVar.result = true;
-                            hVar.eEs = this.eEs;
+                            hVar.eGz = this.eGz;
                             return hVar;
                         }
                         String str2 = "";
@@ -93,7 +93,7 @@ public class a extends com.baidu.tbadk.b.a {
                             str2 = jSONObject.optString("msg", "");
                         }
                         hVar.result = false;
-                        hVar.eEs = this.eEs;
+                        hVar.eGz = this.eGz;
                         hVar.errorString = str2;
                         return hVar;
                     }
@@ -102,7 +102,7 @@ public class a extends com.baidu.tbadk.b.a {
                 BdLog.e(e.getMessage());
             }
             hVar.result = false;
-            hVar.eEs = this.eEs;
+            hVar.eGz = this.eGz;
             return hVar;
         }
 
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.kSi != null) {
-                this.kSi.callback(hVar);
+            if (this.lak != null) {
+                this.lak.callback(hVar);
             }
         }
 
@@ -120,8 +120,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.kSi != null) {
-                this.kSi.callback(null);
+            if (this.lak != null) {
+                this.lak.callback(null);
             }
         }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.tbadk.b.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.kSi != null) {
-                this.kSi.callback(null);
+            if (this.lak != null) {
+                this.lak.callback(null);
             }
         }
     }

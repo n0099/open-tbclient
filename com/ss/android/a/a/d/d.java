@@ -5,14 +5,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12901a;
+    private String f12903a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f12902b;
+    private final String f12904b;
     private final String c;
     private final boolean d;
     private final long e;
@@ -28,8 +28,8 @@ public class d {
     private final JSONObject o;
 
     d(a aVar) {
-        this.f12901a = aVar.f12903a;
-        this.f12902b = aVar.f12904b;
+        this.f12903a = aVar.f12905a;
+        this.f12904b = aVar.f12906b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
@@ -41,19 +41,19 @@ public class d {
         this.k = aVar.l;
         this.m = aVar.n;
         this.n = aVar.o;
-        this.o = aVar.asJ;
+        this.o = aVar.asz;
         this.l = aVar.m;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f12903a;
-        private JSONObject asJ;
+        private String f12905a;
+        private JSONObject asz;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f12904b;
+        private String f12906b;
         private String c;
         private long e;
         private String f;
@@ -68,52 +68,52 @@ public class d {
         private boolean d = false;
         private boolean n = false;
 
-        public a Bq(boolean z) {
+        public a BK(boolean z) {
             this.n = z;
             return this;
         }
 
-        public a Zi(String str) {
-            this.f12904b = str;
+        public a aaj(String str) {
+            this.f12906b = str;
             return this;
         }
 
-        public a Zj(String str) {
+        public a aak(String str) {
             this.c = str;
             return this;
         }
 
-        public a iT(long j) {
+        public a iW(long j) {
             this.e = j;
             return this;
         }
 
-        public a iU(long j) {
+        public a iX(long j) {
             this.g = j;
             return this;
         }
 
-        public a Zk(String str) {
+        public a aal(String str) {
             this.f = str;
             return this;
         }
 
-        public a Br(boolean z) {
+        public a BL(boolean z) {
             this.d = z;
             return this;
         }
 
-        public a eZ(JSONObject jSONObject) {
+        public a fa(JSONObject jSONObject) {
             this.h = jSONObject;
             return this;
         }
 
-        public a gW(List<String> list) {
+        public a gU(List<String> list) {
             this.j = list;
             return this;
         }
 
-        public a Qr(int i) {
+        public a QM(int i) {
             this.k = i;
             return this;
         }
@@ -123,14 +123,14 @@ public class d {
             return this;
         }
 
-        public a Zl(String str) {
+        public a aam(String str) {
             this.m = str;
             return this;
         }
 
-        public d eBM() {
-            if (TextUtils.isEmpty(this.f12903a)) {
-                this.f12903a = "umeng";
+        public d eEd() {
+            if (TextUtils.isEmpty(this.f12905a)) {
+                this.f12905a = "umeng";
             }
             JSONObject jSONObject = new JSONObject();
             if (this.h == null) {
@@ -146,24 +146,24 @@ public class d {
                 }
                 if (this.n) {
                     this.o = this.c;
-                    this.asJ = new JSONObject();
+                    this.asz = new JSONObject();
                     Iterator<String> keys = this.h.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        this.asJ.put(next, this.h.get(next));
+                        this.asz.put(next, this.h.get(next));
                     }
-                    this.asJ.put("category", this.f12903a);
-                    this.asJ.put("tag", this.f12904b);
-                    this.asJ.put("value", this.e);
-                    this.asJ.put("ext_value", this.g);
+                    this.asz.put("category", this.f12905a);
+                    this.asz.put("tag", this.f12906b);
+                    this.asz.put("value", this.e);
+                    this.asz.put("ext_value", this.g);
                     if (!TextUtils.isEmpty(this.m)) {
-                        this.asJ.put("refer", this.m);
+                        this.asz.put("refer", this.m);
                     }
                     if (this.d) {
-                        if (!this.asJ.has("log_extra") && !TextUtils.isEmpty(this.f)) {
-                            this.asJ.put("log_extra", this.f);
+                        if (!this.asz.has("log_extra") && !TextUtils.isEmpty(this.f)) {
+                            this.asz.put("log_extra", this.f);
                         }
-                        this.asJ.put("is_ad_event", "1");
+                        this.asz.put("is_ad_event", "1");
                     }
                 }
                 if (this.d) {
@@ -186,7 +186,7 @@ public class d {
     }
 
     public String a() {
-        return this.f12902b;
+        return this.f12904b;
     }
 
     public String b() {
@@ -206,6 +206,6 @@ public class d {
     }
 
     public String toString() {
-        return "category: " + this.f12901a + "\ttag: " + this.f12902b + "\tlabel: " + this.c + "\nisAd: " + this.d + "\tadId: " + this.e + "\tlogExtra: " + this.f + "\textValue: " + this.g + "\nextJson: " + this.h + "\nclickTrackUrl: " + (this.i != null ? this.i.toString() : "") + "\teventSource: " + this.j + "\textraObject: " + (this.k != null ? this.k.toString() : "") + "\nisV3: " + this.m + "\tV3EventName: " + this.n + "\tV3EventParams: " + (this.o != null ? this.o.toString() : "");
+        return "category: " + this.f12903a + "\ttag: " + this.f12904b + "\tlabel: " + this.c + "\nisAd: " + this.d + "\tadId: " + this.e + "\tlogExtra: " + this.f + "\textValue: " + this.g + "\nextJson: " + this.h + "\nclickTrackUrl: " + (this.i != null ? this.i.toString() : "") + "\teventSource: " + this.j + "\textraObject: " + (this.k != null ? this.k.toString() : "") + "\nisV3: " + this.m + "\tV3EventName: " + this.n + "\tV3EventParams: " + (this.o != null ? this.o.toString() : "");
     }
 }

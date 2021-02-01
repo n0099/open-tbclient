@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f13847a;
+    private static int f13849a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String f170a;
@@ -12,7 +12,7 @@ public class ab {
     public static final boolean f171a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f13848b;
+    public static final boolean f13850b;
     public static final boolean c;
     public static final boolean d;
     public static boolean e;
@@ -23,7 +23,7 @@ public class ab {
         boolean z = false;
         f170a = ae.f172a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
         f171a = f170a.contains("2A2FE0D7");
-        f13848b = f171a || "DEBUG".equalsIgnoreCase(f170a);
+        f13850b = f171a || "DEBUG".equalsIgnoreCase(f170a);
         c = "LOGABLE".equalsIgnoreCase(f170a);
         d = f170a.contains("YY");
         e = f170a.equalsIgnoreCase("TEST");
@@ -32,30 +32,30 @@ public class ab {
             z = true;
         }
         g = z;
-        f13847a = 1;
+        f13849a = 1;
         if (f170a.equalsIgnoreCase("SANDBOX")) {
-            f13847a = 2;
+            f13849a = 2;
         } else if (f170a.equalsIgnoreCase("ONEBOX")) {
-            f13847a = 3;
+            f13849a = 3;
         } else {
-            f13847a = 1;
+            f13849a = 1;
         }
     }
 
     public static int a() {
-        return f13847a;
+        return f13849a;
     }
 
     public static void a(int i) {
-        f13847a = i;
+        f13849a = i;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public static boolean m151a() {
-        return f13847a == 2;
+        return f13849a == 2;
     }
 
     public static boolean b() {
-        return f13847a == 3;
+        return f13849a == 3;
     }
 }

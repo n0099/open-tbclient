@@ -19,16 +19,16 @@ import com.baidu.tieba.tbadkCore.data.AppData;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.VideoInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class t implements q {
-    private List<AppData> mIm;
+    private List<AppData> mRx;
 
     @Override // com.baidu.tieba.recapp.q
     public com.baidu.adp.widget.ListView.a<?, ?> a(p pVar, BdUniqueId bdUniqueId) {
         if (pVar == null || bdUniqueId == null) {
             return null;
         }
-        if (bdUniqueId == AdvertAppInfo.eIO) {
+        if (bdUniqueId == AdvertAppInfo.eLa) {
             return new com.baidu.tieba.recapp.adapter.c(pVar, bdUniqueId);
         }
         return new com.baidu.tieba.recapp.adapter.d(pVar, bdUniqueId);
@@ -39,10 +39,10 @@ public class t implements q {
         if (baseFragmentActivity == null) {
             return null;
         }
-        if (bdUniqueId == AdvertAppInfo.eIX) {
+        if (bdUniqueId == AdvertAppInfo.eLj) {
             return new com.baidu.tieba.recapp.adapter.f(baseFragmentActivity, bdUniqueId);
         }
-        if (bdUniqueId == AdvertAppInfo.eIT) {
+        if (bdUniqueId == AdvertAppInfo.eLf) {
             return new com.baidu.tieba.recapp.adapter.e(baseFragmentActivity, bdUniqueId);
         }
         return null;
@@ -50,7 +50,7 @@ public class t implements q {
 
     @Override // com.baidu.tieba.recapp.q
     public com.baidu.adp.widget.ListView.a<?, ?> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        if (bdUniqueId == AdvertAppInfo.eIU) {
+        if (bdUniqueId == AdvertAppInfo.eLg) {
             return new com.baidu.tieba.recapp.adapter.a(tbPageContext, bdUniqueId, str);
         }
         if (bdUniqueId != null) {
@@ -70,36 +70,36 @@ public class t implements q {
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public l dAY() {
-        return b.dAP();
+    public l dDg() {
+        return b.dCX();
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public n dAZ() {
-        return b.dAP();
+    public n dDh() {
+        return b.dCX();
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public com.baidu.tieba.r.a dBa() {
-        return com.baidu.tieba.ad.statis.a.bLl();
+    public com.baidu.tieba.r.a dDi() {
+        return com.baidu.tieba.ad.statis.a.bLF();
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public i dBb() {
-        return com.baidu.tieba.ad.a.bKO();
+    public i dDj() {
+        return com.baidu.tieba.ad.a.bLi();
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public List<AppData> dBc() {
-        if (this.mIm == null) {
-            this.mIm = new ArrayList();
+    public List<AppData> dDk() {
+        if (this.mRx == null) {
+            this.mRx = new ArrayList();
         }
-        return this.mIm;
+        return this.mRx;
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public void dBd() {
-        AdDebugService.updateFloatView(this.mIm != null ? StringUtils.string(Integer.valueOf(this.mIm.size())) : "0");
+    public void dDl() {
+        AdDebugService.updateFloatView(this.mRx != null ? StringUtils.string(Integer.valueOf(this.mRx.size())) : "0");
     }
 
     @Override // com.baidu.tieba.recapp.q
@@ -117,14 +117,14 @@ public class t implements q {
             }
             if (adCard != null && videoInfo != null) {
                 AdWebVideoActivity.a(advertAppInfo, 0, "DETAIL");
-                String Qs = s.Qs(adCard.getScheme());
+                String Rn = s.Rn(adCard.getScheme());
                 Bundle bundle = new Bundle();
                 bundle.putString("video_url", videoInfo.video_url);
                 bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, videoInfo.thumbnail_url);
                 bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, videoInfo.video_width.intValue() / videoInfo.video_height.intValue());
                 bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, videoInfo.video_duration.intValue());
-                String str = TextUtils.isEmpty(advertAppInfo.eJl) ? advertAppInfo.eJi : advertAppInfo.eJl;
-                if (advertAppInfo.bln()) {
+                String str = TextUtils.isEmpty(advertAppInfo.eLx) ? advertAppInfo.eLu : advertAppInfo.eLx;
+                if (advertAppInfo.blF()) {
                     str = "";
                 }
                 bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, str);
@@ -133,7 +133,7 @@ public class t implements q {
                     adCard.tailFrame.buttonText = adCard.buttonText;
                     bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, adCard.tailFrame.toJsonString());
                 }
-                AdWebVideoActivity.a(new AdWebVideoActivityConfig(context, "", Qs, true, true, true, bundle));
+                AdWebVideoActivity.a(new AdWebVideoActivityConfig(context, "", Rn, true, true, true, bundle));
             }
         }
     }

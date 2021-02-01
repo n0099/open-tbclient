@@ -3,23 +3,23 @@ package com.baidu.tieba.personPolymeric.view;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.k> {
-    private TextView eFr;
+    private TextView eHx;
 
     public i(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.eFr = (TextView) getView();
+        this.eHx = (TextView) getView();
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ao.setViewTextColor(this.eFr, R.color.CAM_X0105, 1);
-            ao.setBackgroundResource(this.eFr, R.color.CAM_X0201);
+            ap.setViewTextColor(this.eHx, R.color.CAM_X0105, 1);
+            ap.setBackgroundResource(this.eHx, R.color.CAM_X0201);
         }
     }
 
@@ -32,8 +32,8 @@ public class i extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personPolymeric.c.k kVar) {
         if (kVar != null) {
-            this.eFr.setPadding(kVar.paddingLeft, kVar.paddingTop, 0, kVar.paddingBottom);
-            this.eFr.setText(this.mContext.getString(kVar.titleId));
+            this.eHx.setPadding(kVar.paddingLeft, kVar.paddingTop, 0, kVar.paddingBottom);
+            this.eHx.setText(this.mContext.getString(kVar.titleId));
         }
     }
 

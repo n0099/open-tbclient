@@ -7,9 +7,9 @@ import com.baidu.adp.widget.ListView.n;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.am;
-import com.baidu.tbadk.core.data.bz;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.data.an;
+import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.recapp.report.b;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.c.a.dBW().QK(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.c.a.dEe().RD(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -70,25 +70,25 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                 ArrayList arrayList = new ArrayList();
                 for (int i3 = 0; i3 < list2.size(); i3++) {
                     ThreadInfo threadInfo = list2.get(i3);
-                    bz bzVar = new bz();
-                    ap.a(j, bzVar);
-                    bzVar.setUserMap(this.userMap);
-                    bzVar.a(threadInfo);
-                    bzVar.box();
-                    bzVar.eRc = z;
-                    if (!TextUtils.isEmpty(bzVar.boJ())) {
-                        am amVar = new am();
-                        amVar.zE(bzVar.boJ());
-                        this.threadList.add(amVar);
+                    cb cbVar = new cb();
+                    aq.a(j, cbVar);
+                    cbVar.setUserMap(this.userMap);
+                    cbVar.a(threadInfo);
+                    cbVar.boP();
+                    cbVar.eTo = z;
+                    if (!TextUtils.isEmpty(cbVar.bpb())) {
+                        an anVar = new an();
+                        anVar.zV(cbVar.bpb());
+                        this.threadList.add(anVar);
                     } else {
-                        this.threadList.add(bzVar);
+                        this.threadList.add(cbVar);
                         JSONObject f = b.f(threadInfo);
                         if (f != null) {
                             arrayList.add(f);
                         }
                     }
                 }
-                b.dCd().q("FRS", arrayList);
+                b.dEl().q("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

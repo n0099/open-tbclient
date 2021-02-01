@@ -11,29 +11,29 @@ public class d {
         if (view.isInEditMode() || view.getHeight() == i || Math.abs(view.getHeight() - i) == c.getStatusBarHeight(view.getContext())) {
             return false;
         }
-        int fk = b.fk(view.getContext());
+        int fj = b.fj(view.getContext());
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
-            view.setLayoutParams(new ViewGroup.LayoutParams(-1, fk));
+            view.setLayoutParams(new ViewGroup.LayoutParams(-1, fj));
         } else {
-            layoutParams.height = fk;
+            layoutParams.height = fj;
             view.requestLayout();
         }
         return true;
     }
 
-    public static boolean ah(Activity activity) {
+    public static boolean ab(Activity activity) {
         return (activity.getWindow().getAttributes().flags & 1024) != 0;
     }
 
     @TargetApi(19)
-    public static boolean A(Activity activity) {
+    public static boolean u(Activity activity) {
         return Build.VERSION.SDK_INT >= 19 && (activity.getWindow().getAttributes().flags & 67108864) != 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(16)
-    public static boolean ai(Activity activity) {
+    public static boolean ac(Activity activity) {
         if (Build.VERSION.SDK_INT >= 16) {
             return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
         }

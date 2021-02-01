@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class f {
     @Nullable
     public static Activity a(Context context) {

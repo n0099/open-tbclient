@@ -9,11 +9,11 @@ import com.bytedance.sdk.openadsdk.utils.p;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.bytedance.sdk.openadsdk.utils.z;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class TTAdSdk {
 
     /* renamed from: a  reason: collision with root package name */
-    private static AtomicBoolean f6085a = new AtomicBoolean(false);
+    private static AtomicBoolean f6087a = new AtomicBoolean(false);
 
     public static TTAdManager init(Context context, TTAdConfig tTAdConfig) {
         z.a((Object) context, "Context is null, please check.");
@@ -22,9 +22,9 @@ public final class TTAdSdk {
         if (tTAdConfig != null) {
             updatePaid(tTAdConfig.isPaid());
         }
-        if (!f6085a.get()) {
+        if (!f6087a.get()) {
             a(context, tTAdConfig);
-            f6085a.set(true);
+            f6087a.set(true);
         }
         return getAdManager();
     }
@@ -37,8 +37,8 @@ public final class TTAdSdk {
         if (tTAdConfig.getHttpStack() != null) {
             e.a(tTAdConfig.getHttpStack());
         }
-        m.f6607a = tTAdConfig.isAsyncInit();
-        m.f6608b = tTAdConfig.getCustomController();
+        m.f6609a = tTAdConfig.isAsyncInit();
+        m.f6610b = tTAdConfig.getCustomController();
         if (tTAdConfig.isDebug()) {
             u.b();
         }

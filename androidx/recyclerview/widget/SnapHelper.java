@@ -6,9 +6,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserView;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes14.dex */
+/* loaded from: classes15.dex */
 public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     static final float MILLISECONDS_PER_INCH = 100.0f;
     private Scroller mGravityScroller;
@@ -79,7 +78,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     }
 
     public int[] calculateScrollDistance(int i, int i2) {
-        this.mGravityScroller.fling(0, 0, i, i2, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        this.mGravityScroller.fling(0, 0, i, i2, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
         return new int[]{this.mGravityScroller.getFinalX(), this.mGravityScroller.getFinalY()};
     }
 

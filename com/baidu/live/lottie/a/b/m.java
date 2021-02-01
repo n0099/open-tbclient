@@ -2,30 +2,30 @@ package com.baidu.live.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.Collections;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class m extends a<PointF, PointF> {
     private final PointF Ez;
-    private final a<Float, Float> bpy;
-    private final a<Float, Float> bpz;
+    private final a<Float, Float> bsZ;
+    private final a<Float, Float> bta;
 
     public m(a<Float, Float> aVar, a<Float, Float> aVar2) {
         super(Collections.emptyList());
         this.Ez = new PointF();
-        this.bpy = aVar;
-        this.bpz = aVar2;
+        this.bsZ = aVar;
+        this.bta = aVar2;
         setProgress(getProgress());
     }
 
     @Override // com.baidu.live.lottie.a.b.a
     public void setProgress(float f) {
-        this.bpy.setProgress(f);
-        this.bpz.setProgress(f);
-        this.Ez.set(this.bpy.getValue().floatValue(), this.bpz.getValue().floatValue());
+        this.bsZ.setProgress(f);
+        this.bta.setProgress(f);
+        this.Ez.set(this.bsZ.getValue().floatValue(), this.bta.getValue().floatValue());
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < this.listeners.size()) {
-                this.listeners.get(i2).is();
+                this.listeners.get(i2).ir();
                 i = i2 + 1;
             } else {
                 return;
@@ -35,7 +35,7 @@ public class m extends a<PointF, PointF> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.live.lottie.a.b.a
-    /* renamed from: iP */
+    /* renamed from: iO */
     public PointF getValue() {
         return a(null, 0.0f);
     }

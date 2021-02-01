@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class an extends h {
-    private com.baidu.tbadk.core.data.a agr;
-    private BjhArticleLayout ajd;
+    private com.baidu.tbadk.core.data.a agj;
+    private BjhArticleLayout aiR;
     private LinearLayout mRootView;
     private int mSkinType;
 
@@ -23,18 +23,18 @@ public class an extends h {
     public View getView() {
         if (this.mRootView == null) {
             this.mRootView = new LinearLayout(this.mContext);
-            com.baidu.tbadk.core.util.ao.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
             this.mRootView.setOrientation(1);
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.ajd == null) {
-            this.ajd = new BjhArticleLayout(this.mContext);
-            this.ajd.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.an.1
+        if (this.aiR == null) {
+            this.aiR = new BjhArticleLayout(this.mContext);
+            this.aiR.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.an.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (an.this.agp != null) {
-                        an.this.agp.a(an.this.agr);
+                    if (an.this.agh != null) {
+                        an.this.agh.a(an.this.agj);
                     }
                 }
             });
@@ -44,7 +44,7 @@ public class an extends h {
         layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
         layoutParams.rightMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
-        this.mRootView.addView(this.ajd, layoutParams);
+        this.mRootView.addView(this.aiR, layoutParams);
         return this.mRootView;
     }
 
@@ -52,21 +52,21 @@ public class an extends h {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.agr = aVar;
-        if (this.ajd != null) {
-            this.ajd.C(this.agr);
+        this.agj = aVar;
+        if (this.aiR != null) {
+            this.aiR.C(this.agj);
         }
     }
 
     public void a(a.InterfaceC0088a interfaceC0088a) {
-        this.agp = interfaceC0088a;
+        this.agh = interfaceC0088a;
     }
 
     @Override // com.baidu.card.a
-    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<com.baidu.tbadk.core.data.a> aaVar) {
-        super.setOnCardSubClickListener(aaVar);
-        if (this.ajd != null) {
-            this.ajd.setSubClickListener(aaVar);
+    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
+        super.setOnCardSubClickListener(abVar);
+        if (this.aiR != null) {
+            this.aiR.setSubClickListener(abVar);
         }
     }
 
@@ -74,9 +74,9 @@ public class an extends h {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            com.baidu.tbadk.core.util.ao.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
-            if (this.ajd != null) {
-                this.ajd.onChangeSkinType(tbPageContext, i);
+            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
+            if (this.aiR != null) {
+                this.aiR.onChangeSkinType(tbPageContext, i);
             }
         }
     }

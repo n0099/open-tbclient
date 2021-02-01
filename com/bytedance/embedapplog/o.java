@@ -5,14 +5,14 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final CharSequence f5833a = "sony";
+    private static final CharSequence f5835a = "sony";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final CharSequence f5834b = "amigo";
+    private static final CharSequence f5836b = "amigo";
     private static final CharSequence c = "funtouch";
 
     public static boolean a() {

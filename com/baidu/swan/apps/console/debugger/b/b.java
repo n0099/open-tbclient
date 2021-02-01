@@ -4,21 +4,21 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.r.d;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static d.f d(com.baidu.swan.apps.u.c.b bVar) {
-        File alz = alz();
-        com.baidu.swan.apps.r.d.a(alT(), alz, bVar);
+        File alX = alX();
+        com.baidu.swan.apps.r.d.a(amr(), alX, bVar);
         d.f fVar = new d.f();
-        File file = new File(alz, "app.json");
-        SwanAppConfigData o = SwanAppConfigData.o(com.baidu.swan.c.d.readFileData(file), alz);
-        fVar.dcE = alz.getPath() + File.separator;
-        fVar.dcF = o;
-        com.baidu.swan.apps.console.c.br("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + fVar.dcE);
+        File file = new File(alX, "app.json");
+        SwanAppConfigData o = SwanAppConfigData.o(com.baidu.swan.c.d.readFileData(file), alX);
+        fVar.deR = alX.getPath() + File.separator;
+        fVar.deS = o;
+        com.baidu.swan.apps.console.c.bl("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + fVar.deR);
         return fVar;
     }
 
-    public static File alz() {
+    public static File alX() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug");
         if (!file.exists()) {
             file.mkdirs();
@@ -26,11 +26,11 @@ public class b {
         return file;
     }
 
-    public static File alT() {
-        return new File(alU(), "wireless_debug.aiapps");
+    public static File amr() {
+        return new File(ams(), "wireless_debug.aiapps");
     }
 
-    public static File alU() {
+    public static File ams() {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug_zip");
         if (!file.exists()) {
             file.mkdirs();

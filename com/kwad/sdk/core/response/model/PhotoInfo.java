@@ -9,7 +9,7 @@ import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
     private static final long serialVersionUID = -4483350806354759008L;
     public BaseInfo baseInfo = new BaseInfo();
@@ -21,7 +21,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
     public LiveInfo liveInfo = new LiveInfo();
     public TubeEpisode tubeEpisode = new TubeEpisode();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class AuthorInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 3647144332352243129L;
         public String authorGender;
@@ -59,7 +59,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class BaseInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 2257669583403371065L;
         public long commentCount;
@@ -109,7 +109,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class CoverInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 9136122984250063738L;
         public String blurBackgroundUrl;
@@ -144,7 +144,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class PhotoAd implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 3907193550069150451L;
         public boolean requestPatchAd;
@@ -164,7 +164,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class TubeEpisode implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = -2087412525733788061L;
         public String episodeName;
@@ -195,7 +195,7 @@ public class PhotoInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class VideoInfo implements com.kwad.sdk.core.b, Serializable {
         private static final long serialVersionUID = 1395696168725754442L;
         public long duration;

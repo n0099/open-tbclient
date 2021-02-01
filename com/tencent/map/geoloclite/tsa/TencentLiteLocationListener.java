@@ -1,5 +1,5 @@
 package com.tencent.map.geoloclite.tsa;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public interface TencentLiteLocationListener {
     public static final String CELL = "cell";
     public static final String GPS = "gps";

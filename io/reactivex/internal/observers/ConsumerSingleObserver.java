@@ -23,7 +23,7 @@ public final class ConsumerSingleObserver<T> extends AtomicReference<io.reactive
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.O(th2);
+            io.reactivex.exceptions.a.N(th2);
             io.reactivex.d.a.onError(new CompositeException(th, th2));
         }
     }
@@ -39,7 +39,7 @@ public final class ConsumerSingleObserver<T> extends AtomicReference<io.reactive
         try {
             this.onSuccess.accept(t);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.O(th);
+            io.reactivex.exceptions.a.N(th);
             io.reactivex.d.a.onError(th);
         }
     }
@@ -55,6 +55,6 @@ public final class ConsumerSingleObserver<T> extends AtomicReference<io.reactive
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.qdB;
+        return this.onError != Functions.qnF;
     }
 }

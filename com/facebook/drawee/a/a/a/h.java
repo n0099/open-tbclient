@@ -2,63 +2,63 @@ package com.facebook.drawee.a.a.a;
 
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class h {
-    private boolean VG;
+    private boolean VE;
     private boolean mIsCanceled;
     @Nullable
     private String mRequestId;
     @Nullable
-    private ImageRequest pqA;
+    private String pAG;
     @Nullable
-    private com.facebook.imagepipeline.f.f pqB;
-    private boolean pqK;
+    private Object pAI;
     @Nullable
-    private String pqx;
+    private ImageRequest pAJ;
     @Nullable
-    private Object pqz;
-    private long pqC = -1;
-    private long pqD = -1;
-    private long pqE = -1;
-    private long pqF = -1;
-    private long pqG = -1;
-    private long pqH = -1;
-    private long pqI = -1;
-    private int pqJ = -1;
-    private int pqL = -1;
-    private int pqM = -1;
-    private int pqV = -1;
+    private com.facebook.imagepipeline.f.f pAK;
+    private boolean pAT;
+    private long pAL = -1;
+    private long pAM = -1;
+    private long pAN = -1;
+    private long pAO = -1;
+    private long pAP = -1;
+    private long pAQ = -1;
+    private long pAR = -1;
+    private int pAS = -1;
+    private int pAU = -1;
+    private int pAV = -1;
+    private int pBe = -1;
 
     public void reset() {
         this.mRequestId = null;
-        this.pqA = null;
-        this.pqz = null;
-        this.pqB = null;
-        this.pqC = -1L;
-        this.pqE = -1L;
-        this.pqF = -1L;
-        this.pqG = -1L;
-        this.pqH = -1L;
-        this.pqI = -1L;
-        this.pqJ = -1;
+        this.pAJ = null;
+        this.pAI = null;
+        this.pAK = null;
+        this.pAL = -1L;
+        this.pAN = -1L;
+        this.pAO = -1L;
+        this.pAP = -1L;
+        this.pAQ = -1L;
+        this.pAR = -1L;
+        this.pAS = -1;
         this.mIsCanceled = false;
-        this.VG = false;
-        this.pqK = false;
-        this.pqL = -1;
-        this.pqM = -1;
-        this.pqV = -1;
+        this.VE = false;
+        this.pAT = false;
+        this.pAU = -1;
+        this.pAV = -1;
+        this.pBe = -1;
     }
 
-    public void OE(int i) {
-        this.pqV = i;
+    public void OZ(int i) {
+        this.pBe = i;
     }
 
-    public int ern() {
-        return this.pqV;
+    public int etG() {
+        return this.pBe;
     }
 
-    public void Yp(@Nullable String str) {
-        this.pqx = str;
+    public void Zq(@Nullable String str) {
+        this.pAG = str;
     }
 
     public void setRequestId(@Nullable String str) {
@@ -66,70 +66,70 @@ public class h {
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
-        this.pqA = imageRequest;
+        this.pAJ = imageRequest;
     }
 
     public void bl(@Nullable Object obj) {
-        this.pqz = obj;
-    }
-
-    public void iA(long j) {
-        this.pqC = j;
-    }
-
-    public void iB(long j) {
-        this.pqD = j;
-    }
-
-    public void iC(long j) {
-        this.pqE = j;
+        this.pAI = obj;
     }
 
     public void iD(long j) {
-        this.pqF = j;
+        this.pAL = j;
     }
 
     public void iE(long j) {
-        this.pqG = j;
+        this.pAM = j;
     }
 
     public void iF(long j) {
-        this.pqH = j;
+        this.pAN = j;
     }
 
     public void iG(long j) {
-        this.pqI = j;
+        this.pAO = j;
     }
 
-    public void OF(int i) {
-        this.pqJ = i;
+    public void iH(long j) {
+        this.pAP = j;
     }
 
-    public void AO(boolean z) {
+    public void iI(long j) {
+        this.pAQ = j;
+    }
+
+    public void iJ(long j) {
+        this.pAR = j;
+    }
+
+    public void Pa(int i) {
+        this.pAS = i;
+    }
+
+    public void Bh(boolean z) {
         this.mIsCanceled = z;
     }
 
-    public void AP(boolean z) {
-        this.VG = z;
+    public void Bi(boolean z) {
+        this.VE = z;
     }
 
-    public void AQ(boolean z) {
-        this.pqK = z;
+    public void Bj(boolean z) {
+        this.pAT = z;
     }
 
     public void a(@Nullable com.facebook.imagepipeline.f.f fVar) {
-        this.pqB = fVar;
+        this.pAK = fVar;
     }
 
-    public void OG(int i) {
-        this.pqL = i;
+    public void Pb(int i) {
+        this.pAU = i;
     }
 
-    public void OH(int i) {
-        this.pqM = i;
+    public void Pc(int i) {
+        this.pAV = i;
     }
 
-    public e ero() {
-        return new e(this.pqx, this.mRequestId, this.pqA, this.pqz, this.pqB, this.pqC, this.pqD, this.pqE, this.pqF, this.pqG, this.pqH, this.pqI, this.pqJ, this.mIsCanceled, this.VG, this.pqK, this.pqL, this.pqM);
+    public e etH() {
+        return new e(this.pAG, this.mRequestId, this.pAJ, this.pAI, this.pAK, this.pAL, this.pAM, this.pAN, this.pAO, this.pAP, this.pAQ, this.pAR, this.pAS, this.mIsCanceled, this.VE, this.pAT, this.pAU, this.pAV);
     }
 }

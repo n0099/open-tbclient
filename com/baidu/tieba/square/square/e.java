@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public String logoUrl;
-    public String ngj;
-    public String ngk;
-    public String ngl;
-    public ArrayList<e> niq;
+    public String npS;
+    public String npT;
+    public String npU;
+    public ArrayList<e> nrY;
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
-        this.ngk = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-        this.ngj = jSONObject.optString("menu_name");
-        this.ngl = jSONObject.optString("menu_id");
+        this.npT = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+        this.npS = jSONObject.optString("menu_name");
+        this.npU = jSONObject.optString("menu_id");
         this.logoUrl = jSONObject.optString("default_logo_url", null);
         this.logoUrl = this.logoUrl != null ? this.logoUrl + "?v=2" : null;
         if (jSONObject.has("child_menu_list")) {
@@ -27,7 +27,7 @@ public class e {
                 eVar.parserJson(optJSONArray.getJSONObject(i));
                 arrayList.add(eVar);
             }
-            this.niq = arrayList;
+            this.nrY = arrayList;
         }
     }
 }

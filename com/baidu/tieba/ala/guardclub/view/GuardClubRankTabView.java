@@ -13,14 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class GuardClubRankTabView extends LinearLayout {
-    private a gZD;
+    private a hcn;
     private MotionEvent mMotionEvent;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void dv(int i);
+        void dB(int i);
     }
 
     public GuardClubRankTabView(Context context, @Nullable AttributeSet attributeSet) {
@@ -29,18 +29,18 @@ public class GuardClubRankTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.gZD = aVar;
+        this.hcn = aVar;
     }
 
     public void setSelect(int i) {
         View childAt;
         if (i >= 0 && i < getChildCount() && (childAt = getChildAt(i)) != null && !childAt.isSelected()) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
-                cq(getChildAt(i2));
+                cm(getChildAt(i2));
             }
-            cp(childAt);
-            if (this.gZD != null) {
-                this.gZD.dv(i);
+            cl(childAt);
+            if (this.hcn != null) {
+                this.hcn.dB(i);
             }
         }
     }
@@ -48,7 +48,7 @@ public class GuardClubRankTabView extends LinearLayout {
     public void setNames(String... strArr) {
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds30);
         for (String str : strArr) {
-            addView(aH(str, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));
+            addView(aJ(str, dimensionPixelOffset), new LinearLayout.LayoutParams(-2, -1));
         }
     }
 
@@ -75,11 +75,11 @@ public class GuardClubRankTabView extends LinearLayout {
 
     private void init() {
         setClickable(true);
-        Xr();
+        Zh();
         setOrientation(0);
     }
 
-    private void Xr() {
+    private void Zh() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(0);
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds28));
@@ -87,7 +87,7 @@ public class GuardClubRankTabView extends LinearLayout {
         setBackgroundDrawable(gradientDrawable);
     }
 
-    private TextView aH(String str, int i) {
+    private TextView aJ(String str, int i) {
         TextView textView = new TextView(getContext());
         textView.setGravity(17);
         textView.setIncludeFontPadding(false);
@@ -105,14 +105,14 @@ public class GuardClubRankTabView extends LinearLayout {
         return textView;
     }
 
-    private void cp(View view) {
+    private void cl(View view) {
         view.setSelected(true);
         if (view instanceof TextView) {
             ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize28));
         }
     }
 
-    private void cq(View view) {
+    private void cm(View view) {
         view.setSelected(false);
         if (view instanceof TextView) {
             ((TextView) view).setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize24));

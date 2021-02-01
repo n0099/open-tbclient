@@ -7,12 +7,12 @@ public final class e extends Enum<e> {
     public static final int f54case = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f13745a = 3;
+    public static final int f13747a = 3;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f13746b = 4;
+    public static final int f13748b = 4;
     public static final int c = 5;
 
     /* renamed from: java  reason: collision with other field name */
-    private static final /* synthetic */ int[] f55java = {java, f54case, f13745a, f13746b, c};
+    private static final /* synthetic */ int[] f55java = {java, f54case, f13747a, f13748b, c};
 }

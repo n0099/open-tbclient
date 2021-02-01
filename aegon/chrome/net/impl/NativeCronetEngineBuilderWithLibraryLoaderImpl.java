@@ -1,7 +1,7 @@
 package aegon.chrome.net.impl;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NativeCronetEngineBuilderWithLibraryLoaderImpl extends CronetEngineBuilderImpl {
     public VersionSafeCallbacks$LibraryLoader mLibraryLoader;
 

@@ -1,10 +1,10 @@
 package org.webrtc;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
+import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Camera1Capturer extends CameraCapturer {
     private final boolean captureToTexture;
 

@@ -9,21 +9,21 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.ala.utils.AlaStringHelper;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MarkLevelGroup extends LinearLayout {
-    private LinearLayout hXs;
-    private List<View> hXt;
-    private a hXu;
+    private LinearLayout ibM;
+    private List<View> ibN;
+    private a ibO;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void eF(String str, String str2);
+        void eE(String str, String str2);
     }
 
     public MarkLevelGroup(Context context) {
@@ -42,20 +42,20 @@ public class MarkLevelGroup extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.hXu = aVar;
+        this.ibO = aVar;
     }
 
     private void initView() {
         setOrientation(0);
         setGravity(1);
         LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_layout, (ViewGroup) this, true);
-        this.hXs = (LinearLayout) findViewById(R.id.mark_level_list_container);
+        this.ibM = (LinearLayout) findViewById(R.id.mark_level_list_container);
     }
 
     public void c(b bVar) {
         if (bVar != null) {
-            List<d> clZ = bVar.clZ();
-            if (x.isEmpty(clZ)) {
+            List<d> cmX = bVar.cmX();
+            if (y.isEmpty(cmX)) {
                 if (getLayoutParams() != null) {
                     ViewGroup.LayoutParams layoutParams = getLayoutParams();
                     layoutParams.height = getContext().getResources().getDimensionPixelSize(R.dimen.ds118);
@@ -65,53 +65,53 @@ public class MarkLevelGroup extends LinearLayout {
                 return;
             }
             setVisibility(0);
-            this.hXs.removeAllViews();
-            if (this.hXt == null) {
-                this.hXt = new ArrayList();
+            this.ibM.removeAllViews();
+            if (this.ibN == null) {
+                this.ibN = new ArrayList();
             } else {
-                this.hXt.clear();
+                this.ibN.clear();
             }
-            int size = clZ.size();
+            int size = cmX.size();
             for (int i = 0; i < size; i++) {
-                final d dVar = clZ.get(i);
+                final d dVar = cmX.get(i);
                 if (dVar != null) {
                     View inflate = LayoutInflater.from(getContext()).inflate(R.layout.ala_achievement_mark_level_item_view, (ViewGroup) null);
                     FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.mark_level_layout);
                     TextView textView = (TextView) inflate.findViewById(R.id.mark_level_tv);
                     textView.setText(String.valueOf(i + 1));
-                    ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.cmk()));
-                    this.hXt.add(inflate);
-                    boolean z = bVar.cme() == 0;
-                    if (bVar.cmg() == dVar.cmg()) {
+                    ((TextView) inflate.findViewById(R.id.mark_level_score_tv)).setText(AlaStringHelper.numFormatMarkLevel(dVar.cni()));
+                    this.ibN.add(inflate);
+                    boolean z = bVar.cnc() == 0;
+                    if (bVar.cne() == dVar.cne()) {
                         a(frameLayout, true);
                         if (z) {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                         } else {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_on);
                         }
-                    } else if (bVar.cmg() > dVar.cmg()) {
+                    } else if (bVar.cne() > dVar.cne()) {
                         a(frameLayout, false);
                         if (z) {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                         } else {
                             textView.setBackgroundResource(R.drawable.pic_live_honor_show_on);
                         }
-                    } else if (bVar.cmg() < dVar.cmg()) {
+                    } else if (bVar.cne() < dVar.cne()) {
                         a(frameLayout, false);
                         textView.setBackgroundResource(R.drawable.pic_live_honor_show_off);
                     }
                     inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.MarkLevelGroup.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            for (View view2 : MarkLevelGroup.this.hXt) {
+                            for (View view2 : MarkLevelGroup.this.ibN) {
                                 if (view == view2) {
                                     MarkLevelGroup.this.a((FrameLayout) view2.findViewById(R.id.mark_level_layout), true);
                                 } else {
                                     MarkLevelGroup.this.a((FrameLayout) view2.findViewById(R.id.mark_level_layout), false);
                                 }
                             }
-                            if (MarkLevelGroup.this.hXu != null) {
-                                MarkLevelGroup.this.hXu.eF(dVar.cmd(), dVar.cmc());
+                            if (MarkLevelGroup.this.ibO != null) {
+                                MarkLevelGroup.this.ibO.eE(dVar.cnb(), dVar.cna());
                             }
                         }
                     });
@@ -122,7 +122,7 @@ public class MarkLevelGroup extends LinearLayout {
                         layoutParams2.width = getContext().getResources().getDimensionPixelSize(R.dimen.ds82);
                         layoutParams2.height = -2;
                     }
-                    this.hXs.addView(inflate, layoutParams2);
+                    this.ibM.addView(inflate, layoutParams2);
                 }
             }
         }

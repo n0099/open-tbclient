@@ -1,12 +1,12 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.data;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3120a;
+    private String f3118a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f3121b;
+    private String f3119b;
     private String c;
     private b d;
     private int e;
@@ -16,7 +16,7 @@ public final class f {
     private String i;
     private int j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum a {
         GPS,
         COMMON,
@@ -24,7 +24,7 @@ public final class f {
         BD09MC
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public enum b {
         DRIVING,
         RIDING
@@ -40,7 +40,7 @@ public final class f {
     }
 
     public String a() {
-        return this.f3120a;
+        return this.f3118a;
     }
 
     public void a(int i) {
@@ -48,15 +48,15 @@ public final class f {
     }
 
     public void a(String str) {
-        this.f3120a = str;
+        this.f3118a = str;
     }
 
     public String b() {
-        return this.f3121b;
+        return this.f3119b;
     }
 
     public void b(String str) {
-        this.f3121b = str;
+        this.f3119b = str;
     }
 
     public String c() {

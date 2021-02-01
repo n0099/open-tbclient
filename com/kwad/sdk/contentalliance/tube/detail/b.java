@@ -12,17 +12,17 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.d;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends IFragmentActivityProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    private TubeDetailParam f8925a;
+    private TubeDetailParam f8927a;
 
     /* renamed from: b  reason: collision with root package name */
-    private SceneImpl f8926b;
+    private SceneImpl f8928b;
 
     private void a() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f8925a)).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f8927a)).commitAllowingStateLoss();
     }
 
     public static void a(Context context, TubeDetailParam tubeDetailParam) {
@@ -37,19 +37,19 @@ public class b extends IFragmentActivityProxy {
     private boolean b() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_TUBE_DETAIL_PARAM");
         if (serializableExtra instanceof TubeDetailParam) {
-            this.f8925a = (TubeDetailParam) serializableExtra;
-            this.f8926b = new SceneImpl(this.f8925a.mEntryScene);
+            this.f8927a = (TubeDetailParam) serializableExtra;
+            this.f8928b = new SceneImpl(this.f8927a.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 6);
-            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f8925a.getTubeId());
-            this.f8926b.setUrlPackage(uRLPackage);
+            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f8927a.getTubeId());
+            this.f8928b.setUrlPackage(uRLPackage);
         }
-        return this.f8925a != null;
+        return this.f8927a != null;
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
         super.onBackPressed();
-        e.d(this.f8926b);
+        e.d(this.f8928b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

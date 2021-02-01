@@ -1,24 +1,24 @@
 package com.baidu.live.lottie.model.content;
 
 import com.baidu.live.lottie.a.a.p;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class k implements b {
-    private final com.baidu.live.lottie.model.a.h bqx;
+    private final com.baidu.live.lottie.model.a.h btZ;
     private final int index;
     private final String name;
 
     public k(String str, int i, com.baidu.live.lottie.model.a.h hVar) {
         this.name = str;
         this.index = i;
-        this.bqx = hVar;
+        this.btZ = hVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.baidu.live.lottie.model.a.h MB() {
-        return this.bqx;
+    public com.baidu.live.lottie.model.a.h NZ() {
+        return this.btZ;
     }
 
     @Override // com.baidu.live.lottie.model.content.b

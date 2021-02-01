@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.f;
@@ -41,22 +41,22 @@ import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonalGroupFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
-    public BdListView kCr = null;
+    public BdListView kKw = null;
     private g mPullView = null;
-    private a kCs = null;
-    private NoDataView fGh = null;
-    private View kCt = null;
+    private a kKx = null;
+    private NoDataView fIt = null;
+    private View kKy = null;
     private int pageType = 0;
-    private final c kCu = new c(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.1
+    private final c kKz = new c(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            PersonalGroupFragment.this.kna = true;
+            PersonalGroupFragment.this.kvh = true;
         }
     };
-    private final c kCv = new c(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.3
+    private final c kKA = new c(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -68,7 +68,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                 case CmdConfigSocket.CMD_REMOVE_MEMBERS /* 103112 */:
                 case CmdConfigCustom.CMD_GROUP_MEMBER_CHANGE /* 2001109 */:
                     if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() == 0 || ((socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) && socketResponsedMessage.getError() == 2230110)) {
-                        PersonalGroupFragment.this.kna = true;
+                        PersonalGroupFragment.this.kvh = true;
                         return;
                     }
                     return;
@@ -77,14 +77,14 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
             }
         }
     };
-    private final c kCw = new c(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.4
+    private final c kKB = new c(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            PersonGroupActivity cVr = PersonalGroupFragment.this.cVr();
-            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.kCr != null && cVr != null && cVr.cVo() != null) {
+            PersonGroupActivity cXp = PersonalGroupFragment.this.cXp();
+            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.kKw != null && cXp != null && cXp.cXm() != null) {
                 if (socketResponsedMessage.getCmd() == 103003) {
-                    PersonalGroupFragment.this.kCr.completePullRefreshPostDelayed(0L);
+                    PersonalGroupFragment.this.kKw.completePullRefreshPostDelayed(0L);
                 }
                 ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
                 if (responseGroupsByUidMessage.getError() != 0) {
@@ -98,38 +98,38 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                 if (PersonalGroupFragment.this.pageType == 1) {
                     groups = responseGroupsByUidMessage.getCommonGroups();
                 }
-                if (!cVr.Vx()) {
-                    cVr.setGroups(responseGroupsByUidMessage.getGroups());
-                    cVr.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
+                if (!cXp.Xg()) {
+                    cXp.setGroups(responseGroupsByUidMessage.getGroups());
+                    cXp.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
                 }
-                cVr.cT(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
+                cXp.cQ(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
                 if (groups != null) {
-                    PersonalGroupFragment.this.kCs.eD(groups);
-                    PersonalGroupFragment.this.kCs.notifyDataSetChanged();
+                    PersonalGroupFragment.this.kKx.eB(groups);
+                    PersonalGroupFragment.this.kKx.notifyDataSetChanged();
                     if (groups.size() > 0) {
-                        PersonalGroupFragment.this.fGh.setVisibility(8);
-                        PersonalGroupFragment.this.kCr.removeHeaderView(PersonalGroupFragment.this.fGh);
+                        PersonalGroupFragment.this.fIt.setVisibility(8);
+                        PersonalGroupFragment.this.kKw.removeHeaderView(PersonalGroupFragment.this.fIt);
                     } else {
-                        PersonalGroupFragment.this.fGh.setVisibility(0);
-                        PersonalGroupFragment.this.kCr.removeHeaderView(PersonalGroupFragment.this.fGh);
-                        PersonalGroupFragment.this.kCr.addHeaderView(PersonalGroupFragment.this.fGh);
+                        PersonalGroupFragment.this.fIt.setVisibility(0);
+                        PersonalGroupFragment.this.kKw.removeHeaderView(PersonalGroupFragment.this.fIt);
+                        PersonalGroupFragment.this.kKw.addHeaderView(PersonalGroupFragment.this.fIt);
                     }
-                    PersonalGroupFragment.this.kCr.setVisibility(0);
+                    PersonalGroupFragment.this.kKw.setVisibility(0);
                 }
                 if (socketResponsedMessage.getCmd() == 103003) {
-                    PersonalGroupFragment.this.kna = false;
-                } else if (socketResponsedMessage.getCmd() == 2001106 && cVr.cVo() != null) {
-                    cVr.cVo().update();
+                    PersonalGroupFragment.this.kvh = false;
+                } else if (socketResponsedMessage.getCmd() == 2001106 && cXp.cXm() != null) {
+                    cXp.cXm().update();
                 }
             }
         }
     };
-    private final CustomMessageListener kCx = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.5
+    private final CustomMessageListener kKC = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            PersonGroupActivity cVr = PersonalGroupFragment.this.cVr();
-            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.kCr != null && cVr != null && cVr.cVo() != null) {
+            PersonGroupActivity cXp = PersonalGroupFragment.this.cXp();
+            if (PersonalGroupFragment.this.getActivity() != null && PersonalGroupFragment.this.kKw != null && cXp != null && cXp.cXm() != null) {
                 ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = (ResponseGroupsByUidLocalMessage) customResponsedMessage;
                 if (responseGroupsByUidLocalMessage.getError() != 0) {
                     if (responseGroupsByUidLocalMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidLocalMessage.getErrorString())) {
@@ -138,33 +138,33 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
                     }
                     return;
                 }
-                if (cVr.Vx()) {
+                if (cXp.Xg()) {
                     List<GroupInfoData> groups = responseGroupsByUidLocalMessage.getGroups();
                     if (PersonalGroupFragment.this.pageType == 1) {
                         groups = responseGroupsByUidLocalMessage.getCommonGroups();
                     }
-                    cVr.cT(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
+                    cXp.cQ(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
                     if (groups != null) {
-                        PersonalGroupFragment.this.kCs.eD(groups);
-                        PersonalGroupFragment.this.kCs.notifyDataSetChanged();
+                        PersonalGroupFragment.this.kKx.eB(groups);
+                        PersonalGroupFragment.this.kKx.notifyDataSetChanged();
                         if (groups.size() > 0) {
-                            PersonalGroupFragment.this.fGh.setVisibility(8);
-                            PersonalGroupFragment.this.kCr.removeHeaderView(PersonalGroupFragment.this.fGh);
+                            PersonalGroupFragment.this.fIt.setVisibility(8);
+                            PersonalGroupFragment.this.kKw.removeHeaderView(PersonalGroupFragment.this.fIt);
                         } else {
-                            PersonalGroupFragment.this.fGh.setVisibility(0);
-                            PersonalGroupFragment.this.kCr.removeHeaderView(PersonalGroupFragment.this.fGh);
-                            PersonalGroupFragment.this.kCr.addHeaderView(PersonalGroupFragment.this.fGh);
+                            PersonalGroupFragment.this.fIt.setVisibility(0);
+                            PersonalGroupFragment.this.kKw.removeHeaderView(PersonalGroupFragment.this.fIt);
+                            PersonalGroupFragment.this.kKw.addHeaderView(PersonalGroupFragment.this.fIt);
                         }
-                        PersonalGroupFragment.this.kCr.setVisibility(0);
+                        PersonalGroupFragment.this.kKw.setVisibility(0);
                     }
                 }
-                if (cVr.cVo() != null) {
-                    cVr.cVo().update();
+                if (cXp.cXm() != null) {
+                    cXp.cXm().update();
                 }
             }
         }
     };
-    private final CustomMessageListener eHt = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.6
+    private final CustomMessageListener eJz = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -174,9 +174,9 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
             }
         }
     };
-    public boolean kna = false;
+    public boolean kvh = false;
 
-    public PersonGroupActivity cVr() {
+    public PersonGroupActivity cXp() {
         BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
         if (baseFragmentActivity instanceof PersonGroupActivity) {
             return (PersonGroupActivity) baseFragmentActivity;
@@ -187,111 +187,111 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.kna) {
-            this.kCr.startPullRefresh();
+        if (this.kvh) {
+            this.kKw.startPullRefresh();
         }
         onChangeSkinType(TbadkApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
-        MessageManager.getInstance().unRegisterListener(this.kCw);
-        MessageManager.getInstance().unRegisterListener(this.kCv);
-        MessageManager.getInstance().unRegisterListener(this.eHt);
-        MessageManager.getInstance().unRegisterListener(this.kCu);
+        MessageManager.getInstance().unRegisterListener(this.kKB);
+        MessageManager.getInstance().unRegisterListener(this.kKA);
+        MessageManager.getInstance().unRegisterListener(this.eJz);
+        MessageManager.getInstance().unRegisterListener(this.kKz);
         super.onDestroyView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        registerListener(CmdConfigSocket.CMD_QUERY_GROUP_BY_UID, this.kCw);
-        registerListener(CmdConfigCustom.CMD_REQUEST_GROUP_BY_UID_LOCAL, this.kCx);
-        registerListener(CmdConfigSocket.CMD_ADD_GROUP, this.kCv);
-        registerListener(CmdConfigSocket.CMD_REMOVE_MEMBERS, this.kCv);
-        registerListener(CmdConfigSocket.CMD_UPDATE_GROUP, this.kCv);
-        registerListener(CmdConfigCustom.CMD_GROUP_MEMBER_CHANGE, this.kCv);
-        registerListener(CmdConfigSocket.CMD_DISSMISS_GROUP, this.kCv);
-        registerListener(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP, this.kCv);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.kCu);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.kCu);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.kCu);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP, this.kCu);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.kCu);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_HEAD_CHANGE, this.kCu);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.eHt);
+        registerListener(CmdConfigSocket.CMD_QUERY_GROUP_BY_UID, this.kKB);
+        registerListener(CmdConfigCustom.CMD_REQUEST_GROUP_BY_UID_LOCAL, this.kKC);
+        registerListener(CmdConfigSocket.CMD_ADD_GROUP, this.kKA);
+        registerListener(CmdConfigSocket.CMD_REMOVE_MEMBERS, this.kKA);
+        registerListener(CmdConfigSocket.CMD_UPDATE_GROUP, this.kKA);
+        registerListener(CmdConfigCustom.CMD_GROUP_MEMBER_CHANGE, this.kKA);
+        registerListener(CmdConfigSocket.CMD_DISSMISS_GROUP, this.kKA);
+        registerListener(CmdConfigSocket.CMD_UPGRADE_MEMBER_GROUP, this.kKA);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.kKz);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.kKz);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.kKz);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP, this.kKz);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.kKz);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_HEAD_CHANGE, this.kKz);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.eJz);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
-        if (this.fGh != null) {
-            this.fGh.e(cVr().getPageContext());
+        if (this.fIt != null) {
+            this.fIt.e(cXp().getPageContext());
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        if (this.fGh != null) {
-            this.fGh.btD();
+        if (this.fIt != null) {
+            this.fIt.btX();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        NoDataViewFactory.d dX;
+        NoDataViewFactory.d dS;
         this.pageType = getArguments().getInt("page_type", 0);
         getArguments().getInt("page_size", 1);
         View inflate = layoutInflater.inflate(R.layout.person_group_fragment, viewGroup, false);
-        PersonGroupActivity cVr = cVr();
-        if (cVr != null && !cVr.Vx()) {
+        PersonGroupActivity cXp = cXp();
+        if (cXp != null && !cXp.Xg()) {
             if (this.pageType == 0) {
-                dX = NoDataViewFactory.d.Bk(String.format(getString(R.string.person_group_no_personal_info), cVr.cVn()));
+                dS = NoDataViewFactory.d.BB(String.format(getString(R.string.person_group_no_personal_info), cXp.cXl()));
             } else {
-                dX = NoDataViewFactory.d.Bk(getString(R.string.person_group_no_common_info));
+                dS = NoDataViewFactory.d.BB(getString(R.string.person_group_no_common_info));
             }
         } else {
-            dX = (cVr == null || !cVr.Vx()) ? null : NoDataViewFactory.d.dX(getString(R.string.group_no_data_tip), getString(R.string.group_no_data_tip_1));
+            dS = (cXp == null || !cXp.Xg()) ? null : NoDataViewFactory.d.dS(getString(R.string.group_no_data_tip), getString(R.string.group_no_data_tip_1));
         }
-        this.fGh = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds102)), dX, null);
-        this.kCr = (BdListView) inflate.findViewById(R.id.person_group_list);
+        this.fIt = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds102)), dS, null);
+        this.kKw = (BdListView) inflate.findViewById(R.id.person_group_list);
         this.mPullView = new g(getPageContext());
-        this.kCs = new a(this);
+        this.kKx = new a(this);
         this.mPullView.setListPullRefreshListener(new f.c() { // from class: com.baidu.tieba.im.mygroup.PersonalGroupFragment.2
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
-                PersonGroupActivity cVr2 = PersonalGroupFragment.this.cVr();
-                if (cVr2 != null) {
-                    cVr2.cVo().update();
+                PersonGroupActivity cXp2 = PersonalGroupFragment.this.cXp();
+                if (cXp2 != null) {
+                    cXp2.cXm().update();
                 }
             }
         });
-        this.kCr.setPullRefresh(this.mPullView);
-        this.kCr.setAdapter((ListAdapter) this.kCs);
-        this.kCr.setOnItemClickListener(this);
-        this.fGh.setVisibility(8);
-        this.kCr.removeHeaderView(this.fGh);
-        this.kCt = inflate.findViewById(R.id.group_fragment_parent);
-        if (cVr() != null && this.pageType == cVr().cVm()) {
-            this.kCr.startPullRefresh();
+        this.kKw.setPullRefresh(this.mPullView);
+        this.kKw.setAdapter((ListAdapter) this.kKx);
+        this.kKw.setOnItemClickListener(this);
+        this.fIt.setVisibility(8);
+        this.kKw.removeHeaderView(this.fIt);
+        this.kKy = inflate.findViewById(R.id.group_fragment_parent);
+        if (cXp() != null && this.pageType == cXp().cXk()) {
+            this.kKw.startPullRefresh();
         }
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        GroupInfoData item = this.kCs.getItem(i);
-        PersonGroupActivity cVr = cVr();
-        if (cVr != null && !cVr.a(item) && item != null) {
-            if (this.pageType == 1 || cVr.Vx()) {
-                if (cVr.Vx()) {
+        GroupInfoData item = this.kKx.getItem(i);
+        PersonGroupActivity cXp = cXp();
+        if (cXp != null && !cXp.a(item) && item != null) {
+            if (this.pageType == 1 || cXp.Xg()) {
+                if (cXp.Xg()) {
                     TiebaStatic.eventStat(getActivity(), "my_group_item", "click", 1, new Object[0]);
                 } else {
                     TiebaStatic.eventStat(getActivity(), "common_group_item", "click", 1, new Object[0]);
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
-            } else if (cVr.gN(item.getGroupId())) {
+            } else if (cXp.gS(item.getGroupId())) {
                 TiebaStatic.eventStat(getActivity(), "common_group_item", "click", 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(getActivity(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb")));
             } else {
@@ -309,8 +309,8 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
             if (view.getTag() instanceof GroupInfoData) {
                 groupInfoData = (GroupInfoData) view.getTag();
             }
-            PersonGroupActivity cVr = cVr();
-            if (cVr != null && !cVr.a(groupInfoData) && groupInfoData != null) {
+            PersonGroupActivity cXp = cXp();
+            if (cXp != null && !cXp.a(groupInfoData) && groupInfoData != null) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, new GroupInfoActivityConfig(getActivity(), groupInfoData.getGroupId(), 1)));
             }
         }
@@ -319,14 +319,14 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kCs != null) {
-            this.kCs.notifyDataSetChanged();
+        if (this.kKx != null) {
+            this.kKx.notifyDataSetChanged();
         }
-        if (this.fGh != null) {
-            ao.setBackgroundColor(this.fGh, R.color.CAM_X0201);
+        if (this.fIt != null) {
+            ap.setBackgroundColor(this.fIt, R.color.CAM_X0201);
         }
         if (isAdded()) {
-            cVr().getLayoutMode().onModeChanged(this.kCt);
+            cXp().getLayoutMode().onModeChanged(this.kKy);
             this.mPullView.changeSkin(i);
         }
     }
@@ -336,7 +336,7 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         if (groupNewsPojo != null) {
             try {
                 if (TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP.equals(new JSONObject(groupNewsPojo.getContent()).getString(TbEnum.SystemMessage.KEY_EVENT_ID)) && j.isNetWorkAvailable()) {
-                    this.kna = true;
+                    this.kvh = true;
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

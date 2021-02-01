@@ -6,12 +6,12 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @NonNull
-    public static Pair<com.baidu.swan.apps.api.c.b, JSONObject> bn(String str, String str2) {
+    public static Pair<com.baidu.swan.apps.api.c.b, JSONObject> bh(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             str = "Api-Utils";
         }

@@ -11,13 +11,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class a {
-    private static volatile int cqP = 0;
+    private static volatile int csE = 0;
     private static volatile String sProcessName;
 
-    public static int adI() {
-        int i = cqP;
+    public static int adZ() {
+        int i = csE;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = e.getAppContext().getPackageName();
@@ -26,17 +26,17 @@ public class a {
             } else {
                 i |= 4;
             }
-            cqP = i;
+            csE = i;
         }
         return i;
     }
 
-    public static boolean adJ() {
-        return (adI() & 1) != 0;
+    public static boolean aea() {
+        return (adZ() & 1) != 0;
     }
 
-    public static boolean adK() {
-        return (adI() & 2) != 0;
+    public static boolean aeb() {
+        return (adZ() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -46,7 +46,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = adM();
+                    str = aed();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -57,7 +57,7 @@ public class a {
         return str;
     }
 
-    public static int adL() {
+    public static int aec() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -91,7 +91,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String adM() {
+    private static String aed() {
         String str;
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;

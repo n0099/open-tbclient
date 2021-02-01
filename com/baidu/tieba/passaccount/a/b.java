@@ -1,251 +1,249 @@
 package com.baidu.tieba.passaccount.a;
 
-import android.app.ActivityManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.coreExtra.data.j;
-import com.baidu.tieba.passaccount.a.c;
-import com.baidu.tieba.passaccount.app.AuthActivity;
-import com.baidu.tieba.passaccount.app.RemindActivity;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
-public class b {
-    private static volatile b lye;
-    private a lyf;
-    private AtomicBoolean lyg = new AtomicBoolean(false);
-    private AtomicBoolean lyh = new AtomicBoolean(false);
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.Nullable;
+import com.baidu.android.common.security.MD5Util;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tieba.R;
+import com.baidu.tieba.passaccount.app.LoginDialogActivity;
+/* loaded from: classes8.dex */
+public class b implements View.OnClickListener, a {
+    private LoginDialogActivity lGg;
+    private View lGh;
+    private View lGi;
+    private View lGj;
+    private ImageView lGk;
+    private TextView lGl;
+    private TextView lGm;
+    private TextView lGn;
+    private TextView lGo;
+    private TextView lGp;
+    private TextView lGq;
+    private TextView lGr;
+    private TextView lGs;
+    private TextView lGt;
+    private TextView lGu;
+    private TextView lGv;
+    private String operator;
+    private int operatorType;
+    private String phoneNum;
+    private String sign;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void b(j.c cVar);
-    }
-
-    public static b dhS() {
-        if (lye == null) {
-            synchronized (b.class) {
-                if (lye == null) {
-                    lye = new b();
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0025, code lost:
+        if (r7.equals("CU") != false) goto L4;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public b(String str, String str2, String str3) {
+        boolean z = false;
+        this.operatorType = 0;
+        this.phoneNum = str;
+        this.operator = str2;
+        this.sign = str3;
+        switch (str2.hashCode()) {
+            case 2154:
+                if (str2.equals("CM")) {
+                    z = true;
+                    break;
                 }
-            }
-        }
-        return lye;
-    }
-
-    private b() {
-    }
-
-    private void a(j jVar, a aVar) {
-        a(aVar);
-        SapiAccount session = SapiAccountManager.getInstance().getSession();
-        if (jVar == null || session == null) {
-            a((j.c) null);
-        } else if (jVar.getType() == 0) {
-            Oh(jVar.getAuthToken());
-        } else if (jVar.getType() == 1) {
-            Oi(session.bduss);
-        } else if (jVar.getType() == 2) {
-            Oj(session.bduss);
-        } else if (jVar.getType() == 3) {
-            dhT();
-        }
-    }
-
-    private void Oh(String str) {
-        Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
-        Intent intent = new Intent(context, AuthActivity.class);
-        intent.putExtra("EXTRA_TYPE", 0);
-        intent.putExtra("EXTRA_AUTH_TOKEN", str);
-        intent.setFlags(268435456);
-        context.startActivity(intent);
-    }
-
-    private void Oi(String str) {
-        Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
-        Intent intent = new Intent(context, AuthActivity.class);
-        intent.putExtra("EXTRA_TYPE", 1);
-        intent.putExtra("EXTRA_BDUSS", str);
-        intent.setFlags(268435456);
-        context.startActivity(intent);
-    }
-
-    private void Oj(String str) {
-        Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
-        Intent intent = new Intent(context, AuthActivity.class);
-        intent.putExtra("EXTRA_TYPE", 2);
-        intent.putExtra("EXTRA_BDUSS", str);
-        intent.addFlags(268435456);
-        context.startActivity(intent);
-    }
-
-    private void dhT() {
-        Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
-        Intent intent = new Intent(context, RemindActivity.class);
-        intent.addFlags(268435456);
-        context.startActivity(intent);
-    }
-
-    public void b(j jVar, a aVar) {
-        if (this.lyh.compareAndSet(false, true)) {
-            if (this.lyg.compareAndSet(false, true)) {
-                try {
-                    a(jVar, aVar);
-                } catch (Exception e) {
-                    BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
-                    this.lyg.set(false);
+                z = true;
+                break;
+            case 2161:
+                if (str2.equals("CT")) {
+                    z = true;
+                    break;
                 }
-            } else if (!dhV()) {
-                try {
-                    a(jVar, aVar);
-                } catch (Exception e2) {
-                    this.lyg.set(false);
-                }
-            }
-            this.lyh.set(false);
+                z = true;
+                break;
+            case 2162:
+                break;
+            default:
+                z = true;
+                break;
+        }
+        switch (z) {
+            case false:
+                this.operatorType = 1;
+                return;
+            case true:
+                this.operatorType = 2;
+                return;
+            default:
+                this.operatorType = 3;
+                return;
         }
     }
 
-    public void a(j.c cVar) {
-        if (this.lyf != null) {
-            if (cVar == null) {
-                cVar = new j.c(false);
-            }
-            this.lyf.b(cVar);
-        }
-        this.lyf = null;
-        this.lyg.set(false);
+    @Override // com.baidu.tieba.passaccount.a.a
+    public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
+        this.lGg = loginDialogActivity;
+        View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.onekey_login_dialog_activity_layout, viewGroup, true);
+        this.lGh = inflate.findViewById(R.id.dialog_background);
+        this.lGi = inflate.findViewById(R.id.dialog_layout);
+        this.lGj = inflate.findViewById(R.id.close_btn_layout);
+        this.lGk = (ImageView) inflate.findViewById(R.id.close_btn_view);
+        this.lGl = (TextView) inflate.findViewById(R.id.dialog_title);
+        this.lGm = (TextView) inflate.findViewById(R.id.dialog_subtitle);
+        this.lGn = (TextView) inflate.findViewById(R.id.user_number);
+        this.lGo = (TextView) inflate.findViewById(R.id.login_btn);
+        this.lGp = (TextView) inflate.findViewById(R.id.other_login_btn);
+        this.lGq = (TextView) inflate.findViewById(R.id.tip_1);
+        this.lGr = (TextView) inflate.findViewById(R.id.operator_text);
+        this.lGs = (TextView) inflate.findViewById(R.id.tip_2);
+        this.lGt = (TextView) inflate.findViewById(R.id.agreement_text);
+        this.lGu = (TextView) inflate.findViewById(R.id.tip_3);
+        this.lGv = (TextView) inflate.findViewById(R.id.privacy_text);
+        this.lGh.setOnClickListener(this);
+        this.lGj.setOnClickListener(this);
+        this.lGk.setOnClickListener(this);
+        this.lGi.setOnClickListener(this);
+        this.lGo.setOnClickListener(this);
+        this.lGp.setOnClickListener(this);
+        this.lGr.setOnClickListener(this);
+        this.lGt.setOnClickListener(this);
+        this.lGv.setOnClickListener(this);
+        initData();
     }
 
-    public void z(boolean z, String str) {
-        a(new j.a(z, str));
+    private void initData() {
+        this.lGn.setText(this.phoneNum);
+        Fn(this.operatorType);
     }
 
-    public void uj(boolean z) {
-        a(new j.c(false));
-        if (z) {
-            dhU();
+    private void Fn(int i) {
+        switch (i) {
+            case 1:
+                this.lGr.setText(R.string.onekey_login_dialog_activity_operator_1);
+                return;
+            case 2:
+                this.lGr.setText(R.string.onekey_login_dialog_activity_operator_2);
+                return;
+            case 3:
+                this.lGr.setText(R.string.onekey_login_dialog_activity_operator_3);
+                return;
+            default:
+                return;
         }
     }
 
-    public void uk(boolean z) {
-        a(new j.c(z));
+    @Override // com.baidu.tieba.passaccount.a.a
+    public void rx(int i) {
+        ap.setBackgroundResource(this.lGi, R.drawable.nav_bg_corner_shape, i);
+        SvgManager.bsR().a(this.lGk, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGl).nY(R.color.CAM_X0105).nZ(R.dimen.T_X05).oa(R.string.F_X02);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGm).nY(R.color.CAM_X0108).nZ(R.dimen.T_X08).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGn).nY(R.color.CAM_X0105).nZ(R.dimen.T_X03).oa(R.string.F_X02);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGp).nY(R.color.CAM_X0107).nZ(R.dimen.T_X07).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGo).nY(R.color.CAM_X0101).nZ(R.dimen.T_X05).oa(R.string.F_X01).og(R.string.J_X01).setBackGroundColor(R.color.CAM_X0302);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGq).nY(R.color.CAM_X0108).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGs).nY(R.color.CAM_X0108).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGu).nY(R.color.CAM_X0108).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGr).nY(R.color.CAM_X0302).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGt).nY(R.color.CAM_X0302).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGv).nY(R.color.CAM_X0302).nZ(R.dimen.tbds29).oa(R.string.F_X01);
     }
 
-    public void A(boolean z, String str) {
-        c.dhY().a((c.a) null);
-        a(new j.b(z, str));
-    }
-
-    private void dhU() {
-        com.baidu.tbadk.coreExtra.a.c bvw;
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj == null) {
-            currentAccountObj = com.baidu.tbadk.core.a.b.bkF();
-        }
-        if (currentAccountObj == null || (TextUtils.isEmpty(currentAccountObj.getAccount()) && TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-            Handler handler = TbadkCoreApplication.getInst().handler;
-            handler.sendMessage(handler.obtainMessage(1));
-            return;
-        }
-        com.baidu.tbadk.core.a.b.zr(currentAccountObj.getID());
-        if (ReloginManager.brp().brs() && !TextUtils.isEmpty(currentAccountObj.getID()) && (bvw = com.baidu.tbadk.coreExtra.a.a.bvw()) != null) {
-            bvw.f(currentAccountObj);
-        }
-        ReloginManager.brp().e(null);
-    }
-
-    private boolean dhV() {
-        ComponentName dhW = dhW();
-        if (dhW != null) {
-            return AuthActivity.class.getName().equals(dhW.getClassName()) || LivenessRecogActivity.class.getName().equals(dhW.getClassName());
-        }
-        return false;
-    }
-
-    private ComponentName dhW() {
-        ActivityManager activityManager;
-        List<ActivityManager.RunningTaskInfo> runningTasks;
-        try {
-            if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
-                for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
-                    if (runningTaskInfo != null && runningTaskInfo.topActivity != null) {
-                        return runningTaskInfo.topActivity;
-                    }
-                }
-            }
-        } catch (Exception e) {
-        }
+    @Override // com.baidu.tieba.passaccount.a.a
+    public Intent bEJ() {
         return null;
     }
 
-    public void a(a aVar) {
-        this.lyf = aVar;
+    @Override // com.baidu.tieba.passaccount.a.a
+    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
     }
 
-    public static void registerTask() {
-        dhX();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.dialog_background || id == R.id.close_btn_layout || id == R.id.close_btn_view) {
+            djN();
+        } else if (id == R.id.login_btn) {
+            login();
+        } else if (id == R.id.operator_text) {
+            djK();
+        } else if (id == R.id.agreement_text) {
+            djL();
+        } else if (id == R.id.privacy_text) {
+            djM();
+        } else if (id == R.id.other_login_btn) {
+            djJ();
+        }
     }
 
-    private static void dhX() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921372, new CustomMessageTask.CustomRunnable<j>() { // from class: com.baidu.tieba.passaccount.a.b.1
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<j> customMessage) {
-                if (customMessage != null && customMessage.getData() != null) {
-                    j data = customMessage.getData();
-                    String authToken = data.getAuthToken();
-                    if (data.getType() == 0 && TextUtils.isEmpty(authToken)) {
-                        if (data.bvS() != null) {
-                            data.bvS().b(null);
-                        }
-                    } else if (data.getType() == 4) {
-                        l.showToast(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
-                        if (data.bvS() != null) {
-                            data.bvS().b(null);
-                        }
-                    } else {
-                        MessageManager.getInstance().runTask(CmdConfigCustom.CMD_INIT_RIM_SDK, (Class) null);
-                        b.dhS().b(data, new C0821b(data));
-                    }
-                }
-                return null;
+    private String OX(String str) {
+        if (TextUtils.isEmpty(str) || str.length() <= 7) {
+            return null;
+        }
+        return str.substring(0, 8) + MD5Util.toMd5((str.substring(8, str.length()) + MD5Util.toMd5(SapiUtils.getClientId(this.lGg).toUpperCase().getBytes(), false)).getBytes(), false);
+    }
+
+    private void login() {
+        this.lGg.showLoading();
+        PassportSDK.getInstance().loadOneKeyLogin(this.lGg, OX(this.sign), new OneKeyLoginCallback() { // from class: com.baidu.tieba.passaccount.a.b.1
+            @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+            public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
+                b.this.lGg.djF();
+                b.this.lGg.OW("yijiandenglu");
+            }
+
+            @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+            public void onFail(OneKeyLoginResult oneKeyLoginResult) {
+                b.this.lGg.closeLoadingDialog();
+                b.this.lGg.showToast(String.format(b.this.lGg.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+            }
+
+            @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+            public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
             }
         });
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    /* renamed from: com.baidu.tieba.passaccount.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    static class C0821b implements a {
-        private j lyi;
+    private void djJ() {
+        this.lGg.finish();
+        new LoginActivityConfig((Context) this.lGg, true).start();
+    }
 
-        public C0821b(j jVar) {
-            this.lyi = jVar;
+    private void djK() {
+        switch (this.operatorType) {
+            case 1:
+                new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_operator_1), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
+                return;
+            case 2:
+                new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_operator_2), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
+                return;
+            case 3:
+                new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_operator_3), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+                return;
+            default:
+                return;
         }
+    }
 
-        @Override // com.baidu.tieba.passaccount.a.b.a
-        public void b(j.c cVar) {
-            if (this.lyi != null && this.lyi.bvS() != null) {
-                this.lyi.bvS().b(cVar);
-            }
-        }
+    private void djL() {
+        new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_agreement_text), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
+    }
+
+    private void djM() {
+        new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_privacy_text), "http://privacy.baidu.com/mdetail?id=288", false).start();
+    }
+
+    private void djN() {
+        this.lGg.finish();
     }
 }

@@ -10,45 +10,45 @@ import com.sdk.base.framework.a.i;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.h.g;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12873a = a.class.getName();
+    private static final String f12875a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static Boolean f12874b = Boolean.valueOf(f.f12819b);
+    private static Boolean f12876b = Boolean.valueOf(f.f12821b);
     private a<T>.d c;
     private Context d;
     private com.sdk.base.framework.a.f e;
     private int f;
     private CallBack<T> g;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public final class d implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Handler f12879a = new Handler(Looper.getMainLooper());
+        private Handler f12881a = new Handler(Looper.getMainLooper());
 
         /* renamed from: b  reason: collision with root package name */
-        private long f12880b;
+        private long f12882b;
 
         d(long j) {
-            this.f12880b = j;
+            this.f12882b = j;
         }
 
         public final void a() {
-            this.f12879a.postDelayed(this, this.f12880b);
+            this.f12881a.postDelayed(this, this.f12882b);
         }
 
         public final void b() {
-            this.f12879a.removeCallbacks(this);
+            this.f12881a.removeCallbacks(this);
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             if (a.this.e != null) {
-                com.sdk.base.framework.a.a.c.c(a.f12873a, "超时，已取消请求", a.f12874b);
+                com.sdk.base.framework.a.a.c.c(a.f12875a, "超时，已取消请求", a.f12876b);
                 a.this.e.a();
             }
             a.this.a(1, PayHelper.STATUS_TIMEOUT_DESC, 101005, null, com.sdk.base.framework.f.g.a.b().a());
@@ -105,7 +105,7 @@ public class a<T> {
             com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.d, new b(this, i));
             DataInfo dataInfo = new DataInfo();
             dataInfo.putData("serviceType", Integer.valueOf(i));
-            this.e = aVar.a(aVar.f12823b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, i.f12802b);
+            this.e = aVar.a(aVar.f12825b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, i.f12804b);
         }
     }
 
@@ -116,6 +116,6 @@ public class a<T> {
         DataInfo dataInfo = new DataInfo();
         dataInfo.putData("accessCode", str);
         dataInfo.putData("mobile", str2);
-        this.e = aVar.a(aVar.f12823b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, i.f12802b);
+        this.e = aVar.a(aVar.f12825b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, i.f12804b);
     }
 }

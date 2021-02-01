@@ -2,10 +2,10 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.t;
+import com.baidu.tbadk.util.v;
 import tbclient.GetTails.GetTailsReqIdl;
 import tbclient.GetTails.ReqData;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetTailsNetMessage extends NetMessage {
     ReqData.Builder data;
     GetTailsReqIdl.Builder idl;
@@ -20,7 +20,7 @@ public class GetTailsNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         if (z) {
-            t.b(this.data, true);
+            v.b(this.data, true);
         }
         this.idl.data = this.data.build(false);
         return this.idl.build(false);

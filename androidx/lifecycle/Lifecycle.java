@@ -4,13 +4,13 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public abstract class Lifecycle {
     @NonNull
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     AtomicReference<Object> mInternalScopeRef = new AtomicReference<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum Event {
         ON_CREATE,
         ON_START,
@@ -31,7 +31,7 @@ public abstract class Lifecycle {
     @MainThread
     public abstract void removeObserver(@NonNull LifecycleObserver lifecycleObserver);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public enum State {
         DESTROYED,
         INITIALIZED,

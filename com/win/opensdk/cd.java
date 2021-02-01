@@ -16,13 +16,13 @@ import java.util.List;
 public final class cd {
 
     /* renamed from: a  reason: collision with root package name */
-    int f13739a;
+    int f13741a;
 
     /* renamed from: a  reason: collision with other field name */
     long f45a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f13740b;
+    int f13742b;
 
     /* renamed from: b  reason: collision with other field name */
     long f46b;
@@ -33,30 +33,30 @@ public final class cd {
 
     /* renamed from: java  reason: collision with other field name */
     private String f48java;
-    Context pYJ;
-    public PBNativeListener pYS;
-    public ad pZS;
-    public Info pZe;
-    bj pZg;
-    float qaK;
-    float qaL;
-    private View qaU;
-    private List<View> pZN = Collections.synchronizedList(new ArrayList());
-    long pZf = 0;
-    private ae<Info> pZP = new ae<Info>() { // from class: com.win.opensdk.cd.1
+    Context qiN;
+    public PBNativeListener qiW;
+    public ad qjW;
+    public Info qji;
+    bj qjk;
+    float qkO;
+    float qkP;
+    private View qkY;
+    private List<View> qjR = Collections.synchronizedList(new ArrayList());
+    long qjj = 0;
+    private ae<Info> qjT = new ae<Info>() { // from class: com.win.opensdk.cd.1
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         @Override // com.win.opensdk.ae
         public final /* synthetic */ void bH(Info info) {
             Info info2 = info;
             try {
-                cd.this.pZe = info2;
-                if (cd.this.pYS != null) {
+                cd.this.qji = info2;
+                if (cd.this.qiW != null) {
                     if (info2 != null && info2.getType() == 11) {
                         if (cd.this.m73java()) {
-                            cd.this.pYS.onLoaded();
+                            cd.this.qiW.onLoaded();
                         }
                     } else {
-                        cd.this.pYS.onFail(PBError.PID_TYPE_ERROR);
+                        cd.this.qiW.onFail(PBError.PID_TYPE_ERROR);
                     }
                 }
             } catch (Exception e) {
@@ -65,51 +65,51 @@ public final class cd {
 
         @Override // com.win.opensdk.ae
         public final void b(PBError pBError) {
-            if (cd.this.pYS != null) {
-                cd.this.pYS.onFail(pBError);
+            if (cd.this.qiW != null) {
+                cd.this.qiW.onFail(pBError);
             }
         }
     };
-    boolean pYM = false;
-    long pZL = 0;
+    boolean qiQ = false;
+    long qjP = 0;
 
     public cd(Context context, String str) {
-        this.pYJ = context;
+        this.qiN = context;
         this.f48java = str;
-        this.pZS = new ad(context, str, e.f13745a);
-        this.pZS.pZP = this.pZP;
-        this.pZg = new bj(context);
+        this.qjW = new ad(context, str, e.f13747a);
+        this.qjW.qjT = this.qjT;
+        this.qjk = new bj(context);
     }
 
     /* renamed from: java  reason: collision with other method in class */
     public final boolean m73java() {
-        return this.pZe != null && this.pZe.isEffective();
+        return this.qji != null && this.qji.isEffective();
     }
 
     private String java() {
-        return m73java() ? this.pZe.getLoad() : "";
+        return m73java() ? this.qji.getLoad() : "";
     }
 
     public final void a(final View view, PBMediaView pBMediaView, List<View> list) {
         if (view != null && list != null && list.size() != 0 && m73java()) {
-            this.pZf = 0L;
-            if (this.qaU != null) {
-                eGz();
+            this.qjj = 0L;
+            if (this.qkY != null) {
+                eIP();
             }
-            this.qaU = view;
-            hg(list);
+            this.qkY = view;
+            he(list);
             a(pBMediaView);
-            w.iK(this.pYJ).a(new x(this.pZe)).eGz();
-            if (this.pYS != null) {
-                this.pYS.onDisplayed();
+            w.iN(this.qiN).a(new x(this.qji)).eIP();
+            if (this.qiW != null) {
+                this.qiW.onDisplayed();
             }
-            if (this.pZe != null) {
-                az.k(this.pYJ, this.pZe.getId() + ":" + System.currentTimeMillis(), false);
+            if (this.qji != null) {
+                az.k(this.qiN, this.qji.getId() + ":" + System.currentTimeMillis(), false);
             }
-            z.b(this.pZe);
-            new ce().a(view, this.pZe, new ce.a() { // from class: com.win.opensdk.cd.2
+            z.b(this.qji);
+            new ce().a(view, this.qji, new ce.a() { // from class: com.win.opensdk.cd.2
                 @Override // com.win.opensdk.ce.a
-                public final void eGz() {
+                public final void eIP() {
                     if (view != null) {
                         new Handler().postDelayed(new Runnable() { // from class: com.win.opensdk.cd.2.1
                             @Override // java.lang.Runnable
@@ -117,13 +117,13 @@ public final class cd {
                                 try {
                                     View rootView = view.getRootView();
                                     if (rootView != null && rootView.getVisibility() == 0) {
-                                        w.iK(cd.this.pYJ).a(new x(cd.this.pZe), view.getWidth(), view.getHeight()).eGz();
+                                        w.iN(cd.this.qiN).a(new x(cd.this.qji), view.getWidth(), view.getHeight()).eIP();
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                             }
-                        }, cd.this.pZe.getSpet());
+                        }, cd.this.qji.getSpet());
                     }
                 }
             });
@@ -135,44 +135,44 @@ public final class cd {
             try {
                 if (pBMediaView.getHtmlWebView() != null) {
                     bw htmlWebView = pBMediaView.getHtmlWebView();
-                    htmlWebView.a(java(), this.pZe);
-                    if (this.pZe.isNat()) {
-                        htmlWebView.qam.setOnTouchListener(new View.OnTouchListener() { // from class: com.win.opensdk.cd.3
+                    htmlWebView.a(java(), this.qji);
+                    if (this.qji.isNat()) {
+                        htmlWebView.qkq.setOnTouchListener(new View.OnTouchListener() { // from class: com.win.opensdk.cd.3
                             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [298=5] */
                             @Override // android.view.View.OnTouchListener
                             public final boolean onTouch(View view, MotionEvent motionEvent) {
                                 switch (motionEvent.getAction()) {
                                     case 0:
-                                        cd.this.pYM = true;
-                                        cd.this.pZL = System.currentTimeMillis();
-                                        cd.this.qaK = motionEvent.getX();
-                                        cd.this.qaL = motionEvent.getY();
+                                        cd.this.qiQ = true;
+                                        cd.this.qjP = System.currentTimeMillis();
+                                        cd.this.qkO = motionEvent.getX();
+                                        cd.this.qkP = motionEvent.getY();
                                         cd.this.java = (int) motionEvent.getRawX();
                                         cd.this.f47case = (int) motionEvent.getRawY();
                                         cd.this.f45a = System.currentTimeMillis();
                                         break;
                                     case 1:
-                                        cd.this.f13739a = (int) motionEvent.getRawX();
-                                        cd.this.f13740b = (int) motionEvent.getRawY();
+                                        cd.this.f13741a = (int) motionEvent.getRawX();
+                                        cd.this.f13742b = (int) motionEvent.getRawY();
                                         cd.this.f46b = System.currentTimeMillis();
-                                        Math.abs(motionEvent.getX() - cd.this.qaK);
-                                        Math.abs(motionEvent.getY() - cd.this.qaL);
-                                        if ((System.currentTimeMillis() - cd.this.pZL < 2000) && cd.this.pYM && cd.this.pZe != null && aw.a(cd.this.pZe, cd.this.pZf)) {
-                                            cd.this.pZf = System.currentTimeMillis();
-                                            aw.a(cd.this.pYJ, cd.this.pZe.getOpen(), cd.this.pZe, cd.this.pZg);
-                                            w.a a2 = w.iK(cd.this.pYJ).a(new x(cd.this.pZe), (String) null);
+                                        Math.abs(motionEvent.getX() - cd.this.qkO);
+                                        Math.abs(motionEvent.getY() - cd.this.qkP);
+                                        if ((System.currentTimeMillis() - cd.this.qjP < 2000) && cd.this.qiQ && cd.this.qji != null && aw.a(cd.this.qji, cd.this.qjj)) {
+                                            cd.this.qjj = System.currentTimeMillis();
+                                            aw.a(cd.this.qiN, cd.this.qji.getOpen(), cd.this.qji, cd.this.qjk);
+                                            w.a a2 = w.iN(cd.this.qiN).a(new x(cd.this.qji), (String) null);
                                             cd cdVar = cd.this;
                                             HashMap hashMap = new HashMap();
                                             hashMap.put("dx", Integer.valueOf(cdVar.java));
                                             hashMap.put("dy", Integer.valueOf(cdVar.f47case));
                                             hashMap.put("dts", Long.valueOf(cdVar.f45a));
-                                            hashMap.put("ux", Integer.valueOf(cdVar.f13739a));
-                                            hashMap.put("uy", Integer.valueOf(cdVar.f13740b));
+                                            hashMap.put("ux", Integer.valueOf(cdVar.f13741a));
+                                            hashMap.put("uy", Integer.valueOf(cdVar.f13742b));
                                             hashMap.put("uts", Long.valueOf(cdVar.f46b));
-                                            a2.hu("desc", hashMap.toString()).eGz();
-                                            z.a(cd.this.pZe);
-                                            if (cd.this.pYS != null) {
-                                                cd.this.pYS.onClicked();
+                                            a2.hB("desc", hashMap.toString()).eIP();
+                                            z.a(cd.this.qji);
+                                            if (cd.this.qiW != null) {
+                                                cd.this.qiW.onClicked();
                                                 break;
                                             }
                                         }
@@ -182,25 +182,25 @@ public final class cd {
                             }
                         });
                     }
-                    htmlWebView.pZx = new bo() { // from class: com.win.opensdk.cd.4
+                    htmlWebView.qjB = new bo() { // from class: com.win.opensdk.cd.4
                         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [328=4] */
                         @Override // com.win.opensdk.bo
-                        public final boolean ht(String str, String str2) {
-                            if (aw.a(cd.this.pZe, cd.this.pZf)) {
-                                cd.this.pZf = System.currentTimeMillis();
-                                aw.a(cd.this.pYJ, str, cd.this.pZe, cd.this.pZg);
-                                w.iK(cd.this.pYJ).a(new x(cd.this.pZe), str).hu("desc", str2).eGz();
-                                if (cd.this.pYS != null) {
-                                    cd.this.pYS.onClicked();
+                        public final boolean hA(String str, String str2) {
+                            if (aw.a(cd.this.qji, cd.this.qjj)) {
+                                cd.this.qjj = System.currentTimeMillis();
+                                aw.a(cd.this.qiN, str, cd.this.qji, cd.this.qjk);
+                                w.iN(cd.this.qiN).a(new x(cd.this.qji), str).hB("desc", str2).eIP();
+                                if (cd.this.qiW != null) {
+                                    cd.this.qiW.onClicked();
                                 }
-                                z.a(cd.this.pZe);
+                                z.a(cd.this.qji);
                                 return true;
                             }
                             return true;
                         }
 
                         @Override // com.win.opensdk.bo
-                        public final void aaE(String str) {
+                        public final void abF(String str) {
                         }
                     };
                 }
@@ -209,13 +209,13 @@ public final class cd {
         }
     }
 
-    private void hg(List<View> list) {
+    private void he(List<View> list) {
         try {
             a aVar = new a();
             for (View view : list) {
                 if (view != null && !(view instanceof PBMediaView)) {
-                    if (!this.pZN.contains(view)) {
-                        this.pZN.add(view);
+                    if (!this.qjR.contains(view)) {
+                        this.qjR.add(view);
                     }
                     view.setOnClickListener(aVar);
                     view.setOnTouchListener(aVar);
@@ -225,7 +225,7 @@ public final class cd {
         }
     }
 
-    public final List<View> ez(View view) {
+    public final List<View> ex(View view) {
         ArrayList arrayList = new ArrayList();
         if (view instanceof ViewGroup) {
             try {
@@ -235,7 +235,7 @@ public final class cd {
                     if (childAt != null) {
                         arrayList.add(childAt);
                         if (!(childAt instanceof PBMediaView)) {
-                            arrayList.addAll(ez(childAt));
+                            arrayList.addAll(ex(childAt));
                         }
                     }
                 }
@@ -250,16 +250,16 @@ public final class cd {
     public class a implements View.OnClickListener, View.OnTouchListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f13741a;
+        private int f13743a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f13742b;
+        private int f13744b;
 
         /* renamed from: case  reason: not valid java name */
         private int f49case;
         private int java;
-        private long pZL;
-        private long pZf;
+        private long qjP;
+        private long qjj;
 
         a() {
         }
@@ -275,29 +275,29 @@ public final class cd {
                 case 0:
                     this.java = (int) motionEvent.getRawX();
                     this.f49case = (int) motionEvent.getRawY();
-                    this.pZf = System.currentTimeMillis();
+                    this.qjj = System.currentTimeMillis();
                     return false;
                 case 1:
-                    this.f13741a = (int) motionEvent.getRawX();
-                    this.f13742b = (int) motionEvent.getRawY();
-                    this.pZL = System.currentTimeMillis();
-                    if (cd.this.pZe == null || !aw.a(cd.this.pZe, cd.this.pZf)) {
+                    this.f13743a = (int) motionEvent.getRawX();
+                    this.f13744b = (int) motionEvent.getRawY();
+                    this.qjP = System.currentTimeMillis();
+                    if (cd.this.qji == null || !aw.a(cd.this.qji, cd.this.qjj)) {
                         return false;
                     }
-                    cd.this.pZf = System.currentTimeMillis();
-                    aw.a(cd.this.pYJ, cd.this.pZe.getOpen(), cd.this.pZe, cd.this.pZg);
-                    w.a a2 = w.iK(cd.this.pYJ).a(new x(cd.this.pZe), (String) null);
+                    cd.this.qjj = System.currentTimeMillis();
+                    aw.a(cd.this.qiN, cd.this.qji.getOpen(), cd.this.qji, cd.this.qjk);
+                    w.a a2 = w.iN(cd.this.qiN).a(new x(cd.this.qji), (String) null);
                     HashMap hashMap = new HashMap();
                     hashMap.put("dx", Integer.valueOf(this.java));
                     hashMap.put("dy", Integer.valueOf(this.f49case));
-                    hashMap.put("dts", Long.valueOf(this.pZf));
-                    hashMap.put("ux", Integer.valueOf(this.f13741a));
-                    hashMap.put("uy", Integer.valueOf(this.f13742b));
-                    hashMap.put("uts", Long.valueOf(this.pZL));
-                    a2.hu("desc", hashMap.toString()).eGz();
-                    z.a(cd.this.pZe);
-                    if (cd.this.pYS != null) {
-                        cd.this.pYS.onClicked();
+                    hashMap.put("dts", Long.valueOf(this.qjj));
+                    hashMap.put("ux", Integer.valueOf(this.f13743a));
+                    hashMap.put("uy", Integer.valueOf(this.f13744b));
+                    hashMap.put("uts", Long.valueOf(this.qjP));
+                    a2.hB("desc", hashMap.toString()).eIP();
+                    z.a(cd.this.qji);
+                    if (cd.this.qiW != null) {
+                        cd.this.qiW.onClicked();
                         return false;
                     }
                     return false;
@@ -307,16 +307,16 @@ public final class cd {
         }
     }
 
-    public final void eGz() {
+    public final void eIP() {
         try {
-            for (View view : this.pZN) {
+            for (View view : this.qjR) {
                 if (view != null) {
                     view.setOnClickListener(null);
                 }
             }
-            this.pZN.clear();
-            if (this.qaU != null) {
-                this.qaU = null;
+            this.qjR.clear();
+            if (this.qkY != null) {
+                this.qkY = null;
             }
         } catch (Exception e) {
         }

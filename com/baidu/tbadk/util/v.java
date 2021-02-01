@@ -1,87 +1,106 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.android.imsdk.internal.IMConnection;
-import com.baidu.live.tbadk.data.Config;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
-import java.util.HashMap;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes.dex */
 public class v {
-    private static v fKS = null;
-    private String fKR;
-    private Runnable fKT = new Runnable() { // from class: com.baidu.tbadk.util.v.1
-        @Override // java.lang.Runnable
-        public void run() {
-            HashMap hashMap = new HashMap();
-            hashMap.put("from", String.valueOf(v.this.mFrom));
-            hashMap.put("field_id", v.this.mFieldId);
-            hashMap.put("type", Integer.valueOf(v.this.mType));
-            hashMap.put("type_name", v.this.mTypeName);
-            if (v.this.mFrom == 2) {
-                hashMap.put("fid", v.this.fKR);
-            }
-            hashMap.put("animated", false);
-            hashMap.put("transparent", true);
-            hashMap.put("swipeback", false);
-            if (PluginPackageManager.px().cA("com.baidu.tieba.pluginFlutter")) {
-                if (MessageManager.getInstance().findTask(2002015) == null) {
-                    com.baidu.adp.lib.f.e.mB().postDelayed(v.this.fKT, 0L);
-                    return;
+    public static void b(Object obj, boolean z) {
+        a(obj, z, false);
+    }
+
+    public static void a(Object obj, boolean z, boolean z2) {
+        a(obj, z, z2, false);
+    }
+
+    public static void a(Object obj, boolean z, boolean z2, boolean z3) {
+        if (obj != null) {
+            try {
+                Field field = obj.getClass().getField("common");
+                if (!field.isAccessible()) {
+                    field.setAccessible(true);
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GodDialog", hashMap)));
-                com.baidu.tbadk.core.sharedPref.b.brx().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
+                CommonReq.Builder builder = new CommonReq.Builder();
+                builder._client_type = 2;
+                builder._client_version = TbConfig.getVersion();
+                builder._client_id = TbadkCoreApplication.getClientId();
+                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                    builder.subapp_type = TbConfig.getSubappType();
+                }
+                if (!TbadkCoreApplication.getInst().isOfficial()) {
+                    builder.apid = "sw";
+                }
+                builder._phone_imei = TbadkCoreApplication.getInst().getImei();
+                builder.from = TbadkCoreApplication.getFrom();
+                builder.cuid = TbadkCoreApplication.getInst().getCuid();
+                builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
+                builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
+                builder._timestamp = Long.valueOf(System.currentTimeMillis());
+                builder.model = Build.MODEL;
+                builder._os_version = Build.VERSION.RELEASE;
+                builder.brand = Build.BRAND;
+                if (z) {
+                    if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                        builder.BDUSS = com.baidu.tbadk.mutiprocess.f.getBduss();
+                        if (!StringUtils.isNull(com.baidu.tbadk.mutiprocess.f.getStoken())) {
+                            builder.stoken = com.baidu.tbadk.mutiprocess.f.getStoken();
+                        }
+                    } else {
+                        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                        if (currentAccountInfo != null) {
+                            builder.BDUSS = currentAccountInfo.getBDUSS();
+                            String c = com.baidu.tbadk.core.a.d.c(currentAccountInfo);
+                            if (!StringUtils.isNull(c)) {
+                                builder.stoken = c;
+                            }
+                        }
+                    }
+                }
+                if (z2) {
+                    if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                        builder.tbs = com.baidu.tbadk.mutiprocess.f.getTbs();
+                    } else {
+                        builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                    }
+                }
+                if (z3) {
+                    builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
+                }
+                builder.pversion = "1.0.3";
+                builder.lego_lib_version = TbConfig.getLegoLibVersion();
+                if (com.baidu.tbadk.core.sharedPref.b.brQ().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+                    builder.z_id = TbadkCoreApplication.getInst().getZid();
+                }
+                builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
+                builder.oaid = com.baidu.helios.b.aj(TbadkCoreApplication.getInst()).uC();
+                builder.sample_id = TbSingleton.getInstance().getSampleId();
+                builder.is_teenager = Integer.valueOf(com.baidu.tbadk.youngster.b.c.bJf() ? 1 : 0);
+                builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
+                builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
+                builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
+                builder.q_type = Integer.valueOf(com.baidu.tbadk.core.k.bkT().getViewImageQuality());
+                builder.scr_h = Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.l.getEquipmentDensity(TbadkCoreApplication.getInst()));
+                builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+                builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+                builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+                builder.event_day = TbSingleton.getInstance().getData();
+                field.set(obj, builder.build(false));
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    th.printStackTrace();
+                }
             }
         }
-    };
-    private String mFieldId;
-    private int mFrom;
-    private int mType;
-    private String mTypeName;
-
-    private v() {
-    }
-
-    public static synchronized v bFj() {
-        v vVar;
-        synchronized (v.class) {
-            if (fKS == null) {
-                fKS = new v();
-            }
-            vVar = fKS;
-        }
-        return vVar;
-    }
-
-    private boolean a(int i, NewGodData newGodData) {
-        if (i != 5) {
-            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brx().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brx().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
-        }
-        return true;
-    }
-
-    public void b(int i, NewGodData newGodData) {
-        a(i, newGodData, true);
-    }
-
-    public void a(int i, NewGodData newGodData, boolean z) {
-        if (a(i, newGodData)) {
-            removeCallbacks();
-            this.mFrom = i;
-            this.mFieldId = newGodData.getFieldId();
-            this.mType = newGodData.getType();
-            this.mTypeName = newGodData.getTypeName();
-            com.baidu.adp.lib.f.e.mB().postDelayed(this.fKT, z ? IMConnection.RETRY_DELAY_TIMES : 0L);
-        }
-    }
-
-    public void removeCallbacks() {
-        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fKT);
-    }
-
-    public void setFid(String str) {
-        this.fKR = str;
     }
 }

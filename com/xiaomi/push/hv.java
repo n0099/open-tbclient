@@ -23,10 +23,10 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
     private static final jn f549a = new jn("NormalConfig");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14108a = new jf("", (byte) 8, 1);
+    private static final jf f14110a = new jf("", (byte) 8, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final jf f14109b = new jf("", (byte) 15, 2);
+    private static final jf f14111b = new jf("", (byte) 15, 2);
     private static final jf c = new jf("", (byte) 8, 3);
 
     public int a() {
@@ -84,7 +84,7 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
         jiVar.m515a();
         while (true) {
             jf m511a = jiVar.m511a();
-            if (m511a.f14171a == 0) {
+            if (m511a.f14173a == 0) {
                 jiVar.f();
                 if (!m386a()) {
                     throw new jj("Required field 'version' was not found in serialized data! Struct: " + toString());
@@ -94,16 +94,16 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
             }
             switch (m511a.f857a) {
                 case 1:
-                    if (m511a.f14171a == 8) {
+                    if (m511a.f14173a == 8) {
                         this.f550a = jiVar.m509a();
                         a(true);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 2:
-                    if (m511a.f14171a == 15) {
+                    if (m511a.f14173a == 15) {
                         jg m512a = jiVar.m512a();
                         this.f553a = new ArrayList(m512a.f858a);
                         for (int i = 0; i < m512a.f858a; i++) {
@@ -114,19 +114,19 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 case 3:
-                    if (m511a.f14171a == 8) {
+                    if (m511a.f14173a == 8) {
                         this.f551a = hs.a(jiVar.m509a());
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14171a);
+                        jl.a(jiVar, m511a.f14173a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14171a);
+                    jl.a(jiVar, m511a.f14173a);
                     break;
             }
             jiVar.g();
@@ -161,11 +161,11 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
     public void b(ji jiVar) {
         m385a();
         jiVar.a(f549a);
-        jiVar.a(f14108a);
+        jiVar.a(f14110a);
         jiVar.a(this.f550a);
         jiVar.b();
         if (this.f553a != null) {
-            jiVar.a(f14109b);
+            jiVar.a(f14111b);
             jiVar.a(new jg((byte) 12, this.f553a.size()));
             for (hx hxVar : this.f553a) {
                 hxVar.b(jiVar);

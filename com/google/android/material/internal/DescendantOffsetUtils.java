@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class DescendantOffsetUtils {
     private static final ThreadLocal<Matrix> matrix = new ThreadLocal<>();
     private static final ThreadLocal<RectF> rectF = new ThreadLocal<>();

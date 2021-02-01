@@ -13,32 +13,32 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.implugin.util.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class TagView extends View {
-    private Paint bew;
-    private Paint bex;
+    private Paint bhE;
+    private Paint bhF;
     private int mBgColor;
     private Context mContext;
     private int mTextColor;
     private float mTextSize;
-    private float oZA;
-    private float oZB;
-    private float oZC;
-    private float oZD;
-    private String oZE;
-    private int oZF;
-    private boolean oZG;
-    private Paint oZH;
-    private LinearGradient oZI;
-    private int oZr;
-    private int oZs;
-    private int oZt;
-    private int oZu;
-    private int oZv;
-    private float oZw;
-    private float oZx;
-    private float oZy;
-    private float oZz;
+    private int pjH;
+    private int pjI;
+    private int pjJ;
+    private int pjK;
+    private int pjL;
+    private float pjM;
+    private float pjN;
+    private float pjO;
+    private float pjP;
+    private float pjQ;
+    private float pjR;
+    private float pjS;
+    private float pjT;
+    private String pjU;
+    private int pjV;
+    private boolean pjW;
+    private Paint pjX;
+    private LinearGradient pjY;
 
     public TagView(Context context) {
         this(context, null);
@@ -50,36 +50,36 @@ public class TagView extends View {
 
     public TagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oZr = -1;
-        this.oZw = -1.0f;
-        this.oZx = -1.0f;
+        this.pjH = -1;
+        this.pjM = -1.0f;
+        this.pjN = -1.0f;
         this.mContext = context;
         init(attributeSet);
     }
 
     public void setText(String str) {
-        this.oZE = str;
-        if (!TextUtils.isEmpty(this.oZE)) {
-            this.oZF = this.oZE.length();
+        this.pjU = str;
+        if (!TextUtils.isEmpty(this.pjU)) {
+            this.pjV = this.pjU.length();
         }
         requestLayout();
         invalidate();
     }
 
     public String getText() {
-        return this.oZE;
+        return this.pjU;
     }
 
     public void setBgColor(int i) {
         this.mBgColor = i;
-        this.oZs = -1;
-        this.oZt = -1;
+        this.pjI = -1;
+        this.pjJ = -1;
         invalidate();
     }
 
     public void setGradientColor(int i, int i2) {
-        this.oZs = i;
-        this.oZt = i2;
+        this.pjI = i;
+        this.pjJ = i2;
         this.mBgColor = -1;
         invalidate();
     }
@@ -92,26 +92,26 @@ public class TagView extends View {
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode != 1073741824) {
-            if (this.oZr == 1) {
-                size = (int) this.oZx;
-            } else if (this.oZr == 2) {
-                size = (int) ((this.oZD * 2.0f) + (this.oZy * 2.0f));
-                if (!TextUtils.isEmpty(this.oZE)) {
-                    if (this.oZF == 1) {
-                        size = (int) this.oZw;
+            if (this.pjH == 1) {
+                size = (int) this.pjN;
+            } else if (this.pjH == 2) {
+                size = (int) ((this.pjT * 2.0f) + (this.pjO * 2.0f));
+                if (!TextUtils.isEmpty(this.pjU)) {
+                    if (this.pjV == 1) {
+                        size = (int) this.pjM;
                     } else {
-                        size = (int) (size + this.bex.measureText(this.oZE));
+                        size = (int) (size + this.bhF.measureText(this.pjU));
                     }
                 }
             } else {
-                size = (int) ((this.oZD * 2.0f) + (this.oZy * 2.0f));
-                if (!TextUtils.isEmpty(this.oZE)) {
-                    size = (int) (size + this.bex.measureText(this.oZE));
+                size = (int) ((this.pjT * 2.0f) + (this.pjO * 2.0f));
+                if (!TextUtils.isEmpty(this.pjU)) {
+                    size = (int) (size + this.bhF.measureText(this.pjU));
                 }
             }
         }
         if (mode2 != 1073741824) {
-            size2 = (int) this.oZw;
+            size2 = (int) this.pjM;
         }
         setMeasuredDimension(size, size2);
     }
@@ -119,8 +119,8 @@ public class TagView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.oZx = i;
-        this.oZw = i2;
+        this.pjN = i;
+        this.pjM = i2;
     }
 
     @Override // android.view.View
@@ -134,177 +134,177 @@ public class TagView extends View {
     private void init(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, a.j.TagView);
         this.mBgColor = obtainStyledAttributes.getColor(a.j.TagView_bgColor, 0);
-        this.oZs = obtainStyledAttributes.getColor(a.j.TagView_bgGradientStartColor, 0);
-        this.oZt = obtainStyledAttributes.getColor(a.j.TagView_bgGradientEndColor, 0);
+        this.pjI = obtainStyledAttributes.getColor(a.j.TagView_bgGradientStartColor, 0);
+        this.pjJ = obtainStyledAttributes.getColor(a.j.TagView_bgGradientEndColor, 0);
         this.mTextColor = obtainStyledAttributes.getColor(a.j.TagView_textColor, 0);
-        this.oZv = obtainStyledAttributes.getColor(a.j.TagView_bgTraceColor, 0);
-        this.oZu = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_bgGradientAngle, -1);
+        this.pjL = obtainStyledAttributes.getColor(a.j.TagView_bgTraceColor, 0);
+        this.pjK = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_bgGradientAngle, -1);
         this.mTextSize = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_textSize, -1);
-        this.oZG = obtainStyledAttributes.getBoolean(a.j.TagView_textIsBold, false);
-        this.oZD = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_horizontalMargin, -1);
-        this.oZy = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_traceWidth, 0);
-        this.oZz = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftBottomConnerRadius, -1);
-        this.oZA = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftTopConnerRadius, -1);
-        this.oZB = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightTopConnerRadius, -1);
-        this.oZC = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightBottomConnerRadius, -1);
-        this.oZr = obtainStyledAttributes.getInt(a.j.TagView_viewStyle, -1);
-        this.oZE = obtainStyledAttributes.getString(a.j.TagView_text);
+        this.pjW = obtainStyledAttributes.getBoolean(a.j.TagView_textIsBold, false);
+        this.pjT = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_horizontalMargin, -1);
+        this.pjO = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_traceWidth, 0);
+        this.pjP = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftBottomConnerRadius, -1);
+        this.pjQ = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftTopConnerRadius, -1);
+        this.pjR = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightTopConnerRadius, -1);
+        this.pjS = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightBottomConnerRadius, -1);
+        this.pjH = obtainStyledAttributes.getInt(a.j.TagView_viewStyle, -1);
+        this.pjU = obtainStyledAttributes.getString(a.j.TagView_text);
         obtainStyledAttributes.recycle();
-        this.bew = new Paint(1);
-        this.bew.setStyle(Paint.Style.FILL);
-        this.bew.setDither(true);
-        this.bex = new Paint(1);
-        this.bex.setTextAlign(Paint.Align.CENTER);
-        this.bex.setFakeBoldText(this.oZG);
-        ekC();
-        this.bex.setTextSize(this.mTextSize);
-        if (this.oZy != 0.0f) {
-            this.oZH = new Paint(1);
-            this.oZH.setStyle(Paint.Style.FILL);
-            this.oZH.setDither(true);
+        this.bhE = new Paint(1);
+        this.bhE.setStyle(Paint.Style.FILL);
+        this.bhE.setDither(true);
+        this.bhF = new Paint(1);
+        this.bhF.setTextAlign(Paint.Align.CENTER);
+        this.bhF.setFakeBoldText(this.pjW);
+        emU();
+        this.bhF.setTextSize(this.mTextSize);
+        if (this.pjO != 0.0f) {
+            this.pjX = new Paint(1);
+            this.pjX.setStyle(Paint.Style.FILL);
+            this.pjX.setDither(true);
         }
     }
 
-    private void ekC() {
-        if (this.oZr != -1) {
-            if (this.oZr == 0) {
-                this.oZw = this.oZw != -1.0f ? this.oZw : f.dip2px(this.mContext, 15.0f);
+    private void emU() {
+        if (this.pjH != -1) {
+            if (this.pjH == 0) {
+                this.pjM = this.pjM != -1.0f ? this.pjM : f.dip2px(this.mContext, 15.0f);
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.oZz = this.oZz != -1.0f ? this.oZz : f.dip2px(this.mContext, 2.0f);
-                this.oZA = this.oZA != -1.0f ? this.oZA : f.dip2px(this.mContext, 2.0f);
-                this.oZC = this.oZC != -1.0f ? this.oZC : f.dip2px(this.mContext, 2.0f);
-                this.oZB = this.oZB != -1.0f ? this.oZB : f.dip2px(this.mContext, 2.0f);
+                this.pjP = this.pjP != -1.0f ? this.pjP : f.dip2px(this.mContext, 2.0f);
+                this.pjQ = this.pjQ != -1.0f ? this.pjQ : f.dip2px(this.mContext, 2.0f);
+                this.pjS = this.pjS != -1.0f ? this.pjS : f.dip2px(this.mContext, 2.0f);
+                this.pjR = this.pjR != -1.0f ? this.pjR : f.dip2px(this.mContext, 2.0f);
                 this.mTextSize = this.mTextSize != -1.0f ? this.mTextSize : f.dip2px(this.mContext, 9.0f);
                 this.mTextColor = this.mTextColor != 0 ? this.mTextColor : -1;
-                this.oZD = f.dip2px(this.mContext, 4.0f);
-            } else if (this.oZr == 1) {
+                this.pjT = f.dip2px(this.mContext, 4.0f);
+            } else if (this.pjH == 1) {
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.oZw = f.dip2px(this.mContext, 8.0f);
-                this.oZx = f.dip2px(this.mContext, 8.0f);
-                this.oZz = f.dip2px(this.mContext, 4.0f);
-                this.oZA = this.oZz;
-                this.oZC = this.oZz;
-                this.oZB = this.oZz;
-            } else if (this.oZr == 2) {
+                this.pjM = f.dip2px(this.mContext, 8.0f);
+                this.pjN = f.dip2px(this.mContext, 8.0f);
+                this.pjP = f.dip2px(this.mContext, 4.0f);
+                this.pjQ = this.pjP;
+                this.pjS = this.pjP;
+                this.pjR = this.pjP;
+            } else if (this.pjH == 2) {
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.oZw = this.oZw != -1.0f ? this.oZw : f.dip2px(this.mContext, 16.0f);
-                this.oZz = f.dip2px(this.mContext, 8.0f);
-                this.oZA = this.oZz;
-                this.oZC = this.oZz;
-                this.oZB = this.oZz;
+                this.pjM = this.pjM != -1.0f ? this.pjM : f.dip2px(this.mContext, 16.0f);
+                this.pjP = f.dip2px(this.mContext, 8.0f);
+                this.pjQ = this.pjP;
+                this.pjS = this.pjP;
+                this.pjR = this.pjP;
                 this.mTextSize = this.mTextSize != -1.0f ? this.mTextSize : f.dip2px(this.mContext, 12.0f);
                 this.mTextColor = this.mTextColor != 0 ? this.mTextColor : -1;
-                this.oZD = this.oZD != -1.0f ? this.oZD : f.dip2px(this.mContext, 4.0f);
+                this.pjT = this.pjT != -1.0f ? this.pjT : f.dip2px(this.mContext, 4.0f);
             }
         }
     }
 
     private void aB(Canvas canvas) {
-        if (this.oZy != 0.0f) {
-            this.oZH.setColor(this.oZv);
-            if (this.oZr == 1) {
-                canvas.drawCircle(this.oZx / 2.0f, this.oZw / 2.0f, this.oZw / 2.0f, this.oZH);
+        if (this.pjO != 0.0f) {
+            this.pjX.setColor(this.pjL);
+            if (this.pjH == 1) {
+                canvas.drawCircle(this.pjN / 2.0f, this.pjM / 2.0f, this.pjM / 2.0f, this.pjX);
                 return;
             }
-            if (this.oZr == 2 && this.oZF == 1) {
-                canvas.drawCircle(this.oZw / 2.0f, this.oZw / 2.0f, this.oZw / 2.0f, this.oZH);
+            if (this.pjH == 2 && this.pjV == 1) {
+                canvas.drawCircle(this.pjM / 2.0f, this.pjM / 2.0f, this.pjM / 2.0f, this.pjX);
             }
             Path path = new Path();
-            if (this.oZA != -1.0f) {
-                path.moveTo(0.0f, this.oZA + this.oZy);
-                path.quadTo(0.0f, 0.0f, this.oZA + this.oZy, 0.0f);
+            if (this.pjQ != -1.0f) {
+                path.moveTo(0.0f, this.pjQ + this.pjO);
+                path.quadTo(0.0f, 0.0f, this.pjQ + this.pjO, 0.0f);
             }
-            if (this.oZB != -1.0f) {
-                path.lineTo(this.oZx - (this.oZB + this.oZy), 0.0f);
+            if (this.pjR != -1.0f) {
+                path.lineTo(this.pjN - (this.pjR + this.pjO), 0.0f);
             } else {
-                path.lineTo(this.oZx, 0.0f);
+                path.lineTo(this.pjN, 0.0f);
             }
-            if (this.oZB != -1.0f) {
-                path.quadTo(this.oZx, 0.0f, this.oZx, this.oZB + this.oZy);
+            if (this.pjR != -1.0f) {
+                path.quadTo(this.pjN, 0.0f, this.pjN, this.pjR + this.pjO);
             }
-            if (this.oZC != -1.0f) {
-                path.lineTo(this.oZx, this.oZw - (this.oZC + this.oZy));
+            if (this.pjS != -1.0f) {
+                path.lineTo(this.pjN, this.pjM - (this.pjS + this.pjO));
             } else {
-                path.lineTo(this.oZx, this.oZw);
+                path.lineTo(this.pjN, this.pjM);
             }
-            if (this.oZC != -1.0f) {
-                path.quadTo(this.oZx, this.oZw, this.oZx - (this.oZC + this.oZy), this.oZw);
+            if (this.pjS != -1.0f) {
+                path.quadTo(this.pjN, this.pjM, this.pjN - (this.pjS + this.pjO), this.pjM);
             }
-            if (this.oZz != -1.0f) {
-                path.lineTo(this.oZz + this.oZy, this.oZw);
+            if (this.pjP != -1.0f) {
+                path.lineTo(this.pjP + this.pjO, this.pjM);
             } else {
-                path.lineTo(0.0f, this.oZw);
+                path.lineTo(0.0f, this.pjM);
             }
-            if (this.oZz != -1.0f) {
-                path.quadTo(0.0f, this.oZw, 0.0f, this.oZw - (this.oZz + this.oZy));
+            if (this.pjP != -1.0f) {
+                path.quadTo(0.0f, this.pjM, 0.0f, this.pjM - (this.pjP + this.pjO));
             }
             path.close();
-            canvas.drawPath(path, this.oZH);
+            canvas.drawPath(path, this.pjX);
         }
     }
 
     private void aC(Canvas canvas) {
         if (this.mBgColor != 0) {
-            this.bew.setColor(this.mBgColor);
-            this.bew.setShader(null);
+            this.bhE.setColor(this.mBgColor);
+            this.bhE.setShader(null);
         }
-        if (this.oZs != 0 || this.oZt != 0) {
-            this.oZI = new LinearGradient(0.0f, 0.0f, this.oZx, this.oZw, this.oZs, this.oZt, Shader.TileMode.CLAMP);
-            this.bew.setShader(this.oZI);
+        if (this.pjI != 0 || this.pjJ != 0) {
+            this.pjY = new LinearGradient(0.0f, 0.0f, this.pjN, this.pjM, this.pjI, this.pjJ, Shader.TileMode.CLAMP);
+            this.bhE.setShader(this.pjY);
         }
-        if (this.oZr == 1) {
-            canvas.drawCircle(this.oZx / 2.0f, this.oZw / 2.0f, this.oZz, this.bew);
-        } else if (this.oZr == 2 && this.oZF == 1) {
-            canvas.drawCircle(this.oZw / 2.0f, this.oZw / 2.0f, this.oZw / 2.0f, this.bew);
+        if (this.pjH == 1) {
+            canvas.drawCircle(this.pjN / 2.0f, this.pjM / 2.0f, this.pjP, this.bhE);
+        } else if (this.pjH == 2 && this.pjV == 1) {
+            canvas.drawCircle(this.pjM / 2.0f, this.pjM / 2.0f, this.pjM / 2.0f, this.bhE);
         } else {
             Path path = new Path();
-            if (this.oZA != -1.0f) {
-                path.moveTo(this.oZy, this.oZy + this.oZA);
-                path.quadTo(this.oZy, this.oZy, this.oZy + this.oZA, this.oZy);
+            if (this.pjQ != -1.0f) {
+                path.moveTo(this.pjO, this.pjO + this.pjQ);
+                path.quadTo(this.pjO, this.pjO, this.pjO + this.pjQ, this.pjO);
             }
-            if (this.oZB != -1.0f) {
-                path.lineTo((this.oZx - this.oZy) - this.oZB, this.oZy);
+            if (this.pjR != -1.0f) {
+                path.lineTo((this.pjN - this.pjO) - this.pjR, this.pjO);
             } else {
-                path.lineTo(this.oZx - this.oZy, this.oZy);
+                path.lineTo(this.pjN - this.pjO, this.pjO);
             }
-            if (this.oZB != -1.0f) {
-                path.quadTo(this.oZx - this.oZy, this.oZy, this.oZx - this.oZy, this.oZB + this.oZy);
+            if (this.pjR != -1.0f) {
+                path.quadTo(this.pjN - this.pjO, this.pjO, this.pjN - this.pjO, this.pjR + this.pjO);
             }
-            if (this.oZC != -1.0f) {
-                path.lineTo(this.oZx - this.oZy, (this.oZw - this.oZy) - this.oZC);
+            if (this.pjS != -1.0f) {
+                path.lineTo(this.pjN - this.pjO, (this.pjM - this.pjO) - this.pjS);
             } else {
-                path.lineTo(this.oZx - this.oZy, this.oZw - this.oZy);
+                path.lineTo(this.pjN - this.pjO, this.pjM - this.pjO);
             }
-            if (this.oZC != -1.0f) {
-                path.quadTo(this.oZx - this.oZy, this.oZw - this.oZy, (this.oZx - this.oZy) - this.oZC, this.oZw - this.oZy);
+            if (this.pjS != -1.0f) {
+                path.quadTo(this.pjN - this.pjO, this.pjM - this.pjO, (this.pjN - this.pjO) - this.pjS, this.pjM - this.pjO);
             }
-            if (this.oZz != -1.0f) {
-                path.lineTo(this.oZz + this.oZy, this.oZw - this.oZy);
+            if (this.pjP != -1.0f) {
+                path.lineTo(this.pjP + this.pjO, this.pjM - this.pjO);
             } else {
-                path.lineTo(this.oZy, this.oZw - this.oZy);
+                path.lineTo(this.pjO, this.pjM - this.pjO);
             }
-            if (this.oZz != -1.0f) {
-                path.quadTo(this.oZy, this.oZw - this.oZy, this.oZy, (this.oZw - this.oZy) - this.oZz);
+            if (this.pjP != -1.0f) {
+                path.quadTo(this.pjO, this.pjM - this.pjO, this.pjO, (this.pjM - this.pjO) - this.pjP);
             }
             path.close();
-            canvas.drawPath(path, this.bew);
+            canvas.drawPath(path, this.bhE);
         }
     }
 
     private void J(Canvas canvas) {
-        if (!TextUtils.isEmpty(this.oZE)) {
-            this.bex.setColor(this.mTextColor);
-            Paint.FontMetricsInt fontMetricsInt = this.bex.getFontMetricsInt();
-            canvas.drawText(this.oZE, this.oZx / 2.0f, (((((int) this.oZw) + 0) - fontMetricsInt.bottom) - fontMetricsInt.top) / 2, this.bex);
+        if (!TextUtils.isEmpty(this.pjU)) {
+            this.bhF.setColor(this.mTextColor);
+            Paint.FontMetricsInt fontMetricsInt = this.bhF.getFontMetricsInt();
+            canvas.drawText(this.pjU, this.pjN / 2.0f, (((((int) this.pjM) + 0) - fontMetricsInt.bottom) - fontMetricsInt.top) / 2, this.bhF);
         }
     }
 
     public void setStroke(int i) {
-        this.oZv = i;
+        this.pjL = i;
         invalidate();
     }
 
     public int getStyle() {
-        return this.oZr;
+        return this.pjH;
     }
 }

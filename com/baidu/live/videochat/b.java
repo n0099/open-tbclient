@@ -2,19 +2,19 @@ package com.baidu.live.videochat;
 
 import android.view.View;
 import com.baidu.live.data.AlaLiveUserInfoData;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void F(int i, String str);
+    void J(int i, String str);
 
-    void G(int i, String str);
+    void K(int i, String str);
 
-    void H(int i, String str);
+    void L(int i, String str);
 
-    void I(int i, String str);
+    void M(int i, String str);
 
-    void Qf();
+    void RP();
 
-    void Uc();
+    void VL();
 
     void a(boolean z, long j, View view, View view2);
 
@@ -22,6 +22,5 @@ public interface b {
 
     boolean a(AlaLiveUserInfoData alaLiveUserInfoData, g gVar);
 
-    /* renamed from: do  reason: not valid java name */
-    void m22do(boolean z);
+    void dw(boolean z);
 }

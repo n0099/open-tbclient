@@ -2,12 +2,12 @@ package com.baidu.yuyinala.privatemessage.session.view.smrlistview;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class e {
     private Drawable icon;
     private Context mContext;
-    private Drawable mEx;
-    private int pbk;
+    private Drawable mNC;
+    private int plz;
     private String title;
     private int titleColor;
     private int width;
@@ -21,11 +21,11 @@ public class e {
     }
 
     public int getTitleSize() {
-        return this.pbk;
+        return this.plz;
     }
 
     public void setTitleSize(int i) {
-        this.pbk = i;
+        this.plz = i;
     }
 
     public void setTitleColor(int i) {
@@ -45,11 +45,11 @@ public class e {
     }
 
     public Drawable getBackground() {
-        return this.mEx;
+        return this.mNC;
     }
 
     public void setBackground(Drawable drawable) {
-        this.mEx = drawable;
+        this.mNC = drawable;
     }
 
     public int getWidth() {

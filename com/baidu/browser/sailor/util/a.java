@@ -1,27 +1,27 @@
 package com.baidu.browser.sailor.util;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f1597a;
+    static final /* synthetic */ boolean f1595a;
 
     /* renamed from: com.baidu.browser.sailor.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     static abstract class AbstractC0085a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f1598a;
+        public byte[] f1596a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1599b;
+        public int f1597b;
 
         AbstractC0085a() {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     static class b extends AbstractC0085a {
         static final /* synthetic */ boolean j;
         private static final byte[] k;
@@ -41,7 +41,7 @@ public class a {
         }
 
         public b() {
-            this.f1598a = null;
+            this.f1596a = null;
             this.f = false;
             this.g = false;
             this.h = false;
@@ -53,7 +53,7 @@ public class a {
     }
 
     static {
-        f1597a = !a.class.desiredAssertionStatus();
+        f1595a = !a.class.desiredAssertionStatus();
     }
 
     private a() {
@@ -90,9 +90,9 @@ public class a {
         if (bVar.g && length > 0) {
             i9 += (bVar.h ? 2 : 1) * (((length - 1) / 57) + 1);
         }
-        bVar.f1598a = new byte[i9];
+        bVar.f1596a = new byte[i9];
         byte[] bArr2 = bVar.i;
-        byte[] bArr3 = bVar.f1598a;
+        byte[] bArr3 = bVar.f1596a;
         int i10 = bVar.e;
         int i11 = length + 0;
         switch (bVar.d) {
@@ -255,10 +255,10 @@ public class a {
         }
         if (b.j || bVar.d == 0) {
             if (b.j || i == i11) {
-                bVar.f1599b = i3;
+                bVar.f1597b = i3;
                 bVar.e = i10;
-                if (f1597a || bVar.f1599b == i9) {
-                    return bVar.f1598a;
+                if (f1595a || bVar.f1597b == i9) {
+                    return bVar.f1596a;
                 }
                 throw new AssertionError();
             }

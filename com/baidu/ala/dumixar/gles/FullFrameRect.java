@@ -2,7 +2,7 @@ package com.baidu.ala.dumixar.gles;
 
 import android.opengl.Matrix;
 import com.baidu.ala.dumixar.gles.Drawable2d;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class FullFrameRect {
     private float mAngle;
     private Texture2dProgram mProgram;

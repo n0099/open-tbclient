@@ -5,7 +5,7 @@ import com.bytedance.sdk.openadsdk.core.k;
 import com.bytedance.sdk.openadsdk.core.p;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class TTSecAbs {
     public abstract String NM_pullSg();
 

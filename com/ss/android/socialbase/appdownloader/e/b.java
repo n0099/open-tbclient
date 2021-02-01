@@ -11,27 +11,27 @@ import com.ss.android.socialbase.downloader.downloader.f;
 import com.ss.android.socialbase.downloader.m.g;
 import com.ss.android.socialbase.downloader.m.i;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends z {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13030a;
+    private Context f13032a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f13031b;
+    private int f13033b;
     private String c;
     private String d;
     private String e;
     private String f;
-    private com.ss.android.socialbase.downloader.notification.a pTw;
+    private com.ss.android.socialbase.downloader.notification.a qdA;
 
     public b(Context context, int i, String str, String str2, String str3, String str4) {
         if (context != null) {
-            this.f13030a = context.getApplicationContext();
+            this.f13032a = context.getApplicationContext();
         } else {
-            this.f13030a = com.ss.android.socialbase.downloader.downloader.b.eEd();
+            this.f13032a = com.ss.android.socialbase.downloader.downloader.b.eGu();
         }
-        this.f13031b = i;
+        this.f13033b = i;
         this.c = str;
         this.d = str2;
         this.e = str3;
@@ -39,13 +39,13 @@ public class b extends z {
     }
 
     public b(com.ss.android.socialbase.downloader.notification.a aVar) {
-        this.f13030a = com.ss.android.socialbase.downloader.downloader.b.eEd();
-        this.pTw = aVar;
+        this.f13032a = com.ss.android.socialbase.downloader.downloader.b.eGu();
+        this.qdA = aVar;
     }
 
     @Override // com.ss.android.socialbase.downloader.d.z
-    public com.ss.android.socialbase.downloader.notification.a eDd() {
-        return (this.pTw != null || this.f13030a == null) ? this.pTw : new a(this.f13030a, this.f13031b, this.c, this.d, this.e, this.f);
+    public com.ss.android.socialbase.downloader.notification.a eFu() {
+        return (this.qdA != null || this.f13032a == null) ? this.qdA : new a(this.f13032a, this.f13033b, this.c, this.d, this.e, this.f);
     }
 
     @Override // com.ss.android.socialbase.downloader.d.z, com.ss.android.socialbase.downloader.d.x, com.ss.android.socialbase.downloader.d.b
@@ -79,15 +79,15 @@ public class b extends z {
     @Override // com.ss.android.socialbase.downloader.d.z, com.ss.android.socialbase.downloader.d.x, com.ss.android.socialbase.downloader.d.b
     public void e(final com.ss.android.socialbase.downloader.g.c cVar) {
         boolean z = false;
-        if (cVar != null && this.f13030a != null) {
-            boolean z2 = !TextUtils.isEmpty(cVar.eEO()) && cVar.eEO().equals("application/vnd.android.package-archive");
+        if (cVar != null && this.f13032a != null) {
+            boolean z2 = !TextUtils.isEmpty(cVar.eHf()) && cVar.eHf().equals("application/vnd.android.package-archive");
             boolean a2 = z2 ? a(cVar.g()) : false;
-            n eCV = com.ss.android.socialbase.appdownloader.d.eCW().eCV();
-            if (eCV != null && eCV.a(cVar)) {
+            n eFm = com.ss.android.socialbase.appdownloader.d.eFn().eFm();
+            if (eFm != null && eFm.a(cVar)) {
                 z = true;
             }
             if (z && z2 && !a2) {
-                eCV.a(cVar, new m() { // from class: com.ss.android.socialbase.appdownloader.e.b.1
+                eFm.a(cVar, new m() { // from class: com.ss.android.socialbase.appdownloader.e.b.1
                     @Override // com.ss.android.socialbase.appdownloader.c.m
                     public void a() {
                         b.this.o(cVar);
@@ -100,11 +100,11 @@ public class b extends z {
     }
 
     private boolean a(int i) {
-        if (com.ss.android.socialbase.downloader.k.a.RA(i).a("back_miui_silent_install", 1) == 1) {
+        if (com.ss.android.socialbase.downloader.k.a.RV(i).a("back_miui_silent_install", 1) == 1) {
             return false;
         }
         if (g.j() || g.k()) {
-            return i.a(this.f13030a, "com.miui.securitycore", "com.miui.enterprise.service.EntInstallService");
+            return i.a(this.f13032a, "com.miui.securitycore", "com.miui.enterprise.service.EntInstallService");
         }
         return false;
     }
@@ -112,30 +112,30 @@ public class b extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void o(final com.ss.android.socialbase.downloader.g.c cVar) {
         boolean z = true;
-        if (cVar.eEN() && !com.ss.android.socialbase.appdownloader.c.c(cVar.C())) {
+        if (cVar.eHe() && !com.ss.android.socialbase.appdownloader.c.c(cVar.C())) {
             super.e(cVar);
         }
-        if (((cVar.u() && !cVar.v()) || com.ss.android.socialbase.appdownloader.c.b(cVar.C()) || TextUtils.isEmpty(cVar.eEO()) || !cVar.eEO().equals("application/vnd.android.package-archive")) && com.ss.android.socialbase.downloader.k.a.RA(cVar.g()).a("auto_install_when_resume", 0) != 1) {
+        if (((cVar.u() && !cVar.v()) || com.ss.android.socialbase.appdownloader.c.b(cVar.C()) || TextUtils.isEmpty(cVar.eHf()) || !cVar.eHf().equals("application/vnd.android.package-archive")) && com.ss.android.socialbase.downloader.k.a.RV(cVar.g()).a("auto_install_when_resume", 0) != 1) {
             z = false;
         }
-        final int f = z ? com.ss.android.socialbase.appdownloader.c.f(this.f13030a, cVar.g(), false) : 2;
-        com.ss.android.socialbase.downloader.downloader.b.eDL().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.e.b.2
+        final int f = z ? com.ss.android.socialbase.appdownloader.c.f(this.f13032a, cVar.g(), false) : 2;
+        com.ss.android.socialbase.downloader.downloader.b.eGc().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.e.b.2
             @Override // java.lang.Runnable
             public void run() {
-                com.ss.android.socialbase.appdownloader.c.d eCS = com.ss.android.socialbase.appdownloader.d.eCW().eCS();
-                com.ss.android.socialbase.downloader.d.d QX = f.iy(b.this.f13030a).QX(cVar.g());
-                if (eCS != null || QX != null) {
+                com.ss.android.socialbase.appdownloader.c.d eFj = com.ss.android.socialbase.appdownloader.d.eFn().eFj();
+                com.ss.android.socialbase.downloader.d.d Rs = f.iB(b.this.f13032a).Rs(cVar.g());
+                if (eFj != null || Rs != null) {
                     File file = new File(cVar.k(), cVar.h());
                     if (file.exists()) {
                         try {
-                            PackageInfo a2 = e.a(b.this.f13030a, file, com.ss.android.socialbase.appdownloader.c.a());
+                            PackageInfo a2 = e.a(b.this.f13032a, file, com.ss.android.socialbase.appdownloader.c.a());
                             if (a2 != null) {
                                 String D = (f == 1 || TextUtils.isEmpty(cVar.D())) ? a2.packageName : cVar.D();
-                                if (eCS != null) {
-                                    eCS.a(cVar.g(), 1, D, -3, cVar.eFc());
+                                if (eFj != null) {
+                                    eFj.a(cVar.g(), 1, D, -3, cVar.eHt());
                                 }
-                                if (QX != null) {
-                                    QX.a(1, cVar, D, "");
+                                if (Rs != null) {
+                                    Rs.a(1, cVar, D, "");
                                 }
                             }
                         } catch (Exception e) {
@@ -149,7 +149,7 @@ public class b extends z {
 
     @Override // com.ss.android.socialbase.downloader.d.z, com.ss.android.socialbase.downloader.d.x, com.ss.android.socialbase.downloader.d.b
     public void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar) {
-        if (cVar != null && this.f13030a != null && cVar.eEN() && !com.ss.android.socialbase.appdownloader.c.c(cVar.C())) {
+        if (cVar != null && this.f13032a != null && cVar.eHe() && !com.ss.android.socialbase.appdownloader.c.c(cVar.C())) {
             super.a(cVar, aVar);
         }
     }

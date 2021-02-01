@@ -11,7 +11,10 @@ import com.baidu.tieba.b.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class b<T extends b<T>> implements a.b {
-    public static final d iiG = new d("translationX") { // from class: com.baidu.tieba.b.b.1
+    final Object ioE;
+    final com.baidu.tieba.b.c ioF;
+    private float ioI;
+    public static final d ioo = new d("translationX") { // from class: com.baidu.tieba.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -21,12 +24,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getTranslationX();
         }
     };
-    public static final d iiH = new d("translationY") { // from class: com.baidu.tieba.b.b.7
+    public static final d iop = new d("translationY") { // from class: com.baidu.tieba.b.b.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -36,12 +39,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getTranslationY();
         }
     };
-    public static final d iiI = new d("translationZ") { // from class: com.baidu.tieba.b.b.8
+    public static final d ioq = new d("translationZ") { // from class: com.baidu.tieba.b.b.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -51,12 +54,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return ViewCompat.getTranslationZ(view);
         }
     };
-    public static final d iiJ = new d("scaleX") { // from class: com.baidu.tieba.b.b.9
+    public static final d ior = new d("scaleX") { // from class: com.baidu.tieba.b.b.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -66,12 +69,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getScaleX();
         }
     };
-    public static final d iiK = new d("scaleY") { // from class: com.baidu.tieba.b.b.10
+    public static final d ios = new d("scaleY") { // from class: com.baidu.tieba.b.b.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -81,12 +84,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getScaleY();
         }
     };
-    public static final d iiL = new d("rotation") { // from class: com.baidu.tieba.b.b.11
+    public static final d iot = new d("rotation") { // from class: com.baidu.tieba.b.b.11
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -96,12 +99,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getRotation();
         }
     };
-    public static final d iiM = new d("rotationX") { // from class: com.baidu.tieba.b.b.12
+    public static final d iou = new d("rotationX") { // from class: com.baidu.tieba.b.b.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -111,12 +114,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getRotationX();
         }
     };
-    public static final d iiN = new d("rotationY") { // from class: com.baidu.tieba.b.b.13
+    public static final d iov = new d("rotationY") { // from class: com.baidu.tieba.b.b.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -126,12 +129,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getRotationY();
         }
     };
-    public static final d iiO = new d(Config.EVENT_HEAT_X) { // from class: com.baidu.tieba.b.b.14
+    public static final d iow = new d(Config.EVENT_HEAT_X) { // from class: com.baidu.tieba.b.b.14
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -141,12 +144,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getX();
         }
     };
-    public static final d iiP = new d("y") { // from class: com.baidu.tieba.b.b.2
+    public static final d iox = new d("y") { // from class: com.baidu.tieba.b.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -156,12 +159,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getY();
         }
     };
-    public static final d iiQ = new d("z") { // from class: com.baidu.tieba.b.b.3
+    public static final d ioy = new d("z") { // from class: com.baidu.tieba.b.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -171,12 +174,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return ViewCompat.getZ(view);
         }
     };
-    public static final d iiR = new d("alpha") { // from class: com.baidu.tieba.b.b.4
+    public static final d ioz = new d("alpha") { // from class: com.baidu.tieba.b.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -186,12 +189,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getAlpha();
         }
     };
-    public static final d iiS = new d("scrollX") { // from class: com.baidu.tieba.b.b.5
+    public static final d ioA = new d("scrollX") { // from class: com.baidu.tieba.b.b.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -201,12 +204,12 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getScrollX();
         }
     };
-    public static final d iiT = new d("scrollY") { // from class: com.baidu.tieba.b.b.6
+    public static final d ioB = new d("scrollY") { // from class: com.baidu.tieba.b.b.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -216,27 +219,24 @@ public abstract class b<T extends b<T>> implements a.b {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
-        /* renamed from: cJ */
+        /* renamed from: cH */
         public float aJ(View view) {
             return view.getScrollY();
         }
     };
-    final Object iiW;
-    final com.baidu.tieba.b.c iiX;
-    private float ija;
-    float iiU = 0.0f;
+    float ioC = 0.0f;
     float mValue = Float.MAX_VALUE;
-    boolean iiV = false;
+    boolean ioD = false;
     boolean mRunning = false;
-    float iiY = Float.MAX_VALUE;
-    float iiZ = -this.iiY;
-    private long iiC = 0;
-    private final ArrayList<InterfaceC0697b> ijb = new ArrayList<>();
-    private final ArrayList<c> ijc = new ArrayList<>();
+    float ioG = Float.MAX_VALUE;
+    float ioH = -this.ioG;
+    private long iok = 0;
+    private final ArrayList<InterfaceC0697b> ioJ = new ArrayList<>();
+    private final ArrayList<c> ioK = new ArrayList<>();
 
     /* loaded from: classes.dex */
     static class a {
-        float iiU;
+        float ioC;
         float mValue;
     }
 
@@ -253,7 +253,7 @@ public abstract class b<T extends b<T>> implements a.b {
 
     abstract boolean D(float f, float f2);
 
-    abstract boolean fU(long j);
+    abstract boolean fZ(long j);
 
     /* loaded from: classes.dex */
     public static abstract class d extends com.baidu.tieba.b.c<View> {
@@ -264,20 +264,20 @@ public abstract class b<T extends b<T>> implements a.b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public <K> b(K k, com.baidu.tieba.b.c<K> cVar) {
-        this.iiW = k;
-        this.iiX = cVar;
-        if (this.iiX == iiL || this.iiX == iiM || this.iiX == iiN) {
-            this.ija = 0.1f;
-        } else if (this.iiX == iiR) {
-            this.ija = 0.00390625f;
-        } else if (this.iiX == iiJ || this.iiX == iiK) {
-            this.ija = 0.00390625f;
+        this.ioE = k;
+        this.ioF = cVar;
+        if (this.ioF == iot || this.ioF == iou || this.ioF == iov) {
+            this.ioI = 0.1f;
+        } else if (this.ioF == ioz) {
+            this.ioI = 0.00390625f;
+        } else if (this.ioF == ior || this.ioF == ios) {
+            this.ioI = 0.00390625f;
         } else {
-            this.ija = 1.0f;
+            this.ioI = 1.0f;
         }
     }
 
-    private static <T> void aj(ArrayList<T> arrayList) {
+    private static <T> void ai(ArrayList<T> arrayList) {
         for (int size = arrayList.size() - 1; size >= 0; size--) {
             if (arrayList.get(size) == null) {
                 arrayList.remove(size);
@@ -290,85 +290,85 @@ public abstract class b<T extends b<T>> implements a.b {
             throw new AndroidRuntimeException("Animations may only be started on the main thread");
         }
         if (!this.mRunning) {
-            cpw();
+            cqG();
         }
     }
 
-    private void cpw() {
+    private void cqG() {
         if (!this.mRunning) {
             this.mRunning = true;
-            if (!this.iiV) {
-                this.mValue = cpy();
+            if (!this.ioD) {
+                this.mValue = cqI();
             }
-            if (this.mValue > this.iiY || this.mValue < this.iiZ) {
+            if (this.mValue > this.ioG || this.mValue < this.ioH) {
                 throw new IllegalArgumentException("Starting value need to be in between min value and max value");
             }
-            com.baidu.tieba.b.a.cps().a(this, 0L);
+            com.baidu.tieba.b.a.cqC().a(this, 0L);
         }
     }
 
     @Override // com.baidu.tieba.b.a.b
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean fT(long j) {
-        if (this.iiC == 0) {
-            this.iiC = j;
-            aB(this.mValue);
+    public boolean fY(long j) {
+        if (this.iok == 0) {
+            this.iok = j;
+            aE(this.mValue);
             return false;
         }
-        this.iiC = j;
-        boolean fU = fU(j - this.iiC);
-        this.mValue = Math.min(this.mValue, this.iiY);
-        this.mValue = Math.max(this.mValue, this.iiZ);
-        aB(this.mValue);
-        if (fU) {
-            pd(false);
+        this.iok = j;
+        boolean fZ = fZ(j - this.iok);
+        this.mValue = Math.min(this.mValue, this.ioG);
+        this.mValue = Math.max(this.mValue, this.ioH);
+        aE(this.mValue);
+        if (fZ) {
+            pn(false);
         }
-        return fU;
+        return fZ;
     }
 
-    private void pd(boolean z) {
+    private void pn(boolean z) {
         int i = 0;
         this.mRunning = false;
-        com.baidu.tieba.b.a.cps().a(this);
-        this.iiC = 0L;
-        this.iiV = false;
+        com.baidu.tieba.b.a.cqC().a(this);
+        this.iok = 0L;
+        this.ioD = false;
         while (true) {
             int i2 = i;
-            if (i2 < this.ijb.size()) {
-                if (this.ijb.get(i2) != null) {
-                    this.ijb.get(i2).a(this, z, this.mValue, this.iiU);
+            if (i2 < this.ioJ.size()) {
+                if (this.ioJ.get(i2) != null) {
+                    this.ioJ.get(i2).a(this, z, this.mValue, this.ioC);
                 }
                 i = i2 + 1;
             } else {
-                aj(this.ijb);
+                ai(this.ioJ);
                 return;
             }
         }
     }
 
-    void aB(float f) {
-        this.iiX.b(this.iiW, f);
+    void aE(float f) {
+        this.ioF.b(this.ioE, f);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.ijc.size()) {
-                if (this.ijc.get(i2) != null) {
-                    this.ijc.get(i2).a(this, this.mValue, this.iiU);
+            if (i2 < this.ioK.size()) {
+                if (this.ioK.get(i2) != null) {
+                    this.ioK.get(i2).a(this, this.mValue, this.ioC);
                 }
                 i = i2 + 1;
             } else {
-                aj(this.ijc);
+                ai(this.ioK);
                 return;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public float cpx() {
-        return this.ija * 0.75f;
+    public float cqH() {
+        return this.ioI * 0.75f;
     }
 
-    private float cpy() {
-        return this.iiX.aJ(this.iiW);
+    private float cqI() {
+        return this.ioF.aJ(this.ioE);
     }
 }

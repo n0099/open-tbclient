@@ -2,7 +2,7 @@ package com.qq.e.comm.plugin.a;
 
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.status.NetworkType;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 class i implements a {
     @Override // com.qq.e.comm.plugin.a.a
     public int a() {

@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import java.util.concurrent.Executor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ArchTaskExecutor extends TaskExecutor {
     private static volatile ArchTaskExecutor sInstance;
     @NonNull

@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class c extends j {
     public c(d dVar) {
-        super(dVar.mUrl, dVar.cgq);
+        super(dVar.mUrl, dVar.ckA);
     }
 
     @Override // com.baidu.minivideo.arface.b.j
@@ -37,7 +37,7 @@ public class c extends j {
             ArrayList arrayList = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.ix(optJSONArray.getString(i)));
+                arrayList.add(a.jd(optJSONArray.getString(i)));
             }
             return a(file, arrayList);
         } catch (Exception e) {
@@ -77,13 +77,13 @@ public class c extends j {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public String mMd5;
         public String mName;
         public String mPath;
 
-        public static a ix(String str) {
+        public static a jd(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

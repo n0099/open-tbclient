@@ -7,12 +7,12 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         private KsScene scene = (KsScene) Loader.get().newInstance(KsScene.class);
 

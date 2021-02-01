@@ -1,6 +1,5 @@
 package com.google.zxing.pdf417;
 
-import androidx.appcompat.widget.ActivityChooserView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
@@ -18,7 +17,7 @@ import com.google.zxing.pdf417.detector.Detector;
 import com.google.zxing.pdf417.detector.PDF417DetectorResult;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     @Override // com.google.zxing.Reader
     public Result decode(BinaryBitmap binaryBitmap) throws NotFoundException, FormatException, ChecksumException {
@@ -72,7 +71,10 @@ public final class PDF417Reader implements Reader, MultipleBarcodeReader {
     }
 
     private static int getMinWidth(ResultPoint resultPoint, ResultPoint resultPoint2) {
-        return (resultPoint == null || resultPoint2 == null) ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : (int) Math.abs(resultPoint.getX() - resultPoint2.getX());
+        if (resultPoint == null || resultPoint2 == null) {
+            return Integer.MAX_VALUE;
+        }
+        return (int) Math.abs(resultPoint.getX() - resultPoint2.getX());
     }
 
     private static int getMaxCodewordWidth(ResultPoint[] resultPointArr) {

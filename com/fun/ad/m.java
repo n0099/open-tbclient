@@ -11,7 +11,7 @@ import java.io.StringWriter;
 import java.lang.reflect.Field;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class m {
     public static <T> String a(T t) {
         return new Gson().toJson(t);
@@ -51,7 +51,7 @@ public final class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Object D(String str, Object obj) {
+    public static Object C(String str, Object obj) {
         Class<? super Object> superclass;
         Object obj2 = null;
         if (obj != null) {

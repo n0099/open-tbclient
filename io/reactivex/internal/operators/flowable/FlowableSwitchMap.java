@@ -19,8 +19,8 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!c.a(this.qdS, cVar, this.mapper)) {
-            this.qdS.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
+        if (!c.a(this.qnW, cVar, this.mapper)) {
+            this.qnW.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
         }
     }
 
@@ -81,7 +81,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                     } while (!this.active.compareAndSet(switchMapInnerSubscriber, switchMapInnerSubscriber3));
                     bVar.subscribe(switchMapInnerSubscriber3);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.O(th);
+                    io.reactivex.exceptions.a.N(th);
                     this.s.cancel();
                     onError(th);
                 }
@@ -220,7 +220,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                                     obj = fVar.poll();
                                     z2 = z3;
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.O(th);
+                                    io.reactivex.exceptions.a.N(th);
                                     switchMapInnerSubscriber.cancel();
                                     this.error.addThrowable(th);
                                     obj = null;

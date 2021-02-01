@@ -6,10 +6,10 @@ import android.view.ViewGroup;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.tieba.ala.live.personcenter.admin.b.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends AbsDelegateAdapter<b, com.baidu.tieba.ala.live.personcenter.admin.d.b> {
     public a(Context context, BdUniqueId bdUniqueId) {
-        super(context, b.hfF, bdUniqueId);
+        super(context, b.hjV, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

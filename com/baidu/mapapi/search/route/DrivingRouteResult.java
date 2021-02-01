@@ -6,15 +6,15 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DrivingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<DrivingRouteResult> CREATOR = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<DrivingRouteLine> f2899a;
+    private List<DrivingRouteLine> f2897a;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<TaxiInfo> f2900b;
+    private List<TaxiInfo> f2898b;
     private TaxiInfo c;
     private SuggestAddrInfo d;
 
@@ -23,10 +23,10 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
 
     /* JADX INFO: Access modifiers changed from: protected */
     public DrivingRouteResult(Parcel parcel) {
-        this.f2899a = new ArrayList();
-        parcel.readTypedList(this.f2899a, DrivingRouteLine.CREATOR);
-        this.f2900b = new ArrayList();
-        parcel.readTypedList(this.f2900b, TaxiInfo.CREATOR);
+        this.f2897a = new ArrayList();
+        parcel.readTypedList(this.f2897a, DrivingRouteLine.CREATOR);
+        this.f2898b = new ArrayList();
+        parcel.readTypedList(this.f2898b, TaxiInfo.CREATOR);
         this.d = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
@@ -36,7 +36,7 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public List<DrivingRouteLine> getRouteLines() {
-        return this.f2899a;
+        return this.f2897a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
@@ -49,11 +49,11 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public List<TaxiInfo> getTaxiInfos() {
-        return this.f2900b;
+        return this.f2898b;
     }
 
     public void setRouteLines(List<DrivingRouteLine> list) {
-        this.f2899a = list;
+        this.f2897a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
@@ -61,13 +61,13 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     }
 
     public void setTaxiInfos(List<TaxiInfo> list) {
-        this.f2900b = list;
+        this.f2898b = list;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeTypedList(this.f2899a);
-        parcel.writeTypedList(this.f2900b);
+        parcel.writeTypedList(this.f2897a);
+        parcel.writeTypedList(this.f2898b);
         parcel.writeParcelable(this.d, 1);
     }
 }

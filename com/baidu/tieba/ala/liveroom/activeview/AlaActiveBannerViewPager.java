@@ -1,32 +1,23 @@
 package com.baidu.tieba.ala.liveroom.activeview;
 
 import android.content.Context;
-import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.live.tbadk.widget.SlideRatioViewPager;
-/* loaded from: classes10.dex */
-public class AlaActiveBannerViewPager extends SlideRatioViewPager {
-    private View.OnTouchListener bPd;
-    private float cBP;
-    private boolean gJh;
-    private float mDownX;
-    private Handler mHandler;
-    private SlideRatioViewPager.OnPageChangeListener mOnPageChangeListener;
-    private Runnable mRunnable;
+/* loaded from: classes11.dex */
+public class AlaActiveBannerViewPager extends SlideRatioViewPager implements d {
+    private final View.OnTouchListener bST;
+    private boolean gLN;
+    private final SlideRatioViewPager.OnPageChangeListener mOnPageChangeListener;
 
     public AlaActiveBannerViewPager(Context context) {
         super(context);
-        this.gJh = false;
-        this.bPd = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
+        this.gLN = false;
+        this.bST = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaActiveBannerViewPager.this.gJh = true;
-                } else {
-                    AlaActiveBannerViewPager.this.gJh = false;
-                }
+                AlaActiveBannerViewPager.this.gLN = motionEvent.getAction() == 0 || motionEvent.getAction() == 2;
                 return false;
             }
         };
@@ -41,36 +32,19 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager {
 
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                if (i == 1) {
-                    AlaActiveBannerViewPager.this.gJh = true;
-                } else {
-                    AlaActiveBannerViewPager.this.gJh = false;
-                }
+                AlaActiveBannerViewPager.this.gLN = i == 1;
             }
         };
-        this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.3
-            @Override // java.lang.Runnable
-            public void run() {
-                if (!AlaActiveBannerViewPager.this.gJh && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
-                    AlaActiveBannerViewPager.this.setCurrentItem(AlaActiveBannerViewPager.this.getCurrentItem() + 1, false);
-                }
-                AlaActiveBannerViewPager.this.mHandler.postDelayed(AlaActiveBannerViewPager.this.mRunnable, 10000L);
-            }
-        };
-        init(context);
+        init();
     }
 
     public AlaActiveBannerViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gJh = false;
-        this.bPd = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
+        this.gLN = false;
+        this.bST = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaActiveBannerViewPager.this.gJh = true;
-                } else {
-                    AlaActiveBannerViewPager.this.gJh = false;
-                }
+                AlaActiveBannerViewPager.this.gLN = motionEvent.getAction() == 0 || motionEvent.getAction() == 2;
                 return false;
             }
         };
@@ -85,59 +59,25 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager {
 
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                if (i == 1) {
-                    AlaActiveBannerViewPager.this.gJh = true;
-                } else {
-                    AlaActiveBannerViewPager.this.gJh = false;
-                }
+                AlaActiveBannerViewPager.this.gLN = i == 1;
             }
         };
-        this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.3
-            @Override // java.lang.Runnable
-            public void run() {
-                if (!AlaActiveBannerViewPager.this.gJh && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
-                    AlaActiveBannerViewPager.this.setCurrentItem(AlaActiveBannerViewPager.this.getCurrentItem() + 1, false);
-                }
-                AlaActiveBannerViewPager.this.mHandler.postDelayed(AlaActiveBannerViewPager.this.mRunnable, 10000L);
-            }
-        };
-        init(context);
+        init();
     }
 
-    private void init(Context context) {
-        this.mHandler = new Handler();
-        addOnPageChangeListener(this.mOnPageChangeListener);
-        setOnTouchListener(this.bPd);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            this.mDownX = motionEvent.getX();
-            this.cBP = motionEvent.getY();
-            getParent().requestDisallowInterceptTouchEvent(true);
-        } else if (motionEvent.getAction() == 2) {
-            if (Math.abs(motionEvent.getX() - this.mDownX) >= Math.abs(motionEvent.getY() - this.cBP) * 0.5f) {
-                getParent().requestDisallowInterceptTouchEvent(true);
-            } else {
-                getParent().requestDisallowInterceptTouchEvent(false);
-                return false;
-            }
-        } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            getParent().requestDisallowInterceptTouchEvent(false);
-        }
-        return super.dispatchTouchEvent(motionEvent);
-    }
-
-    public void bYK() {
-        if (getAdapter().getCount() > 1) {
-            setCurrentItem(1);
-            this.mHandler.removeCallbacks(this.mRunnable);
-            this.mHandler.postDelayed(this.mRunnable, 10000L);
+    @Override // com.baidu.tieba.ala.liveroom.activeview.d
+    public void XU() {
+        if (!this.gLN) {
+            setCurrentItem(getCurrentItem() + 1, false);
         }
     }
 
+    @Override // com.baidu.tieba.ala.liveroom.activeview.d
     public void release() {
-        this.mHandler.removeCallbacks(this.mRunnable);
+    }
+
+    private void init() {
+        addOnPageChangeListener(this.mOnPageChangeListener);
+        setOnTouchListener(this.bST);
     }
 }

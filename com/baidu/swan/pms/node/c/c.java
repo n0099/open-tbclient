@@ -2,14 +2,14 @@ package com.baidu.swan.pms.node.c;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c extends com.baidu.swan.pms.node.b {
     @Override // com.baidu.swan.pms.node.b
-    public JSONObject bdk() {
+    public JSONObject bdx() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("version", b.bdv().bdw());
+            jSONObject2.put("version", b.bdI().bdJ());
             jSONObject.put("base_info", jSONObject2);
         } catch (JSONException e) {
             if (com.baidu.swan.pms.d.DEBUG) {

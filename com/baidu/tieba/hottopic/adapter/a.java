@@ -6,44 +6,44 @@ import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import com.baidu.tieba.hottopic.data.o;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bjZ = new ArrayList();
-    private BdTypeListView gwr;
-    private c kke;
-    private b kkf;
-    private k kkg;
+    private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
+    private BdTypeListView gzb;
+    private c ksl;
+    private b ksm;
+    private k ksn;
 
     public a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         a(hotRanklistActivity, bdTypeListView);
     }
 
     private void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
-        this.kke = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.klV);
-        this.kkf = new b(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.klU);
-        this.kkg = new k(hotRanklistActivity, o.knb);
-        this.bjZ.add(this.kke);
-        this.bjZ.add(this.kkf);
-        this.bjZ.add(this.kkg);
-        this.gwr = bdTypeListView;
-        this.gwr.addAdapters(this.bjZ);
+        this.ksl = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.kuc);
+        this.ksm = new b(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.kub);
+        this.ksn = new k(hotRanklistActivity, o.kvi);
+        this.bns.add(this.ksl);
+        this.bns.add(this.ksm);
+        this.bns.add(this.ksn);
+        this.gzb = bdTypeListView;
+        this.gzb.addAdapters(this.bns);
     }
 
     public void a(com.baidu.tieba.hottopic.data.j jVar, String str) {
         ArrayList<n> arrayList;
-        if (jVar.cRp() != null) {
-            arrayList = jVar.cRp();
+        if (jVar.cTo() != null) {
+            arrayList = jVar.cTo();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.kkg != null) {
-            this.kkg.cQF();
+        if (this.ksn != null) {
+            this.ksn.cSE();
         }
-        if (this.kke != null) {
-            this.kke.Lu(str);
+        if (this.ksl != null) {
+            this.ksl.Mi(str);
         }
-        if (this.gwr != null) {
-            this.gwr.setData(arrayList);
+        if (this.gzb != null) {
+            this.gzb.setData(arrayList);
         }
     }
 }

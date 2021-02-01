@@ -7,56 +7,56 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class q {
-    private static final ConcurrentHashMap<String, String> ewO = new ConcurrentHashMap<>();
-    private int ewP;
-    private JSONObject ewQ;
-    private List<g> ewR = new ArrayList();
+    private static final ConcurrentHashMap<String, String> eyX = new ConcurrentHashMap<>();
+    private int eyY;
+    private JSONObject eyZ;
+    private List<g> eza = new ArrayList();
     private String mSign;
     private int mThreshold;
 
     static {
-        ewO.put("1415", "66");
+        eyX.put("1415", "66");
     }
 
     public q(String str, JSONObject jSONObject) {
         this.mSign = str;
-        this.ewQ = jSONObject;
+        this.eyZ = jSONObject;
     }
 
     public String getSign() {
         return this.mSign;
     }
 
-    public int beU() {
+    public int bfh() {
         return this.mThreshold;
     }
 
-    public int beV() {
-        return this.ewP;
+    public int bfi() {
+        return this.eyY;
     }
 
-    public List<g> beW() {
-        return this.ewR;
+    public List<g> bfj() {
+        return this.eza;
     }
 
-    public boolean beX() {
+    public boolean bfk() {
         String str;
         try {
-            JSONObject jSONObject = this.ewQ;
+            JSONObject jSONObject = this.eyZ;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.ewP = jSONObject.getInt("timeup");
+            this.eyY = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                 String string = jSONObject2.getString("ubcid");
-                if (TextUtils.isEmpty(string) || !ewO.containsKey(string)) {
+                if (TextUtils.isEmpty(string) || !eyX.containsKey(string)) {
                     str = string;
                 } else {
                     str = jSONObject2.optString("bizid");
-                    ewO.get(string);
+                    eyX.get(string);
                 }
                 String string2 = jSONObject2.getString("switch");
                 String string3 = jSONObject2.getString("isreal");
@@ -66,27 +66,27 @@ public class q {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
                     g gVar = new g(str, string2, string3, intValue, string5, string4);
                     if (jSONObject2.has("rate")) {
-                        gVar.mg(Integer.valueOf(jSONObject2.getString("rate")).intValue());
+                        gVar.mj(Integer.valueOf(jSONObject2.getString("rate")).intValue());
                     }
                     if (jSONObject2.has("bizid")) {
-                        gVar.yl(jSONObject2.getString("bizid"));
+                        gVar.yE(jSONObject2.getString("bizid"));
                     }
                     if (jSONObject2.has("c")) {
                         gVar.setCategory(jSONObject2.getString("c"));
                     }
                     if (jSONObject2.has("limitUnit")) {
-                        gVar.mh(Integer.valueOf(jSONObject2.getString("limitUnit")).intValue());
+                        gVar.mk(Integer.valueOf(jSONObject2.getString("limitUnit")).intValue());
                     }
                     if (jSONObject2.has("limitCnt")) {
-                        gVar.mi(Integer.valueOf(jSONObject2.getString("limitCnt")).intValue());
+                        gVar.ml(Integer.valueOf(jSONObject2.getString("limitCnt")).intValue());
                     }
                     if (jSONObject2.has("idtype")) {
-                        gVar.ym(jSONObject2.getString("idtype"));
+                        gVar.yF(jSONObject2.getString("idtype"));
                     }
                     if (jSONObject2.has("appblacklist")) {
-                        gVar.yn(jSONObject2.getString("appblacklist"));
+                        gVar.yG(jSONObject2.getString("appblacklist"));
                     }
-                    this.ewR.add(gVar);
+                    this.eza.add(gVar);
                 }
             }
             return true;

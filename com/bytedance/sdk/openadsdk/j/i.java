@@ -11,24 +11,24 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f7297a;
+    public final c f7299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b> f7298b;
+    public final List<b> f7300b;
     public final a c;
 
     public i(c cVar, List<b> list, a aVar) {
-        this.f7297a = cVar;
-        this.f7298b = list;
+        this.f7299a = cVar;
+        this.f7300b = list;
         this.c = aVar;
     }
 
     public static i a(InputStream inputStream) throws IOException, d {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, com.bytedance.sdk.openadsdk.j.g.d.f7293a));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, com.bytedance.sdk.openadsdk.j.g.d.f7295a));
         c cVar = null;
         ArrayList arrayList = new ArrayList();
         while (true) {
@@ -50,19 +50,19 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f7303a;
+        final String f7305a;
 
         /* renamed from: b  reason: collision with root package name */
-        final String f7304b;
+        final String f7306b;
         final String c;
 
         private c(String str, String str2, String str3) {
-            this.f7303a = str;
-            this.f7304b = str2;
+            this.f7305a = str;
+            this.f7306b = str2;
             this.c = str3;
         }
 
@@ -85,22 +85,22 @@ public class i {
         }
 
         public String toString() {
-            return "RequestLine{method='" + this.f7303a + "', path='" + this.f7304b + "', version='" + this.c + "'}";
+            return "RequestLine{method='" + this.f7305a + "', path='" + this.f7306b + "', version='" + this.c + "'}";
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f7301a;
+        public final String f7303a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f7302b;
+        public final String f7304b;
 
         public b(String str, String str2) {
-            this.f7301a = str;
-            this.f7302b = str2;
+            this.f7303a = str;
+            this.f7304b = str2;
         }
 
         static b a(String str) throws d {
@@ -117,18 +117,18 @@ public class i {
         }
 
         public String toString() {
-            return "Header{name='" + this.f7301a + "', value='" + this.f7302b + "'}";
+            return "Header{name='" + this.f7303a + "', value='" + this.f7304b + "'}";
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f7299a;
+        final int f7301a;
 
         /* renamed from: b  reason: collision with root package name */
-        final String f7300b;
+        final String f7302b;
         final String c;
         final int d;
         final int e;
@@ -136,8 +136,8 @@ public class i {
         final List<String> g;
 
         private a(int i, String str, String str2, int i2, int i3, String str3, List<String> list) {
-            this.f7299a = i;
-            this.f7300b = str;
+            this.f7301a = i;
+            this.f7302b = str;
             this.c = str2;
             this.d = i2;
             this.e = i3;
@@ -151,12 +151,12 @@ public class i {
             String str;
             int i3;
             String str2 = null;
-            int indexOf = cVar.f7304b.indexOf("?");
+            int indexOf = cVar.f7306b.indexOf("?");
             if (indexOf == -1) {
-                throw new d("path format error, path: " + cVar.f7304b);
+                throw new d("path format error, path: " + cVar.f7306b);
             }
             ArrayList arrayList = new ArrayList();
-            String[] split = cVar.f7304b.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
+            String[] split = cVar.f7306b.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
             String str3 = null;
             String str4 = null;
             int i4 = 0;
@@ -175,28 +175,28 @@ public class i {
                 }
             }
             if (TextUtils.isEmpty(str4) || TextUtils.isEmpty(str3)) {
-                throw new d("rawKey or key is empty, path: " + cVar.f7304b);
+                throw new d("rawKey or key is empty, path: " + cVar.f7306b);
             }
             if (list != null) {
                 i = 0;
                 int i5 = 0;
                 for (b bVar : list) {
                     if (bVar != null) {
-                        if (Headers.RANGE.equalsIgnoreCase(bVar.f7301a)) {
-                            int indexOf2 = bVar.f7302b.indexOf("=");
+                        if (Headers.RANGE.equalsIgnoreCase(bVar.f7303a)) {
+                            int indexOf2 = bVar.f7304b.indexOf("=");
                             if (indexOf2 == -1) {
-                                throw new d("Range format error, Range: " + bVar.f7302b);
+                                throw new d("Range format error, Range: " + bVar.f7304b);
                             }
-                            if (!"bytes".equalsIgnoreCase(bVar.f7302b.substring(0, indexOf2).trim())) {
-                                throw new d("Range format error, Range: " + bVar.f7302b);
+                            if (!"bytes".equalsIgnoreCase(bVar.f7304b.substring(0, indexOf2).trim())) {
+                                throw new d("Range format error, Range: " + bVar.f7304b);
                             }
-                            String substring = bVar.f7302b.substring(indexOf2 + 1);
+                            String substring = bVar.f7304b.substring(indexOf2 + 1);
                             if (substring.contains(",")) {
-                                throw new d("Range format error, Range: " + bVar.f7302b);
+                                throw new d("Range format error, Range: " + bVar.f7304b);
                             }
                             int indexOf3 = substring.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                             if (indexOf3 == -1) {
-                                throw new d("Range format error, Range: " + bVar.f7302b);
+                                throw new d("Range format error, Range: " + bVar.f7304b);
                             }
                             String trim = substring.substring(0, indexOf3).trim();
                             String trim2 = substring.substring(indexOf3 + 1).trim();
@@ -205,15 +205,15 @@ public class i {
                                 if (trim2.length() > 0) {
                                     i3 = Integer.parseInt(trim2);
                                     if (parseInt > i3) {
-                                        throw new d("Range format error, Range: " + bVar.f7302b);
+                                        throw new d("Range format error, Range: " + bVar.f7304b);
                                     }
                                 } else {
                                     i3 = i;
                                 }
-                                str = bVar.f7302b;
+                                str = bVar.f7304b;
                                 i5 = parseInt;
                             } catch (NumberFormatException e) {
-                                throw new d("Range format error, Range: " + bVar.f7302b);
+                                throw new d("Range format error, Range: " + bVar.f7304b);
                             }
                         } else {
                             str = str2;
@@ -229,13 +229,13 @@ public class i {
                 i2 = 0;
             }
             if (arrayList.isEmpty()) {
-                throw new d("no url found: path: " + cVar.f7304b);
+                throw new d("no url found: path: " + cVar.f7306b);
             }
             return new a(i4, str4, str3, i2, i, str2, arrayList);
         }
 
         public String toString() {
-            return "Extra{flag=" + this.f7299a + ", rawKey='" + this.f7300b + "', key='" + this.c + "', from=" + this.d + ", to=" + this.e + ", urls=" + this.g + '}';
+            return "Extra{flag=" + this.f7301a + ", rawKey='" + this.f7302b + "', key='" + this.c + "', from=" + this.d + ", to=" + this.e + ", urls=" + this.g + '}';
         }
     }
 
@@ -267,11 +267,11 @@ public class i {
     }
 
     public String toString() {
-        return "Request{requestLine=" + this.f7297a + ", headers=" + this.f7298b + ", extra=" + this.c + '}';
+        return "Request{requestLine=" + this.f7299a + ", headers=" + this.f7300b + ", extra=" + this.c + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class d extends Exception {
         d(String str) {
             super(str);

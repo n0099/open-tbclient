@@ -14,7 +14,7 @@ import com.kwad.sdk.glide.load.d;
 import com.kwad.sdk.glide.load.engine.h;
 import com.kwad.sdk.glide.load.resource.bitmap.DownsampleStrategy;
 import com.kwad.sdk.glide.request.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b<TranscodeType> extends f<TranscodeType> implements Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(@NonNull com.kwad.sdk.glide.c cVar, @NonNull g gVar, @NonNull Class<TranscodeType> cls, @NonNull Context context) {

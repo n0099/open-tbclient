@@ -15,7 +15,7 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements g<T>
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qdS.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
+        this.qnW.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
     }
 
     /* loaded from: classes5.dex */
@@ -51,7 +51,7 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements g<T>
                 try {
                     this.onDrop.accept(t);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.O(th);
+                    io.reactivex.exceptions.a.N(th);
                     cancel();
                     onError(th);
                 }

@@ -6,7 +6,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DeviceInfo {
     @SuppressLint({"MissingPermission"})
     public static String getDeviceId(Context context) {

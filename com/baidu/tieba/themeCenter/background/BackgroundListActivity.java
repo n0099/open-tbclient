@@ -9,38 +9,38 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tieba.themeCenter.background.BackgroundListModel;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BackgroundListActivity extends BaseActivity<BackgroundListActivity> {
     private TbPageContext<?> mPageContext;
-    d nwD;
-    private BackgroundListModel nxc;
-    private f nxd;
-    private BackgroundListModel.a nxe = new BackgroundListModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundListActivity.1
+    private BackgroundListModel nGM;
+    private f nGN;
+    d nGn;
+    private BackgroundListModel.a nGO = new BackgroundListModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundListActivity.1
         @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.a
         public void a(int i, String str, com.baidu.tieba.themeCenter.dressCenter.e eVar, List<DressItemData> list) {
-            BackgroundListActivity.this.nxd.bQX();
-            BackgroundListActivity.this.hideLoadingView(BackgroundListActivity.this.nxd.getRootView());
+            BackgroundListActivity.this.nGN.bRB();
+            BackgroundListActivity.this.hideLoadingView(BackgroundListActivity.this.nGN.getRootView());
             if (i == 0) {
-                BackgroundListActivity.this.nxd.a(eVar, list, BackgroundListActivity.this.nxc.dOU());
+                BackgroundListActivity.this.nGN.a(eVar, list, BackgroundListActivity.this.nGM.dRf());
                 return;
             }
             BackgroundListActivity.this.showToast(str);
-            BackgroundListActivity.this.nxd.czw();
+            BackgroundListActivity.this.nGN.cAH();
         }
     };
-    private BdListView.e gyE = new BdListView.e() { // from class: com.baidu.tieba.themeCenter.background.BackgroundListActivity.2
+    private BdListView.e gBo = new BdListView.e() { // from class: com.baidu.tieba.themeCenter.background.BackgroundListActivity.2
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (BackgroundListActivity.this.nxc != null) {
-                BackgroundListActivity.this.nxc.dOT();
+            if (BackgroundListActivity.this.nGM != null) {
+                BackgroundListActivity.this.nGM.dRe();
             }
         }
     };
-    private final f.c gEB = new f.c() { // from class: com.baidu.tieba.themeCenter.background.BackgroundListActivity.3
+    private final f.c gHl = new f.c() { // from class: com.baidu.tieba.themeCenter.background.BackgroundListActivity.3
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
-            if (BackgroundListActivity.this.nxc != null) {
-                BackgroundListActivity.this.nxc.LoadData();
+            if (BackgroundListActivity.this.nGM != null) {
+                BackgroundListActivity.this.nGM.LoadData();
             }
         }
     };
@@ -51,14 +51,14 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         super.onCreate(bundle);
         TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
         this.mPageContext = getPageContext();
-        this.nxc = new BackgroundListModel(this);
-        this.nxc.a(this.nxe);
-        this.nwD = new d(this.mPageContext, this.nxc.getUniqueId());
-        this.nwD.setFrom(0);
-        this.nxd = new f(this, this.nwD);
-        this.nxd.a(this.gyE, this.gEB);
-        showLoadingView(this.nxd.getRootView());
-        this.nxc.LoadData();
+        this.nGM = new BackgroundListModel(this);
+        this.nGM.a(this.nGO);
+        this.nGn = new d(this.mPageContext, this.nGM.getUniqueId());
+        this.nGn.setFrom(0);
+        this.nGN = new f(this, this.nGn);
+        this.nGN.a(this.gBo, this.gHl);
+        showLoadingView(this.nGN.getRootView());
+        this.nGM.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -67,8 +67,8 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         super.onResume();
         if (TbadkCoreApplication.getInst().getThemeWebviewOpen()) {
             TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
-            showLoadingView(this.nxd.getRootView());
-            this.nxc.LoadData();
+            showLoadingView(this.nGN.getRootView());
+            this.nGM.LoadData();
         }
     }
 
@@ -76,8 +76,8 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nxd != null) {
-            this.nxd.byV();
+        if (this.nGN != null) {
+            this.nGN.bzn();
         }
     }
 
@@ -85,22 +85,22 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.nxc != null) {
-            this.nxc.destroy();
+        if (this.nGM != null) {
+            this.nGM.destroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nxc != null && this.nxd != null) {
-            showLoadingView(this.nxd.getRootView());
-            this.nxc.LoadData();
+        if (this.nGM != null && this.nGN != null) {
+            showLoadingView(this.nGN.getRootView());
+            this.nGM.LoadData();
         }
     }
 
     public int getPropId() {
-        return this.nwD.getPropId();
+        return this.nGn.getPropId();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a

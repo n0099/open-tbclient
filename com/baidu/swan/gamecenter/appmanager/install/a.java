@@ -13,15 +13,15 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.storage.c.h;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean vt(String str) {
-        return ak(str, false);
+    public static boolean vM(String str) {
+        return aj(str, false);
     }
 
-    public static boolean ak(String str, boolean z) {
+    public static boolean aj(String str, boolean z) {
         if (DEBUG) {
             Log.e("GameCenterApkUtil", "call installApk filePath = " + str);
         }
@@ -86,7 +86,7 @@ public class a {
         }
     }
 
-    public static boolean au(Context context, String str) {
+    public static boolean as(Context context, String str) {
         if (context != null) {
             try {
                 if (context.getPackageManager() != null) {
@@ -100,7 +100,7 @@ public class a {
         return false;
     }
 
-    public static boolean aw(Context context, String str) {
+    public static boolean au(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
@@ -153,57 +153,57 @@ public class a {
         return true;
     }
 
-    public static void hT(boolean z) {
-        h.aLO().edit().putBoolean("install_guide_switch_key", z).apply();
+    public static void hV(boolean z) {
+        h.aMh().edit().putBoolean("install_guide_switch_key", z).apply();
     }
 
-    public static boolean aTg() {
-        return h.aLO().getBoolean("install_guide_switch_key", true);
+    public static boolean aTs() {
+        return h.aMh().getBoolean("install_guide_switch_key", true);
     }
 
-    public static void aTh() {
-        h.aLO().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
+    public static void aTt() {
+        h.aMh().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
     }
 
-    public static long aTi() {
-        return h.aLO().getLong("install_authorize_guide_time_key", 0L);
+    public static long aTu() {
+        return h.aMh().getLong("install_authorize_guide_time_key", 0L);
     }
 
-    public static void aTj() {
-        h.aLO().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
+    public static void aTv() {
+        h.aMh().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
     }
 
-    public static long aTk() {
-        return h.aLO().getLong("install_continue_guide_time_key", 0L);
+    public static long aTw() {
+        return h.aMh().getLong("install_continue_guide_time_key", 0L);
     }
 
-    public static boolean vu(String str) {
-        return (System.currentTimeMillis() / 86400000) - ((TextUtils.equals(str, "authorize") ? aTi() : aTk()) / 86400000) > 0;
+    public static boolean vN(String str) {
+        return (System.currentTimeMillis() / 86400000) - ((TextUtils.equals(str, "authorize") ? aTu() : aTw()) / 86400000) > 0;
     }
 
-    public static String avp() {
+    public static String avN() {
         return (Build.VERSION.SDK_INT < 26 || AppRuntime.getAppContext().getPackageManager().canRequestPackageInstalls()) ? "continue" : "authorize";
     }
 
-    public static boolean vv(String str) {
-        return aTg() && vu(str) && aTl() < aTn();
+    public static boolean vO(String str) {
+        return aTs() && vN(str) && aTx() < aTz();
     }
 
-    public static int aTl() {
-        return h.aLO().getInt("install_guide_count_key", 0);
+    public static int aTx() {
+        return h.aMh().getInt("install_guide_count_key", 0);
     }
 
-    public static void aTm() {
-        h.aLO().edit().putInt("install_guide_count_key", h.aLO().getInt("install_guide_count_key", 0) + 1).apply();
+    public static void aTy() {
+        h.aMh().edit().putInt("install_guide_count_key", h.aMh().getInt("install_guide_count_key", 0) + 1).apply();
     }
 
-    public static int aTn() {
-        return h.aLO().getInt("install_guide_max_count_key", 3);
+    public static int aTz() {
+        return h.aMh().getInt("install_guide_max_count_key", 3);
     }
 
-    public static void kP(int i) {
+    public static void kS(int i) {
         if (i > 0) {
-            h.aLO().edit().putInt("install_guide_max_count_key", i).apply();
+            h.aMh().edit().putInt("install_guide_max_count_key", i).apply();
         }
     }
 }

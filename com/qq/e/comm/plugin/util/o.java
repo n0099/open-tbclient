@@ -42,15 +42,15 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class o {
     private static String c;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f12587a = "";
+    private static String f12589a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f12588b = "";
+    private static String f12590b = "";
     private static String d = "";
 
     public static Pair<Integer, Integer> a() {
@@ -77,7 +77,7 @@ public class o {
         BufferedReader bufferedReader;
         try {
             StringBuilder sb = new StringBuilder();
-            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(str), com.qq.e.comm.plugin.f.a.f11990a));
+            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(str), com.qq.e.comm.plugin.f.a.f11992a));
             try {
                 String str2 = "";
                 for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
@@ -137,11 +137,11 @@ public class o {
 
     public static String b() {
         if (n()) {
-            if (TextUtils.isEmpty(f12587a)) {
-                f12587a = com.qq.e.comm.plugin.h.b.IMEI.a().b(GDTADManager.getInstance().getAppContext());
-                return f12587a;
+            if (TextUtils.isEmpty(f12589a)) {
+                f12589a = com.qq.e.comm.plugin.h.b.IMEI.a().b(GDTADManager.getInstance().getAppContext());
+                return f12589a;
             }
-            return f12587a;
+            return f12589a;
         }
         return null;
     }
@@ -198,11 +198,11 @@ public class o {
 
     public static String c() {
         if (n()) {
-            if (TextUtils.isEmpty(f12588b)) {
-                f12588b = com.qq.e.comm.plugin.h.b.IMEI1.a().b(GDTADManager.getInstance().getAppContext());
-                return f12588b;
+            if (TextUtils.isEmpty(f12590b)) {
+                f12590b = com.qq.e.comm.plugin.h.b.IMEI1.a().b(GDTADManager.getInstance().getAppContext());
+                return f12590b;
             }
-            return f12588b;
+            return f12590b;
         }
         return null;
     }

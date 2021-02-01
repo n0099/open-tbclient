@@ -2,55 +2,55 @@ package com.baidu.swan.apps.res.ui.wheelview3d.d;
 
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends TimerTask {
-    private float dyJ = 2.1474836E9f;
-    private final float dyK;
-    private final WheelView3d dyL;
+    private float dAO = 2.1474836E9f;
+    private final float dAP;
+    private final WheelView3d dAQ;
 
     public a(WheelView3d wheelView3d, float f) {
-        this.dyL = wheelView3d;
-        this.dyK = f;
+        this.dAQ = wheelView3d;
+        this.dAP = f;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
-        if (this.dyJ == 2.1474836E9f) {
-            if (Math.abs(this.dyK) > 2000.0f) {
-                this.dyJ = this.dyK <= 0.0f ? -2000.0f : 2000.0f;
+        if (this.dAO == 2.1474836E9f) {
+            if (Math.abs(this.dAP) > 2000.0f) {
+                this.dAO = this.dAP <= 0.0f ? -2000.0f : 2000.0f;
             } else {
-                this.dyJ = this.dyK;
+                this.dAO = this.dAP;
             }
         }
-        if (Math.abs(this.dyJ) >= 0.0f && Math.abs(this.dyJ) <= 20.0f) {
-            this.dyL.aHk();
-            this.dyL.getHandler().sendEmptyMessage(2000);
+        if (Math.abs(this.dAO) >= 0.0f && Math.abs(this.dAO) <= 20.0f) {
+            this.dAQ.aHD();
+            this.dAQ.getHandler().sendEmptyMessage(2000);
             return;
         }
-        int i = (int) (this.dyJ / 100.0f);
-        this.dyL.setTotalScrollY(this.dyL.getTotalScrollY() - i);
-        if (!this.dyL.aHm()) {
-            float itemHeight = this.dyL.getItemHeight();
-            float f = (-this.dyL.getInitPosition()) * itemHeight;
-            float itemsCount = ((this.dyL.getItemsCount() - 1) - this.dyL.getInitPosition()) * itemHeight;
-            if (this.dyL.getTotalScrollY() - (itemHeight * 0.25d) < f) {
-                f = this.dyL.getTotalScrollY() + i;
-            } else if (this.dyL.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
-                itemsCount = this.dyL.getTotalScrollY() + i;
+        int i = (int) (this.dAO / 100.0f);
+        this.dAQ.setTotalScrollY(this.dAQ.getTotalScrollY() - i);
+        if (!this.dAQ.aHF()) {
+            float itemHeight = this.dAQ.getItemHeight();
+            float f = (-this.dAQ.getInitPosition()) * itemHeight;
+            float itemsCount = ((this.dAQ.getItemsCount() - 1) - this.dAQ.getInitPosition()) * itemHeight;
+            if (this.dAQ.getTotalScrollY() - (itemHeight * 0.25d) < f) {
+                f = this.dAQ.getTotalScrollY() + i;
+            } else if (this.dAQ.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
+                itemsCount = this.dAQ.getTotalScrollY() + i;
             }
-            if (this.dyL.getTotalScrollY() <= f) {
-                this.dyJ = 40.0f;
-                this.dyL.setTotalScrollY((int) f);
-            } else if (this.dyL.getTotalScrollY() >= itemsCount) {
-                this.dyL.setTotalScrollY((int) itemsCount);
-                this.dyJ = -40.0f;
+            if (this.dAQ.getTotalScrollY() <= f) {
+                this.dAO = 40.0f;
+                this.dAQ.setTotalScrollY((int) f);
+            } else if (this.dAQ.getTotalScrollY() >= itemsCount) {
+                this.dAQ.setTotalScrollY((int) itemsCount);
+                this.dAO = -40.0f;
             }
         }
-        if (this.dyJ < 0.0f) {
-            this.dyJ += 20.0f;
+        if (this.dAO < 0.0f) {
+            this.dAO += 20.0f;
         } else {
-            this.dyJ -= 20.0f;
+            this.dAO -= 20.0f;
         }
-        this.dyL.getHandler().sendEmptyMessage(1000);
+        this.dAQ.getHandler().sendEmptyMessage(1000);
     }
 }

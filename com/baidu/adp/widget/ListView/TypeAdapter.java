@@ -120,8 +120,8 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
             } else {
                 aVar = this.mDelegateAdapters.valueAt(itemViewType);
             }
-            if (aVar != null && aVar.qr() != null) {
-                aVar.qr().a(view, item, aVar.getType(), viewGroup, i, j);
+            if (aVar != null && aVar.qp() != null) {
+                aVar.qp().a(view, item, aVar.getType(), viewGroup, i, j);
             }
         }
     }
@@ -138,10 +138,10 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         } else {
             aVar = this.mDelegateAdapters.valueAt(itemViewType);
         }
-        if (aVar == null || aVar.qs() == null) {
+        if (aVar == null || aVar.qq() == null) {
             return false;
         }
-        return aVar.qs().b(view, item, aVar.getType(), viewGroup, i, j);
+        return aVar.qq().b(view, item, aVar.getType(), viewGroup, i, j);
     }
 
     @Override // com.baidu.adp.widget.ListView.r

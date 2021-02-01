@@ -62,7 +62,7 @@ public final class MaybeOnErrorNext<T> extends a<T, T> {
                 DisposableHelper.replace(this, null);
                 oVar.a(new a(this.actual, this));
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.O(th2);
+                io.reactivex.exceptions.a.N(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

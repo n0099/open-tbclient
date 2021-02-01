@@ -2,12 +2,12 @@ package com.yxcorp.kuaishou.addfp.android;
 
 import android.content.Context;
 import com.yxcorp.kuaishou.addfp.android.b.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Orange {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f14380a = true;
-    private static volatile Orange qbT;
+    private static boolean f14382a = true;
+    private static volatile Orange qlX;
 
     private Orange() {
         e();
@@ -16,28 +16,28 @@ public class Orange {
     private void e() {
         try {
             System.loadLibrary("sgcore");
-            f14380a = false;
+            f14382a = false;
             b.b("so loaded");
         } catch (Throwable th) {
             b.b("so load failed");
-            f14380a = true;
+            f14382a = true;
             b.a(th);
         }
     }
 
-    public static Orange eHk() {
-        if (qbT == null) {
+    public static Orange eJA() {
+        if (qlX == null) {
             synchronized (Orange.class) {
-                if (qbT == null) {
-                    qbT = new Orange();
+                if (qlX == null) {
+                    qlX = new Orange();
                 }
             }
         }
-        return qbT;
+        return qlX;
     }
 
     private boolean f() {
-        return f14380a;
+        return f14382a;
     }
 
     private static native String getClock(Context context, byte[] bArr, int i);

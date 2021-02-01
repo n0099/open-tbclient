@@ -3,24 +3,24 @@ package com.meizu.cloud.pushsdk.c.d;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f11282a = b.class.getName();
+    private static final String f11284a = b.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static b f11283b;
+    private static b f11285b;
 
     private b(Context context, String str) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, 1);
     }
 
     public static b a(Context context, String str) {
-        if (f11283b == null) {
-            f11283b = new b(context.getApplicationContext(), str);
+        if (f11285b == null) {
+            f11285b = new b(context.getApplicationContext(), str);
         }
-        return f11283b;
+        return f11285b;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -30,7 +30,7 @@ public class b extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        com.meizu.cloud.pushsdk.c.f.c.b(f11282a, "Upgrading database from version " + i + " to " + i2 + ". Destroying old data now..", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.b(f11284a, "Upgrading database from version " + i + " to " + i2 + ". Destroying old data now..", new Object[0]);
         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS 'events'");
         onCreate(sQLiteDatabase);
     }

@@ -3,7 +3,6 @@ package com.ksad.download;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserView;
 import com.ksad.download.DownloadTask;
 import com.ksad.download.h;
 import com.kwai.filedownloader.q;
@@ -11,31 +10,31 @@ import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     private c c;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<Integer, DownloadTask> f7914a = new ConcurrentHashMap();
+    private final Map<Integer, DownloadTask> f7916a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, Integer> f7915b = new ConcurrentHashMap();
+    private final Map<String, Integer> f7917b = new ConcurrentHashMap();
     private boolean d = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final d f7916a = new d();
+        private static final d f7918a = new d();
     }
 
     public static d a() {
-        return a.f7916a;
+        return a.f7918a;
     }
 
     private void a(int i, DownloadTask.DownloadRequest downloadRequest) {
-        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7916a.get(Integer.valueOf(i));
         if (downloadTask != null) {
             downloadTask.resume(downloadRequest);
         }
@@ -46,7 +45,7 @@ public class d {
         b.a(context);
         b.a(file);
         e.a().a(fVar);
-        c.a a2 = new c.a().a(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        c.a a2 = new c.a().a(Integer.MAX_VALUE);
         try {
             aVar = new h.a(false);
         } catch (Throwable th) {
@@ -65,13 +64,13 @@ public class d {
         } else if (this.d) {
             c();
         }
-        if (this.f7914a.get(Integer.valueOf(downloadTask.getId())) != null) {
+        if (this.f7916a.get(Integer.valueOf(downloadTask.getId())) != null) {
             a(downloadTask.getId(), downloadRequest);
             b(downloadTask.getId());
             a(downloadTask.getId(), cVar, this.c);
         } else {
-            this.f7914a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
-            this.f7915b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
+            this.f7916a.put(Integer.valueOf(downloadTask.getId()), downloadTask);
+            this.f7917b.put(downloadTask.getUrl(), Integer.valueOf(downloadTask.getId()));
             downloadTask.submit();
             a(downloadTask.getId(), cVar, this.c);
         }
@@ -79,11 +78,11 @@ public class d {
     }
 
     public DownloadTask a(int i) {
-        return this.f7914a.get(Integer.valueOf(i));
+        return this.f7916a.get(Integer.valueOf(i));
     }
 
     public void a(int i, c... cVarArr) {
-        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7916a.get(Integer.valueOf(i));
         if (downloadTask == null || cVarArr == null) {
             return;
         }
@@ -96,8 +95,8 @@ public class d {
     }
 
     void a(@NonNull DownloadTask downloadTask) {
-        this.f7914a.remove(Integer.valueOf(downloadTask.getId()));
-        this.f7915b.remove(downloadTask.getUrl());
+        this.f7916a.remove(Integer.valueOf(downloadTask.getId()));
+        this.f7917b.remove(downloadTask.getUrl());
     }
 
     public void a(c cVar) {
@@ -113,13 +112,13 @@ public class d {
             aVar = null;
         }
         if (aVar != null) {
-            com.kwai.filedownloader.download.b.a().b(new c.a().a(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED).a(aVar));
+            com.kwai.filedownloader.download.b.a().b(new c.a().a(Integer.MAX_VALUE).a(aVar));
             this.d = true;
         }
     }
 
     public void b(int i) {
-        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7916a.get(Integer.valueOf(i));
         if (downloadTask != null) {
             downloadTask.clearListener();
         }
@@ -134,12 +133,12 @@ public class d {
             aVar = null;
         }
         if (aVar != null) {
-            com.kwai.filedownloader.download.b.a().b(new c.a().a(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED).a(aVar));
+            com.kwai.filedownloader.download.b.a().b(new c.a().a(Integer.MAX_VALUE).a(aVar));
         }
     }
 
     public void c(int i) {
-        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7916a.get(Integer.valueOf(i));
         if (downloadTask != null) {
             downloadTask.cancel();
             a(downloadTask);
@@ -147,7 +146,7 @@ public class d {
     }
 
     public void d(int i) {
-        DownloadTask downloadTask = this.f7914a.get(Integer.valueOf(i));
+        DownloadTask downloadTask = this.f7916a.get(Integer.valueOf(i));
         if (downloadTask != null) {
             downloadTask.userPause();
         }
@@ -156,7 +155,7 @@ public class d {
     public boolean d() {
         boolean z;
         boolean z2 = false;
-        for (Map.Entry<Integer, DownloadTask> entry : this.f7914a.entrySet()) {
+        for (Map.Entry<Integer, DownloadTask> entry : this.f7916a.entrySet()) {
             DownloadTask value = entry.getValue();
             if (value != null) {
                 switch (value.getStatus()) {

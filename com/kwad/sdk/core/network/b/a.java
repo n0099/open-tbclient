@@ -4,7 +4,7 @@ import com.kwad.sdk.core.network.c;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a implements AdHttpProxy<c> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy

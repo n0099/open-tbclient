@@ -1,5 +1,5 @@
 package com.kwad.sdk.crash;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CrashCollectorDebugException extends RuntimeException {
     private static final long serialVersionUID = 1399252913079385944L;
 

@@ -22,11 +22,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static final String TAG = "PushMessageReceiver";
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private static class a extends Handler {
         protected final WeakReference<Context> d;
 
@@ -37,7 +37,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum b {
         MSG_PASS(1),
         MSG_ARRIVED(2),

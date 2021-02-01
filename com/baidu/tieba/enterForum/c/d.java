@@ -6,63 +6,63 @@ import com.baidu.card.view.RecommendForumLayout;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 /* loaded from: classes2.dex */
 public class d {
-    private RecommendForumLayout iLT;
+    private RecommendForumLayout iRB;
     private TbPageContext<?> mPageContext;
-    private View.OnClickListener iJD = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.d.1
+    private View.OnClickListener iPl = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
         }
     };
-    private PullLeftRefreshLayout.a amj = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.c.d.2
+    private PullLeftRefreshLayout.a alZ = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.enterForum.c.d.2
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-        public void bGC() {
+        public void bGW() {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
         }
     };
-    private com.baidu.tbadk.h.f ajB = new com.baidu.tbadk.h.f<bl>() { // from class: com.baidu.tieba.enterForum.c.d.3
+    private com.baidu.tbadk.h.f ajq = new com.baidu.tbadk.h.f<bn>() { // from class: com.baidu.tieba.enterForum.c.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.h.f
-        public void a(View view, bl blVar, int i, long j) {
-            if (blVar == null) {
+        public void a(View view, bn bnVar, int i, long j) {
+            if (bnVar == null) {
                 com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
                 return;
             }
-            String forumName = blVar.getForumName();
-            if (at.isForumName(forumName)) {
+            String forumName = bnVar.getForumName();
+            if (au.isForumName(forumName)) {
                 d.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(d.this.mPageContext.getPageActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.h.f
-        public void b(View view, bl blVar, int i, long j) {
+        public void b(View view, bn bnVar, int i, long j) {
         }
     };
 
     public d(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.iLT = new RecommendForumLayout(tbPageContext);
-        this.iLT.setShowMore(true);
-        this.iLT.setSquareEntranceAtStart(true);
-        this.iLT.setTabName(null);
-        this.iLT.setFrom(0);
-        this.iLT.setOnClickRightArrowListener(this.iJD);
-        this.iLT.setOnRullOkCallbackr(this.amj);
-        this.iLT.setOnItemCoverListener(this.ajB);
+        this.iRB = new RecommendForumLayout(tbPageContext);
+        this.iRB.setShowMore(true);
+        this.iRB.setSquareEntranceAtStart(true);
+        this.iRB.setTabName(null);
+        this.iRB.setFrom(0);
+        this.iRB.setOnClickRightArrowListener(this.iPl);
+        this.iRB.setOnRullOkCallbackr(this.alZ);
+        this.iRB.setOnItemCoverListener(this.ajq);
     }
 
-    public RecommendForumLayout cwH() {
-        return this.iLT;
+    public RecommendForumLayout cxT() {
+        return this.iRB;
     }
 
-    public void d(bm bmVar) {
-        this.iLT.b(bmVar);
+    public void d(bo boVar) {
+        this.iRB.b(boVar);
     }
 }

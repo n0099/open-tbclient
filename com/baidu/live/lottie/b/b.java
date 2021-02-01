@@ -14,13 +14,13 @@ import com.baidu.live.lottie.i;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final Object EV = new Object();
     private String EW;
     private final Map<String, i> EY;
     @Nullable
-    private c bpK;
+    private c btl;
     private final Context context;
 
     public b(Drawable.Callback callback, String str, c cVar, Map<String, i> map) {
@@ -40,7 +40,7 @@ public class b {
     }
 
     public void a(@Nullable c cVar) {
-        this.bpK = cVar;
+        this.btl = cVar;
     }
 
     @Nullable
@@ -64,8 +64,8 @@ public class b {
         if (bitmap != null) {
             return bitmap;
         }
-        if (this.bpK != null) {
-            Bitmap fetchBitmap = this.bpK.fetchBitmap(iVar);
+        if (this.btl != null) {
+            Bitmap fetchBitmap = this.btl.fetchBitmap(iVar);
             if (fetchBitmap != null) {
                 b(str, fetchBitmap);
                 return fetchBitmap;

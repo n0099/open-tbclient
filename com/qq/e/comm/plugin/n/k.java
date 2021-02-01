@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.plugin.util.ak;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class k extends RelativeLayout {
     public k(Context context) {
         this(context, null);

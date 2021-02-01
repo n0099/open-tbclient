@@ -11,9 +11,9 @@ import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class XfremodeRoundLayout extends RelativeLayout {
-    private Shape eTI;
+    private Shape eVY;
     private Paint mPaint;
     private float[] mRadius;
 
@@ -45,21 +45,21 @@ public class XfremodeRoundLayout extends RelativeLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.eTI == null) {
+            if (this.eVY == null) {
                 RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
-                this.eTI = new RoundRectShape(fArr, rectF, this.mRadius);
+                this.eVY = new RoundRectShape(fArr, rectF, this.mRadius);
             }
-            this.eTI.resize(getWidth(), getHeight());
+            this.eVY.resize(getWidth(), getHeight());
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.eTI != null) {
-            this.eTI.draw(canvas, this.mPaint);
+        if (this.eVY != null) {
+            this.eVY.draw(canvas, this.mPaint);
         }
     }
 }

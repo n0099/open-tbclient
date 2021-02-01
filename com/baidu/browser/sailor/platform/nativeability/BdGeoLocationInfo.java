@@ -3,7 +3,7 @@ package com.baidu.browser.sailor.platform.nativeability;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import com.baidu.browser.core.INoProGuard;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class BdGeoLocationInfo implements INoProGuard {
     public static final String COOR_TYPE_GCJ = "gcj02";
     private double mLongitude = 0.0d;

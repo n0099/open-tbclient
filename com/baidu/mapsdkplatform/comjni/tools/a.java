@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.mapapi.model.inner.Point;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static double a(Point point, Point point2) {
         Bundle bundle = new Bundle();
@@ -28,7 +28,7 @@ public class a {
         if (bundle2 != null) {
             Bundle bundle3 = bundle2.getBundle("ll");
             if (bundle3 != null) {
-                aVar.f2829b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
+                aVar.f2827b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
             }
             Bundle bundle4 = bundle2.getBundle("ru");
             if (bundle4 != null) {
@@ -54,7 +54,7 @@ public class a {
             }
         }
         aVar.d.trimToSize();
-        aVar.f2828a = (int) bundle.getDouble("type");
+        aVar.f2826a = (int) bundle.getDouble("type");
         return aVar;
     }
 

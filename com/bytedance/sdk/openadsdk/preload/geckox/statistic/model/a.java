@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.statistic.model;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     public long A;
     public boolean B;
@@ -13,10 +13,10 @@ public class a {
     public String F;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7515a;
+    public String f7517a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7516b;
+    public String f7518b;
     public String c;
     public String d;
     public long f;

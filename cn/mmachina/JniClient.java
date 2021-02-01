@@ -2,7 +2,7 @@ package cn.mmachina;
 
 import android.content.Context;
 import com.tencent.ams.a.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class JniClient {
 
     /* renamed from: a  reason: collision with root package name */

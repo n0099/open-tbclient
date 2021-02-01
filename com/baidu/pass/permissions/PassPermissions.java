@@ -4,15 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PassPermissions implements com.baidu.pass.a {
     public static final String TAG = "PassPermissions";
 
     /* renamed from: a  reason: collision with root package name */
-    private static PassPermissions f4108a;
+    private static PassPermissions f4111a;
 
     /* renamed from: b  reason: collision with root package name */
-    private PermissionsDTO f4109b;
+    private PermissionsDTO f4112b;
     private PermissionsCallback c;
 
     private PassPermissions() {
@@ -37,10 +37,10 @@ public class PassPermissions implements com.baidu.pass.a {
     public static synchronized PassPermissions getInstance() {
         PassPermissions passPermissions;
         synchronized (PassPermissions.class) {
-            if (f4108a == null) {
-                f4108a = new PassPermissions();
+            if (f4111a == null) {
+                f4111a = new PassPermissions();
             }
-            passPermissions = f4108a;
+            passPermissions = f4111a;
         }
         return passPermissions;
     }
@@ -50,13 +50,13 @@ public class PassPermissions implements com.baidu.pass.a {
     }
 
     public PermissionsDTO getPermissionsDTO() {
-        return this.f4109b;
+        return this.f4112b;
     }
 
     public void requestPermissions(PermissionsDTO permissionsDTO, final PermissionsCallback permissionsCallback) {
         String[] strArr;
         if (permissionsDTO != null && permissionsDTO.context != null && (strArr = permissionsDTO.permissions) != null && strArr.length != 0 && permissionsCallback != null) {
-            this.f4109b = permissionsDTO;
+            this.f4112b = permissionsDTO;
             this.c = new PermissionsCallback() { // from class: com.baidu.pass.permissions.PassPermissions.1
                 @Override // com.baidu.pass.permissions.PermissionsCallback
                 public void onFailure(int i) {
@@ -94,7 +94,7 @@ public class PassPermissions implements com.baidu.pass.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(String... strArr) {
         for (String str : strArr) {
-            if (!checkRequestPermission(str, this.f4109b.context)) {
+            if (!checkRequestPermission(str, this.f4112b.context)) {
                 return false;
             }
         }
@@ -103,8 +103,8 @@ public class PassPermissions implements com.baidu.pass.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.f4109b = null;
+        this.f4112b = null;
         this.c = null;
-        f4108a = null;
+        f4111a = null;
     }
 }

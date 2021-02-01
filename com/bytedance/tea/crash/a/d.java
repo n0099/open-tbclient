@@ -1,9 +1,9 @@
 package com.bytedance.tea.crash.a;
 
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class d implements Runnable {
-    private final c plj;
+    private final c pvy;
     private volatile boolean c = false;
     private Runnable d = new Runnable() { // from class: com.bytedance.tea.crash.a.d.1
         @Override // java.lang.Runnable
@@ -13,14 +13,14 @@ public class d implements Runnable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private long f7613a = a();
+    private long f7615a = a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.plj = cVar;
+        this.pvy = cVar;
         com.bytedance.tea.crash.e.g.a(2L);
-        com.bytedance.tea.crash.e.f.eoH().a(4500L, this.d);
-        com.bytedance.tea.crash.e.f.eoH().a(5000L, this, 40, 5000L);
+        com.bytedance.tea.crash.e.f.eqZ().a(4500L, this.d);
+        com.bytedance.tea.crash.e.f.eqZ().a(5000L, this, 40, 5000L);
     }
 
     @Override // java.lang.Runnable
@@ -34,7 +34,7 @@ public class d implements Runnable {
             } else {
                 i = 100;
             }
-            if (this.plj.a(i, str, 25)) {
+            if (this.pvy.a(i, str, 25)) {
                 this.c = true;
             }
         }

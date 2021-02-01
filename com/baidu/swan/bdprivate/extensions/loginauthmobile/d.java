@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.swan.apps.statistic.a.f;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -18,7 +18,7 @@ public class d {
             fVar.mValue = str3;
         }
         fVar.mAppId = str5;
-        fVar.t("source", str4);
+        fVar.r("source", str4);
         if (DEBUG) {
             Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + fVar.toJSONObject());
         }

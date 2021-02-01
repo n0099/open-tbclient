@@ -24,10 +24,10 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DeviceUtils implements IDevices {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class OSInfo {
         public static String getOS() {
             return "Android";
@@ -138,7 +138,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ScreenInfo {
         private static final int STANDARD_STATUSBAR_HEIGHT = 50;
         private static int originDensityDip = 0;
@@ -294,7 +294,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";

@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AlaBroadcastGiftToastData extends n implements Parcelable {
+public class AlaBroadcastGiftToastData extends o implements Parcelable {
     public static final Parcelable.Creator<AlaBroadcastGiftToastData> CREATOR = new Parcelable.Creator<AlaBroadcastGiftToastData>() { // from class: com.baidu.tbadk.core.data.AlaBroadcastGiftToastData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -17,7 +17,7 @@ public class AlaBroadcastGiftToastData extends n implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mQ */
+        /* renamed from: mT */
         public AlaBroadcastGiftToastData[] newArray(int i) {
             return new AlaBroadcastGiftToastData[i];
         }
@@ -45,7 +45,7 @@ public class AlaBroadcastGiftToastData extends n implements Parcelable {
         this.thumbnail_url = parcel.readString();
     }
 
-    @Override // com.baidu.tbadk.core.data.n
+    @Override // com.baidu.tbadk.core.data.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.live_id = jSONObject.optLong("live_id", 0L);

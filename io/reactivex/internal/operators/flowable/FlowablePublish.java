@@ -17,12 +17,12 @@ import org.a.d;
 public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
     final int bufferSize;
     final AtomicReference<PublishSubscriber<T>> current;
-    final g<T> qdS;
-    final org.a.b<T> qeo;
+    final g<T> qnW;
+    final org.a.b<T> qos;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qeo.subscribe(cVar);
+        this.qos.subscribe(cVar);
     }
 
     @Override // io.reactivex.a.a
@@ -43,11 +43,11 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
         try {
             gVar.accept(publishSubscriber);
             if (z) {
-                this.qdS.a((j) publishSubscriber);
+                this.qnW.a((j) publishSubscriber);
             }
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.O(th);
-            throw ExceptionHelper.Q(th);
+            io.reactivex.exceptions.a.N(th);
+            throw ExceptionHelper.P(th);
         }
     }
 
@@ -247,7 +247,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
                                 try {
                                     t = fVar.poll();
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.O(th);
+                                    io.reactivex.exceptions.a.N(th);
                                     this.s.get().cancel();
                                     obj2 = NotificationLite.error(th);
                                     this.terminalEvent = obj2;
@@ -267,7 +267,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
                                     try {
                                         t2 = fVar.poll();
                                     } catch (Throwable th2) {
-                                        io.reactivex.exceptions.a.O(th2);
+                                        io.reactivex.exceptions.a.N(th2);
                                         this.s.get().cancel();
                                         obj3 = NotificationLite.error(th2);
                                         this.terminalEvent = obj3;

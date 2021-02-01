@@ -1,16 +1,16 @@
 package com.baidu.tieba.enterForum.tabfeed.b;
 
 import com.baidu.adp.widget.ListView.n;
-import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bo;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b {
-    public c iJg;
+    public c iOO;
     public boolean hasMore = true;
-    public boolean akY = true;
-    public int iJf = 0;
+    public boolean akO = true;
+    public int iON = 0;
     public int refreshCount = 0;
-    public boolean gae = true;
-    public ArrayList<n> iJe = new ArrayList<>();
-    public bm iJd = new bm();
+    public boolean gcx = true;
+    public ArrayList<n> iOM = new ArrayList<>();
+    public bo iOL = new bo();
 }

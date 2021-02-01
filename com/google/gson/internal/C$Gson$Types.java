@@ -15,9 +15,9 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class C$Gson$Types {
-    static final Type[] pHM = new Type[0];
+    static final Type[] pRR = new Type[0];
 
     public static ParameterizedType b(Type type, Type type2, Type... typeArr) {
         return new ParameterizedTypeImpl(type, type2, typeArr);
@@ -28,7 +28,7 @@ public final class C$Gson$Types {
     }
 
     public static WildcardType j(Type type) {
-        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, pHM);
+        return new WildcardTypeImpl(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, pRR);
     }
 
     public static WildcardType k(Type type) {
@@ -321,7 +321,7 @@ public final class C$Gson$Types {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class ParameterizedTypeImpl implements Serializable, ParameterizedType {
         private static final long serialVersionUID = 0;
         private final Type ownerType;
@@ -383,7 +383,7 @@ public final class C$Gson$Types {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class GenericArrayTypeImpl implements Serializable, GenericArrayType {
         private static final long serialVersionUID = 0;
         private final Type componentType;
@@ -412,7 +412,7 @@ public final class C$Gson$Types {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.google.gson.internal.$Gson$Types$WildcardTypeImpl */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class WildcardTypeImpl implements Serializable, WildcardType {
         private static final long serialVersionUID = 0;
         private final Type lowerBound;
@@ -442,7 +442,7 @@ public final class C$Gson$Types {
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
-            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.pHM;
+            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.pRR;
         }
 
         public boolean equals(Object obj) {

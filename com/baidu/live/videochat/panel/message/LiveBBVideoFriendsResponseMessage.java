@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LiveBBVideoFriendsResponseMessage extends JsonHttpResponsedMessage {
-    private List<a> bNE;
+    private List<a> bRu;
     private boolean hasMore;
     private int pn;
 
@@ -24,7 +24,7 @@ public class LiveBBVideoFriendsResponseMessage extends JsonHttpResponsedMessage 
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.pn = optJSONObject.optInt(Config.PACKAGE_NAME);
             this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.bNE = new ArrayList();
+            this.bRu = new ArrayList();
             JSONArray optJSONArray = optJSONObject.optJSONArray("list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -32,7 +32,7 @@ public class LiveBBVideoFriendsResponseMessage extends JsonHttpResponsedMessage 
                     if (optJSONObject2 != null) {
                         a aVar = new a();
                         aVar.parserJson(optJSONObject2);
-                        this.bNE.add(aVar);
+                        this.bRu.add(aVar);
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class LiveBBVideoFriendsResponseMessage extends JsonHttpResponsedMessage 
         return this.hasMore;
     }
 
-    public List<a> Vt() {
-        return this.bNE;
+    public List<a> Xc() {
+        return this.bRu;
     }
 }

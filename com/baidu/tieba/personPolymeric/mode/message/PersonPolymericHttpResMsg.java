@@ -4,7 +4,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.person.b;
 import com.squareup.wire.Wire;
 import tbclient.Personal.PersonalResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonPolymericHttpResMsg extends TbHttpResponsedMessage {
     public PersonPolymericHttpResMsg() {
         super(1003181);

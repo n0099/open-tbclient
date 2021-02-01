@@ -3,17 +3,17 @@ package com.yxcorp.kuaishou.addfp;
 import android.content.Context;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class d implements com.yxcorp.kuaishou.addfp.a.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ Context f14393a;
-    private /* synthetic */ a qcc;
+    private /* synthetic */ Context f14395a;
+    private /* synthetic */ a qmg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, Context context) {
-        this.qcc = aVar;
-        this.f14393a = context;
+        this.qmg = aVar;
+        this.f14395a = context;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, IGET, CONSTRUCTOR, SGET, INVOKE, IF, SGET, CONST_STR, INVOKE, IF, SGET, INVOKE, MOVE_EXCEPTION, IGET, CONSTRUCTOR, SGET, INVOKE, IF, SGET, CONST_STR, INVOKE, IF, SGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -25,12 +25,12 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.a.a {
                 String b2 = aVar.b();
                 com.yxcorp.kuaishou.addfp.android.b.b.b("get OAID " + b2);
                 if (!TextUtils.isEmpty(b2)) {
-                    a.f14333a = b2;
+                    a.f14335a = b2;
                 }
             } else {
                 com.yxcorp.kuaishou.addfp.android.b.b.b("not support OAID");
             }
-            com.yxcorp.kuaishou.addfp.a.a.b.eHf().b();
+            com.yxcorp.kuaishou.addfp.a.a.b.eJv().b();
             if (aVar != null) {
                 try {
                 } catch (Throwable th) {
@@ -50,10 +50,10 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.a.a {
                         return;
                     }
                 }
-                if (TextUtils.isEmpty(a.f14333a) || a.f14333a.startsWith("KWE")) {
+                if (TextUtils.isEmpty(a.f14335a) || a.f14335a.startsWith("KWE")) {
                     return;
                 }
-                new com.yxcorp.kuaishou.addfp.android.a.e(this.f14393a).b(a.f14333a);
+                new com.yxcorp.kuaishou.addfp.android.a.e(this.f14395a).b(a.f14335a);
             } finally {
                 if (aVar != null) {
                     try {
@@ -61,8 +61,8 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.a.a {
                     } catch (Throwable th4) {
                     }
                 }
-                if (!TextUtils.isEmpty(a.f14333a) && !a.f14333a.startsWith("KWE")) {
-                    new com.yxcorp.kuaishou.addfp.android.a.e(this.f14393a).b(a.f14333a);
+                if (!TextUtils.isEmpty(a.f14335a) && !a.f14335a.startsWith("KWE")) {
+                    new com.yxcorp.kuaishou.addfp.android.a.e(this.f14395a).b(a.f14335a);
                 }
             }
         }

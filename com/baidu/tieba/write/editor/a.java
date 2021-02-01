@@ -3,40 +3,41 @@ package com.baidu.tieba.write.editor;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.ab;
-import com.baidu.tbadk.util.ac;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.util.ae;
+import com.baidu.tbadk.util.af;
+import com.baidu.tbadk.util.m;
+/* loaded from: classes8.dex */
 public class a {
 
     /* renamed from: com.baidu.tieba.write.editor.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0895a {
-        void KT(int i);
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0898a {
+        void Lo(int i);
     }
 
-    public static void a(final String str, final int i, final InterfaceC0895a interfaceC0895a) {
-        if (!StringUtils.isNull(str) && interfaceC0895a != null) {
+    public static void a(final String str, final int i, final InterfaceC0898a interfaceC0898a) {
+        if (!StringUtils.isNull(str) && interfaceC0898a != null) {
             final String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                ac.a(new ab<Integer>() { // from class: com.baidu.tieba.write.editor.a.1
+                af.a(new ae<Integer>() { // from class: com.baidu.tieba.write.editor.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX WARN: Can't rename method to resolve collision */
-                    @Override // com.baidu.tbadk.util.ab
+                    @Override // com.baidu.tbadk.util.ae
                     public Integer doInBackground() {
                         int i2 = i;
-                        l<String> Ab = com.baidu.tbadk.core.c.a.bpZ().Ab("tb.write_privacy_state_space" + currentAccount);
-                        if (Ab != null) {
-                            i2 = com.baidu.adp.lib.f.b.toInt(Ab.get(str), i);
+                        l<String> As = com.baidu.tbadk.core.c.a.bqr().As("tb.write_privacy_state_space" + currentAccount);
+                        if (As != null) {
+                            i2 = com.baidu.adp.lib.f.b.toInt(As.get(str), i);
                         }
                         return Integer.valueOf(i2);
                     }
-                }, new com.baidu.tbadk.util.l<Integer>() { // from class: com.baidu.tieba.write.editor.a.2
+                }, new m<Integer>() { // from class: com.baidu.tieba.write.editor.a.2
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tbadk.util.l
-                    /* renamed from: r */
+                    @Override // com.baidu.tbadk.util.m
+                    /* renamed from: s */
                     public void onReturnDataInUI(Integer num) {
-                        if (InterfaceC0895a.this != null) {
-                            InterfaceC0895a.this.KT(num.intValue());
+                        if (InterfaceC0898a.this != null) {
+                            InterfaceC0898a.this.Lo(num.intValue());
                         }
                     }
                 });
@@ -45,11 +46,11 @@ public class a {
     }
 
     public static void cb(String str, int i) {
-        l<String> Ab;
+        l<String> As;
         if (!StringUtils.isNull(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount) && (Ab = com.baidu.tbadk.core.c.a.bpZ().Ab("tb.write_privacy_state_space" + currentAccount)) != null) {
-                Ab.asyncSetForever(str, String.valueOf(i));
+            if (!StringUtils.isNull(currentAccount) && (As = com.baidu.tbadk.core.c.a.bqr().As("tb.write_privacy_state_space" + currentAccount)) != null) {
+                As.asyncSetForever(str, String.valueOf(i));
             }
         }
     }

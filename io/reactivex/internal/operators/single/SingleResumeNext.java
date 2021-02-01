@@ -46,7 +46,7 @@ public final class SingleResumeNext<T> extends w<T> {
             try {
                 ((aa) io.reactivex.internal.functions.a.m(this.nextFunction.apply(th), "The nextFunction returned a null SingleSource.")).a(new d(this, this.actual));
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.O(th2);
+                io.reactivex.exceptions.a.N(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

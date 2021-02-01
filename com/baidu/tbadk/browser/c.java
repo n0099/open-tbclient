@@ -32,15 +32,15 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.util.ai;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.util.al;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.s;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class c {
-    public static boolean eFf = true;
+    public static boolean eHl = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new CustomMessageListener(0) { // from class: com.baidu.tbadk.browser.c.1
@@ -52,9 +52,9 @@ public class c {
                 }
             }
         });
-        be.bsB().a(new be.c() { // from class: com.baidu.tbadk.browser.c.2
-            @Override // com.baidu.tbadk.core.util.be.c
-            public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, be.d dVar, boolean z2) {
+        bf.bsV().a(new bf.c() { // from class: com.baidu.tbadk.browser.c.2
+            @Override // com.baidu.tbadk.core.util.bf.c
+            public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, bf.d dVar, boolean z2) {
                 if (z2) {
                     c.b(tbPageContext, str2, null, false, true, true, true);
                 } else {
@@ -63,14 +63,14 @@ public class c {
             }
         });
         SwitchManager.getInstance().addSwitchData(new com.baidu.adp.lib.featureSwitch.b("switch_mbaidu_startup", 1, null));
-        bkd();
-        bke();
-        bkf();
+        bkv();
+        bkw();
+        bkx();
     }
 
-    private static void bkd() {
-        be.bsB().a(new be.a() { // from class: com.baidu.tbadk.browser.c.3
-            @Override // com.baidu.tbadk.core.util.be.a
+    private static void bkv() {
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tbadk.browser.c.3
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Bundle parserQuery;
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -86,14 +86,14 @@ public class c {
                 if (str.startsWith("tel:")) {
                     UtilHelper.callPhone(tbPageContext.getPageActivity(), str.substring(4));
                     return 0;
-                } else if (ai.DC(str) && str.toLowerCase().endsWith(".apk")) {
-                    c.aA(tbPageContext.getPageActivity(), str);
+                } else if (al.DY(str) && str.toLowerCase().endsWith(".apk")) {
+                    c.az(tbPageContext.getPageActivity(), str);
                     return 0;
                 } else if (str.contains("http://tieba.baidu.com/mo/q/hotMessage?topic_id=")) {
                     Uri parse = Uri.parse(str);
                     String queryParameter = parse.getQueryParameter("topic_id");
                     String queryParameter2 = parse.getQueryParameter("topic_name");
-                    if (TextUtils.isEmpty(queryParameter) || !com.baidu.tbadk.plugins.b.ln(true)) {
+                    if (TextUtils.isEmpty(queryParameter) || !com.baidu.tbadk.plugins.b.lq(true)) {
                         return 3;
                     }
                     String str4 = "";
@@ -106,7 +106,7 @@ public class c {
                     String substring = str.substring(4);
                     String str5 = "";
                     if (str.contains("body=")) {
-                        str5 = ai.getMatchStringFromURL(str, "body=");
+                        str5 = al.getMatchStringFromURL(str, "body=");
                         int indexOf = substring.indexOf("?");
                         if (indexOf >= 1 && indexOf <= substring.length()) {
                             substring = substring.substring(0, indexOf);
@@ -147,10 +147,10 @@ public class c {
                     tbPageContext.getPageActivity().finish();
                     return 1;
                 } else if (str.contains("jump_tieba_native=1") && str.contains(UrlSchemaHelper.GOTO_TDOU_PAY_BUNDING_PHONE)) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, ai.getMatchStringFromURL(str, "bindid=")));
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, al.getMatchStringFromURL(str, "bindid=")));
                     tbPageContext.getPageActivity().finish();
                     return 1;
-                } else if (str.contains("jump_tieba_native=1") && str.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (parserQuery = ai.parserQuery(str)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(parserQuery.getString("path"))) {
+                } else if (str.contains("jump_tieba_native=1") && str.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (parserQuery = al.parserQuery(str)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(parserQuery.getString("path"))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
                     return 0;
                 } else if (str.startsWith("tieba://accountsafe") && tbPageContext.getPageActivity() != null) {
@@ -163,8 +163,8 @@ public class c {
                     return 0;
                 } else if (str.contains("unidispatch/enterforum") && tbPageContext.getPageActivity() != null) {
                     MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(1);
-                    String queryParameter3 = Uri.parse(str).getQueryParameter(f.eBP);
-                    if (!at.isEmpty(queryParameter3)) {
+                    String queryParameter3 = Uri.parse(str).getQueryParameter(f.eDV);
+                    if (!au.isEmpty(queryParameter3)) {
                         createNormalCfg.setSubTab(0, queryParameter3);
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));
@@ -198,7 +198,7 @@ public class c {
         });
     }
 
-    private static String zh(String str) {
+    private static String zz(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -209,12 +209,12 @@ public class c {
             return str;
         }
         if (!str.startsWith(checkUrl)) {
-            return checkUrl + zi(str);
+            return checkUrl + toURLEncoded(str);
         }
         return str;
     }
 
-    public static String zi(String str) {
+    public static String toURLEncoded(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -238,26 +238,26 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(final TbPageContext<?> tbPageContext, String str, final String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        final String zh = zh(str);
+        final String zz = zz(str);
         if (z) {
             com.baidu.tbadk.coreExtra.c.a.a(tbPageContext, new a.b() { // from class: com.baidu.tbadk.browser.c.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    a.startWebActivity(TbPageContext.this.getPageActivity(), str2, zh);
+                    a.startWebActivity(TbPageContext.this.getPageActivity(), str2, zz);
                 }
             }, new a.b() { // from class: com.baidu.tbadk.browser.c.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
-            }, zh);
+            }, zz);
         } else {
-            a.startWebActivity(tbPageContext.getPageActivity(), str2, zh);
+            a.startWebActivity(tbPageContext.getPageActivity(), str2, zz);
         }
     }
 
-    public static boolean aA(Context context, String str) {
+    public static boolean az(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
@@ -270,9 +270,9 @@ public class c {
         return false;
     }
 
-    private static void bke() {
-        be.bsB().a(new be.a() { // from class: com.baidu.tbadk.browser.c.6
-            @Override // com.baidu.tbadk.core.util.be.a
+    private static void bkw() {
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tbadk.browser.c.6
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 PbActivityConfig createNormalCfg;
                 if (strArr == null || strArr[0] == null) {
@@ -331,9 +331,9 @@ public class c {
         });
     }
 
-    private static void bkf() {
-        be.bsB().a(new be.a() { // from class: com.baidu.tbadk.browser.c.7
-            @Override // com.baidu.tbadk.core.util.be.a
+    private static void bkx() {
+        bf.bsV().a(new bf.a() { // from class: com.baidu.tbadk.browser.c.7
+            @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;
@@ -386,7 +386,7 @@ public class c {
         String queryParameter10 = uri.getQueryParameter(LegoListActivityConfig.IS_LANDINGPAGE);
         String queryParameter11 = uri.getQueryParameter("source");
         String str3 = TextUtils.isEmpty(queryParameter11) ? "unknown" : queryParameter11;
-        if ((!z || zj(queryParameter7)) && str != null && queryParameter != null && str.length() > 0 && queryParameter.length() > 0) {
+        if ((!z || zA(queryParameter7)) && str != null && queryParameter != null && str.length() > 0 && queryParameter.length() > 0) {
             try {
                 int parseInt = Integer.parseInt(queryParameter);
                 try {
@@ -430,14 +430,14 @@ public class c {
         return false;
     }
 
-    private static boolean zj(String str) {
+    private static boolean zA(String str) {
         if (TextUtils.isEmpty(str)) {
             str = BuildConfig.VERSION_NAME;
         }
         return TbConfig.getLegoLibVersion().compareTo(str) >= 0;
     }
 
-    public static boolean zk(String str) {
+    public static boolean zB(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

@@ -5,88 +5,88 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.bb;
 import com.baidu.tieba.frs.q;
 /* loaded from: classes2.dex */
 public class a {
-    private int czr;
-    private boolean jBg;
-    private int jBh = -1;
-    private TextView jsV;
-    private bb jyv;
-    private final FrsFragment jzc;
+    private int cBN;
+    private final FrsFragment jEH;
+    private bb jEa;
+    private boolean jGK;
+    private int jGL = -1;
+    private TextView jyB;
 
     public a(FrsFragment frsFragment) {
-        this.czr = 0;
+        this.cBN = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.jzc = frsFragment;
+        this.jEH = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.czr = UtilHelper.getStatusBarHeight();
+            this.cBN = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void cIN() {
-        if (this.jBg && this.jBh >= 0) {
-            zW(this.jBh);
+    public void cKa() {
+        if (this.jGK && this.jGL >= 0) {
+            Ag(this.jGL);
         }
-        this.jBg = false;
+        this.jGK = false;
     }
 
-    public void zV(int i) {
+    public void Af(int i) {
         if (i >= 0) {
-            rm(true);
-            zX(i);
+            rw(true);
+            Ah(i);
             return;
         }
-        rm(false);
-        zX(i);
+        rw(false);
+        Ah(i);
     }
 
-    private void zW(int i) {
+    private void Ag(int i) {
         FrameLayout frameLayout;
         String string;
-        q cBi = this.jzc.cBi();
-        if (cBi != null && cBi.getListView() != null && (frameLayout = (FrameLayout) cBi.cCJ()) != null) {
-            if (this.jsV == null && this.jzc.getPageContext() != null) {
-                this.jsV = new TextView(this.jzc.getPageContext().getPageActivity());
-                this.jsV.setTextSize(0, this.jzc.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.jsV.setGravity(17);
+        q cCu = this.jEH.cCu();
+        if (cCu != null && cCu.getListView() != null && (frameLayout = (FrameLayout) cCu.cDV()) != null) {
+            if (this.jyB == null && this.jEH.getPageContext() != null) {
+                this.jyB = new TextView(this.jEH.getPageContext().getPageActivity());
+                this.jyB.setTextSize(0, this.jEH.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.jyB.setGravity(17);
             }
-            if (this.jsV != null) {
+            if (this.jyB != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.jsV.setText(string);
+                this.jyB.setText(string);
             }
-            ao.setBackgroundResource(this.jsV, R.color.CAM_X0302);
-            ao.setViewTextColor(this.jsV, R.color.CAM_X0112);
+            ap.setBackgroundResource(this.jyB, R.color.CAM_X0302);
+            ap.setViewTextColor(this.jyB, R.color.CAM_X0112);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.jyv == null) {
-                this.jyv = new bb();
+            if (this.jEa == null) {
+                this.jEa = new bb();
             }
-            this.jyv.a(this.jsV, frameLayout, layoutParams, 2000);
-            this.jBh = -1;
+            this.jEa.a(this.jyB, frameLayout, layoutParams, 2000);
+            this.jGL = -1;
         }
     }
 
-    public void rm(boolean z) {
-        this.jBg = z;
+    public void rw(boolean z) {
+        this.jGK = z;
     }
 
-    public void zX(int i) {
-        this.jBh = i;
+    public void Ah(int i) {
+        this.jGL = i;
     }
 
     public void onDestroy() {
-        if (this.jyv != null) {
-            this.jyv.onDestroy();
+        if (this.jEa != null) {
+            this.jEa.onDestroy();
         }
     }
 }

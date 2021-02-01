@@ -1,337 +1,263 @@
 package com.baidu.tieba.advert.sdk;
 
 import android.content.Context;
-import android.os.Build;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.CookieManager;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.f.e;
+import com.baidu.adp.lib.util.l;
+import com.baidu.mobad.feeds.RequestParameters;
+import com.baidu.mobads.RsplashType;
+import com.baidu.mobads.SplashAd;
+import com.baidu.mobads.SplashLpCloseListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.g.d;
-import com.baidu.tbadk.util.ai;
 import com.baidu.tieba.R;
-import tbclient.AppPosInfo;
-/* loaded from: classes7.dex */
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import com.baidu.tieba.advert.sdk.data.AdSplashStyle;
+import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
+import java.lang.ref.WeakReference;
+/* loaded from: classes8.dex */
 public class c {
-    private CustomMessageTask ghX = new CustomMessageTask(2156676, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.advert.sdk.c.1
+    private RsplashType gkf;
+    private SplashAd gki;
+    private WeakReference<ViewGroup> gkj;
+    private b gks;
+    private int gkg = 5;
+    private int mPattern = 1;
+    private final AdSplashStyle gkh = new AdSplashStyle();
+    private AdLoadState gkk = AdLoadState.INIT;
+    private com.baidu.tbadk.g.b gkm = new com.baidu.tbadk.g.b() { // from class: com.baidu.tieba.advert.sdk.c.1
+        @Override // com.baidu.tbadk.g.b
+        public void bkp() {
+            c.this.bMp();
+        }
+    };
+    private CustomMessageTask gkn = new CustomMessageTask(2156676, new CustomMessageTask.CustomRunnable<com.baidu.tbadk.g.c>() { // from class: com.baidu.tieba.advert.sdk.c.2
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<d> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.g.c> customMessage) {
             if (customMessage != null) {
-                c.this.a(customMessage.getData());
+                c.this.b(customMessage.getData());
             }
             return null;
         }
     });
 
-    public c() {
-        bLU();
-    }
-
-    public void registerTask() {
-        this.ghX.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.ghX);
+    public AdLoadState bMo() {
+        return this.gkk;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final d dVar) {
-        if (dVar != null && dVar.bjX() != null && dVar.bjX().getContext() != null) {
-            final com.baidu.tbadk.g.c bjY = dVar.bjY();
-            com.baidu.prologue.business.d dVar2 = new com.baidu.prologue.business.d() { // from class: com.baidu.tieba.advert.sdk.c.2
-                @Override // com.baidu.prologue.business.d
-                public void acM() {
-                    if (BdLog.isDebugMode()) {
-                        BdLog.e("");
-                    }
-                    if (bjY != null) {
-                        bjY.zd("load fail");
-                    }
-                }
+    public void bMp() {
+        if (this.gkj != null && this.gkj.get().getParent() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gkj.get().getLayoutParams();
+            if (1 != this.mPattern) {
+                layoutParams.width = l.getEquipmentWidth(this.gkj.get().getContext());
+                layoutParams.height = (int) (l.getEquipmentHeight(this.gkj.get().getContext()) * 0.8125d);
+            } else {
+                layoutParams.width = -1;
+                layoutParams.height = -1;
+            }
+            this.gkj.get().setLayoutParams(layoutParams);
+        }
+    }
 
-                @Override // com.baidu.prologue.business.d
-                public void rg() {
-                    if (BdLog.isDebugMode()) {
-                        BdLog.e("");
-                    }
-                    if (bjY != null) {
-                        bjY.onAdDismiss();
-                    }
-                }
+    public c() {
+        bMq();
+    }
 
-                @Override // com.baidu.prologue.business.d
-                public void onAdShow() {
-                    if (BdLog.isDebugMode()) {
-                        BdLog.e("");
-                    }
-                    if (bjY != null) {
-                        bjY.bjW();
-                    }
-                }
+    public c(b bVar) {
+        this.gks = bVar;
+        bMq();
+    }
 
-                @Override // com.baidu.prologue.business.d
-                @NonNull
-                public ViewGroup acN() {
-                    return dVar.bjX();
-                }
+    private void bMq() {
+    }
 
-                @Override // com.baidu.prologue.business.d
-                public void onAdClick() {
-                    if (BdLog.isDebugMode()) {
-                        BdLog.e("");
-                    }
-                    if (bjY != null) {
-                        bjY.onAdClick();
-                    }
-                }
-
-                @Override // com.baidu.prologue.business.d
-                public void acO() {
-                    if (BdLog.isDebugMode()) {
-                        BdLog.e("");
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://ignore"));
-                }
-
-                @Override // com.baidu.prologue.business.d
-                public void acP() {
-                    if (BdLog.isDebugMode()) {
-                        BdLog.e("");
-                    }
-                    if (bjY != null) {
-                        bjY.zd("play error");
-                    }
-                }
-            };
+    public void b(com.baidu.tbadk.g.c cVar) {
+        if (cVar != null && cVar.bkq() != null && cVar.bkq().getContext() != null) {
+            cVar.eHh = this.gkm;
+            com.baidu.tbadk.g.a bkr = cVar.bkr();
+            this.gkj = new WeakReference<>(cVar.bkq());
+            AnonymousClass3 anonymousClass3 = new AnonymousClass3(bkr);
             try {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("new bes splash load");
-                }
-                com.baidu.prologue.a.acj().a(dVar.bjX().getContext(), dVar2);
+                Context context = cVar.bkq().getContext();
+                ViewGroup bkq = cVar.bkq();
+                new RequestParameters.Builder().setHeight(l.getEquipmentWidth(context)).setWidth(l.getEquipmentHeight(context)).build();
+                this.gki = new SplashAd(context, bkq, anonymousClass3, "7352842", true, null, 1000, false, true);
+                this.gkk = AdLoadState.LOADING;
+                this.gki.load();
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                bjY.zd("oom");
+                bkr.zv("oom");
             }
         }
     }
 
-    private void bLU() {
-        com.baidu.prologue.a.b.a.cop.set(new a(TbadkCoreApplication.getInst()));
-    }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: com.baidu.tieba.advert.sdk.c$3  reason: invalid class name */
+    /* loaded from: classes8.dex */
+    public class AnonymousClass3 implements SplashLpCloseListener {
+        final /* synthetic */ com.baidu.tbadk.g.a gkp;
 
-    /* loaded from: classes7.dex */
-    public class a implements com.baidu.prologue.a.b.a {
-        private Context mContext;
-
-        public a(Context context) {
-            this.mContext = context;
+        AnonymousClass3(com.baidu.tbadk.g.a aVar) {
+            this.gkp = aVar;
         }
 
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public Context acl() {
-            return this.mContext;
+        @Override // com.baidu.mobads.SplashLpCloseListener
+        public void onLpClosed() {
         }
 
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String acm() {
-            return TbConfig.getVersion();
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String acn() {
-            return Build.VERSION.RELEASE;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String aco() {
-            return TbadkCoreApplication.getInst().getCuidGalaxy2();
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String userAgent() {
-            String bFz = ai.bFz();
-            if (TextUtils.isEmpty(bFz)) {
-                bFz = "bdtb for Android " + TbConfig.getVersion();
+        @Override // com.baidu.mobads.SplashAdListener
+        public void onAdPresent() {
+            boolean z = 1 == c.this.mPattern;
+            if (this.gkp != null) {
+                this.gkp.e(c.this.gkf == RsplashType.VIDEO, z, 7);
             }
-            if (BdLog.isDebugMode()) {
-                BdLog.e("userAgent=" + bFz);
-            }
-            return bFz;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String acp() {
-            return Build.MODEL;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String acq() {
-            return TbadkCoreApplication.getInst().getImei();
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String acr() {
-            return TbadkCoreApplication.getInst().getPackageName();
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String androidId() {
-            return com.baidu.prologue.a.c.c.bL(this.mContext);
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String acs() {
-            String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
-            if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = com.baidu.tbadk.browser.a.eFc;
-            }
-            if (cookie != null) {
-                String[] split = cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                for (String str : split) {
-                    if (str.contains("BAIDUID=")) {
-                        return str.trim().substring(8);
+            ViewGroup viewGroup = (ViewGroup) c.this.gkj.get();
+            if (viewGroup != null) {
+                Context context = viewGroup.getContext();
+                CountDownTextView countDownTextView = new CountDownTextView(context);
+                countDownTextView.setGravity(17);
+                countDownTextView.setNumTypeFromBes(true);
+                countDownTextView.aE(context.getResources().getString(R.string.ad_skip), c.this.gkg);
+                com.baidu.tbadk.core.elementsMaven.c.br(countDownTextView).og(R.string.AD_J_X45).nZ(R.dimen.tbds42).nY(R.color.CAM_X0101).setBackGroundColor(R.color.black_alpha20);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.getDimens(context, R.dimen.tbds216), l.getDimens(context, R.dimen.tbds90));
+                com.baidu.tieba.advert.sdk.c.a.a(layoutParams, AdSplashStyle.SplashElement.SKIP, c.this.gkh, z);
+                viewGroup.addView(countDownTextView, layoutParams);
+                countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.c.3.1
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        com.baidu.tieba.advert.sdk.c.a.bMD();
                     }
+                });
+                countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.advert.sdk.c.3.2
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        com.baidu.tieba.advert.sdk.c.a.bMD();
+                    }
+                });
+                countDownTextView.setTimeoutListener(new CountDownTextView.c() { // from class: com.baidu.tieba.advert.sdk.c.3.3
+                    @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.c
+                    public void cf(View view) {
+                        boolean z2 = c.this.gkk == AdLoadState.DISMISSED;
+                        c.this.gkk = AdLoadState.DISMISSED;
+                        if (AnonymousClass3.this.gkp != null && !z2) {
+                            c.this.bMs();
+                            AnonymousClass3.this.gkp.onAdDismiss();
+                        }
+                    }
+                });
+                countDownTextView.setTimerChangedListener(new CountDownTextView.a() { // from class: com.baidu.tieba.advert.sdk.c.3.4
+                    @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.a
+                    public void tg(int i) {
+                        if (i == 1 && c.this.gkf != null && c.this.gkf != RsplashType.VIDEO) {
+                            e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.advert.sdk.c.3.4.1
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    boolean z2 = c.this.gkk == AdLoadState.DISMISSED;
+                                    c.this.gkk = AdLoadState.DISMISSED;
+                                    if (AnonymousClass3.this.gkp != null && !z2) {
+                                        c.this.bMs();
+                                        AnonymousClass3.this.gkp.onAdDismiss();
+                                    }
+                                }
+                            }, 300L);
+                        }
+                    }
+                });
+                if (!TextUtils.isEmpty(c.this.gkh.labelName)) {
+                    TextView textView = new TextView(context);
+                    textView.setGravity(17);
+                    textView.setText(c.this.gkh.labelName);
+                    com.baidu.tbadk.core.elementsMaven.c.br(textView).og(R.string.AD_J_X09).nZ(R.dimen.tbds36).nY(R.color.CAM_X0101).setBackGroundColor(R.color.black_alpha20);
+                    RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(l.getDimens(context, R.dimen.tbds105), l.getDimens(context, R.dimen.tbds63));
+                    com.baidu.tieba.advert.sdk.c.a.a(layoutParams2, AdSplashStyle.SplashElement.LABEL, c.this.gkh, z);
+                    viewGroup.addView(textView, layoutParams2);
+                }
+                if (z) {
+                    int dimens = l.getDimens(context, R.dimen.tbds90);
+                    ImageView imageView = new ImageView(context);
+                    imageView.setScaleType(ImageView.ScaleType.CENTER);
+                    imageView.setImageResource(c.this.gkh.bMt() ? R.drawable.bg_bes_splash_logo_white : R.drawable.bg_bes_splash_logo_blue);
+                    RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, dimens);
+                    com.baidu.tieba.advert.sdk.c.a.a(layoutParams3, AdSplashStyle.SplashElement.LOGO, c.this.gkh, z);
+                    viewGroup.addView(imageView, layoutParams3);
                 }
             }
-            return "";
         }
 
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String act() {
-            int[] acL = com.baidu.prologue.business.b.acK().acL();
-            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{String.valueOf(acL[0]), String.valueOf(acL[1]), HttpConstants.OS_TYPE_VALUE, acm(), String.valueOf(acL[2])});
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String acu() {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                return "";
+        @Override // com.baidu.mobads.SplashAdListener
+        public void onAdDismissed() {
+            c.this.bMs();
+            boolean z = c.this.gkk == AdLoadState.DISMISSED;
+            c.this.gkk = AdLoadState.DISMISSED;
+            if (this.gkp != null && !z) {
+                this.gkp.onAdDismiss();
             }
-            return currentAccount;
         }
 
-        @Override // com.baidu.prologue.a.b.a
-        public boolean acv() {
-            return false;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String acw() {
-            return "2";
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        @NonNull
-        public String rc() {
-            return "1481698145541";
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public boolean acx() {
-            return this.mContext.getResources().getConfiguration().orientation == 2;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public String acy() {
-            if (TbadkCoreApplication.getInst() == null || TbadkCoreApplication.getInst().getAdAdSense() == null) {
-                return null;
-            }
-            return TbadkCoreApplication.getInst().getAdAdSense().foc;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public String acz() {
-            AppPosInfo dCa = com.baidu.tieba.recapp.c.a.dBW().dCa();
-            if (dCa != null) {
-                return dCa.coordinate_type;
-            }
-            return null;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public String[] acA() {
-            AppPosInfo dCa;
-            if (com.baidu.tieba.recapp.c.a.dBW() != null && (dCa = com.baidu.tieba.recapp.c.a.dBW().dCa()) != null) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("" + dCa.longitude + "|" + dCa.latitude);
+        @Override // com.baidu.mobads.SplashAdListener
+        public void onAdFailed(String str) {
+            c.this.gkk = AdLoadState.FAILED;
+            c.this.bMs();
+            if (c.this.gks != null) {
+                if (c.this.gks.bMo() == AdLoadState.FAILED && this.gkp != null) {
+                    this.gkp.zv(str);
                 }
-                return new String[]{dCa.longitude, dCa.latitude};
+            } else if (this.gkp != null) {
+                this.gkp.zv(str);
             }
-            if (BdLog.isDebugMode()) {
-                BdLog.e("0, 0");
+        }
+
+        @Override // com.baidu.mobads.SplashAdListener
+        public void onAdClick() {
+            if (this.gkp != null) {
+                this.gkp.f(c.this.gkf == RsplashType.VIDEO, 1 == c.this.mPattern, 7);
             }
-            return new String[]{"0", "0"};
         }
 
-        @Override // com.baidu.prologue.a.b.a
-        public String acB() {
-            return "1099a";
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public String acC() {
-            return "1099a";
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public int acD() {
-            return R.drawable.bg_bes_splash_logo_white;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public int acE() {
-            return R.drawable.bg_bes_splash_logo_blue;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public int acF() {
-            return R.drawable.pic_splash_logo;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public boolean a(String str, com.baidu.prologue.c.b bVar) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        @Override // com.baidu.mobads.SplashAdListener
+        public void onADLoaded(RsplashType rsplashType, int i) {
+            c.this.gkk = AdLoadState.SUCCEED;
+            if (c.this.gki != null && c.this.gkj != null) {
+                c.this.gkf = rsplashType;
+                c.this.mPattern = 1;
+                int i2 = i / 1000;
+                if (rsplashType != RsplashType.VIDEO) {
+                    c.this.gkg = 3;
+                } else {
+                    if (i2 < 3 || i2 > 5) {
+                        i2 = 5;
+                    }
+                    c.this.gkg = i2;
+                }
+                if (c.this.gks != null && c.this.gks.bMo() == AdLoadState.FAILED) {
+                    c.this.bMr();
+                }
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, str));
-            return true;
         }
+    }
 
-        @Override // com.baidu.prologue.a.b.a
-        public String acG() {
-            return com.baidu.helios.b.aj(TbadkCoreApplication.getInst()).uF();
+    public void bMr() {
+        if (this.gki != null && this.gkj != null && this.gkk == AdLoadState.SUCCEED) {
+            bMp();
+            if (1 == this.mPattern) {
+            }
+            this.gkk = AdLoadState.SHOWED;
+            this.gki.show();
         }
+    }
 
-        @Override // com.baidu.prologue.a.b.a
-        public int acH() {
-            return 5000;
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public String acI() {
-            return "http://afd.baidu.com/afd/entry";
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bMs() {
+        if (this.gki != null) {
+            this.gki.destroy();
         }
     }
 }

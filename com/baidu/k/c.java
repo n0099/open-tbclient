@@ -4,22 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static volatile c ciw;
+    private static volatile c cmL;
 
-    public static synchronized c abq() {
+    public static synchronized c ade() {
         c cVar;
         synchronized (c.class) {
-            if (ciw == null) {
+            if (cmL == null) {
                 synchronized (c.class) {
-                    if (ciw == null) {
-                        ciw = new c();
+                    if (cmL == null) {
+                        cmL = new c();
                     }
                 }
             }
-            cVar = ciw;
+            cVar = cmL;
         }
         return cVar;
     }
@@ -31,7 +31,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.abp().e(activity, str, aVar);
+        b.add().e(activity, str, aVar);
         return true;
     }
 
@@ -39,7 +39,7 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.abp().f(activity, str, aVar);
+        b.add().f(activity, str, aVar);
         return true;
     }
 
@@ -47,7 +47,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.abp().b(context, jSONObject, aVar);
+        b.add().b(context, jSONObject, aVar);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.abp().f(context, jSONObject);
+        b.add().f(context, jSONObject);
         return true;
     }
 
@@ -63,7 +63,7 @@ public class c {
         if (jSONObject == null) {
             return false;
         }
-        b.abp().b(activity, jSONObject, aVar);
+        b.add().b(activity, jSONObject, aVar);
         return true;
     }
 }

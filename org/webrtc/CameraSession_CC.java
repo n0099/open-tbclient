@@ -3,9 +3,8 @@ package org.webrtc;
 import android.content.Context;
 import android.graphics.Matrix;
 import android.view.WindowManager;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final /* synthetic */ class CameraSession_CC {
     public static VideoFrame.TextureBuffer createTextureBufferWithModifiedTransformMatrix(TextureBufferImpl textureBufferImpl, boolean z, int i) {
         Matrix matrix = new Matrix();
@@ -25,7 +24,7 @@ public final /* synthetic */ class CameraSession_CC {
             case 2:
                 return 180;
             case 3:
-                return SubsamplingScaleImageView.ORIENTATION_270;
+                return 270;
             default:
                 return 0;
         }
