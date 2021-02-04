@@ -14,8 +14,9 @@ import java.util.List;
 /* loaded from: classes15.dex */
 public class bh {
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
-    private static class a implements Comparator {
+    public static class a implements Comparator {
         private a() {
         }
 

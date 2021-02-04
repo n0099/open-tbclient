@@ -1,9 +1,8 @@
 package com.google.zxing.aztec.encoder;
 
 import com.google.zxing.common.BitArray;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-public final class SimpleToken extends Token {
+final class SimpleToken extends Token {
     private final short bitCount;
     private final short value;
 
@@ -14,9 +13,8 @@ public final class SimpleToken extends Token {
         this.bitCount = (short) i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.zxing.aztec.encoder.Token
-    public void appendTo(BitArray bitArray, byte[] bArr) {
+    void appendTo(BitArray bitArray, byte[] bArr) {
         bitArray.appendBits(this.value, this.bitCount);
     }
 

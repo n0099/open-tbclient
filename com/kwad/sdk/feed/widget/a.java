@@ -225,9 +225,8 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         this.i = (KsLogoView) findViewById(R.id.ksad_ad_dislike_logo);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.feed.widget.base.a
-    public void d() {
+    protected void d() {
         super.d();
         if (this.r) {
             com.kwad.sdk.utils.b.a().a(false);
@@ -238,9 +237,8 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.feed.widget.base.a
-    public void e() {
+    protected void e() {
         super.e();
     }
 

@@ -1,9 +1,8 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public final class i implements b {
+final class i implements b {
 
     /* renamed from: a  reason: collision with root package name */
     protected e f7428a;
