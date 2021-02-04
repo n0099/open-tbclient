@@ -90,7 +90,6 @@ public class InstallActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void eAN() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -115,7 +114,6 @@ public class InstallActivity extends Activity {
         getWindow().setLayout(i, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void eAO() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -160,7 +158,6 @@ public class InstallActivity extends Activity {
         E(new UnavailableUserDeclinedInstallationException());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void E(Exception exc) {
         o.eAS().f7864a = exc;
         o.eAS().b();
@@ -180,14 +177,12 @@ public class InstallActivity extends Activity {
         return this.pRv == ArCoreApk.InstallBehavior.OPTIONAL;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void eAQ() {
         this.pRx = true;
         this.pRw = p.CANCELLED;
         o.eAS().it(this).a(this, new y(this));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void eAR() {
         startActivity(new Intent(this, InstallActivity.class).setFlags(67108864));
     }
@@ -198,31 +193,23 @@ public class InstallActivity extends Activity {
         Log.i("ARCore-InstallActivity", new StringBuilder(27).append("activityResult: ").append(i2).toString());
     }
 
-    /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.google.ar.core.y.a(com.google.ar.core.p):void, com.google.ar.core.y.a(java.lang.Exception):void] */
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(InstallActivity installActivity, Exception exc) {
         installActivity.E(exc);
     }
 
-    /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.google.ar.core.y.a(com.google.ar.core.p):void, com.google.ar.core.y.a(java.lang.Exception):void] */
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ p a(InstallActivity installActivity, p pVar) {
         installActivity.pRw = pVar;
         return pVar;
     }
 
-    /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.google.ar.core.y.a(com.google.ar.core.p):void] */
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ boolean d(InstallActivity installActivity) {
         return installActivity.pRy;
     }
 
-    /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.google.ar.core.y.a(com.google.ar.core.p):void] */
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void e(InstallActivity installActivity) {
         installActivity.eAR();
     }

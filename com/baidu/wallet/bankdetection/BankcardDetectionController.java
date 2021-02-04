@@ -23,9 +23,8 @@ public class BankcardDetectionController extends Observable implements NoProguar
     private BankcardDetectionController() {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
-    public static class a {
+    private static class a {
 
         /* renamed from: a  reason: collision with root package name */
         private static BankcardDetectionController f5636a = new BankcardDetectionController();
