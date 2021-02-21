@@ -5,7 +5,7 @@ import com.baidu.tieba.yuyinala.data.i;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaGetRoomRankListResponseMessage extends JsonHttpResponsedMessage {
-    private i oMm;
+    private i oMM;
 
     public AlaGetRoomRankListResponseMessage() {
         super(1031033);
@@ -16,12 +16,12 @@ public class AlaGetRoomRankListResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.oMm = new i();
-            this.oMm.parserJson(optJSONObject);
+            this.oMM = new i();
+            this.oMM.parserJson(optJSONObject);
         }
     }
 
-    public i efx() {
-        return this.oMm;
+    public i efF() {
+        return this.oMM;
     }
 }

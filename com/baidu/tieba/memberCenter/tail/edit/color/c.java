@@ -6,9 +6,9 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
     private String dNv = "7a7c80";
-    private List<String> lsr = new ArrayList();
+    private List<String> lsF = new ArrayList();
 
-    public String dfZ() {
+    public String dgg() {
         return this.dNv;
     }
 
@@ -16,19 +16,19 @@ public class c {
         this.dNv = str;
     }
 
-    public List<String> dga() {
-        return this.lsr;
+    public List<String> dgh() {
+        return this.lsF;
     }
 
     public c(f<?> fVar) {
-        this.lsr.add("7a7c80");
-        this.lsr.add("f55925");
-        this.lsr.add("ff5460");
-        this.lsr.add("cc3314");
-        this.lsr.add("26bf85");
-        this.lsr.add("33aaff");
-        this.lsr.add("3385ff");
-        this.lsr.add("3668b2");
-        this.lsr.add("673699");
+        this.lsF.add("7a7c80");
+        this.lsF.add("f55925");
+        this.lsF.add("ff5460");
+        this.lsF.add("cc3314");
+        this.lsF.add("26bf85");
+        this.lsF.add("33aaff");
+        this.lsF.add("3385ff");
+        this.lsF.add("3668b2");
+        this.lsF.add("673699");
     }
 }

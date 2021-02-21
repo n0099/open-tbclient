@@ -30,27 +30,27 @@ public class c {
     private final Context d;
     private volatile long e;
     private volatile boolean f = false;
-    private final SharedPreferences pmv;
-    private a pvw;
-    private d pvx;
+    private final SharedPreferences pmV;
+    private a pvW;
+    private d pvX;
 
     public c(Context context) {
         if (context == null || !(context instanceof Application)) {
             throw new IllegalArgumentException("context must not be null or not application");
         }
         this.d = context;
-        this.pmv = this.d.getSharedPreferences("anr_monitor_table", 0);
-        this.e = this.pmv.getLong("trace_anr_happen_time", 0L);
+        this.pmV = this.d.getSharedPreferences("anr_monitor_table", 0);
+        this.e = this.pmV.getLong("trace_anr_happen_time", 0L);
         g.a(100, 100);
     }
 
     public void a() {
         if (!this.f) {
             if (Build.VERSION.SDK_INT < 21) {
-                this.pvw = new a(this, "/data/anr/", 8);
-                this.pvw.startWatching();
+                this.pvW = new a(this, "/data/anr/", 8);
+                this.pvW.startWatching();
             } else {
-                this.pvx = new d(this);
+                this.pvX = new d(this);
             }
             this.f = true;
         }
@@ -93,9 +93,9 @@ public class c {
                 aVar.a("crash_time", Long.valueOf(System.currentTimeMillis()));
                 aVar.a("anr_info", a2);
                 aVar.a("all_thread_stacks", m.a((String) null));
-                com.bytedance.tea.crash.c.a a3 = com.bytedance.tea.crash.e.a.e.eqY().a(com.bytedance.tea.crash.c.ANR, aVar);
+                com.bytedance.tea.crash.c.a a3 = com.bytedance.tea.crash.e.a.e.erg().a(com.bytedance.tea.crash.c.ANR, aVar);
                 com.bytedance.tea.crash.g.d.a(this.d, com.bytedance.tea.crash.c.ANR.a(), null);
-                com.bytedance.tea.crash.upload.a.eri().b(a3.a());
+                com.bytedance.tea.crash.upload.a.erq().b(a3.a());
                 a(a2);
             } catch (Throwable th) {
                 j.b(th);
@@ -105,7 +105,7 @@ public class c {
     }
 
     private static void a(String str) {
-        for (com.bytedance.tea.crash.e eVar : h.ere().c()) {
+        for (com.bytedance.tea.crash.e eVar : h.erm().c()) {
             eVar.a(com.bytedance.tea.crash.c.ANR, str, null);
         }
     }
@@ -150,8 +150,8 @@ public class c {
                         return null;
                     } else {
                         this.e = time;
-                        if (this.pmv != null) {
-                            this.pmv.edit().putLong("trace_anr_happen_time", this.e).apply();
+                        if (this.pmV != null) {
+                            this.pmV.edit().putLong("trace_anr_happen_time", this.e).apply();
                         }
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("anrTime", time);

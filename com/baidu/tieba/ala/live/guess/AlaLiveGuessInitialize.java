@@ -9,12 +9,12 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes11.dex */
 public class AlaLiveGuessInitialize {
     static {
-        bXl();
-        bXm();
-        bXn();
+        bXs();
+        bXt();
+        bXu();
     }
 
-    private static void bXl() {
+    private static void bXs() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913247, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.live.guess.AlaLiveGuessInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guess.a> run(CustomMessage<TbPageContext> customMessage) {
@@ -25,7 +25,7 @@ public class AlaLiveGuessInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bXm() {
+    private static void bXt() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913299, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.live.guess.AlaLiveGuessInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guess.b> run(CustomMessage<TbPageContext> customMessage) {
@@ -36,7 +36,7 @@ public class AlaLiveGuessInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bXn() {
+    private static void bXu() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913298, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.live.guess.AlaLiveGuessInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<d> run(CustomMessage<TbPageContext> customMessage) {

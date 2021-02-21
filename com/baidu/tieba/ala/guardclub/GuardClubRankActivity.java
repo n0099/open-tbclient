@@ -18,13 +18,13 @@ import com.baidu.tieba.ala.guardclub.rank.b;
 import com.baidu.tieba.ala.guardclub.view.GuardClubRankTabView;
 /* loaded from: classes11.dex */
 public class GuardClubRankActivity extends BaseActivity implements b.a {
-    private static final String[] gZP = {"真爱团周榜", "真爱团总榜"};
-    private View gZQ;
-    private GuardClubRankTabView gZR;
-    private RelativeLayout gZS;
-    private BdAlertDialog gZT;
-    private com.baidu.tieba.ala.guardclub.rank.b gZU;
-    private SupportXFragment[] gZV;
+    private static final String[] had = {"真爱团周榜", "真爱团总榜"};
+    private View hae;
+    private GuardClubRankTabView haf;
+    private RelativeLayout hag;
+    private BdAlertDialog hah;
+    private com.baidu.tieba.ala.guardclub.rank.b hai;
+    private SupportXFragment[] haj;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -41,8 +41,8 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.gZV != null) {
-            for (SupportXFragment supportXFragment : this.gZV) {
+        if (this.haj != null) {
+            for (SupportXFragment supportXFragment : this.haj) {
                 supportXFragment.onPause();
             }
         }
@@ -53,8 +53,8 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
     public void onResume() {
         super.onResume();
         UtilHelper.changeStatusBarIconAndTextColor(true, getActivity());
-        if (this.gZV != null) {
-            for (SupportXFragment supportXFragment : this.gZV) {
+        if (this.haj != null) {
+            for (SupportXFragment supportXFragment : this.haj) {
                 supportXFragment.onResume();
             }
         }
@@ -64,24 +64,24 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         SupportXFragment[] supportXFragmentArr;
-        if (this.gZV != null) {
-            for (SupportXFragment supportXFragment : this.gZV) {
+        if (this.haj != null) {
+            for (SupportXFragment supportXFragment : this.haj) {
                 supportXFragment.onDestroyView();
                 supportXFragment.onDestroy();
             }
         }
-        if (this.gZU != null) {
-            this.gZU.release();
+        if (this.hai != null) {
+            this.hai.release();
         }
-        if (this.gZT != null) {
-            this.gZT.dismiss();
+        if (this.hah != null) {
+            this.hah.dismiss();
         }
         super.onDestroy();
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.b.a
     public void a(SupportXFragment... supportXFragmentArr) {
-        this.gZV = supportXFragmentArr;
+        this.haj = supportXFragmentArr;
         ViewGroup viewGroup = (ViewGroup) findViewById(a.f.layout_supportx);
         viewGroup.removeAllViews();
         if (supportXFragmentArr != null) {
@@ -91,14 +91,14 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
                 viewGroup.addView(supportXFragment.getView(), new FrameLayout.LayoutParams(-1, -1));
             }
         }
-        this.gZR.setSelect(0);
-        this.gZQ.post(new Runnable() { // from class: com.baidu.tieba.ala.guardclub.GuardClubRankActivity.1
+        this.haf.setSelect(0);
+        this.hae.post(new Runnable() { // from class: com.baidu.tieba.ala.guardclub.GuardClubRankActivity.1
             @Override // java.lang.Runnable
             public void run() {
                 SupportXFragment[] supportXFragmentArr2;
-                int bottom = GuardClubRankActivity.this.gZQ.getBottom() + GuardClubRankActivity.this.getResources().getDimensionPixelOffset(a.d.sdk_ds8);
-                if (GuardClubRankActivity.this.gZV != null) {
-                    for (SupportXFragment supportXFragment2 : GuardClubRankActivity.this.gZV) {
+                int bottom = GuardClubRankActivity.this.hae.getBottom() + GuardClubRankActivity.this.getResources().getDimensionPixelOffset(a.d.sdk_ds8);
+                if (GuardClubRankActivity.this.haj != null) {
+                    for (SupportXFragment supportXFragment2 : GuardClubRankActivity.this.haj) {
                         if (supportXFragment2 instanceof com.baidu.tieba.ala.guardclub.rank.c) {
                             ((com.baidu.tieba.ala.guardclub.rank.c) supportXFragment2).uC(bottom);
                         }
@@ -110,45 +110,45 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
 
     @Override // com.baidu.tieba.ala.guardclub.rank.b.a
     public void uA(int i) {
-        if (this.gZQ != null) {
-            this.gZQ.setBackgroundColor(i);
+        if (this.hae != null) {
+            this.hae.setBackgroundColor(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.b.a
     public void aH(final String str, final int i) {
-        this.gZT = new BdAlertDialog(getPageContext().getPageActivity());
-        this.gZT.setMessage(String.format(getString(a.h.guard_club_join_alert_title), Integer.valueOf(i)));
-        this.gZT.setPositiveButton(a.h.guard_club_join_immediately, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.GuardClubRankActivity.2
+        this.hah = new BdAlertDialog(getPageContext().getPageActivity());
+        this.hah.setMessage(String.format(getString(a.h.guard_club_join_alert_title), Integer.valueOf(i)));
+        this.hah.setPositiveButton(a.h.guard_club_join_immediately, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.GuardClubRankActivity.2
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
-                if (GuardClubRankActivity.this.gZU != null) {
-                    GuardClubRankActivity.this.gZU.aI(str, i);
+                if (GuardClubRankActivity.this.hai != null) {
+                    GuardClubRankActivity.this.hai.aI(str, i);
                 }
                 bdAlertDialog.dismiss();
             }
         });
-        this.gZT.setNegativeButton(a.h.guard_club_join_think_again, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.GuardClubRankActivity.3
+        this.hah.setNegativeButton(a.h.guard_club_join_think_again, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.GuardClubRankActivity.3
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
                 bdAlertDialog.dismiss();
             }
         });
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.gZT.setPositiveButtonTextColor(getPageContext().getResources().getColorStateList(a.e.sdk_dialog_blue_button_txt_selector));
-            this.gZT.setNagetiveButtonTextColor(getPageContext().getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
+            this.hah.setPositiveButtonTextColor(getPageContext().getResources().getColorStateList(a.e.sdk_dialog_blue_button_txt_selector));
+            this.hah.setNagetiveButtonTextColor(getPageContext().getResources().getColorStateList(a.e.sdk_dialog_gray_button_txt_selector));
         } else {
-            this.gZT.setPositiveButtonTextColor(-57754);
-            this.gZT.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
+            this.hah.setPositiveButtonTextColor(-57754);
+            this.hah.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
         }
-        this.gZT.create(getPageContext()).show();
+        this.hah.create(getPageContext()).show();
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.b.a
     public void x(String str, long j) {
         SupportXFragment[] supportXFragmentArr;
-        if (this.gZV != null) {
-            for (SupportXFragment supportXFragment : this.gZV) {
+        if (this.haj != null) {
+            for (SupportXFragment supportXFragment : this.haj) {
                 if (supportXFragment instanceof com.baidu.tieba.ala.guardclub.rank.c) {
                     ((com.baidu.tieba.ala.guardclub.rank.c) supportXFragment).x(str, j);
                 }
@@ -157,8 +157,8 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.b.a
-    public ViewGroup bVF() {
-        return this.gZS;
+    public ViewGroup bVM() {
+        return this.hag;
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.b.a
@@ -175,18 +175,18 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
     private void initView() {
         setContentView(a.g.live_guard_club_activity_rank);
         initTitle();
-        this.gZS = (RelativeLayout) findViewById(a.f.layout_join_suc);
-        bVG();
+        this.hag = (RelativeLayout) findViewById(a.f.layout_join_suc);
+        bVN();
     }
 
     private void Gd() {
-        this.gZU = new com.baidu.tieba.ala.guardclub.rank.b(getPageContext());
-        this.gZU.a(getIntent(), this);
-        this.gZU.bVT();
+        this.hai = new com.baidu.tieba.ala.guardclub.rank.b(getPageContext());
+        this.hai.a(getIntent(), this);
+        this.hai.bWa();
     }
 
     private void initTitle() {
-        this.gZQ = findViewById(a.f.layout_title);
+        this.hae = findViewById(a.f.layout_title);
         View findViewById = findViewById(a.f.iv_back);
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.GuardClubRankActivity.4
             @Override // android.view.View.OnClickListener
@@ -208,17 +208,17 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
             findViewById.setVisibility(0);
             backBar.setVisibility(8);
         }
-        this.gZR = (GuardClubRankTabView) findViewById(a.f.gcb_rank_tab);
-        this.gZR.setNames(gZP);
-        this.gZR.setCallback(new GuardClubRankTabView.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubRankActivity.6
+        this.haf = (GuardClubRankTabView) findViewById(a.f.gcb_rank_tab);
+        this.haf.setNames(had);
+        this.haf.setCallback(new GuardClubRankTabView.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubRankActivity.6
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankTabView.a
             public void dB(int i) {
-                if (GuardClubRankActivity.this.gZV != null) {
+                if (GuardClubRankActivity.this.haj != null) {
                     int i2 = 0;
-                    while (i2 < GuardClubRankActivity.this.gZV.length) {
-                        GuardClubRankActivity.this.gZV[i2].setUserVisibleHint(i2 == i);
-                        if (GuardClubRankActivity.this.gZV[i2].getView() != null) {
-                            GuardClubRankActivity.this.gZV[i2].getView().setVisibility(i2 == i ? 0 : 8);
+                    while (i2 < GuardClubRankActivity.this.haj.length) {
+                        GuardClubRankActivity.this.haj[i2].setUserVisibleHint(i2 == i);
+                        if (GuardClubRankActivity.this.haj[i2].getView() != null) {
+                            GuardClubRankActivity.this.haj[i2].getView().setVisibility(i2 == i ? 0 : 8);
                         }
                         i2++;
                     }
@@ -227,9 +227,9 @@ public class GuardClubRankActivity extends BaseActivity implements b.a {
         });
     }
 
-    private void bVG() {
+    private void bVN() {
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.gZQ.setPadding(this.gZQ.getPaddingLeft(), this.gZQ.getPaddingTop() + UtilHelper.getStatusBarHeight(), this.gZQ.getPaddingRight(), this.gZQ.getPaddingBottom());
+            this.hae.setPadding(this.hae.getPaddingLeft(), this.hae.getPaddingTop() + UtilHelper.getStatusBarHeight(), this.hae.getPaddingRight(), this.hae.getPaddingBottom());
         }
     }
 }

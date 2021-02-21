@@ -732,7 +732,7 @@ public final class TbSingleton {
         if (this.mUploadAndClearModule == null) {
             return false;
         }
-        return this.mUploadAndClearModule.dCO();
+        return this.mUploadAndClearModule.dCV();
     }
 
     public void setUploadAndClearModule(com.baidu.tieba.quickWebView.data.b bVar) {

@@ -17,46 +17,46 @@ public final class ah implements ae<Info> {
 
     /* renamed from: java  reason: collision with other field name */
     private String f18java;
-    Context qiN;
-    public PBBannerListener qiP;
-    public boolean qiQ;
-    public bw qiU;
-    public ad qjW;
-    PBBannerView qjY;
-    public q qje;
-    Info qji;
-    long qjj;
-    private bj qjk;
+    public q qjE;
+    Info qjI;
+    long qjJ;
+    private bj qjK;
+    Context qjn;
+    public PBBannerListener qjp;
+    public boolean qjq;
+    public bw qju;
+    public ad qkw;
+    PBBannerView qky;
     int java = 10;
 
     /* renamed from: case  reason: not valid java name */
     int f17case = 8;
-    public AtomicInteger qjZ = new AtomicInteger(0);
-    public Handler qjV = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ah.1
+    public AtomicInteger qkz = new AtomicInteger(0);
+    public Handler qkv = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ah.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
                 case 100151:
                     int i = 0;
-                    if (ah.this.qji != null) {
-                        i = ah.this.qji.getWt();
+                    if (ah.this.qjI != null) {
+                        i = ah.this.qjI.getWt();
                     }
-                    w.iN(ah.this.qiN).a(new x(ah.this.qji), 2002, i * 1000).eIP();
-                    ah.this.qjV.removeMessages(100151);
+                    w.iN(ah.this.qjn).a(new x(ah.this.qjI), 2002, i * 1000).eIX();
+                    ah.this.qkv.removeMessages(100151);
                     ah.this.a(PBError.TIMEOUT);
                     return;
                 case 100152:
-                    if (ah.this.qjZ.get() < 3) {
-                        if (ah.this.qjY == null || !ah.this.qjY.isVisible()) {
-                            ah.this.qjV.sendEmptyMessageDelayed(100152, ah.this.f17case * 1000);
+                    if (ah.this.qkz.get() < 3) {
+                        if (ah.this.qky == null || !ah.this.qky.isVisible()) {
+                            ah.this.qkv.sendEmptyMessageDelayed(100152, ah.this.f17case * 1000);
                             return;
                         } else {
-                            ah.this.eIP();
+                            ah.this.eIX();
                             return;
                         }
                     }
-                    ah.this.qjV.removeMessages(100152);
+                    ah.this.qkv.removeMessages(100152);
                     return;
                 default:
                     return;
@@ -72,123 +72,123 @@ public final class ah implements ae<Info> {
             a(PBError.NO_FILL);
             return;
         }
-        this.qji = info2;
-        this.qjZ.set(0);
+        this.qjI = info2;
+        this.qkz.set(0);
         this.f17case = info2.getTsi();
-        this.qjj = System.currentTimeMillis();
+        this.qjJ = System.currentTimeMillis();
         if (info2.getType() != 31) {
             if (info2.getType() != 32) {
                 a(PBError.PID_TYPE_ERROR);
             } else {
                 try {
-                    this.qje = new q(this.qiN, af.BANNER);
-                    this.qje.qjA = new bq() { // from class: com.win.opensdk.ah.2
+                    this.qjE = new q(this.qjn, af.BANNER);
+                    this.qjE.qka = new bq() { // from class: com.win.opensdk.ah.2
                         @Override // com.win.opensdk.bq
-                        public final void eIP() {
-                            ah.this.qjV.sendEmptyMessageDelayed(100151, ah.this.java * 1000);
+                        public final void eIX() {
+                            ah.this.qkv.sendEmptyMessageDelayed(100151, ah.this.java * 1000);
                         }
 
                         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [185=4] */
                         @Override // com.win.opensdk.bq
-                        public final void eIQ() {
-                            ah.this.qjV.removeMessages(100151);
-                            ah.a(ah.this, info2, ah.this.qje);
-                            w.iN(ah.this.qiN).a(new x(ah.this.qji), 200, System.currentTimeMillis() - ah.this.qjj).eIP();
-                            w.iN(ah.this.qiN).a(new x(info2)).eIP();
+                        public final void eIY() {
+                            ah.this.qkv.removeMessages(100151);
+                            ah.a(ah.this, info2, ah.this.qjE);
+                            w.iN(ah.this.qjn).a(new x(ah.this.qjI), 200, System.currentTimeMillis() - ah.this.qjJ).eIX();
+                            w.iN(ah.this.qjn).a(new x(info2)).eIX();
                             ah.a(ah.this);
-                            z.b(ah.this.qji);
+                            z.b(ah.this.qjI);
                         }
                     };
-                    this.qje.qjB = new bo() { // from class: com.win.opensdk.ah.3
+                    this.qjE.qkb = new bo() { // from class: com.win.opensdk.ah.3
                         @Override // com.win.opensdk.bo
-                        public final boolean hA(String str, String str2) {
+                        public final boolean hC(String str, String str2) {
                             ah.a(ah.this, info2, str);
-                            if (ah.this.qiP != null) {
-                                ah.this.qiP.onClicked();
+                            if (ah.this.qjp != null) {
+                                ah.this.qjp.onClicked();
                                 return true;
                             }
                             return true;
                         }
 
                         @Override // com.win.opensdk.bo
-                        public final void abF(String str) {
+                        public final void abR(String str) {
                         }
                     };
-                    this.qje.a(info2.getLoad(), this.qji);
+                    this.qjE.a(info2.getLoad(), this.qjI);
                 } catch (Exception e) {
                 }
             }
         } else {
             try {
-                this.qiU = new bw(this.qiN);
-                this.qiU.qjA = new bq() { // from class: com.win.opensdk.ah.4
+                this.qju = new bw(this.qjn);
+                this.qju.qka = new bq() { // from class: com.win.opensdk.ah.4
                     @Override // com.win.opensdk.bq
-                    public final void eIP() {
-                        ah.this.qjV.sendEmptyMessageDelayed(100151, ah.this.java * 1000);
+                    public final void eIX() {
+                        ah.this.qkv.sendEmptyMessageDelayed(100151, ah.this.java * 1000);
                     }
 
                     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [251=4] */
                     @Override // com.win.opensdk.bq
-                    public final void eIQ() {
-                        ah.this.qjV.removeMessages(100151);
-                        ah.a(ah.this, info2, ah.this.qiU);
-                        w.iN(ah.this.qiN).a(new x(ah.this.qji), 200, System.currentTimeMillis() - ah.this.qjj).eIP();
-                        w.iN(ah.this.qiN).a(new x(info2)).eIP();
+                    public final void eIY() {
+                        ah.this.qkv.removeMessages(100151);
+                        ah.a(ah.this, info2, ah.this.qju);
+                        w.iN(ah.this.qjn).a(new x(ah.this.qjI), 200, System.currentTimeMillis() - ah.this.qjJ).eIX();
+                        w.iN(ah.this.qjn).a(new x(info2)).eIX();
                         ah.a(ah.this);
-                        z.b(ah.this.qji);
+                        z.b(ah.this.qjI);
                     }
                 };
-                this.qiU.qjB = new bo() { // from class: com.win.opensdk.ah.5
+                this.qju.qkb = new bo() { // from class: com.win.opensdk.ah.5
                     @Override // com.win.opensdk.bo
-                    public final boolean hA(String str, String str2) {
+                    public final boolean hC(String str, String str2) {
                         ah.a(ah.this, info2, str);
-                        if (ah.this.qiP != null) {
-                            ah.this.qiP.onClicked();
+                        if (ah.this.qjp != null) {
+                            ah.this.qjp.onClicked();
                             return true;
                         }
                         return true;
                     }
 
                     @Override // com.win.opensdk.bo
-                    public final void abF(String str) {
+                    public final void abR(String str) {
                     }
                 };
-                this.qiU.a(info2.getLoad(), this.qji);
+                this.qju.a(info2.getLoad(), this.qjI);
             } catch (Exception e2) {
             }
         }
-        this.qjV.sendEmptyMessageDelayed(100152, this.f17case * 1000);
+        this.qkv.sendEmptyMessageDelayed(100152, this.f17case * 1000);
     }
 
     public ah(Context context, PBBannerView pBBannerView, String str) {
-        this.qiN = context;
-        this.qjY = pBBannerView;
+        this.qjn = context;
+        this.qky = pBBannerView;
         this.f18java = str;
-        this.qjk = new bj(context);
+        this.qjK = new bj(context);
     }
 
     final void a(PBError pBError) {
-        if (!this.qiQ) {
-            this.qiQ = true;
-            if (this.qiP != null) {
-                this.qiP.onFail(pBError);
+        if (!this.qjq) {
+            this.qjq = true;
+            if (this.qjp != null) {
+                this.qjp.onFail(pBError);
             }
         }
     }
 
-    public final void eIP() {
-        if (this.qjW == null) {
-            this.qjW = new ad(this.qiN, this.f18java, e.java);
+    public final void eIX() {
+        if (this.qkw == null) {
+            this.qkw = new ad(this.qjn, this.f18java, e.java);
         }
-        this.qiQ = false;
-        this.qjW.qjT = this;
-        this.qjW.eIP();
+        this.qjq = false;
+        this.qkw.qkt = this;
+        this.qkw.eIX();
     }
 
     @Override // com.win.opensdk.ae
     public final void b(PBError pBError) {
-        int andIncrement = this.qjZ.getAndIncrement();
-        this.qjV.sendEmptyMessageDelayed(100152, this.f17case * 1000);
+        int andIncrement = this.qkz.getAndIncrement();
+        this.qkv.sendEmptyMessageDelayed(100152, this.f17case * 1000);
         if (andIncrement == 0) {
             a(pBError);
         }
@@ -198,16 +198,16 @@ public final class ah implements ae<Info> {
     static /* synthetic */ void a(ah ahVar, final Info info, bn bnVar) {
         char c = 0;
         try {
-            if (ahVar.qjY != null && bnVar.eIS().getParent() == null) {
-                ahVar.qjY.removeAllViews();
-                ahVar.qjY.addView(bnVar.eIS(), new FrameLayout.LayoutParams(-1, -1));
-                ImageView imageView = new ImageView(ahVar.qiN);
-                int k = bi.k(ahVar.qiN, 15.0f);
+            if (ahVar.qky != null && bnVar.eJa().getParent() == null) {
+                ahVar.qky.removeAllViews();
+                ahVar.qky.addView(bnVar.eJa(), new FrameLayout.LayoutParams(-1, -1));
+                ImageView imageView = new ImageView(ahVar.qjn);
+                int k = bi.k(ahVar.qjn, 15.0f);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(k, k);
                 layoutParams.gravity = 3;
                 imageView.setImageResource(d.a.btn_op);
-                ahVar.qjY.addView(imageView, layoutParams);
-                ImageView imageView2 = new ImageView(ahVar.qiN);
+                ahVar.qky.addView(imageView, layoutParams);
+                ImageView imageView2 = new ImageView(ahVar.qjn);
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(k, k);
                 layoutParams2.gravity = 53;
                 imageView2.setImageResource(d.a.btn_close_dark);
@@ -215,24 +215,24 @@ public final class ah implements ae<Info> {
                     @Override // android.view.View.OnClickListener
                     public final void onClick(View view) {
                         try {
-                            w.iN(ah.this.qiN).c(new x(info)).eIP();
-                            if (ah.this.qiP != null) {
-                                ah.this.qiP.onClosed();
+                            w.iN(ah.this.qjn).c(new x(info)).eIX();
+                            if (ah.this.qjp != null) {
+                                ah.this.qjp.onClosed();
                             }
                         } catch (Exception e) {
                         }
-                        ah.this.qjY.destroy();
+                        ah.this.qky.destroy();
                     }
                 });
-                ahVar.qjY.addView(imageView2, layoutParams2);
+                ahVar.qky.addView(imageView2, layoutParams2);
             }
-            if (ahVar.qjY == null) {
+            if (ahVar.qky == null) {
                 return;
             }
-            ViewGroup.LayoutParams layoutParams3 = ahVar.qjY.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams3 = ahVar.qky.getLayoutParams();
             String str = ahVar.f18java;
             int[] iArr = new int[2];
-            if (ax.abE(str)) {
+            if (ax.abQ(str)) {
                 String substring = str.substring(0, 3);
                 switch (substring.hashCode()) {
                     case 53431:
@@ -292,34 +292,34 @@ public final class ah implements ae<Info> {
                         break;
                 }
             }
-            int k2 = bi.k(ahVar.qiN, iArr[0]);
-            int k3 = bi.k(ahVar.qiN, iArr[1]);
+            int k2 = bi.k(ahVar.qjn, iArr[0]);
+            int k3 = bi.k(ahVar.qjn, iArr[1]);
             if (layoutParams3 == null) {
                 layoutParams3 = new ViewGroup.LayoutParams(k2, k3);
             } else {
                 layoutParams3.width = k2;
                 layoutParams3.height = k3;
             }
-            ahVar.qjY.setLayoutParams(layoutParams3);
+            ahVar.qky.setLayoutParams(layoutParams3);
         } catch (Exception e) {
         }
     }
 
     static /* synthetic */ void a(ah ahVar) {
-        if (ahVar.qiQ) {
+        if (ahVar.qjq) {
             return;
         }
-        ahVar.qiQ = true;
-        if (ahVar.qiP == null) {
+        ahVar.qjq = true;
+        if (ahVar.qjp == null) {
             return;
         }
-        ahVar.qiP.onLoaded();
+        ahVar.qjp.onLoaded();
     }
 
     static /* synthetic */ void a(ah ahVar, Info info, String str) {
-        aw.a(ahVar.qiN, str, info, ahVar.qjk);
-        w.iN(ahVar.qiN).a(new x(info), str).eIP();
-        ahVar.qjV.sendEmptyMessage(100152);
-        z.a(ahVar.qji);
+        aw.a(ahVar.qjn, str, info, ahVar.qjK);
+        w.iN(ahVar.qjn).a(new x(info), str).eIX();
+        ahVar.qkv.sendEmptyMessage(100152);
+        z.a(ahVar.qjI);
     }
 }

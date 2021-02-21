@@ -8,22 +8,22 @@ public class h {
     private JSONObject mData;
     private long mPaId;
     private String mType;
-    private String pao;
-    private int pap;
-    public int paq;
-    public int par = -1;
+    private String paP;
+    private int paQ;
+    public int paR;
+    public int paS = -1;
 
-    public void Ye(String str) {
+    public void Yq(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.par = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (this.par == 0) {
+            this.paS = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (this.paS == 0) {
                 this.mData = jSONObject.optJSONObject("data");
                 if (this.mData != null) {
                     this.mType = this.mData.optString("type");
-                    this.pao = this.mData.optString("third_id");
-                    this.pap = this.mData.optInt("has_sub");
-                    this.paq = this.mData.optInt("notify");
+                    this.paP = this.mData.optString("third_id");
+                    this.paQ = this.mData.optInt("has_sub");
+                    this.paR = this.mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -40,30 +40,30 @@ public class h {
     }
 
     public String getThirdId() {
-        return this.pao;
+        return this.paP;
     }
 
-    public int ejP() {
-        return this.paq;
+    public int ejX() {
+        return this.paR;
     }
 
     public void setNotify(int i) {
-        this.paq = i;
+        this.paR = i;
     }
 
     public String getType() {
-        return Yf("type") ? this.mType : "";
+        return Yr("type") ? this.mType : "";
     }
 
-    public String ejQ() {
-        return Yf("third_id") ? this.pao : "";
+    public String ejY() {
+        return Yr("third_id") ? this.paP : "";
     }
 
     public boolean isDataValid() {
-        return this.par == 0;
+        return this.paS == 0;
     }
 
-    private boolean Yf(String str) {
+    private boolean Yr(String str) {
         return isDataValid() && this.mData != null && this.mData.has(str);
     }
 }

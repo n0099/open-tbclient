@@ -23,11 +23,11 @@ public class h implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         long currentTimeMillis = System.currentTimeMillis();
-        com.baidu.adp.widget.ImageView.a Dk = com.baidu.tbadk.imageManager.c.bCP().Dk(str);
+        com.baidu.adp.widget.ImageView.a Di = com.baidu.tbadk.imageManager.c.bCP().Di(str);
         if (z) {
-            com.baidu.adp.lib.e.a.b(Dk != null, System.currentTimeMillis() - currentTimeMillis);
+            com.baidu.adp.lib.e.a.b(Di != null, System.currentTimeMillis() - currentTimeMillis);
         }
-        return Dk;
+        return Di;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

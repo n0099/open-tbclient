@@ -19,7 +19,7 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.Sp(parcel.readString());
+            shareEntity.SB(parcel.readString());
             shareEntity.IN(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
@@ -28,7 +28,7 @@ public class ShareEntity implements Parcelable {
             shareEntity.IP(parcel.readInt());
             shareEntity.setTid(parcel.readString());
             shareEntity.IO(parcel.readInt());
-            shareEntity.Sr(parcel.readString());
+            shareEntity.SD(parcel.readString());
             shareEntity.topic = parcel.readString();
             shareEntity.taskCompleteId = parcel.readString();
             shareEntity.diskPicOperate = parcel.readBundle();
@@ -103,7 +103,7 @@ public class ShareEntity implements Parcelable {
         this.readCount = j;
     }
 
-    public long dIY() {
+    public long dJg() {
         return this.readCount;
     }
 
@@ -111,7 +111,7 @@ public class ShareEntity implements Parcelable {
         this.isVideoThread = z;
     }
 
-    public boolean dIZ() {
+    public boolean dJh() {
         return this.isVideoThread;
     }
 
@@ -123,11 +123,11 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public void Sp(String str) {
+    public void SB(String str) {
         this.localFile = str;
     }
 
-    public String dJa() {
+    public String dJi() {
         return this.localFile;
     }
 
@@ -147,7 +147,7 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int dJb() {
+    public int dJj() {
         return this.shareTo;
     }
 
@@ -155,7 +155,7 @@ public class ShareEntity implements Parcelable {
         this.shareTo = i;
     }
 
-    public int dJc() {
+    public int dJk() {
         return this.shareType;
     }
 
@@ -167,19 +167,19 @@ public class ShareEntity implements Parcelable {
         return this.tid;
     }
 
-    public String dJd() {
+    public String dJl() {
         return this.extLiveInfo;
     }
 
-    public void Sq(String str) {
+    public void SC(String str) {
         this.extLiveInfo = str;
     }
 
-    public void Sr(String str) {
+    public void SD(String str) {
         this.fName = str;
     }
 
-    public String dJe() {
+    public String dJm() {
         return this.fName;
     }
 
@@ -187,7 +187,7 @@ public class ShareEntity implements Parcelable {
         this.typeShareToSmallApp = i;
     }
 
-    public int dJf() {
+    public int dJn() {
         return this.typeShareToSmallApp;
     }
 
@@ -195,7 +195,7 @@ public class ShareEntity implements Parcelable {
         this.shareType = i;
     }
 
-    public boolean dJg() {
+    public boolean dJo() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

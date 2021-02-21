@@ -9,15 +9,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes11.dex */
 public class a {
-    private static DisplayMetrics phq;
-    private static DisplayMetrics phr;
+    private static DisplayMetrics phQ;
+    private static DisplayMetrics phR;
 
     public static void a(DisplayMetrics displayMetrics) {
-        phq = displayMetrics;
+        phQ = displayMetrics;
     }
 
     public static void hK(Context context) {
-        if (emx() == null) {
+        if (emF() == null) {
             initDisplayMetrics(context);
         }
     }
@@ -51,15 +51,15 @@ public class a {
     }
 
     @Deprecated
-    public static DisplayMetrics emw() {
-        return phq;
+    public static DisplayMetrics emE() {
+        return phQ;
     }
 
     public static void b(DisplayMetrics displayMetrics) {
-        phr = displayMetrics;
+        phR = displayMetrics;
     }
 
-    public static DisplayMetrics emx() {
-        return phr;
+    public static DisplayMetrics emF() {
+        return phR;
     }
 }

@@ -15,17 +15,17 @@ import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
-import com.baidu.tieba.recapp.i;
+import com.baidu.tieba.recapp.j;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class RecAppStatic {
     static {
-        r.mRs.set(new t());
+        s.mRI.set(new u());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.bLi().a(new i.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
-            @Override // com.baidu.tieba.recapp.i.a
+        com.baidu.tieba.ad.a.bLn().a(new j.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+            @Override // com.baidu.tieba.recapp.j.a
             public int c(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;
@@ -73,8 +73,8 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.bJw().a(1, new f());
-        com.baidu.tieba.InjectPlugin.a.e.bJw().a(2, new d());
+        com.baidu.tieba.InjectPlugin.a.e.bJB().a(1, new g());
+        com.baidu.tieba.InjectPlugin.a.e.bJB().a(2, new e());
         cb.eRa.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
@@ -88,10 +88,10 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.dCX().dDa();
-        b.dCX().dCY();
+        c.dDe().dDh();
+        c.dDe().dDf();
         if (BdLog.isDebugMode()) {
         }
-        com.baidu.tieba.ad.download.b.a.ghz.set(new com.baidu.tieba.recapp.download.b());
+        com.baidu.tieba.ad.download.b.a.ghF.set(new com.baidu.tieba.recapp.download.b());
     }
 }

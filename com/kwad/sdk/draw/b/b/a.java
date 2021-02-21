@@ -11,14 +11,14 @@ public class a {
     private AdTemplate f9690a;
 
     /* renamed from: b  reason: collision with root package name */
-    private InterfaceC1110a f9691b;
+    private InterfaceC1112a f9691b;
     @Nullable
     private b c;
     private boolean d = false;
 
     /* renamed from: com.kwad.sdk.draw.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1110a {
+    public interface InterfaceC1112a {
         void a();
     }
 
@@ -45,8 +45,8 @@ public class a {
     }
 
     @MainThread
-    public void a(InterfaceC1110a interfaceC1110a) {
-        this.f9691b = interfaceC1110a;
+    public void a(InterfaceC1112a interfaceC1112a) {
+        this.f9691b = interfaceC1112a;
     }
 
     @MainThread

@@ -20,13 +20,13 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
     final Object m;
     final Object n;
     private final int o;
-    private final InterfaceC1022b p;
+    private final InterfaceC1024b p;
     private volatile h.a q;
     private volatile com.bytedance.sdk.openadsdk.j.c.b r;
 
     /* renamed from: com.bytedance.sdk.openadsdk.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1022b {
+    public interface InterfaceC1024b {
         void a(b bVar);
     }
 
@@ -298,7 +298,7 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
         List<i.b> f;
         int g;
         i h;
-        InterfaceC1022b i;
+        InterfaceC1024b i;
         Object j;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -359,8 +359,8 @@ public class b extends com.bytedance.sdk.openadsdk.j.a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a a(InterfaceC1022b interfaceC1022b) {
-            this.i = interfaceC1022b;
+        public a a(InterfaceC1024b interfaceC1024b) {
+            this.i = interfaceC1024b;
             return this;
         }
 

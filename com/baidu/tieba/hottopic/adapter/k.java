@@ -32,34 +32,34 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
     private boolean abT;
     private BaseActivity<?> activity;
     private TbCyberVideoView.a fUi;
-    private TopicMediaHolder ksQ;
-    private boolean ksR;
-    private boolean ksS;
-    private boolean ksT;
-    private boolean ksU;
-    private CyberPlayerManager.OnErrorListener ksV;
-    private CustomMessageListener ksW;
-    private CustomMessageListener ksX;
-    private CustomMessageListener ksY;
-    private CustomMessageListener ksZ;
+    private TopicMediaHolder kte;
+    private boolean ktf;
+    private boolean ktg;
+    private boolean kth;
+    private boolean kti;
+    private CyberPlayerManager.OnErrorListener ktj;
+    private CustomMessageListener ktk;
+    private CustomMessageListener ktl;
+    private CustomMessageListener ktm;
+    private CustomMessageListener ktn;
     private Handler mHandler;
     public int mSkinType;
     private View mView;
 
     public k(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.ksR = false;
-        this.ksS = false;
+        this.ktf = false;
+        this.ktg = false;
         this.abT = false;
-        this.ksT = false;
-        this.ksU = true;
+        this.kth = false;
+        this.kti = true;
         this.fUi = new TbCyberVideoView.a() { // from class: com.baidu.tieba.hottopic.adapter.k.12
             @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.a
             public void onSurfaceDestroyed() {
-                if (k.this.ksQ != null && k.this.ksQ.gzX != null) {
-                    k.this.ksQ.gzX.stopPlayback();
+                if (k.this.kte != null && k.this.kte.gAl != null) {
+                    k.this.kte.gAl.stopPlayback();
                 }
-                k.this.cSD();
+                k.this.cSK();
             }
         };
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.hottopic.adapter.k.13
@@ -67,13 +67,13 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (!k.this.ksS && k.this.ksQ != null && k.this.ksQ.gzX != null && k.this.ksQ.kwd != null && k.this.ksQ.kwg != null && k.this.ksQ.kwi != null) {
-                            if (k.this.ksQ.gzX.getCurrentPosition() > 0) {
-                                k.this.ksQ.kwd.setVisibility(8);
-                                k.this.ksQ.kwg.setVisibility(8);
-                                k.this.ksQ.kwi.setVisibility(8);
-                                k.this.b((o) message.obj, k.this.ksQ);
-                                k.this.c(k.this.ksQ);
+                        if (!k.this.ktg && k.this.kte != null && k.this.kte.gAl != null && k.this.kte.kwr != null && k.this.kte.kwu != null && k.this.kte.kww != null) {
+                            if (k.this.kte.gAl.getCurrentPosition() > 0) {
+                                k.this.kte.kwr.setVisibility(8);
+                                k.this.kte.kwu.setVisibility(8);
+                                k.this.kte.kww.setVisibility(8);
+                                k.this.b((o) message.obj, k.this.kte);
+                                k.this.c(k.this.kte);
                                 return;
                             }
                             Message obtainMessage = k.this.mHandler.obtainMessage(1);
@@ -87,67 +87,67 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                 }
             }
         };
-        this.ksV = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.hottopic.adapter.k.3
+        this.ktj = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.hottopic.adapter.k.3
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
-                if (!k.this.ksS) {
+                if (!k.this.ktg) {
                     BdToast.b(k.this.activity.getPageContext().getPageActivity(), k.this.activity.getPageContext().getResources().getString(R.string.pb_play_error), R.drawable.icon_pure_toast_mistake40_svg, true).bqD();
                 }
-                k.this.cSD();
+                k.this.cSK();
                 return true;
             }
         };
-        this.ksW = new CustomMessageListener(CmdConfigCustom.PB_PAUSE_VIDEO) { // from class: com.baidu.tieba.hottopic.adapter.k.4
+        this.ktk = new CustomMessageListener(CmdConfigCustom.PB_PAUSE_VIDEO) { // from class: com.baidu.tieba.hottopic.adapter.k.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                k.this.cSF();
+                k.this.cSM();
             }
         };
-        this.ksX = new CustomMessageListener(CmdConfigCustom.PB_REFRESH_VIDEO) { // from class: com.baidu.tieba.hottopic.adapter.k.5
+        this.ktl = new CustomMessageListener(CmdConfigCustom.PB_REFRESH_VIDEO) { // from class: com.baidu.tieba.hottopic.adapter.k.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (k.this.ksQ != null && k.this.ksQ.kwd != null && k.this.ksQ.kwg != null && k.this.ksQ.gzX != null) {
-                    k.this.ksQ.kwd.setVisibility(0);
-                    k.this.ksQ.kwg.setVisibility(8);
-                    k.this.ksQ.gzX.stopPlayback();
-                    k.this.ksS = true;
-                    k.this.c(k.this.ksQ);
+                if (k.this.kte != null && k.this.kte.kwr != null && k.this.kte.kwu != null && k.this.kte.gAl != null) {
+                    k.this.kte.kwr.setVisibility(0);
+                    k.this.kte.kwu.setVisibility(8);
+                    k.this.kte.gAl.stopPlayback();
+                    k.this.ktg = true;
+                    k.this.c(k.this.kte);
                 }
             }
         };
-        this.ksY = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.hottopic.adapter.k.6
+        this.ktm = new CustomMessageListener(CmdConfigCustom.PB_ON_SCROLL) { // from class: com.baidu.tieba.hottopic.adapter.k.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (k.this.ksQ != null && k.this.ksQ.kwm != null) {
+                if (k.this.kte != null && k.this.kte.kwA != null) {
                     int[] iArr = new int[2];
-                    k.this.ksQ.kwm.getLocationInWindow(iArr);
-                    if (iArr[1] + k.this.ksQ.kwm.getHeight() < 0) {
+                    k.this.kte.kwA.getLocationInWindow(iArr);
+                    if (iArr[1] + k.this.kte.kwA.getHeight() < 0) {
                     }
                 }
             }
         };
-        this.ksZ = new CustomMessageListener(CmdConfigCustom.PB_ACTIVITY_ON_DESTROY) { // from class: com.baidu.tieba.hottopic.adapter.k.7
+        this.ktn = new CustomMessageListener(CmdConfigCustom.PB_ACTIVITY_ON_DESTROY) { // from class: com.baidu.tieba.hottopic.adapter.k.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (k.this.mHandler != null) {
                     k.this.mHandler.removeMessages(1);
                 }
-                if (k.this.ksQ != null && k.this.ksQ.kwe != null && k.this.ksQ.kwf != null) {
-                    k.this.ksQ.kwe.destroy();
-                    k.this.ksQ.kwf.destroy();
+                if (k.this.kte != null && k.this.kte.kws != null && k.this.kte.kwt != null) {
+                    k.this.kte.kws.destroy();
+                    k.this.kte.kwt.destroy();
                 }
             }
         };
         this.activity = baseActivity;
         if (baseActivity != null) {
-            baseActivity.registerListener(this.ksW);
-            baseActivity.registerListener(this.ksX);
-            baseActivity.registerListener(this.ksY);
-            baseActivity.registerListener(this.ksZ);
+            baseActivity.registerListener(this.ktk);
+            baseActivity.registerListener(this.ktl);
+            baseActivity.registerListener(this.ktm);
+            baseActivity.registerListener(this.ktn);
         }
     }
 
@@ -157,7 +157,7 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
     public TopicMediaHolder e(ViewGroup viewGroup) {
         if (this.mView == null) {
             this.mView = LayoutInflater.from(this.mContext).inflate(R.layout.topic_vedio_item, viewGroup, false);
-            this.ksQ = new TopicMediaHolder(this.mView);
+            this.kte = new TopicMediaHolder(this.mView);
             View findViewById = this.mView.findViewById(R.id.topic_layout_video_view);
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             int equipmentWidth = l.getEquipmentWidth(this.mContext);
@@ -166,89 +166,89 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                 findViewById.setLayoutParams(layoutParams);
             }
         } else {
-            cSD();
+            cSK();
         }
-        return this.ksQ;
+        return this.kte;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSD() {
-        if (this.ksQ != null && this.ksQ.kwd != null && this.ksQ.kwg != null) {
-            this.ksQ.kwd.setVisibility(0);
-            this.ksQ.kwg.setVisibility(8);
-            this.ksS = true;
-            c(this.ksQ);
-            a(this.ksQ);
+    public void cSK() {
+        if (this.kte != null && this.kte.kwr != null && this.kte.kwu != null) {
+            this.kte.kwr.setVisibility(0);
+            this.kte.kwu.setVisibility(8);
+            this.ktg = true;
+            c(this.kte);
+            a(this.kte);
         }
     }
 
-    public void cSE() {
-        this.ksR = false;
+    public void cSL() {
+        this.ktf = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final o oVar, final TopicMediaHolder topicMediaHolder) {
         if (oVar != null && topicMediaHolder != null) {
-            if (!this.ksR) {
-                this.ksR = true;
+            if (!this.ktf) {
+                this.ktf = true;
                 if (StringUtils.isNull(oVar.videoUrl) || oVar.videoDuration <= 0) {
-                    this.ksU = true;
-                    topicMediaHolder.kwe.setVisibility(8);
-                    topicMediaHolder.kwf.setVisibility(8);
+                    this.kti = true;
+                    topicMediaHolder.kws.setVisibility(8);
+                    topicMediaHolder.kwt.setVisibility(8);
                     topicMediaHolder.erP.setVisibility(8);
                 } else {
-                    this.ksU = false;
+                    this.kti = false;
                     topicMediaHolder.erP.setVisibility(0);
                     if (this.abT) {
-                        topicMediaHolder.kwe.setVisibility(8);
-                        topicMediaHolder.kwf.setVisibility(0);
+                        topicMediaHolder.kws.setVisibility(8);
+                        topicMediaHolder.kwt.setVisibility(0);
                     } else {
-                        topicMediaHolder.kwe.setVisibility(0);
-                        topicMediaHolder.kwf.setVisibility(8);
+                        topicMediaHolder.kws.setVisibility(0);
+                        topicMediaHolder.kwt.setVisibility(8);
                     }
                 }
                 if (!StringUtils.isNull(oVar.videoUrl) && oVar.videoDuration > 0) {
-                    topicMediaHolder.kwd.setForegroundDrawable(R.drawable.icon_play_video);
-                    topicMediaHolder.kwd.setOnClickListener(new a(oVar, topicMediaHolder));
+                    topicMediaHolder.kwr.setForegroundDrawable(R.drawable.icon_play_video);
+                    topicMediaHolder.kwr.setOnClickListener(new a(oVar, topicMediaHolder));
                 } else {
-                    topicMediaHolder.kwd.setForegroundDrawable(0);
-                    topicMediaHolder.kwd.setOnClickListener(null);
+                    topicMediaHolder.kwr.setForegroundDrawable(0);
+                    topicMediaHolder.kwr.setOnClickListener(null);
                 }
-                topicMediaHolder.kwd.setTag(Integer.valueOf(i));
-                topicMediaHolder.kwd.setDefaultResource(0);
+                topicMediaHolder.kwr.setTag(Integer.valueOf(i));
+                topicMediaHolder.kwr.setDefaultResource(0);
                 if (!com.baidu.tbadk.core.k.bkT().isShowImages()) {
-                    topicMediaHolder.kwd.setNoImageBottomTextColor(R.color.CAM_X0108);
-                    topicMediaHolder.kwd.setNoImageBottomTextPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds32));
-                    topicMediaHolder.kwd.setNoImageBottomTextSize(TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.fontsize28));
-                    topicMediaHolder.kwd.setSupportNoImage(true);
-                    topicMediaHolder.kwd.setNoImageBottomText(TbadkCoreApplication.getInst().getString(R.string.click_to_play));
+                    topicMediaHolder.kwr.setNoImageBottomTextColor(R.color.CAM_X0108);
+                    topicMediaHolder.kwr.setNoImageBottomTextPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds32));
+                    topicMediaHolder.kwr.setNoImageBottomTextSize(TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.fontsize28));
+                    topicMediaHolder.kwr.setSupportNoImage(true);
+                    topicMediaHolder.kwr.setNoImageBottomText(TbadkCoreApplication.getInst().getString(R.string.click_to_play));
                 } else {
-                    topicMediaHolder.kwd.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                    if (!topicMediaHolder.gzX.isPlaying()) {
+                    topicMediaHolder.kwr.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                    if (!topicMediaHolder.gAl.isPlaying()) {
                         a(oVar, topicMediaHolder);
                     }
                 }
-                topicMediaHolder.kwh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.k.1
+                topicMediaHolder.kwv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.k.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        topicMediaHolder.kwg.setVisibility(8);
-                        if (topicMediaHolder.gzX != null) {
-                            topicMediaHolder.gzX.setPlayMode("2");
+                        topicMediaHolder.kwu.setVisibility(8);
+                        if (topicMediaHolder.gAl != null) {
+                            topicMediaHolder.gAl.setPlayMode("2");
                         }
-                        topicMediaHolder.gzX.start();
+                        topicMediaHolder.gAl.start();
                         k.this.b(oVar, topicMediaHolder);
                     }
                 });
-                topicMediaHolder.gzX.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.hottopic.adapter.k.8
+                topicMediaHolder.gAl.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.hottopic.adapter.k.8
                     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
                     public void onPrepared() {
-                        if (topicMediaHolder != null && topicMediaHolder.gzX != null && topicMediaHolder.kwe != null) {
-                            int curProgress = topicMediaHolder.kwe.getCurProgress();
+                        if (topicMediaHolder != null && topicMediaHolder.gAl != null && topicMediaHolder.kws != null) {
+                            int curProgress = topicMediaHolder.kws.getCurProgress();
                             if (curProgress > 0) {
-                                float duration = curProgress * 1.0f * topicMediaHolder.gzX.getDuration();
-                                TopicVideoControllerView topicVideoControllerView = topicMediaHolder.kwe;
-                                topicMediaHolder.gzX.seekTo((int) (duration / 10000.0f));
+                                float duration = curProgress * 1.0f * topicMediaHolder.gAl.getDuration();
+                                TopicVideoControllerView topicVideoControllerView = topicMediaHolder.kws;
+                                topicMediaHolder.gAl.seekTo((int) (duration / 10000.0f));
                             }
                             Message obtainMessage = k.this.mHandler.obtainMessage(1);
                             obtainMessage.obj = oVar;
@@ -256,39 +256,39 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                         }
                     }
                 });
-                topicMediaHolder.gzX.setOnCompletionListener(new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.hottopic.adapter.k.9
+                topicMediaHolder.gAl.setOnCompletionListener(new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.hottopic.adapter.k.9
                     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
                     public void onCompletion() {
-                        topicMediaHolder.kwg.setVisibility(0);
+                        topicMediaHolder.kwu.setVisibility(0);
                         k.this.a(oVar, topicMediaHolder);
                     }
                 });
-                topicMediaHolder.gzX.setOnErrorListener(this.ksV);
-                topicMediaHolder.gzX.setOnSurfaceDestroyedListener(this.fUi);
+                topicMediaHolder.gAl.setOnErrorListener(this.ktj);
+                topicMediaHolder.gAl.setOnSurfaceDestroyedListener(this.fUi);
                 topicMediaHolder.erP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.k.10
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (!topicMediaHolder.gzX.isPlaying()) {
+                        if (!topicMediaHolder.gAl.isPlaying()) {
                             k.this.a(topicMediaHolder, oVar);
                             return;
                         }
-                        topicMediaHolder.gzX.pause();
-                        topicMediaHolder.kwi.setVisibility(0);
+                        topicMediaHolder.gAl.pause();
+                        topicMediaHolder.kww.setVisibility(0);
                     }
                 });
                 if (this.abT) {
-                    topicMediaHolder.kwf.setPlayer(topicMediaHolder.gzX);
+                    topicMediaHolder.kwt.setPlayer(topicMediaHolder.gAl);
                 } else {
-                    topicMediaHolder.kwe.setPlayer(topicMediaHolder.gzX);
+                    topicMediaHolder.kws.setPlayer(topicMediaHolder.gAl);
                 }
                 if (StringUtils.isNull(oVar.ePt)) {
-                    topicMediaHolder.kwk.setVisibility(8);
-                    topicMediaHolder.kwl.setVisibility(8);
+                    topicMediaHolder.kwy.setVisibility(8);
+                    topicMediaHolder.kwz.setVisibility(8);
                 } else {
-                    topicMediaHolder.kwk.setVisibility(0);
-                    topicMediaHolder.kwl.setVisibility(0);
-                    topicMediaHolder.kwk.setText(oVar.ePt);
-                    topicMediaHolder.kwk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.k.11
+                    topicMediaHolder.kwy.setVisibility(0);
+                    topicMediaHolder.kwz.setVisibility(0);
+                    topicMediaHolder.kwy.setText(oVar.ePt);
+                    topicMediaHolder.kwy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.k.11
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
                             k.this.activity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(k.this.activity.getActivity()).createNormalConfig(String.valueOf(oVar.topicId), oVar.ePt, "")));
@@ -298,13 +298,13 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
             }
             if (topicMediaHolder.ajU != this.mSkinType) {
                 ap.setBackgroundColor(view, R.color.CAM_X0201);
-                topicMediaHolder.kwe.onChangeSkinType(this.mSkinType);
-                ap.setImageResource(topicMediaHolder.kwi, R.drawable.icon_play_video);
-                ap.setViewTextColor(topicMediaHolder.kwh, R.color.CAM_X0101, 1);
-                topicMediaHolder.kwf.onChangeSkinType(this.mSkinType);
-                topicMediaHolder.kwh.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ap.getSkinDrawable(null, R.drawable.topic_replay_selector), (Drawable) null, (Drawable) null);
-                ap.setViewTextColor(topicMediaHolder.kwk, R.color.CAM_X0105, 1);
-                ap.setBackgroundColor(topicMediaHolder.kwl, R.color.CAM_X0204);
+                topicMediaHolder.kws.onChangeSkinType(this.mSkinType);
+                ap.setImageResource(topicMediaHolder.kww, R.drawable.icon_play_video);
+                ap.setViewTextColor(topicMediaHolder.kwv, R.color.CAM_X0101, 1);
+                topicMediaHolder.kwt.onChangeSkinType(this.mSkinType);
+                topicMediaHolder.kwv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ap.getSkinDrawable(null, R.drawable.topic_replay_selector), (Drawable) null, (Drawable) null);
+                ap.setViewTextColor(topicMediaHolder.kwy, R.color.CAM_X0105, 1);
+                ap.setBackgroundColor(topicMediaHolder.kwz, R.color.CAM_X0204);
             }
             topicMediaHolder.ajU = this.mSkinType;
         }
@@ -319,8 +319,8 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.hottopic.adapter.k.14
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    if (topicMediaHolder != null && topicMediaHolder.gzX != null) {
-                        topicMediaHolder.gzX.setPlayMode("2");
+                    if (topicMediaHolder != null && topicMediaHolder.gAl != null) {
+                        topicMediaHolder.gAl.setPlayMode("2");
                     }
                     k.this.b(topicMediaHolder, oVar);
                     aVar2.dismiss();
@@ -340,37 +340,37 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(TopicMediaHolder topicMediaHolder, o oVar) {
-        topicMediaHolder.gzX.start();
-        topicMediaHolder.kwi.setVisibility(8);
-        topicMediaHolder.kwg.setVisibility(8);
+        topicMediaHolder.gAl.start();
+        topicMediaHolder.kww.setVisibility(8);
+        topicMediaHolder.kwu.setVisibility(8);
         b(oVar, topicMediaHolder);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
-        private o ktd;
-        private TopicMediaHolder kte;
+        private o ktr;
+        private TopicMediaHolder kts;
 
         public a(o oVar, TopicMediaHolder topicMediaHolder) {
-            this.ktd = oVar;
-            this.kte = topicMediaHolder;
+            this.ktr = oVar;
+            this.kts = topicMediaHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.ktd != null && this.kte != null && this.kte.kwj != null && this.kte.gzX != null) {
-                if (this.kte.kwj.getVisibility() == 0) {
-                    this.kte.gzX.stopPlayback();
-                    k.this.ksS = true;
-                    k.this.c(this.kte);
+            if (this.ktr != null && this.kts != null && this.kts.kwx != null && this.kts.gAl != null) {
+                if (this.kts.kwx.getVisibility() == 0) {
+                    this.kts.gAl.stopPlayback();
+                    k.this.ktg = true;
+                    k.this.c(this.kts);
                 } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(k.this.activity.getPageContext().getPageActivity());
                     aVar.Au(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
                     aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.hottopic.adapter.k.a.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                            a.this.cSG();
+                            a.this.cSN();
                             aVar2.dismiss();
                         }
                     });
@@ -382,19 +382,19 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                     });
                     aVar.b(k.this.activity.getPageContext()).bqx();
                 } else {
-                    cSG();
+                    cSN();
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void cSG() {
-            if (this.ktd != null && this.kte != null && this.kte.gzX != null) {
-                this.kte.gzX.setPlayMode("2");
-                this.kte.gzX.setVideoPath(this.ktd.videoUrl);
-                this.kte.gzX.start();
-                k.this.ksS = false;
-                k.this.b(this.kte);
+        public void cSN() {
+            if (this.ktr != null && this.kts != null && this.kts.gAl != null) {
+                this.kts.gAl.setPlayMode("2");
+                this.kts.gAl.setVideoPath(this.ktr.videoUrl);
+                this.kts.gAl.start();
+                k.this.ktg = false;
+                k.this.b(this.kts);
             }
         }
     }
@@ -403,13 +403,13 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
     public void a(o oVar, TopicMediaHolder topicMediaHolder) {
         if (oVar != null) {
             if (!StringUtils.isNull(oVar.videoUrl) && oVar.videoDuration > 0) {
-                topicMediaHolder.kwd.startLoad(oVar.thumbnailUrl, 17, false);
+                topicMediaHolder.kwr.startLoad(oVar.thumbnailUrl, 17, false);
             } else {
-                topicMediaHolder.kwd.startLoad(oVar.picUrl, 17, false);
+                topicMediaHolder.kwr.startLoad(oVar.picUrl, 17, false);
             }
-            topicMediaHolder.kwd.setNoImageBottomText("");
+            topicMediaHolder.kwr.setNoImageBottomText("");
             if (!StringUtils.isNull(oVar.thumbnailUrl)) {
-                topicMediaHolder.kwd.setEvent(new TbImageView.b() { // from class: com.baidu.tieba.hottopic.adapter.k.2
+                topicMediaHolder.kwr.setEvent(new TbImageView.b() { // from class: com.baidu.tieba.hottopic.adapter.k.2
                     @Override // com.baidu.tbadk.widget.TbImageView.b
                     public void onComplete(String str, boolean z) {
                     }
@@ -420,9 +420,9 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                 });
             }
             if (this.abT) {
-                topicMediaHolder.kwf.initProgress();
+                topicMediaHolder.kwt.initProgress();
             } else {
-                topicMediaHolder.kwe.bw(0, oVar.videoDuration * 1000);
+                topicMediaHolder.kws.bx(0, oVar.videoDuration * 1000);
             }
         }
     }
@@ -431,50 +431,50 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
     public void b(o oVar, TopicMediaHolder topicMediaHolder) {
         if (oVar != null && topicMediaHolder != null) {
             if (this.abT) {
-                topicMediaHolder.kwf.showProgress();
+                topicMediaHolder.kwt.showProgress();
             } else {
-                topicMediaHolder.kwe.showProgress();
+                topicMediaHolder.kws.showProgress();
             }
         }
     }
 
     private void a(TopicMediaHolder topicMediaHolder) {
-        if (topicMediaHolder != null && topicMediaHolder.kwe != null && topicMediaHolder.kwf != null) {
-            topicMediaHolder.kwe.aRo();
-            topicMediaHolder.kwf.aRo();
+        if (topicMediaHolder != null && topicMediaHolder.kws != null && topicMediaHolder.kwt != null) {
+            topicMediaHolder.kws.aRo();
+            topicMediaHolder.kwt.aRo();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(TopicMediaHolder topicMediaHolder) {
         if (topicMediaHolder != null) {
-            topicMediaHolder.kwj.setVisibility(0);
-            topicMediaHolder.kwd.setForegroundDrawable(0);
+            topicMediaHolder.kwx.setVisibility(0);
+            topicMediaHolder.kwr.setForegroundDrawable(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(TopicMediaHolder topicMediaHolder) {
         if (topicMediaHolder != null) {
-            topicMediaHolder.kwj.setVisibility(8);
-            if (this.ksU) {
-                topicMediaHolder.kwd.setForegroundDrawable(0);
+            topicMediaHolder.kwx.setVisibility(8);
+            if (this.kti) {
+                topicMediaHolder.kwr.setForegroundDrawable(0);
             } else {
-                topicMediaHolder.kwd.setForegroundDrawable(R.drawable.icon_play_video);
+                topicMediaHolder.kwr.setForegroundDrawable(R.drawable.icon_play_video);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSF() {
-        if (this.ksQ != null && this.ksQ.gzX != null && this.ksQ.kwi != null && this.ksQ.kwj != null) {
-            if (this.ksQ.gzX.isPlaying()) {
-                this.ksQ.gzX.pause();
-                this.ksQ.kwi.setVisibility(0);
-            } else if (this.ksQ.kwj.getVisibility() == 0) {
-                this.ksQ.gzX.stopPlayback();
-                this.ksS = true;
-                c(this.ksQ);
+    public void cSM() {
+        if (this.kte != null && this.kte.gAl != null && this.kte.kww != null && this.kte.kwx != null) {
+            if (this.kte.gAl.isPlaying()) {
+                this.kte.gAl.pause();
+                this.kte.kww.setVisibility(0);
+            } else if (this.kte.kwx.getVisibility() == 0) {
+                this.kte.gAl.stopPlayback();
+                this.ktg = true;
+                c(this.kte);
             }
         }
     }

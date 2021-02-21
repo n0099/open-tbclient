@@ -280,19 +280,19 @@ public abstract class h extends MessageSnapshot {
 
     /* renamed from: com.kwai.filedownloader.message.h$h  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1162h extends d {
+    public static class C1164h extends d {
 
         /* renamed from: b  reason: collision with root package name */
         private final int f10971b;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C1162h(int i, int i2, Throwable th, int i3) {
+        public C1164h(int i, int i2, Throwable th, int i3) {
             super(i, i2, th);
             this.f10971b = i3;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C1162h(Parcel parcel) {
+        public C1164h(Parcel parcel) {
             super(parcel);
             this.f10971b = parcel.readInt();
         }

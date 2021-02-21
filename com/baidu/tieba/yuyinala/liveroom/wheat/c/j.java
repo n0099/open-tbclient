@@ -14,8 +14,8 @@ public class j {
             @Override // com.baidu.live.audiolive.a.InterfaceC0164a
             public void a(NewFrameHttpResponseMessage newFrameHttpResponseMessage) {
                 if (newFrameHttpResponseMessage != null && newFrameHttpResponseMessage.zJ() > 0) {
-                    e.edi().a(view, newFrameHttpResponseMessage.zI(), bdPageContext, abVar);
-                    j.this.edr();
+                    e.edq().a(view, newFrameHttpResponseMessage.zI(), bdPageContext, abVar);
+                    j.this.edz();
                 }
             }
 
@@ -26,7 +26,7 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edr() {
+    public void edz() {
         new com.baidu.tieba.yuyinala.liveroom.wheat.model.g(null, new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.j.2
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.g.a
             public void a(FrameNumCallBackHttpResponseMessage frameNumCallBackHttpResponseMessage) {

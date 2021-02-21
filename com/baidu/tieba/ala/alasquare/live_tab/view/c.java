@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.f> {
-    private TabLiveStageLiveView gEk;
+    private TabLiveStageLiveView gEy;
     private int mLastScreenWidth;
     private View mRootView;
 
@@ -26,8 +26,8 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
         int[] fU = com.baidu.tieba.ala.alasquare.live_tab.c.fU(getContext());
         int i = fU[0];
         int i2 = fU[1];
-        this.gEk = (TabLiveStageLiveView) this.mRootView.findViewById(R.id.stage_live_view);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gEk.getLayoutParams();
+        this.gEy = (TabLiveStageLiveView) this.mRootView.findViewById(R.id.stage_live_view);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gEy.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = (FrameLayout.LayoutParams) new ViewGroup.LayoutParams(i, i2);
         } else {
@@ -35,14 +35,14 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
             layoutParams.height = i2;
         }
         layoutParams.gravity = 1;
-        this.gEk.setLayoutParams(layoutParams);
+        this.gEy.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundColor(getView(), R.color.CAM_X0201);
-        if (this.gEk != null) {
-            this.gEk.onChangeSkinType();
+        if (this.gEy != null) {
+            this.gEy.onChangeSkinType();
         }
     }
 
@@ -54,19 +54,19 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.f fVar) {
-        if (fVar != null && fVar.gAP != null) {
+        if (fVar != null && fVar.gBd != null) {
             int equipmentWidth = l.getEquipmentWidth(this.mContext);
             if (equipmentWidth != this.mLastScreenWidth) {
                 int[] fU = com.baidu.tieba.ala.alasquare.live_tab.c.fU(getContext());
                 int i = fU[0];
                 int i2 = fU[1];
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gEk.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gEy.getLayoutParams();
                 layoutParams.width = i;
                 layoutParams.height = i2;
-                this.gEk.setLayoutParams(layoutParams);
+                this.gEy.setLayoutParams(layoutParams);
                 this.mLastScreenWidth = equipmentWidth;
             }
-            this.gEk.setData(fVar.gAP.gAQ, 101);
+            this.gEy.setData(fVar.gBd.gBe, 101);
             ar arVar = new ar("c13551");
             arVar.dR("entryname", "推荐");
             TiebaStatic.log(arVar);

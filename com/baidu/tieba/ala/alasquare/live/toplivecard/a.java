@@ -14,18 +14,18 @@ import com.baidu.tieba.ala.alasquare.live.b.c;
 /* loaded from: classes10.dex */
 public class a {
     private TbPageContext<?> eUY;
-    private b gzR;
-    private c gzS;
-    private final int gzQ = 1000;
+    private b gAf;
+    private c gAg;
+    private final int gAe = 1000;
     private boolean mIsBackground = false;
     private CustomMessageListener UG = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.bRi();
+            a.this.bRp();
         }
     };
-    private Runnable gzT = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
+    private Runnable gAh = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
         @Override // java.lang.Runnable
         public void run() {
             a.this.startPlay();
@@ -35,27 +35,27 @@ public class a {
     public a(TbPageContext<?> tbPageContext) {
         this.eUY = null;
         this.eUY = tbPageContext;
-        this.gzR = new b(this.eUY);
+        this.gAf = new b(this.eUY);
         MessageManager.getInstance().registerListener(this.UG);
     }
 
     public View getView() {
-        return this.gzR.getView();
+        return this.gAf.getView();
     }
 
     public void onChangeSkinType() {
-        this.gzR.onChangeSkinType();
+        this.gAf.onChangeSkinType();
     }
 
     public void a(c cVar) {
         if (cVar != null && cVar.akU != null) {
-            this.gzS = cVar;
-            if (this.gzR != null) {
-                this.gzR.a(this.gzS);
+            this.gAg = cVar;
+            if (this.gAf != null) {
+                this.gAf.a(this.gAg);
                 ar arVar = new ar("c12644");
-                if (cVar.gzj == 0) {
+                if (cVar.gzx == 0) {
                     arVar.ap("obj_type", 1);
-                } else if (cVar.gzj == 1) {
+                } else if (cVar.gzx == 1) {
                     arVar.ap("obj_type", 2);
                 }
                 arVar.dR("tid", cVar.akU.getTid());
@@ -64,29 +64,29 @@ public class a {
         }
     }
 
-    public void bRi() {
+    public void bRp() {
         if (!this.mIsBackground) {
             if (ak.rG(1)) {
-                e.mA().removeCallbacks(this.gzT);
-                e.mA().postDelayed(this.gzT, 1000L);
-            } else if (this.gzR != null) {
-                this.gzR.bRl();
+                e.mA().removeCallbacks(this.gAh);
+                e.mA().postDelayed(this.gAh, 1000L);
+            } else if (this.gAf != null) {
+                this.gAf.bRs();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startPlay() {
-        if (this.gzS != null && this.gzS.akU != null && this.gzS.akU.boj() != null && this.gzR != null) {
-            this.gzR.FW(this.gzS.akU.boj().hls_url);
+        if (this.gAg != null && this.gAg.akU != null && this.gAg.akU.boj() != null && this.gAf != null) {
+            this.gAf.FX(this.gAg.akU.boj().hls_url);
         }
     }
 
     public void stopPlay() {
-        if (this.gzR != null) {
-            this.gzR.bRl();
+        if (this.gAf != null) {
+            this.gAf.bRs();
         }
-        e.mA().removeCallbacks(this.gzT);
+        e.mA().removeCallbacks(this.gAh);
     }
 
     public void mu(boolean z) {
@@ -95,13 +95,13 @@ public class a {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.UG);
-        e.mA().removeCallbacks(this.gzT);
-        if (this.gzR != null) {
-            this.gzR.onDestroy();
+        e.mA().removeCallbacks(this.gAh);
+        if (this.gAf != null) {
+            this.gAf.onDestroy();
         }
     }
 
-    public c bRj() {
-        return this.gzS;
+    public c bRq() {
+        return this.gAg;
     }
 }

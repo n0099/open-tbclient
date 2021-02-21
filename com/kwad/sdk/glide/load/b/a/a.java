@@ -22,7 +22,7 @@ public class a implements n<g, InputStream> {
 
     /* renamed from: com.kwad.sdk.glide.load.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1125a implements o<g, InputStream> {
+    public static class C1127a implements o<g, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
         private final m<g, g> f10063a = new m<>(500);

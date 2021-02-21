@@ -15,7 +15,7 @@ public class an extends BaseCardInfo {
     }
 
     public void bmd() {
-        this.aaD = com.baidu.tieba.lego.card.b.NC(this.card);
+        this.aaD = com.baidu.tieba.lego.card.b.ND(this.card);
         this.isValid = this.aaD != null;
     }
 

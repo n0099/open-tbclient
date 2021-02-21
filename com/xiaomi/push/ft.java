@@ -31,7 +31,7 @@ public class ft implements Cloneable {
     }
 
     public static final String a() {
-        return c != null ? c : ab.m151a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f14033b : "app.chat.xiaomi.net";
+        return c != null ? c : ab.m150a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f14033b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
@@ -45,7 +45,7 @@ public class ft implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo327a() {
+    public int mo326a() {
         return this.f452a;
     }
 
@@ -54,12 +54,12 @@ public class ft implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m328a() {
+    public boolean m327a() {
         return this.f454a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m329a() {
+    public byte[] m328a() {
         return null;
     }
 

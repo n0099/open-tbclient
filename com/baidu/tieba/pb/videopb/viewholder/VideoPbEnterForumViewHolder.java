@@ -15,25 +15,25 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     private cb akU;
-    CardForumHeadLayout mbD;
+    CardForumHeadLayout mbS;
 
     public VideoPbEnterForumViewHolder(View view) {
         super(view);
-        this.mbD = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-        if (this.mbD != null) {
-            this.mbD.setOnClickListener(this.mbD);
-            this.mbD.setAfterClickListener(this);
+        this.mbS = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+        if (this.mbS != null) {
+            this.mbS.setOnClickListener(this.mbS);
+            this.mbS.setAfterClickListener(this);
         }
     }
 
     public void setData(cb cbVar) {
         this.akU = cbVar;
-        this.mbD.setData(cbVar);
+        this.mbS.setData(cbVar);
     }
 
     public void bup() {
-        this.mbD.onChangeSkinType();
-        ap.d(this.mbD, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
+        this.mbS.onChangeSkinType();
+        ap.d(this.mbS, l.getDimens(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
     }
 
     @Override // android.view.View.OnClickListener

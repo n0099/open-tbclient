@@ -37,41 +37,41 @@ public class az {
         return context.getSharedPreferences("_prefs", 0).getLong(str, j);
     }
 
-    private static void E(Context context, String str, String str2) {
+    private static void D(Context context, String str, String str2) {
         SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
         edit.putString(str, str2);
         edit.apply();
     }
 
-    private static String F(Context context, String str, String str2) {
+    private static String E(Context context, String str, String str2) {
         return context.getSharedPreferences("_prefs", 0).getString(str, str2);
     }
 
-    public static void bI(Context context, String str) {
-        E(context, "oaid", str);
+    public static void bH(Context context, String str) {
+        D(context, "oaid", str);
     }
 
     public static String iS(Context context) {
-        return F(context, "oaid", "");
+        return E(context, "oaid", "");
     }
 
-    public static void bK(Context context, String str) {
-        E(context, "lcss", str);
+    public static void bJ(Context context, String str) {
+        D(context, "lcss", str);
     }
 
     public static String iR(Context context) {
-        return F(context, "lcss", "");
+        return E(context, "lcss", "");
     }
 
     public static void a(Context context, String str) {
         if (!context.getSharedPreferences("_prefs", 0).contains("sever_tk")) {
-            E(context, "sever_tk", str);
+            D(context, "sever_tk", str);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m61a(Context context) {
-        return F(context, "sever_tk", "");
+    public static String m60a(Context context) {
+        return E(context, "sever_tk", "");
     }
 
     public static void W(Context context, int i) {
@@ -83,21 +83,21 @@ public class az {
     }
 
     public static void b(Context context, String str) {
-        E(context, "pids", str);
+        D(context, "pids", str);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m63b(Context context) {
-        return F(context, "pids", "[]");
+    public static String m62b(Context context) {
+        return E(context, "pids", "[]");
     }
 
     public static void c(Context context, String str) {
-        E(context, "psdid", str);
+        D(context, "psdid", str);
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static String m65c(Context context) {
-        return F(context, "psdid", "");
+    public static String m64c(Context context) {
+        return E(context, "psdid", "");
     }
 
     public static void X(Context context, int i) {
@@ -139,12 +139,12 @@ public class az {
     }
 
     public static void d(Context context, String str) {
-        E(context, "bp", str);
+        D(context, "bp", str);
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static String m67d(Context context) {
-        return F(context, "bp", "");
+    public static String m66d(Context context) {
+        return E(context, "bp", "");
     }
 
     public static void Z(Context context, int i) {
@@ -180,7 +180,7 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static long m60a(Context context) {
+    public static long m59a(Context context) {
         return j(context, "spl_dev_timeout", 2000L);
     }
 
@@ -198,13 +198,13 @@ public class az {
 
     public static void e(Context context, String str) {
         if (!TextUtils.isEmpty(str)) {
-            E(context, "p_i", str);
+            D(context, "p_i", str);
         }
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public static String m69e(Context context) {
-        return F(context, "p_i", "");
+    public static String m68e(Context context) {
+        return E(context, "p_i", "");
     }
 
     public static void af(Context context, int i) {
@@ -220,7 +220,7 @@ public class az {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static long m62b(Context context) {
+    public static long m61b(Context context) {
         return j(context, "ck_al", 0L);
     }
 
@@ -229,7 +229,7 @@ public class az {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static long m64c(Context context) {
+    public static long m63c(Context context) {
         return j(context, "bdts", 0L);
     }
 
@@ -238,7 +238,7 @@ public class az {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static long m66d(Context context) {
+    public static long m65d(Context context) {
         return j(context, "bdtsi", 24L);
     }
 
@@ -247,11 +247,11 @@ public class az {
         if (!TextUtils.isEmpty(f) && !z) {
             str = f + "," + str;
         }
-        E(context, "key_show_native_adid", str);
+        D(context, "key_show_native_adid", str);
     }
 
     public static String f(Context context) {
-        return F(context, "key_show_native_adid", "");
+        return E(context, "key_show_native_adid", "");
     }
 
     public static void l(Context context, String str, boolean z) {
@@ -259,11 +259,11 @@ public class az {
         if (!TextUtils.isEmpty(g) && !z) {
             str = g + "," + str;
         }
-        E(context, "key_show_institial_adid", str);
+        D(context, "key_show_institial_adid", str);
     }
 
     public static String g(Context context) {
-        return F(context, "key_show_institial_adid", "");
+        return E(context, "key_show_institial_adid", "");
     }
 
     public static void c(Context context, long j) {
@@ -271,7 +271,7 @@ public class az {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public static long m68e(Context context) {
+    public static long m67e(Context context) {
         return j(context, "las", 12L) * 3600 * 1000;
     }
 
@@ -312,7 +312,7 @@ public class az {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Object bL(Context context, String str) {
+    public static Object bK(Context context, String str) {
         byte[] bArr;
         int i;
         int i2;

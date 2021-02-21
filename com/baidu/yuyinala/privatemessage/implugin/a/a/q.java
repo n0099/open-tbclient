@@ -26,17 +26,17 @@ public class q extends d {
     public View mContentView;
     public Context mContext;
     public View mConvertView;
-    public TextView oZj;
+    public TextView oZJ;
 
     public q(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_receive_txt_item, (ViewGroup) null);
-        this.oZj = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_txt);
-        this.oXT = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oXW = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.joJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
-        this.mxR = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
-        this.oXX = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
+        this.oZJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_txt);
+        this.oYt = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oYw = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.joX = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
+        this.myg = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.oYx = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
     }
@@ -65,23 +65,23 @@ public class q extends d {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e("ReceiveTxtItem", "ReceiveTxtItem>init>sequence is null, msgtext = " + ((TextMsg) chatMsg).getText());
                 return;
             }
-            this.oZj.setText(text);
-            Spannable c = com.baidu.yuyinala.privatemessage.implugin.util.f.c(context, this.oZj.getText());
+            this.oZJ.setText(text);
+            Spannable c = com.baidu.yuyinala.privatemessage.implugin.util.f.c(context, this.oZJ.getText());
             if (c != null) {
-                this.oZj.setText(c);
-                this.oZj.setMovementMethod(LinkMovementMethod.getInstance());
+                this.oZJ.setText(c);
+                this.oZJ.setMovementMethod(LinkMovementMethod.getInstance());
             }
-            this.oZj.setFocusableInTouchMode(true);
-            this.oZj.setFocusable(true);
-            this.oZj.setClickable(true);
-            this.oZj.setLongClickable(true);
-            this.oZj.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.1
+            this.oZJ.setFocusableInTouchMode(true);
+            this.oZJ.setFocusable(true);
+            this.oZJ.setClickable(true);
+            this.oZJ.setLongClickable(true);
+            this.oZJ.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.1
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     a.f subViewLongClickListener;
                     View contentView = q.this.getContentView();
                     if ((contentView instanceof EventDispatchRelativeLayout) && (subViewLongClickListener = ((EventDispatchRelativeLayout) contentView).getSubViewLongClickListener()) != null) {
-                        subViewLongClickListener.ejD();
+                        subViewLongClickListener.ejL();
                         return true;
                     }
                     return true;
@@ -106,23 +106,23 @@ public class q extends d {
                 spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.2
                     @Override // android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().h(context, uRLSpan.getURL(), false);
+                        com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().h(context, uRLSpan.getURL(), false);
                     }
                 }, spanStart, spanEnd, 33);
             }
-            this.oZj.setMovementMethod(LinkMovementMethod.getInstance());
-            this.oZj.setText(spannableStringBuilder);
-            this.oZj.setFocusableInTouchMode(true);
-            this.oZj.setFocusable(true);
-            this.oZj.setClickable(true);
-            this.oZj.setLongClickable(true);
-            this.oZj.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.3
+            this.oZJ.setMovementMethod(LinkMovementMethod.getInstance());
+            this.oZJ.setText(spannableStringBuilder);
+            this.oZJ.setFocusableInTouchMode(true);
+            this.oZJ.setFocusable(true);
+            this.oZJ.setClickable(true);
+            this.oZJ.setLongClickable(true);
+            this.oZJ.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.q.3
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     a.f subViewLongClickListener;
                     View contentView = q.this.getContentView();
                     if ((contentView instanceof EventDispatchRelativeLayout) && (subViewLongClickListener = ((EventDispatchRelativeLayout) contentView).getSubViewLongClickListener()) != null) {
-                        subViewLongClickListener.ejD();
+                        subViewLongClickListener.ejL();
                         return true;
                     }
                     return true;

@@ -20,11 +20,11 @@ import java.util.List;
 public class n extends BaseAdapter {
     private String bdi;
     private List<com.baidu.tieba.ala.guardclub.model.k> ber;
-    private a gZY;
-    private int gZZ;
-    private float haa;
-    private float hab;
-    private int hac;
+    private a ham;
+    private int han;
+    private float hao;
+    private float hap;
+    private int haq;
     private int mType;
 
     /* loaded from: classes11.dex */
@@ -35,18 +35,18 @@ public class n extends BaseAdapter {
     }
 
     public n(Context context) {
-        this.haa = context.getResources().getDimensionPixelOffset(a.d.sdk_fontsize36);
-        this.hab = context.getResources().getDimensionPixelOffset(a.d.sdk_fontsize36);
+        this.hao = context.getResources().getDimensionPixelOffset(a.d.sdk_fontsize36);
+        this.hap = context.getResources().getDimensionPixelOffset(a.d.sdk_fontsize36);
     }
 
     public void setType(int i) {
         this.mType = i;
         switch (i) {
             case 0:
-                this.hac = a.h.guard_club_rank_list_contribution_week;
+                this.haq = a.h.guard_club_rank_list_contribution_week;
                 return;
             case 1:
-                this.hac = a.h.guard_club_rank_list_contribution_total;
+                this.haq = a.h.guard_club_rank_list_contribution_total;
                 return;
             default:
                 return;
@@ -58,7 +58,7 @@ public class n extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.gZY = aVar;
+        this.ham = aVar;
     }
 
     public List<com.baidu.tieba.ala.guardclub.model.k> getDatas() {
@@ -112,18 +112,18 @@ public class n extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.live_guard_club_rank_item, viewGroup, false);
             b bVar2 = new b();
-            bVar2.gPr = (TextView) view.findViewById(a.f.tv_rank);
-            bVar2.haf = view.findViewById(a.f.layout_avatar);
-            bVar2.gPt = (HeadImageView) view.findViewById(a.f.iv_avatar);
-            bVar2.hag = (TbImageView) view.findViewById(a.f.iv_level);
-            a(bVar2.gPt, bVar2.hag);
-            bVar2.hah = (LottieAnimationView) view.findViewById(a.f.lottie_live);
+            bVar2.gPF = (TextView) view.findViewById(a.f.tv_rank);
+            bVar2.hat = view.findViewById(a.f.layout_avatar);
+            bVar2.gPH = (HeadImageView) view.findViewById(a.f.iv_avatar);
+            bVar2.hau = (TbImageView) view.findViewById(a.f.iv_level);
+            a(bVar2.gPH, bVar2.hau);
+            bVar2.hav = (LottieAnimationView) view.findViewById(a.f.lottie_live);
             bVar2.aDM = (TextView) view.findViewById(a.f.tv_name);
-            bVar2.gYM = (TextView) view.findViewById(a.f.tv_name_suffix);
-            bVar2.gPA = (TextView) view.findViewById(a.f.tv_content);
-            bVar2.haj = view.findViewById(a.f.layout_action);
-            bVar2.hak = (TextView) view.findViewById(a.f.tv_guard);
-            bVar2.hal = (TextView) view.findViewById(a.f.tv_joined);
+            bVar2.gZa = (TextView) view.findViewById(a.f.tv_name_suffix);
+            bVar2.gPO = (TextView) view.findViewById(a.f.tv_content);
+            bVar2.hax = view.findViewById(a.f.layout_action);
+            bVar2.hay = (TextView) view.findViewById(a.f.tv_guard);
+            bVar2.haz = (TextView) view.findViewById(a.f.tv_joined);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
@@ -150,66 +150,66 @@ public class n extends BaseAdapter {
 
     private void a(b bVar, int i) {
         if (i + 4 >= 100) {
-            bVar.gPr.setText("99+");
-            bVar.gPr.setTextSize(0, this.hab);
+            bVar.gPF.setText("99+");
+            bVar.gPF.setTextSize(0, this.hap);
             return;
         }
-        bVar.gPr.setText(String.valueOf(i + 4));
-        bVar.gPr.setTextSize(0, this.haa);
+        bVar.gPF.setText(String.valueOf(i + 4));
+        bVar.gPF.setTextSize(0, this.hao);
     }
 
     private void a(b bVar, final com.baidu.tieba.ala.guardclub.model.k kVar) {
-        bVar.gPt.stopLoad();
-        bVar.gPt.startLoad(kVar.avatar, 12, false, false);
-        bVar.hag.stopLoad();
+        bVar.gPH.stopLoad();
+        bVar.gPH.startLoad(kVar.avatar, 12, false, false);
+        bVar.hau.stopLoad();
         b(bVar);
-        bVar.gPt.setScaleX(1.0f);
-        bVar.gPt.setScaleY(1.0f);
+        bVar.gPH.setScaleX(1.0f);
+        bVar.gPH.setScaleY(1.0f);
         if (kVar.liveStatus != 1 || TextUtils.isEmpty(kVar.liveId)) {
-            bVar.hah.setVisibility(8);
+            bVar.hav.setVisibility(8);
         } else {
-            bVar.hah.setVisibility(0);
+            bVar.hav.setVisibility(0);
             a(bVar);
         }
         String ds = com.baidu.live.guardclub.g.IT().ds(kVar.level);
         if (!TextUtils.isEmpty(ds)) {
-            bVar.hag.startLoad(ds, 10, false);
-            bVar.hag.setVisibility(0);
+            bVar.hau.startLoad(ds, 10, false);
+            bVar.hau.setVisibility(0);
         } else {
-            bVar.hag.setVisibility(8);
+            bVar.hau.setVisibility(8);
         }
-        bVar.haf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.n.1
+        bVar.hat.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.n.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (n.this.gZY != null) {
-                    n.this.gZY.a(kVar);
+                if (n.this.ham != null) {
+                    n.this.ham.a(kVar);
                 }
             }
         });
     }
 
     private void a(b bVar, Context context, com.baidu.tieba.ala.guardclub.model.k kVar) {
-        if (this.gZZ <= 0) {
-            this.gZZ = bVar.gYM.getWidth();
-            if (this.gZZ <= 0) {
-                bVar.gYM.measure(0, 0);
-                this.gZZ = bVar.gYM.getMeasuredWidth();
+        if (this.han <= 0) {
+            this.han = bVar.gZa.getWidth();
+            if (this.han <= 0) {
+                bVar.gZa.measure(0, 0);
+                this.han = bVar.gZa.getMeasuredWidth();
             }
         }
         String str = kVar.name;
         if (str != null && str.endsWith("的真爱团")) {
             str = str.substring(0, str.lastIndexOf("的真爱团"));
-            bVar.aDM.setPadding(0, 0, this.gZZ, 0);
-            bVar.gYM.setVisibility(0);
+            bVar.aDM.setPadding(0, 0, this.han, 0);
+            bVar.gZa.setVisibility(0);
         } else {
             bVar.aDM.setPadding(0, 0, 0, 0);
-            bVar.gYM.setVisibility(4);
+            bVar.gZa.setVisibility(4);
         }
         bVar.aDM.setText(str);
         String str2 = null;
         switch (this.mType) {
             case 0:
-                str2 = kVar.haJ;
+                str2 = kVar.haX;
                 break;
             case 1:
                 str2 = kVar.score;
@@ -218,74 +218,74 @@ public class n extends BaseAdapter {
         if (str2 == null) {
             str2 = "";
         }
-        bVar.gPA.setText(String.format(context.getResources().getString(this.hac), str2));
+        bVar.gPO.setText(String.format(context.getResources().getString(this.haq), str2));
     }
 
     private void b(b bVar, final com.baidu.tieba.ala.guardclub.model.k kVar) {
         if (TextUtils.isEmpty(this.bdi) || TextUtils.isEmpty(kVar.aJM) || !this.bdi.equals(kVar.aJM)) {
-            bVar.haj.setVisibility(0);
-            if (kVar.haK) {
-                bVar.hal.setVisibility(0);
-                bVar.hak.setVisibility(8);
+            bVar.hax.setVisibility(0);
+            if (kVar.haY) {
+                bVar.haz.setVisibility(0);
+                bVar.hay.setVisibility(8);
                 return;
             }
-            bVar.hal.setVisibility(8);
-            bVar.hak.setVisibility(0);
-            bVar.hak.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.n.2
+            bVar.haz.setVisibility(8);
+            bVar.hay.setVisibility(0);
+            bVar.hay.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.n.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (n.this.gZY != null) {
-                        n.this.gZY.b(kVar);
+                    if (n.this.ham != null) {
+                        n.this.ham.b(kVar);
                     }
                 }
             });
             return;
         }
-        bVar.haj.setVisibility(4);
+        bVar.hax.setVisibility(4);
     }
 
     private void a(b bVar) {
-        if (bVar.hai == null) {
-            bVar.hai = new AnimatorSet();
+        if (bVar.haw == null) {
+            bVar.haw = new AnimatorSet();
         }
-        bVar.hah.setAnimation("live_anim_guard_join.json");
-        bVar.hah.loop(true);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(bVar.gPt, "scaleX", 0.88f, 1.0f, 0.88f);
+        bVar.hav.setAnimation("live_anim_guard_join.json");
+        bVar.hav.loop(true);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(bVar.gPH, "scaleX", 0.88f, 1.0f, 0.88f);
         ofFloat.setRepeatCount(-1);
         ofFloat.setRepeatMode(2);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(bVar.gPt, "scaleY", 0.88f, 1.0f, 0.88f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(bVar.gPH, "scaleY", 0.88f, 1.0f, 0.88f);
         ofFloat2.setRepeatCount(-1);
         ofFloat2.setRepeatMode(2);
-        bVar.hai.setDuration(1000L);
-        bVar.hai.setInterpolator(new AccelerateDecelerateInterpolator());
-        bVar.hai.play(ofFloat).with(ofFloat2);
-        bVar.hah.playAnimation();
-        bVar.hai.start();
+        bVar.haw.setDuration(1000L);
+        bVar.haw.setInterpolator(new AccelerateDecelerateInterpolator());
+        bVar.haw.play(ofFloat).with(ofFloat2);
+        bVar.hav.playAnimation();
+        bVar.haw.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(b bVar) {
-        bVar.hah.cancelAnimation();
-        if (bVar.hai == null) {
+        bVar.hav.cancelAnimation();
+        if (bVar.haw == null) {
             return;
         }
-        bVar.hai.cancel();
+        bVar.haw.cancel();
     }
 
     /* loaded from: classes11.dex */
     public class b {
         private TextView aDM;
-        private TextView gPA;
-        private TextView gPr;
-        private HeadImageView gPt;
-        private TextView gYM;
-        private View haf;
-        private TbImageView hag;
-        private LottieAnimationView hah;
-        private AnimatorSet hai;
-        private View haj;
-        private TextView hak;
-        private TextView hal;
+        private TextView gPF;
+        private HeadImageView gPH;
+        private TextView gPO;
+        private TextView gZa;
+        private View hat;
+        private TbImageView hau;
+        private LottieAnimationView hav;
+        private AnimatorSet haw;
+        private View hax;
+        private TextView hay;
+        private TextView haz;
 
         public b() {
         }

@@ -11,19 +11,19 @@ import com.baidu.live.view.web.f;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> implements f {
-    private boolean ncy = false;
-    private d ncz;
+    private boolean ncY = false;
+    private d ncZ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         k(getIntent());
-        if (this.ncy) {
+        if (this.ncY) {
             setIsAddSwipeBackLayout(false);
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.ncz = new d(this, this, getIntent());
+            this.ncZ = new d(this, this, getIntent());
         }
     }
 
@@ -34,7 +34,7 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
             if (!TextUtils.isEmpty(stringExtra) && (ix = e.ix(stringExtra)) != null && ix.size() > 0) {
                 try {
                     if (ix.containsKey("swiper")) {
-                        this.ncy = Integer.valueOf((String) ix.get("swiper")).intValue() == 0;
+                        this.ncY = Integer.valueOf((String) ix.get("swiper")).intValue() == 0;
                     }
                 } catch (Exception e) {
                 }
@@ -44,7 +44,7 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.ncz == null || !this.ncz.onKeyDown(i, keyEvent)) {
+        if (this.ncZ == null || !this.ncZ.onKeyDown(i, keyEvent)) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
@@ -54,8 +54,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.ncz != null) {
-            this.ncz.onResume();
+        if (this.ncZ != null) {
+            this.ncZ.onResume();
         }
     }
 
@@ -63,8 +63,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.ncz != null) {
-            this.ncz.onDestroy();
+        if (this.ncZ != null) {
+            this.ncZ.onDestroy();
         }
     }
 
@@ -72,8 +72,8 @@ public class CommonWebViewActivity extends BaseActivity<CommonWebViewActivity> i
     @Override // com.baidu.live.tbadk.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.ncz != null) {
-            this.ncz.onActivityResult(i, i2, intent);
+        if (this.ncZ != null) {
+            this.ncZ.onActivityResult(i, i2, intent);
         }
     }
 

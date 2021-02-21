@@ -14,36 +14,36 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class MyEmotionHorizontalAdater extends BaseAdapter {
     private List<EmotionPackageData> caS;
-    private List<a.C0813a> lCX;
-    private int lDc;
-    private int lDd;
+    private List<a.C0814a> lDl;
+    private int lDq;
+    private int lDr;
     private TbPageContext mPageContext;
 
-    public MyEmotionHorizontalAdater(List<EmotionPackageData> list, List<a.C0813a> list2, TbPageContext tbPageContext) {
+    public MyEmotionHorizontalAdater(List<EmotionPackageData> list, List<a.C0814a> list2, TbPageContext tbPageContext) {
         this.caS = list;
-        this.lCX = list2;
+        this.lDl = list2;
         this.mPageContext = tbPageContext;
-        diW();
+        djd();
     }
 
-    private void diW() {
-        this.lDc = 0;
-        this.lDd = 0;
+    private void djd() {
+        this.lDq = 0;
+        this.lDr = 0;
         for (EmotionPackageData emotionPackageData : this.caS) {
             if (emotionPackageData.ishasdownload) {
-                this.lDc++;
+                this.lDq++;
             } else {
-                this.lDd++;
+                this.lDr++;
             }
         }
     }
 
-    public int diX() {
-        return this.lDc;
+    public int dje() {
+        return this.lDq;
     }
 
-    public void diY() {
-        diW();
+    public void djf() {
+        djd();
     }
 
     @Override // android.widget.Adapter
@@ -71,11 +71,11 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
             view.setTag(emotionGridViewHolder);
         }
         EmotionGridViewHolder emotionGridViewHolder2 = emotionGridViewHolder == null ? (EmotionGridViewHolder) view.getTag() : emotionGridViewHolder;
-        emotionGridViewHolder2.setData(this.caS.get(i), this.lDd);
-        HListView listView = emotionGridViewHolder2.lDf.getListView();
-        a.C0813a c0813a = this.lCX.get(i);
-        if (c0813a != null) {
-            listView.setSelectionFromLeft(c0813a.lDa, c0813a.lDb);
+        emotionGridViewHolder2.setData(this.caS.get(i), this.lDr);
+        HListView listView = emotionGridViewHolder2.lDt.getListView();
+        a.C0814a c0814a = this.lDl.get(i);
+        if (c0814a != null) {
+            listView.setSelectionFromLeft(c0814a.lDo, c0814a.lDp);
         }
         listView.setOnScrollListener(new AbsHListView.g() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.managers.MyEmotionHorizontalAdater.1
             @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.g
@@ -84,11 +84,11 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
 
             @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.g
             public void a(AbsHListView absHListView, int i2, int i3, int i4) {
-                a.C0813a c0813a2;
-                if (i >= 0 && i < MyEmotionHorizontalAdater.this.lCX.size() && (c0813a2 = (a.C0813a) MyEmotionHorizontalAdater.this.lCX.get(i)) != null) {
+                a.C0814a c0814a2;
+                if (i >= 0 && i < MyEmotionHorizontalAdater.this.lDl.size() && (c0814a2 = (a.C0814a) MyEmotionHorizontalAdater.this.lDl.get(i)) != null) {
                     int left = absHListView.getChildCount() > 0 ? absHListView.getChildAt(0).getLeft() : 0;
-                    c0813a2.lDa = i2;
-                    c0813a2.lDb = left;
+                    c0814a2.lDo = i2;
+                    c0814a2.lDp = left;
                 }
             }
         });
@@ -97,16 +97,16 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
 
     /* loaded from: classes9.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
-        private EmotionManageHorizontalView lDf;
+        private EmotionManageHorizontalView lDt;
 
         public EmotionGridViewHolder(View view) {
             super(view);
-            this.lDf = (EmotionManageHorizontalView) view;
+            this.lDt = (EmotionManageHorizontalView) view;
         }
 
         public void setData(EmotionPackageData emotionPackageData, int i) {
-            if (this.lDf != null && emotionPackageData != null) {
-                this.lDf.setData(emotionPackageData, i);
+            if (this.lDt != null && emotionPackageData != null) {
+                this.lDt.setData(emotionPackageData, i);
             }
         }
     }

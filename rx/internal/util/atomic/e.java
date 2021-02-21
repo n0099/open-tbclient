@@ -14,14 +14,14 @@ public final class e<E> extends b<E> {
             throw new NullPointerException("null elements not allowed");
         }
         LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-        eNw().soNext(linkedQueueNode);
+        eNE().soNext(linkedQueueNode);
         a(linkedQueueNode);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        LinkedQueueNode<E> lvNext = eNy().lvNext();
+        LinkedQueueNode<E> lvNext = eNG().lvNext();
         if (lvNext != null) {
             E andNullValue = lvNext.getAndNullValue();
             b(lvNext);
@@ -32,7 +32,7 @@ public final class e<E> extends b<E> {
 
     @Override // java.util.Queue
     public E peek() {
-        LinkedQueueNode<E> lvNext = eNy().lvNext();
+        LinkedQueueNode<E> lvNext = eNG().lvNext();
         if (lvNext != null) {
             return lvNext.lpValue();
         }

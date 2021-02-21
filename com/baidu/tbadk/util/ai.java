@@ -63,7 +63,7 @@ public class ai implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public static String DX(String str) {
+    public static String DV(String str) {
         BufferedReader bufferedReader;
         StringBuilder sb = new StringBuilder();
         try {
@@ -124,7 +124,7 @@ public class ai implements Thread.UncaughtExceptionHandler {
         }
         if (isOOM(th)) {
             try {
-                exc = new Exception(((th.getMessage() + DX("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n") + DX("cat proc/" + Process.myPid() + "/maps"));
+                exc = new Exception(((th.getMessage() + DV("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n") + DV("cat proc/" + Process.myPid() + "/maps"));
                 this.fNC = new ExceptionData();
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {

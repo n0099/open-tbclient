@@ -6,8 +6,8 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 /* loaded from: classes11.dex */
 public class a extends BdBaseModel {
     private int FIRST_PN;
-    private long goL;
-    private int hVP;
+    private long goZ;
+    private int hWd;
     private long mGroupId;
     private HttpMessageListener mHttpMessageListener;
     private int mPn;
@@ -15,12 +15,12 @@ public class a extends BdBaseModel {
 
     /* renamed from: com.baidu.tieba.ala.person.hosttabpanel.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0684a {
+    public interface InterfaceC0685a {
     }
 
     public void refreshData() {
         this.mPn = this.FIRST_PN;
-        sendMessage(new com.baidu.tieba.ala.person.hosttabpanel.message.a(this.mPn, this.hVP, this.mUserId, this.goL, this.mGroupId));
+        sendMessage(new com.baidu.tieba.ala.person.hosttabpanel.message.a(this.mPn, this.hWd, this.mUserId, this.goZ, this.mGroupId));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

@@ -14,12 +14,12 @@ public interface b extends IInterface {
 
         /* renamed from: com.kwai.filedownloader.c.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        private static class C1158a implements b {
+        private static class C1160a implements b {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f10884a;
 
-            C1158a(IBinder iBinder) {
+            C1160a(IBinder iBinder) {
                 this.f10884a = iBinder;
             }
 
@@ -276,7 +276,7 @@ public interface b extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C1158a(iBinder) : (b) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C1160a(iBinder) : (b) queryLocalInterface;
         }
 
         @Override // android.os.IInterface
@@ -289,11 +289,11 @@ public interface b extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                    a(a.AbstractBinderC1156a.a(parcel.readStrongBinder()));
+                    a(a.AbstractBinderC1158a.a(parcel.readStrongBinder()));
                     return true;
                 case 2:
                     parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                    b(a.AbstractBinderC1156a.a(parcel.readStrongBinder()));
+                    b(a.AbstractBinderC1158a.a(parcel.readStrongBinder()));
                     return true;
                 case 3:
                     parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");

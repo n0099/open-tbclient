@@ -30,7 +30,7 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
         this.d = lVar;
         this.e = str2;
         this.f7097b = str;
-        this.c = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(str, str2, lVar, null).eEg();
+        this.c = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(str, str2, lVar, null).eEo();
         a();
     }
 
@@ -49,7 +49,7 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
 
     private synchronized void m() {
         if (n()) {
-            e.d().eFg().a(k(), this.c.d(), this.c.u(), null, hashCode());
+            e.d().eFo().a(k(), this.c.d(), this.c.u(), null, hashCode());
         } else {
             e.d().a(k(), hashCode(), null, this.c);
         }
@@ -147,7 +147,7 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
             }
         }
         if (n()) {
-            e.d().eFg().a(k(), null, true, this.c, null, null, null, hashCode());
+            e.d().eFo().a(k(), null, true, this.c, null, null, null, hashCode());
         } else {
             e.d().e(this.f7097b, this.c.d(), 2);
         }
@@ -200,6 +200,6 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
-    public void a(int i, a.InterfaceC1017a interfaceC1017a) {
+    public void a(int i, a.InterfaceC1019a interfaceC1019a) {
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.data.q;
 /* loaded from: classes11.dex */
 public class PkRankStartInfoView extends LinearLayout {
-    private PkRankStartAvatarView imZ;
-    private PkRankStartNameView ina;
+    private PkRankStartAvatarView inn;
+    private PkRankStartNameView ino;
 
     public PkRankStartInfoView(Context context, boolean z) {
         super(context);
@@ -17,49 +17,49 @@ public class PkRankStartInfoView extends LinearLayout {
 
     public void setData(q qVar) {
         if (qVar != null) {
-            if (this.imZ != null) {
-                this.imZ.setData(qVar.aVj, qVar.gTc);
+            if (this.inn != null) {
+                this.inn.setData(qVar.aVj, qVar.gTq);
             }
-            if (this.ina != null) {
-                this.ina.setData(qVar.nickname, qVar.gTd);
+            if (this.ino != null) {
+                this.ino.setData(qVar.nickname, qVar.gTr);
             }
         }
     }
 
     public Animator getStreakAnim() {
-        if (this.imZ != null) {
-            return this.imZ.getStreakAnim();
+        if (this.inn != null) {
+            return this.inn.getStreakAnim();
         }
         return null;
     }
 
     public void release() {
-        if (this.imZ != null) {
-            this.imZ.release();
+        if (this.inn != null) {
+            this.inn.release();
         }
-        if (this.ina != null) {
-            this.ina.release();
+        if (this.ino != null) {
+            this.ino.release();
         }
     }
 
     private void init(boolean z) {
         setBackgroundColor(0);
         setOrientation(0);
-        this.imZ = new PkRankStartAvatarView(getContext());
-        this.ina = new PkRankStartNameView(getContext());
+        this.inn = new PkRankStartAvatarView(getContext());
+        this.ino = new PkRankStartNameView(getContext());
         if (!z) {
-            this.ina.setGravity(5);
+            this.ino.setGravity(5);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 16;
         if (z) {
-            addView(this.imZ);
+            addView(this.inn);
             layoutParams.leftMargin = getResources().getDimensionPixelOffset(a.d.sdk_ds16);
-            addView(this.ina, layoutParams);
+            addView(this.ino, layoutParams);
             return;
         }
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(a.d.sdk_ds16);
-        addView(this.ina, layoutParams);
-        addView(this.imZ);
+        addView(this.ino, layoutParams);
+        addView(this.inn);
     }
 }

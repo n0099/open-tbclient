@@ -74,7 +74,7 @@ public class p {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m529a(String str, String str2, String str3) {
+    public synchronized void m528a(String str, String str2, String str3) {
         b(str, str2, str3);
         this.f867a.post(new q(this, str, str2, str3));
     }

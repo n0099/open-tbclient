@@ -16,17 +16,17 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private int gOS;
-    private InterfaceC0681a hVs;
-    private c hVt;
-    private b hVu;
+    private int gPg;
+    private InterfaceC0682a hVG;
+    private c hVH;
+    private b hVI;
     private List mList;
     private int mSkinType;
     private int type;
 
     /* renamed from: com.baidu.tieba.ala.person.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0681a {
+    public interface InterfaceC0682a {
         void a(bl blVar, View view);
     }
 
@@ -41,9 +41,9 @@ public class a extends BaseAdapter {
     }
 
     public a(Context context, int i) {
-        this.gOS = 2;
+        this.gPg = 2;
         this.context = context;
-        this.gOS = i;
+        this.gPg = i;
     }
 
     public void a(boolean z, List list, int i) {
@@ -83,22 +83,22 @@ public class a extends BaseAdapter {
         d dVar = null;
         if (view == null) {
             if (this.mList.get(i) != null) {
-                if (this.gOS == 1) {
+                if (this.gPg == 1) {
                     if (this.type == 1 || this.type == 0) {
                         view = LayoutInflater.from(this.context).inflate(a.g.ala_person_list_item_layout, (ViewGroup) null);
-                        dVar = new com.baidu.tieba.ala.person.view.b(view, this.gOS);
+                        dVar = new com.baidu.tieba.ala.person.view.b(view, this.gPg);
                     } else if (this.type == 2) {
                         view = LayoutInflater.from(this.context).inflate(a.g.ala_playbacks_list_item_layout, (ViewGroup) null);
-                        dVar = new f(view, this.gOS);
+                        dVar = new f(view, this.gPg);
                     }
-                } else if (this.gOS == 2) {
+                } else if (this.gPg == 2) {
                     view = LayoutInflater.from(this.context).inflate(a.g.ala_person_card_list_item_layout, (ViewGroup) null);
-                    dVar = new com.baidu.tieba.ala.person.view.b(view, this.gOS);
+                    dVar = new com.baidu.tieba.ala.person.view.b(view, this.gPg);
                 }
                 if (dVar != null) {
-                    dVar.a(this.hVs);
-                    dVar.a(this.hVu);
-                    dVar.a(this.hVt);
+                    dVar.a(this.hVG);
+                    dVar.a(this.hVI);
+                    dVar.a(this.hVH);
                 }
                 if (view != null) {
                     view.setTag(dVar);
@@ -137,15 +137,15 @@ public class a extends BaseAdapter {
         this.mSkinType = i;
     }
 
-    public void a(InterfaceC0681a interfaceC0681a) {
-        this.hVs = interfaceC0681a;
+    public void a(InterfaceC0682a interfaceC0682a) {
+        this.hVG = interfaceC0682a;
     }
 
     public void a(c cVar) {
-        this.hVt = cVar;
+        this.hVH = cVar;
     }
 
     public void a(b bVar) {
-        this.hVu = bVar;
+        this.hVI = bVar;
     }
 }

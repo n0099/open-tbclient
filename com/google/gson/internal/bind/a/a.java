@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class a {
-    private static final TimeZone pUQ = TimeZone.getTimeZone("UTC");
+    private static final TimeZone pVq = TimeZone.getTimeZone("UTC");
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x00cc  */
     /* JADX WARN: Removed duplicated region for block: B:48:0x00d3  */
@@ -94,7 +94,7 @@ public class a {
             }
             char charAt2 = str.charAt(i5);
             if (charAt2 == 'Z') {
-                timeZone = pUQ;
+                timeZone = pVq;
                 length = i5 + 1;
             } else if (charAt2 == '+' || charAt2 == '-') {
                 String substring = str.substring(i5);
@@ -103,7 +103,7 @@ public class a {
                 }
                 length = substring.length() + i5;
                 if ("+0000".equals(substring) || "+00:00".equals(substring)) {
-                    timeZone = pUQ;
+                    timeZone = pVq;
                 } else {
                     String str2 = "GMT" + substring;
                     timeZone = TimeZone.getTimeZone(str2);

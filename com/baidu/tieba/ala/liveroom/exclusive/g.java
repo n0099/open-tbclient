@@ -10,7 +10,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes11.dex */
 public class g {
-    private TbImageView gvJ;
+    private TbImageView gvX;
     private ViewGroup mContentView;
     private Context mContext;
     public View mRootView;
@@ -19,20 +19,20 @@ public class g {
     public g(View view) {
         this.mContext = view.getContext();
         this.mRootView = view;
-        this.gvJ = (TbImageView) this.mRootView.findViewById(a.f.iv_scene_avatar);
-        this.gvJ.setDefaultBgResource(a.e.sdk_icon_default_avatar100);
-        this.gvJ.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
-        this.gvJ.setIsRound(true);
-        this.gvJ.setAutoChangeStyle(false);
-        this.gvJ.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.gvJ.setDrawBorder(false);
+        this.gvX = (TbImageView) this.mRootView.findViewById(a.f.iv_scene_avatar);
+        this.gvX.setDefaultBgResource(a.e.sdk_icon_default_avatar100);
+        this.gvX.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
+        this.gvX.setIsRound(true);
+        this.gvX.setAutoChangeStyle(false);
+        this.gvX.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.gvX.setDrawBorder(false);
         this.mTextView = (TextView) this.mRootView.findViewById(a.f.tv_scene_name);
         this.mContentView = (ViewGroup) this.mRootView.findViewById(a.f.ll_content_container);
     }
 
     public void a(an anVar, boolean z, boolean z2) {
         if (anVar != null) {
-            this.gvJ.startLoad(anVar.imageUrl, 10, false);
+            this.gvX.startLoad(anVar.imageUrl, 10, false);
             this.mTextView.setText(anVar.getLabelName());
             c.a(this.mContext, this.mContentView, z, anVar.startColor, anVar.endColor, z2);
         }

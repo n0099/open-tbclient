@@ -43,7 +43,7 @@ public abstract class a<T> {
 
     /* renamed from: com.qq.e.comm.plugin.r.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    protected interface InterfaceC1205a {
+    protected interface InterfaceC1207a {
         void a();
 
         boolean a(ADEvent aDEvent);

@@ -77,7 +77,7 @@ public class jo extends je {
         }
         if (this.f14177a.b() >= a2) {
             try {
-                String str = new String(this.f14177a.m522a(), this.f14177a.a(), a2, "UTF-8");
+                String str = new String(this.f14177a.m521a(), this.f14177a.a(), a2, "UTF-8");
                 this.f14177a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e2) {
@@ -95,7 +95,7 @@ public class jo extends je {
         }
         c(a2);
         if (this.f14177a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.f14177a.m522a(), this.f14177a.a(), a2);
+            ByteBuffer wrap = ByteBuffer.wrap(this.f14177a.m521a(), this.f14177a.a(), a2);
             this.f14177a.a(a2);
             return wrap;
         }

@@ -192,21 +192,21 @@ public class m extends j.a {
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public void a(int i, int i2, com.ss.android.socialbase.downloader.d.j jVar, int i3, boolean z) throws RemoteException {
         if (this.f13195b != null) {
-            this.f13195b.b(i, i2, com.ss.android.socialbase.downloader.m.e.a(jVar), com.ss.android.socialbase.downloader.m.d.RZ(i3), z);
+            this.f13195b.b(i, i2, com.ss.android.socialbase.downloader.m.e.a(jVar), com.ss.android.socialbase.downloader.m.d.Sa(i3), z);
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public void b(int i, int i2, com.ss.android.socialbase.downloader.d.j jVar, int i3, boolean z) throws RemoteException {
         if (this.f13195b != null) {
-            this.f13195b.a(i, i2, com.ss.android.socialbase.downloader.m.e.a(jVar), com.ss.android.socialbase.downloader.m.d.RZ(i3), z);
+            this.f13195b.a(i, i2, com.ss.android.socialbase.downloader.m.e.a(jVar), com.ss.android.socialbase.downloader.m.d.Sa(i3), z);
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public void a(int i, int i2, com.ss.android.socialbase.downloader.d.j jVar, int i3, boolean z, boolean z2) throws RemoteException {
         if (this.f13195b != null) {
-            this.f13195b.a(i, i2, com.ss.android.socialbase.downloader.m.e.a(jVar), com.ss.android.socialbase.downloader.m.d.RZ(i3), z, z2);
+            this.f13195b.a(i, i2, com.ss.android.socialbase.downloader.m.e.a(jVar), com.ss.android.socialbase.downloader.m.d.Sa(i3), z, z2);
         }
     }
 
@@ -268,7 +268,7 @@ public class m extends j.a {
         if (this.f13195b == null) {
             return false;
         }
-        return this.f13195b.Rv(i);
+        return this.f13195b.Rw(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -288,12 +288,12 @@ public class m extends j.a {
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public void d(int i, boolean z) throws RemoteException {
-        com.ss.android.socialbase.downloader.downloader.c.eGy().b(i, z);
+        com.ss.android.socialbase.downloader.downloader.c.eGG().b(i, z);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public int m(int i) throws RemoteException {
-        return com.ss.android.socialbase.downloader.downloader.c.eGy().b(i);
+        return com.ss.android.socialbase.downloader.downloader.c.eGG().b(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -395,7 +395,7 @@ public class m extends j.a {
         if (this.f13195b == null) {
             return null;
         }
-        return com.ss.android.socialbase.downloader.m.e.c(this.f13195b.Rw(i));
+        return com.ss.android.socialbase.downloader.m.e.c(this.f13195b.Rx(i));
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -403,7 +403,7 @@ public class m extends j.a {
         if (this.f13195b == null) {
             return null;
         }
-        return com.ss.android.socialbase.downloader.m.e.d(this.f13195b.Rx(i));
+        return com.ss.android.socialbase.downloader.m.e.d(this.f13195b.Ry(i));
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -418,6 +418,6 @@ public class m extends j.a {
         if (this.f13195b == null) {
             return null;
         }
-        return com.ss.android.socialbase.downloader.m.e.c(this.f13195b.Ry(i));
+        return com.ss.android.socialbase.downloader.m.e.c(this.f13195b.Rz(i));
     }
 }

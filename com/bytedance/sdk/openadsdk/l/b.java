@@ -149,10 +149,10 @@ public class b implements com.bytedance.sdk.openadsdk.l.a {
                         if (this.f7338b.c()) {
                             c = b(c);
                         }
-                        i eqH = i.eqH();
-                        new com.bytedance.sdk.adnet.b.j(0, c, eqH).setRetryPolicy(com.bytedance.sdk.openadsdk.i.e.b().OH(10000)).build(com.bytedance.sdk.openadsdk.i.e.a(b.this.b()).d());
+                        i eqP = i.eqP();
+                        new com.bytedance.sdk.adnet.b.j(0, c, eqP).setRetryPolicy(com.bytedance.sdk.openadsdk.i.e.b().OI(10000)).build(com.bytedance.sdk.openadsdk.i.e.a(b.this.b()).d());
                         try {
-                            pVar = eqH.get();
+                            pVar = eqP.get();
                         } catch (Throwable th2) {
                             pVar = null;
                         }

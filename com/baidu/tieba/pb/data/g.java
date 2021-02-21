@@ -18,11 +18,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class g {
     public static PostData a(f fVar, boolean z, int i) {
         if (z) {
-            if (fVar == null || fVar.dlb() == null || fVar.dlb().size() <= 0) {
+            if (fVar == null || fVar.dli() == null || fVar.dli().size() <= 0) {
                 return null;
             }
-            PostData postData = fVar.dlb().get(0);
-            if (postData.dNx() != 1) {
+            PostData postData = fVar.dli().get(0);
+            if (postData.dNF() != 1) {
                 return a(fVar);
             }
             return postData;
@@ -32,20 +32,20 @@ public class g {
 
     public static PostData a(f fVar) {
         MetaData metaData;
-        if (fVar == null || fVar.dkZ() == null || fVar.dkZ().bnQ() == null) {
+        if (fVar == null || fVar.dlg() == null || fVar.dlg().bnQ() == null) {
             return null;
         }
         PostData postData = new PostData();
-        MetaData bnQ = fVar.dkZ().bnQ();
+        MetaData bnQ = fVar.dlg().bnQ();
         String userId = bnQ.getUserId();
-        HashMap<String, MetaData> userMap = fVar.dkZ().getUserMap();
+        HashMap<String, MetaData> userMap = fVar.dlg().getUserMap();
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
             metaData = bnQ;
         }
         postData.JE(1);
-        postData.setId(fVar.dkZ().bog());
-        postData.setTitle(fVar.dkZ().getTitle());
-        postData.setTime(fVar.dkZ().getCreateTime());
+        postData.setId(fVar.dlg().bog());
+        postData.setTitle(fVar.dlg().getTitle());
+        postData.setTime(fVar.dlg().getCreateTime());
         postData.a(metaData);
         return postData;
     }
@@ -82,24 +82,24 @@ public class g {
     }
 
     public static void a(PostData postData, PbActivity.a aVar) {
-        if (postData != null && postData.dNz() != null && postData.dNz().bHz() != null && aVar != null && aVar.lNv != null && aVar.eJM != null && postData.dNz().bHz().size() != 0) {
-            String str = (String) y.getItem(aVar.lNv, aVar.index);
+        if (postData != null && postData.dNH() != null && postData.dNH().bHz() != null && aVar != null && aVar.lNK != null && aVar.eJM != null && postData.dNH().bHz().size() != 0) {
+            String str = (String) y.getItem(aVar.lNK, aVar.index);
             if (!StringUtils.isNull(str)) {
-                aVar.lNv = new ArrayList<>();
+                aVar.lNK = new ArrayList<>();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = aVar.eJM;
                 aVar.eJM = new ConcurrentHashMap<>();
-                Iterator<TbRichTextData> it = postData.dNz().bHz().iterator();
+                Iterator<TbRichTextData> it = postData.dNH().bHz().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 8) {
                         String c = c(next);
                         if (!StringUtils.isNull(c) && concurrentHashMap.get(c) != null) {
-                            aVar.lNv.add(c);
+                            aVar.lNK.add(c);
                             aVar.eJM.put(c, concurrentHashMap.get(c));
                         }
                     }
                 }
-                aVar.index = y.getPosition(aVar.lNv, str);
+                aVar.index = y.getPosition(aVar.lNK, str);
             }
         }
     }

@@ -42,64 +42,64 @@ import java.io.File;
 /* loaded from: classes11.dex */
 public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     private ab bxN;
-    private com.baidu.live.liveroom.middleware.a.a hoA;
-    private String hoC;
-    private AlaLiveRecorderPerfData hor;
-    private View hos;
-    private b hou;
-    private AlaLiveUserInfoData hov;
-    private c hox;
-    private long hoy;
-    private TbImageView hoz;
+    private AlaLiveRecorderPerfData hoG;
+    private View hoH;
+    private b hoI;
+    private AlaLiveUserInfoData hoJ;
+    private c hoL;
+    private long hoM;
+    private TbImageView hoN;
+    private com.baidu.live.liveroom.middleware.a.a hoO;
+    private String hoQ;
     private String mCoverUrl;
     private AlaLiveInfoData mLiveInfo;
     private String mPortrait;
     private RelativeLayout mRootView;
     private String nickName;
-    private int gOS = 0;
-    private String how = null;
-    private RelativeLayout.LayoutParams hoB = new RelativeLayout.LayoutParams(-1, -1);
-    private HttpMessageListener hoD = new HttpMessageListener(1021036) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.1
+    private int gPg = 0;
+    private String hoK = null;
+    private RelativeLayout.LayoutParams hoP = new RelativeLayout.LayoutParams(-1, -1);
+    private HttpMessageListener hoR = new HttpMessageListener(1021036) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            com.baidu.tieba.ala.liveroom.data.b ciI;
-            if ((httpResponsedMessage instanceof AlaCloseLiveHttpResonpnseMessage) && (ciI = ((AlaCloseLiveHttpResonpnseMessage) httpResponsedMessage).ciI()) != null && ciI.mLiveInfo != null) {
+            com.baidu.tieba.ala.liveroom.data.b ciP;
+            if ((httpResponsedMessage instanceof AlaCloseLiveHttpResonpnseMessage) && (ciP = ((AlaCloseLiveHttpResonpnseMessage) httpResponsedMessage).ciP()) != null && ciP.mLiveInfo != null) {
                 String str = "";
-                if (ciI.aId != null) {
-                    str = ciI.aId.nickName;
+                if (ciP.aId != null) {
+                    str = ciP.aId.nickName;
                 }
                 if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(AlaLiveEndActivity.this.nickName)) {
                     str = AlaLiveEndActivity.this.nickName;
                 }
                 if (AlaLiveEndActivity.this.bxN != null) {
-                    if (ciI.mLiveInfo != null) {
-                        AlaLiveEndActivity.this.bxN.mLiveInfo = ciI.mLiveInfo;
+                    if (ciP.mLiveInfo != null) {
+                        AlaLiveEndActivity.this.bxN.mLiveInfo = ciP.mLiveInfo;
                     }
-                    if (ciI.aId != null) {
-                        AlaLiveEndActivity.this.bxN.aId = ciI.aId;
+                    if (ciP.aId != null) {
+                        AlaLiveEndActivity.this.bxN.aId = ciP.aId;
                     }
                 }
-                String str2 = ciI.mLiveInfo.cover;
+                String str2 = ciP.mLiveInfo.cover;
                 if (!StringUtils.isNull(str2) && !str2.equals(AlaLiveEndActivity.this.mCoverUrl)) {
                     AlaLiveEndActivity.this.mCoverUrl = str2;
-                    AlaLiveEndActivity.this.hoz.startLoad(str2, 39, false);
+                    AlaLiveEndActivity.this.hoN.startLoad(str2, 39, false);
                 }
-                if (AlaLiveEndActivity.this.hoA != null) {
-                    AlaLiveEndActivity.this.hoA.a(AlaLiveEndActivity.this.bxN, str);
-                } else if (AlaLiveEndActivity.this.hou != null && AlaLiveEndActivity.this.hou.a(AlaLiveEndActivity.this.bxN, str) != null) {
-                    AlaLiveEndActivity.this.hos = AlaLiveEndActivity.this.hou.a(AlaLiveEndActivity.this.bxN, str);
-                    if (AlaLiveEndActivity.this.mRootView.indexOfChild(AlaLiveEndActivity.this.hoz) < 0) {
-                        AlaLiveEndActivity.this.mRootView.addView(AlaLiveEndActivity.this.hoz, 0, AlaLiveEndActivity.this.hoB);
+                if (AlaLiveEndActivity.this.hoO != null) {
+                    AlaLiveEndActivity.this.hoO.a(AlaLiveEndActivity.this.bxN, str);
+                } else if (AlaLiveEndActivity.this.hoI != null && AlaLiveEndActivity.this.hoI.a(AlaLiveEndActivity.this.bxN, str) != null) {
+                    AlaLiveEndActivity.this.hoH = AlaLiveEndActivity.this.hoI.a(AlaLiveEndActivity.this.bxN, str);
+                    if (AlaLiveEndActivity.this.mRootView.indexOfChild(AlaLiveEndActivity.this.hoN) < 0) {
+                        AlaLiveEndActivity.this.mRootView.addView(AlaLiveEndActivity.this.hoN, 0, AlaLiveEndActivity.this.hoP);
                     }
-                    if (AlaLiveEndActivity.this.mRootView.indexOfChild(AlaLiveEndActivity.this.hos) < 0) {
-                        AlaLiveEndActivity.this.mRootView.addView(AlaLiveEndActivity.this.hos, AlaLiveEndActivity.this.hoB);
+                    if (AlaLiveEndActivity.this.mRootView.indexOfChild(AlaLiveEndActivity.this.hoH) < 0) {
+                        AlaLiveEndActivity.this.mRootView.addView(AlaLiveEndActivity.this.hoH, AlaLiveEndActivity.this.hoP);
                     }
                 }
             }
         }
     };
-    HttpMessageListener hoE = new HttpMessageListener(1021037) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.2
+    HttpMessageListener hoS = new HttpMessageListener(1021037) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -113,7 +113,7 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             }
         }
     };
-    private e hoF = new e() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.3
+    private e hoT = new e() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveEndActivity.3
         @Override // com.baidu.live.liveroom.middleware.a.e
         public void MM() {
             AlaLiveEndActivity.this.closeActivity();
@@ -185,41 +185,41 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         super.onCreate(bundle);
         if (!isFinishing()) {
             if (TbadkCoreApplication.getInst().isOther()) {
-                this.hoA = d.MJ().MK();
-                this.hoA.q(getPageContext().getPageActivity());
+                this.hoO = d.MJ().MK();
+                this.hoO.q(getPageContext().getPageActivity());
             }
             initData(bundle);
             initListener();
             this.mRootView = new RelativeLayout(getPageContext().getPageActivity());
-            this.hoz = new TbImageView(getPageContext().getPageActivity());
-            this.hoz.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.hoN = new TbImageView(getPageContext().getPageActivity());
+            this.hoN.setScaleType(ImageView.ScaleType.CENTER_CROP);
             setContentView(this.mRootView);
             initView();
-            MessageManager.getInstance().registerListener(this.hoD);
+            MessageManager.getInstance().registerListener(this.hoR);
         }
     }
 
     private void initView() {
-        if (this.hoA != null) {
-            this.hos = this.hoA.a(this.bxN, this.hoF, this.gOS, this.how, this.mPortrait, this.nickName);
+        if (this.hoO != null) {
+            this.hoH = this.hoO.a(this.bxN, this.hoT, this.gPg, this.hoK, this.mPortrait, this.nickName);
         }
-        if (this.hos == null) {
-            this.hou = new b();
-            this.hou.q(getPageContext().getPageActivity());
-            this.hos = this.hou.a(this.bxN, this.hoF, this.gOS, this.how, this.mPortrait, this.nickName);
+        if (this.hoH == null) {
+            this.hoI = new b();
+            this.hoI.q(getPageContext().getPageActivity());
+            this.hoH = this.hoI.a(this.bxN, this.hoT, this.gPg, this.hoK, this.mPortrait, this.nickName);
         }
         if (!StringUtils.isNull(this.mCoverUrl)) {
-            this.hoz.startLoad(this.mCoverUrl, 39, false);
-            if (this.hoz.getParent() != null) {
-                ((ViewGroup) this.hoz.getParent()).removeView(this.hoz);
+            this.hoN.startLoad(this.mCoverUrl, 39, false);
+            if (this.hoN.getParent() != null) {
+                ((ViewGroup) this.hoN.getParent()).removeView(this.hoN);
             }
-            this.mRootView.addView(this.hoz, this.hoB);
+            this.mRootView.addView(this.hoN, this.hoP);
         }
-        if (this.hos != null) {
-            if (this.hos.getParent() != null) {
-                ((ViewGroup) this.hos.getParent()).removeView(this.hos);
+        if (this.hoH != null) {
+            if (this.hoH.getParent() != null) {
+                ((ViewGroup) this.hoH.getParent()).removeView(this.hoH);
             }
-            this.mRootView.addView(this.hos, this.hoB);
+            this.mRootView.addView(this.hoH, this.hoP);
         }
     }
 
@@ -230,23 +230,23 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             AlaLiveUserInfoData alaLiveUserInfoData = new AlaLiveUserInfoData();
             alaLiveUserInfoData.parserJson(getIntent().getStringExtra("liveUserData"));
             this.mLiveInfo = alaLiveInfoData;
-            this.hov = alaLiveUserInfoData;
-            this.gOS = getIntent().getIntExtra("fromType", 0);
-            if (this.gOS > 2 || this.gOS < 0) {
-                this.gOS = 0;
+            this.hoJ = alaLiveUserInfoData;
+            this.gPg = getIntent().getIntExtra("fromType", 0);
+            if (this.gPg > 2 || this.gPg < 0) {
+                this.gPg = 0;
             }
-            this.how = getIntent().getStringExtra("authen_msg");
-            this.hoC = getIntent().getStringExtra("live_back_scheme");
+            this.hoK = getIntent().getStringExtra("authen_msg");
+            this.hoQ = getIntent().getStringExtra("live_back_scheme");
             this.mCoverUrl = this.mLiveInfo.cover;
             this.mPortrait = getIntent().getStringExtra("host_portrait");
             this.nickName = getIntent().getStringExtra("user_nickname");
             AlaLiveRecorderPerfData alaLiveRecorderPerfData = new AlaLiveRecorderPerfData();
             alaLiveRecorderPerfData.parseJson(getIntent().getStringExtra("live_perf_data"));
-            this.hor = alaLiveRecorderPerfData;
-            if (this.hor != null) {
-                this.hor.endViewShowTime = System.currentTimeMillis();
+            this.hoG = alaLiveRecorderPerfData;
+            if (this.hoG != null) {
+                this.hoG.endViewShowTime = System.currentTimeMillis();
                 if (this.mLiveInfo != null) {
-                    this.hor.liveID = Long.toString(this.mLiveInfo.live_id);
+                    this.hoG.liveID = Long.toString(this.mLiveInfo.live_id);
                 }
             }
         }
@@ -256,21 +256,21 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         if (this.mLiveInfo == null) {
             this.mLiveInfo = new AlaLiveInfoData();
         }
-        if (this.hov == null) {
-            this.hov = new AlaLiveUserInfoData();
+        if (this.hoJ == null) {
+            this.hoJ = new AlaLiveUserInfoData();
         }
         if (this.bxN != null) {
             this.bxN.mLiveInfo = this.mLiveInfo;
-            this.bxN.aId = this.hov;
+            this.bxN.aId = this.hoJ;
         }
     }
 
     private void initListener() {
-        bYT();
-        registerListener(this.hoE);
+        bZa();
+        registerListener(this.hoS);
     }
 
-    private void bYT() {
+    private void bZa() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021037, TbConfig.SERVER_ADDRESS + "ala/live/delRecord");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -282,33 +282,33 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.hor != null) {
-            this.hor.endViewShowTime = System.currentTimeMillis() - this.hor.endViewShowTime;
+        if (this.hoG != null) {
+            this.hoG.endViewShowTime = System.currentTimeMillis() - this.hoG.endViewShowTime;
         }
-        this.hox = new c();
-        this.hox.a(this.hor);
+        this.hoL = new c();
+        this.hoL.a(this.hoG);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.STAYTIME_MASTER_CLOSE_LIVE_END);
             alaStaticItem.addParams("end_time", System.currentTimeMillis() + "");
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.hoE);
-        MessageManager.getInstance().unRegisterListener(this.hoD);
-        if (this.hox != null) {
-            this.hox.release();
+        MessageManager.getInstance().unRegisterListener(this.hoS);
+        MessageManager.getInstance().unRegisterListener(this.hoR);
+        if (this.hoL != null) {
+            this.hoL.release();
         }
-        if (this.hoA != null) {
-            this.hoA.cF(false);
+        if (this.hoO != null) {
+            this.hoO.cF(false);
         }
-        bYU();
+        bZb();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        long currentTimeMillis = System.currentTimeMillis() - this.hoy;
+        long currentTimeMillis = System.currentTimeMillis() - this.hoM;
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(QMStaticKeys.QM_STATIC_LIVE_CLOSE_STAYTIME);
             if (this.mLiveInfo != null) {
@@ -318,8 +318,8 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             alaStaticItem.addParams("time", currentTimeMillis / 1000);
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
-        if (this.hoA != null) {
-            this.hoA.onPause();
+        if (this.hoO != null) {
+            this.hoO.onPause();
         }
     }
 
@@ -327,7 +327,7 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.hoy = System.currentTimeMillis();
+        this.hoM = System.currentTimeMillis();
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(QMStaticKeys.QM_STATIC_LIVE_CLOSE_ACCESS);
             if (this.mLiveInfo != null) {
@@ -336,8 +336,8 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
             }
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
-        if (this.hoA != null) {
-            this.hoA.onResume();
+        if (this.hoO != null) {
+            this.hoO.onResume();
         }
     }
 
@@ -345,8 +345,8 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     @Override // com.baidu.live.tbadk.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.hoA != null) {
-            this.hoA.onActivityResult(i, i2, intent);
+        if (this.hoO != null) {
+            this.hoO.onActivityResult(i, i2, intent);
         }
     }
 
@@ -354,23 +354,23 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.hoA != null) {
-            this.hoA.onStop();
+        if (this.hoO != null) {
+            this.hoO.onStop();
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        if (this.hoA != null) {
-            this.hoA.onRequestPermissionsResult(i, strArr, iArr);
+        if (this.hoO != null) {
+            this.hoO.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.hoA != null) {
-            this.hoA.onKeyDown(i, keyEvent);
+        if (this.hoO != null) {
+            this.hoO.onKeyDown(i, keyEvent);
         }
         return super.onKeyDown(i, keyEvent);
     }
@@ -381,11 +381,11 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         UbcStatisticManager.getInstance().clear();
     }
 
-    public void bYU() {
-        if (!TextUtils.isEmpty(this.hoC)) {
+    public void bZb() {
+        if (!TextUtils.isEmpty(this.hoQ)) {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.hoC);
-                this.hoC = null;
+                BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.hoQ);
+                this.hoQ = null;
             }
         }
     }

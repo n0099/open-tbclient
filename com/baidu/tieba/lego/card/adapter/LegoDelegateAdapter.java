@@ -11,7 +11,7 @@ import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes9.dex */
 public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public BdUniqueId fGZ;
-    private ICardInfo lbo;
+    private ICardInfo lbC;
     private TbPageContext<?> mPageContext;
 
     public LegoDelegateAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
@@ -25,7 +25,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ck */
     public LegoDelegateViewHolder e(ViewGroup viewGroup) {
-        e a2 = b.dbs().a(this.mPageContext, this.lbo, this.mBusinessType);
+        e a2 = b.dbz().a(this.mPageContext, this.lbC, this.mBusinessType);
         if (a2 == null) {
             return null;
         }
@@ -38,7 +38,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoDelegateViewHolder legoDelegateViewHolder) {
         e eVar = (e) legoDelegateViewHolder.getView();
-        ICardInfo iCardInfo2 = this.lbo;
+        ICardInfo iCardInfo2 = this.lbC;
         if (eVar != null && iCardInfo2 != null) {
             eVar.setPosition(i);
             eVar.aN(iCardInfo2);
@@ -50,7 +50,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        this.lbo = iCardInfo;
+        this.lbC = iCardInfo;
         return super.getView(i, view, viewGroup, iCardInfo);
     }
 
@@ -61,11 +61,11 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
 
     /* loaded from: classes9.dex */
     public static class LegoDelegateViewHolder extends TypeAdapter.ViewHolder {
-        e<?> jDY;
+        e<?> jEm;
 
         public LegoDelegateViewHolder(e<?> eVar) {
             super((View) eVar);
-            this.jDY = eVar;
+            this.jEm = eVar;
         }
     }
 }

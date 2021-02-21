@@ -5,11 +5,11 @@ import android.content.Context;
 public abstract class d implements c {
     protected Context mCtx;
     protected int mStatusCode = -200;
-    protected boolean oUI;
-    protected String oUJ;
-    protected String oUK;
-    protected String oUL;
+    protected boolean oVI;
     protected boolean oVi;
+    protected String oVj;
+    protected String oVk;
+    protected String oVl;
 
     public d(Context context) {
         if (context != null) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.n.a.a.c
-    public boolean eiD() {
-        return this.oUI;
-    }
-
-    @Override // com.baidu.n.a.a.c
-    public boolean isSupport() {
+    public boolean eiL() {
         return this.oVi;
     }
 
     @Override // com.baidu.n.a.a.c
+    public boolean isSupport() {
+        return this.oVI;
+    }
+
+    @Override // com.baidu.n.a.a.c
     public String getOAID() {
-        return this.oUJ;
+        return this.oVj;
     }
 
     @Override // com.baidu.n.a.a.c
     public String getAAID() {
-        return this.oUK;
+        return this.oVk;
     }
 
     @Override // com.baidu.n.a.a.c
     public String getVAID() {
-        return this.oUL;
+        return this.oVl;
     }
 
     @Override // com.baidu.n.a.a.c
@@ -49,31 +49,31 @@ public abstract class d implements c {
 
     @Override // com.baidu.n.a.a.c
     public void AE(boolean z) {
-        this.oUI = z;
-    }
-
-    @Override // com.baidu.n.a.a.c
-    public void AF(boolean z) {
         this.oVi = z;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void XN(String str) {
-        this.oUJ = str;
+    public void AF(boolean z) {
+        this.oVI = z;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void XO(String str) {
-        this.oUK = str;
+    public void XZ(String str) {
+        this.oVj = str;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void XP(String str) {
-        this.oUL = str;
+    public void Ya(String str) {
+        this.oVk = str;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void Nt(int i) {
+    public void Yb(String str) {
+        this.oVl = str;
+    }
+
+    @Override // com.baidu.n.a.a.c
+    public void Nu(int i) {
         this.mStatusCode = i;
     }
 }

@@ -28,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private static volatile b pae;
+    private static volatile b paF;
 
     /* loaded from: classes11.dex */
     public interface a<T> extends BIMValueCallBack<T> {
@@ -36,7 +36,7 @@ public class b {
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0966b extends IGetUserStatusListener {
+    public interface InterfaceC0968b extends IGetUserStatusListener {
     }
 
     /* loaded from: classes11.dex */
@@ -59,13 +59,13 @@ public class b {
     public interface g extends IGetUsersProfileBatchListener {
     }
 
-    public static synchronized b ejM() {
+    public static synchronized b ejU() {
         b bVar;
         synchronized (b.class) {
-            if (pae == null) {
-                pae = new b();
+            if (paF == null) {
+                paF = new b();
             }
-            bVar = pae;
+            bVar = paF;
         }
         return bVar;
     }
@@ -137,7 +137,7 @@ public class b {
     public void c(Context context, Throwable th) {
     }
 
-    public void A(Context context, String str, String str2) {
+    public void z(Context context, String str, String str2) {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("PluginHostFactory", "sendAPSBroadcast: action=" + str + ", data=" + str2);
     }
 
@@ -176,8 +176,8 @@ public class b {
         }
     }
 
-    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0966b interfaceC0966b) {
-        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0966b);
+    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0968b interfaceC0968b) {
+        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0968b);
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
@@ -198,7 +198,7 @@ public class b {
         return AccountManager.isCuidLogin(context);
     }
 
-    public boolean ejN() {
+    public boolean ejV() {
         return false;
     }
 

@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 /* loaded from: classes3.dex */
-public class o implements d, i, j, l, a.InterfaceC1065a {
+public class o implements d, i, j, l, a.InterfaceC1067a {
 
     /* renamed from: a  reason: collision with root package name */
     private final Matrix f7952a = new Matrix();
@@ -40,7 +40,7 @@ public class o implements d, i, j, l, a.InterfaceC1065a {
         this.h.a(this);
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1065a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
     public void a() {
         this.c.invalidateSelf();
     }

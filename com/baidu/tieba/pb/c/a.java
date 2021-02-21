@@ -23,7 +23,7 @@ public class a {
         if (bdUniqueId != null && fVar != null) {
             ar arVar = new ar("common_exp");
             a(arVar, fVar, postData, i, i2, false, str);
-            c.dMr().a(bdUniqueId, str2, arVar);
+            c.dMz().a(bdUniqueId, str2, arVar);
         }
     }
 
@@ -73,16 +73,16 @@ public class a {
             if (postData != null) {
                 arVar.dR("pid", postData.getId() + "");
             }
-            if (fVar.dkZ() != null) {
-                arVar.ap("thread_type", fVar.dkZ().threadType);
-                BaijiahaoData baijiahaoData = fVar.dkZ().getBaijiahaoData();
+            if (fVar.dlg() != null) {
+                arVar.ap("thread_type", fVar.dlg().threadType);
+                BaijiahaoData baijiahaoData = fVar.dlg().getBaijiahaoData();
                 if (baijiahaoData != null) {
                     arVar.dR("ugc_nid", baijiahaoData.oriUgcNid);
                     arVar.dR("ugc_vid", baijiahaoData.oriUgcVid);
                     arVar.ap("ori_ugc_type", baijiahaoData.oriUgcType);
                 }
             }
-            if (fVar.dkZ().bqb()) {
+            if (fVar.dlg().bqb()) {
                 arVar.ap("gua_type", 1);
             } else if (postData.bpW() != null) {
                 arVar.ap("gua_type", 2);
@@ -92,9 +92,9 @@ public class a {
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                 arVar.dR("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fqv);
             }
-            if (!fVar.dlC()) {
-                if (fVar.lJZ != 2) {
-                    i3 = fVar.lJZ == 1 ? 3 : 2;
+            if (!fVar.dlJ()) {
+                if (fVar.lKn != 2) {
+                    i3 = fVar.lKn == 1 ? 3 : 2;
                 }
                 arVar.ap("list_order", i3);
             }
@@ -106,7 +106,7 @@ public class a {
         if (aVar != null && aVar.bln() != null) {
             ar arVar = new ar("c13992");
             if (aVar.bln().bpG() != null) {
-                arVar.ap("obj_type", Qb(aVar.bln().bpG().ePN));
+                arVar.ap("obj_type", Qc(aVar.bln().bpG().ePN));
             }
             arVar.ap("obj_locate", aVar.bln().eMz);
             arVar.dR("tid", aVar.bln().getTid());
@@ -121,7 +121,7 @@ public class a {
         if (aVar != null && aVar.bln() != null) {
             ar arVar = new ar("c14020");
             if (aVar.bln().bpG() != null) {
-                arVar.ap("obj_type", Qb(aVar.bln().bpG().ePN));
+                arVar.ap("obj_type", Qc(aVar.bln().bpG().ePN));
             }
             arVar.dR("tid", aVar.bln().getTid());
             arVar.v("fid", aVar.bln().getFid());
@@ -130,7 +130,7 @@ public class a {
         }
     }
 
-    private static int Qb(String str) {
+    private static int Qc(String str) {
         if ("游戏".equals(str)) {
             return 1;
         }

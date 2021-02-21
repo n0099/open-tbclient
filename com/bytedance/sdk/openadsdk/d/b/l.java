@@ -43,7 +43,7 @@ public final class l {
         private final Appendable f6971a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final C1016a f6972b = new C1016a();
+        private final C1018a f6972b = new C1018a();
 
         a(Appendable appendable) {
             this.f6971a = appendable;
@@ -70,12 +70,12 @@ public final class l {
 
         /* renamed from: com.bytedance.sdk.openadsdk.d.b.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        static class C1016a implements CharSequence {
+        static class C1018a implements CharSequence {
 
             /* renamed from: a  reason: collision with root package name */
             char[] f6973a;
 
-            C1016a() {
+            C1018a() {
             }
 
             @Override // java.lang.CharSequence

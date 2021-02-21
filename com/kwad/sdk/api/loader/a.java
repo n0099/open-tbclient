@@ -9,7 +9,7 @@ class a {
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    static class C1068a {
+    static class C1070a {
 
         /* renamed from: a  reason: collision with root package name */
         int f8191a;
@@ -21,7 +21,7 @@ class a {
         String e;
         transient File f;
 
-        C1068a() {
+        C1070a() {
         }
 
         public void a(JSONObject jSONObject) {
@@ -52,7 +52,7 @@ class a {
 
         /* renamed from: b  reason: collision with root package name */
         String f8194b;
-        C1068a c;
+        C1070a c;
 
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
@@ -60,7 +60,7 @@ class a {
             }
             this.f8193a = jSONObject.optLong("result");
             this.f8194b = jSONObject.optString(TiebaInitialize.LogFields.ERROR_MESSAGE);
-            this.c = new C1068a();
+            this.c = new C1070a();
             this.c.a(jSONObject.optJSONObject("data"));
         }
 

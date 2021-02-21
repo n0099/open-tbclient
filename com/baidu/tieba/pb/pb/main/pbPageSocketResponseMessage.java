@@ -56,7 +56,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.d();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.lJQ = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.lKe = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -75,7 +75,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             if (f != null) {
                 arrayList.add(f);
             }
-            com.baidu.tieba.recapp.report.b.dEl().q("PB", arrayList);
+            com.baidu.tieba.recapp.report.b.dEt().q("PB", arrayList);
         }
         BdLog.detailException(null);
     }
@@ -85,10 +85,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                i.dmW().a(this.cacheKey, this.isFromMark, bArr);
+                i.dnd().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                i.dmW().o(this.cacheKey, bArr);
+                i.dnd().o(this.cacheKey, bArr);
                 return;
             default:
                 return;

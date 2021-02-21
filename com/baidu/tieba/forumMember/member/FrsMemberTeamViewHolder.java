@@ -14,19 +14,19 @@ import com.baidu.tieba.R;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes8.dex */
 public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
-    public LinearLayout jcI;
-    public LinearLayout jcJ;
-    public LinearLayout jcK;
-    public LinearLayout jcL;
-    public HeadImageView jcM;
-    public HeadImageView jcN;
-    public HeadImageView jcO;
-    public HeadImageView jcP;
-    public TextView jcQ;
-    public TextView jcR;
-    public TextView jcS;
-    public TextView jcT;
-    public NoPressedLinearLayout jcU;
+    public LinearLayout jcW;
+    public LinearLayout jcX;
+    public LinearLayout jcY;
+    public LinearLayout jcZ;
+    public HeadImageView jda;
+    public HeadImageView jdb;
+    public HeadImageView jdc;
+    public HeadImageView jdd;
+    public TextView jde;
+    public TextView jdf;
+    public TextView jdg;
+    public TextView jdh;
+    public NoPressedLinearLayout jdi;
     public TextView mTitleView;
 
     public FrsMemberTeamViewHolder(View view, View.OnClickListener onClickListener) {
@@ -35,35 +35,35 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         int color = ap.getColor(R.color.black_alpha10);
         this.mTitleView = (TextView) view.findViewById(R.id.title_text_view);
         this.mTitleView.setOnClickListener(onClickListener);
-        this.jcI = (LinearLayout) view.findViewById(R.id.member1);
-        this.jcM = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
-        this.jcQ = (TextView) view.findViewById(R.id.textview_user_name1);
-        this.jcM.setIsRound(true);
-        this.jcM.setBorderColor(color);
-        this.jcM.setBorderWidth(dimens);
-        this.jcM.setOnClickListener(onClickListener);
-        this.jcJ = (LinearLayout) view.findViewById(R.id.member2);
-        this.jcN = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
-        this.jcR = (TextView) view.findViewById(R.id.textview_user_name2);
-        this.jcN.setIsRound(true);
-        this.jcN.setBorderColor(color);
-        this.jcN.setBorderWidth(dimens);
-        this.jcN.setOnClickListener(onClickListener);
-        this.jcK = (LinearLayout) view.findViewById(R.id.member3);
-        this.jcO = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
-        this.jcS = (TextView) view.findViewById(R.id.textview_user_name3);
-        this.jcO.setIsRound(true);
-        this.jcO.setBorderColor(color);
-        this.jcO.setBorderWidth(dimens);
-        this.jcO.setOnClickListener(onClickListener);
-        this.jcL = (LinearLayout) view.findViewById(R.id.member4);
-        this.jcP = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
-        this.jcT = (TextView) view.findViewById(R.id.textview_user_name4);
-        this.jcP.setIsRound(true);
-        this.jcP.setBorderColor(color);
-        this.jcP.setBorderWidth(dimens);
-        this.jcP.setOnClickListener(onClickListener);
-        this.jcU = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
+        this.jcW = (LinearLayout) view.findViewById(R.id.member1);
+        this.jda = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
+        this.jde = (TextView) view.findViewById(R.id.textview_user_name1);
+        this.jda.setIsRound(true);
+        this.jda.setBorderColor(color);
+        this.jda.setBorderWidth(dimens);
+        this.jda.setOnClickListener(onClickListener);
+        this.jcX = (LinearLayout) view.findViewById(R.id.member2);
+        this.jdb = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
+        this.jdf = (TextView) view.findViewById(R.id.textview_user_name2);
+        this.jdb.setIsRound(true);
+        this.jdb.setBorderColor(color);
+        this.jdb.setBorderWidth(dimens);
+        this.jdb.setOnClickListener(onClickListener);
+        this.jcY = (LinearLayout) view.findViewById(R.id.member3);
+        this.jdc = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
+        this.jdg = (TextView) view.findViewById(R.id.textview_user_name3);
+        this.jdc.setIsRound(true);
+        this.jdc.setBorderColor(color);
+        this.jdc.setBorderWidth(dimens);
+        this.jdc.setOnClickListener(onClickListener);
+        this.jcZ = (LinearLayout) view.findViewById(R.id.member4);
+        this.jdd = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
+        this.jdh = (TextView) view.findViewById(R.id.textview_user_name4);
+        this.jdd.setIsRound(true);
+        this.jdd.setBorderColor(color);
+        this.jdd.setBorderWidth(dimens);
+        this.jdd.setOnClickListener(onClickListener);
+        this.jdi = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
@@ -76,32 +76,32 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
             }
             switch (i) {
                 case 0:
-                    this.jcM.startLoad(str, 12, false);
-                    this.jcM.setTag(bawuRoleInfoPub);
-                    this.jcM.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.jcQ.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.jcI.setVisibility(0);
+                    this.jda.startLoad(str, 12, false);
+                    this.jda.setTag(bawuRoleInfoPub);
+                    this.jda.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.jde.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.jcW.setVisibility(0);
                     return;
                 case 1:
-                    this.jcN.startLoad(str, 12, false);
-                    this.jcN.setTag(bawuRoleInfoPub);
-                    this.jcN.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.jcR.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.jcJ.setVisibility(0);
+                    this.jdb.startLoad(str, 12, false);
+                    this.jdb.setTag(bawuRoleInfoPub);
+                    this.jdb.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.jdf.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.jcX.setVisibility(0);
                     return;
                 case 2:
-                    this.jcO.startLoad(str, 12, false);
-                    this.jcO.setTag(bawuRoleInfoPub);
-                    this.jcO.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.jcS.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.jcK.setVisibility(0);
+                    this.jdc.startLoad(str, 12, false);
+                    this.jdc.setTag(bawuRoleInfoPub);
+                    this.jdc.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.jdg.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.jcY.setVisibility(0);
                     return;
                 case 3:
-                    this.jcP.startLoad(str, 12, false);
-                    this.jcP.setTag(bawuRoleInfoPub);
-                    this.jcP.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.jcT.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.jcL.setVisibility(0);
+                    this.jdd.startLoad(str, 12, false);
+                    this.jdd.setTag(bawuRoleInfoPub);
+                    this.jdd.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.jdh.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.jcZ.setVisibility(0);
                     return;
                 default:
                     return;
@@ -110,21 +110,21 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void qn(boolean z) {
-        if (this.jcM.getVisibility() == 0) {
-            this.jcM.setIsNight(z);
-            this.jcM.refresh();
+        if (this.jda.getVisibility() == 0) {
+            this.jda.setIsNight(z);
+            this.jda.refresh();
         }
-        if (this.jcN.getVisibility() == 0) {
-            this.jcN.setIsNight(z);
-            this.jcN.refresh();
+        if (this.jdb.getVisibility() == 0) {
+            this.jdb.setIsNight(z);
+            this.jdb.refresh();
         }
-        if (this.jcO.getVisibility() == 0) {
-            this.jcO.setIsNight(z);
-            this.jcO.refresh();
+        if (this.jdc.getVisibility() == 0) {
+            this.jdc.setIsNight(z);
+            this.jdc.refresh();
         }
-        if (this.jcP.getVisibility() == 0) {
-            this.jcP.setIsNight(z);
-            this.jcP.refresh();
+        if (this.jdd.getVisibility() == 0) {
+            this.jdd.setIsNight(z);
+            this.jdd.refresh();
         }
     }
 }

@@ -5,35 +5,35 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.MemberPayResultActivityConfig;
 /* loaded from: classes9.dex */
 public class MemberPayResultActivity extends BaseActivity<MemberPayResultActivity> {
-    private g lqm;
-    private String lqn;
+    private g lqA;
+    private String lqB;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.lqn = bundle.getString(MemberPayResultActivityConfig.PAY_CONTENT, "");
+            this.lqB = bundle.getString(MemberPayResultActivityConfig.PAY_CONTENT, "");
         } else if (getIntent() != null) {
-            this.lqn = getIntent().getStringExtra(MemberPayResultActivityConfig.PAY_CONTENT);
-            if (this.lqn == null) {
-                this.lqn = "";
+            this.lqB = getIntent().getStringExtra(MemberPayResultActivityConfig.PAY_CONTENT);
+            if (this.lqB == null) {
+                this.lqB = "";
             }
         }
         initUI();
     }
 
     private void initUI() {
-        this.lqm = new g(getPageContext());
-        this.lqm.Oc(this.lqn);
+        this.lqA = new g(getPageContext());
+        this.lqA.Od(this.lqB);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.lqm != null) {
-            this.lqm.onChangeSkinType(i);
+        if (this.lqA != null) {
+            this.lqA.onChangeSkinType(i);
         }
     }
 }

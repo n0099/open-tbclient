@@ -47,7 +47,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                         switch (aVar2.code) {
                             case 4:
                             case 6:
-                                aVar.CY((String) aVar2.data);
+                                aVar.CW((String) aVar2.data);
                                 b.this.fEn = false;
                                 return;
                             case 5:
@@ -65,7 +65,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                             case 8:
                                 if (b.this.a(aVar.bwm(), (int) RequestResponseCode.REQUEST_LOGIN_WRITE)) {
                                     aVar.bCm();
-                                    TiebaStatic.log(new ar("c13363").dR("topic_id", String.valueOf(aVar.cSk())));
+                                    TiebaStatic.log(new ar("c13363").dR("topic_id", String.valueOf(aVar.cSr())));
                                     return;
                                 }
                                 return;

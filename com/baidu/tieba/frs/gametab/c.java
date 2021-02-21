@@ -27,13 +27,13 @@ import java.util.HashMap;
 public class c {
     private final ViewGroup bRb;
     private String forumId;
-    private com.baidu.adp.lib.guide.c gGq;
-    private View.OnClickListener gjP;
+    private com.baidu.adp.lib.guide.c gGE;
+    private View.OnClickListener gkd;
     private final Handler handler = new Handler();
-    private com.baidu.adp.lib.guide.b jBU;
-    private String jBV;
-    private Runnable jBW;
-    private String jBX;
+    private com.baidu.adp.lib.guide.b jCi;
+    private String jCj;
+    private Runnable jCk;
+    private String jCl;
     private final Activity mActivity;
 
     public c(Activity activity, int i) {
@@ -42,28 +42,28 @@ public class c {
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.gjP = onClickListener;
-    }
-
-    public void KM(String str) {
-        this.jBV = str;
+        this.gkd = onClickListener;
     }
 
     public void KN(String str) {
-        this.jBX = str;
+        this.jCj = str;
     }
 
-    public void coY() {
+    public void KO(String str) {
+        this.jCl = str;
+    }
+
+    public void cpf() {
         if (this.bRb != null) {
             this.bRb.setVisibility(0);
-            if (this.gGq != null) {
-                this.gGq.d(this.bRb);
+            if (this.gGE != null) {
+                this.gGE.d(this.bRb);
             }
-            this.jBW = new Runnable() { // from class: com.baidu.tieba.frs.gametab.c.1
+            this.jCk = new Runnable() { // from class: com.baidu.tieba.frs.gametab.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.gGq != null) {
-                        c.this.gGq.d(c.this.bRb);
+                    if (c.this.gGE != null) {
+                        c.this.gGE.d(c.this.bRb);
                     }
                 }
             };
@@ -76,30 +76,30 @@ public class c {
 
                 @Override // com.baidu.adp.lib.guide.d.a
                 public void onDismiss() {
-                    c.this.gGq = null;
-                    c.this.handler.removeCallbacks(c.this.jBW);
+                    c.this.gGE = null;
+                    c.this.handler.removeCallbacks(c.this.jCk);
                 }
             });
-            if (this.jBU == null) {
-                this.jBU = cIC();
+            if (this.jCi == null) {
+                this.jCi = cIJ();
             }
-            dVar.a(this.jBU);
+            dVar.a(this.jCi);
             dVar.ap(R.anim.frs_guide_tip_enter);
             dVar.aq(R.anim.frs_guide_tip_out);
-            this.gGq = dVar.lF();
-            this.gGq.a(this.mActivity, this.bRb, false);
-            this.handler.postDelayed(this.jBW, 4000L);
+            this.gGE = dVar.lF();
+            this.gGE.a(this.mActivity, this.bRb, false);
+            this.handler.postDelayed(this.jCk, 4000L);
         }
     }
 
-    public void cIB() {
-        if (this.gGq != null) {
-            this.gGq.d(this.bRb);
+    public void cII() {
+        if (this.gGE != null) {
+            this.gGE.d(this.bRb);
             this.bRb.setVisibility(8);
         }
     }
 
-    private com.baidu.adp.lib.guide.b cIC() {
+    private com.baidu.adp.lib.guide.b cIJ() {
         return new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.frs.gametab.c.3
             @Override // com.baidu.adp.lib.guide.b
             public View getView(LayoutInflater layoutInflater) {
@@ -116,8 +116,8 @@ public class c {
                 barImageView.setShowOuterBorder(false);
                 barImageView.setShowInnerBorder(true);
                 barImageView.setStrokeColorResId(R.color.CAM_X0401);
-                if (!StringUtils.isNull(c.this.jBV)) {
-                    barImageView.startLoad(c.this.jBV, 10, false);
+                if (!StringUtils.isNull(c.this.jCj)) {
+                    barImageView.startLoad(c.this.jCj, 10, false);
                 }
                 final com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
                 aVar.pR(R.color.CAM_X0302);
@@ -129,16 +129,16 @@ public class c {
                 followUserButton.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametab.c.3.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.gjP != null) {
-                            c.this.gjP.onClick(view);
+                        if (c.this.gkd != null) {
+                            c.this.gkd.onClick(view);
                         }
                         aVar.pR(R.color.CAM_X0109);
                         aVar.a(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                         followUserButton.setText(TbadkCoreApplication.getInst().getString(R.string.followed));
                         followUserButton.setClickable(false);
-                        if (c.this.jBW != null) {
-                            c.this.handler.removeCallbacks(c.this.jBW);
-                            c.this.handler.postDelayed(c.this.jBW, 1000L);
+                        if (c.this.jCk != null) {
+                            c.this.handler.removeCallbacks(c.this.jCk);
+                            c.this.handler.postDelayed(c.this.jCk, 1000L);
                         }
                     }
                 });
@@ -168,17 +168,17 @@ public class c {
         };
     }
 
-    public void cID() {
+    public void cIK() {
         if (this.bRb != null) {
             this.bRb.setVisibility(0);
-            if (this.gGq != null) {
-                this.gGq.d(this.bRb);
+            if (this.gGE != null) {
+                this.gGE.d(this.bRb);
             }
-            this.jBW = new Runnable() { // from class: com.baidu.tieba.frs.gametab.c.4
+            this.jCk = new Runnable() { // from class: com.baidu.tieba.frs.gametab.c.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.gGq != null) {
-                        c.this.gGq.d(c.this.bRb);
+                    if (c.this.gGE != null) {
+                        c.this.gGE.d(c.this.bRb);
                         c.this.bRb.setVisibility(8);
                     }
                 }
@@ -192,31 +192,31 @@ public class c {
 
                 @Override // com.baidu.adp.lib.guide.d.a
                 public void onDismiss() {
-                    c.this.gGq = null;
-                    c.this.handler.removeCallbacks(c.this.jBW);
+                    c.this.gGE = null;
+                    c.this.handler.removeCallbacks(c.this.jCk);
                 }
             });
-            if (this.jBU == null) {
-                this.jBU = cIE();
+            if (this.jCi == null) {
+                this.jCi = cIL();
             }
-            dVar.a(this.jBU);
+            dVar.a(this.jCi);
             dVar.ap(R.anim.frs_guide_tip_enter);
             dVar.aq(R.anim.frs_guide_tip_out);
-            this.gGq = dVar.lF();
-            this.gGq.a(this.mActivity, this.bRb, false);
+            this.gGE = dVar.lF();
+            this.gGE.a(this.mActivity, this.bRb, false);
             com.baidu.tbadk.core.elementsMaven.c.br(this.bRb).og(R.string.J_X05).oh(R.array.S_O_X004).setBackGroundColor(R.color.CAM_X0207);
-            this.handler.postDelayed(this.jBW, 5000L);
+            this.handler.postDelayed(this.jCk, 5000L);
         }
     }
 
-    private com.baidu.adp.lib.guide.b cIE() {
+    private com.baidu.adp.lib.guide.b cIL() {
         return new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.frs.gametab.c.6
             @Override // com.baidu.adp.lib.guide.b
             public View getView(LayoutInflater layoutInflater) {
                 View inflate = layoutInflater.inflate(R.layout.frs_guide_delete_thread_tip, (ViewGroup) null);
                 EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.frs_guide_delete_thread_tip_describe);
                 ap.setViewTextColor(eMTextView, R.color.CAM_X0302);
-                eMTextView.setText(c.this.jBX);
+                eMTextView.setText(c.this.jCl);
                 TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.frs_guide_delete_thread_tip_button);
                 com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
                 bVar.aY(R.color.CAM_X0302, R.color.CAM_X0101);
@@ -230,9 +230,9 @@ public class c {
                             hashMap.put("_forumId", c.this.forumId);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new m(TbadkCoreApplication.getInst().getApplicationContext(), "ForumAppealPage", hashMap)));
                         }
-                        if (c.this.jBW != null) {
-                            c.this.handler.removeCallbacks(c.this.jBW);
-                            c.this.handler.postDelayed(c.this.jBW, 1000L);
+                        if (c.this.jCk != null) {
+                            c.this.handler.removeCallbacks(c.this.jCk);
+                            c.this.handler.postDelayed(c.this.jCk, 1000L);
                         }
                     }
                 });

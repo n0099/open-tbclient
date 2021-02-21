@@ -26,7 +26,7 @@ public final class b<T> {
     public static final class a<T> {
         private static final Object e = new Object();
         private static Executor f = null;
-        private static final Executor g = new ExecutorC1139a();
+        private static final Executor g = new ExecutorC1141a();
 
         /* renamed from: a  reason: collision with root package name */
         private Executor f10441a;
@@ -38,12 +38,12 @@ public final class b<T> {
 
         /* renamed from: com.kwad.sdk.lib.widget.recycler.a.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        private static class ExecutorC1139a implements Executor {
+        private static class ExecutorC1141a implements Executor {
 
             /* renamed from: a  reason: collision with root package name */
             final Handler f10443a;
 
-            private ExecutorC1139a() {
+            private ExecutorC1141a() {
                 this.f10443a = new Handler(Looper.getMainLooper());
             }
 

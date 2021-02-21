@@ -16,12 +16,12 @@ import com.baidu.tieba.ala.liveroom.n.d;
 public class a extends BdBaseModel {
     private ab aDd;
     private String buO;
-    private d.a hGF;
-    private long hGv;
-    private boolean hJH;
-    private long hJI;
+    private long hGJ;
+    private d.a hGT;
+    private boolean hJV;
+    private long hJW;
     private Handler mHandler = new Handler();
-    private HttpMessageListener hJJ = new HttpMessageListener(1021007) { // from class: com.baidu.tieba.ala.liveroom.n.a.1
+    private HttpMessageListener hJX = new HttpMessageListener(1021007) { // from class: com.baidu.tieba.ala.liveroom.n.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -31,7 +31,7 @@ public class a extends BdBaseModel {
                     return;
                 }
                 ab Fm = httpResponsedMessage instanceof AlaGetLiveInfoHttpResponseMessage ? ((AlaGetLiveInfoHttpResponseMessage) httpResponsedMessage).Fm() : null;
-                a.this.hJI = System.currentTimeMillis();
+                a.this.hJW = System.currentTimeMillis();
                 if (Fm == null) {
                     a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, Fm);
                     return;
@@ -107,47 +107,47 @@ public class a extends BdBaseModel {
             }
         }
     };
-    private Runnable hJK = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.a.2
+    private Runnable hJY = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.n.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.ciU();
+            a.this.cjb();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R(ab abVar) {
-        if (abVar != null && this.hJH) {
-            this.mHandler.removeCallbacks(this.hJK);
-            this.mHandler.postDelayed(this.hJK, abVar.aIi);
+        if (abVar != null && this.hJV) {
+            this.mHandler.removeCallbacks(this.hJY);
+            this.mHandler.postDelayed(this.hJY, abVar.aIi);
         }
     }
 
-    public void ciT() {
-        this.mHandler.removeCallbacks(this.hJK);
+    public void cja() {
+        this.mHandler.removeCallbacks(this.hJY);
     }
 
     public void a(ab abVar, String str, long j) {
         this.aDd = abVar;
         this.buO = str;
-        this.hGv = j;
+        this.hGJ = j;
         if (getUniqueId() == null) {
             setUniqueId(BdUniqueId.gen());
         }
-        registerListener(this.hJJ);
-        this.hJH = true;
+        registerListener(this.hJX);
+        this.hJV = true;
         R(this.aDd);
     }
 
     public void stop() {
-        this.hJH = false;
-        MessageManager.getInstance().unRegisterListener(this.hJJ);
-        ciT();
+        this.hJV = false;
+        MessageManager.getInstance().unRegisterListener(this.hJX);
+        cja();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciU() {
+    public void cjb() {
         if (this.aDd != null && this.aDd.mLiveInfo != null) {
-            a(this.aDd.mLiveInfo.live_id, this.buO, this.hGv);
+            a(this.aDd.mLiveInfo.live_id, this.buO, this.hGJ);
         }
     }
 
@@ -172,13 +172,13 @@ public class a extends BdBaseModel {
     }
 
     public void a(d.a aVar) {
-        this.hGF = aVar;
+        this.hGT = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, String str, int i2, Object obj) {
-        if (this.hGF != null) {
-            this.hGF.a(i, str, i2, obj);
+        if (this.hGT != null) {
+            this.hGT.a(i, str, i2, obj);
         }
     }
 }

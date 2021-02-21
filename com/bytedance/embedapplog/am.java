@@ -17,7 +17,7 @@ public class am extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     @NonNull
-    public ac B(@NonNull Cursor cursor) {
+    public ac C(@NonNull Cursor cursor) {
         au.a(null);
         return this;
     }

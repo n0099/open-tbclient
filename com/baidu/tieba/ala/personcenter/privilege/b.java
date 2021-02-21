@@ -14,24 +14,24 @@ import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class b {
-    private AlaRefreshScoreModel iak;
-    private a ial;
-    CustomMessageListener iam = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.1
+    CustomMessageListener iaA = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             b.this.refreshCurUserScores();
         }
     };
-    CustomMessageListener ian = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.2
+    CustomMessageListener iaB = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.tieba.ala.personcenter.privilege.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (b.this.ial != null) {
-                b.this.ial.oZ(true);
+            if (b.this.iaz != null) {
+                b.this.iaz.oZ(true);
             }
         }
     };
+    private AlaRefreshScoreModel iay;
+    private a iaz;
     private TbPageContext mPageContext;
 
     /* loaded from: classes10.dex */
@@ -41,12 +41,12 @@ public class b {
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.mPageContext.registerListener(this.iam);
-        this.mPageContext.registerListener(this.ian);
+        this.mPageContext.registerListener(this.iaA);
+        this.mPageContext.registerListener(this.iaB);
     }
 
     public void a(a aVar) {
-        this.ial = aVar;
+        this.iaz = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,11 +54,11 @@ public class b {
         if (!TbadkCoreApplication.isLogin()) {
             return false;
         }
-        if (this.iak == null) {
-            this.iak = new AlaRefreshScoreModel();
-            this.iak.initListener();
+        if (this.iay == null) {
+            this.iay = new AlaRefreshScoreModel();
+            this.iay.initListener();
         }
-        this.iak.refreshCurUserScores();
+        this.iay.refreshCurUserScores();
         return true;
     }
 

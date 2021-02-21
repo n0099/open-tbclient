@@ -64,9 +64,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ImMemoryCacheRegister {
-    private static volatile ImMemoryCacheRegister kId;
-    private ResponseOnlineMessage kIc;
-    private com.baidu.adp.framework.listener.c kIe = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.1
+    private static volatile ImMemoryCacheRegister kIr;
+    private ResponseOnlineMessage kIq;
+    private com.baidu.adp.framework.listener.c kIs = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final SocketResponsedMessage socketResponsedMessage) {
@@ -85,8 +85,8 @@ public class ImMemoryCacheRegister {
                     chatMessage.setRecordId(recordId);
                 }
                 com.baidu.tbadk.core.d.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
-                b.cWE().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
-                final ImMessageCenterPojo bs = b.cWE().bs(chatMessage.getGroupId(), chatMessage.getCustomGroupType());
+                b.cWL().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
+                final ImMessageCenterPojo bs = b.cWL().bs(chatMessage.getGroupId(), chatMessage.getCustomGroupType());
                 CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.1.1
                     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
@@ -94,13 +94,13 @@ public class ImMemoryCacheRegister {
                             return null;
                         }
                         try {
-                            h.cVz().cVA();
-                            j.cVD().a(bs, 3);
-                            com.baidu.tieba.im.db.c.cVs().k(chatMessage.getGroupId(), String.valueOf(chatMessage.getRecordId()), String.valueOf(chatMessage.getMsgId()), chatMessage.getLocalData().getStatus().shortValue());
+                            h.cVG().cVH();
+                            j.cVK().a(bs, 3);
+                            com.baidu.tieba.im.db.c.cVz().k(chatMessage.getGroupId(), String.valueOf(chatMessage.getRecordId()), String.valueOf(chatMessage.getMsgId()), chatMessage.getLocalData().getStatus().shortValue());
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
                         } finally {
-                            h.cVz().cVB();
+                            h.cVG().cVI();
                         }
                         return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, socketResponsedMessage);
                     }
@@ -112,7 +112,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private com.baidu.adp.framework.listener.c kIf = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.12
+    private com.baidu.adp.framework.listener.c kIt = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final SocketResponsedMessage socketResponsedMessage) {
@@ -137,16 +137,16 @@ public class ImMemoryCacheRegister {
                 }
                 com.baidu.tbadk.core.d.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "comment", "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), "content", chatMessage.getContent());
                 if (chatMessage instanceof PersonalChatMessage) {
-                    b.cWE().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                    b.cWL().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
                 } else if (chatMessage instanceof OfficialChatMessage) {
-                    b.cWE().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                    b.cWL().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
                 } else {
                     return;
                 }
                 if (chatMessage instanceof PersonalChatMessage) {
-                    bs = b.cWE().bs(String.valueOf(com.baidu.tieba.im.util.c.n(chatMessage)), 2);
+                    bs = b.cWL().bs(String.valueOf(com.baidu.tieba.im.util.c.n(chatMessage)), 2);
                 } else if (chatMessage instanceof OfficialChatMessage) {
-                    bs = b.cWE().bs(String.valueOf(com.baidu.tieba.im.util.c.n(chatMessage)), 4);
+                    bs = b.cWL().bs(String.valueOf(com.baidu.tieba.im.util.c.n(chatMessage)), 4);
                 } else {
                     return;
                 }
@@ -158,15 +158,15 @@ public class ImMemoryCacheRegister {
                             } catch (Exception e) {
                                 BdLog.e(e.getMessage());
                             } finally {
-                                h.cVz().cVB();
+                                h.cVG().cVI();
                             }
                             if (customMessage instanceof CustomMessage) {
-                                h.cVz().cVA();
-                                j.cVD().a(bs, 3);
+                                h.cVG().cVH();
+                                j.cVK().a(bs, 3);
                                 if (bs.getCustomGroupType() == 2) {
-                                    m.cVM().a(chatMessage.getUserId(), chatMessage.getToUserId(), String.valueOf(chatMessage.getRecordId()), String.valueOf(chatMessage.getMsgId()), chatMessage.getLocalData().getStatus().shortValue());
+                                    m.cVT().a(chatMessage.getUserId(), chatMessage.getToUserId(), String.valueOf(chatMessage.getRecordId()), String.valueOf(chatMessage.getMsgId()), chatMessage.getLocalData().getStatus().shortValue());
                                 } else {
-                                    l.cVJ().a(chatMessage.getUserId(), chatMessage.getToUserId(), String.valueOf(chatMessage.getRecordId()), String.valueOf(chatMessage.getMsgId()), chatMessage.getLocalData().getStatus().shortValue());
+                                    l.cVQ().a(chatMessage.getUserId(), chatMessage.getToUserId(), String.valueOf(chatMessage.getRecordId()), String.valueOf(chatMessage.getMsgId()), chatMessage.getLocalData().getStatus().shortValue());
                                 }
                                 return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, socketResponsedMessage);
                             }
@@ -181,12 +181,12 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIg = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.23
+    private CustomMessageListener kIu = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.23
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             ImMessageCenterPojo bs;
-            if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (bs = b.cWE().bs(TbEnum.CustomGroupId.GROUP_UPDATE, -3)) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (bs = b.cWL().bs(TbEnum.CustomGroupId.GROUP_UPDATE, -3)) != null) {
                 Object data = customResponsedMessage.getData();
                 if (data == null) {
                     bs.setUnread_count(0);
@@ -203,12 +203,12 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIh = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.26
+    private CustomMessageListener kIv = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.26
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             ImMessageCenterPojo bs;
-            if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (bs = b.cWE().bs(TbEnum.CustomGroupId.GROUP_VALIDATION, -4)) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (bs = b.cWL().bs(TbEnum.CustomGroupId.GROUP_VALIDATION, -4)) != null) {
                 Object data = customResponsedMessage.getData();
                 if (data == null) {
                     bs.setUnread_count(0);
@@ -225,7 +225,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIi = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.27
+    private CustomMessageListener kIw = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.27
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -233,10 +233,10 @@ public class ImMemoryCacheRegister {
             MemoryClearStrangerItemsMessage.a data;
             if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryClearStrangerItemsMessage) && (data = (memoryClearStrangerItemsMessage = (MemoryClearStrangerItemsMessage) customResponsedMessage).getData()) != null && data.caS != null) {
                 for (MemoryModifyVisibilityMessage.a aVar : data.caS) {
-                    b.cWE().bn(aVar.id, aVar.customGroupType);
+                    b.cWL().bn(aVar.id, aVar.customGroupType);
                 }
                 if (memoryClearStrangerItemsMessage.isAllClear()) {
-                    b.cWE().e(TbEnum.CustomGroupId.STRANGE_MERGE, -7, false);
+                    b.cWL().e(TbEnum.CustomGroupId.STRANGE_MERGE, -7, false);
                 }
                 CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.27.1
                     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -244,20 +244,20 @@ public class ImMemoryCacheRegister {
                         if (customMessage != null) {
                             try {
                                 if (customMessage instanceof CustomMessage) {
-                                    h.cVz().cVA();
-                                    j.cVD().cVH();
+                                    h.cVG().cVH();
+                                    j.cVK().cVO();
                                     if (memoryClearStrangerItemsMessage.isAllClear()) {
                                         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                                         imMessageCenterPojo.setGid(TbEnum.CustomGroupId.STRANGE_MERGE);
                                         imMessageCenterPojo.setCustomGroupType(-7);
                                         imMessageCenterPojo.setIs_hidden(1);
-                                        j.cVD().d(imMessageCenterPojo);
+                                        j.cVK().d(imMessageCenterPojo);
                                     }
                                 }
                             } catch (Exception e) {
                                 BdLog.e(e.getMessage());
                             } finally {
-                                h.cVz().cVB();
+                                h.cVG().cVI();
                             }
                         }
                         return null;
@@ -270,19 +270,19 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIj = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.28
+    private CustomMessageListener kIx = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.28
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MemoryItemRemoveMessage.a)) {
                 MemoryItemRemoveMessage.a aVar = (MemoryItemRemoveMessage.a) customResponsedMessage.getData();
                 if (aVar.customGroupType == 1) {
-                    ImMemoryCacheRegister.this.MZ(aVar.id);
+                    ImMemoryCacheRegister.this.Na(aVar.id);
                 }
             }
         }
     };
-    private CustomMessageListener kIk = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.29
+    private CustomMessageListener kIy = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.29
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -295,26 +295,26 @@ public class ImMemoryCacheRegister {
                     String valueOf = String.valueOf(groupMsgData.getGroupInfo().getGroupId());
                     int customType = groupMsgData.getGroupInfo().getCustomType();
                     if (!TextUtils.isEmpty(valueOf)) {
-                        ImMessageCenterPojo bs = b.cWE().bs(valueOf, customType);
+                        ImMessageCenterPojo bs = b.cWL().bs(valueOf, customType);
                         if (groupMsgData.getCmd() == 2012125) {
-                            com.baidu.tieba.im.chat.b.b.a(groupMsgData, bs, ImMemoryCacheRegister.this.kIA);
+                            com.baidu.tieba.im.chat.b.b.a(groupMsgData, bs, ImMemoryCacheRegister.this.kIO);
                         } else if (groupMsgData.getCmd() == 2012124) {
-                            com.baidu.tieba.im.chat.b.c.a(groupMsgData, bs, ImMemoryCacheRegister.this.kIC);
+                            com.baidu.tieba.im.chat.b.c.a(groupMsgData, bs, ImMemoryCacheRegister.this.kIQ);
                         } else if (groupMsgData.getCmd() == 2012123) {
-                            d.b(groupMsgData, bs, ImMemoryCacheRegister.this.kID);
+                            d.b(groupMsgData, bs, ImMemoryCacheRegister.this.kIR);
                         } else if (groupMsgData.getCmd() == 2012121) {
-                            e.b(groupMsgData, bs, ImMemoryCacheRegister.this.kIE);
+                            e.b(groupMsgData, bs, ImMemoryCacheRegister.this.kIS);
                         } else if (groupMsgData.getCmd() == 2012120) {
-                            f.a(groupMsgData, bs, ImMemoryCacheRegister.this.kIB);
+                            f.a(groupMsgData, bs, ImMemoryCacheRegister.this.kIP);
                         } else if (groupMsgData.getCmd() == 2012128) {
                             if (groupMsgData.getListMessage() != null && groupMsgData.getListMessage().size() > 0) {
-                                b.cWE().f(-1, groupMsgData.getListMessage().get(0).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.kLA));
+                                b.cWL().f(-1, groupMsgData.getListMessage().get(0).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.kLO));
                             }
                         } else if (groupMsgData.getCmd() == 2012129) {
                             if (groupMsgData.getListMessage() != null && groupMsgData.getListMessage().size() > 0) {
                                 ChatMessage chatMessage = groupMsgData.getListMessage().get(0);
                                 if (!chatMessage.isPushForOperateAccount()) {
-                                    b.cWE().f(-9, chatMessage.getMsgId(), String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
+                                    b.cWL().f(-9, chatMessage.getMsgId(), String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
                                 }
                             }
                         } else if (groupMsgData.getCmd() == 2012126) {
@@ -323,7 +323,7 @@ public class ImMemoryCacheRegister {
                                     @Override // com.baidu.tieba.im.chat.b.a.b
                                     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
                                         if (imMessageCenterPojo != null) {
-                                            b.cWE().f(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
+                                            b.cWL().f(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
                                         }
                                     }
 
@@ -332,44 +332,44 @@ public class ImMemoryCacheRegister {
                                     }
                                 });
                             } else {
-                                long[] b2 = g.cVh().b(groupMsgData);
+                                long[] b2 = g.cVo().b(groupMsgData);
                                 if (b2 != null && b2.length == 2) {
                                     if (b2[0] <= 0 && b2[1] > 0) {
                                         if (b2[0] == 12) {
-                                            b.cWE().f(8, b2[1], String.valueOf(12));
+                                            b.cWL().f(8, b2[1], String.valueOf(12));
                                         } else if (b2[0] == 11) {
-                                            b.cWE().f(7, b2[1], String.valueOf(11));
+                                            b.cWL().f(7, b2[1], String.valueOf(11));
                                         }
                                     } else {
                                         return;
                                     }
                                 }
                             }
-                            g.cVh().c(groupMsgData);
+                            g.cVo().c(groupMsgData);
                         }
                     }
                 }
             }
         }
     };
-    private com.baidu.adp.framework.listener.c kIl = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.30
+    private com.baidu.adp.framework.listener.c kIz = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.30
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-                ImMemoryCacheRegister.this.kIc = (ResponseOnlineMessage) socketResponsedMessage;
-                if (b.cWE().kHO.get()) {
-                    ImMemoryCacheRegister.this.cWS();
+                ImMemoryCacheRegister.this.kIq = (ResponseOnlineMessage) socketResponsedMessage;
+                if (b.cWL().kIc.get()) {
+                    ImMemoryCacheRegister.this.cWZ();
                 }
             }
         }
     };
-    private CustomMessageListener kIm = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.2
+    private CustomMessageListener kIA = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016002 && (customResponsedMessage instanceof MemoryInitCompleteMessage)) {
-                ImMemoryCacheRegister.this.cWS();
+                ImMemoryCacheRegister.this.cWZ();
             }
         }
     };
@@ -378,33 +378,33 @@ public class ImMemoryCacheRegister {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005018) {
-                ImMemoryCacheRegister.this.kIc = null;
+                ImMemoryCacheRegister.this.kIq = null;
                 com.baidu.tieba.im.sendmessage.a.hb(0L);
                 com.baidu.tieba.im.sendmessage.a.hc(0L);
-                b.cWE().init();
+                b.cWL().init();
                 com.baidu.tbadk.coreExtra.messageCenter.c.bya().init();
             }
         }
     };
-    private CustomMessageListener kIn = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.4
+    private CustomMessageListener kIB = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             MemoryModifyLastMsgMessage.a data;
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null) {
-                b.cWE().a(data.customGroupType, data.kJg, data.id, data.type);
-                final ImMessageCenterPojo bs = b.cWE().bs(data.id, data.customGroupType);
+                b.cWL().a(data.customGroupType, data.kJu, data.id, data.type);
+                final ImMessageCenterPojo bs = b.cWL().bs(data.id, data.customGroupType);
                 if (bs != null) {
                     final ImMessageCenterPojo imMessageCenterPojo = null;
                     if (bs.getCustomGroupType() == 4) {
-                        imMessageCenterPojo = b.cWE().bs(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
+                        imMessageCenterPojo = b.cWL().bs(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                     }
                     CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.4.1
                         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                         public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-                            j.cVD().a(bs, 2);
+                            j.cVK().a(bs, 2);
                             if (imMessageCenterPojo != null) {
-                                j.cVD().a(imMessageCenterPojo, 2);
+                                j.cVK().a(imMessageCenterPojo, 2);
                                 return null;
                             }
                             return null;
@@ -418,22 +418,22 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIo = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.5
+    private CustomMessageListener kIC = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008016) {
-                b.cWE().reset();
+                b.cWL().reset();
             }
         }
     };
-    private CustomMessageListener kIp = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.6
+    private CustomMessageListener kID = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             MemoryModifyVisibilityMessage.a data;
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016005 && (customResponsedMessage instanceof MemoryModifyVisibilityMessage) && (data = ((MemoryModifyVisibilityMessage) customResponsedMessage).getData()) != null) {
-                final ImMessageCenterPojo bs = b.cWE().bs(data.id, data.customGroupType);
+                final ImMessageCenterPojo bs = b.cWL().bs(data.id, data.customGroupType);
                 int i = data.visible ? 0 : 1;
                 if (bs != null && i != bs.getIs_hidden()) {
                     if (data.customGroupType == 2) {
@@ -447,13 +447,13 @@ public class ImMemoryCacheRegister {
                     } else {
                         com.baidu.tbadk.coreExtra.messageCenter.b.bxB().BZ(data.id);
                     }
-                    b.cWE().e(data.id, data.customGroupType, data.visible);
+                    b.cWL().e(data.id, data.customGroupType, data.visible);
                     bs.setIs_hidden(i);
                     CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<MemoryModifyVisibilityMessage.a>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.6.1
                         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                         public CustomResponsedMessage<?> run(CustomMessage<MemoryModifyVisibilityMessage.a> customMessage) {
                             if (customMessage != null && customMessage.getData() != null) {
-                                j.cVD().d(bs);
+                                j.cVK().d(bs);
                             }
                             return null;
                         }
@@ -466,24 +466,24 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIq = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.7
+    private CustomMessageListener kIE = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             MemoryClearUnreadCountMessage.a data;
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016006 && (customResponsedMessage instanceof MemoryClearUnreadCountMessage) && (data = ((MemoryClearUnreadCountMessage) customResponsedMessage).getData()) != null) {
-                ImMessageCenterPojo bs = b.cWE().bs(data.id, data.customGroupType);
+                ImMessageCenterPojo bs = b.cWL().bs(data.id, data.customGroupType);
                 if (bs == null) {
                     BdLog.e("ClearUnreadCountMessage:  not find memery pojo");
                 } else if (bs.getUnread_count() != 0) {
-                    b.cWE().bu(data.id, data.customGroupType);
+                    b.cWL().bu(data.id, data.customGroupType);
                     CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<MemoryClearUnreadCountMessage.a>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.7.1
                         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                         public CustomResponsedMessage<?> run(CustomMessage<MemoryClearUnreadCountMessage.a> customMessage) {
                             if (customMessage == null) {
                             }
                             MemoryClearUnreadCountMessage.a data2 = customMessage.getData();
-                            j.cVD().bq(data2.id, data2.customGroupType);
+                            j.cVK().bq(data2.id, data2.customGroupType);
                             return null;
                         }
                     });
@@ -495,30 +495,30 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIr = new CustomMessageListener(CmdConfigCustom.MEMORY_UPDATE_ITEM_CREATE_GROUP) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.8
+    private CustomMessageListener kIF = new CustomMessageListener(CmdConfigCustom.MEMORY_UPDATE_ITEM_CREATE_GROUP) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ImMessageCenterPojo)) {
                 final ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData();
-                b.cWE().i(imMessageCenterPojo);
+                b.cWL().i(imMessageCenterPojo);
                 CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.8.1
                     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                         try {
                             try {
-                                h.cVz().cVA();
-                                j.cVD().d(imMessageCenterPojo);
-                                com.baidu.tieba.im.db.c.cVs().MH(imMessageCenterPojo.getGid());
-                                h.cVz().cVB();
+                                h.cVG().cVH();
+                                j.cVK().d(imMessageCenterPojo);
+                                com.baidu.tieba.im.db.c.cVz().MI(imMessageCenterPojo.getGid());
+                                h.cVG().cVI();
                                 return null;
                             } catch (Exception e) {
                                 BdLog.detailException(e);
-                                h.cVz().cVB();
+                                h.cVG().cVI();
                                 return null;
                             }
                         } catch (Throwable th) {
-                            h.cVz().cVB();
+                            h.cVG().cVI();
                             throw th;
                         }
                     }
@@ -530,27 +530,27 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageTask.CustomRunnable<Integer> kIs = new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.9
+    private CustomMessageTask.CustomRunnable<Integer> kIG = new CustomMessageTask.CustomRunnable<Integer>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.9
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
-            List<ImMessageCenterPojo> cWM;
+            List<ImMessageCenterPojo> cWT;
             if (customMessage == null || !(customMessage instanceof RequestMemoryListMessage)) {
                 return null;
             }
             int intValue = ((RequestMemoryListMessage) customMessage).getData().intValue();
             if (intValue == 3) {
-                cWM = b.cWE().cWL();
+                cWT = b.cWL().cWS();
             } else if (intValue == 2) {
-                cWM = b.cWE().cWK();
+                cWT = b.cWL().cWR();
             } else if (intValue == 1) {
-                cWM = b.cWE().cWI();
+                cWT = b.cWL().cWP();
             } else {
-                cWM = intValue == 4 ? b.cWE().cWM() : null;
+                cWT = intValue == 4 ? b.cWL().cWT() : null;
             }
-            return new ResponsedMemoryListMessage(cWM, intValue);
+            return new ResponsedMemoryListMessage(cWT, intValue);
         }
     };
-    private CustomMessageListener kIt = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.10
+    private CustomMessageListener kIH = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -562,34 +562,34 @@ public class ImMemoryCacheRegister {
             if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
                 String cmd = p.getCmd();
                 if (!TextUtils.isEmpty(cmd)) {
-                    if (f.Mz(cmd)) {
+                    if (f.MA(cmd)) {
                         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                         imMessageCenterPojo.setGid(TbEnum.CustomGroupId.GROUP_UPDATE);
                         imMessageCenterPojo.setCustomGroupType(-3);
                         imMessageCenterPojo.setLast_content(f.fr(cmd, p.getContent()));
                         imMessageCenterPojo.setLast_content_time(p.getTime());
                         imMessageCenterPojo.setLast_rid(com.baidu.adp.lib.f.b.toLong(p.getNotice_id(), 0L));
-                        b.cWE().c(imMessageCenterPojo, ChatStatusManager.getInst().getIsOpen(6) ? 0 : 1);
-                    } else if (f.MA(cmd)) {
+                        b.cWL().c(imMessageCenterPojo, ChatStatusManager.getInst().getIsOpen(6) ? 0 : 1);
+                    } else if (f.MB(cmd)) {
                         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                         imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
                         imMessageCenterPojo2.setCustomGroupType(-4);
                         imMessageCenterPojo2.setLast_content(f.fr(cmd, p.getContent()));
                         imMessageCenterPojo2.setLast_content_time(p.getTime());
                         imMessageCenterPojo2.setLast_rid(com.baidu.adp.lib.f.b.toLong(p.getNotice_id(), 0L));
-                        b.cWE().c(imMessageCenterPojo2, ChatStatusManager.getInst().getIsOpen(7) ? 0 : 1);
+                        b.cWL().c(imMessageCenterPojo2, ChatStatusManager.getInst().getIsOpen(7) ? 0 : 1);
                     }
                     if (cmd.equals("group_head_change")) {
                         if (ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem2 = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(p)) != null) {
                             String groupId = convertToUpdatesItem2.getGroupId();
-                            if (!TextUtils.isEmpty(groupId) && !TextUtils.isEmpty(convertToUpdatesItem2.getGroupHeadUrl()) && (bs2 = b.cWE().bs(groupId, 1)) != null) {
+                            if (!TextUtils.isEmpty(groupId) && !TextUtils.isEmpty(convertToUpdatesItem2.getGroupHeadUrl()) && (bs2 = b.cWL().bs(groupId, 1)) != null) {
                                 if (bs2.getGroup_head() == null || !bs2.getGroup_head().equals(convertToUpdatesItem2.getGroupHeadUrl())) {
-                                    b.cWE().fu(groupId, convertToUpdatesItem2.getGroupHeadUrl());
+                                    b.cWL().fu(groupId, convertToUpdatesItem2.getGroupHeadUrl());
                                     bs2.setGroup_head(convertToUpdatesItem2.getGroupHeadUrl());
                                     CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.10.1
                                         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                                         public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-                                            j.cVD().d(bs2);
+                                            j.cVK().d(bs2);
                                             return null;
                                         }
                                     });
@@ -603,14 +603,14 @@ public class ImMemoryCacheRegister {
                     } else if (cmd.equals("group_name_change")) {
                         if (ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(p)) != null) {
                             String groupId2 = convertToUpdatesItem.getGroupId();
-                            if (!TextUtils.isEmpty(groupId2) && !TextUtils.isEmpty(convertToUpdatesItem.getGroupName()) && (bs = b.cWE().bs(groupId2, 1)) != null) {
+                            if (!TextUtils.isEmpty(groupId2) && !TextUtils.isEmpty(convertToUpdatesItem.getGroupName()) && (bs = b.cWL().bs(groupId2, 1)) != null) {
                                 if (bs.getGroup_name() == null || !bs.getGroup_name().equals(convertToUpdatesItem.getGroupName())) {
-                                    b.cWE().fv(groupId2, convertToUpdatesItem.getGroupName());
+                                    b.cWL().fv(groupId2, convertToUpdatesItem.getGroupName());
                                     bs.setGroup_name(convertToUpdatesItem.getGroupName());
                                     CustomMessageTask customMessageTask2 = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.10.2
                                         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                                         public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-                                            j.cVD().d(bs);
+                                            j.cVK().d(bs);
                                             return null;
                                         }
                                     });
@@ -632,8 +632,8 @@ public class ImMemoryCacheRegister {
                                 String optString2 = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_IMAGE);
                                 String optString3 = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
                                 long optLong = optJSONObject.optLong(TbEnum.SystemMessage.KEY_LAST_MSG_ID);
-                                com.baidu.tieba.im.settingcache.b.cXR().c(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
-                                com.baidu.tieba.im.settingcache.b.cXR().b(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
+                                com.baidu.tieba.im.settingcache.b.cXY().c(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
+                                com.baidu.tieba.im.settingcache.b.cXY().b(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
                                 final ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
                                 imMessageCenterPojo3.setGroup_name(optString3);
                                 imMessageCenterPojo3.setCustomGroupType(1);
@@ -645,19 +645,19 @@ public class ImMemoryCacheRegister {
                                 imMessageCenterPojo3.setLast_content(" ");
                                 imMessageCenterPojo3.setLast_rid(com.baidu.tieba.im.util.b.hd(optLong));
                                 imMessageCenterPojo3.setPulled_msgId(com.baidu.tieba.im.util.b.hd(optLong));
-                                b.cWE().j(imMessageCenterPojo3);
-                                b.cWE().f(1, com.baidu.tieba.im.util.b.hd(optLong), optString);
+                                b.cWL().j(imMessageCenterPojo3);
+                                b.cWL().f(1, com.baidu.tieba.im.util.b.hd(optLong), optString);
                                 CustomMessageTask customMessageTask3 = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.10.3
                                     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                                     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                                         try {
-                                            h.cVz().cVA();
-                                            com.baidu.tieba.im.db.c.cVs().MH(imMessageCenterPojo3.getGid());
-                                            j.cVD().d(imMessageCenterPojo3);
+                                            h.cVG().cVH();
+                                            com.baidu.tieba.im.db.c.cVz().MI(imMessageCenterPojo3.getGid());
+                                            j.cVK().d(imMessageCenterPojo3);
                                         } catch (Exception e) {
                                             BdLog.detailException(e);
                                         } finally {
-                                            h.cVz().cVB();
+                                            h.cVG().cVI();
                                         }
                                         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_GROUP_CONFIRM_PASSED);
                                     }
@@ -673,14 +673,14 @@ public class ImMemoryCacheRegister {
                     } else if (cmd.equals("dismiss_group") || cmd.equals("kick_out")) {
                         String gid = p.getGid();
                         if (!TextUtils.isEmpty(gid)) {
-                            ImMemoryCacheRegister.this.MZ(gid);
+                            ImMemoryCacheRegister.this.Na(gid);
                         }
                     }
                 }
             }
         }
     };
-    CustomMessageListener kIu = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.11
+    CustomMessageListener kII = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.11
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -689,15 +689,15 @@ public class ImMemoryCacheRegister {
                 final long friendId = responseNewFriendUpdateUiMsg.getFriendId();
                 int action = responseNewFriendUpdateUiMsg.getAction();
                 if (action == 0) {
-                    final ImMessageCenterPojo bs = b.cWE().bs(String.valueOf(friendId), 2);
+                    final ImMessageCenterPojo bs = b.cWL().bs(String.valueOf(friendId), 2);
                     if (bs != null) {
                         bs.setIsFriend(1);
                         bs.setFollowStatus(1);
-                        b.cWE().j(bs);
+                        b.cWL().j(bs);
                         CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.11.1
                             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-                                j.cVD().d(bs);
+                                j.cVK().d(bs);
                                 return null;
                             }
                         });
@@ -707,20 +707,20 @@ public class ImMemoryCacheRegister {
                         MessageManager.getInstance().sendMessage(new CustomMessage(MessageConfig.BASE_CUSTOM_CMD), customMessageTask);
                     }
                 } else if (action == 1) {
-                    b.cWE().bt(String.valueOf(friendId), 2);
+                    b.cWL().bt(String.valueOf(friendId), 2);
                     CustomMessageTask customMessageTask2 = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.11.2
                         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                         public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                             try {
-                                h.cVz().cVA();
-                                j.cVD().bo(String.valueOf(friendId), 2);
-                                m.cVM().ME(String.valueOf(friendId));
+                                h.cVG().cVH();
+                                j.cVK().bo(String.valueOf(friendId), 2);
+                                m.cVT().MF(String.valueOf(friendId));
                                 return null;
                             } catch (Exception e) {
                                 BdLog.detailException(e);
                                 return null;
                             } finally {
-                                h.cVz().cVB();
+                                h.cVG().cVI();
                             }
                         }
                     });
@@ -732,14 +732,14 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private com.baidu.adp.framework.listener.c kIv = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.13
+    private com.baidu.adp.framework.listener.c kIJ = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205006 && (socketResponsedMessage instanceof ResponsedPersonalMsgReadMessage)) {
                 ResponsedPersonalMsgReadMessage responsedPersonalMsgReadMessage = (ResponsedPersonalMsgReadMessage) socketResponsedMessage;
-                if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.sendmessage.a.kLA.longValue() && responsedPersonalMsgReadMessage.getToUserType() == 0) {
-                    final ImMessageCenterPojo bs = b.cWE().bs(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
+                if (!responsedPersonalMsgReadMessage.hasError() && responsedPersonalMsgReadMessage.getGroupId() == com.baidu.tieba.im.sendmessage.a.kLO.longValue() && responsedPersonalMsgReadMessage.getToUserType() == 0) {
+                    final ImMessageCenterPojo bs = b.cWL().bs(String.valueOf(responsedPersonalMsgReadMessage.getToUid()), 2);
                     if (bs != null) {
                         long hd = com.baidu.tieba.im.util.b.hd(responsedPersonalMsgReadMessage.getHasSentMsgId());
                         if (hd > bs.getSent_msgId()) {
@@ -748,7 +748,7 @@ public class ImMemoryCacheRegister {
                                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                                 public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                                     try {
-                                        j.cVD().d(bs);
+                                        j.cVK().d(bs);
                                         return null;
                                     } catch (Exception e) {
                                         BdLog.detailException(e);
@@ -766,27 +766,27 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIw = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.14
+    private CustomMessageListener kIK = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.14
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             final ImMessageCenterPojo imMessageCenterPojo;
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016013 && (imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData()) != null) {
-                b.cWE().l(imMessageCenterPojo);
-                b.cWE().k(imMessageCenterPojo);
+                b.cWL().l(imMessageCenterPojo);
+                b.cWL().k(imMessageCenterPojo);
                 CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.14.1
                     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                         try {
-                            h.cVz().cVA();
-                            j.cVD().d(imMessageCenterPojo);
+                            h.cVG().cVH();
+                            j.cVK().d(imMessageCenterPojo);
                             if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                                com.baidu.tieba.im.db.c.cVs().MH(imMessageCenterPojo.getGid());
+                                com.baidu.tieba.im.db.c.cVz().MI(imMessageCenterPojo.getGid());
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
                         } finally {
-                            h.cVz().cVB();
+                            h.cVG().cVI();
                         }
                         return new ResponseMemoryNotifyUpdataGroupMessage(imMessageCenterPojo);
                     }
@@ -798,7 +798,7 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIx = new CustomMessageListener(CmdConfigCustom.MEMORY_UPDATE_GROUP_HEAD_NAME) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.15
+    private CustomMessageListener kIL = new CustomMessageListener(CmdConfigCustom.MEMORY_UPDATE_GROUP_HEAD_NAME) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.15
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -806,20 +806,20 @@ public class ImMemoryCacheRegister {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MemoryUpdateHeadNameMessage.a)) {
                 MemoryUpdateHeadNameMessage.a aVar = (MemoryUpdateHeadNameMessage.a) customResponsedMessage.getData();
                 if (!TextUtils.isEmpty(aVar.id)) {
-                    if ((!TextUtils.isEmpty(aVar.head) || !TextUtils.isEmpty(aVar.name)) && (bs = b.cWE().bs(aVar.id, aVar.customGroupType)) != null) {
+                    if ((!TextUtils.isEmpty(aVar.head) || !TextUtils.isEmpty(aVar.name)) && (bs = b.cWL().bs(aVar.id, aVar.customGroupType)) != null) {
                         String str = aVar.name;
                         String str2 = aVar.head;
                         if (!TextUtils.isEmpty(str)) {
-                            b.cWE().fv(aVar.id, str);
+                            b.cWL().fv(aVar.id, str);
                         }
                         if (!TextUtils.isEmpty(aVar.head)) {
-                            b.cWE().fu(aVar.id, str2);
+                            b.cWL().fu(aVar.id, str2);
                         }
                         CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.15.1
                             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                                 if (customMessage != null) {
-                                    j.cVD().a(bs, 2);
+                                    j.cVK().a(bs, 2);
                                 }
                                 return null;
                             }
@@ -833,27 +833,27 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIy = new CustomMessageListener(CmdConfigCustom.MEMORY_UPDATE_PULL_MSG_ID) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.16
+    private CustomMessageListener kIM = new CustomMessageListener(CmdConfigCustom.MEMORY_UPDATE_PULL_MSG_ID) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.16
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             final ImMessageCenterPojo bs;
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                 if (customResponsedMessage.getData() instanceof PersonalChatMessage) {
-                    b.cWE().f(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.kLA));
-                    bs = b.cWE().bs(String.valueOf(com.baidu.tieba.im.sendmessage.a.kLA), -1);
+                    b.cWL().f(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.kLO));
+                    bs = b.cWL().bs(String.valueOf(com.baidu.tieba.im.sendmessage.a.kLO), -1);
                 } else if (customResponsedMessage.getData() instanceof OfficialChatMessage) {
-                    b.cWE().f(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.kLB));
-                    bs = b.cWE().bs(String.valueOf(com.baidu.tieba.im.sendmessage.a.kLB), -9);
+                    b.cWL().f(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.sendmessage.a.kLP));
+                    bs = b.cWL().bs(String.valueOf(com.baidu.tieba.im.sendmessage.a.kLP), -9);
                 } else {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
-                    b.cWE().f(1, chatMessage.getMsgId(), chatMessage.getGroupId());
-                    bs = b.cWE().bs(chatMessage.getGroupId(), 1);
+                    b.cWL().f(1, chatMessage.getMsgId(), chatMessage.getGroupId());
+                    bs = b.cWL().bs(chatMessage.getGroupId(), 1);
                 }
                 CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.16.1
                     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-                        j.cVD().a(bs, 1);
+                        j.cVK().a(bs, 1);
                         return null;
                     }
                 });
@@ -864,20 +864,20 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private CustomMessageListener kIz = new CustomMessageListener(CmdConfigCustom.CMD_CLEAR_TASK_ID) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.17
+    private CustomMessageListener kIN = new CustomMessageListener(CmdConfigCustom.CMD_CLEAR_TASK_ID) { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.17
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            final List<ImMessageCenterPojo> cWK = b.cWE().cWK();
-            if (cWK != null && cWK.size() != 0) {
-                for (ImMessageCenterPojo imMessageCenterPojo : cWK) {
+            final List<ImMessageCenterPojo> cWR = b.cWL().cWR();
+            if (cWR != null && cWR.size() != 0) {
+                for (ImMessageCenterPojo imMessageCenterPojo : cWR) {
                     imMessageCenterPojo.setTaskId("");
                 }
                 CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.17.1
                     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-                        for (ImMessageCenterPojo imMessageCenterPojo2 : cWK) {
-                            j.cVD().d(imMessageCenterPojo2);
+                        for (ImMessageCenterPojo imMessageCenterPojo2 : cWR) {
+                            j.cVK().d(imMessageCenterPojo2);
                         }
                         return null;
                     }
@@ -889,11 +889,11 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private a.b kIA = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.18
+    private a.b kIO = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.18
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-            b.cWE().h(imMessageCenterPojo);
-            b.cWE().f(1, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+            b.cWL().h(imMessageCenterPojo);
+            b.cWL().f(1, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
             if (z) {
                 MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(1));
             }
@@ -917,20 +917,20 @@ public class ImMemoryCacheRegister {
             }
         }
     };
-    private a.b kIB = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.19
+    private a.b kIP = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.19
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-            b.cWE().f(-2, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+            b.cWL().f(-2, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
         }
 
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void k(String str, List<CommonMsgPojo> list) {
         }
     };
-    private a.b kIC = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.20
+    private a.b kIQ = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.20
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-            b.cWE().f(5, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+            b.cWL().f(5, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
             if (z) {
                 MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(2));
             }
@@ -941,16 +941,16 @@ public class ImMemoryCacheRegister {
             if (list != null && list.size() != 0) {
                 for (CommonMsgPojo commonMsgPojo : list) {
                     if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 10) {
-                        com.baidu.tieba.im.chat.b.a.Mx(commonMsgPojo.getContent());
+                        com.baidu.tieba.im.chat.b.a.My(commonMsgPojo.getContent());
                     }
                 }
             }
         }
     };
-    private a.b kID = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.21
+    private a.b kIR = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.21
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-            b.cWE().h(imMessageCenterPojo);
+            b.cWL().h(imMessageCenterPojo);
             if (z) {
                 MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(4));
             }
@@ -963,16 +963,16 @@ public class ImMemoryCacheRegister {
                     RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
                     com.baidu.tieba.im.data.d a2 = com.baidu.tieba.im.util.c.a(commonMsgPojo);
                     if (a2 != null) {
-                        TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "message_receive", "receive", 1, "task_type", a2.kEC, "task_id", a2.taskId);
+                        TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "message_receive", "receive", 1, "task_type", a2.kEQ, "task_id", a2.taskId);
                     }
                 }
             }
         }
     };
-    private a.b kIE = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.22
+    private a.b kIS = new a.b() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.22
         @Override // com.baidu.tieba.im.chat.b.a.b
         public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-            b.cWE().h(imMessageCenterPojo);
+            b.cWL().h(imMessageCenterPojo);
             if (z) {
                 MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(3));
             }
@@ -987,74 +987,74 @@ public class ImMemoryCacheRegister {
         register();
     }
 
-    public static ImMemoryCacheRegister cWR() {
+    public static ImMemoryCacheRegister cWY() {
         com.baidu.adp.lib.util.l.checkMainThread();
-        if (kId == null) {
+        if (kIr == null) {
             synchronized (ImMemoryCacheRegister.class) {
-                if (kId == null) {
-                    kId = new ImMemoryCacheRegister();
+                if (kIr == null) {
+                    kIr = new ImMemoryCacheRegister();
                 }
             }
         }
-        return kId;
+        return kIr;
     }
 
     private void register() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_GROUP_CMD, this.kIk);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_NOTIFY_CMD, this.kIk);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD, this.kIk);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_PERSONAL_CMD, this.kIk);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_SYSTEM_CMD, this.kIk);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_YY_CMD, this.kIk);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_PERSONAL_GROUP_CMD, this.kIk);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_GROUP_CMD, this.kIk);
-        MessageManager.getInstance().registerListener(1001, this.kIl);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_GROUP_CMD, this.kIy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_NOTIFY_CMD, this.kIy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD, this.kIy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_PERSONAL_CMD, this.kIy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_SYSTEM_CMD, this.kIy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_YY_CMD, this.kIy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_PERSONAL_GROUP_CMD, this.kIy);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_GROUP_CMD, this.kIy);
+        MessageManager.getInstance().registerListener(1001, this.kIz);
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE_FOR_IM, this.mAccountChangeListener);
         MessageManager.getInstance().registerStickyMode(CmdConfigCustom.MEMORY_INIT_COMPLETED);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.kIm);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_LAST_MESSAGE, this.kIn);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.IM_CLEAR_MSG, this.kIo);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_VISIBILITY, this.kIp);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_UNREAD_COUNT, this.kIq);
-        MessageManager.getInstance().registerListener(this.kIr);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REMOVE_ITEM, this.kIj);
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.kIs);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.kIA);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_LAST_MESSAGE, this.kIB);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.IM_CLEAR_MSG, this.kIC);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_VISIBILITY, this.kID);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_MODIFY_UNREAD_COUNT, this.kIE);
+        MessageManager.getInstance().registerListener(this.kIF);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REMOVE_ITEM, this.kIx);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.kIG);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_GROUP_UPDATE, this.kIg);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_VALIDATE, this.kIh);
-        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_GROUP_CHAT_MSG, this.kIe);
-        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG, this.kIf);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_GROUP, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NOTICE_CHANGE, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_EVENT_INFO, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_HEAD_CHANGE, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP_WARN, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP, this.kIt);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MODIFY_LOTS_VISIBILITY, this.kIi);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_TO_UPDATE_UI_LOCAL, this.kIu);
-        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_PERSONAL_SEND_MSG_HAS_READ, this.kIv);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_NOTIFY_UPDATA_GROUP, this.kIw);
-        MessageManager.getInstance().registerListener(this.kIx);
-        MessageManager.getInstance().registerListener(this.kIy);
-        MessageManager.getInstance().registerListener(this.kIz);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_GROUP_UPDATE, this.kIu);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DELETED_VALIDATE, this.kIv);
+        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_GROUP_CHAT_MSG, this.kIs);
+        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG, this.kIt);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_GROUP, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NOTICE_CHANGE, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_EVENT_INFO, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_HEAD_CHANGE, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP_WARN, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP, this.kIH);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MODIFY_LOTS_VISIBILITY, this.kIw);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_NEW_FRIEND_ACTION_TO_UPDATE_UI_LOCAL, this.kII);
+        MessageManager.getInstance().registerListener(CmdConfigSocket.CMD_PERSONAL_SEND_MSG_HAS_READ, this.kIJ);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_NOTIFY_UPDATA_GROUP, this.kIK);
+        MessageManager.getInstance().registerListener(this.kIL);
+        MessageManager.getInstance().registerListener(this.kIM);
+        MessageManager.getInstance().registerListener(this.kIN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cWS() {
+    public void cWZ() {
         ArrayList arrayList;
         boolean z;
         StringBuilder sb;
-        if (this.kIc != null) {
+        if (this.kIq != null) {
             StringBuilder sb2 = null;
-            for (GroupUpdateMessage groupUpdateMessage : this.kIc.getGroupInfos()) {
+            for (GroupUpdateMessage groupUpdateMessage : this.kIq.getGroupInfos()) {
                 if (groupUpdateMessage != null) {
                     if (sb2 == null) {
                         sb = new StringBuilder(50);
@@ -1076,18 +1076,18 @@ public class ImMemoryCacheRegister {
                     if (imMessageCenterPojo.getCustomGroupType() == -2 || imMessageCenterPojo.getCustomGroupType() == -1 || imMessageCenterPojo.getCustomGroupType() == -9 || imMessageCenterPojo.getCustomGroupType() == 5 || imMessageCenterPojo.getCustomGroupType() == 6) {
                         imMessageCenterPojo.setIs_hidden(1);
                     }
-                    b.cWE().l(imMessageCenterPojo);
-                    b.cWE().k(imMessageCenterPojo);
+                    b.cWL().l(imMessageCenterPojo);
+                    b.cWL().k(imMessageCenterPojo);
                     sb2 = sb;
                 }
             }
             long j = -1;
-            if (this.kIc.getOrginalMessage() != null) {
-                j = this.kIc.getOrginalMessage().getClientLogID();
+            if (this.kIq.getOrginalMessage() != null) {
+                j = this.kIq.getOrginalMessage().getClientLogID();
             }
-            int cmd = this.kIc.getCmd();
-            int error = this.kIc.getError();
-            String errorString = this.kIc.getErrorString();
+            int cmd = this.kIq.getCmd();
+            int error = this.kIq.getError();
+            String errorString = this.kIq.getErrorString();
             Object[] objArr = new Object[2];
             objArr[0] = "comment";
             objArr[1] = sb2 == null ? "" : sb2.toString();
@@ -1099,14 +1099,14 @@ public class ImMemoryCacheRegister {
             ImMessageCenterPojo imMessageCenterPojo4 = null;
             ImMessageCenterPojo imMessageCenterPojo5 = null;
             ArrayList arrayList4 = null;
-            for (ImMessageCenterPojo imMessageCenterPojo6 : b.cWE().cWJ()) {
+            for (ImMessageCenterPojo imMessageCenterPojo6 : b.cWL().cWQ()) {
                 if (imMessageCenterPojo6.getCustomGroupType() == 1) {
                     if (arrayList3 == null) {
                         arrayList3 = new ArrayList();
                     }
                     arrayList3.add(imMessageCenterPojo6);
                     boolean z2 = true;
-                    Iterator<GroupUpdateMessage> it = this.kIc.getGroupInfos().iterator();
+                    Iterator<GroupUpdateMessage> it = this.kIq.getGroupInfos().iterator();
                     while (true) {
                         z = z2;
                         if (!it.hasNext()) {
@@ -1127,7 +1127,7 @@ public class ImMemoryCacheRegister {
                     arrayList = arrayList4;
                     arrayList2 = arrayList2;
                 } else if (imMessageCenterPojo6.getCustomGroupType() == -2) {
-                    com.baidu.tieba.im.pushNotify.b.cXz().Na(imMessageCenterPojo6.getGid());
+                    com.baidu.tieba.im.pushNotify.b.cXG().Nb(imMessageCenterPojo6.getGid());
                     arrayList = arrayList4;
                     imMessageCenterPojo2 = imMessageCenterPojo6;
                 } else if (imMessageCenterPojo6.getCustomGroupType() == -1) {
@@ -1150,7 +1150,7 @@ public class ImMemoryCacheRegister {
                 arrayList4 = arrayList;
             }
             if (arrayList2 != null) {
-                b.cWE().eA(arrayList2);
+                b.cWL().eA(arrayList2);
             }
             CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.31
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -1158,45 +1158,45 @@ public class ImMemoryCacheRegister {
                     if (customMessage != null && (customMessage instanceof OnlineToDbCustomMessage)) {
                         OnlineToDbCustomMessage onlineToDbCustomMessage = (OnlineToDbCustomMessage) customMessage;
                         try {
-                            h.cVz().cVA();
+                            h.cVG().cVH();
                             if (onlineToDbCustomMessage.needCreateGroupList != null) {
-                                com.baidu.tieba.im.db.c.cVs().et(onlineToDbCustomMessage.needCreateGroupList);
+                                com.baidu.tieba.im.db.c.cVz().et(onlineToDbCustomMessage.needCreateGroupList);
                                 for (ImMessageCenterPojo imMessageCenterPojo7 : onlineToDbCustomMessage.needCreateGroupList) {
-                                    j.cVD().d(imMessageCenterPojo7);
+                                    j.cVK().d(imMessageCenterPojo7);
                                 }
                             }
                             if (onlineToDbCustomMessage.systemGroup != null) {
-                                j.cVD().d(onlineToDbCustomMessage.systemGroup);
+                                j.cVK().d(onlineToDbCustomMessage.systemGroup);
                             }
                             if (onlineToDbCustomMessage.privateChatGroup != null) {
-                                j.cVD().d(onlineToDbCustomMessage.privateChatGroup);
+                                j.cVK().d(onlineToDbCustomMessage.privateChatGroup);
                             }
                             if (onlineToDbCustomMessage.officialChatGroup != null) {
-                                j.cVD().d(onlineToDbCustomMessage.officialChatGroup);
+                                j.cVK().d(onlineToDbCustomMessage.officialChatGroup);
                             }
                             if (onlineToDbCustomMessage.notifyGroup != null) {
-                                j.cVD().d(onlineToDbCustomMessage.notifyGroup);
+                                j.cVK().d(onlineToDbCustomMessage.notifyGroup);
                             }
                             if (onlineToDbCustomMessage.yyGroupList != null) {
                                 for (ImMessageCenterPojo imMessageCenterPojo8 : onlineToDbCustomMessage.yyGroupList) {
                                     if (imMessageCenterPojo8.getCustomGroupType() == 6) {
-                                        j.cVD().d(imMessageCenterPojo8);
+                                        j.cVK().d(imMessageCenterPojo8);
                                     } else {
-                                        g.cVh().K(imMessageCenterPojo8.getGid(), com.baidu.tieba.im.util.b.he(imMessageCenterPojo8.getPulled_msgId()));
+                                        g.cVo().K(imMessageCenterPojo8.getGid(), com.baidu.tieba.im.util.b.he(imMessageCenterPojo8.getPulled_msgId()));
                                     }
                                 }
                             }
                             if (onlineToDbCustomMessage.needDeleteGroupList != null) {
                                 for (ImMessageCenterPojo imMessageCenterPojo9 : onlineToDbCustomMessage.needDeleteGroupList) {
                                     if (imMessageCenterPojo9 != null) {
-                                        j.cVD().bo(imMessageCenterPojo9.getGid(), imMessageCenterPojo9.getCustomGroupType());
+                                        j.cVK().bo(imMessageCenterPojo9.getGid(), imMessageCenterPojo9.getCustomGroupType());
                                     }
                                 }
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
                         } finally {
-                            h.cVz().cVB();
+                            h.cVG().cVI();
                         }
                     }
                     return null;
@@ -1212,11 +1212,11 @@ public class ImMemoryCacheRegister {
             onlineToDbCustomMessage.privateChatGroup = imMessageCenterPojo4;
             onlineToDbCustomMessage.officialChatGroup = imMessageCenterPojo5;
             onlineToDbCustomMessage.yyGroupList = arrayList4;
-            if (this.kIc.isUserAvailable()) {
+            if (this.kIq.isUserAvailable()) {
                 onlineToDbCustomMessage.needDeleteGroupList = arrayList2;
             }
             MessageManager.getInstance().sendMessage(onlineToDbCustomMessage, customMessageTask);
-            this.kIc = null;
+            this.kIq = null;
         }
     }
 
@@ -1244,26 +1244,26 @@ public class ImMemoryCacheRegister {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void MZ(final String str) {
+    public void Na(final String str) {
         HashMap<String, String> groupGidName;
         if (!TextUtils.isEmpty(str)) {
-            b.cWE().bt(str, 1);
+            b.cWL().bt(str, 1);
             if (com.baidu.tbadk.coreExtra.messageCenter.b.bxB().bxX() != null && (groupGidName = com.baidu.tbadk.coreExtra.messageCenter.b.bxB().bxX().getGroupGidName()) != null && groupGidName.size() == 1 && groupGidName.containsKey(str)) {
                 com.baidu.tbadk.coreExtra.messageCenter.b.bxB().BZ(str);
             }
-            com.baidu.tieba.im.settingcache.b.cXR().b(TbadkCoreApplication.getCurrentAccount(), str, null);
+            com.baidu.tieba.im.settingcache.b.cXY().b(TbadkCoreApplication.getCurrentAccount(), str, null);
             CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.24
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                 public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                     if (customMessage != null && (customMessage instanceof CustomMessage)) {
                         try {
-                            h.cVz().cVA();
-                            j.cVD().bo(str, 1);
-                            com.baidu.tieba.im.db.c.cVs().ME(str);
+                            h.cVG().cVH();
+                            j.cVK().bo(str, 1);
+                            com.baidu.tieba.im.db.c.cVz().MF(str);
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
                         } finally {
-                            h.cVz().cVB();
+                            h.cVG().cVI();
                         }
                     }
                     return null;
@@ -1279,12 +1279,12 @@ public class ImMemoryCacheRegister {
     /* JADX INFO: Access modifiers changed from: private */
     public void n(final ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            b.cWE().j(imMessageCenterPojo);
+            b.cWL().j(imMessageCenterPojo);
             CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.25
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
                 public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                     if (customMessage != null) {
-                        j.cVD().a(imMessageCenterPojo, 2);
+                        j.cVK().a(imMessageCenterPojo, 2);
                     }
                     return null;
                 }

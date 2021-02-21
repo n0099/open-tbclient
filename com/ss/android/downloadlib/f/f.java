@@ -33,17 +33,17 @@ public class f {
         }
     }
 
-    public static com.ss.android.downloadlib.a.b.e bz(Context context, String str) {
+    public static com.ss.android.downloadlib.a.b.e by(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return new com.ss.android.downloadlib.a.b.e(6, 11);
         }
         if (com.ss.android.socialbase.downloader.m.g.e() && i.d(context, "com.sec.android.app.samsungapps")) {
-            return bA(context, str);
+            return bz(context, str);
         }
         return h(context, Uri.parse("market://details?id=" + str));
     }
 
-    private static com.ss.android.downloadlib.a.b.e bA(@NonNull Context context, @NonNull String str) {
+    private static com.ss.android.downloadlib.a.b.e bz(@NonNull Context context, @NonNull String str) {
         try {
             Uri parse = Uri.parse("http://www.samsungapps.com/appquery/appDetail.as?appId=" + str);
             Intent intent = new Intent();
@@ -56,25 +56,25 @@ public class f {
         }
     }
 
-    public static com.ss.android.downloadlib.a.b.e bB(Context context, String str) {
-        Intent bC = i.bC(context, str);
-        if (bC == null) {
+    public static com.ss.android.downloadlib.a.b.e bA(Context context, String str) {
+        Intent bB = i.bB(context, str);
+        if (bB == null) {
             return new com.ss.android.downloadlib.a.b.e(4);
         }
-        bC.putExtra("START_ONLY_FOR_ANDROID", true);
+        bB.putExtra("START_ONLY_FOR_ANDROID", true);
         try {
-            context.startActivity(bC);
+            context.startActivity(bB);
             return new com.ss.android.downloadlib.a.b.e(3);
         } catch (Exception e) {
             return new com.ss.android.downloadlib.a.b.e(4);
         }
     }
 
-    public static com.ss.android.downloadlib.a.b.e aaK(String str) {
-        return bB(com.ss.android.downloadlib.a.j.a(), str);
+    public static com.ss.android.downloadlib.a.b.e aaW(String str) {
+        return bA(com.ss.android.downloadlib.a.j.a(), str);
     }
 
-    public static com.ss.android.downloadlib.a.b.e aaL(String str) {
+    public static com.ss.android.downloadlib.a.b.e aaX(String str) {
         if (TextUtils.isEmpty(str)) {
             return new com.ss.android.downloadlib.a.b.e(2, 21);
         }
@@ -84,7 +84,7 @@ public class f {
         intent.setData(parse);
         intent.addFlags(268435456);
         if (i.j(a2, intent)) {
-            if (com.ss.android.downloadlib.a.j.i().optInt("open_url_mode") == 0 && com.ss.android.downloadlib.a.j.eEM() != null && com.ss.android.downloadlib.a.j.eEM().a() && Build.VERSION.SDK_INT < 29) {
+            if (com.ss.android.downloadlib.a.j.i().optInt("open_url_mode") == 0 && com.ss.android.downloadlib.a.j.eEU() != null && com.ss.android.downloadlib.a.j.eEU().a() && Build.VERSION.SDK_INT < 29) {
                 TTDelegateActivity.a(str);
             } else if (com.ss.android.downloadlib.a.j.i().optInt("open_url_mode") == 1 && Build.VERSION.SDK_INT >= 26 && Build.VERSION.SDK_INT < 29) {
                 TTDelegateActivity.a(str);

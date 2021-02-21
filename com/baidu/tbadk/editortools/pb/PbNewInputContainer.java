@@ -242,7 +242,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         }
     }
 
-    private void CS(String str) {
+    private void CQ(String str) {
         if (!StringUtils.isNull(str)) {
             this.fEa.getText().insert(this.fEa.getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
@@ -262,7 +262,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     private void a(u uVar) {
         if (uVar != null && !TextUtils.isEmpty(uVar.getName()) && !TextUtils.isEmpty(uVar.getUrl())) {
             String obj = this.fEa.getText().toString();
-            if (this.fCV && com.baidu.tieba.face.a.Js(obj) >= 10 && getContext() != null) {
+            if (this.fCV && com.baidu.tieba.face.a.Jt(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.brY().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.a(getContext(), uVar, this.fEa);
@@ -273,7 +273,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     private void b(u uVar) {
         if (!this.fCU || uVar.bwv() == EmotionGroupType.LOCAL) {
             String obj = this.fEa.getText().toString();
-            if (this.fCV && com.baidu.tieba.face.a.Js(obj) >= 10 && getContext() != null) {
+            if (this.fCV && com.baidu.tieba.face.a.Jt(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.brY().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.b(getContext(), uVar, this.fEa);
@@ -353,7 +353,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                 case 3:
                     if (this.fEa.getSelectionStart() > 0) {
                         String substring = this.fEa.getText().toString().substring(0, this.fEa.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.iSk.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.iSy.matcher(substring);
                         if (matcher.find()) {
                             this.fEa.getText().delete(this.fEa.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.fEa.getSelectionStart());
                             break;
@@ -516,10 +516,10 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                 case 44:
                     if (aVar.data != null) {
                         if (aVar.data instanceof String) {
-                            CS((String) aVar.data);
+                            CQ((String) aVar.data);
                             break;
                         } else if ((aVar.data instanceof j) && ((j) aVar.data).mContent != null) {
-                            CS(((j) aVar.data).mContent);
+                            CQ(((j) aVar.data).mContent);
                             break;
                         }
                     }

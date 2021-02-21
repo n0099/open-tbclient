@@ -39,16 +39,16 @@ public class EmotionHorizontalAdapter extends com.baidu.adp.widget.ListView.a<b,
 
     /* loaded from: classes9.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
-        private EmotionHorizontalView iYe;
+        private EmotionHorizontalView iYs;
 
         public EmotionGridViewHolder(View view) {
             super(view);
-            this.iYe = (EmotionHorizontalView) view;
+            this.iYs = (EmotionHorizontalView) view;
         }
 
         public void a(b bVar) {
-            if (this.iYe != null && bVar != null) {
-                this.iYe.setData(bVar.iYh);
+            if (this.iYs != null && bVar != null) {
+                this.iYs.setData(bVar.iYv);
             }
         }
     }

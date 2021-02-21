@@ -8,7 +8,7 @@ public interface d {
 
     void a(bg bgVar, bk bkVar, bk bkVar2);
 
-    void ccC();
+    void ccJ();
 
-    void ccD();
+    void ccK();
 }

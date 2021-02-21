@@ -9,7 +9,7 @@ import rx.k;
 /* loaded from: classes5.dex */
 public class g implements k {
     public static final int SIZE;
-    public volatile Object qDa;
+    public volatile Object qDA;
     private Queue<Object> queue;
     private final int size;
 
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g eNr() {
-        return ae.eNA() ? new g(false, SIZE) : new g();
+    public static g eNz() {
+        return ae.eNI() ? new g(false, SIZE) : new g();
     }
 
-    public static g eNs() {
-        return ae.eNA() ? new g(true, SIZE) : new g();
+    public static g eNA() {
+        return ae.eNI() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -81,8 +81,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.qDa == null) {
-            this.qDa = NotificationLite.eMS();
+        if (this.qDA == null) {
+            this.qDA = NotificationLite.eNa();
         }
     }
 
@@ -97,9 +97,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.qDa;
+                obj = this.qDA;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.qDa = null;
+                    this.qDA = null;
                 } else {
                     obj = poll;
                 }
@@ -116,7 +116,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.qDa;
+                obj = this.qDA;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }

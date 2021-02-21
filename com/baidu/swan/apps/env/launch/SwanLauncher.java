@@ -379,7 +379,7 @@ public final class SwanLauncher {
         if (arrayList == null || arrayList.isEmpty()) {
             cVar.onCompleted();
         } else {
-            rx.b.l(arrayList).b(rx.a.b.a.eMM()).a(rx.a.b.a.eMM()).c(cVar);
+            rx.b.l(arrayList).b(rx.a.b.a.eMU()).a(rx.a.b.a.eMU()).c(cVar);
         }
     }
 

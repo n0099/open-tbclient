@@ -28,34 +28,34 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScrollListener {
     private GridView djx;
-    private BaseFragmentActivity iKt;
-    private g iWF;
-    private com.baidu.tbadk.album.b iWG;
-    private f lAA;
+    private BaseFragmentActivity iKH;
+    private g iWT;
+    private com.baidu.tbadk.album.b iWU;
+    private f lAO;
     private List<ImageFileInfo> mImageList;
     private NoDataView mNoDataView;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.iKt = (BaseFragmentActivity) getPageContext().getPageActivity();
+        this.iKH = (BaseFragmentActivity) getPageContext().getPageActivity();
         View inflate = layoutInflater.inflate(R.layout.fragment_pick_album, (ViewGroup) null);
         ap.setBackgroundResource(inflate, R.color.CAM_X0201);
-        this.mNoDataView = NoDataViewFactory.a(this.iKt, inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.iKt, R.dimen.ds320)), NoDataViewFactory.d.BB(this.iKt.getText(R.string.face_group_no_picture).toString()), null);
+        this.mNoDataView = NoDataViewFactory.a(this.iKH, inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.iKH, R.dimen.ds320)), NoDataViewFactory.d.BB(this.iKH.getText(R.string.face_group_no_picture).toString()), null);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(8);
         this.djx = (GridView) inflate.findViewById(R.id.grid_view);
         init();
-        czA();
+        czH();
         return inflate;
     }
 
     private void init() {
         Serializable serializable;
         this.mImageList = new ArrayList();
-        this.iWG = new com.baidu.tbadk.album.b(getActivity());
-        this.iWF = new g(this.iKt, this.mImageList);
-        this.iWF.b(this.lAA);
-        this.djx.setAdapter((ListAdapter) this.iWF);
+        this.iWU = new com.baidu.tbadk.album.b(getActivity());
+        this.iWT = new g(this.iKH, this.mImageList);
+        this.iWT.b(this.lAO);
+        this.djx.setAdapter((ListAdapter) this.iWT);
         this.djx.setOnScrollListener(this);
         if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -66,12 +66,12 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
                     linkedHashMap.put(faceData.imageFileInfo.getFilePath(), faceData.imageFileInfo);
                 }
             }
-            this.iWF.I(linkedHashMap);
+            this.iWT.I(linkedHashMap);
         }
     }
 
-    private void czA() {
-        this.iWG.a(com.baidu.tbadk.album.a.ALBUM_ID_ALL, new com.baidu.tbadk.album.d() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceAlbumFragment.1
+    private void czH() {
+        this.iWU.a(com.baidu.tbadk.album.a.ALBUM_ID_ALL, new com.baidu.tbadk.album.d() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceAlbumFragment.1
             @Override // com.baidu.tbadk.album.d
             public void onPreLoad() {
             }
@@ -80,7 +80,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             public void a(List<com.baidu.tbadk.album.a> list, List<ImageFileInfo> list2, String str) {
                 if (!y.isEmpty(list2)) {
                     FaceAlbumFragment.this.mImageList.addAll(list2);
-                    FaceAlbumFragment.this.iWF.notifyDataSetChanged();
+                    FaceAlbumFragment.this.iWT.notifyDataSetChanged();
                     return;
                 }
                 FaceAlbumFragment.this.djx.setVisibility(8);
@@ -90,9 +90,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     public void a(f fVar) {
-        this.lAA = fVar;
-        if (this.iWF != null) {
-            this.iWF.b(this.lAA);
+        this.lAO = fVar;
+        if (this.iWT != null) {
+            this.iWT.b(this.lAO);
         }
     }
 
@@ -100,25 +100,25 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.iWF.dq(true);
-        } else if (this.iWF.isScroll()) {
-            this.iWF.dq(false);
-            czB();
+            this.iWT.dq(true);
+        } else if (this.iWT.isScroll()) {
+            this.iWT.dq(false);
+            czI();
         }
     }
 
-    private void czB() {
-        if (this.iWF != null && this.iWF.diM() != null) {
+    private void czI() {
+        if (this.iWT != null && this.iWT.diT() != null) {
             int childCount = this.djx.getChildCount();
             int firstVisiblePosition = this.djx.getFirstVisiblePosition();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.djx.getChildAt(i);
                 if (childAt != null) {
                     TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.image);
-                    ImageFileInfo item = this.iWF.getItem(firstVisiblePosition + i);
+                    ImageFileInfo item = this.iWT.getItem(firstVisiblePosition + i);
                     if (item != null && tbImageView != null) {
                         tbImageView.setTag(item.toCachedKey(false));
-                        this.iWF.diM().a(item, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceAlbumFragment.2
+                        this.iWT.diT().a(item, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.newfaceshop.facemake.FaceAlbumFragment.2
                             @Override // com.baidu.tbadk.imageManager.b
                             public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                                 TbImageView tbImageView2 = (TbImageView) FaceAlbumFragment.this.djx.findViewWithTag(str);
@@ -133,9 +133,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         }
     }
 
-    public LinkedHashMap<String, ImageFileInfo> div() {
-        if (this.iWF != null) {
-            return this.iWF.div();
+    public LinkedHashMap<String, ImageFileInfo> diC() {
+        if (this.iWT != null) {
+            return this.iWT.diC();
         }
         return null;
     }
@@ -143,8 +143,8 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.iWG != null) {
-            this.iWG.bjU();
+        if (this.iWU != null) {
+            this.iWU.bjU();
         }
     }
 }

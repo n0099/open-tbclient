@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes6.dex */
-public class d implements c.a, c.b, c.InterfaceC1009c, c.d, c.e, c.f, c.g, am.a {
+public class d implements c.a, c.b, c.InterfaceC1011c, c.d, c.e, c.f, c.g, am.a {
     private static boolean m = false;
     private static final SparseIntArray o = new SparseIntArray();
 
@@ -92,7 +92,7 @@ public class d implements c.a, c.b, c.InterfaceC1009c, c.d, c.e, c.f, c.g, am.a 
             this.n = "0";
             this.f6705a.a((c.e) this);
             this.f6705a.a((c.b) this);
-            this.f6705a.a((c.InterfaceC1009c) this);
+            this.f6705a.a((c.InterfaceC1011c) this);
             this.f6705a.a((c.a) this);
             this.f6705a.a((c.f) this);
             this.f6705a.a((c.d) this);
@@ -558,7 +558,7 @@ public class d implements c.a, c.b, c.InterfaceC1009c, c.d, c.e, c.f, c.g, am.a 
             this.f6705a.a((c.g) null);
             this.f6705a.a((c.a) null);
             this.f6705a.a((c.d) null);
-            this.f6705a.a((c.InterfaceC1009c) null);
+            this.f6705a.a((c.InterfaceC1011c) null);
             this.f6705a.a((c.e) null);
             this.f6705a.a((c.f) null);
             try {
@@ -616,7 +616,7 @@ public class d implements c.a, c.b, c.InterfaceC1009c, c.d, c.e, c.f, c.g, am.a 
         D();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.c.c.InterfaceC1009c
+    @Override // com.bytedance.sdk.openadsdk.core.video.c.c.InterfaceC1011c
     public boolean a(c cVar, int i, int i2) {
         u.f("SSMediaPlayeWrapper", "what=" + i + "extra=" + i2);
         u();

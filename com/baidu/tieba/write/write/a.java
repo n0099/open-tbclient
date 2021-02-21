@@ -15,11 +15,11 @@ import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class a extends BaseAdapter {
     private ArrayList<MetaData> eVV;
-    private TbCheckBox.a kPf;
+    private TbCheckBox.a kPt;
     private final Context mContext;
-    private AtListActivity oiJ;
-    private boolean oiL;
-    private b oiK = null;
+    private AtListActivity ojj;
+    private boolean ojl;
+    private b ojk = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes8.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.oiK = bVar;
+        this.ojk = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.oiL = true;
-        this.oiJ = atListActivity;
-        this.mContext = this.oiJ.getPageContext().getContext();
-        this.oiL = z;
+        this.ojl = true;
+        this.ojj = atListActivity;
+        this.mContext = this.ojj.getPageContext().getContext();
+        this.ojl = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,7 +46,7 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.kPf = aVar;
+        this.kPt = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Lv */
+    /* renamed from: Lw */
     public MetaData getItem(int i) {
         if (this.eVV != null && i < this.eVV.size()) {
             return this.eVV.get(i);
@@ -74,74 +74,74 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0904a c0904a;
+        C0906a c0906a;
         if (this.mParent == null) {
             this.mParent = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
-            c0904a = a(view != null ? view.getTag() : null, item);
+            c0906a = a(view != null ? view.getTag() : null, item);
         } else {
-            c0904a = null;
+            c0906a = null;
         }
-        if (c0904a != null) {
-            return c0904a.rootView;
+        if (c0906a != null) {
+            return c0906a.rootView;
         }
         return null;
     }
 
-    private C0904a a(Object obj, MetaData metaData) {
-        C0904a c0904a;
+    private C0906a a(Object obj, MetaData metaData) {
+        C0906a c0906a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0904a = dXJ();
+            c0906a = dXR();
         } else {
-            c0904a = (C0904a) obj;
+            c0906a = (C0906a) obj;
         }
-        if (this.oiK != null) {
-            this.oiK.a(c0904a.rootView, metaData);
+        if (this.ojk != null) {
+            this.ojk.a(c0906a.rootView, metaData);
         }
         String avater = metaData.getAvater();
-        c0904a.hXS.setText(metaData.getName_show());
-        c0904a.kPi.setTagData(metaData);
-        c0904a.kON.setTag(avater);
-        if (this.oiL) {
-            c0904a.kPi.setVisibility(0);
+        c0906a.hYg.setText(metaData.getName_show());
+        c0906a.kPw.setTagData(metaData);
+        c0906a.kPb.setTag(avater);
+        if (this.ojl) {
+            c0906a.kPw.setVisibility(0);
         } else {
-            c0904a.kPi.setVisibility(8);
+            c0906a.kPw.setVisibility(8);
         }
-        c0904a.kON.startLoad(avater, 12, false);
-        this.oiJ.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.oiJ.getPageContext().getLayoutMode().onModeChanged(c0904a.rootView);
-        return c0904a;
+        c0906a.kPb.startLoad(avater, 12, false);
+        this.ojj.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.ojj.getPageContext().getLayoutMode().onModeChanged(c0906a.rootView);
+        return c0906a;
     }
 
-    private C0904a dXJ() {
-        C0904a c0904a = new C0904a();
-        c0904a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        c0904a.kON = (HeadImageView) c0904a.rootView.findViewById(R.id.photo);
-        c0904a.kON.setIsRound(false);
-        c0904a.hXS = (TextView) c0904a.rootView.findViewById(R.id.txt_user_name);
-        c0904a.kPi = (TbCheckBox) c0904a.rootView.findViewById(R.id.ckb_select);
-        c0904a.kPi.setBackgroundDrawableIdIsWebP(true);
-        c0904a.kPi.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
-        if (this.kPf != null) {
-            c0904a.kPi.setStatedChangedListener(this.kPf);
+    private C0906a dXR() {
+        C0906a c0906a = new C0906a();
+        c0906a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+        c0906a.kPb = (HeadImageView) c0906a.rootView.findViewById(R.id.photo);
+        c0906a.kPb.setIsRound(false);
+        c0906a.hYg = (TextView) c0906a.rootView.findViewById(R.id.txt_user_name);
+        c0906a.kPw = (TbCheckBox) c0906a.rootView.findViewById(R.id.ckb_select);
+        c0906a.kPw.setBackgroundDrawableIdIsWebP(true);
+        c0906a.kPw.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
+        if (this.kPt != null) {
+            c0906a.kPw.setStatedChangedListener(this.kPt);
         }
-        c0904a.rootView.setTag(c0904a);
-        return c0904a;
+        c0906a.rootView.setTag(c0906a);
+        return c0906a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0904a {
-        public TextView hXS;
-        public HeadImageView kON;
-        public TbCheckBox kPi;
+    public class C0906a {
+        public TextView hYg;
+        public HeadImageView kPb;
+        public TbCheckBox kPw;
         public View rootView;
 
-        private C0904a() {
+        private C0906a() {
         }
     }
 }

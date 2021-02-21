@@ -164,7 +164,7 @@ public class TbRichTextItem extends OrmObject {
         return this.fXu.getText();
     }
 
-    private SpannableString Ef(String str) {
+    private SpannableString Ed(String str) {
         if ((this.mType != 2 && this.mType != 18 && this.mType != 39) || this.fXu == null) {
             return null;
         }
@@ -187,7 +187,7 @@ public class TbRichTextItem extends OrmObject {
         }
         SpannableString spannableString = new SpannableString(text);
         f fVar = new f(this.mType, text);
-        fVar.Ee(this.fXu.getLink());
+        fVar.Ec(this.fXu.getLink());
         spannableString.setSpan(fVar, 0, text.length() - 1, 33);
         return spannableString;
     }
@@ -201,25 +201,25 @@ public class TbRichTextItem extends OrmObject {
 
     private SpannableString O(ArrayList<d> arrayList) {
         String text;
-        int CM;
+        int CK;
         String str;
-        a.C0576a Dh;
-        if (this.mType != 4 || this.fXu == null || this.fXu.getText() == null || this.fXu.getLink() == null || (CM = TbFaceManager.bCO().CM((text = this.fXu.getText()))) == 0) {
+        a.C0576a Df;
+        if (this.mType != 4 || this.fXu == null || this.fXu.getText() == null || this.fXu.getLink() == null || (CK = TbFaceManager.bCO().CK((text = this.fXu.getText()))) == 0) {
             return null;
         }
-        String CO = TbFaceManager.bCO().CO(text);
+        String CM = TbFaceManager.bCO().CM(text);
         if (!TextUtils.isEmpty(text) && text.startsWith("shoubai_emoji_")) {
-            str = "[" + CO + "]";
+            str = "[" + CM + "]";
         } else {
-            str = "#(" + CO + ")";
+            str = "#(" + CM + ")";
         }
         SpannableString spannableString = new SpannableString(str + " ");
-        d dVar = new d(TbadkCoreApplication.getInst().getContext(), CM);
+        d dVar = new d(TbadkCoreApplication.getInst().getContext(), CK);
         if (arrayList != null) {
             arrayList.add(dVar);
         }
-        if (TbFaceManager.bCO().Dh(text) != null) {
-            int width = (int) (Dh.getWidth() * 0.5d);
+        if (TbFaceManager.bCO().Df(text) != null) {
+            int width = (int) (Df.getWidth() * 0.5d);
             dVar.setBounds(new Rect(0, 0, width, width));
         } else {
             dVar.setBounds(new Rect(0, 0, 0, 0));
@@ -249,7 +249,7 @@ public class TbRichTextItem extends OrmObject {
                     @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                     public void onClick(View view) {
                         view.setTag(R.id.tag_subpb_ban_display_keyboard, true);
-                        TbRichTextItem.this.Eg(str2);
+                        TbRichTextItem.this.Ee(str2);
                     }
                 };
             } else if (this.mType == 39) {
@@ -325,7 +325,7 @@ public class TbRichTextItem extends OrmObject {
             case 1:
                 return bIb();
             case 2:
-                return Ef(str);
+                return Ed(str);
             case 4:
                 return O(arrayList);
             case 8:
@@ -335,11 +335,11 @@ public class TbRichTextItem extends OrmObject {
             case 16:
                 return bId();
             case 18:
-                return Ef(str);
+                return Ed(str);
             case 32:
                 return L(arrayList);
             case 39:
-                return Ef(str);
+                return Ed(str);
             case 128:
                 return M(arrayList);
             case 256:
@@ -407,7 +407,7 @@ public class TbRichTextItem extends OrmObject {
                     }
                     this.fXu = new TbRichTextCommInfo(pbContent);
                     if (this.mType == 4) {
-                        if (TbFaceManager.bCO().CM(this.fXu.getText()) <= 0) {
+                        if (TbFaceManager.bCO().CK(this.fXu.getText()) <= 0) {
                             this.mType = 1;
                             if (StringUtils.isNull(pbContent.c)) {
                                 str = "[" + TbadkCoreApplication.getInst().getString(R.string.editor_express) + "]";
@@ -466,9 +466,9 @@ public class TbRichTextItem extends OrmObject {
             } else {
                 this.fXu = new TbRichTextCommInfo(jSONObject);
                 if (this.mType == 4) {
-                    int CM = TbFaceManager.bCO().CM(this.fXu.getText());
+                    int CK = TbFaceManager.bCO().CK(this.fXu.getText());
                     String optString = jSONObject.optString("c");
-                    if (CM <= 0) {
+                    if (CK <= 0) {
                         this.mType = 1;
                         if (StringUtils.isNull(optString)) {
                             str = "[" + TbadkCoreApplication.getInst().getString(R.string.editor_express) + "]";
@@ -496,7 +496,7 @@ public class TbRichTextItem extends OrmObject {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Eg(String str) {
+    public void Ee(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tbadk.data.m mVar = new com.baidu.tbadk.data.m();
             mVar.mLink = str;

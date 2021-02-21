@@ -7,23 +7,23 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 /* loaded from: classes2.dex */
 public class b {
     public final View fLW;
-    private PbFragment lMX;
+    private PbFragment lNm;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == b.this.fLW && b.this.lMX != null && b.this.lMX.getBaseFragmentActivity() != null) {
-                b.this.lMX.getBaseFragmentActivity().finish();
+            if (view == b.this.fLW && b.this.lNm != null && b.this.lNm.getBaseFragmentActivity() != null) {
+                b.this.lNm.getBaseFragmentActivity().finish();
             }
         }
     };
     public final TextView mTitleView;
-    public final View mfm;
+    public final View mfB;
 
     public b(PbFragment pbFragment) {
-        this.lMX = pbFragment;
-        this.fLW = this.lMX.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_back);
-        this.mTitleView = (TextView) this.lMX.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_title);
-        this.mfm = this.lMX.getBaseFragmentActivity().findViewById(R.id.manga_browser_navigation_bar);
+        this.lNm = pbFragment;
+        this.fLW = this.lNm.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_back);
+        this.mTitleView = (TextView) this.lNm.getBaseFragmentActivity().findViewById(R.id.manga_navigation_bar_title);
+        this.mfB = this.lNm.getBaseFragmentActivity().findViewById(R.id.manga_browser_navigation_bar);
         this.fLW.setOnClickListener(this.mClickListener);
     }
 
@@ -32,6 +32,6 @@ public class b {
     }
 
     public void show() {
-        this.mfm.setVisibility(0);
+        this.mfB.setVisibility(0);
     }
 }

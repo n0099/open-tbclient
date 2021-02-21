@@ -5,5 +5,5 @@ import tbclient.UserMuteCheck.DataRes;
 public class a {
     public int error;
     public String errorString;
-    public DataRes nJZ;
+    public DataRes nKz;
 }

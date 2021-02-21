@@ -18,8 +18,8 @@ public class e extends Dialog implements c {
     private View f12928b;
     private boolean e;
     private Activity f;
-    private d qaT;
-    private c qaU;
+    private d qbt;
+    private c qbu;
 
     public e(@NonNull Activity activity, @NonNull d dVar) {
         this(activity, dVar, null);
@@ -28,8 +28,8 @@ public class e extends Dialog implements c {
     public e(@NonNull Activity activity, @NonNull d dVar, c cVar) {
         super(activity, a.d.ttdownloader_translucent_dialog);
         this.f = activity;
-        this.qaT = dVar;
-        this.qaU = cVar;
+        this.qbt = dVar;
+        this.qbu = cVar;
         setCancelable(false);
         d();
     }
@@ -54,17 +54,17 @@ public class e extends Dialog implements c {
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int a() {
-        return this.qaU != null ? this.qaU.a() : a.c.ttdownloader_dialog_reserve_wifi;
+        return this.qbu != null ? this.qbu.a() : a.c.ttdownloader_dialog_reserve_wifi;
     }
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int b() {
-        return this.qaU != null ? this.qaU.b() : a.b.confirm_tv;
+        return this.qbu != null ? this.qbu.b() : a.b.confirm_tv;
     }
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int c() {
-        return this.qaU != null ? this.qaU.c() : a.b.cancel_tv;
+        return this.qbu != null ? this.qbu.c() : a.b.cancel_tv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -85,9 +85,9 @@ public class e extends Dialog implements c {
             this.f.finish();
         }
         if (this.e) {
-            this.qaT.a();
+            this.qbt.a();
         } else {
-            this.qaT.b();
+            this.qbt.b();
         }
     }
 

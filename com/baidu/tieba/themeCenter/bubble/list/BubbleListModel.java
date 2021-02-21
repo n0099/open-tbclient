@@ -20,14 +20,14 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     private int currentPage;
     private boolean hasMore;
     private boolean isDefault;
-    private final HttpMessageListener lkX;
+    private final HttpMessageListener lll;
     private e mRecommand;
-    private boolean nGV;
-    private com.baidu.adp.framework.listener.a nGW;
-    private BubbleListActivity nHN;
-    private List<DressItemData> nHO;
-    private List<DressItemData> nHP;
-    private a nHQ;
+    private boolean nHv;
+    private com.baidu.adp.framework.listener.a nHw;
+    private BubbleListActivity nIn;
+    private List<DressItemData> nIo;
+    private List<DressItemData> nIp;
+    private a nIq;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -46,7 +46,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         this.currentPage = 0;
         this.hasMore = true;
         this.isDefault = false;
-        this.nGW = new com.baidu.adp.framework.listener.a(1003055, CmdConfigSocket.CMD_BUBBLE_LIST) { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.1
+        this.nHw = new com.baidu.adp.framework.listener.a(1003055, CmdConfigSocket.CMD_BUBBLE_LIST) { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -57,58 +57,58 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
                             if (responsedMessage instanceof BubbleListHttpResponseMessage) {
                                 BubbleListHttpResponseMessage bubbleListHttpResponseMessage = (BubbleListHttpResponseMessage) responsedMessage;
                                 BubbleListModel.this.mRecommand = bubbleListHttpResponseMessage.getRecommand();
-                                BubbleListModel.this.nHO = bubbleListHttpResponseMessage.getBubbleList();
+                                BubbleListModel.this.nIo = bubbleListHttpResponseMessage.getBubbleList();
                                 BubbleListModel.this.hasMore = bubbleListHttpResponseMessage.hasMore();
                                 BubbleListModel.this.isDefault = bubbleListHttpResponseMessage.isDefault();
                             } else if (responsedMessage instanceof BubbleListSocketResponseMessage) {
                                 BubbleListSocketResponseMessage bubbleListSocketResponseMessage = (BubbleListSocketResponseMessage) responsedMessage;
                                 BubbleListModel.this.mRecommand = bubbleListSocketResponseMessage.getRecommand();
-                                BubbleListModel.this.nHO = bubbleListSocketResponseMessage.getBubbleList();
+                                BubbleListModel.this.nIo = bubbleListSocketResponseMessage.getBubbleList();
                                 BubbleListModel.this.hasMore = bubbleListSocketResponseMessage.hasMore();
                                 BubbleListModel.this.isDefault = bubbleListSocketResponseMessage.isDefault();
                             }
-                            if (BubbleListModel.this.nHP == null) {
-                                BubbleListModel.this.nHP = new ArrayList();
+                            if (BubbleListModel.this.nIp == null) {
+                                BubbleListModel.this.nIp = new ArrayList();
                             }
                             if (BubbleListModel.this.currentPage == 1) {
-                                BubbleListModel.this.nHP.clear();
+                                BubbleListModel.this.nIp.clear();
                                 DressItemData dressItemData = new DressItemData();
                                 dressItemData.setPropsId(0);
                                 dressItemData.setInUse(BubbleListModel.this.isDefault);
-                                BubbleListModel.this.nHP.add(dressItemData);
+                                BubbleListModel.this.nIp.add(dressItemData);
                             }
-                            if (BubbleListModel.this.nHO != null) {
-                                BubbleListModel.this.nHP.addAll(BubbleListModel.this.nHO);
+                            if (BubbleListModel.this.nIo != null) {
+                                BubbleListModel.this.nIp.addAll(BubbleListModel.this.nIo);
                             }
                         }
-                        if (BubbleListModel.this.nHQ != null) {
-                            BubbleListModel.this.nHQ.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleListModel.this.mRecommand, BubbleListModel.this.nHP);
+                        if (BubbleListModel.this.nIq != null) {
+                            BubbleListModel.this.nIq.a(responsedMessage.getError(), responsedMessage.getErrorString(), BubbleListModel.this.mRecommand, BubbleListModel.this.nIp);
                         }
                     }
                 }
             }
         };
-        this.lkX = new HttpMessageListener(1003056) { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.2
+        this.lll = new HttpMessageListener(1003056) { // from class: com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003056) {
                     BubbleSetResponseMessage bubbleSetResponseMessage = (BubbleSetResponseMessage) httpResponsedMessage;
                     if (bubbleSetResponseMessage.getError() != 0) {
-                        BubbleListModel.this.nHN.showToast(bubbleSetResponseMessage.getErrorString());
+                        BubbleListModel.this.nIn.showToast(bubbleSetResponseMessage.getErrorString());
                         return;
                     }
                     BubbleListModel.this.Kj(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
-                    BubbleListModel.this.nHQ.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleListModel.this.mRecommand, BubbleListModel.this.nHP);
+                    BubbleListModel.this.nIq.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), BubbleListModel.this.mRecommand, BubbleListModel.this.nIp);
                 }
             }
         };
-        this.nHN = bubbleListActivity;
-        this.nGV = bubbleListActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        this.nIn = bubbleListActivity;
+        this.nHv = bubbleListActivity.getIntent().getBooleanExtra("member_buy_show", false);
         registerTask();
-        registerListener(this.nGW);
-        dRd();
-        registerListener(this.lkX);
+        registerListener(this.nHw);
+        dRl();
+        registerListener(this.lll);
     }
 
     private void registerTask() {
@@ -116,7 +116,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_BUBBLE_LIST, 1003055, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void dRd() {
+    private void dRl() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003056, TbConfig.SERVER_ADDRESS + "c/e/bu/setbubble");
         tbHttpMessageTask.setResponsedClass(BubbleSetResponseMessage.class);
@@ -133,7 +133,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         return false;
     }
 
-    public void dRe() {
+    public void dRm() {
         if (this.hasMore) {
             this.currentPage++;
             BubbleListRequestMessage bubbleListRequestMessage = new BubbleListRequestMessage();
@@ -148,18 +148,18 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
         return false;
     }
 
-    public boolean dRf() {
-        return this.nGV;
+    public boolean dRn() {
+        return this.nHv;
     }
 
     public void a(a aVar) {
-        this.nHQ = aVar;
+        this.nIq = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Kj(int i) {
-        if (this.nHP != null && this.nHP.size() > 0) {
-            for (DressItemData dressItemData : this.nHP) {
+        if (this.nIp != null && this.nIp.size() > 0) {
+            for (DressItemData dressItemData : this.nIp) {
                 if (dressItemData != null) {
                     if (dressItemData.getPropsId() == i) {
                         dressItemData.setInUse(true);

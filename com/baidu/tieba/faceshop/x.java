@@ -13,21 +13,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class x extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static x iWy;
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> iWz;
+    private static x iWM;
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> iWN;
 
     private x() {
     }
 
-    public static x czz() {
-        if (iWy == null) {
+    public static x czG() {
+        if (iWM == null) {
             synchronized (x.class) {
-                if (iWy == null) {
-                    iWy = new x();
+                if (iWM == null) {
+                    iWM = new x();
                 }
             }
         }
-        return iWy;
+        return iWM;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
@@ -37,13 +37,13 @@ public class x extends com.baidu.tbadk.editortools.emotiontool.a {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0573a interfaceC0573a) {
-        if (com.baidu.tbadk.core.util.o.checkSD() && this.iWz != null) {
+        if (com.baidu.tbadk.core.util.o.checkSD() && this.iWN != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.iWz.size()) {
-                    w wVar = (w) this.iWz.get(i2);
-                    if (wVar.isReady() && com.baidu.tieba.newfaceshop.c.dil().OP(wVar.getGroupId()) == null && interfaceC0573a != null) {
+                if (i2 < this.iWN.size()) {
+                    w wVar = (w) this.iWN.get(i2);
+                    if (wVar.isReady() && com.baidu.tieba.newfaceshop.c.dis().OQ(wVar.getGroupId()) == null && interfaceC0573a != null) {
                         interfaceC0573a.a(wVar);
                     }
                     i = i2 + 1;
@@ -83,8 +83,8 @@ public class x extends com.baidu.tbadk.editortools.emotiontool.a {
     public synchronized void db(List<com.baidu.tieba.face.data.b> list) {
         if (list != null) {
             if (!list.isEmpty()) {
-                if (this.iWz != null) {
-                    this.iWz = null;
+                if (this.iWN != null) {
+                    this.iWN = null;
                 }
                 LinkedList<com.baidu.tbadk.editortools.emotiontool.c> linkedList = new LinkedList<>();
                 boolean z = false;
@@ -100,14 +100,14 @@ public class x extends com.baidu.tbadk.editortools.emotiontool.a {
                         });
                     }
                 }
-                this.iWz = linkedList;
+                this.iWN = linkedList;
                 if (z) {
                     MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
                 }
             }
         }
-        if (this.iWz != null) {
-            this.iWz = null;
+        if (this.iWN != null) {
+            this.iWN = null;
             MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
         }
     }

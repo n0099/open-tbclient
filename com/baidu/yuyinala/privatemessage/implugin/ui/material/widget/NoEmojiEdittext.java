@@ -10,46 +10,46 @@ import android.widget.EditText;
 /* loaded from: classes11.dex */
 public class NoEmojiEdittext extends EditText {
     private Context mContext;
-    private int pev;
-    private String pew;
-    private boolean pex;
+    private int peV;
+    private String peW;
+    private boolean peX;
 
     public NoEmojiEdittext(Context context) {
         super(context);
         this.mContext = context;
-        dvz();
+        dvG();
     }
 
     public NoEmojiEdittext(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        dvz();
+        dvG();
     }
 
     public NoEmojiEdittext(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        dvz();
+        dvG();
     }
 
-    private void dvz() {
+    private void dvG() {
         addTextChangedListener(new TextWatcher() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.NoEmojiEdittext.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (!NoEmojiEdittext.this.pex) {
-                    NoEmojiEdittext.this.pev = NoEmojiEdittext.this.getSelectionEnd();
-                    NoEmojiEdittext.this.pew = charSequence.toString();
+                if (!NoEmojiEdittext.this.peX) {
+                    NoEmojiEdittext.this.peV = NoEmojiEdittext.this.getSelectionEnd();
+                    NoEmojiEdittext.this.peW = charSequence.toString();
                 }
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 try {
-                    if (NoEmojiEdittext.this.pex) {
-                        NoEmojiEdittext.this.pex = false;
-                    } else if (i3 >= 2 && NoEmojiEdittext.this.pev + i3 <= charSequence.length() && NoEmojiEdittext.containsEmoji(charSequence.subSequence(NoEmojiEdittext.this.pev, NoEmojiEdittext.this.pev + i3).toString())) {
-                        NoEmojiEdittext.this.pex = true;
-                        NoEmojiEdittext.this.setText(NoEmojiEdittext.this.pew);
+                    if (NoEmojiEdittext.this.peX) {
+                        NoEmojiEdittext.this.peX = false;
+                    } else if (i3 >= 2 && NoEmojiEdittext.this.peV + i3 <= charSequence.length() && NoEmojiEdittext.containsEmoji(charSequence.subSequence(NoEmojiEdittext.this.peV, NoEmojiEdittext.this.peV + i3).toString())) {
+                        NoEmojiEdittext.this.peX = true;
+                        NoEmojiEdittext.this.setText(NoEmojiEdittext.this.peW);
                         Editable text = NoEmojiEdittext.this.getText();
                         if (text instanceof Spannable) {
                             Selection.setSelection(text, text.length());

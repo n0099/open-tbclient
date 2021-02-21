@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.util.bf;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes8.dex */
 public class b implements c {
-    private SpannableString mis;
+    private SpannableString miH;
     private TbPageContext<?> pageContext;
     private String url;
 
     public b(TbPageContext<?> tbPageContext, ExcContent excContent) {
         if (excContent != null && excContent.type.longValue() == 1 && !StringUtils.isNull(excContent.text)) {
             this.pageContext = tbPageContext;
-            this.mis = new SpannableString(excContent.text);
-            this.mis.setSpan(new a(), 0, excContent.text.length(), 17);
+            this.miH = new SpannableString(excContent.text);
+            this.miH.setSpan(new a(), 0, excContent.text.length(), 17);
             this.url = excContent.link;
         }
     }
@@ -29,8 +29,8 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence dtw() {
-        return this.mis;
+    public CharSequence dtD() {
+        return this.miH;
     }
 
     /* loaded from: classes8.dex */
@@ -51,7 +51,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean dtx() {
+    public boolean dtE() {
         return false;
     }
 }

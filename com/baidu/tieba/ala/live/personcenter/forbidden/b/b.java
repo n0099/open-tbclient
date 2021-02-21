@@ -7,7 +7,7 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements IAdapterData {
-    public static final BdUniqueId hln = BdUniqueId.gen();
+    public static final BdUniqueId hlB = BdUniqueId.gen();
     private String portrait;
     private int sex;
     private String userId;
@@ -41,6 +41,6 @@ public class b implements IAdapterData {
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return hln;
+        return hlB;
     }
 }

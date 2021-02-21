@@ -20,7 +20,7 @@ public class c {
         v(z, "missguess_show");
     }
 
-    public static void bXJ() {
+    public static void bXQ() {
         UbcStatisticItem ubcStatisticItem = new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "jointeam_clk");
         JSONObject jSONObject = new JSONObject();
         try {

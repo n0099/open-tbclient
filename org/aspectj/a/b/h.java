@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h quS = new h();
-    static h quT;
-    static h quU;
-    boolean quJ = true;
-    boolean quK = true;
-    boolean quL = false;
-    boolean quM = false;
-    boolean quN = false;
-    boolean quO = true;
-    boolean quP = true;
-    boolean quQ = true;
-    int quR;
+    static h qvs = new h();
+    static h qvt;
+    static h qvu;
+    boolean qvj = true;
+    boolean qvk = true;
+    boolean qvl = false;
+    boolean qvm = false;
+    boolean qvn = false;
+    boolean qvo = true;
+    boolean qvp = true;
+    boolean qvq = true;
+    int qvr;
 
     h() {
     }
 
     static {
-        quS.quJ = true;
-        quS.quK = false;
-        quS.quL = false;
-        quS.quM = false;
-        quS.quN = true;
-        quS.quO = false;
-        quS.quP = false;
-        quS.quR = 0;
-        quT = new h();
-        quT.quJ = true;
-        quT.quK = true;
-        quT.quL = false;
-        quT.quM = false;
-        quT.quN = false;
-        quS.quR = 1;
-        quU = new h();
-        quU.quJ = false;
-        quU.quK = true;
-        quU.quL = false;
-        quU.quM = true;
-        quU.quN = false;
-        quU.quQ = false;
-        quU.quR = 2;
+        qvs.qvj = true;
+        qvs.qvk = false;
+        qvs.qvl = false;
+        qvs.qvm = false;
+        qvs.qvn = true;
+        qvs.qvo = false;
+        qvs.qvp = false;
+        qvs.qvr = 0;
+        qvt = new h();
+        qvt.qvj = true;
+        qvt.qvk = true;
+        qvt.qvl = false;
+        qvt.qvm = false;
+        qvt.qvn = false;
+        qvs.qvr = 1;
+        qvu = new h();
+        qvu.qvj = false;
+        qvu.qvk = true;
+        qvu.qvl = false;
+        qvu.qvm = true;
+        qvu.qvn = false;
+        qvu.qvq = false;
+        qvu.qvr = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String ack(String str) {
+    public String acw(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String SB(int i) {
-        if (this.quM) {
+    public String SC(int i) {
+        if (this.qvm) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String acl(String str) {
+    String acx(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return acl(str).replace('$', '.');
+            return acx(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String H(Class cls) {
-        return b(cls, cls.getName(), this.quJ);
+        return b(cls, cls.getName(), this.qvj);
     }
 
     public String l(Class cls, String str) {
-        return b(cls, str, this.quN);
+        return b(cls, str, this.qvn);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.quK) {
+            if (!this.qvk) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.quL && clsArr != null && clsArr.length != 0) {
+        if (this.qvl && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

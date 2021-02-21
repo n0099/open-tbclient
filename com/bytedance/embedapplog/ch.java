@@ -7,8 +7,9 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-abstract class ch {
+public abstract class ch {
 
     /* renamed from: a  reason: collision with root package name */
     boolean f5825a;
@@ -127,7 +128,7 @@ abstract class ch {
                 fileLock = lock;
                 try {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        if (bx.enV().f5818a.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") != 0) {
+                        if (bx.eod().f5818a.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") != 0) {
                             throw new SecurityException(e);
                         }
                         au.a(e);

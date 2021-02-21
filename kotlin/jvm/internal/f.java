@@ -6,22 +6,22 @@ import kotlin.collections.y;
 /* loaded from: classes6.dex */
 final class f extends y {
     private int index;
-    private final int[] qto;
+    private final int[] qtO;
 
     public f(int[] iArr) {
         p.o(iArr, com.baidu.fsg.base.statistics.b.j);
-        this.qto = iArr;
+        this.qtO = iArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.qto.length;
+        return this.index < this.qtO.length;
     }
 
     @Override // kotlin.collections.y
-    public int eBy() {
+    public int eBG() {
         try {
-            int[] iArr = this.qto;
+            int[] iArr = this.qtO;
             int i = this.index;
             this.index = i + 1;
             return iArr[i];

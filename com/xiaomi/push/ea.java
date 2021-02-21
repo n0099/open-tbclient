@@ -28,19 +28,19 @@ public class ea extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo192a() {
+    public int mo191a() {
         return 24;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo192a() {
+    public ho mo191a() {
         return ho.AppIsInstalled;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo192a() {
+    public String mo191a() {
         String[] a2 = a();
         if (a2 == null || a2.length <= 0) {
             return null;

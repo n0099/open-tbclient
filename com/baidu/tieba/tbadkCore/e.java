@@ -18,27 +18,27 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class e {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static e nue;
-    private com.baidu.adp.lib.cache.l<byte[]> jbF;
+    private static e nuF;
+    private com.baidu.adp.lib.cache.l<byte[]> jbT;
     private m responseData = null;
 
     private e() {
-        this.jbF = null;
-        this.jbF = BdCacheService.lw().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.jbT = null;
+        this.jbT = BdCacheService.lw().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static e dMs() {
-        if (nue == null) {
+    public static e dMA() {
+        if (nuF == null) {
             synchronized (e.class) {
-                if (nue == null) {
-                    nue = new e();
+                if (nuF == null) {
+                    nuF = new e();
                 }
             }
         }
-        return nue;
+        return nuF;
     }
 
-    public long dMt() {
+    public long dMB() {
         long j = com.baidu.tbadk.core.sharedPref.b.brQ().getLong("key_frs_cache_time", 604800000L);
         if (j < 0) {
             return 604800000L;
@@ -46,9 +46,9 @@ public class e {
         return j;
     }
 
-    public boolean SS(String str) {
-        if (this.jbF != null && str != null) {
-            byte[] bArr = this.jbF.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public boolean Te(String str) {
+        if (this.jbT != null && str != null) {
+            byte[] bArr = this.jbT.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new m();
                 this.responseData.parserProtobuf(bArr, false);
@@ -61,9 +61,9 @@ public class e {
         return false;
     }
 
-    public void gs(String str, String str2) {
-        if (this.jbF != null && str != null) {
-            byte[] bArr = this.jbF.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void gu(String str, String str2) {
+        if (this.jbT != null && str != null) {
+            byte[] bArr = this.jbT.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -83,9 +83,9 @@ public class e {
         }
     }
 
-    public void gt(String str, String str2) {
-        if (this.jbF != null && str != null) {
-            byte[] bArr = this.jbF.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void gv(String str, String str2) {
+        if (this.jbT != null && str != null) {
+            byte[] bArr = this.jbT.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -111,9 +111,9 @@ public class e {
         }
     }
 
-    public void gu(String str, String str2) {
-        if (this.jbF != null && str != null) {
-            byte[] bArr = this.jbF.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void gw(String str, String str2) {
+        if (this.jbT != null && str != null) {
+            byte[] bArr = this.jbT.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -147,7 +147,7 @@ public class e {
         List<ThreadInfo> list;
         int count;
         int i;
-        if (this.jbF != null && str != null && bArr != null && bArr.length > 0) {
+        if (this.jbT != null && str != null && bArr != null && bArr.length > 0) {
             try {
                 FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
                 if (frsPageResIdl != null && frsPageResIdl.data != null && (count = com.baidu.tbadk.core.util.y.getCount((list = frsPageResIdl.data.thread_list))) > 0) {
@@ -155,7 +155,7 @@ public class e {
                         d(str, bArr, true);
                         return;
                     }
-                    byte[] bArr2 = this.jbF.get(TbadkCoreApplication.getCurrentAccount() + str);
+                    byte[] bArr2 = this.jbT.get(TbadkCoreApplication.getCurrentAccount() + str);
                     if (bArr2 == null) {
                         d(str, bArr, true);
                         return;
@@ -224,26 +224,26 @@ public class e {
     public void d(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.jbF.set(TbadkCoreApplication.getCurrentAccount() + str, bArr, dMt());
+                this.jbT.set(TbadkCoreApplication.getCurrentAccount() + str, bArr, dMB());
                 return;
             }
-            this.jbF.asyncSet(TbadkCoreApplication.getCurrentAccount() + str, bArr, dMt());
+            this.jbT.asyncSet(TbadkCoreApplication.getCurrentAccount() + str, bArr, dMB());
         }
     }
 
     public void bd(String str, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.jbF.remove(TbadkCoreApplication.getCurrentAccount() + str);
+                this.jbT.remove(TbadkCoreApplication.getCurrentAccount() + str);
                 return;
             }
-            this.jbF.asyncRemove(TbadkCoreApplication.getCurrentAccount() + str);
+            this.jbT.asyncRemove(TbadkCoreApplication.getCurrentAccount() + str);
         }
     }
 
     public boolean isSameDay(String str) {
         l.b<byte[]> by;
-        if (str == null || str.length() <= 0 || (by = this.jbF.by(str)) == null) {
+        if (str == null || str.length() <= 0 || (by = this.jbT.by(str)) == null) {
             return false;
         }
         return UtilHelper.isSameDay(by.lastSaveTime, System.currentTimeMillis());

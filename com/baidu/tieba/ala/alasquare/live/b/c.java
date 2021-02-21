@@ -4,5 +4,5 @@ import com.baidu.tbadk.core.data.cb;
 /* loaded from: classes10.dex */
 public class c {
     public cb akU;
-    public int gzj;
+    public int gzx;
 }

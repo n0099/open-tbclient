@@ -12,7 +12,7 @@ public class c extends BdBaseModel {
     private BdUniqueId aCW = BdUniqueId.gen();
     private final HttpMessageListener bBe;
     private Context bNw;
-    private a ouC;
+    private a ovc;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -22,7 +22,7 @@ public class c extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.ouC = aVar;
+        this.ovc = aVar;
     }
 
     public c(Context context) {
@@ -37,12 +37,12 @@ public class c extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof DatingStageHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId() && c.this.ouC != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof DatingStageHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId() && c.this.ovc != null) {
                     DatingStageHttpResponseMessage datingStageHttpResponseMessage = (DatingStageHttpResponseMessage) httpResponsedMessage;
                     if (datingStageHttpResponseMessage.getError() != 0 || !datingStageHttpResponseMessage.isSuccess()) {
-                        c.this.ouC.onFail(datingStageHttpResponseMessage.getError(), datingStageHttpResponseMessage.getErrorString());
+                        c.this.ovc.onFail(datingStageHttpResponseMessage.getError(), datingStageHttpResponseMessage.getErrorString());
                     } else {
-                        c.this.ouC.a(datingStageHttpResponseMessage);
+                        c.this.ovc.a(datingStageHttpResponseMessage);
                     }
                 }
             }

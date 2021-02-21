@@ -18,8 +18,8 @@ import java.util.List;
 public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     private Context mContext;
     private List<String> mDataList;
-    private a npw = null;
-    private int npx = 0;
+    private a npW = null;
+    private int npX = 0;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -44,18 +44,18 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
         final String str = this.mDataList.get(i);
         viewHolder.itemView.setTag(Integer.valueOf(i));
-        viewHolder.npA.setText(str);
-        if (this.npx == i) {
-            viewHolder.npB.setVisibility(0);
-            ap.setBackgroundColor(viewHolder.npB, R.color.CAM_X0302);
+        viewHolder.nqa.setText(str);
+        if (this.npX == i) {
+            viewHolder.nqb.setVisibility(0);
+            ap.setBackgroundColor(viewHolder.nqb, R.color.CAM_X0302);
             ap.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0205);
-            ap.setViewTextColor(viewHolder.npA, R.color.CAM_X0105);
+            ap.setViewTextColor(viewHolder.nqa, R.color.CAM_X0105);
         } else {
-            viewHolder.npB.setVisibility(8);
+            viewHolder.nqb.setVisibility(8);
             ap.setBackgroundColor(viewHolder.itemView, R.color.CAM_X0204);
-            ap.setViewTextColor(viewHolder.npA, R.color.CAM_X0107);
+            ap.setViewTextColor(viewHolder.nqa, R.color.CAM_X0107);
         }
-        if ("推荐".equals(dLE())) {
+        if ("推荐".equals(dLM())) {
             ar arVar = new ar("c13641");
             arVar.v("uid", TbadkApplication.getCurrentAccountId());
             arVar.ap("obj_locate", 3);
@@ -65,8 +65,8 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LeftAdapter.this.uE(i);
-                if (LeftAdapter.this.npw != null) {
-                    LeftAdapter.this.npw.a(viewHolder.itemView, i, str);
+                if (LeftAdapter.this.npW != null) {
+                    LeftAdapter.this.npW.a(viewHolder.itemView, i, str);
                 }
                 ar arVar2 = new ar("c13649");
                 arVar2.dR("resource_id", str);
@@ -84,41 +84,41 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     public void b(a aVar) {
-        this.npw = aVar;
+        this.npW = aVar;
     }
 
     public void setData(int i, List<String> list) {
-        this.npx = i;
+        this.npX = i;
         this.mDataList = list;
         notifyDataSetChanged();
     }
 
     public void uE(int i) {
-        this.npx = i;
+        this.npX = i;
         notifyDataSetChanged();
     }
 
-    public String dLE() {
-        return Jn(this.npx);
+    public String dLM() {
+        return Jn(this.npX);
     }
 
     public String Jn(int i) {
         return (String) y.getItem(this.mDataList, i);
     }
 
-    public int SI(String str) {
+    public int SU(String str) {
         return y.getPosition(this.mDataList, str);
     }
 
     /* loaded from: classes2.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView npA;
-        private View npB;
+        private TextView nqa;
+        private View nqb;
 
         public ViewHolder(@NonNull View view) {
             super(view);
-            this.npA = (TextView) view.findViewById(R.id.tv_class_name);
-            this.npB = view.findViewById(R.id.tv_line);
+            this.nqa = (TextView) view.findViewById(R.id.tv_class_name);
+            this.nqb = view.findViewById(R.id.tv_line);
         }
     }
 }

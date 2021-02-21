@@ -20,8 +20,8 @@ import com.baidu.tieba.ala.guardclub.model.g;
 /* loaded from: classes11.dex */
 public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberListActivity> {
     private TextView bVE;
-    private k gYn;
-    private g.a gZd = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
+    private k gYB;
+    private g.a gZr = new g.a() { // from class: com.baidu.tieba.ala.guardclub.GuardClubMemberListActivity.3
         @Override // com.baidu.tieba.ala.guardclub.model.g.a
         public void uz(int i) {
             if (GuardClubMemberListActivity.this.bVE != null) {
@@ -78,8 +78,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
                 findViewById2.setVisibility(0);
                 backBar.setVisibility(8);
             }
-            this.gYn = new k(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.gZd);
-            View view = this.gYn.getView();
+            this.gYB = new k(this, getIntent().getLongExtra("live_id", 0L), getIntent().getLongExtra("room_id", 0L), getIntent().getLongExtra("anchor_id", 0L), getIntent().getStringExtra("feed_id"), getIntent().getBooleanExtra("is_live_owner", false), true, true, true, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId(), this.gZr);
+            View view = this.gYB.getView();
             if (view != null) {
                 frameLayout.addView(view, new FrameLayout.LayoutParams(-1, -1));
             }
@@ -107,8 +107,8 @@ public class GuardClubMemberListActivity extends BaseActivity<GuardClubMemberLis
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gYn != null) {
-            this.gYn.onPageDestroy();
+        if (this.gYB != null) {
+            this.gYB.onPageDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }

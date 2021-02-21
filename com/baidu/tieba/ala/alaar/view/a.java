@@ -15,16 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0613a gwl;
-    private Context mContext;
     public List<com.baidu.live.ar.i> aCd = new ArrayList();
-    private int guP = -1;
-    private int guQ = -1;
-    private int gwm = 0;
+    private int gvd = -1;
+    private int gve = -1;
+    private int gwA = 0;
+    private InterfaceC0614a gwz;
+    private Context mContext;
 
     /* renamed from: com.baidu.tieba.ala.alaar.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0613a {
+    public interface InterfaceC0614a {
         void b(int i, int[] iArr, boolean z);
     }
 
@@ -32,8 +32,8 @@ public class a extends BaseAdapter {
         this.mContext = context;
     }
 
-    public void a(InterfaceC0613a interfaceC0613a) {
-        this.gwl = interfaceC0613a;
+    public void a(InterfaceC0614a interfaceC0614a) {
+        this.gwz = interfaceC0614a;
     }
 
     @Override // android.widget.Adapter
@@ -90,14 +90,14 @@ public class a extends BaseAdapter {
         });
         if (gVar != null) {
             gVar.b(getItem(i));
-            if (this.guP == i) {
-                gVar.bQH();
+            if (this.gvd == i) {
+                gVar.bQO();
             } else {
-                gVar.bQG();
+                gVar.bQN();
             }
         }
-        if (i == 0 && this.gwm != 0) {
-            view.setPadding(this.gwm, 0, 0, 0);
+        if (i == 0 && this.gwA != 0) {
+            view.setPadding(this.gwA, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -107,12 +107,12 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.ar.i iVar, int i, g gVar, int[] iArr, boolean z) {
         if (iVar != null) {
-            this.guQ = i;
-            if (com.baidu.tieba.ala.alaar.sticker.a.e.FB(iVar.zx())) {
-                if (this.gwl != null) {
-                    this.gwl.b(i, iArr, z);
+            this.gve = i;
+            if (com.baidu.tieba.ala.alaar.sticker.a.e.FC(iVar.zx())) {
+                if (this.gwz != null) {
+                    this.gwz.b(i, iArr, z);
                 }
-                this.guP = i;
+                this.gvd = i;
                 notifyDataSetChanged();
             } else if (TextUtils.isEmpty(iVar.zx()) || !com.baidu.tieba.ala.alaar.sticker.a.e.cE(iVar.zx())) {
                 a(iVar, gVar, i, iArr);
@@ -128,7 +128,7 @@ public class a extends BaseAdapter {
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onStarted() {
                     if (gVar != null) {
-                        gVar.bQt();
+                        gVar.bQA();
                     }
                 }
 
@@ -138,14 +138,14 @@ public class a extends BaseAdapter {
 
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onCompleted(String str) {
-                    if (a.this.guQ != i) {
+                    if (a.this.gve != i) {
                         a.this.notifyDataSetChanged();
                         return;
                     }
-                    a.this.guP = i;
+                    a.this.gvd = i;
                     a.this.notifyDataSetChanged();
-                    if (a.this.gwl != null) {
-                        a.this.gwl.b(i, iArr, false);
+                    if (a.this.gwz != null) {
+                        a.this.gwz.b(i, iArr, false);
                     }
                 }
 
@@ -159,15 +159,15 @@ public class a extends BaseAdapter {
 
     public void setSelect(int i) {
         if (this.aCd != null && this.aCd.size() > 0 && i >= 0 && i < getCount()) {
-            this.guP = i;
+            this.gvd = i;
             notifyDataSetChanged();
-            if (this.gwl != null) {
-                this.gwl.b(this.guP, null, false);
+            if (this.gwz != null) {
+                this.gwz.b(this.gvd, null, false);
             }
         }
     }
 
     public void tw(int i) {
-        this.gwm = i;
+        this.gwA = i;
     }
 }

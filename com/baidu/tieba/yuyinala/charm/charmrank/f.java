@@ -17,16 +17,16 @@ public class f {
     private AlaLiveRoomPanelTabHost aEr;
     private View contentView;
     private View mRootView;
-    private YuyinCharmRankTotalActivity oqe;
+    private YuyinCharmRankTotalActivity oqE;
 
     public f(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity) {
-        this.oqe = yuyinCharmRankTotalActivity;
+        this.oqE = yuyinCharmRankTotalActivity;
         initView();
-        bTO();
+        bTV();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.oqe).inflate(a.g.yuyin_ala_charm_rank_total_activity_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.oqE).inflate(a.g.yuyin_ala_charm_rank_total_activity_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.ala_charm_root_view);
         this.aEr = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
         this.aEr.setIndicatorWidthAuto(false);
@@ -39,17 +39,17 @@ public class f {
         return this.mRootView;
     }
 
-    private void bTO() {
-        Intent intent = this.oqe.getIntent();
+    private void bTV() {
+        Intent intent = this.oqE.getIntent();
         String stringExtra = intent.getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
         String stringExtra2 = intent.getStringExtra("live_id");
         int intExtra = intent.getIntExtra("user_type", 0);
         boolean booleanExtra = intent.getBooleanExtra(YuyinAlaCharmRankActivityConfig.SHOW_CHARM_LIST_VIEW, true);
-        final d dVar = new d(this.oqe, 0, stringExtra, stringExtra2, intExtra);
+        final d dVar = new d(this.oqE, 0, stringExtra, stringExtra2, intExtra);
         dVar.createView();
         this.aEo.add(dVar);
         if (booleanExtra) {
-            final d dVar2 = new d(this.oqe, 1, stringExtra, stringExtra2, intExtra);
+            final d dVar2 = new d(this.oqE, 1, stringExtra, stringExtra2, intExtra);
             dVar2.createView();
             this.aEo.add(dVar2);
             this.aEr.setIsIndicatorFollow(true);

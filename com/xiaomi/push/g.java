@@ -52,7 +52,7 @@ public class g {
 
     @TargetApi(19)
     /* renamed from: a  reason: collision with other method in class */
-    public static a m332a(Context context, String str) {
+    public static a m331a(Context context, String str) {
         a aVar;
         if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {
             return a.UNKNOWN;
@@ -86,7 +86,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m333a(Context context, String str) {
+    public static String m332a(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
@@ -98,7 +98,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m334a(Context context) {
+    public static boolean m333a(Context context) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null || runningAppProcesses.size() < 1) {
             return false;
@@ -112,7 +112,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m335a(Context context, String str) {
+    public static boolean m334a(Context context, String str) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -159,7 +159,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m336b(Context context, String str) {
+    public static boolean m335b(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 0);

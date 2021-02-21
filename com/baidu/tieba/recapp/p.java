@@ -1,16 +1,5 @@
 package com.baidu.tieba.recapp;
-
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public interface p {
-    void a(AdvertAppInfo advertAppInfo, String str);
-
-    void cCT();
-
-    String getFid();
-
-    int getPageNum();
-
-    TbPageContext<?> getTbPageContext();
+    void setIsFromCDN(boolean z);
 }

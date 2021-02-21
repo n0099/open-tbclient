@@ -14,14 +14,14 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public final class Thread2GroupShareView extends LinearLayout {
     private TbImageView fHi;
-    private EditText jRm;
-    private ShareFromPBMsgData kNk;
-    private TextView kxW;
+    private EditText jRA;
+    private ShareFromPBMsgData kNy;
+    private TextView kyk;
     private LinearLayout mRootView;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.jRm;
+        return this.jRA;
     }
 
     public void aP(String str, boolean z) {
@@ -45,26 +45,26 @@ public final class Thread2GroupShareView extends LinearLayout {
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(R.id.share_content);
         this.title = (TextView) findViewById(R.id.share_title_view);
-        this.jRm = (EditText) findViewById(R.id.chat_msg);
+        this.jRA = (EditText) findViewById(R.id.chat_msg);
         this.fHi = (TbImageView) findViewById(R.id.chat_group_img);
-        this.kxW = (TextView) findViewById(R.id.chat_group_desc);
+        this.kyk = (TextView) findViewById(R.id.chat_group_desc);
         ap.setViewTextColor(this.title, R.color.CAM_X0105, 1);
-        ap.setViewTextColor(this.jRm, R.color.CAM_X0105, 2);
-        ap.setViewTextColor(this.kxW, R.color.CAM_X0106, 1);
-        this.jRm.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        this.jRm.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cNh();
+        ap.setViewTextColor(this.jRA, R.color.CAM_X0105, 2);
+        ap.setViewTextColor(this.kyk, R.color.CAM_X0106, 1);
+        this.jRA.setHintTextColor(ap.getColor(R.color.CAM_X0110));
+        this.jRA.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        cNo();
     }
 
-    public void cNh() {
+    public void cNo() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.jRm != null) {
-            return k.charSequence2String(this.jRm.getText(), null);
+        if (this.jRA != null) {
+            return k.charSequence2String(this.jRA.getText(), null);
         }
         return null;
     }
@@ -77,13 +77,13 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.kNk = shareFromPBMsgData;
+        this.kNy = shareFromPBMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.kNk.getTitle());
-        this.fHi.setTag(this.kNk.getImageUrl());
-        this.kxW.setText(this.kNk.getContent());
+        this.title.setText(this.kNy.getTitle());
+        this.fHi.setTag(this.kNy.getImageUrl());
+        this.kyk.setText(this.kNy.getContent());
     }
 }

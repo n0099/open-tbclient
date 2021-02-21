@@ -30,8 +30,8 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 public class LoginDialogActivity extends SuspendedActivity implements a {
     private String eOj;
     private ViewGroup fDo;
-    private BdAsyncTask<?, ?, ?> gfY;
-    private final a.InterfaceC0555a ggu = new a.InterfaceC0555a() { // from class: com.baidu.tieba.passaccount.app.LoginDialogActivity.1
+    private BdAsyncTask<?, ?, ?> ggd;
+    private final a.InterfaceC0555a ggz = new a.InterfaceC0555a() { // from class: com.baidu.tieba.passaccount.app.LoginDialogActivity.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0555a
         public void onBeforeLogin(String str) {
             LoginDialogActivity.this.showLoading();
@@ -49,10 +49,10 @@ public class LoginDialogActivity extends SuspendedActivity implements a {
             LoginDialogActivity.this.showToast(str2);
         }
     };
-    private com.baidu.tieba.passaccount.a.a lFZ;
-    private String lGa;
-    private String lGb;
-    private String lGc;
+    private com.baidu.tieba.passaccount.a.a lGn;
+    private String lGo;
+    private String lGp;
+    private String lGq;
     private String operator;
     private String phoneNum;
     private String sign;
@@ -65,12 +65,12 @@ public class LoginDialogActivity extends SuspendedActivity implements a {
             finish();
         } else {
             initData();
-            if (TextUtils.isEmpty(this.lGa)) {
-                this.lFZ = new b(this.phoneNum, this.operator, this.sign);
+            if (TextUtils.isEmpty(this.lGo)) {
+                this.lGn = new b(this.phoneNum, this.operator, this.sign);
             } else {
-                this.lFZ = new c(this.lGa);
+                this.lGn = new c(this.lGo);
             }
-            this.lFZ.a(this, linearLayout);
+            this.lGn.a(this, linearLayout);
         }
         return this;
     }
@@ -80,13 +80,13 @@ public class LoginDialogActivity extends SuspendedActivity implements a {
     }
 
     private void initData() {
-        this.lGa = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
+        this.lGo = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
         this.phoneNum = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
         this.operator = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
         this.sign = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-        this.lGb = getIntent().getStringExtra(LoginDialogActivityConfig.LOGIN_DIALOG_DATA_URL);
+        this.lGp = getIntent().getStringExtra(LoginDialogActivityConfig.LOGIN_DIALOG_DATA_URL);
         this.eOj = getIntent().getStringExtra(LoginDialogActivityConfig.LOGIN_DIALOG_DATA_LOCATE);
-        this.lGc = getIntent().getStringExtra(LoginDialogActivityConfig.LOGIN_DIALOG_DATA_TYPE);
+        this.lGq = getIntent().getStringExtra(LoginDialogActivityConfig.LOGIN_DIALOG_DATA_TYPE);
     }
 
     @Override // com.baidu.tbadk.suspended.a
@@ -102,15 +102,15 @@ public class LoginDialogActivity extends SuspendedActivity implements a {
     @Override // com.baidu.tbadk.suspended.a
     public void rx(int i) {
         this.fDo.setBackgroundResource(R.color.transparent);
-        if (this.lFZ != null) {
-            this.lFZ.rx(i);
+        if (this.lGn != null) {
+            this.lGn.rx(i);
         }
     }
 
     @Override // com.baidu.tbadk.suspended.a
     public Intent bEJ() {
-        if (this.lFZ != null) {
-            return this.lFZ.bEJ();
+        if (this.lGn != null) {
+            return this.lGn.bEJ();
         }
         return null;
     }
@@ -119,19 +119,19 @@ public class LoginDialogActivity extends SuspendedActivity implements a {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.lFZ != null) {
-            this.lFZ.onActivityResult(i, i2, intent);
+        if (this.lGn != null) {
+            this.lGn.onActivityResult(i, i2, intent);
         }
     }
 
-    public void djF() {
+    public void djM() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            if (this.gfY != null) {
-                this.gfY.cancel();
+            if (this.ggd != null) {
+                this.ggd.cancel();
             }
-            this.gfY = com.baidu.tbadk.core.a.a.bkU().a(session.username, session.bduss, "", null, this.ggu);
+            this.ggd = com.baidu.tbadk.core.a.a.bkU().a(session.username, session.bduss, "", null, this.ggz);
             return;
         }
         closeLoadingDialog();
@@ -146,9 +146,9 @@ public class LoginDialogActivity extends SuspendedActivity implements a {
         }
     }
 
-    public void OW(String str) {
+    public void OX(String str) {
         if (getIntent() != null) {
-            h.ao(this.eOj, this.lGc, str);
+            h.ao(this.eOj, this.lGq, str);
         }
     }
 
@@ -159,14 +159,14 @@ public class LoginDialogActivity extends SuspendedActivity implements a {
         finish();
     }
 
-    private void djH() {
+    private void djO() {
         e.mA().post(new Runnable() { // from class: com.baidu.tieba.passaccount.app.LoginDialogActivity.2
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.passaccount.app.LoginDialogActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
-                if (!StringUtils.isNull(LoginDialogActivity.this.lGb)) {
-                    bf.bsV().a(LoginDialogActivity.this.getPageContext(), new String[]{LoginDialogActivity.this.lGb});
+                if (!StringUtils.isNull(LoginDialogActivity.this.lGp)) {
+                    bf.bsV().a(LoginDialogActivity.this.getPageContext(), new String[]{LoginDialogActivity.this.lGp});
                 }
             }
         });
@@ -181,7 +181,7 @@ public class LoginDialogActivity extends SuspendedActivity implements a {
         if (d.biR()) {
             com.baidu.tbadk.BdToken.c.bhn().bho();
         }
-        djH();
+        djO();
     }
 
     private void p(final AccountData accountData) {

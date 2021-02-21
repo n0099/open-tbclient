@@ -120,7 +120,7 @@ public class e {
                 JSONArray y = y(jSONObject, "offpack");
                 if (y != null && y.length() > 0 && (jSONObject2 = y.getJSONObject(0)) != null) {
                     com.baidu.tieba.quickWebView.data.b bVar = new com.baidu.tieba.quickWebView.data.b();
-                    bVar.Ri(jSONObject2.optString("mod_name"));
+                    bVar.Rj(jSONObject2.optString("mod_name"));
                     bVar.xz(jSONObject2.optInt("upload_offline_web_cache") == 1);
                     bVar.setClear(jSONObject2.optInt("clear_offline_web_cache") == 1);
                     if (!TextUtils.isEmpty(bVar.getModName())) {

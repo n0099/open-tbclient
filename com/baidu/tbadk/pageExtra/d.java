@@ -281,7 +281,7 @@ public class d {
         return arrayList2;
     }
 
-    public static void Dp(String str) {
+    public static void Dn(String str) {
         prePageKey = str;
     }
 
@@ -289,7 +289,7 @@ public class d {
         return prePageKey;
     }
 
-    public static void Dq(final String str) {
+    public static void Do(final String str) {
         if (!StringUtil.isEmpty(str) && fIG.containsKey(str)) {
             com.baidu.adp.lib.f.e.mA().postDelayed(new Runnable() { // from class: com.baidu.tbadk.pageExtra.d.1
                 @Override // java.lang.Runnable

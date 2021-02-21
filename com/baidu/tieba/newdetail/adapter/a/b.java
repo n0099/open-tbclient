@@ -25,7 +25,7 @@ public class b extends a<cb, ThreadCardViewHolder<cb>> {
     private ab<cb> agg;
     private s amk;
     public BdUniqueId fGZ;
-    private NEGFeedBackView.a gdO;
+    private NEGFeedBackView.a gdT;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -40,8 +40,8 @@ public class b extends a<cb, ThreadCardViewHolder<cb>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, cb cbVar) {
-                t.csu().mG(true);
-                com.baidu.tieba.a.d.bKP().dK("page_recommend", "show_");
+                t.csB().mG(true);
+                com.baidu.tieba.a.d.bKU().dK("page_recommend", "show_");
                 if (view != null && cbVar != null && cbVar.bln() != null && !StringUtils.isNull(cbVar.bln().getTid())) {
                     b.this.g(view, cbVar);
                 }
@@ -94,7 +94,7 @@ public class b extends a<cb, ThreadCardViewHolder<cb>> {
         }
         cbVar.eOs = getPositionByType(i) + 1;
         threadCardViewHolder.tj().setPosition(i);
-        threadCardViewHolder.aK(true).a(this.gdO);
+        threadCardViewHolder.aK(true).a(this.gdT);
         threadCardViewHolder.a(true, Align.ALIGN_RIGHT_BOTTOM);
         threadCardViewHolder.b((ThreadCardViewHolder<cb>) cbVar);
         threadCardViewHolder.tj().a(this.agg);

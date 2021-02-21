@@ -45,29 +45,29 @@ public class PbReplyLoadMoreAdapter extends l<PostData, ReplyLoadMoreViewHolder>
 
     /* loaded from: classes2.dex */
     public static class ReplyLoadMoreViewHolder extends TypeAdapter.ViewHolder {
-        private TextView lMp;
+        private TextView lME;
 
         public ReplyLoadMoreViewHolder(View view) {
             super(view);
-            this.lMp = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.lME = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.nwY) {
+                if (postData.nxy) {
                     Drawable drawable = ap.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.lMp.setCompoundDrawables(null, null, drawable, null);
+                    this.lME.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = ap.getDrawable(R.drawable.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.lMp.setCompoundDrawables(null, null, drawable2, null);
+                this.lME.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
         public void bzn() {
-            ap.setViewTextColor(this.lMp, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lME, R.color.CAM_X0109);
         }
     }
 }

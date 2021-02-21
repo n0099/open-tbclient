@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    public C0639a hcF;
-    public b hcG;
+    public C0640a hcT;
+    public b hcU;
     public int status;
 
     public void parserJson(JSONObject jSONObject) {
@@ -17,35 +17,35 @@ public class a {
             this.status = jSONObject.optInt("status");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.hcF = new C0639a();
-                this.hcF.dP(optJSONObject);
+                this.hcT = new C0640a();
+                this.hcT.dP(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank");
             if (optJSONObject2 != null) {
-                this.hcG = new b();
-                this.hcG.dR(optJSONObject2);
+                this.hcU = new b();
+                this.hcU.dR(optJSONObject2);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0639a {
+    public static class C0640a {
         public long countdown;
-        public String hcH;
-        public String hcI;
-        public String hcJ;
-        public String hcK;
-        public String hcL;
-        public long hcM;
-        public long hcN;
-        public List<C0640a> hcO;
+        public String hcV;
+        public String hcW;
+        public String hcX;
+        public String hcY;
+        public String hcZ;
+        public long hda;
+        public long hdb;
+        public List<C0641a> hdc;
         public long startTime;
         public String username;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C0640a {
+        public static class C0641a {
             public String pic;
             public String text;
 
@@ -58,40 +58,40 @@ public class a {
         public void dP(JSONObject jSONObject) {
             JSONArray optJSONArray = jSONObject.optJSONArray(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.hcO = new ArrayList();
+                this.hdc = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    C0640a c0640a = new C0640a();
-                    c0640a.dQ(optJSONArray.optJSONObject(i));
-                    this.hcO.add(c0640a);
+                    C0641a c0641a = new C0641a();
+                    c0641a.dQ(optJSONArray.optJSONObject(i));
+                    this.hdc.add(c0641a);
                 }
             }
             if (!jSONObject.isNull("portrait")) {
-                this.hcH = jSONObject.optString("portrait");
+                this.hcV = jSONObject.optString("portrait");
             }
             if (!jSONObject.isNull("user_name")) {
                 this.username = jSONObject.optString("user_name");
             }
             if (!jSONObject.isNull("guard_seat_user")) {
-                this.hcL = jSONObject.optString("guard_seat_user");
+                this.hcZ = jSONObject.optString("guard_seat_user");
             }
-            this.hcI = jSONObject.optString("frame_pic");
-            this.hcJ = jSONObject.optString("time_text");
-            this.hcK = jSONObject.optString("rule_url");
+            this.hcW = jSONObject.optString("frame_pic");
+            this.hcX = jSONObject.optString("time_text");
+            this.hcY = jSONObject.optString("rule_url");
             this.startTime = jSONObject.optLong("start_time");
             this.countdown = jSONObject.optLong("count_down");
-            this.hcM = jSONObject.optLong("effect_time");
-            this.hcN = jSONObject.optLong("polling_time");
+            this.hda = jSONObject.optLong("effect_time");
+            this.hdb = jSONObject.optLong("polling_time");
         }
     }
 
     /* loaded from: classes11.dex */
     public static class b {
-        public List<C0642b> aGx;
-        public C0641a hcP;
+        public List<C0643b> aGx;
+        public C0642a hdd;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C0642b {
+        public static class C0643b {
             public String nickname;
             public String portrait;
             public String rank;
@@ -107,7 +107,7 @@ public class a {
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C0641a {
+        public static class C0642a {
             public int rank;
             public String text;
 
@@ -123,15 +123,15 @@ public class a {
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     this.aGx = new ArrayList();
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        C0642b c0642b = new C0642b();
-                        c0642b.dT(optJSONArray.optJSONObject(i));
-                        this.aGx.add(c0642b);
+                        C0643b c0643b = new C0643b();
+                        c0643b.dT(optJSONArray.optJSONObject(i));
+                        this.aGx.add(c0643b);
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
-                    this.hcP = new C0641a();
-                    this.hcP.dS(optJSONObject);
+                    this.hdd = new C0642a();
+                    this.hdd.dS(optJSONObject);
                 }
             }
         }

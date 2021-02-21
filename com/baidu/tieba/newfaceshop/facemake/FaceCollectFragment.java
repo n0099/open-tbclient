@@ -26,9 +26,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class FaceCollectFragment extends BaseFragment {
-    private f lAA;
-    private BdListView lAC;
-    private h lAD;
+    private f lAO;
+    private BdListView lAQ;
+    private h lAR;
     private Activity mActivity;
     private List<EmotionImageData> mEmotionList;
     private NoDataView mNoDataView;
@@ -42,10 +42,10 @@ public class FaceCollectFragment extends BaseFragment {
         this.mNoDataView = NoDataViewFactory.a(this.mActivity, inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mActivity, R.dimen.ds320)), NoDataViewFactory.d.BB(this.mActivity.getText(R.string.face_group_no_emotion).toString()), null);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(8);
-        this.lAC = (BdListView) inflate.findViewById(R.id.listview_emotion);
+        this.lAQ = (BdListView) inflate.findViewById(R.id.listview_emotion);
         this.mEmotionList = new ArrayList();
-        this.lAD = new h(this.mEmotionList, 20);
-        this.lAD.b(this.lAA);
+        this.lAR = new h(this.mEmotionList, 20);
+        this.lAR.b(this.lAO);
         if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             Iterator it = ((ArrayList) serializable).iterator();
@@ -55,17 +55,17 @@ public class FaceCollectFragment extends BaseFragment {
                     linkedHashMap.put(faceData.emotionImageData.getPicUrl(), faceData.emotionImageData);
                 }
             }
-            this.lAD.I(linkedHashMap);
+            this.lAR.I(linkedHashMap);
         }
-        this.lAC.setAdapter((ListAdapter) this.lAD);
+        this.lAQ.setAdapter((ListAdapter) this.lAR);
         bEN();
         return inflate;
     }
 
     public void a(f fVar) {
-        this.lAA = fVar;
-        if (this.lAD != null) {
-            this.lAD.b(this.lAA);
+        this.lAO = fVar;
+        if (this.lAR != null) {
+            this.lAR.b(this.lAO);
         }
     }
 
@@ -76,12 +76,12 @@ public class FaceCollectFragment extends BaseFragment {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: c */
             public List<EmotionImageData> doInBackground(Void... voidArr) {
-                List<CollectEmotionData> JF = com.baidu.tieba.faceshop.i.cyE().JF(TbadkCoreApplication.getCurrentAccount());
-                if (JF == null) {
+                List<CollectEmotionData> JG = com.baidu.tieba.faceshop.i.cyL().JG(TbadkCoreApplication.getCurrentAccount());
+                if (JG == null) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (CollectEmotionData collectEmotionData : JF) {
+                for (CollectEmotionData collectEmotionData : JG) {
                     if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid)) {
                         EmotionImageData emotionImageData = new EmotionImageData();
                         emotionImageData.setPicId(collectEmotionData.pid);
@@ -101,20 +101,20 @@ public class FaceCollectFragment extends BaseFragment {
             /* renamed from: B */
             public void onPostExecute(List<EmotionImageData> list) {
                 if (list == null || list.isEmpty()) {
-                    FaceCollectFragment.this.lAC.setVisibility(8);
+                    FaceCollectFragment.this.lAQ.setVisibility(8);
                     FaceCollectFragment.this.mNoDataView.setVisibility(0);
                     return;
                 }
                 FaceCollectFragment.this.mEmotionList.clear();
                 FaceCollectFragment.this.mEmotionList.addAll(list);
-                FaceCollectFragment.this.lAD.notifyDataSetChanged();
+                FaceCollectFragment.this.lAR.notifyDataSetChanged();
             }
         }.execute(new Void[0]);
     }
 
-    public LinkedHashMap<String, EmotionImageData> div() {
-        if (this.lAD != null) {
-            return this.lAD.div();
+    public LinkedHashMap<String, EmotionImageData> diC() {
+        if (this.lAR != null) {
+            return this.lAR.diC();
         }
         return null;
     }

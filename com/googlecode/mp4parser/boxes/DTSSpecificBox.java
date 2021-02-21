@@ -16,38 +16,38 @@ import org.aspectj.lang.a;
 /* loaded from: classes6.dex */
 public class DTSSpecificBox extends AbstractBox {
     public static final String TYPE = "ddts";
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_20 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_21 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_22 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_23 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_24 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_25 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_26 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_27 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_28 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_29 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_30 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_31 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_20 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_21 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_22 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_23 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_24 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_25 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_26 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_27 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_28 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_29 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_30 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_31 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_9 = null;
     long DTSSamplingFrequency;
     int LBRDurationMod;
     long avgBitRate;
@@ -192,7 +192,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setPcmSampleDepth(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Sx(i)));
         this.pcmSampleDepth = i;
     }
 
@@ -202,7 +202,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setFrameDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.Sx(i)));
         this.frameDuration = i;
     }
 
@@ -212,7 +212,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setStreamConstruction(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.Sx(i)));
         this.streamConstruction = i;
     }
 
@@ -222,7 +222,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setCoreLFEPresent(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.Sx(i)));
         this.coreLFEPresent = i;
     }
 
@@ -232,7 +232,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setCoreLayout(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.Sx(i)));
         this.coreLayout = i;
     }
 
@@ -242,7 +242,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setCoreSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.Sx(i)));
         this.coreSize = i;
     }
 
@@ -252,7 +252,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setStereoDownmix(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_19, this, this, org.aspectj.a.a.a.Sx(i)));
         this.stereoDownmix = i;
     }
 
@@ -262,7 +262,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setRepresentationType(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_21, this, this, org.aspectj.a.a.a.Sx(i)));
         this.representationType = i;
     }
 
@@ -272,7 +272,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setChannelLayout(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.Sx(i)));
         this.channelLayout = i;
     }
 
@@ -282,7 +282,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setMultiAssetFlag(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_25, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_25, this, this, org.aspectj.a.a.a.Sx(i)));
         this.multiAssetFlag = i;
     }
 
@@ -292,7 +292,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setLBRDurationMod(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.Sx(i)));
         this.LBRDurationMod = i;
     }
 
@@ -302,7 +302,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.Sx(i)));
         this.reserved = i;
     }
 
@@ -312,7 +312,7 @@ public class DTSSpecificBox extends AbstractBox {
     }
 
     public void setReservedBoxPresent(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_31, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_31, this, this, org.aspectj.a.a.a.Sx(i)));
         this.reservedBoxPresent = i;
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.tieba.setting.more.youngster.message.YoungsterVerifyHttpRespons
 /* loaded from: classes8.dex */
 public class YoungsterVerifyModel extends BdBaseModel {
     private HttpMessageListener mHttpMessageListener;
-    a niO;
+    a njo;
     TbPageContext<?> pageContext;
 
     /* loaded from: classes8.dex */
@@ -50,9 +50,9 @@ public class YoungsterVerifyModel extends BdBaseModel {
                         youngsterVerifyHttpResponsedMessage = (YoungsterVerifyHttpResponsedMessage) httpResponsedMessage;
                     }
                     if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().isSuccess) {
-                        YoungsterVerifyModel.this.niO.onSuccess();
+                        YoungsterVerifyModel.this.njo.onSuccess();
                     } else {
-                        YoungsterVerifyModel.this.niO.b(errorData);
+                        YoungsterVerifyModel.this.njo.b(errorData);
                     }
                 }
             }
@@ -60,7 +60,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
         this.pageContext = tbPageContext;
         this.mHttpMessageListener.setSelfListener(true);
         registerListener(this.mHttpMessageListener);
-        this.niO = aVar;
+        this.njo = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -74,7 +74,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
         return false;
     }
 
-    public void Sn(String str) {
+    public void Sz(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
         httpMessage.addParam(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, str);
         httpMessage.addParam("scene", YoungsterVerifyActivityConfig.PARAMA_TIEBA_AUTH);

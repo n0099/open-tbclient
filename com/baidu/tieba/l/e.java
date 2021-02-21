@@ -1,11 +1,11 @@
 package com.baidu.tieba.l;
 /* loaded from: classes.dex */
 public interface e {
-    boolean OA(String str);
+    void OA(String str);
 
     boolean OB(String str);
 
-    void Oy(String str);
+    boolean OC(String str);
 
     void Oz(String str);
 

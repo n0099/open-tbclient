@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class AlaLoadingToastView extends RelativeLayout {
-    private TextView knu;
+    private TextView knI;
 
     public AlaLoadingToastView(Context context) {
         super(context);
@@ -30,12 +30,12 @@ public class AlaLoadingToastView extends RelativeLayout {
     protected void bv(Context context) {
         LayoutInflater.from(context).inflate(a.g.yuyin_ala_loading_toast_view, (ViewGroup) this, true);
         setGravity(17);
-        this.knu = (TextView) findViewById(a.f.tv_content);
+        this.knI = (TextView) findViewById(a.f.tv_content);
     }
 
     public void setContent(String str) {
-        if (this.knu != null && !TextUtils.isEmpty(str)) {
-            this.knu.setText(str);
+        if (this.knI != null && !TextUtils.isEmpty(str)) {
+            this.knI.setText(str);
         }
     }
 }

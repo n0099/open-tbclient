@@ -15,11 +15,11 @@ public class an extends z {
 
     @Override // com.facebook.imagepipeline.producers.z
     protected com.facebook.imagepipeline.f.e g(ImageRequest imageRequest) throws IOException {
-        return e(this.mContentResolver.openInputStream(imageRequest.ezX()), -1);
+        return e(this.mContentResolver.openInputStream(imageRequest.eAf()), -1);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String ezs() {
+    protected String ezA() {
         return "QualifiedResourceFetchProducer";
     }
 }

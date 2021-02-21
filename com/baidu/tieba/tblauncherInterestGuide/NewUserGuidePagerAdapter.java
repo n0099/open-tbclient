@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes2.dex */
 public class NewUserGuidePagerAdapter extends FragmentPagerAdapter {
     private final int mCount;
-    private final BaseFragment[] nEW;
+    private final BaseFragment[] nFw;
 
     public NewUserGuidePagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.nEW = new BaseFragment[]{new NewUserGuideIntroduceFragment(), new NewUserGuideMainFragment()};
-        this.mCount = this.nEW.length;
+        this.nFw = new BaseFragment[]{new NewUserGuideIntroduceFragment(), new NewUserGuideMainFragment()};
+        this.mCount = this.nFw.length;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
@@ -20,7 +20,7 @@ public class NewUserGuidePagerAdapter extends FragmentPagerAdapter {
         if (i < 0 || i >= this.mCount) {
             return null;
         }
-        return this.nEW[i];
+        return this.nFw[i];
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter

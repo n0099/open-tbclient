@@ -161,7 +161,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     private void a(u uVar) {
         if (uVar != null && !TextUtils.isEmpty(uVar.getName()) && !TextUtils.isEmpty(uVar.getUrl())) {
             String obj = this.fDZ.getText().toString();
-            if (this.fCV && com.baidu.tieba.face.a.Js(obj) >= 10 && getContext() != null) {
+            if (this.fCV && com.baidu.tieba.face.a.Jt(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.brY().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.a(getContext(), uVar, this.fDZ);
@@ -172,7 +172,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     private void b(u uVar) {
         if (!this.fCU || uVar.bwv() == EmotionGroupType.LOCAL) {
             String obj = this.fDZ.getText().toString();
-            if (this.fCV && com.baidu.tieba.face.a.Js(obj) >= 10 && getContext() != null) {
+            if (this.fCV && com.baidu.tieba.face.a.Jt(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.brY().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.b(getContext(), uVar, this.fDZ);
@@ -253,7 +253,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
                 case 3:
                     if (this.fDZ.getSelectionStart() > 0) {
                         String substring = this.fDZ.getText().toString().substring(0, this.fDZ.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.iSk.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.iSy.matcher(substring);
                         if (matcher.find()) {
                             this.fDZ.getText().delete(this.fDZ.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.fDZ.getSelectionStart());
                             break;

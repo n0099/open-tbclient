@@ -16,7 +16,7 @@ public class a {
         LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
     }
 
-    public static void bNG() {
+    public static void bNN() {
         int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
         int i = aii() ? 2 : 1;
         if (defaultNightMode != i) {

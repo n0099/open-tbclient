@@ -5,21 +5,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    private JSONObject gTZ;
-    private JSONObject gUe;
+    private JSONObject gUn;
+    private JSONObject gUs;
     public String roomId = null;
     public String cover = null;
     public String extra = null;
 
     public JSONObject getExtra() {
-        return this.gTZ;
+        return this.gUn;
     }
 
-    public JSONObject cxY() {
-        return this.gUe;
+    public JSONObject cyf() {
+        return this.gUs;
     }
 
-    public static c Jp(String str) {
+    public static c Jq(String str) {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(str);
@@ -35,13 +35,13 @@ public class c {
             return null;
         }
         c cVar = new c();
-        cVar.gTZ = jSONObject.optJSONObject("extra");
-        cVar.gUe = jSONObject.optJSONObject(UserAccountActionItem.KEY_SRC);
+        cVar.gUn = jSONObject.optJSONObject("extra");
+        cVar.gUs = jSONObject.optJSONObject(UserAccountActionItem.KEY_SRC);
         try {
-            JSONObject cxY = cVar.cxY();
-            if (cxY != null) {
-                cVar.roomId = cxY.optString("room_id");
-                cVar.cover = cxY.optString("cover");
+            JSONObject cyf = cVar.cyf();
+            if (cyf != null) {
+                cVar.roomId = cyf.optString("room_id");
+                cVar.cover = cyf.optString("cover");
             }
             JSONObject extra = cVar.getExtra();
             if (extra != null) {

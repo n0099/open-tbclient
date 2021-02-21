@@ -37,7 +37,7 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.component.reward.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    interface InterfaceC1001a<T> {
+    interface InterfaceC1003a<T> {
         void a(boolean z, T t);
     }
 
@@ -209,17 +209,17 @@ public class a {
         long elapsedRealtime = remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue();
         String str = z ? "load_video_success" : "load_video_error";
         String str2 = null;
-        if (!z && pVar != null && pVar.pvp != null) {
-            str2 = pVar.pvp.getMessage();
+        if (!z && pVar != null && pVar.pvP != null) {
+            str2 = pVar.pvP.getMessage();
         }
         com.bytedance.sdk.openadsdk.c.d.f(this.f6298b, lVar, "fullscreen_interstitial_ad", str, aj.a(z, lVar, elapsedRealtime, j, str2));
     }
 
-    public void a(final l lVar, final InterfaceC1001a<Object> interfaceC1001a) {
+    public void a(final l lVar, final InterfaceC1003a<Object> interfaceC1003a) {
         this.d.put(lVar, Long.valueOf(SystemClock.elapsedRealtime()));
         if (lVar == null || lVar.F() == null || TextUtils.isEmpty(lVar.F().h())) {
-            if (interfaceC1001a != null) {
-                interfaceC1001a.a(false, null);
+            if (interfaceC1003a != null) {
+                interfaceC1003a.a(false, null);
             }
             a(false, lVar, -1L, null);
             return;
@@ -267,22 +267,22 @@ public class a {
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void a(com.bytedance.sdk.adnet.core.p<File> pVar) {
                 if (pVar != null && pVar.f6047a != null) {
-                    if (interfaceC1001a != null) {
-                        interfaceC1001a.a(true, null);
+                    if (interfaceC1003a != null) {
+                        interfaceC1003a.a(true, null);
                     }
                     a.this.a(true, lVar, 0L, pVar);
                     return;
                 }
-                if (interfaceC1001a != null) {
-                    interfaceC1001a.a(false, null);
+                if (interfaceC1003a != null) {
+                    interfaceC1003a.a(false, null);
                 }
                 a.this.a(false, lVar, pVar == null ? -3L : pVar.h, pVar);
             }
 
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void b(com.bytedance.sdk.adnet.core.p<File> pVar) {
-                if (interfaceC1001a != null) {
-                    interfaceC1001a.a(false, null);
+                if (interfaceC1003a != null) {
+                    interfaceC1003a.a(false, null);
                 }
                 a.this.a(false, lVar, pVar == null ? -2L : pVar.h, pVar);
             }

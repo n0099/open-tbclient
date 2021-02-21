@@ -10,8 +10,8 @@ import okhttp3.Response;
 public class f implements com.ss.android.socialbase.downloader.i.f {
     @Override // com.ss.android.socialbase.downloader.i.f
     public com.ss.android.socialbase.downloader.i.e v(String str, List<com.ss.android.socialbase.downloader.g.e> list) throws IOException {
-        OkHttpClient eGi = com.ss.android.socialbase.downloader.downloader.b.eGi();
-        if (eGi == null) {
+        OkHttpClient eGq = com.ss.android.socialbase.downloader.downloader.b.eGq();
+        if (eGq == null) {
             throw new IOException("can't get httpClient");
         }
         Request.Builder head = new Request.Builder().url(str).head();
@@ -20,7 +20,7 @@ public class f implements com.ss.android.socialbase.downloader.i.f {
                 head.addHeader(eVar.a(), com.ss.android.socialbase.downloader.m.d.f(eVar.b()));
             }
         }
-        final Call newCall = eGi.newCall(head.build());
+        final Call newCall = eGq.newCall(head.build());
         final Response execute = newCall.execute();
         if (execute == null) {
             throw new IOException("can't get response");

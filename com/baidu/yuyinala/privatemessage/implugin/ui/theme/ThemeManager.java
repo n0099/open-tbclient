@@ -8,9 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class ThemeManager {
-    private static ThemeMode pgN = ThemeMode.DAY;
-    private static List<a> pgO = new LinkedList();
-    private static HashMap<String, HashMap<String, Integer>> pgP = new HashMap<>();
+    private static ThemeMode phn = ThemeMode.DAY;
+    private static List<a> pho = new LinkedList();
+    private static HashMap<String, HashMap<String, Integer>> php = new HashMap<>();
 
     /* loaded from: classes11.dex */
     public enum ThemeMode {
@@ -24,10 +24,10 @@ public class ThemeManager {
 
     public static int U(Context context, int i) {
         try {
-            if (emo() != ThemeMode.DAY && context != null) {
+            if (emw() != ThemeMode.DAY && context != null) {
                 String resourceEntryName = context.getResources().getResourceEntryName(i);
                 String resourceTypeName = context.getResources().getResourceTypeName(i);
-                HashMap<String, Integer> hashMap = pgP.get(resourceTypeName);
+                HashMap<String, Integer> hashMap = php.get(resourceTypeName);
                 HashMap<String, Integer> hashMap2 = hashMap == null ? new HashMap<>() : hashMap;
                 Integer num = hashMap2.get(resourceEntryName + "_night");
                 if (num != null && num.intValue() != 0) {
@@ -36,7 +36,7 @@ public class ThemeManager {
                 try {
                     int identifier = context.getResources().getIdentifier(resourceEntryName + "_night", resourceTypeName, "com.baidu.sumeru.implugin");
                     hashMap2.put(resourceEntryName + "_night", Integer.valueOf(identifier));
-                    pgP.put(resourceTypeName, hashMap2);
+                    php.put(resourceTypeName, hashMap2);
                     return identifier;
                 } catch (Resources.NotFoundException e) {
                     e.printStackTrace();
@@ -51,18 +51,18 @@ public class ThemeManager {
     }
 
     public static void a(a aVar) {
-        if (!pgO.contains(aVar)) {
-            pgO.add(aVar);
+        if (!pho.contains(aVar)) {
+            pho.add(aVar);
         }
     }
 
     public static void b(a aVar) {
-        if (pgO.contains(aVar)) {
-            pgO.remove(aVar);
+        if (pho.contains(aVar)) {
+            pho.remove(aVar);
         }
     }
 
-    public static ThemeMode emo() {
-        return pgN;
+    public static ThemeMode emw() {
+        return phn;
     }
 }

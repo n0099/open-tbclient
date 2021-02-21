@@ -41,9 +41,9 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (getClass().equals(hvVar.getClass())) {
-            int compareTo = Boolean.valueOf(m386a()).compareTo(Boolean.valueOf(hvVar.m386a()));
+            int compareTo = Boolean.valueOf(m385a()).compareTo(Boolean.valueOf(hvVar.m385a()));
             if (compareTo == 0) {
-                if (!m386a() || (a4 = iy.a(this.f550a, hvVar.f550a)) == 0) {
+                if (!m385a() || (a4 = iy.a(this.f550a, hvVar.f550a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hvVar.b()));
                     if (compareTo2 == 0) {
                         if (!b() || (a3 = iy.a(this.f553a, hvVar.f553a)) == 0) {
@@ -68,12 +68,12 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public hs m384a() {
+    public hs m383a() {
         return this.f551a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m385a() {
+    public void m384a() {
         if (this.f553a == null) {
             throw new jj("Required field 'configItems' was not present! Struct: " + toString());
         }
@@ -81,32 +81,32 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m515a();
+        jiVar.m514a();
         while (true) {
-            jf m511a = jiVar.m511a();
-            if (m511a.f14173a == 0) {
+            jf m510a = jiVar.m510a();
+            if (m510a.f14173a == 0) {
                 jiVar.f();
-                if (!m386a()) {
+                if (!m385a()) {
                     throw new jj("Required field 'version' was not found in serialized data! Struct: " + toString());
                 }
-                m385a();
+                m384a();
                 return;
             }
-            switch (m511a.f857a) {
+            switch (m510a.f857a) {
                 case 1:
-                    if (m511a.f14173a == 8) {
-                        this.f550a = jiVar.m509a();
+                    if (m510a.f14173a == 8) {
+                        this.f550a = jiVar.m508a();
                         a(true);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 2:
-                    if (m511a.f14173a == 15) {
-                        jg m512a = jiVar.m512a();
-                        this.f553a = new ArrayList(m512a.f858a);
-                        for (int i = 0; i < m512a.f858a; i++) {
+                    if (m510a.f14173a == 15) {
+                        jg m511a = jiVar.m511a();
+                        this.f553a = new ArrayList(m511a.f858a);
+                        for (int i = 0; i < m511a.f858a; i++) {
                             hx hxVar = new hx();
                             hxVar.a(jiVar);
                             this.f553a.add(hxVar);
@@ -114,19 +114,19 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 3:
-                    if (m511a.f14173a == 8) {
-                        this.f551a = hs.a(jiVar.m509a());
+                    if (m510a.f14173a == 8) {
+                        this.f551a = hs.a(jiVar.m508a());
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14173a);
+                    jl.a(jiVar, m510a.f14173a);
                     break;
             }
             jiVar.g();
@@ -138,12 +138,12 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m386a() {
+    public boolean m385a() {
         return this.f552a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m387a(hv hvVar) {
+    public boolean m386a(hv hvVar) {
         if (hvVar != null && this.f550a == hvVar.f550a) {
             boolean b2 = b();
             boolean b3 = hvVar.b();
@@ -159,7 +159,7 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m385a();
+        m384a();
         jiVar.a(f549a);
         jiVar.a(f14110a);
         jiVar.a(this.f550a);
@@ -179,7 +179,7 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m519a();
+        jiVar.m518a();
     }
 
     public boolean b() {
@@ -192,7 +192,7 @@ public class hv implements ix<hv, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hv)) {
-            return m387a((hv) obj);
+            return m386a((hv) obj);
         }
         return false;
     }

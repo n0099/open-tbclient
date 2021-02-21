@@ -15,11 +15,11 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class y extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> implements com.baidu.adp.widget.ListView.w, com.baidu.tieba.a.f, com.baidu.tieba.card.aa, com.baidu.tieba.card.z, com.baidu.tieba.frs.b.d {
     private String aif;
-    private int jqp;
+    private int jqD;
 
     public y(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId);
-        this.jqp = 3;
+        this.jqD = 3;
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId2;
     }
@@ -34,7 +34,7 @@ public class y extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> imple
         com.baidu.card.l lVar = new com.baidu.card.l(this.mPageContext.getPageActivity());
         lVar.sW();
         aVar.a((com.baidu.card.h) lVar);
-        com.baidu.card.ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.iLK);
+        com.baidu.card.ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.iLY);
         a2.setSourceForPb(3);
         ThreadCardViewHolder<cb> threadCardViewHolder = new ThreadCardViewHolder<>(a2);
         threadCardViewHolder.setPageId(this.mPageId);
@@ -66,15 +66,15 @@ public class y extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> imple
             cb cbVar = ((ca) nVar).eJQ;
             cbVar.objType = 1;
             if (cbVar != null) {
-                az.a((com.baidu.tbadk.core.data.a) cbVar, view.getContext(), this.jqp, false);
+                az.a((com.baidu.tbadk.core.data.a) cbVar, view.getContext(), this.jqD, false);
                 threadCardViewHolder.tj().b(new a.C0089a(1));
-                com.baidu.tieba.frs.b.a.a(cbVar, 1, this.mPageId, jqq, getTbPageTag());
+                com.baidu.tieba.frs.b.a.a(cbVar, 1, this.mPageId, jqE, getTbPageTag());
             }
         }
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 
@@ -84,7 +84,7 @@ public class y extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> imple
 
     @Override // com.baidu.tieba.card.z
     public void uX(int i) {
-        this.jqp = i;
+        this.jqD = i;
     }
 
     @Override // com.baidu.tieba.card.aa
@@ -93,6 +93,6 @@ public class y extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> imple
 
     @Override // com.baidu.tieba.frs.b.d
     public com.baidu.tieba.frs.b.b getStatisticMetaData() {
-        return jqq;
+        return jqE;
     }
 }

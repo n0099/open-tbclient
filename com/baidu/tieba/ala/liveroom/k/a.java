@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
     private ViewGroup bRb;
-    private b hDF;
+    private b hDT;
     private String otherParams;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
@@ -30,12 +30,12 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     public void a(ViewGroup viewGroup, LinearLayout.LayoutParams layoutParams) {
         CustomResponsedMessage runTask;
         if (com.baidu.live.ae.a.Qj().buX.Ck() && (viewGroup instanceof PendantParentView)) {
-            if (this.hDF == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
-                this.hDF = (b) runTask.getData();
+            if (this.hDT == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
+                this.hDT = (b) runTask.getData();
             }
-            if (this.hDF != null) {
-                this.hDF.setOtherParams(Lo());
-                this.hDF.Tw();
+            if (this.hDT != null) {
+                this.hDT.setOtherParams(Lo());
+                this.hDT.Tw();
             }
             a((PendantParentView) viewGroup, layoutParams);
         }
@@ -45,66 +45,66 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         PendantChildView Tv;
         if (pendantParentView != null) {
             this.bRb = pendantParentView;
-            if (this.hDF != null && (Tv = this.hDF.Tv()) != null && pendantParentView.indexOfChild(Tv) < 0) {
+            if (this.hDT != null && (Tv = this.hDT.Tv()) != null && pendantParentView.indexOfChild(Tv) < 0) {
                 if (layoutParams == null) {
-                    layoutParams = cfo();
+                    layoutParams = cfv();
                 }
                 pendantParentView.a(Tv, layoutParams);
             }
         }
     }
 
-    private LinearLayout.LayoutParams cfo() {
+    private LinearLayout.LayoutParams cfv() {
         return new LinearLayout.LayoutParams(-2, -2);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void Ar() {
         super.Ar();
-        if (this.hDF != null) {
-            PendantChildView Tv = this.hDF.Tv();
+        if (this.hDT != null) {
+            PendantChildView Tv = this.hDT.Tv();
             if (Tv != null && Tv.getParent() != null) {
                 ((ViewGroup) Tv.getParent()).removeView(Tv);
             }
-            this.hDF.Tx();
+            this.hDT.Tx();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.hDF != null) {
-            PendantChildView Tv = this.hDF.Tv();
+        if (this.hDT != null) {
+            PendantChildView Tv = this.hDT.Tv();
             if (Tv != null && Tv.getParent() != null) {
                 ((ViewGroup) Tv.getParent()).removeView(Tv);
             }
-            this.hDF.onDestroy();
+            this.hDT.onDestroy();
         }
     }
 
     public void Q(JSONObject jSONObject) {
-        if (this.hDF != null) {
-            this.hDF.ab(jSONObject);
+        if (this.hDT != null) {
+            this.hDT.ab(jSONObject);
         }
     }
 
     public void M(ab abVar) {
         if (!TbadkCoreApplication.isLogin()) {
-            cfp();
+            cfw();
         }
-        if (this.hDF != null && this.hDF.Tv() != null && abVar != null) {
-            this.hDF.j(abVar);
+        if (this.hDT != null && this.hDT.Tv() != null && abVar != null) {
+            this.hDT.j(abVar);
         }
     }
 
     public void setCanVisible(boolean z) {
-        if (this.hDF != null) {
-            this.hDF.setCanVisible(z);
+        if (this.hDT != null) {
+            this.hDT.setCanVisible(z);
         }
     }
 
-    public void cfp() {
-        if (this.hDF != null && this.hDF.Tv() != null) {
-            this.hDF.Tv().setVisibility(8);
+    public void cfw() {
+        if (this.hDT != null && this.hDT.Tv() != null) {
+            this.hDT.Tv().setVisibility(8);
         }
     }
 

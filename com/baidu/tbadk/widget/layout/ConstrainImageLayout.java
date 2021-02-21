@@ -99,10 +99,10 @@ public class ConstrainImageLayout extends ViewGroup {
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Dk = com.baidu.tbadk.imageManager.c.bCP().Dk(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.akO ? 13 : 14));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = com.baidu.tbadk.imageManager.c.bCP().Di(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.akO ? 13 : 14));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i = Di.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -220,10 +220,10 @@ public class ConstrainImageLayout extends ViewGroup {
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Dk = com.baidu.tbadk.imageManager.c.bCP().Dk(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.akO ? 13 : 14));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = com.baidu.tbadk.imageManager.c.bCP().Di(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.akO ? 13 : 14));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i = Di.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -341,10 +341,10 @@ public class ConstrainImageLayout extends ViewGroup {
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Dk = com.baidu.tbadk.imageManager.c.bCP().Dk(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.akO ? 13 : 14));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i2 = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = com.baidu.tbadk.imageManager.c.bCP().Di(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), ConstrainImageLayout.this.akO ? 13 : 14));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i2 = Di.getHeight();
                         i22 = width;
                     } else {
                         i2 = 0;

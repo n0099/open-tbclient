@@ -9,13 +9,13 @@ import java.io.File;
 public class a implements ab {
     @Override // com.ss.android.socialbase.downloader.d.ab
     public void a(com.ss.android.socialbase.downloader.g.c cVar) throws com.ss.android.socialbase.downloader.e.a {
-        m eEL = j.eEL();
-        if (cVar != null && eEL != null) {
+        m eET = j.eET();
+        if (cVar != null && eET != null) {
             String D = cVar.D();
             String n = cVar.n();
             File a2 = a(D, n);
-            com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eEt().j(cVar);
-            eEL.a(D, n, a2, j != null ? i.a(j.q()) : null);
+            com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eEB().j(cVar);
+            eET.a(D, n, a2, j != null ? i.a(j.q()) : null);
             cVar.h("application/vnd.android.package-archive");
             cVar.d(a2.getName());
             cVar.i((String) null);
@@ -25,7 +25,7 @@ public class a implements ab {
     @Override // com.ss.android.socialbase.downloader.d.ab
     public boolean b(com.ss.android.socialbase.downloader.g.c cVar) {
         if (cVar != null) {
-            return com.ss.android.a.a.e.a.a(com.ss.android.socialbase.downloader.k.a.RV(cVar.g()), cVar.eHf());
+            return com.ss.android.a.a.e.a.a(com.ss.android.socialbase.downloader.k.a.RW(cVar.g()), cVar.eHn());
         }
         return false;
     }

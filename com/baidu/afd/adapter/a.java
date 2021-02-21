@@ -41,7 +41,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, AdCardViewHolder> impl
     /* renamed from: h */
     public AdCardViewHolder e(ViewGroup viewGroup) {
         e a2;
-        if (this.aaD == null || (a2 = com.baidu.tieba.lego.card.b.dbs().a(this.aaE, this.aaD, 2)) == null) {
+        if (this.aaD == null || (a2 = com.baidu.tieba.lego.card.b.dbz().a(this.aaE, this.aaD, 2)) == null) {
             return null;
         }
         if (a2 instanceof k) {
@@ -80,7 +80,7 @@ public class a extends com.baidu.adp.widget.ListView.a<d, AdCardViewHolder> impl
             if (qS != null && qS.legoCard != null && qS.legoCard.forFree()) {
                 i2 = 102;
             }
-            com.baidu.tieba.recapp.report.e.dEm().a(h.b(qS, i2, i));
+            com.baidu.tieba.recapp.report.e.dEu().a(h.b(qS, i2, i));
             com.baidu.tieba.lego.card.a.c.a(dVar);
         }
     }

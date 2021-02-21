@@ -52,20 +52,20 @@ public class c extends k<d, ManitoMemberItemViewHolder> {
             if (manitoMemberItemViewHolder.mSkinType != this.mSkinType) {
                 ap.setBackgroundResource(manitoMemberItemViewHolder.getView(), R.drawable.frs_member_manito_bg);
                 ap.setViewTextColor(manitoMemberItemViewHolder.enq, R.color.CAM_X0106, 1);
-                ap.setViewTextColor(manitoMemberItemViewHolder.jcd, R.color.CAM_X0109, 1);
+                ap.setViewTextColor(manitoMemberItemViewHolder.jcr, R.color.CAM_X0109, 1);
                 ap.setBackgroundColor(manitoMemberItemViewHolder.dividerLine, R.color.CAM_X0204);
-                ap.setViewTextColor(manitoMemberItemViewHolder.jce, R.color.CAM_X0109, 1);
+                ap.setViewTextColor(manitoMemberItemViewHolder.jcs, R.color.CAM_X0109, 1);
             }
-            manitoMemberItemViewHolder.jcc.startLoad(dVar.getHeadUrl(), 12, false);
+            manitoMemberItemViewHolder.jcq.startLoad(dVar.getHeadUrl(), 12, false);
             manitoMemberItemViewHolder.enq.setText(ag.interceptString(dVar.getNameShow(), 16));
             if (StringUtils.isNull(dVar.getIntro())) {
-                manitoMemberItemViewHolder.jcd.setText(R.string.god_intro_default);
+                manitoMemberItemViewHolder.jcr.setText(R.string.god_intro_default);
             } else {
-                manitoMemberItemViewHolder.jcd.setText(ag.interceptString(dVar.getIntro(), 30));
+                manitoMemberItemViewHolder.jcr.setText(ag.interceptString(dVar.getIntro(), 30));
             }
             int color = ap.getColor(R.color.CAM_X0301);
             String numberUniformFormat = au.numberUniformFormat(dVar.getFansNum());
-            manitoMemberItemViewHolder.jce.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+            manitoMemberItemViewHolder.jcs.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
             manitoMemberItemViewHolder.getView().setTag(dVar);
             manitoMemberItemViewHolder.getView().setOnClickListener(this.mOnItemClickListener);
             manitoMemberItemViewHolder.mSkinType = this.mSkinType;

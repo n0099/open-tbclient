@@ -43,17 +43,17 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
 
     private void a(ForumRuleDetailBottomVH forumRuleDetailBottomVH, com.baidu.tieba.frs.forumRule.b.a aVar) {
         if (forumRuleDetailBottomVH != null) {
-            forumRuleDetailBottomVH.juI.setDefaultBgResource(R.drawable.img_default_100);
-            forumRuleDetailBottomVH.juI.startLoad(aVar.getAvatar(), 10, false);
-            forumRuleDetailBottomVH.juK.setText(aVar.bnU() + TbadkApplication.getInst().getResources().getString(R.string.forum_rules_bar_management_group));
-            forumRuleDetailBottomVH.juM.setDefaultBgResource(R.drawable.img_default_100);
-            forumRuleDetailBottomVH.juM.startLoad(aVar.getPortrait(), 12, false);
-            forumRuleDetailBottomVH.juN.setText(aVar.getName_show());
+            forumRuleDetailBottomVH.juW.setDefaultBgResource(R.drawable.img_default_100);
+            forumRuleDetailBottomVH.juW.startLoad(aVar.getAvatar(), 10, false);
+            forumRuleDetailBottomVH.juY.setText(aVar.bnU() + TbadkApplication.getInst().getResources().getString(R.string.forum_rules_bar_management_group));
+            forumRuleDetailBottomVH.jva.setDefaultBgResource(R.drawable.img_default_100);
+            forumRuleDetailBottomVH.jva.startLoad(aVar.getPortrait(), 12, false);
+            forumRuleDetailBottomVH.jvb.setText(aVar.getName_show());
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom)) {
-                forumRuleDetailBottomVH.Ku(String.valueOf(System.currentTimeMillis() / 1000));
+                forumRuleDetailBottomVH.Kv(String.valueOf(System.currentTimeMillis() / 1000));
             } else {
-                forumRuleDetailBottomVH.juO.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.cGX()));
-                forumRuleDetailBottomVH.juL.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.cGX()));
+                forumRuleDetailBottomVH.jvc.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.cHe()));
+                forumRuleDetailBottomVH.juZ.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), aVar.cHe()));
             }
             forumRuleDetailBottomVH.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

@@ -55,7 +55,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     private int fex;
     private String fey;
     public View.OnClickListener fez;
-    private a jTz;
+    private a jTN;
     private int mFrom;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -505,14 +505,14 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                                     this.feo.hasAgree = true;
                                     this.feo.agreeNum++;
                                     jU(true);
-                                    com.baidu.tieba.o.a.dCR().J(getTbPageContext());
+                                    com.baidu.tieba.o.a.dCY().J(getTbPageContext());
                                 }
                             } else {
                                 this.feo.agreeType = 2;
                                 this.feo.hasAgree = true;
                                 this.feo.agreeNum++;
                                 jU(true);
-                                com.baidu.tieba.o.a.dCR().J(getTbPageContext());
+                                com.baidu.tieba.o.a.dCY().J(getTbPageContext());
                             }
                             c bR = d.bR(this);
                             if (bR != null) {
@@ -600,8 +600,8 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         if (z && this.feA != null) {
             this.feA.setVisibility(8);
         }
-        if (this.feC != z && this.jTz != null) {
-            this.jTz.f(this.fem, z);
+        if (this.feC != z && this.jTN != null) {
+            this.jTN.f(this.fem, z);
         }
         this.feC = z;
     }
@@ -644,7 +644,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     }
 
     public void setVisibilityListener(a aVar) {
-        this.jTz = aVar;
+        this.jTN = aVar;
     }
 
     public TBLottieAnimationView getmImgDisagree() {

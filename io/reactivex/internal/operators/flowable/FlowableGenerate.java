@@ -11,12 +11,12 @@ import org.a.d;
 public final class FlowableGenerate<T, S> extends g<T> {
     final io.reactivex.b.g<? super S> disposeState;
     final io.reactivex.b.c<S, f<T>, S> generator;
-    final Callable<S> qoo;
+    final Callable<S> qoO;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.qoo.call()));
+            cVar.onSubscribe(new GeneratorSubscription(cVar, this.generator, this.disposeState, this.qoO.call()));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.N(th);
             EmptySubscription.error(th, cVar);

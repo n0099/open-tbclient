@@ -77,7 +77,7 @@ public class TrafficProvider extends ContentProvider {
                 if (contentValues == null || !contentValues.containsKey("imsi")) {
                     return 0;
                 }
-                gx.m357a(contentValues.getAsString("imsi"));
+                gx.m356a(contentValues.getAsString("imsi"));
                 return 0;
             default:
                 return 0;

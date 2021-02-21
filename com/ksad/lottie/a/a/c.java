@@ -9,7 +9,7 @@ import com.ksad.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class c implements d, l, a.InterfaceC1065a {
+public class c implements d, l, a.InterfaceC1067a {
 
     /* renamed from: a  reason: collision with root package name */
     private final Matrix f7935a;
@@ -86,7 +86,7 @@ public class c implements d, l, a.InterfaceC1065a {
         }
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1065a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
     public void a() {
         this.f.invalidateSelf();
     }

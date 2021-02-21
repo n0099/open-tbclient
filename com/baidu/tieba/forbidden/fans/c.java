@@ -19,13 +19,13 @@ public class c {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage() != null) {
                 boolean z = httpResponsedMessage.getOrginalMessage().getTag() == c.this.agC;
-                if (c.this.jbi != null) {
-                    c.this.jbi.k(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
+                if (c.this.jbw != null) {
+                    c.this.jbw.k(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
                 }
             }
         }
     };
-    private a jbi;
+    private a jbw;
     private TbPageContext mPageContext;
 
     /* loaded from: classes8.dex */
@@ -50,13 +50,13 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cAB() {
+    public void cAI() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
         httpMessage.setTag(this.agC);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void a(a aVar) {
-        this.jbi = aVar;
+        this.jbw = aVar;
     }
 }

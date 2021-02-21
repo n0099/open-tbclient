@@ -27,10 +27,10 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgPhotoLiveCardVew cUF = msgViewHolder.cUF();
-        cUF.a(this.mPageContext, chatMessage, viewGroup);
-        cUF.a(this.kAf);
-        cUF.setPosition(i);
+        MsgPhotoLiveCardVew cUM = msgViewHolder.cUM();
+        cUM.a(this.mPageContext, chatMessage, viewGroup);
+        cUM.a(this.kAt);
+        cUM.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

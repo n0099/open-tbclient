@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.k;
 import com.baidu.tieba.setting.more.MoreActivity;
 /* loaded from: classes8.dex */
 public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
-    private HttpMessageListener neX;
+    private HttpMessageListener nfx;
 
     public GetImageWatermarkTypeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.neX = new HttpMessageListener(CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE) { // from class: com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeModel.1
+        this.nfx = new HttpMessageListener(CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE) { // from class: com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -26,7 +26,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
                 }
             }
         };
-        registerListener(this.neX);
+        registerListener(this.nfx);
         LoadData();
     }
 

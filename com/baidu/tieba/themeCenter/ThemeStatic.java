@@ -36,11 +36,11 @@ import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes9.dex */
 public class ThemeStatic {
     static {
-        dQU();
-        dQV();
-        dQW();
-        dQT();
-        dQX();
+        dRc();
+        dRd();
+        dRe();
+        dRb();
+        dRf();
         TbadkApplication.getInst().RegisterIntent(DressupCenterActivityConfig.class, DressupCenterActivity.class);
         TbadkApplication.getInst().RegisterIntent(PersonalBackdropGroupActivityConfig.class, BackgroundGroupActivity.class);
         TbadkApplication.getInst().RegisterIntent(PersonalBackdropListActivityConfig.class, BackgroundListActivity.class);
@@ -54,7 +54,7 @@ public class ThemeStatic {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET, 1003036, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
-    private static void dQT() {
+    private static void dRb() {
         bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.1
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -80,7 +80,7 @@ public class ThemeStatic {
         });
     }
 
-    private static void dQU() {
+    private static void dRc() {
         bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.2
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -106,7 +106,7 @@ public class ThemeStatic {
         });
     }
 
-    private static void dQV() {
+    private static void dRd() {
         bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.3
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -122,7 +122,7 @@ public class ThemeStatic {
         });
     }
 
-    private static void dQW() {
+    private static void dRe() {
         bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.4
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -143,7 +143,7 @@ public class ThemeStatic {
         });
     }
 
-    private static void dQX() {
+    private static void dRf() {
         bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.5
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

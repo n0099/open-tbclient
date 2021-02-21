@@ -6,15 +6,15 @@ import androidx.viewpager.widget.PagerAdapter;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class RecommendPagerAdapter extends PagerAdapter {
-    private List<View> naG;
+    private List<View> nbg;
 
     public RecommendPagerAdapter(List<View> list) {
-        this.naG = list;
+        this.nbg = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.naG.size();
+        return this.nbg.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -24,12 +24,12 @@ public class RecommendPagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.naG.get(i));
-        return this.naG.get(i);
+        viewGroup.addView(this.nbg.get(i));
+        return this.nbg.get(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.naG.get(i));
+        viewGroup.removeView(this.nbg.get(i));
     }
 }

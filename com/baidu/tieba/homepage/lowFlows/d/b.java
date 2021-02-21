@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b {
-    public static Drawable[] LZ(String str) {
+    public static Drawable[] Ma(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -63,7 +63,7 @@ public class b {
         }
     }
 
-    public static String Ma(String str) {
+    public static String Mb(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -1581702362:

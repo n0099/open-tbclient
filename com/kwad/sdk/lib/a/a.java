@@ -13,19 +13,19 @@ public class a {
     private final KsFragment f10404a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final InterfaceC1136a f10405b;
+    private final InterfaceC1138a f10405b;
     private Presenter c;
 
     /* renamed from: com.kwad.sdk.lib.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1136a {
+    public interface InterfaceC1138a {
         @NonNull
         Presenter e();
     }
 
-    public a(KsFragment ksFragment, InterfaceC1136a interfaceC1136a) {
+    public a(KsFragment ksFragment, InterfaceC1138a interfaceC1138a) {
         this.f10404a = ksFragment;
-        this.f10405b = interfaceC1136a;
+        this.f10405b = interfaceC1138a;
         KsFragmentManager fragmentManager = ksFragment.getFragmentManager();
         if (fragmentManager != null) {
             a(fragmentManager);

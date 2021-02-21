@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public final class d {
     private Context d;
-    private com.yxcorp.kuaishou.addfp.a.b.b qlC;
-    public a qlO = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qmc;
+    public a qmo = null;
 
     /* renamed from: b  reason: collision with root package name */
     private String f14365b = null;
@@ -20,9 +20,9 @@ public final class d {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qlC.a(this.qlO);
+                this.qmc.a(this.qmo);
             } else {
-                this.qlC.e();
+                this.qmc.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -31,8 +31,8 @@ public final class d {
 
     public final String a() {
         try {
-            if (this.qlO != null) {
-                return this.qlO.a();
+            if (this.qmo != null) {
+                return this.qmo.a();
             }
         } catch (RemoteException e) {
         }
@@ -48,13 +48,13 @@ public final class d {
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qlC = bVar;
+            this.qmc = bVar;
             this.d = context;
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
             if (context.bindService(intent, this.f, 1)) {
                 this.e.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qlO != null) {
+                if (this.qmo != null) {
                     a(true);
                 } else {
                     a(false);
@@ -70,6 +70,6 @@ public final class d {
     }
 
     public final boolean b() {
-        return this.qlO != null;
+        return this.qmo != null;
     }
 }

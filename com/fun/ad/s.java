@@ -17,7 +17,7 @@ import com.fun.ad.sdk.FunRippedAd;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class s extends bd {
-    public TTNativeExpressAd pOC;
+    public TTNativeExpressAd pPc;
 
     /* loaded from: classes6.dex */
     public class b implements TTAdDislike.DislikeInteractionCallback {
@@ -47,7 +47,7 @@ public class s extends bd {
                 ((ViewGroup) this.f7790a.getParent()).removeView(this.f7790a);
             }
             s sVar = s.this;
-            ax axVar = sVar.pPB;
+            ax axVar = sVar.pQb;
             if (axVar != null) {
                 ((am) axVar).a(sVar.f7766a.f7762a);
             }
@@ -61,17 +61,17 @@ public class s extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        TTNativeExpressAd tTNativeExpressAd = this.pOC;
+        TTNativeExpressAd tTNativeExpressAd = this.pPc;
         if (tTNativeExpressAd != null) {
             tTNativeExpressAd.destroy();
-            this.pOC = null;
+            this.pPc = null;
         }
     }
 
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTNativeExpressAd tTNativeExpressAd = this.pOC;
+        TTNativeExpressAd tTNativeExpressAd = this.pPc;
         if (tTNativeExpressAd == null) {
             return;
         }
@@ -79,16 +79,16 @@ public class s extends bd {
         if (expressAdView != null && expressAdView.getParent() != null) {
             ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
         }
-        this.pOC.setDislikeCallback(activity, new b(expressAdView));
-        this.pOC.setDownloadListener(new bj(null));
+        this.pPc.setDislikeCallback(activity, new b(expressAdView));
+        this.pPc.setDownloadListener(new bj(null));
         funAdView.removeAllViews();
         funAdView.addView(expressAdView);
     }
 
     @Override // com.fun.ad.bd
-    public FunRippedAd eAp() {
+    public FunRippedAd eAx() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTNativeExpressAd tTNativeExpressAd = this.pOC;
+        TTNativeExpressAd tTNativeExpressAd = this.pPc;
         if (tTNativeExpressAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTNativeExpressAd, false)) == null) {
             return null;
         }
@@ -114,7 +114,7 @@ public class s extends bd {
             m.a("CSJNativeExpressAd onError code: " + i + ", message: " + str);
             s sVar = s.this;
             sVar.f7767b = false;
-            ba baVar = sVar.pPA;
+            ba baVar = sVar.pQa;
             if (baVar != null) {
                 ((aj) baVar).a(sVar.f7766a.f7762a, i, str);
             }
@@ -124,10 +124,10 @@ public class s extends bd {
         public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
             m.a("CSJNativeExpressAd onNativeExpressAdLoad");
             if (list != null && !list.isEmpty()) {
-                s.this.pOC = list.get(0);
-                AdRipper.ripCSJ(s.this.pOC);
+                s.this.pPc = list.get(0);
+                AdRipper.ripCSJ(s.this.pPc);
                 s sVar = s.this;
-                TTNativeExpressAd tTNativeExpressAd = sVar.pOC;
+                TTNativeExpressAd tTNativeExpressAd = sVar.pPc;
                 tTNativeExpressAd.setExpressInteractionListener(new v(sVar));
                 tTNativeExpressAd.setCanInterruptVideoPlay(true);
                 tTNativeExpressAd.render();
@@ -149,8 +149,8 @@ public class s extends bd {
             } else {
                 expressWidth = funAdSlot.getExpressWidth();
             }
-            this.pPC.loadNativeExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
-            ba baVar2 = this.pPA;
+            this.pQc.loadNativeExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
+            ba baVar2 = this.pQa;
             if (baVar2 != null) {
                 ((aj) baVar2).a(this.f7766a.f7762a);
             }

@@ -10,26 +10,26 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class f {
-    private TextView ltp;
-    private TextView ltq;
+    private TextView ltE;
+    private TextView ltF;
     private View mRootView;
 
     public void N(View.OnClickListener onClickListener) {
-        this.ltp.setOnClickListener(onClickListener);
+        this.ltE.setOnClickListener(onClickListener);
     }
 
     public View gB(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.tail_tool_member_guide_item, (ViewGroup) null);
         this.mRootView.setTag(this);
-        this.ltp = (TextView) this.mRootView.findViewById(R.id.tail_tool_member_guide_button);
-        this.ltq = (TextView) this.mRootView.findViewById(R.id.tail_tool_member_guide_text);
+        this.ltE = (TextView) this.mRootView.findViewById(R.id.tail_tool_member_guide_button);
+        this.ltF = (TextView) this.mRootView.findViewById(R.id.tail_tool_member_guide_text);
         return this.mRootView;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this.ltp, R.drawable.member_privilege_button_new_selector);
-        ap.setViewTextColor(this.ltp, R.color.CAM_X0101, 1);
-        ap.setViewTextColor(this.ltq, R.color.CAM_X0108, 1);
+        ap.setBackgroundResource(this.ltE, R.drawable.member_privilege_button_new_selector);
+        ap.setViewTextColor(this.ltE, R.color.CAM_X0101, 1);
+        ap.setViewTextColor(this.ltF, R.color.CAM_X0108, 1);
     }
 }

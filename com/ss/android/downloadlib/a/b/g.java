@@ -15,11 +15,11 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private static g qbf = new g();
+        private static g qbF = new g();
     }
 
-    public static g eEw() {
-        return a.qbf;
+    public static g eEE() {
+        return a.qbF;
     }
 
     private g() {
@@ -63,13 +63,13 @@ public class g {
     public synchronized void a(final Collection<com.ss.android.b.a.b.a> collection) {
         if (collection != null) {
             if (!collection.isEmpty()) {
-                com.ss.android.downloadlib.f.eEZ().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.g.1
+                com.ss.android.downloadlib.f.eFh().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.g.1
                     @Override // java.lang.Runnable
                     public void run() {
                         SharedPreferences.Editor edit = g.this.c().edit();
                         for (com.ss.android.b.a.b.a aVar : collection) {
                             if (aVar != null && aVar.j() != 0) {
-                                edit.putString(String.valueOf(aVar.j()), aVar.eEk().toString());
+                                edit.putString(String.valueOf(aVar.j()), aVar.eEs().toString());
                             }
                         }
                         edit.apply();
@@ -81,7 +81,7 @@ public class g {
 
     public void a(final List<String> list) {
         if (list != null && !list.isEmpty()) {
-            com.ss.android.downloadlib.f.eEZ().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.g.2
+            com.ss.android.downloadlib.f.eFh().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.g.2
                 @Override // java.lang.Runnable
                 public void run() {
                     SharedPreferences.Editor edit = g.this.c().edit();

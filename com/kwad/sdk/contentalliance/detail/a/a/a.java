@@ -51,8 +51,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (com.kwad.sdk.core.response.b.c.c(this.d)) {
-            com.kwad.sdk.core.download.b.a.a(this.c.getContext(), this.d, new a.InterfaceC1092a() { // from class: com.kwad.sdk.contentalliance.detail.a.a.a.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+            com.kwad.sdk.core.download.b.a.a(this.c.getContext(), this.d, new a.InterfaceC1094a() { // from class: com.kwad.sdk.contentalliance.detail.a.a.a.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                 public void a() {
                     a.this.e();
                 }

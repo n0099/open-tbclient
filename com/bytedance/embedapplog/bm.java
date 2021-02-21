@@ -11,7 +11,7 @@ public final class bm implements bi {
 
     /* renamed from: a  reason: collision with root package name */
     private static final String f5807a = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
-    private static final aw<Boolean> pmH = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bm.1
+    private static final aw<Boolean> pnh = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bm.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -20,7 +20,7 @@ public final class bm implements bi {
             return Boolean.valueOf("1".equals(bm.b(bm.f5807a, "0")));
         }
     };
-    private com.bytedance.a.b pmT;
+    private com.bytedance.a.b pnt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(Context context) {
@@ -29,8 +29,8 @@ public final class bm implements bi {
         } catch (Throwable th) {
         }
         try {
-            this.pmT = new com.bytedance.a.b();
-            this.pmT.hO(context);
+            this.pnt = new com.bytedance.a.b();
+            this.pnt.hO(context);
         } catch (Throwable th2) {
             bb.b("OaidVivo", Log.getStackTraceString(th2));
         }
@@ -38,7 +38,7 @@ public final class bm implements bi {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a() {
-        return pmH.b(new Object[0]).booleanValue();
+        return pnh.b(new Object[0]).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -48,10 +48,10 @@ public final class bm implements bi {
 
     @Override // com.bytedance.embedapplog.bi
     public bi.a hS(Context context) {
-        if (this.pmT == null) {
+        if (this.pnt == null) {
             return null;
         }
-        return this.pmT.hQ(context);
+        return this.pnt.hQ(context);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

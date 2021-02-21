@@ -5,13 +5,13 @@ public interface b {
 
     void b(com.baidu.tieba.ala.liveroom.data.d dVar);
 
-    void ceA();
+    void ceH();
 
-    void ceB();
+    void ceI();
 
-    void ceC();
+    void ceJ();
 
-    void ceD();
+    void ceK();
 
     void g(short s);
 

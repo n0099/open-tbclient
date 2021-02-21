@@ -8,46 +8,46 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    public int jSU;
+    public int jTi;
 
     private a() {
     }
 
     public static a rM(boolean z) {
-        if (z && cNn()) {
+        if (z && cNu()) {
             return new a();
         }
         return null;
     }
 
-    public static boolean cNn() {
+    public static boolean cNu() {
         return com.baidu.tbadk.a.d.biV();
     }
 
     public void r(List<n> list, boolean z) {
         int i;
-        int cNl = com.baidu.tieba.h.a.cNj().cNl();
+        int cNs = com.baidu.tieba.h.a.cNq().cNs();
         if (z) {
-            int cNk = com.baidu.tieba.h.a.cNj().cNk() - 1;
+            int cNr = com.baidu.tieba.h.a.cNq().cNr() - 1;
             Iterator<n> it = list.iterator();
             while (true) {
-                i = cNk;
+                i = cNr;
                 if (!it.hasNext()) {
                     break;
                 }
                 n next = it.next();
                 if (!(next instanceof cb)) {
-                    cNk = i;
+                    cNr = i;
                 } else if (((cb) next).bnL() != 1) {
                     break;
                 } else {
-                    cNk = i + 1;
+                    cNr = i + 1;
                 }
             }
         } else {
-            i = this.jSU;
+            i = this.jTi;
         }
-        this.jSU = a(i, cNl, list);
+        this.jTi = a(i, cNs, list);
     }
 
     private int a(int i, int i2, List<n> list) {

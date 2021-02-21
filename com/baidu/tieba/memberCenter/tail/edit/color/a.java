@@ -10,26 +10,26 @@ import java.util.List;
 public class a extends BaseAdapter {
     private TbPageContext<?> eUY;
     private View.OnClickListener fml;
-    private c lsq;
-    private List<String> lsr;
+    private c lsE;
+    private List<String> lsF;
 
     public a(TbPageContext<?> tbPageContext, c cVar, View.OnClickListener onClickListener) {
         this.eUY = tbPageContext;
-        this.lsr = new ArrayList();
-        this.lsq = cVar;
-        this.lsr = this.lsq.dga();
+        this.lsF = new ArrayList();
+        this.lsE = cVar;
+        this.lsF = this.lsE.dgh();
         this.fml = onClickListener;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.lsr.size();
+        return this.lsF.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public String getItem(int i) {
-        return this.lsr.get(i);
+        return this.lsF.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -49,9 +49,9 @@ public class a extends BaseAdapter {
         } else {
             bVar = (b) view.getTag();
         }
-        String str = this.lsr.get(i);
+        String str = this.lsF.get(i);
         bVar.setColor(str);
-        bVar.tW(this.lsq.dfZ().equals(str));
+        bVar.tW(this.lsE.dgg().equals(str));
         return view;
     }
 }

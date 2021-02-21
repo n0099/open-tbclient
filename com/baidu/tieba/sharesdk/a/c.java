@@ -11,12 +11,12 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class c extends b {
-    private IUiListener nkf;
-    private final com.baidu.adp.lib.e.c<e.a> nkh;
+    private IUiListener nkF;
+    private final com.baidu.adp.lib.e.c<e.a> nkH;
 
     public c(Context context) {
         super(context);
-        this.nkh = new com.baidu.adp.lib.e.c<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.nkH = new com.baidu.adp.lib.e.c<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
@@ -24,36 +24,36 @@ public class c extends b {
             public void onLoaded(e.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
                 if (aVar == null || aVar.fcS == null || TextUtils.isEmpty(aVar.path)) {
-                    c.this.dm(2, 4);
+                    c.this.dn(2, 4);
                 }
-                c.this.Sv(aVar.path);
+                c.this.SH(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                c.this.dm(3, 4);
+                c.this.dn(3, 4);
             }
         };
-        this.njW = 4;
+        this.nkw = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.nke == null) {
-            dm(2, 4);
+        if (shareEntity == null || this.nkE == null) {
+            dn(2, 4);
             if (bVar != null) {
-                bVar.dl(0, 2);
+                bVar.dm(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            dm(2, 4);
+            dn(2, 4);
             if (bVar != null) {
-                bVar.dl(0, 2);
+                bVar.dm(0, 2);
             }
         } else {
-            this.nkf = new b.a(bVar);
-            if (shareEntity.dJc() != 0) {
+            this.nkF = new b.a(bVar);
+            if (shareEntity.dJk() != 0) {
                 b(shareEntity);
             } else {
                 c(shareEntity);
@@ -62,23 +62,23 @@ public class c extends b {
     }
 
     private void b(ShareEntity shareEntity) {
-        if (Cl(shareEntity.dJa())) {
-            Sv(shareEntity.dJa());
+        if (Cl(shareEntity.dJi())) {
+            SH(shareEntity.dJi());
         } else if (z(shareEntity.getImageUri())) {
-            Sv(shareEntity.getImageUri().getPath());
+            SH(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.e.d.mw().a(shareEntity.getImgUrl(), 34, this.nkh, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.e.d.mw().a(shareEntity.getImgUrl(), 34, this.nkH, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Sv(String str) {
+    public void SH(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.nkf != null) {
-            this.nke.shareToQQ((Activity) this.context, bundle, this.nkf);
+        if (this.nkF != null) {
+            this.nkE.shareToQQ((Activity) this.context, bundle, this.nkF);
         }
     }
 
@@ -93,8 +93,8 @@ public class c extends b {
             arrayList.add(shareEntity.getImgUrl());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.nkf != null) {
-            this.nke.shareToQzone((Activity) this.context, bundle, this.nkf);
+        if (this.nkF != null) {
+            this.nkE.shareToQzone((Activity) this.context, bundle, this.nkF);
         }
     }
 }

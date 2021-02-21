@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<d> ncg = new ArrayList();
+    private List<d> ncG = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,8 +22,8 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ncg != null) {
-            return this.ncg.size();
+        if (this.ncG != null) {
+            return this.ncG.size();
         }
         return 0;
     }
@@ -32,10 +32,10 @@ public class c extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: Ip */
     public d getItem(int i) {
-        if (this.ncg == null || i >= this.ncg.size()) {
+        if (this.ncG == null || i >= this.ncG.size()) {
             return null;
         }
-        return this.ncg.get(i);
+        return this.ncG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.ncg.get(i), view, viewGroup);
+        return a(this.ncG.get(i), view, viewGroup);
     }
 
     public View a(d dVar, View view, ViewGroup viewGroup) {
@@ -62,16 +62,16 @@ public class c extends BaseAdapter {
         if (dVar == null) {
             return inflate;
         }
-        ef.nch.setText(dVar.title);
-        ef.nci.setText(dVar.content);
-        ef.ncj.setDefaultResource(R.drawable.screen_notify_default_bg);
-        ef.ncj.a(dVar.pic, 10, 0, 0, false);
+        ef.ncH.setText(dVar.title);
+        ef.ncI.setText(dVar.content);
+        ef.ncJ.setDefaultResource(R.drawable.screen_notify_default_bg);
+        ef.ncJ.a(dVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
     public void fP(List<d> list) {
         if (list != null && list.size() != 0) {
-            this.ncg.addAll(list);
+            this.ncG.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -80,9 +80,9 @@ public class c extends BaseAdapter {
     /* loaded from: classes8.dex */
     public class a {
         View mLine;
-        TextView nch;
-        TextView nci;
-        TbImageView ncj;
+        TextView ncH;
+        TextView ncI;
+        TbImageView ncJ;
 
         private a() {
         }
@@ -90,10 +90,10 @@ public class c extends BaseAdapter {
 
     private a ef(View view) {
         a aVar = new a();
-        aVar.nch = (TextView) view.findViewById(R.id.push_msg_title);
-        aVar.nci = (TextView) view.findViewById(R.id.push_msg_content);
-        aVar.ncj = (TbImageView) view.findViewById(R.id.push_msg_pic);
-        aVar.ncj.setAutoChangeStyle(false);
+        aVar.ncH = (TextView) view.findViewById(R.id.push_msg_title);
+        aVar.ncI = (TextView) view.findViewById(R.id.push_msg_content);
+        aVar.ncJ = (TbImageView) view.findViewById(R.id.push_msg_pic);
+        aVar.ncJ.setAutoChangeStyle(false);
         aVar.mLine = view.findViewById(R.id.line);
         return aVar;
     }

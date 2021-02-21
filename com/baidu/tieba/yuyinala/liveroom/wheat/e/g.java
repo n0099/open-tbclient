@@ -36,7 +36,7 @@ public class g {
         return abVar.aIY.getActivityStage();
     }
 
-    public static boolean eeG() {
+    public static boolean eeO() {
         String Yp = Yp();
         return Yp != null && com.baidu.live.ao.a.Yj().iJ(Yp);
     }
@@ -77,9 +77,9 @@ public class g {
         com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g gVar = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(activity);
         gVar.show();
         gVar.setText(str);
-        gVar.VD(PayHelper.STATUS_CANCEL_DESC);
+        gVar.VP(PayHelper.STATUS_CANCEL_DESC);
         gVar.cf("确认", a.c.sdk_black_alpha100);
-        gVar.eed();
+        gVar.eel();
         gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.e.g.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
             public void onCancel() {

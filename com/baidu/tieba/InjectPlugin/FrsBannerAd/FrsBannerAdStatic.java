@@ -34,9 +34,9 @@ public class FrsBannerAdStatic {
                 b bVar = (b) pageContext.getPageActivity();
                 com.baidu.tieba.InjectPlugin.a.a sM = bVar.sM(2);
                 if (sM == null) {
-                    d sN = e.bJw().sN(2);
+                    d sN = e.bJB().sN(2);
                     if (sN != null) {
-                        sM = sN.bJv();
+                        sM = sN.bJA();
                         bVar.a(2, sM);
                         sM.init(new c(pageContext));
                         if (sM instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
@@ -73,18 +73,18 @@ public class FrsBannerAdStatic {
                 com.baidu.tieba.InjectPlugin.a.a aVar2 = sM;
                 if (aVar2 instanceof com.baidu.tieba.InjectPlugin.FrsBannerAd.a) {
                     com.baidu.tieba.InjectPlugin.FrsBannerAd.a aVar3 = (com.baidu.tieba.InjectPlugin.FrsBannerAd.a) aVar2;
-                    if (aVar.bJy() == 1) {
+                    if (aVar.bJD() == 1) {
                         aVar3.setParams(aVar.getParams());
-                        aVar3.setData(aVar.bJA());
-                        aVar3.bJp();
-                    } else if (aVar.bJy() == 2) {
+                        aVar3.setData(aVar.bJF());
+                        aVar3.bJu();
+                    } else if (aVar.bJD() == 2) {
                         aVar3.setBannerMaskColor(aVar.getMaskColor());
-                    } else if (aVar.bJy() == 3) {
-                        p bJz = aVar.bJz();
-                        if (bJz != null && aVar3.getView() != null) {
-                            bJz.removeHeaderView(aVar3.getView());
+                    } else if (aVar.bJD() == 3) {
+                        p bJE = aVar.bJE();
+                        if (bJE != null && aVar3.getView() != null) {
+                            bJE.removeHeaderView(aVar3.getView());
                         }
-                    } else if (aVar.bJy() == 4) {
+                    } else if (aVar.bJD() == 4) {
                         aVar3.changeSkinType(aVar.getSkinType());
                     }
                 }

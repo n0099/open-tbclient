@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ai;
 /* loaded from: classes10.dex */
 public class a extends b {
-    private AlaPersonCenterFragment hYQ = new AlaPersonCenterFragment();
+    private AlaPersonCenterFragment hZe = new AlaPersonCenterFragment();
 
     public a() {
-        getFragmentTabStructure().frag = this.hYQ;
+        getFragmentTabStructure().frag = this.hZe;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -45,26 +45,26 @@ public class a extends b {
     }
 
     public void setForumId(String str) {
-        if (this.hYQ != null) {
-            this.hYQ.setForumId(str);
+        if (this.hZe != null) {
+            this.hZe.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.hYQ != null) {
-            this.hYQ.setForumName(str);
+        if (this.hZe != null) {
+            this.hZe.setForumName(str);
         }
     }
 
     public void setForumGameLabel(String str) {
-        if (this.hYQ != null) {
-            this.hYQ.setForumGameLabel(str);
+        if (this.hZe != null) {
+            this.hZe.setForumGameLabel(str);
         }
     }
 
-    public void Im(String str) {
-        if (this.hYQ != null) {
-            this.hYQ.Im(str);
+    public void In(String str) {
+        if (this.hZe != null) {
+            this.hZe.In(str);
         }
     }
 }

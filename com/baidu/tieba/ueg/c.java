@@ -8,23 +8,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String nJG;
-    private a nJH;
+    private String nKg;
+    private a nKh;
 
     /* loaded from: classes.dex */
     public interface a {
-        void das();
+        void daA();
 
-        void dat();
+        void daB();
 
-        void dau();
+        void daz();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.nJG = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.nJH = aVar;
+        this.nKg = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.nKh = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            aa aaVar = new aa(this.nJG);
+            aa aaVar = new aa(this.nKg);
             aaVar.bsr().bta().mIsNeedAddCommenParam = false;
             aaVar.bsr().bta().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
@@ -58,15 +58,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.nJH != null && num != null) {
+        if (this.nKh != null && num != null) {
             if (num.intValue() == -1) {
-                this.nJH.onError(null);
+                this.nKh.onError(null);
             } else if (num.intValue() == 1) {
-                this.nJH.das();
+                this.nKh.daz();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.nJH.dat();
+                this.nKh.daA();
             } else {
-                this.nJH.dau();
+                this.nKh.daB();
             }
         }
     }

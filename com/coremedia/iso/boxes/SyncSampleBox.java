@@ -12,9 +12,9 @@ import org.aspectj.lang.a;
 /* loaded from: classes6.dex */
 public class SyncSampleBox extends AbstractFullBox {
     public static final String TYPE = "stss";
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_2 = null;
     private long[] sampleNumber;
 
     static {

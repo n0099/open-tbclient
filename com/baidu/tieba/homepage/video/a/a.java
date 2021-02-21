@@ -12,12 +12,12 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private BdTypeRecyclerView XW;
-    private LinkedList<com.baidu.adp.widget.ListView.a> keF = new LinkedList<>();
-    private f krr;
-    private b krs;
-    private d krt;
-    private e kru;
-    private c krv;
+    private LinkedList<com.baidu.adp.widget.ListView.a> keT = new LinkedList<>();
+    private f krF;
+    private b krG;
+    private d krH;
+    private e krI;
+    private c krJ;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -27,22 +27,22 @@ public class a {
     }
 
     private void Kw() {
-        this.krr = new f(this.mPageContext, k.iAN);
-        this.krs = new b(this.mPageContext, l.eQK);
-        this.krt = new d(this.mPageContext, k.iAU);
-        this.kru = new e(this.mPageContext, k.iAS);
-        this.krv = new c(this.mPageContext, k.eQr);
-        this.krr.a(this.XW);
-        this.krs.a(this.XW);
-        this.krt.a(this.XW);
-        this.kru.a(this.XW);
-        this.krv.a(this.XW);
-        this.keF.add(this.krr);
-        this.keF.add(this.krs);
-        this.keF.add(this.krt);
-        this.keF.add(this.kru);
-        this.keF.add(this.krv);
-        this.XW.addAdapters(this.keF);
+        this.krF = new f(this.mPageContext, k.iBb);
+        this.krG = new b(this.mPageContext, l.eQK);
+        this.krH = new d(this.mPageContext, k.iBi);
+        this.krI = new e(this.mPageContext, k.iBg);
+        this.krJ = new c(this.mPageContext, k.eQr);
+        this.krF.a(this.XW);
+        this.krG.a(this.XW);
+        this.krH.a(this.XW);
+        this.krI.a(this.XW);
+        this.krJ.a(this.XW);
+        this.keT.add(this.krF);
+        this.keT.add(this.krG);
+        this.keT.add(this.krH);
+        this.keT.add(this.krI);
+        this.keT.add(this.krJ);
+        this.XW.addAdapters(this.keT);
     }
 
     public void notifyDataSetChanged() {
@@ -52,20 +52,20 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.krr != null) {
-            this.krr.setPageUniqueId(bdUniqueId);
+        if (this.krF != null) {
+            this.krF.setPageUniqueId(bdUniqueId);
         }
-        if (this.krs != null) {
-            this.krs.setPageUniqueId(bdUniqueId);
+        if (this.krG != null) {
+            this.krG.setPageUniqueId(bdUniqueId);
         }
-        if (this.krt != null) {
-            this.krt.setPageUniqueId(bdUniqueId);
+        if (this.krH != null) {
+            this.krH.setPageUniqueId(bdUniqueId);
         }
-        if (this.kru != null) {
-            this.kru.setPageUniqueId(bdUniqueId);
+        if (this.krI != null) {
+            this.krI.setPageUniqueId(bdUniqueId);
         }
-        if (this.krv != null) {
-            this.krv.setPageUniqueId(bdUniqueId);
+        if (this.krJ != null) {
+            this.krJ.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -81,17 +81,17 @@ public class a {
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.kru != null) {
-            this.kru.setEventCallback(aVar);
+        if (this.krI != null) {
+            this.krI.setEventCallback(aVar);
         }
-        if (this.krr != null) {
-            this.krr.setEventCallback(aVar);
+        if (this.krF != null) {
+            this.krF.setEventCallback(aVar);
         }
     }
 
     public void onPause() {
-        if (this.krs != null) {
-            this.krs.onPause();
+        if (this.krG != null) {
+            this.krG.onPause();
         }
     }
 
@@ -99,8 +99,8 @@ public class a {
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        if (this.krs != null) {
-            this.krs.b(eVar);
+        if (this.krG != null) {
+            this.krG.b(eVar);
         }
     }
 }

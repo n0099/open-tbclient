@@ -7,47 +7,47 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes8.dex */
 public class a {
-    private static final String[] iEj = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] iEk = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] iEl = {"111.206.37.190"};
-    private static final String[] iEm = {"115.239.211.146", "180.97.33.196"};
     private volatile int dVj;
-    private volatile String iEi;
+    private volatile String iEw;
+    private static final String[] iEx = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] iEy = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] iEz = {"111.206.37.190"};
+    private static final String[] iEA = {"115.239.211.146", "180.97.33.196"};
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String ctW() {
-        ctX();
+    public String cud() {
+        cue();
         if (j.isWifiNet()) {
-            return iEm[new Random().nextInt(iEm.length)];
+            return iEA[new Random().nextInt(iEA.length)];
         }
         if (j.isMobileNet()) {
             if (this.dVj == 1) {
-                return iEj[new Random().nextInt(iEj.length)];
+                return iEx[new Random().nextInt(iEx.length)];
             }
             if (this.dVj == 2) {
-                return iEk[new Random().nextInt(iEk.length)];
+                return iEy[new Random().nextInt(iEy.length)];
             }
             if (this.dVj == 3) {
-                return iEl[new Random().nextInt(iEl.length)];
+                return iEz[new Random().nextInt(iEz.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void ctX() {
+    protected void cue() {
         try {
-            this.iEi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
+            this.iEw = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
         } catch (Exception e) {
             BdLog.e(e);
         }
         this.dVj = 0;
-        if (this.iEi != null) {
-            if (this.iEi.startsWith("46000") || this.iEi.startsWith("46002") || this.iEi.startsWith("46007")) {
+        if (this.iEw != null) {
+            if (this.iEw.startsWith("46000") || this.iEw.startsWith("46002") || this.iEw.startsWith("46007")) {
                 this.dVj = 1;
-            } else if (this.iEi.startsWith("46001") || this.iEi.startsWith("46006")) {
+            } else if (this.iEw.startsWith("46001") || this.iEw.startsWith("46006")) {
                 this.dVj = 2;
-            } else if (this.iEi.startsWith("46003") || this.iEi.startsWith("46005")) {
+            } else if (this.iEw.startsWith("46003") || this.iEw.startsWith("46005")) {
                 this.dVj = 3;
             }
         }

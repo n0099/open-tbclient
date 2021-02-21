@@ -24,11 +24,11 @@ public class a {
         this.unReadCount = i;
     }
 
-    public String cVR() {
+    public String cVY() {
         return this.groupHead;
     }
 
-    public void MT(String str) {
+    public void MU(String str) {
         this.groupHead = str;
     }
 
@@ -48,7 +48,7 @@ public class a {
         this.userType = i;
     }
 
-    public long cUS() {
+    public long cUZ() {
         return this.cZf;
     }
 

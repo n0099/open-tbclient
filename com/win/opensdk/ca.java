@@ -14,8 +14,8 @@ public final class ca {
     int d;
     int e;
     int f;
-    boolean qiQ;
-    bz qkW;
+    boolean qjq;
+    bz qlw;
 
     /* renamed from: java  reason: collision with other field name */
     int[] f44java = null;
@@ -23,6 +23,6 @@ public final class ca {
 
     /* renamed from: case  reason: not valid java name */
     public int f43case = 0;
-    public List<bz> qjR = new ArrayList();
+    public List<bz> qkr = new ArrayList();
     public int g = 0;
 }

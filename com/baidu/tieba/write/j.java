@@ -45,7 +45,7 @@ public class j {
         String str2;
         String str3;
         if (forumWriteData != null && tbPageContext != null) {
-            if (dWD()) {
+            if (dWL()) {
                 RecordVideoActivityConfig recordVideoActivityConfig = new RecordVideoActivityConfig(tbPageContext.getPageActivity(), 1, forumWriteData, null, str, 0);
                 recordVideoActivityConfig.setShowType(0);
                 if (forumWriteData != null) {
@@ -99,52 +99,52 @@ public class j {
 
     /* loaded from: classes.dex */
     public static class a implements com.baidu.adp.plugin.packageManager.d {
-        private TbPageContext jJy;
-        private ForumWriteData odw;
-        private com.baidu.tbadk.core.dialog.c odx;
+        private TbPageContext jJM;
+        private ForumWriteData odW;
+        private com.baidu.tbadk.core.dialog.c odX;
 
         public a(TbPageContext tbPageContext, ForumWriteData forumWriteData, com.baidu.tbadk.core.dialog.c cVar) {
-            this.jJy = null;
-            this.jJy = tbPageContext;
-            this.odw = forumWriteData;
-            this.odx = cVar;
+            this.jJM = null;
+            this.jJM = tbPageContext;
+            this.odW = forumWriteData;
+            this.odX = cVar;
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.odx != null) {
-                this.odx.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.odX != null) {
+                this.odX.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void b(BdFileDownloadData bdFileDownloadData) {
-            if (this.odx != null) {
-                com.baidu.adp.lib.f.g.b(this.odx, this.jJy);
+            if (this.odX != null) {
+                com.baidu.adp.lib.f.g.b(this.odX, this.jJM);
             }
-            this.jJy.showToast(R.string.plugin_video_installing);
+            this.jJM.showToast(R.string.plugin_video_installing);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            if (this.odx != null) {
-                com.baidu.adp.lib.f.g.b(this.odx, this.jJy);
+            if (this.odX != null) {
+                com.baidu.adp.lib.f.g.b(this.odX, this.jJM);
             }
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.jJy != null) {
-                this.jJy.showToast(bdFileDownloadData.getStatusMsg());
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.jJM != null) {
+                this.jJM.showToast(bdFileDownloadData.getStatusMsg());
             }
             PluginPackageManager.pv().a((com.baidu.adp.plugin.packageManager.d) null);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            if (this.odx != null) {
-                com.baidu.adp.lib.f.g.b(this.odx, this.jJy);
+            if (this.odX != null) {
+                com.baidu.adp.lib.f.g.b(this.odX, this.jJM);
             }
             if (i == 0) {
-                j.b(this.jJy, "", this.odw);
+                j.b(this.jJM, "", this.odW);
             } else {
-                this.jJy.showToast(this.jJy.getString(R.string.install_failed) + str);
+                this.jJM.showToast(this.jJM.getString(R.string.install_failed) + str);
             }
             PluginPackageManager.pv().a((com.baidu.adp.plugin.packageManager.d) null);
         }
@@ -166,7 +166,7 @@ public class j {
         return cVar;
     }
 
-    public static boolean dWD() {
+    public static boolean dWL() {
         return SwitchManager.getInstance().findType(PublishVideoThreadSwitch.PUBLISH_VIDEO_THREAD_KEY) != 1;
     }
 

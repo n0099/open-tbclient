@@ -62,7 +62,7 @@ public class dj extends di.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo255c() {
+    public void mo254c() {
         if (this.f294a != null && this.f294a.exists()) {
             this.f293a.f287a.add(new di.c(this.f295a, this.f13946b, this.f294a, this.f297a));
         }

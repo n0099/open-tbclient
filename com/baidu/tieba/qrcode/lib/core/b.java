@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 final class b {
-    private static final Pattern mOl = Pattern.compile(",");
+    private static final Pattern mOA = Pattern.compile(",");
     private final Context mContext;
-    private Point mOm;
-    private Point mOn;
-    private Point mOo;
+    private Point mOB;
+    private Point mOC;
+    private Point mOD;
 
     public b(Context context) {
         this.mContext = context;
@@ -26,20 +26,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.mOm = a.gN(this.mContext);
+        this.mOB = a.gN(this.mContext);
         Point point = new Point();
-        point.x = this.mOm.x;
-        point.y = this.mOm.y;
+        point.x = this.mOB.x;
+        point.y = this.mOB.y;
         int gM = a.gM(this.mContext);
         if (gM == 0) {
-            point.x = this.mOm.y;
-            point.y = this.mOm.x;
+            point.x = this.mOB.y;
+            point.y = this.mOB.x;
         }
-        this.mOo = a(parameters, point);
+        this.mOD = a(parameters, point);
         if (gM == 0) {
-            this.mOn = new Point(this.mOo.y, this.mOo.x);
+            this.mOC = new Point(this.mOD.y, this.mOD.x);
         } else {
-            this.mOn = this.mOo;
+            this.mOC = this.mOD;
         }
     }
 
@@ -47,15 +47,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point dCr() {
-        return this.mOn;
+    public Point dCy() {
+        return this.mOC;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.mOo.x, this.mOo.y);
+        parameters.setPreviewSize(this.mOD.x, this.mOD.y);
         c(parameters);
-        camera.setDisplayOrientation(dCs());
+        camera.setDisplayOrientation(dCz());
         camera.setParameters(parameters);
     }
 
@@ -70,7 +70,7 @@ final class b {
         return null;
     }
 
-    public int dCs() {
+    public int dCz() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -140,7 +140,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = mOl.split(charSequence);
+        String[] split = mOA.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

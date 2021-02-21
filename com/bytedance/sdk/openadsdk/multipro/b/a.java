@@ -17,7 +17,7 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1026a {
+    public interface InterfaceC1028a {
         a a();
     }
 

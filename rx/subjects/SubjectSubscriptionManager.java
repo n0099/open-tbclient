@@ -23,11 +23,11 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     public SubjectSubscriptionManager() {
-        super(a.qEK);
+        super(a.qFk);
         this.active = true;
-        this.onStart = Actions.eMP();
-        this.onAdded = Actions.eMP();
-        this.onTerminated = Actions.eMP();
+        this.onStart = Actions.eMX();
+        this.onAdded = Actions.eMX();
+        this.onTerminated = Actions.eMX();
     }
 
     public void call(j<? super T> jVar) {
@@ -59,7 +59,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     b<T>[] observers() {
-        return get().qEH;
+        return get().qFh;
     }
 
     boolean add(b<T> bVar) {
@@ -89,34 +89,34 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] next(Object obj) {
         setLatest(obj);
-        return get().qEH;
+        return get().qFh;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        return get().terminated ? a.qEI : getAndSet(a.qEJ).qEH;
+        return get().terminated ? a.qFi : getAndSet(a.qFj).qFh;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes5.dex */
     public static final class a<T> {
-        static final b[] qEI = new b[0];
-        static final a qEJ = new a(true, qEI);
-        static final a qEK = new a(false, qEI);
-        final b[] qEH;
+        static final b[] qFi = new b[0];
+        static final a qFj = new a(true, qFi);
+        static final a qFk = new a(false, qFi);
+        final b[] qFh;
         final boolean terminated;
 
         public a(boolean z, b[] bVarArr) {
             this.terminated = z;
-            this.qEH = bVarArr;
+            this.qFh = bVarArr;
         }
 
         public a b(b bVar) {
-            int length = this.qEH.length;
+            int length = this.qFh.length;
             b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.qEH, 0, bVarArr, 0, length);
+            System.arraycopy(this.qFh, 0, bVarArr, 0, length);
             bVarArr[length] = bVar;
             return new a(this.terminated, bVarArr);
         }
@@ -124,10 +124,10 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         public a c(b bVar) {
             b[] bVarArr;
             int i;
-            b[] bVarArr2 = this.qEH;
+            b[] bVarArr2 = this.qFh;
             int length = bVarArr2.length;
             if (length == 1 && bVarArr2[0] == bVar) {
-                return qEK;
+                return qFk;
             }
             if (length != 0) {
                 b[] bVarArr3 = new b[length - 1];
@@ -147,7 +147,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     i3 = i;
                 }
                 if (i3 == 0) {
-                    return qEK;
+                    return qFk;
                 }
                 if (i3 < length - 1) {
                     bVarArr = new b[i3];

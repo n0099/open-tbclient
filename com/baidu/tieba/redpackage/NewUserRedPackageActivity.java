@@ -26,18 +26,18 @@ import com.baidu.tieba.view.RoundRelativeLayout;
 /* loaded from: classes2.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     private s eEP;
-    private ImageView gfl;
+    private ImageView gfq;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.redpackage.NewUserRedPackageActivity.1
         /* JADX DEBUG: Multi-variable search result rejected for r1v11, resolved type: com.baidu.tieba.redpackage.NewUserRedPackageActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() != NewUserRedPackageActivity.this.gfl.getId()) {
-                if (view.getId() == NewUserRedPackageActivity.this.nbf.getId()) {
+            if (view.getId() != NewUserRedPackageActivity.this.gfq.getId()) {
+                if (view.getId() == NewUserRedPackageActivity.this.nbF.getId()) {
                     TiebaStatic.log(new ar("c13684").ap("obj_type", 2));
                     if (TbadkCoreApplication.isLogin()) {
-                        if (NewUserRedPackageActivity.this.nbg != null) {
-                            bf.bsV().b(NewUserRedPackageActivity.this.getPageContext(), new String[]{NewUserRedPackageActivity.this.nbg.clickUrl});
+                        if (NewUserRedPackageActivity.this.nbG != null) {
+                            bf.bsV().b(NewUserRedPackageActivity.this.getPageContext(), new String[]{NewUserRedPackageActivity.this.nbG.clickUrl});
                             NewUserRedPackageActivity.this.finish();
                             return;
                         }
@@ -52,12 +52,12 @@ public class NewUserRedPackageActivity extends BaseActivity {
             NewUserRedPackageActivity.this.finish();
         }
     };
-    private RoundRelativeLayout nbb;
-    private ImageView nbc;
-    private TextView nbd;
-    private TextView nbe;
-    private TextView nbf;
-    private NewUserRedPackageData nbg;
+    private RoundRelativeLayout nbB;
+    private ImageView nbC;
+    private TextView nbD;
+    private TextView nbE;
+    private TextView nbF;
+    private NewUserRedPackageData nbG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -65,31 +65,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.activity_new_user_red_package);
-        this.nbb = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
-        this.nbb.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
-        this.nbc = (ImageView) findViewById(R.id.top_pic);
-        this.gfl = (ImageView) findViewById(R.id.img_close);
-        this.gfl.setOnClickListener(this.mOnClickListener);
-        this.nbd = (TextView) findViewById(R.id.money_count);
-        this.nbe = (TextView) findViewById(R.id.money_info);
-        this.nbf = (TextView) findViewById(R.id.btn_receive);
-        this.nbf.setOnClickListener(this.mOnClickListener);
-        cHH();
+        this.nbB = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
+        this.nbB.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
+        this.nbC = (ImageView) findViewById(R.id.top_pic);
+        this.gfq = (ImageView) findViewById(R.id.img_close);
+        this.gfq.setOnClickListener(this.mOnClickListener);
+        this.nbD = (TextView) findViewById(R.id.money_count);
+        this.nbE = (TextView) findViewById(R.id.money_info);
+        this.nbF = (TextView) findViewById(R.id.btn_receive);
+        this.nbF.setOnClickListener(this.mOnClickListener);
+        cHO();
         TiebaStatic.log(new ar("c13684").ap("obj_type", 1));
         this.eEP = new s();
     }
 
-    private void cHH() {
+    private void cHO() {
         if (getIntent() != null) {
-            this.nbg = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
-            if (this.nbg != null) {
-                a aVar = (a) d.mw().loadResourceFromMemery(this.nbg.topPicUrl, 10, new Object[0]);
+            this.nbG = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
+            if (this.nbG != null) {
+                a aVar = (a) d.mw().loadResourceFromMemery(this.nbG.topPicUrl, 10, new Object[0]);
                 if (aVar != null) {
-                    this.nbc.setImageBitmap(aVar.getRawBitmap());
+                    this.nbC.setImageBitmap(aVar.getRawBitmap());
                 }
-                this.nbd.setText(String.format(getString(R.string.new_user_red_package_money_count), this.nbg.money));
-                this.nbe.setText(getString(R.string.new_user_red_package_money_info));
-                this.nbf.setText(getString(R.string.new_user_red_package_receive));
+                this.nbD.setText(String.format(getString(R.string.new_user_red_package_money_count), this.nbG.money));
+                this.nbE.setText(getString(R.string.new_user_red_package_money_info));
+                this.nbF.setText(getString(R.string.new_user_red_package_receive));
             }
         }
     }
@@ -98,10 +98,10 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setBackgroundColor(this.nbb, R.color.CAM_X0201);
-        ap.setViewTextColor(this.nbd, R.color.CAM_X0105);
-        ap.setViewTextColor(this.nbe, R.color.CAM_X0105);
-        ap.setViewTextColor(this.nbf, R.color.CAM_X0302);
+        ap.setBackgroundColor(this.nbB, R.color.CAM_X0201);
+        ap.setViewTextColor(this.nbD, R.color.CAM_X0105);
+        ap.setViewTextColor(this.nbE, R.color.CAM_X0105);
+        ap.setViewTextColor(this.nbF, R.color.CAM_X0302);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -118,9 +118,9 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i == 25046 && this.nbg != null) {
+        if (i == 25046 && this.nbG != null) {
             this.eEP.bin();
-            bf.bsV().b(getPageContext(), new String[]{this.nbg.clickUrl});
+            bf.bsV().b(getPageContext(), new String[]{this.nbG.clickUrl});
             finish();
         }
     }

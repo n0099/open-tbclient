@@ -36,7 +36,7 @@ public class a {
             }
             createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
             createFromThreadCfg.setJumpGodReply(z);
-            m.IM(bln.getTid());
+            m.IN(bln.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -81,7 +81,7 @@ public class a {
         if (bVar != null && (az = bVar.az("c13488", true)) != null) {
             if (bVar.bln() != null) {
                 cb bln = bVar.bln();
-                az.ap("obj_name", bln.bpv() != null && (bln.bpv().dNz() != null || bln.bpv().bHH() != null) ? 1 : 0);
+                az.ap("obj_name", bln.bpv() != null && (bln.bpv().dNH() != null || bln.bpv().bHH() != null) ? 1 : 0);
                 if (bln.bnQ() != null) {
                     az.ap(TiebaInitialize.Params.AB_TYPE, bln.bnQ().hadConcerned() ? 1 : 0);
                 }

@@ -6,39 +6,39 @@ import android.os.Looper;
 import android.util.Log;
 /* loaded from: classes15.dex */
 public class a extends Thread {
-    private static final b pQc = new b() { // from class: com.github.anrwatchdog.a.1
+    private static final b pQC = new b() { // from class: com.github.anrwatchdog.a.1
         @Override // com.github.anrwatchdog.a.b
         public void onAppNotResponding(ANRError aNRError) {
             throw aNRError;
         }
     };
-    private static final InterfaceC1057a pQd = new InterfaceC1057a() { // from class: com.github.anrwatchdog.a.2
-        @Override // com.github.anrwatchdog.a.InterfaceC1057a
+    private static final InterfaceC1059a pQD = new InterfaceC1059a() { // from class: com.github.anrwatchdog.a.2
+        @Override // com.github.anrwatchdog.a.InterfaceC1059a
         public long iQ(long j) {
             return 0L;
         }
     };
-    private static final c pQe = new c() { // from class: com.github.anrwatchdog.a.3
+    private static final c pQE = new c() { // from class: com.github.anrwatchdog.a.3
         @Override // com.github.anrwatchdog.a.c
         public void a(InterruptedException interruptedException) {
             Log.w("ANRWatchdog", "Interrupted: " + interruptedException.getMessage());
         }
     };
-    private b pQf;
-    private InterfaceC1057a pQg;
-    private c pQh;
-    private final Handler pQi;
-    private final int pQj;
-    private String pQk;
-    private boolean pQl;
-    private boolean pQm;
-    private volatile long pQn;
-    private volatile boolean pQo;
-    private final Runnable pQp;
+    private b pQF;
+    private InterfaceC1059a pQG;
+    private c pQH;
+    private final Handler pQI;
+    private final int pQJ;
+    private String pQK;
+    private boolean pQL;
+    private boolean pQM;
+    private volatile long pQN;
+    private volatile boolean pQO;
+    private final Runnable pQP;
 
     /* renamed from: com.github.anrwatchdog.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC1057a {
+    public interface InterfaceC1059a {
         long iQ(long j);
     }
 
@@ -57,36 +57,36 @@ public class a extends Thread {
     }
 
     public a(int i) {
-        this.pQf = pQc;
-        this.pQg = pQd;
-        this.pQh = pQe;
-        this.pQi = new Handler(Looper.getMainLooper());
-        this.pQk = "";
-        this.pQl = false;
-        this.pQm = true;
-        this.pQn = 0L;
-        this.pQo = false;
-        this.pQp = new Runnable() { // from class: com.github.anrwatchdog.a.4
+        this.pQF = pQC;
+        this.pQG = pQD;
+        this.pQH = pQE;
+        this.pQI = new Handler(Looper.getMainLooper());
+        this.pQK = "";
+        this.pQL = false;
+        this.pQM = true;
+        this.pQN = 0L;
+        this.pQO = false;
+        this.pQP = new Runnable() { // from class: com.github.anrwatchdog.a.4
             @Override // java.lang.Runnable
             public void run() {
-                a.this.pQn = 0L;
-                a.this.pQo = false;
+                a.this.pQN = 0L;
+                a.this.pQO = false;
             }
         };
-        this.pQj = i;
+        this.pQJ = i;
     }
 
     public a a(b bVar) {
         if (bVar == null) {
-            this.pQf = pQc;
+            this.pQF = pQC;
         } else {
-            this.pQf = bVar;
+            this.pQF = bVar;
         }
         return this;
     }
 
-    public a eAt() {
-        this.pQk = null;
+    public a eAB() {
+        this.pQK = null;
         return this;
     }
 
@@ -94,35 +94,35 @@ public class a extends Thread {
     public void run() {
         ANRError NewMainOnly;
         setName("|ANR-WatchDog|");
-        long j = this.pQj;
+        long j = this.pQJ;
         while (!isInterrupted()) {
-            boolean z = this.pQn == 0;
-            this.pQn += j;
+            boolean z = this.pQN == 0;
+            this.pQN += j;
             if (z) {
-                this.pQi.post(this.pQp);
+                this.pQI.post(this.pQP);
             }
             try {
                 Thread.sleep(j);
-                if (this.pQn != 0 && !this.pQo) {
-                    if (!this.pQm && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
+                if (this.pQN != 0 && !this.pQO) {
+                    if (!this.pQM && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
                         Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
-                        this.pQo = true;
+                        this.pQO = true;
                     } else {
-                        j = this.pQg.iQ(this.pQn);
+                        j = this.pQG.iQ(this.pQN);
                         if (j <= 0) {
-                            if (this.pQk != null) {
-                                NewMainOnly = ANRError.New(this.pQn, this.pQk, this.pQl);
+                            if (this.pQK != null) {
+                                NewMainOnly = ANRError.New(this.pQN, this.pQK, this.pQL);
                             } else {
-                                NewMainOnly = ANRError.NewMainOnly(this.pQn);
+                                NewMainOnly = ANRError.NewMainOnly(this.pQN);
                             }
-                            this.pQf.onAppNotResponding(NewMainOnly);
-                            j = this.pQj;
-                            this.pQo = true;
+                            this.pQF.onAppNotResponding(NewMainOnly);
+                            j = this.pQJ;
+                            this.pQO = true;
                         }
                     }
                 }
             } catch (InterruptedException e) {
-                this.pQh.a(e);
+                this.pQH.a(e);
                 return;
             }
         }

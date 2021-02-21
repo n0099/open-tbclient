@@ -18,14 +18,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class BCAdView extends RelativeLayout {
-    protected com.baidu.tieba.advert.sdk.a.a gkQ;
-    protected BCAdView gkR;
-    protected TbImageView gkS;
-    protected AdInfo gkT;
-    protected AdInfo gkU;
-    protected AdType gkV;
-    protected c gkW;
-    public RedirectType gkX;
+    protected com.baidu.tieba.advert.sdk.a.a gle;
+    protected BCAdView glf;
+    protected TbImageView glg;
+    protected AdInfo glh;
+    protected AdInfo gli;
+    protected AdType glj;
+    protected c glk;
+    public RedirectType gll;
     protected Context mContext;
     protected int mHeight;
     protected TbPageContext<?> mPageContext;
@@ -35,47 +35,47 @@ public class BCAdView extends RelativeLayout {
     public BCAdView(TbPageContext<?> tbPageContext, String str, AdType adType, int i, int i2) {
         super(tbPageContext.getPageActivity());
         this.mPageContext = tbPageContext;
-        this.gkR = this;
+        this.glf = this;
         this.mContext = tbPageContext.getPageActivity();
         this.placeId = str;
-        this.gkV = adType;
+        this.glj = adType;
         this.mHeight = i;
         this.mWidth = i2;
     }
 
     public void loadAd() {
-        this.gkU = new AdInfo();
-        this.gkU.placeId = this.placeId;
-        this.gkU.adHeight = this.mHeight;
-        this.gkU.adWidth = this.mWidth;
-        this.gkU.typeId = this.gkV;
-        b.bMy().a(this.mPageContext, new a(this), this.gkU);
+        this.gli = new AdInfo();
+        this.gli.placeId = this.placeId;
+        this.gli.adHeight = this.mHeight;
+        this.gli.adWidth = this.mWidth;
+        this.gli.typeId = this.glj;
+        b.bMF().a(this.mPageContext, new a(this), this.gli);
     }
 
     public void setBCAdCallBack(com.baidu.tieba.advert.sdk.a.a aVar) {
         if (aVar != null) {
-            this.gkQ = aVar;
+            this.gle = aVar;
         }
     }
 
-    private void bME() {
-        if (this.gkQ != null) {
-            this.gkQ.bMm();
+    private void bML() {
+        if (this.gle != null) {
+            this.gle.bMt();
         }
     }
 
     public void aRc() {
-        if (this.gkQ != null) {
-            this.gkQ.bMn();
+        if (this.gle != null) {
+            this.gle.bMu();
         }
         onAdClose();
     }
 
     private void onAdClose() {
         try {
-            this.gkS = null;
+            this.glg = null;
             removeAllViews();
-            this.gkT = null;
+            this.glh = null;
         } catch (Exception e) {
             BdLog.e("Ad close failed" + e.getMessage());
         }
@@ -85,30 +85,30 @@ public class BCAdView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bME();
+        bML();
     }
 
     /* loaded from: classes8.dex */
     static class a implements b.a {
-        AdInfo gkU;
-        AdType gkV;
-        c gkW;
-        final WeakReference<BCAdView> gkY;
+        AdInfo gli;
+        AdType glj;
+        c glk;
+        final WeakReference<BCAdView> glm;
 
         public a(BCAdView bCAdView) {
-            this.gkU = bCAdView.gkU;
-            this.gkW = bCAdView.gkW;
-            this.gkV = bCAdView.gkV;
-            this.gkY = new WeakReference<>(bCAdView);
+            this.gli = bCAdView.gli;
+            this.glk = bCAdView.glk;
+            this.glj = bCAdView.glj;
+            this.glm = new WeakReference<>(bCAdView);
         }
 
         @Override // com.baidu.tieba.advert.sdk.b.b.a
-        public void Fl(String str) {
+        public void Fm(String str) {
             com.baidu.tieba.advert.sdk.a.a aVar;
             if (!au.isEmpty(str)) {
-                this.gkU = AdInfo.jsonToObject(str);
-                if (this.gkV == AdType.SPLASH && !au.isEmpty(this.gkU.adImgUrl)) {
-                    d.mw().a(this.gkU.adImgUrl, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.advert.sdk.view.BCAdView.a.1
+                this.gli = AdInfo.jsonToObject(str);
+                if (this.glj == AdType.SPLASH && !au.isEmpty(this.gli.adImgUrl)) {
+                    d.mw().a(this.gli.adImgUrl, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.advert.sdk.view.BCAdView.a.1
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.e.c
@@ -129,27 +129,27 @@ public class BCAdView extends RelativeLayout {
                         }
                     }, 0, 0, null, new Object[0]);
                 }
-                this.gkW.Fk(str);
-                BCAdView bCAdView = this.gkY.get();
-                if (bCAdView != null && (aVar = bCAdView.gkQ) != null) {
-                    aVar.bMl();
+                this.glk.Fl(str);
+                BCAdView bCAdView = this.glm.get();
+                if (bCAdView != null && (aVar = bCAdView.gle) != null) {
+                    aVar.bMs();
                 }
             }
         }
 
         @Override // com.baidu.tieba.advert.sdk.b.b.a
-        public void Fm(String str) {
-            BCAdView bCAdView = this.gkY.get();
+        public void Fn(String str) {
+            BCAdView bCAdView = this.glm.get();
             if (bCAdView != null) {
                 try {
                     if (!TextUtils.isEmpty(str)) {
                         com.baidu.tieba.advert.sdk.data.a aVar = new com.baidu.tieba.advert.sdk.data.a(new JSONObject(str));
-                        if (bCAdView.gkQ != null) {
-                            bCAdView.gkQ.a(aVar);
+                        if (bCAdView.gle != null) {
+                            bCAdView.gle.a(aVar);
                         }
                     }
-                    if (bCAdView.gkV == AdType.SPLASH) {
-                        bCAdView.gkW.Fk("");
+                    if (bCAdView.glj == AdType.SPLASH) {
+                        bCAdView.glk.Fl("");
                     } else {
                         bCAdView.aRc();
                     }

@@ -14,12 +14,12 @@ public class jq extends js {
 
     @Override // com.xiaomi.push.js
     public int a(byte[] bArr, int i, int i2) {
-        byte[] m507a = this.f862a.m507a();
+        byte[] m506a = this.f862a.m506a();
         if (i2 > this.f862a.a() - this.f14184a) {
             i2 = this.f862a.a() - this.f14184a;
         }
         if (i2 > 0) {
-            System.arraycopy(m507a, this.f14184a, bArr, i, i2);
+            System.arraycopy(m506a, this.f14184a, bArr, i, i2);
             this.f14184a += i2;
         }
         return i2;

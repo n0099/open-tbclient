@@ -3,7 +3,7 @@ package com.bytedance.sdk.a.b.a.e;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class e {
-    static final com.bytedance.sdk.a.a.f ppy = com.bytedance.sdk.a.a.f.a("PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n");
+    static final com.bytedance.sdk.a.a.f ppY = com.bytedance.sdk.a.a.f.a("PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n");
     private static final String[] d = {"DATA", "HEADERS", "PRIORITY", "RST_STREAM", "SETTINGS", "PUSH_PROMISE", "PING", "GOAWAY", "WINDOW_UPDATE", "CONTINUATION"};
 
     /* renamed from: b  reason: collision with root package name */

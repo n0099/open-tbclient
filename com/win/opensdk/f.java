@@ -3,31 +3,31 @@ package com.win.opensdk;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public class f {
-    private static f qjc;
-    bp<q> qjd = bp.eJo();
-    private q qje;
+    private static f qjC;
+    bp<q> qjD = bp.eJw();
+    private q qjE;
 
     private f() {
     }
 
-    public static f eIO() {
+    public static f eIW() {
         synchronized (f.class) {
-            if (qjc == null) {
-                qjc = new f();
+            if (qjC == null) {
+                qjC = new f();
             }
         }
-        return qjc;
+        return qjC;
     }
 
     public final void a(Context context, String str, af afVar, String str2, bq bqVar) {
         try {
-            this.qje = this.qjd.abM(str);
-            if (this.qje == null) {
-                this.qje = new q(context, afVar);
+            this.qjE = this.qjD.abY(str);
+            if (this.qjE == null) {
+                this.qjE = new q(context, afVar);
             }
-            this.qje.a(str2, null);
-            this.qje.qjA = bqVar;
-            this.qjd.a(str, this.qje);
+            this.qjE.a(str2, null);
+            this.qjE.qka = bqVar;
+            this.qjD.a(str, this.qjE);
         } catch (Exception e) {
         }
     }

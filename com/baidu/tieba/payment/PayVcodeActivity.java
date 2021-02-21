@@ -32,32 +32,32 @@ import org.json.JSONObject;
 public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
-    private PayVcodeModel lHe;
-    private a lHf;
-    private String lHg;
-    private String lHh;
-    private String lHi;
-    private String lHj;
-    private boolean lHk;
+    private PayVcodeModel lHs;
+    private a lHt;
+    private String lHu;
+    private String lHv;
+    private String lHw;
+    private String lHx;
+    private boolean lHy;
     private Handler mHandler;
     private String mUrl;
     private String mVcodeType;
     private String mVcodeUrl;
-    private boolean jUB = false;
-    private HttpMessageListener lHl = new HttpMessageListener(1001539) { // from class: com.baidu.tieba.payment.PayVcodeActivity.10
+    private boolean jUP = false;
+    private HttpMessageListener lHz = new HttpMessageListener(1001539) { // from class: com.baidu.tieba.payment.PayVcodeActivity.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            PayVcodeActivity.this.lHf.tL(false);
+            PayVcodeActivity.this.lHt.tL(false);
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponsePayNewVcodeInfoMessage)) {
                 ResponsePayNewVcodeInfoMessage responsePayNewVcodeInfoMessage = (ResponsePayNewVcodeInfoMessage) httpResponsedMessage;
                 if (!responsePayNewVcodeInfoMessage.hasError()) {
                     PayVcodeInfoData payNewVcodeInfoData = responsePayNewVcodeInfoMessage.getPayNewVcodeInfoData();
                     if (responsePayNewVcodeInfoMessage.getError() == 0 && payNewVcodeInfoData != null) {
-                        PayVcodeActivity.this.lHg = payNewVcodeInfoData.getCaptcha_vcode_str();
+                        PayVcodeActivity.this.lHu = payNewVcodeInfoData.getCaptcha_vcode_str();
                         PayVcodeActivity.this.mVcodeUrl = payNewVcodeInfoData.getVcode_pic_url();
                         PayVcodeActivity.this.mVcodeType = payNewVcodeInfoData.getCaptcha_code_type();
-                        PayVcodeActivity.this.dko();
+                        PayVcodeActivity.this.dkv();
                         return;
                     }
                     String errorString = responsePayNewVcodeInfoMessage.getErrorString();
@@ -92,7 +92,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                         try {
                             String string = new JSONObject(str3).getString(BuyTBeanActivityConfig.CALLBACK);
                             if (!StringUtils.isNull(string)) {
-                                PayVcodeActivity.this.lHi = string;
+                                PayVcodeActivity.this.lHw = string;
                                 PayVcodeActivity.this.mHandler.removeMessages(1);
                                 PayVcodeActivity.this.mHandler.sendMessage(PayVcodeActivity.this.mHandler.obtainMessage(1));
                             }
@@ -110,8 +110,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     } else if ("jsSetLoadVcodeFinished".equalsIgnoreCase(str2)) {
                         try {
                             JSONObject jSONObject = new JSONObject(str3);
-                            PayVcodeActivity.this.lHk = jSONObject.optBoolean("canpost");
-                            PayVcodeActivity.this.lHj = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
+                            PayVcodeActivity.this.lHy = jSONObject.optBoolean("canpost");
+                            PayVcodeActivity.this.lHx = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
@@ -127,8 +127,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                                 PayVcodeActivity.this.mHandler.removeMessages(2);
                                 PayVcodeActivity.this.mHandler.sendMessage(PayVcodeActivity.this.mHandler.obtainMessage(2));
                             } else if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
-                                PayVcodeActivity.this.lHh = optString;
-                                PayVcodeActivity.this.lHi = optString2;
+                                PayVcodeActivity.this.lHv = optString;
+                                PayVcodeActivity.this.lHw = optString2;
                                 PayVcodeActivity.this.mHandler.removeMessages(3);
                                 PayVcodeActivity.this.mHandler.sendMessage(PayVcodeActivity.this.mHandler.obtainMessage(3));
                             }
@@ -148,7 +148,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                 if (PayVcodeActivity.this.jsBridge != null) {
-                    return PayVcodeActivity.this.jsBridge.a(PayVcodeActivity.this.lHf.getWebView(), str, jsPromptResult);
+                    return PayVcodeActivity.this.jsBridge.a(PayVcodeActivity.this.lHt.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -161,29 +161,29 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && !this.jUB) {
+        if (z && !this.jUP) {
             aCu();
         }
     }
 
     private void initData(Bundle bundle) {
         this.mUrl = UtilHelper.appendCuidParam(TbConfig.SERVER_ADDRESS + Config.NEW_VCODE_WEBVIEW_ADDRESS + "?version=" + TbConfig.getVersion());
-        this.lHg = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_MD5);
+        this.lHu = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_MD5);
         this.mVcodeUrl = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_URL);
-        this.lHe = new PayVcodeModel(getPageContext());
+        this.lHs = new PayVcodeModel(getPageContext());
         this.mHandler = new Handler() { // from class: com.baidu.tieba.payment.PayVcodeActivity.3
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 super.handleMessage(message);
                 switch (message.what) {
                     case 1:
-                        PayVcodeActivity.this.dkq();
+                        PayVcodeActivity.this.dkx();
                         return;
                     case 2:
                         PayVcodeActivity.this.showToast(R.string.payment_vcode_error);
                         return;
                     case 3:
-                        PayVcodeActivity.this.dkr();
+                        PayVcodeActivity.this.dky();
                         return;
                     default:
                         return;
@@ -193,27 +193,27 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     }
 
     private void register() {
-        this.lHe.dkt();
-        registerListener(this.lHl);
+        this.lHs.dkA();
+        registerListener(this.lHz);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dkn() {
-        this.lHf.tL(true);
-        this.lHf.getWebView().loadUrl(this.mUrl);
+    public void dku() {
+        this.lHt.tL(true);
+        this.lHt.getWebView().loadUrl(this.mUrl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dko() {
-        if (!StringUtils.isNull(this.lHi)) {
-            this.lHf.getWebView().loadUrl("javascript:" + this.lHi + "()");
+    public void dkv() {
+        if (!StringUtils.isNull(this.lHw)) {
+            this.lHt.getWebView().loadUrl("javascript:" + this.lHw + "()");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dkp() {
-        if (!StringUtils.isNull(this.lHj) && this.lHk) {
-            this.lHf.getWebView().loadUrl("javascript:" + this.lHj + "()");
+    public void dkw() {
+        if (!StringUtils.isNull(this.lHx) && this.lHy) {
+            this.lHt.getWebView().loadUrl("javascript:" + this.lHx + "()");
         }
     }
 
@@ -225,7 +225,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         this.mHandler.removeMessages(2);
         this.mHandler.removeMessages(3);
         if (this.jsBridge != null) {
-            this.jsBridge.dNZ();
+            this.jsBridge.dOh();
         }
     }
 
@@ -233,39 +233,39 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lHf.onChangeSkinType(i);
+        this.lHt.onChangeSkinType(i);
     }
 
     private void initUI() {
-        this.lHf = new a(this);
-        this.lHf.dku().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
+        this.lHt = new a(this);
+        this.lHt.dkB().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PayVcodeActivity.this.dkp();
+                PayVcodeActivity.this.dkw();
             }
         });
-        this.lHf.dkv().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
+        this.lHt.dkC().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!PayVcodeActivity.this.lHk) {
-                    PayVcodeActivity.this.lHf.tL(true);
-                    PayVcodeActivity.this.lHf.getWebView().stopLoading();
-                    PayVcodeActivity.this.lHf.getWebView().loadUrl(PayVcodeActivity.this.mUrl);
+                if (!PayVcodeActivity.this.lHy) {
+                    PayVcodeActivity.this.lHt.tL(true);
+                    PayVcodeActivity.this.lHt.getWebView().stopLoading();
+                    PayVcodeActivity.this.lHt.getWebView().loadUrl(PayVcodeActivity.this.mUrl);
                 }
             }
         });
         b bVar = new b(this);
         bVar.setOnJsPromptCallback(this.jsCallback);
-        this.lHf.getWebView().setWebChromeClient(bVar);
-        this.lHf.getWebView().setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
+        this.lHt.getWebView().setWebChromeClient(bVar);
+        this.lHt.getWebView().setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
-                PayVcodeActivity.this.lHf.tL(false);
-                PayVcodeActivity.this.lHf.uz(PayVcodeActivity.this.lHk ? false : true);
+                PayVcodeActivity.this.lHt.tL(false);
+                PayVcodeActivity.this.lHt.uz(PayVcodeActivity.this.lHy ? false : true);
             }
         });
-        this.lHf.dkw().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.7
+        this.lHt.dkD().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PayVcodeActivity.this.uy(false);
@@ -274,21 +274,21 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dkq() {
-        this.lHf.tL(true);
-        this.lHe.dks();
+    public void dkx() {
+        this.lHt.tL(true);
+        this.lHs.dkz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dkr() {
+    public void dky() {
         uy(true);
     }
 
     public void aCu() {
-        this.lHf.dkw().setBackgroundColor(ap.getColor(R.color.common_color_10175));
+        this.lHt.dkD().setBackgroundColor(ap.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
         alphaAnimation.setDuration(300L);
-        this.lHf.dkw().startAnimation(alphaAnimation);
+        this.lHt.dkD().startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -303,19 +303,19 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PayVcodeActivity.this.dkn();
+                PayVcodeActivity.this.dku();
             }
         });
-        this.lHf.dkx().startAnimation(loadAnimation);
-        this.jUB = true;
+        this.lHt.dkE().startAnimation(loadAnimation);
+        this.jUP = true;
     }
 
     public void uy(final boolean z) {
-        this.lHf.dkw().setBackgroundColor(ap.getColor(R.color.common_color_10175));
+        this.lHt.dkD().setBackgroundColor(ap.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
         alphaAnimation.setDuration(300L);
         alphaAnimation.setFillAfter(true);
-        this.lHf.dkw().startAnimation(alphaAnimation);
+        this.lHt.dkD().startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -330,16 +330,16 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (z && !StringUtils.isNull(PayVcodeActivity.this.lHh)) {
+                if (z && !StringUtils.isNull(PayVcodeActivity.this.lHv)) {
                     Intent intent = new Intent();
-                    intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, PayVcodeActivity.this.lHh);
-                    intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, PayVcodeActivity.this.lHg);
+                    intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, PayVcodeActivity.this.lHv);
+                    intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, PayVcodeActivity.this.lHu);
                     PayVcodeActivity.this.setResult(-1, intent);
                 }
                 PayVcodeActivity.this.closeActivity();
             }
         });
-        this.lHf.dkx().startAnimation(loadAnimation);
+        this.lHt.dkE().startAnimation(loadAnimation);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback

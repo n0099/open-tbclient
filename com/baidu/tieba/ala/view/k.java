@@ -12,19 +12,19 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class k {
     Handler handler;
-    PkRankInView imh;
-    public ArrayList<PropsInfoData> imi;
-    public ArrayList<PropsInfoData> imj;
+    PkRankInView imv;
+    public ArrayList<PropsInfoData> imw;
+    public ArrayList<PropsInfoData> imx;
 
     public k(final PkRankInView pkRankInView) {
-        this.imh = pkRankInView;
+        this.imv = pkRankInView;
         this.handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.ala.view.k.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        k.this.ID("1");
-                        pkRankInView.cpZ();
+                        k.this.IE("1");
+                        pkRankInView.cqg();
                         return;
                     case 2:
                         pkRankInView.pl(true);
@@ -33,7 +33,7 @@ public class k {
                         pkRankInView.pl(false);
                         return;
                     case 10:
-                        pkRankInView.cqc();
+                        pkRankInView.cqj();
                         return;
                     case 20:
                         pkRankInView.pm(true);
@@ -49,15 +49,15 @@ public class k {
     }
 
     public void g(PkInfoData pkInfoData) {
-        this.imi = pkInfoData.myPkData.propsInfos;
-        this.imj = pkInfoData.otherPkData.propsInfos;
+        this.imw = pkInfoData.myPkData.propsInfos;
+        this.imx = pkInfoData.otherPkData.propsInfos;
         if (!pkInfoData.myPkData.buffMultiple.equals("1")) {
-            ID(pkInfoData.myPkData.buffMultiple);
-            this.imh.IB(pkInfoData.myPkData.buffMultiple);
+            IE(pkInfoData.myPkData.buffMultiple);
+            this.imv.IC(pkInfoData.myPkData.buffMultiple);
             x(1, pkInfoData.myPkData.buffMultipleEndTime - pkInfoData.pkStatusInfoData.nowTime);
         }
-        if (this.imi != null && this.imi.size() > 0) {
-            Iterator<PropsInfoData> it = this.imi.iterator();
+        if (this.imw != null && this.imw.size() > 0) {
+            Iterator<PropsInfoData> it = this.imw.iterator();
             while (it.hasNext()) {
                 PropsInfoData next = it.next();
                 if (next.propsType.equals(String.valueOf(2))) {
@@ -65,31 +65,31 @@ public class k {
                     Iterator<PropsInfoData.a> it2 = next.propsUserDataList.iterator();
                     while (it2.hasNext()) {
                         PropsInfoData.a next2 = it2.next();
-                        if (!this.imh.gRJ.isHost && next2.gTe != this.imh.gRJ.aJZ.aIz.userId) {
+                        if (!this.imv.gRX.isHost && next2.gTs != this.imv.gRX.aJZ.aIz.userId) {
                             next2 = aVar;
                         }
                         aVar = next2;
                     }
                     if (aVar != null) {
-                        this.imh.cqa();
+                        this.imv.cqh();
                         x(2, aVar.endTime - next.nowTime);
                     } else {
-                        this.imh.cqb();
+                        this.imv.cqi();
                     }
                     x(3, next.endTime - next.nowTime);
                 }
             }
         }
         if (!pkInfoData.otherPkData.buffMultiple.equals("1")) {
-            this.imh.IC(pkInfoData.otherPkData.buffMultiple);
+            this.imv.ID(pkInfoData.otherPkData.buffMultiple);
             x(10, pkInfoData.otherPkData.buffMultipleEndTime - pkInfoData.pkStatusInfoData.nowTime);
         }
-        if (this.imj != null && this.imj.size() > 0) {
-            Iterator<PropsInfoData> it3 = this.imj.iterator();
+        if (this.imx != null && this.imx.size() > 0) {
+            Iterator<PropsInfoData> it3 = this.imx.iterator();
             while (it3.hasNext()) {
                 PropsInfoData next3 = it3.next();
                 if (next3.propsType.equals(String.valueOf(2))) {
-                    this.imh.cqd();
+                    this.imv.cqk();
                     x(30, next3.endTime - next3.nowTime);
                 }
             }
@@ -113,11 +113,11 @@ public class k {
     }
 
     public void onDestroy() {
-        ID("1");
+        IE("1");
         this.handler.removeCallbacksAndMessages(null);
     }
 
-    public void ID(String str) {
+    public void IE(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913238, str));
     }
 }

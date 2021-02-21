@@ -48,7 +48,7 @@ public class EasterEggBridge implements com.baidu.tieba.tbadkCore.e.b {
                 if (!au.isEmpty(str2)) {
                     String trim = optString.trim();
                     for (b bVar : this.mListener) {
-                        if (trim.equals(bVar.cuv())) {
+                        if (trim.equals(bVar.cuC())) {
                             bVar.a(trim, jSONObject.optString(KEY_ARGS), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                         }
                     }

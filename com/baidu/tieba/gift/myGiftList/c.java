@@ -41,29 +41,29 @@ public class c extends d<MyGiftListActivity> {
     private View bMM;
     private View eno;
     private View.OnClickListener fhT;
-    private NavigationBar iJz;
-    private NoNetworkView jWE;
-    private BdListView jWF;
-    private View jWG;
-    private View jWH;
-    private View jWI;
-    private BdListView.e jWJ;
-    private TextView jWK;
-    private TextView jWL;
-    private TextView jWM;
-    private TextView jWN;
-    private TextView jWO;
-    private LinearLayout jWP;
-    private String jWQ;
-    private String jWR;
-    private b jWS;
-    private String jWT;
-    private LinearLayout jWU;
+    private NavigationBar iJN;
+    private MyGiftListActivity jWD;
+    private NoNetworkView jWS;
+    private BdListView jWT;
+    private View jWU;
     private View jWV;
-    private TextView jWW;
-    private ImageView jWX;
-    private AdapterView.OnItemClickListener jWY;
-    private MyGiftListActivity jWp;
+    private View jWW;
+    private BdListView.e jWX;
+    private TextView jWY;
+    private TextView jWZ;
+    private TextView jXa;
+    private TextView jXb;
+    private TextView jXc;
+    private LinearLayout jXd;
+    private String jXe;
+    private String jXf;
+    private b jXg;
+    private String jXh;
+    private LinearLayout jXi;
+    private View jXj;
+    private TextView jXk;
+    private ImageView jXl;
+    private AdapterView.OnItemClickListener jXm;
     private boolean mIsHost;
     private g mPullView;
     private h refreshView;
@@ -71,17 +71,17 @@ public class c extends d<MyGiftListActivity> {
     public c(MyGiftListActivity myGiftListActivity, BdListView.e eVar, boolean z) {
         super(myGiftListActivity.getPageContext());
         this.mPullView = null;
-        this.jWY = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.gift.myGiftList.c.2
+        this.jXm = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.gift.myGiftList.c.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                a.C0741a item = c.this.jWS.getItem(i);
+                a.C0742a item = c.this.jXg.getItem(i);
                 if (item != null && item.aXC > 0 && !StringUtils.isNull(item.aXE)) {
                     if (c.this.mIsHost) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(c.this.jWp.getPageContext().getPageActivity(), item.aXC, item.aXE, item.nameShow, GiftTabActivityConfig.FROM_PERSON_CENTER)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(c.this.jWD.getPageContext().getPageActivity(), item.aXC, item.aXE, item.nameShow, GiftTabActivityConfig.FROM_PERSON_CENTER)));
                     } else if (!j.isNetWorkAvailable()) {
-                        c.this.jWp.showToast(R.string.neterror);
+                        c.this.jWD.showToast(R.string.neterror);
                     } else {
-                        c.this.jWp.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.aXC), item.aXE)));
+                        c.this.jWD.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.aXC), item.aXE)));
                     }
                 }
             }
@@ -92,82 +92,82 @@ public class c extends d<MyGiftListActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
-                    if (view != c.this.jWM) {
-                        if (view == c.this.jWO && !StringUtils.isNull(c.this.jWT)) {
-                            bf.bsV().b(c.this.jWp.getPageContext(), new String[]{c.this.jWT});
+                    if (view != c.this.jXa) {
+                        if (view == c.this.jXc && !StringUtils.isNull(c.this.jXh)) {
+                            bf.bsV().b(c.this.jWD.getPageContext(), new String[]{c.this.jXh});
                         }
                     } else if (!l.isNetOk()) {
-                        UtilHelper.showToast(c.this.jWp.getPageContext().getPageActivity(), c.this.jWp.getResources().getString(R.string.neterror));
+                        UtilHelper.showToast(c.this.jWD.getPageContext().getPageActivity(), c.this.jWD.getResources().getString(R.string.neterror));
                     } else {
-                        BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(c.this.jWp.getPageContext().getPageActivity(), 0L);
+                        BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(c.this.jWD.getPageContext().getPageActivity(), 0L);
                         buyTBeanActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_MY_GIFT, MemberPayStatistic.CLICK_ZONE_OBTAIN_T);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, buyTBeanActivityConfig));
                     }
                 }
             }
         };
-        this.jWp = myGiftListActivity;
+        this.jWD = myGiftListActivity;
         this.mIsHost = z;
-        this.jWJ = eVar;
+        this.jWX = eVar;
         initView();
-        cOd();
+        cOk();
         if (this.mIsHost || !TbadkApplication.getInst().isGiftSwitchOn()) {
-            this.jWU.setVisibility(8);
+            this.jXi.setVisibility(8);
         } else {
-            this.jWU.setVisibility(0);
+            this.jXi.setVisibility(0);
         }
     }
 
     private void initView() {
-        this.jWp.setContentView(R.layout.my_gift_list_activity);
-        this.jWQ = null;
-        this.eno = this.jWp.findViewById(R.id.root);
-        this.jWF = (BdListView) this.eno.findViewById(R.id.list_view);
-        this.iJz = (NavigationBar) this.eno.findViewById(R.id.navigation_bar);
-        if (this.jWp.userType == 1) {
-            this.iJz.setCenterTextTitle(this.jWp.getPageContext().getString(R.string.forum_gift_list));
+        this.jWD.setContentView(R.layout.my_gift_list_activity);
+        this.jXe = null;
+        this.eno = this.jWD.findViewById(R.id.root);
+        this.jWT = (BdListView) this.eno.findViewById(R.id.list_view);
+        this.iJN = (NavigationBar) this.eno.findViewById(R.id.navigation_bar);
+        if (this.jWD.userType == 1) {
+            this.iJN.setCenterTextTitle(this.jWD.getPageContext().getString(R.string.forum_gift_list));
         } else {
-            String format = String.format(this.jWp.getPageContext().getString(R.string.he_gift_title), this.jWp.cOb());
+            String format = String.format(this.jWD.getPageContext().getString(R.string.he_gift_title), this.jWD.cOi());
             if (this.mIsHost) {
-                this.iJz.setCenterTextTitle(this.jWp.getPageContext().getString(R.string.my_gift_list));
+                this.iJN.setCenterTextTitle(this.jWD.getPageContext().getString(R.string.my_gift_list));
             } else {
-                this.iJz.setTitleText(format);
+                this.iJN.setTitleText(format);
             }
         }
-        this.iJz.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.jWE = (NoNetworkView) this.eno.findViewById(R.id.no_networkview);
-        this.jWH = LayoutInflater.from(this.jWp.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_rank_head, (ViewGroup) null, false);
-        this.jWH.setVisibility(8);
-        this.jWG = LayoutInflater.from(this.jWp.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_head, (ViewGroup) null, false);
-        this.jWG.setVisibility(8);
-        this.jWP = (LinearLayout) this.jWG.findViewById(R.id.view_link_info);
-        this.jWK = (TextView) this.jWG.findViewById(R.id.textview_gift_number);
-        this.jWL = (TextView) this.jWG.findViewById(R.id.textview_tdou_number);
-        this.jWM = (TextView) this.jWG.findViewById(R.id.view_get_tdou);
-        this.jWN = (TextView) this.jWG.findViewById(R.id.textview_blue_number);
-        this.jWO = (TextView) this.jWG.findViewById(R.id.view_get_blue);
-        this.jWO.setOnClickListener(this.fhT);
-        this.jWM.setOnClickListener(this.fhT);
-        this.bMM = LayoutInflater.from(this.jWp.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_footer, (ViewGroup) null, false);
-        this.jWI = this.bMM.findViewById(R.id.gift_footer_lay);
+        this.iJN.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.jWS = (NoNetworkView) this.eno.findViewById(R.id.no_networkview);
+        this.jWV = LayoutInflater.from(this.jWD.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_rank_head, (ViewGroup) null, false);
+        this.jWV.setVisibility(8);
+        this.jWU = LayoutInflater.from(this.jWD.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_head, (ViewGroup) null, false);
+        this.jWU.setVisibility(8);
+        this.jXd = (LinearLayout) this.jWU.findViewById(R.id.view_link_info);
+        this.jWY = (TextView) this.jWU.findViewById(R.id.textview_gift_number);
+        this.jWZ = (TextView) this.jWU.findViewById(R.id.textview_tdou_number);
+        this.jXa = (TextView) this.jWU.findViewById(R.id.view_get_tdou);
+        this.jXb = (TextView) this.jWU.findViewById(R.id.textview_blue_number);
+        this.jXc = (TextView) this.jWU.findViewById(R.id.view_get_blue);
+        this.jXc.setOnClickListener(this.fhT);
+        this.jXa.setOnClickListener(this.fhT);
+        this.bMM = LayoutInflater.from(this.jWD.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_footer, (ViewGroup) null, false);
+        this.jWW = this.bMM.findViewById(R.id.gift_footer_lay);
         if (this.mIsHost) {
-            this.jWF.addHeaderView(this.jWG);
+            this.jWT.addHeaderView(this.jWU);
         } else {
-            if (this.jWp.userType == 1) {
-                this.jWH.setVisibility(0);
-                this.jWF.addHeaderView(this.jWH);
+            if (this.jWD.userType == 1) {
+                this.jWV.setVisibility(0);
+                this.jWT.addHeaderView(this.jWV);
             }
             if (TbadkApplication.getInst().isGiftSwitchOn()) {
-                this.bMM.setPadding(0, 0, 0, l.getDimens(this.jWp.getPageContext().getPageActivity(), R.dimen.ds156));
+                this.bMM.setPadding(0, 0, 0, l.getDimens(this.jWD.getPageContext().getPageActivity(), R.dimen.ds156));
             }
         }
-        this.jWF.addFooterView(this.bMM);
-        this.jWS = new b(this.jWp, this.mIsHost);
-        this.jWF.setAdapter((ListAdapter) this.jWS);
-        this.mPullView = new g(this.jWp.getPageContext());
-        this.jWF.setPullRefresh(this.mPullView);
-        this.jWF.setOnSrollToBottomListener(this.jWJ);
-        this.jWF.setOnItemClickListener(this.jWY);
+        this.jWT.addFooterView(this.bMM);
+        this.jXg = new b(this.jWD, this.mIsHost);
+        this.jWT.setAdapter((ListAdapter) this.jXg);
+        this.mPullView = new g(this.jWD.getPageContext());
+        this.jWT.setPullRefresh(this.mPullView);
+        this.jWT.setOnSrollToBottomListener(this.jWX);
+        this.jWT.setOnItemClickListener(this.jXm);
     }
 
     public void aQ(String str, boolean z) {
@@ -183,38 +183,38 @@ public class c extends d<MyGiftListActivity> {
         this.refreshView.setLayoutMargin(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds280));
         this.refreshView.attachView(this.eno, z);
         this.refreshView.showRefreshButton();
-        this.jWU.setVisibility(8);
-        this.jWF.setVisibility(8);
+        this.jXi.setVisibility(8);
+        this.jWT.setVisibility(8);
     }
 
     public void WZ() {
         if (this.refreshView != null) {
             this.refreshView.dettachView(this.eno);
             this.refreshView = null;
-            this.jWF.setVisibility(0);
+            this.jWT.setVisibility(0);
         }
     }
 
-    private void cOd() {
-        this.jWU = (LinearLayout) this.jWp.findViewById(R.id.gift_relation_ll);
-        this.jWW = (TextView) this.jWp.findViewById(R.id.gift_relation_text);
-        this.jWU.setOnClickListener(this.jWp.cNZ());
-        this.jWV = this.jWp.findViewById(R.id.gift_send_gift_top_line);
-        this.jWX = (ImageView) this.jWp.findViewById(R.id.gift_send_gift_icon);
+    private void cOk() {
+        this.jXi = (LinearLayout) this.jWD.findViewById(R.id.gift_relation_ll);
+        this.jXk = (TextView) this.jWD.findViewById(R.id.gift_relation_text);
+        this.jXi.setOnClickListener(this.jWD.cOg());
+        this.jXj = this.jWD.findViewById(R.id.gift_send_gift_top_line);
+        this.jXl = (ImageView) this.jWD.findViewById(R.id.gift_send_gift_icon);
     }
 
-    public View cOe() {
-        return this.jWI;
+    public View cOl() {
+        return this.jWW;
     }
 
     public void b(a aVar) {
         if (this.mIsHost || !TbadkApplication.getInst().isGiftSwitchOn()) {
-            this.jWU.setVisibility(8);
+            this.jXi.setVisibility(8);
         } else {
-            this.jWU.setVisibility(0);
+            this.jXi.setVisibility(0);
         }
         if (aVar != null) {
-            TbadkCoreApplication.getInst().currentAccountTdouNum = aVar.cNW();
+            TbadkCoreApplication.getInst().currentAccountTdouNum = aVar.cOd();
         }
         WZ();
         c(aVar);
@@ -223,17 +223,17 @@ public class c extends d<MyGiftListActivity> {
 
     private void c(a aVar) {
         if (aVar == null || !this.mIsHost) {
-            this.jWG.setVisibility(8);
+            this.jWU.setVisibility(8);
             return;
         }
-        this.jWG.setVisibility(0);
-        this.jWQ = aVar.cNY().aHq;
-        this.jWR = aVar.cNY().jWf;
-        this.jWT = aVar.urlTitleData.eNY;
-        this.jWK.setText(a(R.drawable.icon_gift_my_gift, aVar.cNV(), 0));
-        this.jWL.setText(a(R.drawable.icon_gift_my_tdou, aVar.cNW(), 1));
-        this.jWN.setText(a(R.drawable.icon_gift_bluedrill, aVar.jVX, 2));
-        this.jWO.setText(aVar.urlTitleData.eNX);
+        this.jWU.setVisibility(0);
+        this.jXe = aVar.cOf().aHq;
+        this.jXf = aVar.cOf().jWt;
+        this.jXh = aVar.urlTitleData.eNY;
+        this.jWY.setText(a(R.drawable.icon_gift_my_gift, aVar.cOc(), 0));
+        this.jWZ.setText(a(R.drawable.icon_gift_my_tdou, aVar.cOd(), 1));
+        this.jXb.setText(a(R.drawable.icon_gift_bluedrill, aVar.jWl, 2));
+        this.jXc.setText(aVar.urlTitleData.eNX);
     }
 
     private SpannableString a(int i, long j, int i2) {
@@ -254,49 +254,49 @@ public class c extends d<MyGiftListActivity> {
         com.baidu.tbadk.widget.d dVar = new com.baidu.tbadk.widget.d(drawable);
         dVar.setPaddingRight(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
         UtilHelper.setSpan(spannableString, str, "[icon]", dVar);
-        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(l.getDimens(this.jWp.getPageContext().getPageActivity(), R.dimen.fontsize22));
-        UtilHelper.setSpan(spannableString, str, this.jWp.getResources().getString(R.string.unit_wan), absoluteSizeSpan);
-        UtilHelper.setSpan(spannableString, str, this.jWp.getResources().getString(R.string.unit_yi), absoluteSizeSpan);
+        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(l.getDimens(this.jWD.getPageContext().getPageActivity(), R.dimen.fontsize22));
+        UtilHelper.setSpan(spannableString, str, this.jWD.getResources().getString(R.string.unit_wan), absoluteSizeSpan);
+        UtilHelper.setSpan(spannableString, str, this.jWD.getResources().getString(R.string.unit_yi), absoluteSizeSpan);
         return spannableString;
     }
 
     private void d(a aVar) {
         if (aVar == null || aVar.getGiftList() == null || aVar.getGiftList().size() <= 0) {
             this.bMM.setVisibility(8);
-            this.jWU.setVisibility(8);
-            this.jWS.setData(null);
+            this.jXi.setVisibility(8);
+            this.jXg.setData(null);
             return;
         }
-        if (aVar.cNX() != null) {
-            if (aVar.cNX().jWd == 1) {
+        if (aVar.cOe() != null) {
+            if (aVar.cOe().jWr == 1) {
                 this.bMM.setVisibility(0);
             } else {
                 this.bMM.setVisibility(8);
             }
         }
-        this.jWS.setData(aVar.getGiftList());
+        this.jXg.setData(aVar.getGiftList());
     }
 
     public void onChangeSkinType(int i) {
-        this.jWp.getLayoutMode().setNightMode(i == 1);
-        this.jWp.getLayoutMode().onModeChanged(this.eno);
-        this.jWp.getLayoutMode().onModeChanged(this.jWG);
-        this.jWp.getLayoutMode().onModeChanged(this.jWH);
-        this.jWp.getLayoutMode().onModeChanged(this.bMM);
-        this.iJz.onChangeSkinType(getPageContext(), i);
-        this.jWE.onChangeSkinType(this.jWp.getPageContext(), i);
+        this.jWD.getLayoutMode().setNightMode(i == 1);
+        this.jWD.getLayoutMode().onModeChanged(this.eno);
+        this.jWD.getLayoutMode().onModeChanged(this.jWU);
+        this.jWD.getLayoutMode().onModeChanged(this.jWV);
+        this.jWD.getLayoutMode().onModeChanged(this.bMM);
+        this.iJN.onChangeSkinType(getPageContext(), i);
+        this.jWS.onChangeSkinType(this.jWD.getPageContext(), i);
         this.mPullView.changeSkin(i);
-        if (this.jWS != null) {
-            this.jWS.notifyDataSetChanged();
+        if (this.jXg != null) {
+            this.jXg.notifyDataSetChanged();
         }
-        ap.setBackgroundColor(this.jWV, R.color.CAM_X0204);
-        ap.setBackgroundColor(this.jWU, R.color.CAM_X0201);
-        ap.setViewTextColor(this.jWW, R.color.CAM_X0302);
-        ap.setImageResource(this.jWX, R.drawable.icon_gift_list);
+        ap.setBackgroundColor(this.jXj, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.jXi, R.color.CAM_X0201);
+        ap.setViewTextColor(this.jXk, R.color.CAM_X0302);
+        ap.setImageResource(this.jXl, R.drawable.icon_gift_list);
     }
 
-    public void cOf() {
-        this.jWF.completePullRefreshPostDelayed(0L);
+    public void cOm() {
+        this.jWT.completePullRefreshPostDelayed(0L);
     }
 
     public void a(f.c cVar) {
@@ -304,11 +304,11 @@ public class c extends d<MyGiftListActivity> {
     }
 
     public void h(NoNetworkView.a aVar) {
-        this.jWE.a(aVar);
+        this.jWS.a(aVar);
     }
 
     public void startPullRefresh() {
-        this.jWF.setVisibility(0);
-        this.jWF.startPullRefresh();
+        this.jWT.setVisibility(0);
+        this.jWT.startPullRefresh();
     }
 }

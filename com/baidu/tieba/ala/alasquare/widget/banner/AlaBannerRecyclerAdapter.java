@@ -10,32 +10,32 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerViewHolder> {
     private List<T> caS;
-    private a gKA;
-    private boolean gKB;
-    private b gKv;
-    private a gKz;
+    private b gKJ;
+    private a gKN;
+    private a gKO;
+    private boolean gKP;
     private Context mContext;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerRecyclerAdapter.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (AlaBannerRecyclerAdapter.this.gKv != null) {
-                AlaBannerRecyclerAdapter.this.gKv.aG(view.getTag());
+            if (AlaBannerRecyclerAdapter.this.gKJ != null) {
+                AlaBannerRecyclerAdapter.this.gKJ.aG(view.getTag());
             }
         }
     };
 
     public AlaBannerRecyclerAdapter(Context context, a aVar, boolean z) {
         this.mContext = context;
-        this.gKz = aVar;
-        this.gKB = z;
+        this.gKN = aVar;
+        this.gKP = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: u */
     public AlaBannerViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        if (this.gKz != null) {
-            return this.gKz.t(viewGroup, i);
+        if (this.gKN != null) {
+            return this.gKN.t(viewGroup, i);
         }
         return null;
     }
@@ -69,10 +69,10 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         if (y.isEmpty(this.caS) || y.getCount(this.caS) == 1) {
             return y.getCount(this.caS);
         }
-        return this.gKB ? y.getCount(this.caS) * 3 : y.getCount(this.caS);
+        return this.gKP ? y.getCount(this.caS) * 3 : y.getCount(this.caS);
     }
 
-    public int bSB() {
+    public int bSI() {
         return y.getCount(this.caS);
     }
 
@@ -81,10 +81,10 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     }
 
     public void setOnBannerClickListener(b bVar) {
-        this.gKv = bVar;
+        this.gKJ = bVar;
     }
 
     public void setViewHolderAdapter(a aVar) {
-        this.gKA = aVar;
+        this.gKO = aVar;
     }
 }

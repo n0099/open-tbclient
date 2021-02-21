@@ -8,51 +8,51 @@ public abstract class h {
     protected View eZA;
     protected View mAnchorView;
     protected Context mContext;
-    protected com.baidu.tieba.write.a ode;
-    protected a odj;
+    protected com.baidu.tieba.write.a odE;
+    protected a odJ;
     protected int mState = 4;
-    protected Rect odo = new Rect();
-    protected Rect odp = new Rect();
+    protected Rect odO = new Rect();
+    protected Rect odP = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
-        void Lh(int i);
+        void Li(int i);
     }
 
     public abstract void aAZ();
 
-    public abstract void dWt();
+    public abstract void dWB();
 
-    public abstract void dWu();
+    public abstract void dWC();
 
     public abstract void onDestroy();
 
     public h(Context context, com.baidu.tieba.write.a aVar) {
         this.mContext = context;
-        this.ode = aVar;
+        this.odE = aVar;
     }
 
     public void a(a aVar) {
-        this.odj = aVar;
+        this.odJ = aVar;
     }
 
     public void d(View view, View view2) {
         this.mAnchorView = view;
         this.eZA = view2;
         if (this.eZA != null) {
-            this.eZA.getGlobalVisibleRect(this.odo);
+            this.eZA.getGlobalVisibleRect(this.odO);
         }
     }
 
     public void show() {
-        dWt();
+        dWB();
     }
 
     public void gG(boolean z) {
         if (z) {
             aAZ();
         } else {
-            dWu();
+            dWC();
         }
     }
 }

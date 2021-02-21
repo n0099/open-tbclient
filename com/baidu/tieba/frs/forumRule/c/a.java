@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class a {
-    private RelativeLayout jvs;
-    private EMTextView jvt;
-    private EMTextView jvu;
-    private final int jvv = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
+    private RelativeLayout jvG;
+    private EMTextView jvH;
+    private EMTextView jvI;
+    private final int jvJ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
     private Context mContext;
     private View mRootView;
 
@@ -32,21 +32,21 @@ public class a {
     private void initView(Context context) {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(context).inflate(R.layout.forum_rules_unaudited, (ViewGroup) null);
-            this.jvs = (RelativeLayout) this.mRootView.findViewById(R.id.unaudited);
-            this.jvt = (EMTextView) this.mRootView.findViewById(R.id.unaudited_title);
+            this.jvG = (RelativeLayout) this.mRootView.findViewById(R.id.unaudited);
+            this.jvH = (EMTextView) this.mRootView.findViewById(R.id.unaudited_title);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.forum_rules_unaudited_alert));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_barrules_careful12, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.setLeftPadding(l.getDimens(context, R.dimen.tbds0));
             eMRichTextAnyIconSpan.setRightPadding(l.getDimens(context, R.dimen.M_W_X002));
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-            this.jvt.setText(spannableStringBuilder);
-            this.jvu = (EMTextView) this.mRootView.findViewById(R.id.unaudited_content);
+            this.jvH.setText(spannableStringBuilder);
+            this.jvI = (EMTextView) this.mRootView.findViewById(R.id.unaudited_content);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
-        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.f.a.b.btw().oO(0).af(this.jvv).b("TL_BR", R.color.CAM_X0212, R.color.CAM_X0212).bty(), com.baidu.tbadk.core.util.f.a.b.btw().oO(0).af(this.jvv).Bw("#4D000000").bty()});
+        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.f.a.b.btw().oO(0).af(this.jvJ).b("TL_BR", R.color.CAM_X0212, R.color.CAM_X0212).bty(), com.baidu.tbadk.core.util.f.a.b.btw().oO(0).af(this.jvJ).Bw("#4D000000").bty()});
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
             if (layerDrawable.getDrawable(1) != null) {
                 layerDrawable.getDrawable(1).setAlpha(255);
@@ -54,28 +54,28 @@ public class a {
         } else if (layerDrawable.getDrawable(1) != null) {
             layerDrawable.getDrawable(1).setAlpha(0);
         }
-        this.jvs.setBackgroundDrawable(layerDrawable);
-        c.br(this.jvt).nY(R.color.CAM_X0109);
-        c.br(this.jvu).nY(R.color.CAM_X0109);
+        this.jvG.setBackgroundDrawable(layerDrawable);
+        c.br(this.jvH).nY(R.color.CAM_X0109);
+        c.br(this.jvI).nY(R.color.CAM_X0109);
     }
 
-    public void KA(String str) {
-        if (this.jvu != null) {
-            this.jvu.setText(str);
+    public void KB(String str) {
+        if (this.jvI != null) {
+            this.jvI.setText(str);
         }
     }
 
     public void b(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.jvs != null) {
-            this.jvs.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.jvs);
+        if (bdTypeRecyclerView != null && this.jvG != null) {
+            this.jvG.setVisibility(0);
+            bdTypeRecyclerView.addHeaderView(this.jvG);
         }
     }
 
     public void c(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.jvs != null) {
-            this.jvs.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.jvs);
+        if (bdTypeRecyclerView != null && this.jvG != null) {
+            this.jvG.setVisibility(8);
+            bdTypeRecyclerView.removeHeaderView(this.jvG);
         }
     }
 }

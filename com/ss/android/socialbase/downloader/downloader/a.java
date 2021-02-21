@@ -34,7 +34,7 @@ public abstract class a implements p {
                 if (com.ss.android.socialbase.downloader.f.a.a()) {
                     com.ss.android.socialbase.downloader.f.a.b(a.e, "tryDownload: 2 error");
                 }
-                a.this.a(b.eGu(), (ServiceConnection) null);
+                a.this.a(b.eGC(), (ServiceConnection) null);
             }
         }
     };
@@ -134,7 +134,7 @@ public abstract class a implements p {
                             if (com.ss.android.socialbase.downloader.f.a.a()) {
                                 com.ss.android.socialbase.downloader.f.a.b(e, "tryDownload: 1");
                             }
-                            a(b.eGu(), (ServiceConnection) null);
+                            a(b.eGC(), (ServiceConnection) null);
                             this.d = true;
                         } else {
                             this.g.removeCallbacks(this.h);
@@ -144,7 +144,7 @@ public abstract class a implements p {
                     return;
                 }
                 a(dVar);
-                a(b.eGu(), (ServiceConnection) null);
+                a(b.eGC(), (ServiceConnection) null);
                 return;
             }
             if (this.f13132a.get(dVar.o()) != null) {
@@ -154,9 +154,9 @@ public abstract class a implements p {
                     }
                 }
             }
-            com.ss.android.socialbase.downloader.impls.a eGp = b.eGp();
-            if (eGp != null) {
-                eGp.a(dVar);
+            com.ss.android.socialbase.downloader.impls.a eGx = b.eGx();
+            if (eGx != null) {
+                eGx.a(dVar);
             }
             e();
         }
@@ -174,15 +174,15 @@ public abstract class a implements p {
             clone = this.f13132a.clone();
             this.f13132a.clear();
         }
-        com.ss.android.socialbase.downloader.impls.a eGp = b.eGp();
-        if (eGp != null) {
+        com.ss.android.socialbase.downloader.impls.a eGx = b.eGx();
+        if (eGx != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < clone.size()) {
                     com.ss.android.socialbase.downloader.g.d dVar = clone.get(clone.keyAt(i2));
                     if (dVar != null) {
-                        eGp.a(dVar);
+                        eGx.a(dVar);
                     }
                     i = i2 + 1;
                 } else {
@@ -207,7 +207,7 @@ public abstract class a implements p {
             if (com.ss.android.socialbase.downloader.f.a.a()) {
                 com.ss.android.socialbase.downloader.f.a.b(e, "startService");
             }
-            a(b.eGu(), (ServiceConnection) null);
+            a(b.eGC(), (ServiceConnection) null);
         }
     }
 }

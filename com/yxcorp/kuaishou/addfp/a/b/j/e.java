@@ -7,11 +7,11 @@ import java.util.concurrent.CountDownLatch;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class e implements ServiceConnection {
-    private /* synthetic */ d qlW;
+    private /* synthetic */ d qmw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.qlW = dVar;
+        this.qmw = dVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -19,10 +19,10 @@ public final class e implements ServiceConnection {
         CountDownLatch countDownLatch;
         CountDownLatch countDownLatch2;
         try {
-            this.qlW.qlV = b.a(iBinder);
-            countDownLatch = this.qlW.f;
+            this.qmw.qmv = b.a(iBinder);
+            countDownLatch = this.qmw.f;
             if (countDownLatch != null) {
-                countDownLatch2 = this.qlW.f;
+                countDownLatch2 = this.qmw.f;
                 countDownLatch2.countDown();
             }
         } catch (Throwable th) {
@@ -31,6 +31,6 @@ public final class e implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.qlW.qlV = null;
+        this.qmw.qmv = null;
     }
 }

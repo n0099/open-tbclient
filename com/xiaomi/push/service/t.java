@@ -30,7 +30,7 @@ final class t extends XMPushService.i {
     public void a() {
         try {
             ii a2 = p.a((Context) this.f1009a, this.f14322a);
-            a2.m444a().a("miui_message_unrecognized", "1");
+            a2.m443a().a("miui_message_unrecognized", "1");
             w.a(this.f1009a, a2);
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

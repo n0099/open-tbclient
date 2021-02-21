@@ -36,20 +36,20 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class b {
-    private static int oIw = VideoConstant.THUMBNAIL_WIDTH;
-    private static b oIx;
+    private static int oIW = VideoConstant.THUMBNAIL_WIDTH;
+    private static b oIX;
     private HandlerThread bdR = new HandlerThread("read_image_thread");
     private Handler mHandler;
 
-    public static b eel() {
-        if (oIx == null) {
+    public static b eet() {
+        if (oIX == null) {
             synchronized (b.class) {
-                if (oIx == null) {
-                    oIx = new b();
+                if (oIX == null) {
+                    oIX = new b();
                 }
             }
         }
-        return oIx;
+        return oIX;
     }
 
     private b() {
@@ -103,8 +103,8 @@ public class b {
     }
 
     private void a(ViewGroup viewGroup, String str, String str2, String str3, HashMap<String, String> hashMap, c cVar) {
-        a.eeg().dj(viewGroup);
-        a.eeg().di(viewGroup);
+        a.eeo().dj(viewGroup);
+        a.eeo().di(viewGroup);
         if (viewGroup != null && viewGroup.getContext() != null) {
             AlaAudioVideoLayout a2 = a(viewGroup.getContext(), str2, cVar);
             if (a2 != null) {
@@ -136,16 +136,16 @@ public class b {
             alaAudioVideoLayout.setData(str);
             alaAudioVideoLayout.setVideoCallback(new d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.b.1
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
-                public void EM(String str2) {
+                public void EL(String str2) {
                     if (cVar != null) {
                         cVar.onVideoPlayStart();
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
-                public void Ww(String str2) {
+                public void WI(String str2) {
                     if (alaAudioVideoLayout != null && (alaAudioVideoLayout.getParent() instanceof ViewGroup)) {
-                        a.eeg().dj((ViewGroup) alaAudioVideoLayout.getParent());
+                        a.eeo().dj((ViewGroup) alaAudioVideoLayout.getParent());
                     }
                     if (cVar != null) {
                         cVar.onVideoPlayEnd();
@@ -155,7 +155,7 @@ public class b {
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
                 public void onFail(String str2) {
                     if (cVar != null) {
-                        cVar.eem();
+                        cVar.eeu();
                     }
                 }
             });
@@ -192,7 +192,7 @@ public class b {
                     public void onAnimationCancel(Animator animator) {
                         super.onAnimationCancel(animator);
                         if (cVar != null) {
-                            cVar.eeo();
+                            cVar.eew();
                         }
                     }
 
@@ -200,9 +200,9 @@ public class b {
                     public void onAnimationEnd(Animator animator) {
                         super.onAnimationEnd(animator);
                         if (tBLottieAnimationView != null && (tBLottieAnimationView.getParent() instanceof ViewGroup)) {
-                            a.eeg().di((ViewGroup) tBLottieAnimationView.getParent());
+                            a.eeo().di((ViewGroup) tBLottieAnimationView.getParent());
                             if (cVar != null) {
-                                cVar.een();
+                                cVar.eev();
                             }
                         }
                     }
@@ -228,7 +228,7 @@ public class b {
         } else {
             final HashMap hashMap2 = new HashMap();
             for (final Map.Entry<String, String> entry : hashMap.entrySet()) {
-                final String urlWithResizeTag = TbImageView.getUrlWithResizeTag(entry.getValue(), oIw, oIw);
+                final String urlWithResizeTag = TbImageView.getUrlWithResizeTag(entry.getValue(), oIW, oIW);
                 BdResourceLoader.getInstance().loadResource(urlWithResizeTag, 25, new BdResourceCallback<BdImage>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.b.5
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */

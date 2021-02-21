@@ -15,165 +15,165 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* loaded from: classes8.dex */
 public class e {
     private TbPageContext<HotTopicActivity> eUY;
-    private ImageView kxY;
-    private LinearLayout kxZ;
-    private TextView kya;
-    private View kyb;
-    private AnimationDrawable kyc;
-    private Animation kyd;
-    private Animation kye;
-    private Animation kyf;
-    private Animation kyg;
-    private boolean kyh = false;
-    private boolean kyi = false;
+    private ImageView kym;
+    private LinearLayout kyn;
+    private TextView kyo;
+    private View kyp;
+    private AnimationDrawable kyq;
+    private Animation kyr;
+    private Animation kys;
+    private Animation kyt;
+    private Animation kyu;
+    private boolean kyv = false;
+    private boolean kyw = false;
     private int index = -1;
 
     public e(TbPageContext<HotTopicActivity> tbPageContext, View view) {
         this.eUY = tbPageContext;
-        this.kxY = (ImageView) view.findViewById(R.id.gif_image);
-        this.kxZ = (LinearLayout) view.findViewById(R.id.gif_group);
-        this.kya = (TextView) view.findViewById(R.id.git_desc);
-        this.kyb = view.findViewById(R.id.gif_clikc_view);
+        this.kym = (ImageView) view.findViewById(R.id.gif_image);
+        this.kyn = (LinearLayout) view.findViewById(R.id.gif_group);
+        this.kyo = (TextView) view.findViewById(R.id.git_desc);
+        this.kyp = view.findViewById(R.id.gif_clikc_view);
     }
 
     public void a(int i, boolean z, final long j, int i2) {
-        if (!this.kyh) {
-            this.kxZ.setVisibility(i);
+        if (!this.kyv) {
+            this.kyn.setVisibility(i);
             if (i != 8) {
-                this.kya.setText(au.numFormatOverWan(j));
-                this.kyi = z;
-                if (this.kyi) {
+                this.kyo.setText(au.numFormatOverWan(j));
+                this.kyw = z;
+                if (this.kyw) {
                     if (i2 == 1) {
-                        this.kya.setVisibility(0);
-                        ap.setImageResource(this.kxY, R.drawable.bless_gif);
+                        this.kyo.setVisibility(0);
+                        ap.setImageResource(this.kym, R.drawable.bless_gif);
                     } else {
-                        this.kya.setVisibility(8);
-                        ap.setImageResource(this.kxY, R.drawable.pic_float_zhufu);
+                        this.kyo.setVisibility(8);
+                        ap.setImageResource(this.kym, R.drawable.pic_float_zhufu);
                     }
-                    ((LinearLayout.LayoutParams) this.kya.getLayoutParams()).setMargins(this.eUY.getResources().getDimensionPixelSize(R.dimen.bless_magin_left), 0, 0, this.eUY.getResources().getDimensionPixelSize(R.dimen.bless_magin_bottom));
-                    ap.setViewTextColor(this.kya, R.color.topic_bless_text, 1);
-                    ap.setBackgroundResource(this.kya, R.drawable.pic_float_zhufu_num_b);
+                    ((LinearLayout.LayoutParams) this.kyo.getLayoutParams()).setMargins(this.eUY.getResources().getDimensionPixelSize(R.dimen.bless_magin_left), 0, 0, this.eUY.getResources().getDimensionPixelSize(R.dimen.bless_magin_bottom));
+                    ap.setViewTextColor(this.kyo, R.color.topic_bless_text, 1);
+                    ap.setBackgroundResource(this.kyo, R.drawable.pic_float_zhufu_num_b);
                 } else {
                     if (i2 == 1) {
-                        this.kya.setVisibility(0);
-                        ap.setImageResource(this.kxY, R.drawable.candle_gif);
+                        this.kyo.setVisibility(0);
+                        ap.setImageResource(this.kym, R.drawable.candle_gif);
                     } else {
-                        this.kya.setVisibility(8);
-                        ap.setImageResource(this.kxY, R.drawable.pic_float_qifu);
+                        this.kyo.setVisibility(8);
+                        ap.setImageResource(this.kym, R.drawable.pic_float_qifu);
                     }
-                    ((LinearLayout.LayoutParams) this.kya.getLayoutParams()).setMargins(this.eUY.getResources().getDimensionPixelSize(R.dimen.candle_magin_left), 0, 0, this.eUY.getResources().getDimensionPixelSize(R.dimen.candle_magin_bottom));
-                    ap.setViewTextColor(this.kya, R.color.topic_candle_text, 1);
-                    ap.setBackgroundResource(this.kya, R.drawable.pic_float_qifu_num_b);
+                    ((LinearLayout.LayoutParams) this.kyo.getLayoutParams()).setMargins(this.eUY.getResources().getDimensionPixelSize(R.dimen.candle_magin_left), 0, 0, this.eUY.getResources().getDimensionPixelSize(R.dimen.candle_magin_bottom));
+                    ap.setViewTextColor(this.kyo, R.color.topic_candle_text, 1);
+                    ap.setBackgroundResource(this.kyo, R.drawable.pic_float_qifu_num_b);
                 }
                 if (i2 == 1) {
-                    this.kxZ.clearAnimation();
-                    this.kyc = (AnimationDrawable) this.kxY.getDrawable();
-                    this.kyc.start();
+                    this.kyn.clearAnimation();
+                    this.kyq = (AnimationDrawable) this.kym.getDrawable();
+                    this.kyq.start();
                 } else {
-                    this.kyb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.1
+                    this.kyp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (e.this.kxZ.getAnimation() == e.this.kyd) {
-                                e.this.kxZ.clearAnimation();
+                            if (e.this.kyn.getAnimation() == e.this.kyr) {
+                                e.this.kyn.clearAnimation();
                                 return;
                             }
-                            e.this.kya.setVisibility(0);
-                            e.this.kya.setText(au.numFormatOverWan(j + 1));
-                            if (e.this.kyi) {
-                                ap.setImageResource(e.this.kxY, R.drawable.bless_gif);
+                            e.this.kyo.setVisibility(0);
+                            e.this.kyo.setText(au.numFormatOverWan(j + 1));
+                            if (e.this.kyw) {
+                                ap.setImageResource(e.this.kym, R.drawable.bless_gif);
                             } else {
-                                ap.setImageResource(e.this.kxY, R.drawable.candle_gif);
+                                ap.setImageResource(e.this.kym, R.drawable.candle_gif);
                             }
-                            e.this.kyc = (AnimationDrawable) e.this.kxY.getDrawable();
-                            e.this.kyc.start();
-                            e.this.kxZ.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.1.1
+                            e.this.kyq = (AnimationDrawable) e.this.kym.getDrawable();
+                            e.this.kyq.start();
+                            e.this.kyn.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (e.this.index > 1 && e.this.kxZ.getAnimation() != e.this.kyf) {
-                                        e.this.kxZ.startAnimation(e.this.kyf);
+                                    if (e.this.index > 1 && e.this.kyn.getAnimation() != e.this.kyt) {
+                                        e.this.kyn.startAnimation(e.this.kyt);
                                     }
                                 }
                             }, 2000L);
-                            ((HotTopicActivity) e.this.eUY.getOrignalPage()).cSP();
+                            ((HotTopicActivity) e.this.eUY.getOrignalPage()).cSW();
                         }
                     });
-                    this.kxZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.2
+                    this.kyn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (e.this.kxZ.getAnimation() == e.this.kyd) {
-                                e.this.kxZ.clearAnimation();
+                            if (e.this.kyn.getAnimation() == e.this.kyr) {
+                                e.this.kyn.clearAnimation();
                                 return;
                             }
-                            e.this.kya.setVisibility(0);
-                            e.this.kya.setText(au.numFormatOverWan(j + 1));
-                            if (e.this.kyi) {
-                                ap.setImageResource(e.this.kxY, R.drawable.bless_gif);
+                            e.this.kyo.setVisibility(0);
+                            e.this.kyo.setText(au.numFormatOverWan(j + 1));
+                            if (e.this.kyw) {
+                                ap.setImageResource(e.this.kym, R.drawable.bless_gif);
                             } else {
-                                ap.setImageResource(e.this.kxY, R.drawable.candle_gif);
+                                ap.setImageResource(e.this.kym, R.drawable.candle_gif);
                             }
-                            e.this.kyc = (AnimationDrawable) e.this.kxY.getDrawable();
-                            e.this.kyc.start();
-                            e.this.kxZ.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.2.1
+                            e.this.kyq = (AnimationDrawable) e.this.kym.getDrawable();
+                            e.this.kyq.start();
+                            e.this.kyn.postDelayed(new Runnable() { // from class: com.baidu.tieba.hottopic.view.e.2.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    if (e.this.index > 1 && e.this.kxZ.getAnimation() != e.this.kyf) {
-                                        e.this.kxZ.startAnimation(e.this.kyf);
+                                    if (e.this.index > 1 && e.this.kyn.getAnimation() != e.this.kyt) {
+                                        e.this.kyn.startAnimation(e.this.kyt);
                                     }
                                 }
                             }, 2000L);
-                            ((HotTopicActivity) e.this.eUY.getOrignalPage()).cSP();
+                            ((HotTopicActivity) e.this.eUY.getOrignalPage()).cSW();
                         }
                     });
                 }
-                this.kyh = true;
-                this.kyd = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.gifview_rotate);
-                this.kye = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.gifview_rotate_out);
-                this.kyf = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.gifview_alpha);
-                this.kyg = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.gifview_alpha_visible);
+                this.kyv = true;
+                this.kyr = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.gifview_rotate);
+                this.kys = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.gifview_rotate_out);
+                this.kyt = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.gifview_alpha);
+                this.kyu = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.gifview_alpha_visible);
             }
         }
     }
 
     public void Cy(int i) {
-        if (this.kyh) {
+        if (this.kyv) {
             this.index = i;
-            if (this.kxY.getDrawable() instanceof AnimationDrawable) {
+            if (this.kym.getDrawable() instanceof AnimationDrawable) {
                 if (this.index <= 1) {
-                    if (this.kxZ.getAnimation() != this.kyg) {
-                        this.kxZ.startAnimation(this.kyg);
-                        this.kyc.start();
+                    if (this.kyn.getAnimation() != this.kyu) {
+                        this.kyn.startAnimation(this.kyu);
+                        this.kyq.start();
                     }
-                } else if (this.kxZ.getAnimation() != this.kyf) {
-                    this.kxZ.startAnimation(this.kyf);
-                    this.kyc.stop();
+                } else if (this.kyn.getAnimation() != this.kyt) {
+                    this.kyn.startAnimation(this.kyt);
+                    this.kyq.stop();
                 }
             } else if (this.index >= 2) {
-                if (this.kxZ.getAnimation() != this.kyd) {
-                    this.kxZ.startAnimation(this.kyd);
+                if (this.kyn.getAnimation() != this.kyr) {
+                    this.kyn.startAnimation(this.kyr);
                 }
-            } else if (this.kxZ.getAnimation() == this.kyd) {
-                this.kxZ.startAnimation(this.kye);
+            } else if (this.kyn.getAnimation() == this.kyr) {
+                this.kyn.startAnimation(this.kys);
             }
         }
     }
 
     public void clearAnimation() {
-        this.kxY.clearAnimation();
-        this.kxZ.clearAnimation();
-        if (this.kyd != null) {
-            this.kyd.cancel();
+        this.kym.clearAnimation();
+        this.kyn.clearAnimation();
+        if (this.kyr != null) {
+            this.kyr.cancel();
         }
-        if (this.kye != null) {
-            this.kye.cancel();
+        if (this.kys != null) {
+            this.kys.cancel();
         }
-        if (this.kyf != null) {
-            this.kyf.cancel();
+        if (this.kyt != null) {
+            this.kyt.cancel();
         }
-        if (this.kyg != null) {
-            this.kyg.cancel();
+        if (this.kyu != null) {
+            this.kyu.cancel();
         }
-        if (this.kyc != null) {
-            this.kyc.stop();
+        if (this.kyq != null) {
+            this.kyq.stop();
         }
     }
 }

@@ -12,9 +12,9 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
     private bg aOF;
     private bk aOG;
     private bk aOH;
-    private bc hvh;
-    private bi hvi;
-    private bj hvj;
+    private bc hvv;
+    private bi hvw;
+    private bj hvx;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -42,18 +42,18 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
             }
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("challenge_conf");
             if (optJSONObject5 != null) {
-                this.hvh = new bc();
-                this.hvh.parseJson(optJSONObject5);
+                this.hvv = new bc();
+                this.hvv.parseJson(optJSONObject5);
             }
             JSONObject optJSONObject6 = optJSONObject.optJSONObject("punish_info");
             if (optJSONObject6 != null) {
-                this.hvi = new bi();
-                this.hvi.parseJson(optJSONObject6);
+                this.hvw = new bi();
+                this.hvw.parseJson(optJSONObject6);
             }
             JSONObject optJSONObject7 = optJSONObject.optJSONObject("punishStickerInfo");
             if (optJSONObject7 != null) {
-                this.hvj = new bj();
-                this.hvj.parseJson(optJSONObject7);
+                this.hvx = new bj();
+                this.hvx.parseJson(optJSONObject7);
             }
         }
     }
@@ -70,27 +70,27 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
         this.aOH = bkVar;
     }
 
-    public bg ccR() {
+    public bg ccY() {
         return this.aOF;
     }
 
-    public bk ccS() {
+    public bk ccZ() {
         return this.aOG;
     }
 
-    public bk ccT() {
+    public bk cda() {
         return this.aOH;
     }
 
-    public bc ccU() {
-        return this.hvh;
+    public bc cdb() {
+        return this.hvv;
     }
 
-    public bi ccV() {
-        return this.hvi;
+    public bi cdc() {
+        return this.hvw;
     }
 
-    public bj ccW() {
-        return this.hvj;
+    public bj cdd() {
+        return this.hvx;
     }
 }

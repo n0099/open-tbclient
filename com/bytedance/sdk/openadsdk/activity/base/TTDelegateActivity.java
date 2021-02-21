@@ -278,20 +278,20 @@ public class TTDelegateActivity extends Activity {
         try {
             if (this.d == null || !this.d.isShowing()) {
                 this.d = new com.bytedance.sdk.openadsdk.core.widget.a(this);
-                this.d.a(str).b(str3).a(new a.InterfaceC1013a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.7
-                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1013a
+                this.d.a(str).b(str3).a(new a.InterfaceC1015a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.7
+                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1015a
                     public void a(Dialog dialog) {
                         g.b(str2);
                         TTDelegateActivity.this.finish();
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1013a
+                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1015a
                     public void b(Dialog dialog) {
                         g.d(str2);
                         TTDelegateActivity.this.finish();
                     }
 
-                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1013a
+                    @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1015a
                     public void c(Dialog dialog) {
                         TTDelegateActivity.this.b(str);
                     }
@@ -347,21 +347,21 @@ public class TTDelegateActivity extends Activity {
                 this.d.dismiss();
             }
             this.d = new com.bytedance.sdk.openadsdk.core.widget.a(this);
-            this.d.a(str).b(str3).a(new a.InterfaceC1013a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.10
-                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1013a
+            this.d.a(str).b(str3).a(new a.InterfaceC1015a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity.10
+                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1015a
                 public void a(Dialog dialog) {
                     g.b(str2);
                     TTDelegateActivity.this.finish();
                 }
 
-                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1013a
+                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1015a
                 public void b(Dialog dialog) {
                     if (TTDelegateActivity.this.d != null) {
                         TTDelegateActivity.this.d.dismiss();
                     }
                 }
 
-                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1013a
+                @Override // com.bytedance.sdk.openadsdk.core.widget.a.InterfaceC1015a
                 public void c(Dialog dialog) {
                     TTDelegateActivity.this.b(str);
                 }

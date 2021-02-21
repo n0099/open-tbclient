@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class n {
-    private static n mIa = null;
-    private LinkedHashMap<String, Integer> mIb = new LinkedHashMap<>(150, 0.75f, true);
+    private static n mIr = null;
+    private LinkedHashMap<String, Integer> mIt = new LinkedHashMap<>(150, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                n.this.mIb.clear();
+                n.this.mIt.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class n {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static n dAg() {
-        if (mIa == null) {
+    public static n dAn() {
+        if (mIr == null) {
             synchronized (n.class) {
-                if (mIa == null) {
-                    mIa = new n();
+                if (mIr == null) {
+                    mIr = new n();
                 }
             }
         }
-        return mIa;
+        return mIr;
     }
 
     public void bL(String str, int i) {
-        if (i != 0 || !this.mIb.containsKey(str)) {
-            this.mIb.put(str, Integer.valueOf(i));
+        if (i != 0 || !this.mIt.containsKey(str)) {
+            this.mIt.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.mIb.remove(str);
+            this.mIt.remove(str);
         }
     }
 
-    public int QD(String str) {
-        Integer num = this.mIb.get(str);
+    public int QE(String str) {
+        Integer num = this.mIt.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class n {
     }
 
     public void clear() {
-        this.mIb.clear();
+        this.mIt.clear();
     }
 }

@@ -409,9 +409,9 @@ public class b implements NativeExpressADData2, ADEventListener, com.qq.e.comm.p
     }
 
     @Override // com.qq.e.comm.plugin.nativeadunified.b
-    public void a(b.EnumC1203b enumC1203b) {
+    public void a(b.EnumC1205b enumC1205b) {
         if (this.f != null) {
-            this.f.a(enumC1203b);
+            this.f.a(enumC1205b);
         }
     }
 
@@ -529,7 +529,7 @@ public class b implements NativeExpressADData2, ADEventListener, com.qq.e.comm.p
     }
 
     @Override // com.qq.e.comm.plugin.nativeadunified.b
-    public b.EnumC1203b h() {
+    public b.EnumC1205b h() {
         if (this.f != null) {
             return this.f.r();
         }

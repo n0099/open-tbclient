@@ -11,89 +11,89 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class c {
-    private static c pQx;
-    private static b pQy;
-    g pQu;
-    private List<d> pQz = new LinkedList();
-    i pQv = new i(Looper.getMainLooper().getThread(), pQy.provideDumpInterval());
-    h pQw = new h(pQy.provideDumpInterval());
+    private static c pQX;
+    private static b pQY;
+    g pQU;
+    private List<d> pQZ = new LinkedList();
+    i pQV = new i(Looper.getMainLooper().getThread(), pQY.provideDumpInterval());
+    h pQW = new h(pQY.provideDumpInterval());
 
     public c() {
         a(new g(new g.a() { // from class: com.github.a.a.c.1
             @Override // com.github.a.a.g.a
             public void d(long j, long j2, long j3, long j4) {
-                ArrayList<String> T = c.this.pQv.T(j, j2);
+                ArrayList<String> T = c.this.pQV.T(j, j2);
                 if (!T.isEmpty()) {
-                    com.github.a.a.a.a eAI = com.github.a.a.a.a.eAH().e(j, j2, j3, j4).ZF(c.this.pQw.getCpuRateInfo()).bo(T).eAI();
-                    if (c.eAz().displayNotification()) {
-                        f.ZE(eAI.toString());
+                    com.github.a.a.a.a eAQ = com.github.a.a.a.a.eAP().e(j, j2, j3, j4).ZR(c.this.pQW.getCpuRateInfo()).bo(T).eAQ();
+                    if (c.eAH().displayNotification()) {
+                        f.ZQ(eAQ.toString());
                     }
-                    if (c.this.pQz.size() != 0) {
-                        for (d dVar : c.this.pQz) {
-                            dVar.onBlock(c.eAz().provideContext(), eAI);
+                    if (c.this.pQZ.size() != 0) {
+                        for (d dVar : c.this.pQZ) {
+                            dVar.onBlock(c.eAH().provideContext(), eAQ);
                         }
                     }
                 }
             }
-        }, eAz().provideBlockThreshold(), eAz().stopWhenDebugging()));
-        f.eAE();
+        }, eAH().provideBlockThreshold(), eAH().stopWhenDebugging()));
+        f.eAM();
     }
 
-    public g eAv() {
-        return this.pQu;
+    public g eAD() {
+        return this.pQU;
     }
 
-    public i eAw() {
-        return this.pQv;
+    public i eAE() {
+        return this.pQV;
     }
 
-    public h eAx() {
-        return this.pQw;
+    public h eAF() {
+        return this.pQW;
     }
 
-    public static c eAy() {
-        if (pQx == null) {
+    public static c eAG() {
+        if (pQX == null) {
             synchronized (c.class) {
-                if (pQx == null) {
-                    pQx = new c();
+                if (pQX == null) {
+                    pQX = new c();
                 }
             }
         }
-        return pQx;
+        return pQX;
     }
 
     public static void a(b bVar) {
-        pQy = bVar;
+        pQY = bVar;
     }
 
-    public static b eAz() {
-        return pQy;
+    public static b eAH() {
+        return pQY;
     }
 
     public void addBlockInterceptor(d dVar) {
-        this.pQz.add(dVar);
+        this.pQZ.add(dVar);
     }
 
     private void a(g gVar) {
-        this.pQu = gVar;
+        this.pQU = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long eAA() {
-        return eAz().provideBlockThreshold() * 0.8f;
+    public long eAI() {
+        return eAH().provideBlockThreshold() * 0.8f;
     }
 
     static String getPath() {
         String externalStorageState = Environment.getExternalStorageState();
-        String providePath = eAz() == null ? "" : eAz().providePath();
+        String providePath = eAH() == null ? "" : eAH().providePath();
         if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
             return Environment.getExternalStorageDirectory().getPath() + providePath;
         }
-        return eAz().provideContext().getFilesDir() + eAz().providePath();
+        return eAH().provideContext().getFilesDir() + eAH().providePath();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static File eAB() {
+    public static File eAJ() {
         File file = new File(getPath());
         if (!file.exists()) {
             file.mkdirs();
@@ -102,9 +102,9 @@ public final class c {
     }
 
     public static File[] anh() {
-        File eAB = eAB();
-        if (eAB.exists() && eAB.isDirectory()) {
-            return eAB.listFiles(new a());
+        File eAJ = eAJ();
+        if (eAJ.exists() && eAJ.isDirectory()) {
+            return eAJ.listFiles(new a());
         }
         return null;
     }

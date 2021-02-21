@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public class t {
-    public boolean gcx;
+    public boolean gcC;
     public int tabId;
 }

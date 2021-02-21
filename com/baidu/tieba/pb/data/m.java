@@ -6,14 +6,14 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
 public class m extends PostData {
     public static final BdUniqueId Yl = BdUniqueId.gen();
-    public int gAx;
+    public int gAL;
+    public int lLA;
     @DrawableRes
-    public int lLi;
-    public String lLj;
-    public int lLk;
-    public int lLl;
+    public int lLx;
+    public String lLy;
+    public int lLz;
     private int position = 0;
-    public int lLm = 0;
+    public int lLB = 0;
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {

@@ -5,13 +5,13 @@ import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class r implements b, a.InterfaceC1065a {
+public class r implements b, a.InterfaceC1067a {
 
     /* renamed from: a  reason: collision with root package name */
     private final String f7957a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<a.InterfaceC1065a> f7958b = new ArrayList();
+    private final List<a.InterfaceC1067a> f7958b = new ArrayList();
     private final ShapeTrimPath.Type c;
     private final com.ksad.lottie.a.b.a<?, Float> d;
     private final com.ksad.lottie.a.b.a<?, Float> e;
@@ -31,7 +31,7 @@ public class r implements b, a.InterfaceC1065a {
         this.f.a(this);
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1065a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
     public void a() {
         int i = 0;
         while (true) {
@@ -45,8 +45,8 @@ public class r implements b, a.InterfaceC1065a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC1065a interfaceC1065a) {
-        this.f7958b.add(interfaceC1065a);
+    public void a(a.InterfaceC1067a interfaceC1067a) {
+        this.f7958b.add(interfaceC1067a);
     }
 
     @Override // com.ksad.lottie.a.a.b

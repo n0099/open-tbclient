@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements f.c {
-    private ax jci;
-    private com.baidu.tieba.forumMember.member.a.b jck;
-    private d jcl;
+    private ax jcw;
+    private com.baidu.tieba.forumMember.member.a.b jcy;
+    private d jcz;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.n> jcj = null;
-    private ar jcm = new ar() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+    private List<com.baidu.adp.widget.ListView.n> jcx = null;
+    private ar jcA = new ar() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
         @Override // com.baidu.tieba.frs.ar
         public void a(int i, int i2, ba baVar, ArrayList<com.baidu.adp.widget.ListView.n> arrayList) {
-            ForumMemberActivity.this.jck.hideLoadingView();
-            ForumMemberActivity.this.jck.completePullRefresh();
+            ForumMemberActivity.this.jcy.hideLoadingView();
+            ForumMemberActivity.this.jcy.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.n> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -33,23 +33,23 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 }
             }
             if (!y.isEmpty(arrayList)) {
-                ForumMemberActivity.this.jck.WZ();
-                ForumMemberActivity.this.jcj = arrayList;
-                ForumMemberActivity.this.jck.df(ForumMemberActivity.this.jcj);
-            } else if (y.isEmpty(ForumMemberActivity.this.jcj) && baVar != null) {
-                ForumMemberActivity.this.jck.JZ(baVar.errMsg);
+                ForumMemberActivity.this.jcy.WZ();
+                ForumMemberActivity.this.jcx = arrayList;
+                ForumMemberActivity.this.jcy.df(ForumMemberActivity.this.jcx);
+            } else if (y.isEmpty(ForumMemberActivity.this.jcx) && baVar != null) {
+                ForumMemberActivity.this.jcy.Ka(baVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a gxZ = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a gyn = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            ForumMemberActivity.this.jck.qo(z);
+            ForumMemberActivity.this.jcy.qo(z);
             if (z) {
-                if (y.isEmpty(ForumMemberActivity.this.jcj)) {
-                    ForumMemberActivity.this.cAK();
+                if (y.isEmpty(ForumMemberActivity.this.jcx)) {
+                    ForumMemberActivity.this.cAR();
                 } else {
-                    ForumMemberActivity.this.jck.startPullRefresh();
+                    ForumMemberActivity.this.jcy.startPullRefresh();
                 }
             }
         }
@@ -60,13 +60,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initBundle(bundle);
-        this.jck = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.jck.f(this.gxZ);
-        this.jcl = new d();
-        this.jcl.setTag(getUniqueId());
-        this.jcl.init();
-        this.jcl.a(this.jcm);
-        cAK();
+        this.jcy = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.jcy.f(this.gyn);
+        this.jcz = new d();
+        this.jcz.setTag(getUniqueId());
+        this.jcz.init();
+        this.jcz.a(this.jcA);
+        cAR();
     }
 
     private void initBundle(Bundle bundle) {
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.jci = new ax();
-        this.jci.forumId = this.mForumId;
-        this.jci.forumName = this.mForumName;
+        this.jcw = new ax();
+        this.jcw.forumId = this.mForumId;
+        this.jcw.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jck.onChangeSkinType(i);
+        this.jcy.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jcl.bYN();
-        if (this.jck != null) {
-            this.jck.onDestroy();
+        this.jcz.bYU();
+        if (this.jcy != null) {
+            this.jcy.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        d dVar = this.jcl;
-        d dVar2 = this.jcl;
-        dVar.a(3, 0, this.jci);
+        d dVar = this.jcz;
+        d dVar2 = this.jcz;
+        dVar.a(3, 0, this.jcw);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            cAK();
+            cAR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAK() {
-        this.jck.showLoadingView();
-        d dVar = this.jcl;
-        d dVar2 = this.jcl;
-        dVar.a(3, 0, this.jci);
+    public void cAR() {
+        this.jcy.showLoadingView();
+        d dVar = this.jcz;
+        d dVar2 = this.jcz;
+        dVar.a(3, 0, this.jcw);
     }
 }

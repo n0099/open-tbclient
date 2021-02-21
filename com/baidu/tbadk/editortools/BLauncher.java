@@ -84,7 +84,7 @@ public class BLauncher extends ImageView implements h {
         }
     }
 
-    public void CK(String str) {
+    public void CI(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -138,7 +138,7 @@ public class BLauncher extends ImageView implements h {
             if (aVar.data == null) {
                 bBf();
             } else if (aVar.data instanceof String) {
-                CK((String) aVar.data);
+                CI((String) aVar.data);
             }
         }
     }

@@ -17,45 +17,43 @@ import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
 /* loaded from: classes8.dex */
 public class c extends d<SecretSettingActivity> {
     private View.OnClickListener aEh;
-    private LinearLayout iWh;
+    private LinearLayout iWv;
     private View mBack;
     private NavigationBar mNavigationBar;
-    private String[] neA;
-    private TbSettingTextTipView neB;
-    private TbSettingTextTipView neC;
-    private a neD;
-    private TbSettingTextTipView nep;
-    private TbSettingTextTipView neq;
-    private TbSettingTextTipView ner;
-    private TbSettingTextTipView nes;
-    private TbSettingTextTipView neu;
-    private View nev;
-
-    /* renamed from: new  reason: not valid java name */
-    private TbSettingTextTipView f5new;
-    private TbSettingTextTipView nex;
-    private SecretSettingActivity ney;
-    private View nez;
+    private TbSettingTextTipView neQ;
+    private TbSettingTextTipView neR;
+    private TbSettingTextTipView neS;
+    private TbSettingTextTipView neT;
+    private TbSettingTextTipView neU;
+    private View neV;
+    private TbSettingTextTipView neW;
+    private TbSettingTextTipView neX;
+    private SecretSettingActivity neY;
+    private View neZ;
+    private String[] nfa;
+    private TbSettingTextTipView nfb;
+    private TbSettingTextTipView nfc;
+    private a nfd;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void dGg();
-
-        void dGh();
-
-        void dGi();
-
-        void dGj();
-
-        void dGk();
-
-        void dGl();
-
-        void dGm();
-
-        void dGn();
-
         void dGo();
+
+        void dGp();
+
+        void dGq();
+
+        void dGr();
+
+        void dGs();
+
+        void dGt();
+
+        void dGu();
+
+        void dGv();
+
+        void dGw();
 
         void onBackPressed();
     }
@@ -66,163 +64,163 @@ public class c extends d<SecretSettingActivity> {
         this.aEh = new View.OnClickListener() { // from class: com.baidu.tieba.setting.im.more.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.neD != null) {
+                if (c.this.nfd != null) {
                     if (view == c.this.mBack) {
-                        c.this.neD.onBackPressed();
-                    } else if (view == c.this.nep) {
-                        c.this.neD.dGg();
-                    } else if (view == c.this.neq) {
-                        c.this.neD.dGh();
-                    } else if (view == c.this.nes) {
-                        c.this.neD.dGj();
-                    } else if (view == c.this.nex) {
-                        c.this.neD.dGi();
-                    } else if (view == c.this.neu) {
-                        c.this.neD.dGk();
-                    } else if (view == c.this.f5new) {
-                        c.this.neD.dGl();
-                    } else if (view == c.this.neB) {
-                        c.this.neD.dGm();
-                    } else if (view == c.this.ner) {
-                        c.this.neD.dGn();
-                    } else if (view == c.this.neC) {
-                        c.this.neD.dGo();
+                        c.this.nfd.onBackPressed();
+                    } else if (view == c.this.neQ) {
+                        c.this.nfd.dGo();
+                    } else if (view == c.this.neR) {
+                        c.this.nfd.dGp();
+                    } else if (view == c.this.neT) {
+                        c.this.nfd.dGr();
+                    } else if (view == c.this.neX) {
+                        c.this.nfd.dGq();
+                    } else if (view == c.this.neU) {
+                        c.this.nfd.dGs();
+                    } else if (view == c.this.neW) {
+                        c.this.nfd.dGt();
+                    } else if (view == c.this.nfb) {
+                        c.this.nfd.dGu();
+                    } else if (view == c.this.neS) {
+                        c.this.nfd.dGv();
+                    } else if (view == c.this.nfc) {
+                        c.this.nfd.dGw();
                     }
                 }
             }
         };
-        this.ney = secretSettingActivity;
+        this.neY = secretSettingActivity;
         secretSettingActivity.setContentView(R.layout.secret_setting_activity);
         i(secretSettingActivity);
     }
 
     public void onChangeSkinType(int i) {
-        this.ney.getLayoutMode().setNightMode(i == 1);
-        this.ney.getLayoutMode().onModeChanged(this.iWh);
-        this.mNavigationBar.onChangeSkinType(this.ney.getPageContext(), i);
+        this.neY.getLayoutMode().setNightMode(i == 1);
+        this.neY.getLayoutMode().onModeChanged(this.iWv);
+        this.mNavigationBar.onChangeSkinType(this.neY.getPageContext(), i);
     }
 
     private void i(SecretSettingActivity secretSettingActivity) {
-        this.iWh = (LinearLayout) secretSettingActivity.findViewById(R.id.parent);
+        this.iWv = (LinearLayout) secretSettingActivity.findViewById(R.id.parent);
         this.mNavigationBar = (NavigationBar) secretSettingActivity.findViewById(R.id.view_navigation_bar);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(secretSettingActivity.getPageContext().getString(R.string.secretSetting));
-        this.nep = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
-        this.neq = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_bar);
-        this.ner = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.mark_setting);
-        this.nex = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_group);
-        this.nes = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_live);
-        this.neu = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.user_mute_list);
-        this.f5new = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.thread_reply_setting);
-        this.nev = secretSettingActivity.findViewById(R.id.container_thread_reply_setting);
+        this.neQ = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
+        this.neR = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_bar);
+        this.neS = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.mark_setting);
+        this.neX = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_group);
+        this.neT = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_attention_live);
+        this.neU = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.user_mute_list);
+        this.neW = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.thread_reply_setting);
+        this.neV = secretSettingActivity.findViewById(R.id.container_thread_reply_setting);
         this.mBack.setOnClickListener(this.aEh);
-        this.nep.setOnClickListener(this.aEh);
-        this.neu.setOnClickListener(this.aEh);
-        this.nex.setOnClickListener(this.aEh);
-        this.neq.setOnClickListener(this.aEh);
-        this.ner.setOnClickListener(this.aEh);
-        this.nes.setOnClickListener(this.aEh);
-        this.f5new.setOnClickListener(this.aEh);
-        this.nez = this.ney.findViewById(R.id.privacy_setting_container);
-        this.neA = this.ney.getResources().getStringArray(R.array.privacy_setting_config);
+        this.neQ.setOnClickListener(this.aEh);
+        this.neU.setOnClickListener(this.aEh);
+        this.neX.setOnClickListener(this.aEh);
+        this.neR.setOnClickListener(this.aEh);
+        this.neS.setOnClickListener(this.aEh);
+        this.neT.setOnClickListener(this.aEh);
+        this.neW.setOnClickListener(this.aEh);
+        this.neZ = this.neY.findViewById(R.id.privacy_setting_container);
+        this.nfa = this.neY.getResources().getStringArray(R.array.privacy_setting_config);
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(PersonGroupActivityConfig.class)) {
-            this.nex.setVisibility(0);
+            this.neX.setVisibility(0);
         } else {
-            this.nex.setVisibility(8);
+            this.neX.setVisibility(8);
         }
-        this.neB = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_permission);
-        this.neB.setOnClickListener(this.aEh);
-        this.neC = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_forbidden_forum);
-        this.neC.setOnClickListener(this.aEh);
+        this.nfb = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_permission);
+        this.nfb.setOnClickListener(this.aEh);
+        this.nfc = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.privacy_forbidden_forum);
+        this.nfc.setOnClickListener(this.aEh);
         UserData bCK = com.baidu.tbadk.getUserInfo.b.bCI().bCK();
         if (bCK != null && bCK.getBazhuGradeData() != null && !StringUtils.isNull(bCK.getBazhuGradeData().getDesc()) && !StringUtils.isNull(bCK.getBazhuGradeData().getLevel())) {
-            this.ner.setVisibility(0);
+            this.neS.setVisibility(0);
         } else {
-            this.ner.setVisibility(8);
+            this.neS.setVisibility(8);
         }
     }
 
     public void a(a aVar) {
-        this.neD = aVar;
+        this.nfd = aVar;
     }
 
-    public void dGp() {
-        this.nep.recycle();
+    public void dGx() {
+        this.neQ.recycle();
     }
 
     public void xM(boolean z) {
         if (z) {
-            this.nez.setVisibility(0);
+            this.neZ.setVisibility(0);
         } else {
-            this.nez.setVisibility(8);
+            this.neZ.setVisibility(8);
         }
         if (SwitchManager.getInstance().findType("reply_private_setting_switch") == 1) {
-            this.nev.setVisibility(0);
-            this.f5new.setVisibility(0);
+            this.neV.setVisibility(0);
+            this.neW.setVisibility(0);
             return;
         }
-        this.nev.setVisibility(8);
-        this.f5new.setVisibility(8);
+        this.neV.setVisibility(8);
+        this.neW.setVisibility(8);
     }
 
     public void bT(String str, int i) {
         int i2 = i - 1;
-        if (this.neA != null && i2 < this.neA.length && i2 >= 0) {
+        if (this.nfa != null && i2 < this.nfa.length && i2 >= 0) {
             if (TextUtils.equals(str, "like")) {
-                this.neq.setTip(this.neA[i2]);
+                this.neR.setTip(this.nfa[i2]);
             } else if (TextUtils.equals(str, TbEnum.ParamKey.GROUP)) {
-                this.nex.setTip(this.neA[i2]);
+                this.neX.setTip(this.nfa[i2]);
             } else if (TextUtils.equals(str, "live")) {
-                this.nes.setTip(this.neA[i2]);
+                this.neT.setTip(this.nfa[i2]);
             } else if (TextUtils.equals(str, "reply")) {
                 if (i2 == 0) {
-                    this.f5new.setTip(this.ney.getString(R.string.all_person));
+                    this.neW.setTip(this.neY.getString(R.string.all_person));
                 } else {
-                    this.f5new.setTip(this.neA[i2]);
+                    this.neW.setTip(this.nfa[i2]);
                 }
             } else if (TextUtils.equals(str, PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE) || TextUtils.equals(str, PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                dk(com.baidu.tbadk.core.sharedPref.b.brQ().getInt(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0), com.baidu.tbadk.core.sharedPref.b.brQ().getInt(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0));
+                dl(com.baidu.tbadk.core.sharedPref.b.brQ().getInt(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0), com.baidu.tbadk.core.sharedPref.b.brQ().getInt(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0));
             }
         }
     }
 
     public void d(com.baidu.tieba.setting.im.more.a aVar) {
-        if (aVar != null && this.neA != null) {
-            int length = this.neA.length;
-            int dGb = aVar.dGb() - 1;
-            if (dGb < length && dGb >= 0) {
-                this.nex.setTip(this.neA[dGb]);
+        if (aVar != null && this.nfa != null) {
+            int length = this.nfa.length;
+            int dGj = aVar.dGj() - 1;
+            if (dGj < length && dGj >= 0) {
+                this.neX.setTip(this.nfa[dGj]);
             }
-            int dFZ = aVar.dFZ() - 1;
-            if (dFZ < length && dFZ >= 0) {
-                this.neq.setTip(this.neA[dFZ]);
+            int dGh = aVar.dGh() - 1;
+            if (dGh < length && dGh >= 0) {
+                this.neR.setTip(this.nfa[dGh]);
             }
-            int dGa = aVar.dGa() - 1;
-            if (dGa < length && dGa >= 0) {
-                this.nes.setTip(this.neA[dGa]);
+            int dGi = aVar.dGi() - 1;
+            if (dGi < length && dGi >= 0) {
+                this.neT.setTip(this.nfa[dGi]);
             }
-            int dGd = aVar.dGd() - 1;
-            if (dGd < length && dGd >= 0) {
-                if (dGd == 0) {
-                    this.f5new.setTip(this.ney.getString(R.string.all_person));
+            int dGl = aVar.dGl() - 1;
+            if (dGl < length && dGl >= 0) {
+                if (dGl == 0) {
+                    this.neW.setTip(this.neY.getString(R.string.all_person));
                 } else {
-                    this.f5new.setTip(this.neA[dGd]);
+                    this.neW.setTip(this.nfa[dGl]);
                 }
             }
-            dk(aVar.getBazhuShowInside(), aVar.getBazhuShowOutside());
+            dl(aVar.getBazhuShowInside(), aVar.getBazhuShowOutside());
         }
     }
 
-    public void dk(int i, int i2) {
+    public void dl(int i, int i2) {
         if (i2 == 3 && i == 3) {
-            this.ner.setTip(this.ney.getString(R.string.mark_tip_no));
+            this.neS.setTip(this.neY.getString(R.string.mark_tip_no));
         } else if (i2 == 3) {
-            this.ner.setTip(this.ney.getString(R.string.mark_tip_inside));
+            this.neS.setTip(this.neY.getString(R.string.mark_tip_inside));
         } else if (i == 3) {
-            this.ner.setTip(this.ney.getString(R.string.mark_tip_outside));
+            this.neS.setTip(this.neY.getString(R.string.mark_tip_outside));
         } else {
-            this.ner.setTip(this.ney.getString(R.string.mark_tip_all));
+            this.neS.setTip(this.neY.getString(R.string.mark_tip_all));
         }
     }
 }

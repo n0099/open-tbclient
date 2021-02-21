@@ -11,11 +11,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class a extends g {
-    public static CopyOnWriteArrayList<Throwable> pwX = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<Throwable> pxx = new CopyOnWriteArrayList<>();
     private String A;
     private String B;
     private String C;
-    private JSONArray pwW;
+    private JSONArray pxw;
 
     /* renamed from: b  reason: collision with root package name */
     private String f7722b = null;
@@ -97,7 +97,7 @@ public class a extends g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONArray jSONArray) {
-        this.pwW = jSONArray;
+        this.pxw = jSONArray;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,7 +165,7 @@ public class a extends g {
         this.B = str;
     }
 
-    public void XA(String str) {
+    public void XM(String str) {
         this.C = str;
     }
 
@@ -188,7 +188,7 @@ public class a extends g {
             jSONObject.put("interfaceCode", this.m);
             jSONObject.put("interfaceElasped", this.n);
             jSONObject.put("loginType", this.o);
-            jSONObject.put("exceptionStackTrace", this.pwW);
+            jSONObject.put("exceptionStackTrace", this.pxw);
             jSONObject.put("operatorType", this.q);
             jSONObject.put("networkType", this.r);
             jSONObject.put("networkClass", this.s);

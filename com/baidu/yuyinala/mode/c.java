@@ -20,21 +20,21 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     private com.baidu.live.tieba.pb.interactionpopupwindow.c bEl;
     private CommonEmptyView bwJ;
     private View cBE;
-    private HListView gxi;
-    private View oVp;
-    private View oVq;
-    private View oVr;
-    private boolean oVv;
-    private TextView oWs;
-    private com.baidu.yuyinala.mode.a.a oWt;
-    private a oWu;
-    private AlaAudioModeDialogData oWv;
-    private com.baidu.yuyinala.mode.b.a oWw;
-    private com.baidu.yuyinala.mode.b.a oWx;
+    private HListView gxw;
+    private View oVP;
+    private View oVQ;
+    private View oVR;
+    private boolean oVV;
+    private TextView oWS;
+    private com.baidu.yuyinala.mode.a.a oWT;
+    private a oWU;
+    private AlaAudioModeDialogData oWV;
+    private com.baidu.yuyinala.mode.b.a oWW;
+    private com.baidu.yuyinala.mode.b.a oWX;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void Nx(int i);
+        void Ny(int i);
     }
 
     public c(TbPageContext<?> tbPageContext) {
@@ -42,7 +42,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     }
 
     public void a(a aVar) {
-        this.oWu = aVar;
+        this.oWU = aVar;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
@@ -53,28 +53,28 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void a(AlaAudioModeDialogData alaAudioModeDialogData) {
-        this.oWv = alaAudioModeDialogData;
-        if (this.oWv != null && !ListUtils.isEmpty(alaAudioModeDialogData.getModeList())) {
+        this.oWV = alaAudioModeDialogData;
+        if (this.oWV != null && !ListUtils.isEmpty(alaAudioModeDialogData.getModeList())) {
             a(alaAudioModeDialogData.getModeList(), alaAudioModeDialogData.getChosenMode());
         }
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.oWt = new com.baidu.yuyinala.mode.a.a(this.mTbPageContext.getPageActivity());
+        this.oWT = new com.baidu.yuyinala.mode.a.a(this.mTbPageContext.getPageActivity());
         this.cBE = getViewGroup().findViewById(a.f.root_layout);
-        this.gxi = (HListView) getViewGroup().findViewById(a.f.mode_lv);
-        this.gxi.setAdapter((ListAdapter) this.oWt);
-        this.gxi.setDividerWidth(this.mTbPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds8));
-        this.gxi.setSelector(this.mTbPageContext.getResources().getDrawable(a.e.sdk_transparent_bg));
-        this.oVp = getViewGroup().findViewById(a.f.cancle_tv);
-        this.oVq = getViewGroup().findViewById(a.f.confirm_tv);
+        this.gxw = (HListView) getViewGroup().findViewById(a.f.mode_lv);
+        this.gxw.setAdapter((ListAdapter) this.oWT);
+        this.gxw.setDividerWidth(this.mTbPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds8));
+        this.gxw.setSelector(this.mTbPageContext.getResources().getDrawable(a.e.sdk_transparent_bg));
+        this.oVP = getViewGroup().findViewById(a.f.cancle_tv);
+        this.oVQ = getViewGroup().findViewById(a.f.confirm_tv);
         this.bwJ = (CommonEmptyView) getViewGroup().findViewById(a.f.mode_empty_view);
-        this.oVr = getViewGroup().findViewById(a.f.mode_succ_view);
-        this.oWs = (TextView) getViewGroup().findViewById(a.f.change_mode_notice);
-        this.oVp.setOnClickListener(this);
-        this.oVq.setOnClickListener(this);
-        this.gxi.setOnItemClickListener(this);
+        this.oVR = getViewGroup().findViewById(a.f.mode_succ_view);
+        this.oWS = (TextView) getViewGroup().findViewById(a.f.change_mode_notice);
+        this.oVP.setOnClickListener(this);
+        this.oVQ.setOnClickListener(this);
+        this.gxw.setOnItemClickListener(this);
     }
 
     public void a(com.baidu.live.tieba.pb.interactionpopupwindow.c cVar) {
@@ -83,13 +83,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.oVp) {
-            ejh();
+        if (view == this.oVP) {
+            ejp();
             if (this.bEl != null) {
                 this.bEl.dismiss();
             }
-        } else if (view == this.oVq) {
-            this.oVv = true;
+        } else if (view == this.oVQ) {
+            this.oVV = true;
             confirm();
             if (this.bEl != null) {
                 this.bEl.dismiss();
@@ -99,63 +99,63 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
 
     @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
     public void a(AdapterView<?> adapterView, View view, int i, long j) {
-        Nu(i);
-        com.baidu.yuyinala.mode.b.a item = this.oWt.getItem(i);
-        if (item != this.oWw) {
-            if (this.oWw != null) {
-                this.oWw.AG(false);
+        Nv(i);
+        com.baidu.yuyinala.mode.b.a item = this.oWT.getItem(i);
+        if (item != this.oWW) {
+            if (this.oWW != null) {
+                this.oWW.AG(false);
             }
-            this.oWw = item;
-            this.oWw.AG(true);
-            this.oWt.notifyDataSetChanged();
+            this.oWW = item;
+            this.oWW.AG(true);
+            this.oWT.notifyDataSetChanged();
         }
     }
 
-    public void Nu(int i) {
+    public void Nv(int i) {
         if (i >= 0) {
-            this.gxi.smoothScrollToPosition(i);
+            this.gxw.smoothScrollToPosition(i);
         }
     }
 
     private void confirm() {
-        if (this.oWx == this.oWw) {
+        if (this.oWX == this.oWW) {
             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.change_mode_noneed)).show();
-        } else if (this.oWw != null) {
-            if (this.oWu != null) {
-                this.oWu.Nx(this.oWw.getMode());
+        } else if (this.oWW != null) {
+            if (this.oWU != null) {
+                this.oWU.Ny(this.oWW.getMode());
             }
-            this.oWw = null;
-            this.oWx = null;
+            this.oWW = null;
+            this.oWX = null;
         }
     }
 
-    private void ejh() {
-        if (this.oWx != this.oWw) {
-            if (this.oWw != null) {
-                this.oWw.AG(false);
+    private void ejp() {
+        if (this.oWX != this.oWW) {
+            if (this.oWW != null) {
+                this.oWW.AG(false);
             }
-            if (this.oWx != null) {
-                this.oWx.AG(true);
+            if (this.oWX != null) {
+                this.oWX.AG(true);
             }
-            this.oWw = null;
-            this.oWx = null;
-            this.oWt.notifyDataSetChanged();
+            this.oWW = null;
+            this.oWX = null;
+            this.oWT.notifyDataSetChanged();
         }
     }
 
     private void a(List<com.baidu.yuyinala.mode.b.a> list, com.baidu.yuyinala.mode.b.a aVar) {
         int i;
-        this.oVr.setVisibility(0);
+        this.oVR.setVisibility(0);
         this.bwJ.setVisibility(8);
-        this.oWt.setModeList(list);
-        this.oWw = aVar;
-        this.oWx = aVar;
-        if (this.oWx != null && !StringUtils.isNull(this.oWx.getNotice())) {
-            this.oWs.setText(this.oWx.getNotice());
-            this.oWs.setVisibility(0);
+        this.oWT.setModeList(list);
+        this.oWW = aVar;
+        this.oWX = aVar;
+        if (this.oWX != null && !StringUtils.isNull(this.oWX.getNotice())) {
+            this.oWS.setText(this.oWX.getNotice());
+            this.oWS.setVisibility(0);
             i = a.d.sdk_ds640;
         } else {
-            this.oWs.setVisibility(8);
+            this.oWS.setVisibility(8);
             i = a.d.sdk_ds570;
         }
         ViewGroup.LayoutParams layoutParams = this.cBE.getLayoutParams();
@@ -165,10 +165,10 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaAudio
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        if (this.oVv) {
-            this.oVv = false;
+        if (this.oVV) {
+            this.oVV = false;
         } else {
-            ejh();
+            ejp();
         }
         a(null, null);
     }

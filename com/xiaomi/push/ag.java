@@ -23,7 +23,7 @@ public class ag {
         if (Build.VERSION.SDK_INT < 23 || g.c(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             try {
                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), "lcfp.lock");
-                y.m616a(file);
+                y.m615a(file);
                 randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             } catch (IOException e) {
                 e = e;
@@ -167,7 +167,7 @@ public class ag {
                 th = th5;
                 bufferedReader = null;
             }
-        } else if (!y.m616a(file)) {
+        } else if (!y.m615a(file)) {
             return true;
         }
         arrayList.add(str2);

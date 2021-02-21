@@ -48,7 +48,7 @@ public class e extends c.a implements t {
         if (f13087b == null) {
             synchronized (e.class) {
                 if (f13087b == null) {
-                    f13087b = a.eFS().getWritableDatabase();
+                    f13087b = a.eGa().getWritableDatabase();
                     this.c = new g(f13087b, "downloader", com.ss.android.socialbase.downloader.b.c.f13070a, com.ss.android.socialbase.downloader.b.c.f13071b);
                     this.d = new g(f13087b, "downloadChunk", com.ss.android.socialbase.downloader.b.c.c, com.ss.android.socialbase.downloader.b.c.d);
                 }
@@ -83,7 +83,7 @@ public class e extends c.a implements t {
                     if (sparseArray4 == null) {
                         sparseArray4 = new SparseArray<>();
                     }
-                    l eGo = com.ss.android.socialbase.downloader.downloader.b.eGo();
+                    l eGw = com.ss.android.socialbase.downloader.downloader.b.eGw();
                     SparseArray sparseArray5 = new SparseArray();
                     ArrayList arrayList = new ArrayList();
                     ArrayList arrayList2 = new ArrayList();
@@ -93,16 +93,16 @@ public class e extends c.a implements t {
                         while (cursor.moveToNext()) {
                             boolean z = false;
                             com.ss.android.socialbase.downloader.g.c cVar = new com.ss.android.socialbase.downloader.g.c(cursor);
-                            if (cVar.eHL()) {
+                            if (cVar.eHT()) {
                                 cVar.c(-5);
                             }
                             if (TextUtils.isEmpty(cVar.k()) || TextUtils.isEmpty(cVar.h())) {
                                 z = true;
                             } else {
-                                if (cVar.q() == 1 && cVar.eHa() <= 0) {
+                                if (cVar.q() == 1 && cVar.eHi() <= 0) {
                                     z = true;
                                 } else if (cVar.q() != -3 && cVar.q() != 11 && !cVar.bd()) {
-                                    cVar.eHE();
+                                    cVar.eHM();
                                 }
                                 if (cVar.q() == 11) {
                                     cVar.c(-5);
@@ -111,7 +111,7 @@ public class e extends c.a implements t {
                                     if (com.ss.android.socialbase.downloader.m.a.a(33554432)) {
                                         z = true;
                                     } else {
-                                        cVar.eHF();
+                                        cVar.eHN();
                                     }
                                 }
                             }
@@ -120,7 +120,7 @@ public class e extends c.a implements t {
                                 arrayList2.add(cVar);
                             } else {
                                 int g = cVar.g();
-                                int a2 = eGo != null ? eGo.a(cVar.j(), cVar.k()) : 0;
+                                int a2 = eGw != null ? eGw.a(cVar.j(), cVar.k()) : 0;
                                 if (a2 != g) {
                                     cVar.i(a2);
                                     sparseArray5.put(g, cVar);
@@ -144,11 +144,11 @@ public class e extends c.a implements t {
                                         if (keyAt != 0) {
                                             com.ss.android.socialbase.downloader.g.c cVar2 = sparseArray3.get(keyAt);
                                             if (com.ss.android.socialbase.downloader.m.a.a(8192)) {
-                                                if (cVar2 != null && !cVar2.eHG() && cVar2.q() != -3) {
+                                                if (cVar2 != null && !cVar2.eHO() && cVar2.q() != -3) {
                                                     arrayList3.add(Integer.valueOf(cVar2.g()));
                                                     sparseArray4.remove(cVar2.g());
                                                 }
-                                            } else if (cVar2 != null && !cVar2.eHG()) {
+                                            } else if (cVar2 != null && !cVar2.eHO()) {
                                                 arrayList3.add(Integer.valueOf(cVar2.g()));
                                                 sparseArray4.remove(cVar2.g());
                                             }
@@ -196,11 +196,11 @@ public class e extends c.a implements t {
                                             if (keyAt2 != 0) {
                                                 com.ss.android.socialbase.downloader.g.c cVar3 = sparseArray3.get(keyAt2);
                                                 if (com.ss.android.socialbase.downloader.m.a.a(8192)) {
-                                                    if (cVar3 != null && !cVar3.eHG() && cVar3.q() != -3) {
+                                                    if (cVar3 != null && !cVar3.eHO() && cVar3.q() != -3) {
                                                         arrayList4.add(Integer.valueOf(cVar3.g()));
                                                         sparseArray4.remove(cVar3.g());
                                                     }
-                                                } else if (cVar3 != null && !cVar3.eHG()) {
+                                                } else if (cVar3 != null && !cVar3.eHO()) {
                                                     arrayList4.add(Integer.valueOf(cVar3.g()));
                                                     sparseArray4.remove(cVar3.g());
                                                 }
@@ -247,11 +247,11 @@ public class e extends c.a implements t {
                                             if (keyAt3 != 0) {
                                                 com.ss.android.socialbase.downloader.g.c cVar4 = sparseArray3.get(keyAt3);
                                                 if (com.ss.android.socialbase.downloader.m.a.a(8192)) {
-                                                    if (cVar4 != null && !cVar4.eHG() && cVar4.q() != -3) {
+                                                    if (cVar4 != null && !cVar4.eHO() && cVar4.q() != -3) {
                                                         arrayList5.add(Integer.valueOf(cVar4.g()));
                                                         sparseArray4.remove(cVar4.g());
                                                     }
-                                                } else if (cVar4 != null && !cVar4.eHG()) {
+                                                } else if (cVar4 != null && !cVar4.eHO()) {
                                                     arrayList5.add(Integer.valueOf(cVar4.g()));
                                                     sparseArray4.remove(cVar4.g());
                                                 }
@@ -290,9 +290,9 @@ public class e extends c.a implements t {
                     }
                 }
             };
-            ExecutorService eGh = com.ss.android.socialbase.downloader.downloader.b.eGh();
-            if (eGh != null) {
-                eGh.execute(runnable);
+            ExecutorService eGp = com.ss.android.socialbase.downloader.downloader.b.eGp();
+            if (eGp != null) {
+                eGp.execute(runnable);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -304,7 +304,7 @@ public class e extends c.a implements t {
         if (list != null) {
             try {
                 for (com.ss.android.socialbase.downloader.g.c cVar : list) {
-                    if (cVar != null && cVar.eHU()) {
+                    if (cVar != null && cVar.eIc()) {
                         com.ss.android.socialbase.downloader.m.d.b(cVar);
                     }
                 }
@@ -325,7 +325,7 @@ public class e extends c.a implements t {
                 try {
                     g();
                     if (!list.isEmpty()) {
-                        if (com.ss.android.socialbase.downloader.k.a.eIx().a("clear_invalid_task_error")) {
+                        if (com.ss.android.socialbase.downloader.k.a.eIF().a("clear_invalid_task_error")) {
                             String[] strArr = new String[list.size()];
                             for (int i = 0; i < list.size(); i++) {
                                 strArr[i] = String.valueOf(list.get(i));
@@ -343,14 +343,14 @@ public class e extends c.a implements t {
                         int keyAt = sparseArray.keyAt(i2);
                         com.ss.android.socialbase.downloader.g.c cVar = sparseArray.get(keyAt);
                         f13087b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
-                        f13087b.insert("downloader", null, cVar.eGP());
-                        if (cVar.eHM() > 1) {
+                        f13087b.insert("downloader", null, cVar.eGX());
+                        if (cVar.eHU() > 1) {
                             List<com.ss.android.socialbase.downloader.g.b> c = c(keyAt);
                             if (c.size() > 0) {
                                 f13087b.delete("downloadChunk", "_id = ?", new String[]{String.valueOf(keyAt)});
                                 for (com.ss.android.socialbase.downloader.g.b bVar : c) {
                                     bVar.b(cVar.g());
-                                    f13087b.insert("downloadChunk", null, bVar.eGL());
+                                    f13087b.insert("downloadChunk", null, bVar.eGT());
                                 }
                             }
                         }
@@ -490,7 +490,7 @@ public class e extends c.a implements t {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        e.this.a(i, e.this.d.eFU());
+                        e.this.a(i, e.this.d.eGc());
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
@@ -521,7 +521,7 @@ public class e extends c.a implements t {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        e.this.a(bVar, e.this.d.eFT());
+                        e.this.a(bVar, e.this.d.eGb());
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
@@ -571,7 +571,7 @@ public class e extends c.a implements t {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        e.this.a(i, i2, j, e.this.d.eFV());
+                        e.this.a(i, i2, j, e.this.d.eGd());
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
@@ -588,7 +588,7 @@ public class e extends c.a implements t {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        e.this.a(i, i2, i3, j, e.this.d.eFV());
+                        e.this.a(i, i2, i3, j, e.this.d.eGd());
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
@@ -605,7 +605,7 @@ public class e extends c.a implements t {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        e.this.a(i, i2, i3, i4, e.this.d.eFV());
+                        e.this.a(i, i2, i3, i4, e.this.d.eGd());
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
@@ -693,7 +693,7 @@ public class e extends c.a implements t {
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        e.this.a(cVar, e.this.c.eFT());
+                        e.this.a(cVar, e.this.c.eGb());
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
@@ -724,7 +724,7 @@ public class e extends c.a implements t {
                 if (!a(cVar.g())) {
                     c(cVar);
                 } else if (this.c != null) {
-                    b(cVar, this.c.eFV());
+                    b(cVar, this.c.eGd());
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -749,7 +749,7 @@ public class e extends c.a implements t {
             return false;
         }
         try {
-            a(i, this.c.eFU());
+            a(i, this.c.eGc());
             return true;
         } catch (Throwable th) {
             th.printStackTrace();

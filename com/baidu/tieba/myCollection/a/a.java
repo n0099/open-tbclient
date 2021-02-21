@@ -13,20 +13,20 @@ import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
 import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
 /* loaded from: classes8.dex */
 public class a {
-    private static a lxH;
-    private long kRS = 0;
+    private static a lxV;
+    private long kSg = 0;
     @SuppressLint({"HandlerLeak"})
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.myCollection.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1) {
-                a.this.kRS = System.currentTimeMillis();
+                a.this.kSg = System.currentTimeMillis();
                 MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
                 a.this.mHandler.sendMessageDelayed(a.this.mHandler.obtainMessage(1), 1800000L);
             }
         }
     };
-    private final c kzT = new c(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM) { // from class: com.baidu.tieba.myCollection.a.a.2
+    private final c kAh = new c(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM) { // from class: com.baidu.tieba.myCollection.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -38,39 +38,39 @@ public class a {
 
     static {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        lxH = null;
+        lxV = null;
     }
 
-    public static synchronized a dhQ() {
+    public static synchronized a dhX() {
         a aVar;
         synchronized (a.class) {
-            if (lxH == null) {
-                lxH = new a();
+            if (lxV == null) {
+                lxV = new a();
             }
-            aVar = lxH;
+            aVar = lxV;
         }
         return aVar;
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.kzT);
+        MessageManager.getInstance().registerListener(this.kAh);
     }
 
     public void restart() {
-        this.kRS = 0L;
+        this.kSg = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.kRS;
+        long currentTimeMillis = System.currentTimeMillis() - this.kSg;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 1800000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 1800000 - j);
         }
-        this.kRS = System.currentTimeMillis();
+        this.kSg = System.currentTimeMillis();
     }
 
     public void destroy() {

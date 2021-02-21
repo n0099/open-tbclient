@@ -7,7 +7,7 @@ public interface c {
 
     void b(String str, String str2, String str3, List<com.baidu.tieba.lego.c.e> list);
 
-    void cPo();
+    void cPv();
 
     void eF(List<com.baidu.tieba.lego.c.d> list);
 

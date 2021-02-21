@@ -25,8 +25,8 @@ public class BigdayActivity extends BaseActivity {
     private String aHq;
     private long eKa;
     private String imgUrl;
-    private TbImageView kkW;
-    private ImageView kkX;
+    private TbImageView klk;
+    private ImageView kll;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -34,11 +34,11 @@ public class BigdayActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.bigday_activity);
-        this.kkW = (TbImageView) findViewById(R.id.bigday_img);
-        this.kkW.setAutoChangeStyle(false);
-        this.kkX = (ImageView) findViewById(R.id.bigday_close);
+        this.klk = (TbImageView) findViewById(R.id.bigday_img);
+        this.klk.setAutoChangeStyle(false);
+        this.kll = (ImageView) findViewById(R.id.bigday_close);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.kkX.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
+            ((FrameLayout.LayoutParams) this.kll.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
         }
         Intent intent = getIntent();
         if (intent != null) {
@@ -46,22 +46,22 @@ public class BigdayActivity extends BaseActivity {
             this.aHq = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
             this.eKa = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
-        this.kkW.setTag(getPageContext().getUniqueId());
-        this.kkW.startLoad(this.imgUrl, 41, false);
-        this.kkW.setOnClickListener(this);
-        this.kkX.setOnClickListener(this);
+        this.klk.setTag(getPageContext().getUniqueId());
+        this.klk.startLoad(this.imgUrl, 41, false);
+        this.klk.setOnClickListener(this);
+        this.kll.setOnClickListener(this);
         TiebaStatic.log(new ar("c13111").v("obj_id", this.eKa).dR(TiebaInitialize.Params.OBJ_TO, this.aHq));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.kkW.getId()) {
+        if (view.getId() == this.klk.getId()) {
             if (!StringUtils.isNULL(this.aHq)) {
                 bf.bsV().b(getPageContext(), new String[]{this.aHq});
                 TiebaStatic.log(new ar("c13112").v("obj_id", this.eKa).dR(TiebaInitialize.Params.OBJ_TO, this.aHq));
                 finish();
             }
-        } else if (view.getId() == this.kkX.getId()) {
+        } else if (view.getId() == this.kll.getId()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 23);
             calendar.set(12, 59);

@@ -13,17 +13,17 @@ public class bs implements Application.ActivityLifecycleCallbacks {
     private static String g;
     private static Object i;
     private static Object j;
-    private static aj pnb;
-    private static aj pnc;
-    private final j pnd;
+    private static aj pnB;
+    private static aj pnC;
+    private final j pnD;
 
     /* renamed from: a  reason: collision with root package name */
     private static int f5813a = 0;
     private static int h = -1;
-    private static final HashSet<Integer> pne = new HashSet<>(8);
+    private static final HashSet<Integer> pnE = new HashSet<>(8);
 
     public bs(j jVar) {
-        this.pnd = jVar;
+        this.pnD = jVar;
     }
 
     public static void b(Object obj) {
@@ -31,8 +31,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        pnb = b(activity.getClass().getName(), "", System.currentTimeMillis(), e);
-        pnb.k = !pne.remove(Integer.valueOf(activity.hashCode())) ? 1 : 0;
+        pnB = b(activity.getClass().getName(), "", System.currentTimeMillis(), e);
+        pnB.k = !pnE.remove(Integer.valueOf(activity.hashCode())) ? 1 : 0;
         if (!activity.isChild()) {
             try {
                 h = activity.getWindow().getDecorView().hashCode();
@@ -45,14 +45,14 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
-        if (pnc != null) {
+        if (pnC != null) {
             b(j);
         }
-        if (pnb != null) {
-            e = pnb.j;
+        if (pnB != null) {
+            e = pnB.j;
             d = System.currentTimeMillis();
-            a(pnb, d);
-            pnb = null;
+            a(pnB, d);
+            pnB = null;
             if (!activity.isChild()) {
                 h = -1;
                 i = null;
@@ -93,8 +93,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
         f5813a++;
-        if (f5813a == 1 && this.pnd != null) {
-            this.pnd.show(true);
+        if (f5813a == 1 && this.pnD != null) {
+            this.pnD.show(true);
         }
     }
 
@@ -107,8 +107,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
                 g = null;
                 f = 0L;
                 d = 0L;
-                if (this.pnd != null) {
-                    this.pnd.show(false);
+                if (this.pnD != null) {
+                    this.pnD.show(false);
                 }
             }
         }
@@ -120,11 +120,11 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(Activity activity) {
-        pne.remove(Integer.valueOf(activity.hashCode()));
+        pnE.remove(Integer.valueOf(activity.hashCode()));
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
-        pne.add(Integer.valueOf(activity.hashCode()));
+        pnE.add(Integer.valueOf(activity.hashCode()));
     }
 }

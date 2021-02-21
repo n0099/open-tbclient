@@ -23,7 +23,7 @@ public interface am extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof am)) {
                 return (am) queryLocalInterface;
             }
-            return new C1237a(iBinder);
+            return new C1239a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -49,12 +49,12 @@ public interface am extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.am$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class C1237a implements am {
+        private static class C1239a implements am {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f13111a;
 
-            C1237a(IBinder iBinder) {
+            C1239a(IBinder iBinder) {
                 this.f13111a = iBinder;
             }
 

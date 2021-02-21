@@ -61,7 +61,7 @@ public class hk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    Map<String, hl> m368a() {
+    Map<String, hl> m367a() {
         return this.f516a;
     }
 
@@ -71,13 +71,13 @@ public class hk {
         } else if (TextUtils.isEmpty(str)) {
             com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
         } else {
-            m368a().put(str, hlVar);
+            m367a().put(str, hlVar);
         }
     }
 
     public boolean a(hq hqVar, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m80a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m79a("pkgName is null or empty, upload ClientUploadDataItem failed.");
             return false;
         } else if (com.xiaomi.push.service.bi.a(hqVar, false)) {
             return false;

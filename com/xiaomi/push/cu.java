@@ -48,7 +48,7 @@ public class cu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m231a() {
+    public JSONObject m230a() {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put(BdStatsConstant.StatsKey.COST, this.f258a);
         jSONObject.put(TiebaInitialize.LogFields.SIZE, this.c);

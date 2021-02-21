@@ -14,18 +14,18 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static AtomicBoolean nzR = new AtomicBoolean(false);
-    private static List<Integer> nzS = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+    private static AtomicBoolean nAr = new AtomicBoolean(false);
+    private static List<Integer> nAs = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!nzS.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!nAs.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!nzS.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!nAs.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
@@ -33,7 +33,7 @@ public class f {
 
     private static boolean b(int i, String str, a aVar) {
         j BS;
-        if (nzR.compareAndSet(false, true)) {
+        if (nAr.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
                 final j bwi = j.bwi();
@@ -75,7 +75,7 @@ public class f {
                 BS.a(aVar);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, BS));
             }
-            nzR.set(false);
+            nAr.set(false);
             return true;
         }
         return false;
@@ -83,22 +83,22 @@ public class f {
 
     /* loaded from: classes.dex */
     public static abstract class a {
-        public abstract void Jh(String str);
-
         public abstract void Ji(String str);
 
-        public abstract void cuV();
+        public abstract void Jj(String str);
+
+        public abstract void cvc();
 
         public void b(j.c cVar) {
             if (cVar != null && cVar.isSuccess) {
                 if (cVar instanceof j.a) {
-                    Jh(((j.a) cVar).authSid);
+                    Ji(((j.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof j.b) {
-                    Ji(((j.b) cVar).callbackKey);
+                    Jj(((j.b) cVar).callbackKey);
                     return;
                 } else {
-                    cuV();
+                    cvc();
                     return;
                 }
             }

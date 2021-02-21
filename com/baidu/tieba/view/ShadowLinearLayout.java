@@ -21,12 +21,12 @@ public class ShadowLinearLayout extends LinearLayout {
     private Path mPath;
     private float mRadius;
     private int mWidth;
-    private float nWw;
-    private float oan;
-    private RectF oao;
-    private RectF oap;
-    private RectF oaq;
-    private RectF oar;
+    private float nWW;
+    private float oaN;
+    private RectF oaO;
+    private RectF oaP;
+    private RectF oaQ;
+    private RectF oaR;
 
     public ShadowLinearLayout(Context context) {
         this(context, null);
@@ -48,9 +48,9 @@ public class ShadowLinearLayout extends LinearLayout {
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setDither(true);
         this.mRadius = l.getDimens(context, R.dimen.ds20);
-        this.nWw = l.getDimens(context, R.dimen.ds25);
-        this.dwp = this.nWw;
-        this.bMr = this.nWw;
+        this.nWW = l.getDimens(context, R.dimen.ds25);
+        this.dwp = this.nWW;
+        this.bMr = this.nWW;
         this.mPath = new Path();
         setLayerType(1, this.mPaint);
         onChangeSkinType();
@@ -62,8 +62,8 @@ public class ShadowLinearLayout extends LinearLayout {
         this.mWidth = getMeasuredWidth();
         this.mHeight = getMeasuredHeight();
         if (this.mWidth > 0 && this.mHeight > 0) {
-            this.dxs = this.mWidth - this.nWw;
-            this.oan = this.mHeight - this.nWw;
+            this.dxs = this.mWidth - this.nWW;
+            this.oaN = this.mHeight - this.nWW;
         }
     }
 
@@ -71,25 +71,25 @@ public class ShadowLinearLayout extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         if (this.mWidth > 0 && this.mHeight > 0) {
             this.mPath.moveTo(this.dwp, this.bMr + this.mRadius);
-            if (this.oao == null) {
-                this.oao = new RectF(this.dwp, this.bMr, this.dwp + (this.mRadius * 2.0f), this.bMr + (this.mRadius * 2.0f));
+            if (this.oaO == null) {
+                this.oaO = new RectF(this.dwp, this.bMr, this.dwp + (this.mRadius * 2.0f), this.bMr + (this.mRadius * 2.0f));
             }
-            this.mPath.arcTo(this.oao, 180.0f, 90.0f, false);
+            this.mPath.arcTo(this.oaO, 180.0f, 90.0f, false);
             this.mPath.lineTo(this.dxs - this.mRadius, this.bMr);
-            if (this.oap == null) {
-                this.oap = new RectF(this.dxs - (this.mRadius * 2.0f), this.bMr, this.dxs, this.bMr + (this.mRadius * 2.0f));
+            if (this.oaP == null) {
+                this.oaP = new RectF(this.dxs - (this.mRadius * 2.0f), this.bMr, this.dxs, this.bMr + (this.mRadius * 2.0f));
             }
-            this.mPath.arcTo(this.oap, 270.0f, 90.0f, false);
-            this.mPath.lineTo(this.dxs, this.oan - this.mRadius);
-            if (this.oaq == null) {
-                this.oaq = new RectF(this.dxs - (this.mRadius * 2.0f), this.oan - (this.mRadius * 2.0f), this.dxs, this.oan);
+            this.mPath.arcTo(this.oaP, 270.0f, 90.0f, false);
+            this.mPath.lineTo(this.dxs, this.oaN - this.mRadius);
+            if (this.oaQ == null) {
+                this.oaQ = new RectF(this.dxs - (this.mRadius * 2.0f), this.oaN - (this.mRadius * 2.0f), this.dxs, this.oaN);
             }
-            this.mPath.arcTo(this.oaq, 0.0f, 90.0f, false);
-            this.mPath.lineTo(this.dwp + this.mRadius, this.oan);
-            if (this.oar == null) {
-                this.oar = new RectF(this.dwp, this.oan - (this.mRadius * 2.0f), this.dwp + (this.mRadius * 2.0f), this.oan);
+            this.mPath.arcTo(this.oaQ, 0.0f, 90.0f, false);
+            this.mPath.lineTo(this.dwp + this.mRadius, this.oaN);
+            if (this.oaR == null) {
+                this.oaR = new RectF(this.dwp, this.oaN - (this.mRadius * 2.0f), this.dwp + (this.mRadius * 2.0f), this.oaN);
             }
-            this.mPath.arcTo(this.oar, 90.0f, 90.0f, false);
+            this.mPath.arcTo(this.oaR, 90.0f, 90.0f, false);
             this.mPath.lineTo(this.dwp, this.bMr + this.mRadius);
             canvas.drawPath(this.mPath, this.mPaint);
             super.dispatchDraw(canvas);

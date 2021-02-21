@@ -18,14 +18,14 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class d implements j {
-    public List<App> gcv;
+    public List<App> gcA;
     public boolean hasMore;
     public ItemInfo itemInfo;
-    public int jpE;
-    public String jpF;
-    public String jpG;
-    public boolean jpH;
-    public SportScheduleInfo jpI;
+    public int jpS;
+    public String jpT;
+    public String jpU;
+    public boolean jpV;
+    public SportScheduleInfo jpW;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<n> threadList = new ArrayList<>();
     public int sortType = 1;
@@ -58,15 +58,15 @@ public class d implements j {
                     }
                 }
             }
-            this.gcv = dataRes.app_list;
+            this.gcA = dataRes.app_list;
             com.baidu.tbadk.a.a.a.bj(this.threadList);
-            this.jpE = dataRes.new_thread_num.intValue();
+            this.jpS = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.jpF = dataRes.sport_head_info.head_url;
-                this.jpG = dataRes.sport_head_info.jump_url;
-                this.jpH = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.jpT = dataRes.sport_head_info.head_url;
+                this.jpU = dataRes.sport_head_info.jump_url;
+                this.jpV = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.jpI = dataRes.sport_schedule_info;
+            this.jpW = dataRes.sport_schedule_info;
             this.sortType = dataRes.sort_type.intValue();
             this.itemInfo = dataRes.item_info;
         }

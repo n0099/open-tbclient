@@ -20,7 +20,7 @@ public final class ap {
         return sb.toString();
     }
 
-    public static String eIW() {
+    public static String eJe() {
         byte[] decode = Base64.decode(f24case, 0);
         StringBuilder sb = new StringBuilder();
         for (byte b2 : decode) {

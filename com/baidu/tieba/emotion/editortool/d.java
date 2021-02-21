@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d iGC = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> iGD;
+    private static d iGQ = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> iGR;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized d cuN() {
+    public static synchronized d cuU() {
         d dVar;
         synchronized (d.class) {
-            dVar = iGC;
+            dVar = iGQ;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.iGD;
+        return this.iGR;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0573a interfaceC0573a) {
-        if (this.iGD == null || this.iGD.isEmpty()) {
-            this.iGD = new LinkedList<>();
+        if (this.iGR == null || this.iGR.isEmpty()) {
+            this.iGR = new LinkedList<>();
             if (TbFaceManager.bCO().bBz() > 0) {
                 c cVar = new c();
-                this.iGD.add(cVar);
+                this.iGR.add(cVar);
                 if (interfaceC0573a != null) {
                     interfaceC0573a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.iGD.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.iGR.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0573a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.iGD == null || this.iGD.size() == 0;
+        return this.iGR == null || this.iGR.size() == 0;
     }
 }

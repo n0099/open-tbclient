@@ -1,15 +1,15 @@
 package com.baidu.tieba.faceshop.forumpackage.data;
 /* loaded from: classes9.dex */
 public class b {
-    private int jaj = 0;
+    private int jax = 0;
     private boolean expanded = false;
 
-    public int cAl() {
-        return this.jaj;
+    public int cAs() {
+        return this.jax;
     }
 
     public void yf(int i) {
-        this.jaj = i;
+        this.jax = i;
     }
 
     public boolean isExpanded() {

@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.TbPageContext;
 public class a {
     private final boolean mIsHost;
     private TbPageContext mTbPageContext;
-    private b osT;
+    private b ott;
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
@@ -20,22 +20,22 @@ public class a {
         if (viewGroup != null) {
             try {
                 if (this.mTbPageContext != null && abVar != null) {
-                    if (this.osT != null && this.osT.getView().getParent() != null) {
-                        ((ViewGroup) this.osT.getView().getParent()).removeView(this.osT.getView());
+                    if (this.ott != null && this.ott.getView().getParent() != null) {
+                        ((ViewGroup) this.ott.getView().getParent()).removeView(this.ott.getView());
                     }
-                    if (this.osT == null) {
-                        this.osT = new b(this.mTbPageContext);
+                    if (this.ott == null) {
+                        this.ott = new b(this.mTbPageContext);
                     }
-                    this.osT.getView().setId(a.f.ala_liveroom_live_id);
-                    bZP();
+                    this.ott.getView().setId(a.f.ala_liveroom_live_id);
+                    bZW();
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams.addRule(11);
                     layoutParams.rightMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds22);
                     layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
                     layoutParams.topMargin = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.d.sdk_ds58);
-                    viewGroup.addView(this.osT.getView(), layoutParams);
+                    viewGroup.addView(this.ott.getView(), layoutParams);
                     if (abVar.aIU != null && Long.valueOf(abVar.aIU.croom_id).longValue() != 0) {
-                        this.osT.fB(Long.valueOf(abVar.aIU.croom_id).longValue());
+                        this.ott.fB(Long.valueOf(abVar.aIU.croom_id).longValue());
                     }
                 }
             } catch (Exception e) {
@@ -43,9 +43,9 @@ public class a {
         }
     }
 
-    public void bZP() {
-        if (this.osT != null && this.osT.getView() != null && this.osT.getView().getParent() != null) {
-            ((ViewGroup) this.osT.getView().getParent()).removeView(this.osT.getView());
+    public void bZW() {
+        if (this.ott != null && this.ott.getView() != null && this.ott.getView().getParent() != null) {
+            ((ViewGroup) this.ott.getView().getParent()).removeView(this.ott.getView());
         }
     }
 

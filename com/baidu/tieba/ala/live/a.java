@@ -21,12 +21,12 @@ public class a implements IChannelPayController {
         this.bVA = payChannelData.getBaseActivity();
         Log.d(IChannelPayController.TAG, "-->mPayController  构造函数");
         this.mPayController = c.c(this.bVA);
-        this.mPayController.a(new a.InterfaceC0646a() { // from class: com.baidu.tieba.ala.live.a.1
-            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0646a
-            public void GZ(String str) {
+        this.mPayController.a(new a.InterfaceC0647a() { // from class: com.baidu.tieba.ala.live.a.1
+            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0647a
+            public void Ha(String str) {
             }
 
-            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0646a
+            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0647a
             public void a(boolean z, Intent intent) {
                 Intent intent2 = new Intent();
                 int intExtra = intent.getIntExtra("result_code", -1);
@@ -67,7 +67,7 @@ public class a implements IChannelPayController {
         String liveId = payChannelData.getLiveId();
         Log.d(IChannelPayController.TAG, "-->mPayController  pay--- propsId:" + iconId + ", money:" + str + ", propsMon:1, tBeanNum:" + str2 + ", from:" + from);
         this.mCurPayConfig = new PayConfig(payType, "0", iconId, str, "1", true, str2, false, PageDialogHelper.PayForm.NOT_SET, null, null, from, liveId);
-        this.mPayController.Hj(payChannelData.getChannel());
+        this.mPayController.Hk(payChannelData.getChannel());
         this.mPayController.setShowToast(payChannelData.getShowToast());
         this.mPayController.d(this.mCurPayConfig);
     }

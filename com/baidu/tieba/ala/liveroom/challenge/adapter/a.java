@@ -20,8 +20,8 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a extends BaseAdapter {
     private long buN;
-    private long goL;
-    private ArrayList<com.baidu.tieba.ala.liveroom.challenge.a.a> gpY = new ArrayList<>();
+    private long goZ;
+    private ArrayList<com.baidu.tieba.ala.liveroom.challenge.a.a> gqm = new ArrayList<>();
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private int mType;
@@ -31,12 +31,12 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<com.baidu.tieba.ala.liveroom.challenge.a.a> list) {
-        if (this.gpY == null) {
-            this.gpY = new ArrayList<>();
+        if (this.gqm == null) {
+            this.gqm = new ArrayList<>();
         } else {
-            this.gpY.clear();
+            this.gqm.clear();
         }
-        this.gpY.addAll(list);
+        this.gqm.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -44,21 +44,21 @@ public class a extends BaseAdapter {
         this.buN = j;
         this.mIsHost = z;
         this.mType = i;
-        this.goL = j2;
+        this.goZ = j2;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gpY != null) {
-            return this.gpY.size();
+        if (this.gqm != null) {
+            return this.gqm.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.gpY != null) {
-            return this.gpY.get(i);
+        if (this.gqm != null) {
+            return this.gqm.get(i);
         }
         return null;
     }
@@ -80,36 +80,36 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0658a c0658a;
+        C0659a c0659a;
         if (view == null) {
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(a.g.ala_jinzhu_list_item_layout, viewGroup, false);
-            C0658a c0658a2 = new C0658a(view);
-            view.setTag(c0658a2);
-            c0658a = c0658a2;
+            C0659a c0659a2 = new C0659a(view);
+            view.setTag(c0659a2);
+            c0659a = c0659a2;
         } else {
-            c0658a = (C0658a) view.getTag();
+            c0659a = (C0659a) view.getTag();
         }
         com.baidu.tieba.ala.liveroom.challenge.a.a aVar = (com.baidu.tieba.ala.liveroom.challenge.a.a) getItem(i);
         if (aVar != null) {
-            c0658a.a(i, aVar);
+            c0659a.a(i, aVar);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0658a {
+    public class C0659a {
         private HeadImageView bDK;
-        private ImageView huM;
-        private TextView huN;
-        private TextView huO;
-        private TextView huP;
+        private ImageView hva;
+        private TextView hvb;
+        private TextView hvc;
+        private TextView hvd;
 
-        public C0658a(View view) {
-            this.huM = (ImageView) view.findViewById(a.f.id_jinzhu_item_rank_no_iv);
-            this.huN = (TextView) view.findViewById(a.f.id_jinzhu_item_rank_no_tv);
-            this.huO = (TextView) view.findViewById(a.f.id_jinzhu_item_pk_score);
-            this.huP = (TextView) view.findViewById(a.f.id_jinzhu_item_name);
+        public C0659a(View view) {
+            this.hva = (ImageView) view.findViewById(a.f.id_jinzhu_item_rank_no_iv);
+            this.hvb = (TextView) view.findViewById(a.f.id_jinzhu_item_rank_no_tv);
+            this.hvc = (TextView) view.findViewById(a.f.id_jinzhu_item_pk_score);
+            this.hvd = (TextView) view.findViewById(a.f.id_jinzhu_item_name);
             this.bDK = (HeadImageView) view.findViewById(a.f.id_jinzhu_item_head_iv);
             this.bDK.setIsRound(true);
             this.bDK.setAutoChangeStyle(false);
@@ -120,34 +120,34 @@ public class a extends BaseAdapter {
         public void a(int i, final com.baidu.tieba.ala.liveroom.challenge.a.a aVar) {
             if (aVar != null) {
                 if (i == 0) {
-                    this.huM.setVisibility(0);
-                    this.huN.setVisibility(4);
-                    this.huM.setImageResource(a.e.icon_jinzhu_item_rank1);
+                    this.hva.setVisibility(0);
+                    this.hvb.setVisibility(4);
+                    this.hva.setImageResource(a.e.icon_jinzhu_item_rank1);
                 } else if (i == 1) {
-                    this.huM.setVisibility(0);
-                    this.huN.setVisibility(4);
-                    this.huM.setImageResource(a.e.icon_jinzhu_item_rank2);
+                    this.hva.setVisibility(0);
+                    this.hvb.setVisibility(4);
+                    this.hva.setImageResource(a.e.icon_jinzhu_item_rank2);
                 } else if (i == 2) {
-                    this.huM.setVisibility(0);
-                    this.huN.setVisibility(4);
-                    this.huM.setImageResource(a.e.icon_jinzhu_item_rank3);
+                    this.hva.setVisibility(0);
+                    this.hvb.setVisibility(4);
+                    this.hva.setImageResource(a.e.icon_jinzhu_item_rank3);
                 } else {
-                    this.huM.setVisibility(4);
-                    this.huN.setVisibility(0);
-                    this.huN.setText(String.valueOf(i + 1));
+                    this.hva.setVisibility(4);
+                    this.hvb.setVisibility(0);
+                    this.hvb.setText(String.valueOf(i + 1));
                 }
                 if (aVar.aOI != null) {
                     m.a(this.bDK, aVar.aOI.portrait, true, false);
-                    this.huP.setText(aVar.aOI.nickName);
+                    this.hvd.setText(aVar.aOI.nickName);
                 }
-                this.huO.setText(aVar.score);
+                this.hvc.setText(aVar.score);
                 this.bDK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.adapter.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         AlaLiveUserInfoData alaLiveUserInfoData = aVar.aOI;
                         if (alaLiveUserInfoData != null) {
                             a.this.mTbPageContext.getPageActivity().finish();
-                            AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(a.this.mTbPageContext.getPageActivity(), alaLiveUserInfoData.userId + "", alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, 0, 0, null, null, 0L, 0L, 0L, 0, null, String.valueOf(a.this.buN), a.this.mIsHost, String.valueOf(a.this.goL), null, alaLiveUserInfoData.userName);
+                            AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(a.this.mTbPageContext.getPageActivity(), alaLiveUserInfoData.userId + "", alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, 0, 0, null, null, 0L, 0L, 0L, 0, null, String.valueOf(a.this.buN), a.this.mIsHost, String.valueOf(a.this.goZ), null, alaLiveUserInfoData.userName);
                             alaPersonCardActivityConfig.setExtInfo(alaLiveUserInfoData.extInfoJson);
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
                         }

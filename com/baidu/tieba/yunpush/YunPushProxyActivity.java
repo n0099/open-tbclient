@@ -128,7 +128,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 BdLog.e(e);
                                 str4 = str5;
                             }
-                            if (Vv(str4)) {
+                            if (VH(str4)) {
                                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                 mainTabActivityConfig.setTargetScheme(str4);
                                 mainTabActivityConfig.setPushFollowUpAction(optInt);
@@ -193,7 +193,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         finish();
     }
 
-    private boolean Vv(String str) {
+    private boolean VH(String str) {
         return Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("flt://") || str.startsWith("bdtiebalive://") || str.startsWith("tiebachushou://") || str.contains("achievement=");
     }
 

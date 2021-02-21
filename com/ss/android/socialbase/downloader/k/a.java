@@ -17,23 +17,23 @@ public class a {
     private static JSONObject d;
     private static Boolean e;
     private static boolean f;
-    private static final f<Integer, a> qhr = new f<>(8, 8);
-    private static final a qhs = new a(null);
-    private static a qht;
+    private static final f<Integer, a> qhR = new f<>(8, 8);
+    private static final a qhS = new a(null);
+    private static a qhT;
     private final JSONObject h;
     private final JSONObject i;
     private int k;
-    private final Boolean qhu;
+    private final Boolean qhU;
 
     static {
         a();
     }
 
     public static void a() {
-        JSONObject eDX = b.eDX();
-        f = eDX.optInt("disable_task_setting", 0) == 1;
-        c = eDX.optJSONObject("disabled_task_keys");
-        JSONObject optJSONObject = eDX.optJSONObject("bugfix");
+        JSONObject eEf = b.eEf();
+        f = eEf.optInt("disable_task_setting", 0) == 1;
+        c = eEf.optJSONObject("disabled_task_keys");
+        JSONObject optJSONObject = eEf.optJSONObject("bugfix");
         Boolean bool = null;
         if (optJSONObject != null && optJSONObject.has(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT)) {
             bool = Boolean.valueOf(optJSONObject.optInt(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT, 0) == 1);
@@ -60,12 +60,12 @@ public class a {
             }
         }
         this.i = jSONObject2;
-        this.qhu = bool;
+        this.qhU = bool;
     }
 
     @NonNull
     public static JSONObject b() {
-        return b.eDX();
+        return b.eEf();
     }
 
     public static void a(String str, boolean z) {
@@ -79,29 +79,29 @@ public class a {
     }
 
     @NonNull
-    public static a eIx() {
-        return qhs;
+    public static a eIF() {
+        return qhS;
     }
 
     @NonNull
-    public static a RV(int i) {
+    public static a RW(int i) {
         return a(i, (c) null);
     }
 
     private static a a(int i, c cVar) {
-        a aVar = qht;
+        a aVar = qhT;
         if (aVar == null || aVar.k != i) {
-            synchronized (qhr) {
-                aVar = qhr.get(Integer.valueOf(i));
+            synchronized (qhR) {
+                aVar = qhR.get(Integer.valueOf(i));
             }
             if (aVar == null) {
-                aVar = cVar == null ? RW(i) : s(cVar);
-                synchronized (qhr) {
-                    qhr.put(Integer.valueOf(i), aVar);
+                aVar = cVar == null ? RX(i) : s(cVar);
+                synchronized (qhR) {
+                    qhR.put(Integer.valueOf(i), aVar);
                 }
             }
             aVar.k = i;
-            qht = aVar;
+            qhT = aVar;
         }
         return aVar;
     }
@@ -114,8 +114,8 @@ public class a {
         if (this.i != null && !g(str)) {
             if (this.i.has(str)) {
                 return this.i.optInt(str, z ? 1 : 0) == 1;
-            } else if (this.qhu != null) {
-                return this.qhu.booleanValue();
+            } else if (this.qhU != null) {
+                return this.qhU.booleanValue();
             }
         }
         if (d != null) {
@@ -160,11 +160,11 @@ public class a {
         return (this.h == null || !this.h.has(str) || g(str)) ? b().optString(str, str2) : this.h.optString(str, str2);
     }
 
-    public JSONObject abv(String str) {
+    public JSONObject abH(String str) {
         return (this.h == null || !this.h.has(str) || g(str)) ? b().optJSONObject(str) : this.h.optJSONObject(str);
     }
 
-    public JSONArray abw(String str) {
+    public JSONArray abI(String str) {
         return (this.h == null || !this.h.has(str) || g(str)) ? b().optJSONArray(str) : this.h.optJSONArray(str);
     }
 
@@ -176,22 +176,22 @@ public class a {
     public static a fm(JSONObject jSONObject) {
         a aVar;
         if (jSONObject == null || jSONObject == b() || f) {
-            return qhs;
+            return qhS;
         }
-        a aVar2 = qht;
+        a aVar2 = qhT;
         if (aVar2 == null || aVar2.h != jSONObject) {
-            synchronized (qhr) {
-                Iterator<a> it = qhr.values().iterator();
+            synchronized (qhR) {
+                Iterator<a> it = qhR.values().iterator();
                 while (true) {
                     if (it.hasNext()) {
                         aVar = it.next();
                         if (aVar.h == jSONObject) {
-                            qht = aVar;
+                            qhT = aVar;
                             break;
                         }
                     } else {
                         aVar = new a(jSONObject);
-                        qht = aVar;
+                        qhT = aVar;
                         break;
                     }
                 }
@@ -203,12 +203,12 @@ public class a {
 
     public static void a(int i, JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != b() && !f) {
-            synchronized (qhr) {
-                a aVar = qht;
+            synchronized (qhR) {
+                a aVar = qhT;
                 if (aVar != null && aVar.h == jSONObject) {
                     aVar.k = i;
                 } else {
-                    Iterator<a> it = qhr.values().iterator();
+                    Iterator<a> it = qhR.values().iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             aVar = null;
@@ -224,38 +224,38 @@ public class a {
                         aVar = new a(jSONObject);
                         aVar.k = i;
                     }
-                    qht = aVar;
+                    qhT = aVar;
                 }
-                qhr.put(Integer.valueOf(i), aVar);
+                qhR.put(Integer.valueOf(i), aVar);
             }
         }
     }
 
     public static void b(int i) {
-        a aVar = qht;
+        a aVar = qhT;
         if (aVar != null && aVar.k == i) {
-            qht = null;
+            qhT = null;
         }
-        synchronized (qhr) {
-            qhr.remove(Integer.valueOf(i));
+        synchronized (qhR) {
+            qhR.remove(Integer.valueOf(i));
         }
     }
 
-    private static a RW(int i) {
+    private static a RX(int i) {
         c h;
         if (f) {
-            return qhs;
+            return qhS;
         }
-        Context eGu = b.eGu();
-        if (eGu != null && (h = com.ss.android.socialbase.downloader.downloader.f.iB(eGu).h(i)) != null) {
+        Context eGC = b.eGC();
+        if (eGC != null && (h = com.ss.android.socialbase.downloader.downloader.f.iB(eGC).h(i)) != null) {
             return s(h);
         }
-        return qhs;
+        return qhS;
     }
 
     private static a s(c cVar) {
         if (f) {
-            return qhs;
+            return qhS;
         }
         try {
             String R = cVar.R();
@@ -265,6 +265,6 @@ public class a {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        return qhs;
+        return qhS;
     }
 }

@@ -43,9 +43,9 @@ public final class g {
                     h.a(context, dVar);
                     com.bytedance.tea.crash.e.a.e.a(context);
                     if (z || z2) {
-                        com.bytedance.tea.crash.d.a eqW = com.bytedance.tea.crash.d.a.eqW();
+                        com.bytedance.tea.crash.d.a ere = com.bytedance.tea.crash.d.a.ere();
                         if (z) {
-                            eqW.a(new com.bytedance.tea.crash.d.c(context));
+                            ere.a(new com.bytedance.tea.crash.d.c(context));
                         }
                         f7661b = true;
                     }
@@ -55,7 +55,7 @@ public final class g {
                     com.bytedance.tea.crash.e.h.b().post(new Runnable() { // from class: com.bytedance.tea.crash.g.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.bytedance.tea.crash.b.a.eqV().a(context);
+                            com.bytedance.tea.crash.b.a.erd().a(context);
                             com.bytedance.tea.crash.upload.d.a(context);
                             if (z4) {
                                 com.bytedance.tea.crash.a.f.hZ(context).a();
@@ -68,12 +68,12 @@ public final class g {
     }
 
     public static void a(f fVar) {
-        h.ere().a(fVar);
+        h.erm().a(fVar);
     }
 
     public static void a(Map<? extends String, ? extends String> map) {
         if (map != null && !map.isEmpty()) {
-            h.ere().a(map);
+            h.erm().a(map);
         }
     }
 }

@@ -27,22 +27,22 @@ public class WinDReceiver extends BroadcastReceiver {
                 str = "";
             }
             try {
-                Info info = (Info) az.bL(context, str);
+                Info info = (Info) az.bK(context, str);
                 if (info != null && !TextUtils.isEmpty(str) && java(info, str)) {
-                    w.iN(context).b(new x(info)).eIP();
+                    w.iN(context).b(new x(info)).eIX();
                     try {
                         z.a(info, 302);
                         if (info != null && !TextUtils.isEmpty(info.getVv_ins_urls())) {
-                            z.abF(info.getVv_ins_urls());
+                            z.abR(info.getVv_ins_urls());
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                     try {
-                        File file = new File(bv.bN(context, info.getOpen()));
+                        File file = new File(bv.bM(context, info.getOpen()));
                         if (file.exists()) {
                             file.delete();
-                            w.iN(context).a(new x(info), info.getDl_pkg(), info.getDl_vsc(), 2).eIP();
+                            w.iN(context).a(new x(info), info.getDl_pkg(), info.getDl_vsc(), 2).eIX();
                             ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(232);
                         }
                     } catch (Exception e2) {
@@ -51,7 +51,7 @@ public class WinDReceiver extends BroadcastReceiver {
                     try {
                         Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                         if (launchIntentForPackage != null) {
-                            w.iN(context).f(new x(info), info.getOpen()).eIP();
+                            w.iN(context).f(new x(info), info.getOpen()).eIX();
                             launchIntentForPackage.setFlags(268435456);
                             context.startActivity(launchIntentForPackage);
                             az.f(context, str);

@@ -8,7 +8,7 @@ import com.baidu.adp.widget.ListView.n;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.cb;
 import com.baidu.tieba.InjectPlugin.a.e;
-import com.baidu.tieba.recapp.p;
+import com.baidu.tieba.recapp.q;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -34,8 +34,8 @@ public class FrsFeedAdStatic {
                 cVar.aC(nVar);
             } else if (nVar instanceof b) {
                 cVar.setThreadType(3);
-                cVar.sL(((b) nVar).bJr());
-                cVar.aC(((b) nVar).bJq());
+                cVar.sL(((b) nVar).bJw());
+                cVar.aC(((b) nVar).bJv());
             } else {
                 cVar.setThreadType(4);
                 cVar.aC(nVar);
@@ -54,11 +54,11 @@ public class FrsFeedAdStatic {
         for (c cVar : list) {
             if (cVar.getThreadType() == 3) {
                 b bVar = new b();
-                bVar.aC(cVar.bJq());
-                bVar.sL(cVar.bJr());
+                bVar.aC(cVar.bJv());
+                bVar.sL(cVar.bJw());
                 arrayList.add(bVar);
-            } else if (cVar.bJq() instanceof n) {
-                arrayList.add((n) cVar.bJq());
+            } else if (cVar.bJv() instanceof n) {
+                arrayList.add((n) cVar.bJv());
             }
         }
         return arrayList;
@@ -74,16 +74,16 @@ public class FrsFeedAdStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             com.baidu.tieba.InjectPlugin.b.b bVar;
-            com.baidu.tieba.InjectPlugin.a.b bJx;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.b) && (bJx = (bVar = (com.baidu.tieba.InjectPlugin.b.b) customResponsedMessage.getData()).bJx()) != null && (bJx instanceof p)) {
-                p pVar = (p) bJx;
-                com.baidu.tieba.InjectPlugin.a.a sM = bJx.sM(1);
+            com.baidu.tieba.InjectPlugin.a.b bJC;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.b) && (bJC = (bVar = (com.baidu.tieba.InjectPlugin.b.b) customResponsedMessage.getData()).bJC()) != null && (bJC instanceof q)) {
+                q qVar = (q) bJC;
+                com.baidu.tieba.InjectPlugin.a.a sM = bJC.sM(1);
                 if (sM == null) {
-                    com.baidu.tieba.InjectPlugin.a.d sN = e.bJw().sN(1);
+                    com.baidu.tieba.InjectPlugin.a.d sN = e.bJB().sN(1);
                     if (sN != null) {
-                        sM = sN.bJv();
-                        bJx.a(1, sM);
-                        sM.init(new com.baidu.tieba.InjectPlugin.a.c(pVar));
+                        sM = sN.bJA();
+                        bJC.a(1, sM);
+                        sM.init(new com.baidu.tieba.InjectPlugin.a.c(qVar));
                     } else {
                         return;
                     }
@@ -91,30 +91,30 @@ public class FrsFeedAdStatic {
                 com.baidu.tieba.InjectPlugin.a.a aVar = sM;
                 if (aVar instanceof d) {
                     d dVar = (d) aVar;
-                    if (bVar.bJy() == 1) {
+                    if (bVar.bJD() == 1) {
                         List list = (List) bVar.tr();
-                        b.bM(dVar.bJt());
-                        for (BdUniqueId bdUniqueId : b.bJs()) {
-                            com.baidu.tieba.InjectPlugin.FrsFeedAd.a aVar2 = new com.baidu.tieba.InjectPlugin.FrsFeedAd.a(pVar, bdUniqueId);
-                            aVar2.setPageContext(pVar.getTbPageContext());
+                        b.bM(dVar.bJy());
+                        for (BdUniqueId bdUniqueId : b.bJx()) {
+                            com.baidu.tieba.InjectPlugin.FrsFeedAd.a aVar2 = new com.baidu.tieba.InjectPlugin.FrsFeedAd.a(qVar, bdUniqueId);
+                            aVar2.setPageContext(qVar.getTbPageContext());
                             list.add(aVar2);
                         }
-                    } else if (bVar.bJy() == 2) {
-                        dVar.bP(bVar.bJB());
-                    } else if (bVar.bJy() == 3) {
+                    } else if (bVar.bJD() == 2) {
+                        dVar.bP(bVar.bJG());
+                    } else if (bVar.bJD() == 3) {
                         List<n> threadList = bVar.getThreadList();
                         List<c> bN = FrsFeedAdStatic.bN(threadList);
-                        if (bVar.bJD()) {
-                            dVar.a(bN, FrsFeedAdStatic.bN(bVar.bJC()), bVar.bJE(), bVar.bJF());
+                        if (bVar.bJI()) {
+                            dVar.a(bN, FrsFeedAdStatic.bN(bVar.bJH()), bVar.bJJ(), bVar.bJK());
                         } else {
-                            dVar.d(bN, bVar.bJF());
+                            dVar.d(bN, bVar.bJK());
                         }
                         threadList.clear();
                         threadList.addAll(FrsFeedAdStatic.bO(bN));
-                    } else if (bVar.bJy() == 4) {
+                    } else if (bVar.bJD() == 4) {
                         dVar.changeSkinType(bVar.getSkinType());
-                    } else if (bVar.bJy() == 5) {
-                        dVar.a(FrsFeedAdStatic.bN(bVar.getThreadList()), bVar.getForumId(), bVar.bJH(), bVar.bJI(), bVar.bJJ(), bVar.bJG(), bVar.getPageNum());
+                    } else if (bVar.bJD() == 5) {
+                        dVar.a(FrsFeedAdStatic.bN(bVar.getThreadList()), bVar.getForumId(), bVar.bJM(), bVar.bJN(), bVar.bJO(), bVar.bJL(), bVar.getPageNum());
                     }
                 }
             }

@@ -9,8 +9,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class GuardClubJoinListHttpResponseMessage extends JsonHttpResponsedMessage {
     public int count;
-    public List<d> haq;
-    public int har;
+    public List<d> haE;
+    public int haF;
     public boolean hasMore;
 
     public GuardClubJoinListHttpResponseMessage() {
@@ -22,17 +22,17 @@ public class GuardClubJoinListHttpResponseMessage extends JsonHttpResponsedMessa
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.har = optJSONObject.optInt(Config.PACKAGE_NAME);
+            this.haF = optJSONObject.optInt(Config.PACKAGE_NAME);
             this.hasMore = optJSONObject.optInt("has_more") == 1;
             this.count = optJSONObject.optInt("count");
             JSONArray optJSONArray = optJSONObject.optJSONArray("guard_club_lists");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.haq = new ArrayList();
+                this.haE = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     d dVar = new d();
                     dVar.parseJson(optJSONObject2);
-                    this.haq.add(dVar);
+                    this.haE.add(dVar);
                 }
             }
         }

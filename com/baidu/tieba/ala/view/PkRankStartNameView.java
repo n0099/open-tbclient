@@ -13,7 +13,7 @@ import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes11.dex */
 public class PkRankStartNameView extends LinearLayout {
     private TbImageView bSj;
-    private TextView inb;
+    private TextView inp;
 
     public PkRankStartNameView(Context context) {
         super(context);
@@ -21,11 +21,11 @@ public class PkRankStartNameView extends LinearLayout {
     }
 
     public void setData(String str, String str2) {
-        if (this.inb != null) {
+        if (this.inp != null) {
             if (!TextUtils.isEmpty(str) && TextHelper.getTextLengthWithEmoji(str) > 10) {
                 str = TextHelper.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
             }
-            TextView textView = this.inb;
+            TextView textView = this.inp;
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
@@ -50,7 +50,7 @@ public class PkRankStartNameView extends LinearLayout {
         setBackgroundColor(0);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.sdk_pk_rank_start_name, (ViewGroup) this, true);
-        this.inb = (TextView) findViewById(a.f.tv_pk_rank_start_nickname);
+        this.inp = (TextView) findViewById(a.f.tv_pk_rank_start_nickname);
         this.bSj = (TbImageView) findViewById(a.f.iv_pk_rank_start_level);
         this.bSj.setAutoChangeStyle(false);
         this.bSj.setDefaultBgResource(a.e.pk_rank_division_default);

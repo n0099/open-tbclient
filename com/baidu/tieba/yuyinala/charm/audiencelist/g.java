@@ -10,27 +10,27 @@ public class g implements com.baidu.live.liveroom.d.d {
     private boolean bnF;
     private boolean bws;
     private String mLiveId;
-    private YuyinALaAudiencesActivity opa;
-    com.baidu.live.j.c ops = null;
+    private YuyinALaAudiencesActivity opB;
+    com.baidu.live.j.c opT = null;
 
     public g(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.opa = yuyinALaAudiencesActivity;
+        this.opB = yuyinALaAudiencesActivity;
     }
 
     public void createView() {
         com.baidu.live.noble.data.e eVar = new com.baidu.live.noble.data.e();
-        eVar.mTbPageContext = this.opa.getPageContext();
+        eVar.mTbPageContext = this.opB.getPageContext();
         eVar.mLiveId = this.mLiveId;
         eVar.buH = this.aDB;
         eVar.mIsHost = this.bnF;
         eVar.bws = this.bws;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.j.c.class, eVar);
         if (runTask != null && runTask.getData() != null) {
-            this.ops = (com.baidu.live.j.c) runTask.getData();
+            this.opT = (com.baidu.live.j.c) runTask.getData();
         }
     }
 
-    public g Vz(String str) {
+    public g VL(String str) {
         this.mLiveId = str;
         return this;
     }
@@ -45,30 +45,30 @@ public class g implements com.baidu.live.liveroom.d.d {
         return this;
     }
 
-    public g VA(String str) {
+    public g VM(String str) {
         this.aDB = str;
         return this;
     }
 
-    public g VB(String str) {
+    public g VN(String str) {
         this.bdi = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.ops == null) {
+        if (this.opT == null) {
             return null;
         }
-        return this.ops.getView();
+        return this.opT.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.ops == null) {
+        if (this.opT == null) {
             return null;
         }
-        return this.ops.getTitle();
+        return this.opT.getTitle();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -83,22 +83,22 @@ public class g implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterBackground() {
-        if (this.ops != null) {
-            this.ops.cb(false);
+        if (this.opT != null) {
+            this.opT.cb(false);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.ops != null) {
-            this.ops.cb(true);
+        if (this.opT != null) {
+            this.opT.cb(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.ops != null) {
-            this.ops.onDestroy();
+        if (this.opT != null) {
+            this.opT.onDestroy();
         }
     }
 
@@ -107,8 +107,8 @@ public class g implements com.baidu.live.liveroom.d.d {
     }
 
     public void mH(boolean z) {
-        if (this.ops != null) {
-            this.ops.cc(z);
+        if (this.opT != null) {
+            this.opT.cc(z);
         }
     }
 }

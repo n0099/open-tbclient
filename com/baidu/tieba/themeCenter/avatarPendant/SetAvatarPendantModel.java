@@ -11,10 +11,10 @@ import tbclient.T;
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     public static final int TYPE_SET_USE = 1;
     private int freeUseLevel;
-    private a nGj;
+    private a nGJ;
     private long pendantId;
-    private boolean nGi = false;
-    private com.baidu.adp.framework.listener.a jbH = new com.baidu.adp.framework.listener.a(1003179, CmdConfigSocket.CMD_SET_PENDANT) { // from class: com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel.1
+    private boolean nGI = false;
+    private com.baidu.adp.framework.listener.a jbV = new com.baidu.adp.framework.listener.a(1003179, CmdConfigSocket.CMD_SET_PENDANT) { // from class: com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -33,12 +33,12 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
                         SetAvatarPendantModel.this.hJ(setPendantSocketResponse.getPendantId());
                         SetAvatarPendantModel.this.freeUseLevel = setPendantSocketResponse.getFreeUseLevel();
                     }
-                    if (SetAvatarPendantModel.this.nGj != null) {
-                        int i = com.baidu.tieba.themeCenter.c.nFD;
-                        if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nFE) {
-                            i = com.baidu.tieba.themeCenter.c.nFC;
+                    if (SetAvatarPendantModel.this.nGJ != null) {
+                        int i = com.baidu.tieba.themeCenter.c.nGd;
+                        if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nGe) {
+                            i = com.baidu.tieba.themeCenter.c.nGc;
                         }
-                        SetAvatarPendantModel.this.nGj.a(SetAvatarPendantModel.this.nGi, SetAvatarPendantModel.this.pendantId, SetAvatarPendantModel.this.freeUseLevel, responsedMessage.getErrorString(), i);
+                        SetAvatarPendantModel.this.nGJ.a(SetAvatarPendantModel.this.nGI, SetAvatarPendantModel.this.pendantId, SetAvatarPendantModel.this.freeUseLevel, responsedMessage.getErrorString(), i);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     public SetAvatarPendantModel() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SET_PENDANT, SetPendantSocketResponse.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SET_PENDANT, 1003179, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
-        registerListener(this.jbH);
+        registerListener(this.jbV);
     }
 
     public void i(long j, int i, int i2) {
@@ -75,7 +75,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.jbH);
+        MessageManager.getInstance().unRegisterListener(this.jbV);
     }
 
     public void hJ(long j) {
@@ -83,10 +83,10 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void yR(boolean z) {
-        this.nGi = z;
+        this.nGI = z;
     }
 
     public void a(a aVar) {
-        this.nGj = aVar;
+        this.nGJ = aVar;
     }
 }

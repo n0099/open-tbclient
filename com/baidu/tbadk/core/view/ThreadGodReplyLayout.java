@@ -230,7 +230,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.flc = postData;
         setVisibility(0);
         a(postData);
-        c(a(postData.dNz()));
+        c(a(postData.dNH()));
         b(postData);
         c(postData);
         if ((this.mImageList != null && this.mImageList.size() > 0) || (this.fld != null && this.fld.bIx() != null)) {
@@ -259,7 +259,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 spannableStringBuilder3.setSpan(new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.1
                     @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        t.csu().e(new ar("c13348"));
+                        t.csB().e(new ar("c13348"));
                         ThreadGodReplyLayout.this.fkX.setMaxLines(15);
                         ThreadGodReplyLayout.this.fkX.setEllipsize(TextUtils.TruncateAt.END);
                         ThreadGodReplyLayout.this.fkX.setText(spannableStringBuilder2.toString());
@@ -296,7 +296,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 }
                 this.fkX.setText(spannableStringBuilder);
                 this.fkX.setOnTouchListener(new com.baidu.tieba.view.i(spannableStringBuilder));
-                t.csu().e(new ar("c13347"));
+                t.csB().e(new ar("c13347"));
             } else {
                 return;
             }
@@ -363,13 +363,13 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.fla.setVisibility(8);
             return;
         }
-        TbRichText dNz = postData.dNz();
-        if (dNz == null || dNz.bHz() == null) {
+        TbRichText dNH = postData.dNH();
+        if (dNH == null || dNH.bHz() == null) {
             this.fkZ.setVisibility(8);
             this.fla.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = dNz.bHz().iterator();
+        Iterator<TbRichTextData> it = dNH.bHz().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {

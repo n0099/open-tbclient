@@ -4,9 +4,9 @@ import com.baidu.android.util.devices.RomUtils;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class c {
-    public static final c pFY = new c(RomUtils.UNKNOWN, null);
+    public static final c pGy = new c(RomUtils.UNKNOWN, null);
     private final String mName;
-    private final String pFZ;
+    private final String pGz;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -18,7 +18,7 @@ public class c {
 
     public c(String str, @Nullable String str2) {
         this.mName = str;
-        this.pFZ = str2;
+        this.pGz = str2;
     }
 
     public String toString() {

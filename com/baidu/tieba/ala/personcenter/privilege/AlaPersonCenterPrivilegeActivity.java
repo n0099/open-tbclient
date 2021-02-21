@@ -16,8 +16,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes10.dex */
 public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
-    private LinkedList<AbsFragment> iae = new LinkedList<>();
-    private AlaPrivilegeFragmentAdapter iaf;
+    private LinkedList<AbsFragment> ias = new LinkedList<>();
+    private AlaPrivilegeFragmentAdapter iat;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -29,12 +29,12 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     public void onPreInit() {
         super.onPreInit();
-        if (!y.isEmpty(this.iae)) {
-            this.iae.clear();
+        if (!y.isEmpty(this.ias)) {
+            this.ias.clear();
         }
-        this.iae.add(new AlaAchievementMarkFragment());
-        this.iae.add(new AlaEnterEffectFragment());
-        this.iaf = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.iae);
+        this.ias.add(new AlaAchievementMarkFragment());
+        this.ias.add(new AlaEnterEffectFragment());
+        this.iat = new AlaPrivilegeFragmentAdapter(getSupportFragmentManager(), this.ias);
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
@@ -50,15 +50,15 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabActivity
     protected AbsTabPagerAdapter getAdapter() {
-        return this.iaf;
+        return this.iat;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (!y.isEmpty(this.iae)) {
-            Iterator<AbsFragment> it = this.iae.iterator();
+        if (!y.isEmpty(this.ias)) {
+            Iterator<AbsFragment> it = this.ias.iterator();
             while (it.hasNext()) {
                 AbsFragment next = it.next();
                 if (next != null) {

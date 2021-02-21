@@ -33,49 +33,49 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq {
     private BdTypeRecyclerView XW;
-    private PbListView gAi;
-    private BdSwipeRefreshLayout gBi;
-    private b gBq;
-    private AlaLiveTabGameModel gBr;
+    private PbListView gAw;
+    private b gBE;
+    private AlaLiveTabGameModel gBF;
+    private BdSwipeRefreshLayout gBw;
     private g mPullView;
     private View mRootView;
-    private AlaLiveTabGameModel.a gBs = new AlaLiveTabGameModel.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabGameSubFragment.1
+    private AlaLiveTabGameModel.a gBG = new AlaLiveTabGameModel.a() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabGameSubFragment.1
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.a
         public void f(boolean z, List<n> list) {
             if (z) {
-                LiveTabGameSubFragment.this.bRr();
+                LiveTabGameSubFragment.this.bRy();
             } else {
-                LiveTabGameSubFragment.this.bRq();
+                LiveTabGameSubFragment.this.bRx();
             }
-            LiveTabGameSubFragment.this.bRB();
+            LiveTabGameSubFragment.this.bRI();
             LiveTabGameSubFragment.this.setData(list);
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.a
         public void g(int i, String str, boolean z) {
-            LiveTabGameSubFragment.this.bRB();
+            LiveTabGameSubFragment.this.bRI();
             if (z) {
                 LiveTabGameSubFragment.this.showToast(R.string.data_load_error);
             }
         }
     };
-    private f.c gBn = new f.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabGameSubFragment.2
+    private f.c gBB = new f.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabGameSubFragment.2
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                LiveTabGameSubFragment.this.gBr.refresh();
+                LiveTabGameSubFragment.this.gBF.refresh();
             } else {
-                LiveTabGameSubFragment.this.bRB();
+                LiveTabGameSubFragment.this.bRI();
             }
         }
     };
-    private BdListView.e gBo = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabGameSubFragment.3
+    private BdListView.e gBC = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabGameSubFragment.3
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
                 LiveTabGameSubFragment.this.hideLoadingView();
             } else {
-                LiveTabGameSubFragment.this.gBr.bRc();
+                LiveTabGameSubFragment.this.gBF.bRj();
             }
         }
     };
@@ -83,8 +83,8 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
-            if (i2 >= 4 && !LiveTabGameSubFragment.this.gBe) {
-                LiveTabGameSubFragment.this.bRz();
+            if (i2 >= 4 && !LiveTabGameSubFragment.this.gBs) {
+                LiveTabGameSubFragment.this.bRG();
             }
         }
     };
@@ -103,14 +103,14 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
         this.mContext = getPageContext().getPageActivity();
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.gAy = arguments.getBoolean("arg_after_lazy_loaded", false);
+            this.gAM = arguments.getBoolean("arg_after_lazy_loaded", false);
         }
-        if (this.gBr == null) {
-            this.gBr = new AlaLiveTabGameModel(getPageContext(), this.gBs);
+        if (this.gBF == null) {
+            this.gBF = new AlaLiveTabGameModel(getPageContext(), this.gBG);
         }
-        this.gBr.init();
-        this.gBr.eg(this.fNd, this.gBf);
-        registerListener(this.gBg);
+        this.gBF.init();
+        this.gBF.eg(this.fNd, this.gBt);
+        registerListener(this.gBu);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -119,39 +119,39 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
             this.mRootView = layoutInflater.inflate(R.layout.live_tab_sub_tab_layout, (ViewGroup) null);
             initView();
         }
-        if (this.gAy) {
+        if (this.gAM) {
             loadData();
         }
         return this.mRootView;
     }
 
     private void initView() {
-        this.gBi = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.live_tab_refresh_layout);
-        this.gBc = (LinearLayout) this.mRootView.findViewById(R.id.top_container);
+        this.gBw = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.live_tab_refresh_layout);
+        this.gBq = (LinearLayout) this.mRootView.findViewById(R.id.top_container);
         this.mPullView = new g(getPageContext());
-        this.gBi.setProgressView(this.mPullView);
+        this.gBw.setProgressView(this.mPullView);
         this.XW = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.live_tab_list_view);
         this.XW.setLayoutManager(new LinearLayoutManager(this.mContext));
         this.XW.setFadingEdgeLength(0);
         this.XW.setOverScrollMode(2);
-        this.gBq = new b(getPageContext(), this.XW);
-        this.gBq.mw(blu());
-        this.gAi = new PbListView(this.mContext);
-        this.gAi.createView();
-        this.gAi.setContainerBackgroundColorResId(R.color.transparent);
-        this.gAi.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
-        this.gAi.setLineGone();
-        this.gAi.setTextSize(R.dimen.tbfontsize33);
-        this.gAi.setTextColor(ap.getColor(R.color.CAM_X0107));
-        this.gAi.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.gAi.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.gBE = new b(getPageContext(), this.XW);
+        this.gBE.mw(blu());
+        this.gAw = new PbListView(this.mContext);
+        this.gAw.createView();
+        this.gAw.setContainerBackgroundColorResId(R.color.transparent);
+        this.gAw.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
+        this.gAw.setLineGone();
+        this.gAw.setTextSize(R.dimen.tbfontsize33);
+        this.gAw.setTextColor(ap.getColor(R.color.CAM_X0107));
+        this.gAw.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.gAw.getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.mPullView.setTag(getPageContext().getUniqueId());
         this.XW.addOnScrollListener(this.mOnScrollListener);
-        setListPullRefreshListener(this.gBn);
-        a(this.gBo);
+        setListPullRefreshListener(this.gBB);
+        a(this.gBC);
         if (blu()) {
-            this.gBi.setEnabled(false);
-            this.gBi.interruptRefresh();
+            this.gBw.setEnabled(false);
+            this.gBw.interruptRefresh();
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -164,7 +164,7 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
             }
             list.add(new s());
         }
-        this.gBq.setData(list);
+        this.gBE.setData(list);
     }
 
     private void setListPullRefreshListener(f.c cVar) {
@@ -183,46 +183,46 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
         if (blu()) {
             t tVar = new t();
             tVar.tabId = 1121;
-            tVar.gcx = true;
+            tVar.gcC = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
             return;
         }
-        this.gBi.setRefreshing(true);
+        this.gBw.setRefreshing(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRB() {
+    public void bRI() {
         if (blu()) {
             t tVar = new t();
             tVar.tabId = 1121;
-            tVar.gcx = false;
+            tVar.gcC = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
             return;
         }
-        this.gBi.setRefreshing(false);
+        this.gBw.setRefreshing(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRq() {
-        if (this.gAi != null) {
-            if (this.gAi.getView().getParent() == null) {
-                this.XW.setNextPage(this.gAi);
+    public void bRx() {
+        if (this.gAw != null) {
+            if (this.gAw.getView().getParent() == null) {
+                this.XW.setNextPage(this.gAw);
             }
-            this.gAi.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
-            this.gAi.setText(this.mContext.getResources().getString(R.string.list_no_more));
-            this.gAi.endLoadData();
+            this.gAw.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
+            this.gAw.setText(this.mContext.getResources().getString(R.string.list_no_more));
+            this.gAw.endLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRr() {
-        if (this.gAi != null) {
-            if (this.gAi.getView().getParent() == null) {
-                this.XW.setNextPage(this.gAi);
+    public void bRy() {
+        if (this.gAw != null) {
+            if (this.gAw.getView().getParent() == null) {
+                this.XW.setNextPage(this.gAw);
             }
-            this.gAi.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
-            this.gAi.setText(this.mContext.getResources().getString(R.string.loading));
-            this.gAi.startLoadData();
+            this.gAw.setHeight(l.getDimens(this.mContext, R.dimen.tbds182));
+            this.gAw.setText(this.mContext.getResources().getString(R.string.loading));
+            this.gAw.startLoadData();
         }
     }
 
@@ -237,12 +237,12 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.gAi != null) {
-            this.gAi.setTextColor(ap.getColor(R.color.CAM_X0109));
-            this.gAi.changeSkin(i);
+        if (this.gAw != null) {
+            this.gAw.setTextColor(ap.getColor(R.color.CAM_X0109));
+            this.gAw.changeSkin(i);
         }
-        if (this.gBq != null) {
-            this.gBq.notifyDataSetChanged();
+        if (this.gBE != null) {
+            this.gBE.notifyDataSetChanged();
         }
     }
 
@@ -257,15 +257,15 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
             this.mPullView.setListPullRefreshListener(null);
             this.mPullView.release();
         }
-        if (this.gBr != null) {
-            this.gBr.onDestroy();
+        if (this.gBF != null) {
+            this.gBF.onDestroy();
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
     public void loadData() {
-        if (this.gBr != null) {
-            this.gBr.refresh();
+        if (this.gBF != null) {
+            this.gBF.refresh();
         }
     }
 
@@ -290,18 +290,18 @@ public class LiveTabGameSubFragment extends LiveTabBaseSubFragment implements aq
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void bRA() {
-        if (this.gBq != null) {
-            this.gBq.notifyDataSetChanged();
+    public void bRH() {
+        if (this.gBE != null) {
+            this.gBE.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.aq
     public void bum() {
         if (j.isNetWorkAvailable()) {
-            this.gBr.refresh();
+            this.gBF.refresh();
         } else {
-            bRB();
+            bRI();
         }
     }
 

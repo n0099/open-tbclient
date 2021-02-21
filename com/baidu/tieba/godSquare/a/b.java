@@ -21,13 +21,13 @@ import com.baidu.tieba.card.data.h;
 /* loaded from: classes8.dex */
 public class b extends com.baidu.tieba.card.b<h> {
     private c akz;
-    public ClickableHeaderImageView jSx;
-    public CommonUserLikeButton jXJ;
-    private TextView jXL;
-    private TextView jXM;
-    private MetaData jXO;
-    private h jXP;
-    private TextView jXQ;
+    public ClickableHeaderImageView jSL;
+    public CommonUserLikeButton jXX;
+    private TextView jXZ;
+    private TextView jYa;
+    private MetaData jYc;
+    private h jYd;
+    private TextView jYe;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -35,15 +35,15 @@ public class b extends com.baidu.tieba.card.b<h> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.jSx = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
-        this.jSx.setGodIconMargin(R.dimen.ds6);
-        this.jSx.setAfterClickListener(this);
-        this.jXL = (TextView) getView().findViewById(R.id.god_name);
-        this.jXM = (TextView) getView().findViewById(R.id.god_describe);
-        this.jXQ = (TextView) getView().findViewById(R.id.rec_reason);
-        this.jXJ = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
-        this.akz = new c(tbPageContext, this.jXJ);
-        this.jXJ.setAfterOnClickListener(this);
+        this.jSL = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
+        this.jSL.setGodIconMargin(R.dimen.ds6);
+        this.jSL.setAfterClickListener(this);
+        this.jXZ = (TextView) getView().findViewById(R.id.god_name);
+        this.jYa = (TextView) getView().findViewById(R.id.god_describe);
+        this.jYe = (TextView) getView().findViewById(R.id.rec_reason);
+        this.jXX = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
+        this.akz = new c(tbPageContext, this.jXX);
+        this.jXX.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(R.id.bottom_line);
     }
 
@@ -56,9 +56,9 @@ public class b extends com.baidu.tieba.card.b<h> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
-            ap.setViewTextColor(this.jXL, R.color.CAM_X0105);
-            ap.setViewTextColor(this.jXM, R.color.CAM_X0109);
-            ap.setViewTextColor(this.jXQ, R.color.CAM_X0109);
+            ap.setViewTextColor(this.jXZ, R.color.CAM_X0105);
+            ap.setViewTextColor(this.jYa, R.color.CAM_X0109);
+            ap.setViewTextColor(this.jYe, R.color.CAM_X0109);
             ap.setBackgroundColor(this.mBottomLine, R.color.CAM_X0204);
         }
         this.mSkinType = i;
@@ -73,17 +73,17 @@ public class b extends com.baidu.tieba.card.b<h> {
     @Override // com.baidu.tieba.card.b
     public void a(h hVar) {
         if (hVar != null && hVar.eRz != null && hVar.eRz.getGodUserData() != null) {
-            this.jXP = hVar;
-            this.jXO = hVar.eRz;
-            this.jSx.setData(hVar.eRz);
-            this.jXL.setText(hVar.eRz.getName_show());
-            this.jXM.setText(hVar.eRz.getGodUserData().getIntro());
+            this.jYd = hVar;
+            this.jYc = hVar.eRz;
+            this.jSL.setData(hVar.eRz);
+            this.jXZ.setText(hVar.eRz.getName_show());
+            this.jYa.setText(hVar.eRz.getGodUserData().getIntro());
             String string = this.mPageContext.getResources().getString(R.string.recommend_reason);
             String recommendReason = hVar.eRz.getGodUserData().getRecommendReason();
             if (StringUtils.isNull(recommendReason)) {
-                this.jXQ.setText("");
+                this.jYe.setText("");
             } else {
-                this.jXQ.setText(String.format(string, recommendReason));
+                this.jYe.setText(String.format(string, recommendReason));
             }
             this.akz.a(hVar.eRz);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
@@ -92,11 +92,11 @@ public class b extends com.baidu.tieba.card.b<h> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (crV() != null) {
-            crV().a(view, this.jXP);
+        if (csc() != null) {
+            csc().a(view, this.jYd);
         }
-        if (view == getView() && this.jXO != null && !StringUtils.isNull(this.jXO.getName_show()) && !StringUtils.isNull(this.jXO.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.jXO.getUserId(), this.jXO.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        if (view == getView() && this.jYc != null && !StringUtils.isNull(this.jYc.getName_show()) && !StringUtils.isNull(this.jYc.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.jYc.getUserId(), this.jYc.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 }

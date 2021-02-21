@@ -6,56 +6,56 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class c {
-    private static c mQh;
-    private ConcurrentHashMap<String, com.baidu.tieba.quickWebView.data.a> mQf = new ConcurrentHashMap<>();
-    private boolean mQg = false;
+    private static c mQx;
+    private ConcurrentHashMap<String, com.baidu.tieba.quickWebView.data.a> mQv = new ConcurrentHashMap<>();
+    private boolean mQw = false;
 
-    public static c dCM() {
-        if (mQh == null) {
+    public static c dCT() {
+        if (mQx == null) {
             synchronized (c.class) {
-                if (mQh == null) {
-                    mQh = new c();
+                if (mQx == null) {
+                    mQx = new c();
                 }
             }
         }
-        return mQh;
+        return mQx;
     }
 
     private c() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a Rg(String str) {
-        if (this.mQf == null) {
+    public com.baidu.tieba.quickWebView.data.a Rh(String str) {
+        if (this.mQv == null) {
             return null;
         }
-        return this.mQf.get(str);
+        return this.mQv.get(str);
     }
 
-    public ConcurrentHashMap<String, com.baidu.tieba.quickWebView.data.a> dCN() {
-        return this.mQf;
+    public ConcurrentHashMap<String, com.baidu.tieba.quickWebView.data.a> dCU() {
+        return this.mQv;
     }
 
     public void H(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
-        this.mQf.clear();
+        this.mQv.clear();
         if (hashMap != null) {
-            this.mQf.putAll(hashMap);
+            this.mQv.putAll(hashMap);
         }
     }
 
     public void e(String str, HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
-        if (this.mQf == null) {
-            this.mQf = new ConcurrentHashMap<>();
+        if (this.mQv == null) {
+            this.mQv = new ConcurrentHashMap<>();
         }
-        Rh(str);
-        this.mQf.putAll(hashMap);
+        Ri(str);
+        this.mQv.putAll(hashMap);
     }
 
-    public void Rh(String str) {
-        if (!TextUtils.isEmpty(str) && this.mQf != null) {
-            Iterator<String> it = this.mQf.keySet().iterator();
+    public void Ri(String str) {
+        if (!TextUtils.isEmpty(str) && this.mQv != null) {
+            Iterator<String> it = this.mQv.keySet().iterator();
             while (it.hasNext()) {
-                com.baidu.tieba.quickWebView.data.a aVar = this.mQf.get(it.next());
-                if (aVar != null && str.equals(aVar.ktS)) {
+                com.baidu.tieba.quickWebView.data.a aVar = this.mQv.get(it.next());
+                if (aVar != null && str.equals(aVar.kug)) {
                     it.remove();
                 }
             }
@@ -63,22 +63,22 @@ public class c {
     }
 
     public void M(boolean z, String str) {
-        if (!TextUtils.isEmpty(str) && this.mQf != null) {
-            for (String str2 : this.mQf.keySet()) {
-                com.baidu.tieba.quickWebView.data.a aVar = this.mQf.get(str2);
-                if (aVar != null && str.equals(aVar.ktS)) {
-                    aVar.mQg = z;
+        if (!TextUtils.isEmpty(str) && this.mQv != null) {
+            for (String str2 : this.mQv.keySet()) {
+                com.baidu.tieba.quickWebView.data.a aVar = this.mQv.get(str2);
+                if (aVar != null && str.equals(aVar.kug)) {
+                    aVar.mQw = z;
                 }
             }
         }
     }
 
     public void xy(boolean z) {
-        if (this.mQf != null) {
-            for (String str : this.mQf.keySet()) {
-                com.baidu.tieba.quickWebView.data.a aVar = this.mQf.get(str);
+        if (this.mQv != null) {
+            for (String str : this.mQv.keySet()) {
+                com.baidu.tieba.quickWebView.data.a aVar = this.mQv.get(str);
                 if (aVar != null) {
-                    aVar.mQg = z;
+                    aVar.mQw = z;
                 }
             }
         }

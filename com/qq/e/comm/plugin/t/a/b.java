@@ -55,8 +55,8 @@ public class b implements a {
     }
 
     @Override // com.qq.e.comm.plugin.t.a.a
-    public f a(a.InterfaceC1210a interfaceC1210a) throws Exception {
-        e a2 = interfaceC1210a.a();
+    public f a(a.InterfaceC1212a interfaceC1212a) throws Exception {
+        e a2 = interfaceC1212a.a();
         URL url = new URL(a2.f());
         return a2.a(a(a2, url, a(a2, (HttpURLConnection) url.openConnection())));
     }

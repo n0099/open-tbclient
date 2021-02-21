@@ -19,11 +19,11 @@ public class SmartBubbleAnimatedView extends View {
     private ValueAnimator dwJ;
     Rect fgT;
     public String fjM;
-    public long jli;
-    private ValueAnimator jlj;
-    private a jlk;
-    private int jll;
-    private boolean jlm;
+    private boolean jlA;
+    public long jlw;
+    private ValueAnimator jlx;
+    private a jly;
+    private int jlz;
     private Paint mPaint;
     RectF rectF;
 
@@ -33,52 +33,52 @@ public class SmartBubbleAnimatedView extends View {
     }
 
     public void setExtrusionRemind(boolean z) {
-        this.jlm = z;
+        this.jlA = z;
     }
 
     public void setOnBubbleAnimateListener(a aVar) {
-        this.jlk = aVar;
+        this.jly = aVar;
     }
 
     public SmartBubbleAnimatedView(Context context) {
         super(context);
-        this.jli = 4000L;
+        this.jlw = 4000L;
         this.dRV = 0.0f;
         this.mPaint = new Paint();
         this.bhF = new Paint();
         this.rectF = new RectF();
         this.fgT = new Rect();
-        this.jlm = false;
+        this.jlA = false;
         a((AttributeSet) null, 0);
     }
 
     public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jli = 4000L;
+        this.jlw = 4000L;
         this.dRV = 0.0f;
         this.mPaint = new Paint();
         this.bhF = new Paint();
         this.rectF = new RectF();
         this.fgT = new Rect();
-        this.jlm = false;
+        this.jlA = false;
         a(attributeSet, 0);
     }
 
     public SmartBubbleAnimatedView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jli = 4000L;
+        this.jlw = 4000L;
         this.dRV = 0.0f;
         this.mPaint = new Paint();
         this.bhF = new Paint();
         this.rectF = new RectF();
         this.fgT = new Rect();
-        this.jlm = false;
+        this.jlA = false;
         a(attributeSet, i);
     }
 
-    public void cEO() {
+    public void cEV() {
         this.dwJ = ValueAnimator.ofFloat(0.0f, 1.1f);
-        if (this.jlm) {
+        if (this.jlA) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams instanceof LinearLayout.LayoutParams) {
                 ((LinearLayout.LayoutParams) layoutParams).topMargin = 20;
@@ -92,7 +92,7 @@ public class SmartBubbleAnimatedView extends View {
                 layoutParams2.height = com.baidu.adp.lib.util.l.getDimens(SmartBubbleAnimatedView.this.getContext(), R.dimen.tbds83);
                 SmartBubbleAnimatedView.this.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 SmartBubbleAnimatedView.this.dRV = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (SmartBubbleAnimatedView.this.jlm && (layoutParams2 instanceof LinearLayout.LayoutParams)) {
+                if (SmartBubbleAnimatedView.this.jlA && (layoutParams2 instanceof LinearLayout.LayoutParams)) {
                     LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) layoutParams2;
                     if (layoutParams3.topMargin > 0) {
                         layoutParams3.topMargin -= 5;
@@ -110,21 +110,21 @@ public class SmartBubbleAnimatedView extends View {
         com.baidu.adp.lib.f.e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.2
             @Override // java.lang.Runnable
             public void run() {
-                SmartBubbleAnimatedView.this.cEP();
+                SmartBubbleAnimatedView.this.cEW();
             }
-        }, this.jli);
+        }, this.jlw);
     }
 
-    public void cEP() {
-        if (this.jlm) {
-            if (this.jlk != null) {
-                this.jlk.bux();
+    public void cEW() {
+        if (this.jlA) {
+            if (this.jly != null) {
+                this.jly.bux();
                 return;
             }
             return;
         }
-        this.jlj = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.jlj.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.3
+        this.jlx = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.jlx.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 ViewGroup.LayoutParams layoutParams = SmartBubbleAnimatedView.this.getLayoutParams();
@@ -134,22 +134,22 @@ public class SmartBubbleAnimatedView extends View {
                 SmartBubbleAnimatedView.this.requestLayout();
             }
         });
-        this.jlj.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.4
+        this.jlx.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (SmartBubbleAnimatedView.this.jlk != null) {
-                    SmartBubbleAnimatedView.this.jlk.bux();
+                if (SmartBubbleAnimatedView.this.jly != null) {
+                    SmartBubbleAnimatedView.this.jly.bux();
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                if (SmartBubbleAnimatedView.this.jlk != null) {
-                    SmartBubbleAnimatedView.this.jlk.bux();
+                if (SmartBubbleAnimatedView.this.jly != null) {
+                    SmartBubbleAnimatedView.this.jly.bux();
                 }
             }
 
@@ -157,15 +157,15 @@ public class SmartBubbleAnimatedView extends View {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.jlj.setDuration(300L);
-        this.jlj.start();
+        this.jlx.setDuration(300L);
+        this.jlx.start();
     }
 
     private void a(AttributeSet attributeSet, int i) {
         this.mPaint.setColor(com.baidu.tieba.tbadkCore.c.l(com.baidu.tbadk.core.util.ap.getColor(R.color.CAM_X0302), 0.83f));
         this.bhF.setColor(com.baidu.tbadk.core.util.ap.getColor(R.color.CAM_X0101));
         this.bhF.setTextSize(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds32));
-        this.jll = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds83);
+        this.jlz = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds83);
     }
 
     public void onChangeSkinType(int i) {
@@ -187,6 +187,6 @@ public class SmartBubbleAnimatedView extends View {
     }
 
     public int getTipViewHeight() {
-        return this.jll;
+        return this.jlz;
     }
 }

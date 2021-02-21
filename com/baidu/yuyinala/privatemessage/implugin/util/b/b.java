@@ -7,37 +7,37 @@ import android.view.ViewTreeObserver;
 public class b implements ViewTreeObserver.OnGlobalLayoutListener {
     private int cLT = 0;
     private View mView;
-    private final Rect phs;
-    private final int pht;
-    private c phu;
+    private final Rect phS;
+    private final int phT;
+    private c phU;
 
     public b(View view, c cVar) {
         this.mView = view;
         a.hK(this.mView.getContext().getApplicationContext());
-        this.phs = new Rect();
-        this.pht = (int) d.bE(60.0f);
-        this.phu = cVar;
+        this.phS = new Rect();
+        this.phT = (int) d.bE(60.0f);
+        this.phU = cVar;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         if (this.mView != null) {
-            emy();
+            emG();
         }
     }
 
-    private void emy() {
-        this.mView.getRootView().getWindowVisibleDisplayFrame(this.phs);
-        int i = a.emw().heightPixels - this.phs.bottom;
-        if (this.cLT != i && i > this.pht) {
+    private void emG() {
+        this.mView.getRootView().getWindowVisibleDisplayFrame(this.phS);
+        int i = a.emE().heightPixels - this.phS.bottom;
+        if (this.cLT != i && i > this.phT) {
             this.cLT = i;
-            if (this.phu != null) {
-                this.phu.a(true, this.cLT, this.phs.width(), this.phs.bottom);
+            if (this.phU != null) {
+                this.phU.a(true, this.cLT, this.phS.width(), this.phS.bottom);
             }
-        } else if (this.cLT != 0 && i <= this.pht) {
+        } else if (this.cLT != 0 && i <= this.phT) {
             this.cLT = 0;
-            if (this.phu != null) {
-                this.phu.a(false, this.cLT, this.phs.width(), this.phs.bottom);
+            if (this.phU != null) {
+                this.phU.a(false, this.cLT, this.phS.width(), this.phS.bottom);
             }
         }
     }

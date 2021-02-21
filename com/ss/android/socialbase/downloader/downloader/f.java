@@ -5,7 +5,7 @@ import com.ss.android.socialbase.downloader.d.ah;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class f {
-    private static volatile f qfG = null;
+    private static volatile f qgg = null;
 
     private f() {
     }
@@ -13,8 +13,8 @@ public class f {
     public static synchronized void b(g gVar) {
         synchronized (f.class) {
             if (gVar != null) {
-                if (qfG == null) {
-                    qfG = gVar.eGK();
+                if (qgg == null) {
+                    qgg = gVar.eGS();
                 } else {
                     b.b(gVar);
                 }
@@ -28,15 +28,15 @@ public class f {
     }
 
     public static f iB(Context context) {
-        if (qfG == null) {
+        if (qgg == null) {
             synchronized (f.class) {
-                if (qfG == null) {
+                if (qgg == null) {
                     b.a(context);
-                    qfG = new f();
+                    qgg = new f();
                 }
             }
         }
-        return qfG;
+        return qgg;
     }
 
     public static com.ss.android.socialbase.downloader.g.d iC(Context context) {
@@ -45,11 +45,11 @@ public class f {
     }
 
     public void a(int i) {
-        c.eGy().d(i);
+        c.eGG().d(i);
     }
 
     public List<com.ss.android.socialbase.downloader.g.c> a(String str) {
-        return c.eGy().a(str);
+        return c.eGG().a(str);
     }
 
     public void b(int i) {
@@ -57,109 +57,109 @@ public class f {
     }
 
     public void a(int i, boolean z) {
-        c.eGy().c(i, z);
+        c.eGG().c(i, z);
     }
 
     public void c(int i) {
-        c.eGy().f(i);
+        c.eGG().f(i);
     }
 
     public boolean d(int i) {
-        return c.eGy().e(i);
+        return c.eGG().e(i);
     }
 
     public void e(int i) {
-        c.eGy().g(i);
+        c.eGG().g(i);
     }
 
     public void a() {
-        c.eGy().c();
+        c.eGG().c();
     }
 
     public void a(List<String> list) {
-        c.eGy().a(list);
+        c.eGG().a(list);
     }
 
     public void b(List<String> list) {
-        c.eGy().b(list);
+        c.eGG().b(list);
     }
 
     public int f(int i) {
-        return c.eGy().h(i);
+        return c.eGG().h(i);
     }
 
     public boolean g(int i) {
         boolean i2;
         if (com.ss.android.socialbase.downloader.m.a.a(4194304)) {
             synchronized (this) {
-                i2 = c.eGy().i(i);
+                i2 = c.eGG().i(i);
             }
             return i2;
         }
-        return c.eGy().i(i);
+        return c.eGG().i(i);
     }
 
     public com.ss.android.socialbase.downloader.g.c h(int i) {
-        return c.eGy().j(i);
+        return c.eGG().j(i);
     }
 
-    public com.ss.android.socialbase.downloader.g.c hz(String str, String str2) {
-        return c.eGy().b(str, str2);
+    public com.ss.android.socialbase.downloader.g.c hB(String str, String str2) {
+        return c.eGG().b(str, str2);
     }
 
-    public com.ss.android.socialbase.downloader.d.d Rs(int i) {
-        return c.eGy().Ro(i);
+    public com.ss.android.socialbase.downloader.d.d Rt(int i) {
+        return c.eGG().Rp(i);
     }
 
     public List<com.ss.android.socialbase.downloader.g.c> b(String str) {
-        return c.eGy().b(str);
+        return c.eGG().b(str);
     }
 
     public void j(int i) {
-        c.eGy().d(i, true);
+        c.eGG().d(i, true);
     }
 
     @Deprecated
     public void k(int i) {
-        c.eGy().a(i, null, com.ss.android.socialbase.downloader.b.h.MAIN, true);
+        c.eGG().a(i, null, com.ss.android.socialbase.downloader.b.h.MAIN, true);
     }
 
     @Deprecated
     public void a(int i, com.ss.android.socialbase.downloader.d.b bVar) {
         if (bVar != null) {
-            c.eGy().b(i, bVar, com.ss.android.socialbase.downloader.b.h.MAIN, true);
+            c.eGG().b(i, bVar, com.ss.android.socialbase.downloader.b.h.MAIN, true);
         }
     }
 
     @Deprecated
     public void a(int i, com.ss.android.socialbase.downloader.d.b bVar, boolean z) {
         if (bVar != null) {
-            c.eGy().a(i, bVar, com.ss.android.socialbase.downloader.b.h.MAIN, true, z);
+            c.eGG().a(i, bVar, com.ss.android.socialbase.downloader.b.h.MAIN, true, z);
         }
     }
 
     public boolean a(com.ss.android.socialbase.downloader.g.c cVar) {
-        return c.eGy().a(cVar);
+        return c.eGG().a(cVar);
     }
 
     public List<com.ss.android.socialbase.downloader.g.c> c(String str) {
-        return c.eGy().c(str);
+        return c.eGG().c(str);
     }
 
     public List<com.ss.android.socialbase.downloader.g.c> d(String str) {
-        return c.eGy().d(str);
+        return c.eGG().d(str);
     }
 
-    public ah Rt(int i) {
-        return c.eGy().Rr(i);
+    public ah Ru(int i) {
+        return c.eGG().Rs(i);
     }
 
-    public boolean Rq(int i) {
-        return c.eGy().Rn(i).b();
+    public boolean Rr(int i) {
+        return c.eGG().Ro(i).b();
     }
 
-    public r eGz() {
-        return b.eGx();
+    public r eGH() {
+        return b.eGF();
     }
 
     public void a(r rVar) {

@@ -9,28 +9,28 @@ import java.util.List;
 public class b {
     private String forumId;
     private AntiData fqK;
-    private av jeR;
-    private final ArrayList<cb> jeT;
-    private boolean jeU;
-    private boolean jeV;
+    private av jff;
+    private final ArrayList<cb> jfh;
+    private boolean jfi;
+    private boolean jfj;
 
     private b() {
-        this.jeU = false;
-        this.jeT = new ArrayList<>();
+        this.jfi = false;
+        this.jfh = new ArrayList<>();
     }
 
-    public static b cBr() {
-        return a.jeW;
+    public static b cBy() {
+        return a.jfk;
     }
 
-    public boolean cBl() {
-        return this.jeU;
+    public boolean cBs() {
+        return this.jfi;
     }
 
     public void X(boolean z, boolean z2) {
-        this.jeU = z;
-        if (this.jeR != null) {
-            this.jeR.g(this.jeU, z2, 1);
+        this.jfi = z;
+        if (this.jff != null) {
+            this.jff.g(this.jfi, z2, 1);
         }
     }
 
@@ -38,42 +38,42 @@ public class b {
         if (cbVar == null) {
             return false;
         }
-        if (this.jeT.size() > 29) {
-            if (this.jeR != null) {
-                this.jeR.yB(1);
+        if (this.jfh.size() > 29) {
+            if (this.jff != null) {
+                this.jff.yB(1);
                 return false;
             }
             return false;
         }
-        this.jeT.add(cbVar);
-        if (this.jeR != null) {
-            this.jeR.cl(this.jeT.size(), 1);
+        this.jfh.add(cbVar);
+        if (this.jff != null) {
+            this.jff.cm(this.jfh.size(), 1);
         }
         return true;
     }
 
-    public List<cb> cBo() {
-        return this.jeT;
+    public List<cb> cBv() {
+        return this.jfh;
     }
 
     public void an(cb cbVar) {
-        this.jeT.remove(cbVar);
-        if (this.jeR != null) {
-            this.jeR.cl(this.jeT.size(), 1);
+        this.jfh.remove(cbVar);
+        if (this.jff != null) {
+            this.jff.cm(this.jfh.size(), 1);
         }
     }
 
     public void clearData() {
-        Iterator<cb> it = this.jeT.iterator();
+        Iterator<cb> it = this.jfh.iterator();
         while (it.hasNext()) {
             cb next = it.next();
             if (next != null) {
                 next.jA(false);
             }
         }
-        this.jeT.clear();
-        if (this.jeR != null) {
-            this.jeR.cl(0, 1);
+        this.jfh.clear();
+        if (this.jff != null) {
+            this.jff.cm(0, 1);
         }
     }
 
@@ -83,16 +83,16 @@ public class b {
     }
 
     public void a(av avVar) {
-        this.jeR = avVar;
+        this.jff = avVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static b jeW = new b();
+        private static b jfk = new b();
     }
 
-    public AntiData cBs() {
+    public AntiData cBz() {
         return this.fqK;
     }
 
@@ -109,12 +109,12 @@ public class b {
     }
 
     public void qr(boolean z) {
-        this.jeV = z;
+        this.jfj = z;
     }
 
     public void di(List<String> list) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.jeT)) {
-            Iterator<cb> it = this.jeT.iterator();
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.jfh)) {
+            Iterator<cb> it = this.jfh.iterator();
             while (it.hasNext()) {
                 cb next = it.next();
                 int i = 0;
@@ -130,13 +130,13 @@ public class b {
                     }
                 }
             }
-            if (this.jeR != null) {
-                this.jeR.cl(this.jeT.size(), 1);
+            if (this.jff != null) {
+                this.jff.cm(this.jfh.size(), 1);
             }
         }
     }
 
-    public boolean cBt() {
-        return this.jeV;
+    public boolean cBA() {
+        return this.jfj;
     }
 }

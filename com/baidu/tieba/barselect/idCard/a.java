@@ -8,12 +8,12 @@ import java.io.IOException;
 /* loaded from: classes8.dex */
 public class a extends BdAsyncTask<Void, String, String> {
     private String imagePath;
-    private int iqF;
-    private com.baidu.tieba.barselect.data.c iqG;
+    private int iqT;
+    private com.baidu.tieba.barselect.data.c iqU;
 
     public a(String str, int i, com.baidu.tieba.barselect.data.c cVar) {
-        this.iqF = i;
-        this.iqG = cVar;
+        this.iqT = i;
+        this.iqU = cVar;
         this.imagePath = str;
     }
 
@@ -24,7 +24,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         if (this.imagePath == null) {
             return null;
         }
-        return IJ(this.imagePath);
+        return IK(this.imagePath);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,13 +32,13 @@ public class a extends BdAsyncTask<Void, String, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((a) str);
-        if (this.iqG != null && str != null) {
-            this.iqG.o("", this.iqF, str);
+        if (this.iqU != null && str != null) {
+            this.iqU.o("", this.iqT, str);
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [70=4] */
-    public String IJ(String str) {
+    public String IK(String str) {
         Throwable th;
         FileInputStream fileInputStream;
         String str2 = null;

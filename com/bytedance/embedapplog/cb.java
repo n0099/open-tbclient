@@ -7,16 +7,16 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class cb extends bv {
-    private static final long[] pnm = {AppStatusRules.DEFAULT_GRANULARITY};
+    private static final long[] pnM = {AppStatusRules.DEFAULT_GRANULARITY};
     private long e;
-    private final m pnf;
-    private final ad pnn;
+    private final m pnF;
+    private final ad pnN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cb(Context context, m mVar, ad adVar) {
         super(context);
-        this.pnn = adVar;
-        this.pnf = mVar;
+        this.pnN = adVar;
+        this.pnF = mVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -30,25 +30,25 @@ public class cb extends bv {
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] enU() {
-        return pnm;
+    long[] eoc() {
+        return pnM;
     }
 
     @Override // com.bytedance.embedapplog.bv
     public boolean d() {
         Bundle P;
         long currentTimeMillis = System.currentTimeMillis();
-        ce enW = bx.enW();
-        if (enW != null && (P = enW.P(currentTimeMillis, 50000L)) != null) {
+        ce eoe = bx.eoe();
+        if (eoe != null && (P = eoe.P(currentTimeMillis, 50000L)) != null) {
             b.k("play_session", P);
             b.flush();
         }
-        if (this.pnf.o() == 0) {
+        if (this.pnF.o() == 0) {
             return false;
         }
-        JSONObject b2 = this.pnf.b();
+        JSONObject b2 = this.pnF.b();
         if (b2 != null) {
-            boolean a2 = this.pnn.a(b2);
+            boolean a2 = this.pnN.a(b2);
             this.e = System.currentTimeMillis();
             return a2;
         }

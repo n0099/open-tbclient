@@ -99,28 +99,28 @@ public class PersonExtraStatic {
                 }
             }
         });
-        dxT();
+        dya();
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(CmdConfigSocket.CMD_GET_LIVABLE_FORUM_LIST);
         bVar.setResponsedClass(ResponseGetLivableForumList.class);
         bVar.setNeedCompress(false);
         bVar.setParallel(TiebaIMConfig.getParallel());
         MessageManager.getInstance().registerTask(bVar);
-        bQL();
-        dxK();
-        dxL();
-        dxM();
-        dxN();
-        dxO();
-        dxP();
-        cBO();
-        dxQ();
-        m.init();
+        bQS();
         dxR();
         dxS();
+        dxT();
         dxU();
+        dxV();
+        dxW();
+        cBV();
+        dxX();
+        m.init();
+        dxY();
+        dxZ();
+        dyb();
     }
 
-    private static void bQL() {
+    private static void bQS() {
         bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.3
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -136,7 +136,7 @@ public class PersonExtraStatic {
         });
     }
 
-    private static void dxK() {
+    private static void dxR() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSON_POLYMERIC, PersonPolymericSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003181, com.baidu.tieba.tbadkCore.a.a.bV(Config.PERSON_POLYMERIC_ADDRESS, CmdConfigSocket.CMD_PERSON_POLYMERIC));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -148,12 +148,12 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dxL() {
+    private static void dxS() {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_USER_MUTE_CHECK, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_USER_MUTE_CHECK, 1003025, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void dxM() {
+    private static void dxT() {
         bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.4
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -173,7 +173,7 @@ public class PersonExtraStatic {
         });
     }
 
-    private static void dxN() {
+    private static void dxU() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003064, TbConfig.SET_USER_PICS);
         tbHttpMessageTask.setResponsedClass(SetUserPicsResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -182,7 +182,7 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public static void dxO() {
+    public static void dxV() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_USER_POST_PAGE, UserPostPageSocketResponsedMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001503, com.baidu.tieba.tbadkCore.a.a.bV(Config.USER_POST_ADDRESS, CmdConfigSocket.CMD_USER_POST_PAGE));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -193,14 +193,14 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dxP() {
+    private static void dxW() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001506, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cBO() {
+    private static void cBV() {
         com.baidu.tbadk.ala.b.bjQ().a(7, new com.baidu.tbadk.ala.e() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.5
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
@@ -217,7 +217,7 @@ public class PersonExtraStatic {
         });
     }
 
-    private static void dxQ() {
+    private static void dxX() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003382, TbConfig.SERVER_ADDRESS + TbConfig.URL_USER_REPORT);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -226,7 +226,7 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dxR() {
+    private static void dxY() {
         bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.6
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -243,11 +243,11 @@ public class PersonExtraStatic {
         });
     }
 
-    private static void dxS() {
+    private static void dxZ() {
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647, TbConfig.PERSON_CENTER_DYNAMIC_TAB_URL, PersonCenterDynamicTabHttpResMessage.class, PersonCenterDynamicTabSocketResMessage.class);
     }
 
-    private static void dxT() {
+    private static void dya() {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_USER_MUTE_CHECK, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_USER_MUTE_CHECK, 1003025, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
@@ -270,7 +270,7 @@ public class PersonExtraStatic {
         }
     }
 
-    private static void dxU() {
+    private static void dyb() {
         com.baidu.tieba.tbadkCore.a.a.c(309684, RecommendGodSocketResponseMessage.class, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, com.baidu.tieba.tbadkCore.a.a.bV("c/u/user/getRecommendGodList", 309684));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

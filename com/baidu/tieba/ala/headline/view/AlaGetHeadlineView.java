@@ -38,15 +38,15 @@ import org.json.JSONObject;
 public class AlaGetHeadlineView extends RelativeLayout {
     private ab bxN;
     private ArrayList<g> eVV;
-    public RelativeLayout hdI;
-    private TextView hdT;
-    private b hdU;
-    private TextView hdV;
-    private HeadImageView hdW;
-    private TextView hdX;
-    private TextView hdY;
-    public Button hdZ;
-    public long hea;
+    public RelativeLayout hdW;
+    private TextView heh;
+    private b hei;
+    private TextView hej;
+    private HeadImageView hek;
+    private TextView hel;
+    private TextView hem;
+    public Button hen;
+    public long heo;
     private Activity mActivity;
     Context mContext;
     private BdListView mListView;
@@ -73,23 +73,23 @@ public class AlaGetHeadlineView extends RelativeLayout {
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_get_headline_dialog, (ViewGroup) this, true);
-        this.hdV = (TextView) this.mView.findViewById(a.f.get_view_now_score);
-        this.hdI = (RelativeLayout) this.mView.findViewById(a.f.get_view_root_container);
-        this.hdZ = (Button) this.mView.findViewById(a.f.get_view_horizontal_close_button);
-        this.hdZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaGetHeadlineView.1
+        this.hej = (TextView) this.mView.findViewById(a.f.get_view_now_score);
+        this.hdW = (RelativeLayout) this.mView.findViewById(a.f.get_view_root_container);
+        this.hen = (Button) this.mView.findViewById(a.f.get_view_horizontal_close_button);
+        this.hen.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaGetHeadlineView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaGetHeadlineView.this.mActivity.finish();
             }
         });
-        this.hdW = (HeadImageView) this.mView.findViewById(a.f.get_view_live_head);
-        this.hdW.setDefaultBgResource(a.e.sdk_default_avatar);
-        this.hdW.setIsRound(true);
-        this.hdW.setAutoChangeStyle(false);
-        this.hdX = (TextView) this.mView.findViewById(a.f.get_view_live_name);
-        this.hdU = new b(getContext());
-        this.hdT = (TextView) this.mView.findViewById(a.f.get_headline_button);
-        this.hdT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaGetHeadlineView.2
+        this.hek = (HeadImageView) this.mView.findViewById(a.f.get_view_live_head);
+        this.hek.setDefaultBgResource(a.e.sdk_default_avatar);
+        this.hek.setIsRound(true);
+        this.hek.setAutoChangeStyle(false);
+        this.hel = (TextView) this.mView.findViewById(a.f.get_view_live_name);
+        this.hei = new b(getContext());
+        this.heh = (TextView) this.mView.findViewById(a.f.get_headline_button);
+        this.heh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaGetHeadlineView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (TbadkCoreApplication.isLogin()) {
@@ -99,9 +99,9 @@ public class AlaGetHeadlineView extends RelativeLayout {
                         return;
                     } else if (!AlaGetHeadlineView.this.eVV.isEmpty()) {
                         long j = TbadkCoreApplication.getInst().currentAccountTdouNum;
-                        g gVar = (g) AlaGetHeadlineView.this.eVV.get(AlaGetHeadlineView.this.hdU.bWQ());
+                        g gVar = (g) AlaGetHeadlineView.this.eVV.get(AlaGetHeadlineView.this.hei.bWX());
                         if (j >= Long.parseLong(gVar.getPrice()) * Long.parseLong(gVar.DW())) {
-                            AlaGetHeadlineView.this.i((g) AlaGetHeadlineView.this.eVV.get(AlaGetHeadlineView.this.hdU.bWQ()));
+                            AlaGetHeadlineView.this.i((g) AlaGetHeadlineView.this.eVV.get(AlaGetHeadlineView.this.hei.bWX()));
                             return;
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(AlaGetHeadlineView.this.mContext, 0L, AlaGetHeadlineView.this.otherParams, true, "", true)));
@@ -117,12 +117,12 @@ public class AlaGetHeadlineView extends RelativeLayout {
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaGetHeadlineView.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                AlaGetHeadlineView.this.hdU.uE(i);
-                AlaGetHeadlineView.this.hdU.notifyDataSetChanged();
+                AlaGetHeadlineView.this.hei.uE(i);
+                AlaGetHeadlineView.this.hei.notifyDataSetChanged();
             }
         });
-        this.hdY = (TextView) this.mView.findViewById(a.f.get_view_get_headline_support);
-        this.hdY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaGetHeadlineView.4
+        this.hem = (TextView) this.mView.findViewById(a.f.get_view_get_headline_support);
+        this.hem.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.AlaGetHeadlineView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c cVar = new c();
@@ -131,7 +131,7 @@ public class AlaGetHeadlineView extends RelativeLayout {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913244, cVar));
             }
         });
-        this.mListView.setAdapter((ListAdapter) this.hdU);
+        this.mListView.setAdapter((ListAdapter) this.hei);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -148,16 +148,16 @@ public class AlaGetHeadlineView extends RelativeLayout {
     }
 
     private void setData2View(ab abVar) {
-        if (this.hea > 0 && abVar.aIB.aHs > 0 && abVar.aIB.aHu > abVar.aIB.aHs) {
-            this.hdV.setText(com.baidu.tieba.ala.headline.a.fs(abVar.aIB.aHu));
+        if (this.heo > 0 && abVar.aIB.aHs > 0 && abVar.aIB.aHu > abVar.aIB.aHs) {
+            this.hej.setText(com.baidu.tieba.ala.headline.a.fs(abVar.aIB.aHu));
             t(abVar.aIB.aHu);
         } else {
-            this.hdV.setText(com.baidu.tieba.ala.headline.a.fs(abVar.aIB.aHs));
+            this.hej.setText(com.baidu.tieba.ala.headline.a.fs(abVar.aIB.aHs));
             t(abVar.aIB.aHs);
-            this.hdU.bWR();
+            this.hei.bWY();
         }
-        this.hdW.startLoad(abVar.aId.portrait, 12, false, false);
-        this.hdX.setText(abVar.aId.nickName);
+        this.hek.startLoad(abVar.aId.portrait, 12, false, false);
+        this.hel.setText(abVar.aId.nickName);
     }
 
     private void t(double d) {
@@ -183,7 +183,7 @@ public class AlaGetHeadlineView extends RelativeLayout {
                 }
             }
             Y(this.eVV);
-            this.hdU.a(this.eVV, d);
+            this.hei.a(this.eVV, d);
         }
     }
 

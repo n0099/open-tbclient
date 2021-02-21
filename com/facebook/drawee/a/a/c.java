@@ -8,8 +8,8 @@ import com.facebook.imagepipeline.c.j;
 import javax.annotation.Nullable;
 /* loaded from: classes15.dex */
 public class c {
-    private static a pAn;
-    private static final Class<?> pxC = c.class;
+    private static a pAN;
+    private static final Class<?> pyc = c.class;
     private static volatile boolean sIsInitialized = false;
 
     private c() {
@@ -21,7 +21,7 @@ public class c {
 
     public static void a(Context context, @Nullable h hVar, @Nullable b bVar) {
         if (sIsInitialized) {
-            com.facebook.common.c.a.h(pxC, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
+            com.facebook.common.c.a.h(pyc, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
         } else {
             sIsInitialized = true;
         }
@@ -35,23 +35,23 @@ public class c {
     }
 
     private static void a(Context context, @Nullable b bVar) {
-        pAn = new a(context, bVar);
-        SimpleDraweeView.b(pAn);
+        pAN = new a(context, bVar);
+        SimpleDraweeView.b(pAN);
     }
 
-    public static e eto() {
-        return pAn.get().get();
+    public static e etw() {
+        return pAN.get().get();
     }
 
-    public static j etp() {
-        return j.exl();
+    public static j etx() {
+        return j.ext();
     }
 
-    public static com.facebook.imagepipeline.c.g etq() {
-        return etp().etq();
+    public static com.facebook.imagepipeline.c.g ety() {
+        return etx().ety();
     }
 
-    public static boolean etr() {
+    public static boolean etz() {
         return sIsInitialized;
     }
 
@@ -59,26 +59,26 @@ public class c {
     /* loaded from: classes15.dex */
     public static class a implements com.facebook.common.internal.j<com.facebook.common.internal.j<? extends AbstractDraweeControllerBuilder>> {
         private Context mContext;
-        private b pAo;
-        private volatile f pAp = null;
+        private b pAO;
+        private volatile f pAP = null;
 
         a(Context context, b bVar) {
             this.mContext = context;
-            this.pAo = bVar;
+            this.pAO = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.common.internal.j
-        /* renamed from: ets */
+        /* renamed from: etA */
         public com.facebook.common.internal.j<e> get() {
-            if (this.pAp == null) {
+            if (this.pAP == null) {
                 synchronized (this) {
-                    if (this.pAp == null) {
-                        this.pAp = new f(this.mContext, this.pAo);
+                    if (this.pAP == null) {
+                        this.pAP = new f(this.mContext, this.pAO);
                     }
                 }
             }
-            return this.pAp;
+            return this.pAP;
         }
     }
 }

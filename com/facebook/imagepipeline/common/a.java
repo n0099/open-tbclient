@@ -19,10 +19,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", PE(this.from), PE(this.to));
+        return String.format(null, "%s-%s", PF(this.from), PF(this.to));
     }
 
-    private static String PE(int i) {
+    private static String PF(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -41,12 +41,12 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a PF(int i) {
+    public static a PG(int i) {
         g.checkArgument(i >= 0);
         return new a(i, Integer.MAX_VALUE);
     }
 
-    public static a PG(int i) {
+    public static a PH(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }

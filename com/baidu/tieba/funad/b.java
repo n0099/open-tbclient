@@ -24,14 +24,14 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b implements a.b {
-    private static volatile boolean jSV = false;
+    private static volatile boolean jTj = false;
 
-    private void cNo() {
+    private void cNv() {
         initSdk(TbadkCoreApplication.getInst());
     }
 
     public void initSdk(Application application) {
-        if (!jSV) {
+        if (!jTj) {
             FunAdSdk.init(new FunAdConfig.Builder(application).setAppName(application.getString(R.string.app_name)).setAppId("b122ce58b8954c27b6882f7987c08860").setLogEnabled(TbadkCoreApplication.getInst().isDebugMode()).setAsyncInit(false).setTitleBarTheme(1).setUseTextureView(true).setSupportMultiProcess(true).setReportAdMaterials(false).setVideoSoundEnable(false).setVideoDataFlowAutoStart(false).build(), new FunAdCallback() { // from class: com.baidu.tieba.funad.b.1
                 @Override // com.fun.ad.sdk.FunAdCallback
                 public void onAdLoad(String str, String str2, String str3, String str4) {
@@ -65,20 +65,20 @@ public class b implements a.b {
                 public void onRewardedVideo(String str, String str2, String str3, String str4) {
                 }
             });
-            jSV = true;
+            jTj = true;
         }
     }
 
     @Override // com.baidu.tieba.h.a.b
     public boolean isAdReady(String str) {
-        cNo();
+        cNv();
         return FunAdSdk.getAdFactory().isAdReady(str);
     }
 
     @Override // com.baidu.tieba.h.a.b
     public void a(Activity activity, String str, final a.d dVar) {
         System.currentTimeMillis();
-        cNo();
+        cNv();
         FunAdSdk.getAdFactory().loadAd(activity, new FunAdSlot.Builder().setSid(str).setExpressWidth(l.getEquipmentWidth(activity)).build(), new FunAdLoadListener() { // from class: com.baidu.tieba.funad.b.2
             @Override // com.fun.ad.sdk.FunAdLoadListener
             public void onAdLoaded(String str2) {
@@ -100,7 +100,7 @@ public class b implements a.b {
     @Override // com.baidu.tieba.h.a.b
     public View a(Activity activity, String str, View view, final a.c cVar) {
         System.currentTimeMillis();
-        cNo();
+        cNv();
         FunAdView funAdView = (view == null || !(view instanceof FunAdView)) ? new FunAdView(activity) : view;
         FunAdSdk.getAdFactory().showAd(activity, funAdView, str, new FunAdInteractionListener() { // from class: com.baidu.tieba.funad.b.3
             @Override // com.fun.ad.sdk.FunAdInteractionListener
@@ -143,19 +143,19 @@ public class b implements a.b {
 
     @Override // com.baidu.tieba.h.a.b
     public View g(Activity activity, String str) {
-        cNo();
+        cNv();
         return new FunAdView(activity);
     }
 
     @Override // com.baidu.tieba.h.a.b
     public void destroyAd(String str) {
-        cNo();
+        cNv();
         FunAdSdk.getAdFactory().destroyAd(str);
     }
 
     @Override // com.baidu.tieba.h.a.b
     public void b(Activity activity, String str, a.d dVar) {
-        cNo();
+        cNv();
         FunAdSlot build = new FunAdSlot.Builder().setSid(str).build();
         final WeakReference weakReference = new WeakReference(dVar);
         FunAdSdk.getAdFactory().loadNativeAd(activity, build, new FunNativeAdLoadListener() { // from class: com.baidu.tieba.funad.b.4
@@ -177,18 +177,18 @@ public class b implements a.b {
     }
 
     @Override // com.baidu.tieba.h.a.b
-    public void Ls(String str) {
+    public void Lt(String str) {
         if (!StringUtils.isNull(str)) {
             FunAdSdk.getAdFactory().destroyNativeAd(str);
         }
     }
 
     @Override // com.baidu.tieba.h.a.b
-    public void a(a.C0742a c0742a, final a.e eVar) {
-        cNo();
-        if (c0742a != null && c0742a.eUi != null && (c0742a.eUi.dNh() instanceof FunNativeAd)) {
-            FunNativeAd funNativeAd = (FunNativeAd) c0742a.eUi.dNh();
-            funNativeAd.show(c0742a.jSJ, c0742a.jSK, c0742a.jSL, c0742a.jSM, c0742a.jSN, c0742a.jSO, c0742a.jSP, c0742a.jSQ, c0742a.jSR, new FunNativeAdInteractionListener() { // from class: com.baidu.tieba.funad.b.5
+    public void a(a.C0743a c0743a, final a.e eVar) {
+        cNv();
+        if (c0743a != null && c0743a.eUi != null && (c0743a.eUi.dNp() instanceof FunNativeAd)) {
+            FunNativeAd funNativeAd = (FunNativeAd) c0743a.eUi.dNp();
+            funNativeAd.show(c0743a.jSX, c0743a.jSY, c0743a.jSZ, c0743a.jTa, c0743a.jTb, c0743a.jTc, c0743a.jTd, c0743a.jTe, c0743a.jTf, new FunNativeAdInteractionListener() { // from class: com.baidu.tieba.funad.b.5
                 @Override // com.fun.ad.sdk.FunNativeAdInteractionListener
                 public void onAdClick(String str) {
                     if (eVar != null) {
@@ -210,17 +210,17 @@ public class b implements a.b {
                     }
                 }
             }, true);
-            if (a(funNativeAd) && c0742a.jSJ != null && c0742a.jSJ.getChildCount() > 1) {
-                c0742a.jSJ.removeViewAt(c0742a.jSJ.getChildCount() - 1);
+            if (a(funNativeAd) && c0743a.jSX != null && c0743a.jSX.getChildCount() > 1) {
+                c0743a.jSX.removeViewAt(c0743a.jSX.getChildCount() - 1);
             }
         }
     }
 
     @Override // com.baidu.tieba.h.a.b
-    public void a(a.C0742a c0742a) {
-        cNo();
-        if (c0742a != null && c0742a.eUi != null && c0742a.eUi.dNh() != null && (c0742a.eUi.dNh() instanceof FunNativeAd)) {
-            ((FunNativeAd) c0742a.eUi.dNh()).destroy();
+    public void a(a.C0743a c0743a) {
+        cNv();
+        if (c0743a != null && c0743a.eUi != null && c0743a.eUi.dNp() != null && (c0743a.eUi.dNp() instanceof FunNativeAd)) {
+            ((FunNativeAd) c0743a.eUi.dNp()).destroy();
         }
     }
 

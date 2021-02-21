@@ -14,8 +14,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ViewHelper;
 /* loaded from: classes11.dex */
 public class AlaGuessSingleJoinGroupButtonView extends FrameLayout {
-    private Button hhi;
-    private a hhj;
+    private Button hhw;
+    private a hhx;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -39,15 +39,15 @@ public class AlaGuessSingleJoinGroupButtonView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.ala_guess_single_bottom_join_group_view, this);
-        this.hhi = (Button) findViewById(a.f.btn_guess_single_join_groups);
+        this.hhw = (Button) findViewById(a.f.btn_guess_single_join_groups);
     }
 
     public void setData(final boolean z, final String str) {
-        this.hhi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.guess.result.AlaGuessSingleJoinGroupButtonView.1
+        this.hhw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.guess.result.AlaGuessSingleJoinGroupButtonView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaGuessSingleJoinGroupButtonView.this.hhj != null) {
-                    AlaGuessSingleJoinGroupButtonView.this.hhj.abu();
+                if (AlaGuessSingleJoinGroupButtonView.this.hhx != null) {
+                    AlaGuessSingleJoinGroupButtonView.this.hhx.abu();
                 }
                 AlaGuessSingleJoinGroupButtonView.this.t(z, str);
             }
@@ -67,6 +67,6 @@ public class AlaGuessSingleJoinGroupButtonView extends FrameLayout {
     }
 
     public void setOnClickJoinButtonListener(a aVar) {
-        this.hhj = aVar;
+        this.hhx = aVar;
     }
 }

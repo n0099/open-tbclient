@@ -26,9 +26,9 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes8.dex */
 public class c implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tbadk.suspended.a {
     private BdListView WO;
-    private ImageView geQ;
-    private Intent geT;
-    private b lir;
+    private ImageView geV;
+    private Intent geY;
+    private b liF;
     private LinearLayout mContentView;
     private NavigationBar mNavigationBar;
     private TbPageContext<SelectLocationActivity> mPageContext;
@@ -43,32 +43,32 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
 
     private void bEL() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getResources().getString(R.string.select_position_title));
-        this.geQ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.geQ.getLayoutParams();
+        this.geV = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.geV.getLayoutParams();
         layoutParams.setMargins(0, 0, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds10), 0);
-        this.geQ.setLayoutParams(layoutParams);
-        this.geQ.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.geQ.setOnClickListener(this);
+        this.geV.setLayoutParams(layoutParams);
+        this.geV.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.geV.setOnClickListener(this);
     }
 
     private void Zl() {
         LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.mContentView, true);
         this.WO = (BdListView) this.mContentView.findViewById(R.id.select_position_list);
-        this.lir = new b(this.mPageContext);
-        this.WO.setAdapter((ListAdapter) this.lir);
+        this.liF = new b(this.mPageContext);
+        this.WO.setAdapter((ListAdapter) this.liF);
         this.WO.setOnItemClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.geQ) {
+        if (view == this.geV) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new SearchLocationActivityConfig(this.mPageContext.getPageActivity(), RequestResponseCode.REQUEST_CLOSE_SELECT_LOCATION_ACTIVITY)));
         }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.lir != null) {
+        if (this.liF != null) {
             MessageManager messageManager = MessageManager.getInstance();
             LocationEvent locationEvent = new LocationEvent();
             locationEvent.setType(1);
@@ -80,7 +80,7 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
                 this.mPageContext.getOrignalPage().finish();
                 return;
             }
-            Object item = this.lir.getItem(i);
+            Object item = this.liF.getItem(i);
             if (item instanceof LocationData.NearByAddressData) {
                 LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
                 messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, nearByAddressData.getName(), nearByAddressData.getAddr(), nearByAddressData.getSn()));
@@ -107,12 +107,12 @@ public class c implements View.OnClickListener, AdapterView.OnItemClickListener,
 
     @Override // com.baidu.tbadk.suspended.a
     public void rx(int i) {
-        this.geQ.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.lir.notifyDataSetChanged();
+        this.geV.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.liF.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tbadk.suspended.a
     public Intent bEJ() {
-        return this.geT;
+        return this.geY;
     }
 }

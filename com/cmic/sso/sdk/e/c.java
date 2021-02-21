@@ -3,7 +3,7 @@ package com.cmic.sso.sdk.e;
 import android.util.Log;
 /* loaded from: classes15.dex */
 public class c {
-    private static final c pxa = new c();
+    private static final c pxA = new c();
 
     /* renamed from: b  reason: collision with root package name */
     private static boolean f7724b = false;

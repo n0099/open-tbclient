@@ -1,0 +1,113 @@
+package com.baidu.tieba.recapp.download.a;
+
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.n;
+import com.baidu.tbadk.TiebaDatabase;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes.dex */
+public class a {
+    public static a dDG() {
+        return C0859a.mSQ;
+    }
+
+    /* renamed from: com.baidu.tieba.recapp.download.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    private static class C0859a {
+        private static final a mSQ = new a();
+    }
+
+    public synchronized void c(b bVar) {
+        if (bVar != null) {
+            if (!TextUtils.isEmpty(bVar.downloadKey) && !TextUtils.isEmpty(bVar.packageName)) {
+                SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
+                openedDatabase.beginTransaction();
+                openedDatabase.replace("ad_follow_up_info_table", null, d(bVar));
+                openedDatabase.setTransactionSuccessful();
+                openedDatabase.endTransaction();
+            }
+        }
+    }
+
+    public synchronized void RE(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
+            openedDatabase.beginTransaction();
+            openedDatabase.delete("ad_follow_up_info_table", "download_key = ?", new String[]{str});
+            openedDatabase.setTransactionSuccessful();
+            openedDatabase.endTransaction();
+        }
+    }
+
+    public synchronized List<b> b(Integer num, Integer num2) {
+        ArrayList arrayList;
+        SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
+        openedDatabase.beginTransaction();
+        long currentTimeMillis = System.currentTimeMillis() - ((((num.intValue() * 24) * 60) * 60) * 1000);
+        arrayList = new ArrayList();
+        Cursor rawQuery = openedDatabase.rawQuery("SELECT * FROM ad_follow_up_info_table where finish_download_time > ? and show_times < ? and install_status = ? order by finish_download_time desc", new String[]{String.valueOf(currentTimeMillis), String.valueOf(num2), String.valueOf(1)});
+        while (rawQuery.moveToNext()) {
+            b B = B(rawQuery);
+            if (B != null && !arrayList.contains(B)) {
+                arrayList.add(B);
+            }
+        }
+        openedDatabase.setTransactionSuccessful();
+        n.close(rawQuery);
+        openedDatabase.endTransaction();
+        return arrayList;
+    }
+
+    public synchronized void c(Integer num, Integer num2) {
+        SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
+        openedDatabase.beginTransaction();
+        openedDatabase.delete("ad_follow_up_info_table", "finish_download_time < ? and show_times >= ?", new String[]{String.valueOf(System.currentTimeMillis() - ((((num.intValue() * 24) * 60) * 60) * 1000)), String.valueOf(num2)});
+        openedDatabase.setTransactionSuccessful();
+        openedDatabase.endTransaction();
+    }
+
+    private b B(Cursor cursor) {
+        if (cursor == null || cursor.isClosed()) {
+            return null;
+        }
+        try {
+            b bVar = new b();
+            bVar.downloadKey = cursor.getString(cursor.getColumnIndex("download_key"));
+            bVar.packageName = cursor.getString(cursor.getColumnIndex("package_name"));
+            bVar.mSR = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
+            bVar.mSS = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
+            bVar.lMP = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
+            bVar.mST = cursor.getString(cursor.getColumnIndex("ad_string"));
+            bVar.mSU = cursor.getString(cursor.getColumnIndex("cmatch"));
+            bVar.installStatus = Integer.parseInt(cursor.getString(cursor.getColumnIndex("install_status")));
+            bVar.mSV = cursor.getString(cursor.getColumnIndex("ad_extension_info1"));
+            bVar.mSW = cursor.getString(cursor.getColumnIndex("ad_extension_info2"));
+            bVar.mSX = cursor.getString(cursor.getColumnIndex("ad_extension_info3"));
+            return bVar;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private ContentValues d(b bVar) {
+        if (bVar == null || TextUtils.isEmpty(bVar.downloadKey)) {
+            return null;
+        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("download_key", bVar.downloadKey);
+        contentValues.put("package_name", bVar.packageName);
+        contentValues.put("finish_download_time", String.valueOf(bVar.mSR));
+        contentValues.put("show_times", String.valueOf(bVar.mSS));
+        contentValues.put("last_show_time", String.valueOf(bVar.lMP));
+        contentValues.put("ad_string", bVar.mST);
+        contentValues.put("cmatch", bVar.mSU);
+        contentValues.put("install_status", Integer.valueOf(bVar.installStatus));
+        contentValues.put("ad_extension_info1", bVar.mSV);
+        contentValues.put("ad_extension_info2", bVar.mSW);
+        contentValues.put("ad_extension_info3", bVar.mSX);
+        return contentValues;
+    }
+}

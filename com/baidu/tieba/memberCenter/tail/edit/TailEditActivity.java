@@ -18,9 +18,9 @@ import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
 import com.baidu.tieba.memberCenter.tail.data.e;
 /* loaded from: classes9.dex */
 public class TailEditActivity extends BaseActivity<TailEditActivity> {
-    private a lrT;
-    private b lrU;
-    com.baidu.tieba.memberCenter.tail.a.a<Integer> lrV = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.1
+    private a lsh;
+    private b lsi;
+    com.baidu.tieba.memberCenter.tail.a.a<Integer> lsj = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.memberCenter.tail.a.a
         /* renamed from: a */
@@ -28,7 +28,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             TailEditActivity.this.a(true, z, str, num);
         }
     };
-    com.baidu.tieba.memberCenter.tail.a.a<Integer> lrW = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.2
+    com.baidu.tieba.memberCenter.tail.a.a<Integer> lsk = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.memberCenter.tail.a.a
         /* renamed from: a */
@@ -36,40 +36,40 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             TailEditActivity.this.a(false, z, str, num);
         }
     };
-    private View.OnClickListener lrX = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.3
+    private View.OnClickListener lsl = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TailEditActivity.this.lrU.getEditText().length() != 0) {
-                TailEditActivity.this.lrU.showProgressBar();
-                TailEditActivity.this.lrT.Oi(TailEditActivity.this.lrU.getEditText().getText().toString());
+            if (TailEditActivity.this.lsi.getEditText().length() != 0) {
+                TailEditActivity.this.lsi.showProgressBar();
+                TailEditActivity.this.lsh.Oj(TailEditActivity.this.lsi.getEditText().getText().toString());
                 return;
             }
             TailEditActivity.this.showToast(TailEditActivity.this.getResources().getString(R.string.tail_submit_empty_toast));
         }
     };
-    private View.OnClickListener lrY = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.4
+    private View.OnClickListener lsm = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TailEditActivity.this.lrT.dfT().setContent(TailEditActivity.this.lrU.getContent());
-            if (TailEditActivity.this.lrT.dfR()) {
-                TailEditActivity.this.dfQ();
+            TailEditActivity.this.lsh.dga().setContent(TailEditActivity.this.lsi.getContent());
+            if (TailEditActivity.this.lsh.dfY()) {
+                TailEditActivity.this.dfX();
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TAIL_EDIT_CLOSE, null));
             TailEditActivity.this.finish();
         }
     };
-    private View.OnTouchListener lrZ = new View.OnTouchListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.5
+    private View.OnTouchListener lsn = new View.OnTouchListener() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.5
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 1) {
-                TailEditActivity.this.lrU.bzD();
+                TailEditActivity.this.lsi.bzD();
                 return false;
             }
             return false;
         }
     };
-    private TextWatcher lsa = new TextWatcher() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.6
+    private TextWatcher lso = new TextWatcher() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.6
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
         }
@@ -80,10 +80,10 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            TailEditActivity.this.Og(charSequence.toString());
+            TailEditActivity.this.Oh(charSequence.toString());
         }
     };
-    private com.baidu.tbadk.editortools.b lsb = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.7
+    private com.baidu.tbadk.editortools.b lsp = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.7
         @Override // com.baidu.tbadk.editortools.b
         public void a(com.baidu.tbadk.editortools.a aVar) {
             if (aVar != null) {
@@ -92,7 +92,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                 } else if (aVar.code == 26) {
                     TailEditActivity.this.aO(aVar.data);
                 } else if (aVar.code == 3) {
-                    TailEditActivity.this.lrU.dfV();
+                    TailEditActivity.this.lsi.dgc();
                 }
             }
         }
@@ -105,54 +105,54 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         setContentView(R.layout.tail_edit_activity);
         setActivityBgTransparent();
         setSwipeBackEnabled(false);
-        this.lrU = new b(this, this.lrX, this.lrY);
-        this.lrT = new a(getPageContext());
+        this.lsi = new b(this, this.lsl, this.lsm);
+        this.lsh = new a(getPageContext());
         initListener();
-        dfO();
-        cZX();
-        this.lrU.dfW();
+        dfV();
+        dae();
+        this.lsi.dgd();
         adjustResizeForSoftInput(R.color.common_color_10022, true);
     }
 
     private void initListener() {
-        this.lrT.a(this.lrV);
-        this.lrT.b(this.lrW);
-        this.lrU.getEditText().addTextChangedListener(this.lsa);
-        this.lrU.getEditText().setOnTouchListener(this.lrZ);
+        this.lsh.a(this.lsj);
+        this.lsh.b(this.lsk);
+        this.lsi.getEditText().addTextChangedListener(this.lso);
+        this.lsi.getEditText().setOnTouchListener(this.lsn);
     }
 
-    private void dfO() {
-        this.lrT.b(getIntent().getIntExtra(TailEditActivityConfig.TAIL_ID, 0), getIntent().getStringExtra(TailEditActivityConfig.TAIL_CONTENT), getIntent().getStringExtra(TailEditActivityConfig.TAIL_COLOR), getIntent().getBooleanExtra(TailEditActivityConfig.IS_NO_TAIL, false));
-        this.lrU.a(this.lrT.dfT());
+    private void dfV() {
+        this.lsh.b(getIntent().getIntExtra(TailEditActivityConfig.TAIL_ID, 0), getIntent().getStringExtra(TailEditActivityConfig.TAIL_CONTENT), getIntent().getStringExtra(TailEditActivityConfig.TAIL_COLOR), getIntent().getBooleanExtra(TailEditActivityConfig.IS_NO_TAIL, false));
+        this.lsi.a(this.lsh.dga());
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
-        dfP();
+        dfW();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
-        dfP();
+        dfW();
     }
 
-    private void dfP() {
+    private void dfW() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, boolean z2, String str, Integer num) {
-        this.lrU.hideProgressBar();
+        this.lsi.hideProgressBar();
         if (z2) {
             showToast(str);
         } else if (num != null) {
             TailData tailData = new TailData();
             tailData.setId(num.intValue());
-            tailData.setContent(this.lrT.dfT().getContent());
-            tailData.setFontColor(this.lrT.dfS());
+            tailData.setContent(this.lsh.dga().getContent());
+            tailData.setFontColor(this.lsh.dfZ());
             e eVar = new e(1, tailData);
             if (!z) {
-                eVar.lrR = 2;
+                eVar.lsf = 2;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TAIL_EDIT_CLOSE, null));
             finish();
@@ -161,53 +161,53 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Og(String str) {
-        String Oh = Oh(str);
-        this.lrT.dfT().setContent(Oh);
-        this.lrU.cT(this.lrT.Ok(Oh), 50);
-        this.lrU.tV(this.lrT.dfU());
+    public void Oh(String str) {
+        String Oi = Oi(str);
+        this.lsh.dga().setContent(Oi);
+        this.lsi.cU(this.lsh.Ol(Oi), 50);
+        this.lsi.tV(this.lsh.dgb());
     }
 
-    private String Oh(String str) {
-        if (this.lrT.EF(this.lrT.Ok(str))) {
-            String Ol = this.lrT.Ol(str);
-            this.lrU.setContent(Ol);
-            this.lrU.dfX();
-            return Ol;
+    private String Oi(String str) {
+        if (this.lsh.EF(this.lsh.Ol(str))) {
+            String Om = this.lsh.Om(str);
+            this.lsi.setContent(Om);
+            this.lsi.dge();
+            return Om;
         }
         return str;
     }
 
-    private void cZX() {
-        this.lrU.a(this.lsb, this.lrT.dfS());
+    private void dae() {
+        this.lsi.a(this.lsp, this.lsh.dfZ());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aO(Object obj) {
         if (obj != null) {
             String obj2 = obj.toString();
-            this.lrU.setColor(obj2);
-            this.lrT.Oj(obj2);
-            this.lrU.tV(this.lrT.dfU());
+            this.lsi.setColor(obj2);
+            this.lsh.Ok(obj2);
+            this.lsi.tV(this.lsh.dgb());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aP(Object obj) {
-        this.lrT.dfT().setContent(this.lrU.getContent());
-        if (this.lrT.EE(this.lrT.Ok(this.lrT.dfT().getContent()))) {
+        this.lsh.dga().setContent(this.lsi.getContent());
+        if (this.lsh.EE(this.lsh.Ol(this.lsh.dga().getContent()))) {
             showToast(R.string.over_limit_tip);
         } else if (obj != null && (obj instanceof u)) {
-            new com.baidu.tieba.memberCenter.tail.a.b().a(this, this.lrU.getEditText(), (u) obj);
+            new com.baidu.tieba.memberCenter.tail.a.b().a(this, this.lsi.getEditText(), (u) obj);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.lrT.dfT().setContent(this.lrU.getContent());
-            if (this.lrT.dfR()) {
-                dfQ();
+            this.lsh.dga().setContent(this.lsi.getContent());
+            if (this.lsh.dfY()) {
+                dfX();
                 return true;
             }
         }
@@ -215,7 +215,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dfQ() {
+    public void dfX() {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
         aVar.Au(getResources().getString(R.string.tail_cancel_modified_toast));
         aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.memberCenter.tail.edit.TailEditActivity.8
@@ -239,6 +239,6 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.lrU.onChangeSkinType(i);
+        this.lsi.onChangeSkinType(i);
     }
 }

@@ -61,7 +61,7 @@ public class af extends h {
             public boolean a(a.C0089a c0089a) {
                 if (af.this.agj != null && af.this.agj.bln() != null && !af.this.sP().booleanValue()) {
                     cb bln = af.this.agj.bln();
-                    com.baidu.tieba.card.m.IM(bln.getId());
+                    com.baidu.tieba.card.m.IN(bln.getId());
                     com.baidu.tieba.card.m.a(af.this.ahK.mTitle, bln.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     com.baidu.tieba.card.m.a(af.this.ahK.agY, bln.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }

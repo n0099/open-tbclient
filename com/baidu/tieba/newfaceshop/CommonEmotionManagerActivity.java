@@ -10,7 +10,7 @@ import com.baidu.tieba.faceshop.emotioncenter.CommonEmotionCenterFragment;
 /* loaded from: classes9.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     private FrameLayout aiT;
-    private CommonEmotionCenterFragment lzJ;
+    private CommonEmotionCenterFragment lzX;
     private String mUrl;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,11 +27,11 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mUrl)) {
             this.mUrl = "http://tieba.baidu.com/n/interact/emoticoncenter";
         }
-        this.lzJ = new CommonEmotionCenterFragment();
+        this.lzX = new CommonEmotionCenterFragment();
         Bundle bundle2 = new Bundle();
         bundle2.putString("key_load_url", this.mUrl);
-        this.lzJ.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.lzJ).commit();
+        this.lzX.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.lzX).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -41,8 +41,8 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.lzJ != null) {
-            this.lzJ.onDestroy();
+        if (this.lzX != null) {
+            this.lzX.onDestroy();
         }
         super.onDestroy();
     }

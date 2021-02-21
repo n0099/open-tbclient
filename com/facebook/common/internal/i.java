@@ -8,21 +8,21 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes6.dex */
 public final class i {
-    public static <E> HashSet<E> esy() {
+    public static <E> HashSet<E> esG() {
         return new HashSet<>();
     }
 
     public static <E> HashSet<E> R(E... eArr) {
-        HashSet<E> OT = OT(eArr.length);
-        Collections.addAll(OT, eArr);
-        return OT;
+        HashSet<E> OU = OU(eArr.length);
+        Collections.addAll(OU, eArr);
+        return OU;
     }
 
-    public static <E> HashSet<E> OT(int i) {
+    public static <E> HashSet<E> OU(int i) {
         return new HashSet<>(i);
     }
 
-    public static <E> Set<E> esz() {
+    public static <E> Set<E> esH() {
         return O(new IdentityHashMap());
     }
 
@@ -30,7 +30,7 @@ public final class i {
         return Collections.newSetFromMap(map);
     }
 
-    public static <E> CopyOnWriteArraySet<E> esA() {
+    public static <E> CopyOnWriteArraySet<E> esI() {
         return new CopyOnWriteArraySet<>();
     }
 }

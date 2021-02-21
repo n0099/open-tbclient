@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.o> {
-    private TbImageView mFv;
-    private TextView mFw;
+    private TbImageView mFK;
+    private TextView mFL;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mPageContext = tbPageContext;
         this.mRootView.setTag(this);
-        this.mFv = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
-        this.mFw = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
+        this.mFK = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
+        this.mFL = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ap.setBackgroundResource(this.mFv, R.drawable.item_gift_selector);
-        ap.setBackgroundColor(this.mFw, R.color.common_color_10294);
-        ap.setViewTextColor(this.mFw, R.color.CAM_X0302);
+        ap.setBackgroundResource(this.mFK, R.drawable.item_gift_selector);
+        ap.setBackgroundColor(this.mFL, R.color.common_color_10294);
+        ap.setViewTextColor(this.mFL, R.color.CAM_X0302);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -44,19 +44,19 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
             return;
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        this.mFv.startLoad(oVar.picUrl, 10, false);
+        this.mFK.startLoad(oVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
         if (oVar.giftNum > 0) {
-            this.mFw.setVisibility(0);
+            this.mFL.setVisibility(0);
             if (oVar.giftNum > 99) {
-                this.mFw.setText("99");
+                this.mFL.setText("99");
                 return;
             } else {
-                this.mFw.setText(String.valueOf(oVar.giftNum));
+                this.mFL.setText(String.valueOf(oVar.giftNum));
                 return;
             }
         }
-        this.mFw.setVisibility(8);
+        this.mFL.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

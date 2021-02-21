@@ -11,9 +11,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes11.dex */
 public class AlaGuessSingleBottomCenterView extends FrameLayout {
-    private HeadImageView hhf;
-    private TextView hhg;
-    private TextView hhh;
+    private HeadImageView hht;
+    private TextView hhu;
+    private TextView hhv;
 
     public AlaGuessSingleBottomCenterView(Context context) {
         super(context);
@@ -32,10 +32,10 @@ public class AlaGuessSingleBottomCenterView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.ala_guess_single_bottom_center_view, this);
-        this.hhf = (HeadImageView) findViewById(a.f.img_second_icon);
-        c(this.hhf);
-        this.hhg = (TextView) findViewById(a.f.txt_second_center_content);
-        this.hhh = (TextView) findViewById(a.f.txt_second_last_money);
+        this.hht = (HeadImageView) findViewById(a.f.img_second_icon);
+        c(this.hht);
+        this.hhu = (TextView) findViewById(a.f.txt_second_center_content);
+        this.hhv = (TextView) findViewById(a.f.txt_second_last_money);
     }
 
     private void c(HeadImageView headImageView) {
@@ -45,14 +45,14 @@ public class AlaGuessSingleBottomCenterView extends FrameLayout {
     }
 
     public void setData(o.c cVar) {
-        this.hhg.setText(cVar.getTips());
-        this.hhf.startLoad(cVar.getIcon(), 10, false);
-        this.hhh.setText(" " + cVar.BR() + "元");
+        this.hhu.setText(cVar.getTips());
+        this.hht.startLoad(cVar.getIcon(), 10, false);
+        this.hhv.setText(" " + cVar.BR() + "元");
     }
 
     public void setSpecialUI() {
-        this.hhf.setVisibility(8);
-        this.hhh.setVisibility(8);
-        this.hhg.setText(getResources().getString(a.h.ala_guess_result_single_bottomview_empty_tips));
+        this.hht.setVisibility(8);
+        this.hhv.setVisibility(8);
+        this.hhu.setText(getResources().getString(a.h.ala_guess_result_single_bottomview_empty_tips));
     }
 }

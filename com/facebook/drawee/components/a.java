@@ -7,51 +7,51 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes15.dex */
 public class a {
-    private static a pBg = null;
-    private final Runnable pBi = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a pBG = null;
+    private final Runnable pBI = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.etJ();
-            for (InterfaceC1046a interfaceC1046a : a.this.pBh) {
-                interfaceC1046a.release();
+            a.etR();
+            for (InterfaceC1048a interfaceC1048a : a.this.pBH) {
+                interfaceC1048a.release();
             }
-            a.this.pBh.clear();
+            a.this.pBH.clear();
         }
     };
-    private final Set<InterfaceC1046a> pBh = new HashSet();
+    private final Set<InterfaceC1048a> pBH = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC1046a {
+    public interface InterfaceC1048a {
         void release();
     }
 
-    public static synchronized a etI() {
+    public static synchronized a etQ() {
         a aVar;
         synchronized (a.class) {
-            if (pBg == null) {
-                pBg = new a();
+            if (pBG == null) {
+                pBG = new a();
             }
-            aVar = pBg;
+            aVar = pBG;
         }
         return aVar;
     }
 
-    public void a(InterfaceC1046a interfaceC1046a) {
-        etJ();
-        if (this.pBh.add(interfaceC1046a) && this.pBh.size() == 1) {
-            this.mUiHandler.post(this.pBi);
+    public void a(InterfaceC1048a interfaceC1048a) {
+        etR();
+        if (this.pBH.add(interfaceC1048a) && this.pBH.size() == 1) {
+            this.mUiHandler.post(this.pBI);
         }
     }
 
-    public void b(InterfaceC1046a interfaceC1046a) {
-        etJ();
-        this.pBh.remove(interfaceC1046a);
+    public void b(InterfaceC1048a interfaceC1048a) {
+        etR();
+        this.pBH.remove(interfaceC1048a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void etJ() {
+    public static void etR() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

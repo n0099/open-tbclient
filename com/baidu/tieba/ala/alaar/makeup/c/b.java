@@ -4,12 +4,12 @@ import android.text.TextUtils;
 /* loaded from: classes11.dex */
 public abstract class b<T> {
     private T dgA;
-    private String gsp;
-    private Long gsq;
+    private String gsD;
+    private Long gsE;
     private String mKey;
     private T mValue;
 
-    protected abstract T bPy();
+    protected abstract T bPF();
 
     protected abstract long w(String str, long j);
 
@@ -17,7 +17,7 @@ public abstract class b<T> {
     }
 
     public b(String str, T t, String str2) {
-        this.gsp = str2;
+        this.gsD = str2;
         aE(t);
         setKey(str);
     }
@@ -32,9 +32,9 @@ public abstract class b<T> {
 
     public T getValue() {
         if (this.mValue == null && !TextUtils.isEmpty(this.mKey)) {
-            this.mValue = bPy();
-            if (!TextUtils.isEmpty(this.gsp)) {
-                this.gsq = Long.valueOf(w(this.gsp, 0L));
+            this.mValue = bPF();
+            if (!TextUtils.isEmpty(this.gsD)) {
+                this.gsE = Long.valueOf(w(this.gsD, 0L));
             }
         }
         return this.mValue;

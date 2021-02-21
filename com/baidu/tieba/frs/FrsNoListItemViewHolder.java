@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
-    public static BdUniqueId jjH = BdUniqueId.gen();
+    public static BdUniqueId jjV = BdUniqueId.gen();
     private int fGO;
     private LinearLayout fxX;
-    public TextView jjI;
-    public ImageView jjJ;
-    private int jjK;
-    private CustomMessageListener jjL;
+    public TextView jjW;
+    public ImageView jjX;
+    private int jjY;
+    private CustomMessageListener jjZ;
     private ViewGroup mParent;
     private View mRootView;
     private Rect rect;
@@ -29,7 +29,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public FrsNoListItemViewHolder(View view, ViewGroup viewGroup) {
         super(view);
         this.rect = new Rect();
-        this.jjL = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.FrsNoListItemViewHolder.1
+        this.jjZ = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.FrsNoListItemViewHolder.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -42,15 +42,15 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         this.mRootView = view;
         this.mParent = viewGroup;
         this.fxX = (LinearLayout) view.findViewById(R.id.container);
-        this.jjJ = (ImageView) view.findViewById(R.id.emotion_view);
-        this.jjI = (TextView) view.findViewById(R.id.no_data_tips);
-        com.baidu.tbadk.core.util.ap.setImageResource(this.jjJ, R.drawable.new_pic_emotion_06);
-        this.jjL.setTag(jjH);
-        MessageManager.getInstance().registerListener(this.jjL);
-        cEl();
+        this.jjX = (ImageView) view.findViewById(R.id.emotion_view);
+        this.jjW = (TextView) view.findViewById(R.id.no_data_tips);
+        com.baidu.tbadk.core.util.ap.setImageResource(this.jjX, R.drawable.new_pic_emotion_06);
+        this.jjZ.setTag(jjV);
+        MessageManager.getInstance().registerListener(this.jjZ);
+        cEs();
     }
 
-    private void cEl() {
+    private void cEs() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.FrsNoListItemViewHolder.2
                 @Override // android.view.View.OnLayoutChangeListener
@@ -77,8 +77,8 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
             if (this.fGO <= 0) {
                 this.fGO = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
             }
-            if (i != Integer.MAX_VALUE || this.jjK != Integer.MAX_VALUE) {
-                this.jjK = i;
+            if (i != Integer.MAX_VALUE || this.jjY != Integer.MAX_VALUE) {
+                this.jjY = i;
                 if (this.mParent.getLocalVisibleRect(this.rect)) {
                     int i2 = this.rect.bottom;
                     int abs = Math.abs(this.fxX.getTop());

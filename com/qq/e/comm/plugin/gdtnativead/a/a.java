@@ -47,12 +47,12 @@ public class a extends RelativeLayout {
     private com.qq.e.comm.plugin.ad.j s;
     private b.a t;
     private Space u;
-    private InterfaceC1195a v;
+    private InterfaceC1197a v;
     private r w;
 
     /* renamed from: com.qq.e.comm.plugin.gdtnativead.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC1195a {
+    public interface InterfaceC1197a {
         void a();
 
         void b();
@@ -379,8 +379,8 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void a(InterfaceC1195a interfaceC1195a) {
-        this.v = interfaceC1195a;
+    public void a(InterfaceC1197a interfaceC1197a) {
+        this.v = interfaceC1197a;
     }
 
     public void a(b.a aVar) {

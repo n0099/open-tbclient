@@ -252,7 +252,7 @@ public final class BitArray implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitArray m57clone() {
+    public BitArray m56clone() {
         return new BitArray((int[]) this.bits.clone(), this.size);
     }
 }

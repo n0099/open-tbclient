@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.n.a.e;
 /* loaded from: classes5.dex */
 public class c {
-    private static c oUM;
+    private static c oVm;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -16,23 +16,23 @@ public class c {
     }
 
     public static c hp(Context context) {
-        if (oUM == null) {
+        if (oVm == null) {
             synchronized (c.class) {
-                if (oUM == null) {
-                    oUM = new c(context);
+                if (oVm == null) {
+                    oVm = new c(context);
                     com.baidu.n.a.a.hq(context);
                 }
             }
         }
-        return oUM;
+        return oVm;
     }
 
     public void a(b bVar) {
-        a(new d().Nq(1).AD(false), bVar, Looper.getMainLooper());
+        a(new d().Nr(1).AD(false), bVar, Looper.getMainLooper());
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.eiy().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
+        e.eiG().a(this.mCtx, looper, new com.baidu.n.a.a.b() { // from class: com.baidu.n.c.1
             @Override // com.baidu.n.a.a.b
             public void a(com.baidu.n.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,7 +40,7 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.eiD(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.eiL(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
                 }
             }
         });

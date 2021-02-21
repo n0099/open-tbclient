@@ -15,9 +15,9 @@ public class f extends c {
     public com.bytedance.tea.crash.c.a a(com.bytedance.tea.crash.c.a aVar) {
         com.bytedance.tea.crash.c.a a2 = super.a(aVar);
         com.bytedance.tea.crash.c.b ia = com.bytedance.tea.crash.c.b.ia(this.f7639b);
-        ia.a(h.erd().a());
-        ia.a(h.erf().a());
-        ia.b(this.pvN.c());
+        ia.a(h.erl().a());
+        ia.a(h.ern().a());
+        ia.b(this.pwn.c());
         a2.a(ia);
         return a2;
     }

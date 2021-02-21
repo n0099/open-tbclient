@@ -31,7 +31,7 @@ public class j extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
     private ab<ca> agg;
     private s amk;
     public BdUniqueId fGZ;
-    private NEGFeedBackView.a gdO;
+    private NEGFeedBackView.a gdT;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -49,12 +49,12 @@ public class j extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
             @Override // com.baidu.tieba.card.ab
             public void a(View view, ca caVar) {
                 if (caVar != null) {
-                    t.csu().mG(true);
+                    t.csB().mG(true);
                     com.baidu.tieba.enterForum.a.a(view, caVar, j.this.mTabName);
                 }
             }
         };
-        this.gdO = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.2
+        this.gdT = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(av avVar) {
                 TiebaStatic.log(com.baidu.tbadk.core.util.m.a(avVar, j.this.mTabName));

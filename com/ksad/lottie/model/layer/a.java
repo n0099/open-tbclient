@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1065a {
+public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1067a {
 
     /* renamed from: b  reason: collision with root package name */
     final com.ksad.lottie.f f8096b;
@@ -66,7 +66,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1065a {
             this.j.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
         this.d = layer.o().h();
-        this.d.a((a.InterfaceC1065a) this);
+        this.d.a((a.InterfaceC1067a) this);
         if (layer.j() != null && !layer.j().isEmpty()) {
             this.q = new com.ksad.lottie.a.b.g(layer.j());
             for (com.ksad.lottie.a.b.a<h, Path> aVar : this.q.b()) {
@@ -218,8 +218,8 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1065a {
         }
         final com.ksad.lottie.a.b.c cVar = new com.ksad.lottie.a.b.c(this.c.d());
         cVar.a();
-        cVar.a(new a.InterfaceC1065a() { // from class: com.ksad.lottie.model.layer.a.1
-            @Override // com.ksad.lottie.a.b.a.InterfaceC1065a
+        cVar.a(new a.InterfaceC1067a() { // from class: com.ksad.lottie.model.layer.a.1
+            @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
             public void a() {
                 a.this.a(cVar.e().floatValue() == 1.0f);
             }
@@ -246,7 +246,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1065a {
         }
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1065a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
     public void a() {
         f();
     }

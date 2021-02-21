@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class a {
-    public static long KD(String str) {
+    public static long KE(String str) {
         if (StringUtils.isNull(str)) {
             return 0L;
         }
@@ -45,19 +45,19 @@ public class a {
             declaredField.setAccessible(true);
             declaredField2.setAccessible(true);
             Object obj = declaredField2.get(declaredField.get(editText));
-            Array.set(obj, 0, new C0726a(ap.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-            Array.set(obj, 1, new C0726a(ap.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+            Array.set(obj, 0, new C0727a(ap.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+            Array.set(obj, 1, new C0727a(ap.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
         } catch (Exception e) {
         }
     }
 
     /* renamed from: com.baidu.tieba.frs.forumRule.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0726a extends ShapeDrawable {
+    private static class C0727a extends ShapeDrawable {
         private int mBottomOffset;
         private int mTopOffset;
 
-        public C0726a(int i, int i2, int i3, int i4) {
+        public C0727a(int i, int i2, int i3, int i4) {
             this.mTopOffset = i3;
             this.mBottomOffset = i4;
             setDither(false);

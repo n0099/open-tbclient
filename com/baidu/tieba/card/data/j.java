@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class j extends k {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId iAt = BdUniqueId.gen();
+    public static final BdUniqueId iAH = BdUniqueId.gen();
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return (this.eJQ == null || this.eJQ.getThreadType() != 67) ? TYPE : iAt;
+        return (this.eJQ == null || this.eJQ.getThreadType() != 67) ? TYPE : iAH;
     }
 
     public j(cb cbVar) {
@@ -27,12 +27,12 @@ public class j extends k {
         return cbVar.getThreadType() == 67 && cbVar.boj() != null && cbVar.boj().friendRoomStatus == 2;
     }
 
-    public ar IT(String str) {
-        ar IS = IS(str);
-        IS.delete("obj_type");
-        IS.delete("obj_type");
-        IS.ap("obj_type", 3);
-        return IS;
+    public ar IU(String str) {
+        ar IT = IT(str);
+        IT.delete("obj_type");
+        IT.delete("obj_type");
+        IT.ap("obj_type", 3);
+        return IT;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a

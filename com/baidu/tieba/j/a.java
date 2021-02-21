@@ -14,29 +14,29 @@ public class a {
     private String bzi;
     private String eMR;
     private boolean isSelected;
-    private String jXR;
-    private b jXS;
-    private String jXT;
-    private String jXU;
-    private String jXV;
-    private String jXW;
-    private String jXX;
-    private List<C0772a> jXY;
+    private String jYf;
+    private b jYg;
+    private String jYh;
+    private String jYi;
+    private String jYj;
+    private String jYk;
+    private String jYl;
+    private List<C0773a> jYm;
     private String nid;
     private String originalPrice;
     private String price;
     private String title;
     private String userName;
 
-    public void Ly(String str) {
-        this.jXR = str;
+    public void Lz(String str) {
+        this.jYf = str;
     }
 
-    public String cOl() {
+    public String cOs() {
         return this.byY;
     }
 
-    public void Lz(String str) {
+    public void LA(String str) {
         this.byY = str;
     }
 
@@ -44,7 +44,7 @@ public class a {
         this.title = str;
     }
 
-    public void LA(String str) {
+    public void LB(String str) {
         this.originalPrice = str;
     }
 
@@ -56,59 +56,59 @@ public class a {
         this.price = str;
     }
 
-    public b cOm() {
-        return this.jXS;
+    public b cOt() {
+        return this.jYg;
     }
 
     public void a(b bVar) {
-        this.jXS = bVar;
-    }
-
-    public void LB(String str) {
-        this.jXT = str;
-    }
-
-    public String cOn() {
-        return this.jXU;
+        this.jYg = bVar;
     }
 
     public void LC(String str) {
-        this.jXU = str;
+        this.jYh = str;
+    }
+
+    public String cOu() {
+        return this.jYi;
+    }
+
+    public void LD(String str) {
+        this.jYi = str;
     }
 
     public void setUserName(String str) {
         this.userName = str;
     }
 
-    public void LD(String str) {
-        this.jXV = str;
-    }
-
     public void LE(String str) {
-        this.jXW = str;
+        this.jYj = str;
     }
 
     public void LF(String str) {
-        this.bzi = str;
+        this.jYk = str;
     }
 
     public void LG(String str) {
-        this.bzh = str;
+        this.bzi = str;
     }
 
     public void LH(String str) {
-        this.jXX = str;
+        this.bzh = str;
+    }
+
+    public void LI(String str) {
+        this.jYl = str;
     }
 
     public void setNid(String str) {
         this.nid = str;
     }
 
-    public String cOo() {
+    public String cOv() {
         return this.eMR;
     }
 
-    public void LI(String str) {
+    public void LJ(String str) {
         this.eMR = str;
     }
 
@@ -116,44 +116,44 @@ public class a {
         this.isSelected = z;
     }
 
-    public List<C0772a> getImageList() {
-        return this.jXY;
+    public List<C0773a> getImageList() {
+        return this.jYm;
     }
 
-    public void dO(List<C0772a> list) {
-        this.jXY = list;
+    public void dO(List<C0773a> list) {
+        this.jYm = list;
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        private String jXZ;
-        private String jYa;
-        private String jYb;
-
-        public void LJ(String str) {
-            this.jXZ = str;
-        }
-
-        public String cOp() {
-            return this.jYa;
-        }
+        private String jYn;
+        private String jYo;
+        private String jYp;
 
         public void LK(String str) {
-            this.jYa = str;
+            this.jYn = str;
         }
 
-        public String cOq() {
-            return this.jYb;
+        public String cOw() {
+            return this.jYo;
         }
 
         public void LL(String str) {
-            this.jYb = str;
+            this.jYo = str;
+        }
+
+        public String cOx() {
+            return this.jYp;
+        }
+
+        public void LM(String str) {
+            this.jYp = str;
         }
     }
 
     /* renamed from: com.baidu.tieba.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0772a {
+    public static class C0773a {
         private String src;
 
         public String getSrc() {
@@ -170,39 +170,39 @@ public class a {
             return null;
         }
         a aVar = new a();
-        aVar.LB(jSONObject.optString("commission"));
-        aVar.LF(jSONObject.optString("coupon"));
-        aVar.LI(jSONObject.optString("goodsId"));
-        aVar.LD(jSONObject.optString("goodsStatus"));
+        aVar.LC(jSONObject.optString("commission"));
+        aVar.LG(jSONObject.optString("coupon"));
+        aVar.LJ(jSONObject.optString("goodsId"));
+        aVar.LE(jSONObject.optString("goodsStatus"));
         JSONArray optJSONArray = jSONObject.optJSONArray("imageList");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                C0772a c0772a = new C0772a();
+                C0773a c0773a = new C0773a();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    c0772a.setSrc(optJSONObject.optString(UserAccountActionItem.KEY_SRC));
-                    arrayList.add(c0772a);
+                    c0773a.setSrc(optJSONObject.optString(UserAccountActionItem.KEY_SRC));
+                    arrayList.add(c0773a);
                 }
             }
             aVar.dO(arrayList);
         }
-        aVar.LH(jSONObject.optString("isBindingVideo"));
+        aVar.LI(jSONObject.optString("isBindingVideo"));
         aVar.setIsSelected(jSONObject.optBoolean("isSelected"));
         aVar.setNid(jSONObject.optString(IntentConfig.NID));
-        aVar.Ly(jSONObject.optString("originalGoodsId"));
-        aVar.LA(jSONObject.optString("originalPrice"));
-        aVar.Lz(jSONObject.optString("originalTitle"));
-        aVar.LC(jSONObject.optString("tpName"));
+        aVar.Lz(jSONObject.optString("originalGoodsId"));
+        aVar.LB(jSONObject.optString("originalPrice"));
+        aVar.LA(jSONObject.optString("originalTitle"));
+        aVar.LD(jSONObject.optString("tpName"));
         aVar.setPrice(jSONObject.optString("price"));
-        aVar.LG(jSONObject.optString("saleNum"));
-        aVar.LE(jSONObject.optString("shareStatus"));
+        aVar.LH(jSONObject.optString("saleNum"));
+        aVar.LF(jSONObject.optString("shareStatus"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("slink");
         if (optJSONObject2 != null) {
             b bVar = new b();
-            bVar.LK(optJSONObject2.optString("Android"));
-            bVar.LJ(optJSONObject2.optString("IOS"));
-            bVar.LL(optJSONObject2.optString("h5"));
+            bVar.LL(optJSONObject2.optString("Android"));
+            bVar.LK(optJSONObject2.optString("IOS"));
+            bVar.LM(optJSONObject2.optString("h5"));
             aVar.a(bVar);
         }
         aVar.setTitle(jSONObject.optString("title"));

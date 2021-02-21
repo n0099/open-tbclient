@@ -11,6 +11,6 @@ public class AperfOverlayRuntime {
     };
 
     public static IAperfOverlayContext getAperfOverlayContext() {
-        return b.dKa();
+        return b.dKi();
     }
 }

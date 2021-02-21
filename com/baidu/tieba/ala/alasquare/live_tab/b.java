@@ -11,9 +11,9 @@ import java.util.List;
 public class b {
     private BdTypeRecyclerView XW;
     private List<com.baidu.adp.widget.ListView.a> bns;
-    private d gAC;
-    private boolean gAD = false;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a gAp;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a gAD;
+    private d gAQ;
+    private boolean gAR = false;
     private Context mContext;
     private TbPageContext mPageContext;
 
@@ -26,11 +26,11 @@ public class b {
 
     private void Kw() {
         this.bns = new ArrayList();
-        this.gAC = new d(this.mPageContext);
-        this.gAC.mw(this.gAD);
-        this.gAp = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.bns.add(this.gAC);
-        this.bns.add(this.gAp);
+        this.gAQ = new d(this.mPageContext);
+        this.gAQ.mw(this.gAR);
+        this.gAD = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.bns.add(this.gAQ);
+        this.bns.add(this.gAD);
         this.XW.addAdapters(this.bns);
     }
 
@@ -45,6 +45,6 @@ public class b {
     }
 
     public void mw(boolean z) {
-        this.gAD = z;
+        this.gAR = z;
     }
 }

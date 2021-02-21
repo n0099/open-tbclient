@@ -129,7 +129,7 @@ public class c {
         }
     }
 
-    private static final String Nf(String str) {
+    private static final String Ng(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -158,7 +158,7 @@ public class c {
         return sb.toString();
     }
 
-    private static final String Ng(String str) {
+    private static final String Nh(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -190,19 +190,19 @@ public class c {
             return null;
         }
         if (i == 1) {
-            String Nf = (str.length() <= 1 || str.charAt(0) != '[') ? null : Nf(str);
-            if (TextUtils.isEmpty(Nf)) {
-                Nf = str;
+            String Ng = (str.length() <= 1 || str.charAt(0) != '[') ? null : Ng(str);
+            if (TextUtils.isEmpty(Ng)) {
+                Ng = str;
             }
-            if (Nf == null) {
+            if (Ng == null) {
                 return null;
             }
-            Matcher matcher = pattern.matcher(Nf);
+            Matcher matcher = pattern.matcher(Ng);
             while (matcher.find()) {
                 String group = matcher.group();
-                Nf = Nf.replace(group, group.replace("#(", "[").replace(")", "]"));
+                Ng = Ng.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return Nf;
+            return Ng;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic);
         } else {
@@ -210,7 +210,7 @@ public class c {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_voice);
             }
             if (i == 11) {
-                return Nh(str);
+                return Ni(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_reply_card);
@@ -299,7 +299,7 @@ public class c {
                         return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return Ng(str);
+                    return Nh(str);
                 } else {
                     return null;
                 }
@@ -331,7 +331,7 @@ public class c {
         return v(chatMessage);
     }
 
-    private static String Nh(String str) {
+    private static String Ni(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -445,19 +445,19 @@ public class c {
 
     public static d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return Ni(commonMsgPojo.getContent());
+            return Nj(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static d Ni(String str) {
+    public static d Nj(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return Nj(jSONArray.getJSONObject(0).optString("msg_src"));
+                return Nk(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -466,13 +466,13 @@ public class c {
         }
     }
 
-    public static d Nj(String str) {
+    public static d Nk(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) == null || split.length != 2) {
             return null;
         }
         d dVar = new d();
-        dVar.kEC = split[0];
+        dVar.kEQ = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

@@ -20,7 +20,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static final class C1214a {
+    public static final class C1216a {
 
         /* renamed from: a  reason: collision with root package name */
         public static final a f12762a = new a((byte) 0);
@@ -42,7 +42,7 @@ public class a {
     }
 
     public static a a() {
-        return C1214a.f12762a;
+        return C1216a.f12762a;
     }
 
     private String a(String str) {

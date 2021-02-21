@@ -207,8 +207,8 @@ public class e {
         long elapsedRealtime = remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue();
         String str = z ? "load_video_success" : "load_video_error";
         String str2 = null;
-        if (!z && pVar != null && pVar.pvp != null) {
-            str2 = pVar.pvp.getMessage();
+        if (!z && pVar != null && pVar.pvP != null) {
+            str2 = pVar.pvP.getMessage();
         }
         com.bytedance.sdk.openadsdk.c.d.f(this.f6319b, lVar, "rewarded_video", str, aj.a(z, lVar, elapsedRealtime, j, str2));
     }

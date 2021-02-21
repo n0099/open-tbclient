@@ -11,24 +11,24 @@ import com.baidu.live.tbadk.log.LogManager;
 import com.baidu.live.utils.m;
 /* loaded from: classes11.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private HeadImageView hCS;
-    private TextView hCT;
-    private TextView hCU;
-    private InterfaceC0666a hCV;
-    private String hCW;
-    private String hCX;
-    private String hCY;
-    private String hCZ;
-    private String hDa;
+    private HeadImageView hDg;
+    private TextView hDh;
+    private TextView hDi;
+    private InterfaceC0667a hDj;
+    private String hDk;
+    private String hDl;
+    private String hDm;
+    private String hDn;
+    private String hDo;
     private View mClose;
     private long roomId;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0666a {
-        void cfb();
+    public interface InterfaceC0667a {
+        void cfi();
 
-        void cfc();
+        void cfj();
     }
 
     public a(Context context) {
@@ -45,61 +45,61 @@ public class a extends Dialog implements View.OnClickListener {
     }
 
     private void initData() {
-        this.hCS.setIsRound(true);
-        this.hCS.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds2));
-        this.hCS.setBorderColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
+        this.hDg.setIsRound(true);
+        this.hDg.setBorderWidth(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds2));
+        this.hDg.setBorderColor(getContext().getResources().getColor(a.c.sdk_white_alpha100));
     }
 
     private void initView() {
-        this.hCS = (HeadImageView) findViewById(a.f.user_icon);
-        this.hCT = (TextView) findViewById(a.f.invite_txt);
-        this.hCU = (TextView) findViewById(a.f.go_to_client);
+        this.hDg = (HeadImageView) findViewById(a.f.user_icon);
+        this.hDh = (TextView) findViewById(a.f.invite_txt);
+        this.hDi = (TextView) findViewById(a.f.go_to_client);
         this.mClose = findViewById(a.f.close);
-        m.a(this.hCS, this.hCW, true, false);
-        this.hCT.setText(this.hCX);
-        this.hCU.setText(this.hCY);
+        m.a(this.hDg, this.hDk, true, false);
+        this.hDh.setText(this.hDl);
+        this.hDi.setText(this.hDm);
     }
 
     private void initListener() {
-        this.hCU.setOnClickListener(this);
+        this.hDi.setOnClickListener(this);
         this.mClose.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hCU) {
-            if (this.hCV != null) {
-                this.hCV.cfc();
+        if (view == this.hDi) {
+            if (this.hDj != null) {
+                this.hDj.cfj();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.hCZ, this.hDa);
+            LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.hDn, this.hDo);
         } else if (view == this.mClose) {
-            if (this.hCV != null) {
-                this.hCV.cfb();
+            if (this.hDj != null) {
+                this.hDj.cfi();
             }
             dismiss();
-            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.hDa);
-        }
-    }
-
-    public void HJ(String str) {
-        this.hCW = str;
-        if (this.hCS != null) {
-            m.a(this.hCS, this.hCW, true, false);
+            LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.hDo);
         }
     }
 
     public void HK(String str) {
-        this.hCX = str;
-        if (this.hCT != null) {
-            this.hCT.setText(this.hCX);
+        this.hDk = str;
+        if (this.hDg != null) {
+            m.a(this.hDg, this.hDk, true, false);
         }
     }
 
     public void HL(String str) {
-        this.hCY = str;
-        if (this.hCU != null) {
-            this.hCU.setText(this.hCY);
+        this.hDl = str;
+        if (this.hDh != null) {
+            this.hDh.setText(this.hDl);
+        }
+    }
+
+    public void HM(String str) {
+        this.hDm = str;
+        if (this.hDi != null) {
+            this.hDi.setText(this.hDm);
         }
     }
 
@@ -107,15 +107,15 @@ public class a extends Dialog implements View.OnClickListener {
         this.roomId = j;
     }
 
-    public void HM(String str) {
-        this.hCZ = str;
-    }
-
     public void HN(String str) {
-        this.hDa = str;
+        this.hDn = str;
     }
 
-    public void a(InterfaceC0666a interfaceC0666a) {
-        this.hCV = interfaceC0666a;
+    public void HO(String str) {
+        this.hDo = str;
+    }
+
+    public void a(InterfaceC0667a interfaceC0667a) {
+        this.hDj = interfaceC0667a;
     }
 }

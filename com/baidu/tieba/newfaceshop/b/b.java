@@ -4,7 +4,7 @@ public class b implements Comparable<b> {
     public int height;
     public String id;
     public int index;
-    public String lAy;
+    public String lAM;
     public String name;
     public String thumbnail;
     public String url;

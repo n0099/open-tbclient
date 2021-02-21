@@ -21,8 +21,8 @@ public class l {
     private int n;
     private int o;
     private int p;
-    private j pms;
-    private k pmt;
+    private j pmS;
+    private k pmT;
     private String r;
     private String s;
     private String t;
@@ -39,11 +39,11 @@ public class l {
         this.f5832b = str2;
     }
 
-    public String enx() {
+    public String enF() {
         return this.j;
     }
 
-    public boolean eny() {
+    public boolean enG() {
         return this.h;
     }
 
@@ -55,7 +55,7 @@ public class l {
         return this.f5832b;
     }
 
-    public String enz() {
+    public String enH() {
         return this.c;
     }
 
@@ -63,11 +63,11 @@ public class l {
         return this.d;
     }
 
-    public String enA() {
+    public String enI() {
         return this.e;
     }
 
-    public String enB() {
+    public String enJ() {
         return this.f;
     }
 
@@ -81,11 +81,11 @@ public class l {
         return this.i;
     }
 
-    public j enC() {
-        return this.pms;
+    public j enK() {
+        return this.pmS;
     }
 
-    public l Oq(int i) {
+    public l Or(int i) {
         aa.a(i);
         return this;
     }
@@ -98,7 +98,7 @@ public class l {
         return this.l;
     }
 
-    public String enD() {
+    public String enL() {
         return this.m;
     }
 
@@ -106,35 +106,35 @@ public class l {
         return this.n;
     }
 
-    public int enE() {
+    public int enM() {
         return this.o;
     }
 
-    public int enF() {
+    public int enN() {
         return this.p;
     }
 
-    public String enG() {
+    public String enO() {
         return this.r;
     }
 
-    public String enH() {
+    public String enP() {
         return this.s;
     }
 
-    public String enI() {
+    public String enQ() {
         return this.t;
     }
 
-    public String enJ() {
+    public String enR() {
         return this.u;
     }
 
-    public String enK() {
+    public String enS() {
         return this.v;
     }
 
-    public String enL() {
+    public String enT() {
         return this.w;
     }
 
@@ -142,7 +142,7 @@ public class l {
         this.x = z;
     }
 
-    public boolean enM() {
+    public boolean enU() {
         return this.y;
     }
 
@@ -150,19 +150,19 @@ public class l {
         this.y = z;
     }
 
-    public String enN() {
+    public String enV() {
         return this.z;
     }
 
-    public void Yv(String str) {
+    public void YH(String str) {
         this.z = str;
     }
 
-    public k enO() {
-        return this.pmt;
+    public k enW() {
+        return this.pmT;
     }
 
     public void a(k kVar) {
-        this.pmt = kVar;
+        this.pmT = kVar;
     }
 }

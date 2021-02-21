@@ -17,10 +17,10 @@ import com.baidu.live.view.YuyinALALevelView;
 /* loaded from: classes11.dex */
 public class OnlineAudienceItemView extends LinearLayout {
     public TextView aDM;
-    public HeadImageView gPt;
-    public TbImageView gPu;
-    public TextView gPw;
-    public YuyinALALevelView opu;
+    public HeadImageView gPH;
+    public TbImageView gPI;
+    public TextView gPK;
+    public YuyinALALevelView opU;
 
     public OnlineAudienceItemView(Context context) {
         this(context, null);
@@ -33,31 +33,31 @@ public class OnlineAudienceItemView extends LinearLayout {
 
     public void setData(int i, String str, String str2, long j, String str3, int i2) {
         if (i >= 1 && i <= 3 && j > 0) {
-            this.gPu.setVisibility(0);
+            this.gPI.setVisibility(0);
         } else {
-            this.gPu.setVisibility(8);
+            this.gPI.setVisibility(8);
         }
-        m.a(this.gPt, str2, true, false);
+        m.a(this.gPH, str2, true, false);
         if (i2 == 7) {
-            this.gPu.setVisibility(0);
-            this.gPu.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
+            this.gPI.setVisibility(0);
+            this.gPI.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
         } else if (i2 == 6) {
-            this.gPu.setVisibility(0);
-            this.gPu.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
+            this.gPI.setVisibility(0);
+            this.gPI.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
         } else if (i2 == 5) {
-            this.gPu.setVisibility(0);
-            this.gPu.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
+            this.gPI.setVisibility(0);
+            this.gPI.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
         } else if (i2 == 4) {
-            this.gPu.setVisibility(0);
-            this.gPu.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
+            this.gPI.setVisibility(0);
+            this.gPI.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
         } else {
-            this.gPu.setVisibility(8);
+            this.gPI.setVisibility(8);
         }
         this.aDM.setText(str);
         if (j > 0) {
-            this.gPw.setText(str3 + "魅力");
+            this.gPK.setText(str3 + "魅力");
         } else {
-            this.gPw.setText("");
+            this.gPK.setText("");
         }
         this.aDM.setMaxWidth(ScreenHelper.getScreenWidth(getContext()) - BdUtilHelper.dip2px(getContext(), 230.0f));
     }
@@ -70,18 +70,18 @@ public class OnlineAudienceItemView extends LinearLayout {
     }
 
     private void Ge() {
-        this.gPt = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.gPu = (TbImageView) findViewById(a.f.iv_pendant);
-        this.opu = (YuyinALALevelView) findViewById(a.f.level);
+        this.gPH = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.gPI = (TbImageView) findViewById(a.f.iv_pendant);
+        this.opU = (YuyinALALevelView) findViewById(a.f.level);
         this.aDM = (TextView) findViewById(a.f.tv_name);
-        this.gPw = (TextView) findViewById(a.f.tv_value);
+        this.gPK = (TextView) findViewById(a.f.tv_value);
     }
 
     private void initView() {
-        this.gPt.setAutoChangeStyle(false);
-        this.gPt.setDrawBorder(false);
-        this.gPt.setIsRound(true);
-        this.gPu.setDefaultBgResource(a.c.sdk_transparent);
-        this.gPu.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.gPH.setAutoChangeStyle(false);
+        this.gPH.setDrawBorder(false);
+        this.gPH.setIsRound(true);
+        this.gPI.setDefaultBgResource(a.c.sdk_transparent);
+        this.gPI.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 }

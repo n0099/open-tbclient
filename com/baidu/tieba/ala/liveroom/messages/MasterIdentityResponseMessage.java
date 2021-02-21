@@ -4,16 +4,16 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
-    private int hJC;
-    private String hJD;
-    private int hJE;
-    private int hJF;
-    private String hJG;
+    private int hJQ;
+    private String hJR;
+    private int hJS;
+    private int hJT;
+    private String hJU;
 
     public MasterIdentityResponseMessage() {
         super(1021131);
-        this.hJE = 0;
-        this.hJF = 0;
+        this.hJS = 0;
+        this.hJT = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,24 +21,24 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getError() == 0) {
-                this.hJC = jSONObject.optInt("anchor_identity");
-                this.hJD = jSONObject.optString("anchor_proportion");
-                this.hJE = jSONObject.optInt("anchor_identity_status");
-                this.hJF = jSONObject.optInt("anchor_proportion_status");
-                this.hJG = jSONObject.optString("anchor_text");
+                this.hJQ = jSONObject.optInt("anchor_identity");
+                this.hJR = jSONObject.optString("anchor_proportion");
+                this.hJS = jSONObject.optInt("anchor_identity_status");
+                this.hJT = jSONObject.optInt("anchor_proportion_status");
+                this.hJU = jSONObject.optString("anchor_text");
             }
         }
     }
 
-    public int ciQ() {
-        return this.hJE;
+    public int ciX() {
+        return this.hJS;
     }
 
-    public int ciR() {
-        return this.hJF;
+    public int ciY() {
+        return this.hJT;
     }
 
-    public String ciS() {
-        return this.hJG;
+    public String ciZ() {
+        return this.hJU;
     }
 }

@@ -22,17 +22,17 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         if (this.skip == this.count) {
             a aVar = new a(jVar, this.count);
             jVar.add(aVar);
-            jVar.setProducer(aVar.eMV());
+            jVar.setProducer(aVar.eNd());
             return aVar;
         } else if (this.skip > this.count) {
             BufferSkip bufferSkip = new BufferSkip(jVar, this.count, this.skip);
             jVar.add(bufferSkip);
-            jVar.setProducer(bufferSkip.eMV());
+            jVar.setProducer(bufferSkip.eNd());
             return bufferSkip;
         } else {
             BufferOverlap bufferOverlap = new BufferOverlap(jVar, this.count, this.skip);
             jVar.add(bufferOverlap);
-            jVar.setProducer(bufferOverlap.eMV());
+            jVar.setProducer(bufferOverlap.eNd());
             return bufferOverlap;
         }
     }
@@ -79,7 +79,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f eMV() {
+        rx.f eNd() {
             return new rx.f() { // from class: rx.internal.operators.OperatorBufferWithSize.a.1
                 @Override // rx.f
                 public void request(long j) {
@@ -149,7 +149,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             this.actual.onCompleted();
         }
 
-        rx.f eMV() {
+        rx.f eNd() {
             return new BufferSkipProducer();
         }
 
@@ -185,7 +185,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         final int count;
         long index;
         long produced;
-        final ArrayDeque<List<T>> qzP = new ArrayDeque<>();
+        final ArrayDeque<List<T>> qAp = new ArrayDeque<>();
         final AtomicLong requested = new AtomicLong();
         final int skip;
 
@@ -200,7 +200,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
         public void onNext(T t) {
             long j = this.index;
             if (j == 0) {
-                this.qzP.offer(new ArrayList(this.count));
+                this.qAp.offer(new ArrayList(this.count));
             }
             long j2 = j + 1;
             if (j2 == this.skip) {
@@ -208,13 +208,13 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             } else {
                 this.index = j2;
             }
-            Iterator<List<T>> it = this.qzP.iterator();
+            Iterator<List<T>> it = this.qAp.iterator();
             while (it.hasNext()) {
                 it.next().add(t);
             }
-            List<T> peek = this.qzP.peek();
+            List<T> peek = this.qAp.peek();
             if (peek != null && peek.size() == this.count) {
-                this.qzP.poll();
+                this.qAp.poll();
                 this.produced++;
                 this.actual.onNext(peek);
             }
@@ -222,7 +222,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.qzP.clear();
+            this.qAp.clear();
             this.actual.onError(th);
         }
 
@@ -236,10 +236,10 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
                 }
                 this.requested.addAndGet(-j);
             }
-            rx.internal.operators.a.a(this.requested, this.qzP, this.actual);
+            rx.internal.operators.a.a(this.requested, this.qAp, this.actual);
         }
 
-        rx.f eMV() {
+        rx.f eNd() {
             return new BufferOverlapProducer();
         }
 
@@ -254,7 +254,7 @@ public final class OperatorBufferWithSize<T> implements d.b<List<T>, T> {
             @Override // rx.f
             public void request(long j) {
                 BufferOverlap bufferOverlap = BufferOverlap.this;
-                if (rx.internal.operators.a.a(bufferOverlap.requested, j, bufferOverlap.qzP, bufferOverlap.actual) && j != 0) {
+                if (rx.internal.operators.a.a(bufferOverlap.requested, j, bufferOverlap.qAp, bufferOverlap.actual) && j != 0) {
                     if (get() || !compareAndSet(false, true)) {
                         bufferOverlap.request(rx.internal.operators.a.Y(bufferOverlap.skip, j));
                     } else {

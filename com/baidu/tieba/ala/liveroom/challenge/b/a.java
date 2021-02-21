@@ -18,17 +18,17 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a extends BdBaseModel {
     private long buN;
-    private long goL;
-    private long hug;
-    private boolean hvu;
-    private InterfaceC0659a hvv;
+    private long goZ;
+    private long huu;
+    private boolean hvI;
+    private InterfaceC0660a hvJ;
     private boolean mHasMore;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
     private int mType;
     private int mPn = 1;
     private List<com.baidu.tieba.ala.liveroom.challenge.a.a> mList = new ArrayList();
-    private final HttpMessageListener hvw = new HttpMessageListener(1021198) { // from class: com.baidu.tieba.ala.liveroom.challenge.b.a.1
+    private final HttpMessageListener hvK = new HttpMessageListener(1021198) { // from class: com.baidu.tieba.ala.liveroom.challenge.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -36,23 +36,23 @@ public class a extends BdBaseModel {
                 AlaChallengeShowAllJinzhuListResponse alaChallengeShowAllJinzhuListResponse = (AlaChallengeShowAllJinzhuListResponse) httpResponsedMessage;
                 UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem("2678", UbcStatConstant.ContentType.UBC_TYPE_CHALLENGE_SUGARDADDYRANKINFO_RESULT, "author_liveroom", !httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0 ? "challenge_sugardaddyrankinfo_s" : "challenge_getsugardaddyrankinfo_fail"), httpResponsedMessage, true);
                 if (alaChallengeShowAllJinzhuListResponse.getError() != 0 || !alaChallengeShowAllJinzhuListResponse.isSuccess()) {
-                    if (a.this.hvv != null) {
-                        a.this.hvv.g(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), a.this.hvu);
+                    if (a.this.hvJ != null) {
+                        a.this.hvJ.g(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), a.this.hvI);
                     }
                 } else {
-                    if (a.this.hvu) {
+                    if (a.this.hvI) {
                         a.this.mList.addAll(alaChallengeShowAllJinzhuListResponse.getUserList());
                     } else {
                         a.this.mList.clear();
                         a.this.mList.addAll(alaChallengeShowAllJinzhuListResponse.getUserList());
                     }
                     a.this.mHasMore = alaChallengeShowAllJinzhuListResponse.isHasMore();
-                    a.this.mPn = alaChallengeShowAllJinzhuListResponse.bJF() + 1;
-                    if (a.this.hvv != null) {
-                        a.this.hvv.f(a.this.mHasMore, a.this.mList);
+                    a.this.mPn = alaChallengeShowAllJinzhuListResponse.bJK() + 1;
+                    if (a.this.hvJ != null) {
+                        a.this.hvJ.f(a.this.mHasMore, a.this.mList);
                     }
                 }
-                a.this.hvu = false;
+                a.this.hvI = false;
             }
         }
     };
@@ -60,7 +60,7 @@ public class a extends BdBaseModel {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0659a {
+    public interface InterfaceC0660a {
         void f(boolean z, List<com.baidu.tieba.ala.liveroom.challenge.a.a> list);
 
         void g(int i, String str, boolean z);
@@ -71,37 +71,37 @@ public class a extends BdBaseModel {
         this.mType = i;
         this.mIsHost = z;
         registerTask();
-        MessageManager.getInstance().registerListener(this.hvw);
+        MessageManager.getInstance().registerListener(this.hvK);
     }
 
-    public void a(InterfaceC0659a interfaceC0659a) {
-        this.hvv = interfaceC0659a;
+    public void a(InterfaceC0660a interfaceC0660a) {
+        this.hvJ = interfaceC0660a;
     }
 
     public void c(long j, long j2, long j3) {
-        this.hug = j;
+        this.huu = j;
         this.buN = j2;
-        this.goL = j3;
+        this.goZ = j3;
     }
 
     public void refresh() {
-        this.hvu = false;
+        this.hvI = false;
         this.mPn = 1;
         bEN();
     }
 
-    public void bRc() {
-        if (this.mHasMore && !this.hvu) {
-            this.hvu = true;
+    public void bRj() {
+        if (this.mHasMore && !this.hvI) {
+            this.hvI = true;
             bEN();
         }
     }
 
     private void bEN() {
         HttpMessage httpMessage = new HttpMessage(1021198);
-        httpMessage.addParam("challenge_id", this.hug);
+        httpMessage.addParam("challenge_id", this.huu);
         httpMessage.addParam("live_id", this.buN);
-        httpMessage.addParam("anchor_id", this.goL);
+        httpMessage.addParam("anchor_id", this.goZ);
         httpMessage.addParam("type", this.mType);
         httpMessage.addParam("page", this.mPn);
         httpMessage.setTag(this.aCW);
@@ -117,7 +117,7 @@ public class a extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021198);
-        MessageManager.getInstance().unRegisterListener(this.hvw);
+        MessageManager.getInstance().unRegisterListener(this.hvK);
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

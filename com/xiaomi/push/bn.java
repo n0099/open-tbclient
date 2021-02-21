@@ -42,14 +42,14 @@ public class bn implements ge {
             if (bn.f13886a) {
                 com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + flVar.toString());
             } else {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " Blob [" + flVar.m306a() + "," + flVar.a() + "," + flVar.e() + "]");
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " Blob [" + flVar.m305a() + "," + flVar.a() + "," + flVar.e() + "]");
             }
         }
 
         @Override // com.xiaomi.push.fx, com.xiaomi.push.gf
         public void a(gj gjVar) {
             if (bn.f13886a) {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " PKT " + gjVar.m342a());
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " PKT " + gjVar.m341a());
             } else {
                 com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " PKT [" + gjVar.k() + "," + gjVar.j() + "]");
             }

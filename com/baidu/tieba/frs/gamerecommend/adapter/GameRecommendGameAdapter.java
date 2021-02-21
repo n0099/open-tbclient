@@ -18,15 +18,15 @@ import com.baidu.tieba.card.CardFrsGameRecommendGameLayout;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public class GameRecommendGameAdapter extends k<com.baidu.tieba.e.f, CardFrsGameRecommendGameHolder> {
-    private com.baidu.adp.lib.d.b<CardFrsGameRecommendGameItemView> jrL;
+    private com.baidu.adp.lib.d.b<CardFrsGameRecommendGameItemView> jrZ;
     private String mForumId;
 
     public GameRecommendGameAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.jrL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameRecommendGameItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter.1
+        this.jrZ = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameRecommendGameItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cIc */
+            /* renamed from: cIj */
             public CardFrsGameRecommendGameItemView makeObject() {
                 CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = new CardFrsGameRecommendGameItemView(GameRecommendGameAdapter.this.mContext);
                 cardFrsGameRecommendGameItemView.setForumId(GameRecommendGameAdapter.this.mForumId);
@@ -62,7 +62,7 @@ public class GameRecommendGameAdapter extends k<com.baidu.tieba.e.f, CardFrsGame
     /* renamed from: bI */
     public CardFrsGameRecommendGameHolder e(ViewGroup viewGroup) {
         CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(LayoutInflater.from(this.mContext).inflate(R.layout.card_frs_game_recommend_game_layout, viewGroup, false));
-        cardFrsGameRecommendGameHolder.jzv.setViewPool(this.jrL);
+        cardFrsGameRecommendGameHolder.jzJ.setViewPool(this.jrZ);
         return cardFrsGameRecommendGameHolder;
     }
 
@@ -70,39 +70,39 @@ public class GameRecommendGameAdapter extends k<com.baidu.tieba.e.f, CardFrsGame
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.f fVar, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
-        if (fVar != null && fVar.ctT() != null) {
+        if (fVar != null && fVar.cua() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            cardFrsGameRecommendGameHolder.jzt.setText(fVar.ctT().title);
-            cardFrsGameRecommendGameHolder.jzt.setTextColor(ap.getColor(skinType, R.color.CAM_X0105));
-            cardFrsGameRecommendGameHolder.jzv.setPageContext(this.mPageContext);
-            cardFrsGameRecommendGameHolder.jzv.setData(fVar.ctT().sub_nodes);
-            cardFrsGameRecommendGameHolder.jzu.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.jzv.getChildItemWidth());
-            cardFrsGameRecommendGameHolder.jzs.setBackgroundColor(ap.getColor(skinType, R.color.CAM_X0201));
-            ap.setBackgroundResource(cardFrsGameRecommendGameHolder.jzn, R.color.CAM_X0205);
-            ap.setBackgroundResource(cardFrsGameRecommendGameHolder.iZj, R.color.CAM_X0205);
+            cardFrsGameRecommendGameHolder.jzH.setText(fVar.cua().title);
+            cardFrsGameRecommendGameHolder.jzH.setTextColor(ap.getColor(skinType, R.color.CAM_X0105));
+            cardFrsGameRecommendGameHolder.jzJ.setPageContext(this.mPageContext);
+            cardFrsGameRecommendGameHolder.jzJ.setData(fVar.cua().sub_nodes);
+            cardFrsGameRecommendGameHolder.jzI.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.jzJ.getChildItemWidth());
+            cardFrsGameRecommendGameHolder.jzG.setBackgroundColor(ap.getColor(skinType, R.color.CAM_X0201));
+            ap.setBackgroundResource(cardFrsGameRecommendGameHolder.jzB, R.color.CAM_X0205);
+            ap.setBackgroundResource(cardFrsGameRecommendGameHolder.iZx, R.color.CAM_X0205);
         }
         return cardFrsGameRecommendGameHolder.getView();
     }
 
     /* loaded from: classes2.dex */
     public class CardFrsGameRecommendGameHolder extends TypeAdapter.ViewHolder {
-        private View iZj;
-        private View jzn;
-        private LinearLayout jzs;
-        private TextView jzt;
-        private FlexibleHorizontalScrollView jzu;
-        private CardFrsGameRecommendGameLayout jzv;
+        private View iZx;
+        private View jzB;
+        private LinearLayout jzG;
+        private TextView jzH;
+        private FlexibleHorizontalScrollView jzI;
+        private CardFrsGameRecommendGameLayout jzJ;
 
         public CardFrsGameRecommendGameHolder(View view) {
             super(view);
-            this.jzs = (LinearLayout) view.findViewById(R.id.card_game_recommend_content);
-            this.jzt = (TextView) view.findViewById(R.id.game_recommend_title);
-            this.jzu = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_recommend_scroll_container);
-            this.jzv = (CardFrsGameRecommendGameLayout) view.findViewById(R.id.game_recommend_container);
-            this.jzv.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds27));
-            this.jzv.setItemWidth(l.getDimens(view.getContext(), R.dimen.tbds192));
-            this.jzn = view.findViewById(R.id.divider_line_1);
-            this.iZj = view.findViewById(R.id.divider_line_2);
+            this.jzG = (LinearLayout) view.findViewById(R.id.card_game_recommend_content);
+            this.jzH = (TextView) view.findViewById(R.id.game_recommend_title);
+            this.jzI = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_recommend_scroll_container);
+            this.jzJ = (CardFrsGameRecommendGameLayout) view.findViewById(R.id.game_recommend_container);
+            this.jzJ.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds27));
+            this.jzJ.setItemWidth(l.getDimens(view.getContext(), R.dimen.tbds192));
+            this.jzB = view.findViewById(R.id.divider_line_1);
+            this.iZx = view.findViewById(R.id.divider_line_2);
         }
     }
 }

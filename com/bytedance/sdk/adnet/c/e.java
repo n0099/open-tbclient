@@ -14,7 +14,7 @@ public class e {
     /* renamed from: a  reason: collision with root package name */
     private Context f6008a;
     private boolean c;
-    private d puP = new d();
+    private d pvp = new d();
 
     public e(Context context, boolean z) {
         this.c = true;
@@ -31,7 +31,7 @@ public class e {
             com.bytedance.sdk.adnet.d.d.b("TNCConfigHandler", "handleConfigChanged: no mainProc");
             return;
         }
-        f.eqJ().b();
+        f.eqR().b();
         try {
             boolean z = jSONObject.optInt("ttnet_url_dispatcher_enabled", 0) > 0;
             JSONArray optJSONArray = jSONObject.optJSONArray("ttnet_dispatch_actions");
@@ -81,7 +81,7 @@ public class e {
                 }
                 return;
             }
-            this.puP = eS;
+            this.pvp = eS;
             String jSONObject8 = jSONObject2.toString();
             synchronized (d) {
                 this.f6008a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", jSONObject8).apply();
@@ -90,7 +90,7 @@ public class e {
         } catch (Throwable th) {
             try {
                 th.printStackTrace();
-                this.puP = new d();
+                this.pvp = new d();
                 synchronized (d) {
                     this.f6008a.getSharedPreferences("ttnet_tnc_config", 0).edit().putString("tnc_config_str", "").apply();
                     com.bytedance.sdk.adnet.d.e.a(this.f6008a, 1, "");
@@ -115,7 +115,7 @@ public class e {
             try {
                 d eS = eS(new JSONObject(string));
                 if (eS != null) {
-                    this.puP = eS;
+                    this.pvp = eS;
                 }
                 com.bytedance.sdk.adnet.d.d.b("TNCConfigHandler", "loadLocalConfig: " + (eS == null ? "null" : eS.toString()));
             } catch (Throwable th) {
@@ -135,15 +135,15 @@ public class e {
             d eS = eS(new JSONObject(a2));
             com.bytedance.sdk.adnet.d.d.b("TNCConfigHandler", "loadLocalConfigForOtherProcess, config: " + (eS == null ? "null" : eS.toString()));
             if (eS != null) {
-                this.puP = eS;
+                this.pvp = eS;
             }
         } catch (Throwable th) {
             com.bytedance.sdk.adnet.d.d.b("TNCConfigHandler", "loadLocalConfigForOtherProcess, except: " + th.getMessage());
         }
     }
 
-    public d eqI() {
-        return this.puP;
+    public d eqQ() {
+        return this.pvp;
     }
 
     private d eS(JSONObject jSONObject) {

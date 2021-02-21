@@ -16,14 +16,14 @@ import org.a.d;
 public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final boolean delayError;
     final int prefetch;
-    final h<? super g<T>, ? extends org.a.b<? extends R>> qot;
+    final h<? super g<T>, ? extends org.a.b<? extends R>> qoT;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         a aVar = new a(this.prefetch, this.delayError);
         try {
-            ((org.a.b) io.reactivex.internal.functions.a.m(this.qot.apply(aVar), "selector returned a null Publisher")).subscribe(new b(cVar, aVar));
-            this.qnW.a((j) aVar);
+            ((org.a.b) io.reactivex.internal.functions.a.m(this.qoT.apply(aVar), "selector returned a null Publisher")).subscribe(new b(cVar, aVar));
+            this.qow.a((j) aVar);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.N(th);
             EmptySubscription.error(th, cVar);
@@ -33,12 +33,12 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
     /* loaded from: classes5.dex */
     static final class b<R> implements j<R>, d {
         final org.a.c<? super R> actual;
-        final a<?> qow;
+        final a<?> qoW;
         d s;
 
         b(org.a.c<? super R> cVar, a<?> aVar) {
             this.actual = cVar;
-            this.qow = aVar;
+            this.qoW = aVar;
         }
 
         @Override // io.reactivex.j, org.a.c
@@ -57,13 +57,13 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
         @Override // org.a.c
         public void onError(Throwable th) {
             this.actual.onError(th);
-            this.qow.dispose();
+            this.qoW.dispose();
         }
 
         @Override // org.a.c
         public void onComplete() {
             this.actual.onComplete();
-            this.qow.dispose();
+            this.qoW.dispose();
         }
 
         @Override // org.a.d
@@ -74,14 +74,14 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
         @Override // org.a.d
         public void cancel() {
             this.s.cancel();
-            this.qow.dispose();
+            this.qoW.dispose();
         }
     }
 
     /* loaded from: classes5.dex */
     static final class a<T> extends g<T> implements io.reactivex.disposables.b, j<T> {
-        static final MulticastSubscription[] qou = new MulticastSubscription[0];
-        static final MulticastSubscription[] qov = new MulticastSubscription[0];
+        static final MulticastSubscription[] qoU = new MulticastSubscription[0];
+        static final MulticastSubscription[] qoV = new MulticastSubscription[0];
         int consumed;
         final boolean delayError;
         volatile boolean done;
@@ -92,7 +92,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
         int sourceMode;
         final AtomicInteger wip = new AtomicInteger();
         final AtomicReference<d> s = new AtomicReference<>();
-        final AtomicReference<MulticastSubscription<T>[]> subscribers = new AtomicReference<>(qou);
+        final AtomicReference<MulticastSubscription<T>[]> subscribers = new AtomicReference<>(qoU);
 
         a(int i, boolean z) {
             this.prefetch = i;
@@ -119,7 +119,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
                         return;
                     }
                 }
-                this.queue = i.Sp(this.prefetch);
+                this.queue = i.Sq(this.prefetch);
                 i.a(dVar, this.prefetch);
             }
         }
@@ -174,7 +174,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
             MulticastSubscription<T>[] multicastSubscriptionArr2;
             do {
                 multicastSubscriptionArr = this.subscribers.get();
-                if (multicastSubscriptionArr == qov) {
+                if (multicastSubscriptionArr == qoV) {
                     return false;
                 }
                 int length = multicastSubscriptionArr.length;
@@ -190,7 +190,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
             MulticastSubscription<T>[] multicastSubscriptionArr2;
             do {
                 multicastSubscriptionArr = this.subscribers.get();
-                if (multicastSubscriptionArr != qov && multicastSubscriptionArr != qou) {
+                if (multicastSubscriptionArr != qoV && multicastSubscriptionArr != qoU) {
                     int length = multicastSubscriptionArr.length;
                     int i = -1;
                     int i2 = 0;
@@ -206,7 +206,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            multicastSubscriptionArr2 = qou;
+                            multicastSubscriptionArr2 = qoU;
                         } else {
                             multicastSubscriptionArr2 = new MulticastSubscription[length - 1];
                             System.arraycopy(multicastSubscriptionArr, 0, multicastSubscriptionArr2, 0, i);
@@ -286,7 +286,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
                                         errorAll(th3);
                                         return;
                                     } else {
-                                        eKn();
+                                        eKv();
                                         return;
                                     }
                                 } else if (z3) {
@@ -325,7 +325,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
                                     errorAll(th5);
                                     return;
                                 } else {
-                                    eKn();
+                                    eKv();
                                     return;
                                 }
                             }
@@ -351,16 +351,16 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
 
         void errorAll(Throwable th) {
             MulticastSubscription<T>[] andSet;
-            for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(qov)) {
+            for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(qoV)) {
                 if (multicastSubscription.get() != Long.MIN_VALUE) {
                     multicastSubscription.actual.onError(th);
                 }
             }
         }
 
-        void eKn() {
+        void eKv() {
             MulticastSubscription<T>[] andSet;
-            for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(qov)) {
+            for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(qoV)) {
                 if (multicastSubscription.get() != Long.MIN_VALUE) {
                     multicastSubscription.actual.onComplete();
                 }

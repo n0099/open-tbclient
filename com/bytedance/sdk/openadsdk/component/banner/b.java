@@ -124,12 +124,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull final l lVar, @Nullable final a aVar) {
-        com.bytedance.sdk.openadsdk.i.e.a(a()).g().a(lVar.M().get(0).a(), new d.InterfaceC0997d() { // from class: com.bytedance.sdk.openadsdk.component.banner.b.3
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+        com.bytedance.sdk.openadsdk.i.e.a(a()).g().a(lVar.M().get(0).a(), new d.InterfaceC0999d() { // from class: com.bytedance.sdk.openadsdk.component.banner.b.3
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
             public void a() {
             }
 
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
             public void a(d.c cVar, boolean z) {
                 if (cVar != null && cVar.a() != null) {
                     if (aVar != null) {
@@ -140,7 +140,7 @@ public class b {
                 }
             }
 
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
             public void b() {
             }
 

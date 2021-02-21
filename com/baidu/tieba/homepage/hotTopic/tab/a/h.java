@@ -10,19 +10,19 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class h {
     private List<com.baidu.adp.widget.ListView.a> bns;
-    private s iLK;
-    private g kgp;
-    private k kgq;
-    private b kgr;
-    private d kgs;
-    private c kgt;
-    private e kgu;
-    private f kgv;
+    private s iLY;
+    private g kgD;
+    private k kgE;
+    private b kgF;
+    private d kgG;
+    private c kgH;
+    private e kgI;
+    private f kgJ;
     private TbPageContext mPageContext;
 
     public h(TbPageContext tbPageContext, s sVar) {
         this.mPageContext = tbPageContext;
-        this.iLK = sVar;
+        this.iLY = sVar;
         Kw();
     }
 
@@ -31,42 +31,42 @@ public class h {
         this.bns.add(new j(this.mPageContext));
         this.bns.add(new i(this.mPageContext));
         this.bns.add(new LoadingViewAdapter(this.mPageContext));
-        this.kgp = new g(this.mPageContext);
-        this.kgp.a(this.iLK);
-        this.bns.add(this.kgp);
-        this.kgq = new k(this.mPageContext);
-        this.kgq.a(this.iLK);
-        this.bns.add(this.kgq);
-        this.kgr = new b(this.mPageContext);
-        this.kgr.a(this.iLK);
-        this.bns.add(this.kgr);
-        this.kgs = new d(this.mPageContext);
-        this.kgs.a(this.iLK);
-        this.bns.add(this.kgs);
-        this.kgt = new c(this.mPageContext);
-        this.kgt.a(this.iLK);
-        this.bns.add(this.kgt);
-        this.kgu = new e(this.mPageContext);
-        this.kgu.a(this.iLK);
-        this.bns.add(this.kgu);
-        this.kgv = new f(this.mPageContext);
-        this.kgv.a(this.iLK);
-        this.bns.add(this.kgv);
-        this.iLK.addAdapters(this.bns);
+        this.kgD = new g(this.mPageContext);
+        this.kgD.a(this.iLY);
+        this.bns.add(this.kgD);
+        this.kgE = new k(this.mPageContext);
+        this.kgE.a(this.iLY);
+        this.bns.add(this.kgE);
+        this.kgF = new b(this.mPageContext);
+        this.kgF.a(this.iLY);
+        this.bns.add(this.kgF);
+        this.kgG = new d(this.mPageContext);
+        this.kgG.a(this.iLY);
+        this.bns.add(this.kgG);
+        this.kgH = new c(this.mPageContext);
+        this.kgH.a(this.iLY);
+        this.bns.add(this.kgH);
+        this.kgI = new e(this.mPageContext);
+        this.kgI.a(this.iLY);
+        this.bns.add(this.kgI);
+        this.kgJ = new f(this.mPageContext);
+        this.kgJ.a(this.iLY);
+        this.bns.add(this.kgJ);
+        this.iLY.addAdapters(this.bns);
     }
 
     public void notifyDataSetChanged() {
-        if (this.iLK != null) {
-            this.iLK.getListAdapter().notifyDataSetChanged();
+        if (this.iLY != null) {
+            this.iLY.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<n> list) {
-        this.iLK.setData(list);
+        this.iLY.setData(list);
     }
 
     public List<n> getData() {
-        return this.iLK.getData();
+        return this.iLY.getData();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

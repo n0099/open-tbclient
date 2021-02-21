@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes2.dex */
 public class b {
-    private LinearLayout ggE;
-    private TbSettingTextTipView ggF;
-    private TbSettingTextTipView ggG;
+    private LinearLayout ggJ;
+    private TbSettingTextTipView ggK;
+    private TbSettingTextTipView ggL;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -25,13 +25,13 @@ public class b {
 
     private void bzE() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.ggE = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.ggF = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.ggG = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.ggF.bzG();
-        this.ggG.bzG();
-        this.ggF.setOnClickListener(this.mOnClickListener);
-        this.ggG.setOnClickListener(this.mOnClickListener);
+        this.ggJ = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.ggK = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.ggL = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.ggK.bzG();
+        this.ggL.bzG();
+        this.ggK.setOnClickListener(this.mOnClickListener);
+        this.ggL.setOnClickListener(this.mOnClickListener);
     }
 
     public void qJ(int i) {
@@ -41,7 +41,7 @@ public class b {
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.ggG.setTip(simpleUser.block_msg);
+            this.ggL.setTip(simpleUser.block_msg);
         }
     }
 

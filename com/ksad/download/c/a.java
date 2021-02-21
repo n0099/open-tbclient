@@ -20,16 +20,16 @@ public class a extends b {
 
     /* renamed from: b  reason: collision with root package name */
     private final Map<String, Integer> f7914b = new ConcurrentHashMap();
-    private final HandlerC1063a d = new HandlerC1063a(this);
+    private final HandlerC1065a d = new HandlerC1065a(this);
 
     /* renamed from: com.ksad.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    static class HandlerC1063a extends Handler {
+    static class HandlerC1065a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
         final WeakReference<a> f7915a;
 
-        public HandlerC1063a(a aVar) {
+        public HandlerC1065a(a aVar) {
             this.f7915a = new WeakReference<>(aVar);
         }
 

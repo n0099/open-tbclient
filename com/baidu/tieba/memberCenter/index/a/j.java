@@ -6,9 +6,9 @@ public class j {
     private int id;
     private String imgUrl;
     private String link;
-    private String lmC;
-    private int lmD;
-    private String lmL;
+    private String lmQ;
+    private int lmR;
+    private String lmZ;
     private String title;
     private int type;
     private String typeName;
@@ -18,12 +18,12 @@ public class j {
         this.id = vipThemeItem.props_id.intValue();
         this.title = vipThemeItem.title;
         this.imgUrl = vipThemeItem.img_url;
-        this.lmL = vipThemeItem.tag_img_url;
+        this.lmZ = vipThemeItem.tag_img_url;
         this.type = vipThemeItem.props_category.intValue();
         this.typeName = vipThemeItem.props_category_name;
         this.link = vipThemeItem.link;
-        this.lmC = vipThemeItem.update_time;
-        this.lmD = vipThemeItem.id.intValue();
+        this.lmQ = vipThemeItem.update_time;
+        this.lmR = vipThemeItem.id.intValue();
         this.updateType = vipThemeItem.type.intValue();
     }
 }

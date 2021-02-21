@@ -21,9 +21,9 @@ import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class MemberCenterDelegateStatic extends b {
-    private static boolean llU = false;
-    private ImageView llT;
-    private CustomMessageListener llV;
+    private static boolean lmi = false;
+    private ImageView lmh;
+    private CustomMessageListener lmj;
 
     static {
         new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.memberCenter.index.MemberCenterDelegateStatic.1
@@ -59,13 +59,13 @@ public class MemberCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.llT = new ImageView(context);
+        this.lmh = new ImageView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
         aVar.fHv = this.mIndicator;
         aVar.offsetX = l.dip2px(context, 3.0f);
-        aVar.view = this.llT;
+        aVar.view = this.lmh;
         aVar.bgDayRes = R.drawable.icon_news_down_bar_one;
-        this.llT.setVisibility(8);
+        this.lmh.setVisibility(8);
         this.mIndicator.a("member_center_red_tip", aVar);
         return this.mIndicator;
     }
@@ -73,21 +73,21 @@ public class MemberCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
         super.onAdd();
-        llU = true;
-        this.llV = new CustomMessageListener(CmdConfigCustom.CMD_MAINTAB_MEMBER_RED_TIP) { // from class: com.baidu.tieba.memberCenter.index.MemberCenterDelegateStatic.2
+        lmi = true;
+        this.lmj = new CustomMessageListener(CmdConfigCustom.CMD_MAINTAB_MEMBER_RED_TIP) { // from class: com.baidu.tieba.memberCenter.index.MemberCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        MemberCenterDelegateStatic.this.llT.setVisibility(8);
+                        MemberCenterDelegateStatic.this.lmh.setVisibility(8);
                     } else if (!TbadkCoreApplication.isLogin()) {
-                        MemberCenterDelegateStatic.this.llT.setVisibility(8);
+                        MemberCenterDelegateStatic.this.lmh.setVisibility(8);
                     } else {
                         if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > com.baidu.tbadk.core.sharedPref.b.brQ().getLong(SharedPrefConfig.MAINTAB_MEMBER_CENTER_RED_TIP + TbadkCoreApplication.getCurrentAccount(), 0L)) {
-                            MemberCenterDelegateStatic.this.llT.setVisibility(0);
+                            MemberCenterDelegateStatic.this.lmh.setVisibility(0);
                         } else {
-                            MemberCenterDelegateStatic.this.llT.setVisibility(8);
+                            MemberCenterDelegateStatic.this.lmh.setVisibility(8);
                         }
                     }
                 }
@@ -98,7 +98,7 @@ public class MemberCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        this.llT = null;
-        MessageManager.getInstance().unRegisterListener(this.llV);
+        this.lmh = null;
+        MessageManager.getInstance().unRegisterListener(this.lmj);
     }
 }

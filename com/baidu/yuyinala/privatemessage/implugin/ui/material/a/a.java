@@ -16,20 +16,20 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class a extends Dialog implements DialogInterface {
     private View ent;
-    private TextView kQq;
+    private TextView kQE;
     private Context mContext;
     private TextView mTitle;
-    private String pdA;
-    private String pdB;
-    private String pdC;
-    private RelativeLayout pdD;
-    private View pdE;
-    private View pdF;
-    private View pdG;
-    private AnimationSet pdw;
-    private TextView pdx;
-    private TextView pdy;
-    private String pdz;
+    private AnimationSet pdW;
+    private TextView pdX;
+    private TextView pdY;
+    private String pdZ;
+    private String pea;
+    private String peb;
+    private String pec;
+    private RelativeLayout ped;
+    private View pee;
+    private View pef;
+    private View peg;
 
     protected a(Context context) {
         super(context, a.i.NoTitleDialog);
@@ -42,10 +42,10 @@ public class a extends Dialog implements DialogInterface {
     public a(Context context, String str, String str2, String str3, String str4) {
         this(context);
         this.mContext = context;
-        this.pdz = str;
-        this.pdA = str2;
-        this.pdB = str3;
-        this.pdC = str4;
+        this.pdZ = str;
+        this.pea = str2;
+        this.peb = str3;
+        this.pec = str4;
     }
 
     private void initAnimation() {
@@ -69,8 +69,8 @@ public class a extends Dialog implements DialogInterface {
                 });
             }
         };
-        this.pdw = (AnimationSet) com.baidu.yuyinala.privatemessage.implugin.ui.material.c.a.S(getContext(), a.C0195a.bd_im_modal_out);
-        this.pdw.setAnimationListener(animationListener);
+        this.pdW = (AnimationSet) com.baidu.yuyinala.privatemessage.implugin.ui.material.c.a.S(getContext(), a.C0195a.bd_im_modal_out);
+        this.pdW.setAnimationListener(animationListener);
     }
 
     @Override // android.app.Dialog
@@ -83,46 +83,46 @@ public class a extends Dialog implements DialogInterface {
         getWindow().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         layoutParams.width = displayMetrics.widthPixels;
         this.ent.setLayoutParams(layoutParams);
-        this.pdD = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
-        this.pdx = (TextView) findViewById(a.f.bd_im_dialog_cancel);
-        this.pdy = (TextView) findViewById(a.f.bd_im_dialog_ensure);
+        this.ped = (RelativeLayout) findViewById(a.f.searchbox_alert_dialog);
+        this.pdX = (TextView) findViewById(a.f.bd_im_dialog_cancel);
+        this.pdY = (TextView) findViewById(a.f.bd_im_dialog_ensure);
         this.mTitle = (TextView) findViewById(a.f.bd_im_dialog_title);
-        this.kQq = (TextView) findViewById(a.f.bd_im_dialog_content);
-        this.pdE = findViewById(a.f.bd_im_dialog_divider2);
-        this.pdF = findViewById(a.f.bd_im_dialog_divider3);
-        this.pdG = findViewById(a.f.bd_im_dialog_divider4);
-        if (!TextUtils.isEmpty(this.pdz)) {
-            this.mTitle.setText(this.pdz);
+        this.kQE = (TextView) findViewById(a.f.bd_im_dialog_content);
+        this.pee = findViewById(a.f.bd_im_dialog_divider2);
+        this.pef = findViewById(a.f.bd_im_dialog_divider3);
+        this.peg = findViewById(a.f.bd_im_dialog_divider4);
+        if (!TextUtils.isEmpty(this.pdZ)) {
+            this.mTitle.setText(this.pdZ);
         }
-        if (!TextUtils.isEmpty(this.pdA)) {
-            this.kQq.setText(this.pdA);
+        if (!TextUtils.isEmpty(this.pea)) {
+            this.kQE.setText(this.pea);
         }
-        if (!TextUtils.isEmpty(this.pdB)) {
-            this.pdy.setText(this.pdB);
+        if (!TextUtils.isEmpty(this.peb)) {
+            this.pdY.setText(this.peb);
         }
-        if (!TextUtils.isEmpty(this.pdC)) {
-            this.pdx.setText(this.pdC);
+        if (!TextUtils.isEmpty(this.pec)) {
+            this.pdX.setText(this.pec);
         }
-        elk();
+        els();
     }
 
-    public void elj() {
+    public void elr() {
         super.cancel();
         AQ(true);
     }
 
     private void AQ(boolean z) {
-        this.ent.startAnimation(this.pdw);
+        this.ent.startAnimation(this.pdW);
     }
 
     public void a(final View.OnClickListener onClickListener, final View.OnClickListener onClickListener2) {
-        this.pdx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.2
+        this.pdX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 onClickListener.onClick(view);
             }
         });
-        this.pdy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.3
+        this.pdY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 onClickListener2.onClick(view);
@@ -130,6 +130,6 @@ public class a extends Dialog implements DialogInterface {
         });
     }
 
-    private void elk() {
+    private void els() {
     }
 }

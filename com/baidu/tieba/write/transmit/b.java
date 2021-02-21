@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private static int lCs = 3;
+    private static int lCG = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -61,32 +61,32 @@ public class b extends BaseAdapter {
     /* loaded from: classes8.dex */
     public static class a {
         public TextView fkQ;
-        public BarImageView lCu;
+        public BarImageView lCI;
         public int mSkinType = 3;
-        public View ogz;
+        public View ogZ;
 
         public a(View view) {
             if (view != null) {
                 this.fkQ = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.lCu = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.lCu.setShowOval(true);
-                this.ogz = view.findViewById(R.id.divider_line);
+                this.lCI = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.lCI.setShowOval(true);
+                this.ogZ = view.findViewById(R.id.divider_line);
             }
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
                 this.fkQ.setText(transmitForumData.forumName);
-                this.lCu.startLoad(transmitForumData.avatar, 10, false);
+                this.lCI.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void bup() {
-            if (b.lCs != this.mSkinType) {
+            if (b.lCG != this.mSkinType) {
                 ap.setViewTextColor(this.fkQ, R.color.CAM_X0105);
-                ap.setBackgroundColor(this.ogz, R.color.CAM_X0204);
+                ap.setBackgroundColor(this.ogZ, R.color.CAM_X0204);
             }
-            this.mSkinType = b.lCs;
+            this.mSkinType = b.lCG;
         }
     }
 
@@ -97,9 +97,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (lCs != i) {
+        if (lCG != i) {
             notifyDataSetChanged();
         }
-        lCs = i;
+        lCG = i;
     }
 }

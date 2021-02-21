@@ -32,13 +32,13 @@ public class WheatCommonLayout extends BaseWheatLayout {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    WheatCommonLayout.this.oJf = list;
-                    WheatCommonLayout.this.oJg = list2;
-                    if (ListUtils.getCount(WheatCommonLayout.this.oKj) == 0 || ListUtils.getCount(WheatCommonLayout.this.oKj) != ListUtils.getCount(list) || ListUtils.getCount(WheatCommonLayout.this.oKk) == 0 || ListUtils.getCount(WheatCommonLayout.this.oKk) != ListUtils.getCount(list2)) {
-                        WheatCommonLayout.this.eeL();
-                        WheatCommonLayout.this.oKo.removeAllViews();
-                        WheatCommonLayout.this.oKj.clear();
-                        WheatCommonLayout.this.oKk.clear();
+                    WheatCommonLayout.this.oJF = list;
+                    WheatCommonLayout.this.oJG = list2;
+                    if (ListUtils.getCount(WheatCommonLayout.this.oKJ) == 0 || ListUtils.getCount(WheatCommonLayout.this.oKJ) != ListUtils.getCount(list) || ListUtils.getCount(WheatCommonLayout.this.oKK) == 0 || ListUtils.getCount(WheatCommonLayout.this.oKK) != ListUtils.getCount(list2)) {
+                        WheatCommonLayout.this.eeT();
+                        WheatCommonLayout.this.oKO.removeAllViews();
+                        WheatCommonLayout.this.oKJ.clear();
+                        WheatCommonLayout.this.oKK.clear();
                         if (!ListUtils.isEmpty(list)) {
                             for (int i = 0; i < list.size(); i++) {
                                 WheatCommonLayout.this.a(WheatCommonLayout.this.an(0, true), true);
@@ -49,17 +49,17 @@ public class WheatCommonLayout extends BaseWheatLayout {
                                 WheatCommonLayout.this.a(WheatCommonLayout.this.an(i2, false), false);
                             }
                         }
-                        WheatCommonLayout.this.oKo.invalidate();
-                        WheatCommonLayout.this.oKo.requestLayout();
+                        WheatCommonLayout.this.oKO.invalidate();
+                        WheatCommonLayout.this.oKO.requestLayout();
                     }
-                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oKj)) {
-                        for (int i3 = 0; i3 < WheatCommonLayout.this.oKj.size(); i3++) {
-                            WheatCommonLayout.this.oKj.get(i3).setData(WheatCommonLayout.this.am(i3, true), i3, true, abVar);
+                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oKJ)) {
+                        for (int i3 = 0; i3 < WheatCommonLayout.this.oKJ.size(); i3++) {
+                            WheatCommonLayout.this.oKJ.get(i3).setData(WheatCommonLayout.this.am(i3, true), i3, true, abVar);
                         }
                     }
-                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oKk)) {
-                        for (int i4 = 0; i4 < WheatCommonLayout.this.oKk.size(); i4++) {
-                            WheatCommonLayout.this.oKk.get(i4).setData(WheatCommonLayout.this.am(i4, false), i4, false, abVar);
+                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oKK)) {
+                        for (int i4 = 0; i4 < WheatCommonLayout.this.oKK.size(); i4++) {
+                            WheatCommonLayout.this.oKK.get(i4).setData(WheatCommonLayout.this.am(i4, false), i4, false, abVar);
                         }
                     }
                 } catch (Exception e) {
@@ -74,32 +74,32 @@ public class WheatCommonLayout extends BaseWheatLayout {
         int[] iArr = new int[2];
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
         if (z) {
-            iArr[0] = (screenFullSize[0] / 2) - (this.oKm / 2);
+            iArr[0] = (screenFullSize[0] / 2) - (this.oKM / 2);
             iArr[1] = this.Yh;
         } else if (i == 0) {
-            iArr[0] = ((screenFullSize[0] / 2) - this.oKm) - this.oKm;
-            iArr[1] = this.Yh + this.oKn;
+            iArr[0] = ((screenFullSize[0] / 2) - this.oKM) - this.oKM;
+            iArr[1] = this.Yh + this.oKN;
         } else if (i == 1) {
-            iArr[0] = (screenFullSize[0] / 2) - this.oKm;
-            iArr[1] = this.Yh + this.oKn;
+            iArr[0] = (screenFullSize[0] / 2) - this.oKM;
+            iArr[1] = this.Yh + this.oKN;
         } else if (i == 2) {
             iArr[0] = screenFullSize[0] / 2;
-            iArr[1] = this.Yh + this.oKn;
+            iArr[1] = this.Yh + this.oKN;
         } else if (i == 3) {
-            iArr[0] = (screenFullSize[0] / 2) + this.oKm;
-            iArr[1] = this.Yh + this.oKn;
+            iArr[0] = (screenFullSize[0] / 2) + this.oKM;
+            iArr[1] = this.Yh + this.oKN;
         } else if (i == 4) {
-            iArr[0] = ((screenFullSize[0] / 2) - this.oKm) - this.oKm;
-            iArr[1] = this.Yh + this.oKn + this.oKn;
+            iArr[0] = ((screenFullSize[0] / 2) - this.oKM) - this.oKM;
+            iArr[1] = this.Yh + this.oKN + this.oKN;
         } else if (i == 5) {
-            iArr[0] = (screenFullSize[0] / 2) - this.oKm;
-            iArr[1] = this.Yh + this.oKn + this.oKn;
+            iArr[0] = (screenFullSize[0] / 2) - this.oKM;
+            iArr[1] = this.Yh + this.oKN + this.oKN;
         } else if (i == 6) {
             iArr[0] = screenFullSize[0] / 2;
-            iArr[1] = this.Yh + this.oKn + this.oKn;
+            iArr[1] = this.Yh + this.oKN + this.oKN;
         } else if (i == 7) {
-            iArr[0] = (screenFullSize[0] / 2) + this.oKm;
-            iArr[1] = this.Yh + this.oKn + this.oKn;
+            iArr[0] = (screenFullSize[0] / 2) + this.oKM;
+            iArr[1] = this.Yh + this.oKN + this.oKN;
         } else {
             iArr[1] = 0;
             iArr[0] = 0;
@@ -110,16 +110,16 @@ public class WheatCommonLayout extends BaseWheatLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int[] iArr, boolean z) {
         BaseWheatItemView wheatItemView = new WheatItemView(getContext());
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.oKm, this.oKn);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.oKM, this.oKN);
         layoutParams.leftMargin = iArr[0];
         layoutParams.topMargin = iArr[1];
         wheatItemView.setLayoutParams(layoutParams);
-        this.oKo.addView(wheatItemView);
-        wheatItemView.setOnItemClickListener(this.oKi);
+        this.oKO.addView(wheatItemView);
+        wheatItemView.setOnItemClickListener(this.oKI);
         if (z) {
-            this.oKj.add(wheatItemView);
+            this.oKJ.add(wheatItemView);
         } else {
-            this.oKk.add(wheatItemView);
+            this.oKK.add(wheatItemView);
         }
     }
 
@@ -136,6 +136,6 @@ public class WheatCommonLayout extends BaseWheatLayout {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout
     public int getWheatHeight() {
-        return this.Yh + this.oKn + this.oKn + this.oKn;
+        return this.Yh + this.oKN + this.oKN + this.oKN;
     }
 }

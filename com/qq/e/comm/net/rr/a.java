@@ -26,8 +26,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static final class C1186a extends Exception {
-        public C1186a(String str, Throwable th) {
+    public static final class C1188a extends Exception {
+        public C1188a(String str, Throwable th) {
             super(str, th);
         }
     }
@@ -40,7 +40,7 @@ public final class a {
     }
 
     @SuppressLint({"TrulyRandom"})
-    private static Cipher a() throws C1186a {
+    private static Cipher a() throws C1188a {
         Cipher cipher;
         synchronized (a.class) {
             try {
@@ -53,7 +53,7 @@ public final class a {
                         f11585b = cipher2;
                         cipher = f11585b;
                     } catch (Exception e2) {
-                        throw new C1186a("Fail To Init Cipher", e2);
+                        throw new C1188a("Fail To Init Cipher", e2);
                     }
                 }
             } catch (Throwable th) {
@@ -78,7 +78,7 @@ public final class a {
         }
     }
 
-    private static Cipher b() throws C1186a {
+    private static Cipher b() throws C1188a {
         Cipher cipher;
         synchronized (a.class) {
             try {
@@ -91,7 +91,7 @@ public final class a {
                         c = cipher2;
                         cipher = c;
                     } catch (Exception e2) {
-                        throw new C1186a("Fail To Init Cipher", e2);
+                        throw new C1188a("Fail To Init Cipher", e2);
                     }
                 }
             } catch (Throwable th) {
@@ -118,19 +118,19 @@ public final class a {
         }
     }
 
-    private static byte[] c(byte[] bArr) throws C1186a {
+    private static byte[] c(byte[] bArr) throws C1188a {
         try {
             return a().doFinal(bArr);
         } catch (Exception e2) {
-            throw new C1186a("Exception While encrypt byte array", e2);
+            throw new C1188a("Exception While encrypt byte array", e2);
         }
     }
 
-    private static byte[] d(byte[] bArr) throws C1186a {
+    private static byte[] d(byte[] bArr) throws C1188a {
         try {
             return b().doFinal(bArr);
         } catch (Exception e2) {
-            throw new C1186a("Exception While dencrypt byte array", e2);
+            throw new C1188a("Exception While dencrypt byte array", e2);
         }
     }
 }

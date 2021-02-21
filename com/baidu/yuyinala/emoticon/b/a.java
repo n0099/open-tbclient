@@ -18,24 +18,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends BdBaseModel {
-    private static a oWm;
+    private static a oWM;
     private ab aDd;
-    private AlaEmoticonListDialogData oWk = new AlaEmoticonListDialogData();
-    private InterfaceC0959a oWl;
+    private AlaEmoticonListDialogData oWK = new AlaEmoticonListDialogData();
+    private InterfaceC0961a oWL;
 
     /* renamed from: com.baidu.yuyinala.emoticon.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0959a {
-        void XS(String str);
+    public interface InterfaceC0961a {
+        void Ye(String str);
 
         void a(AlaEmoticonListDialogData alaEmoticonListDialogData);
     }
 
     public static a aP(ab abVar) {
-        if (oWm == null) {
-            oWm = new a(abVar);
+        if (oWM == null) {
+            oWM = new a(abVar);
         }
-        return oWm;
+        return oWM;
     }
 
     public void aQ(ab abVar) {
@@ -50,11 +50,11 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaEmoticonListResponseMessage) {
                     AlaEmoticonListResponseMessage alaEmoticonListResponseMessage = (AlaEmoticonListResponseMessage) httpResponsedMessage;
-                    a.this.oWk.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
-                    a.this.oWk.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
-                    a.this.oWk.setNetError(!alaEmoticonListResponseMessage.isSuccess());
-                    if (a.this.oWl != null) {
-                        a.this.oWl.a(a.this.oWk);
+                    a.this.oWK.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
+                    a.this.oWK.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
+                    a.this.oWK.setNetError(!alaEmoticonListResponseMessage.isSuccess());
+                    if (a.this.oWL != null) {
+                        a.this.oWL.a(a.this.oWK);
                     }
                 }
             }
@@ -67,11 +67,11 @@ public class a extends BdBaseModel {
                     AlaSendEmoticonResponseMessage alaSendEmoticonResponseMessage = (AlaSendEmoticonResponseMessage) httpResponsedMessage;
                     if (httpResponsedMessage.getError() == 0) {
                         a.this.a(alaSendEmoticonResponseMessage);
-                    } else if (a.this.oWl != null) {
+                    } else if (a.this.oWL != null) {
                         if (httpResponsedMessage.getError() == 149010) {
-                            a.this.oWl.XS(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
+                            a.this.oWL.Ye(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
                         } else {
-                            a.this.oWl.XS(null);
+                            a.this.oWL.Ye(null);
                         }
                     }
                 }
@@ -86,9 +86,9 @@ public class a extends BdBaseModel {
         try {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.oWi);
-            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.oWh);
-            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.oWj);
+            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.oWI);
+            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.oWH);
+            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.oWJ);
             jSONObject.put("user_uk", this.aDd.aIz.userUk);
             jSONObject.put("content_type", "audio_emoticon");
             jSONObject.put("emoticon_info", jSONObject2);
@@ -132,15 +132,15 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void a(InterfaceC0959a interfaceC0959a) {
-        this.oWl = interfaceC0959a;
+    public void a(InterfaceC0961a interfaceC0961a) {
+        this.oWL = interfaceC0961a;
     }
 
-    public void ejb() {
+    public void ejj() {
         sendMessage(new HttpMessage(1031004));
     }
 
-    public void XT(String str) {
+    public void Yf(String str) {
         String str2;
         String str3;
         String str4;

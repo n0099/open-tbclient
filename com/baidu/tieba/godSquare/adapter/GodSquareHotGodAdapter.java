@@ -12,21 +12,21 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.data.h;
 /* loaded from: classes8.dex */
 public class GodSquareHotGodAdapter extends com.baidu.adp.widget.ListView.a<h, ViewHolder> {
-    private ab hmP;
-    private com.baidu.tieba.godSquare.a.a jXy;
+    private ab hnd;
+    private com.baidu.tieba.godSquare.a.a jXM;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public GodSquareHotGodAdapter(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.iAq);
-        this.hmP = new ab() { // from class: com.baidu.tieba.godSquare.adapter.GodSquareHotGodAdapter.1
+        super(tbPageContext.getPageActivity(), h.iAE);
+        this.hnd = new ab() { // from class: com.baidu.tieba.godSquare.adapter.GodSquareHotGodAdapter.1
             @Override // com.baidu.tieba.card.ab
             public void a(View view, BaseCardInfo baseCardInfo) {
-                if (view != null && GodSquareHotGodAdapter.this.jXy != null && (baseCardInfo instanceof h)) {
+                if (view != null && GodSquareHotGodAdapter.this.jXM != null && (baseCardInfo instanceof h)) {
                     h hVar = (h) baseCardInfo;
                     if (hVar.eRz != null && !StringUtils.isNull(hVar.eRz.getUserId())) {
-                        if (view.getId() != GodSquareHotGodAdapter.this.jXy.jXJ.getId()) {
-                            if (view.getId() == GodSquareHotGodAdapter.this.jXy.getView().getId() || view.getId() == GodSquareHotGodAdapter.this.jXy.jSx.getId()) {
+                        if (view.getId() != GodSquareHotGodAdapter.this.jXM.jXX.getId()) {
+                            if (view.getId() == GodSquareHotGodAdapter.this.jXM.getView().getId() || view.getId() == GodSquareHotGodAdapter.this.jXM.jSL.getId()) {
                                 TiebaStatic.log(new ar("c10951").dR("obj_id", hVar.eRz.getUserId()));
                                 return;
                             }
@@ -45,30 +45,30 @@ public class GodSquareHotGodAdapter extends com.baidu.adp.widget.ListView.a<h, V
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bP */
     public ViewHolder e(ViewGroup viewGroup) {
-        this.jXy = new com.baidu.tieba.godSquare.a.a(this.mPageContext);
-        this.jXy.l(this.mPageContext.getUniqueId());
-        this.jXy.c(this.hmP);
-        return new ViewHolder(this.jXy);
+        this.jXM = new com.baidu.tieba.godSquare.a.a(this.mPageContext);
+        this.jXM.l(this.mPageContext.getUniqueId());
+        this.jXM.c(this.hnd);
+        return new ViewHolder(this.jXM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
-        if (viewHolder == null || viewHolder.jXA == null) {
+        if (viewHolder == null || viewHolder.jXO == null) {
             return null;
         }
-        viewHolder.jXA.a(hVar);
+        viewHolder.jXO.a(hVar);
         return viewHolder.getView();
     }
 
     /* loaded from: classes8.dex */
     public class ViewHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.godSquare.a.a jXA;
+        public com.baidu.tieba.godSquare.a.a jXO;
 
         public ViewHolder(com.baidu.tieba.godSquare.a.a aVar) {
             super(aVar.getView());
-            this.jXA = aVar;
+            this.jXO = aVar;
         }
     }
 }

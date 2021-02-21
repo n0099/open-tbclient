@@ -68,6 +68,6 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.qnF;
+        return this.onError != Functions.qof;
     }
 }

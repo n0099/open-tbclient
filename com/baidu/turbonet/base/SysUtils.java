@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class SysUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Boolean oOH;
+    private static Boolean oPh;
 
     static {
         $assertionsDisabled = !SysUtils.class.desiredAssertionStatus();
@@ -19,7 +19,7 @@ public class SysUtils {
     private SysUtils() {
     }
 
-    private static int efX() {
+    private static int egf() {
         FileReader fileReader;
         Pattern compile = Pattern.compile("^MemTotal:\\s+([0-9]+) kB$");
         StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
@@ -58,22 +58,22 @@ public class SysUtils {
 
     @CalledByNative
     public static boolean isLowEndDevice() {
-        if (oOH == null) {
-            oOH = Boolean.valueOf(efY());
+        if (oPh == null) {
+            oPh = Boolean.valueOf(egg());
         }
-        return oOH.booleanValue();
+        return oPh.booleanValue();
     }
 
-    private static boolean efY() {
+    private static boolean egg() {
         if ($assertionsDisabled || CommandLine.isInitialized()) {
-            if (CommandLine.efQ().hasSwitch("enable-low-end-device-mode")) {
+            if (CommandLine.efY().hasSwitch("enable-low-end-device-mode")) {
                 return true;
             }
-            if (CommandLine.efQ().hasSwitch("disable-low-end-device-mode")) {
+            if (CommandLine.efY().hasSwitch("disable-low-end-device-mode")) {
                 return false;
             }
-            int efX = efX();
-            return efX > 0 && efX / 1024 <= 512;
+            int egf = egf();
+            return egf > 0 && egf / 1024 <= 512;
         }
         throw new AssertionError();
     }

@@ -16,7 +16,7 @@ public final class b {
     }
 
     public static a aQX() {
-        return com.baidu.tieba.aiapps.apps.j.b.bNI();
+        return com.baidu.tieba.aiapps.apps.j.b.bNP();
     }
 
     public static void aQY() {

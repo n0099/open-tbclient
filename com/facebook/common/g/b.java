@@ -9,7 +9,7 @@ public interface b {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void hs(String str, String str2);
+        void hu(String str, String str2);
     }
 
     void a(com.facebook.common.g.a aVar);

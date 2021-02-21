@@ -22,8 +22,8 @@ public class b {
 
     /* renamed from: com.baidu.tieba.horizonalList.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0749b extends a {
-        public C0749b(View view) {
+    public static class C0750b extends a {
+        public C0750b(View view) {
             super(view);
         }
 
@@ -44,6 +44,6 @@ public class b {
     }
 
     public static final a dh(View view) {
-        return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new C0749b(view);
+        return Build.VERSION.SDK_INT >= 14 ? new com.baidu.tieba.horizonalList.a.b.a(view) : new C0750b(view);
     }
 }

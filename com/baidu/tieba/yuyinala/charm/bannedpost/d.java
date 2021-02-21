@@ -20,52 +20,52 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
     private CommonEmptyView bwJ;
-    private PbListView gNy;
+    private PbListView gNM;
     private String mGroupId;
     private BdListView mListView;
     private String mLiveId;
     private String mRoomId;
     private View mRootView;
     private int mType;
-    private YuyinBannedPostListActivity opM;
-    private b opN;
+    private YuyinBannedPostListActivity oqm;
+    private b oqn;
 
     public d(YuyinBannedPostListActivity yuyinBannedPostListActivity, String str, String str2, String str3, int i) {
-        this.opM = yuyinBannedPostListActivity;
+        this.oqm = yuyinBannedPostListActivity;
         this.mType = i;
         this.mRoomId = str3;
         this.mLiveId = str;
         this.mGroupId = str2;
-        this.mRootView = this.opM.getLayoutInflater().inflate(a.g.yuyin_banned_post_layout, (ViewGroup) null);
+        this.mRootView = this.oqm.getLayoutInflater().inflate(a.g.yuyin_banned_post_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.detail_list);
         this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
-        this.opN = new b(yuyinBannedPostListActivity.getPageContext(), this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
-        this.opN.a(new b.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.d.1
+        this.oqn = new b(yuyinBannedPostListActivity.getPageContext(), this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
+        this.oqn.a(new b.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.d.1
             @Override // com.baidu.tieba.yuyinala.charm.bannedpost.b.a
-            public void bRy() {
+            public void bRF() {
                 d.this.dQ(true);
             }
         });
-        this.mListView.setAdapter((ListAdapter) this.opN);
+        this.mListView.setAdapter((ListAdapter) this.oqn);
         this.mListView.setEmptyView(this.bwJ);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.d.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                d.this.a(d.this.opN.getItem(i2));
+                d.this.a(d.this.oqn.getItem(i2));
             }
         });
-        if (this.gNy == null) {
-            this.gNy = new PbListView(this.opM);
-            this.gNy.setTextColor(this.opM.getResources().getColor(a.c.sdk_color_858585));
-            this.gNy.setSkinType(0);
-            this.gNy.setmTextSize(14.0f);
-            this.gNy.createView();
-            this.gNy.setHeight(BdUtilHelper.dip2px(this.opM, 60.0f));
+        if (this.gNM == null) {
+            this.gNM = new PbListView(this.oqm);
+            this.gNM.setTextColor(this.oqm.getResources().getColor(a.c.sdk_color_858585));
+            this.gNM.setSkinType(0);
+            this.gNM.setmTextSize(14.0f);
+            this.gNM.createView();
+            this.gNM.setHeight(BdUtilHelper.dip2px(this.oqm, 60.0f));
         }
     }
 
-    public void gn(List<a.C0912a> list) {
-        this.opN.setData(list);
+    public void gn(List<a.C0914a> list) {
+        this.oqn.setData(list);
     }
 
     public void dQ(boolean z) {
@@ -77,7 +77,7 @@ public class d {
                 this.bwJ.setTitle("还没有人被永久禁言哦~");
             }
             this.bwJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.bwJ.setTextColor(this.opM.getResources().getColor(a.c.sdk_color_525252));
+            this.bwJ.setTextColor(this.oqm.getResources().getColor(a.c.sdk_color_525252));
             this.bwJ.setVisibility(0);
             return;
         }
@@ -85,10 +85,10 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0912a c0912a) {
-        if (c0912a != null) {
-            this.opM.finish();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.opM.getPageContext().getContext(), ExtraParamsManager.getDecryptUserId(c0912a.uk), c0912a.user_name, c0912a.bd_portrait, 0, 0, "", null, 0L, 0L, 0L, 0, this.mGroupId, this.mLiveId, false, "", null, c0912a.user_name, "")));
+    public void a(a.C0914a c0914a) {
+        if (c0914a != null) {
+            this.oqm.finish();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.oqm.getPageContext().getContext(), ExtraParamsManager.getDecryptUserId(c0914a.uk), c0914a.user_name, c0914a.bd_portrait, 0, 0, "", null, 0L, 0L, 0L, 0, this.mGroupId, this.mLiveId, false, "", null, c0914a.user_name, "")));
         }
     }
 
@@ -101,7 +101,7 @@ public class d {
         this.bwJ.setTitle("网络加载失败了哦~");
         this.bwJ.setRefreshButton("重新加载", onClickListener);
         this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bwJ.setTextColor(this.opM.getResources().getColor(a.c.sdk_color_525252));
+        this.bwJ.setTextColor(this.oqm.getResources().getColor(a.c.sdk_color_525252));
         this.bwJ.setVisibility(0);
     }
 

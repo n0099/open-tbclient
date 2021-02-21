@@ -9,29 +9,29 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes9.dex */
 public class FacePackageDownloadModel extends BdBaseModel<l> {
-    private float iUY;
-    private a iVw;
-    private FacePackageDownloadData iVx;
+    private a iVK;
+    private FacePackageDownloadData iVL;
+    private float iVm;
     private int mScreenHeight;
     private int mScreenWidth;
 
     public FacePackageDownloadModel(Context context) {
         super(null);
-        this.iVx = null;
+        this.iVL = null;
         this.mScreenWidth = 0;
         this.mScreenHeight = 0;
-        this.iVw = null;
+        this.iVK = null;
         TbadkApplication inst = TbadkApplication.getInst();
         this.mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(inst);
         this.mScreenHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(inst);
-        this.iUY = inst.getResources().getDisplayMetrics().density;
+        this.iVm = inst.getResources().getDisplayMetrics().density;
     }
 
-    public void JN(String str) {
-        if (this.iVw == null) {
-            this.iVw = new a(str);
-            this.iVw.setPriority(3);
-            this.iVw.execute(new Object[0]);
+    public void JO(String str) {
+        if (this.iVK == null) {
+            this.iVK = new a(str);
+            this.iVK.setPriority(3);
+            this.iVK.execute(new Object[0]);
         }
     }
 
@@ -55,14 +55,14 @@ public class FacePackageDownloadModel extends BdBaseModel<l> {
                     this.cml.addPostData("pid", this.mPid);
                     this.cml.addPostData("scr_w", String.valueOf(FacePackageDownloadModel.this.mScreenWidth));
                     this.cml.addPostData("scr_h", String.valueOf(FacePackageDownloadModel.this.mScreenHeight));
-                    this.cml.addPostData("scr_dip", String.valueOf(FacePackageDownloadModel.this.iUY));
+                    this.cml.addPostData("scr_dip", String.valueOf(FacePackageDownloadModel.this.iVm));
                     String postNetData = this.cml.postNetData();
-                    FacePackageDownloadModel.this.iVx = (FacePackageDownloadData) OrmObject.objectWithJsonStr(postNetData, FacePackageDownloadData.class);
+                    FacePackageDownloadModel.this.iVL = (FacePackageDownloadData) OrmObject.objectWithJsonStr(postNetData, FacePackageDownloadData.class);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            return FacePackageDownloadModel.this.iVx;
+            return FacePackageDownloadModel.this.iVL;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public class FacePackageDownloadModel extends BdBaseModel<l> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(FacePackageDownloadData facePackageDownloadData) {
-            FacePackageDownloadModel.this.iVw = null;
+            FacePackageDownloadModel.this.iVK = null;
             FacePackageDownloadModel.this.mLoadDataCallBack.callback(facePackageDownloadData);
             super.onPostExecute(facePackageDownloadData);
         }
@@ -82,7 +82,7 @@ public class FacePackageDownloadModel extends BdBaseModel<l> {
                 this.cml.cancelNetConnect();
                 this.cml = null;
             }
-            FacePackageDownloadModel.this.iVw = null;
+            FacePackageDownloadModel.this.iVK = null;
         }
     }
 
@@ -93,8 +93,8 @@ public class FacePackageDownloadModel extends BdBaseModel<l> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iVw != null) {
-            this.iVw.cancel();
+        if (this.iVK != null) {
+            this.iVK.cancel();
             return false;
         }
         return false;

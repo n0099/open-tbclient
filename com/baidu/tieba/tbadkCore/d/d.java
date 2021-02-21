@@ -1,15 +1,15 @@
 package com.baidu.tieba.tbadkCore.d;
 /* loaded from: classes.dex */
 public class d {
-    public long nye = 0;
+    public long nyE = 0;
     public long num = 0;
-    public long nyf = 0;
+    public long nyF = 0;
     public long size = 0;
 
     public void reset() {
-        this.nye = 0L;
+        this.nyE = 0L;
         this.num = 0L;
-        this.nyf = 0L;
+        this.nyF = 0L;
         this.size = 0L;
     }
 }

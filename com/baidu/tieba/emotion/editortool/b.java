@@ -6,29 +6,29 @@ public class b {
     private int bNG;
     private int bNH;
     private int column;
-    private int iGA;
-    private int iGB;
-    private EmotionGroupType iGw;
-    private int iGx;
-    private int iGy;
-    private com.baidu.tbadk.editortools.emotiontool.c iGz;
+    private EmotionGroupType iGK;
+    private int iGL;
+    private int iGM;
+    private com.baidu.tbadk.editortools.emotiontool.c iGN;
+    private int iGO;
+    private int iGP;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.iGz = cVar;
+        this.iGN = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c cuF() {
-        return this.iGz;
+    public com.baidu.tbadk.editortools.emotiontool.c cuM() {
+        return this.iGN;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.iGw = emotionGroupType;
+        this.iGK = emotionGroupType;
     }
 
-    public EmotionGroupType cuG() {
-        return this.iGw;
+    public EmotionGroupType cuN() {
+        return this.iGK;
     }
 
     public void rh(int i) {
@@ -43,39 +43,39 @@ public class b {
         this.column = i;
     }
 
-    public int cuH() {
+    public int cuO() {
         return this.column;
     }
 
     public void xr(int i) {
-        this.iGB = i;
+        this.iGP = i;
     }
 
-    public int cuI() {
-        return this.iGB;
+    public int cuP() {
+        return this.iGP;
     }
 
     public void xs(int i) {
-        this.iGA = i;
+        this.iGO = i;
     }
 
-    public int cuJ() {
-        return this.iGA;
+    public int cuQ() {
+        return this.iGO;
     }
 
     public void xt(int i) {
-        this.iGx = i;
+        this.iGL = i;
     }
 
-    public int cuK() {
-        return this.iGx;
+    public int cuR() {
+        return this.iGL;
     }
 
     public void xu(int i) {
         this.bNG = i;
     }
 
-    public int cuL() {
+    public int cuS() {
         return this.bNG;
     }
 
@@ -92,10 +92,10 @@ public class b {
     }
 
     public void xw(int i) {
-        this.iGy = i;
+        this.iGM = i;
     }
 
-    public int cuM() {
-        return this.iGy;
+    public int cuT() {
+        return this.iGM;
     }
 }

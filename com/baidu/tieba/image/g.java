@@ -11,6 +11,8 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.recapp.constants.Cmatch;
+import com.baidu.tieba.recapp.s;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -20,23 +22,23 @@ import tbclient.GoodsInfo;
 /* loaded from: classes8.dex */
 public class g {
     public String fDL;
-    private ForumData jSl;
-    public MetaData kUi;
-    public String kUj;
-    public int kUl;
-    private LinkedList<e> kUu;
-    private String kUw;
-    private String kUx;
+    private ForumData jSz;
+    private LinkedList<e> kUI;
+    private String kUK;
+    private String kUL;
+    public int kUN;
+    public MetaData kUw;
+    public String kUx;
     public int kUz;
     private int replyPrivateFlag;
     private String fid = null;
-    private int kUt = 0;
-    private AdvertAppInfo kUv = null;
-    private LinkedList<AlaInfoData> kUy = new LinkedList<>();
+    private int kUH = 0;
+    private AdvertAppInfo kUJ = null;
+    private LinkedList<AlaInfoData> kUM = new LinkedList<>();
 
     public g() {
-        this.kUu = null;
-        this.kUu = new LinkedList<>();
+        this.kUI = null;
+        this.kUI = new LinkedList<>();
     }
 
     public void aS(String str, boolean z) {
@@ -47,32 +49,32 @@ public class g {
         }
     }
 
-    public LinkedList<e> cZU() {
-        return this.kUu;
+    public LinkedList<e> dab() {
+        return this.kUI;
     }
 
-    public LinkedList<AlaInfoData> cZV() {
-        return this.kUy;
+    public LinkedList<AlaInfoData> dac() {
+        return this.kUM;
     }
 
     public int getImageNum() {
-        return this.kUt;
+        return this.kUH;
     }
 
     public String bpA() {
-        return this.kUw;
+        return this.kUK;
     }
 
     public String bpB() {
-        return this.kUx;
+        return this.kUL;
     }
 
-    public int cZW() {
+    public int dad() {
         return this.replyPrivateFlag;
     }
 
     public ForumData bCk() {
-        return this.jSl;
+        return this.jSz;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -80,31 +82,31 @@ public class g {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.jSl = new ForumData();
-                    this.jSl.parserJson(optJSONObject);
+                    this.jSz = new ForumData();
+                    this.jSz.parserJson(optJSONObject);
                     this.fid = optJSONObject.optString("id");
-                    this.kUw = optJSONObject.optString("frist_class");
-                    this.kUx = optJSONObject.optString("second_class");
+                    this.kUK = optJSONObject.optString("frist_class");
+                    this.kUL = optJSONObject.optString("second_class");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
                 if (optJSONObject2 != null) {
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject("author");
                     if (optJSONObject3 != null) {
-                        this.kUi = new MetaData();
-                        this.kUi.setUserId(optJSONObject3.optString("user_id"));
-                        this.kUi.setUserName(optJSONObject3.optString("user_name"));
-                        this.kUi.setName_show(optJSONObject3.optString("nickname"));
+                        this.kUw = new MetaData();
+                        this.kUw.setUserId(optJSONObject3.optString("user_id"));
+                        this.kUw.setUserName(optJSONObject3.optString("user_name"));
+                        this.kUw.setName_show(optJSONObject3.optString("nickname"));
                     }
-                    this.kUj = optJSONObject2.optString("first_post_id");
-                    this.kUz = optJSONObject2.optInt("is_multiforum_thread");
+                    this.kUx = optJSONObject2.optString("first_post_id");
+                    this.kUN = optJSONObject2.optInt("is_multiforum_thread");
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
                 if (optJSONObject4 != null) {
                     this.replyPrivateFlag = optJSONObject4.optInt("reply_private_flag");
                     this.fDL = optJSONObject4.optString("voice_message");
                 }
-                this.kUl = jSONObject.optInt("show_adsense", 0);
-                this.kUt = jSONObject.optInt("pic_amount", 0);
+                this.kUz = jSONObject.optInt("show_adsense", 0);
+                this.kUH = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -112,8 +114,8 @@ public class g {
                             e eVar = new e();
                             eVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = eVar.getIndex();
-                            if (index >= 1 && index <= this.kUt) {
-                                this.kUu.addLast(eVar);
+                            if (index >= 1 && index <= this.kUH) {
+                                this.kUI.addLast(eVar);
                             }
                         }
                     } else {
@@ -121,8 +123,8 @@ public class g {
                             e eVar2 = new e();
                             eVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = eVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.kUt) {
-                                this.kUu.addFirst(eVar2);
+                            if (index2 >= 1 && index2 <= this.kUH) {
+                                this.kUI.addFirst(eVar2);
                             }
                         }
                     }
@@ -142,14 +144,14 @@ public class g {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     AlaInfoData alaInfoData = new AlaInfoData();
                     alaInfoData.parserJson(optJSONArray.optJSONObject(i));
-                    this.kUy.addLast(alaInfoData);
+                    this.kUM.addLast(alaInfoData);
                 }
                 return;
             }
             for (int length = optJSONArray.length() - 1; length >= 0; length--) {
                 AlaInfoData alaInfoData2 = new AlaInfoData();
                 alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
-                this.kUy.addFirst(alaInfoData2);
+                this.kUM.addFirst(alaInfoData2);
             }
         }
     }
@@ -197,10 +199,16 @@ public class g {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.kUv = new AdvertAppInfo();
-            this.kUv.a(build);
-            this.kUv.adPosition = "c0111";
-            this.kUv.eLI = this.fid;
+            this.kUJ = new AdvertAppInfo();
+            App a2 = s.dDt().a(build, Cmatch.PIC_PAGE);
+            if (a2 != null) {
+                this.kUJ.eLL = true;
+            } else {
+                a2 = build;
+            }
+            this.kUJ.a(a2);
+            this.kUJ.adPosition = "c0111";
+            this.kUJ.eLH = this.fid;
         }
     }
 
@@ -234,6 +242,6 @@ public class g {
     }
 
     public AdvertAppInfo blH() {
-        return this.kUv;
+        return this.kUJ;
     }
 }

@@ -68,7 +68,7 @@ public final class Gson {
     private final Map<a<?>, TypeAdapter<?>> typeTokenCache;
 
     public Gson() {
-        this(Excluder.pSa, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
+        this(Excluder.pSA, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, LongSerializationPolicy.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -93,49 +93,49 @@ public final class Gson {
         this.builderFactories = list;
         this.builderHierarchyFactories = list2;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(TypeAdapters.pUC);
-        arrayList.add(ObjectTypeAdapter.pSR);
+        arrayList.add(TypeAdapters.pVc);
+        arrayList.add(ObjectTypeAdapter.pTr);
         arrayList.add(excluder);
         arrayList.addAll(list3);
-        arrayList.add(TypeAdapters.pUh);
-        arrayList.add(TypeAdapters.pTQ);
-        arrayList.add(TypeAdapters.pTK);
-        arrayList.add(TypeAdapters.pTM);
-        arrayList.add(TypeAdapters.pTO);
+        arrayList.add(TypeAdapters.pUH);
+        arrayList.add(TypeAdapters.pUq);
+        arrayList.add(TypeAdapters.pUk);
+        arrayList.add(TypeAdapters.pUm);
+        arrayList.add(TypeAdapters.pUo);
         TypeAdapter<Number> longAdapter = longAdapter(longSerializationPolicy);
         arrayList.add(TypeAdapters.a(Long.TYPE, Long.class, longAdapter));
         arrayList.add(TypeAdapters.a(Double.TYPE, Double.class, doubleAdapter(z7)));
         arrayList.add(TypeAdapters.a(Float.TYPE, Float.class, floatAdapter(z7)));
-        arrayList.add(TypeAdapters.pUb);
-        arrayList.add(TypeAdapters.pTS);
-        arrayList.add(TypeAdapters.pTU);
+        arrayList.add(TypeAdapters.pUB);
+        arrayList.add(TypeAdapters.pUs);
+        arrayList.add(TypeAdapters.pUu);
         arrayList.add(TypeAdapters.a(AtomicLong.class, atomicLongAdapter(longAdapter)));
         arrayList.add(TypeAdapters.a(AtomicLongArray.class, atomicLongArrayAdapter(longAdapter)));
-        arrayList.add(TypeAdapters.pTW);
-        arrayList.add(TypeAdapters.pUd);
-        arrayList.add(TypeAdapters.pUj);
-        arrayList.add(TypeAdapters.pUl);
-        arrayList.add(TypeAdapters.a(BigDecimal.class, TypeAdapters.pUf));
-        arrayList.add(TypeAdapters.a(BigInteger.class, TypeAdapters.pUg));
-        arrayList.add(TypeAdapters.pUn);
-        arrayList.add(TypeAdapters.pUp);
-        arrayList.add(TypeAdapters.pUt);
-        arrayList.add(TypeAdapters.pUv);
-        arrayList.add(TypeAdapters.pUA);
-        arrayList.add(TypeAdapters.pUr);
-        arrayList.add(TypeAdapters.pTH);
-        arrayList.add(DateTypeAdapter.pSR);
-        arrayList.add(TypeAdapters.pUy);
-        arrayList.add(TimeTypeAdapter.pSR);
-        arrayList.add(SqlDateTypeAdapter.pSR);
         arrayList.add(TypeAdapters.pUw);
-        arrayList.add(ArrayTypeAdapter.pSR);
-        arrayList.add(TypeAdapters.pTF);
+        arrayList.add(TypeAdapters.pUD);
+        arrayList.add(TypeAdapters.pUJ);
+        arrayList.add(TypeAdapters.pUL);
+        arrayList.add(TypeAdapters.a(BigDecimal.class, TypeAdapters.pUF));
+        arrayList.add(TypeAdapters.a(BigInteger.class, TypeAdapters.pUG));
+        arrayList.add(TypeAdapters.pUN);
+        arrayList.add(TypeAdapters.pUP);
+        arrayList.add(TypeAdapters.pUT);
+        arrayList.add(TypeAdapters.pUV);
+        arrayList.add(TypeAdapters.pVa);
+        arrayList.add(TypeAdapters.pUR);
+        arrayList.add(TypeAdapters.pUh);
+        arrayList.add(DateTypeAdapter.pTr);
+        arrayList.add(TypeAdapters.pUY);
+        arrayList.add(TimeTypeAdapter.pTr);
+        arrayList.add(SqlDateTypeAdapter.pTr);
+        arrayList.add(TypeAdapters.pUW);
+        arrayList.add(ArrayTypeAdapter.pTr);
+        arrayList.add(TypeAdapters.pUf);
         arrayList.add(new CollectionTypeAdapterFactory(this.constructorConstructor));
         arrayList.add(new MapTypeAdapterFactory(this.constructorConstructor, z2));
         this.jsonAdapterFactory = new JsonAdapterAnnotationTypeAdapterFactory(this.constructorConstructor);
         arrayList.add(this.jsonAdapterFactory);
-        arrayList.add(TypeAdapters.pUD);
+        arrayList.add(TypeAdapters.pVd);
         arrayList.add(new ReflectiveTypeAdapterFactory(this.constructorConstructor, fieldNamingStrategy, excluder, this.jsonAdapterFactory));
         this.factories = Collections.unmodifiableList(arrayList);
     }
@@ -161,24 +161,24 @@ public final class Gson {
     }
 
     private TypeAdapter<Number> doubleAdapter(boolean z) {
-        return z ? TypeAdapters.pTZ : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.1
+        return z ? TypeAdapters.pUz : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Return type fixed from 'java.lang.Double' to match base method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: read */
             public Number read2(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.eBp() == JsonToken.NULL) {
-                    aVar.eBv();
+                if (aVar.eBx() == JsonToken.NULL) {
+                    aVar.eBD();
                     return null;
                 }
-                return Double.valueOf(aVar.eBw());
+                return Double.valueOf(aVar.eBE());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.eBI();
+                    bVar.eBQ();
                     return;
                 }
                 Gson.checkValidFloatingPoint(number.doubleValue());
@@ -188,24 +188,24 @@ public final class Gson {
     }
 
     private TypeAdapter<Number> floatAdapter(boolean z) {
-        return z ? TypeAdapters.pTY : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.2
+        return z ? TypeAdapters.pUy : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX DEBUG: Return type fixed from 'java.lang.Float' to match base method */
             @Override // com.google.gson.TypeAdapter
             /* renamed from: read */
             public Number read2(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.eBp() == JsonToken.NULL) {
-                    aVar.eBv();
+                if (aVar.eBx() == JsonToken.NULL) {
+                    aVar.eBD();
                     return null;
                 }
-                return Float.valueOf((float) aVar.eBw());
+                return Float.valueOf((float) aVar.eBE());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.eBI();
+                    bVar.eBQ();
                     return;
                 }
                 Gson.checkValidFloatingPoint(number.floatValue());
@@ -221,25 +221,25 @@ public final class Gson {
     }
 
     private static TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) {
-        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? TypeAdapters.pTX : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.3
+        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? TypeAdapters.pUx : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(com.google.gson.stream.a aVar) throws IOException {
-                if (aVar.eBp() == JsonToken.NULL) {
-                    aVar.eBv();
+                if (aVar.eBx() == JsonToken.NULL) {
+                    aVar.eBD();
                     return null;
                 }
-                return Long.valueOf(aVar.eBx());
+                return Long.valueOf(aVar.eBF());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, Number number) throws IOException {
                 if (number == null) {
-                    bVar.eBI();
+                    bVar.eBQ();
                 } else {
-                    bVar.ZL(number.toString());
+                    bVar.ZX(number.toString());
                 }
             }
         };
@@ -266,19 +266,19 @@ public final class Gson {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, AtomicLongArray atomicLongArray) throws IOException {
-                bVar.eBE();
+                bVar.eBM();
                 int length = atomicLongArray.length();
                 for (int i = 0; i < length; i++) {
                     TypeAdapter.this.write(bVar, Long.valueOf(atomicLongArray.get(i)));
                 }
-                bVar.eBF();
+                bVar.eBN();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.TypeAdapter
             public AtomicLongArray read(com.google.gson.stream.a aVar) throws IOException {
                 ArrayList arrayList = new ArrayList();
-                aVar.eBn();
+                aVar.eBv();
                 while (aVar.hasNext()) {
                     arrayList.add(Long.valueOf(((Number) TypeAdapter.this.read(aVar)).longValue()));
                 }
@@ -366,7 +366,7 @@ public final class Gson {
     public JsonElement toJsonTree(Object obj, Type type) {
         com.google.gson.internal.bind.b bVar = new com.google.gson.internal.bind.b();
         toJson(obj, type, bVar);
-        return bVar.eBC();
+        return bVar.eBK();
     }
 
     public String toJson(Object obj) {
@@ -397,11 +397,11 @@ public final class Gson {
 
     public void toJson(Object obj, Type type, com.google.gson.stream.b bVar) throws JsonIOException {
         TypeAdapter adapter = getAdapter(a.r(type));
-        boolean eBN = bVar.eBN();
-        bVar.BA(true);
         boolean eBV = bVar.eBV();
+        bVar.BA(true);
+        boolean eCd = bVar.eCd();
         bVar.BC(this.htmlSafe);
-        boolean eBW = bVar.eBW();
+        boolean eCe = bVar.eCe();
         bVar.BD(this.serializeNulls);
         try {
             try {
@@ -414,9 +414,9 @@ public final class Gson {
                 throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
             }
         } finally {
-            bVar.BA(eBN);
-            bVar.BC(eBV);
-            bVar.BD(eBW);
+            bVar.BA(eBV);
+            bVar.BC(eCd);
+            bVar.BD(eCe);
         }
     }
 
@@ -440,7 +440,7 @@ public final class Gson {
         }
         com.google.gson.stream.b bVar = new com.google.gson.stream.b(writer);
         if (this.prettyPrinting) {
-            bVar.ZO("  ");
+            bVar.aaa("  ");
         }
         bVar.BD(this.serializeNulls);
         return bVar;
@@ -453,11 +453,11 @@ public final class Gson {
     }
 
     public void toJson(JsonElement jsonElement, com.google.gson.stream.b bVar) throws JsonIOException {
-        boolean eBN = bVar.eBN();
-        bVar.BA(true);
         boolean eBV = bVar.eBV();
+        bVar.BA(true);
+        boolean eCd = bVar.eCd();
         bVar.BC(this.htmlSafe);
-        boolean eBW = bVar.eBW();
+        boolean eCe = bVar.eCe();
         bVar.BD(this.serializeNulls);
         try {
             try {
@@ -468,9 +468,9 @@ public final class Gson {
                 throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
             }
         } finally {
-            bVar.BA(eBN);
-            bVar.BC(eBV);
-            bVar.BD(eBW);
+            bVar.BA(eBV);
+            bVar.BC(eCd);
+            bVar.BD(eCe);
         }
     }
 
@@ -502,7 +502,7 @@ public final class Gson {
     private static void assertFullConsumption(Object obj, com.google.gson.stream.a aVar) {
         if (obj != null) {
             try {
-                if (aVar.eBp() != JsonToken.END_DOCUMENT) {
+                if (aVar.eBx() != JsonToken.END_DOCUMENT) {
                     throw new JsonIOException("JSON document was not fully consumed.");
                 }
             } catch (MalformedJsonException e) {
@@ -515,15 +515,15 @@ public final class Gson {
 
     public <T> T fromJson(com.google.gson.stream.a aVar, Type type) throws JsonIOException, JsonSyntaxException {
         boolean z = true;
-        boolean eBN = aVar.eBN();
+        boolean eBV = aVar.eBV();
         aVar.BA(true);
         try {
             try {
                 try {
-                    aVar.eBp();
+                    aVar.eBx();
                     z = false;
                     T read = getAdapter(a.r(type)).read(aVar);
-                    aVar.BA(eBN);
+                    aVar.BA(eBV);
                     return read;
                 } catch (IOException e) {
                     throw new JsonSyntaxException(e);
@@ -534,13 +534,13 @@ public final class Gson {
                 if (!z) {
                     throw new JsonSyntaxException(e3);
                 }
-                aVar.BA(eBN);
+                aVar.BA(eBV);
                 return null;
             } catch (AssertionError e4) {
                 throw new AssertionError("AssertionError (GSON 2.8.5): " + e4.getMessage(), e4);
             }
         } catch (Throwable th) {
-            aVar.BA(eBN);
+            aVar.BA(eBV);
             throw th;
         }
     }

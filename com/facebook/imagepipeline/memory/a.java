@@ -10,14 +10,14 @@ public class a {
     private final int mMaxSize;
     @GuardedBy("this")
     private long mSize;
-    private final com.facebook.common.references.c<Bitmap> pKw;
+    private final com.facebook.common.references.c<Bitmap> pKW;
 
     public a(int i, int i2) {
         com.facebook.common.internal.g.checkArgument(i > 0);
         com.facebook.common.internal.g.checkArgument(i2 > 0);
         this.mMaxCount = i;
         this.mMaxSize = i2;
-        this.pKw = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
+        this.pKW = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             public void release(Bitmap bitmap) {
@@ -62,7 +62,7 @@ public class a {
         return this.mSize;
     }
 
-    public synchronized int bYe() {
+    public synchronized int bYl() {
         return this.mMaxCount;
     }
 
@@ -70,7 +70,7 @@ public class a {
         return this.mMaxSize;
     }
 
-    public com.facebook.common.references.c<Bitmap> eyz() {
-        return this.pKw;
+    public com.facebook.common.references.c<Bitmap> eyH() {
+        return this.pKW;
     }
 }

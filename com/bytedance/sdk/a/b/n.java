@@ -5,10 +5,10 @@ import java.util.List;
 import javax.net.ssl.SSLSocket;
 /* loaded from: classes6.dex */
 public final class n {
-    private static final k[] ptt = {k.ptc, k.ptg, k.ptd, k.pth, k.ptn, k.ptm, k.psD, k.psN, k.psE, k.psO, k.psl, k.psm, k.prJ, k.prN, k.prn};
-    public static final n ptu = new a(true).a(ptt).a(ad.TLS_1_3, ad.TLS_1_2, ad.TLS_1_1, ad.TLS_1_0).Bb(true).epS();
-    public static final n ptv = new a(ptu).a(ad.TLS_1_0).Bb(true).epS();
-    public static final n ptw = new a(false).epS();
+    private static final k[] ptT = {k.ptD, k.ptH, k.ptE, k.ptI, k.ptO, k.ptN, k.ptd, k.ptn, k.pte, k.pto, k.psL, k.psM, k.psj, k.psn, k.prN};
+    public static final n ptU = new a(true).a(ptT).a(ad.TLS_1_3, ad.TLS_1_2, ad.TLS_1_1, ad.TLS_1_0).Bb(true).eqa();
+    public static final n ptV = new a(ptU).a(ad.TLS_1_0).Bb(true).eqa();
+    public static final n ptW = new a(false).eqa();
     final boolean d;
     final boolean e;
     final String[] f;
@@ -63,7 +63,7 @@ public final class n {
             enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
         }
         if (this.g != null) {
-            enabledProtocols = com.bytedance.sdk.a.b.a.c.a(com.bytedance.sdk.a.b.a.c.ppe, sSLSocket.getEnabledProtocols(), this.g);
+            enabledProtocols = com.bytedance.sdk.a.b.a.c.a(com.bytedance.sdk.a.b.a.c.ppG, sSLSocket.getEnabledProtocols(), this.g);
         } else {
             enabledProtocols = sSLSocket.getEnabledProtocols();
         }
@@ -72,12 +72,12 @@ public final class n {
         if (z && a2 != -1) {
             enabledCipherSuites = com.bytedance.sdk.a.b.a.c.b(enabledCipherSuites, supportedCipherSuites[a2]);
         }
-        return new a(this).ag(enabledCipherSuites).ah(enabledProtocols).epS();
+        return new a(this).ag(enabledCipherSuites).ah(enabledProtocols).eqa();
     }
 
     public boolean e(SSLSocket sSLSocket) {
         if (this.d) {
-            if (this.g == null || com.bytedance.sdk.a.b.a.c.b(com.bytedance.sdk.a.b.a.c.ppe, this.g, sSLSocket.getEnabledProtocols())) {
+            if (this.g == null || com.bytedance.sdk.a.b.a.c.b(com.bytedance.sdk.a.b.a.c.ppG, this.g, sSLSocket.getEnabledProtocols())) {
                 return this.f == null || com.bytedance.sdk.a.b.a.c.b(k.f5965a, this.f, sSLSocket.getEnabledCipherSuites());
             }
             return false;
@@ -139,7 +139,7 @@ public final class n {
             if (this.f5967a) {
                 String[] strArr = new String[kVarArr.length];
                 for (int i = 0; i < kVarArr.length; i++) {
-                    strArr[i] = kVarArr[i].pto;
+                    strArr[i] = kVarArr[i].ptP;
                 }
                 return ag(strArr);
             }
@@ -187,7 +187,7 @@ public final class n {
             return this;
         }
 
-        public n epS() {
+        public n eqa() {
             return new n(this);
         }
     }

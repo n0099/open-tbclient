@@ -51,9 +51,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         this.f13797a.add(stringExtra);
         if (intExtra == 3000) {
-            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m297a(intExtra), stringExtra, 3008, null);
+            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m296a(intExtra), stringExtra, 3008, null);
         } else if (intExtra == 1000) {
-            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m297a(intExtra), stringExtra, 1008, null);
+            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m296a(intExtra), stringExtra, 1008, null);
         }
     }
 

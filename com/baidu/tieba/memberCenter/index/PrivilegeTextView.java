@@ -7,7 +7,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 /* loaded from: classes9.dex */
 public class PrivilegeTextView extends TextView {
-    private a lmd;
+    private a lmr;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -27,14 +27,14 @@ public class PrivilegeTextView extends TextView {
     }
 
     public void setTextChangeListener(a aVar) {
-        this.lmd = aVar;
+        this.lmr = aVar;
     }
 
     @Override // android.widget.TextView
     protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         super.onTextChanged(charSequence, i, i2, i3);
-        if (this.lmd != null) {
-            this.lmd.b(charSequence, i, i2, i3);
+        if (this.lmr != null) {
+            this.lmr.b(charSequence, i, i2, i3);
         }
     }
 

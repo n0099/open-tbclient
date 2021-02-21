@@ -12,19 +12,19 @@ import org.json.JSONException;
 /* loaded from: classes11.dex */
 public class d extends a {
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0098, code lost:
-        if (r28.ovL == null) goto L27;
+        if (r28.owl == null) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x009a, code lost:
-        r28.ovL.VF(r28.giftId);
+        r28.owl.VR(r28.giftId);
      */
     @Override // com.baidu.tieba.yuyinala.liveroom.j.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    protected void ebt() {
+    protected void ebB() {
         if (!TextUtils.isEmpty(this.bpm) && !TextUtils.isEmpty(this.bpo)) {
             if (this.isShow == 1) {
-                aj.b(this.bpo, this.ovK.userId, this.ovK.portrait, this.ovK.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hAw), this.appId, this.bpm, "", "", this.msgId, this.bno);
+                aj.b(this.bpo, this.owk.userId, this.owk.portrait, this.owk.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hAK), this.appId, this.bpm, "", "", this.msgId, this.bno);
                 try {
                     JSONArray jSONArray = new JSONArray(this.bpo);
                     if (jSONArray != null && jSONArray.length() > 0) {
@@ -44,9 +44,9 @@ public class d extends a {
                 }
             }
         } else {
-            aj.b(this.giftId, JavaTypesHelper.toInt(this.bnW, 1), this.giftName, this.aWQ, this.ovK.userId, this.ovK.portrait, this.ovK.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hAw), this.appId, this.bdh, "", "", this.msgId, this.bno, this.isDynamic, this.bZd, this.aYl, this.bZe, this.bZf);
-            if (this.ovL != null) {
-                this.ovL.VF(this.giftId);
+            aj.b(this.giftId, JavaTypesHelper.toInt(this.bnW, 1), this.giftName, this.aWQ, this.owk.userId, this.owk.portrait, this.owk.getNameShow(), String.valueOf(this.liveId), String.valueOf(this.groupId), false, String.valueOf(this.hAK), this.appId, this.bdh, "", "", this.msgId, this.bno, this.isDynamic, this.bZd, this.aYl, this.bZe, this.bZf);
+            if (this.owl != null) {
+                this.owl.VR(this.giftId);
             }
         }
         com.baidu.tieba.yuyinala.liveroom.i.c cVar = new com.baidu.tieba.yuyinala.liveroom.i.c();

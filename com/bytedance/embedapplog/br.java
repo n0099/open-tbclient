@@ -18,7 +18,7 @@ public interface br extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof br)) {
                 return (br) queryLocalInterface;
             }
-            return new C0987a(iBinder);
+            return new C0989a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -40,12 +40,12 @@ public interface br extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.br$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        static class C0987a implements br {
+        static class C0989a implements br {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f5812a;
 
-            C0987a(IBinder iBinder) {
+            C0989a(IBinder iBinder) {
                 this.f5812a = iBinder;
             }
 

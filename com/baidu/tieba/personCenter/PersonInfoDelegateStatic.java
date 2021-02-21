@@ -39,8 +39,8 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     private MessageRedDotView tipView;
 
     static {
-        bRa();
-        com.baidu.tieba.p.a.dEW();
+        bRh();
+        com.baidu.tieba.p.a.dFe();
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.MAINTAB_ADD_FRAGMENT) { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -59,9 +59,9 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().registerListener(customMessageListener);
         TbadkCoreApplication.getInst().RegisterIntent(NewUserRedPackageActivityConfig.class, NewUserRedPackageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MissionCustomDialogActivityConfig.class, MissionCustomDialogActivity.class);
-        dib();
+        dii();
         TbadkCoreApplication.getInst().RegisterIntent(UserTropicGiftBagActivityConfig.class, UserTropicGiftBagActivity.class);
-        b.dww();
+        b.dwD();
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -124,7 +124,7 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().registerListener(this.maintabEmotionListener);
     }
 
-    private static void bRa() {
+    private static void bRh() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PROFILE, ProfileSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002700, com.baidu.tieba.tbadkCore.a.a.bV(Config.USER_INFO_ADDRESS, CmdConfigSocket.CMD_PROFILE));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -141,7 +141,7 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
         MessageManager.getInstance().unRegisterListener(this.maintabEmotionListener);
     }
 
-    private static void dib() {
+    private static void dii() {
         bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.personCenter.PersonInfoDelegateStatic.3
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -149,7 +149,7 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
                     return 3;
                 }
                 if (strArr[0].contains("openAiCustomService")) {
-                    b.dww().dwx();
+                    b.dwD().dwE();
                     return 0;
                 }
                 return 3;

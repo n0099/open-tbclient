@@ -9,8 +9,8 @@ public class d extends com.kwad.sdk.feed.a.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
     private RCPVFrameLayout f9832b;
-    private a.InterfaceC1152a c = new a.InterfaceC1152a() { // from class: com.kwad.sdk.feed.a.a.b.d.1
-        @Override // com.kwad.sdk.widget.a.InterfaceC1152a
+    private a.InterfaceC1154a c = new a.InterfaceC1154a() { // from class: com.kwad.sdk.feed.a.a.b.d.1
+        @Override // com.kwad.sdk.widget.a.InterfaceC1154a
         public void a() {
             d.this.e();
         }

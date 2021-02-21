@@ -10,11 +10,11 @@ import org.aspectj.lang.a;
 /* loaded from: classes6.dex */
 public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "vmhd";
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_4 = null;
     private int graphicsmode;
     private int[] opcolor;
 
@@ -83,7 +83,7 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
     }
 
     public void setGraphicsmode(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Sx(i)));
         this.graphicsmode = i;
     }
 }

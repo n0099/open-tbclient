@@ -82,10 +82,10 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<com.b
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Dk = c.bCP().Dk(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), MutiImgSingleVerticalLayout.this.akO ? 13 : 14));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = c.bCP().Di(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), MutiImgSingleVerticalLayout.this.akO ? 13 : 14));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i = Di.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -224,7 +224,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<com.b
         if (voiceModel != null) {
             this.alb.Dp(voiceModel.voice_status.intValue());
         }
-        this.alb.ccu();
+        this.alb.ccB();
         this.ale = true;
     }
 

@@ -12,16 +12,16 @@ public class c {
     private String mData;
     private String mMessage;
     private String mMethodName;
-    private boolean nyW;
-    private boolean nyX;
+    private boolean nzw;
+    private boolean nzx;
     private int mStatus = -1;
-    private boolean nyY = true;
+    private boolean nzy = true;
 
-    public String cuv() {
+    public String cuC() {
         return this.mMethodName;
     }
 
-    public void Th(String str) {
+    public void Tt(String str) {
         this.mMethodName = str;
     }
 
@@ -33,19 +33,19 @@ public class c {
         this.mStatus = i;
         switch (i) {
             case 0:
-                Tj(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
+                Tv(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
                 return;
             case 101:
-                Tj(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_scheme_parse_fail));
+                Tv(TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_scheme_parse_fail));
                 return;
             case 201:
-                Tj(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_module));
+                Tv(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_module));
                 return;
             case 202:
-                Tj(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_action));
+                Tv(TbadkCoreApplication.getInst().getString(R.string.scheme_action_can_not_find_action));
                 return;
             case 301:
-                Tj(TbadkCoreApplication.getInst().getString(R.string.scheme_action_security_check_fail));
+                Tv(TbadkCoreApplication.getInst().getString(R.string.scheme_action_security_check_fail));
                 return;
             default:
                 return;
@@ -56,13 +56,13 @@ public class c {
         this.mMessage = str;
     }
 
-    public void Ti(String str) {
-        Tj(str);
+    public void Tu(String str) {
+        Tv(str);
         JM(401);
     }
 
-    public void dOb() {
-        Tj(TbadkCoreApplication.getInst().getString(R.string.na_business_error));
+    public void dOj() {
+        Tv(TbadkCoreApplication.getInst().getString(R.string.na_business_error));
         JM(401);
     }
 
@@ -76,7 +76,7 @@ public class c {
         }
     }
 
-    public void Tj(String str) {
+    public void Tv(String str) {
         if (au.isEmpty(this.mMessage)) {
             this.mMessage = str;
         }
@@ -90,39 +90,39 @@ public class c {
         this.mData = str;
     }
 
-    public boolean dOc() {
-        return this.nyW;
+    public boolean dOk() {
+        return this.nzw;
     }
 
     public void yy(boolean z) {
-        this.nyW = z;
+        this.nzw = z;
     }
 
-    public boolean dOd() {
-        return this.nyX;
+    public boolean dOl() {
+        return this.nzx;
     }
 
     public void yz(boolean z) {
-        this.nyX = z;
+        this.nzx = z;
     }
 
-    public boolean dOe() {
-        return this.nyY;
+    public boolean dOm() {
+        return this.nzy;
     }
 
     public void yA(boolean z) {
-        this.nyY = z;
+        this.nzy = z;
     }
 
     public boolean isError() {
         return this.mStatus > 0;
     }
 
-    public boolean dOf() {
+    public boolean dOn() {
         return this.mStatus != -1;
     }
 
-    public String dOg() {
+    public String dOo() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("status", this.mStatus);

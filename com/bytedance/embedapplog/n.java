@@ -7,8 +7,9 @@ import com.baidu.mobstat.Config;
 import com.yy.videoplayer.decoder.VideoConstant;
 import org.apache.http.HttpStatus;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-class n extends ch {
+public class n extends ch {
     private final Context e;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -16,10 +16,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.b> {
-    private int gJH;
-    private d gJI;
-    private com.baidu.tieba.ala.alasquare.a.b gJM;
-    private a gJN;
+    private int gJV;
+    private d gJW;
+    private com.baidu.tieba.ala.alasquare.a.b gKa;
+    private a gKb;
     public int mSkinType;
     private int mViewWidth;
 
@@ -27,31 +27,31 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.b>
         super(tbPageContext);
         this.mSkinType = 3;
         this.mViewWidth = 0;
-        this.gJH = 0;
+        this.gJV = 0;
         initView();
     }
 
     private void initView() {
         this.mViewWidth = l.getEquipmentWidth(this.mContext) / 2;
-        this.gJH = (this.mViewWidth * 9) / 16;
-        this.gJN = new a(getView());
+        this.gJV = (this.mViewWidth * 9) / 16;
+        this.gKb = new a(getView());
         getView().setOnClickListener(this);
     }
 
     public void a(d dVar) {
-        this.gJI = dVar;
+        this.gJW = dVar;
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundResource(this.gJN.gJf, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.gJN.gJh, R.color.CAM_X0105);
-            ap.setViewTextColor(this.gJN.gJJ, R.color.CAM_X0111);
-            ap.setViewTextColor(this.gJN.gJK, R.color.CAM_X0111);
-            this.gJN.gJK.setAlpha(0.9f);
-            ap.setViewTextColor(this.gJN.gJO, R.color.live_cp_other_b);
-            ap.setViewTextColor(this.gJN.gJP, R.color.live_cp_other_b);
+            ap.setBackgroundResource(this.gKb.gJt, R.drawable.addresslist_item_bg);
+            ap.setViewTextColor(this.gKb.gJv, R.color.CAM_X0105);
+            ap.setViewTextColor(this.gKb.gJX, R.color.CAM_X0111);
+            ap.setViewTextColor(this.gKb.gJY, R.color.CAM_X0111);
+            this.gKb.gJY.setAlpha(0.9f);
+            ap.setViewTextColor(this.gKb.gKc, R.color.live_cp_other_b);
+            ap.setViewTextColor(this.gKb.gKd, R.color.live_cp_other_b);
             this.mSkinType = i;
         }
     }
@@ -64,35 +64,35 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.b>
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.a.b bVar) {
-        if (bVar != null && bVar.gyA != null) {
-            this.gJM = bVar;
-            int i = bVar.gyA.eSY.eMj > 0 ? (this.mViewWidth * bVar.gyA.eSY.eMk) / bVar.gyA.eSY.eMj : this.gJH;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gJN.gJf.getLayoutParams();
+        if (bVar != null && bVar.gyO != null) {
+            this.gKa = bVar;
+            int i = bVar.gyO.eSY.eMj > 0 ? (this.mViewWidth * bVar.gyO.eSY.eMk) / bVar.gyO.eSY.eMj : this.gJV;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gKb.gJt.getLayoutParams();
             layoutParams.width = this.mViewWidth;
             layoutParams.height = i;
-            this.gJN.gJf.setLayoutParams(layoutParams);
-            this.gJN.gJh.setText(bVar.gyA.getTitle());
-            this.gJN.gJc.startLoad(bVar.gyA.eSY.eMl, 10, false);
-            this.gJN.gJJ.setText(bVar.gyA.eSY.main_title);
-            this.gJN.gJK.setText(bVar.gyA.eSY.sub_title);
-            this.gJN.gJK.setVisibility(8);
-            this.gJN.gJS.setText(bVar.gyA.eSY.sub_title);
+            this.gKb.gJt.setLayoutParams(layoutParams);
+            this.gKb.gJv.setText(bVar.gyO.getTitle());
+            this.gKb.gJq.startLoad(bVar.gyO.eSY.eMl, 10, false);
+            this.gKb.gJX.setText(bVar.gyO.eSY.main_title);
+            this.gKb.gJY.setText(bVar.gyO.eSY.sub_title);
+            this.gKb.gJY.setVisibility(8);
+            this.gKb.gKg.setText(bVar.gyO.eSY.sub_title);
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == getView() && this.gJM.gyA != null && this.gJM.gyA.eSY != null) {
-            if (this.gJI != null) {
-                this.gJI.a(view, this.gJM);
+        if (view == getView() && this.gKa.gyO != null && this.gKa.gyO.eSY != null) {
+            if (this.gJW != null) {
+                this.gJW.a(view, this.gKa);
             }
-            FZ(this.gJM.gyA.eSY.subpage_link);
-            com.baidu.tieba.ala.alasquare.b.a.bRX().mG(true);
+            Ga(this.gKa.gyO.eSY.subpage_link);
+            com.baidu.tieba.ala.alasquare.b.a.bSe().mG(true);
         }
     }
 
-    private void FZ(String str) {
+    private void Ga(String str) {
         if (TextUtils.isEmpty(str)) {
             l.showToast(this.mTbPageContext.getPageActivity(), R.string.url_is_null);
         } else {
@@ -102,35 +102,35 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.b>
 
     /* loaded from: classes10.dex */
     public static class a {
-        public TextView gJJ;
-        public TextView gJK;
-        public LinearLayout gJL;
-        public TextView gJO;
-        public TextView gJP;
-        public LinearLayout gJQ;
-        public ImageView gJR;
-        public TextView gJS;
-        public TbImageView gJc;
-        public RelativeLayout gJf;
-        public TextView gJh;
+        public TextView gJX;
+        public TextView gJY;
+        public LinearLayout gJZ;
+        public TbImageView gJq;
+        public RelativeLayout gJt;
+        public TextView gJv;
+        public TextView gKc;
+        public TextView gKd;
+        public LinearLayout gKe;
+        public ImageView gKf;
+        public TextView gKg;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gJc = (TbImageView) view.findViewById(R.id.imgSquareView);
-            this.gJJ = (TextView) view.findViewById(R.id.tvActiveTitle);
-            this.gJK = (TextView) view.findViewById(R.id.tvActiveSubTitle);
-            this.gJL = (LinearLayout) view.findViewById(R.id.llActiveInfoPanel);
-            this.gJf = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
-            this.gJh = (TextView) view.findViewById(R.id.tvSquareTitle);
-            this.gJQ = (LinearLayout) view.findViewById(R.id.llSquareTitlePanel);
-            this.gJO = (TextView) view.findViewById(R.id.lfActiveTitleLabel);
-            this.gJP = (TextView) view.findViewById(R.id.rfActiveTitleLabel);
-            this.gJR = (ImageView) view.findViewById(R.id.imgNewUserCover);
-            this.gJS = (TextView) view.findViewById(R.id.tvNewCount);
-            this.gJR.setImageResource(R.drawable.icon_video_tieba);
-            this.gJJ.setTypeface(Typeface.defaultFromStyle(1));
-            this.gJc.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bSA());
+            this.gJq = (TbImageView) view.findViewById(R.id.imgSquareView);
+            this.gJX = (TextView) view.findViewById(R.id.tvActiveTitle);
+            this.gJY = (TextView) view.findViewById(R.id.tvActiveSubTitle);
+            this.gJZ = (LinearLayout) view.findViewById(R.id.llActiveInfoPanel);
+            this.gJt = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
+            this.gJv = (TextView) view.findViewById(R.id.tvSquareTitle);
+            this.gKe = (LinearLayout) view.findViewById(R.id.llSquareTitlePanel);
+            this.gKc = (TextView) view.findViewById(R.id.lfActiveTitleLabel);
+            this.gKd = (TextView) view.findViewById(R.id.rfActiveTitleLabel);
+            this.gKf = (ImageView) view.findViewById(R.id.imgNewUserCover);
+            this.gKg = (TextView) view.findViewById(R.id.tvNewCount);
+            this.gKf.setImageResource(R.drawable.icon_video_tieba);
+            this.gJX.setTypeface(Typeface.defaultFromStyle(1));
+            this.gJq.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bSH());
         }
     }
 }

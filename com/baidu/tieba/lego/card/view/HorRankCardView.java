@@ -22,13 +22,13 @@ import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes9.dex */
 public class HorRankCardView extends BaseCardView<HorRankCard> {
-    private LinearLayout laC;
-    private HorizontalScrollListView ldH;
-    private RelativeLayout ldI;
-    private View ldJ;
-    private MoreButton ldK;
-    private ImageView ldL;
-    private ImageView ldM;
+    private LinearLayout laQ;
+    private HorizontalScrollListView ldV;
+    private RelativeLayout ldW;
+    private View ldX;
+    private MoreButton ldY;
+    private ImageView ldZ;
+    private ImageView lea;
     private TextView title;
 
     public HorRankCardView(TbPageContext tbPageContext) {
@@ -36,16 +36,16 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbO() {
-        this.laC = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_horizontal, (ViewGroup) null, false);
-        this.ldH = (HorizontalScrollListView) z(this.laC, R.id.horizontal_view);
-        this.ldI = (RelativeLayout) z(this.laC, R.id.rlTop);
-        this.ldJ = (View) z(this.laC, R.id.left);
-        this.title = (TextView) z(this.laC, R.id.hor_title);
-        this.ldK = (MoreButton) z(this.laC, R.id.right_textview);
-        this.ldL = (ImageView) z(this.laC, R.id.rightIcon);
-        this.ldM = (ImageView) z(this.laC, R.id.divider);
-        return this.laC;
+    protected View dbV() {
+        this.laQ = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_horizontal, (ViewGroup) null, false);
+        this.ldV = (HorizontalScrollListView) z(this.laQ, R.id.horizontal_view);
+        this.ldW = (RelativeLayout) z(this.laQ, R.id.rlTop);
+        this.ldX = (View) z(this.laQ, R.id.left);
+        this.title = (TextView) z(this.laQ, R.id.hor_title);
+        this.ldY = (MoreButton) z(this.laQ, R.id.right_textview);
+        this.ldZ = (ImageView) z(this.laQ, R.id.rightIcon);
+        this.lea = (ImageView) z(this.laQ, R.id.divider);
+        return this.laQ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,12 +53,12 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(HorRankCard horRankCard, int i) {
         com.baidu.tbadk.r.a.a(this.eUY, getRootView());
-        ap.setBackgroundColor(this.ldJ, R.color.CAM_X0308);
-        ap.setBackgroundColor(this.ldM, R.color.CAM_X0201);
-        ap.setImageResource(this.ldM, R.color.CAM_X0204);
-        ap.setBackgroundColor(this.laC, R.color.CAM_X0201);
-        ap.setBackgroundResource(this.ldI, R.drawable.addresslist_item_bg);
-        this.ldH.onSkinTypeChanged(this.mSkinType);
+        ap.setBackgroundColor(this.ldX, R.color.CAM_X0308);
+        ap.setBackgroundColor(this.lea, R.color.CAM_X0201);
+        ap.setImageResource(this.lea, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.laQ, R.color.CAM_X0201);
+        ap.setBackgroundResource(this.ldW, R.drawable.addresslist_item_bg);
+        this.ldV.onSkinTypeChanged(this.mSkinType);
         setMoreColor(horRankCard.getRightText());
     }
 
@@ -67,17 +67,17 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
     /* renamed from: a */
     public void d(final HorRankCard horRankCard) {
         List<HorRankCard.a> rankInfoList = horRankCard.getRankInfoList();
-        this.ldJ.setVisibility(horRankCard.isShowLeft() ? 0 : 8);
-        this.ldM.setVisibility(horRankCard.isShowSep() ? 0 : 8);
+        this.ldX.setVisibility(horRankCard.isShowLeft() ? 0 : 8);
+        this.lea.setVisibility(horRankCard.isShowSep() ? 0 : 8);
         if (rankInfoList == null || rankInfoList.size() == 0) {
-            this.ldH.setVisibility(8);
+            this.ldV.setVisibility(8);
         } else {
-            this.ldH.setRound(horRankCard.getPicType() == 1);
-            this.ldH.setDisplayNum(horRankCard.getDisplayNum());
-            this.ldH.setRatio(horRankCard.getRatio());
-            this.ldH.setVisibility(0);
-            this.ldH.setHorizontalScrollBarEnabled(horRankCard.isScrollEnabled());
-            this.ldH.setData(rankInfoList, this.eUY);
+            this.ldV.setRound(horRankCard.getPicType() == 1);
+            this.ldV.setDisplayNum(horRankCard.getDisplayNum());
+            this.ldV.setRatio(horRankCard.getRatio());
+            this.ldV.setVisibility(0);
+            this.ldV.setHorizontalScrollBarEnabled(horRankCard.isScrollEnabled());
+            this.ldV.setData(rankInfoList, this.eUY);
         }
         if (!TextUtils.isEmpty(horRankCard.getCardTitle())) {
             this.title.setVisibility(0);
@@ -88,8 +88,8 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         }
         setMoreColor(horRankCard.getRightText());
         if (!TextUtils.isEmpty(horRankCard.getScheme())) {
-            ap.setBackgroundResource(this.laC, R.drawable.addresslist_item_bg);
-            this.laC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.HorRankCardView.1
+            ap.setBackgroundResource(this.laQ, R.drawable.addresslist_item_bg);
+            this.laQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.HorRankCardView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!TextUtils.isEmpty(horRankCard.getScheme())) {
@@ -99,30 +99,30 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                 }
             });
         } else {
-            ap.setBackgroundColor(this.laC, R.color.CAM_X0201);
-            this.laC.setOnClickListener(null);
+            ap.setBackgroundColor(this.laQ, R.color.CAM_X0201);
+            this.laQ.setOnClickListener(null);
         }
         com.baidu.tieba.lego.card.model.c rightText = horRankCard.getRightText();
         if (rightText.isValid()) {
-            this.ldL.setVisibility(8);
-            this.ldK.setVisibility(0);
-            this.ldK.setData(rightText, this.eUY);
+            this.ldZ.setVisibility(8);
+            this.ldY.setVisibility(0);
+            this.ldY.setData(rightText, this.eUY);
             return;
         }
-        this.ldK.setVisibility(8);
+        this.ldY.setVisibility(8);
         if (!TextUtils.isEmpty(horRankCard.getScheme())) {
-            this.ldL.setVisibility(0);
-            ap.setImageResource(this.ldL, R.drawable.icon_arrow_tab);
+            this.ldZ.setVisibility(0);
+            ap.setImageResource(this.ldZ, R.drawable.icon_arrow_tab);
             return;
         }
-        this.ldL.setVisibility(8);
+        this.ldZ.setVisibility(8);
     }
 
     private void setMoreColor(com.baidu.tieba.lego.card.model.c cVar) {
         if (cVar == null) {
-            ap.setViewTextColor(this.ldK, R.color.CAM_X0302);
+            ap.setViewTextColor(this.ldY, R.color.CAM_X0302);
         } else {
-            a(this.ldK, cVar.dbJ(), cVar.dbL(), R.color.CAM_X0302);
+            a(this.ldY, cVar.dbQ(), cVar.dbS(), R.color.CAM_X0302);
         }
     }
 }

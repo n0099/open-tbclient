@@ -45,7 +45,7 @@ public class a {
             try {
                 if (this.f9128a.bindService(intent, this.c, 1)) {
                     try {
-                        str = new a.C1095a(this.f9129b.take()).a();
+                        str = new a.C1097a(this.f9129b.take()).a();
                         try {
                             try {
                                 com.kwad.sdk.core.d.a.b("ASUSDeviceIDHelper", "getOAID oaid:" + str);

@@ -8,38 +8,38 @@ import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.s;
 /* loaded from: classes2.dex */
 public class n implements MessageQueue.IdleHandler {
-    private s jEP;
-    private FrsModelController jFS;
-    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> jFV;
-    private MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> jFW;
-    private MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> jFX;
+    private s jFd;
+    private FrsModelController jGg;
+    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> jGj;
+    private MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> jGk;
+    private MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> jGl;
 
     public void g(FrsModelController frsModelController) {
-        this.jFS = frsModelController;
+        this.jGg = frsModelController;
     }
 
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage) {
-        this.jFW = mvcSocketResponsedMessage;
+        this.jGk = mvcSocketResponsedMessage;
     }
 
     public void a(MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage) {
-        this.jFX = mvcSocketMessage;
+        this.jGl = mvcSocketMessage;
     }
 
     public void a(MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.jFV = mvcNetMessage;
+        this.jGj = mvcNetMessage;
     }
 
     public void a(s sVar) {
-        this.jEP = sVar;
+        this.jFd = sVar;
     }
 
     @Override // android.os.MessageQueue.IdleHandler
     public boolean queueIdle() {
-        if (this.jFS != null) {
-            this.jFS.b(this.jFW, this.jFX, this.jFV);
-            if (this.jEP != null) {
-                this.jEP.cCI();
+        if (this.jGg != null) {
+            this.jGg.b(this.jGk, this.jGl, this.jGj);
+            if (this.jFd != null) {
+                this.jFd.cCP();
             }
         }
         return false;

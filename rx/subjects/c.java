@@ -9,7 +9,7 @@ public abstract class c<T, R> extends d<R> implements e<T> {
         super(aVar);
     }
 
-    public final b<T, R> eOf() {
+    public final b<T, R> eOn() {
         return getClass() == b.class ? (b) this : new b<>(this);
     }
 }

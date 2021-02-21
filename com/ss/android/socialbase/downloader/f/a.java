@@ -7,7 +7,7 @@ public class a {
 
     /* renamed from: a  reason: collision with root package name */
     private static int f13149a = 4;
-    private static AbstractC1250a qfQ;
+    private static AbstractC1252a qgq;
 
     public static void a(int i) {
         f13149a = i;
@@ -42,8 +42,8 @@ public class a {
             if (f13149a <= 4) {
                 Log.i(b(str), str2);
             }
-            if (qfQ != null) {
-                qfQ.a(b(str), str2);
+            if (qgq != null) {
+                qgq.a(b(str), str2);
             }
         }
     }
@@ -53,8 +53,8 @@ public class a {
             if (f13149a <= 5) {
                 Log.w(b(str), str2);
             }
-            if (qfQ != null) {
-                qfQ.c(b(str), str2);
+            if (qgq != null) {
+                qgq.c(b(str), str2);
             }
         }
     }
@@ -64,8 +64,8 @@ public class a {
             if (f13149a <= 6) {
                 Log.e(b(str), str2);
             }
-            if (qfQ != null) {
-                qfQ.b(b(str), str2);
+            if (qgq != null) {
+                qgq.b(b(str), str2);
             }
         }
     }
@@ -75,15 +75,15 @@ public class a {
             if (f13149a <= 6) {
                 Log.e(b(str), str2, th);
             }
-            if (qfQ != null) {
-                qfQ.a(b(str), str2, th);
+            if (qgq != null) {
+                qgq.a(b(str), str2, th);
             }
         }
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static abstract class AbstractC1250a {
+    public static abstract class AbstractC1252a {
         public void a(String str, String str2) {
         }
 

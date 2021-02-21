@@ -33,12 +33,12 @@ public class b {
     private HeadImageView aVk;
     private AlaLastLiveroomInfo bWu;
     private TextView cTD;
-    private int htY;
-    private int htZ;
+    private int hum;
+    private int hun;
     private TbPageContext mContext;
     private ValueAnimator mValueAnimator;
     private View mView;
-    private boolean huc = false;
+    private boolean huq = false;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.yuyinala.liveroom.e.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -47,7 +47,7 @@ public class b {
                     b.this.startAnim();
                     return;
                 case 2:
-                    b.this.huc = true;
+                    b.this.huq = true;
                     b.this.hide();
                     return;
                 default:
@@ -55,13 +55,13 @@ public class b {
             }
         }
     };
-    private int hua = com.baidu.live.ae.a.Qj().buX.aNj;
-    private int hub = com.baidu.live.ae.a.Qj().buX.aNk;
+    private int huo = com.baidu.live.ae.a.Qj().buX.aNj;
+    private int hup = com.baidu.live.ae.a.Qj().buX.aNk;
 
     public b(@NonNull TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.htY = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds8);
-        this.htZ = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds94);
+        this.hum = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds8);
+        this.hun = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds94);
         init();
     }
 
@@ -77,7 +77,7 @@ public class b {
     }
 
     public void show() {
-        if (this.mView != null && this.mView.getParent() != null && !this.huc) {
+        if (this.mView != null && this.mView.getParent() != null && !this.huq) {
             this.mView.setVisibility(0);
         }
     }
@@ -90,7 +90,7 @@ public class b {
 
     public void d(AlaLastLiveroomInfo alaLastLiveroomInfo) {
         if (alaLastLiveroomInfo != null) {
-            ccu();
+            ccB();
             this.aVk.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
             this.bWu = alaLastLiveroomInfo;
         }
@@ -114,7 +114,7 @@ public class b {
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }
-        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.htY).setDuration(i);
+        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.hum).setDuration(i);
         this.mValueAnimator.setInterpolator(new AccelerateInterpolator());
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.e.b.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -127,17 +127,17 @@ public class b {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                b.this.mView.getLayoutParams().width = b.this.htZ;
+                b.this.mView.getLayoutParams().width = b.this.hun;
                 b.this.mView.requestLayout();
                 Message message = new Message();
                 message.what = 2;
-                b.this.mHandler.sendMessageDelayed(message, b.this.hub);
+                b.this.mHandler.sendMessageDelayed(message, b.this.hup);
             }
         });
         this.mValueAnimator.start();
     }
 
-    private void ccu() {
+    private void ccB() {
         if (this.aVk != null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aVk.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
@@ -148,7 +148,7 @@ public class b {
         }
     }
 
-    public void ccv() {
+    public void ccC() {
         if (this.bWu != null && this.bWu.getLastLiveId() > 0 && this.mContext != null) {
             if (this.bWu.getIsAudio() == 1) {
                 YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.mContext.getPageActivity());
@@ -197,7 +197,7 @@ public class b {
         release();
     }
 
-    private RelativeLayout.LayoutParams ccw() {
+    private RelativeLayout.LayoutParams ccD() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12);
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds120);
@@ -206,7 +206,7 @@ public class b {
 
     public void aH(ViewGroup viewGroup) {
         if (this.mView != null && viewGroup != null && this.mView.getParent() == null) {
-            viewGroup.addView(this.mView, ccw());
+            viewGroup.addView(this.mView, ccD());
             if (UtilHelper.getRealScreenOrientation(this.mContext.getPageActivity()) == 2) {
                 hide();
             } else {
@@ -215,16 +215,16 @@ public class b {
             this.mHandler.removeCallbacksAndMessages(null);
             Message message = new Message();
             message.what = 1;
-            this.mHandler.sendMessageDelayed(message, this.hua);
+            this.mHandler.sendMessageDelayed(message, this.huo);
         }
     }
 
-    public void ccx() {
+    public void ccE() {
         release();
     }
 
     private void release() {
-        this.huc = false;
+        this.huq = false;
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();

@@ -14,11 +14,11 @@ import com.baidu.tieba.ala.alasquare.a.f;
 import com.baidu.tieba.ala.alasquare.widget.f;
 /* loaded from: classes10.dex */
 public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
-    private int gyd;
-    private boolean gyl;
-    private boolean gyo;
-    private boolean gyp;
-    private f.a gyq;
+    private boolean gyC;
+    private boolean gyD;
+    private f.a gyE;
+    private int gyr;
+    private boolean gyz;
     private TbPageContext<?> mPageContext;
     private int mTabIndex;
 
@@ -28,11 +28,11 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
     /* renamed from: P */
     public SquareRecordViewHolder e(ViewGroup viewGroup) {
         com.baidu.tieba.ala.alasquare.widget.f fVar = new com.baidu.tieba.ala.alasquare.widget.f(this.mPageContext);
-        fVar.mP(this.gyo);
-        fVar.mQ(this.gyp);
-        fVar.mO(this.gyl);
+        fVar.mP(this.gyC);
+        fVar.mQ(this.gyD);
+        fVar.mO(this.gyz);
         SquareRecordViewHolder squareRecordViewHolder = new SquareRecordViewHolder(fVar);
-        fVar.a(this.gyq);
+        fVar.a(this.gyE);
         return squareRecordViewHolder;
     }
 
@@ -41,22 +41,22 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.a.f fVar, SquareRecordViewHolder squareRecordViewHolder) {
         com.baidu.tieba.ala.alasquare.widget.f fVar2;
-        if (squareRecordViewHolder == null || (fVar2 = squareRecordViewHolder.gyr) == null || fVar2.getView() == null) {
+        if (squareRecordViewHolder == null || (fVar2 = squareRecordViewHolder.gyF) == null || fVar2.getView() == null) {
             return null;
         }
         if (fVar != null) {
             fVar.locate = i + 1;
         }
         fVar2.a(fVar);
-        com.baidu.tieba.ala.alasquare.b.a.bRX().e(fVar.az(bQX(), false));
+        com.baidu.tieba.ala.alasquare.b.a.bSe().e(fVar.az(bRe(), false));
         a(fVar);
-        if (i == this.gyd) {
+        if (i == this.gyr) {
             fVar2.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
         }
         return fVar2.getView();
     }
 
-    private String bQX() {
+    private String bRe() {
         if (this.mTabIndex == 2) {
             return "c12127";
         }
@@ -68,29 +68,29 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
 
     /* loaded from: classes10.dex */
     public class SquareRecordViewHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.ala.alasquare.widget.f gyr;
+        public com.baidu.tieba.ala.alasquare.widget.f gyF;
 
         public SquareRecordViewHolder(com.baidu.tieba.ala.alasquare.widget.f fVar) {
             super(fVar.getView());
-            this.gyr = fVar;
+            this.gyF = fVar;
         }
     }
 
     private void a(com.baidu.tieba.ala.alasquare.a.f fVar) {
-        if (fVar != null && fVar.gyA != null && TextUtils.equals("c12479", bQX())) {
+        if (fVar != null && fVar.gyO != null && TextUtils.equals("c12479", bRe())) {
             ar arVar = new ar("c12461");
-            if (StringUtils.isNull(fVar.gyA.mRecomSource)) {
+            if (StringUtils.isNull(fVar.gyO.mRecomSource)) {
                 arVar.dR("obj_source", "0");
             } else {
                 arVar.dR("obj_source", "1");
             }
-            if (StringUtils.isNull(fVar.gyA.mRecomAbTag)) {
+            if (StringUtils.isNull(fVar.gyO.mRecomAbTag)) {
                 arVar.dR("obj_locate", "0");
             } else {
                 arVar.dR("obj_locate", "1");
             }
             arVar.dR("obj_type", "1");
-            com.baidu.tieba.ala.alasquare.b.a.bRX().e(arVar);
+            com.baidu.tieba.ala.alasquare.b.a.bSe().e(arVar);
         }
     }
 }

@@ -6,17 +6,17 @@ import java.nio.charset.Charset;
 public abstract class ac {
     public abstract void a(com.bytedance.sdk.a.a.d dVar) throws IOException;
 
-    public abstract y epn();
+    public abstract y epv();
 
     public long b() throws IOException {
         return -1L;
     }
 
     public static ac a(y yVar, String str) {
-        Charset charset = com.bytedance.sdk.a.b.a.c.poY;
-        if (yVar != null && (charset = yVar.eqb()) == null) {
-            charset = com.bytedance.sdk.a.b.a.c.poY;
-            yVar = y.YN(yVar + "; charset=utf-8");
+        Charset charset = com.bytedance.sdk.a.b.a.c.ppA;
+        if (yVar != null && (charset = yVar.eqj()) == null) {
+            charset = com.bytedance.sdk.a.b.a.c.ppA;
+            yVar = y.YZ(yVar + "; charset=utf-8");
         }
         return b(yVar, str.getBytes(charset));
     }
@@ -32,7 +32,7 @@ public abstract class ac {
         com.bytedance.sdk.a.b.a.c.a(bArr.length, i, i2);
         return new ac() { // from class: com.bytedance.sdk.a.b.ac.1
             @Override // com.bytedance.sdk.a.b.ac
-            public y epn() {
+            public y epv() {
                 return y.this;
             }
 

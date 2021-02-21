@@ -36,111 +36,111 @@ import com.baidu.tieba.yuyinala.liveroom.views.d;
 import java.util.LinkedList;
 /* loaded from: classes11.dex */
 public class a {
-    public String hGs;
-    public boolean hGt;
-    public boolean hGu;
+    public String hGG;
+    public boolean hGH;
+    public boolean hGI;
     public String mForumId;
     public String mForumName;
-    private d owt;
-    private YuyinAlaCreateLiveRoomActivity owv;
-    private b oww;
-    private com.baidu.tieba.yuyinala.liveroom.data.d owx;
-    private d.b owy = new d.b() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.1
+    private d owT;
+    private YuyinAlaCreateLiveRoomActivity owV;
+    private b owW;
+    private com.baidu.tieba.yuyinala.liveroom.data.d owX;
+    private d.b owY = new d.b() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.1
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
-        public void cij() {
-            a.this.chf();
+        public void ciq() {
+            a.this.chm();
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
-        public void cik() {
-            a.this.hGt = a.this.oww.ces();
+        public void cir() {
+            a.this.hGH = a.this.owW.cez();
             com.baidu.tieba.yuyinala.liveroom.data.d dVar = new com.baidu.tieba.yuyinala.liveroom.data.d();
-            dVar.hBE = false;
+            dVar.hBS = false;
             dVar.forumId = null;
             dVar.forumName = null;
-            dVar.title = a.this.oww.getLiveTitle().trim();
+            dVar.title = a.this.owW.getLiveTitle().trim();
             dVar.clarity = 0;
             dVar.gameId = null;
             dVar.gameName = null;
-            dVar.hBF = a.this.oww.cet();
-            dVar.hBI = a.this.hGt;
-            dVar.hBH = a.this.oww.ceq();
-            dVar.hBG = a.this.oww.cev();
-            dVar.hBJ = a.this.oww.cer();
-            if (!dVar.hBJ) {
-                a.this.owv.showToast(a.h.yuyin_ala_live_not_agree_licence_toast);
+            dVar.hBT = a.this.owW.ceA();
+            dVar.hBW = a.this.hGH;
+            dVar.hBV = a.this.owW.cex();
+            dVar.hBU = a.this.owW.ceC();
+            dVar.hBX = a.this.owW.cey();
+            if (!dVar.hBX) {
+                a.this.owV.showToast(a.h.yuyin_ala_live_not_agree_licence_toast);
                 return;
             }
-            a.this.owx = dVar;
+            a.this.owX = dVar;
             if (FinishLiveManager.getInstance().getFinishListener() != null) {
                 FinishLiveManager.getInstance().getFinishListener().onStartLive();
             }
-            a.this.a(a.this.owx);
+            a.this.a(a.this.owX);
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
         public void onCloseClicked() {
-            a.this.eby();
+            a.this.ebG();
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.views.d.b
-        public void cin() {
-            BrowserHelper.startWebActivity(a.this.owv, "https://sv.baidu.com/cashliveui/statictHtml.html#/protocol");
+        public void ciu() {
+            BrowserHelper.startWebActivity(a.this.owV, "https://sv.baidu.com/cashliveui/statictHtml.html#/protocol");
         }
     };
-    private d.a owz = new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.2
+    private d.a owZ = new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.2
     };
-    private a.InterfaceC0926a owA = new a.InterfaceC0926a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.3
-        @Override // com.baidu.tieba.yuyinala.liveroom.k.a.InterfaceC0926a
+    private a.InterfaceC0928a oxa = new a.InterfaceC0928a() { // from class: com.baidu.tieba.yuyinala.liveroom.master.a.3
+        @Override // com.baidu.tieba.yuyinala.liveroom.k.a.InterfaceC0928a
         public void a(int i, String str, int i2, Object obj) {
             if (i2 == 6) {
-                aw cjo = a.this.owt.cjo();
-                if (!a.this.a(cjo)) {
-                    if (cjo.aOd != 1) {
-                        a.this.owv.showToast(cjo.aOe);
-                    } else if (cjo.mErrorCode != 0) {
-                        a.this.owv.showToast(str);
-                        if (cjo.mErrorCode == 110000) {
-                            ViewHelper.skipToLoginActivity(a.this.owv.getActivity());
+                aw cjv = a.this.owT.cjv();
+                if (!a.this.a(cjv)) {
+                    if (cjv.aOd != 1) {
+                        a.this.owV.showToast(cjv.aOe);
+                    } else if (cjv.mErrorCode != 0) {
+                        a.this.owV.showToast(str);
+                        if (cjv.mErrorCode == 110000) {
+                            ViewHelper.skipToLoginActivity(a.this.owV.getActivity());
                         }
                     } else {
-                        a.this.d(cjo);
+                        a.this.d(cjv);
                     }
                 }
             } else if (i2 == 7 && (obj instanceof AlaGetVerifyStrategyResponseHttpMessage)) {
                 AlaGetVerifyStrategyResponseHttpMessage alaGetVerifyStrategyResponseHttpMessage = (AlaGetVerifyStrategyResponseHttpMessage) obj;
                 if (alaGetVerifyStrategyResponseHttpMessage.getError() != 0) {
-                    BdUtilHelper.showToast(a.this.owv.getActivity(), alaGetVerifyStrategyResponseHttpMessage.getErrorString());
-                } else if (alaGetVerifyStrategyResponseHttpMessage.hJk == 1 && alaGetVerifyStrategyResponseHttpMessage.hJm == 1 && alaGetVerifyStrategyResponseHttpMessage.hJp == 1) {
-                    a.this.cey();
+                    BdUtilHelper.showToast(a.this.owV.getActivity(), alaGetVerifyStrategyResponseHttpMessage.getErrorString());
+                } else if (alaGetVerifyStrategyResponseHttpMessage.hJy == 1 && alaGetVerifyStrategyResponseHttpMessage.hJA == 1 && alaGetVerifyStrategyResponseHttpMessage.hJD == 1) {
+                    a.this.ceF();
                 }
             }
         }
     };
 
     public a(YuyinAlaCreateLiveRoomActivity yuyinAlaCreateLiveRoomActivity) {
-        this.owv = yuyinAlaCreateLiveRoomActivity;
+        this.owV = yuyinAlaCreateLiveRoomActivity;
     }
 
     public void a(com.baidu.tieba.yuyinala.liveroom.k.d dVar) {
-        this.owt = dVar;
-        if (this.owt == null) {
-            this.owt = new com.baidu.tieba.yuyinala.liveroom.k.d(this.owv.getPageContext());
+        this.owT = dVar;
+        if (this.owT == null) {
+            this.owT = new com.baidu.tieba.yuyinala.liveroom.k.d(this.owV.getPageContext());
         }
-        this.owt.a(this.owA);
+        this.owT.a(this.oxa);
     }
 
     public void a(String str, String str2, String str3, Bundle bundle) {
         this.mForumName = str;
         this.mForumId = str2;
-        this.hGs = str3;
-        this.hGu = false;
-        if (this.oww == null) {
-            this.oww = new b(this.owv.getPageContext());
-            this.owv.setContentView(this.oww.getView(), new FrameLayout.LayoutParams(-1, -1));
+        this.hGG = str3;
+        this.hGI = false;
+        if (this.owW == null) {
+            this.owW = new b(this.owV.getPageContext());
+            this.owV.setContentView(this.owW.getView(), new FrameLayout.LayoutParams(-1, -1));
         }
-        this.oww.a(this.owy);
-        this.oww.a(this.owz);
+        this.owW.a(this.owY);
+        this.owW.a(this.owZ);
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
@@ -150,36 +150,36 @@ public class a {
                 Q(intent);
             }
         } else if (i == 12001 && i2 == -1) {
-            HU(P(intent));
+            HV(P(intent));
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.oww != null) {
-            this.oww.onKeyboardVisibilityChanged(z);
+        if (this.owW != null) {
+            this.owW.onKeyboardVisibilityChanged(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eby() {
-        this.owv.cgK();
+    public void ebG() {
+        this.owV.cgR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cey() {
+    public void ceF() {
         if (TbadkCoreApplication.getInst().isOther()) {
-            cif();
-        } else if (this.oww != null) {
-            this.oww.cey();
+            cim();
+        } else if (this.owW != null) {
+            this.owW.ceF();
         }
     }
 
-    private void cif() {
-        if (this.owx != null) {
-            this.mForumName = this.owx.forumName;
-            this.mForumId = this.owx.forumId;
-            this.hGt = this.owx.hBI;
-            a(this.owx);
+    private void cim() {
+        if (this.owX != null) {
+            this.mForumName = this.owX.forumName;
+            this.mForumId = this.owX.forumId;
+            this.hGH = this.owX.hBW;
+            a(this.owX);
         }
     }
 
@@ -188,9 +188,9 @@ public class a {
         if (awVar == null) {
             return false;
         }
-        this.owv.closeLoadingDialog();
+        this.owV.closeLoadingDialog();
         if (awVar.mErrorCode == 6) {
-            this.owv.showToast(awVar.mErrorMsg);
+            this.owV.showToast(awVar.mErrorMsg);
             return true;
         }
         return false;
@@ -201,8 +201,8 @@ public class a {
         String str;
         ILocation buildLocation;
         String md5;
-        if (dVar != null && !dVar.hBE) {
-            boolean z = dVar.hBF;
+        if (dVar != null && !dVar.hBS) {
+            boolean z = dVar.hBT;
             String str2 = null;
             String str3 = null;
             double d = 0.0d;
@@ -219,22 +219,22 @@ public class a {
                 d2 = locationInfo.longitude;
                 str = str3;
             }
-            this.owt.b(dVar.forumName, dVar.forumId, dVar.title, z ? 2 : 1, d, d2, str2, str, 1, dVar.hBG, "", "", dVar.hBH ? 1 : 0, 1, this.hGt ? 2 : 1, 1, dVar.gameId, dVar.gameName);
+            this.owT.b(dVar.forumName, dVar.forumId, dVar.title, z ? 2 : 1, d, d2, str2, str, 1, dVar.hBU, "", "", dVar.hBV ? 1 : 0, 1, this.hGH ? 2 : 1, 1, dVar.gameId, dVar.gameName);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chf() {
-        if (this.owt != null) {
-            this.owt.cjh();
+    public void chm() {
+        if (this.owT != null) {
+            this.owT.cjo();
         }
     }
 
-    private void HU(String str) {
+    private void HV(String str) {
         Log.i("CreateAudioRoom", "editLiveCoverFromCamera:" + str);
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             Log.i("CreateAudioRoom", "editLiveCoverFromCamera1:" + str);
-            EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) this.owv.getActivity(), 12002, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, (Uri) null, 3, str, 1.0f, false);
+            EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) this.owV.getActivity(), 12002, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, (Uri) null, 3, str, 1.0f, false);
             editHeadActivityConfig.setPreviewImageHeightScale(1.0f);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, editHeadActivityConfig));
         }
@@ -259,19 +259,19 @@ public class a {
 
     private void Q(Intent intent) {
         PhotoUrlData fromJson;
-        if (intent != null && (fromJson = PhotoUrlData.fromJson(intent.getStringExtra(EditHeadActivityConfig.PIC_INFO))) != null && this.oww != null) {
-            this.oww.HH(fromJson.getBigurl());
+        if (intent != null && (fromJson = PhotoUrlData.fromJson(intent.getStringExtra(EditHeadActivityConfig.PIC_INFO))) != null && this.owW != null) {
+            this.owW.HI(fromJson.getBigurl());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(aw awVar) {
-        if (this.owv != null && awVar != null && awVar.mLiveInfo != null && awVar.mLiveInfo.live_id != 0) {
+        if (this.owV != null && awVar != null && awVar.mLiveInfo != null && awVar.mLiveInfo.live_id != 0) {
             try {
-                YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.owv.getPageContext().getPageActivity());
+                YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.owV.getPageContext().getPageActivity());
                 yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(awVar.mLiveInfo.live_id, String.valueOf(awVar.mLiveInfo.room_id), "live_sdk");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2501018, yuyinAlaLiveRoomActivityConfig));
-                this.owv.cgK();
+                this.owV.cgR();
             } catch (Throwable th) {
             }
         }

@@ -8,18 +8,18 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class AlaLiveStreamStatusView extends LinearLayout {
-    private boolean gLK;
-    private TextView hQZ;
-    private int hRa;
-    private boolean hRb;
-    private Runnable hRc;
+    private boolean gLY;
+    private TextView hRn;
+    private int hRo;
+    private boolean hRp;
+    private Runnable hRq;
 
     public AlaLiveStreamStatusView(Context context) {
         super(context);
-        this.hRa = 1;
-        this.gLK = true;
-        this.hRb = false;
-        this.hRc = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.hRo = 1;
+        this.gLY = true;
+        this.hRp = false;
+        this.hRq = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(8);
@@ -30,10 +30,10 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     public AlaLiveStreamStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hRa = 1;
-        this.gLK = true;
-        this.hRb = false;
-        this.hRc = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.hRo = 1;
+        this.gLY = true;
+        this.hRp = false;
+        this.hRq = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(8);
@@ -44,10 +44,10 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     public AlaLiveStreamStatusView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hRa = 1;
-        this.gLK = true;
-        this.hRb = false;
-        this.hRc = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
+        this.hRo = 1;
+        this.gLY = true;
+        this.hRp = false;
+        this.hRq = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveStreamStatusView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveStreamStatusView.this.setVisibility(8);
@@ -58,12 +58,12 @@ public class AlaLiveStreamStatusView extends LinearLayout {
 
     private void initViews() {
         View.inflate(getContext(), a.g.ala_live_stream_status_layout, this);
-        this.hQZ = (TextView) findViewById(a.f.ala_live_stream_status_txt);
+        this.hRn = (TextView) findViewById(a.f.ala_live_stream_status_txt);
     }
 
     public void ej(int i) {
         String string;
-        this.hRb = true;
+        this.hRp = true;
         setVisibility(0);
         if (i > 40) {
             string = getContext().getResources().getString(a.h.ala_stream_status_bad);
@@ -72,26 +72,26 @@ public class AlaLiveStreamStatusView extends LinearLayout {
         } else {
             string = getContext().getResources().getString(a.h.ala_stream_status_very_good);
         }
-        this.hQZ.setText(string);
+        this.hRn.setText(string);
     }
 
     public int getCurLevel() {
-        return this.hRa;
+        return this.hRo;
     }
 
-    public boolean cli() {
-        return this.hRb;
+    public boolean clp() {
+        return this.hRp;
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (!this.gLK) {
+        if (!this.gLY) {
             i = 8;
         }
         super.setVisibility(i);
     }
 
     public void setCanVisible(boolean z) {
-        this.gLK = z;
+        this.gLY = z;
     }
 }

@@ -20,11 +20,11 @@ import com.baidu.tieba.im.forum.broadcast.data.ResponseHttpMajorResidueMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseSocketMajorHistoryMessage;
 /* loaded from: classes8.dex */
 public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
-    private boolean gcx;
+    private boolean gcC;
     private boolean isLoading;
-    private final a kFM;
-    private com.baidu.tieba.im.forum.broadcast.data.a kFN;
-    private HttpMessageListener kFO;
+    private final a kGa;
+    private com.baidu.tieba.im.forum.broadcast.data.a kGb;
+    private HttpMessageListener kGc;
     private long lastId;
     private final String mForumId;
     private com.baidu.adp.framework.listener.a netMessageListener;
@@ -32,7 +32,7 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     public ForumBroadCastMajorHistoryModel(TbPageContext tbPageContext, a aVar, String str) {
         super(tbPageContext);
         this.lastId = 0L;
-        this.kFN = null;
+        this.kGb = null;
         this.netMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -49,18 +49,18 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
                     ErrorData errorData = new ErrorData();
                     errorData.setError_code(ForumBroadCastMajorHistoryModel.this.mErrorCode);
                     errorData.setError_msg(ForumBroadCastMajorHistoryModel.this.mErrorString);
-                    if (ForumBroadCastMajorHistoryModel.this.kFM != null) {
+                    if (ForumBroadCastMajorHistoryModel.this.kGa != null) {
                         if (ForumBroadCastMajorHistoryModel.this.mErrorCode != 0 || aVar2 == null) {
-                            ForumBroadCastMajorHistoryModel.this.kFM.a(errorData);
+                            ForumBroadCastMajorHistoryModel.this.kGa.a(errorData);
                             return;
                         }
-                        ForumBroadCastMajorHistoryModel.this.kFN = aVar2;
-                        ForumBroadCastMajorHistoryModel.this.ctD();
+                        ForumBroadCastMajorHistoryModel.this.kGb = aVar2;
+                        ForumBroadCastMajorHistoryModel.this.ctK();
                     }
                 }
             }
         };
-        this.kFO = new HttpMessageListener(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE) { // from class: com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel.2
+        this.kGc = new HttpMessageListener(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE) { // from class: com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -69,8 +69,8 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
                     if (httpResponsedMessage instanceof ResponseHttpMajorResidueMessage) {
                         forumBroadcastMajorResidueData = ((ResponseHttpMajorResidueMessage) httpResponsedMessage).getData();
                     }
-                    if (ForumBroadCastMajorHistoryModel.this.kFM != null) {
-                        ForumBroadCastMajorHistoryModel.this.kFM.a(forumBroadcastMajorResidueData);
+                    if (ForumBroadCastMajorHistoryModel.this.kGa != null) {
+                        ForumBroadCastMajorHistoryModel.this.kGa.a(forumBroadcastMajorResidueData);
                     }
                 }
             }
@@ -79,30 +79,30 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         com.baidu.tieba.tbadkCore.a.a.a(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE, "c/f/forum/getForumMangerRights", ResponseHttpMajorResidueMessage.class, true, true, true, true);
         registerListener(this.netMessageListener);
-        registerListener(this.kFO);
-        this.kFM = aVar;
+        registerListener(this.kGc);
+        this.kGa = aVar;
         this.mForumId = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ctD() {
-        if (this.kFN.cVT() != null && this.kFN.cVT().size() > 1) {
-            this.lastId = this.kFN.cVT().get(this.kFN.cVT().size() - 1).cVZ();
+    public void ctK() {
+        if (this.kGb.cWa() != null && this.kGb.cWa().size() > 1) {
+            this.lastId = this.kGb.cWa().get(this.kGb.cWa().size() - 1).cWg();
         }
-        this.kFN.sM(this.gcx);
-        this.kFM.a(this.kFN);
+        this.kGb.sM(this.gcC);
+        this.kGa.a(this.kGb);
     }
 
-    public void bRc() {
+    public void bRj() {
         if (!this.isLoading) {
-            this.gcx = false;
+            this.gcC = false;
             xP(2);
         }
     }
 
     public void refresh() {
         if (!this.isLoading) {
-            this.gcx = true;
+            this.gcC = true;
             xP(1);
         }
     }
@@ -127,7 +127,7 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         sendMessage(broadcastMajorHistoryRequestMessage);
     }
 
-    public void cWe() {
+    public void cWl() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
         httpMessage.addParam("forum_id", this.mForumId);
@@ -145,10 +145,10 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     }
 
     public boolean hasData() {
-        return (this.kFN == null || y.isEmpty(this.kFN.cVT())) ? false : true;
+        return (this.kGb == null || y.isEmpty(this.kGb.cWa())) ? false : true;
     }
 
     public void onDestory() {
-        this.kFN = null;
+        this.kGb = null;
     }
 }

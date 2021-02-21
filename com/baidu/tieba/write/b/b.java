@@ -12,35 +12,35 @@ import com.baidu.tbadk.switchs.LimitLowQualityPicUploadSwitch;
 import com.baidu.tieba.write.view.TitleTipView;
 /* loaded from: classes8.dex */
 public class b {
-    private static boolean ogR = false;
+    private static boolean ohr = false;
 
-    public static void dXp() {
-        ogR = true;
+    public static void dXx() {
+        ohr = true;
     }
 
-    public static boolean dXq() {
+    public static boolean dXy() {
         return d.biW();
     }
 
     public static void a(TitleTipView titleTipView) {
         if (titleTipView != null) {
-            if (!dXq() || ogR || dXr() > 0) {
+            if (!dXy() || ohr || dXz() > 0) {
                 titleTipView.setVisibility(8);
                 return;
             }
-            titleTipView.dXE();
-            dXp();
+            titleTipView.dXM();
+            dXx();
             ar.Bd("c13996").bsO();
         }
     }
 
-    private static int dXr() {
+    private static int dXz() {
         return com.baidu.tbadk.core.sharedPref.b.brQ().getInt("show_write_title_tip_count", 0);
     }
 
     public static void g(WriteData writeData) {
-        if (writeData != null && dXq() && !TextUtils.isEmpty(writeData.getTitle())) {
-            com.baidu.tbadk.core.sharedPref.b.brQ().putInt("show_write_title_tip_count", dXr() + 1);
+        if (writeData != null && dXy() && !TextUtils.isEmpty(writeData.getTitle())) {
+            com.baidu.tbadk.core.sharedPref.b.brQ().putInt("show_write_title_tip_count", dXz() + 1);
         }
     }
 

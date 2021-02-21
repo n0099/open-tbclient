@@ -21,14 +21,14 @@ import com.baidu.tieba.setting.more.AboutActivity;
 /* loaded from: classes8.dex */
 public class AboutModel extends BdBaseModel<AboutActivity> {
     private Context mContext;
-    private a neF;
-    private final boolean neG;
+    private a nff;
+    private final boolean nfg;
 
     public AboutModel(BaseActivity baseActivity, e eVar) {
         super(baseActivity.getPageContext());
         this.mContext = baseActivity.getPageContext().getPageActivity();
         this.mLoadDataCallBack = eVar;
-        this.neG = false;
+        this.nfg = false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -38,19 +38,19 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.neF != null) {
-            this.neF.cancel();
+        if (this.nff != null) {
+            this.nff.cancel();
             return false;
         }
         return false;
     }
 
     public void checkUpdate() {
-        if (this.neF == null) {
-            this.neF = new a();
+        if (this.nff == null) {
+            this.nff = new a();
         }
-        this.neF.setPriority(3);
-        this.neF.execute(new String[0]);
+        this.nff.setPriority(3);
+        this.nff.execute(new String[0]);
     }
 
     /* loaded from: classes8.dex */
@@ -86,7 +86,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 } else {
                     this.cml.addPostData("_msg_status", "1");
                 }
-                if (AboutModel.this.neG) {
+                if (AboutModel.this.nfg) {
                     this.cml.addPostData("reversion_return", "1");
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
@@ -128,7 +128,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AboutModel.this.neF = null;
+            AboutModel.this.nff = null;
             if (this.cml != null) {
                 this.cml.cancelNetConnect();
             }
@@ -144,7 +144,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
             if (eVar != null && eVar.getAdAdSense() != null) {
                 TbadkCoreApplication.getInst().setAdAdSense(eVar.getAdAdSense());
             }
-            AboutModel.this.neF = null;
+            AboutModel.this.nff = null;
             AboutModel.this.mLoadDataCallBack.callback(eVar);
         }
     }

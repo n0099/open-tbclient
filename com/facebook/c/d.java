@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class d {
-    private static d pGa;
-    private int pGb;
+    private static d pGA;
+    private int pGB;
     @Nullable
-    private List<c.a> pGc;
-    private final c.a pGd = new a();
+    private List<c.a> pGC;
+    private final c.a pGD = new a();
 
     private d() {
-        evt();
+        evB();
     }
 
     public void gJ(@Nullable List<c.a> list) {
-        this.pGc = list;
-        evt();
+        this.pGC = list;
+        evB();
     }
 
     public c t(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.pGb];
-        int a2 = a(this.pGb, inputStream, bArr);
-        c o = this.pGd.o(bArr, a2);
-        if (o == null || o == c.pFY) {
-            if (this.pGc != null) {
-                for (c.a aVar : this.pGc) {
+        byte[] bArr = new byte[this.pGB];
+        int a2 = a(this.pGB, inputStream, bArr);
+        c o = this.pGD.o(bArr, a2);
+        if (o == null || o == c.pGy) {
+            if (this.pGC != null) {
+                for (c.a aVar : this.pGC) {
                     c o2 = aVar.o(bArr, a2);
-                    if (o2 != null && o2 != c.pFY) {
+                    if (o2 != null && o2 != c.pGy) {
                         return o2;
                     }
                 }
             }
-            return c.pFY;
+            return c.pGy;
         }
         return o;
     }
 
-    private void evt() {
-        this.pGb = this.pGd.getHeaderSize();
-        if (this.pGc != null) {
-            for (c.a aVar : this.pGc) {
-                this.pGb = Math.max(this.pGb, aVar.getHeaderSize());
+    private void evB() {
+        this.pGB = this.pGD.getHeaderSize();
+        if (this.pGC != null) {
+            for (c.a aVar : this.pGC) {
+                this.pGB = Math.max(this.pGB, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d evu() {
+    public static synchronized d evC() {
         d dVar;
         synchronized (d.class) {
-            if (pGa == null) {
-                pGa = new d();
+            if (pGA == null) {
+                pGA = new d();
             }
-            dVar = pGa;
+            dVar = pGA;
         }
         return dVar;
     }
 
     public static c u(InputStream inputStream) throws IOException {
-        return evu().t(inputStream);
+        return evC().t(inputStream);
     }
 
     public static c v(InputStream inputStream) {

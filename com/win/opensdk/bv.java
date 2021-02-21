@@ -14,18 +14,18 @@ import java.io.File;
 /* loaded from: classes3.dex */
 public final class bv {
     public static boolean a(Context context, Info info) {
-        PackageInfo bM;
+        PackageInfo bL;
         try {
-            String bN = bN(context, info.getOpen());
-            File file = new File(bN);
-            if (file.exists() && (bM = bM(context, bN)) != null) {
-                if (bM.versionCode == info.getDl_vsc()) {
+            String bM = bM(context, info.getOpen());
+            File file = new File(bM);
+            if (file.exists() && (bL = bL(context, bM)) != null) {
+                if (bL.versionCode == info.getDl_vsc()) {
                     return true;
                 }
-                if (info.getDl_vsc() == 0 && info.getDl_pkg().equals(bM.packageName)) {
+                if (info.getDl_vsc() == 0 && info.getDl_pkg().equals(bL.packageName)) {
                     return true;
                 }
-                w.iN(context).a(new x(info), bM.packageName, bM.versionCode, 1).eIP();
+                w.iN(context).a(new x(info), bL.packageName, bL.versionCode, 1).eIX();
                 file.delete();
                 return false;
             }
@@ -35,7 +35,7 @@ public final class bv {
         return false;
     }
 
-    private static PackageInfo bM(Context context, String str) {
+    private static PackageInfo bL(Context context, String str) {
         PackageInfo packageArchiveInfo;
         try {
             packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 1);
@@ -53,7 +53,7 @@ public final class bv {
             try {
                 Intent b2 = b(info, context, str);
                 if (b2.getFlags() > 0) {
-                    w.iN(context).c(new x(info), str).eIP();
+                    w.iN(context).c(new x(info), str).eIX();
                     context.startActivity(b2);
                 }
             } catch (Exception e) {
@@ -68,12 +68,12 @@ public final class bv {
         try {
             try {
                 if (Build.VERSION.SDK_INT == 23) {
-                    hE("777", iS(context) + "/win/");
+                    hG("777", iS(context) + "/win/");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            hE("777", str);
+            hG("777", str);
             if (Build.VERSION.SDK_INT >= 24) {
                 intent.setAction("android.intent.action.INSTALL_PACKAGE");
                 intent.setFlags(RouterCallback.CODE_ERROR);
@@ -88,13 +88,13 @@ public final class bv {
             new StringBuilder("错误:").append(e2.getMessage());
             e2.printStackTrace();
             if (info != null) {
-                w.iN(context).h(new x(info), str).eIP();
+                w.iN(context).h(new x(info), str).eIX();
             }
         }
         return intent;
     }
 
-    private static void hE(String str, String str2) {
+    private static void hG(String str, String str2) {
         try {
             Runtime.getRuntime().exec("chmod " + str + " " + str2);
         } catch (Exception e) {
@@ -102,25 +102,25 @@ public final class bv {
         }
     }
 
-    public static boolean bJ(Context context, String str) {
+    public static boolean bI(Context context, String str) {
         try {
-            return new File(new StringBuilder().append(iS(context)).append(File.separator).append("win").append(File.separator).append(abI(str)).toString()).exists();
+            return new File(new StringBuilder().append(iS(context)).append(File.separator).append("win").append(File.separator).append(abU(str)).toString()).exists();
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public static String bN(Context context, String str) {
+    public static String bM(Context context, String str) {
         try {
-            return iS(context) + File.separator + "win" + File.separator + abI(str);
+            return iS(context) + File.separator + "win" + File.separator + abU(str);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    public static String abI(String str) {
+    public static String abU(String str) {
         String str2;
         String[] split;
         try {

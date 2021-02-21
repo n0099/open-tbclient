@@ -25,30 +25,30 @@ import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* loaded from: classes9.dex */
 public class UserMuteAddAndDelStatic {
     static {
-        dRC();
-        dRD();
-        dRF();
-        dRE();
-        dRG();
-        dRH();
-        dRI();
+        dRK();
+        dRL();
+        dRN();
+        dRM();
+        dRO();
+        dRP();
+        dRQ();
     }
 
-    private static void dRC() {
+    private static void dRK() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003027, TbConfig.SERVER_ADDRESS + "c/c/user/userMuteAdd");
         tbHttpMessageTask.setResponsedClass(UserMuteAddResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void dRD() {
+    private static void dRL() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003028, TbConfig.SERVER_ADDRESS + "c/c/user/userMuteDel");
         tbHttpMessageTask.setResponsedClass(UserMuteDelResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void dRE() {
+    private static void dRM() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_REGISTER_LISTENER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -104,7 +104,7 @@ public class UserMuteAddAndDelStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dRF() {
+    private static void dRN() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -162,12 +162,12 @@ public class UserMuteAddAndDelStatic {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private static void dRG() {
+    private static void dRO() {
         a.c(CmdConfigSocket.CMD_USER_MUTE_CHECK, UserMuteCheckSocketResponsedMessage.class, false);
         a.a(CmdConfigSocket.CMD_USER_MUTE_CHECK, 1003025, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void dRH() {
+    private static void dRP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_USER_MUTE_CHECK_REQUEST, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -188,7 +188,7 @@ public class UserMuteAddAndDelStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dRI() {
+    private static void dRQ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_USER_MUTE_CHECK_REGISTER_LISTENER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -200,7 +200,7 @@ public class UserMuteAddAndDelStatic {
                             com.baidu.tieba.usermute.a aVar2 = new com.baidu.tieba.usermute.a();
                             if (responsedMessage instanceof UserMuteCheckSocketResponsedMessage) {
                                 UserMuteCheckSocketResponsedMessage userMuteCheckSocketResponsedMessage = (UserMuteCheckSocketResponsedMessage) responsedMessage;
-                                aVar2.nJZ = userMuteCheckSocketResponsedMessage.getResult();
+                                aVar2.nKz = userMuteCheckSocketResponsedMessage.getResult();
                                 aVar2.error = userMuteCheckSocketResponsedMessage.getError();
                                 aVar2.errorString = userMuteCheckSocketResponsedMessage.getErrorString();
                                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE, aVar2);
@@ -209,7 +209,7 @@ public class UserMuteAddAndDelStatic {
                             }
                             if (responsedMessage instanceof UserMuteCheckHttpResponsedMessage) {
                                 UserMuteCheckHttpResponsedMessage userMuteCheckHttpResponsedMessage = (UserMuteCheckHttpResponsedMessage) responsedMessage;
-                                aVar2.nJZ = userMuteCheckHttpResponsedMessage.getResult();
+                                aVar2.nKz = userMuteCheckHttpResponsedMessage.getResult();
                                 aVar2.error = userMuteCheckHttpResponsedMessage.getError();
                                 aVar2.errorString = userMuteCheckHttpResponsedMessage.getErrorString();
                                 CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE, aVar2);

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private boolean gfN = false;
+    private boolean gfS = false;
     private int mChannel;
 
     public c() {
-        bKM();
+        bKR();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -59,8 +59,8 @@ public class c {
         if (au.isEmpty(ta)) {
             return 0;
         }
-        SampleResult Xy = com.baidu.ubs.analytics.a.Xy(ta);
-        return (Xy == SampleResult.T1 || Xy == SampleResult.T2 || Xy == SampleResult.T3 || Xy == SampleResult.T4 || Xy == SampleResult.T5) ? 1 : 0;
+        SampleResult XK = com.baidu.ubs.analytics.a.XK(ta);
+        return (XK == SampleResult.T1 || XK == SampleResult.T2 || XK == SampleResult.T3 || XK == SampleResult.T4 || XK == SampleResult.T5) ? 1 : 0;
     }
 
     private String ta(int i) {
@@ -70,7 +70,7 @@ public class c {
         return null;
     }
 
-    private void bKM() {
+    private void bKR() {
         this.mChannel = com.baidu.tbadk.core.sharedPref.b.brQ().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0);
         initSdk();
     }
@@ -84,23 +84,23 @@ public class c {
     }
 
     private void initSdk() {
-        if (!this.gfN && this.mChannel == 1) {
-            this.gfN = bKO();
-            if (!this.gfN) {
+        if (!this.gfS && this.mChannel == 1) {
+            this.gfS = bKT();
+            if (!this.gfS) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean bKN() {
-        return this.gfN;
+    public boolean bKS() {
+        return this.gfS;
     }
 
-    public boolean bKO() {
+    public boolean bKT() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().ho(TbadkCoreApplication.getInst()).AB(false).hU(30L).No(1).AC(false).hV(15L).Np(1000).ehX());
+                com.baidu.ubs.analytics.a.a(new c.a().ho(TbadkCoreApplication.getInst()).AB(false).hU(30L).Np(1).AC(false).hV(15L).Nq(1000).eif());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

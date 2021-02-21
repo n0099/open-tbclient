@@ -95,20 +95,20 @@ public class PbFirstFloorItemAdapter extends com.baidu.adp.widget.ListView.a<i, 
     /* loaded from: classes2.dex */
     public class PbFirstFloorItemViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
         private View bTo;
-        private ItemCardView mbH;
+        private ItemCardView mbW;
         private TextView textView;
 
         public PbFirstFloorItemViewHolder(View view) {
             super(view);
             this.bTo = ((ViewGroup) view).getChildAt(0);
             this.textView = (TextView) ((ViewGroup) view).getChildAt(1);
-            this.mbH = (ItemCardView) ((ViewGroup) view).getChildAt(2);
+            this.mbW = (ItemCardView) ((ViewGroup) view).getChildAt(2);
         }
 
         public void a(i iVar) {
             if (iVar != null) {
                 this.textView.setText(PbFirstFloorItemAdapter.this.mContext.getText(R.string.related_recommendation));
-                this.mbH.setData(iVar.item, 17);
+                this.mbW.setData(iVar.item, 17);
             }
         }
 
@@ -119,7 +119,7 @@ public class PbFirstFloorItemAdapter extends com.baidu.adp.widget.ListView.a<i, 
         public void onChangeSkinType() {
             ap.setBackgroundColor(this.bTo, R.color.CAM_X0203);
             ap.setViewTextColor(this.textView, R.color.CAM_X0109);
-            this.mbH.onChangeSkinType();
+            this.mbW.onChangeSkinType();
         }
     }
 }

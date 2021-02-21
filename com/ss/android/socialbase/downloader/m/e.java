@@ -48,7 +48,7 @@ public class e {
         if (dVar == null) {
             return null;
         }
-        return new a.AbstractBinderC1251a() { // from class: com.ss.android.socialbase.downloader.m.e.1
+        return new a.AbstractBinderC1253a() { // from class: com.ss.android.socialbase.downloader.m.e.1
             @Override // com.ss.android.socialbase.downloader.g.a
             public com.ss.android.socialbase.downloader.g.c a() throws RemoteException {
                 return com.ss.android.socialbase.downloader.g.d.this.a();
@@ -56,72 +56,72 @@ public class e {
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public com.ss.android.socialbase.downloader.d.f b() throws RemoteException {
-                return e.d(com.ss.android.socialbase.downloader.g.d.this.eId());
+                return e.d(com.ss.android.socialbase.downloader.g.d.this.eIl());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public j b(int i) throws RemoteException {
-                return e.a(com.ss.android.socialbase.downloader.g.d.this.d(d.RZ(i)), i != com.ss.android.socialbase.downloader.b.h.SUB.ordinal());
+                return e.a(com.ss.android.socialbase.downloader.g.d.this.d(d.Sa(i)), i != com.ss.android.socialbase.downloader.b.h.SUB.ordinal());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public int a(int i) throws RemoteException {
-                return com.ss.android.socialbase.downloader.g.d.this.c(d.RZ(i));
+                return com.ss.android.socialbase.downloader.g.d.this.c(d.Sa(i));
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public j a(int i, int i2) throws RemoteException {
-                return e.a(com.ss.android.socialbase.downloader.g.d.this.a(d.RZ(i), i2), i != com.ss.android.socialbase.downloader.b.h.SUB.ordinal());
+                return e.a(com.ss.android.socialbase.downloader.g.d.this.a(d.Sa(i), i2), i != com.ss.android.socialbase.downloader.b.h.SUB.ordinal());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public ac c() throws RemoteException {
-                return e.c(com.ss.android.socialbase.downloader.g.d.this.eIh());
+                return e.c(com.ss.android.socialbase.downloader.g.d.this.eIp());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public ai d() throws RemoteException {
-                return e.d(com.ss.android.socialbase.downloader.g.d.this.eIi());
+                return e.d(com.ss.android.socialbase.downloader.g.d.this.eIq());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public com.ss.android.socialbase.downloader.d.i e() throws RemoteException {
-                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIa());
+                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIi());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public com.ss.android.socialbase.downloader.d.g f() throws RemoteException {
-                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIb());
+                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIj());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public k j() throws RemoteException {
-                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIc());
+                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIk());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public w g() throws RemoteException {
-                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIf());
+                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIn());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public ak h() throws RemoteException {
-                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIe());
+                return e.b(com.ss.android.socialbase.downloader.g.d.this.eIm());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public q i() throws RemoteException {
-                return e.c(com.ss.android.socialbase.downloader.g.d.this.eIg());
+                return e.c(com.ss.android.socialbase.downloader.g.d.this.eIo());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public com.ss.android.socialbase.downloader.d.h k() throws RemoteException {
-                return e.c(com.ss.android.socialbase.downloader.g.d.this.eIj());
+                return e.c(com.ss.android.socialbase.downloader.g.d.this.eIr());
             }
 
             @Override // com.ss.android.socialbase.downloader.g.a
             public m l() throws RemoteException {
-                return e.e(com.ss.android.socialbase.downloader.g.d.this.eIl());
+                return e.e(com.ss.android.socialbase.downloader.g.d.this.eIt());
             }
         };
     }

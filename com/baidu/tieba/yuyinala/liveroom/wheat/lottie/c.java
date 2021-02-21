@@ -4,15 +4,15 @@ public class c {
     public void onVideoPlayStart() {
     }
 
-    public void eem() {
+    public void eeu() {
     }
 
     public void onVideoPlayEnd() {
     }
 
-    public void een() {
+    public void eev() {
     }
 
-    public void eeo() {
+    public void eew() {
     }
 }

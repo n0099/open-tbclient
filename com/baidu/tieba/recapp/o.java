@@ -1,5 +1,9 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface o {
-    void setIsFromCDN(boolean z);
+    void dDg();
+
+    void dDh();
+
+    int dDi();
 }

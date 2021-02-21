@@ -19,7 +19,7 @@ public class aj extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     @NonNull
-    public ac B(@NonNull Cursor cursor) {
+    public ac C(@NonNull Cursor cursor) {
         this.f5776a = cursor.getLong(0);
         this.f5777b = cursor.getLong(1);
         this.c = cursor.getString(2);

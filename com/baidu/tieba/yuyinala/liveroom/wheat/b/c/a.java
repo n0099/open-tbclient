@@ -10,16 +10,16 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Wc(String str) {
-        if (q.edE().iH(q.edE().Yp())) {
-            f.edj().f(this.mPageContext);
+    public void Wo(String str) {
+        if (q.edM().iH(q.edM().Yp())) {
+            f.edr().f(this.mPageContext);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Wd(String str) {
-        if (ecT()) {
-            eda();
+    public void Wp(String str) {
+        if (edb()) {
+            edi();
         }
     }
 }

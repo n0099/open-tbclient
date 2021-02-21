@@ -130,9 +130,9 @@ public class di {
             try {
                 if (c()) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("uid", com.xiaomi.push.service.be.m585a());
+                    hashMap.put("uid", com.xiaomi.push.service.be.m584a());
                     hashMap.put("token", this.f13944b);
-                    hashMap.put("net", az.m166a(di.this.f286a));
+                    hashMap.put("net", az.m165a(di.this.f286a));
                     az.a(this.f290a, hashMap, this.f289a, "file");
                 }
                 this.f291a = true;
@@ -142,7 +142,7 @@ public class di {
 
         @Override // com.xiaomi.push.al.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo255c() {
+        public void mo254c() {
             if (!this.f291a) {
                 this.f13943a++;
                 if (this.f13943a < 3) {
@@ -185,7 +185,7 @@ public class di {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (aa.b() || aa.m150a()) {
+        if (aa.b() || aa.m149a()) {
             return;
         }
         try {

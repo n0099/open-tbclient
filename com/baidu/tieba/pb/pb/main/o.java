@@ -15,8 +15,8 @@ import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class o extends BaseAdapter implements View.OnClickListener {
     private com.baidu.tbadk.img.b fCD = new com.baidu.tbadk.img.b();
-    private LinkedList<ImageFileInfo> lQa = null;
-    private a lQb;
+    private LinkedList<ImageFileInfo> lQp = null;
+    private a lQq;
     private Context mContext;
     private int mScreenWidth;
     private int mWidth;
@@ -37,19 +37,19 @@ public class o extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lQa == null) {
+        if (this.lQp == null) {
             return 0;
         }
-        return this.lQa.size();
+        return this.lQp.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.lQa == null) {
+        if (this.lQp == null) {
             return null;
         }
-        if (this.lQa.size() - 1 >= i) {
-            return this.lQa.get(i);
+        if (this.lQp.size() - 1 >= i) {
+            return this.lQp.get(i);
         }
         return 0;
     }
@@ -60,7 +60,7 @@ public class o extends BaseAdapter implements View.OnClickListener {
     }
 
     public void p(LinkedList<ImageFileInfo> linkedList) {
-        this.lQa = linkedList;
+        this.lQp = linkedList;
     }
 
     @Override // android.widget.Adapter
@@ -70,17 +70,17 @@ public class o extends BaseAdapter implements View.OnClickListener {
             bVar = new b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pb_editor_imgs_item, (ViewGroup) null);
             bVar.feK = (TbImageView) view.findViewById(R.id.iv_photo_live);
-            bVar.lQd = (LinearLayout) view.findViewById(R.id.layout_del);
-            bVar.lQe = (ImageView) view.findViewById(R.id.delete_photo_live);
+            bVar.lQs = (LinearLayout) view.findViewById(R.id.layout_del);
+            bVar.lQt = (ImageView) view.findViewById(R.id.delete_photo_live);
             bVar.feK.setOnClickListener(this);
             bVar.feK.setTagTextSize(com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds30));
             bVar.feK.setDrawBorder(true);
             bVar.feK.setDrawCorner(false);
             bVar.feK.setRadius(0);
-            bVar.lQd.setOnClickListener(this);
+            bVar.lQs.setOnClickListener(this);
             bVar.feK.setGifIconSupport(true);
             bVar.feK.setLongIconSupport(true);
-            com.baidu.tbadk.core.util.ap.setBackgroundResource(bVar.lQe, R.drawable.icon_delete_img);
+            com.baidu.tbadk.core.util.ap.setBackgroundResource(bVar.lQt, R.drawable.icon_delete_img);
             ViewGroup.LayoutParams layoutParams = bVar.feK.getLayoutParams();
             layoutParams.width = this.mWidth;
             layoutParams.height = this.mWidth;
@@ -88,10 +88,10 @@ public class o extends BaseAdapter implements View.OnClickListener {
         } else {
             bVar = (b) view.getTag();
         }
-        if (this.lQa != null && this.lQa.size() - 1 >= i) {
-            a(this.lQa.get(i), bVar, viewGroup);
+        if (this.lQp != null && this.lQp.size() - 1 >= i) {
+            a(this.lQp.get(i), bVar, viewGroup);
             bVar.feK.setTag(bVar.feK.getId(), Integer.valueOf(i));
-            bVar.lQd.setTag(Integer.valueOf(i));
+            bVar.lQs.setTag(Integer.valueOf(i));
         }
         return view;
     }
@@ -144,24 +144,24 @@ public class o extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.layout_del && (view.getTag() instanceof Integer)) {
-            if (this.lQb != null) {
-                this.lQb.FE(((Integer) view.getTag()).intValue());
+            if (this.lQq != null) {
+                this.lQq.FE(((Integer) view.getTag()).intValue());
             }
-        } else if (id == R.id.iv_photo_live && (view.getTag(view.getId()) instanceof Integer) && this.lQb != null) {
-            this.lQb.FF(((Integer) view.getTag(view.getId())).intValue());
+        } else if (id == R.id.iv_photo_live && (view.getTag(view.getId()) instanceof Integer) && this.lQq != null) {
+            this.lQq.FF(((Integer) view.getTag(view.getId())).intValue());
         }
     }
 
     public void a(a aVar) {
-        this.lQb = aVar;
+        this.lQq = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class b {
         public TbImageView feK;
-        public LinearLayout lQd;
-        private ImageView lQe;
+        public LinearLayout lQs;
+        private ImageView lQt;
 
         b() {
         }

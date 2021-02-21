@@ -23,13 +23,13 @@ import com.baidu.tbadk.editortools.m;
 /* loaded from: classes8.dex */
 public class LocationProvidersStatic {
     static {
-        com.baidu.adp.lib.c.a.lH().a(b.ddD());
+        com.baidu.adp.lib.c.a.lH().a(b.ddK());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean(SharedPrefConfig.PREFS_BD_LOC_SWITCHER, true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            com.baidu.adp.lib.c.a.lH().a(a.ddC());
+            com.baidu.adp.lib.c.a.lH().a(a.ddJ());
         }
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.EDITOR_COLLECT_TOOL) { // from class: com.baidu.tieba.location.LocationProvidersStatic.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -167,8 +167,8 @@ public class ActionBarAppPortrait extends LinearLayout implements View.OnClickLi
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.k, view == this.f);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1092a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 if (ActionBarAppPortrait.this.j != null) {
                     ActionBarAppPortrait.this.j.a();

@@ -10,7 +10,7 @@ import tbclient.HotThread.HotThreadReqIdl;
 public class a implements e, h {
     private int requestCount;
 
-    public void ctj() {
+    public void ctq() {
         this.requestCount++;
     }
 

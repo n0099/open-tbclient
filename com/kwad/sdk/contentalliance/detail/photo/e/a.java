@@ -60,8 +60,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.photo.comment.f
         public void a(final int i) {
             com.kwad.sdk.core.download.b.b.a(a.this.f, true);
-            com.kwad.sdk.core.download.b.a.a(a.this.e.getContext(), a.this.f8395a.j, new a.InterfaceC1092a() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.5.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+            com.kwad.sdk.core.download.b.a.a(a.this.e.getContext(), a.this.f8395a.j, new a.InterfaceC1094a() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.a.5.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                 public void a() {
                     com.kwad.sdk.core.d.a.a("PhotoCommentListPresenter", "CommentPanelAdClickListener onAdClick itemClickType:" + i);
                     com.kwad.sdk.core.report.b.a(a.this.f8395a.j, i, a.this.c.getTouchCoords());

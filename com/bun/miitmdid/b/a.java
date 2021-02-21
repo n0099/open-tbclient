@@ -10,7 +10,7 @@ public class a {
 
     public static String a() {
         if (TextUtils.isEmpty(f5735a)) {
-            f5735a = "miitmdid(sdkv_" + sysParamters.enk().c() + ")";
+            f5735a = "miitmdid(sdkv_" + sysParamters.ens().c() + ")";
             return f5735a;
         }
         return f5735a;

@@ -47,7 +47,7 @@ public class v {
         f9044a.put(p.a.class, new ag());
         f9044a.put(com.kwad.sdk.core.g.a.g.class, new w());
         f9044a.put(DownloadParams.class, new l());
-        f9044a.put(a.C1108a.class, new b());
+        f9044a.put(a.C1110a.class, new b());
         f9044a.put(HomeApkBannerData.class, new t());
         f9044a.put(SplashPreloadManager.PreLoadItem.class, new z());
         f9044a.put(ABParams.class, new a());

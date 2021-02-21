@@ -13,42 +13,42 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class q {
     private final BdListView WO;
-    private final NoNetworkView gAh;
-    private View iVJ;
-    private p iVK;
-    private final TbPageContext<o> iVb;
-    private final NavigationBar iVc;
+    private final NoNetworkView gAv;
+    private View iVX;
+    private p iVY;
+    private final TbPageContext<o> iVp;
+    private final NavigationBar iVq;
     private final View mParent;
     private final com.baidu.tbadk.core.view.g mPullView;
 
     public q(TbPageContext<o> tbPageContext) {
-        this.iVb = tbPageContext;
+        this.iVp = tbPageContext;
         tbPageContext.getPageActivity().setContentView(R.layout.face_purchase_records_layout);
         this.mParent = tbPageContext.getPageActivity().findViewById(R.id.purchase_record);
-        this.iVc = (NavigationBar) this.mParent.findViewById(R.id.view_navigation_bar);
-        this.iVc.setTitleText(tbPageContext.getResources().getString(R.string.purchase_record));
-        this.iVc.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.gAh = (NoNetworkView) this.mParent.findViewById(R.id.view_no_network);
+        this.iVq = (NavigationBar) this.mParent.findViewById(R.id.view_navigation_bar);
+        this.iVq.setTitleText(tbPageContext.getResources().getString(R.string.purchase_record));
+        this.iVq.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.gAv = (NoNetworkView) this.mParent.findViewById(R.id.view_no_network);
         this.WO = (BdListView) this.mParent.findViewById(R.id.purchase_record_list);
         this.mPullView = new com.baidu.tbadk.core.view.g(tbPageContext);
         this.WO.setPullRefresh(this.mPullView);
-        this.iVJ = BdListViewHelper.a(this.iVb.getPageActivity(), this.WO, BdListViewHelper.HeadType.DEFAULT);
+        this.iVX = BdListViewHelper.a(this.iVp.getPageActivity(), this.WO, BdListViewHelper.HeadType.DEFAULT);
     }
 
     public void c(FacePurchaseRecordsData facePurchaseRecordsData) {
-        if (this.iVK == null) {
-            this.iVK = new p(this.iVb.getOrignalPage());
-            this.WO.setAdapter((ListAdapter) this.iVK);
+        if (this.iVY == null) {
+            this.iVY = new p(this.iVp.getOrignalPage());
+            this.WO.setAdapter((ListAdapter) this.iVY);
         }
-        this.iVK.a(facePurchaseRecordsData);
-        czl();
+        this.iVY.a(facePurchaseRecordsData);
+        czs();
     }
 
-    public p czk() {
-        return this.iVK;
+    public p czr() {
+        return this.iVY;
     }
 
-    public void czl() {
+    public void czs() {
         this.WO.completePullRefreshPostDelayed(0L);
     }
 
@@ -61,23 +61,23 @@ public class q {
     }
 
     public void c(NoNetworkView.a aVar) {
-        this.gAh.a(aVar);
+        this.gAv.a(aVar);
     }
 
     public void qi(boolean z) {
-        BdListViewHelper.a(this.iVJ, BdListViewHelper.HeadType.DEFAULT, z);
+        BdListViewHelper.a(this.iVX, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void d(NoNetworkView.a aVar) {
-        this.gAh.b(aVar);
+        this.gAv.b(aVar);
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.core.c layoutMode = this.iVb.getLayoutMode();
+        com.baidu.tbadk.core.c layoutMode = this.iVp.getLayoutMode();
         layoutMode.setNightMode(i == 1);
         layoutMode.onModeChanged(this.mParent);
-        this.iVc.onChangeSkinType(this.iVb, i);
-        this.gAh.onChangeSkinType(this.iVb, i);
+        this.iVq.onChangeSkinType(this.iVp, i);
+        this.gAv.onChangeSkinType(this.iVp, i);
         this.mPullView.changeSkin(i);
     }
 }

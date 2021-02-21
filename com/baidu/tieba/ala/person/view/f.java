@@ -4,47 +4,47 @@ import android.view.View;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class f extends d {
-    private PlayBackItemView hYM;
-    private PlayBackItemView hYN;
+    private PlayBackItemView hZa;
+    private PlayBackItemView hZb;
 
     public f(View view, int i) {
         super(view, i);
-        this.hYM = (PlayBackItemView) view.findViewById(a.f.playback_item_left);
-        this.hYN = (PlayBackItemView) view.findViewById(a.f.playback_item_right);
+        this.hZa = (PlayBackItemView) view.findViewById(a.f.playback_item_left);
+        this.hZb = (PlayBackItemView) view.findViewById(a.f.playback_item_right);
     }
 
     @Override // com.baidu.tieba.ala.person.view.d
     public void C(Object obj) {
         if (obj instanceof com.baidu.tieba.ala.person.a.a) {
             final com.baidu.tieba.ala.person.a.a aVar = (com.baidu.tieba.ala.person.a.a) obj;
-            if (aVar.hVw != null) {
-                this.hYM.setVisibility(0);
-                this.hYM.setData(aVar.hVw.getMedia_pic(), aVar.hVw.join_count, aVar.hVw.start_time, aVar.hVw.getLiveTitle());
+            if (aVar.hVK != null) {
+                this.hZa.setVisibility(0);
+                this.hZa.setData(aVar.hVK.getMedia_pic(), aVar.hVK.join_count, aVar.hVK.start_time, aVar.hVK.getLiveTitle());
             } else {
-                this.hYM.setVisibility(4);
+                this.hZa.setVisibility(4);
             }
-            if (aVar.hVx != null) {
-                this.hYN.setVisibility(0);
-                this.hYN.setData(aVar.hVx.getMedia_pic(), aVar.hVx.join_count, aVar.hVx.start_time, aVar.hVx.getLiveTitle());
+            if (aVar.hVL != null) {
+                this.hZb.setVisibility(0);
+                this.hZb.setData(aVar.hVL.getMedia_pic(), aVar.hVL.join_count, aVar.hVL.start_time, aVar.hVL.getLiveTitle());
             } else {
-                this.hYN.setVisibility(4);
+                this.hZb.setVisibility(4);
             }
-            if (this.hYM != null) {
-                this.hYM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.f.1
+            if (this.hZa != null) {
+                this.hZa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.f.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (f.this.hVu != null) {
-                            f.this.hVu.a(aVar.hVw, view);
+                        if (f.this.hVI != null) {
+                            f.this.hVI.a(aVar.hVK, view);
                         }
                     }
                 });
             }
-            if (this.hYN != null) {
-                this.hYN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.f.2
+            if (this.hZb != null) {
+                this.hZb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.f.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (f.this.hVu != null) {
-                            f.this.hVu.a(aVar.hVx, view);
+                        if (f.this.hVI != null) {
+                            f.this.hVI.a(aVar.hVL, view);
                         }
                     }
                 });

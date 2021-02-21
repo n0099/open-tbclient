@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.ae;
 /* loaded from: classes.dex */
 public class c {
-    private static c nFj;
-    private a nFk = dQL();
+    private static c nFJ;
+    private a nFK = dQT();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -20,47 +20,47 @@ public class c {
         void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
     }
 
-    private boolean dQK() {
+    private boolean dQS() {
         return com.baidu.tbadk.core.sharedPref.b.brQ().getInt("pref_key_stat_sdk_enable", 1) != 0;
     }
 
     private c() {
     }
 
-    private a dQL() {
+    private a dQT() {
         CustomResponsedMessage runTask;
-        if (!dQK() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+        if (!dQS() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static c dQM() {
-        if (nFj == null) {
+    public static c dQU() {
+        if (nFJ == null) {
             synchronized (c.class) {
-                if (nFj == null) {
-                    nFj = new c();
+                if (nFJ == null) {
+                    nFJ = new c();
                 }
             }
         }
-        return nFj;
+        return nFJ;
     }
 
     public void autoTrace(Context context) {
-        if (ae.bsz() && this.nFk != null) {
-            this.nFk.autoTrace(context);
+        if (ae.bsz() && this.nFK != null) {
+            this.nFK.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (ae.bsz() && this.nFk != null) {
-            this.nFk.setAppChannel(context, str, z);
+        if (ae.bsz() && this.nFK != null) {
+            this.nFK.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (ae.bsz() && this.nFk != null) {
-            this.nFk.trackWebView(context, webView, webChromeClient);
+        if (ae.bsz() && this.nFK != null) {
+            this.nFK.trackWebView(context, webView, webChromeClient);
         }
     }
 }

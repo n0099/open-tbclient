@@ -54,7 +54,7 @@ public class a implements am.a {
     private Context e;
     private e i;
     private f j;
-    private C1004a n;
+    private C1006a n;
     private final am f = new am(Looper.getMainLooper(), this);
     private final WeakHashMap<Integer, c> g = new WeakHashMap<>();
     private final WeakHashMap<Integer, d> h = new WeakHashMap<>();
@@ -701,7 +701,7 @@ public class a implements am.a {
     public void b(AdSlot adSlot, m mVar) {
         if (adSlot != null && mVar != null) {
             if (this.n == null) {
-                this.n = new C1004a();
+                this.n = new C1006a();
             }
             this.n.a(adSlot, mVar);
         }
@@ -709,15 +709,15 @@ public class a implements am.a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.component.splash.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C1004a {
+    private static class C1006a {
 
         /* renamed from: a  reason: collision with root package name */
         a f6391a;
 
         /* renamed from: b  reason: collision with root package name */
-        private ConcurrentHashMap<String, C1005a> f6392b;
+        private ConcurrentHashMap<String, C1007a> f6392b;
 
-        private C1004a() {
+        private C1006a() {
             this.f6391a = a.a(p.a());
             this.f6392b = new ConcurrentHashMap<>();
         }
@@ -728,7 +728,7 @@ public class a implements am.a {
             if (adSlot != null && mVar != null && a()) {
                 if (!this.f6392b.containsKey(adSlot.getCodeId())) {
                     u.f("SplashAdCacheManager", "add adSlot.getCodeId() " + adSlot.getCodeId());
-                    this.f6392b.put(adSlot.getCodeId(), new C1005a(adSlot.getCodeId(), adSlot, mVar));
+                    this.f6392b.put(adSlot.getCodeId(), new C1007a(adSlot.getCodeId(), adSlot, mVar));
                 }
                 if (!p.l() && (z = p.h().z()) > 0) {
                     p.k();
@@ -736,7 +736,7 @@ public class a implements am.a {
                         @Override // java.lang.Runnable
                         public void run() {
                             u.f("SplashAdCacheManager", "触发定时器进行检测实现需要加载开屏广告");
-                            C1004a.this.a(C1004a.this.f6392b);
+                            C1006a.this.a(C1006a.this.f6392b);
                         }
                     }, (z * 60000) + 10000);
                 }
@@ -767,16 +767,16 @@ public class a implements am.a {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void a(ConcurrentHashMap<String, C1005a> concurrentHashMap) {
-            C1005a value;
+        public void a(ConcurrentHashMap<String, C1007a> concurrentHashMap) {
+            C1007a value;
             if (concurrentHashMap == null || concurrentHashMap.size() == 0) {
                 u.f("SplashAdCacheManager", "mloadSplashParaHashMap == null || mloadSplashParaHashMap.size() == 0 ");
                 return;
             }
-            Iterator<Map.Entry<String, C1005a>> it = concurrentHashMap.entrySet().iterator();
+            Iterator<Map.Entry<String, C1007a>> it = concurrentHashMap.entrySet().iterator();
             if (it != null) {
                 while (it.hasNext()) {
-                    Map.Entry<String, C1005a> next = it.next();
+                    Map.Entry<String, C1007a> next = it.next();
                     u.f("SplashAdCacheManager", "entry.getKey()  " + next.getKey() + " entry.getValue() " + next.getValue());
                     if (next != null && (value = next.getValue()) != null) {
                         if (!value.a()) {
@@ -815,7 +815,7 @@ public class a implements am.a {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.bytedance.sdk.openadsdk.component.splash.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1005a {
+        public class C1007a {
 
             /* renamed from: a  reason: collision with root package name */
             String f6394a;
@@ -825,7 +825,7 @@ public class a implements am.a {
             m c;
             boolean d = false;
 
-            C1005a(String str, AdSlot adSlot, m mVar) {
+            C1007a(String str, AdSlot adSlot, m mVar) {
                 this.f6394a = str;
                 this.f6395b = adSlot;
                 this.c = mVar;
@@ -844,9 +844,9 @@ public class a implements am.a {
         public void a(AdSlot adSlot) {
             if (adSlot != null && this.f6392b != null) {
                 u.f("SplashAdCacheManager", "SplashAdCacheManager 已经加载过了 adSlot.getCodeId() " + adSlot.getCodeId());
-                C1005a c1005a = this.f6392b.get(adSlot.getCodeId());
-                if (c1005a != null) {
-                    c1005a.a(true);
+                C1007a c1007a = this.f6392b.get(adSlot.getCodeId());
+                if (c1007a != null) {
+                    c1007a.a(true);
                 }
                 u.f("SplashAdCacheManager", "SplashAdCacheManager 是否需要加载其他rit开屏广告");
                 a(this.f6392b);
@@ -856,10 +856,10 @@ public class a implements am.a {
             }
         }
 
-        private boolean b(ConcurrentHashMap<String, C1005a> concurrentHashMap) {
+        private boolean b(ConcurrentHashMap<String, C1007a> concurrentHashMap) {
             if (concurrentHashMap != null && concurrentHashMap.size() != 0) {
-                for (Map.Entry<String, C1005a> entry : concurrentHashMap.entrySet()) {
-                    C1005a value = entry.getValue();
+                for (Map.Entry<String, C1007a> entry : concurrentHashMap.entrySet()) {
+                    C1007a value = entry.getValue();
                     if (value != null && !value.a()) {
                         return true;
                     }
@@ -869,13 +869,13 @@ public class a implements am.a {
             return false;
         }
 
-        private void c(ConcurrentHashMap<String, C1005a> concurrentHashMap) {
+        private void c(ConcurrentHashMap<String, C1007a> concurrentHashMap) {
             if (concurrentHashMap != null && concurrentHashMap.size() != 0) {
                 u.f("SplashAdCacheManager", "重置开屏rit请求状态");
-                Iterator<Map.Entry<String, C1005a>> it = concurrentHashMap.entrySet().iterator();
+                Iterator<Map.Entry<String, C1007a>> it = concurrentHashMap.entrySet().iterator();
                 if (it != null) {
                     while (it.hasNext()) {
-                        C1005a value = it.next().getValue();
+                        C1007a value = it.next().getValue();
                         if (value != null) {
                             value.a(false);
                         }

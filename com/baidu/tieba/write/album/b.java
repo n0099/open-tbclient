@@ -22,14 +22,14 @@ import java.util.List;
 public class b extends BaseAdapter {
     private String bLD;
     private int bLE;
-    private BaseFragmentActivity iKt;
+    private BaseFragmentActivity iKH;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.iKt = baseFragmentActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.iKt.getPageContext().getPageActivity());
-        this.bLE = l.getEquipmentWidth(this.iKt.getPageContext().getPageActivity()) / 2;
+        this.iKH = baseFragmentActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.iKH.getPageContext().getPageActivity());
+        this.bLE = l.getEquipmentWidth(this.iKH.getPageContext().getPageActivity()) / 2;
     }
 
     public void setData(List<com.baidu.tbadk.album.a> list, String str) {
@@ -62,11 +62,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.odU = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.oeu = (TbImageView) view.findViewById(R.id.item_head);
             aVar.bLG = (TextView) view.findViewById(R.id.item_name);
             aVar.bLH = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.odU.setGifIconSupport(false);
-            aVar.odU.setLongIconSupport(false);
+            aVar.oeu.setGifIconSupport(false);
+            aVar.oeu.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -88,9 +88,9 @@ public class b extends BaseAdapter {
             }
             MediaFileInfo bjS = item.bjS();
             if (bjS instanceof VideoFileInfo) {
-                aVar.odU.startLoad(((VideoFileInfo) bjS).videoPath, 37, false);
+                aVar.oeu.startLoad(((VideoFileInfo) bjS).videoPath, 37, false);
             } else if (bjS instanceof ImageFileInfo) {
-                aVar.odU.startLoad(((ImageFileInfo) bjS).getFilePath(), 35, false);
+                aVar.oeu.startLoad(((ImageFileInfo) bjS).getFilePath(), 35, false);
             }
             ap.setViewTextColor(aVar.bLG, R.color.CAM_X0105);
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
@@ -102,7 +102,7 @@ public class b extends BaseAdapter {
     private class a {
         TextView bLG;
         ImageView bLH;
-        TbImageView odU;
+        TbImageView oeu;
 
         private a() {
         }

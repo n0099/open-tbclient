@@ -19,14 +19,14 @@ import com.baidu.tieba.homepage.tabfeed.data.c;
 /* loaded from: classes2.dex */
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
     private d<l> ajD;
-    private AutoBannerLayout knR;
-    private GridIconLayout knS;
-    private f knT;
+    private AutoBannerLayout kof;
+    private GridIconLayout kog;
+    private f koh;
     private TbPageContext<?> mPageContext;
 
     public HomePageTabFeedHeaderView(Context context) {
         super(context);
-        this.knT = new f<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
+        this.koh = new f<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, l lVar, int i, long j) {
@@ -57,7 +57,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.knT = new f<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
+        this.koh = new f<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, l lVar, int i, long j) {
@@ -88,7 +88,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.knT = new f<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
+        this.koh = new f<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, l lVar, int i2, long j) {
@@ -128,11 +128,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     }
 
     public void onChangeSkinType(int i) {
-        if (this.knR != null) {
-            this.knR.onChangeSkinType(this.mPageContext, i);
+        if (this.kof != null) {
+            this.kof.onChangeSkinType(this.mPageContext, i);
         }
-        if (this.knS != null) {
-            this.knS.onChangeSkinType(this.mPageContext, i);
+        if (this.kog != null) {
+            this.kog.onChangeSkinType(this.mPageContext, i);
         }
         ap.setBackgroundColor(this, R.color.CAM_X0205);
     }
@@ -140,41 +140,41 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     public void setData(c cVar) {
         if (cVar != null) {
             setPadding(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds44), 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds60));
-            if (this.knR == null) {
-                this.knR = new AutoBannerLayout(getContext());
-                this.knR.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
-                this.knR.setOnCoverViewCallback(this.ajD);
-                this.knR.setBannerHeight(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds328));
+            if (this.kof == null) {
+                this.kof = new AutoBannerLayout(getContext());
+                this.kof.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
+                this.kof.setOnCoverViewCallback(this.ajD);
+                this.kof.setBannerHeight(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds328));
                 int dimens = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds44);
-                this.knR.setPadding(dimens, 0, dimens, 0);
-                addView(this.knR);
-                this.knR.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.1
+                this.kof.setPadding(dimens, 0, dimens, 0);
+                addView(this.kof);
+                this.kof.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.1
                     @Override // com.baidu.tbadk.h.c
                     public void a(View view, boolean z, Object obj) {
-                        if (z && HomePageTabFeedHeaderView.this.knR != null) {
-                            HomePageTabFeedHeaderView.this.knR.ts();
+                        if (z && HomePageTabFeedHeaderView.this.kof != null) {
+                            HomePageTabFeedHeaderView.this.kof.ts();
                         }
                     }
                 });
             }
-            this.knR.C(cVar.knL);
-            if (this.knS == null) {
-                this.knS = new GridIconLayout(getContext());
-                this.knS.setOnItemCoverListener(this.knT);
-                addView(this.knS);
-                this.knS.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.2
+            this.kof.C(cVar.knZ);
+            if (this.kog == null) {
+                this.kog = new GridIconLayout(getContext());
+                this.kog.setOnItemCoverListener(this.koh);
+                addView(this.kog);
+                this.kog.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.2
                     @Override // com.baidu.tbadk.h.c
                     public void a(View view, boolean z, Object obj) {
                         if (z) {
-                            b.Mg("c13751");
+                            b.Mh("c13751");
                         }
                     }
                 });
-                this.knS.setPadding(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds61), 0, 0);
-                this.knS.setVerticalSpace(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds61));
-                this.knS.setMaxItem(10);
+                this.kog.setPadding(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds61), 0, 0);
+                this.kog.setVerticalSpace(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds61));
+                this.kog.setMaxItem(10);
             }
-            this.knS.C(cVar.knM);
+            this.kog.C(cVar.koa);
         }
     }
 

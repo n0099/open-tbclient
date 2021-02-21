@@ -12,12 +12,12 @@ public class h extends BaseCardInfo {
     public String aHq;
     public int alp;
     public String imgUrl;
-    public int klw;
+    public int klK;
 
     public void a(LiveAnswer liveAnswer) {
         if (liveAnswer != null) {
             this.imgUrl = liveAnswer.banner_url;
-            this.klw = liveAnswer.banner_high.intValue();
+            this.klK = liveAnswer.banner_high.intValue();
             this.alp = liveAnswer.banner_width.intValue();
             this.aHq = liveAnswer.jump_url;
         }
@@ -33,7 +33,7 @@ public class h extends BaseCardInfo {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("img_width", this.alp);
             jSONObject.put(BigdayActivityConfig.IMG_URL, this.imgUrl);
-            jSONObject.put("img_height", this.klw);
+            jSONObject.put("img_height", this.klK);
             jSONObject.put(BigdayActivityConfig.JUMP_URL, this.aHq);
             return jSONObject.toString();
         } catch (JSONException e) {

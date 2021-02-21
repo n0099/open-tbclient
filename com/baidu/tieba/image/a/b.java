@@ -32,7 +32,7 @@ public class b extends com.baidu.tbadk.editortools.c {
     private boolean fEn = false;
     private String forumId;
     private String forumName;
-    public boolean kWa;
+    public boolean kWo;
 
     public void eg(String str, String str2) {
         this.forumName = str;
@@ -43,7 +43,7 @@ public class b extends com.baidu.tbadk.editortools.c {
     protected e fh(Context context) {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setBarMaxLauCount(5);
-        editorTools.setBarLauncherType(this.kWa ? 2 : 3);
+        editorTools.setBarLauncherType(this.kWo ? 2 : 3);
         editorTools.setBackgroundColorId(0);
         editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
         editorTools.setDeskBackgroundColorId(R.color.CAM_X0207);
@@ -57,7 +57,7 @@ public class b extends com.baidu.tbadk.editortools.c {
         CustomResponsedMessage runTask;
         m mVar;
         EditorTools bBh = eVar.bBh();
-        if (com.baidu.tieba.tbadkCore.voice.c.dOT() && u.d(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, bBh.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
+        if (com.baidu.tieba.tbadkCore.voice.c.dPb() && u.d(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, bBh.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
             mVar.fCh = 2;
             bBh.b(mVar);
         }
@@ -66,13 +66,13 @@ public class b extends com.baidu.tbadk.editortools.c {
         bBh.bG(arrayList);
         m qU = bBh.qU(5);
         if (qU != null) {
-            qU.kQ(!this.kWa);
-            qU.fCh = this.kWa ? 1 : 3;
+            qU.kQ(!this.kWo);
+            qU.fCh = this.kWo ? 1 : 3;
         }
         com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(bBh.getContext(), 4);
         aVar.fCe = false;
         bBh.b(aVar);
-        if (!this.kWa) {
+        if (!this.kWo) {
             bBh.b(new d(bBh.getContext(), 1));
             CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, bBh.getContext()), m.class);
             if (runTask2 != null && runTask2.getData() != null) {
@@ -106,7 +106,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                     if (aVar != null && aVar.bBh() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.CY(aVar2.data.toString());
+                                aVar.CW(aVar2.data.toString());
                                 if (aVar2.data instanceof SpanGroupManager) {
                                     aVar.setSpanGroupManager((SpanGroupManager) aVar2.data);
                                 }
@@ -206,7 +206,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 }
                             case 20:
                                 aVar.bBh().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                                com.baidu.tieba.tbadkCore.location.b.dOk().yB(true);
+                                com.baidu.tieba.tbadkCore.location.b.dOs().yB(true);
                                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                                 return;
                             case 32:

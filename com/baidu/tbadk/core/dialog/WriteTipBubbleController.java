@@ -88,7 +88,7 @@ public class WriteTipBubbleController {
                     }
                 }
             });
-            this.eWa.IX(str);
+            this.eWa.IY(str);
             TiebaStatic.log("c13801");
         }
     }

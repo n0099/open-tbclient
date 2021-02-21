@@ -30,27 +30,27 @@ public class a extends com.baidu.tbadk.b.a {
         if (hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
             String str2 = hashMap.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                C0854a c0854a = new C0854a(str, str2, hashMap, eVar);
-                c0854a.setPriority(2);
-                c0854a.execute(new Object[0]);
+                C0855a c0855a = new C0855a(str, str2, hashMap, eVar);
+                c0855a.setPriority(2);
+                c0855a.execute(new Object[0]);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private class C0854a extends BdAsyncTask<Object, Integer, h> {
+    private class C0855a extends BdAsyncTask<Object, Integer, h> {
         private String eGz;
-        private HashMap<String, String> laj;
-        private e lak;
+        private HashMap<String, String> lay;
+        private e laz;
         private volatile aa mNetwork = null;
         private String postUrl;
 
-        public C0854a(String str, String str2, HashMap<String, String> hashMap, e eVar) {
+        public C0855a(String str, String str2, HashMap<String, String> hashMap, e eVar) {
             this.eGz = str;
             this.postUrl = str2;
-            this.laj = hashMap;
-            this.lak = eVar;
+            this.lay = hashMap;
+            this.laz = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,11 +61,11 @@ public class a extends com.baidu.tbadk.b.a {
             h hVar = new h();
             try {
                 this.mNetwork = new aa(this.postUrl);
-                Set<String> keySet = this.laj.keySet();
+                Set<String> keySet = this.lay.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.addPostData(str, this.laj.get(str));
+                            this.mNetwork.addPostData(str, this.lay.get(str));
                         }
                     }
                 }
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.lak != null) {
-                this.lak.callback(hVar);
+            if (this.laz != null) {
+                this.laz.callback(hVar);
             }
         }
 
@@ -120,8 +120,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.lak != null) {
-                this.lak.callback(null);
+            if (this.laz != null) {
+                this.laz.callback(null);
             }
         }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.tbadk.b.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.lak != null) {
-                this.lak.callback(null);
+            if (this.laz != null) {
+                this.laz.callback(null);
             }
         }
     }

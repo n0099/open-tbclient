@@ -10,10 +10,10 @@ import com.baidu.tieba.hottopic.data.l;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class ImageOverlayView extends ViewGroup {
-    private int iPA;
-    private int iPx;
-    private a kxL;
-    private List<l> kxM;
+    private int iPL;
+    private int iPO;
+    private a kxZ;
+    private List<l> kya;
     private int mImageHeight;
     private int mImageWidth;
 
@@ -35,7 +35,7 @@ public class ImageOverlayView extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.iPx * this.mImageWidth)) - ((this.iPx - 1) * this.iPA), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
+        setMeasuredDimension(resolveSize(((getPaddingLeft() + getPaddingRight()) + (this.iPL * this.mImageWidth)) - ((this.iPL - 1) * this.iPO), i), resolveSize(getPaddingTop() + getPaddingBottom() + this.mImageHeight, i2));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -43,21 +43,21 @@ public class ImageOverlayView extends ViewGroup {
         View childAt;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        for (int i5 = 0; i5 < this.iPx && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
+        for (int i5 = 0; i5 < this.iPL && i5 < getChildCount() && (childAt = getChildAt(i5)) != null; i5++) {
             childAt.layout(paddingLeft, paddingTop, this.mImageWidth + paddingLeft, this.mImageHeight + paddingTop);
-            paddingLeft += this.mImageWidth - this.iPA;
+            paddingLeft += this.mImageWidth - this.iPO;
         }
     }
 
     public void setImageClickListener(a aVar) {
-        this.kxL = aVar;
+        this.kxZ = aVar;
     }
 
     public void setData(List<l> list) {
         HeadImageView headImageView;
         if (!y.isEmpty(list)) {
-            this.kxM = list;
-            for (int i = 0; i < this.iPx && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
+            this.kya = list;
+            for (int i = 0; i < this.iPL && (headImageView = (HeadImageView) getChildAt(i)) != null; i++) {
                 if (i >= list.size()) {
                     headImageView.setVisibility(8);
                 } else {

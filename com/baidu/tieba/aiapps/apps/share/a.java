@@ -37,15 +37,15 @@ public class a extends ShareItem {
         this.fvp = "url".equals(jSONObject.optString("type")) ? 1 : 3;
     }
 
-    public JSONArray bNz() {
+    public JSONArray bNG() {
         return this.fvu;
     }
 
-    public String bNA() {
+    public String bNH() {
         return this.fvs;
     }
 
-    public String bNB() {
+    public String bNI() {
         return this.fvt;
     }
 

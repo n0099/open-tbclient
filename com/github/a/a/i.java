@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
 public class i extends a {
-    private static final LinkedHashMap<Long, String> pQR = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> pRr = new LinkedHashMap<>();
     private Thread mCurrentThread;
-    private int pQS;
+    private int pRs;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void start() {
@@ -24,17 +24,17 @@ public class i extends a {
 
     public i(Thread thread, int i, long j) {
         super(j);
-        this.pQS = 100;
+        this.pRs = 100;
         this.mCurrentThread = thread;
-        this.pQS = i;
+        this.pRs = i;
     }
 
     public ArrayList<String> T(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (pQR) {
-            for (Long l : pQR.keySet()) {
+        synchronized (pRr) {
+            for (Long l : pRr.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(com.github.a.a.a.a.pQF.format(l) + "\r\n\r\n" + pQR.get(l));
+                    arrayList.add(com.github.a.a.a.a.pRf.format(l) + "\r\n\r\n" + pRr.get(l));
                 }
             }
         }
@@ -42,16 +42,16 @@ public class i extends a {
     }
 
     @Override // com.github.a.a.a
-    protected void eAu() {
+    protected void eAC() {
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement stackTraceElement : this.mCurrentThread.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (pQR) {
-            if (pQR.size() == this.pQS && this.pQS > 0) {
-                pQR.remove(pQR.keySet().iterator().next());
+        synchronized (pRr) {
+            if (pRr.size() == this.pRs && this.pRs > 0) {
+                pRr.remove(pRr.keySet().iterator().next());
             }
-            pQR.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            pRr.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

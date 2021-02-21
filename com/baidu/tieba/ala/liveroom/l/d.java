@@ -18,7 +18,7 @@ public class d extends Dialog implements View.OnClickListener {
     private TextView bTm;
     private TextView bTn;
     private View cBE;
-    private a hEF;
+    private a hET;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -33,16 +33,16 @@ public class d extends Dialog implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.hEF = aVar;
+        this.hET = aVar;
     }
 
-    public void FN(String str) {
-        cfT();
+    public void FO(String str) {
+        cga();
         this.aDr.startLoad(str, 25, false, false);
         show();
     }
 
-    public String cfL() {
+    public String cfS() {
         return this.bTm.getText().toString();
     }
 
@@ -50,11 +50,11 @@ public class d extends Dialog implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.cBE) {
             dismiss();
-        } else if (this.hEF != null) {
+        } else if (this.hET != null) {
             if (view == this.bTm) {
-                this.hEF.onConfirm();
+                this.hET.onConfirm();
             } else if (view == this.bTn) {
-                this.hEF.onCancel();
+                this.hET.onCancel();
             }
         }
     }
@@ -72,11 +72,11 @@ public class d extends Dialog implements View.OnClickListener {
             window.setGravity(17);
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().setPadding(0, 0, 0, 0);
-            cfK();
+            cfR();
         }
     }
 
-    public void cfK() {
+    public void cfR() {
         WindowManager windowManager = (WindowManager) getContext().getSystemService("window");
         if (windowManager != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -109,7 +109,7 @@ public class d extends Dialog implements View.OnClickListener {
         this.bTn.setOnClickListener(this);
     }
 
-    private void cfT() {
+    private void cga() {
         if (this.aDr != null) {
             this.aDr.stopLoad();
         }

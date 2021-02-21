@@ -25,8 +25,8 @@ public abstract class ed extends ai.a {
     }
 
     public static void a(Context context, hu huVar) {
-        dp m258a = dq.a().m258a();
-        String a2 = m258a == null ? "" : m258a.a();
+        dp m257a = dq.a().m257a();
+        String a2 = m257a == null ? "" : m257a.a();
         if (TextUtils.isEmpty(a2) || TextUtils.isEmpty(huVar.a())) {
             return;
         }
@@ -44,7 +44,7 @@ public abstract class ed extends ai.a {
         synchronized (dv.f13957a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                y.m616a(file);
+                y.m615a(file);
                 randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -125,17 +125,17 @@ public abstract class ed extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract ho mo192a();
+    public abstract ho mo191a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract String mo192a();
+    public abstract String mo191a();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo192a() {
-        return du.a(this.f310a, String.valueOf(mo192a()), this.f13964a);
+    public boolean mo191a() {
+        return du.a(this.f310a, String.valueOf(mo191a()), this.f13964a);
     }
 
     protected boolean b() {
@@ -144,23 +144,23 @@ public abstract class ed extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (mo192a()) {
-            com.xiaomi.channel.commonutils.logger.b.m80a("DC run job mutual: " + mo192a());
+        if (mo191a()) {
+            com.xiaomi.channel.commonutils.logger.b.m79a("DC run job mutual: " + mo191a());
             return;
         }
-        dp m258a = dq.a().m258a();
-        String a2 = m258a == null ? "" : m258a.a();
+        dp m257a = dq.a().m257a();
+        String a2 = m257a == null ? "" : m257a.a();
         if (TextUtils.isEmpty(a2) || !b()) {
             return;
         }
-        String mo192a = mo192a();
-        if (TextUtils.isEmpty(mo192a)) {
+        String mo191a = mo191a();
+        if (TextUtils.isEmpty(mo191a)) {
             return;
         }
         hu huVar = new hu();
-        huVar.a(mo192a);
+        huVar.a(mo191a);
         huVar.a(System.currentTimeMillis());
-        huVar.a(mo192a());
+        huVar.a(mo191a());
         a(this.f310a, huVar, a2);
     }
 }

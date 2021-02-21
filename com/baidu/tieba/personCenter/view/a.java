@@ -22,43 +22,43 @@ import com.baidu.tieba.R;
 public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.d> {
     private TextView ahb;
     private View eVm;
-    private TextView jSz;
-    private TextView kGQ;
+    private TextView jSN;
+    private TextView kHe;
     private LinearLayout mContainer;
     private int mSkinType;
     private View mTopLine;
     private UserData mUserData;
-    private TextView muA;
-    private TextView muB;
-    private TextView muC;
-    private LinearLayout muD;
-    private LinearLayout muE;
-    private LinearLayout muF;
-    private LinearLayout muG;
-    private int muH;
-    private TextView muy;
-    private TextView muz;
+    private TextView muN;
+    private TextView muO;
+    private TextView muP;
+    private TextView muQ;
+    private TextView muR;
+    private LinearLayout muS;
+    private LinearLayout muT;
+    private LinearLayout muU;
+    private LinearLayout muV;
+    private int muW;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.muH = 0;
+        this.muW = 0;
         View view = getView();
         this.mContainer = (LinearLayout) view.findViewById(R.id.layout_container);
         this.mTopLine = view.findViewById(R.id.top_divider_line);
         this.eVm = view.findViewById(R.id.bottom_divider_line);
-        this.jSz = (TextView) view.findViewById(R.id.fans_num);
-        this.muy = (TextView) view.findViewById(R.id.fans_title);
-        this.muz = (TextView) view.findViewById(R.id.concer_num);
-        this.muA = (TextView) view.findViewById(R.id.concer_title);
-        this.muB = (TextView) view.findViewById(R.id.attention_bar_num);
-        this.muC = (TextView) view.findViewById(R.id.attention_bar_title);
-        this.kGQ = (TextView) view.findViewById(R.id.thread_num);
+        this.jSN = (TextView) view.findViewById(R.id.fans_num);
+        this.muN = (TextView) view.findViewById(R.id.fans_title);
+        this.muO = (TextView) view.findViewById(R.id.concer_num);
+        this.muP = (TextView) view.findViewById(R.id.concer_title);
+        this.muQ = (TextView) view.findViewById(R.id.attention_bar_num);
+        this.muR = (TextView) view.findViewById(R.id.attention_bar_title);
+        this.kHe = (TextView) view.findViewById(R.id.thread_num);
         this.ahb = (TextView) view.findViewById(R.id.thread_title);
-        this.muD = (LinearLayout) view.findViewById(R.id.fans_action);
-        this.muE = (LinearLayout) view.findViewById(R.id.concer_action);
-        this.muF = (LinearLayout) view.findViewById(R.id.attention_action);
-        this.muG = (LinearLayout) view.findViewById(R.id.thread_action);
+        this.muS = (LinearLayout) view.findViewById(R.id.fans_action);
+        this.muT = (LinearLayout) view.findViewById(R.id.concer_action);
+        this.muU = (LinearLayout) view.findViewById(R.id.attention_action);
+        this.muV = (LinearLayout) view.findViewById(R.id.thread_action);
         this.mTopLine.setVisibility(8);
         this.eVm.setVisibility(8);
     }
@@ -66,13 +66,13 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.d> 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.jSz, R.color.CAM_X0105);
-            ap.setViewTextColor(this.muy, R.color.CAM_X0109);
-            ap.setViewTextColor(this.muz, R.color.CAM_X0105);
-            ap.setViewTextColor(this.muA, R.color.CAM_X0109);
-            ap.setViewTextColor(this.muB, R.color.CAM_X0105);
-            ap.setViewTextColor(this.muC, R.color.CAM_X0109);
-            ap.setViewTextColor(this.kGQ, R.color.CAM_X0105);
+            ap.setViewTextColor(this.jSN, R.color.CAM_X0105);
+            ap.setViewTextColor(this.muN, R.color.CAM_X0109);
+            ap.setViewTextColor(this.muO, R.color.CAM_X0105);
+            ap.setViewTextColor(this.muP, R.color.CAM_X0109);
+            ap.setViewTextColor(this.muQ, R.color.CAM_X0105);
+            ap.setViewTextColor(this.muR, R.color.CAM_X0109);
+            ap.setViewTextColor(this.kHe, R.color.CAM_X0105);
             ap.setViewTextColor(this.ahb, R.color.CAM_X0109);
             ap.setBackgroundColor(this.mTopLine, R.color.CAM_X0204);
             ap.setBackgroundColor(this.eVm, R.color.CAM_X0204);
@@ -91,15 +91,15 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.d> 
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personCenter.c.d dVar) {
         this.mUserData = dVar.userData;
-        this.muH = dVar.mtB;
-        this.jSz.setText(au.numFormatOverWanNa(dVar.mtA));
-        this.muz.setText(Integer.toString(dVar.mtB));
-        this.muB.setText(Integer.toString(dVar.mtC));
-        this.kGQ.setText(au.longNumFormatOver9999wan(dVar.threadNum));
-        this.muD.setOnClickListener(this);
-        this.muE.setOnClickListener(this);
-        this.muF.setOnClickListener(this);
-        this.muG.setOnClickListener(this);
+        this.muW = dVar.mtQ;
+        this.jSN.setText(au.numFormatOverWanNa(dVar.mtP));
+        this.muO.setText(Integer.toString(dVar.mtQ));
+        this.muQ.setText(Integer.toString(dVar.mtR));
+        this.kHe.setText(au.longNumFormatOver9999wan(dVar.threadNum));
+        this.muS.setOnClickListener(this);
+        this.muT.setOnClickListener(this);
+        this.muU.setOnClickListener(this);
+        this.muV.setOnClickListener(this);
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -108,14 +108,14 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.personCenter.c.d> 
         if (view != null) {
             if (view.getId() == R.id.fans_action) {
                 if (this.mUserData != null) {
-                    com.baidu.tieba.p.a.dEW().h(2, false, true);
+                    com.baidu.tieba.p.a.dFe().h(2, false, true);
                     TiebaStatic.log(new ar("c12523").ap("obj_locate", 6));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), false, this.mUserData.getUserId(), this.mUserData.getSex()).updateBjhUser(this.mUserData.isBaijiahaoUser())));
                 }
             } else if (view.getId() == R.id.concer_action) {
                 if (this.mUserData != null) {
                     TiebaStatic.log(new ar("c12523").ap("obj_locate", 5));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), true, this.mUserData.getUserId(), this.mUserData.getSex()).updateBjhUser(this.mUserData.isBaijiahaoUser()).updateFollowNum(this.muH, this.mUserData.getPortrait())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mTbPageContext.getPageActivity(), true, this.mUserData.getUserId(), this.mUserData.getSex()).updateBjhUser(this.mUserData.isBaijiahaoUser()).updateFollowNum(this.muW, this.mUserData.getPortrait())));
                 }
             } else if (view.getId() == R.id.attention_action) {
                 TiebaStatic.log(new ar("c12523").ap("obj_locate", 7));

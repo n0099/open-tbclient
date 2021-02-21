@@ -17,14 +17,14 @@ public class a {
     private Application f13064a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<InterfaceC1231a> f13065b;
+    private final List<InterfaceC1233a> f13065b;
     private int c;
     private volatile int d;
-    private final Application.ActivityLifecycleCallbacks qei;
+    private final Application.ActivityLifecycleCallbacks qeI;
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1231a {
+    public interface InterfaceC1233a {
         @MainThread
         void b();
 
@@ -32,19 +32,19 @@ public class a {
         void c();
     }
 
-    public static a eFQ() {
-        return b.qej;
+    public static a eFY() {
+        return b.qeJ;
     }
 
     /* loaded from: classes6.dex */
     private static class b {
-        private static final a qej = new a();
+        private static final a qeJ = new a();
     }
 
     private a() {
         this.f13065b = new ArrayList();
         this.d = -1;
-        this.qei = new Application.ActivityLifecycleCallbacks() { // from class: com.ss.android.socialbase.downloader.a.a.1
+        this.qeI = new Application.ActivityLifecycleCallbacks() { // from class: com.ss.android.socialbase.downloader.a.a.1
             @Override // android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
             }
@@ -94,7 +94,7 @@ public class a {
             synchronized (this) {
                 if (this.f13064a == null) {
                     this.f13064a = (Application) context;
-                    this.f13064a.registerActivityLifecycleCallbacks(this.qei);
+                    this.f13064a.registerActivityLifecycleCallbacks(this.qeI);
                 }
             }
         }
@@ -109,19 +109,19 @@ public class a {
         return i == 1;
     }
 
-    public void a(InterfaceC1231a interfaceC1231a) {
-        if (interfaceC1231a != null) {
+    public void a(InterfaceC1233a interfaceC1233a) {
+        if (interfaceC1233a != null) {
             synchronized (this.f13065b) {
-                if (!this.f13065b.contains(interfaceC1231a)) {
-                    this.f13065b.add(interfaceC1231a);
+                if (!this.f13065b.contains(interfaceC1233a)) {
+                    this.f13065b.add(interfaceC1233a);
                 }
             }
         }
     }
 
-    public void b(InterfaceC1231a interfaceC1231a) {
+    public void b(InterfaceC1233a interfaceC1233a) {
         synchronized (this.f13065b) {
-            this.f13065b.remove(interfaceC1231a);
+            this.f13065b.remove(interfaceC1233a);
         }
     }
 
@@ -142,7 +142,7 @@ public class a {
         Object[] c = c();
         if (c != null) {
             for (Object obj : c) {
-                ((InterfaceC1231a) obj).b();
+                ((InterfaceC1233a) obj).b();
             }
         }
     }
@@ -154,16 +154,16 @@ public class a {
         Object[] c = c();
         if (c != null) {
             for (Object obj : c) {
-                ((InterfaceC1231a) obj).c();
+                ((InterfaceC1233a) obj).c();
             }
         }
     }
 
     private void f() {
-        Activity eFR = eFR();
+        Activity eFZ = eFZ();
         if (this.d == -1) {
-            if (eFR != null) {
-                this.c = eFR.hashCode();
+            if (eFZ != null) {
+                this.c = eFZ.hashCode();
                 this.d = 1;
                 return;
             }
@@ -171,7 +171,7 @@ public class a {
         }
     }
 
-    private Activity eFR() {
+    private Activity eFZ() {
         Map map;
         try {
             Class<?> cls = Class.forName("android.app.ActivityThread");

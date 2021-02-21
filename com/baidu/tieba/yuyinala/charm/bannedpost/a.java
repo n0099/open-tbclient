@@ -7,11 +7,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends BaseData {
-    public List<C0912a> aGx;
+    public List<C0914a> aGx;
 
     /* renamed from: com.baidu.tieba.yuyinala.charm.bannedpost.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0912a {
+    public static class C0914a {
         public String bd_portrait;
         public String uk;
         public String user_name;
@@ -34,12 +34,12 @@ public class a extends BaseData {
                 this.aGx = new ArrayList();
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject2 = jSONArray.optJSONObject(i);
-                    C0912a c0912a = new C0912a();
-                    c0912a.user_name = optJSONObject2.optString("user_name");
-                    c0912a.user_nickname = optJSONObject2.optString("user_nickname");
-                    c0912a.bd_portrait = optJSONObject2.optString("bd_portrait");
-                    c0912a.uk = optJSONObject2.optString("uk");
-                    this.aGx.add(c0912a);
+                    C0914a c0914a = new C0914a();
+                    c0914a.user_name = optJSONObject2.optString("user_name");
+                    c0914a.user_nickname = optJSONObject2.optString("user_nickname");
+                    c0914a.bd_portrait = optJSONObject2.optString("bd_portrait");
+                    c0914a.uk = optJSONObject2.optString("uk");
+                    this.aGx.add(c0914a);
                 }
             }
         }

@@ -7,18 +7,18 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public class g {
-    private RelativeLayout lxd;
-    private final ConcurrentHashMap<String, ConnectionLineView> oGg = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<String, Boolean> oGh = new ConcurrentHashMap<>();
-    private a oGi;
+    private RelativeLayout lxr;
+    private final ConcurrentHashMap<String, ConnectionLineView> oGG = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Boolean> oGH = new ConcurrentHashMap<>();
+    private a oGI;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void Wj(String str);
+        void Wv(String str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0032, code lost:
-        if (r8.lxd.indexOfChild(r8.oGg.get(r1)) == (-1)) goto L16;
+        if (r8.lxr.indexOfChild(r8.oGG.get(r1)) == (-1)) goto L16;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -26,9 +26,9 @@ public class g {
     public synchronized void a(int[] iArr, RelativeLayout relativeLayout, double[] dArr, double[] dArr2, int i) {
         if (dArr[0] != dArr2[0] || dArr[1] != dArr2[1]) {
             String o = o(iArr);
-            if (this.oGg.containsKey(o)) {
+            if (this.oGG.containsKey(o)) {
             }
-            this.lxd = relativeLayout;
+            this.lxr = relativeLayout;
             ConnectionLineView connectionLineView = new ConnectionLineView(relativeLayout.getContext());
             int a2 = (int) a(dArr, dArr2);
             connectionLineView.setLayoutParams(new RelativeLayout.LayoutParams(a2 - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(52.0f, relativeLayout.getContext()), -2));
@@ -41,27 +41,27 @@ public class g {
             }
             connectionLineView.setRotation(b2);
             relativeLayout.addView(connectionLineView, i + 1);
-            this.oGg.put(o, connectionLineView);
-            if (this.oGi != null) {
-                this.oGi.Wj(o);
+            this.oGG.put(o, connectionLineView);
+            if (this.oGI != null) {
+                this.oGI.Wv(o);
             }
         }
     }
 
-    public synchronized void Wh(String str) {
-        if (!ListUtils.isEmpty(this.oGg) && this.oGg.containsKey(str)) {
-            ConnectionLineView connectionLineView = this.oGg.get(str);
-            if (connectionLineView != null && this.lxd.indexOfChild(connectionLineView) != -1) {
-                this.lxd.removeView(connectionLineView);
+    public synchronized void Wt(String str) {
+        if (!ListUtils.isEmpty(this.oGG) && this.oGG.containsKey(str)) {
+            ConnectionLineView connectionLineView = this.oGG.get(str);
+            if (connectionLineView != null && this.lxr.indexOfChild(connectionLineView) != -1) {
+                this.lxr.removeView(connectionLineView);
             }
-            this.oGg.remove(str);
+            this.oGG.remove(str);
         }
     }
 
-    public synchronized void edm() {
-        if (!ListUtils.isEmpty(this.oGg)) {
-            for (Map.Entry<String, ConnectionLineView> entry : this.oGg.entrySet()) {
-                Wh(entry.getKey());
+    public synchronized void edu() {
+        if (!ListUtils.isEmpty(this.oGG)) {
+            for (Map.Entry<String, ConnectionLineView> entry : this.oGG.entrySet()) {
+                Wt(entry.getKey());
             }
         }
     }
@@ -81,40 +81,40 @@ public class g {
     }
 
     private double[] a(int i, double[] dArr, double[] dArr2) {
-        return new double[]{((dArr[0] + dArr2[0]) - i) / 2.0d, ((dArr[1] + dArr2[1]) / 2.0d) - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(11.0f, this.lxd.getContext())};
+        return new double[]{((dArr[0] + dArr2[0]) - i) / 2.0d, ((dArr[1] + dArr2[1]) / 2.0d) - com.baidu.tieba.yuyinala.liveroom.wheat.e.e.d(11.0f, this.lxr.getContext())};
     }
 
     public void a(a aVar) {
-        this.oGi = aVar;
+        this.oGI = aVar;
     }
 
     public synchronized void p(int[] iArr) {
         ConnectionLineView connectionLineView;
-        if (!ListUtils.isEmpty(this.oGg) && (connectionLineView = this.oGg.get(o(iArr))) != null) {
-            connectionLineView.eeW();
+        if (!ListUtils.isEmpty(this.oGG) && (connectionLineView = this.oGG.get(o(iArr))) != null) {
+            connectionLineView.efe();
         }
     }
 
-    public ConcurrentHashMap<String, ConnectionLineView> edn() {
-        return this.oGg;
+    public ConcurrentHashMap<String, ConnectionLineView> edv() {
+        return this.oGG;
     }
 
     public synchronized void bh(String str, boolean z) {
-        if (this.oGh != null) {
-            if (this.oGh.containsKey(str)) {
-                this.oGh.remove(str);
+        if (this.oGH != null) {
+            if (this.oGH.containsKey(str)) {
+                this.oGH.remove(str);
             }
-            this.oGh.put(str, Boolean.valueOf(z));
+            this.oGH.put(str, Boolean.valueOf(z));
         }
     }
 
-    public synchronized boolean Wi(String str) {
-        return (this.oGh == null || !this.oGh.containsKey(str)) ? false : this.oGh.get(str).booleanValue();
+    public synchronized boolean Wu(String str) {
+        return (this.oGH == null || !this.oGH.containsKey(str)) ? false : this.oGH.get(str).booleanValue();
     }
 
-    public synchronized void edo() {
-        if (this.oGh != null) {
-            this.oGh.clear();
+    public synchronized void edw() {
+        if (this.oGH != null) {
+            this.oGH.clear();
         }
     }
 }

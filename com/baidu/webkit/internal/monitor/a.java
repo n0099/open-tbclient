@@ -8,12 +8,12 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    C0954a f5674a;
+    C0956a f5674a;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0954a {
+    public class C0956a {
 
         /* renamed from: a  reason: collision with root package name */
         boolean f5675a;
@@ -26,7 +26,7 @@ public final class a {
         boolean f;
         Map<String, Long> g;
 
-        private C0954a() {
+        private C0956a() {
             this.f5676b = true;
             this.c = -1L;
             this.d = -1L;
@@ -34,7 +34,7 @@ public final class a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ C0954a(a aVar, byte b2) {
+        public /* synthetic */ C0956a(a aVar, byte b2) {
             this();
         }
 

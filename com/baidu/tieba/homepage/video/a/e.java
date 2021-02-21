@@ -23,7 +23,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     private ab<k> agg;
     private s amk;
     private BdUniqueId fGZ;
-    private NEGFeedBackView.a gdO;
+    private NEGFeedBackView.a gdT;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -96,8 +96,8 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
         }
         kVar.xd(kVar.position + 1);
         threadCardViewHolder.tj().setPosition(i);
-        threadCardViewHolder.aK(false).a(this.gdO);
-        threadCardViewHolder.a(false, Align.ALIGN_RIGHT_BOTTOM, this.gdO);
+        threadCardViewHolder.aK(false).a(this.gdT);
+        threadCardViewHolder.a(false, Align.ALIGN_RIGHT_BOTTOM, this.gdT);
         threadCardViewHolder.b((ThreadCardViewHolder<k>) kVar);
         threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         threadCardViewHolder.tj().a(this.agg);
@@ -109,6 +109,6 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.gdO = aVar;
+        this.gdT = aVar;
     }
 }

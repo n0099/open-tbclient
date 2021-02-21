@@ -47,8 +47,8 @@ class d {
 
     /* renamed from: com.qq.e.comm.plugin.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    private static class C1194d extends com.qq.e.comm.plugin.c.a {
-        private C1194d() {
+    private static class C1196d extends com.qq.e.comm.plugin.c.a {
+        private C1196d() {
         }
 
         @Override // com.qq.e.comm.plugin.c.l
@@ -97,7 +97,7 @@ class d {
     }
 
     public static l a(com.qq.e.comm.plugin.c.f fVar) {
-        l aVar = fVar.g ? new a() : (fVar.h == null || !fVar.h.booleanValue()) ? new C1194d() : new f();
+        l aVar = fVar.g ? new a() : (fVar.h == null || !fVar.h.booleanValue()) ? new C1196d() : new f();
         ai.a(d.class.getSimpleName(), "buildChain = " + aVar.getClass().getSimpleName());
         aVar.a();
         return aVar;

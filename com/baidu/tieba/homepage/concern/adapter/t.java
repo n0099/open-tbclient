@@ -16,12 +16,12 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, ThreadCardViewHolder<com.baidu.tieba.card.data.k>> {
     private com.baidu.adp.widget.ListView.s amk;
     public BdUniqueId fGZ;
-    private ab<com.baidu.tieba.card.data.k> iOu;
+    private ab<com.baidu.tieba.card.data.k> iOI;
     private TbPageContext<?> mPageContext;
 
     public t(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iOu = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.adapter.t.1
+        this.iOI = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.adapter.t.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
@@ -53,8 +53,8 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 if ((nVar instanceof com.baidu.tieba.card.data.k) && (view.getTag() instanceof ThreadCardViewHolder)) {
                     ThreadCardViewHolder threadCardViewHolder2 = (ThreadCardViewHolder) view.getTag();
                     com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) nVar;
-                    if (t.this.iOu != null) {
-                        t.this.iOu.a(threadCardViewHolder2.getView(), kVar);
+                    if (t.this.iOI != null) {
+                        t.this.iOI.a(threadCardViewHolder2.getView(), kVar);
                     }
                 }
             }

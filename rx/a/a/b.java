@@ -3,13 +3,13 @@ package rx.a.a;
 import rx.g;
 /* loaded from: classes5.dex */
 public class b {
-    private static final b qyd = new b();
+    private static final b qyD = new b();
 
-    public static b eMJ() {
-        return qyd;
+    public static b eMR() {
+        return qyD;
     }
 
-    public g eMK() {
+    public g eMS() {
         return null;
     }
 

@@ -4,67 +4,67 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.tieba.recapp.k;
+import com.baidu.tieba.recapp.l;
 /* loaded from: classes5.dex */
-public class FunAdButton extends Button implements k {
-    private Runnable jTB;
-    private boolean jTC;
+public class FunAdButton extends Button implements l {
+    private Runnable jTP;
+    private boolean jTQ;
 
     public FunAdButton(Context context) {
         super(context, null, 0);
-        this.jTC = false;
+        this.jTQ = false;
     }
 
     public FunAdButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet, 0);
-        this.jTC = false;
+        this.jTQ = false;
     }
 
     public FunAdButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jTC = false;
+        this.jTQ = false;
     }
 
     public void setTextDelay(final CharSequence charSequence, long j) {
-        this.jTC = false;
-        if (this.jTB == null) {
-            this.jTB = new Runnable() { // from class: com.baidu.tieba.funad.view.FunAdButton.1
+        this.jTQ = false;
+        if (this.jTP == null) {
+            this.jTP = new Runnable() { // from class: com.baidu.tieba.funad.view.FunAdButton.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!FunAdButton.this.jTC) {
+                    if (!FunAdButton.this.jTQ) {
                         FunAdButton.this.setText(charSequence);
                     }
                 }
             };
         } else {
-            removeCallbacks(this.jTB);
+            removeCallbacks(this.jTP);
         }
-        postDelayed(this.jTB, j);
+        postDelayed(this.jTP, j);
     }
 
     @Override // android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         super.setText(charSequence, bufferType);
-        this.jTC = true;
+        this.jTQ = true;
     }
 
-    @Override // com.baidu.tieba.recapp.k
+    @Override // com.baidu.tieba.recapp.l
     public void onResume() {
     }
 
-    @Override // com.baidu.tieba.recapp.k
+    @Override // com.baidu.tieba.recapp.l
     public void onDestroy() {
-        if (this.jTB != null) {
-            removeCallbacks(this.jTB);
-            this.jTB = null;
+        if (this.jTP != null) {
+            removeCallbacks(this.jTP);
+            this.jTP = null;
         }
     }
 
-    @Override // com.baidu.tieba.recapp.k
+    @Override // com.baidu.tieba.recapp.l
     public void onPause() {
-        if (this.jTB != null) {
-            removeCallbacks(this.jTB);
-            this.jTB = null;
+        if (this.jTP != null) {
+            removeCallbacks(this.jTP);
+            this.jTP = null;
         }
     }
 }

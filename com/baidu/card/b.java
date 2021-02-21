@@ -48,7 +48,7 @@ public class b extends a<com.baidu.tbadk.core.data.a> {
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0089a c0089a) {
                 if (b.this.agj != null && b.this.agj.bln() != null) {
-                    com.baidu.tieba.card.m.IM(b.this.agj.bln().getId());
+                    com.baidu.tieba.card.m.IN(b.this.agj.bln().getId());
                     com.baidu.tieba.card.m.a(b.this.agi.getTitle(), b.this.agj.bln().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;

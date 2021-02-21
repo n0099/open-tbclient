@@ -13,35 +13,35 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class PkRankKillAnimView extends FrameLayout {
     private com.baidu.live.alphavideo.c bei;
-    private FrameLayout ifP;
-    private ImageView ifQ;
-    private Runnable ifR;
-    private a ilV;
-    private boolean ilW;
+    private FrameLayout igd;
+    private ImageView ige;
+    private Runnable igf;
+    private a imk;
+    private boolean iml;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cov();
+        void coC();
     }
 
     public PkRankKillAnimView(Context context, boolean z) {
         super(context);
-        this.ilW = z;
+        this.iml = z;
     }
 
     public void setCallback(a aVar) {
-        this.ilV = aVar;
+        this.imk = aVar;
     }
 
-    public void bW(int i, int i2) {
-        bX(i, i2);
-        coB();
-        coC();
+    public void bX(int i, int i2) {
+        bY(i, i2);
+        coI();
+        coJ();
     }
 
-    public void Iu(String str) {
+    public void Iv(String str) {
         if (this.bei != null && !TextUtils.isEmpty(str)) {
-            this.ifQ.setVisibility(8);
+            this.ige.setVisibility(8);
             this.bei.getView().setVisibility(0);
             this.bei.play(str);
             return;
@@ -49,21 +49,21 @@ public class PkRankKillAnimView extends FrameLayout {
         if (this.bei != null) {
             this.bei.getView().setVisibility(8);
         }
-        this.ifQ.setVisibility(0);
-        this.ifR = new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankKillAnimView.1
+        this.ige.setVisibility(0);
+        this.igf = new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankKillAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (PkRankKillAnimView.this.ilV != null) {
-                    PkRankKillAnimView.this.ilV.cov();
+                if (PkRankKillAnimView.this.imk != null) {
+                    PkRankKillAnimView.this.imk.coC();
                 }
             }
         };
-        postDelayed(this.ifR, IMConnection.RETRY_DELAY_TIMES);
+        postDelayed(this.igf, IMConnection.RETRY_DELAY_TIMES);
     }
 
     public void stopAnim() {
-        if (this.ifR != null) {
-            removeCallbacks(this.ifR);
+        if (this.igf != null) {
+            removeCallbacks(this.igf);
         }
         if (this.bei != null) {
             this.bei.stop();
@@ -79,16 +79,16 @@ public class PkRankKillAnimView extends FrameLayout {
         removeAllViews();
     }
 
-    private void bX(int i, int i2) {
-        if (this.ifP == null) {
-            this.ifP = new FrameLayout(getContext());
+    private void bY(int i, int i2) {
+        if (this.igd == null) {
+            this.igd = new FrameLayout(getContext());
         }
-        if (indexOfChild(this.ifP) < 0) {
-            addView(this.ifP);
+        if (indexOfChild(this.igd) < 0) {
+            addView(this.igd);
         }
     }
 
-    private void coB() {
+    private void coI() {
         if (this.bei == null || this.bei.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
@@ -98,8 +98,8 @@ public class PkRankKillAnimView extends FrameLayout {
             }
         }
         if (this.bei != null) {
-            if (this.ifP.indexOfChild(this.bei.getView()) < 0) {
-                this.ifP.addView(this.bei.getView(), new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds216), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds304))));
+            if (this.igd.indexOfChild(this.bei.getView()) < 0) {
+                this.igd.addView(this.bei.getView(), new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds216), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds304))));
             }
             this.bei.a(new c.a() { // from class: com.baidu.tieba.ala.view.PkRankKillAnimView.2
                 @Override // com.baidu.live.alphavideo.c.a
@@ -108,8 +108,8 @@ public class PkRankKillAnimView extends FrameLayout {
 
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onEnd() {
-                    if (PkRankKillAnimView.this.ilV != null) {
-                        PkRankKillAnimView.this.ilV.cov();
+                    if (PkRankKillAnimView.this.imk != null) {
+                        PkRankKillAnimView.this.imk.coC();
                     }
                 }
 
@@ -122,19 +122,19 @@ public class PkRankKillAnimView extends FrameLayout {
         }
     }
 
-    private void coC() {
-        if (this.ifQ == null) {
-            this.ifQ = new ImageView(getContext());
-            this.ifQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            if (this.ilW) {
-                this.ifQ.setImageResource(a.e.sdk_kill_success);
+    private void coJ() {
+        if (this.ige == null) {
+            this.ige = new ImageView(getContext());
+            this.ige.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            if (this.iml) {
+                this.ige.setImageResource(a.e.sdk_kill_success);
             } else {
-                this.ifQ.setImageResource(a.e.sdk_anti_kill_success);
+                this.ige.setImageResource(a.e.sdk_anti_kill_success);
             }
         }
-        if (this.ifP.indexOfChild(this.ifQ) < 0) {
-            this.ifP.addView(this.ifQ, new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds216), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds304)));
+        if (this.igd.indexOfChild(this.ige) < 0) {
+            this.igd.addView(this.ige, new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds216), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds304)));
         }
-        this.ifQ.setVisibility(8);
+        this.ige.setVisibility(8);
     }
 }

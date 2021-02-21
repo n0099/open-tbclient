@@ -18,14 +18,14 @@ import com.baidu.tieba.themeCenter.avatarPendant.c;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 /* loaded from: classes9.dex */
 public class AvatarPendantPerItemView extends LinearLayout {
-    private TextView joJ;
-    private TbImageView llR;
+    private TextView joX;
+    private TbImageView lmf;
     private Context mContext;
     private View mRootView;
-    private HeadPendantView nFT;
-    private ImageView nFU;
-    private c.a nFV;
-    private DressItemData nFw;
+    private DressItemData nFW;
+    private HeadPendantView nGt;
+    private ImageView nGu;
+    private c.a nGv;
 
     public AvatarPendantPerItemView(Context context) {
         super(context);
@@ -47,54 +47,54 @@ public class AvatarPendantPerItemView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.avatar_pendant_per_item, this);
-        this.nFT = (HeadPendantView) this.mRootView.findViewById(R.id.avatar_image);
-        this.llR = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
-        this.llR.setDefaultResource(R.drawable.transparent_bg);
-        this.llR.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nFU = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
-        this.joJ = (TextView) this.mRootView.findViewById(R.id.text_pendant_name);
-        this.nFT.setHasPendantStyle();
-        if (this.nFT.getHeadView() != null) {
-            this.nFT.getHeadView().setIsRound(true);
-            this.nFT.getHeadView().setDrawBorder(false);
+        this.nGt = (HeadPendantView) this.mRootView.findViewById(R.id.avatar_image);
+        this.lmf = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
+        this.lmf.setDefaultResource(R.drawable.transparent_bg);
+        this.lmf.setDefaultBgResource(R.drawable.transparent_bg);
+        this.nGu = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
+        this.joX = (TextView) this.mRootView.findViewById(R.id.text_pendant_name);
+        this.nGt.setHasPendantStyle();
+        if (this.nGt.getHeadView() != null) {
+            this.nGt.getHeadView().setIsRound(true);
+            this.nGt.getHeadView().setDrawBorder(false);
         }
-        if (this.nFT.getPendantView() != null) {
-            this.nFT.getPendantView().setIsRound(true);
-            this.nFT.getPendantView().setDrawBorder(false);
+        if (this.nGt.getPendantView() != null) {
+            this.nGt.getPendantView().setIsRound(true);
+            this.nGt.getPendantView().setDrawBorder(false);
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void d(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.nFw = dressItemData;
+            this.nFW = dressItemData;
             boolean inUse = dressItemData.getInUse();
             if (dressItemData.isPropIdEven()) {
-                if (this.nFT.getHeadView() != null) {
-                    this.nFT.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
+                if (this.nGt.getHeadView() != null) {
+                    this.nGt.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
                 }
-            } else if (this.nFT.getHeadView() != null) {
-                this.nFT.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
+            } else if (this.nGt.getHeadView() != null) {
+                this.nGt.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
             }
             if (au.byteLength(dressItemData.getTitle()) > 8) {
-                this.joJ.setText(au.cutString(dressItemData.getTitle(), 8));
+                this.joX.setText(au.cutString(dressItemData.getTitle(), 8));
             } else {
-                this.joJ.setText(dressItemData.getTitle());
+                this.joX.setText(dressItemData.getTitle());
             }
             if (inUse) {
-                this.nFU.setVisibility(0);
-                ap.setImageResource(this.nFU, R.drawable.icon_shop_selected);
+                this.nGu.setVisibility(0);
+                ap.setImageResource(this.nGu, R.drawable.icon_shop_selected);
             } else {
-                this.nFU.setVisibility(8);
+                this.nGu.setVisibility(8);
             }
-            this.llR.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-            this.nFT.Bz(dressItemData.getExampleImgUrl());
-            this.nFT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView.1
+            this.lmf.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+            this.nGt.Bz(dressItemData.getExampleImgUrl());
+            this.nGt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (view != null && AvatarPendantPerItemView.this.nFV != null) {
-                        if (AvatarPendantPerItemView.this.nFw == null || !AvatarPendantPerItemView.this.nFw.getInUse() || !TbadkCoreApplication.isLogin()) {
-                            AvatarPendantPerItemView.this.nFV.b(AvatarPendantPerItemView.this.nFw);
+                    if (view != null && AvatarPendantPerItemView.this.nGv != null) {
+                        if (AvatarPendantPerItemView.this.nFW == null || !AvatarPendantPerItemView.this.nFW.getInUse() || !TbadkCoreApplication.isLogin()) {
+                            AvatarPendantPerItemView.this.nGv.b(AvatarPendantPerItemView.this.nFW);
                         }
                     }
                 }
@@ -104,6 +104,6 @@ public class AvatarPendantPerItemView extends LinearLayout {
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
-        this.nFV = aVar;
+        this.nGv = aVar;
     }
 }

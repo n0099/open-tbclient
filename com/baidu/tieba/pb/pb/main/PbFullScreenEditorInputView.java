@@ -33,14 +33,14 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
     }
 
     public void b(com.baidu.tbadk.coreExtra.data.u uVar) {
-        if (com.baidu.tieba.face.a.Js(getText().toString()) >= 10) {
+        if (com.baidu.tieba.face.a.Jt(getText().toString()) >= 10) {
             com.baidu.tbadk.core.util.e.brY().showToast(R.string.too_many_face);
         } else {
             com.baidu.tieba.face.b.b(getContext(), uVar, this);
         }
     }
 
-    public void CS(String str) {
+    public void CQ(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }

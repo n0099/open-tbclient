@@ -130,7 +130,7 @@ public class m {
         if (f6610b != null) {
             lVar.AZ(f6610b.isCanUsePhoneState());
             if (!f6610b.isCanUsePhoneState()) {
-                lVar.Yv(f6610b.getDevImei());
+                lVar.YH(f6610b.getDevImei());
             }
             lVar.AY(f6610b.isCanUseWifiState());
         }
@@ -147,7 +147,7 @@ public class m {
                 return null;
             }
         });
-        lVar.Oq(0);
+        lVar.Or(0);
         com.bytedance.embedapplog.b.a(context, lVar);
         com.bytedance.embedapplog.b.a(new com.bytedance.embedapplog.g() { // from class: com.bytedance.sdk.openadsdk.core.m.3
             @Override // com.bytedance.embedapplog.g
@@ -229,7 +229,7 @@ public class m {
 
             @Override // com.bytedance.tea.crash.d
             public String c() {
-                return com.bytedance.embedapplog.b.ens();
+                return com.bytedance.embedapplog.b.enA();
             }
 
             @Override // com.bytedance.tea.crash.d

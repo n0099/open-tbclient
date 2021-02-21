@@ -6,7 +6,7 @@ public final class a {
 
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1219a {
+    public static final class C1221a {
         public static int appdownloader_action_bg = R.drawable.appdownloader_action_bg;
         public static int appdownloader_action_new_bg = R.drawable.appdownloader_action_new_bg;
         public static int appdownloader_ad_detail_download_progress = R.drawable.appdownloader_ad_detail_download_progress;

@@ -18,8 +18,8 @@ import com.baidu.tieba.pb.interactionpopupwindow.g;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class a<V extends g, D extends IBaseDialogData> implements f {
-    protected V lLQ;
-    protected D lLR;
+    protected V lMf;
+    protected D lMg;
     private DialogInterface.OnCancelListener mCancelListenr;
     protected Context mContext;
     private AlertDialog mDialog;
@@ -32,8 +32,8 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.lLQ = v;
-        this.lLR = d;
+        this.lMf = v;
+        this.lMg = d;
         a(d);
     }
 
@@ -76,9 +76,9 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.lLQ.getViewGroup());
+            window.setContentView(this.lMf.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bh.a(this.lLQ.getViewGroup(), false, new bh.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
+            bh.a(this.lMf.getViewGroup(), false, new bh.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
                 @Override // com.baidu.tbadk.core.util.bh.a
                 public boolean bo(View view) {
                     if (view instanceof EditText) {
@@ -102,8 +102,8 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     }
 
     public void a(D d) {
-        if (this.lLQ != null) {
-            this.lLQ.a(d);
+        if (this.lMf != null) {
+            this.lMf.a(d);
         }
     }
 }

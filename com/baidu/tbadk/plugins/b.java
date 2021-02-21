@@ -24,7 +24,7 @@ public class b {
     public static String fLz = "＃";
     private static final Pattern eDk = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean Dz(String str) {
+    public static boolean Dx(String str) {
         return fLy.equals(str);
     }
 
@@ -53,7 +53,7 @@ public class b {
         return a(tbPageContext, true, true);
     }
 
-    public static SpannableString DA(String str) {
+    public static SpannableString Dy(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
@@ -62,7 +62,7 @@ public class b {
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!DC(str.substring(start, end))) {
+            if (!DA(str.substring(start, end))) {
                 spannableString.setSpan(new ForegroundColorSpan(ap.getColor(R.color.CAM_X0304)), start, end, 18);
             }
         }
@@ -78,7 +78,7 @@ public class b {
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!DC(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    if (!DA(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
                         spannable.setSpan(new ForegroundColorSpan(ap.getColor(R.color.CAM_X0304)), start, end, 18);
                     }
                 }
@@ -86,7 +86,7 @@ public class b {
         }
     }
 
-    public static String DB(String str) {
+    public static String Dz(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -98,7 +98,7 @@ public class b {
         return str;
     }
 
-    public static boolean DC(String str) {
+    public static boolean DA(String str) {
         return str != null && str.startsWith(fLy) && str.endsWith(fLy) && "".equals(str.substring(1, str.length() + (-1)).trim());
     }
 
@@ -124,7 +124,7 @@ public class b {
         TiebaStatic.log(new ar(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).dR("obj_locate", str));
     }
 
-    public static String DD(String str) {
+    public static String DB(String str) {
         StringBuffer stringBuffer = new StringBuffer("http://tieba.baidu.com/n/video/opersquare?tab=hot&topic_name=");
         int length = str.length();
         String str2 = null;

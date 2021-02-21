@@ -37,12 +37,12 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean CP(String str) {
+    public boolean CN(String str) {
         return com.baidu.tbadk.editortools.emotiontool.b.fCr.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CQ(String str) {
+    public com.baidu.adp.widget.ImageView.a CO(String str) {
         Bitmap resBitmap;
         Integer num = com.baidu.tbadk.editortools.emotiontool.b.fCr.get(str);
         if (num != null && (resBitmap = com.baidu.adp.lib.util.d.nH().getResBitmap(TbadkCoreApplication.getInst().getApp(), num.intValue())) != null) {
@@ -57,8 +57,8 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CR(String str) {
-        return CQ(str);
+    public com.baidu.adp.widget.ImageView.a CP(String str) {
+        return CO(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c

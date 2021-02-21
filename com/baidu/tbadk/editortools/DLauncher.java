@@ -115,12 +115,12 @@ public class DLauncher extends RelativeLayout implements h {
         }
     }
 
-    public void CK(String str) {
-        CL(str);
+    public void CI(String str) {
+        CJ(str);
         this.mTip.setVisibility(0);
     }
 
-    private void CL(String str) {
+    private void CJ(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mText = str;
             if (this.mTip == null) {
@@ -155,7 +155,7 @@ public class DLauncher extends RelativeLayout implements h {
             if (aVar.data == null) {
                 bBf();
             } else if (aVar.data instanceof String) {
-                CK((String) aVar.data);
+                CI((String) aVar.data);
             }
         }
     }

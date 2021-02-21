@@ -15,22 +15,22 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ab {
-    private PbModel lNh;
-    private a lSi;
-    protected final com.baidu.adp.framework.listener.a lWv = new com.baidu.adp.framework.listener.a(1001603, CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE) { // from class: com.baidu.tieba.pb.pb.main.ab.1
+    private PbModel lNw;
+    private a lSx;
+    protected final com.baidu.adp.framework.listener.a lWK = new com.baidu.adp.framework.listener.a(1001603, CmdConfigSocket.CMD_SOCKET_GOD_REPLY_LOOKMORE) { // from class: com.baidu.tieba.pb.pb.main.ab.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == ab.this.lWu) {
+                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == ab.this.lWJ) {
                     if (responsedMessage instanceof LookMoreHttpResMessage) {
                         LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
                         List<PostData> data = lookMoreHttpResMessage.getData();
                         String errorString = lookMoreHttpResMessage.getErrorString();
                         int error = lookMoreHttpResMessage.getError();
                         if (error != 0) {
-                            ab.this.lSi.n(error, errorString, "");
+                            ab.this.lSx.n(error, errorString, "");
                         } else if (!com.baidu.tbadk.core.util.y.isEmpty(data)) {
-                            ab.this.lSi.aj(data);
+                            ab.this.lSx.aj(data);
                         }
                     } else if (responsedMessage instanceof LookMoreSocketResMessage) {
                         LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
@@ -38,16 +38,16 @@ public class ab {
                         String errorString2 = lookMoreSocketResMessage.getErrorString();
                         int error2 = lookMoreSocketResMessage.getError();
                         if (error2 != 0) {
-                            ab.this.lSi.n(error2, errorString2, "");
+                            ab.this.lSx.n(error2, errorString2, "");
                         } else if (data2 != null) {
-                            ab.this.lSi.aj(data2);
+                            ab.this.lSx.aj(data2);
                         }
                     }
                 }
             }
         }
     };
-    private final BdUniqueId lWu = BdUniqueId.gen();
+    private final BdUniqueId lWJ = BdUniqueId.gen();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -57,19 +57,19 @@ public class ab {
     }
 
     public ab(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
-        this.lNh = pbModel;
+        this.lNw = pbModel;
         registerTask();
-        this.lWv.setTag(baseFragmentActivity.getUniqueId());
-        MessageManager.getInstance().registerListener(this.lWv);
-        this.lSi = null;
+        this.lWK.setTag(baseFragmentActivity.getUniqueId());
+        MessageManager.getInstance().registerListener(this.lWK);
+        this.lSx = null;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.lWv);
+        MessageManager.getInstance().unRegisterListener(this.lWK);
     }
 
     public void b(a aVar) {
-        this.lSi = aVar;
+        this.lSx = aVar;
     }
 
     private void registerTask() {
@@ -80,17 +80,17 @@ public class ab {
     }
 
     public void fm(List<Long> list) {
-        if (this.lNh != null && this.lNh.getPbData() != null) {
+        if (this.lNw != null && this.lNw.getPbData() != null) {
             int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
             int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
             LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.f.b.toLong(this.lNh.lUN, 0L)));
+            lookMoreReqMessage.setKz(Long.valueOf(com.baidu.adp.lib.f.b.toLong(this.lNw.lVc, 0L)));
             lookMoreReqMessage.setPost_id(list);
-            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.f.b.toInt(this.lNh.mStType, 0));
+            lookMoreReqMessage.setSt_type(com.baidu.adp.lib.f.b.toInt(this.lNw.mStType, 0));
             lookMoreReqMessage.setWith_floor(1);
             lookMoreReqMessage.setScr_w(equipmentWidth);
             lookMoreReqMessage.setScr_h(equipmentHeight);
-            lookMoreReqMessage.setTag(this.lWu);
+            lookMoreReqMessage.setTag(this.lWJ);
             MessageManager.getInstance().sendMessage(lookMoreReqMessage);
         }
     }

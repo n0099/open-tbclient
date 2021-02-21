@@ -20,7 +20,7 @@ public interface a extends IInterface {
 
     /* renamed from: com.bytedance.embedapplog.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static abstract class AbstractBinderC0985a extends Binder implements a {
+    public static abstract class AbstractBinderC0987a extends Binder implements a {
         public static a a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
@@ -29,7 +29,7 @@ public interface a extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                 return (a) queryLocalInterface;
             }
-            return new C0986a(iBinder);
+            return new C0988a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -80,12 +80,12 @@ public interface a extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        static class C0986a implements a {
+        static class C0988a implements a {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f5771a;
 
-            C0986a(IBinder iBinder) {
+            C0988a(IBinder iBinder) {
                 this.f5771a = iBinder;
             }
 

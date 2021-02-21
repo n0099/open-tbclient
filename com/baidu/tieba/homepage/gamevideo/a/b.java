@@ -17,18 +17,18 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
     private boolean hasLoaded = false;
-    private int keK;
-    private int keL;
+    private int keY;
+    private int keZ;
     private BdUniqueId mBdUniqueId;
     private List<com.baidu.tieba.homepage.gamevideo.c.a> mList;
     private TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext, int i, BdUniqueId bdUniqueId) {
-        this.keK = -1;
+        this.keY = -1;
         this.mTbPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.keL = i;
-        this.keK = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("key_game_video_tab_has_choosed_sub_class_id", -1);
+        this.keZ = i;
+        this.keY = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("key_game_video_tab_has_choosed_sub_class_id", -1);
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
@@ -44,7 +44,7 @@ public class b extends BaseAdapter {
     }
 
     public void BO(int i) {
-        this.keK = i;
+        this.keY = i;
     }
 
     @Override // android.widget.Adapter
@@ -69,12 +69,12 @@ public class b extends BaseAdapter {
             aVar = new a();
             view = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.game_video_choose_item_layout, (ViewGroup) null);
             aVar.title = (TextView) view.findViewById(R.id.id_game_video_choose_item_title);
-            aVar.keM = (BarImageView) view.findViewById(R.id.id_game_video_choose_item_photo);
-            aVar.keN = (ImageView) view.findViewById(R.id.id_game_video_choose_item_selected);
-            aVar.keM.setShowOval(true);
-            aVar.keM.setAutoChangeStyle(true);
-            aVar.keM.setBorderColor(this.mTbPageContext.getResources().getColor(R.color.black_alpha8));
-            aVar.keM.setBorderWidth(this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds3));
+            aVar.kfa = (BarImageView) view.findViewById(R.id.id_game_video_choose_item_photo);
+            aVar.kfb = (ImageView) view.findViewById(R.id.id_game_video_choose_item_selected);
+            aVar.kfa.setShowOval(true);
+            aVar.kfa.setAutoChangeStyle(true);
+            aVar.kfa.setBorderColor(this.mTbPageContext.getResources().getColor(R.color.black_alpha8));
+            aVar.kfa.setBorderWidth(this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds3));
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -83,18 +83,18 @@ public class b extends BaseAdapter {
         com.baidu.tieba.homepage.gamevideo.c.a aVar2 = (com.baidu.tieba.homepage.gamevideo.c.a) y.getItem(this.mList, i);
         if (aVar2 != null) {
             aVar.title.setText(StringUtils.isNull(aVar2.sub_class_name) ? "" : aVar2.sub_class_name);
-            aVar.keM.startLoad(aVar2.sub_class_icon, 10, false);
+            aVar.kfa.startLoad(aVar2.sub_class_icon, 10, false);
             if (aVar2.enable == 1) {
-                aVar.keM.setAlpha(1);
+                aVar.kfa.setAlpha(1);
                 aVar.title.setAlpha(1.0f);
             } else {
-                aVar.keM.setAlpha(0.5f);
+                aVar.kfa.setAlpha(0.5f);
                 aVar.title.setAlpha(0.5f);
             }
-            if (aVar2.sub_class_id == this.keK && this.keL != 101) {
-                aVar.keN.setVisibility(0);
+            if (aVar2.sub_class_id == this.keY && this.keZ != 101) {
+                aVar.kfb.setVisibility(0);
             } else {
-                aVar.keN.setVisibility(8);
+                aVar.kfb.setVisibility(8);
             }
         }
         return view;
@@ -103,15 +103,15 @@ public class b extends BaseAdapter {
     private void a(a aVar) {
         if (aVar != null) {
             ap.setViewTextColor(aVar.title, R.color.CAM_X0107);
-            ap.setImageResource(aVar.keN, R.drawable.icon_game_video_tab_choose_select);
+            ap.setImageResource(aVar.kfb, R.drawable.icon_game_video_tab_choose_select);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a {
-        BarImageView keM;
-        ImageView keN;
+        BarImageView kfa;
+        ImageView kfb;
         TextView title;
 
         private a() {

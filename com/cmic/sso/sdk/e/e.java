@@ -19,7 +19,7 @@ public class e {
         f7725a.remove(str);
     }
 
-    public static com.cmic.sso.sdk.b.b YY(String str) {
+    public static com.cmic.sso.sdk.b.b Zk(String str) {
         return f7725a.get(str);
     }
 

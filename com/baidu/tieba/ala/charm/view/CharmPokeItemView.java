@@ -25,13 +25,13 @@ import com.baidu.live.view.ALALevelView;
 /* loaded from: classes11.dex */
 public class CharmPokeItemView extends LinearLayout {
     public TextView aDM;
-    public TextView gPr;
-    public ImageView gPs;
-    public HeadImageView gPt;
-    public TbImageView gPu;
-    public ALALevelView gPv;
-    public TextView gPw;
-    public TextView gPx;
+    public TextView gPF;
+    public ImageView gPG;
+    public HeadImageView gPH;
+    public TbImageView gPI;
+    public ALALevelView gPJ;
+    public TextView gPK;
+    public TextView gPL;
 
     public CharmPokeItemView(Context context) {
         this(context, null);
@@ -44,34 +44,34 @@ public class CharmPokeItemView extends LinearLayout {
 
     public void setData(int i, int i2, String str, String str2, long j, long j2, int i3, final long j3, final String str3) {
         float dimensionPixelSize;
-        this.gPr.setVisibility(8);
-        this.gPs.setVisibility(8);
-        this.gPu.setVisibility(0);
+        this.gPF.setVisibility(8);
+        this.gPG.setVisibility(8);
+        this.gPI.setVisibility(0);
         if (i == 2 && j > 0) {
             switch (i2) {
                 case 1:
-                    this.gPs.setVisibility(0);
-                    this.gPs.setBackgroundResource(a.e.sdk_icon_live_list_first);
-                    this.gPu.setImageResource(a.e.pic_live_list_top1);
+                    this.gPG.setVisibility(0);
+                    this.gPG.setBackgroundResource(a.e.sdk_icon_live_list_first);
+                    this.gPI.setImageResource(a.e.pic_live_list_top1);
                     break;
                 case 2:
-                    this.gPs.setVisibility(0);
-                    this.gPs.setBackgroundResource(a.e.sdk_icon_live_list_second);
-                    this.gPu.setImageResource(a.e.pic_live_list_top2);
+                    this.gPG.setVisibility(0);
+                    this.gPG.setBackgroundResource(a.e.sdk_icon_live_list_second);
+                    this.gPI.setImageResource(a.e.pic_live_list_top2);
                     break;
                 case 3:
-                    this.gPs.setVisibility(0);
-                    this.gPs.setBackgroundResource(a.e.sdk_icon_live_list_third);
-                    this.gPu.setImageResource(a.e.pic_live_list_top3);
+                    this.gPG.setVisibility(0);
+                    this.gPG.setBackgroundResource(a.e.sdk_icon_live_list_third);
+                    this.gPI.setImageResource(a.e.pic_live_list_top3);
                     break;
                 default:
-                    this.gPr.setVisibility(0);
-                    this.gPr.setTextColor(1728053247);
-                    this.gPr.setText(i2 + "");
-                    this.gPu.setVisibility(8);
-                    if (this.gPr.getText() != null) {
-                        TextView textView = this.gPr;
-                        if (this.gPr.getText().length() > 3) {
+                    this.gPF.setVisibility(0);
+                    this.gPF.setTextColor(1728053247);
+                    this.gPF.setText(i2 + "");
+                    this.gPI.setVisibility(8);
+                    if (this.gPF.getText() != null) {
+                        TextView textView = this.gPF;
+                        if (this.gPF.getText().length() > 3) {
                             dimensionPixelSize = getResources().getDimensionPixelSize(a.d.sdk_fontsize24);
                         } else {
                             dimensionPixelSize = getResources().getDimensionPixelSize(a.d.sdk_fontsize36);
@@ -82,33 +82,33 @@ public class CharmPokeItemView extends LinearLayout {
                     break;
             }
         } else {
-            this.gPu.setVisibility(8);
-            this.gPs.setBackgroundResource(a.e.sdk_charm_no_listed);
-            this.gPs.setVisibility(0);
+            this.gPI.setVisibility(8);
+            this.gPG.setBackgroundResource(a.e.sdk_charm_no_listed);
+            this.gPG.setVisibility(0);
         }
-        m.a(this.gPt, str2, true, false);
+        m.a(this.gPH, str2, true, false);
         this.aDM.setText(str);
         switch (i) {
             case 1:
-                this.gPw.setText(String.format(getResources().getString(a.h.sdk_charm_rank_forward_diff), StringHelper.formatValue(j2)));
+                this.gPK.setText(String.format(getResources().getString(a.h.sdk_charm_rank_forward_diff), StringHelper.formatValue(j2)));
                 break;
             case 2:
-                this.gPw.setText(String.format("%s 魅力", StringHelper.formatValue(j)));
+                this.gPK.setText(String.format("%s 魅力", StringHelper.formatValue(j)));
                 break;
         }
         if (i3 == 0) {
-            this.gPx.setVisibility(8);
+            this.gPL.setVisibility(8);
             return;
         }
         if (i3 == 1) {
-            this.gPx.setEnabled(false);
-            this.gPx.setText(getResources().getString(a.h.sdk_poke_had_poked));
+            this.gPL.setEnabled(false);
+            this.gPL.setText(getResources().getString(a.h.sdk_poke_had_poked));
         }
         if (i3 == 2) {
-            this.gPx.setEnabled(true);
-            this.gPx.setText(getResources().getString(a.h.sdk_poke_not_poke));
+            this.gPL.setEnabled(true);
+            this.gPL.setText(getResources().getString(a.h.sdk_poke_not_poke));
         }
-        this.gPx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.CharmPokeItemView.1
+        this.gPL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.view.CharmPokeItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913267, ""));
@@ -131,21 +131,21 @@ public class CharmPokeItemView extends LinearLayout {
     }
 
     protected void Ge() {
-        this.gPr = (TextView) findViewById(a.f.tv_rank);
-        this.gPs = (ImageView) findViewById(a.f.iv_rank);
-        this.gPt = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.gPu = (TbImageView) findViewById(a.f.iv_pendant);
-        this.gPv = (ALALevelView) findViewById(a.f.level);
+        this.gPF = (TextView) findViewById(a.f.tv_rank);
+        this.gPG = (ImageView) findViewById(a.f.iv_rank);
+        this.gPH = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.gPI = (TbImageView) findViewById(a.f.iv_pendant);
+        this.gPJ = (ALALevelView) findViewById(a.f.level);
         this.aDM = (TextView) findViewById(a.f.tv_name);
-        this.gPw = (TextView) findViewById(a.f.tv_value);
-        this.gPx = (TextView) findViewById(a.f.poke);
+        this.gPK = (TextView) findViewById(a.f.tv_value);
+        this.gPL = (TextView) findViewById(a.f.poke);
     }
 
     protected void initView() {
-        this.gPt.setAutoChangeStyle(false);
-        this.gPt.setDrawBorder(false);
-        this.gPt.setIsRound(true);
-        this.gPu.setDefaultBgResource(a.c.sdk_transparent);
-        this.gPu.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.gPH.setAutoChangeStyle(false);
+        this.gPH.setDrawBorder(false);
+        this.gPH.setIsRound(true);
+        this.gPI.setDefaultBgResource(a.c.sdk_transparent);
+        this.gPI.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 }

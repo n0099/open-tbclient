@@ -3,5 +3,5 @@ package com.baidu.tieba.l;
 public interface k {
     h aM(String str, String str2, String str3);
 
-    g dgY();
+    g dhf();
 }

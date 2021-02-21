@@ -21,13 +21,13 @@ public final class az extends ax<a> {
     }
 
     @Override // com.bytedance.embedapplog.ax
-    protected bp.b<a, String> enS() {
+    protected bp.b<a, String> eoa() {
         return new bp.b<a, String>() { // from class: com.bytedance.embedapplog.az.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b
             /* renamed from: a */
             public a e(IBinder iBinder) {
-                return a.AbstractBinderC0985a.a(iBinder);
+                return a.AbstractBinderC0987a.a(iBinder);
             }
 
             /* JADX DEBUG: Method merged with bridge method */

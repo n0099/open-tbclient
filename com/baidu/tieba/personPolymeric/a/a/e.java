@@ -36,18 +36,18 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     public BdUniqueId fGZ;
     private com.baidu.adp.lib.d.b<ImageView> fUl;
     private com.baidu.adp.lib.d.b<GifView> fUm;
-    private int hWN;
+    private int hXb;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
-    private int mzG;
-    private int mzH;
+    private int mzV;
+    private int mzW;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.akO = true;
-        this.mzG = 0;
-        this.mzH = 0;
-        this.hWN = 0;
+        this.mzV = 0;
+        this.mzW = 0;
+        this.hXb = 0;
         this.agg = new ab<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
@@ -141,7 +141,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
         this.fUm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.personPolymeric.a.a.e.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cwZ */
+            /* renamed from: cxg */
             public GifView makeObject() {
                 GifView gifView = new GifView(e.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.bkT().isShowImages();
@@ -213,8 +213,8 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
         dVar.setPageUniqueId(this.fGZ);
         dVar.br(1024);
         dVar.br(32768);
-        if (this.mzG > 0) {
-            dVar.bq(this.mzG);
+        if (this.mzV > 0) {
+            dVar.bq(this.mzV);
         }
         dVar.aC(false);
         dVar.aD(false);
@@ -261,7 +261,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
         th.setSourceForPb(4);
         ThreadCardViewHolder<k> threadCardViewHolder = new ThreadCardViewHolder<>(th);
         threadCardViewHolder.setPageId(this.fGZ);
-        threadCardViewHolder.bC(this.mzH);
+        threadCardViewHolder.bC(this.mzW);
         a(new w() { // from class: com.baidu.tieba.personPolymeric.a.a.e.5
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -300,16 +300,16 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 
     public void GX(int i) {
-        this.mzG = i;
+        this.mzV = i;
     }
 
     public void setTabType(int i) {
-        this.hWN = i;
+        this.hXb = i;
     }
 
     public void setIsHost(boolean z) {
@@ -317,6 +317,6 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     }
 
     public void GW(int i) {
-        this.mzH = i;
+        this.mzW = i;
     }
 }

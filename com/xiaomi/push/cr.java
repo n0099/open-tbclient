@@ -19,7 +19,7 @@ class cr {
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-            messageDigest.update(m230a(str));
+            messageDigest.update(m229a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
@@ -35,7 +35,7 @@ class cr {
             boolean z2 = z;
             if (!it.hasNext()) {
                 sb.append(ETAG.ITEM_SEPARATOR).append(str);
-                return a(new String(Base64.encode(m230a(sb.toString()), 2)));
+                return a(new String(Base64.encode(m229a(sb.toString()), 2)));
             }
             NameValuePair next = it.next();
             if (!z2) {
@@ -47,11 +47,11 @@ class cr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m229a(String str) {
+    public static void m228a(String str) {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static byte[] m230a(String str) {
+    private static byte[] m229a(String str) {
         try {
             return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {

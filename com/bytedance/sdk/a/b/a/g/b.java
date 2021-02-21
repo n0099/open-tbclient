@@ -55,7 +55,7 @@ public final class b extends e {
         throw new UnsupportedOperationException("clientBuilder.sslSocketFactory(SSLSocketFactory) not supported on JDK 9+");
     }
 
-    public static b epy() {
+    public static b epG() {
         try {
             return new b(SSLParameters.class.getMethod("setApplicationProtocols", String[].class), SSLSocket.class.getMethod("getApplicationProtocol", new Class[0]));
         } catch (NoSuchMethodException e) {

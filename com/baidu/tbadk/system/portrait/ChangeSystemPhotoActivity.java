@@ -171,7 +171,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                                 bVar.setUrl(popularPortraitsInfo.url);
                                 bVar.setNum(popularPortraitsInfo.num);
                                 bVar.rA(popularPortraitsInfo.myItem);
-                                bVar.DE(popularPortraitsInfo.series);
+                                bVar.DC(popularPortraitsInfo.series);
                                 ChangeSystemPhotoActivity.this.fLZ.add(bVar);
                             }
                         }

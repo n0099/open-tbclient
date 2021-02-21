@@ -5,7 +5,7 @@ public interface k<T> {
 
     void ba(float f);
 
-    void esv();
+    void esD();
 
     void g(T t, int i);
 }

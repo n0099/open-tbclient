@@ -24,31 +24,31 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private static volatile b hME = null;
+    private static volatile b hMS = null;
     private BdPageContext<?> bkx;
     private long buN;
-    public c hMF;
+    public c hMT;
     private AlaLiveInfoData mLiveInfo;
     private String mType;
     private long mUserId;
-    private boolean hMG = false;
-    HttpMessageListener hMB = new HttpMessageListener(1021220) { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.b.1
+    private boolean hMU = false;
+    HttpMessageListener hMP = new HttpMessageListener(1021220) { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021220 && (httpResponsedMessage instanceof WatchTaskInfoHttpResponseMessage) && !httpResponsedMessage.hasError()) {
-                b.this.hMF = ((WatchTaskInfoHttpResponseMessage) httpResponsedMessage).cjW();
-                b.this.a(b.this.hMF);
+                b.this.hMT = ((WatchTaskInfoHttpResponseMessage) httpResponsedMessage).ckd();
+                b.this.a(b.this.hMT);
             }
         }
     };
 
-    public boolean cjX() {
-        return this.hMG;
+    public boolean cke() {
+        return this.hMU;
     }
 
     public void oI(boolean z) {
-        this.hMG = z;
+        this.hMU = z;
     }
 
     private b() {
@@ -60,40 +60,40 @@ public class b {
         this.mUserId = j2;
         this.mLiveInfo = alaLiveInfoData;
         this.mType = str;
-        bZm();
-        cjZ();
+        bZt();
+        ckg();
         fJ(j2);
     }
 
-    public static b cjY() {
-        if (hME == null) {
+    public static b ckf() {
+        if (hMS == null) {
             synchronized (b.class) {
-                if (hME == null) {
-                    hME = new b();
+                if (hMS == null) {
+                    hMS = new b();
                 }
             }
         }
-        return hME;
+        return hMS;
     }
 
-    private void cjZ() {
-        MessageManager.getInstance().registerListener(this.hMB);
+    private void ckg() {
+        MessageManager.getInstance().registerListener(this.hMP);
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.hMB);
+        MessageManager.getInstance().unRegisterListener(this.hMP);
         MessageManager.getInstance().unRegisterTask(1021220);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
-        if (cVar.hMK == 0 && cVar.hMP == 0 && !TextUtils.isEmpty(cVar.hMQ) && !TextUtils.isEmpty(cVar.hML)) {
-            a("performance_5", this.buN, this.hMF.hMM, this.hMF.hML, this.hMF.hMM * 60 * 1000, this.hMF.hMO);
-            a("performance_15", this.buN, this.hMF.hMR, this.hMF.hMQ, this.hMF.hMR * 60 * 1000, this.hMF.hMT);
-        } else if (cVar.hMK != 0 && !TextUtils.isEmpty(cVar.hMQ) && cVar.hMP == 0) {
-            a("performance_15", this.buN, this.hMF.hMR, this.hMF.hMQ, this.hMF.hMR * 60 * 1000, this.hMF.hMT);
-        } else if (cVar.hMK == 0 && !TextUtils.isEmpty(cVar.hML) && cVar.hMP != 0) {
-            a("performance_5", this.buN, this.hMF.hMM, this.hMF.hML, this.hMF.hMM * 60 * 1000, this.hMF.hMO);
+        if (cVar.hMY == 0 && cVar.hNd == 0 && !TextUtils.isEmpty(cVar.hNe) && !TextUtils.isEmpty(cVar.hMZ)) {
+            a("performance_5", this.buN, this.hMT.hNa, this.hMT.hMZ, this.hMT.hNa * 60 * 1000, this.hMT.hNc);
+            a("performance_15", this.buN, this.hMT.hNf, this.hMT.hNe, this.hMT.hNf * 60 * 1000, this.hMT.hNh);
+        } else if (cVar.hMY != 0 && !TextUtils.isEmpty(cVar.hNe) && cVar.hNd == 0) {
+            a("performance_15", this.buN, this.hMT.hNf, this.hMT.hNe, this.hMT.hNf * 60 * 1000, this.hMT.hNh);
+        } else if (cVar.hMY == 0 && !TextUtils.isEmpty(cVar.hMZ) && cVar.hNd != 0) {
+            a("performance_5", this.buN, this.hMT.hNa, this.hMT.hMZ, this.hMT.hNa * 60 * 1000, this.hMT.hNc);
         }
     }
 
@@ -119,9 +119,9 @@ public class b {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         aVar.hide();
-                        if (b.this.hMF != null && b.this.mType == null) {
-                            b.this.cka();
-                            b.this.HZ(b.this.hMF.hMN);
+                        if (b.this.hMT != null && b.this.mType == null) {
+                            b.this.ckh();
+                            b.this.Ia(b.this.hMT.hNb);
                         }
                     }
                 });
@@ -132,12 +132,12 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cka() {
+    public void ckh() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913253, "ala/guess/cancelResult"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HZ(String str) {
+    public void Ia(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.an.c cVar = new com.baidu.live.an.c();
             cVar.url = str;
@@ -155,7 +155,7 @@ public class b {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private void bZm() {
+    private void bZt() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021220, TbConfig.SERVER_QUANMIN_ADDRESS + "pubshow/task/Isjumplivequizticket");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

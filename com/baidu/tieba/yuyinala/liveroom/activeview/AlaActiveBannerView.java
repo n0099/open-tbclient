@@ -23,23 +23,23 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class AlaActiveBannerView extends LinearLayout implements c {
-    private String hpj;
-    private Set<Integer> hpk;
+    private String hpx;
+    private Set<Integer> hpy;
     private boolean isHost;
     private int mCurrentPosition;
     private SlideRatioViewPager.OnPageChangeListener mOnPageChangeListener;
-    private AlaActiveBannerViewPager orD;
-    private AlaActiveBannerViewPagerAdapter orE;
-    private AlaActiveBannerDot orF;
-    private b.a orG;
+    private AlaActiveBannerViewPager osd;
+    private AlaActiveBannerViewPagerAdapter ose;
+    private AlaActiveBannerDot osf;
+    private b.a osg;
     private String otherParams;
 
     public AlaActiveBannerView(Context context) {
         super(context);
         this.mCurrentPosition = 0;
-        this.hpj = "";
+        this.hpx = "";
         this.isHost = false;
-        this.hpk = new HashSet();
+        this.hpy = new HashSet();
         this.mOnPageChangeListener = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.yuyinala.liveroom.activeview.AlaActiveBannerView.1
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
@@ -60,9 +60,9 @@ public class AlaActiveBannerView extends LinearLayout implements c {
     public AlaActiveBannerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mCurrentPosition = 0;
-        this.hpj = "";
+        this.hpx = "";
         this.isHost = false;
-        this.hpk = new HashSet();
+        this.hpy = new HashSet();
         this.mOnPageChangeListener = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.yuyinala.liveroom.activeview.AlaActiveBannerView.1
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
@@ -83,9 +83,9 @@ public class AlaActiveBannerView extends LinearLayout implements c {
     public AlaActiveBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mCurrentPosition = 0;
-        this.hpj = "";
+        this.hpx = "";
         this.isHost = false;
-        this.hpk = new HashSet();
+        this.hpy = new HashSet();
         this.mOnPageChangeListener = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.yuyinala.liveroom.activeview.AlaActiveBannerView.1
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i22) {
@@ -106,30 +106,30 @@ public class AlaActiveBannerView extends LinearLayout implements c {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(a.g.yuyinala_active_banner, (ViewGroup) this, true);
-        this.orD = (AlaActiveBannerViewPager) findViewById(a.f.active_view_pager);
-        this.orD.setSlideRatioToLeft(0.8f);
-        this.orD.setSlideRatioToRight(0.2f);
-        this.orF = (AlaActiveBannerDot) findViewById(a.f.dot_container);
-        this.orE = new AlaActiveBannerViewPagerAdapter();
-        this.orD.setAdapter(this.orE);
-        this.orD.addOnPageChangeListener(this.mOnPageChangeListener);
+        this.osd = (AlaActiveBannerViewPager) findViewById(a.f.active_view_pager);
+        this.osd.setSlideRatioToLeft(0.8f);
+        this.osd.setSlideRatioToRight(0.2f);
+        this.osf = (AlaActiveBannerDot) findViewById(a.f.dot_container);
+        this.ose = new AlaActiveBannerViewPagerAdapter();
+        this.osd.setAdapter(this.ose);
+        this.osd.addOnPageChangeListener(this.mOnPageChangeListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vb(int i) {
-        int count = this.orD.getAdapter().getCount();
+        int count = this.osd.getAdapter().getCount();
         if (count > 3) {
             if (i == count - 1) {
                 this.mCurrentPosition = 1;
-                this.orD.setCurrentItem(this.mCurrentPosition, false);
+                this.osd.setCurrentItem(this.mCurrentPosition, false);
             } else if (i == 0) {
                 this.mCurrentPosition = count - 2;
-                this.orD.setCurrentItem(this.mCurrentPosition, false);
+                this.osd.setCurrentItem(this.mCurrentPosition, false);
             } else {
                 this.mCurrentPosition = i;
                 vc(this.mCurrentPosition);
             }
-            this.orF.ub(this.mCurrentPosition - 1);
+            this.osf.ub(this.mCurrentPosition - 1);
         }
         vd(i);
     }
@@ -146,15 +146,15 @@ public class AlaActiveBannerView extends LinearLayout implements c {
 
     private void vd(int i) {
         t vg;
-        if (!this.isHost && (vg = this.orE.vg(i)) != null) {
+        if (!this.isHost && (vg = this.ose.vg(i)) != null) {
             int i2 = vg.activityId;
-            if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) && !this.hpk.contains(Integer.valueOf(i2)) && !TextUtils.isEmpty(this.hpj)) {
+            if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) && !this.hpy.contains(Integer.valueOf(i2)) && !TextUtils.isEmpty(this.hpx)) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.DISPLAY_PENDANT);
-                alaStaticItem.addParams("feed_id", this.hpj);
+                alaStaticItem.addParams("feed_id", this.hpx);
                 alaStaticItem.addParams(SdkStaticKeys.KEY_PENDANT_ID, i2 + "");
                 alaStaticItem.addParams("other_params", this.otherParams);
                 AlaStaticsManager.getInst().onStatic(alaStaticItem);
-                this.hpk.add(Integer.valueOf(i2));
+                this.hpy.add(Integer.valueOf(i2));
             }
         }
     }
@@ -167,39 +167,39 @@ public class AlaActiveBannerView extends LinearLayout implements c {
     */
     public void setData(ArrayList<t> arrayList, String str) {
         boolean z = false;
-        if (!TextUtils.equals(this.hpj, str)) {
-            this.hpk = new HashSet();
-            this.hpj = str;
+        if (!TextUtils.equals(this.hpx, str)) {
+            this.hpy = new HashSet();
+            this.hpx = str;
         }
-        List<t> ear = this.orE.ear();
-        if (ear != null && ear.size() == arrayList.size()) {
+        List<t> eaz = this.ose.eaz();
+        if (eaz != null && eaz.size() == arrayList.size()) {
             int i = 0;
             while (true) {
-                if (i >= ear.size()) {
+                if (i >= eaz.size()) {
                     z = true;
                     break;
                 }
                 t tVar = arrayList.get(i);
-                t tVar2 = ear.get(i);
+                t tVar2 = eaz.get(i);
                 if (tVar.activityId != tVar2.activityId || tVar.picType != tVar2.picType || !tVar.pic_url.equals(tVar2.pic_url) || !tVar.jump_url.equals(tVar2.jump_url)) {
                     break;
                 }
                 i++;
             }
         }
-        this.orF.uc(ListUtils.getCount(arrayList));
-        this.orE.setData(arrayList);
-        this.orE.notifyDataSetChanged();
-        this.orD.eaq();
+        this.osf.uc(ListUtils.getCount(arrayList));
+        this.ose.setData(arrayList);
+        this.ose.notifyDataSetChanged();
+        this.osd.eay();
     }
 
     public void va(int i) {
-        this.orE.LN(i);
+        this.ose.LO(i);
     }
 
     public void a(b.a aVar) {
-        this.orG = aVar;
-        this.orE.a(this.orG);
+        this.osg = aVar;
+        this.ose.a(this.osg);
     }
 
     public int getCurrentPosition() {
@@ -216,11 +216,11 @@ public class AlaActiveBannerView extends LinearLayout implements c {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.activeview.c
     public void release() {
-        if (this.orD != null) {
-            this.orD.release();
+        if (this.osd != null) {
+            this.osd.release();
         }
-        this.hpj = "";
-        this.hpk.clear();
+        this.hpx = "";
+        this.hpy.clear();
     }
 
     public void setHost(boolean z) {

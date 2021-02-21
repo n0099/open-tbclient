@@ -22,7 +22,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes6.dex */
 public class TNWebViewClient extends WebViewClient {
-    private final TurbonetEngine oQJ;
+    private final TurbonetEngine oRj;
 
     @Override // android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
@@ -49,9 +49,9 @@ public class TNWebViewClient extends WebViewClient {
         } catch (Exception e3) {
             Log.e("tn_TNWebViewClient", "Exception when intercept webview request: " + e3.toString());
         }
-        if (webResourceRequest.getMethod().equals("GET") && !this.oQJ.egj()) {
+        if (webResourceRequest.getMethod().equals("GET") && !this.oRj.egr()) {
             Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-            d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.oQJ);
+            d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.oRj);
             dVar.setRequestMethod(webResourceRequest.getMethod());
             Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
             if (requestHeaders != null) {

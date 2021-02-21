@@ -68,8 +68,8 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
         this.f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.kwad.sdk.core.download.b.a.a(view.getContext(), b.this.j, new a.InterfaceC1092a() { // from class: com.kwad.sdk.splashscreen.b.1.1
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+                com.kwad.sdk.core.download.b.a.a(view.getContext(), b.this.j, new a.InterfaceC1094a() { // from class: com.kwad.sdk.splashscreen.b.1.1
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                     public void a() {
                         if (b.this.d != null) {
                             b.this.d.onAdClicked();

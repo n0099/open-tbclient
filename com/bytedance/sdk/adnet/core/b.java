@@ -29,7 +29,7 @@ public final class b {
         return this.f6019a;
     }
 
-    public final List<a> eqL() {
+    public final List<a> eqT() {
         return Collections.unmodifiableList(this.f6020b);
     }
 

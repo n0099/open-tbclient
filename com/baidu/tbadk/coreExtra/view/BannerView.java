@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.t;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
     private TbPageContext<?> eUY;
@@ -51,7 +51,7 @@ public class BannerView extends RelativeLayout {
 
     public void setBannerData(af afVar) {
         this.fwe = afVar;
-        s.a(this.fwe.eNF, this.fwa, this.fwe.eNG, l.getDimens(getContext(), R.dimen.ds26));
+        t.a(this.fwe.eNF, this.fwa, this.fwe.eNG, l.getDimens(getContext(), R.dimen.ds26));
     }
 
     public void setMtjInfo(String str, String str2) {

@@ -39,7 +39,7 @@ public final class a implements Closeable {
     private long m = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    final ThreadPoolExecutor f9924a = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC1119a());
+    final ThreadPoolExecutor f9924a = new ThreadPoolExecutor(0, 1, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC1121a());
     private final Callable<Void> n = new Callable<Void>() { // from class: com.kwad.sdk.glide.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
@@ -60,8 +60,8 @@ public final class a implements Closeable {
 
     /* renamed from: com.kwad.sdk.glide.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static final class ThreadFactoryC1119a implements ThreadFactory {
-        private ThreadFactoryC1119a() {
+    private static final class ThreadFactoryC1121a implements ThreadFactory {
+        private ThreadFactoryC1121a() {
         }
 
         @Override // java.util.concurrent.ThreadFactory

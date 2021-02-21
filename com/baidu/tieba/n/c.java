@@ -5,7 +5,7 @@ import com.baidu.tieba.n.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends b.AbstractC0800b {
+public class c extends b.AbstractC0801b {
     private final int code;
     private final String msg;
 
@@ -15,9 +15,9 @@ public class c extends b.AbstractC0800b {
         this.msg = str2;
     }
 
-    @Override // com.baidu.tieba.n.b.AbstractC0800b, com.baidu.tieba.n.b
-    public JSONObject dAT() {
-        JSONObject dAT = super.dAT();
+    @Override // com.baidu.tieba.n.b.AbstractC0801b, com.baidu.tieba.n.b
+    public JSONObject dBa() {
+        JSONObject dBa = super.dBa();
         try {
             JSONObject jSONObject = new JSONObject();
             if (this.code != -4399) {
@@ -26,10 +26,10 @@ public class c extends b.AbstractC0800b {
             if (!StringUtils.isNull(this.msg)) {
                 jSONObject.put("msg", this.msg);
             }
-            dAT.put("ext", jSONObject);
+            dBa.put("ext", jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return dAT;
+        return dBa;
     }
 }

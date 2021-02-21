@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private e hll;
+    private e hlz;
     private int mErrCode;
     private String mErrMsg;
 
@@ -14,8 +14,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         this.mErrMsg = "";
     }
 
-    public e bYv() {
-        return this.hll;
+    public e bYC() {
+        return this.hlz;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -25,8 +25,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString("error_msg");
-            this.hll = new e();
-            this.hll.parserJson(jSONObject);
+            this.hlz = new e();
+            this.hlz.parserJson(jSONObject);
         }
     }
 }

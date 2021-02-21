@@ -19,10 +19,10 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes9.dex */
     public static class a {
-        public View gft;
-        public View jlo;
+        public View gfy;
+        public View jlC;
         public TextView mTitleView;
-        public HeadImageView nIP;
+        public HeadImageView nJp;
     }
 
     public b(TbPageContext<?> tbPageContext) {
@@ -61,27 +61,27 @@ public class b extends BaseAdapter {
         } else {
             view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.dressup_item_view, viewGroup, false);
             a aVar2 = new a();
-            aVar2.nIP = (HeadImageView) view.findViewById(R.id.dress_icon);
-            aVar2.nIP.setDefaultResource(R.drawable.img_default_100);
-            aVar2.nIP.setDefaultBgResource(R.color.CAM_X0204);
+            aVar2.nJp = (HeadImageView) view.findViewById(R.id.dress_icon);
+            aVar2.nJp.setDefaultResource(R.drawable.img_default_100);
+            aVar2.nJp.setDefaultBgResource(R.color.CAM_X0204);
             aVar2.mTitleView = (TextView) view.findViewById(R.id.dress_desc_view);
-            aVar2.jlo = view.findViewById(R.id.tip_view);
-            aVar2.gft = view.findViewById(R.id.divider_line);
+            aVar2.jlC = view.findViewById(R.id.tip_view);
+            aVar2.gfy = view.findViewById(R.id.divider_line);
             view.setTag(aVar2);
             aVar = aVar2;
         }
         if (item != null) {
-            aVar.nIP.startLoad(item.getIconUrl(), 10, false);
+            aVar.nJp.startLoad(item.getIconUrl(), 10, false);
             aVar.mTitleView.setText(item.getName());
             if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.brQ().getLong(SharedPrefConfig.DRESSUP_CENTER_RED_TIP + TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + item.getType(), 0L) > 0) {
-                aVar.jlo.setVisibility(0);
+                aVar.jlC.setVisibility(0);
             } else {
-                aVar.jlo.setVisibility(4);
+                aVar.jlC.setVisibility(4);
             }
             if (i == getCount() - 1) {
-                aVar.gft.setVisibility(8);
+                aVar.gfy.setVisibility(8);
             } else {
-                aVar.gft.setVisibility(0);
+                aVar.gfy.setVisibility(0);
             }
         }
         this.eUY.getLayoutMode().onModeChanged(view);

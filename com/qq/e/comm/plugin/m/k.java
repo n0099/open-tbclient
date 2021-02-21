@@ -16,7 +16,7 @@ public interface k {
 
     void a(b.a aVar);
 
-    void a(b.EnumC1203b enumC1203b);
+    void a(b.EnumC1205b enumC1205b);
 
     void a(String str);
 
@@ -38,7 +38,7 @@ public interface k {
 
     View q();
 
-    b.EnumC1203b r();
+    b.EnumC1205b r();
 
     int s();
 

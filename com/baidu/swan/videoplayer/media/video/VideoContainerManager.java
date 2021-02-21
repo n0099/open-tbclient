@@ -134,7 +134,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
         private void bgf() {
             this.eAY = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.eAY.getHierarchy().b(p.b.pDw);
+            this.eAY.getHierarchy().b(p.b.pDW);
             addView(this.eAY, layoutParams);
         }
 
@@ -167,7 +167,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                p.b bVar = p.b.pDw;
+                p.b bVar = p.b.pDW;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -191,16 +191,16 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 }
                 switch (c) {
                     case 0:
-                        p.b bVar2 = p.b.pDv;
+                        p.b bVar2 = p.b.pDV;
                         break;
                     case 1:
-                        p.b bVar3 = p.b.pDw;
+                        p.b bVar3 = p.b.pDW;
                         break;
                     case 2:
-                        p.b bVar4 = p.b.pDq;
+                        p.b bVar4 = p.b.pDQ;
                         break;
                 }
-                this.eAY.getHierarchy().b(p.b.pDw);
+                this.eAY.getHierarchy().b(p.b.pDW);
                 a(str, this.eAY);
             }
         }
@@ -217,7 +217,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             if (measuredWidth > 0 && measuredHeight > 0) {
                 ag.c(new d(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.eto().c(simpleDraweeView.getController()).bo(ag.eAi()).euf());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.etw().c(simpleDraweeView.getController()).bo(ag.eAq()).eun());
         }
 
         public Uri tV(String str) {

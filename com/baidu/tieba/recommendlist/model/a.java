@@ -5,11 +5,11 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 public class a extends HttpMessage {
     public int aQN;
     public int aam;
-    public long igl;
+    public long igz;
     public long liveId;
-    public int naQ;
-    public int naR;
-    public long naS;
+    public int nbq;
+    public int nbr;
+    public long nbs;
 
     public a() {
         super(1021193);
@@ -17,10 +17,10 @@ public class a extends HttpMessage {
 
     public void setParams() {
         addParam("live_id", this.liveId);
-        addParam("session_id", this.igl);
+        addParam("session_id", this.igz);
         addParam("refresh_type", this.aam);
-        addParam("big_refresh_count", this.naQ);
+        addParam("big_refresh_count", this.nbq);
         addParam("live_recommend_switch", this.aQN);
-        addParam("live_recommend_lastlyliveid", this.naS);
+        addParam("live_recommend_lastlyliveid", this.nbs);
     }
 }

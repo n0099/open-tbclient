@@ -6,13 +6,13 @@ import java.util.Set;
 @kotlin.e
 /* loaded from: classes6.dex */
 public class ah {
-    public static final <T> Set<T> eLe() {
+    public static final <T> Set<T> eLm() {
         return EmptySet.INSTANCE;
     }
 
     public static final <T> Set<T> U(T... tArr) {
         kotlin.jvm.internal.p.o(tArr, "elements");
-        return tArr.length > 0 ? f.T(tArr) : ag.eLe();
+        return tArr.length > 0 ? f.T(tArr) : ag.eLm();
     }
 
     public static final <T> Set<T> bT(T t) {

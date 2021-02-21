@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int count;
-    private List<com.baidu.live.data.e> oJa;
-    private int oJb;
+    private List<com.baidu.live.data.e> oJA;
+    private int oJB;
     private int phone_order;
     private int position;
 
@@ -21,29 +21,29 @@ public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpRespons
         JSONArray jSONArray;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031006) {
-            if (this.oJa == null) {
-                this.oJa = new ArrayList();
+            if (this.oJA == null) {
+                this.oJA = new ArrayList();
             }
-            this.oJa.clear();
+            this.oJA.clear();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null && (jSONArray = optJSONObject.getJSONArray("list")) != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     com.baidu.live.data.e eVar = new com.baidu.live.data.e();
                     eVar.parseJson((JSONObject) jSONArray.get(i2));
-                    this.oJa.add(eVar);
+                    this.oJA.add(eVar);
                 }
             }
             if (optJSONObject != null) {
                 this.count = optJSONObject.optInt("count", 0);
                 this.position = optJSONObject.optInt("pos", 0);
                 this.phone_order = optJSONObject.optInt("phone_order", 0);
-                this.oJb = optJSONObject.optInt("link_status", 0);
+                this.oJB = optJSONObject.optInt("link_status", 0);
             }
         }
     }
 
-    public List<com.baidu.live.data.e> eew() {
-        return this.oJa;
+    public List<com.baidu.live.data.e> eeE() {
+        return this.oJA;
     }
 
     public int getPosition() {
@@ -54,11 +54,11 @@ public class AlaGetApplyWheatListHttpResponseMessage extends BaseJsonHttpRespons
         return this.count;
     }
 
-    public boolean eex() {
-        return this.oJb == 1;
+    public boolean eeF() {
+        return this.oJB == 1;
     }
 
-    public int eey() {
+    public int eeG() {
         return this.phone_order;
     }
 }

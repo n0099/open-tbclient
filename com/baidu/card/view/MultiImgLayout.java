@@ -122,7 +122,7 @@ public class MultiImgLayout extends LinearLayout implements p<com.baidu.tbadk.co
         if (voiceModel != null) {
             this.alb.Dp(voiceModel.voice_status.intValue());
         }
-        this.alb.ccu();
+        this.alb.ccB();
         this.ale = true;
     }
 

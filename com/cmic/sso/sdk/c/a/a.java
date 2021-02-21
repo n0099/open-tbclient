@@ -45,9 +45,9 @@ public class a implements b {
         com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "请求地址: " + cVar.a());
         try {
             URL url = new URL(cVar.a());
-            if (cVar.erp() != null) {
+            if (cVar.ery() != null) {
                 com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "开始wifi下取号");
-                httpURLConnection = (HttpURLConnection) cVar.erp().openConnection(url);
+                httpURLConnection = (HttpURLConnection) cVar.ery().openConnection(url);
             } else {
                 com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "使用当前网络环境发送请求");
                 httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -88,7 +88,7 @@ public class a implements b {
                             if (e instanceof SSLHandshakeException) {
                                 aVar.a("isNeedToGetCert", true);
                             }
-                            com.cmic.sso.sdk.d.a.pwX.add(e);
+                            com.cmic.sso.sdk.d.a.pxx.add(e);
                             i2 = !(e instanceof EOFException) ? 200050 : 102102;
                             a(outputStream);
                             a(inputStream);
@@ -104,7 +104,7 @@ public class a implements b {
                                     cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                                     return;
                                 default:
-                                    cVar2.a(com.cmic.sso.sdk.c.d.a.OM(i2));
+                                    cVar2.a(com.cmic.sso.sdk.c.d.a.ON(i2));
                                     return;
                             }
                         } catch (Throwable th2) {
@@ -123,7 +123,7 @@ public class a implements b {
                                     cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                                     break;
                                 default:
-                                    cVar2.a(com.cmic.sso.sdk.c.d.a.OM(i));
+                                    cVar2.a(com.cmic.sso.sdk.c.d.a.ON(i));
                                     break;
                             }
                             throw th;
@@ -170,7 +170,7 @@ public class a implements b {
                                 com.cmic.sso.sdk.e.c.a("ConnectionInterceptor", "请求失败: " + cVar.a());
                                 if (e instanceof SSLHandshakeException) {
                                 }
-                                com.cmic.sso.sdk.d.a.pwX.add(e);
+                                com.cmic.sso.sdk.d.a.pxx.add(e);
                                 if (!(e instanceof EOFException)) {
                                 }
                                 a(outputStream);
@@ -218,7 +218,7 @@ public class a implements b {
                                 cVar2.a(bVar);
                                 return;
                             default:
-                                cVar2.a(com.cmic.sso.sdk.c.d.a.OM(i));
+                                cVar2.a(com.cmic.sso.sdk.c.d.a.ON(i));
                                 return;
                         }
                     } catch (Exception e4) {
@@ -288,7 +288,7 @@ public class a implements b {
             }
             com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "cer: " + a2);
             if (!TextUtils.isEmpty(a2)) {
-                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a2).ers().getSocketFactory());
+                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a2).erA().getSocketFactory());
             }
         }
     }

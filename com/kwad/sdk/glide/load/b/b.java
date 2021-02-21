@@ -12,21 +12,21 @@ import java.nio.ByteBuffer;
 public class b<Data> implements n<byte[], Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final InterfaceC1126b<Data> f10073a;
+    private final InterfaceC1128b<Data> f10073a;
 
     /* loaded from: classes3.dex */
     public static class a implements o<byte[], ByteBuffer> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<byte[], ByteBuffer> a(@NonNull r rVar) {
-            return new b(new InterfaceC1126b<ByteBuffer>() { // from class: com.kwad.sdk.glide.load.b.b.a.1
-                @Override // com.kwad.sdk.glide.load.b.b.InterfaceC1126b
+            return new b(new InterfaceC1128b<ByteBuffer>() { // from class: com.kwad.sdk.glide.load.b.b.a.1
+                @Override // com.kwad.sdk.glide.load.b.b.InterfaceC1128b
                 public Class<ByteBuffer> a() {
                     return ByteBuffer.class;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.kwad.sdk.glide.load.b.b.InterfaceC1126b
+                @Override // com.kwad.sdk.glide.load.b.b.InterfaceC1128b
                 /* renamed from: a */
                 public ByteBuffer b(byte[] bArr) {
                     return ByteBuffer.wrap(bArr);
@@ -37,7 +37,7 @@ public class b<Data> implements n<byte[], Data> {
 
     /* renamed from: com.kwad.sdk.glide.load.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1126b<Data> {
+    public interface InterfaceC1128b<Data> {
         Class<Data> a();
 
         Data b(byte[] bArr);
@@ -51,11 +51,11 @@ public class b<Data> implements n<byte[], Data> {
         private final byte[] f10075a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final InterfaceC1126b<Data> f10076b;
+        private final InterfaceC1128b<Data> f10076b;
 
-        c(byte[] bArr, InterfaceC1126b<Data> interfaceC1126b) {
+        c(byte[] bArr, InterfaceC1128b<Data> interfaceC1128b) {
             this.f10075a = bArr;
-            this.f10076b = interfaceC1126b;
+            this.f10076b = interfaceC1128b;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
@@ -90,15 +90,15 @@ public class b<Data> implements n<byte[], Data> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<byte[], InputStream> a(@NonNull r rVar) {
-            return new b(new InterfaceC1126b<InputStream>() { // from class: com.kwad.sdk.glide.load.b.b.d.1
+            return new b(new InterfaceC1128b<InputStream>() { // from class: com.kwad.sdk.glide.load.b.b.d.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.kwad.sdk.glide.load.b.b.InterfaceC1126b
+                @Override // com.kwad.sdk.glide.load.b.b.InterfaceC1128b
                 /* renamed from: a */
                 public InputStream b(byte[] bArr) {
                     return new ByteArrayInputStream(bArr);
                 }
 
-                @Override // com.kwad.sdk.glide.load.b.b.InterfaceC1126b
+                @Override // com.kwad.sdk.glide.load.b.b.InterfaceC1128b
                 public Class<InputStream> a() {
                     return InputStream.class;
                 }
@@ -106,8 +106,8 @@ public class b<Data> implements n<byte[], Data> {
         }
     }
 
-    public b(InterfaceC1126b<Data> interfaceC1126b) {
-        this.f10073a = interfaceC1126b;
+    public b(InterfaceC1128b<Data> interfaceC1128b) {
+        this.f10073a = interfaceC1128b;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

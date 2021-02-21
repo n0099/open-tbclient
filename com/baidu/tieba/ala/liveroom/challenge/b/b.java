@@ -53,25 +53,25 @@ import org.json.JSONObject;
 public class b {
     private BdUniqueId aCW;
     private int bOQ;
-    private long gpB;
-    private a huz;
-    private long hvA;
-    private long hvB;
-    private long hvC;
-    private long hvD;
-    private long hvE;
-    private long hvG;
-    private ChallenfeInfoData.ChallengeStatus hvH;
-    private i.f hvI;
-    private int hvg;
-    private long hvy;
-    private long hvz;
+    private long gpP;
+    private a huN;
+    private long hvM;
+    private long hvN;
+    private long hvO;
+    private long hvP;
+    private long hvQ;
+    private long hvR;
+    private long hvS;
+    private long hvU;
+    private ChallenfeInfoData.ChallengeStatus hvV;
+    private i.f hvW;
+    private int hvu;
     private boolean isHost;
     private TbPageContext mPageContext;
-    private boolean hvF = false;
-    private boolean hvJ = false;
-    private boolean hvK = false;
-    private boolean hvL = false;
+    private boolean hvT = false;
+    private boolean hvX = false;
+    private boolean hvY = false;
+    private boolean hvZ = false;
     private HttpMessageListener bQL = new HttpMessageListener(0) { // from class: com.baidu.tieba.ala.liveroom.challenge.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -112,61 +112,61 @@ public class b {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AlaGetChallengeInfoResponseMessage) {
-                b.this.hvJ = false;
-                if (!b.this.huz.ccB()) {
+                b.this.hvX = false;
+                if (!b.this.huN.ccI()) {
                     b.this.b((AlaGetChallengeInfoResponseMessage) httpResponsedMessage);
                     b.this.a((AlaGetChallengeInfoResponseMessage) httpResponsedMessage);
                 }
             }
         }
     };
-    private Runnable hvO = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.b.b.3
+    private Runnable hwc = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.b.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.hvL) {
+            if (b.this.hvZ) {
                 b.this.mHandler.removeCallbacks(this);
-                b.this.mHandler.postDelayed(this, b.this.hvz);
+                b.this.mHandler.postDelayed(this, b.this.hvN);
                 return;
             }
             b.this.mHandler.removeCallbacks(this);
             MessageManager.getInstance().removeMessage(1021106, b.this.aCW);
             b.this.oa(false);
-            b.this.mHandler.postDelayed(this, b.this.hvz);
+            b.this.mHandler.postDelayed(this, b.this.hvN);
         }
     };
-    private Runnable hvP = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.b.b.4
+    private Runnable hwd = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.b.b.4
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.hvK) {
+            if (b.this.hvY) {
                 b.this.mHandler.removeCallbacks(this);
-                b.this.mHandler.postDelayed(this, b.this.hvy);
+                b.this.mHandler.postDelayed(this, b.this.hvM);
                 return;
             }
             b.this.mHandler.removeCallbacks(this);
             MessageManager.getInstance().removeMessage(1021110, b.this.aCW);
             b.this.ob(false);
-            b.this.mHandler.postDelayed(this, b.this.hvy);
+            b.this.mHandler.postDelayed(this, b.this.hvM);
         }
     };
-    private Runnable hvQ = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.b.b.5
+    private Runnable hwe = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.b.b.5
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.hvB <= 0) {
+            if (b.this.hvP <= 0) {
                 b.this.mHandler.removeCallbacks(this);
                 MessageManager.getInstance().removeMessage(1021112, b.this.aCW);
                 return;
             }
             b.this.mHandler.removeCallbacks(this);
-            if (b.this.hvJ) {
-                b.this.mHandler.postDelayed(this, b.this.hvA);
+            if (b.this.hvX) {
+                b.this.mHandler.postDelayed(this, b.this.hvO);
                 return;
             }
             MessageManager.getInstance().removeMessage(1021112, b.this.aCW);
-            if (b.this.hvI != null) {
-                b.this.hvg = b.this.hvI.AL();
+            if (b.this.hvW != null) {
+                b.this.hvu = b.this.hvW.AL();
             }
-            b.this.hvJ = true;
-            com.baidu.tieba.ala.liveroom.challenge.message.a aVar = new com.baidu.tieba.ala.liveroom.challenge.message.a(b.this.hvB, b.this.bOQ, b.this.gpB, b.this.hvG, b.this.hvg);
+            b.this.hvX = true;
+            com.baidu.tieba.ala.liveroom.challenge.message.a aVar = new com.baidu.tieba.ala.liveroom.challenge.message.a(b.this.hvP, b.this.bOQ, b.this.gpP, b.this.hvU, b.this.hvu);
             aVar.setTag(b.this.aCW);
             MessageManager.getInstance().sendMessage(aVar);
             if (b.this.isHost) {
@@ -175,20 +175,20 @@ public class b {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put("avts_conn", b.this.bOQ);
-                    jSONObject2.put("avts_fail", b.this.hvg);
-                    jSONObject2.put("chat_id", b.this.hvB);
+                    jSONObject2.put("avts_fail", b.this.hvu);
+                    jSONObject2.put("chat_id", b.this.hvP);
                     jSONObject.put("pk", jSONObject2);
                 } catch (JSONException e) {
                 }
                 ubcStatisticItem.setContentExt(jSONObject);
                 UbcStatisticManager.getInstance().logSendRequest(ubcStatisticItem);
             }
-            b.this.mHandler.postDelayed(this, b.this.hvA);
+            b.this.mHandler.postDelayed(this, b.this.hvO);
         }
     };
     private Handler mHandler = new Handler();
-    private Map<Long, List<Long>> hvM = new HashMap();
-    private Map<Long, Integer> hvN = new HashMap();
+    private Map<Long, List<Long>> hwa = new HashMap();
+    private Map<Long, Integer> hwb = new HashMap();
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -226,7 +226,7 @@ public class b {
 
         void cC(List<d> list);
 
-        boolean ccB();
+        boolean ccI();
 
         void d(boolean z, com.baidu.live.challenge.a aVar);
 
@@ -253,10 +253,10 @@ public class b {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("avts_conn", this.bOQ);
-                jSONObject2.put("avts_fail", this.hvg);
-                if (alaGetChallengeInfoResponseMessage.ccR() != null) {
-                    jSONObject2.put("chat_id", alaGetChallengeInfoResponseMessage.ccR().challengeId);
-                    jSONObject2.put(AlaRecorderLog.KEY_CHAT_STATUS, alaGetChallengeInfoResponseMessage.ccR().aOK);
+                jSONObject2.put("avts_fail", this.hvu);
+                if (alaGetChallengeInfoResponseMessage.ccY() != null) {
+                    jSONObject2.put("chat_id", alaGetChallengeInfoResponseMessage.ccY().challengeId);
+                    jSONObject2.put(AlaRecorderLog.KEY_CHAT_STATUS, alaGetChallengeInfoResponseMessage.ccY().aOK);
                 }
                 jSONObject.put("pk", jSONObject2);
             } catch (JSONException e) {
@@ -274,10 +274,10 @@ public class b {
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.aCW = bdUniqueId;
-        this.hvy = com.baidu.live.ae.a.Qj().buX.aLV > 0 ? com.baidu.live.ae.a.Qj().buX.aLV : 1000L;
-        this.hvz = com.baidu.live.ae.a.Qj().buX.aLW > 0 ? com.baidu.live.ae.a.Qj().buX.aLW : 1000L;
-        this.hvA = com.baidu.live.ae.a.Qj().buX.aLX > 0 ? com.baidu.live.ae.a.Qj().buX.aLX : 1000L;
-        this.hvH = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
+        this.hvM = com.baidu.live.ae.a.Qj().buX.aLV > 0 ? com.baidu.live.ae.a.Qj().buX.aLV : 1000L;
+        this.hvN = com.baidu.live.ae.a.Qj().buX.aLW > 0 ? com.baidu.live.ae.a.Qj().buX.aLW : 1000L;
+        this.hvO = com.baidu.live.ae.a.Qj().buX.aLX > 0 ? com.baidu.live.ae.a.Qj().buX.aLX : 1000L;
+        this.hvV = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
         registerTask();
         registerListener();
     }
@@ -287,16 +287,16 @@ public class b {
     }
 
     public void h(long j, long j2) {
-        this.gpB = j;
-        this.hvG = j2;
+        this.gpP = j;
+        this.hvU = j2;
     }
 
     public void a(a aVar) {
-        this.huz = aVar;
+        this.huN = aVar;
     }
 
     public void b(i.f fVar) {
-        this.hvI = fVar;
+        this.hvW = fVar;
     }
 
     private void registerTask() {
@@ -342,7 +342,7 @@ public class b {
         MessageManager.getInstance().unRegisterListener(this.bld);
     }
 
-    private void cde() {
+    private void cdl() {
         MessageManager.getInstance().removeMessage(1021183, this.aCW);
         MessageManager.getInstance().removeMessage(1021105, this.aCW);
         MessageManager.getInstance().removeMessage(1021182, this.aCW);
@@ -357,27 +357,27 @@ public class b {
         MessageManager.getInstance().removeMessage(1021209, this.aCW);
     }
 
-    private void cdf() {
+    private void cdm() {
         MessageManager.getInstance().removeMessage(1021112, this.aCW);
         MessageManager.getInstance().removeMessage(1021115, this.aCW);
     }
 
     private void reset() {
-        this.hvB = 0L;
-        this.hvC = 0L;
+        this.hvP = 0L;
+        this.hvQ = 0L;
         this.bOQ = 0;
-        this.hvg = 0;
-        this.hvD = 0L;
-        this.hvE = 0L;
-        cdi();
-        cdh();
-        cdj();
+        this.hvu = 0;
+        this.hvR = 0L;
+        this.hvS = 0L;
+        cdp();
+        cdo();
+        cdq();
         this.mHandler.removeCallbacksAndMessages(null);
-        cde();
-        cdf();
+        cdl();
+        cdm();
     }
 
-    public void cdg() {
+    public void cdn() {
         reset();
     }
 
@@ -387,7 +387,7 @@ public class b {
     }
 
     public long AJ() {
-        return this.hvB;
+        return this.hvP;
     }
 
     public void AC() {
@@ -396,7 +396,7 @@ public class b {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void HD(String str) {
+    public void HE(String str) {
         HttpMessage httpMessage = new HttpMessage(1021209);
         httpMessage.addParam("user_id", str);
         httpMessage.setTag(this.aCW);
@@ -435,11 +435,11 @@ public class b {
     }
 
     public void aJ(long j) {
-        this.hvB = 0L;
-        this.hvC = j;
-        this.hvH = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_MATCHING;
+        this.hvP = 0L;
+        this.hvQ = j;
+        this.hvV = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_MATCHING;
         oa(true);
-        this.mHandler.postDelayed(this.hvO, 1000L);
+        this.mHandler.postDelayed(this.hwc, 1000L);
     }
 
     public void aK(long j) {
@@ -465,10 +465,10 @@ public class b {
     }
 
     public void AE() {
-        this.hvB = 0L;
-        this.hvH = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_MATCHING;
+        this.hvP = 0L;
+        this.hvV = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_MATCHING;
         ob(true);
-        this.mHandler.postDelayed(this.hvP, 1000L);
+        this.mHandler.postDelayed(this.hwd, 1000L);
     }
 
     public void AF() {
@@ -480,14 +480,14 @@ public class b {
 
     public void AI() {
         HttpMessage httpMessage = new HttpMessage(1021115);
-        httpMessage.addParam("challenge_id", this.hvB);
+        httpMessage.addParam("challenge_id", this.hvP);
         httpMessage.setTag(this.aCW);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void AK() {
         HttpMessage httpMessage = new HttpMessage(1021197);
-        httpMessage.addParam("challenge_id", this.hvB);
+        httpMessage.addParam("challenge_id", this.hvP);
         httpMessage.setTag(this.aCW);
         MessageManager.getInstance().sendMessage(httpMessage);
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem("2678", UbcStatConstant.ContentType.UBC_TYPE_CHALLENGE_CLOSE, "author_liveroom", ""));
@@ -507,102 +507,102 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaChallengeSwitchResponsedMessage alaChallengeSwitchResponsedMessage) {
-        if (alaChallengeSwitchResponsedMessage != null && this.huz != null) {
+        if (alaChallengeSwitchResponsedMessage != null && this.huN != null) {
             if (alaChallengeSwitchResponsedMessage.hasError() || alaChallengeSwitchResponsedMessage.getError() != 0) {
-                this.huz.t(alaChallengeSwitchResponsedMessage.getError(), alaChallengeSwitchResponsedMessage.getErrorString());
+                this.huN.t(alaChallengeSwitchResponsedMessage.getError(), alaChallengeSwitchResponsedMessage.getErrorString());
             } else {
-                this.huz.AM();
+                this.huN.AM();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaGetTargetListResponseMessage alaGetTargetListResponseMessage) {
-        if (this.huz != null && alaGetTargetListResponseMessage != null) {
+        if (this.huN != null && alaGetTargetListResponseMessage != null) {
             if (alaGetTargetListResponseMessage.hasError() || alaGetTargetListResponseMessage.getError() != 0) {
-                this.huz.q(alaGetTargetListResponseMessage.getError(), alaGetTargetListResponseMessage.getErrorString());
+                this.huN.q(alaGetTargetListResponseMessage.getError(), alaGetTargetListResponseMessage.getErrorString());
             } else {
-                this.huz.a(alaGetTargetListResponseMessage.cdc(), alaGetTargetListResponseMessage.cdd());
+                this.huN.a(alaGetTargetListResponseMessage.cdj(), alaGetTargetListResponseMessage.cdk());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaSearchTargetListResponseMessage alaSearchTargetListResponseMessage) {
-        if (this.huz != null && alaSearchTargetListResponseMessage != null) {
+        if (this.huN != null && alaSearchTargetListResponseMessage != null) {
             if (alaSearchTargetListResponseMessage.hasError() || alaSearchTargetListResponseMessage.getError() != 0) {
-                this.huz.q(alaSearchTargetListResponseMessage.getError(), alaSearchTargetListResponseMessage.getErrorString());
+                this.huN.q(alaSearchTargetListResponseMessage.getError(), alaSearchTargetListResponseMessage.getErrorString());
             } else {
-                this.huz.a(alaSearchTargetListResponseMessage.cdc(), alaSearchTargetListResponseMessage.cdd());
+                this.huN.a(alaSearchTargetListResponseMessage.cdj(), alaSearchTargetListResponseMessage.cdk());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaChallengeLatestListResponseMessage alaChallengeLatestListResponseMessage) {
-        if (this.huz != null && alaChallengeLatestListResponseMessage != null) {
+        if (this.huN != null && alaChallengeLatestListResponseMessage != null) {
             if (alaChallengeLatestListResponseMessage.hasError() || alaChallengeLatestListResponseMessage.getError() != 0) {
-                this.huz.bf(alaChallengeLatestListResponseMessage.getError(), alaChallengeLatestListResponseMessage.getErrorString());
+                this.huN.bf(alaChallengeLatestListResponseMessage.getError(), alaChallengeLatestListResponseMessage.getErrorString());
             } else {
-                this.huz.cC(alaChallengeLatestListResponseMessage.ccQ());
+                this.huN.cC(alaChallengeLatestListResponseMessage.ccX());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CloseChallengeResponseMessage closeChallengeResponseMessage) {
-        if (this.huz != null && closeChallengeResponseMessage != null) {
+        if (this.huN != null && closeChallengeResponseMessage != null) {
             boolean z = !closeChallengeResponseMessage.hasError() && closeChallengeResponseMessage.getError() == 0;
-            this.huz.x(z, closeChallengeResponseMessage.getErrorString());
+            this.huN.x(z, closeChallengeResponseMessage.getErrorString());
             UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem("2678", UbcStatConstant.ContentType.UBC_TYPE_CHALLENGE_CLOSE_RESULT, "author_liveroom", z ? "challenge_close_succ" : "challenge_close_fail"), closeChallengeResponseMessage, true);
         }
     }
 
-    private void cdh() {
-        this.hvL = false;
+    private void cdo() {
+        this.hvZ = false;
         MessageManager.getInstance().removeMessage(1021106, this.aCW);
-        this.mHandler.removeCallbacks(this.hvO);
-        this.hvH = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
+        this.mHandler.removeCallbacks(this.hwc);
+        this.hvV = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void oa(boolean z) {
-        this.hvL = true;
+        this.hvZ = true;
         HttpMessage httpMessage = new HttpMessage(1021106);
-        httpMessage.addParam("target_user_id", this.hvC);
+        httpMessage.addParam("target_user_id", this.hvQ);
         if (z) {
             httpMessage.addParam("type", "start");
         }
         httpMessage.setTag(this.aCW);
         MessageManager.getInstance().sendMessage(httpMessage);
-        ev(UbcStatConstant.ContentType.UBC_TYPE_PK_DIRECT, ExtraParamsManager.getBase64(String.valueOf(this.hvC)));
+        ev(UbcStatConstant.ContentType.UBC_TYPE_PK_DIRECT, ExtraParamsManager.getBase64(String.valueOf(this.hvQ)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaStartDirectChallengeResponseMessage alaStartDirectChallengeResponseMessage) {
-        if (this.huz != null) {
-            this.hvL = false;
-            String base64 = ExtraParamsManager.getBase64(String.valueOf(this.hvC));
+        if (this.huN != null) {
+            this.hvZ = false;
+            String base64 = ExtraParamsManager.getBase64(String.valueOf(this.hvQ));
             String str = "";
-            if (alaStartDirectChallengeResponseMessage != null && alaStartDirectChallengeResponseMessage.ccN() != null) {
-                str = alaStartDirectChallengeResponseMessage.ccN().aFs + "";
+            if (alaStartDirectChallengeResponseMessage != null && alaStartDirectChallengeResponseMessage.ccU() != null) {
+                str = alaStartDirectChallengeResponseMessage.ccU().aFs + "";
             }
             if (alaStartDirectChallengeResponseMessage != null && alaStartDirectChallengeResponseMessage.getError() != 0) {
-                if (this.huz != null) {
-                    this.huz.bg(alaStartDirectChallengeResponseMessage.getError(), alaStartDirectChallengeResponseMessage.getErrorString());
+                if (this.huN != null) {
+                    this.huN.bg(alaStartDirectChallengeResponseMessage.getError(), alaStartDirectChallengeResponseMessage.getErrorString());
                 }
                 a(UbcStatConstant.ContentType.UBC_TYPE_PK_DIRECT, alaStartDirectChallengeResponseMessage, base64, str);
                 return;
             }
-            if (alaStartDirectChallengeResponseMessage != null && alaStartDirectChallengeResponseMessage.getError() == 0 && alaStartDirectChallengeResponseMessage.ccN() != null && (alaStartDirectChallengeResponseMessage.ccN().isValid() || alaStartDirectChallengeResponseMessage.ccN().isTimeout())) {
-                com.baidu.live.challenge.a ccN = alaStartDirectChallengeResponseMessage.ccN();
-                this.huz.b(ccN);
-                cdh();
-                if (ccN.At()) {
-                    fC(ccN.challengeId);
-                    this.hvB = ccN.challengeId;
+            if (alaStartDirectChallengeResponseMessage != null && alaStartDirectChallengeResponseMessage.getError() == 0 && alaStartDirectChallengeResponseMessage.ccU() != null && (alaStartDirectChallengeResponseMessage.ccU().isValid() || alaStartDirectChallengeResponseMessage.ccU().isTimeout())) {
+                com.baidu.live.challenge.a ccU = alaStartDirectChallengeResponseMessage.ccU();
+                this.huN.b(ccU);
+                cdo();
+                if (ccU.At()) {
+                    fC(ccU.challengeId);
+                    this.hvP = ccU.challengeId;
                 }
-                if (alaStartDirectChallengeResponseMessage.ccN().isTimeout()) {
+                if (alaStartDirectChallengeResponseMessage.ccU().isTimeout()) {
                     a(UbcStatConstant.ContentType.UBC_TYPE_PK_DIRECT_TIMEOUT, alaStartDirectChallengeResponseMessage, base64, (String) null);
                 }
             }
@@ -612,85 +612,85 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaCancelDirectChallengeResponseMessage alaCancelDirectChallengeResponseMessage) {
-        if (this.huz != null && alaCancelDirectChallengeResponseMessage != null) {
+        if (this.huN != null && alaCancelDirectChallengeResponseMessage != null) {
             if (alaCancelDirectChallengeResponseMessage.hasError() || alaCancelDirectChallengeResponseMessage.getError() != 0) {
-                this.huz.bh(alaCancelDirectChallengeResponseMessage.getError(), alaCancelDirectChallengeResponseMessage.getErrorString());
-                a(UbcStatConstant.ContentType.UBC_TYPE_PK_CANCEL_DIRECT, alaCancelDirectChallengeResponseMessage, ExtraParamsManager.getBase64(String.valueOf(this.hvC)), (String) null);
+                this.huN.bh(alaCancelDirectChallengeResponseMessage.getError(), alaCancelDirectChallengeResponseMessage.getErrorString());
+                a(UbcStatConstant.ContentType.UBC_TYPE_PK_CANCEL_DIRECT, alaCancelDirectChallengeResponseMessage, ExtraParamsManager.getBase64(String.valueOf(this.hvQ)), (String) null);
                 return;
             }
-            boolean ccP = alaCancelDirectChallengeResponseMessage.ccP();
-            com.baidu.live.challenge.a ccN = alaCancelDirectChallengeResponseMessage.ccN();
-            this.huz.b(ccP, alaCancelDirectChallengeResponseMessage.ccN());
-            cdh();
-            if (!ccP && ccN != null && ccN.At()) {
-                fC(ccN.challengeId);
-                this.hvB = ccN.challengeId;
+            boolean ccW = alaCancelDirectChallengeResponseMessage.ccW();
+            com.baidu.live.challenge.a ccU = alaCancelDirectChallengeResponseMessage.ccU();
+            this.huN.b(ccW, alaCancelDirectChallengeResponseMessage.ccU());
+            cdo();
+            if (!ccW && ccU != null && ccU.At()) {
+                fC(ccU.challengeId);
+                this.hvP = ccU.challengeId;
             }
-            a(UbcStatConstant.ContentType.UBC_TYPE_PK_CANCEL_DIRECT_SUCC, alaCancelDirectChallengeResponseMessage, ExtraParamsManager.getBase64(String.valueOf(this.hvC)), (String) null);
+            a(UbcStatConstant.ContentType.UBC_TYPE_PK_CANCEL_DIRECT_SUCC, alaCancelDirectChallengeResponseMessage, ExtraParamsManager.getBase64(String.valueOf(this.hvQ)), (String) null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaGetDirectChallengeListResponseMessage alaGetDirectChallengeListResponseMessage) {
-        if (this.huz != null && alaGetDirectChallengeListResponseMessage != null) {
+        if (this.huN != null && alaGetDirectChallengeListResponseMessage != null) {
             if (alaGetDirectChallengeListResponseMessage.hasError() || alaGetDirectChallengeListResponseMessage.getError() != 0) {
-                this.huz.bi(alaGetDirectChallengeListResponseMessage.getError(), alaGetDirectChallengeListResponseMessage.getErrorString());
+                this.huN.bi(alaGetDirectChallengeListResponseMessage.getError(), alaGetDirectChallengeListResponseMessage.getErrorString());
             } else {
-                this.huz.m(alaGetDirectChallengeListResponseMessage.getCount(), alaGetDirectChallengeListResponseMessage.ccX());
+                this.huN.m(alaGetDirectChallengeListResponseMessage.getCount(), alaGetDirectChallengeListResponseMessage.cde());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaGetQualifyingResultResponseMessage alaGetQualifyingResultResponseMessage) {
-        if (this.huz != null && alaGetQualifyingResultResponseMessage != null) {
+        if (this.huN != null && alaGetQualifyingResultResponseMessage != null) {
             if (alaGetQualifyingResultResponseMessage.hasError() || alaGetQualifyingResultResponseMessage.getError() != 0) {
-                this.huz.bj(alaGetQualifyingResultResponseMessage.getError(), alaGetQualifyingResultResponseMessage.getErrorString());
-            } else if (alaGetQualifyingResultResponseMessage.ccZ()) {
-                this.huz.k(alaGetQualifyingResultResponseMessage.ccY(), alaGetQualifyingResultResponseMessage.cda());
+                this.huN.bj(alaGetQualifyingResultResponseMessage.getError(), alaGetQualifyingResultResponseMessage.getErrorString());
+            } else if (alaGetQualifyingResultResponseMessage.cdg()) {
+                this.huN.k(alaGetQualifyingResultResponseMessage.cdf(), alaGetQualifyingResultResponseMessage.cdh());
             } else {
-                this.huz.k(alaGetQualifyingResultResponseMessage.ccY(), -1L);
+                this.huN.k(alaGetQualifyingResultResponseMessage.cdf(), -1L);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaAcceptDirectChallengeResponseMessage alaAcceptDirectChallengeResponseMessage) {
-        if (this.huz != null && alaAcceptDirectChallengeResponseMessage != null) {
+        if (this.huN != null && alaAcceptDirectChallengeResponseMessage != null) {
             String str = "";
             String str2 = "";
-            if (alaAcceptDirectChallengeResponseMessage.ccN() != null) {
-                str2 = ExtraParamsManager.getBase64(String.valueOf(alaAcceptDirectChallengeResponseMessage.ccN().aFu));
+            if (alaAcceptDirectChallengeResponseMessage.ccU() != null) {
+                str2 = ExtraParamsManager.getBase64(String.valueOf(alaAcceptDirectChallengeResponseMessage.ccU().aFu));
             }
-            if (alaAcceptDirectChallengeResponseMessage.ccN() != null) {
-                str = alaAcceptDirectChallengeResponseMessage.ccN().aFs + "";
+            if (alaAcceptDirectChallengeResponseMessage.ccU() != null) {
+                str = alaAcceptDirectChallengeResponseMessage.ccU().aFs + "";
             }
             if (alaAcceptDirectChallengeResponseMessage.hasError() || alaAcceptDirectChallengeResponseMessage.getError() != 0) {
-                this.huz.bk(alaAcceptDirectChallengeResponseMessage.getError(), alaAcceptDirectChallengeResponseMessage.getErrorString());
+                this.huN.bk(alaAcceptDirectChallengeResponseMessage.getError(), alaAcceptDirectChallengeResponseMessage.getErrorString());
                 a(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET, alaAcceptDirectChallengeResponseMessage, str2, str);
                 return;
             }
-            boolean ccO = alaAcceptDirectChallengeResponseMessage.ccO();
-            com.baidu.live.challenge.a ccN = alaAcceptDirectChallengeResponseMessage.ccN();
-            this.huz.c(ccO, ccN);
-            if (ccO && ccN != null) {
-                fC(ccN.challengeId);
-                this.hvB = ccN.challengeId;
+            boolean ccV = alaAcceptDirectChallengeResponseMessage.ccV();
+            com.baidu.live.challenge.a ccU = alaAcceptDirectChallengeResponseMessage.ccU();
+            this.huN.c(ccV, ccU);
+            if (ccV && ccU != null) {
+                fC(ccU.challengeId);
+                this.hvP = ccU.challengeId;
             }
             a(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET_SUCC, alaAcceptDirectChallengeResponseMessage, str2, str);
         }
     }
 
-    private void cdi() {
-        this.hvK = false;
+    private void cdp() {
+        this.hvY = false;
         MessageManager.getInstance().removeMessage(1021110, this.aCW);
-        this.mHandler.removeCallbacks(this.hvP);
-        this.hvH = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
+        this.mHandler.removeCallbacks(this.hwd);
+        this.hvV = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ob(boolean z) {
-        this.hvK = true;
+        this.hvY = true;
         HttpMessage httpMessage = new HttpMessage(1021110);
         if (z) {
             httpMessage.addParam("type", "start");
@@ -705,37 +705,37 @@ public class b {
         String str;
         String str2;
         boolean z = false;
-        if (this.huz != null) {
-            this.hvK = false;
+        if (this.huN != null) {
+            this.hvY = false;
             if (alaStartRandomChallengeResponseMessage != null && alaStartRandomChallengeResponseMessage.getError() != 0) {
-                if (this.huz != null) {
-                    this.huz.bl(alaStartRandomChallengeResponseMessage.getError(), alaStartRandomChallengeResponseMessage.getErrorString());
+                if (this.huN != null) {
+                    this.huN.bl(alaStartRandomChallengeResponseMessage.getError(), alaStartRandomChallengeResponseMessage.getErrorString());
                 }
                 a(UbcStatConstant.ContentType.UBC_TYPE_PK_RANDOM, alaStartRandomChallengeResponseMessage, (String) null, (String) null);
                 return;
             }
-            if (alaStartRandomChallengeResponseMessage == null || alaStartRandomChallengeResponseMessage.ccN() == null) {
+            if (alaStartRandomChallengeResponseMessage == null || alaStartRandomChallengeResponseMessage.ccU() == null) {
                 str = null;
                 str2 = null;
             } else {
-                str2 = alaStartRandomChallengeResponseMessage.ccN().aFs + "";
-                str = ExtraParamsManager.getBase64(alaStartRandomChallengeResponseMessage.ccN().aFu + "");
+                str2 = alaStartRandomChallengeResponseMessage.ccU().aFs + "";
+                str = ExtraParamsManager.getBase64(alaStartRandomChallengeResponseMessage.ccU().aFu + "");
             }
-            if (alaStartRandomChallengeResponseMessage != null && alaStartRandomChallengeResponseMessage.getError() == 0 && alaStartRandomChallengeResponseMessage.ccN() != null && alaStartRandomChallengeResponseMessage.ccN().isValid()) {
-                com.baidu.live.challenge.a ccN = alaStartRandomChallengeResponseMessage.ccN();
-                this.huz.c(ccN);
-                if (ccN.At() && !AH()) {
-                    cdi();
-                    fC(ccN.challengeId);
-                    this.hvB = ccN.challengeId;
+            if (alaStartRandomChallengeResponseMessage != null && alaStartRandomChallengeResponseMessage.getError() == 0 && alaStartRandomChallengeResponseMessage.ccU() != null && alaStartRandomChallengeResponseMessage.ccU().isValid()) {
+                com.baidu.live.challenge.a ccU = alaStartRandomChallengeResponseMessage.ccU();
+                this.huN.c(ccU);
+                if (ccU.At() && !AH()) {
+                    cdp();
+                    fC(ccU.challengeId);
+                    this.hvP = ccU.challengeId;
                 } else {
                     a(UbcStatConstant.ContentType.UBC_TYPE_PK_RANDOM, alaStartRandomChallengeResponseMessage, str, str2);
                 }
-                if (ccN.isTimeout()) {
+                if (ccU.isTimeout()) {
                     a(UbcStatConstant.ContentType.UBC_TYPE_PK_RANDOW_TIMEOUT, alaStartRandomChallengeResponseMessage, str, (String) null);
                 }
             }
-            if (alaStartRandomChallengeResponseMessage != null && alaStartRandomChallengeResponseMessage.ccN() != null && alaStartRandomChallengeResponseMessage.ccN().isValid()) {
+            if (alaStartRandomChallengeResponseMessage != null && alaStartRandomChallengeResponseMessage.ccU() != null && alaStartRandomChallengeResponseMessage.ccU().isValid()) {
                 z = true;
             }
             a(UbcStatConstant.ContentType.UBC_TYPE_PK_RANDOM_SUCC, alaStartRandomChallengeResponseMessage, str, str2, z);
@@ -746,26 +746,26 @@ public class b {
     public void a(AlaCancelRandomChallengeResponseMessage alaCancelRandomChallengeResponseMessage) {
         String str;
         String str2;
-        if (this.huz != null && alaCancelRandomChallengeResponseMessage != null) {
-            if (alaCancelRandomChallengeResponseMessage == null || alaCancelRandomChallengeResponseMessage.ccN() == null) {
+        if (this.huN != null && alaCancelRandomChallengeResponseMessage != null) {
+            if (alaCancelRandomChallengeResponseMessage == null || alaCancelRandomChallengeResponseMessage.ccU() == null) {
                 str = null;
                 str2 = null;
             } else {
-                str = alaCancelRandomChallengeResponseMessage.ccN().aFs + "";
-                str2 = alaCancelRandomChallengeResponseMessage.ccN().challengeId + "";
+                str = alaCancelRandomChallengeResponseMessage.ccU().aFs + "";
+                str2 = alaCancelRandomChallengeResponseMessage.ccU().challengeId + "";
             }
             if (alaCancelRandomChallengeResponseMessage.hasError() || alaCancelRandomChallengeResponseMessage.getError() != 0) {
-                this.huz.bm(alaCancelRandomChallengeResponseMessage.getError(), alaCancelRandomChallengeResponseMessage.getErrorString());
+                this.huN.bm(alaCancelRandomChallengeResponseMessage.getError(), alaCancelRandomChallengeResponseMessage.getErrorString());
                 a(UbcStatConstant.ContentType.UBC_TYPE_PK_CANCEL_RANDOM, alaCancelRandomChallengeResponseMessage, str2, str);
                 return;
             }
-            boolean ccP = alaCancelRandomChallengeResponseMessage.ccP();
-            com.baidu.live.challenge.a ccN = alaCancelRandomChallengeResponseMessage.ccN();
-            this.huz.d(ccP, alaCancelRandomChallengeResponseMessage.ccN());
-            cdi();
-            if (!ccP && ccN != null && ccN.At()) {
-                fC(ccN.challengeId);
-                this.hvB = ccN.challengeId;
+            boolean ccW = alaCancelRandomChallengeResponseMessage.ccW();
+            com.baidu.live.challenge.a ccU = alaCancelRandomChallengeResponseMessage.ccU();
+            this.huN.d(ccW, alaCancelRandomChallengeResponseMessage.ccU());
+            cdp();
+            if (!ccW && ccU != null && ccU.At()) {
+                fC(ccU.challengeId);
+                this.hvP = ccU.challengeId;
             }
             a(UbcStatConstant.ContentType.UBC_TYPE_PK_CANCLE_RANDOM_SUCC, alaCancelRandomChallengeResponseMessage, str2, str);
         }
@@ -773,18 +773,18 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaSurrenderResponseMessage alaSurrenderResponseMessage) {
-        if (this.huz != null && alaSurrenderResponseMessage != null) {
-            this.huz.w(!alaSurrenderResponseMessage.hasError() && alaSurrenderResponseMessage.getError() == 0, alaSurrenderResponseMessage.getErrorString());
+        if (this.huN != null && alaSurrenderResponseMessage != null) {
+            this.huN.w(!alaSurrenderResponseMessage.hasError() && alaSurrenderResponseMessage.getError() == 0, alaSurrenderResponseMessage.getErrorString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaGetTargetInfoResponseMessage alaGetTargetInfoResponseMessage) {
-        if (this.huz != null && alaGetTargetInfoResponseMessage != null) {
+        if (this.huN != null && alaGetTargetInfoResponseMessage != null) {
             if (alaGetTargetInfoResponseMessage.hasError() || alaGetTargetInfoResponseMessage.getError() != 0) {
-                this.huz.p(alaGetTargetInfoResponseMessage.getError(), alaGetTargetInfoResponseMessage.getErrorString());
+                this.huN.p(alaGetTargetInfoResponseMessage.getError(), alaGetTargetInfoResponseMessage.getErrorString());
             } else {
-                this.huz.a(alaGetTargetInfoResponseMessage.cdb());
+                this.huN.a(alaGetTargetInfoResponseMessage.cdi());
             }
         }
     }
@@ -794,68 +794,68 @@ public class b {
     }
 
     public void fC(long j) {
-        this.hvF = true;
-        this.hvB = j;
-        this.mHandler.post(this.hvQ);
+        this.hvT = true;
+        this.hvP = j;
+        this.mHandler.post(this.hwe);
     }
 
-    private void cdj() {
-        this.hvF = false;
-        this.mHandler.removeCallbacks(this.hvQ);
-        this.hvJ = false;
+    private void cdq() {
+        this.hvT = false;
+        this.mHandler.removeCallbacks(this.hwe);
+        this.hvX = false;
         MessageManager.getInstance().removeMessage(1021112, this.aCW);
     }
 
-    public void cdk() {
-        this.mHandler.removeCallbacks(this.hvQ);
-        this.hvJ = false;
+    public void cdr() {
+        this.mHandler.removeCallbacks(this.hwe);
+        this.hvX = false;
         MessageManager.getInstance().removeMessage(1021112, this.aCW);
     }
 
-    public void cdl() {
-        this.mHandler.post(this.hvQ);
+    public void cds() {
+        this.mHandler.post(this.hwe);
     }
 
     private void a(bg bgVar, bk bkVar, bk bkVar2, long j) {
         if (bgVar == null) {
             BdLog.e("CHALLENGE_TAG get Challenge Info challenge meta is null?? logid=" + j);
-        } else if (bkVar != null && bkVar.aOW != null && bkVar.aOW.getLiveID() != this.gpB) {
-            BdLog.e("CHALLENGE_TAG in challenge not current live?? ||Challenge id=" + bgVar.challengeId + "||Challenge Status=" + bgVar.aOK + "||Net liveId=" + bkVar.aOW.getLiveID() + "||cur liveId=" + this.gpB + "||logid=" + j);
+        } else if (bkVar != null && bkVar.aOW != null && bkVar.aOW.getLiveID() != this.gpP) {
+            BdLog.e("CHALLENGE_TAG in challenge not current live?? ||Challenge id=" + bgVar.challengeId + "||Challenge Status=" + bgVar.aOK + "||Net liveId=" + bkVar.aOW.getLiveID() + "||cur liveId=" + this.gpP + "||logid=" + j);
         } else {
             int i = bgVar.aOK;
-            this.huz.b(i, bgVar, bkVar, bkVar2);
+            this.huN.b(i, bgVar, bkVar, bkVar2);
             switch (i) {
                 case 2:
-                    this.hvH = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_CHALLENGING;
-                    cde();
+                    this.hvV = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_CHALLENGING;
+                    cdl();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913284));
                     break;
                 case 3:
-                    this.hvH = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_PUNISHMENT;
+                    this.hvV = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_PUNISHMENT;
                     break;
                 case 4:
                 case 5:
-                    this.hvH = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
-                    this.hvB = 0L;
-                    cdf();
+                    this.hvV = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
+                    this.hvP = 0L;
+                    cdm();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913283));
                     break;
             }
             if (bkVar != null && bkVar.aOI != null) {
-                this.hvD = bkVar.aOI.userId;
+                this.hvR = bkVar.aOI.userId;
             }
             if (bkVar2 != null && bkVar2.aOI != null) {
-                this.hvE = bkVar2.aOI.userId;
+                this.hvS = bkVar2.aOI.userId;
             }
             if (4 == bgVar.aOK || 5 == bgVar.aOK) {
-                cdj();
+                cdq();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(AlaGetChallengeInfoResponseMessage alaGetChallengeInfoResponseMessage) {
-        if (this.huz == null || alaGetChallengeInfoResponseMessage == null || alaGetChallengeInfoResponseMessage.ccR() == null) {
+        if (this.huN == null || alaGetChallengeInfoResponseMessage == null || alaGetChallengeInfoResponseMessage.ccY() == null) {
             BdLog.e("CHALLENGE_TAG get Challenge Info callback, response message, meta info  null?? ");
             if (alaGetChallengeInfoResponseMessage != null) {
                 BdLog.e("CHALLENGE_TAG get Challenge Info error=" + alaGetChallengeInfoResponseMessage.getError());
@@ -863,50 +863,50 @@ public class b {
             }
             return;
         }
-        bg ccR = alaGetChallengeInfoResponseMessage.ccR();
-        bk ccS = alaGetChallengeInfoResponseMessage.ccS();
-        bk ccT = alaGetChallengeInfoResponseMessage.ccT();
-        bc ccU = alaGetChallengeInfoResponseMessage.ccU();
-        bi ccV = alaGetChallengeInfoResponseMessage.ccV();
-        bj ccW = alaGetChallengeInfoResponseMessage.ccW();
-        if (ccU != null && ccU.aOE > 0 && this.hvA != ccU.aOE) {
-            this.hvA = ccU.aOE;
+        bg ccY = alaGetChallengeInfoResponseMessage.ccY();
+        bk ccZ = alaGetChallengeInfoResponseMessage.ccZ();
+        bk cda = alaGetChallengeInfoResponseMessage.cda();
+        bc cdb = alaGetChallengeInfoResponseMessage.cdb();
+        bi cdc = alaGetChallengeInfoResponseMessage.cdc();
+        bj cdd = alaGetChallengeInfoResponseMessage.cdd();
+        if (cdb != null && cdb.aOE > 0 && this.hvO != cdb.aOE) {
+            this.hvO = cdb.aOE;
         }
-        a(ccR, ccS, ccT, alaGetChallengeInfoResponseMessage.getLogId());
+        a(ccY, ccZ, cda, alaGetChallengeInfoResponseMessage.getLogId());
         int i = 0;
         if (com.baidu.live.ae.a.Qj().buX != null) {
             i = com.baidu.live.ae.a.Qj().buX.aMd;
         }
-        if (i == 1 && ccR != null && ccS != null && ccS.aOW != null && ccS.aOW.user_id == TbadkCoreApplication.getCurrentAccountId()) {
-            if (this.hvM == null) {
-                this.hvM = new HashMap();
+        if (i == 1 && ccY != null && ccZ != null && ccZ.aOW != null && ccZ.aOW.user_id == TbadkCoreApplication.getCurrentAccountId()) {
+            if (this.hwa == null) {
+                this.hwa = new HashMap();
             }
-            long j = ccR.challengeId;
-            if (ccW != null && ccW.aOV != null && !ccW.aOV.isEmpty() && (!this.hvM.containsKey(Long.valueOf(j)) || this.hvM.get(Long.valueOf(j)).isEmpty())) {
-                this.hvM.put(Long.valueOf(j), ccW.aOV);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913209, ccW.aOV));
+            long j = ccY.challengeId;
+            if (cdd != null && cdd.aOV != null && !cdd.aOV.isEmpty() && (!this.hwa.containsKey(Long.valueOf(j)) || this.hwa.get(Long.valueOf(j)).isEmpty())) {
+                this.hwa.put(Long.valueOf(j), cdd.aOV);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913209, cdd.aOV));
             }
-            if (ccV != null && ccR.aOK >= 3 && ccR.challengeResult == 2) {
-                if ((ccV.type == 1 || ccV.type == 3) && !TextUtils.isEmpty(ccV.aOT)) {
-                    if (this.hvN == null) {
-                        this.hvN = new HashMap();
+            if (cdc != null && ccY.aOK >= 3 && ccY.challengeResult == 2) {
+                if ((cdc.type == 1 || cdc.type == 3) && !TextUtils.isEmpty(cdc.aOT)) {
+                    if (this.hwb == null) {
+                        this.hwb = new HashMap();
                     }
-                    if (!this.hvN.containsKey(Long.valueOf(j))) {
-                        this.hvN.put(Long.valueOf(j), 0);
+                    if (!this.hwb.containsKey(Long.valueOf(j))) {
+                        this.hwb.put(Long.valueOf(j), 0);
                     }
-                    if (ccR.aOK == 3) {
-                        int intValue = this.hvN.get(Long.valueOf(j)).intValue();
-                        if (ccV.serverTime >= ccV.startTime && ccV.serverTime <= ccV.endTime) {
+                    if (ccY.aOK == 3) {
+                        int intValue = this.hwb.get(Long.valueOf(j)).intValue();
+                        if (cdc.serverTime >= cdc.startTime && cdc.serverTime <= cdc.endTime) {
                             if (intValue < 1) {
-                                this.hvN.put(Long.valueOf(j), 1);
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913210, ccV.aOT));
+                                this.hwb.put(Long.valueOf(j), 1);
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913210, cdc.aOT));
                             }
-                        } else if (ccV.serverTime > ccV.endTime && intValue < 2) {
-                            this.hvN.put(Long.valueOf(j), 2);
+                        } else if (cdc.serverTime > cdc.endTime && intValue < 2) {
+                            this.hwb.put(Long.valueOf(j), 2);
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913211));
                         }
-                    } else if (ccR.aOK > 3) {
-                        this.hvN.put(Long.valueOf(j), 2);
+                    } else if (ccY.aOK > 3) {
+                        this.hwb.put(Long.valueOf(j), 2);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913211));
                     }
                 }
@@ -915,7 +915,7 @@ public class b {
     }
 
     public ChallenfeInfoData.ChallengeStatus AG() {
-        return this.hvH;
+        return this.hvV;
     }
 
     private void ev(String str, String str2) {
@@ -974,6 +974,6 @@ public class b {
     }
 
     public boolean AH() {
-        return this.hvF;
+        return this.hvT;
     }
 }

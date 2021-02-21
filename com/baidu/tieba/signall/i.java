@@ -7,44 +7,44 @@ import org.json.JSONObject;
 public class i {
     private int forumId;
     private String forumName;
-    private a nni = new a();
-    private int nou;
-    private int nov;
-    private int nox;
-    private int noy;
+    private a nnI = new a();
+    private int noV;
+    private int noW;
+    private int noX;
+    private int noY;
     private int signed;
 
     public int getForumId() {
         return this.forumId;
     }
 
-    public int dLa() {
+    public int dLi() {
         return this.signed;
     }
 
-    public int dLb() {
-        return this.nox;
+    public int dLj() {
+        return this.noX;
     }
 
     public int getCurScore() {
-        return this.noy;
+        return this.noY;
     }
 
-    public a dKx() {
-        return this.nni;
+    public a dKF() {
+        return this.nnI;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.nni.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
+                this.nnI.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
                 this.forumId = jSONObject.optInt("forum_id");
                 this.forumName = jSONObject.optString("forum_name");
                 this.signed = jSONObject.optInt("signed");
-                this.nou = jSONObject.optInt("is_on");
-                this.nov = jSONObject.optInt("is_filter");
-                this.nox = jSONObject.optInt("sign_day_count");
-                this.noy = jSONObject.optInt("cur_score");
+                this.noV = jSONObject.optInt("is_on");
+                this.noW = jSONObject.optInt("is_filter");
+                this.noX = jSONObject.optInt("sign_day_count");
+                this.noY = jSONObject.optInt("cur_score");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

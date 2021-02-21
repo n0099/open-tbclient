@@ -6,9 +6,9 @@ public class b {
     public String aVj;
     public String bduss;
     public String displayName;
-    public String glA;
-    public Map<String, String> glB;
-    public String glC;
+    public String glO;
+    public Map<String, String> glP;
+    public String glQ;
     public String openBduss;
     public String uid;
 }

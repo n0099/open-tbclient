@@ -197,7 +197,7 @@ public class al {
         return str;
     }
 
-    public static boolean DY(String str) {
+    public static boolean DW(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

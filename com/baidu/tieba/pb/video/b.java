@@ -4,10 +4,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.n;
 /* loaded from: classes2.dex */
 public class b implements n {
-    public static final BdUniqueId mix = BdUniqueId.gen();
+    public static final BdUniqueId miM = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mix;
+        return miM;
     }
 }

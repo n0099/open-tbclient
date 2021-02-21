@@ -35,8 +35,8 @@ public class ei extends ai.a {
         RandomAccessFile randomAccessFile;
         FileInputStream fileInputStream;
         FileLock fileLock2;
-        dp m258a = dq.a().m258a();
-        String a2 = m258a == null ? "" : m258a.a();
+        dp m257a = dq.a().m257a();
+        String a2 = m257a == null ? "" : m257a.a();
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
@@ -45,7 +45,7 @@ public class ei extends ai.a {
         synchronized (dv.f13957a) {
             try {
                 File file2 = new File(this.f13970a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m616a(file2);
+                y.m615a(file2);
                 randomAccessFile = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -132,7 +132,7 @@ public class ei extends ai.a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m263a() {
+    private boolean m262a() {
         if (az.d(this.f13970a)) {
             return false;
         }
@@ -158,7 +158,7 @@ public class ei extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo192a() {
+    public int mo191a() {
         return 1;
     }
 
@@ -169,7 +169,7 @@ public class ei extends ai.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m263a() || !file.exists()) {
+        } else if (m262a() || !file.exists()) {
         } else {
             List<hu> a2 = a(file);
             if (!ad.a(a2)) {
@@ -183,9 +183,9 @@ public class ei extends ai.a {
                 il ilVar = new il("-1", false);
                 ilVar.c(hw.DataCollection.f555a);
                 ilVar.a(a3);
-                dp m258a = dq.a().m258a();
-                if (m258a != null) {
-                    m258a.a(ilVar, hm.Notification, null);
+                dp m257a = dq.a().m257a();
+                if (m257a != null) {
+                    m257a.a(ilVar, hm.Notification, null);
                 }
                 a();
             }

@@ -15,16 +15,16 @@ import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import tbclient.AgreeList;
 /* loaded from: classes2.dex */
 public class a extends BaseCardInfo {
-    public static final BdUniqueId kSV = BdUniqueId.gen();
-    public static final BdUniqueId kSW = BdUniqueId.gen();
-    public static final BdUniqueId kSX = BdUniqueId.gen();
-    public static final BdUniqueId kSY = BdUniqueId.gen();
-    public static final BdUniqueId kSZ = BdUniqueId.gen();
+    public static final BdUniqueId kTj = BdUniqueId.gen();
+    public static final BdUniqueId kTk = BdUniqueId.gen();
+    public static final BdUniqueId kTl = BdUniqueId.gen();
+    public static final BdUniqueId kTm = BdUniqueId.gen();
+    public static final BdUniqueId kTn = BdUniqueId.gen();
     private boolean eUg;
     private String fname;
     private boolean isNew;
-    private BdUniqueId kTa;
-    private String kTb;
+    private BdUniqueId kTo;
+    private String kTp;
     private BaijiahaoData mBaijiahao;
     private long msgId;
     private OriginalThreadInfo originalThreadInfo;
@@ -42,7 +42,7 @@ public class a extends BaseCardInfo {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return this.kTa;
+        return this.kTo;
     }
 
     public void a(AgreeList agreeList) {
@@ -71,9 +71,9 @@ public class a extends BaseCardInfo {
             this.threadType = cbVar.threadType;
             this.isBjh = cbVar.bmz();
             this.mBaijiahao = cbVar.getBaijiahaoData();
-            this.kTb = "c12927";
+            this.kTp = "c12927";
             if (agreeList.type.intValue() == 3) {
-                this.kTa = kSV;
+                this.kTo = kTj;
                 this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_thread);
                 if (this.isBjh) {
                     this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_dynamic);
@@ -81,7 +81,7 @@ public class a extends BaseCardInfo {
                 }
                 return;
             }
-            this.kTa = kSW;
+            this.kTo = kTk;
             this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_post);
         }
     }
@@ -110,7 +110,7 @@ public class a extends BaseCardInfo {
             this.originalThreadInfo.showPicUrl = feedData.getThreadImgUrl();
             this.originalThreadInfo.eOw = this.isBjh;
             this.originalThreadInfo.oriUgcInfo = this.mBaijiahao;
-            this.kTb = "c12928";
+            this.kTp = "c12928";
             if (feedData.getType() == 1) {
                 this.originalThreadInfo.postId = feedData.getQuote_pid();
                 String str = "";
@@ -126,9 +126,9 @@ public class a extends BaseCardInfo {
                     this.originalThreadInfo.title = this.originalThreadInfo.title.replace("\n", " ");
                 }
                 if (feedData.getIsFloor()) {
-                    this.kTa = kSX;
+                    this.kTo = kTl;
                 } else {
-                    this.kTa = kSY;
+                    this.kTo = kTm;
                 }
             } else {
                 this.originalThreadInfo.postId = "0";
@@ -137,7 +137,7 @@ public class a extends BaseCardInfo {
                 } else {
                     this.originalThreadInfo.title = feedData.getTitle();
                 }
-                this.kTa = kSZ;
+                this.kTo = kTn;
             }
             this.originalThreadInfo.bmt();
         }
@@ -183,11 +183,11 @@ public class a extends BaseCardInfo {
         return this.msgId;
     }
 
-    public boolean cZA() {
+    public boolean cZH() {
         return this.eUg;
     }
 
-    public String cZB() {
+    public String cZI() {
         return this.quote_pid;
     }
 
@@ -199,8 +199,8 @@ public class a extends BaseCardInfo {
         this.isNew = z;
     }
 
-    public String cZC() {
-        return this.kTb;
+    public String cZJ() {
+        return this.kTp;
     }
 
     public MetaData getThreadAuthor() {

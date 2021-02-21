@@ -17,8 +17,9 @@ public class q {
     private v f10981b;
     private u d;
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
-    private static final class a {
+    public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
         private static final q f10982a = new q();

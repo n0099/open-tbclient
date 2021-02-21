@@ -12,15 +12,15 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String qiI = "";
+    private String qji = "";
     private String from = "";
-    private String qiJ = "";
-    private String qiK = "";
-    private String qiL = "";
-    private String qiM = "";
+    private String qjj = "";
+    private String qjk = "";
+    private String qjl = "";
+    private String qjm = "";
     private HashMap<String, String> extra = new HashMap<>();
 
-    private String abC(String str) {
+    private String abO(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -41,29 +41,29 @@ public class b implements Cloneable {
             }
         }
         if (z) {
-            return abC(jSONObject.toString());
+            return abO(jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
     public String CQ(boolean z) {
-        return z ? abC(this.qiL) : this.qiL;
+        return z ? abO(this.qjl) : this.qjl;
     }
 
     public String CR(boolean z) {
-        return z ? abC(this.qiJ) : this.qiJ;
+        return z ? abO(this.qjj) : this.qjj;
     }
 
-    public void abD(String str) {
-        this.qiJ = str;
+    public void abP(String str) {
+        this.qjj = str;
     }
 
     public String CS(boolean z) {
-        return z ? abC(this.qiK) : this.qiK;
+        return z ? abO(this.qjk) : this.qjk;
     }
 
     public String CT(boolean z) {
-        return z ? abC(this.from) : this.from;
+        return z ? abO(this.from) : this.from;
     }
 
     public void setFrom(String str) {
@@ -71,7 +71,7 @@ public class b implements Cloneable {
     }
 
     public String CU(boolean z) {
-        return z ? abC(this.appKey) : this.appKey;
+        return z ? abO(this.appKey) : this.appKey;
     }
 
     public void setAppKey(String str) {
@@ -87,11 +87,11 @@ public class b implements Cloneable {
     }
 
     public String CV(boolean z) {
-        return z ? abC(this.qiI) : this.qiI;
+        return z ? abO(this.qji) : this.qji;
     }
 
-    public boolean eIN() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.qiJ)) ? false : true;
+    public boolean eIV() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.qjj)) ? false : true;
     }
 
     public Object clone() {

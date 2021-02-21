@@ -87,8 +87,8 @@ public class e implements KsLoadManager {
                         for (KsFeedAd ksFeedAd : arrayList) {
                             final com.kwad.sdk.feed.b bVar = (com.kwad.sdk.feed.b) ksFeedAd;
                             com.kwad.sdk.core.d.a.a("AdRequestManager", "ksFeedAd " + ksFeedAd);
-                            bVar.a(new b.InterfaceC1117b() { // from class: com.kwad.sdk.core.g.e.2.2.1
-                                @Override // com.kwad.sdk.feed.b.InterfaceC1117b
+                            bVar.a(new b.InterfaceC1119b() { // from class: com.kwad.sdk.core.g.e.2.2.1
+                                @Override // com.kwad.sdk.feed.b.InterfaceC1119b
                                 public void a() {
                                     com.kwad.sdk.core.d.a.a("AdRequestManager", "ksFeedAd onLoadFinished" + bVar + " cnt: " + aVar.a());
                                     if (aVar.b()) {

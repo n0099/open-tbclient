@@ -19,7 +19,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     private TextView bYf;
     public CustomMessageListener bgy;
     private TextView mTitle;
-    private a oHY;
+    private a oIy;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -72,7 +72,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         }
     }
 
-    public void VD(String str) {
+    public void VP(String str) {
         if (this.bYe != null && !TextUtils.isEmpty(str)) {
             this.bYe.setText(str);
         }
@@ -92,7 +92,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         }
     }
 
-    public void eed() {
+    public void eel() {
         if (this.bYf != null) {
             this.bYf.getPaint().setFakeBoldText(true);
         }
@@ -147,13 +147,13 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     public void onClick(View view) {
         if (view == this.bYe) {
             dismiss();
-            if (this.oHY != null) {
-                this.oHY.onCancel();
+            if (this.oIy != null) {
+                this.oIy.onCancel();
             }
         } else if (view == this.bYf) {
             dismiss();
-            if (this.oHY != null) {
-                this.oHY.onConfirm();
+            if (this.oIy != null) {
+                this.oIy.onConfirm();
             }
         }
     }
@@ -164,6 +164,6 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     }
 
     public void a(a aVar) {
-        this.oHY = aVar;
+        this.oIy = aVar;
     }
 }

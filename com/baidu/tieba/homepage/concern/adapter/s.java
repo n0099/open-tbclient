@@ -28,12 +28,12 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     private String aif;
     private com.baidu.adp.widget.ListView.s amk;
     public BdUniqueId fGZ;
-    private NEGFeedBackView.a hnt;
+    private NEGFeedBackView.a hnH;
     private TbPageContext<?> mPageContext;
 
     public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hnt = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.adapter.s.1
+        this.hnH = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.adapter.s.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(av avVar) {
             }
@@ -77,7 +77,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.amk));
         threadCardViewHolder.setPageId(this.fGZ);
         ab aK = threadCardViewHolder.aK(false);
-        aK.a(this.hnt);
+        aK.a(this.hnH);
         aK.setAutoProcess(false);
         aK.setHeadText(this.mContext.getString(R.string.concern_recommend_dialog_title));
         aK.aI(true);
@@ -94,7 +94,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
         ar arVar = new ar("c13565");
         arVar.ap("obj_source", aVar.bne() ? 1 : 2);
-        com.baidu.tieba.card.t.csu().e(arVar);
+        com.baidu.tieba.card.t.csB().e(arVar);
         threadCardViewHolder.tj().setPosition(i);
         if (threadCardViewHolder.tj() instanceof com.baidu.tieba.a.e) {
             threadCardViewHolder.tj().setPage(this.aif);
@@ -147,7 +147,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 }

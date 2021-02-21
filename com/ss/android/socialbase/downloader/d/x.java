@@ -21,8 +21,8 @@ public abstract class x implements b {
 
     @Override // com.ss.android.socialbase.downloader.d.b
     public void c(com.ss.android.socialbase.downloader.g.c cVar) {
-        if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null && cVar.eij() != 0) {
-            com.ss.android.socialbase.downloader.f.a.b(f13124a, cVar.h() + " onProgress -- %" + ((int) ((((float) cVar.eHa()) / ((float) cVar.eij())) * 100.0f)));
+        if (com.ss.android.socialbase.downloader.f.a.a() && cVar != null && cVar.eir() != 0) {
+            com.ss.android.socialbase.downloader.f.a.b(f13124a, cVar.h() + " onProgress -- %" + ((int) ((((float) cVar.eHi()) / ((float) cVar.eir())) * 100.0f)));
         }
     }
 

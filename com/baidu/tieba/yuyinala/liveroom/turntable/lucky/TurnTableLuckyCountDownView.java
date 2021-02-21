@@ -14,9 +14,9 @@ public class TurnTableLuckyCountDownView extends View {
     private RectF dWd;
     private Paint dWf;
     private float dWl;
-    private float hOW;
-    private float hOX;
-    private String hOY;
+    private float hPk;
+    private float hPl;
+    private String hPm;
     private float mProgress;
 
     public TurnTableLuckyCountDownView(Context context, @Nullable AttributeSet attributeSet) {
@@ -25,7 +25,7 @@ public class TurnTableLuckyCountDownView extends View {
     }
 
     public void setTimer(String str, float f) {
-        this.hOY = str;
+        this.hPm = str;
         this.mProgress = f;
         invalidate();
     }
@@ -34,8 +34,8 @@ public class TurnTableLuckyCountDownView extends View {
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         Paint.FontMetricsInt fontMetricsInt = this.bhF.getFontMetricsInt();
-        this.hOW = i * 0.5f;
-        this.hOX = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
+        this.hPk = i * 0.5f;
+        this.hPl = ((i2 - fontMetricsInt.top) - fontMetricsInt.bottom) * 0.5f;
         this.dWd.set(this.dWl * 0.5f, this.dWl * 0.5f, i - (this.dWl * 0.5f), i2 - (this.dWl * 0.5f));
     }
 
@@ -43,15 +43,15 @@ public class TurnTableLuckyCountDownView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawArc(this.dWd, -90.0f, this.mProgress * (-360.0f), false, this.dWf);
-        canvas.drawText(this.hOY, this.hOW, this.hOX, this.bhF);
+        canvas.drawText(this.hPm, this.hPk, this.hPl, this.bhF);
     }
 
     private void init() {
-        ckK();
+        ckR();
         initProgress();
     }
 
-    private void ckK() {
+    private void ckR() {
         this.bhF = new Paint(1);
         this.bhF.setDither(true);
         this.bhF.setColor(-1);

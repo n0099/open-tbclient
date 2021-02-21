@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.f;
 /* loaded from: classes3.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d pKb;
+    private com.facebook.imagepipeline.animated.base.d pKB;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.pKb = dVar;
+        this.pKB = dVar;
     }
 
     @Override // com.facebook.imagepipeline.f.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.pKb.evx().getWidth();
+        return isClosed() ? 0 : this.pKB.evF().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.f.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.pKb.evx().getHeight();
+        return isClosed() ? 0 : this.pKB.evF().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.f.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.pKb != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.pKb;
-                this.pKb = null;
+            if (this.pKB != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.pKB;
+                this.pKB = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.f.c
     public synchronized boolean isClosed() {
-        return this.pKb == null;
+        return this.pKB == null;
     }
 
     @Override // com.facebook.imagepipeline.f.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.pKb.evx().getSizeInBytes();
+        return isClosed() ? 0 : this.pKB.evF().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.f.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d eyf() {
-        return this.pKb;
+    public synchronized com.facebook.imagepipeline.animated.base.d eyn() {
+        return this.pKB;
     }
 }

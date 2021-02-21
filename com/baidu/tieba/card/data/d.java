@@ -5,9 +5,9 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.am;
 /* loaded from: classes.dex */
 public class d extends BaseCardInfo implements am, p {
-    private boolean eLL;
+    private boolean eLK;
     public String fNd;
-    public AdvertAppInfo iAn;
+    public AdvertAppInfo iAB;
     public String mPageType;
     public int mPn;
 
@@ -15,9 +15,9 @@ public class d extends BaseCardInfo implements am, p {
         this.fNd = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.eLL = false;
-        this.iAn = advertAppInfo;
-        this.position = this.iAn.position;
+        this.eLK = false;
+        this.iAB = advertAppInfo;
+        this.position = this.iAB.position;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,19 +25,19 @@ public class d extends BaseCardInfo implements am, p {
         this.fNd = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.eLL = false;
-        this.iAn = null;
+        this.eLK = false;
+        this.iAB = null;
         this.position = -1;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        if (this.iAn != null && this.iAn.getType() == AdvertAppInfo.eLa) {
+        if (this.iAB != null && this.iAB.getType() == AdvertAppInfo.eLa) {
             return AdvertAppInfo.eLg;
         }
-        if (this.iAn != null && this.iAn.legoCard != null) {
+        if (this.iAB != null && this.iAB.legoCard != null) {
             BdUniqueId bdUniqueId = AdvertAppInfo.eLj;
-            switch (this.iAn.legoCard.getGoodsStyle()) {
+            switch (this.iAB.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
                     return AdvertAppInfo.eLn;
@@ -65,11 +65,11 @@ public class d extends BaseCardInfo implements am, p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.f.b.toInt(this.iAn != null ? this.iAn.adPosition : "-1", -1);
+        return com.baidu.adp.lib.f.b.toInt(this.iAB != null ? this.iAB.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean csR() {
+    public boolean csY() {
         return false;
     }
 
@@ -81,20 +81,20 @@ public class d extends BaseCardInfo implements am, p {
     public void pF(boolean z) {
     }
 
-    public AdvertAppInfo csS() {
-        return this.iAn;
+    public AdvertAppInfo csZ() {
+        return this.iAB;
     }
 
     @Override // com.baidu.tbadk.core.data.am
     public AdvertAppInfo blH() {
-        return this.iAn;
+        return this.iAB;
     }
 
     @Override // com.baidu.tbadk.core.data.am
     public void setPosition(int i) {
         this.position = i;
-        this.iAn.position = i;
-        this.eLL = true;
+        this.iAB.position = i;
+        this.eLK = true;
     }
 
     @Override // com.baidu.tbadk.core.data.am
@@ -104,6 +104,6 @@ public class d extends BaseCardInfo implements am, p {
 
     @Override // com.baidu.tbadk.core.data.am
     public boolean blJ() {
-        return this.eLL;
+        return this.eLK;
     }
 }

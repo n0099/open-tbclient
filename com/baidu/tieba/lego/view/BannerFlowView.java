@@ -18,11 +18,11 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class BannerFlowView extends FrameLayout {
     private IndicatorView foO;
-    private ListViewPager lgg;
-    private View lgh;
-    private b lgi;
-    private com.baidu.tieba.lego.view.a lgj;
-    private a lgk;
+    private ListViewPager lgu;
+    private View lgv;
+    private b lgw;
+    private com.baidu.tieba.lego.view.a lgx;
+    private a lgy;
 
     /* loaded from: classes9.dex */
     public interface a extends l {
@@ -30,7 +30,7 @@ public class BannerFlowView extends FrameLayout {
     }
 
     public void setOnPageSelected(a aVar) {
-        this.lgk = aVar;
+        this.lgy = aVar;
     }
 
     public BannerFlowView(Context context) {
@@ -44,67 +44,67 @@ public class BannerFlowView extends FrameLayout {
     }
 
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
-        this.lgg.setSwipeControlInterface(cVar);
+        this.lgu.setSwipeControlInterface(cVar);
         if (cVar != null) {
-            this.lgg.setDisableParentEvent(false);
+            this.lgu.setDisableParentEvent(false);
         }
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.lgg.setDisableParentEvent(z);
+        this.lgu.setDisableParentEvent(z);
     }
 
     public void setDescOnPic(boolean z, boolean z2) {
         if (z) {
-            if (this.lgh != null) {
+            if (this.lgv != null) {
                 if (z2) {
-                    this.lgh.setVisibility(0);
+                    this.lgv.setVisibility(0);
                 } else {
-                    this.lgh.setVisibility(4);
+                    this.lgv.setVisibility(4);
                 }
             }
-            this.lgi.a((l) null);
+            this.lgw.a((l) null);
             return;
         }
-        if (this.lgh != null) {
-            this.lgh.setVisibility(8);
+        if (this.lgv != null) {
+            this.lgv.setVisibility(8);
         }
-        this.lgi.a(new l() { // from class: com.baidu.tieba.lego.view.BannerFlowView.1
+        this.lgw.a(new l() { // from class: com.baidu.tieba.lego.view.BannerFlowView.1
             @Override // com.baidu.tieba.lego.card.view.l
             public void aS(float f) {
-                if (BannerFlowView.this.lgk != null) {
-                    BannerFlowView.this.lgk.aS(f);
+                if (BannerFlowView.this.lgy != null) {
+                    BannerFlowView.this.lgy.aS(f);
                 }
             }
 
             @Override // com.baidu.tieba.lego.card.view.l
             public void Ed(int i) {
-                if (BannerFlowView.this.lgk != null) {
-                    BannerFlowView.this.lgk.Ed(i);
+                if (BannerFlowView.this.lgy != null) {
+                    BannerFlowView.this.lgy.Ed(i);
                 }
             }
         });
     }
 
     private void initView(Context context) {
-        this.lgg = new ListViewPager(context);
-        this.lgh = new View(context);
+        this.lgu = new ListViewPager(context);
+        this.lgv = new View(context);
         this.foO = new IndicatorView(context);
         this.foO.setSpacing(0);
         bvD();
-        this.lgi = new b(context, this.lgg, this.foO, null);
-        this.lgj = new com.baidu.tieba.lego.view.a(context, com.baidu.tbadk.core.view.viewpager.bannerflow.a.fph);
-        this.lgi.setAutoScrollIntervalTime(5000L);
-        this.lgi.a(context, this.lgj);
-        this.lgi.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.lego.view.BannerFlowView.2
+        this.lgw = new b(context, this.lgu, this.foO, null);
+        this.lgx = new com.baidu.tieba.lego.view.a(context, com.baidu.tbadk.core.view.viewpager.bannerflow.a.fph);
+        this.lgw.setAutoScrollIntervalTime(5000L);
+        this.lgw.a(context, this.lgx);
+        this.lgw.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.lego.view.BannerFlowView.2
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                if (BannerFlowView.this.lgk != null) {
-                    BannerFlowView.this.lgk.onPageSelected(i);
+                if (BannerFlowView.this.lgy != null) {
+                    BannerFlowView.this.lgy.onPageSelected(i);
                 }
             }
 
@@ -112,10 +112,10 @@ public class BannerFlowView extends FrameLayout {
             public void onPageScrollStateChanged(int i) {
             }
         });
-        addView(this.lgg, new FrameLayout.LayoutParams(-1, -1));
+        addView(this.lgu, new FrameLayout.LayoutParams(-1, -1));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds80));
         layoutParams.gravity = 80;
-        addView(this.lgh, layoutParams);
+        addView(this.lgv, layoutParams);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 85;
         layoutParams2.setMargins(0, 0, com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds20), com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds16));
@@ -123,27 +123,27 @@ public class BannerFlowView extends FrameLayout {
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.lgi.setAutoScrollIntervalTime(j);
+        this.lgw.setAutoScrollIntervalTime(j);
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.lgi.setMaxScrollCountLimit(i);
+        this.lgw.setMaxScrollCountLimit(i);
     }
 
     public void setData(List<n> list) {
-        this.lgg.removeAllViews();
-        this.lgi.setDatas(list);
+        this.lgu.removeAllViews();
+        this.lgw.setDatas(list);
     }
 
     private void bvD() {
-        ap.setBackgroundResource(this.lgh, R.drawable.bg_pic_shadow);
+        ap.setBackgroundResource(this.lgv, R.drawable.bg_pic_shadow);
         this.foO.setSelector(ap.getDrawable(R.drawable.icon_diandian_white_s));
         this.foO.setDrawable(ap.getDrawable(R.drawable.icon_diandian_white_n));
     }
 
-    public void setOnItemClickListener(b.a<com.baidu.tbadk.core.view.viewpager.bannerflow.a, a.C0777a> aVar) {
-        if (this.lgj != null) {
-            this.lgj.setOnItemClickListener(aVar);
+    public void setOnItemClickListener(b.a<com.baidu.tbadk.core.view.viewpager.bannerflow.a, a.C0778a> aVar) {
+        if (this.lgx != null) {
+            this.lgx.setOnItemClickListener(aVar);
         }
     }
 

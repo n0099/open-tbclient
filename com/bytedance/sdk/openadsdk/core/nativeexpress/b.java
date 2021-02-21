@@ -110,7 +110,7 @@ public class b {
                 if (lVar.ai() && lVar.M() != null && !lVar.M().isEmpty()) {
                     for (com.bytedance.sdk.openadsdk.core.d.k kVar : lVar.M()) {
                         if (!TextUtils.isEmpty(kVar.a())) {
-                            com.bytedance.sdk.openadsdk.i.e.a(this.c).f().a(kVar.a(), (b.InterfaceC1020b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), false);
+                            com.bytedance.sdk.openadsdk.i.e.a(this.c).f().a(kVar.a(), (b.InterfaceC1022b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), false);
                         }
                     }
                 }

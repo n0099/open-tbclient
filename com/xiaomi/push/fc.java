@@ -25,7 +25,7 @@ public final class fc {
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m301a();
+        boolean m300a();
     }
 
     public static synchronized void a() {
@@ -93,7 +93,7 @@ public final class fc {
                 } catch (Exception e4) {
                     e = e4;
                     z = z3;
-                    com.xiaomi.channel.commonutils.logger.b.m80a("check service err : " + e.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m79a("check service err : " + e.getMessage());
                     z2 = z;
                     if (z2) {
                     }
@@ -102,7 +102,7 @@ public final class fc {
                     f391a = new fd(applicationContext);
                 }
             }
-            if (z2 && t.m613a(applicationContext)) {
+            if (z2 && t.m612a(applicationContext)) {
                 throw new RuntimeException("Should export service: " + f392a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
             }
             if (Build.VERSION.SDK_INT >= 21) {
@@ -137,7 +137,7 @@ public final class fc {
     public static synchronized void a(boolean z) {
         synchronized (fc.class) {
             if (f391a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m80a("timer is not initialized");
+                com.xiaomi.channel.commonutils.logger.b.m79a("timer is not initialized");
             } else {
                 com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + ")");
                 f391a.a(z);
@@ -146,11 +146,11 @@ public final class fc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m300a() {
-        boolean m301a;
+    public static synchronized boolean m299a() {
+        boolean m300a;
         synchronized (fc.class) {
-            m301a = f391a == null ? false : f391a.m301a();
+            m300a = f391a == null ? false : f391a.m300a();
         }
-        return m301a;
+        return m300a;
     }
 }

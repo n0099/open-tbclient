@@ -34,21 +34,21 @@ public class c implements View.OnClickListener {
     private TextView aDM;
     private long buN;
     private PersonUserData bxd;
-    private long goL;
-    protected final PersonCardActivity hXC;
-    private View hXD;
-    private View hXE;
-    private TextView hXF;
-    private Button hXG;
-    private Button hXH;
-    private TextView hXI;
-    private HeadImageView hXJ;
-    private ImageView hXK;
-    private View hXL;
-    private a.InterfaceC0680a hXM;
-    private boolean hXN;
-    private com.baidu.tieba.ala.person.a hXO;
-    private Animation hdt;
+    private long goZ;
+    protected final PersonCardActivity hXQ;
+    private View hXR;
+    private View hXS;
+    private TextView hXT;
+    private Button hXU;
+    private Button hXV;
+    private TextView hXW;
+    private HeadImageView hXX;
+    private ImageView hXY;
+    private View hXZ;
+    private a.InterfaceC0681a hYa;
+    private boolean hYb;
+    private com.baidu.tieba.ala.person.a hYc;
+    private Animation hdH;
     private boolean isHost;
     private Handler mHandler = new Handler();
     protected View mRootView;
@@ -56,8 +56,8 @@ public class c implements View.OnClickListener {
     private String uid;
 
     public c(final PersonCardActivity personCardActivity, boolean z) {
-        this.hXC = personCardActivity;
-        this.hXN = z;
+        this.hXQ = personCardActivity;
+        this.hYb = z;
         this.screenWidth = (int) ((1.0f * personCardActivity.getPageContext().getResources().getDisplayMetrics().widthPixels) / personCardActivity.getPageContext().getResources().getDisplayMetrics().density);
         this.mRootView = ns(z);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.1
@@ -73,7 +73,7 @@ public class c implements View.OnClickListener {
     public void eC(String str, String str2) {
         if (str != null && str2 != null) {
             this.aDM.setText(str);
-            m.a(this.hXJ, str2, true, false);
+            m.a(this.hXX, str2, true, false);
         }
     }
 
@@ -88,53 +88,53 @@ public class c implements View.OnClickListener {
                 }
                 this.aDM.setText(nameShow);
             }
-            m.a(this.hXJ, personUserData.user_info.portrait, true, !StringUtils.isNull(personUserData.user_info.third_app_id));
+            m.a(this.hXX, personUserData.user_info.portrait, true, !StringUtils.isNull(personUserData.user_info.third_app_id));
             if (personUserData.user_info == null || JavaTypesHelper.toLong(personUserData.user_info.user_id, 0L) == 0 || (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(personUserData.user_info.user_id))) {
-                this.hXI.setVisibility(8);
-                this.hXH.setVisibility(8);
-            } else if (this.hXC.Ii(TbadkCoreApplication.getCurrentAccount())) {
-                this.hXH.setVisibility(8);
-                this.hXI.setVisibility(0);
+                this.hXW.setVisibility(8);
+                this.hXV.setVisibility(8);
+            } else if (this.hXQ.Ij(TbadkCoreApplication.getCurrentAccount())) {
+                this.hXV.setVisibility(8);
+                this.hXW.setVisibility(0);
             } else if (personUserData.login_user_info != null && personUserData.login_user_info.is_live_admin == 1 && personUserData.user_info != null && personUserData.user_info.is_live_admin == 0) {
-                this.hXI.setVisibility(0);
-                this.hXH.setVisibility(0);
+                this.hXW.setVisibility(0);
+                this.hXV.setVisibility(0);
             } else {
-                this.hXH.setVisibility(0);
-                this.hXI.setVisibility(8);
+                this.hXV.setVisibility(0);
+                this.hXW.setVisibility(8);
             }
         }
     }
 
     private void initView() {
-        this.hXD = this.mRootView.findViewById(a.f.mystery_person_card_frame);
-        this.hXE = this.mRootView.findViewById(a.f.mystery_person_card_layout);
+        this.hXR = this.mRootView.findViewById(a.f.mystery_person_card_frame);
+        this.hXS = this.mRootView.findViewById(a.f.mystery_person_card_layout);
         this.aDM = (TextView) this.mRootView.findViewById(a.f.person_card_user_name);
-        this.hXI = (TextView) this.mRootView.findViewById(a.f.ala_user_manage);
-        this.hXG = (Button) this.mRootView.findViewById(a.f.person_card_at_button);
-        this.hXK = (ImageView) this.mRootView.findViewById(a.f.card_decoration);
-        this.hXL = this.mRootView.findViewById(a.f.user_portrait_layout);
-        this.hXG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.2
+        this.hXW = (TextView) this.mRootView.findViewById(a.f.ala_user_manage);
+        this.hXU = (Button) this.mRootView.findViewById(a.f.person_card_at_button);
+        this.hXY = (ImageView) this.mRootView.findViewById(a.f.card_decoration);
+        this.hXZ = this.mRootView.findViewById(a.f.user_portrait_layout);
+        this.hXU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cmC();
+                c.this.cmJ();
             }
         });
-        this.hXH = (Button) this.mRootView.findViewById(a.f.mystery_person_card_report_btn);
-        this.hXJ = (HeadImageView) this.mRootView.findViewById(a.f.user_portrait);
-        this.hXF = (TextView) this.mRootView.findViewById(a.f.mysterious_text);
-        this.hXJ.setDefaultResource(a.e.sdk_icon_default_avatar100);
-        this.hXJ.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
-        this.hXJ.setIsRound(true);
-        this.hXJ.setAutoChangeStyle(false);
-        this.hXJ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.hXJ.setBorderWidth(BdUtilHelper.getDimens(this.hXC.getPageContext().getPageActivity(), a.d.sdk_ds4));
-        this.hXH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.3
+        this.hXV = (Button) this.mRootView.findViewById(a.f.mystery_person_card_report_btn);
+        this.hXX = (HeadImageView) this.mRootView.findViewById(a.f.user_portrait);
+        this.hXT = (TextView) this.mRootView.findViewById(a.f.mysterious_text);
+        this.hXX.setDefaultResource(a.e.sdk_icon_default_avatar100);
+        this.hXX.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
+        this.hXX.setIsRound(true);
+        this.hXX.setAutoChangeStyle(false);
+        this.hXX.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hXX.setBorderWidth(BdUtilHelper.getDimens(this.hXQ.getPageContext().getPageActivity(), a.d.sdk_ds4));
+        this.hXV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cmH();
+                c.this.cmO();
             }
         });
-        this.hXJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.4
+        this.hXX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.c.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
@@ -142,72 +142,72 @@ public class c implements View.OnClickListener {
     }
 
     private void initListener() {
-        a(new a.InterfaceC0680a() { // from class: com.baidu.tieba.ala.person.view.c.5
-            @Override // com.baidu.tieba.ala.person.a.InterfaceC0680a
-            public void cmu() {
-                c.this.hXC.cmp();
+        a(new a.InterfaceC0681a() { // from class: com.baidu.tieba.ala.person.view.c.5
+            @Override // com.baidu.tieba.ala.person.a.InterfaceC0681a
+            public void cmB() {
+                c.this.hXQ.cmw();
             }
         });
-        this.hXI.setOnClickListener(this);
+        this.hXW.setOnClickListener(this);
     }
 
-    public void a(a.InterfaceC0680a interfaceC0680a) {
-        this.hXM = interfaceC0680a;
+    public void a(a.InterfaceC0681a interfaceC0681a) {
+        this.hYa = interfaceC0681a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmH() {
+    public void cmO() {
         if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(this.hXC.getActivity());
-            this.hXC.finish();
+            ViewHelper.skipToLoginActivity(this.hXQ.getActivity());
+            this.hXQ.finish();
         } else if (this.bxd != null && this.bxd.user_info != null && this.bxd.user_info.live_status == 1) {
-            g gVar = new g(this.hXC);
-            gVar.a(this.buN, this.goL, JavaTypesHelper.toLong(this.uid, 0L), this.isHost, this.bxd.isLandScapeLive());
+            g gVar = new g(this.hXQ);
+            gVar.a(this.buN, this.goZ, JavaTypesHelper.toLong(this.uid, 0L), this.isHost, this.bxd.isLandScapeLive());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, gVar));
-            this.hXC.finish();
+            this.hXQ.finish();
         } else {
-            if (this.hXO != null && this.hXO.isShowing()) {
-                this.hXO.dismiss();
+            if (this.hYc != null && this.hYc.isShowing()) {
+                this.hYc.dismiss();
             }
-            com.baidu.tieba.ala.person.a aVar = new com.baidu.tieba.ala.person.a(this.hXC.getActivity(), true);
-            aVar.a(new a.InterfaceC0680a() { // from class: com.baidu.tieba.ala.person.view.c.6
-                @Override // com.baidu.tieba.ala.person.a.InterfaceC0680a
-                public void cmu() {
-                    if (c.this.hXM != null) {
-                        c.this.hXM.cmu();
+            com.baidu.tieba.ala.person.a aVar = new com.baidu.tieba.ala.person.a(this.hXQ.getActivity(), true);
+            aVar.a(new a.InterfaceC0681a() { // from class: com.baidu.tieba.ala.person.view.c.6
+                @Override // com.baidu.tieba.ala.person.a.InterfaceC0681a
+                public void cmB() {
+                    if (c.this.hYa != null) {
+                        c.this.hYa.cmB();
                     }
                 }
             });
             aVar.show();
-            this.hXO = aVar;
+            this.hYc = aVar;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmC() {
+    public void cmJ() {
         if (this.bxd != null) {
             if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(this.hXC.getActivity());
+                ViewHelper.skipToLoginActivity(this.hXQ.getActivity());
             } else if (this.bxd.user_info == null || JavaTypesHelper.toLong(this.bxd.user_info.user_id, 0L) == 0) {
-                BdUtilHelper.showToast(this.hXC.getActivity(), a.h.ala_cannot_reply_tourist);
+                BdUtilHelper.showToast(this.hXQ.getActivity(), a.h.ala_cannot_reply_tourist);
             } else if (this.bxd.user_info.user_id.equals(TbadkCoreApplication.getCurrentAccount())) {
-                BdUtilHelper.showToast(this.hXC.getActivity(), a.h.ala_cannot_reply_self);
+                BdUtilHelper.showToast(this.hXQ.getActivity(), a.h.ala_cannot_reply_self);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913054));
                 com.baidu.live.liveroom.d.c cVar = new com.baidu.live.liveroom.d.c();
                 cVar.brE = (short) 1;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913047, cVar));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913012, this.bxd.user_info));
-                this.hXC.finish();
+                this.hXQ.finish();
             }
         }
     }
 
     private View ns(boolean z) {
         if (z) {
-            return LayoutInflater.from(this.hXC.getPageContext().getPageActivity()).inflate(a.g.ala_view_person_card_mystery_hori, (ViewGroup) null);
+            return LayoutInflater.from(this.hXQ.getPageContext().getPageActivity()).inflate(a.g.ala_view_person_card_mystery_hori, (ViewGroup) null);
         }
-        return LayoutInflater.from(this.hXC.getPageContext().getPageActivity()).inflate(a.g.ala_view_person_card_mystery, (ViewGroup) null);
+        return LayoutInflater.from(this.hXQ.getPageContext().getPageActivity()).inflate(a.g.ala_view_person_card_mystery, (ViewGroup) null);
     }
 
     public View getRootView() {
@@ -227,26 +227,26 @@ public class c implements View.OnClickListener {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.person.view.c.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (c.this.hdt == null) {
-                        c.this.hdt = AnimationUtils.loadAnimation(c.this.hXC.getActivity(), a.C0195a.sdk_push_up_in);
+                    if (c.this.hdH == null) {
+                        c.this.hdH = AnimationUtils.loadAnimation(c.this.hXQ.getActivity(), a.C0195a.sdk_push_up_in);
                     }
-                    c.this.hXD.setAnimation(c.this.hdt);
-                    c.this.hXD.setVisibility(0);
-                    c.this.hXE.setVisibility(0);
-                    c.this.hXL.setVisibility(0);
-                    c.this.hXK.setVisibility(0);
-                    c.this.hdt.setDuration(300L);
-                    c.this.hdt.start();
-                    c.this.hdt.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.person.view.c.7.1
+                    c.this.hXR.setAnimation(c.this.hdH);
+                    c.this.hXR.setVisibility(0);
+                    c.this.hXS.setVisibility(0);
+                    c.this.hXZ.setVisibility(0);
+                    c.this.hXY.setVisibility(0);
+                    c.this.hdH.setDuration(300L);
+                    c.this.hdH.start();
+                    c.this.hdH.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.person.view.c.7.1
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationStart(Animation animation) {
-                            if (c.this.hXC.isFinishing()) {
+                            if (c.this.hXQ.isFinishing()) {
                             }
                         }
 
                         @Override // android.view.animation.Animation.AnimationListener
                         public void onAnimationEnd(Animation animation) {
-                            if (!c.this.hXC.isFinishing()) {
+                            if (!c.this.hXQ.isFinishing()) {
                                 c.this.cA(c.this.mRootView);
                             }
                         }
@@ -261,46 +261,46 @@ public class c implements View.OnClickListener {
     }
 
     public void onDestroy() {
-        if (this.hXD != null) {
-            this.hXD.clearAnimation();
+        if (this.hXR != null) {
+            this.hXR.clearAnimation();
         }
-        if (this.hXO != null && this.hXO.isShowing()) {
-            this.hXO.dismiss();
+        if (this.hYc != null && this.hYc.isShowing()) {
+            this.hYc.dismiss();
         }
     }
 
-    public Animation bWA() {
+    public Animation bWH() {
         this.mHandler.removeCallbacksAndMessages(null);
         this.mHandler = null;
-        if (this.hdt != null) {
-            this.hdt.cancel();
+        if (this.hdH != null) {
+            this.hdH.cancel();
         }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.hXC.getActivity(), a.C0195a.sdk_push_up_out);
-        this.hXD.setAnimation(loadAnimation);
-        this.hXD.setVisibility(8);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.hXQ.getActivity(), a.C0195a.sdk_push_up_out);
+        this.hXR.setAnimation(loadAnimation);
+        this.hXR.setVisibility(8);
         loadAnimation.setDuration(300L);
         loadAnimation.start();
         return loadAnimation;
     }
 
     public void bkp() {
-        if (this.hXO != null && this.hXO.isShowing()) {
-            this.hXO.resize();
+        if (this.hYc != null && this.hYc.isShowing()) {
+            this.hYc.resize();
         }
     }
 
     public void E(String str, String str2, String str3) {
         this.buN = JavaTypesHelper.toLong(str, 0L);
-        this.goL = JavaTypesHelper.toLong(str2, 0L);
+        this.goZ = JavaTypesHelper.toLong(str2, 0L);
         this.isHost = !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str2);
-        this.hXF.setText(str3);
+        this.hXT.setText(str3);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hXI) {
+        if (view == this.hXW) {
             TiebaInitialize.log("c12266");
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913025, new Object[]{this.hXC, this.bxd}));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913025, new Object[]{this.hXQ, this.bxd}));
         }
     }
 }

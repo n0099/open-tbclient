@@ -16,19 +16,19 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
     @Override // io.reactivex.g
     public void a(org.a.c<? super U> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.qnW.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
+            this.qow.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
         } else {
-            this.qnW.a((j) new C1300b(cVar, this.mapper));
+            this.qow.a((j) new C1302b(cVar, this.mapper));
         }
     }
 
     /* renamed from: io.reactivex.internal.operators.flowable.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    static final class C1300b<T, U> extends io.reactivex.internal.subscribers.b<T, U> {
+    static final class C1302b<T, U> extends io.reactivex.internal.subscribers.b<T, U> {
         final h<? super T, ? extends U> mapper;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C1300b(org.a.c<? super U> cVar, h<? super T, ? extends U> hVar) {
+        public C1302b(org.a.c<? super U> cVar, h<? super T, ? extends U> hVar) {
             super(cVar);
             this.mapper = hVar;
         }
@@ -50,7 +50,7 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Sj(i);
+            return Sk(i);
         }
 
         @Override // io.reactivex.internal.a.f
@@ -102,7 +102,7 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Sj(i);
+            return Sk(i);
         }
 
         @Override // io.reactivex.internal.a.f

@@ -7,24 +7,24 @@ import tbclient.GetVipInfo.VipBannerItem;
 import tbclient.GetVipInfo.VipBannerList;
 /* loaded from: classes9.dex */
 public class a implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lmn = BdUniqueId.gen();
+    public static final BdUniqueId lmB = BdUniqueId.gen();
     public String cardId;
-    public boolean lmk = false;
-    private List<b> lmo;
+    private List<b> lmC;
+    public boolean lmy = false;
 
     public a(VipBannerList vipBannerList) {
         this.cardId = "";
         if (vipBannerList != null && vipBannerList.item != null) {
             this.cardId = vipBannerList.card_id;
-            this.lmo = new ArrayList();
+            this.lmC = new ArrayList();
             for (VipBannerItem vipBannerItem : vipBannerList.item) {
-                this.lmo.add(new b(vipBannerItem));
+                this.lmC.add(new b(vipBannerItem));
             }
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lmn;
+        return lmB;
     }
 }

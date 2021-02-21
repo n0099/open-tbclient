@@ -50,7 +50,7 @@ import java.util.Map;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes6.dex */
 public class f implements c, d, am.a {
-    private WeakReference<c.InterfaceC1011c> C;
+    private WeakReference<c.InterfaceC1013c> C;
     private WeakReference<a> D;
     private int E;
     private int F;
@@ -326,8 +326,8 @@ public class f implements c, d, am.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(c.InterfaceC1011c interfaceC1011c) {
-        this.C = new WeakReference<>(interfaceC1011c);
+    public void a(c.InterfaceC1013c interfaceC1013c) {
+        this.C = new WeakReference<>(interfaceC1013c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c

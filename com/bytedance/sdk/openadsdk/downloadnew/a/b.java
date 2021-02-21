@@ -202,9 +202,9 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
             p.a(context);
         }
         this.s = new com.bytedance.sdk.openadsdk.downloadnew.core.c();
-        this.i = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.e, this.d, null).eEg();
-        this.g = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.d).eEe();
-        this.h = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.d, this.e).eEf();
+        this.i = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.e, this.d, null).eEo();
+        this.g = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.d).eEm();
+        this.h = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.d, this.e).eEn();
         a();
     }
 
@@ -754,12 +754,12 @@ public class b implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
-    public void a(int i, a.InterfaceC1017a interfaceC1017a) {
+    public void a(int i, a.InterfaceC1019a interfaceC1019a) {
         if (this.r == null) {
             this.r = new HashSet<>();
         }
         this.r.add(Integer.valueOf(i));
-        e.a(i, interfaceC1017a);
+        e.a(i, interfaceC1019a);
     }
 
     @Override // com.bytedance.sdk.openadsdk.utils.am.a

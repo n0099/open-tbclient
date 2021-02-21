@@ -8,27 +8,27 @@ import com.cmic.sso.sdk.a.b;
 /* loaded from: classes15.dex */
 public class j {
     @SuppressLint({"StaticFieldLeak"})
-    private static j pxe;
+    private static j pxE;
 
     /* renamed from: a  reason: collision with root package name */
     private Context f7731a;
 
     public static void a(Context context) {
-        pxe = new j(context);
+        pxE = new j(context);
     }
 
     private j(Context context) {
         this.f7731a = context;
     }
 
-    public static j eru() {
-        return pxe;
+    public static j erC() {
+        return pxE;
     }
 
     public String b() {
         try {
-            b.C1036b erl = com.cmic.sso.sdk.a.b.erk().erl();
-            return erl.OJ(erl.f());
+            b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
+            return eru.OK(eru.f());
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -40,9 +40,9 @@ public class j {
         String str;
         TelephonyManager telephonyManager;
         String str2;
-        b.C1036b erl = com.cmic.sso.sdk.a.b.erk().erl();
-        String OL = erl.OL(erl.f());
-        if (TextUtils.isEmpty(OL) && n.a(this.f7731a) && (telephonyManager = (TelephonyManager) this.f7731a.getSystemService("phone")) != null) {
+        b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
+        String OM = eru.OM(eru.f());
+        if (TextUtils.isEmpty(OM) && n.a(this.f7731a) && (telephonyManager = (TelephonyManager) this.f7731a.getSystemService("phone")) != null) {
             String simOperator = telephonyManager.getSimOperator();
             if (TextUtils.isEmpty(simOperator) && g.a(this.f7731a, "android.permission.READ_PHONE_STATE") && n.d()) {
                 try {
@@ -57,7 +57,7 @@ public class j {
             }
             str = simOperator;
         } else {
-            str = OL;
+            str = OM;
         }
         c.b("SIMUtils", "operator: " + str);
         if (TextUtils.isEmpty(str)) {
@@ -159,16 +159,16 @@ public class j {
     public String Bf(boolean z) {
         try {
             if (n.d()) {
-                b.C1036b erl = com.cmic.sso.sdk.a.b.erk().erl();
-                String OK = erl.OK(erl.f());
-                if (TextUtils.isEmpty(OK) && z) {
-                    OK = ((TelephonyManager) this.f7731a.getSystemService("phone")).getDeviceId();
+                b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
+                String OL = eru.OL(eru.f());
+                if (TextUtils.isEmpty(OL) && z) {
+                    OL = ((TelephonyManager) this.f7731a.getSystemService("phone")).getDeviceId();
                 }
-                c.b("SIMUtils", "imei is " + OK);
-                if (TextUtils.isEmpty(OK)) {
+                c.b("SIMUtils", "imei is " + OL);
+                if (TextUtils.isEmpty(OL)) {
                     return "none";
                 }
-                return OK;
+                return OL;
             }
         } catch (Exception e) {
             c.a("SIMUtils", e.getMessage());
@@ -178,21 +178,8 @@ public class j {
 
     public String c() {
         try {
-            b.C1036b erl = com.cmic.sso.sdk.a.b.erk().erl();
-            String OJ = erl.OJ((erl.f() + 1) % 2);
-            if (OJ == null) {
-                return "";
-            }
-            return OJ;
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
-    public String d() {
-        try {
-            b.C1036b erl = com.cmic.sso.sdk.a.b.erk().erl();
-            String OK = erl.OK((erl.f() + 1) % 2);
+            b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
+            String OK = eru.OK((eru.f() + 1) % 2);
             if (OK == null) {
                 return "";
             }
@@ -202,10 +189,23 @@ public class j {
         }
     }
 
+    public String d() {
+        try {
+            b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
+            String OL = eru.OL((eru.f() + 1) % 2);
+            if (OL == null) {
+                return "";
+            }
+            return OL;
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
     @SuppressLint({"MissingPermission"})
     public static String e() {
-        b.C1036b erl = com.cmic.sso.sdk.a.b.erk().erl();
-        return erl.a(erl.f());
+        b.C1038b eru = com.cmic.sso.sdk.a.b.ert().eru();
+        return eru.a(eru.f());
     }
 
     public String f() {

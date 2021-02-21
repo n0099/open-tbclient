@@ -18,10 +18,10 @@ import kotlin.jvm.internal.p;
 @e
 /* loaded from: classes2.dex */
 public final class a {
-    private final BdTypeRecyclerView iNV;
-    private final List<com.baidu.adp.widget.ListView.a<?, ?>> jNU;
-    private final b jNV;
-    private final VideoMiddlePageViewModel jNW;
+    private final BdTypeRecyclerView iOj;
+    private final List<com.baidu.adp.widget.ListView.a<?, ?>> jOi;
+    private final b jOj;
+    private final VideoMiddlePageViewModel jOk;
     private final TbPageContext<?> pageContext;
 
     public a(TbPageContext<?> tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, VideoMiddlePageViewModel videoMiddlePageViewModel) {
@@ -29,26 +29,26 @@ public final class a {
         p.o(bdTypeRecyclerView, "recyclerView");
         p.o(videoMiddlePageViewModel, "viewModel");
         this.pageContext = tbPageContext;
-        this.iNV = bdTypeRecyclerView;
-        this.jNW = videoMiddlePageViewModel;
-        this.jNU = new ArrayList();
+        this.iOj = bdTypeRecyclerView;
+        this.jOk = videoMiddlePageViewModel;
+        this.jOi = new ArrayList();
         TbPageContext<?> tbPageContext2 = this.pageContext;
-        BdUniqueId bdUniqueId = g.jnN;
+        BdUniqueId bdUniqueId = g.job;
         p.n(bdUniqueId, "VideoAggregationData.TYPE_VIDEO_AGGREGATION");
-        this.jNV = new b(tbPageContext2, bdUniqueId, this.jNW);
-        this.jNU.add(this.jNV);
-        this.iNV.addAdapters(this.jNU);
-        MutableLiveData<Integer> cMO = this.jNW.cMO();
+        this.jOj = new b(tbPageContext2, bdUniqueId, this.jOk);
+        this.jOi.add(this.jOj);
+        this.iOj.addAdapters(this.jOi);
+        MutableLiveData<Integer> cMV = this.jOk.cMV();
         Activity pageActivity = this.pageContext.getPageActivity();
         if (pageActivity == null) {
             throw new TypeCastException("null cannot be cast to non-null type androidx.lifecycle.LifecycleOwner");
         }
-        cMO.observe((LifecycleOwner) pageActivity, new Observer<Integer>() { // from class: com.baidu.tieba.frs.videomiddlepagelight.a.1
+        cMV.observe((LifecycleOwner) pageActivity, new Observer<Integer>() { // from class: com.baidu.tieba.frs.videomiddlepagelight.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             /* renamed from: r */
             public final void onChanged(Integer num) {
-                ArrayList value = a.this.cMu().cMK().getValue();
+                ArrayList value = a.this.cMB().cMR().getValue();
                 if (value == null) {
                     value = new ArrayList();
                 }
@@ -56,27 +56,27 @@ public final class a {
                 a aVar = a.this;
                 p.n(num, "pos");
                 aVar.o(num.intValue(), value);
-                a.this.cFO().getListAdapter().notifyDataSetChanged();
+                a.this.cFV().getListAdapter().notifyDataSetChanged();
             }
         });
     }
 
-    public final BdTypeRecyclerView cFO() {
-        return this.iNV;
+    public final BdTypeRecyclerView cFV() {
+        return this.iOj;
     }
 
-    public final VideoMiddlePageViewModel cMu() {
-        return this.jNW;
+    public final VideoMiddlePageViewModel cMB() {
+        return this.jOk;
     }
 
     public final void setData(List<? extends BaseCardInfo> list) {
         p.o(list, "data");
-        Integer value = this.jNW.cMO().getValue();
+        Integer value = this.jOk.cMV().getValue();
         if (value == null) {
             value = 0;
         }
         o(value.intValue(), list);
-        this.iNV.setData(list);
+        this.iOj.setData(list);
     }
 
     public final void o(int i, List<? extends BaseCardInfo> list) {
@@ -97,8 +97,8 @@ public final class a {
         }
     }
 
-    public final void cMv() {
-        List<BaseCardInfo> value = this.jNW.cMK().getValue();
+    public final void cMC() {
+        List<BaseCardInfo> value = this.jOk.cMR().getValue();
         if (value != null) {
             p.n(value, "viewModel.videoDataList.value ?: return");
             for (BaseCardInfo baseCardInfo : value) {
@@ -106,11 +106,11 @@ public final class a {
                     ((i) baseCardInfo).setAutoPlay(false);
                 }
             }
-            this.iNV.setData(value);
+            this.iOj.setData(value);
         }
     }
 
     public final void onDestroy() {
-        this.jNV.onDestroy();
+        this.jOj.onDestroy();
     }
 }

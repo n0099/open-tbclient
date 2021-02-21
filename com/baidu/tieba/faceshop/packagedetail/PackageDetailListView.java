@@ -6,8 +6,8 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes9.dex */
 public class PackageDetailListView extends BdListView {
-    private boolean jaA;
-    private a jaz;
+    private a jaN;
+    private boolean jaO;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -16,27 +16,27 @@ public class PackageDetailListView extends BdListView {
 
     public PackageDetailListView(Context context) {
         super(context);
-        this.jaA = false;
+        this.jaO = false;
     }
 
     public PackageDetailListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jaA = false;
+        this.jaO = false;
     }
 
     public PackageDetailListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jaA = false;
+        this.jaO = false;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.jaA) {
-            if (this.jaz != null) {
-                this.jaz.onInterceptTouchEvent(motionEvent);
+        if (this.jaO) {
+            if (this.jaN != null) {
+                this.jaN.onInterceptTouchEvent(motionEvent);
             }
             return false;
-        } else if (this.jaz == null || !this.jaz.onInterceptTouchEvent(motionEvent)) {
+        } else if (this.jaN == null || !this.jaN.onInterceptTouchEvent(motionEvent)) {
             return super.onInterceptTouchEvent(motionEvent);
         } else {
             return true;
@@ -44,10 +44,10 @@ public class PackageDetailListView extends BdListView {
     }
 
     public void setTouchEventInterceptHandler(a aVar) {
-        this.jaz = aVar;
+        this.jaN = aVar;
     }
 
     public void setDisableListViewTouchIntercept(boolean z) {
-        this.jaA = z;
+        this.jaO = z;
     }
 }

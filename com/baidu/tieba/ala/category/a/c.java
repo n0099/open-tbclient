@@ -7,10 +7,10 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 /* loaded from: classes11.dex */
 public class c extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, d> {
-    private String gMD;
+    private String gMR;
 
     public c(Context context, BdUniqueId bdUniqueId) {
-        super(context, com.baidu.tieba.ala.category.b.c.gMS, bdUniqueId);
+        super(context, com.baidu.tieba.ala.category.b.c.gNg, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,12 +26,12 @@ public class c extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, d> {
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.category.b.c cVar, d dVar) {
-        dVar.a(cVar, this.gMD);
+        dVar.a(cVar, this.gMR);
         return view;
     }
 
-    public void Gd(String str) {
-        this.gMD = str;
+    public void Ge(String str) {
+        this.gMR = str;
         notifyDataSetChanged();
     }
 }

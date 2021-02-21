@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.h;
-import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.t;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -74,7 +74,7 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
                     tbImageView2.setOnClickListener(this.eWS);
                     if ((this.dataList.get(i) instanceof aa) && !((aa) this.dataList.get(i)).blY()) {
                         aa aaVar = (aa) this.dataList.get(i);
-                        s.b(aaVar.blV(), tbImageView, aaVar.blW(), l.getDimens(this.context, R.dimen.ds24));
+                        t.b(aaVar.blV(), tbImageView, aaVar.blW(), l.getDimens(this.context, R.dimen.ds24));
                     }
                 }
             }

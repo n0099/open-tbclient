@@ -8,30 +8,30 @@ import java.util.Map;
 public class a extends g {
     private int ajU;
     private int fOZ;
-    private p gcp;
-    private Object gcq;
-    private boolean gcr;
+    private p gcv;
+    private Object gcw;
+    private boolean gcx;
     private Map<String, String> params;
 
     public a(TbPageContext tbPageContext, int i) {
         super(tbPageContext, i);
-        this.gcr = false;
+        this.gcx = false;
     }
 
-    public p bJz() {
-        return this.gcp;
+    public p bJE() {
+        return this.gcv;
     }
 
     public void a(p pVar) {
-        this.gcp = pVar;
+        this.gcv = pVar;
     }
 
-    public Object bJA() {
-        return this.gcq;
+    public Object bJF() {
+        return this.gcw;
     }
 
     public void aD(Object obj) {
-        this.gcq = obj;
+        this.gcw = obj;
     }
 
     public Map<String, String> getParams() {

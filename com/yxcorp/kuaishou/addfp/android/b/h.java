@@ -9,10 +9,10 @@ public final class h {
 
     /* renamed from: a  reason: collision with root package name */
     private final String f14393a = "iphonesubinfo";
-    private /* synthetic */ f qme;
+    private /* synthetic */ f qmE;
 
     public h(f fVar) {
-        this.qme = fVar;
+        this.qmE = fVar;
     }
 
     private String a(String str, String str2) {
@@ -25,7 +25,7 @@ public final class h {
         String str3 = "";
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
-        a2 = this.qme.a(str2);
+        a2 = this.qmE.a(str2);
         if (TextUtils.isEmpty(a2)) {
             return "";
         }
@@ -34,7 +34,7 @@ public final class h {
             context = f.d;
             obtain.writeString(context.getPackageName());
         }
-        a3 = this.qme.a(str2, str, obtain, obtain2);
+        a3 = this.qmE.a(str2, str, obtain, obtain2);
         if (a3 != null) {
             try {
                 obtain2.readException();

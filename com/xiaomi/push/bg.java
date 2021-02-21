@@ -13,12 +13,12 @@ public class bg extends ai.a {
     }
 
     private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.f13882a).m84a().isEventUploadSwitchOpen();
+        return com.xiaomi.clientreport.manager.a.a(this.f13882a).m83a().isEventUploadSwitchOpen();
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a  reason: collision with other method in class */
-    public int mo192a() {
+    public int mo191a() {
         return 100886;
     }
 
@@ -27,7 +27,7 @@ public class bg extends ai.a {
         try {
             if (a()) {
                 com.xiaomi.channel.commonutils.logger.b.c(this.f13882a.getPackageName() + " begin upload event");
-                com.xiaomi.clientreport.manager.a.a(this.f13882a).m86b();
+                com.xiaomi.clientreport.manager.a.a(this.f13882a).m85b();
             }
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

@@ -176,7 +176,7 @@ public class c implements a {
     }
 
     @Override // com.kwai.filedownloader.b.a
-    public a.InterfaceC1154a b() {
+    public a.InterfaceC1156a b() {
         return this.f10873b.a(this.f10872a.f10868a, this.f10872a.f10869b);
     }
 

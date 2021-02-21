@@ -11,9 +11,9 @@ import com.baidu.tieba.R;
 public class h {
     private TbPageContext<?> eUY;
     private TextView fgy;
-    private TbImageView llR;
+    private TbImageView lmf;
     private View mRootView;
-    private TextView nHf;
+    private TextView nHF;
 
     public h(TbPageContext<?> tbPageContext) {
         this.eUY = tbPageContext;
@@ -22,16 +22,16 @@ public class h {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.background_preview_bottom, (ViewGroup) null);
-        this.nHf = (TextView) this.mRootView.findViewById(R.id.text_bg_name);
-        this.llR = (TbImageView) this.mRootView.findViewById(R.id.bg_permission_icon);
+        this.nHF = (TextView) this.mRootView.findViewById(R.id.text_bg_name);
+        this.lmf = (TbImageView) this.mRootView.findViewById(R.id.bg_permission_icon);
         this.fgy = (TextView) this.mRootView.findViewById(R.id.text_bg_description);
         onChangeSkinType();
     }
 
     public void f(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.nHf.setText(dressItemData.getTitle());
-            this.llR.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+            this.nHF.setText(dressItemData.getTitle());
+            this.lmf.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
             this.fgy.setText(dressItemData.getDescription());
         }
     }

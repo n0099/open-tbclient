@@ -36,7 +36,7 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     };
 
     /* loaded from: classes3.dex */
-    private class a extends RecyclerView.Adapter<C1086b> {
+    private class a extends RecyclerView.Adapter<C1088b> {
 
         /* renamed from: b  reason: collision with root package name */
         private LayoutInflater f8965b;
@@ -84,22 +84,22 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: a */
-        public C1086b onCreateViewHolder(ViewGroup viewGroup, int i) {
-            return new C1086b((EpisodePhotoView) this.f8965b.inflate(R.layout.ksad_tube_trend_scroll_view_episode_photo, viewGroup, false));
+        public C1088b onCreateViewHolder(ViewGroup viewGroup, int i) {
+            return new C1088b((EpisodePhotoView) this.f8965b.inflate(R.layout.ksad_tube_trend_scroll_view_episode_photo, viewGroup, false));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: a */
-        public void onBindViewHolder(C1086b c1086b, final int i) {
+        public void onBindViewHolder(C1088b c1088b, final int i) {
             com.kwad.sdk.core.d.a.a("TubeProfileEpisodeGridPresenter", "position =" + i);
             final AdTemplate a2 = a(i);
-            c1086b.f8970a.setRatio(1.29f);
-            c1086b.f8970a.a(i, b.this.c.tubeId);
-            c1086b.f8970a.setTemplateData(a2);
+            c1088b.f8970a.setRatio(1.29f);
+            c1088b.f8970a.a(i, b.this.c.tubeId);
+            c1088b.f8970a.setTemplateData(a2);
             if (i != 5 || b.this.c.totalEpisodeCount <= 6) {
-                c1086b.f8970a.setLookMoreVisibility(false);
-                c1086b.f8970a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.b.a.2
+                c1088b.f8970a.setLookMoreVisibility(false);
+                c1088b.f8970a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.b.a.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         com.kwad.sdk.core.report.e.a(a2, 1, "current_tube_list", (String) null);
@@ -107,8 +107,8 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
                     }
                 });
             } else {
-                c1086b.f8970a.setLookMoreVisibility(true);
-                c1086b.f8970a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.b.a.1
+                c1088b.f8970a.setLookMoreVisibility(true);
+                c1088b.f8970a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.b.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         com.kwad.sdk.core.report.e.a(a2, "current_tube_list", (String) null);
@@ -116,7 +116,7 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
                     }
                 });
             }
-            c1086b.f8970a.setId(i);
+            c1088b.f8970a.setId(i);
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -127,12 +127,12 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     /* renamed from: com.kwad.sdk.contentalliance.tube.profile.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1086b extends RecyclerView.ViewHolder {
+    public static class C1088b extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
         public EpisodePhotoView f8970a;
 
-        public C1086b(View view) {
+        public C1088b(View view) {
             super(view);
             this.f8970a = (EpisodePhotoView) view;
         }

@@ -18,7 +18,7 @@ public class b implements a {
     }
 
     @Override // com.facebook.a.a
-    public InputStream erL() throws IOException {
+    public InputStream erT() throws IOException {
         return new FileInputStream(this.mFile);
     }
 
@@ -38,7 +38,7 @@ public class b implements a {
         return this.mFile.hashCode();
     }
 
-    public static b ak(File file) {
+    public static b al(File file) {
         if (file != null) {
             return new b(file);
         }

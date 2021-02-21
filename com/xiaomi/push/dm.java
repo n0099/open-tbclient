@@ -50,7 +50,7 @@ public class dm implements LoggerInterface {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: a  reason: collision with other method in class */
-    public void m256a() {
+    public void m255a() {
         BufferedWriter bufferedWriter;
         FileLock fileLock;
         RandomAccessFile randomAccessFile;

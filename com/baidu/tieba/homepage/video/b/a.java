@@ -31,7 +31,7 @@ public class a {
                 if ((nVar instanceof com.baidu.tieba.card.data.b) && (bln = (bVar = (com.baidu.tieba.card.data.b) nVar).bln()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(bln.getTid())) != null) {
                     bVar.setSource(threadPersonalized.source);
                     bVar.setWeight(threadPersonalized.weight);
-                    bVar.IP(threadPersonalized.abtest_tag);
+                    bVar.IQ(threadPersonalized.abtest_tag);
                     bln.mRecomAbTag = threadPersonalized.abtest_tag;
                     bln.mRecomSource = threadPersonalized.source;
                     bln.mRecomWeight = threadPersonalized.weight;

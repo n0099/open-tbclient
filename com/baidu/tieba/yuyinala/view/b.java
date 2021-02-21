@@ -22,16 +22,16 @@ public class b {
     private LinearLayout bwE;
     private CommonEmptyView bwJ;
     private LinearLayout cdZ;
-    private BdListView ijo;
-    private ArrayList<com.baidu.tieba.yuyinala.data.c> ijv;
+    private BdListView ijC;
+    private ArrayList<com.baidu.tieba.yuyinala.data.c> ijJ;
     private String mRoomId;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.adapter.a oNQ;
-    private com.baidu.tieba.yuyinala.view.a oNR;
-    private AlaRankListHeaderView oNS;
-    private g oNT;
-    private TextView oNU;
-    private AlaRankListActivity ooW;
+    private com.baidu.tieba.yuyinala.adapter.a oOq;
+    private com.baidu.tieba.yuyinala.view.a oOr;
+    private AlaRankListHeaderView oOs;
+    private g oOt;
+    private TextView oOu;
+    private AlaRankListActivity opx;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -39,28 +39,28 @@ public class b {
     }
 
     public b(AlaRankListActivity alaRankListActivity, String str) {
-        this.ooW = alaRankListActivity;
+        this.opx = alaRankListActivity;
         this.mRoomId = str;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ooW).inflate(a.g.yuyin_ala_rank_fragment_layout, (ViewGroup) null);
-        this.ijo = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
-        this.oNQ = new com.baidu.tieba.yuyinala.adapter.a(this.ooW, this.mRoomId);
-        this.ijo.setAdapter((ListAdapter) this.oNQ);
-        this.oNS = new AlaRankListHeaderView(this.ooW, this.mRoomId);
-        this.ijo.addHeaderView(this.oNS);
-        this.cdZ = (LinearLayout) LayoutInflater.from(this.ooW).inflate(a.g.yuyin_hour_rank_list_footer_view, (ViewGroup) null);
-        this.oNU = (TextView) this.cdZ.findViewById(a.f.tv_footer);
-        this.ijo.addFooterView(this.cdZ);
+        this.mRootView = LayoutInflater.from(this.opx).inflate(a.g.yuyin_ala_rank_fragment_layout, (ViewGroup) null);
+        this.ijC = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
+        this.oOq = new com.baidu.tieba.yuyinala.adapter.a(this.opx, this.mRoomId);
+        this.ijC.setAdapter((ListAdapter) this.oOq);
+        this.oOs = new AlaRankListHeaderView(this.opx, this.mRoomId);
+        this.ijC.addHeaderView(this.oOs);
+        this.cdZ = (LinearLayout) LayoutInflater.from(this.opx).inflate(a.g.yuyin_hour_rank_list_footer_view, (ViewGroup) null);
+        this.oOu = (TextView) this.cdZ.findViewById(a.f.tv_footer);
+        this.ijC.addFooterView(this.cdZ);
         this.cdZ.setVisibility(0);
         this.bwE = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
-        this.oNR = new com.baidu.tieba.yuyinala.view.a(this.ooW, this.mRoomId);
-        this.bwE.addView(this.oNR.getView(), new LinearLayout.LayoutParams(-1, -2));
+        this.oOr = new com.baidu.tieba.yuyinala.view.a(this.opx, this.mRoomId);
+        this.bwE.addView(this.oOr.getView(), new LinearLayout.LayoutParams(-1, -2));
         this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_rank_list_empty);
-        this.ijo.setEmptyView(this.bwJ);
-        this.oNR.a(new a() { // from class: com.baidu.tieba.yuyinala.view.b.1
+        this.ijC.setEmptyView(this.bwJ);
+        this.oOr.a(new a() { // from class: com.baidu.tieba.yuyinala.view.b.1
             @Override // com.baidu.tieba.yuyinala.view.b.a
             public void en(View view) {
                 MessageManager.getInstance().dispatchResponsedMessage(new YuyinSupportRoomMessage(new SupportRoom()));
@@ -69,19 +69,19 @@ public class b {
     }
 
     public void setDatas(ArrayList<com.baidu.tieba.yuyinala.data.c> arrayList) {
-        if (this.oNQ != null) {
-            this.ijv = arrayList;
-            this.oNQ.setData(arrayList);
+        if (this.oOq != null) {
+            this.ijJ = arrayList;
+            this.oOq.setData(arrayList);
         }
     }
 
     public void c(i iVar) {
-        this.oNS.b(iVar);
+        this.oOs.b(iVar);
     }
 
     public void wE(int i) {
-        if (this.oNS != null) {
-            this.oNS.setHourHeaderInfoVisible(i);
+        if (this.oOs != null) {
+            this.oOs.setHourHeaderInfoVisible(i);
         }
     }
 
@@ -91,30 +91,30 @@ public class b {
         }
     }
 
-    public void WK(String str) {
-        if (this.oNU != null) {
-            this.oNU.setText(str);
+    public void WW(String str) {
+        if (this.oOu != null) {
+            this.oOu.setText(str);
         }
     }
 
     public void wF(int i) {
-        this.ijo.setVisibility(i);
+        this.ijC.setVisibility(i);
     }
 
     public void b(g gVar) {
         if (gVar == null) {
-            if (this.oNR != null) {
-                this.oNR.getView().setVisibility(8);
+            if (this.oOr != null) {
+                this.oOr.getView().setVisibility(8);
                 return;
             }
             return;
         }
-        this.oNT = gVar;
+        this.oOt = gVar;
         View view = null;
-        if (this.oNR != null) {
-            this.oNR.a(gVar);
-            this.oNR.getView().setVisibility(0);
-            view = this.oNR.getView();
+        if (this.oOr != null) {
+            this.oOr.a(gVar);
+            this.oOr.getView().setVisibility(0);
+            view = this.oOr.getView();
         }
         if (TbadkCoreApplication.getInst().isNotMobileBaidu()) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.b.2
@@ -125,9 +125,9 @@ public class b {
         }
     }
 
-    public void cpA() {
-        if (this.oNR != null) {
-            this.oNR.getView().setVisibility(8);
+    public void cpH() {
+        if (this.oOr != null) {
+            this.oOr.getView().setVisibility(8);
         }
     }
 
@@ -136,7 +136,7 @@ public class b {
         this.bwJ.setTitle("网络不给力，请稍后重试");
         this.bwJ.setRefreshButton("重新加载", onClickListener);
         this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bwJ.setTextColor(this.ooW.getResources().getColor(a.c.sdk_color_525252));
+        this.bwJ.setTextColor(this.opx.getResources().getColor(a.c.sdk_color_525252));
         this.bwJ.setVisibility(0);
     }
 
@@ -149,7 +149,7 @@ public class b {
             this.bwJ.reset();
             this.bwJ.setTitle("还没有房间上榜哦~");
             this.bwJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.bwJ.setTextColor(this.ooW.getResources().getColor(a.c.sdk_color_525252));
+            this.bwJ.setTextColor(this.opx.getResources().getColor(a.c.sdk_color_525252));
             this.bwJ.setVisibility(0);
             return;
         }

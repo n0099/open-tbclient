@@ -8,41 +8,41 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes6.dex */
 public final class b extends Drawable {
-    private boolean pYj;
-    private int pYk;
-    private final com.opensource.svgaplayer.a.b pYl;
-    private final f pYm;
-    private final c pYn;
+    private boolean pYJ;
+    private int pYK;
+    private final com.opensource.svgaplayer.a.b pYL;
+    private final f pYM;
+    private final c pYN;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         p.o(fVar, "videoItem");
         p.o(cVar, "dynamicItem");
-        this.pYm = fVar;
-        this.pYn = cVar;
-        this.pYj = true;
+        this.pYM = fVar;
+        this.pYN = cVar;
+        this.pYJ = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pYl = new com.opensource.svgaplayer.a.b(this.pYm, this.pYn);
+        this.pYL = new com.opensource.svgaplayer.a.b(this.pYM, this.pYN);
     }
 
-    public final f eCw() {
-        return this.pYm;
+    public final f eCE() {
+        return this.pYM;
     }
 
     public final void BG(boolean z) {
-        if (this.pYj != z) {
-            this.pYj = z;
+        if (this.pYJ != z) {
+            this.pYJ = z;
             invalidateSelf();
         }
     }
 
-    public final int eCv() {
-        return this.pYk;
+    public final int eCD() {
+        return this.pYK;
     }
 
-    public final void QC(int i) {
-        if (this.pYk != i) {
-            this.pYk = i;
+    public final void QD(int i) {
+        if (this.pYK != i) {
+            this.pYK = i;
             invalidateSelf();
         }
     }
@@ -54,8 +54,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pYj && canvas != null) {
-            this.pYl.a(canvas, this.pYk, this.scaleType);
+        if (!this.pYJ && canvas != null) {
+            this.pYL.a(canvas, this.pYK, this.scaleType);
         }
     }
 

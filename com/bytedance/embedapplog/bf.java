@@ -5,9 +5,10 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import com.bytedance.embedapplog.bi;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-final class bf implements bi {
-    private aw<Boolean> pmL = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bf.1
+public final class bf implements bi {
+    private aw<Boolean> pnl = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bf.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -29,7 +30,7 @@ final class bf implements bi {
         if (context == null) {
             return false;
         }
-        return this.pmL.b(context).booleanValue();
+        return this.pnl.b(context).booleanValue();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */

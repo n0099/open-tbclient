@@ -24,9 +24,9 @@ import java.util.concurrent.Executor;
 public final class SingleRequest<R> implements a.c, i, c, g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pools.Pool<SingleRequest<?>> f10335a = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC1123a<SingleRequest<?>>() { // from class: com.kwad.sdk.glide.request.SingleRequest.1
+    private static final Pools.Pool<SingleRequest<?>> f10335a = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC1125a<SingleRequest<?>>() { // from class: com.kwad.sdk.glide.request.SingleRequest.1
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1123a
+        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1125a
         /* renamed from: a */
         public SingleRequest<?> b() {
             return new SingleRequest<>();

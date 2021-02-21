@@ -8,11 +8,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes9.dex */
 public class d {
-    public static String Op(String str) {
-        return Oq(trim(str));
+    public static String Oq(String str) {
+        return Or(trim(str));
     }
 
-    private static String Oq(String str) {
+    private static String Or(String str) {
         Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.tail_remove_dupe_regex));
         boolean z = false;
         int i = 0;
@@ -33,25 +33,25 @@ public class d {
         return str.trim();
     }
 
-    public static String Or(String str) {
-        String Oq = Oq(str);
-        if (StringUtils.isNull(Oq)) {
+    public static String Os(String str) {
+        String Or = Or(str);
+        if (StringUtils.isNull(Or)) {
             return TbadkCoreApplication.getInst().getString(R.string.tail_empty_toast);
         }
-        if (!Ot(Oq)) {
+        if (!Ou(Or)) {
             return TbadkCoreApplication.getInst().getString(R.string.tail_invalid_emotion);
         }
         return "";
     }
 
-    public static String Os(String str) {
-        return Oq(str).trim();
+    public static String Ot(String str) {
+        return Or(str).trim();
     }
 
-    public static boolean Ot(String str) {
+    public static boolean Ou(String str) {
         Matcher matcher = Pattern.compile(TbFaceManager.fFX).matcher(str);
         while (matcher.find()) {
-            if (TbFaceManager.bCO().CN(matcher.group()) <= 0) {
+            if (TbFaceManager.bCO().CL(matcher.group()) <= 0) {
                 return false;
             }
         }

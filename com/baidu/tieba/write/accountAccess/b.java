@@ -20,39 +20,39 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class b {
-    private BaseActivity ggh;
-    private float odE;
-    private a odz = null;
-    private View odF = null;
+    private BaseActivity ggm;
+    private float oee;
+    private a odZ = null;
+    private View oef = null;
     private BaseWebView mWebView = null;
-    private View odG = null;
-    private TextView odH = null;
-    private com.baidu.tbadk.core.view.a odI = null;
-    private c mfQ = null;
-    private boolean odJ = false;
+    private View oeg = null;
+    private TextView oeh = null;
+    private com.baidu.tbadk.core.view.a oei = null;
+    private c mgf = null;
+    private boolean oej = false;
     private float mRatio = 1.2631578f;
-    private Runnable odK = new Runnable() { // from class: com.baidu.tieba.write.accountAccess.b.1
+    private Runnable oek = new Runnable() { // from class: com.baidu.tieba.write.accountAccess.b.1
         @Override // java.lang.Runnable
         public void run() {
             if (b.this.mWebView != null) {
                 b.this.zA(false);
-                b.this.dWJ();
+                b.this.dWR();
             }
         }
     };
-    private Runnable ipW = new Runnable() { // from class: com.baidu.tieba.write.accountAccess.b.2
+    private Runnable iqk = new Runnable() { // from class: com.baidu.tieba.write.accountAccess.b.2
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.ggh != null) {
-                b.this.ggh.ShowSoftKeyPadDelay(b.this.mWebView);
+            if (b.this.ggm != null) {
+                b.this.ggm.ShowSoftKeyPadDelay(b.this.mWebView);
             }
         }
     };
 
     public b(AccountAccessActivity accountAccessActivity) {
-        this.ggh = null;
+        this.ggm = null;
         if (accountAccessActivity != null) {
-            this.ggh = accountAccessActivity;
+            this.ggm = accountAccessActivity;
             if (!a(accountAccessActivity)) {
                 accountAccessActivity.finish();
             }
@@ -60,27 +60,27 @@ public class b {
     }
 
     public void c(a aVar) {
-        this.odz = aVar;
+        this.odZ = aVar;
     }
 
     private boolean a(AccountAccessActivity accountAccessActivity) {
         accountAccessActivity.setActivityBgTransparent();
         accountAccessActivity.setSwipeBackEnabled(false);
         accountAccessActivity.setContentView(R.layout.account_access_activity);
-        this.odF = accountAccessActivity.findViewById(R.id.account_access_black_layout);
-        this.odF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.accountAccess.b.3
+        this.oef = accountAccessActivity.findViewById(R.id.account_access_black_layout);
+        this.oef.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.accountAccess.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.odz.dWG();
-                b.this.ggh.finish();
+                b.this.odZ.dWO();
+                b.this.ggm.finish();
             }
         });
-        this.odG = accountAccessActivity.findViewById(R.id.aa_post_thread_loading_view);
-        this.odH = (TextView) this.odG.findViewById(R.id.custom_loading_text);
-        this.odH.setText(accountAccessActivity.getResources().getString(R.string.sending));
-        this.mfQ = new c();
-        this.mfQ.toastTime = 1000L;
-        this.odE = l.getEquipmentWidth(accountAccessActivity.getBaseContext()) / l.getEquipmentHeight(accountAccessActivity.getBaseContext());
+        this.oeg = accountAccessActivity.findViewById(R.id.aa_post_thread_loading_view);
+        this.oeh = (TextView) this.oeg.findViewById(R.id.custom_loading_text);
+        this.oeh.setText(accountAccessActivity.getResources().getString(R.string.sending));
+        this.mgf = new c();
+        this.mgf.toastTime = 1000L;
+        this.oee = l.getEquipmentWidth(accountAccessActivity.getBaseContext()) / l.getEquipmentHeight(accountAccessActivity.getBaseContext());
         if (this.mWebView == null) {
             try {
                 this.mWebView = (BaseWebView) accountAccessActivity.findViewById(R.id.account_access_webview);
@@ -89,25 +89,25 @@ public class b {
                 this.mWebView.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.write.accountAccess.b.4
                     @Override // android.webkit.WebViewClient
                     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                        if (StringUtils.isNull(str) || b.this.odz == null) {
+                        if (StringUtils.isNull(str) || b.this.odZ == null) {
                             return false;
                         }
-                        if (!b.this.odJ) {
-                            b.this.odJ = true;
+                        if (!b.this.oej) {
+                            b.this.oej = true;
                             b.this.zA(false);
-                            b.this.dWJ();
-                            b.this.odz.dWF();
+                            b.this.dWR();
+                            b.this.odZ.dWN();
                             return true;
                         }
-                        return b.this.odz.Va(str);
+                        return b.this.odZ.Vm(str);
                     }
 
                     @Override // android.webkit.WebViewClient
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
-                        b.this.odJ = true;
-                        if (b.this.odz != null) {
-                            b.this.odz.dWF();
+                        b.this.oej = true;
+                        if (b.this.odZ != null) {
+                            b.this.odZ.dWN();
                         }
                     }
 
@@ -115,8 +115,8 @@ public class b {
                     public void onReceivedError(WebView webView, int i, String str, String str2) {
                         super.onReceivedError(webView, i, str, str2);
                         b.this.zA(false);
-                        b.this.ggh.showToast(R.string.neterror);
-                        b.this.ggh.finish();
+                        b.this.ggm.showToast(R.string.neterror);
+                        b.this.ggm.finish();
                     }
                 });
                 return true;
@@ -130,11 +130,11 @@ public class b {
     }
 
     public void showPostThreadLoadingView(boolean z) {
-        if (this.odG != null) {
+        if (this.oeg != null) {
             if (z) {
-                this.odG.setVisibility(0);
+                this.oeg.setVisibility(0);
             } else {
-                this.odG.setVisibility(8);
+                this.oeg.setVisibility(8);
             }
         }
     }
@@ -144,13 +144,13 @@ public class b {
     }
 
     public void onDestory() {
-        e.mA().removeCallbacks(this.odK);
-        e.mA().removeCallbacks(this.ipW);
-        this.odI = null;
+        e.mA().removeCallbacks(this.oek);
+        e.mA().removeCallbacks(this.iqk);
+        this.oei = null;
     }
 
     public BaseActivity getContext() {
-        return this.ggh;
+        return this.ggm;
     }
 
     public void showWebView(boolean z) {
@@ -164,33 +164,33 @@ public class b {
     }
 
     public void showWebViewDelay(int i) {
-        e.mA().postDelayed(this.odK, i);
+        e.mA().postDelayed(this.oek, i);
     }
 
     public void zA(boolean z) {
-        if (this.odI == null) {
-            this.odI = new com.baidu.tbadk.core.view.a(this.ggh.getPageContext());
-            this.odI.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.accountAccess.b.5
+        if (this.oei == null) {
+            this.oei = new com.baidu.tbadk.core.view.a(this.ggm.getPageContext());
+            this.oei.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.accountAccess.b.5
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.this.ggh.finish();
+                    b.this.ggm.finish();
                 }
             });
         }
-        this.odI.setDialogVisiable(z);
+        this.oei.setDialogVisiable(z);
     }
 
     public void setRatio(float f) {
         this.mRatio = f;
-        UtilHelper.setSupportHeight(this.ggh.getPageContext().getPageActivity(), this.mWebView, f);
+        UtilHelper.setSupportHeight(this.ggm.getPageContext().getPageActivity(), this.mWebView, f);
     }
 
     public float getRatio() {
         return this.mRatio;
     }
 
-    public float dWI() {
-        return this.odE;
+    public float dWQ() {
+        return this.oee;
     }
 
     public void setWebViewMargin(int i, int i2, int i3, int i4) {
@@ -208,11 +208,11 @@ public class b {
         return translateAnimation;
     }
 
-    public void dWJ() {
-        if (this.ggh != null) {
-            if (this.mRatio == this.odE) {
-                this.mWebView.startAnimation(G(l.getEquipmentHeight(this.ggh.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));
-                e.mA().postDelayed(this.ipW, 800L);
+    public void dWR() {
+        if (this.ggm != null) {
+            if (this.mRatio == this.oee) {
+                this.mWebView.startAnimation(G(l.getEquipmentHeight(this.ggm.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));
+                e.mA().postDelayed(this.iqk, 800L);
                 return;
             }
             this.mWebView.startAnimation(G(this.mWebView.getHeight(), 0.0f));

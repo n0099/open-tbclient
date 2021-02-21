@@ -51,10 +51,10 @@ public class LaunchStatic {
         bkS();
         SyncSwitch.initSyncSwitch();
         com.baidu.tieba.tbadkCore.location.a.init();
-        com.baidu.tieba.im.widget.b.cYd();
+        com.baidu.tieba.im.widget.b.cYk();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.cWR();
-        com.baidu.tieba.im.db.i.cVC();
+        ImMemoryCacheRegister.cWY();
+        com.baidu.tieba.im.db.i.cVJ();
         com.baidu.tbadk.browser.c.init();
         i.init();
         WalletStaticInit.init();

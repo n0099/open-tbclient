@@ -191,8 +191,8 @@ public class a {
             return null;
         }
         String str = "";
-        if (postData.dNz() != null) {
-            str = postData.dNz().toString();
+        if (postData.dNH() != null) {
+            str = postData.dNH().toString();
         }
         SpannableString bJ = bJ(postData.bnQ().getName_show() + " : ", ap.getColor(R.color.CAM_X0109));
         SpannableString bJ2 = bJ(str, ap.getColor(R.color.CAM_X0107));

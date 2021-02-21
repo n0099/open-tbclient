@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.t;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,6 +43,7 @@ public class AppData extends OrmObject {
     public final int plan_id;
     public final String pos_name;
     public final String price;
+    public App rawApp;
     public final String second_name;
     public final String url;
     public final int url_type;
@@ -74,6 +75,7 @@ public class AppData extends OrmObject {
         this.goods_info = null;
         this.goods = null;
         this.legoCard = null;
+        this.rawApp = null;
     }
 
     public AppData(String str) {
@@ -99,9 +101,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo NC = com.baidu.tieba.lego.card.b.NC(str);
-        if (NC != null) {
-            ICardInfo viewItem = NC.getViewItem(0, 4);
+        ICardInfo ND = com.baidu.tieba.lego.card.b.ND(str);
+        if (ND != null) {
+            ICardInfo viewItem = ND.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -120,7 +122,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo NC;
+        ICardInfo ND;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -146,6 +148,7 @@ public class AppData extends OrmObject {
             this.goods_info = null;
             this.goods = null;
             this.legoCard = null;
+            this.rawApp = null;
             return;
         }
         this.id = app.id;
@@ -168,12 +171,13 @@ public class AppData extends OrmObject {
         this.ext_info = app.ext_info;
         this.app_time = app.app_time.intValue();
         this.goods_info = null;
+        this.rawApp = app;
         if (app.goods_info != null) {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (NC = com.baidu.tieba.lego.card.b.NC(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = NC.getViewItem(0, 1);
+                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (ND = com.baidu.tieba.lego.card.b.ND(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = ND.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -220,7 +224,7 @@ public class AppData extends OrmObject {
                 return 12;
             }
             if (!cb.eRb.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
-                s.dDn();
+                t.dDu();
                 return 31;
             }
             if (this.url_type == 3) {

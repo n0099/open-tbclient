@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes8.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
-    a mFr;
+    a mFG;
 
     public PersonGaussianBlurView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -14,18 +14,18 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
 
     public void setSrc(Bitmap bitmap) {
         if (bitmap != null && !bitmap.isRecycled()) {
-            if (this.mFr != null) {
-                this.mFr.cancel();
+            if (this.mFG != null) {
+                this.mFG.cancel();
             }
-            this.mFr = new a();
-            this.mFr.execute(bitmap);
+            this.mFG = new a();
+            this.mFG.execute(bitmap);
         }
     }
 
     /* loaded from: classes8.dex */
     class a extends BdAsyncTask<Bitmap, String, Bitmap> {
-        private final float mFs = 0.5f;
-        private final int mFt = 15;
+        private final float mFH = 0.5f;
+        private final int mFI = 15;
 
         a() {
         }

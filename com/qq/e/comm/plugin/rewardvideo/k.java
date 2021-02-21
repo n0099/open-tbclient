@@ -27,23 +27,23 @@ class k extends com.qq.e.comm.plugin.r.a.a<BaseRewardAd> implements RVADI {
     public static class a implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        a.InterfaceC1205a f12421a;
+        a.InterfaceC1207a f12421a;
 
         /* renamed from: b  reason: collision with root package name */
-        EnumC1206a f12422b = EnumC1206a.NO_RESULT;
+        EnumC1208a f12422b = EnumC1208a.NO_RESULT;
         int c = 0;
         Queue<ADEvent> d = new LinkedList();
 
         /* renamed from: com.qq.e.comm.plugin.rewardvideo.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes15.dex */
-        enum EnumC1206a {
+        enum EnumC1208a {
             LOAD_SUCCESS,
             LOAD_FAILED,
             NO_RESULT
         }
 
-        a(a.InterfaceC1205a interfaceC1205a) {
-            this.f12421a = interfaceC1205a;
+        a(a.InterfaceC1207a interfaceC1207a) {
+            this.f12421a = interfaceC1207a;
         }
 
         private void a(ADEvent aDEvent) {
@@ -75,7 +75,7 @@ class k extends com.qq.e.comm.plugin.r.a.a<BaseRewardAd> implements RVADI {
                             this.f12421a.b(aDEvent);
                         }
                     }
-                    this.f12422b = EnumC1206a.LOAD_SUCCESS;
+                    this.f12422b = EnumC1208a.LOAD_SUCCESS;
                     this.d.offer(aDEvent);
                     return;
                 case 4:
@@ -91,14 +91,14 @@ class k extends com.qq.e.comm.plugin.r.a.a<BaseRewardAd> implements RVADI {
                     }
                     break;
                 case 9:
-                    if (this.f12422b != EnumC1206a.NO_RESULT) {
-                        if (this.f12422b == EnumC1206a.LOAD_SUCCESS) {
+                    if (this.f12422b != EnumC1208a.NO_RESULT) {
+                        if (this.f12422b == EnumC1208a.LOAD_SUCCESS) {
                             a(aDEvent);
                             return;
                         }
                         return;
                     }
-                    this.f12422b = EnumC1206a.LOAD_FAILED;
+                    this.f12422b = EnumC1208a.LOAD_FAILED;
                     if (this.f12421a != null) {
                         this.f12421a.a();
                         return;
@@ -123,8 +123,8 @@ class k extends com.qq.e.comm.plugin.r.a.a<BaseRewardAd> implements RVADI {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public int b(final BaseRewardAd baseRewardAd) {
         final long currentTimeMillis = System.currentTimeMillis();
-        a aVar = new a(new a.InterfaceC1205a() { // from class: com.qq.e.comm.plugin.rewardvideo.k.1
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+        a aVar = new a(new a.InterfaceC1207a() { // from class: com.qq.e.comm.plugin.rewardvideo.k.1
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void a() {
                 if (k.this.j()) {
                     return;
@@ -135,7 +135,7 @@ class k extends com.qq.e.comm.plugin.r.a.a<BaseRewardAd> implements RVADI {
                 }
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public boolean a(ADEvent aDEvent) {
                 int i;
                 boolean z;
@@ -161,12 +161,12 @@ class k extends com.qq.e.comm.plugin.r.a.a<BaseRewardAd> implements RVADI {
                 return false;
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void b() {
                 k.this.a((k) baseRewardAd, 70242);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void b(ADEvent aDEvent) {
                 if (k.this.d == null || !k.this.d((k) baseRewardAd)) {
                     return;
@@ -174,7 +174,7 @@ class k extends com.qq.e.comm.plugin.r.a.a<BaseRewardAd> implements RVADI {
                 k.this.d.onADEvent(aDEvent);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void c() {
                 k.this.b((k) baseRewardAd, 70232);
             }

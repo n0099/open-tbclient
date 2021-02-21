@@ -17,7 +17,7 @@ public class q implements dp {
 
     @Override // com.xiaomi.push.dp
     public String a() {
-        return b.m120a(this.f13839a).d();
+        return b.m119a(this.f13839a).d();
     }
 
     @Override // com.xiaomi.push.dp

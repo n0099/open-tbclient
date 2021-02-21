@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class GuardClubRankTabView extends LinearLayout {
-    private a hcn;
+    private a hcB;
     private MotionEvent mMotionEvent;
 
     /* loaded from: classes11.dex */
@@ -29,7 +29,7 @@ public class GuardClubRankTabView extends LinearLayout {
     }
 
     public void setCallback(a aVar) {
-        this.hcn = aVar;
+        this.hcB = aVar;
     }
 
     public void setSelect(int i) {
@@ -39,8 +39,8 @@ public class GuardClubRankTabView extends LinearLayout {
                 cm(getChildAt(i2));
             }
             cl(childAt);
-            if (this.hcn != null) {
-                this.hcn.dB(i);
+            if (this.hcB != null) {
+                this.hcB.dB(i);
             }
         }
     }

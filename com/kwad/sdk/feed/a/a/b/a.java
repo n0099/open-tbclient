@@ -24,12 +24,12 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
     private RecyclerView e;
     private com.kwad.sdk.lib.b.c<?, AdTemplate> f;
     private Handler g;
-    private a.InterfaceC1114a h;
+    private a.InterfaceC1116a h;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.kwad.sdk.feed.a.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1115a implements a.InterfaceC1114a, ap.a {
+    public static class C1117a implements a.InterfaceC1116a, ap.a {
 
         /* renamed from: a  reason: collision with root package name */
         private WeakReference<a> f9814a;
@@ -37,11 +37,11 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
         /* renamed from: b  reason: collision with root package name */
         private final int f9815b = 100;
 
-        public C1115a(a aVar) {
+        public C1117a(a aVar) {
             this.f9814a = new WeakReference<>(aVar);
         }
 
-        @Override // com.kwad.sdk.feed.a.a.InterfaceC1114a
+        @Override // com.kwad.sdk.feed.a.a.InterfaceC1116a
         public void a(int i) {
             com.kwad.sdk.core.d.a.a("FeedHomeItemClickPresenter", "position=" + i);
             a aVar = this.f9814a.get();
@@ -88,9 +88,9 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
         com.kwad.sdk.feed.detail.a.a(((com.kwad.sdk.feed.a.a.a.b) this.f10454a).d, feedSlideParam);
     }
 
-    private a.InterfaceC1114a f() {
+    private a.InterfaceC1116a f() {
         if (this.h == null) {
-            this.h = new C1115a(this);
+            this.h = new C1117a(this);
         }
         return this.h;
     }

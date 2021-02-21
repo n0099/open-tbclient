@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.t;
 import com.qq.e.comm.plugin.t.a.a;
 import java.util.List;
 /* loaded from: classes15.dex */
-public class a implements a.InterfaceC1210a {
+public class a implements a.InterfaceC1212a {
 
     /* renamed from: a  reason: collision with root package name */
     private final int f12525a;
@@ -18,12 +18,12 @@ public class a implements a.InterfaceC1210a {
         this.c = eVar;
     }
 
-    @Override // com.qq.e.comm.plugin.t.a.a.InterfaceC1210a
+    @Override // com.qq.e.comm.plugin.t.a.a.InterfaceC1212a
     public com.qq.e.comm.plugin.t.b.e a() {
         return this.c;
     }
 
-    @Override // com.qq.e.comm.plugin.t.a.a.InterfaceC1210a
+    @Override // com.qq.e.comm.plugin.t.a.a.InterfaceC1212a
     public com.qq.e.comm.plugin.t.b.f a(com.qq.e.comm.plugin.t.b.e eVar) throws Exception {
         if (this.f12525a >= this.f12526b.size()) {
             return null;

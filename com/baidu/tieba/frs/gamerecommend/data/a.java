@@ -7,13 +7,13 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     public boolean hasMore;
-    public int jzD;
-    public ScoreCardInfo jzF;
-    public List<cb> jzE = new ArrayList();
-    public List<FeatureCardHot> jzG = new ArrayList();
-    public List<FeatureCardTopic> jzH = new ArrayList();
-    public List<b> jzI = new ArrayList();
-    public List<FeatureCardCompetition> jzJ = new ArrayList();
-    public List<FeatureCardGod> jzK = new ArrayList();
-    public List<FeatureCardGame> jzL = new ArrayList();
+    public int jzR;
+    public ScoreCardInfo jzT;
+    public List<cb> jzS = new ArrayList();
+    public List<FeatureCardHot> jzU = new ArrayList();
+    public List<FeatureCardTopic> jzV = new ArrayList();
+    public List<b> jzW = new ArrayList();
+    public List<FeatureCardCompetition> jzX = new ArrayList();
+    public List<FeatureCardGod> jzY = new ArrayList();
+    public List<FeatureCardGame> jzZ = new ArrayList();
 }

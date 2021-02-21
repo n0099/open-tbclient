@@ -19,11 +19,11 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
 /* loaded from: classes11.dex */
 public class b extends BdBaseModel<ALaCharmCardActivity> {
-    private v gOJ;
-    private a gOK;
-    private InterfaceC0624b gOL;
-    private NetMessageListener gOM;
-    private HttpMessageListener gON;
+    private v gOX;
+    private a gOY;
+    private InterfaceC0625b gOZ;
+    private NetMessageListener gPa;
+    private HttpMessageListener gPb;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -34,15 +34,15 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
 
     /* renamed from: com.baidu.tieba.ala.charm.model.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0624b {
+    public interface InterfaceC0625b {
         void A(int i, String str);
 
         void u(long j, int i);
     }
 
-    public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar, InterfaceC0624b interfaceC0624b) {
+    public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar, InterfaceC0625b interfaceC0625b) {
         super(tbPageContext);
-        this.gOM = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
+        this.gPa = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -53,11 +53,11 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
                     int error = responsedMessage.getError();
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) responsedMessage;
-                        j2 = onlineListHttpResponseMessage.bTJ();
-                        v bTK = onlineListHttpResponseMessage.bTK();
-                        alaLiveUserInfoData = onlineListHttpResponseMessage.bTL();
-                        j = onlineListHttpResponseMessage.bTM();
-                        vVar = bTK;
+                        j2 = onlineListHttpResponseMessage.bTQ();
+                        v bTR = onlineListHttpResponseMessage.bTR();
+                        alaLiveUserInfoData = onlineListHttpResponseMessage.bTS();
+                        j = onlineListHttpResponseMessage.bTT();
+                        vVar = bTR;
                     } else {
                         j = 0;
                         alaLiveUserInfoData = null;
@@ -65,40 +65,40 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
                         j2 = 0;
                     }
                     if (error == 0) {
-                        b.this.gOJ = vVar;
-                        if (b.this.gOK != null) {
-                            b.this.gOK.a(j2, b.this.gOJ, alaLiveUserInfoData, j);
+                        b.this.gOX = vVar;
+                        if (b.this.gOY != null) {
+                            b.this.gOY.a(j2, b.this.gOX, alaLiveUserInfoData, j);
                         }
-                    } else if (b.this.gOK != null) {
-                        b.this.gOK.A(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (b.this.gOY != null) {
+                        b.this.gOY.A(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.gON = new HttpMessageListener(1021227) { // from class: com.baidu.tieba.ala.charm.model.b.2
+        this.gPb = new HttpMessageListener(1021227) { // from class: com.baidu.tieba.ala.charm.model.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021227 && (httpResponsedMessage instanceof AlaPokeResponseMessage)) {
                     AlaPokeResponseMessage alaPokeResponseMessage = (AlaPokeResponseMessage) httpResponsedMessage;
                     if (alaPokeResponseMessage.getError() != 0 || !alaPokeResponseMessage.isSuccess()) {
-                        if (b.this.gOK != null) {
-                            b.this.gOL.A(alaPokeResponseMessage.getError(), alaPokeResponseMessage.getErrorString());
+                        if (b.this.gOY != null) {
+                            b.this.gOZ.A(alaPokeResponseMessage.getError(), alaPokeResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    if (b.this.gOK != null) {
-                        b.this.gOL.u(alaPokeResponseMessage.userId, alaPokeResponseMessage.buT);
+                    if (b.this.gOY != null) {
+                        b.this.gOZ.u(alaPokeResponseMessage.userId, alaPokeResponseMessage.buT);
                     }
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_HOST_POKE_SUCCESS));
                 }
             }
         };
-        this.gOK = aVar;
-        this.gOL = interfaceC0624b;
-        MessageManager.getInstance().registerListener(this.gOM);
-        MessageManager.getInstance().registerListener(this.gON);
+        this.gOY = aVar;
+        this.gOZ = interfaceC0625b;
+        MessageManager.getInstance().registerListener(this.gPa);
+        MessageManager.getInstance().registerListener(this.gPb);
         com.baidu.live.tieba.f.a.a.a(1021008, "ala/live/getAudienceInfo", OnlineListHttpResponseMessage.class, false, true, true, true);
     }
 
@@ -119,8 +119,8 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gOM);
-        MessageManager.getInstance().unRegisterListener(this.gON);
+        MessageManager.getInstance().unRegisterListener(this.gPa);
+        MessageManager.getInstance().unRegisterListener(this.gPb);
         MessageManager.getInstance().unRegisterTask(1021008);
         cancelMessage();
     }

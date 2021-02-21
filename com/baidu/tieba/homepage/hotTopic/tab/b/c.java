@@ -6,12 +6,12 @@ import tbclient.RecomTopicList;
 public class c {
     public String ePt;
     public int index;
-    public boolean kgF;
+    public boolean kgT;
     public int tag;
     public long topicId;
 
     public c() {
-        this.kgF = true;
+        this.kgT = true;
     }
 
     public c(@NonNull RecomTopicList recomTopicList, int i) {

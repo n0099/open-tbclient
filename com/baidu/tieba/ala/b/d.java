@@ -11,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class d {
-    public File gLV = null;
+    public File gMj = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -22,12 +22,12 @@ public class d {
         return acc() != null && acc().exists();
     }
 
-    public void bSS() {
+    public void bSZ() {
         File file = new File(ace());
         if (file != null) {
             com.baidu.tieba.ala.b.b.a.deleteDir(file);
         }
-        this.gLV = null;
+        this.gMj = null;
         ace();
         acc();
     }
@@ -37,10 +37,10 @@ public class d {
     }
 
     public File acc() {
-        if (this.gLV == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.gLV = new File(ace(), getName());
+        if (this.gMj == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.gMj = new File(ace(), getName());
         }
-        return this.gLV;
+        return this.gMj;
     }
 
     public String getFilePath() {
@@ -48,7 +48,7 @@ public class d {
     }
 
     public String ace() {
-        return TextUtils.equals(this.mType, "so") ? c.bSQ().getAbsolutePath() : c.bSR().getAbsolutePath();
+        return TextUtils.equals(this.mType, "so") ? c.bSX().getAbsolutePath() : c.bSY().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -76,7 +76,7 @@ public class d {
             }
             com.baidu.tieba.ala.b.b.a.unzipFile(file, file2.getAbsolutePath());
             file2.renameTo(acc());
-            if (isLoaded() && bST()) {
+            if (isLoaded() && bTa()) {
                 z = true;
             }
             if (!z) {
@@ -90,7 +90,7 @@ public class d {
         return z;
     }
 
-    public boolean bST() {
+    public boolean bTa() {
         JSONArray optJSONArray;
         try {
             File file = new File(acc(), "files.json");
@@ -109,7 +109,7 @@ public class d {
             ArrayList<a> arrayList = new ArrayList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.Gb(optJSONArray.getString(i)));
+                arrayList.add(a.Gc(optJSONArray.getString(i)));
             }
             return U(arrayList);
         } catch (Exception e) {
@@ -166,7 +166,7 @@ public class d {
         public String mName;
         public String mPath;
 
-        public static a Gb(String str) {
+        public static a Gc(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

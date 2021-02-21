@@ -13,7 +13,7 @@ import java.util.LinkedList;
 public class c {
     private static final String[] c = {"com", HttpConstants.OS_TYPE_VALUE, "ss"};
     private static final int[] d = {3101, 3102, 3103, 3201, 3202, 3203};
-    private static volatile c qaY;
+    private static volatile c qby;
 
     /* renamed from: b  reason: collision with root package name */
     private final LinkedList<a> f12935b = new LinkedList<>();
@@ -21,23 +21,23 @@ public class c {
     private c() {
     }
 
-    public static c eEs() {
-        if (qaY == null) {
+    public static c eEA() {
+        if (qby == null) {
             synchronized (c.class) {
-                if (qaY == null) {
-                    qaY = new c();
+                if (qby == null) {
+                    qby = new c();
                 }
             }
         }
-        return qaY;
+        return qby;
     }
 
     public void a(String str) {
-        a aaF;
+        a aaR;
         b();
-        if (!TextUtils.isEmpty(str) && (aaF = aaF(str)) != null) {
+        if (!TextUtils.isEmpty(str) && (aaR = aaR(str)) != null) {
             synchronized (this.f12935b) {
-                this.f12935b.add(aaF);
+                this.f12935b.add(aaR);
             }
         }
     }
@@ -218,7 +218,7 @@ public class c {
         }
     }
 
-    private a aaF(String str) {
+    private a aaR(String str) {
         try {
             PackageManager packageManager = j.a().getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);

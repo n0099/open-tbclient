@@ -11,13 +11,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a {
-    public static final ThreadLocal<a> ioc = new ThreadLocal<>();
-    private c iof;
-    private final SimpleArrayMap<b, Long> iod = new SimpleArrayMap<>();
+    public static final ThreadLocal<a> ioq = new ThreadLocal<>();
+    private c iot;
+    private final SimpleArrayMap<b, Long> ior = new SimpleArrayMap<>();
     private final ArrayList<b> mAnimationCallbacks = new ArrayList<>();
-    private final C0696a ioe = new C0696a();
-    private long iog = 0;
-    private boolean ioh = false;
+    private final C0697a ios = new C0697a();
+    private long iou = 0;
+    private boolean iov = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -31,56 +31,56 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0696a {
-        C0696a() {
+    public class C0697a {
+        C0697a() {
         }
 
-        void cqF() {
-            a.this.iog = SystemClock.uptimeMillis();
-            a.this.fX(a.this.iog);
+        void cqM() {
+            a.this.iou = SystemClock.uptimeMillis();
+            a.this.fX(a.this.iou);
             if (a.this.mAnimationCallbacks.size() > 0) {
-                a.this.cqD().kw();
+                a.this.cqK().kw();
             }
         }
     }
 
-    public static a cqC() {
-        if (ioc.get() == null) {
-            ioc.set(new a());
+    public static a cqJ() {
+        if (ioq.get() == null) {
+            ioq.set(new a());
         }
-        return ioc.get();
+        return ioq.get();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public c cqD() {
-        if (this.iof == null) {
+    public c cqK() {
+        if (this.iot == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                this.iof = new e(this.ioe);
+                this.iot = new e(this.ios);
             } else {
-                this.iof = new d(this.ioe);
+                this.iot = new d(this.ios);
             }
         }
-        return this.iof;
+        return this.iot;
     }
 
     public void a(b bVar, long j) {
         if (this.mAnimationCallbacks.size() == 0) {
-            cqD().kw();
+            cqK().kw();
         }
         if (!this.mAnimationCallbacks.contains(bVar)) {
             this.mAnimationCallbacks.add(bVar);
         }
         if (j > 0) {
-            this.iod.put(bVar, Long.valueOf(SystemClock.uptimeMillis() + j));
+            this.ior.put(bVar, Long.valueOf(SystemClock.uptimeMillis() + j));
         }
     }
 
     public void a(b bVar) {
-        this.iod.remove(bVar);
+        this.ior.remove(bVar);
         int indexOf = this.mAnimationCallbacks.indexOf(bVar);
         if (indexOf >= 0) {
             this.mAnimationCallbacks.set(indexOf, null);
-            this.ioh = true;
+            this.iov = true;
         }
     }
 
@@ -97,32 +97,32 @@ public class a {
                 }
                 i = i2 + 1;
             } else {
-                cqE();
+                cqL();
                 return;
             }
         }
     }
 
     private boolean b(b bVar, long j) {
-        Long l = this.iod.get(bVar);
+        Long l = this.ior.get(bVar);
         if (l == null) {
             return true;
         }
         if (l.longValue() < j) {
-            this.iod.remove(bVar);
+            this.ior.remove(bVar);
             return true;
         }
         return false;
     }
 
-    private void cqE() {
-        if (this.ioh) {
+    private void cqL() {
+        if (this.iov) {
             for (int size = this.mAnimationCallbacks.size() - 1; size >= 0; size--) {
                 if (this.mAnimationCallbacks.get(size) == null) {
                     this.mAnimationCallbacks.remove(size);
                 }
             }
-            this.ioh = false;
+            this.iov = false;
         }
     }
 
@@ -130,41 +130,41 @@ public class a {
     @RequiresApi(16)
     /* loaded from: classes.dex */
     public static class e extends c {
-        private final Choreographer.FrameCallback iom;
+        private final Choreographer.FrameCallback ioA;
         private final Choreographer mChoreographer;
 
-        e(C0696a c0696a) {
-            super(c0696a);
+        e(C0697a c0697a) {
+            super(c0697a);
             this.mChoreographer = Choreographer.getInstance();
-            this.iom = new Choreographer.FrameCallback() { // from class: com.baidu.tieba.b.a.e.1
+            this.ioA = new Choreographer.FrameCallback() { // from class: com.baidu.tieba.b.a.e.1
                 @Override // android.view.Choreographer.FrameCallback
                 public void doFrame(long j) {
-                    e.this.ioj.cqF();
+                    e.this.iox.cqM();
                 }
             };
         }
 
         @Override // com.baidu.tieba.b.a.c
         void kw() {
-            this.mChoreographer.postFrameCallback(this.iom);
+            this.mChoreographer.postFrameCallback(this.ioA);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class d extends c {
-        private long iok;
+        private long ioy;
         private final Handler mHandler;
         private final Runnable mRunnable;
 
-        d(C0696a c0696a) {
-            super(c0696a);
-            this.iok = -1L;
+        d(C0697a c0697a) {
+            super(c0697a);
+            this.ioy = -1L;
             this.mRunnable = new Runnable() { // from class: com.baidu.tieba.b.a.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.iok = SystemClock.uptimeMillis();
-                    d.this.ioj.cqF();
+                    d.this.ioy = SystemClock.uptimeMillis();
+                    d.this.iox.cqM();
                 }
             };
             this.mHandler = new Handler(Looper.myLooper());
@@ -172,19 +172,19 @@ public class a {
 
         @Override // com.baidu.tieba.b.a.c
         void kw() {
-            this.mHandler.postDelayed(this.mRunnable, Math.max(10 - (SystemClock.uptimeMillis() - this.iok), 0L));
+            this.mHandler.postDelayed(this.mRunnable, Math.max(10 - (SystemClock.uptimeMillis() - this.ioy), 0L));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static abstract class c {
-        final C0696a ioj;
+        final C0697a iox;
 
         abstract void kw();
 
-        c(C0696a c0696a) {
-            this.ioj = c0696a;
+        c(C0697a c0697a) {
+            this.iox = c0697a;
         }
     }
 }

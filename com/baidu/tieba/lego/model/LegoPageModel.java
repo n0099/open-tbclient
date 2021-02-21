@@ -18,7 +18,7 @@ import tbclient.Lego.DataRes;
 /* loaded from: classes9.dex */
 public class LegoPageModel extends BdBaseModel {
     private com.baidu.adp.framework.listener.a eDt;
-    private a lge;
+    private a lgs;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -42,7 +42,7 @@ public class LegoPageModel extends BdBaseModel {
                 int i;
                 boolean z;
                 boolean z2;
-                if (responsedMessage != null && LegoPageModel.this.lge != null) {
+                if (responsedMessage != null && LegoPageModel.this.lgs != null) {
                     long j = 0;
                     String str = "";
                     if (responsedMessage.getOrginalMessage() != null) {
@@ -56,7 +56,7 @@ public class LegoPageModel extends BdBaseModel {
                             z = legoPageRequest.getPageType() == 2;
                             z2 = z3;
                             if (responsedMessage.getError() == 0) {
-                                LegoPageModel.this.lge.b(j, str, responsedMessage.getError(), responsedMessage.getErrorString());
+                                LegoPageModel.this.lgs.b(j, str, responsedMessage.getError(), responsedMessage.getErrorString());
                                 return;
                             }
                             DataRes dataRes = null;
@@ -66,12 +66,12 @@ public class LegoPageModel extends BdBaseModel {
                                 dataRes = ((LegoHttpResponse) responsedMessage).getResultData();
                             }
                             if (!z) {
-                                LegoPageModel.this.lge.b(j, str, dataRes, z2);
+                                LegoPageModel.this.lgs.b(j, str, dataRes, z2);
                             } else {
                                 if (z2 && dataRes != null) {
                                     com.baidu.tbadk.core.c.a.bqr().Ar("tb.lego_update").asyncSetForever(j + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (TextUtils.isEmpty(str) ? "" : str), dataRes.toByteArray());
                                 }
-                                LegoPageModel.this.lge.a(j, str, dataRes, z2, i);
+                                LegoPageModel.this.lgs.a(j, str, dataRes, z2, i);
                             }
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEGO_LOAD_DATA_SUCCESS, dataRes));
                             return;
@@ -93,7 +93,7 @@ public class LegoPageModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.lge = aVar;
+        this.lgs = aVar;
     }
 
     public void b(int i, long j, String str, int i2, String str2) {

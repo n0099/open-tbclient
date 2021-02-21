@@ -18,24 +18,24 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class b extends BaseAdapter {
     private ArrayList<com.baidu.tieba.ala.live.personcenter.guardian.a> eVV;
-    private AlaGuardianListActivity hlP;
-    private View.OnClickListener hlQ = null;
-    private View.OnClickListener gOP = null;
+    private AlaGuardianListActivity hmd;
+    private View.OnClickListener hme = null;
+    private View.OnClickListener gPd = null;
 
     public b(AlaGuardianListActivity alaGuardianListActivity) {
         this.eVV = null;
-        this.hlP = null;
-        this.hlP = alaGuardianListActivity;
+        this.hmd = null;
+        this.hmd = alaGuardianListActivity;
         this.eVV = new ArrayList<>();
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.gOP = onClickListener;
+        this.gPd = onClickListener;
     }
 
     public void c(c cVar) {
         this.eVV.clear();
-        this.eVV.addAll(cVar.bYz());
+        this.eVV.addAll(cVar.bYG());
     }
 
     @Override // android.widget.Adapter
@@ -63,53 +63,53 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.hlP.getPageContext().getPageActivity()).inflate(a.g.sdk_prc_person_center_guardian_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.hmd.getPageContext().getPageActivity()).inflate(a.g.sdk_prc_person_center_guardian_item, (ViewGroup) null);
             aVar = new a(view);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         aVar.uT(i);
-        this.hlP.getLayoutMode().onModeChanged(view);
+        this.hmd.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* loaded from: classes11.dex */
     class a {
         TextView dSM;
-        ViewGroup gPi;
-        HeadImageView gPl;
-        TextView gPm;
-        ImageView hlR;
-        TextView hlS;
-        LinearLayout hlT;
+        TextView gPA;
+        ViewGroup gPw;
+        HeadImageView gPz;
+        ImageView hmf;
+        TextView hmg;
+        LinearLayout hmh;
         TextView mName;
 
         public a(View view) {
-            this.hlR = (ImageView) view.findViewById(a.f.imgGradeRound);
-            this.hlS = (TextView) view.findViewById(a.f.tvGradeNum);
-            this.gPi = (ViewGroup) view.findViewById(a.f.item_view);
-            this.gPi.setOnClickListener(b.this.hlQ);
-            this.gPl = (HeadImageView) view.findViewById(a.f.photo);
-            this.gPl.setRadius(BdUtilHelper.getDimens(b.this.hlP.getPageContext().getPageActivity(), a.d.sdk_ds90));
-            this.gPl.setAutoChangeStyle(true);
-            this.gPl.setClickable(false);
-            this.hlT = (LinearLayout) view.findViewById(a.f.info);
+            this.hmf = (ImageView) view.findViewById(a.f.imgGradeRound);
+            this.hmg = (TextView) view.findViewById(a.f.tvGradeNum);
+            this.gPw = (ViewGroup) view.findViewById(a.f.item_view);
+            this.gPw.setOnClickListener(b.this.hme);
+            this.gPz = (HeadImageView) view.findViewById(a.f.photo);
+            this.gPz.setRadius(BdUtilHelper.getDimens(b.this.hmd.getPageContext().getPageActivity(), a.d.sdk_ds90));
+            this.gPz.setAutoChangeStyle(true);
+            this.gPz.setClickable(false);
+            this.hmh = (LinearLayout) view.findViewById(a.f.info);
             this.mName = (TextView) view.findViewById(a.f.ala_name);
-            this.gPm = (TextView) view.findViewById(a.f.ala_intro);
+            this.gPA = (TextView) view.findViewById(a.f.ala_intro);
             this.dSM = (TextView) view.findViewById(a.f.attention_btn);
-            this.dSM.setOnClickListener(b.this.gOP);
+            this.dSM.setOnClickListener(b.this.gPd);
         }
 
         public void uT(int i) {
             com.baidu.tieba.ala.live.personcenter.guardian.a aVar = (com.baidu.tieba.ala.live.personcenter.guardian.a) b.this.getItem(i);
             if (aVar != null) {
-                this.gPi.setTag(Integer.valueOf(i));
+                this.gPw.setTag(Integer.valueOf(i));
                 this.dSM.setTag(Integer.valueOf(i));
                 uk(i);
-                m.a(this.gPl, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
+                m.a(this.gPz, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
                 this.mName.setText(aVar.getNameShow());
-                this.gPm.setText(b.this.hlP.getResources().getString(a.h.sdk_prc_guardian_list_item_charm, aVar.hlI));
+                this.gPA.setText(b.this.hmd.getResources().getString(a.h.sdk_prc_guardian_list_item_charm, aVar.hlW));
                 mU(aVar.followStatus != 0);
             }
         }
@@ -121,20 +121,20 @@ public class b extends BaseAdapter {
         }
 
         public void uk(int i) {
-            this.hlR.setVisibility(8);
-            this.hlS.setVisibility(8);
+            this.hmf.setVisibility(8);
+            this.hmg.setVisibility(8);
             if (i == 0) {
-                this.hlR.setVisibility(0);
-                SkinManager.setImageResource(this.hlR, a.e.sdk_prc_icon_grade_round_no1);
+                this.hmf.setVisibility(0);
+                SkinManager.setImageResource(this.hmf, a.e.sdk_prc_icon_grade_round_no1);
             } else if (i == 1) {
-                this.hlR.setVisibility(0);
-                SkinManager.setImageResource(this.hlR, a.e.sdk_prc_icon_grade_round_no2);
+                this.hmf.setVisibility(0);
+                SkinManager.setImageResource(this.hmf, a.e.sdk_prc_icon_grade_round_no2);
             } else if (i == 2) {
-                this.hlR.setVisibility(0);
-                SkinManager.setImageResource(this.hlR, a.e.sdk_prc_icon_grade_round_no3);
+                this.hmf.setVisibility(0);
+                SkinManager.setImageResource(this.hmf, a.e.sdk_prc_icon_grade_round_no3);
             } else {
-                this.hlS.setVisibility(0);
-                this.hlS.setText(String.valueOf(i + 1));
+                this.hmg.setVisibility(0);
+                this.hmg.setText(String.valueOf(i + 1));
             }
         }
     }
@@ -147,7 +147,7 @@ public class b extends BaseAdapter {
                     break;
                 }
                 com.baidu.tieba.ala.live.personcenter.guardian.a next = it.next();
-                if (str.equals(next.hlE)) {
+                if (str.equals(next.hlS)) {
                     if (z) {
                         next.followStatus = 1;
                     } else {

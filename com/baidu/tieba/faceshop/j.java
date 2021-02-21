@@ -16,8 +16,8 @@ import com.baidu.tieba.R;
 public class j extends Dialog {
     private TextView bYf;
     private TbPageContext eUY;
-    private SpannableString iUB;
-    private TextView iUC;
+    private SpannableString iUP;
+    private TextView iUQ;
     private View mLoadingView;
     int mSkinType;
 
@@ -26,23 +26,23 @@ public class j extends Dialog {
         this.eUY = tbPageContext;
     }
 
-    public void cyF() {
+    public void cyM() {
         this.mLoadingView = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.face_buy_loading, (ViewGroup) null);
         this.mSkinType = TbadkApplication.getInst().getSkinType();
         setContentView(this.mLoadingView, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds282)));
         setCancelable(false);
-        cyH();
+        cyO();
     }
 
-    public void cyG() {
+    public void cyN() {
         this.mLoadingView = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.face_buy_fail, (ViewGroup) null);
         this.mSkinType = TbadkApplication.getInst().getSkinType();
         String string = getContext().getResources().getString(R.string.query_buy_fail_tel);
-        this.iUB = new SpannableString(string);
-        this.iUB.setSpan(new ForegroundColorSpan(ap.getColor(R.color.common_color_10159)), 5, string.length(), 33);
+        this.iUP = new SpannableString(string);
+        this.iUP.setSpan(new ForegroundColorSpan(ap.getColor(R.color.common_color_10159)), 5, string.length(), 33);
         setContentView(this.mLoadingView, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.ds522), getContext().getResources().getDimensionPixelSize(R.dimen.ds364)));
-        this.iUC = (TextView) findViewById(R.id.telphone);
-        this.iUC.setText(this.iUB);
+        this.iUQ = (TextView) findViewById(R.id.telphone);
+        this.iUQ.setText(this.iUP);
         this.bYf = (TextView) findViewById(R.id.confirm);
         this.bYf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.j.1
             @Override // android.view.View.OnClickListener
@@ -51,10 +51,10 @@ public class j extends Dialog {
             }
         });
         setCancelable(true);
-        cyH();
+        cyO();
     }
 
-    private void cyH() {
+    private void cyO() {
         if (this.eUY != null) {
             this.eUY.getLayoutMode().setNightMode(this.mSkinType == 1);
             this.eUY.getLayoutMode().onModeChanged(this.mLoadingView);

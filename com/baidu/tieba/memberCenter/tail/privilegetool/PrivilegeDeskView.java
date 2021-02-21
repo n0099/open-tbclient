@@ -21,54 +21,54 @@ import java.util.LinkedList;
 /* loaded from: classes9.dex */
 public class PrivilegeDeskView extends CommonTabHost {
     private LinkedList<h> fBp;
-    private int lsU;
-    private DLauncher lsV;
-    private DLauncher lsW;
-    private CustomMessageListener lsX;
-    private CustomMessageListener lsY;
-    private View.OnClickListener lsZ;
-    private View.OnClickListener lta;
+    private int lti;
+    private DLauncher ltj;
+    private DLauncher ltk;
+    private CustomMessageListener ltl;
+    private CustomMessageListener ltm;
+    private View.OnClickListener ltn;
+    private View.OnClickListener lto;
     private Context mContext;
 
     public PrivilegeDeskView(Context context) {
         super(context);
-        this.lsU = 0;
-        this.lsX = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.1
+        this.lti = 0;
+        this.ltl = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        PrivilegeDeskView.this.lsV.CK(" ");
+                        PrivilegeDeskView.this.ltj.CI(" ");
                     } else {
-                        PrivilegeDeskView.this.lsV.bBf();
+                        PrivilegeDeskView.this.ltj.bBf();
                     }
-                    PrivilegeDeskView.this.dgj();
+                    PrivilegeDeskView.this.dgq();
                 }
             }
         };
-        this.lsY = new CustomMessageListener(CmdConfigCustom.CMD_BUBBLE_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.2
+        this.ltm = new CustomMessageListener(CmdConfigCustom.CMD_BUBBLE_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        PrivilegeDeskView.this.lsW.CK(" ");
+                        PrivilegeDeskView.this.ltk.CI(" ");
                     } else {
-                        PrivilegeDeskView.this.lsW.bBf();
+                        PrivilegeDeskView.this.ltk.bBf();
                     }
-                    PrivilegeDeskView.this.dgj();
+                    PrivilegeDeskView.this.dgq();
                 }
             }
         };
-        this.lsZ = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.3
+        this.ltn = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PrivilegeDeskView.this.hide();
                 PrivilegeDeskView.this.b(new com.baidu.tbadk.editortools.a(1, 16, null));
             }
         };
-        this.lta = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.4
+        this.lto = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PrivilegeDeskView.this.hide();
@@ -83,15 +83,15 @@ public class PrivilegeDeskView extends CommonTabHost {
     }
 
     private void a(com.baidu.tieba.memberCenter.a.b bVar) {
-        this.lsW = (DLauncher) g.a(getContext(), bVar, 6);
-        this.lsW.setOnClickListener(this.lta);
-        this.fBp.add(this.lsW);
+        this.ltk = (DLauncher) g.a(getContext(), bVar, 6);
+        this.ltk.setOnClickListener(this.lto);
+        this.fBp.add(this.ltk);
     }
 
     private void a(com.baidu.tieba.memberCenter.tail.tool.a aVar) {
-        this.lsV = (DLauncher) g.a(getContext(), aVar, 6);
-        this.lsV.setOnClickListener(this.lsZ);
-        this.fBp.add(this.lsV);
+        this.ltj = (DLauncher) g.a(getContext(), aVar, 6);
+        this.ltj.setOnClickListener(this.ltn);
+        this.fBp.add(this.ltj);
     }
 
     private void gC(Context context) {
@@ -103,23 +103,23 @@ public class PrivilegeDeskView extends CommonTabHost {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.lsX);
-        MessageManager.getInstance().registerListener(this.lsY);
-        dgj();
+        MessageManager.getInstance().registerListener(this.ltl);
+        MessageManager.getInstance().registerListener(this.ltm);
+        dgq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.lsX);
-        MessageManager.getInstance().unRegisterListener(this.lsY);
+        MessageManager.getInstance().unRegisterListener(this.ltl);
+        MessageManager.getInstance().unRegisterListener(this.ltm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgj() {
-        String text = this.lsV.getText();
-        String text2 = this.lsW.getText();
+    public void dgq() {
+        String text = this.ltj.getText();
+        String text2 = this.ltk.getText();
         boolean z = false;
         if (text != null && !text.equals("")) {
             z = true;
@@ -146,28 +146,28 @@ public class PrivilegeDeskView extends CommonTabHost {
         a aVar = new a();
         aVar.g(this.fBp);
         b(aVar);
-        dgl();
-        dgk();
+        dgs();
+        dgr();
     }
 
-    private void dgk() {
+    private void dgr() {
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble())) {
-            this.lsW.CK(" ");
+            this.ltk.CI(" ");
         } else {
-            this.lsW.bBf();
+            this.ltk.bBf();
         }
-        dgj();
+        dgq();
     }
 
-    private void dgl() {
+    private void dgs() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             if (currentAccountObj.getIsSelectTail()) {
-                this.lsV.CK(" ");
+                this.ltj.CI(" ");
             } else {
-                this.lsV.bBf();
+                this.ltj.bBf();
             }
-            dgj();
+            dgq();
         }
     }
 
@@ -177,18 +177,18 @@ public class PrivilegeDeskView extends CommonTabHost {
         if (aVar != null) {
             if (aVar.code == 2) {
                 if (aVar.data == null) {
-                    this.lsU--;
+                    this.lti--;
                 } else if (aVar.data instanceof String) {
                     String str = (String) aVar.data;
                     if (TextUtils.isEmpty(str)) {
-                        this.lsU--;
+                        this.lti--;
                     } else if (TextUtils.isEmpty(str.trim())) {
-                        this.lsU++;
+                        this.lti++;
                     } else {
-                        this.lsU = com.baidu.adp.lib.f.b.toInt(str, 1) + this.lsU;
+                        this.lti = com.baidu.adp.lib.f.b.toInt(str, 1) + this.lti;
                     }
                 }
-                if (this.lsU > 0) {
+                if (this.lti > 0) {
                     b(new com.baidu.tbadk.editortools.a(2, 18, " "));
                 } else {
                     b(new com.baidu.tbadk.editortools.a(2, 18, null));
@@ -203,7 +203,7 @@ public class PrivilegeDeskView extends CommonTabHost {
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.n
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lsV.onChangeSkinType(i);
-        this.lsW.onChangeSkinType(i);
+        this.ltj.onChangeSkinType(i);
+        this.ltk.onChangeSkinType(i);
     }
 }

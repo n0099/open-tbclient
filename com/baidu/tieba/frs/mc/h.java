@@ -19,39 +19,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class h extends j {
-    private String jDi;
-    private final CustomMessageListener jDq;
-    private cb jFL;
-    private boolean jFM;
-    private PraiseModel jFN;
+    private final CustomMessageListener jDE;
+    private String jDw;
+    private cb jFZ;
+    private boolean jGa;
+    private PraiseModel jGb;
 
     public h(FrsFragment frsFragment) {
         super(frsFragment);
-        this.jDq = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
+        this.jDE = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof cb)) {
                     cb cbVar = (cb) customResponsedMessage.getData();
-                    h.this.jDi = cbVar.getId();
-                    if (!TextUtils.isEmpty(h.this.jDi) && cbVar.bnB() != null) {
+                    h.this.jDw = cbVar.getId();
+                    if (!TextUtils.isEmpty(h.this.jDw) && cbVar.bnB() != null) {
                         h.this.zV(cbVar.bnB().getIsLike());
                     }
                 }
             }
         };
-        this.jEH.registerListener(this.jDq);
-        this.jFN = cJU();
+        this.jEV.registerListener(this.jDE);
+        this.jGb = cKb();
     }
 
-    public final PraiseModel cJU() {
-        if (this.jFN == null) {
-            this.jFN = new PraiseModel(this.jEH.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
+    public final PraiseModel cKb() {
+        if (this.jGb == null) {
+            this.jGb = new PraiseModel(this.jEV.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-                public void Fa(String str) {
+                public void Fb(String str) {
                     int i = 1;
-                    if (h.this.jFM) {
-                        if (h.this.jFL != null && h.this.jFL.bnB().getIsLike() == 1) {
+                    if (h.this.jGa) {
+                        if (h.this.jFZ != null && h.this.jFZ.bnB().getIsLike() == 1) {
                             i = 0;
                         }
                         h.this.zV(i);
@@ -61,23 +61,23 @@ public class h extends j {
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void onLoadFailed(int i, String str) {
-                    if (h.this.jEH != null && h.this.jEH.getPageContext() != null && h.this.jFM && !TextUtils.isEmpty(str)) {
+                    if (h.this.jEV != null && h.this.jEV.getPageContext() != null && h.this.jGa && !TextUtils.isEmpty(str)) {
                         if (AntiHelper.bX(i, str)) {
-                            AntiHelper.br(h.this.jEH.getPageContext().getPageActivity(), str);
+                            AntiHelper.bq(h.this.jEV.getPageContext().getPageActivity(), str);
                         } else {
-                            h.this.jEH.showToast(str);
+                            h.this.jEV.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.jFN;
+        return this.jGb;
     }
 
     public void zV(int i) {
         ArrayList<com.baidu.adp.widget.ListView.n> threadList;
-        FrsViewData cCZ = this.jEH.cCZ();
-        if (cCZ != null && this.jgh != null && (threadList = cCZ.getThreadList()) != null) {
+        FrsViewData cDg = this.jEV.cDg();
+        if (cDg != null && this.jgv != null && (threadList = cDg.getThreadList()) != null) {
             Iterator<com.baidu.adp.widget.ListView.n> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -86,19 +86,19 @@ public class h extends j {
                 com.baidu.adp.widget.ListView.n next = it.next();
                 if (next instanceof ca) {
                     cb cbVar = ((ca) next).eJQ;
-                    if (cbVar == this.jFL) {
+                    if (cbVar == this.jFZ) {
                         c(cbVar, i);
-                        this.jFL = null;
+                        this.jFZ = null;
                         break;
-                    } else if (cbVar.getId() != null && cbVar.getId().equals(this.jDi)) {
+                    } else if (cbVar.getId() != null && cbVar.getId().equals(this.jDw)) {
                         c(cbVar, i);
-                        this.jDi = null;
+                        this.jDw = null;
                         break;
                     }
                 }
             }
-            this.jgh.cDU().b(threadList, cCZ);
-            this.jgh.cDU().notifyDataSetChanged();
+            this.jgv.cEb().b(threadList, cDg);
+            this.jgv.cEb().notifyDataSetChanged();
         }
     }
 
@@ -143,6 +143,6 @@ public class h extends j {
     }
 
     public void rv(boolean z) {
-        this.jFM = z;
+        this.jGa = z;
     }
 }

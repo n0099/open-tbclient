@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<com.baidu.tbadk.mvc.b.a> ajo = new ArrayList<>();
-    private c kCx;
+    private c kCL;
     private TbPageContext<?> mPageContext;
 
     /* loaded from: classes8.dex */
@@ -28,7 +28,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
     /* JADX INFO: Access modifiers changed from: package-private */
     public OfficialBarFeedMsglistAdapter(TbPageContext<?> tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.kCx = cVar;
+        this.kCL = cVar;
     }
 
     public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
@@ -70,47 +70,47 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
 
     /* loaded from: classes8.dex */
     class b extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView jPo;
-        private View kCA;
-        private a kCB;
-        private BarImageView kCz;
+        private TextView jPC;
+        private BarImageView kCN;
+        private View kCO;
+        private a kCP;
 
         b(View view) {
             super(view);
-            this.kCz = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.jPo = (TextView) view.findViewById(R.id.official_bar_name);
-            this.kCA = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.kCz.setShowOval(true);
-            this.kCz.setPlaceHolder(2);
-            this.kCz.setShowOuterBorder(false);
-            this.kCz.setShowInnerBorder(true);
-            this.kCz.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.kCN = (BarImageView) view.findViewById(R.id.official_bar_image);
+            this.jPC = (TextView) view.findViewById(R.id.official_bar_name);
+            this.kCO = view.findViewById(R.id.official_bar_feed_red_dot);
+            this.kCN.setShowOval(true);
+            this.kCN.setPlaceHolder(2);
+            this.kCN.setShowOuterBorder(false);
+            this.kCN.setShowInnerBorder(true);
+            this.kCN.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
         void b(com.baidu.tbadk.mvc.b.a aVar) {
-            this.kCB = (a) aVar;
-            ap.setViewTextColor(this.jPo, R.color.CAM_X0105);
-            ap.setBackgroundResource(this.kCA, R.drawable.icon_official_bar_red_dot);
-            this.kCz.setStrokeColorResId(R.color.CAM_X0401);
-            this.kCz.startLoad(this.kCB.cUR(), 10, false);
-            if (au.getChineseAndEnglishLength(this.kCB.cPg()) <= 10) {
-                this.jPo.setText(this.kCB.cPg());
+            this.kCP = (a) aVar;
+            ap.setViewTextColor(this.jPC, R.color.CAM_X0105);
+            ap.setBackgroundResource(this.kCO, R.drawable.icon_official_bar_red_dot);
+            this.kCN.setStrokeColorResId(R.color.CAM_X0401);
+            this.kCN.startLoad(this.kCP.cUY(), 10, false);
+            if (au.getChineseAndEnglishLength(this.kCP.cPn()) <= 10) {
+                this.jPC.setText(this.kCP.cPn());
             } else {
-                this.jPo.setText(au.cutChineseAndEnglishWithSuffix(this.kCB.cPg(), 8, StringHelper.STRING_MORE));
+                this.jPC.setText(au.cutChineseAndEnglishWithSuffix(this.kCP.cPn(), 8, StringHelper.STRING_MORE));
             }
-            this.kCz.setOnClickListener(this);
-            if (this.kCB.getUnReadCount() > 0 && (this.kCB.cUS() <= 0 || System.currentTimeMillis() - this.kCB.cUS() < 864000000)) {
-                this.kCA.setVisibility(0);
+            this.kCN.setOnClickListener(this);
+            if (this.kCP.getUnReadCount() > 0 && (this.kCP.cUZ() <= 0 || System.currentTimeMillis() - this.kCP.cUZ() < 864000000)) {
+                this.kCO.setVisibility(0);
             } else {
-                this.kCA.setVisibility(8);
+                this.kCO.setVisibility(8);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.kCA.setVisibility(8);
-            if (OfficialBarFeedMsglistAdapter.this.kCx != null) {
-                OfficialBarFeedMsglistAdapter.this.kCx.a(view, this.kCB, getAdapterPosition(), getItemId());
+            this.kCO.setVisibility(8);
+            if (OfficialBarFeedMsglistAdapter.this.kCL != null) {
+                OfficialBarFeedMsglistAdapter.this.kCL.a(view, this.kCP, getAdapterPosition(), getItemId());
             }
         }
     }
@@ -120,18 +120,18 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
     public static class a implements com.baidu.tbadk.mvc.b.a {
         private long cZf;
         private long groupId;
-        private String kCy;
-        private String kbI;
+        private String kCM;
+        private String kbW;
         private int unReadCount;
         private int userType;
 
-        String cUR() {
-            return this.kCy;
+        String cUY() {
+            return this.kCM;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String cPg() {
-            return this.kbI;
+        public String cPn() {
+            return this.kbW;
         }
 
         int getUnReadCount() {
@@ -139,13 +139,13 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void Ms(String str) {
-            this.kCy = str;
+        public void Mt(String str) {
+            this.kCM = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void Mt(String str) {
-            this.kbI = str;
+        public void Mu(String str) {
+            this.kbW = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,7 +165,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
             return this.groupId;
         }
 
-        public long cUS() {
+        public long cUZ() {
             return this.cZf;
         }
 

@@ -32,12 +32,12 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, d {
     private FrameLayout aiT;
-    private NoNetworkView gAh;
+    private NoNetworkView gAv;
     private boolean isFullScreen;
-    private BdTypeListView joe;
-    private PbListView jof;
-    private f jog;
-    private i joh;
+    private BdTypeListView jos;
+    private PbListView jot;
+    private f jou;
+    private i jov;
     private String mFrom;
     private String mId;
     private NavigationBar mNavigationBar;
@@ -52,8 +52,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable()) {
                 if (VideoAggregationFragment.this.mNoDataView != null) {
-                    VideoAggregationFragment.this.joh.cFw();
-                } else if (j.isMobileNet() && VideoAggregationFragment.this.jog != null && VideoAggregationFragment.this.jog.qZ()) {
+                    VideoAggregationFragment.this.jov.cFD();
+                } else if (j.isMobileNet() && VideoAggregationFragment.this.jou != null && VideoAggregationFragment.this.jou.qZ()) {
                     VideoAggregationFragment.this.getPageContext().showToast(R.string.video_mobile_play_tips);
                 }
             }
@@ -64,8 +64,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && VideoAggregationFragment.this.jog != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.isSucc) {
-                VideoAggregationFragment.this.jog.aO(data.toUid, data.isAttention);
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && VideoAggregationFragment.this.jou != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.isSucc) {
+                VideoAggregationFragment.this.jou.aO(data.toUid, data.isAttention);
             }
         }
     };
@@ -91,12 +91,12 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.st_type = arguments.getString("st_type");
             this.yuelaou_locate = arguments.getString("yuelaou_locate");
         }
-        this.joh = new i(getPageContext(), this);
-        this.joh.setId(this.mId);
-        this.joh.setFrom(this.mFrom);
-        this.joh.Ko(this.st_type);
-        this.joh.setLocation(this.yuelaou_locate);
-        this.joh.cFw();
+        this.jov = new i(getPageContext(), this);
+        this.jov.setId(this.mId);
+        this.jov.setFrom(this.mFrom);
+        this.jov.Kp(this.st_type);
+        this.jov.setLocation(this.yuelaou_locate);
+        this.jov.cFD();
         registerListener(this.mNetworkChangedMessageListener);
         registerListener(this.faJ);
     }
@@ -112,45 +112,45 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.aiT = (FrameLayout) view.findViewById(R.id.container);
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.navigation_bar);
         bEL();
-        this.gAh = (NoNetworkView) view.findViewById(R.id.no_network_view);
+        this.gAv = (NoNetworkView) view.findViewById(R.id.no_network_view);
         if (!j.isNetWorkAvailable()) {
-            this.gAh.setVisibility(0);
+            this.gAv.setVisibility(0);
         }
-        this.joe = (BdTypeListView) view.findViewById(R.id.listView);
+        this.jos = (BdTypeListView) view.findViewById(R.id.listView);
         this.mPullView = new com.baidu.tbadk.core.view.g(getPageContext());
         this.mPullView.createView();
         this.mPullView.setListPullRefreshListener(new f.c() { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.1
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
-                VideoAggregationFragment.this.joh.cFw();
+                VideoAggregationFragment.this.jov.cFD();
             }
         });
         this.mPullView.setTag(getUniqueId());
-        this.joe.setPullRefresh(this.mPullView);
-        this.jof = new PbListView(getPageContext().getPageActivity());
-        this.jof.createView();
-        this.jof.setLineVisible();
-        this.jof.setText(getResources().getString(R.string.list_has_no_more));
-        this.jof.startLoadData();
-        this.joe.setNextPage(this.jof);
-        this.joe.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.2
+        this.jos.setPullRefresh(this.mPullView);
+        this.jot = new PbListView(getPageContext().getPageActivity());
+        this.jot.createView();
+        this.jot.setLineVisible();
+        this.jot.setText(getResources().getString(R.string.list_has_no_more));
+        this.jot.startLoadData();
+        this.jos.setNextPage(this.jot);
+        this.jos.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationFragment.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0 && absListView.getLastVisiblePosition() > absListView.getCount() - 2 && absListView.getFirstVisiblePosition() != 0) {
-                    VideoAggregationFragment.this.joh.cFy();
+                    VideoAggregationFragment.this.jov.cFF();
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                if (VideoAggregationFragment.this.jog != null) {
-                    if (i > VideoAggregationFragment.this.jog.cFs() || i + i2 < VideoAggregationFragment.this.jog.cFs()) {
-                        VideoAggregationFragment.this.jog.cFt();
+                if (VideoAggregationFragment.this.jou != null) {
+                    if (i > VideoAggregationFragment.this.jou.cFz() || i + i2 < VideoAggregationFragment.this.jou.cFz()) {
+                        VideoAggregationFragment.this.jou.cFA();
                     }
                 }
             }
         });
-        this.jog = new f(getPageContext(), this.joe, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom));
+        this.jou = new f(getPageContext(), this.jos, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom));
         showLoadingView();
     }
 
@@ -161,7 +161,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         VideoAggregationFragment.this.hideNoDataView();
-                        VideoAggregationFragment.this.joh.cFw();
+                        VideoAggregationFragment.this.jov.cFD();
                     }
                 })));
             } else {
@@ -170,14 +170,14 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
-        this.joe.setVisibility(8);
+        this.jos.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideNoDataView() {
         if (this.mNoDataView != null && this.mNoDataView.getVisibility() == 0) {
             this.mNoDataView.setVisibility(8);
-            this.joe.setVisibility(0);
+            this.jos.setVisibility(0);
         }
     }
 
@@ -198,12 +198,12 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public void zg(int i) {
-        if (this.joe != null && this.jog != null) {
-            if (i == 1 && this.jog.qZ()) {
-                this.jog.qX();
+        if (this.jos != null && this.jou != null) {
+            if (i == 1 && this.jou.qZ()) {
+                this.jou.qX();
             }
             if (i == 2) {
-                this.jog.qY();
+                this.jou.qY();
             }
         }
     }
@@ -212,7 +212,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gAh.onChangeSkinType(getPageContext(), i);
+        this.gAv.onChangeSkinType(getPageContext(), i);
         ap.setBackgroundColor(this.aiT, R.color.CAM_X0111);
     }
 
@@ -226,8 +226,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.isFullScreen = false;
             this.mNavigationBar.setVisibility(0);
         }
-        if (this.jog != null) {
-            this.jog.onConfigurationChanged(configuration);
+        if (this.jou != null) {
+            this.jou.onConfigurationChanged(configuration);
         }
     }
 
@@ -246,11 +246,11 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.joh != null) {
-            this.joh.cFx();
+        if (this.jov != null) {
+            this.jov.cFE();
         }
-        if (this.jog != null) {
-            this.jog.onDestroy();
+        if (this.jou != null) {
+            this.jou.onDestroy();
         }
     }
 
@@ -263,7 +263,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     @Override // com.baidu.tieba.frs.aggregation.d
     public void hideLoadingView() {
         if (this.aiT != null) {
-            this.joe.completePullRefreshPostDelayed(0L);
+            this.jos.completePullRefreshPostDelayed(0L);
             hideLoadingView(this.aiT);
         }
     }
@@ -291,9 +291,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 k(this.aiT, false);
                 return;
             }
-            this.jog.setData(list, z);
+            this.jou.setData(list, z);
             if (!z2) {
-                this.jof.endLoadData();
+                this.jot.endLoadData();
             }
             hideNoDataView();
             if (this.mNoDataView != null) {
@@ -304,9 +304,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public boolean zf(int i) {
-        if (this.jog == null) {
+        if (this.jou == null) {
             return false;
         }
-        return this.jog.zf(i);
+        return this.jou.zf(i);
     }
 }

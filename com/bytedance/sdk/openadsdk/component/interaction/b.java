@@ -139,12 +139,12 @@ class b implements TTInteractionAd {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         int b2 = this.f6291b.M().get(0).b();
-        e.a(this.f6290a).g().a(this.f6291b.M().get(0).a(), new d.InterfaceC0997d() { // from class: com.bytedance.sdk.openadsdk.component.interaction.b.5
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+        e.a(this.f6290a).g().a(this.f6291b.M().get(0).a(), new d.InterfaceC0999d() { // from class: com.bytedance.sdk.openadsdk.component.interaction.b.5
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
             public void a() {
             }
 
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
             public void a(d.c cVar, boolean z) {
                 if (cVar == null || cVar.a() == null) {
                     if (b.this.g != null) {
@@ -159,7 +159,7 @@ class b implements TTInteractionAd {
                 }
             }
 
-            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+            @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
             public void b() {
             }
 

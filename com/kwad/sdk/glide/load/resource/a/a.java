@@ -11,7 +11,7 @@ public class a implements e<ByteBuffer> {
 
     /* renamed from: com.kwad.sdk.glide.load.resource.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1132a implements e.a<ByteBuffer> {
+    public static class C1134a implements e.a<ByteBuffer> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.a.e.a
         @NonNull

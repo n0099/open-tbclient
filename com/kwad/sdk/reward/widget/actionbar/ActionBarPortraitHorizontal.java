@@ -178,8 +178,8 @@ public class ActionBarPortraitHorizontal extends FrameLayout implements View.OnC
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.p, view == this.k);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.m, new a.InterfaceC1092a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarPortraitHorizontal.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.m, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarPortraitHorizontal.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 if (ActionBarPortraitHorizontal.this.o != null) {
                     ActionBarPortraitHorizontal.this.o.a();

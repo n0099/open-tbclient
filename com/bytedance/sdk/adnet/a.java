@@ -20,9 +20,9 @@ public class a {
     /* renamed from: b  reason: collision with root package name */
     private static String f5989b;
     private static boolean d = true;
-    public static q puo;
-    private static b pup;
-    private static com.bytedance.sdk.adnet.c.a puq;
+    public static q puO;
+    private static b puP;
+    private static com.bytedance.sdk.adnet.c.a puQ;
 
     public static o hX(Context context) {
         return n.hX(context);
@@ -46,18 +46,18 @@ public class a {
     }
 
     public static void a(q qVar) {
-        puo = qVar;
+        puO = qVar;
     }
 
     public static void a(b bVar) {
-        pup = bVar;
+        puP = bVar;
     }
 
-    public static b eqC() {
-        if (pup == null) {
+    public static b eqK() {
+        if (puP == null) {
             throw new IllegalArgumentException("sITTNetDepend is null");
         }
-        return pup;
+        return puP;
     }
 
     public static void a(boolean z) {
@@ -73,18 +73,18 @@ public class a {
     }
 
     public static void a(com.bytedance.sdk.adnet.c.a aVar) {
-        puq = aVar;
+        puQ = aVar;
     }
 
-    public static com.bytedance.sdk.adnet.c.a eqD() {
-        return puq;
+    public static com.bytedance.sdk.adnet.c.a eqL() {
+        return puQ;
     }
 
     public static void a(Context context, Application application, boolean z) {
         if (context == null) {
             throw new IllegalArgumentException("tryInitAdTTNet context is null");
         }
-        f.eqJ().a(context, g.b(context));
+        f.eqR().a(context, g.b(context));
         if (g.a(context) || (!g.b(context) && z)) {
             com.bytedance.sdk.adnet.a.a.hY(context).c();
             com.bytedance.sdk.adnet.a.a.hY(context).a();

@@ -22,8 +22,8 @@ public class DownloadReceiver extends BroadcastReceiver {
         if (context != null && intent != null) {
             String action = intent.getAction();
             if (!TextUtils.isEmpty(action)) {
-                com.ss.android.socialbase.appdownloader.c.c eFi = d.eFn().eFi();
-                if (action.equals("android.intent.action.BOOT_COMPLETED") && (eFi == null || eFi.a())) {
+                com.ss.android.socialbase.appdownloader.c.c eFq = d.eFv().eFq();
+                if (action.equals("android.intent.action.BOOT_COMPLETED") && (eFq == null || eFq.a())) {
                     if (com.ss.android.socialbase.downloader.f.a.a()) {
                         com.ss.android.socialbase.downloader.f.a.a(f13003a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
                     }
@@ -34,39 +34,39 @@ public class DownloadReceiver extends BroadcastReceiver {
                     }
                     a(context, action);
                 } else if (action.equals("android.intent.action.PACKAGE_ADDED") || action.equals("android.intent.action.PACKAGE_REPLACED")) {
-                    com.ss.android.socialbase.downloader.downloader.b.eGc().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1
+                    com.ss.android.socialbase.downloader.downloader.b.eGk().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1
                         @Override // java.lang.Runnable
                         public void run() {
                             Uri data = intent.getData();
                             if (data != null) {
                                 String schemeSpecificPart = data.getSchemeSpecificPart();
-                                com.ss.android.socialbase.appdownloader.c.d eFj = d.eFn().eFj();
-                                if (eFj != null) {
-                                    eFj.a(context, schemeSpecificPart);
+                                com.ss.android.socialbase.appdownloader.c.d eFr = d.eFv().eFr();
+                                if (eFr != null) {
+                                    eFr.a(context, schemeSpecificPart);
                                 }
                                 List<com.ss.android.socialbase.downloader.g.c> b2 = com.ss.android.socialbase.downloader.downloader.f.iB(context).b("application/vnd.android.package-archive");
                                 if (b2 != null) {
                                     for (final com.ss.android.socialbase.downloader.g.c cVar : b2) {
                                         if (cVar != null && c.c(cVar, schemeSpecificPart)) {
-                                            com.ss.android.socialbase.downloader.d.d Rs = com.ss.android.socialbase.downloader.downloader.f.iB(context).Rs(cVar.g());
-                                            if (Rs != null && com.ss.android.socialbase.downloader.m.d.e(Rs.a())) {
-                                                Rs.a(9, cVar, schemeSpecificPart, "");
+                                            com.ss.android.socialbase.downloader.d.d Rt = com.ss.android.socialbase.downloader.downloader.f.iB(context).Rt(cVar.g());
+                                            if (Rt != null && com.ss.android.socialbase.downloader.m.d.e(Rt.a())) {
+                                                Rt.a(9, cVar, schemeSpecificPart, "");
                                             }
-                                            com.ss.android.socialbase.downloader.notification.a Sb = com.ss.android.socialbase.downloader.notification.b.eIB().Sb(cVar.g());
-                                            if (Sb != null) {
-                                                Sb.a((com.ss.android.socialbase.downloader.e.a) null, false);
+                                            com.ss.android.socialbase.downloader.notification.a Sc = com.ss.android.socialbase.downloader.notification.b.eIJ().Sc(cVar.g());
+                                            if (Sc != null) {
+                                                Sc.a((com.ss.android.socialbase.downloader.e.a) null, false);
                                             }
-                                            if (com.ss.android.socialbase.downloader.k.a.RV(cVar.g()).a("install_queue_enable", 0) == 1) {
-                                                h.eFO().a(cVar, schemeSpecificPart);
+                                            if (com.ss.android.socialbase.downloader.k.a.RW(cVar.g()).a("install_queue_enable", 0) == 1) {
+                                                h.eFW().a(cVar, schemeSpecificPart);
                                             }
                                             DownloadReceiver.this.f13004b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1
                                                 @Override // java.lang.Runnable
                                                 public void run() {
-                                                    com.ss.android.socialbase.downloader.downloader.b.eGc().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1.1
+                                                    com.ss.android.socialbase.downloader.downloader.b.eGk().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1.1
                                                         @Override // java.lang.Runnable
                                                         public void run() {
                                                             try {
-                                                                if (cVar.eHU()) {
+                                                                if (cVar.eIc()) {
                                                                     com.ss.android.socialbase.downloader.m.d.b(cVar);
                                                                 }
                                                             } catch (Throwable th) {

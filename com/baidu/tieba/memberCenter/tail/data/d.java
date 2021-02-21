@@ -7,9 +7,9 @@ import tbclient.GetTails.ResData;
 import tbclient.GetTails.TailInfo;
 /* loaded from: classes9.dex */
 public class d {
-    private String lrP;
-    private List<TailData> lrO = new ArrayList();
-    private List<String> lrQ = new ArrayList();
+    private String lsd;
+    private List<TailData> lsc = new ArrayList();
+    private List<String> lse = new ArrayList();
 
     public void a(ResData resData) {
         if (resData != null && resData.tailList != null) {
@@ -24,9 +24,9 @@ public class d {
                     getTails().add(tailData);
                 }
             }
-            Of(resData.default_color);
+            Og(resData.default_color);
             for (ColorInfo colorInfo : resData.colorList) {
-                dfN().add(colorInfo.fontColor);
+                dfU().add(colorInfo.fontColor);
             }
         }
     }
@@ -36,14 +36,14 @@ public class d {
     }
 
     public List<TailData> getTails() {
-        return this.lrO;
+        return this.lsc;
     }
 
-    public void Of(String str) {
-        this.lrP = str;
+    public void Og(String str) {
+        this.lsd = str;
     }
 
-    public List<String> dfN() {
-        return this.lrQ;
+    public List<String> dfU() {
+        return this.lse;
     }
 }

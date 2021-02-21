@@ -4,50 +4,50 @@ import tbclient.ElectionInfo.Basic;
 import tbclient.ElectionInfo.NoticeContent;
 /* loaded from: classes8.dex */
 public class e {
-    private NoticeContent iqA;
-    private long iqt;
-    private long iqu;
-    private long iqv;
-    private long iqw;
-    private int iqx;
-    private int iqy;
-    private boolean iqz;
+    private long iqH;
+    private long iqI;
+    private long iqJ;
+    private long iqK;
+    private int iqL;
+    private int iqM;
+    private boolean iqN;
+    private NoticeContent iqO;
     private int status = 0;
 
-    public int crg() {
-        return this.iqx;
+    public int crn() {
+        return this.iqL;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public long crh() {
-        return this.iqt;
+    public long cro() {
+        return this.iqH;
     }
 
-    public long cri() {
-        return this.iqv;
+    public long crp() {
+        return this.iqJ;
     }
 
-    public long crj() {
-        return this.iqw;
+    public long crq() {
+        return this.iqK;
     }
 
-    public long crk() {
-        return this.iqu;
+    public long crr() {
+        return this.iqI;
     }
 
-    public boolean crl() {
-        return this.iqz;
+    public boolean crs() {
+        return this.iqN;
     }
 
-    public NoticeContent crm() {
-        return this.iqA;
+    public NoticeContent crt() {
+        return this.iqO;
     }
 
     public void a(NoticeContent noticeContent) {
-        this.iqA = noticeContent;
+        this.iqO = noticeContent;
     }
 
     public static e a(Basic basic) {
@@ -55,19 +55,19 @@ public class e {
             return null;
         }
         e eVar = new e();
-        eVar.gd(II(basic.remind_time));
+        eVar.gd(IJ(basic.remind_time));
         eVar.setStatus(basic.status.intValue());
         eVar.wP(basic.candidate_num.intValue());
         eVar.wQ(basic.total_vote_num.intValue());
-        eVar.gb(II(basic.begin_apply_time));
-        eVar.ge(II(basic.begin_vote_time));
-        eVar.gc(II(basic.begin_public_time));
+        eVar.gb(IJ(basic.begin_apply_time));
+        eVar.ge(IJ(basic.begin_vote_time));
+        eVar.gc(IJ(basic.begin_public_time));
         eVar.pq(basic.is_voted.booleanValue());
         eVar.a(basic.notice);
         return eVar;
     }
 
-    private static long II(String str) {
+    private static long IJ(String str) {
         try {
             return Long.parseLong(str);
         } catch (Exception e) {
@@ -77,19 +77,19 @@ public class e {
     }
 
     public void wP(int i) {
-        this.iqx = i;
+        this.iqL = i;
     }
 
     public void gb(long j) {
-        this.iqt = j;
+        this.iqH = j;
     }
 
     public void gc(long j) {
-        this.iqv = j;
+        this.iqJ = j;
     }
 
     public void gd(long j) {
-        this.iqw = j;
+        this.iqK = j;
     }
 
     public void setStatus(int i) {
@@ -97,14 +97,14 @@ public class e {
     }
 
     public void wQ(int i) {
-        this.iqy = i;
+        this.iqM = i;
     }
 
     public void ge(long j) {
-        this.iqu = j;
+        this.iqI = j;
     }
 
     public void pq(boolean z) {
-        this.iqz = z;
+        this.iqN = z;
     }
 }

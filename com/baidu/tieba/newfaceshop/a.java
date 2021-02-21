@@ -8,18 +8,18 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 /* loaded from: classes9.dex */
 public class a {
-    private static volatile a lzL;
+    private static volatile a lzZ;
     private ThreadPoolExecutor mThreadPool;
 
-    public static a dij() {
-        if (lzL == null) {
+    public static a diq() {
+        if (lzZ == null) {
             synchronized (a.class) {
-                if (lzL == null) {
-                    lzL = new a();
+                if (lzZ == null) {
+                    lzZ = new a();
                 }
             }
         }
-        return lzL;
+        return lzZ;
     }
 
     private a() {
@@ -36,7 +36,7 @@ public class a {
 
     private int getNumCores() {
         try {
-            return new File("/sys/devices/system/cpu/").listFiles(new C0805a()).length;
+            return new File("/sys/devices/system/cpu/").listFiles(new C0806a()).length;
         } catch (Exception e) {
             return 1;
         }
@@ -45,8 +45,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.newfaceshop.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0805a implements FileFilter {
-        C0805a() {
+    public static class C0806a implements FileFilter {
+        C0806a() {
         }
 
         @Override // java.io.FileFilter

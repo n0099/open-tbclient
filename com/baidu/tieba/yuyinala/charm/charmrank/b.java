@@ -13,8 +13,8 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 /* loaded from: classes11.dex */
 public class b extends BdBaseModel<YuyinCharmRankTotalActivity> {
     private BdUniqueId aCW;
-    private HttpMessageListener gOE;
-    private a oqp;
+    private HttpMessageListener gOS;
+    private a oqP;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -25,26 +25,26 @@ public class b extends BdBaseModel<YuyinCharmRankTotalActivity> {
 
     public b(TbPageContext<YuyinCharmRankTotalActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gOE = new HttpMessageListener(1031035) { // from class: com.baidu.tieba.yuyinala.charm.charmrank.b.1
+        this.gOS = new HttpMessageListener(1031035) { // from class: com.baidu.tieba.yuyinala.charm.charmrank.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof CharmRankListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId()) {
                     CharmRankListHttpResponseMessage charmRankListHttpResponseMessage = (CharmRankListHttpResponseMessage) httpResponsedMessage;
                     if (httpResponsedMessage.getError() == 0) {
-                        if (b.this.oqp != null) {
-                            b.this.oqp.a(charmRankListHttpResponseMessage.eai());
+                        if (b.this.oqP != null) {
+                            b.this.oqP.a(charmRankListHttpResponseMessage.eaq());
                         }
-                    } else if (b.this.oqp != null) {
-                        b.this.oqp.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    } else if (b.this.oqP != null) {
+                        b.this.oqP.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.oqp = aVar;
+        this.oqP = aVar;
         this.aCW = BdUniqueId.gen();
         setUniqueId(this.aCW);
-        MessageManager.getInstance().registerListener(this.gOE);
+        MessageManager.getInstance().registerListener(this.gOS);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031035, com.baidu.live.a.avJ + "ala/audio/room/getRankList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -54,7 +54,7 @@ public class b extends BdBaseModel<YuyinCharmRankTotalActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void gO(String str, String str2) {
+    public void gQ(String str, String str2) {
         HttpMessage httpMessage = new HttpMessage(1031035);
         httpMessage.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, str2);
         httpMessage.addParam("rank_type", str);
@@ -63,7 +63,7 @@ public class b extends BdBaseModel<YuyinCharmRankTotalActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gOE);
+        MessageManager.getInstance().unRegisterListener(this.gOS);
         MessageManager.getInstance().unRegisterTask(1031035);
         cancelMessage();
     }

@@ -13,7 +13,7 @@ import com.qq.e.ads.splash.SplashADListener;
 import com.qq.e.comm.util.AdError;
 /* loaded from: classes6.dex */
 public class bp extends an {
-    public SplashAD pPR;
+    public SplashAD pQr;
 
     /* loaded from: classes6.dex */
     public class a implements SplashADListener {
@@ -24,7 +24,7 @@ public class bp extends an {
         public void onADClicked() {
             m.a("GDTSplashAd onADClicked");
             bp bpVar = bp.this;
-            ah ahVar = bpVar.pPn;
+            ah ahVar = bpVar.pPN;
             if (ahVar != null) {
                 ((aa) ahVar).c(bpVar.f7754a.f7762a);
             }
@@ -34,7 +34,7 @@ public class bp extends an {
         public void onADDismissed() {
             m.a("GDTSplashAd onADDismissed");
             bp bpVar = bp.this;
-            ah ahVar = bpVar.pPn;
+            ah ahVar = bpVar.pPN;
             if (ahVar != null) {
                 ((aa) ahVar).a(bpVar.f7754a.f7762a);
             }
@@ -50,18 +50,18 @@ public class bp extends an {
             m.a("GDTSplashAd onADLoaded");
             bp bpVar = bp.this;
             bpVar.f7755b = false;
-            ak akVar = bpVar.pPm;
+            ak akVar = bpVar.pPM;
             if (akVar != null) {
                 ((x) akVar).b(bpVar.f7754a.f7762a);
             }
-            AdRipper.ripGDTSplash(bp.this.pPR);
+            AdRipper.ripGDTSplash(bp.this.pQr);
         }
 
         @Override // com.qq.e.ads.splash.SplashADListener
         public void onADPresent() {
             m.a("GDTSplashAd onADPresent");
             bp bpVar = bp.this;
-            ah ahVar = bpVar.pPn;
+            ah ahVar = bpVar.pPN;
             if (ahVar != null) {
                 ((aa) ahVar).d(bpVar.f7754a.f7762a);
             }
@@ -77,7 +77,7 @@ public class bp extends an {
             m.a("GDTSplashAd onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg());
             bp bpVar = bp.this;
             bpVar.f7755b = false;
-            ak akVar = bpVar.pPm;
+            ak akVar = bpVar.pPM;
             if (akVar != null) {
                 ((x) akVar).a(bpVar.f7754a.f7762a, adError.getErrorCode(), adError.getErrorMsg());
             }
@@ -91,13 +91,13 @@ public class bp extends an {
     @Override // com.fun.ad.an
     public void a() {
         super.a();
-        this.pPR = null;
+        this.pQr = null;
     }
 
     @Override // com.fun.ad.an
-    public FunRippedAd eAp() {
+    public FunRippedAd eAx() {
         AdRipper.RippedGDTAd rippedGDTSplashAd;
-        SplashAD splashAD = this.pPR;
+        SplashAD splashAD = this.pQr;
         if (splashAD == null || (rippedGDTSplashAd = AdRipper.getRippedGDTSplashAd(splashAD, false)) == null) {
             return null;
         }
@@ -121,7 +121,7 @@ public class bp extends an {
             if (!(context instanceof Activity)) {
                 m.a("GDTSplashAd context is not activity");
                 this.f7755b = false;
-                ak akVar2 = this.pPm;
+                ak akVar2 = this.pPM;
                 if (akVar2 != null) {
                     ((x) akVar2).a(this.f7754a.f7762a, 0, "Custom error message: context is not activity");
                     return;
@@ -129,9 +129,9 @@ public class bp extends an {
                 return;
             }
             SplashAD splashAD = new SplashAD((Activity) context, this.f7754a.f7762a, aVar, 0);
-            this.pPR = splashAD;
+            this.pQr = splashAD;
             splashAD.fetchAdOnly();
-            ak akVar3 = this.pPm;
+            ak akVar3 = this.pPM;
             if (akVar3 != null) {
                 ((x) akVar3).a(this.f7754a.f7762a);
             }
@@ -141,12 +141,12 @@ public class bp extends an {
     @Override // com.fun.ad.an
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         super.a(activity, funAdView, ahVar);
-        SplashAD splashAD = this.pPR;
+        SplashAD splashAD = this.pQr;
         if (splashAD != null) {
             splashAD.showAd(funAdView);
             return;
         }
-        ah ahVar2 = this.pPn;
+        ah ahVar2 = this.pPN;
         if (ahVar2 != null) {
             ((aa) ahVar2).a(this.f7754a.f7762a, 0, "Custom error message: mSplashAD is null when show");
         }

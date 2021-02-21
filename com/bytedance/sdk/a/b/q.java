@@ -18,9 +18,9 @@ public final class q {
 
     /* renamed from: b  reason: collision with root package name */
     private int f5972b = 5;
-    private final Deque<aa.a> ptx = new ArrayDeque();
-    private final Deque<aa.a> pty = new ArrayDeque();
-    private final Deque<aa> ptz = new ArrayDeque();
+    private final Deque<aa.a> ptX = new ArrayDeque();
+    private final Deque<aa.a> ptY = new ArrayDeque();
+    private final Deque<aa> ptZ = new ArrayDeque();
 
     public synchronized ExecutorService a() {
         if (this.d == null) {
@@ -30,16 +30,16 @@ public final class q {
     }
 
     private void c() {
-        if (this.pty.size() < this.f5971a && !this.ptx.isEmpty()) {
-            Iterator<aa.a> it = this.ptx.iterator();
+        if (this.ptY.size() < this.f5971a && !this.ptX.isEmpty()) {
+            Iterator<aa.a> it = this.ptX.iterator();
             while (it.hasNext()) {
                 aa.a next = it.next();
                 if (a(next) < this.f5972b) {
                     it.remove();
-                    this.pty.add(next);
+                    this.ptY.add(next);
                     a().execute(next);
                 }
-                if (this.pty.size() >= this.f5971a) {
+                if (this.ptY.size() >= this.f5971a) {
                     return;
                 }
             }
@@ -48,7 +48,7 @@ public final class q {
 
     private int a(aa.a aVar) {
         int i = 0;
-        Iterator<aa.a> it = this.pty.iterator();
+        Iterator<aa.a> it = this.ptY.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
@@ -61,17 +61,17 @@ public final class q {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(aa aaVar) {
-        this.ptz.add(aaVar);
+        this.ptZ.add(aaVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(aa.a aVar) {
-        a(this.pty, aVar, true);
+        a(this.ptY, aVar, true);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(aa aaVar) {
-        a(this.ptz, aaVar, false);
+        a(this.ptZ, aaVar, false);
     }
 
     private <T> void a(Deque<T> deque, T t, boolean z) {
@@ -93,6 +93,6 @@ public final class q {
     }
 
     public synchronized int b() {
-        return this.pty.size() + this.ptz.size();
+        return this.ptY.size() + this.ptZ.size();
     }
 }

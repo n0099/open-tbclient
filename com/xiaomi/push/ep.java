@@ -18,7 +18,7 @@ public class ep {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m292a() {
+    public String m291a() {
         return this.f379a;
     }
 

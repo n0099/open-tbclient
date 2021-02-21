@@ -31,61 +31,61 @@ public class f implements View.OnClickListener {
     private int aSm;
     private Activity activity;
     private int dVi;
-    private View gQM;
-    private View gQN;
-    private TextView gQO;
-    private EditText gQP;
-    private EditText gQQ;
-    private TextView gQR;
-    private TextView gQS;
-    private LinearLayout gQT;
-    private LinearLayout gQU;
-    private LinearLayout gQV;
-    private TextView gQW;
-    private TextView gQX;
-    private ImageView gQY;
-    private ImageView gQZ;
-    private boolean gRA;
-    private int gRC;
-    private boolean gRD;
-    private TextView gRa;
-    private TextView gRb;
-    private RelativeLayout gRc;
-    private LinearLayout gRd;
-    private LinearLayout gRe;
-    private ScrollView gRf;
-    private View gRg;
-    private long gRi;
-    private int gRj;
-    private int gRk;
-    private List<cs.a> gRl;
-    private long gRn;
-    private String gRo;
-    private String gRp;
-    private boolean gRs;
-    private boolean gRt;
-    private int gRu;
-    private int gRv;
-    private e gRw;
+    private long gRB;
+    private String gRC;
+    private String gRD;
+    private boolean gRG;
+    private boolean gRH;
+    private int gRI;
+    private int gRJ;
+    private e gRK;
+    private int gRL;
+    private int gRM;
+    private float gRN;
+    private boolean gRO;
+    private int gRQ;
+    private boolean gRR;
+    private View gRa;
+    private View gRb;
+    private TextView gRc;
+    private EditText gRd;
+    private EditText gRe;
+    private TextView gRf;
+    private TextView gRg;
+    private LinearLayout gRh;
+    private LinearLayout gRi;
+    private LinearLayout gRj;
+    private TextView gRk;
+    private TextView gRl;
+    private ImageView gRm;
+    private ImageView gRn;
+    private TextView gRo;
+    private TextView gRp;
+    private RelativeLayout gRq;
+    private LinearLayout gRr;
+    private LinearLayout gRs;
+    private ScrollView gRt;
+    private View gRu;
+    private long gRw;
     private int gRx;
     private int gRy;
-    private float gRz;
+    private List<cs.a> gRz;
     private int screenWidth;
-    private int gRh = 2000;
-    private long gRm = 2000;
-    private boolean gRq = true;
-    private boolean gRr = true;
-    private int gRB = 10;
+    private int gRv = 2000;
+    private long gRA = 2000;
+    private boolean gRE = true;
+    private boolean gRF = true;
+    private int gRP = 10;
 
     public f(final Activity activity, e eVar) {
         this.activity = activity;
-        this.gRw = eVar;
+        this.gRK = eVar;
         initView();
         initData();
-        bTW();
-        bTX();
-        this.gRc.setVisibility(4);
-        this.gRc.post(new Runnable() { // from class: com.baidu.tieba.ala.d.f.1
+        bUd();
+        bUe();
+        this.gRq.setVisibility(4);
+        this.gRq.post(new Runnable() { // from class: com.baidu.tieba.ala.d.f.1
             @Override // java.lang.Runnable
             public void run() {
                 f.this.screenWidth = ScreenHelper.getScreenWidth(activity);
@@ -95,54 +95,54 @@ public class f implements View.OnClickListener {
                     f.this.screenWidth = f.this.dVi;
                     f.this.dVi = i;
                 }
-                f.this.gRx = f.this.screenWidth;
-                f.this.gRv = activity.getResources().getDimensionPixelOffset(a.d.sdk_ds40);
-                f.this.gRy = activity.getResources().getDimensionPixelOffset(a.d.sdk_ds204);
-                int i2 = f.this.screenWidth - (f.this.gRv * 2);
-                f.this.gRz = (i2 * 1.0f) / f.this.gRc.getHeight();
-                if (f.this.dVi > f.this.gRc.getHeight()) {
-                    f.this.gRu = (f.this.dVi - f.this.gRc.getHeight()) / 2;
+                f.this.gRL = f.this.screenWidth;
+                f.this.gRJ = activity.getResources().getDimensionPixelOffset(a.d.sdk_ds40);
+                f.this.gRM = activity.getResources().getDimensionPixelOffset(a.d.sdk_ds204);
+                int i2 = f.this.screenWidth - (f.this.gRJ * 2);
+                f.this.gRN = (i2 * 1.0f) / f.this.gRq.getHeight();
+                if (f.this.dVi > f.this.gRq.getHeight()) {
+                    f.this.gRI = (f.this.dVi - f.this.gRq.getHeight()) / 2;
                 }
                 f.this.FN();
-                f.this.gRc.setVisibility(0);
+                f.this.gRq.setVisibility(0);
             }
         });
     }
 
     private void initView() {
-        this.gQM = LayoutInflater.from(this.activity).inflate(a.g.ala_red_pkt_send_layout, (ViewGroup) null);
-        this.gQN = this.gQM.findViewById(a.f.iv_send_red_q);
-        this.gQO = (TextView) this.gQM.findViewById(a.f.tv_red_broad_hint);
-        this.gQP = (EditText) this.gQM.findViewById(a.f.edt_t_num);
-        this.gQQ = (EditText) this.gQM.findViewById(a.f.edt_pkt_num);
-        this.gQR = (TextView) this.gQM.findViewById(a.f.tv_send_t_num_hint);
-        this.gQS = (TextView) this.gQM.findViewById(a.f.tv_send_pkt_num_hint);
-        this.gQT = (LinearLayout) this.gQM.findViewById(a.f.layout_red_pkt_condition);
-        this.gQU = (LinearLayout) this.gQM.findViewById(a.f.layout_condition_first);
-        this.gQV = (LinearLayout) this.gQM.findViewById(a.f.layout_condition_second);
-        this.gRc = (RelativeLayout) this.gQM.findViewById(a.f.layout_send_red_content);
-        View findViewById = this.gQM.findViewById(a.f.layout_send_red);
-        this.gQW = (TextView) this.gQM.findViewById(a.f.tv_condition_first);
-        this.gQX = (TextView) this.gQM.findViewById(a.f.tv_condition_second);
-        this.gQY = (ImageView) this.gQM.findViewById(a.f.iv_condition_first);
-        this.gQZ = (ImageView) this.gQM.findViewById(a.f.iv_condition_second);
-        this.gRa = (TextView) this.gQM.findViewById(a.f.tv_send_pkt_submit);
-        this.gRb = (TextView) this.gQM.findViewById(a.f.tv_send_pkt_time);
-        this.gRd = (LinearLayout) this.gQM.findViewById(a.f.layout_red_send_rule);
-        View findViewById2 = this.gQM.findViewById(a.f.layout_red_send_rule_content);
-        this.gRe = (LinearLayout) this.gQM.findViewById(a.f.layout_rule_desc);
-        this.gRf = (ScrollView) this.gQM.findViewById(a.f.layout_input_scroll);
-        this.gRg = this.gQM.findViewById(a.f.layout_send_red_close);
-        this.gQM.setOnClickListener(this);
-        this.gQU.setOnClickListener(this);
-        this.gQV.setOnClickListener(this);
+        this.gRa = LayoutInflater.from(this.activity).inflate(a.g.ala_red_pkt_send_layout, (ViewGroup) null);
+        this.gRb = this.gRa.findViewById(a.f.iv_send_red_q);
+        this.gRc = (TextView) this.gRa.findViewById(a.f.tv_red_broad_hint);
+        this.gRd = (EditText) this.gRa.findViewById(a.f.edt_t_num);
+        this.gRe = (EditText) this.gRa.findViewById(a.f.edt_pkt_num);
+        this.gRf = (TextView) this.gRa.findViewById(a.f.tv_send_t_num_hint);
+        this.gRg = (TextView) this.gRa.findViewById(a.f.tv_send_pkt_num_hint);
+        this.gRh = (LinearLayout) this.gRa.findViewById(a.f.layout_red_pkt_condition);
+        this.gRi = (LinearLayout) this.gRa.findViewById(a.f.layout_condition_first);
+        this.gRj = (LinearLayout) this.gRa.findViewById(a.f.layout_condition_second);
+        this.gRq = (RelativeLayout) this.gRa.findViewById(a.f.layout_send_red_content);
+        View findViewById = this.gRa.findViewById(a.f.layout_send_red);
+        this.gRk = (TextView) this.gRa.findViewById(a.f.tv_condition_first);
+        this.gRl = (TextView) this.gRa.findViewById(a.f.tv_condition_second);
+        this.gRm = (ImageView) this.gRa.findViewById(a.f.iv_condition_first);
+        this.gRn = (ImageView) this.gRa.findViewById(a.f.iv_condition_second);
+        this.gRo = (TextView) this.gRa.findViewById(a.f.tv_send_pkt_submit);
+        this.gRp = (TextView) this.gRa.findViewById(a.f.tv_send_pkt_time);
+        this.gRr = (LinearLayout) this.gRa.findViewById(a.f.layout_red_send_rule);
+        View findViewById2 = this.gRa.findViewById(a.f.layout_red_send_rule_content);
+        this.gRs = (LinearLayout) this.gRa.findViewById(a.f.layout_rule_desc);
+        this.gRt = (ScrollView) this.gRa.findViewById(a.f.layout_input_scroll);
+        this.gRu = this.gRa.findViewById(a.f.layout_send_red_close);
         this.gRa.setOnClickListener(this);
-        this.gQN.setOnClickListener(this);
-        this.gRd.setOnClickListener(this);
+        this.gRi.setOnClickListener(this);
+        this.gRj.setOnClickListener(this);
+        this.gRo.setOnClickListener(this);
+        this.gRb.setOnClickListener(this);
+        this.gRr.setOnClickListener(this);
         findViewById2.setOnClickListener(this);
         findViewById.setOnClickListener(this);
-        this.gRg.setOnClickListener(this);
-        ((ImageView) this.gQM.findViewById(a.f.img_red_send_top)).setOnClickListener(this);
+        this.gRu.setOnClickListener(this);
+        ((ImageView) this.gRa.findViewById(a.f.img_red_send_top)).setOnClickListener(this);
     }
 
     private void initData() {
@@ -156,46 +156,46 @@ public class f implements View.OnClickListener {
         } else {
             cs csVar = com.baidu.live.ae.a.Qj().bAS.aPM.aRv;
             if (csVar.aSj > 0) {
-                this.gRm = csVar.aSj;
+                this.gRA = csVar.aSj;
             }
             if (csVar.aSk > 0) {
-                this.gRB = csVar.aSk;
+                this.gRP = csVar.aSk;
             }
-            this.gRn = this.gRB;
-            this.gRi = csVar.aSb;
+            this.gRB = this.gRP;
+            this.gRw = csVar.aSb;
             this.aSd = csVar.aSd;
             this.aSe = csVar.aSe;
-            this.gRj = csVar.aSf;
-            this.gRC = csVar.aSc;
+            this.gRx = csVar.aSf;
+            this.gRQ = csVar.aSc;
             this.aSg = csVar.aSg;
-            this.gRl = csVar.aSh;
+            this.gRz = csVar.aSh;
             this.aSl = csVar.aSl;
             this.aSm = csVar.aSm;
             str = csVar.aSn;
             strArr = csVar.aSo;
-            if (bTY()) {
-                this.gRk = this.aSm;
+            if (bUf()) {
+                this.gRy = this.aSm;
             } else {
-                this.gRk = this.gRC;
+                this.gRy = this.gRQ;
             }
         }
-        this.gQP.setText(String.valueOf(this.gRm));
-        this.gQQ.setText(String.valueOf(this.gRn));
-        this.gQP.setSelection(this.gQP.getText().toString().length());
-        this.gQQ.setSelection(this.gQQ.getText().toString().length());
-        TextView textView = this.gQO;
+        this.gRd.setText(String.valueOf(this.gRA));
+        this.gRe.setText(String.valueOf(this.gRB));
+        this.gRd.setSelection(this.gRd.getText().toString().length());
+        this.gRe.setSelection(this.gRe.getText().toString().length());
+        TextView textView = this.gRc;
         if (TextUtils.isEmpty(str)) {
-            str = String.format(this.activity.getString(a.h.red_pkt_broad_condition), Integer.valueOf(this.gRj));
+            str = String.format(this.activity.getString(a.h.red_pkt_broad_condition), Integer.valueOf(this.gRx));
         }
         textView.setText(str);
-        this.gRb.setText(String.format(this.activity.getString(a.h.red_send_between), Integer.valueOf(this.aSg)));
+        this.gRp.setText(String.format(this.activity.getString(a.h.red_send_between), Integer.valueOf(this.aSg)));
         if (strArr == null || strArr.length == 0) {
-            strArr = new String[]{String.format(this.activity.getString(a.h.red_pkt_send_rule1), Integer.valueOf(this.aSg)), this.activity.getString(a.h.red_pkt_send_rule2), String.format(this.activity.getString(a.h.red_pkt_send_rule3), Integer.valueOf(this.gRC))};
+            strArr = new String[]{String.format(this.activity.getString(a.h.red_pkt_send_rule1), Integer.valueOf(this.aSg)), this.activity.getString(a.h.red_pkt_send_rule2), String.format(this.activity.getString(a.h.red_pkt_send_rule3), Integer.valueOf(this.gRQ))};
         }
-        if (this.gRe != null) {
-            this.gRe.removeAllViews();
+        if (this.gRs != null) {
+            this.gRs.removeAllViews();
             for (int i = 0; i < strArr.length; i++) {
-                TextView textView2 = new TextView(this.gRe.getContext());
+                TextView textView2 = new TextView(this.gRs.getContext());
                 textView2.setText(strArr[i]);
                 textView2.setTextColor(-7450624);
                 textView2.setTextSize(0, this.activity.getResources().getDimensionPixelOffset(a.d.sdk_fontsize20));
@@ -203,43 +203,43 @@ public class f implements View.OnClickListener {
                 if (i != 0) {
                     layoutParams.topMargin = this.activity.getResources().getDimensionPixelOffset(a.d.sdk_ds8);
                 }
-                this.gRe.addView(textView2, layoutParams);
+                this.gRs.addView(textView2, layoutParams);
             }
         }
-        if (this.gRl != null && !this.gRl.isEmpty()) {
-            if (this.gRl.size() == 1) {
-                aVar = this.gRl.get(0);
+        if (this.gRz != null && !this.gRz.isEmpty()) {
+            if (this.gRz.size() == 1) {
+                aVar = this.gRz.get(0);
             } else {
-                aVar = this.gRl.get(0);
-                aVar2 = this.gRl.get(1);
+                aVar = this.gRz.get(0);
+                aVar2 = this.gRz.get(1);
             }
             if (aVar == null) {
-                this.gQU.setVisibility(8);
+                this.gRi.setVisibility(8);
             } else {
-                this.gQW.setText(aVar.aSp);
-                this.gQU.setVisibility(0);
-                this.gRo = aVar.aSq;
+                this.gRk.setText(aVar.aSp);
+                this.gRi.setVisibility(0);
+                this.gRC = aVar.aSq;
             }
             if (aVar2 == null) {
-                this.gQV.setVisibility(8);
+                this.gRj.setVisibility(8);
             } else {
-                this.gQX.setText(aVar2.aSp);
-                this.gQV.setVisibility(0);
-                this.gRp = aVar2.aSq;
+                this.gRl.setText(aVar2.aSp);
+                this.gRj.setVisibility(0);
+                this.gRD = aVar2.aSq;
             }
-            if (this.gQU.getVisibility() == 0 || this.gQV.getVisibility() == 0) {
-                this.gQT.setVisibility(0);
+            if (this.gRi.getVisibility() == 0 || this.gRj.getVisibility() == 0) {
+                this.gRh.setVisibility(0);
                 return;
             } else {
-                this.gQT.setVisibility(8);
+                this.gRh.setVisibility(8);
                 return;
             }
         }
-        this.gQT.setVisibility(8);
+        this.gRh.setVisibility(8);
     }
 
-    private void bTW() {
-        this.gQP.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.d.f.2
+    private void bUd() {
+        this.gRd.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.d.f.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -255,7 +255,7 @@ public class f implements View.OnClickListener {
                 }
             }
         });
-        this.gQQ.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.d.f.3
+        this.gRe.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.d.f.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -267,38 +267,38 @@ public class f implements View.OnClickListener {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 boolean z = true;
-                String obj = f.this.gQQ.getText().toString();
+                String obj = f.this.gRe.getText().toString();
                 if (!TextUtils.isEmpty(obj) && !"0".equals(obj)) {
-                    if (f.this.gQQ.hasFocus()) {
-                        f.this.gRD = true;
+                    if (f.this.gRe.hasFocus()) {
+                        f.this.gRR = true;
                     }
                     try {
                         long parseLong = Long.parseLong(obj);
                         if (obj.startsWith("0")) {
-                            f.this.gQQ.setText(String.valueOf(parseLong));
+                            f.this.gRe.setText(String.valueOf(parseLong));
                             return;
                         }
-                        f.this.gRn = parseLong;
+                        f.this.gRB = parseLong;
                         if (parseLong >= f.this.aSd && parseLong <= f.this.aSe) {
-                            f.this.gQS.setVisibility(8);
-                            f.this.gRr = true;
+                            f.this.gRg.setVisibility(8);
+                            f.this.gRF = true;
                         } else {
-                            f.this.gQS.setText(String.format(f.this.activity.getString(a.h.red_pkt_num_hint), Integer.valueOf(f.this.aSd), Integer.valueOf(f.this.aSe)));
-                            f.this.gQS.setVisibility(0);
-                            f.this.gRr = false;
+                            f.this.gRg.setText(String.format(f.this.activity.getString(a.h.red_pkt_num_hint), Integer.valueOf(f.this.aSd), Integer.valueOf(f.this.aSe)));
+                            f.this.gRg.setVisibility(0);
+                            f.this.gRF = false;
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else {
-                    f.this.gQS.setText(String.format(f.this.activity.getString(a.h.red_pkt_num_hint), Integer.valueOf(f.this.aSd), Integer.valueOf(f.this.aSe)));
-                    f.this.gQS.setVisibility(0);
-                    f.this.gRn = 0L;
-                    f.this.gRr = false;
+                    f.this.gRg.setText(String.format(f.this.activity.getString(a.h.red_pkt_num_hint), Integer.valueOf(f.this.aSd), Integer.valueOf(f.this.aSe)));
+                    f.this.gRg.setVisibility(0);
+                    f.this.gRB = 0L;
+                    f.this.gRF = false;
                 }
-                f.this.gQQ.setSelection(f.this.gQQ.getText().toString().length());
-                TextView textView = f.this.gRa;
-                if (!f.this.gRq || !f.this.gRr) {
+                f.this.gRe.setSelection(f.this.gRe.getText().toString().length());
+                TextView textView = f.this.gRo;
+                if (!f.this.gRE || !f.this.gRF) {
                     z = false;
                 }
                 textView.setEnabled(z);
@@ -308,30 +308,30 @@ public class f implements View.OnClickListener {
         });
     }
 
-    private void bTX() {
-        this.gQP.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.ala.d.f.4
+    private void bUe() {
+        this.gRd.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.ala.d.f.4
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (z) {
-                    f.this.gQP.setText("");
-                    f.this.gQP.post(new Runnable() { // from class: com.baidu.tieba.ala.d.f.4.1
+                    f.this.gRd.setText("");
+                    f.this.gRd.post(new Runnable() { // from class: com.baidu.tieba.ala.d.f.4.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            f.this.gQP.setOnFocusChangeListener(null);
+                            f.this.gRd.setOnFocusChangeListener(null);
                         }
                     });
                 }
             }
         });
-        this.gQQ.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.ala.d.f.5
+        this.gRe.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.ala.d.f.5
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (z) {
-                    f.this.gQQ.setText("");
-                    f.this.gQQ.post(new Runnable() { // from class: com.baidu.tieba.ala.d.f.5.1
+                    f.this.gRe.setText("");
+                    f.this.gRe.post(new Runnable() { // from class: com.baidu.tieba.ala.d.f.5.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            f.this.gQQ.setOnFocusChangeListener(null);
+                            f.this.gRe.setOnFocusChangeListener(null);
                         }
                     });
                 }
@@ -343,13 +343,13 @@ public class f implements View.OnClickListener {
     public boolean mW(boolean z) {
         long j;
         boolean z2 = true;
-        this.gRk = this.gRC;
-        String obj = this.gQP.getText().toString();
+        this.gRy = this.gRQ;
+        String obj = this.gRd.getText().toString();
         if (TextUtils.isEmpty(obj) || "0".equals(obj)) {
-            this.gQR.setText(String.format(this.activity.getString(a.h.red_t_num_hint), Integer.valueOf(this.gRh), Long.valueOf(this.gRi)));
-            this.gQR.setVisibility(0);
-            this.gRm = 0L;
-            this.gRq = false;
+            this.gRf.setText(String.format(this.activity.getString(a.h.red_t_num_hint), Integer.valueOf(this.gRv), Long.valueOf(this.gRw)));
+            this.gRf.setVisibility(0);
+            this.gRA = 0L;
+            this.gRE = false;
         } else {
             try {
                 j = Long.parseLong(obj);
@@ -358,53 +358,53 @@ public class f implements View.OnClickListener {
                 j = 0;
             }
             if (obj.startsWith("0")) {
-                this.gQP.setText(String.valueOf(j));
+                this.gRd.setText(String.valueOf(j));
                 return true;
-            } else if (this.gRm != j && this.gRm > this.gRi && j > this.gRi) {
-                this.gQP.setText(String.valueOf(this.gRm));
+            } else if (this.gRA != j && this.gRA > this.gRw && j > this.gRw) {
+                this.gRd.setText(String.valueOf(this.gRA));
                 return true;
             } else {
-                boolean z3 = bTY() && j < this.aSl;
-                this.gRm = j;
-                if (bTY()) {
-                    this.gRk = this.aSm;
+                boolean z3 = bUf() && j < this.aSl;
+                this.gRA = j;
+                if (bUf()) {
+                    this.gRy = this.aSm;
                 }
-                if (j < this.gRh || j > this.gRi) {
+                if (j < this.gRv || j > this.gRw) {
                     if (j == 0) {
-                        this.gQP.setText("0");
+                        this.gRd.setText("0");
                     }
-                    this.gQR.setText(String.format(this.activity.getString(a.h.red_t_num_hint), Integer.valueOf(this.gRh), Long.valueOf(this.gRi)));
-                    this.gQR.setVisibility(0);
-                    this.gRq = false;
+                    this.gRf.setText(String.format(this.activity.getString(a.h.red_t_num_hint), Integer.valueOf(this.gRv), Long.valueOf(this.gRw)));
+                    this.gRf.setVisibility(0);
+                    this.gRE = false;
                 } else {
-                    if (z && this.gQQ != null && bTZ() && !this.gQQ.hasFocus()) {
-                        boolean z4 = !this.gRD;
-                        if (!z4 && this.gQQ.getText() != null) {
-                            String obj2 = this.gQQ.getText().toString();
+                    if (z && this.gRe != null && bUg() && !this.gRe.hasFocus()) {
+                        boolean z4 = !this.gRR;
+                        if (!z4 && this.gRe.getText() != null) {
+                            String obj2 = this.gRe.getText().toString();
                             if (TextUtils.isEmpty(obj2) || obj2.startsWith("0")) {
                                 z4 = true;
                             }
                         }
                         if (z4) {
-                            if (bTY()) {
-                                long j2 = this.gRm / this.aSm;
+                            if (bUf()) {
+                                long j2 = this.gRA / this.aSm;
                                 if (this.aSe > 0 && j2 > this.aSe) {
                                     j2 = this.aSe;
                                 }
-                                this.gQQ.setText(String.valueOf(j2));
+                                this.gRe.setText(String.valueOf(j2));
                             } else if (z3) {
-                                this.gQQ.setText(String.valueOf(this.gRB));
+                                this.gRe.setText(String.valueOf(this.gRP));
                             }
                         }
                     }
-                    this.gQR.setVisibility(8);
-                    this.gRq = true;
+                    this.gRf.setVisibility(8);
+                    this.gRE = true;
                 }
             }
         }
-        this.gQP.setSelection(this.gQP.getText().toString().length());
-        TextView textView = this.gRa;
-        if (!this.gRq || !this.gRr) {
+        this.gRd.setSelection(this.gRd.getText().toString().length());
+        TextView textView = this.gRo;
+        if (!this.gRE || !this.gRF) {
             z2 = false;
         }
         textView.setEnabled(z2);
@@ -413,12 +413,12 @@ public class f implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void mX(boolean z) {
-        if (this.gRr && this.gRq && this.gRn != 0 && this.gRm / this.gRn < this.gRk) {
-            this.gQR.setVisibility(0);
+        if (this.gRF && this.gRE && this.gRB != 0 && this.gRA / this.gRB < this.gRy) {
+            this.gRf.setVisibility(0);
             if (z) {
-                this.gQR.setText(String.format(this.activity.getString(a.h.red_t_num_limit_by_pkt_num), Long.valueOf(this.gRn * this.gRk)));
+                this.gRf.setText(String.format(this.activity.getString(a.h.red_t_num_limit_by_pkt_num), Long.valueOf(this.gRB * this.gRy)));
             } else {
-                this.gQR.setText(String.format(this.activity.getString(a.h.red_pkt_num_limit_by_t_num), Long.valueOf(this.gRm / this.gRk)));
+                this.gRf.setText(String.format(this.activity.getString(a.h.red_pkt_num_limit_by_t_num), Long.valueOf(this.gRA / this.gRy)));
             }
         }
     }
@@ -427,132 +427,132 @@ public class f implements View.OnClickListener {
     public void onClick(View view) {
         String str;
         InputMethodManager inputMethodManager;
-        if (this.gRd.getVisibility() == 0) {
-            this.gRd.setVisibility(8);
+        if (this.gRr.getVisibility() == 0) {
+            this.gRr.setVisibility(8);
             return;
         }
-        if (view == this.gRg && !this.gRA) {
+        if (view == this.gRu && !this.gRO) {
             this.activity.finish();
-        } else if (view == this.gQM && !this.gRA) {
+        } else if (view == this.gRa && !this.gRO) {
             if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
                 this.activity.finish();
             }
-        } else if (view == this.gQN) {
-            this.gRd.setVisibility(0);
-        } else if (view == this.gQU) {
-            this.gRs = this.gRs ? false : true;
-            if (this.gRs) {
-                this.gQY.setImageResource(a.e.live_red_condition_choose);
+        } else if (view == this.gRb) {
+            this.gRr.setVisibility(0);
+        } else if (view == this.gRi) {
+            this.gRG = this.gRG ? false : true;
+            if (this.gRG) {
+                this.gRm.setImageResource(a.e.live_red_condition_choose);
             } else {
-                this.gQY.setImageResource(a.e.live_red_condition_choose_false);
+                this.gRm.setImageResource(a.e.live_red_condition_choose_false);
             }
-        } else if (view == this.gQV) {
-            this.gRt = this.gRt ? false : true;
-            if (this.gRt) {
-                this.gQZ.setImageResource(a.e.live_red_condition_choose);
+        } else if (view == this.gRj) {
+            this.gRH = this.gRH ? false : true;
+            if (this.gRH) {
+                this.gRn.setImageResource(a.e.live_red_condition_choose);
             } else {
-                this.gQZ.setImageResource(a.e.live_red_condition_choose_false);
+                this.gRn.setImageResource(a.e.live_red_condition_choose_false);
             }
-        } else if (view == this.gRa) {
-            if (this.gRs && this.gRt) {
-                str = this.gRo + "," + this.gRp;
-            } else if (this.gRs) {
-                str = this.gRo;
-            } else if (this.gRt) {
-                str = this.gRp;
+        } else if (view == this.gRo) {
+            if (this.gRG && this.gRH) {
+                str = this.gRC + "," + this.gRD;
+            } else if (this.gRG) {
+                str = this.gRC;
+            } else if (this.gRH) {
+                str = this.gRD;
             } else {
                 str = "";
             }
             s sVar = new s();
-            sVar.fo(this.gRm);
-            sVar.fp(this.gRn);
-            sVar.GC(str);
-            if (this.gRw != null) {
-                this.gRw.a(sVar);
+            sVar.fo(this.gRA);
+            sVar.fp(this.gRB);
+            sVar.GD(str);
+            if (this.gRK != null) {
+                this.gRK.a(sVar);
             }
         }
-        if (this.gRA && (inputMethodManager = (InputMethodManager) this.activity.getSystemService("input_method")) != null) {
+        if (this.gRO && (inputMethodManager = (InputMethodManager) this.activity.getSystemService("input_method")) != null) {
             inputMethodManager.hideSoftInputFromWindow(this.activity.getCurrentFocus().getWindowToken(), 2);
         }
     }
 
     public void mY(boolean z) {
-        if (this.gRa != null) {
-            this.gRa.setEnabled(z);
+        if (this.gRo != null) {
+            this.gRo.setEnabled(z);
         }
     }
 
     public View getView() {
-        return this.gQM;
+        return this.gRa;
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.gRA = z;
+        this.gRO = z;
         if (!z) {
-            if (this.gQQ != null) {
-                this.gQQ.clearFocus();
+            if (this.gRe != null) {
+                this.gRe.clearFocus();
             }
-            if (this.gQP != null) {
-                this.gQP.clearFocus();
+            if (this.gRd != null) {
+                this.gRd.clearFocus();
             }
         }
-        if (this.gRc != null && this.gRc.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gRc.getLayoutParams();
+        if (this.gRq != null && this.gRq.getLayoutParams() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gRq.getLayoutParams();
             if (UtilHelper.getRealScreenOrientation(this.activity) == 1) {
                 if (z) {
                     layoutParams.topMargin = 0;
                 } else {
-                    layoutParams.topMargin = this.gRu;
+                    layoutParams.topMargin = this.gRI;
                 }
             } else {
-                layoutParams.topMargin = this.gRv;
+                layoutParams.topMargin = this.gRJ;
             }
-            this.gRc.setLayoutParams(layoutParams);
+            this.gRq.setLayoutParams(layoutParams);
         }
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.gRg.setVisibility(0);
+            this.gRu.setVisibility(0);
         } else {
-            this.gRg.setVisibility(8);
+            this.gRu.setVisibility(8);
         }
     }
 
     public void FN() {
         if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-            i.ae(this.gQM);
+            i.ae(this.gRa);
         } else {
-            i.af(this.gQM);
+            i.af(this.gRa);
         }
-        if (this.gRf != null && this.gRf.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gRf.getLayoutParams();
+        if (this.gRt != null && this.gRt.getLayoutParams() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gRt.getLayoutParams();
             if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                layoutParams.height = this.gRy;
+                layoutParams.height = this.gRM;
             } else {
                 layoutParams.height = -2;
             }
-            this.gRf.setLayoutParams(layoutParams);
+            this.gRt.setLayoutParams(layoutParams);
         }
-        if (this.gRc != null && this.gRc.getLayoutParams() != null && this.gRx > 0) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gRc.getLayoutParams();
+        if (this.gRq != null && this.gRq.getLayoutParams() != null && this.gRL > 0) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gRq.getLayoutParams();
             layoutParams2.width = this.screenWidth;
-            this.gRc.setPivotX(this.gRx / 2);
-            this.gRc.setPivotY(0.0f);
+            this.gRq.setPivotX(this.gRL / 2);
+            this.gRq.setPivotY(0.0f);
             if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                this.gRc.setScaleX(this.gRz);
-                this.gRc.setScaleY(this.gRz);
+                this.gRq.setScaleX(this.gRN);
+                this.gRq.setScaleY(this.gRN);
             } else {
                 layoutParams2.width = -1;
-                this.gRc.setScaleX(1.0f);
-                this.gRc.setScaleY(1.0f);
+                this.gRq.setScaleX(1.0f);
+                this.gRq.setScaleY(1.0f);
             }
-            onKeyboardVisibilityChanged(this.gRA);
+            onKeyboardVisibilityChanged(this.gRO);
         }
     }
 
-    private boolean bTY() {
-        return bTZ() && this.gRm >= this.aSl && this.gRm <= this.gRi;
+    private boolean bUf() {
+        return bUg() && this.gRA >= this.aSl && this.gRA <= this.gRw;
     }
 
-    private boolean bTZ() {
-        return this.aSl >= ((long) this.gRh) && this.aSm > 0;
+    private boolean bUg() {
+        return this.aSl >= ((long) this.gRv) && this.aSm > 0;
     }
 }

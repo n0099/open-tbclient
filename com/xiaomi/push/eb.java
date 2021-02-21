@@ -40,19 +40,19 @@ public class eb extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo192a() {
+    public int mo191a() {
         return 20;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo192a() {
+    public ho mo191a() {
         return ho.Battery;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo192a() {
+    public String mo191a() {
         return b();
     }
 }

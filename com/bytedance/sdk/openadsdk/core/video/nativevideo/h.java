@@ -136,8 +136,8 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
         }
         if (this.y.H() == 4) {
             this.D = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.z, this.y, str);
-            this.D.a(2, new a.InterfaceC1017a() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.1
-                @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1017a
+            this.D.a(2, new a.InterfaceC1019a() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.1
+                @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1019a
                 public boolean a(int i2, l lVar, String str3, String str4, Object obj) {
                     if (i2 == 2 && lVar != null && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
                         if (str4.equals("click_start_play")) {
@@ -618,8 +618,8 @@ public class h implements b, com.bytedance.sdk.openadsdk.core.video.renderview.a
                     });
                 }
                 if (this.i != null && this.y != null && this.y.F() != null && this.y.F().g() != null) {
-                    com.bytedance.sdk.openadsdk.core.video.d.b.a((long) this.y.F().e(), this.y.F().h(), new b.InterfaceC1010b() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.7
-                        @Override // com.bytedance.sdk.openadsdk.core.video.d.b.InterfaceC1010b
+                    com.bytedance.sdk.openadsdk.core.video.d.b.a((long) this.y.F().e(), this.y.F().h(), new b.InterfaceC1012b() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.h.7
+                        @Override // com.bytedance.sdk.openadsdk.core.video.d.b.InterfaceC1012b
                         public void a(Bitmap bitmap) {
                             if (bitmap != null) {
                                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) h.this.i.getLayoutParams();

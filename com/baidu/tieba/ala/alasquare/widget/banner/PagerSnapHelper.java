@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes10.dex */
 public class PagerSnapHelper extends SnapHelper {
     @Nullable
-    private d gKD;
+    private d gKR;
     @Nullable
-    private d gKE;
+    private d gKS;
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     @Nullable
@@ -166,17 +166,17 @@ public class PagerSnapHelper extends SnapHelper {
 
     @NonNull
     private d c(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gKD == null || this.gKD.mLayoutManager != layoutManager) {
-            this.gKD = d.b(layoutManager);
+        if (this.gKR == null || this.gKR.mLayoutManager != layoutManager) {
+            this.gKR = d.b(layoutManager);
         }
-        return this.gKD;
+        return this.gKR;
     }
 
     @NonNull
     private d d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gKE == null || this.gKE.mLayoutManager != layoutManager) {
-            this.gKE = d.a(layoutManager);
+        if (this.gKS == null || this.gKS.mLayoutManager != layoutManager) {
+            this.gKS = d.a(layoutManager);
         }
-        return this.gKE;
+        return this.gKS;
     }
 }

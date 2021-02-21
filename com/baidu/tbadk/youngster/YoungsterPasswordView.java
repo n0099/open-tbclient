@@ -73,7 +73,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                     case 2:
                         if (!StringUtils.isNull(YoungsterPasswordView.this.gbH)) {
                             if (YoungsterPasswordView.this.gbH.equals(passWord)) {
-                                c.El(passWord);
+                                c.Ej(passWord);
                                 if (YoungsterPasswordView.this.from == 1) {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921487));
                                     if (b.kB().getSize() > 3) {
@@ -94,7 +94,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                         }
                         return;
                     case 3:
-                        if (c.Em(passWord)) {
+                        if (c.Ek(passWord)) {
                             c.bJe();
                             if (YoungsterPasswordView.this.from != 1) {
                                 if (YoungsterPasswordView.this.from == 2 || YoungsterPasswordView.this.from == 3) {
@@ -127,7 +127,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
                             if (YoungsterPasswordView.this.gbH.equals(passWord)) {
                                 if (YoungsterPasswordView.this.from != 1) {
                                     if (YoungsterPasswordView.this.from == 2 || YoungsterPasswordView.this.from == 3) {
-                                        c.El(passWord);
+                                        c.Ej(passWord);
                                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921486, 5));
                                         com.baidu.tbadk.core.e.b.B(YoungsterPasswordView.this.getContext(), 2);
                                         return;
@@ -158,7 +158,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (YoungsterPasswordView.this.getParent() != null) {
-                    new BdTopToast(YoungsterPasswordView.this.getContext(), 2000).zn(false).UN(YoungsterPasswordView.this.getContext().getString(R.string.youngster_settings_verify_fail)).aR((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
+                    new BdTopToast(YoungsterPasswordView.this.getContext(), 2000).zn(false).UZ(YoungsterPasswordView.this.getContext().getString(R.string.youngster_settings_verify_fail)).aR((ViewGroup) YoungsterPasswordView.this.getParent().getParent());
                 }
             }
         };
@@ -174,7 +174,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
         this.gbG = (LinearLayout) findViewById(R.id.youngster_content_group);
         this.gbD.setOnPasswordInputComplete(this.gbt);
         this.gbG.setOnClickListener(this);
-        this.gbI = new BdTopToast(getContext(), 2000).zn(false).UN(getContext().getString(R.string.youngster_settings_input_password_error));
+        this.gbI = new BdTopToast(getContext(), 2000).zn(false).UZ(getContext().getString(R.string.youngster_settings_input_password_error));
     }
 
     public void sK(int i) {

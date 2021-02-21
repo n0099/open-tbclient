@@ -143,7 +143,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.xd(kVar.position + 1);
-        com.baidu.tieba.card.t.csu().e(new ar("c13424"));
+        com.baidu.tieba.card.t.csB().e(new ar("c13424"));
         threadCardViewHolder.tj().setPosition(i);
         if (threadCardViewHolder.tj() instanceof com.baidu.tieba.a.e) {
             threadCardViewHolder.tj().setPage(this.aif);
@@ -155,7 +155,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 }

@@ -19,7 +19,7 @@ public interface b {
 
     /* renamed from: com.qq.e.comm.plugin.nativeadunified.b$b  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public enum EnumC1203b {
+    public enum EnumC1205b {
         INIT,
         PLAYING,
         AUTO_PAUSE,
@@ -56,7 +56,7 @@ public interface b {
 
     void a(a aVar);
 
-    void a(EnumC1203b enumC1203b);
+    void a(EnumC1205b enumC1205b);
 
     void a(c cVar);
 
@@ -70,7 +70,7 @@ public interface b {
 
     d f();
 
-    EnumC1203b h();
+    EnumC1205b h();
 
     int i();
 

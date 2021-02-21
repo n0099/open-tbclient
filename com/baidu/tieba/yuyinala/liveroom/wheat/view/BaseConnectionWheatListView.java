@@ -17,16 +17,16 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.view.ConnectionWheatButtonView;
 /* loaded from: classes11.dex */
 public abstract class BaseConnectionWheatListView extends SafeFrameLayout implements View.OnClickListener {
     public CommonEmptyView bwJ;
-    public TbPageContext oGe;
-    public int oHA;
-    public ConnectionWheatButtonView oHB;
-    public AlaConnectionWheatListView oHw;
-    public TextView oKe;
-    public RelativeLayout oKf;
+    public TbPageContext oGE;
+    public AlaConnectionWheatListView oHW;
+    public int oIa;
+    public ConnectionWheatButtonView oIb;
+    public TextView oKE;
+    public RelativeLayout oKF;
 
     public abstract void Ak(boolean z);
 
-    protected abstract void dAY();
+    protected abstract void dBf();
 
     public abstract int getCount();
 
@@ -44,19 +44,19 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
         super(context, attributeSet, i);
         initView();
         initListener();
-        dAY();
+        dBf();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_layout_dialog_connection_wheat_item, this);
-        this.oHw = (AlaConnectionWheatListView) findViewById(a.f.listView);
+        this.oHW = (AlaConnectionWheatListView) findViewById(a.f.listView);
         this.bwJ = (CommonEmptyView) findViewById(a.f.empty_view);
-        this.oKe = (TextView) findViewById(a.f.tv_online_user_num);
-        this.oKf = (RelativeLayout) findViewById(a.f.loading_view_container);
-        this.oHB = (ConnectionWheatButtonView) findViewById(a.f.connection_wheat_button_view);
+        this.oKE = (TextView) findViewById(a.f.tv_online_user_num);
+        this.oKF = (RelativeLayout) findViewById(a.f.loading_view_container);
+        this.oIb = (ConnectionWheatButtonView) findViewById(a.f.connection_wheat_button_view);
         if (this instanceof ConnectionWheatApplyListView) {
-            this.oHB.init();
-            this.oHB.setListener(getConnectionWheatButtonClickListener());
+            this.oIb.init();
+            this.oIb.setListener(getConnectionWheatButtonClickListener());
         }
     }
 
@@ -72,13 +72,13 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
     public void onClick(View view) {
     }
 
-    public void edV() {
+    public void eed() {
         if (getCount() != 0) {
-            this.oHw.setVisibility(0);
+            this.oHW.setVisibility(0);
             this.bwJ.setVisibility(8);
             return;
         }
-        this.oHw.setVisibility(8);
+        this.oHW.setVisibility(8);
         this.bwJ.setVisibility(0);
         this.bwJ.reset();
         this.bwJ.setTitle(getNoDataStr());
@@ -86,12 +86,12 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
         this.bwJ.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
     }
 
-    public void edW() {
-        this.oKe.setVisibility(8);
-        this.oHw.setVisibility(8);
+    public void eee() {
+        this.oKE.setVisibility(8);
+        this.oHW.setVisibility(8);
         this.bwJ.setVisibility(0);
         if (this instanceof ConnectionWheatApplyListView) {
-            this.oHB.setVisibility(8);
+            this.oIb.setVisibility(8);
         }
         this.bwJ.reset();
         this.bwJ.setRefreshButton(a.h.yuyin_ala_connection_wheat_refresh_load_text, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView.1
@@ -111,22 +111,22 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
     }
 
     public void setTbPageContext(TbPageContext tbPageContext) {
-        this.oGe = tbPageContext;
+        this.oGE = tbPageContext;
     }
 
     public void setApplyPosition(int i) {
-        this.oHA = i;
+        this.oIa = i;
     }
 
     public void showLoading() {
-        if (this.oKf != null) {
-            this.oKf.setVisibility(0);
+        if (this.oKF != null) {
+            this.oKF.setVisibility(0);
         }
     }
 
     public void hideLoading() {
-        if (this.oKf != null) {
-            this.oKf.setVisibility(8);
+        if (this.oKF != null) {
+            this.oKF.setVisibility(8);
         }
     }
 }

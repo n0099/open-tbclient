@@ -25,33 +25,33 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class FunAdCardHolder extends TypeAdapter.ViewHolder {
     public Context context;
-    public ViewGroup jSJ;
-    public List<View> jSK;
-    public List<View> jSL;
-    public ImageView jSM;
-    public ImageView jSN;
-    public TextView jSO;
-    public TextView jSP;
-    public FrameLayout jSQ;
-    public FunAdButton jTf;
-    public ImageView jTg;
-    public CardView jTh;
-    public TextView jTi;
-    public View jTj;
-    public View jTk;
-    private FunAdButton jTl;
-    public TextView jTm;
-    public TextView jTn;
-    public FunAdAgreeView jTo;
-    public ImageView jTp;
-    public TextView jTq;
-    public ImageView jTr;
-    public TextView jTs;
-    public ViewGroup jTt;
-    public ViewGroup jTu;
-    private ViewGroup jTv;
-    public FunAdDownloadView jTw;
-    public a.C0742a jTx;
+    public ViewGroup jSX;
+    public List<View> jSY;
+    public List<View> jSZ;
+    public TextView jTA;
+    public TextView jTB;
+    public FunAdAgreeView jTC;
+    public ImageView jTD;
+    public TextView jTE;
+    public ImageView jTF;
+    public TextView jTG;
+    public ViewGroup jTH;
+    public ViewGroup jTI;
+    private ViewGroup jTJ;
+    public FunAdDownloadView jTK;
+    public a.C0743a jTL;
+    public ImageView jTa;
+    public ImageView jTb;
+    public TextView jTc;
+    public TextView jTd;
+    public FrameLayout jTe;
+    public FunAdButton jTt;
+    public ImageView jTu;
+    public CardView jTv;
+    public TextView jTw;
+    public View jTx;
+    public View jTy;
+    private FunAdButton jTz;
     private int mSkinType;
 
     public FunAdCardHolder(View view) {
@@ -62,84 +62,84 @@ public class FunAdCardHolder extends TypeAdapter.ViewHolder {
 
     private void am(View view) {
         this.context = view.getContext();
-        this.jSJ = (ViewGroup) view;
-        this.jSO = (TextView) view.findViewById(R.id.fun_ad_name);
-        this.jSP = (TextView) view.findViewById(R.id.fun_card_title);
-        this.jSQ = (FrameLayout) view.findViewById(R.id.fun_card_content);
-        this.jTg = (ImageView) view.findViewById(R.id.fun_ad_feedback);
-        this.jTj = view.findViewById(R.id.divider_with_reply_title);
-        this.jTi = (TextView) view.findViewById(R.id.fun_ad_lable);
-        this.jTh = (CardView) view.findViewById(R.id.media_bg);
-        this.jTk = view.findViewById(R.id.media_mask);
-        this.jSM = (ImageView) view.findViewById(R.id.top_ad_logo);
-        this.jTn = (TextView) view.findViewById(R.id.top_ad_name);
-        this.jTm = (TextView) view.findViewById(R.id.top_ad_justnow);
-        this.jTo = (FunAdAgreeView) view.findViewById(R.id.ad_agree_view);
-        this.jTr = (ImageView) view.findViewById(R.id.thread_info_commont_img);
-        this.jTs = (TextView) view.findViewById(R.id.thread_info_commont_num);
-        this.jTp = (ImageView) view.findViewById(R.id.share_num_img);
-        this.jTq = (TextView) view.findViewById(R.id.share_num);
-        this.jTt = (ViewGroup) view.findViewById(R.id.layout_card_top);
-        this.jTu = (ViewGroup) view.findViewById(R.id.layout_card);
-        this.jTv = (ViewGroup) view.findViewById(R.id.fun_ad_bottom);
-        this.jTw = (FunAdDownloadView) view.findViewById(R.id.fun_ad_download_container);
-        this.jTl = (FunAdButton) view.findViewById(R.id.fun_ad_button);
-        this.jSK = new ArrayList();
-        this.jSK.add(this.jTt);
-        this.jSK.add(this.jSQ);
-        this.jSK.add(this.jTw);
-        this.jSK.add(this.jTu);
-        this.jSK.add(this.jTv);
-        this.jSL = new ArrayList(1);
-        cNs();
+        this.jSX = (ViewGroup) view;
+        this.jTc = (TextView) view.findViewById(R.id.fun_ad_name);
+        this.jTd = (TextView) view.findViewById(R.id.fun_card_title);
+        this.jTe = (FrameLayout) view.findViewById(R.id.fun_card_content);
+        this.jTu = (ImageView) view.findViewById(R.id.fun_ad_feedback);
+        this.jTx = view.findViewById(R.id.divider_with_reply_title);
+        this.jTw = (TextView) view.findViewById(R.id.fun_ad_lable);
+        this.jTv = (CardView) view.findViewById(R.id.media_bg);
+        this.jTy = view.findViewById(R.id.media_mask);
+        this.jTa = (ImageView) view.findViewById(R.id.top_ad_logo);
+        this.jTB = (TextView) view.findViewById(R.id.top_ad_name);
+        this.jTA = (TextView) view.findViewById(R.id.top_ad_justnow);
+        this.jTC = (FunAdAgreeView) view.findViewById(R.id.ad_agree_view);
+        this.jTF = (ImageView) view.findViewById(R.id.thread_info_commont_img);
+        this.jTG = (TextView) view.findViewById(R.id.thread_info_commont_num);
+        this.jTD = (ImageView) view.findViewById(R.id.share_num_img);
+        this.jTE = (TextView) view.findViewById(R.id.share_num);
+        this.jTH = (ViewGroup) view.findViewById(R.id.layout_card_top);
+        this.jTI = (ViewGroup) view.findViewById(R.id.layout_card);
+        this.jTJ = (ViewGroup) view.findViewById(R.id.fun_ad_bottom);
+        this.jTK = (FunAdDownloadView) view.findViewById(R.id.fun_ad_download_container);
+        this.jTz = (FunAdButton) view.findViewById(R.id.fun_ad_button);
+        this.jSY = new ArrayList();
+        this.jSY.add(this.jTH);
+        this.jSY.add(this.jTe);
+        this.jSY.add(this.jTK);
+        this.jSY.add(this.jTI);
+        this.jSY.add(this.jTJ);
+        this.jSZ = new ArrayList(1);
+        cNz();
     }
 
     public void rN(boolean z) {
-        this.jSL.remove(this.jTf);
-        this.jSK.remove(this.jTf);
+        this.jSZ.remove(this.jTt);
+        this.jSY.remove(this.jTt);
         if (FunAdSdkSwitch.isOn() && z) {
-            this.jTw.setVisibility(0);
-            this.jTl.setVisibility(8);
-            this.jTf = this.jTw.getDownloadButton();
+            this.jTK.setVisibility(0);
+            this.jTz.setVisibility(8);
+            this.jTt = this.jTK.getDownloadButton();
         } else {
-            this.jTw.setVisibility(8);
-            this.jTl.setVisibility(0);
-            this.jTf = this.jTl;
+            this.jTK.setVisibility(8);
+            this.jTz.setVisibility(0);
+            this.jTt = this.jTz;
         }
-        this.jSK.add(this.jTf);
-        this.jSL.add(this.jTf);
+        this.jSY.add(this.jTt);
+        this.jSZ.add(this.jTt);
     }
 
-    public void cNq() {
-        this.jTl.onDestroy();
-        this.jTw.getDownloadButton().onDestroy();
+    public void cNx() {
+        this.jTz.onDestroy();
+        this.jTK.getDownloadButton().onDestroy();
     }
 
-    public void cNr() {
-        if (this.jSQ != null) {
-            this.jSQ.removeAllViews();
+    public void cNy() {
+        if (this.jTe != null) {
+            this.jTe.removeAllViews();
         }
     }
 
-    public a.C0742a a(n nVar) {
+    public a.C0743a a(n nVar) {
         if (nVar == null) {
             return null;
         }
-        this.jTx = new a.C0742a();
-        this.jTx.eUi = nVar;
-        this.jTx.jSJ = this.jSJ;
-        this.jTx.jSK = this.jSK;
-        this.jTx.jSL = this.jSL;
-        this.jTx.jSM = this.jSM;
-        this.jTx.jSN = this.jSN;
-        this.jTx.jSO = this.jSO;
-        this.jTx.jSP = this.jSP;
-        this.jTx.jSQ = this.jSQ;
-        this.jTx.jSR = this.jTf;
-        return this.jTx;
+        this.jTL = new a.C0743a();
+        this.jTL.eUi = nVar;
+        this.jTL.jSX = this.jSX;
+        this.jTL.jSY = this.jSY;
+        this.jTL.jSZ = this.jSZ;
+        this.jTL.jTa = this.jTa;
+        this.jTL.jTb = this.jTb;
+        this.jTL.jTc = this.jTc;
+        this.jTL.jTd = this.jTd;
+        this.jTL.jTe = this.jTe;
+        this.jTL.jTf = this.jTt;
+        return this.jTL;
     }
 
-    public void cNs() {
+    public void cNz() {
         a(0, -1, 0, 1.0f, true, true);
     }
 
@@ -148,7 +148,7 @@ public class FunAdCardHolder extends TypeAdapter.ViewHolder {
     }
 
     private void C(boolean z, boolean z2) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jTo.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jTC.getLayoutParams();
         int i = layoutParams.width;
         float f = layoutParams.weight;
         if (z) {
@@ -158,45 +158,45 @@ public class FunAdCardHolder extends TypeAdapter.ViewHolder {
                 layoutParams.weight = f2;
                 layoutParams.leftMargin = 0;
                 layoutParams.rightMargin = 0;
-                this.jTo.setLayoutParams(layoutParams);
+                this.jTC.setLayoutParams(layoutParams);
             }
         } else if (f != 0.0f || i != -2) {
             layoutParams.width = -2;
             layoutParams.weight = 0.0f;
             layoutParams.leftMargin = l.getDimens(this.context, R.dimen.tbds50);
             layoutParams.rightMargin = 0;
-            this.jTo.setLayoutParams(layoutParams);
+            this.jTC.setLayoutParams(layoutParams);
         }
     }
 
     public void Bg(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            WebPManager.a(this.jTg, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            this.jTj.setVisibility(8);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.jSP).nY(R.color.CAM_X0105);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.jSO).nY(R.color.CAM_X0109);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.jTl).og(R.string.J_X01).nY(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0905);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.jTi).nY(R.color.CAM_X0109);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.jSJ).og(R.string.J_X06).aJ(R.color.CAM_X0205, R.color.CAM_X0206);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.jTm).nY(R.color.CAM_X0109);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.jTn).nY(R.color.CAM_X0105);
-            this.jTp.setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_share22, com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.CAM_X0107), ap.faO), WebPManager.ResourceStateType.NORMAL_DISABLE));
-            this.jTr.setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_comment22, com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.CAM_X0107), ap.faO), WebPManager.ResourceStateType.NORMAL_DISABLE));
-            this.jTq.setTextColor(com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.CAM_X0107), ap.faO));
-            this.jTs.setTextColor(com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.CAM_X0107), ap.faO));
-            this.jTk.setVisibility(TbadkCoreApplication.getInst().getSkinType() != 0 ? 0 : 8);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.jTk).setBackGroundColor(R.color.CAM_X0607);
-            this.jTw.Bg(i);
+            WebPManager.a(this.jTu, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
+            this.jTx.setVisibility(8);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.jTd).nY(R.color.CAM_X0105);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.jTc).nY(R.color.CAM_X0109);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.jTz).og(R.string.J_X01).nY(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0905);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.jTw).nY(R.color.CAM_X0109);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.jSX).og(R.string.J_X06).aJ(R.color.CAM_X0205, R.color.CAM_X0206);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.jTA).nY(R.color.CAM_X0109);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.jTB).nY(R.color.CAM_X0105);
+            this.jTD.setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_share22, com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.CAM_X0107), ap.faO), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.jTF.setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_comment22, com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.CAM_X0107), ap.faO), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.jTE.setTextColor(com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.CAM_X0107), ap.faO));
+            this.jTG.setTextColor(com.baidu.tieba.tbadkCore.c.l(ap.getColor(R.color.CAM_X0107), ap.faO));
+            this.jTy.setVisibility(TbadkCoreApplication.getInst().getSkinType() != 0 ? 0 : 8);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.jTy).setBackGroundColor(R.color.CAM_X0607);
+            this.jTK.Bg(i);
         }
     }
 
-    public void cNt() {
+    public void cNA() {
         String string = TbadkCoreApplication.getInst().getString(R.string.fun_ad_label);
-        if (this.jSO != null && string.equals(this.jSO.getText().toString())) {
-            this.jSO.setText(TbadkCoreApplication.getInst().getString(R.string.fun_ad_title_promotion));
-            if (this.jTn != null) {
-                this.jTn.setText(TbadkCoreApplication.getInst().getString(R.string.fun_ad_title_promotion));
+        if (this.jTc != null && string.equals(this.jTc.getText().toString())) {
+            this.jTc.setText(TbadkCoreApplication.getInst().getString(R.string.fun_ad_title_promotion));
+            if (this.jTB != null) {
+                this.jTB.setText(TbadkCoreApplication.getInst().getString(R.string.fun_ad_title_promotion));
             }
         }
     }

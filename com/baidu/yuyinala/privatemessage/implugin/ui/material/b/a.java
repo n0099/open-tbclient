@@ -34,7 +34,7 @@ public class a extends Drawable {
     private float mBorderWidth = 0.0f;
     private ColorStateList mBorderColor = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
     private ImageView.ScaleType mScaleType = ImageView.ScaleType.FIT_CENTER;
-    private boolean pel = false;
+    private boolean peL = false;
 
     public a(Bitmap bitmap) {
         this.mBitmapWidth = bitmap.getWidth();
@@ -249,7 +249,7 @@ public class a extends Drawable {
             canvas.drawRoundRect(this.mDrawableRect, this.mCornerRadius, this.mCornerRadius, this.mBitmapPaint);
         }
         try {
-            if (ThemeManager.emo() == ThemeManager.ThemeMode.NIGHT && this.pel) {
+            if (ThemeManager.emw() == ThemeManager.ThemeMode.NIGHT && this.peL) {
                 Paint paint = new Paint();
                 paint.setAntiAlias(true);
                 paint.setColor(1342177280);
@@ -336,6 +336,6 @@ public class a extends Drawable {
     }
 
     public void AS(boolean z) {
-        this.pel = z;
+        this.peL = z;
     }
 }

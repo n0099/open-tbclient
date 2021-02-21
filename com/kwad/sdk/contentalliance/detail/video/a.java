@@ -71,8 +71,8 @@ public class a {
             }
         }
     };
-    private c.InterfaceC1104c v = new c.InterfaceC1104c() { // from class: com.kwad.sdk.contentalliance.detail.video.a.4
-        @Override // com.kwad.sdk.core.video.a.c.InterfaceC1104c
+    private c.InterfaceC1106c v = new c.InterfaceC1106c() { // from class: com.kwad.sdk.contentalliance.detail.video.a.4
+        @Override // com.kwad.sdk.core.video.a.c.InterfaceC1106c
         public boolean a(com.kwad.sdk.core.video.a.c cVar, int i, int i2) {
             if (i != -38) {
                 a.this.f8591b = -1;
@@ -134,12 +134,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.contentalliance.detail.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1077a extends TimerTask {
+    public static class C1079a extends TimerTask {
 
         /* renamed from: a  reason: collision with root package name */
         private WeakReference<a> f8600a;
 
-        C1077a(a aVar) {
+        C1079a(a aVar) {
             this.f8600a = new WeakReference<>(aVar);
         }
 
@@ -216,7 +216,7 @@ public class a {
         if (this.c == null) {
             return;
         }
-        this.c.a((c.InterfaceC1104c) null);
+        this.c.a((c.InterfaceC1106c) null);
         this.c.a((c.b) null);
         this.c.a((c.e) null);
         this.c.a((c.d) null);
@@ -236,7 +236,7 @@ public class a {
             this.g = new Timer();
         }
         if (this.h == null) {
-            this.h = new C1077a(this);
+            this.h = new C1079a(this);
             this.g.schedule(this.h, 0L, 1000L);
         }
     }

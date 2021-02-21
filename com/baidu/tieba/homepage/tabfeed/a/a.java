@@ -32,7 +32,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bo, ThreadCardViewHolder<
     private String mTabName;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cRT() {
+    public void cSa() {
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(this.mPageContext.getPageActivity(), this.mClassName)));
         ar arVar = new ar("c13757");
         arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
@@ -44,13 +44,13 @@ public class a extends com.baidu.adp.widget.ListView.a<bo, ThreadCardViewHolder<
         this.alY = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.cRT();
+                a.this.cSa();
             }
         };
         this.alZ = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
             public void bGW() {
-                a.this.cRT();
+                a.this.cSa();
             }
         };
         this.ajq = new com.baidu.tbadk.h.f<bn>() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.3
@@ -58,7 +58,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bo, ThreadCardViewHolder<
             @Override // com.baidu.tbadk.h.f
             public void a(View view, bn bnVar, int i, long j) {
                 if (bnVar == null) {
-                    a.this.cRT();
+                    a.this.cSa();
                     return;
                 }
                 String forumName = bnVar.getForumName();
@@ -121,7 +121,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bo, ThreadCardViewHolder<
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 

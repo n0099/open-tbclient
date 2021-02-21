@@ -15,7 +15,7 @@ public interface a extends com.baidu.tieba.InjectPlugin.a.a<c> {
 
     void a(InterfaceC0589a interfaceC0589a);
 
-    void bJp();
+    void bJu();
 
     void changeSkinType(int i);
 

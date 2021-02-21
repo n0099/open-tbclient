@@ -7,23 +7,23 @@ import java.util.Set;
 import rx.k;
 /* loaded from: classes5.dex */
 public final class b implements k {
-    private Set<k> qEO;
-    private volatile boolean qyh;
+    private Set<k> qFo;
+    private volatile boolean qyH;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qyh;
+        return this.qyH;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.qyh) {
+            if (!this.qyH) {
                 synchronized (this) {
-                    if (!this.qyh) {
-                        if (this.qEO == null) {
-                            this.qEO = new HashSet(4);
+                    if (!this.qyH) {
+                        if (this.qFo == null) {
+                            this.qFo = new HashSet(4);
                         }
-                        this.qEO.add(kVar);
+                        this.qFo.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.qyh) {
+        if (!this.qyH) {
             synchronized (this) {
-                if (!this.qyh && this.qEO != null) {
-                    boolean remove = this.qEO.remove(kVar);
+                if (!this.qyH && this.qFo != null) {
+                    boolean remove = this.qFo.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.qyh) {
+        if (!this.qyH) {
             synchronized (this) {
-                if (!this.qyh) {
-                    this.qyh = true;
-                    Set<k> set = this.qEO;
-                    this.qEO = null;
+                if (!this.qyH) {
+                    this.qyH = true;
+                    Set<k> set = this.qFo;
+                    this.qFo = null;
                     u(set);
                 }
             }

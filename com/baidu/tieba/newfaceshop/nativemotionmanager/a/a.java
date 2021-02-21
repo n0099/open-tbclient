@@ -10,18 +10,18 @@ import com.baidu.tbadk.widget.dragsort.b;
 /* loaded from: classes9.dex */
 public class a {
     private final com.baidu.tbadk.widget.dragsort.a fRR;
-    private final SimpleDragSortListView lCR;
-    private final C0811a lCS;
+    private final SimpleDragSortListView lDf;
+    private final C0812a lDg;
 
     public a(SimpleDragSortListView simpleDragSortListView) {
-        this.lCR = simpleDragSortListView;
+        this.lDf = simpleDragSortListView;
         this.fRR = new com.baidu.tbadk.widget.dragsort.a(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
         simpleDragSortListView.setDragSortViewEventDelegate(this.fRR);
-        this.lCS = new C0811a(this.fRR, simpleDragSortListView);
-        this.lCS.setBackgroundColor(-1);
-        this.fRR.a((b) this.lCS);
-        this.fRR.a((a.h) this.lCS);
-        simpleDragSortListView.setOnTouchListener(this.lCS);
+        this.lDg = new C0812a(this.fRR, simpleDragSortListView);
+        this.lDg.setBackgroundColor(-1);
+        this.fRR.a((b) this.lDg);
+        this.fRR.a((a.h) this.lDg);
+        simpleDragSortListView.setOnTouchListener(this.lDg);
     }
 
     public void uv(boolean z) {
@@ -32,37 +32,37 @@ public class a {
         this.fRR.a(gVar);
     }
 
-    public void cV(int i, int i2) {
-        this.lCS.cW(i, i2);
+    public void cW(int i, int i2) {
+        this.lDg.cX(i, i2);
     }
 
     /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    private static class C0811a extends b {
+    private static class C0812a extends b {
         private ListView baj;
         private com.baidu.tbadk.widget.dragsort.a fRR;
-        private int lCT;
-        private int lCU;
+        private int lDh;
+        private int lDi;
 
-        public C0811a(com.baidu.tbadk.widget.dragsort.a aVar, ListView listView) {
+        public C0812a(com.baidu.tbadk.widget.dragsort.a aVar, ListView listView) {
             super(aVar, listView, 0, 2, 0);
-            this.lCT = 0;
-            this.lCU = Integer.MAX_VALUE;
+            this.lDh = 0;
+            this.lDi = Integer.MAX_VALUE;
             lF(false);
             this.baj = listView;
             this.fRR = aVar;
         }
 
-        public void cW(int i, int i2) {
-            this.lCT = i;
-            this.lCU = i2;
+        public void cX(int i, int i2) {
+            this.lDh = i;
+            this.lDi = i2;
         }
 
         @Override // com.baidu.tbadk.widget.dragsort.b
         public int H(MotionEvent motionEvent) {
             int J = super.J(motionEvent);
             int headerViewsCount = J - this.baj.getHeaderViewsCount();
-            if (headerViewsCount < this.lCT || headerViewsCount >= this.lCU) {
+            if (headerViewsCount < this.lDh || headerViewsCount >= this.lDi) {
                 return -1;
             }
             return J;
@@ -75,8 +75,8 @@ public class a {
             View view2 = null;
             int firstVisiblePosition = this.baj.getFirstVisiblePosition();
             int dividerHeight = this.baj.getDividerHeight();
-            int headerViewsCount = (this.lCT - firstVisiblePosition) + this.baj.getHeaderViewsCount();
-            int headerViewsCount2 = this.baj.getHeaderViewsCount() + (this.lCU - firstVisiblePosition);
+            int headerViewsCount = (this.lDh - firstVisiblePosition) + this.baj.getHeaderViewsCount();
+            int headerViewsCount2 = this.baj.getHeaderViewsCount() + (this.lDi - firstVisiblePosition);
             int childCount = this.baj.getChildCount();
             View childAt = (headerViewsCount < 0 || headerViewsCount >= childCount) ? null : this.baj.getChildAt(headerViewsCount);
             if (headerViewsCount2 >= 0 && headerViewsCount2 < childCount) {

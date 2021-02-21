@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class b implements a {
     @Override // com.baidu.tieba.ala.b.a.a.a
-    public void j(Context context, File file) {
+    public void i(Context context, File file) {
         Object fieldValue = com.baidu.tieba.ala.b.a.b.b.getFieldValue(context.getClassLoader(), "pathList");
         Object fieldValue2 = com.baidu.tieba.ala.b.a.b.b.getFieldValue(fieldValue, "nativeLibraryDirectories");
         if (fieldValue2 instanceof File[]) {
@@ -17,7 +17,7 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.ala.b.a.a.a
-    public boolean k(Context context, File file) {
+    public boolean j(Context context, File file) {
         Object fieldValue = com.baidu.tieba.ala.b.a.b.b.getFieldValue(com.baidu.tieba.ala.b.a.b.b.getFieldValue(context.getClassLoader(), "pathList"), "nativeLibraryDirectories");
         if (fieldValue instanceof File[]) {
             return com.baidu.tieba.ala.b.a.b.a.c((File[]) fieldValue, file);

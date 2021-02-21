@@ -16,15 +16,15 @@ import com.baidu.tieba.themeCenter.avatarPendant.c;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class d extends BaseAdapter {
-    private static int nGd = 16;
+    private static int nGD = 16;
     private int ajU = 3;
     private List<com.baidu.tieba.themeCenter.avatarPendant.a> mAvatarPendantList;
-    private AvatarPendantActivity nFN;
-    private c.a nFO;
-    private b nGe;
+    private b nGE;
+    private AvatarPendantActivity nGn;
+    private c.a nGo;
 
     public d(AvatarPendantActivity avatarPendantActivity) {
-        this.nFN = avatarPendantActivity;
+        this.nGn = avatarPendantActivity;
     }
 
     public void setData(List<com.baidu.tieba.themeCenter.avatarPendant.a> list) {
@@ -58,48 +58,48 @@ public class d extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.nFN.getActivity()).inflate(R.layout.avatar_pendant_listiew_item, viewGroup, false);
+            view = LayoutInflater.from(this.nGn.getActivity()).inflate(R.layout.avatar_pendant_listiew_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.nsA = (TextView) view.findViewById(R.id.category_name);
-            aVar2.nGf = (WholeDisplayGridView) view.findViewById(R.id.avatar_pedant_gridview);
-            aVar2.nGg = view.findViewById(R.id.line_divider);
+            aVar2.nta = (TextView) view.findViewById(R.id.category_name);
+            aVar2.nGF = (WholeDisplayGridView) view.findViewById(R.id.avatar_pedant_gridview);
+            aVar2.nGG = view.findViewById(R.id.line_divider);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         com.baidu.tieba.themeCenter.avatarPendant.a item = getItem(i);
-        if (StringUtils.isNull(item.dQY())) {
-            aVar.nsA.setVisibility(8);
+        if (StringUtils.isNull(item.dRg())) {
+            aVar.nta.setVisibility(8);
         } else {
-            aVar.nsA.setVisibility(0);
-            aVar.nsA.setText(au.cutString(item.dQY(), nGd));
+            aVar.nta.setVisibility(0);
+            aVar.nta.setText(au.cutString(item.dRg(), nGD));
         }
-        if (item != null && !y.isEmpty(item.dQZ())) {
-            this.nGe = new b(this.nFN);
-            this.nGe.setData(item.dQZ());
-            aVar.nGf.setAdapter((ListAdapter) this.nGe);
-            this.nGe.setAvatarPendantItemClickListener(this.nFO);
+        if (item != null && !y.isEmpty(item.dRh())) {
+            this.nGE = new b(this.nGn);
+            this.nGE.setData(item.dRh());
+            aVar.nGF.setAdapter((ListAdapter) this.nGE);
+            this.nGE.setAvatarPendantItemClickListener(this.nGo);
         }
         if (i == getCount() - 1) {
-            aVar.nGg.setVisibility(8);
+            aVar.nGG.setVisibility(8);
         } else {
-            aVar.nGg.setVisibility(0);
+            aVar.nGG.setVisibility(0);
         }
-        ap.setBackgroundColor(aVar.nGg, R.color.CAM_X0204);
-        ap.setViewTextColor(aVar.nsA, R.color.CAM_X0109);
+        ap.setBackgroundColor(aVar.nGG, R.color.CAM_X0204);
+        ap.setViewTextColor(aVar.nta, R.color.CAM_X0109);
         return view;
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
-        this.nFO = aVar;
+        this.nGo = aVar;
     }
 
     /* loaded from: classes9.dex */
     private class a {
-        WholeDisplayGridView nGf;
-        View nGg;
-        TextView nsA;
+        WholeDisplayGridView nGF;
+        View nGG;
+        TextView nta;
 
         private a() {
         }

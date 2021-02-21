@@ -33,16 +33,16 @@ import com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter;
 /* loaded from: classes2.dex */
 public class ConcernRecommendLayout extends LinearLayout implements q {
     private int alX;
-    private RecyclerView iRa;
-    private l iRf;
-    private CustomMessageListener iRh;
-    private ConcernRecommendListAdapter kcp;
+    private RecyclerView iRo;
+    private l iRt;
+    private CustomMessageListener iRv;
+    private ConcernRecommendListAdapter kcD;
     private final Context mContext;
     private int mSkinType;
     private TextView mTitleView;
 
     public void setOnItemCoverListener(f<MetaData> fVar) {
-        this.kcp.setOnItemCoverListener(fVar);
+        this.kcD.setOnItemCoverListener(fVar);
     }
 
     public ConcernRecommendLayout(Context context) {
@@ -53,18 +53,18 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.alX = R.color.CAM_X0108;
-        this.iRh = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout.1
+        this.iRv = new CustomMessageListener(2156674) { // from class: com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        if (ConcernRecommendLayout.this.iRf == null) {
-                            ConcernRecommendLayout.this.iRf = new l(new j());
+                        if (ConcernRecommendLayout.this.iRt == null) {
+                            ConcernRecommendLayout.this.iRt = new l(new j());
                         }
-                        ConcernRecommendLayout.this.iRf.a(ConcernRecommendLayout.this.iRa, 1);
-                    } else if (ConcernRecommendLayout.this.iRf != null) {
-                        ConcernRecommendLayout.this.iRf.qJ();
+                        ConcernRecommendLayout.this.iRt.a(ConcernRecommendLayout.this.iRo, 1);
+                    } else if (ConcernRecommendLayout.this.iRt != null) {
+                        ConcernRecommendLayout.this.iRt.qJ();
                     }
                 }
             }
@@ -78,33 +78,33 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         this.mTitleView = (TextView) findViewById(R.id.title);
-        this.iRa = (RecyclerView) findViewById(R.id.thread_card_list);
-        this.kcp = new ConcernRecommendListAdapter(this.mContext);
-        this.iRa.setAdapter(this.kcp);
-        this.iRa.setClipChildren(false);
+        this.iRo = (RecyclerView) findViewById(R.id.thread_card_list);
+        this.kcD = new ConcernRecommendListAdapter(this.mContext);
+        this.iRo.setAdapter(this.kcD);
+        this.iRo.setClipChildren(false);
         if (TbSingleton.getInstance().isSlideAnimEnable()) {
-            this.iRf = new l(new j());
-            this.iRf.a(this.iRa, 1);
+            this.iRt = new l(new j());
+            this.iRt.a(this.iRo, 1);
         }
         int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds21);
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44);
-        this.iRa.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
-        this.iRa.setItemAnimator(new DefaultItemAnimator());
-        this.iRa.addItemDecoration(new SpaceItemDecoration(dimens2, dimens, dimens2));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iRa.getLayoutParams();
+        this.iRo.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
+        this.iRo.setItemAnimator(new DefaultItemAnimator());
+        this.iRo.addItemDecoration(new SpaceItemDecoration(dimens2, dimens, dimens2));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iRo.getLayoutParams();
         if (d.biX()) {
             layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds39);
         } else {
             layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds22);
         }
-        this.iRa.setLayoutParams(layoutParams);
+        this.iRo.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (i != this.mSkinType) {
             ap.setViewTextColor(this.mTitleView, this.alX);
-            this.kcp.onChangeSkinType(i);
+            this.kcD.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
@@ -126,9 +126,9 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
             this.mTitleView.setTypeface(Typeface.DEFAULT_BOLD);
             this.alX = R.color.CAM_X0105;
         }
-        this.kcp.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.kcp.setData(btVar.bnd());
-        this.kcp.notifyDataSetChanged();
+        this.kcD.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.kcD.setData(btVar.bnd());
+        this.kcD.notifyDataSetChanged();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -137,16 +137,16 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.iRh.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.iRh);
-        this.kcp.setPageUniqueId(bdUniqueId);
+        this.iRv.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.iRv);
+        this.kcD.setPageUniqueId(bdUniqueId);
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.kcp.setPageContext(tbPageContext);
+        this.kcD.setPageContext(tbPageContext);
     }
 
     public void setHasBorder(boolean z) {
-        this.kcp.setHasBorder(z);
+        this.kcD.setHasBorder(z);
     }
 }

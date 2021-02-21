@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public class f {
-    private static final f qEb = new f();
-    static final b qEg = new b() { // from class: rx.c.f.1
+    private static final f qEB = new f();
+    static final b qEG = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> qEc = new AtomicReference<>();
-    private final AtomicReference<d> qEd = new AtomicReference<>();
-    private final AtomicReference<h> qEe = new AtomicReference<>();
-    private final AtomicReference<a> qEf = new AtomicReference<>();
-    private final AtomicReference<g> qyc = new AtomicReference<>();
+    private final AtomicReference<b> qEC = new AtomicReference<>();
+    private final AtomicReference<d> qED = new AtomicReference<>();
+    private final AtomicReference<h> qEE = new AtomicReference<>();
+    private final AtomicReference<a> qEF = new AtomicReference<>();
+    private final AtomicReference<g> qyC = new AtomicReference<>();
 
     @Deprecated
-    public static f eNJ() {
-        return qEb;
+    public static f eNR() {
+        return qEB;
     }
 
     f() {
     }
 
-    public b eNK() {
-        if (this.qEc.get() == null) {
+    public b eNS() {
+        if (this.qEC.get() == null) {
             Object a2 = a(b.class, System.getProperties());
             if (a2 == null) {
-                this.qEc.compareAndSet(null, qEg);
+                this.qEC.compareAndSet(null, qEG);
             } else {
-                this.qEc.compareAndSet(null, (b) a2);
+                this.qEC.compareAndSet(null, (b) a2);
             }
         }
-        return this.qEc.get();
+        return this.qEC.get();
     }
 
-    public d eNL() {
-        if (this.qEd.get() == null) {
+    public d eNT() {
+        if (this.qED.get() == null) {
             Object a2 = a(d.class, System.getProperties());
             if (a2 == null) {
-                this.qEd.compareAndSet(null, e.eNI());
+                this.qED.compareAndSet(null, e.eNQ());
             } else {
-                this.qEd.compareAndSet(null, (d) a2);
+                this.qED.compareAndSet(null, (d) a2);
             }
         }
-        return this.qEd.get();
+        return this.qED.get();
     }
 
-    public h eNM() {
-        if (this.qEe.get() == null) {
+    public h eNU() {
+        if (this.qEE.get() == null) {
             Object a2 = a(h.class, System.getProperties());
             if (a2 == null) {
-                this.qEe.compareAndSet(null, i.eNW());
+                this.qEE.compareAndSet(null, i.eOe());
             } else {
-                this.qEe.compareAndSet(null, (h) a2);
+                this.qEE.compareAndSet(null, (h) a2);
             }
         }
-        return this.qEe.get();
+        return this.qEE.get();
     }
 
-    public a eNN() {
-        if (this.qEf.get() == null) {
+    public a eNV() {
+        if (this.qEF.get() == null) {
             Object a2 = a(a.class, System.getProperties());
             if (a2 == null) {
-                this.qEf.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.qEF.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.qEf.compareAndSet(null, (a) a2);
+                this.qEF.compareAndSet(null, (a) a2);
             }
         }
-        return this.qEf.get();
+        return this.qEF.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g eNO() {
-        if (this.qyc.get() == null) {
+    public g eNW() {
+        if (this.qyC.get() == null) {
             Object a2 = a(g.class, System.getProperties());
             if (a2 == null) {
-                this.qyc.compareAndSet(null, g.eNV());
+                this.qyC.compareAndSet(null, g.eOd());
             } else {
-                this.qyc.compareAndSet(null, (g) a2);
+                this.qyC.compareAndSet(null, (g) a2);
             }
         }
-        return this.qyc.get();
+        return this.qyC.get();
     }
 }

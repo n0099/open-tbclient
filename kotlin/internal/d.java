@@ -4,7 +4,7 @@ import kotlin.e;
 @e
 /* loaded from: classes6.dex */
 public final class d {
-    private static final int ek(int i, int i2) {
+    private static final int el(int i, int i2) {
         int i3 = i % i2;
         return i3 >= 0 ? i3 : i3 + i2;
     }
@@ -15,7 +15,7 @@ public final class d {
     }
 
     private static final int al(int i, int i2, int i3) {
-        return ek(ek(i, i3) - ek(i2, i3), i3);
+        return el(el(i, i3) - el(i2, i3), i3);
     }
 
     private static final long i(long j, long j2, long j3) {

@@ -99,7 +99,7 @@ public class d {
         return this.abTag;
     }
 
-    public void Dw(String str) {
+    public void Du(String str) {
         this.abTag = str;
     }
 
@@ -107,7 +107,7 @@ public class d {
         return this.fIN;
     }
 
-    public void Dx(String str) {
+    public void Dv(String str) {
         this.fIN = str;
     }
 

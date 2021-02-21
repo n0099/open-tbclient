@@ -59,7 +59,7 @@ class u {
         }
         this.c = aVar;
         if (jSONObject == null) {
-            aVar.a(d(str), new k.a.InterfaceC1018a() { // from class: com.bytedance.sdk.openadsdk.f.a.u.1
+            aVar.a(d(str), new k.a.InterfaceC1020a() { // from class: com.bytedance.sdk.openadsdk.f.a.u.1
             });
         } else {
             a(jSONObject);

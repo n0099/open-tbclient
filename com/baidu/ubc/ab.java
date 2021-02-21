@@ -18,7 +18,7 @@ public interface ab {
 
     Flow beginFlow(String str, JSONObject jSONObject);
 
-    boolean ehO();
+    boolean ehW();
 
     void flowAddEvent(Flow flow, String str, String str2);
 

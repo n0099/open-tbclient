@@ -11,7 +11,7 @@ public final class q extends f {
     public q(c cVar, int i) {
         super(null);
         u.a(cVar.f5842b, 0L, i);
-        o oVar = cVar.pnC;
+        o oVar = cVar.poc;
         int i2 = 0;
         int i3 = 0;
         while (i3 < i) {
@@ -20,11 +20,11 @@ public final class q extends f {
             }
             i3 += oVar.c - oVar.f5851b;
             i2++;
-            oVar = oVar.pnO;
+            oVar = oVar.poq;
         }
         this.f = new byte[i2];
         this.g = new int[i2 * 2];
-        o oVar2 = cVar.pnC;
+        o oVar2 = cVar.poc;
         int i4 = 0;
         int i5 = 0;
         while (i5 < i) {
@@ -37,44 +37,44 @@ public final class q extends f {
             this.g[this.f.length + i4] = oVar2.f5851b;
             oVar2.d = true;
             i4++;
-            oVar2 = oVar2.pnO;
+            oVar2 = oVar2.poq;
             i5 = i6;
         }
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String a() {
-        return eoI().a();
+        return eoQ().a();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String b() {
-        return eoI().b();
+        return eoQ().b();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String e() {
-        return eoI().e();
+        return eoQ().e();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f f() {
-        return eoI().f();
+        return eoQ().f();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f c() {
-        return eoI().c();
+        return eoQ().c();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f d() {
-        return eoI().d();
+        return eoQ().d();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f a(int i, int i2) {
-        return eoI().a(i, i2);
+        return eoQ().a(i, i2);
     }
 
     @Override // com.bytedance.sdk.a.a.f
@@ -120,12 +120,12 @@ public final class q extends f {
             int i3 = this.g[length + i];
             int i4 = this.g[i];
             o oVar = new o(this.f[i], i3, (i3 + i4) - i2, true, false);
-            if (cVar.pnC == null) {
-                oVar.pnP = oVar;
-                oVar.pnO = oVar;
-                cVar.pnC = oVar;
+            if (cVar.poc == null) {
+                oVar.por = oVar;
+                oVar.poq = oVar;
+                cVar.poc = oVar;
             } else {
-                cVar.pnC.pnP.a(oVar);
+                cVar.poc.por.a(oVar);
             }
             i++;
             i2 = i4;
@@ -173,7 +173,7 @@ public final class q extends f {
         return true;
     }
 
-    private f eoI() {
+    private f eoQ() {
         return new f(h());
     }
 
@@ -214,6 +214,6 @@ public final class q extends f {
 
     @Override // com.bytedance.sdk.a.a.f
     public String toString() {
-        return eoI().toString();
+        return eoQ().toString();
     }
 }

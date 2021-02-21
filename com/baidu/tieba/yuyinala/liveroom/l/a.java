@@ -16,7 +16,7 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a implements e {
     private ab bxN;
-    private com.baidu.live.an.a gYx;
+    private com.baidu.live.an.a gYL;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -84,8 +84,8 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements e {
             ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
             return;
         }
-        if (this.gYx == null) {
-            this.gYx = new com.baidu.live.an.a(getPageContext().getPageActivity());
+        if (this.gYL == null) {
+            this.gYL = new com.baidu.live.an.a(getPageContext().getPageActivity());
         }
         c cVar = new c();
         if (this.bxN != null && this.bxN.aIU != null) {
@@ -96,8 +96,8 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a implements e {
             }
         }
         cVar.url = str;
-        this.gYx.alaLiveShowData = com.baidu.live.ao.a.Yj().Yq();
-        this.gYx.a(cVar);
+        this.gYL.alaLiveShowData = com.baidu.live.ao.a.Yj().Yq();
+        this.gYL.a(cVar);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a

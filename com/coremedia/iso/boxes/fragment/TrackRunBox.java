@@ -15,26 +15,26 @@ import org.aspectj.lang.a;
 /* loaded from: classes6.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static final String TYPE = "trun";
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_9 = null;
     private int dataOffset;
     private List<Entry> entries;
     private SampleFlags firstSampleFlags;
@@ -127,7 +127,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setDataOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sx(i)));
         if (i == -1) {
             setFlags(getFlags() & 16777214);
         } else {

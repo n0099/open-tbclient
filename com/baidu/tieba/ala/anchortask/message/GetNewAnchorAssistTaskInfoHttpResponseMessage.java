@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class GetNewAnchorAssistTaskInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    public com.baidu.tieba.ala.anchortask.b.a gLd;
+    public com.baidu.tieba.ala.anchortask.b.a gLr;
 
     public GetNewAnchorAssistTaskInfoHttpResponseMessage() {
         super(1021230);
@@ -15,8 +15,8 @@ public class GetNewAnchorAssistTaskInfoHttpResponseMessage extends JsonHttpRespo
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gLd = new com.baidu.tieba.ala.anchortask.b.a();
-            this.gLd.parseJson(optJSONObject);
+            this.gLr = new com.baidu.tieba.ala.anchortask.b.a();
+            this.gLr.parseJson(optJSONObject);
         }
     }
 }

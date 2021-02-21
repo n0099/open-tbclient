@@ -13,47 +13,47 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class o implements com.baidu.live.t.f {
-    private static final String ifC = com.baidu.live.storage.b.QT();
-    private static final String ifD = com.baidu.live.storage.b.QY();
-    private static final String ifE = com.baidu.live.storage.b.Rc();
-    private boolean ifF;
-    private HttpMessageListener ifG;
-    private String ifI;
-    private p igW;
+    private static final String ifQ = com.baidu.live.storage.b.QT();
+    private static final String ifR = com.baidu.live.storage.b.QY();
+    private static final String ifS = com.baidu.live.storage.b.Rc();
+    private boolean ifT;
+    private HttpMessageListener ifU;
+    private String ifW;
+    private p ihk;
 
-    public static o coT() {
-        return a.igY;
+    public static o cpa() {
+        return a.ihm;
     }
 
-    public String cox() {
-        return this.ifI;
+    public String coE() {
+        return this.ifW;
     }
 
     @Override // com.baidu.live.t.f
     public void Pj() {
         final ar arVar = com.baidu.live.ae.a.Qj().buX;
         if (arVar == null || arVar.aNo == null || TextUtils.isEmpty(arVar.aNo.downloadUrl)) {
-            bWF();
-        } else if (!this.ifF) {
-            this.ifI = "";
-            this.ifF = true;
+            bWM();
+        } else if (!this.ifT) {
+            this.ifW = "";
+            this.ifT = true;
             new BdAsyncTask<cd, Void, cd>() { // from class: com.baidu.tieba.ala.h.o.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: a */
                 public cd doInBackground(cd... cdVarArr) {
-                    cd Ix;
+                    cd Iy;
                     if (cdVarArr == null || cdVarArr.length == 0) {
                         return null;
                     }
                     cd cdVar = cdVarArr[0];
                     String string = com.baidu.live.d.xc().getString("live_pk_rank_task_anim", "");
-                    if (TextUtils.isEmpty(string) || (Ix = n.Ix(string)) == null || !cdVar.downloadUrl.equals(Ix.downloadUrl) || !cdVar.aQJ.equals(Ix.aQJ) || TextUtils.isEmpty(Ix.videoMd5) || !Ix.videoMd5.equals(o.this.coy())) {
-                        o.this.coz();
+                    if (TextUtils.isEmpty(string) || (Iy = n.Iy(string)) == null || !cdVar.downloadUrl.equals(Iy.downloadUrl) || !cdVar.aQJ.equals(Iy.aQJ) || TextUtils.isEmpty(Iy.videoMd5) || !Iy.videoMd5.equals(o.this.coF())) {
+                        o.this.coG();
                         return null;
                     }
-                    return Ix;
+                    return Iy;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class o implements com.baidu.live.t.f {
                         o.this.b(arVar.aNo);
                         return;
                     }
-                    o.this.ifI = cdVar.videoPath;
+                    o.this.ifW = cdVar.videoPath;
                 }
             }.execute(arVar.aNo);
         }
@@ -74,12 +74,12 @@ public class o implements com.baidu.live.t.f {
 
     @Override // com.baidu.live.t.f
     public void release() {
-        this.ifF = false;
-        this.ifI = "";
-        MessageManager.getInstance().unRegisterListener(this.ifG);
-        this.ifG = null;
-        if (this.igW != null) {
-            this.igW.release();
+        this.ifT = false;
+        this.ifW = "";
+        MessageManager.getInstance().unRegisterListener(this.ifU);
+        this.ifU = null;
+        if (this.ihk != null) {
+            this.ihk.release();
         }
         com.baidu.live.h.b.cE(21);
     }
@@ -88,14 +88,14 @@ public class o implements com.baidu.live.t.f {
     public void cL(List<cd> list) {
         if (list != null && !list.isEmpty()) {
             cd cdVar = list.get(0);
-            this.ifI = cdVar.videoPath;
+            this.ifW = cdVar.videoPath;
             com.baidu.live.d.xc().putString("live_pk_rank_task_anim", n.a(cdVar));
         }
     }
 
-    private void bWF() {
-        if (this.ifG == null) {
-            this.ifG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.h.o.2
+    private void bWM() {
+        if (this.ifU == null) {
+            this.ifU = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.h.o.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -104,13 +104,13 @@ public class o implements com.baidu.live.t.f {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.ifG);
+            MessageManager.getInstance().registerListener(this.ifU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String coy() {
-        File[] listFiles = new File(ifE).listFiles();
+    public String coF() {
+        File[] listFiles = new File(ifS).listFiles();
         if (listFiles == null || listFiles.length == 0) {
             return null;
         }
@@ -125,16 +125,16 @@ public class o implements com.baidu.live.t.f {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(cd cdVar) {
         if (cdVar != null && !TextUtils.isEmpty(cdVar.downloadUrl)) {
-            this.igW = new p();
-            this.igW.y(cdVar.downloadUrl, cdVar.aQJ, ifD, ifE);
+            this.ihk = new p();
+            this.ihk.y(cdVar.downloadUrl, cdVar.aQJ, ifR, ifS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void coz() {
-        this.ifI = "";
+    public void coG() {
+        this.ifW = "";
         com.baidu.live.d.xc().putString("live_pk_rank_task_anim", "");
-        com.baidu.live.h.a.cleanDir(new File(ifC));
+        com.baidu.live.h.a.cleanDir(new File(ifQ));
     }
 
     private o() {
@@ -143,6 +143,6 @@ public class o implements com.baidu.live.t.f {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static o igY = new o();
+        private static o ihm = new o();
     }
 }

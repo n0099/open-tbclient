@@ -9,7 +9,7 @@ import java.util.Calendar;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f13373a = d.C1268d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat f13373a = d.C1270d.a("yy.MM.dd.HH");
     private File g;
 
     /* renamed from: b  reason: collision with root package name */

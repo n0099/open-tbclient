@@ -3,15 +3,15 @@ package com.baidu.tieba.memberCenter.tail.data;
 import tbclient.UpdateTail.ResData;
 /* loaded from: classes9.dex */
 public class g {
-    private int lrN;
+    private int lsb;
 
     public void a(ResData resData) {
         if (resData != null && resData.tailId != null) {
-            this.lrN = resData.tailId.intValue();
+            this.lsb = resData.tailId.intValue();
         }
     }
 
-    public int dfM() {
-        return this.lrN;
+    public int dfT() {
+        return this.lsb;
     }
 }

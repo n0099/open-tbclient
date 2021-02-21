@@ -44,7 +44,7 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
     private c.e t;
     private c.h u;
     private c.b v;
-    private c.InterfaceC1104c w;
+    private c.InterfaceC1106c w;
     private c.d x;
     private c.a y;
     private BroadcastReceiver z;
@@ -92,8 +92,8 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
                 b.this.e.setKeepScreenOn(false);
             }
         };
-        this.w = new c.InterfaceC1104c() { // from class: com.kwad.sdk.core.video.videoview.b.4
-            @Override // com.kwad.sdk.core.video.a.c.InterfaceC1104c
+        this.w = new c.InterfaceC1106c() { // from class: com.kwad.sdk.core.video.videoview.b.4
+            @Override // com.kwad.sdk.core.video.a.c.InterfaceC1106c
             public boolean a(com.kwad.sdk.core.video.a.c cVar, int i, int i2) {
                 if (i != -38) {
                     b.this.f9462a = -1;

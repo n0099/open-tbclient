@@ -7,13 +7,13 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class z extends ch {
     private final Context e;
-    private final cn pmw;
+    private final cn pmW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(Context context, cn cnVar) {
         super(true, false);
         this.e = context;
-        this.pmw = cnVar;
+        this.pmW = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,7 +24,7 @@ public class z extends ch {
             try {
                 m.a(jSONObject, "carrier", telephonyManager.getNetworkOperatorName());
                 m.a(jSONObject, "mcc_mnc", telephonyManager.getNetworkOperator());
-                m.a(jSONObject, "udid", this.pmw.O() ? as.a(telephonyManager) : this.pmw.N());
+                m.a(jSONObject, "udid", this.pmW.O() ? as.a(telephonyManager) : this.pmW.N());
                 return true;
             } catch (Exception e) {
                 au.a(e);

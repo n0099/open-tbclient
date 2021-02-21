@@ -29,7 +29,7 @@ public final class y extends bg.a {
     void a(bg bgVar) {
         com.xiaomi.push.au a2 = com.xiaomi.push.au.a(this.f14327a);
         String a3 = bgVar.a("MSAID", "msaid");
-        String str = a2.a() + a2.mo161b() + a2.c() + a2.d();
+        String str = a2.a() + a2.mo160b() + a2.c() + a2.d();
         if (TextUtils.isEmpty(str) || TextUtils.equals(a3, str)) {
             return;
         }
@@ -39,7 +39,7 @@ public final class y extends bg.a {
         ilVar.c(hw.ClientInfoUpdate.f555a);
         ilVar.a(an.a());
         ilVar.a(new HashMap());
-        a2.a(ilVar.m459a());
+        a2.a(ilVar.m458a());
         this.f14327a.a(this.f14327a.getPackageName(), iw.a(w.a(this.f14327a.getPackageName(), this.f1015a.d, ilVar, hm.Notification)), true);
     }
 }

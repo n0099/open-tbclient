@@ -221,7 +221,7 @@ public class f implements b.a {
                         }
                     }
                 }
-                if (n.DM(str)) {
+                if (n.DK(str)) {
                     String host = com.baidu.adp.lib.network.http.a.d.getHost(str);
                     this.fbY = com.baidu.adp.lib.network.http.a.b.mf().bI(host);
                     if (!au.isEmpty(this.fbY.mj())) {
@@ -392,11 +392,11 @@ public class f implements b.a {
                 throw new SocketException("network not available.");
             }
             if (this.fbW) {
-                this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                 if (this.fbZ && this.fbY != null) {
                     this.fbY.av(this.fbX.lV().mNetErrorCode);
                 }
-                if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                     com.baidu.adp.lib.stats.a pg = u.pg();
                     pg.append("netException", dVar.exception);
                     pg.append("Url", c);
@@ -471,11 +471,11 @@ public class f implements b.a {
                             this.fbV++;
                             this.fbX.lV().responseCode = 0;
                             i3--;
-                            this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                            this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                             if (this.fbZ && this.fbY != null) {
                                 this.fbY.av(this.fbX.lV().mNetErrorCode);
                             }
-                            if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                            if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                 com.baidu.adp.lib.stats.a pg2 = u.pg();
                                 pg2.append("netException", dVar.exception);
                                 pg2.append("Url", c);
@@ -521,11 +521,11 @@ public class f implements b.a {
                             i3++;
                             bArr9 = bArr9;
                         } else {
-                            this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                            this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                             if (this.fbZ && this.fbY != null) {
                                 this.fbY.av(this.fbX.lV().mNetErrorCode);
                             }
-                            if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                            if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                 com.baidu.adp.lib.stats.a pg3 = u.pg();
                                 pg3.append("netException", dVar.exception);
                                 pg3.append("Url", c);
@@ -574,11 +574,11 @@ public class f implements b.a {
                 if (((int) entity.getContentLength()) > fab) {
                     this.fbX.lV().mNetErrorCode = -11;
                     dVar.exception = this.mContext.getResources().getString(R.string.data_too_big);
-                    this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                    this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                     if (this.fbZ && this.fbY != null) {
                         this.fbY.av(this.fbX.lV().mNetErrorCode);
                     }
-                    if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                    if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                         com.baidu.adp.lib.stats.a pg4 = u.pg();
                         pg4.append("netException", dVar.exception);
                         pg4.append("Url", c);
@@ -676,11 +676,11 @@ public class f implements b.a {
                                 bArr9 = bArr8;
                                 this.fbX.lV().mNetErrorCode = -19;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fbX.lV().mNetErrorCode) + "|" + e6.getClass() + "|" + e6.getMessage() + "|getcontent_illegal_error";
-                                this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                                this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fbZ && this.fbY != null) {
                                     this.fbY.av(this.fbX.lV().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                                if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                     com.baidu.adp.lib.stats.a pg5 = u.pg();
                                     pg5.append("netException", dVar.exception);
                                     pg5.append("Url", c);
@@ -730,11 +730,11 @@ public class f implements b.a {
                                 bArr9 = bArr7;
                                 this.fbX.lV().mNetErrorCode = -12;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fbX.lV().mNetErrorCode) + "|" + e5.getClass() + "|" + e5.getMessage();
-                                this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                                this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fbZ && this.fbY != null) {
                                     this.fbY.av(this.fbX.lV().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                                if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                     com.baidu.adp.lib.stats.a pg6 = u.pg();
                                     pg6.append("netException", dVar.exception);
                                     pg6.append("Url", c);
@@ -784,11 +784,11 @@ public class f implements b.a {
                                 bArr9 = bArr6;
                                 this.fbX.lV().mNetErrorCode = -13;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fbX.lV().mNetErrorCode) + "|" + e4.getClass() + "|" + e4.getMessage();
-                                this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                                this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fbZ && this.fbY != null) {
                                     this.fbY.av(this.fbX.lV().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                                if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                     com.baidu.adp.lib.stats.a pg7 = u.pg();
                                     pg7.append("netException", dVar.exception);
                                     pg7.append("Url", c);
@@ -839,11 +839,11 @@ public class f implements b.a {
                                 this.fbX.lV().mNetErrorCode = -20;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fbX.lV().mNetErrorCode) + "|" + e3.getClass() + "|" + e3.getMessage();
                                 this.fca = true;
-                                this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                                this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fbZ && this.fbY != null) {
                                     this.fbY.av(this.fbX.lV().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                                if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                     com.baidu.adp.lib.stats.a pg8 = u.pg();
                                     pg8.append("netException", dVar.exception);
                                     pg8.append("Url", c);
@@ -893,11 +893,11 @@ public class f implements b.a {
                                 bArr9 = bArr4;
                                 this.fbX.lV().mNetErrorCode = -19;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fbX.lV().mNetErrorCode) + "|" + e2.getClass() + "|" + e2.getMessage();
-                                this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                                this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fbZ && this.fbY != null) {
                                     this.fbY.av(this.fbX.lV().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                                if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                     com.baidu.adp.lib.stats.a pg9 = u.pg();
                                     pg9.append("netException", dVar.exception);
                                     pg9.append("Url", c);
@@ -947,11 +947,11 @@ public class f implements b.a {
                                 bArr9 = bArr3;
                                 this.fbX.lV().mNetErrorCode = -18;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fbX.lV().mNetErrorCode) + "|" + e.getClass() + "|" + e.getMessage();
-                                this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                                this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fbZ && this.fbY != null) {
                                     this.fbY.av(this.fbX.lV().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                                if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                     com.baidu.adp.lib.stats.a pg10 = u.pg();
                                     pg10.append("netException", dVar.exception);
                                     pg10.append("Url", c);
@@ -1001,11 +1001,11 @@ public class f implements b.a {
                                 bArr9 = bArr;
                                 this.fbX.lV().mNetErrorCode = -10;
                                 dVar.exception = "errorCode:" + String.valueOf(this.fbX.lV().mNetErrorCode) + "|" + th.getClass() + "|" + th.getMessage();
-                                this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                                this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                                 if (this.fbZ && this.fbY != null) {
                                     this.fbY.av(this.fbX.lV().mNetErrorCode);
                                 }
-                                if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                                if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                     com.baidu.adp.lib.stats.a pg11 = u.pg();
                                     pg11.append("netException", dVar.exception);
                                     pg11.append("Url", c);
@@ -1052,11 +1052,11 @@ public class f implements b.a {
                                 this.fbX.lV().retBytes = bArr9;
                             }
                         } else {
-                            this.fbZ = 0 == 0 && n.DM(c) && j.isNetworkAvailableForImmediately();
+                            this.fbZ = 0 == 0 && n.DK(c) && j.isNetworkAvailableForImmediately();
                             if (this.fbZ && this.fbY != null) {
                                 this.fbY.av(this.fbX.lV().mNetErrorCode);
                             }
-                            if (0 == 0 && i3 == i - 1 && n.DM(c)) {
+                            if (0 == 0 && i3 == i - 1 && n.DK(c)) {
                                 com.baidu.adp.lib.stats.a pg12 = u.pg();
                                 pg12.append("netException", dVar.exception);
                                 pg12.append("Url", c);
@@ -1132,11 +1132,11 @@ public class f implements b.a {
         if (execute.getFirstHeader("ginfo") != null && (value = execute.getFirstHeader("ginfo").getValue()) != null && value.length() > 0) {
             Bm(value);
         }
-        this.fbZ = !z17 && n.DM(c) && j.isNetworkAvailableForImmediately();
+        this.fbZ = !z17 && n.DK(c) && j.isNetworkAvailableForImmediately();
         if (this.fbZ && this.fbY != null) {
             this.fbY.av(this.fbX.lV().mNetErrorCode);
         }
-        if (!z17 && i3 == i - 1 && n.DM(c)) {
+        if (!z17 && i3 == i - 1 && n.DK(c)) {
             com.baidu.adp.lib.stats.a pg13 = u.pg();
             pg13.append("netException", dVar.exception);
             pg13.append("Url", c);

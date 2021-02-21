@@ -8,26 +8,26 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class b extends c<a> {
-    private static volatile b pjm;
-    private ArrayList<ChatSession> pjl = new ArrayList<>();
-    private HashMap<BIMManager.CATEGORY, List<ChatSession>> pjn = new HashMap<>();
+    private static volatile b pjM;
+    private ArrayList<ChatSession> pjL = new ArrayList<>();
+    private HashMap<BIMManager.CATEGORY, List<ChatSession>> pjN = new HashMap<>();
 
     private b() {
     }
 
-    public static b emQ() {
-        if (pjm == null) {
+    public static b emY() {
+        if (pjM == null) {
             synchronized (b.class) {
-                if (pjm == null) {
-                    pjm = new b();
+                if (pjM == null) {
+                    pjM = new b();
                 }
             }
         }
-        return pjm;
+        return pjM;
     }
 
     public void ib(long j) {
-        List<ChatSession> list = this.pjn.get(BIMManager.CATEGORY.SINGLEPERSON);
+        List<ChatSession> list = this.pjN.get(BIMManager.CATEGORY.SINGLEPERSON);
         if (list != null && list.size() > 0) {
             Iterator<ChatSession> it = list.iterator();
             while (it.hasNext()) {

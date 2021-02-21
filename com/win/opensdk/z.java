@@ -9,9 +9,9 @@ public final class z {
         try {
             a(info, 200);
             if (info != null && !TextUtils.isEmpty(info.getClick_urls())) {
-                abF(info.getClick_urls());
+                abR(info.getClick_urls());
             } else if (info != null && !TextUtils.isEmpty(info.getVv_click_urls())) {
-                abF(info.getVv_click_urls());
+                abR(info.getVv_click_urls());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -22,9 +22,9 @@ public final class z {
         try {
             a(info, 100);
             if (info != null && !TextUtils.isEmpty(info.getImp_urls())) {
-                abF(info.getImp_urls());
+                abR(info.getImp_urls());
             } else if (info != null && !TextUtils.isEmpty(info.getVv_show_urls())) {
-                abF(info.getVv_show_urls());
+                abR(info.getVv_show_urls());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,7 +33,7 @@ public final class z {
 
     public static void a(Info info, int i) {
         if (info != null) {
-            abF(co(info.getEvents().get(i, ""), i));
+            abR(co(info.getEvents().get(i, ""), i));
         }
     }
 
@@ -49,7 +49,7 @@ public final class z {
         return str;
     }
 
-    public static void abF(String str) {
+    public static void abR(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONArray jSONArray = new JSONArray(str);
@@ -67,7 +67,7 @@ public final class z {
                                         }
 
                                         @Override // com.win.opensdk.r
-                                        public final void eIP() {
+                                        public final void eIX() {
                                         }
 
                                         @Override // com.win.opensdk.r

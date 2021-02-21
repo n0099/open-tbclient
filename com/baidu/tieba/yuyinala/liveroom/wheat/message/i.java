@@ -19,6 +19,6 @@ public class i extends HttpMessage {
         if (!TextUtils.isEmpty(str2)) {
             addParam("uk", str2);
         }
-        addParam("im_uk", com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().ecE());
+        addParam("im_uk", com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().ecM());
     }
 }

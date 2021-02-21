@@ -111,7 +111,7 @@ public class e extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
         this.fUm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.homepage.tabfeed.a.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cwZ */
+            /* renamed from: cxg */
             public GifView makeObject() {
                 GifView gifView = new GifView(e.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.bkT().isShowImages();
@@ -175,7 +175,7 @@ public class e extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, cb cbVar) {
-                t.csu().mG(true);
+                t.csB().mG(true);
                 com.baidu.tieba.homepage.tabfeed.b.a(view, cbVar, e.this.mTabName);
             }
         };

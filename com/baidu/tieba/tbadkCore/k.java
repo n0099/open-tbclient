@@ -7,11 +7,11 @@ import com.baidu.tieba.R;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
 public class k implements com.baidu.adp.widget.ListView.n {
-    public static final String nuA = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
+    public static final String nva = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
     private String icon;
-    private int lKX;
-    private String nuB;
-    private int nuC;
+    private int lLm;
+    private String nvb;
+    private int nvc;
     private String obj_id;
     private int time;
     private String title;
@@ -19,20 +19,20 @@ public class k implements com.baidu.adp.widget.ListView.n {
     private String url;
     private int weight;
 
-    public int dMz() {
-        return this.nuC;
+    public int dMH() {
+        return this.nvc;
     }
 
     public void Ju(int i) {
-        this.nuC = i;
+        this.nvc = i;
     }
 
-    public int dMA() {
-        return this.lKX;
+    public int dMI() {
+        return this.lLm;
     }
 
     public void Jv(int i) {
-        this.lKX = i;
+        this.lLm = i;
     }
 
     public void setIcon(String str) {
@@ -51,7 +51,7 @@ public class k implements com.baidu.adp.widget.ListView.n {
         this.title = str;
     }
 
-    public int dMB() {
+    public int dMJ() {
         return this.type;
     }
 
@@ -71,12 +71,12 @@ public class k implements com.baidu.adp.widget.ListView.n {
         this.time = i;
     }
 
-    public String dMC() {
+    public String dMK() {
         return this.obj_id;
     }
 
-    public String dMD() {
-        return this.nuB;
+    public String dML() {
+        return this.nvb;
     }
 
     public void a(StarEnter starEnter) {
@@ -88,11 +88,11 @@ public class k implements com.baidu.adp.widget.ListView.n {
         setWeight(starEnter.weight.intValue());
         Jv(starEnter.rank_num.intValue());
         Ju(starEnter.bazhu_mark.intValue());
-        if (StringUtils.isNull(this.title) && this.nuC == 1) {
-            this.title = nuA;
+        if (StringUtils.isNull(this.title) && this.nvc == 1) {
+            this.title = nva;
         }
         this.obj_id = starEnter.obj_id;
-        this.nuB = starEnter.text;
+        this.nvb = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.n

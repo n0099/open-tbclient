@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit;
 public class g implements Executor {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final String mUrl;
-    private boolean oSa = false;
-    private boolean oSb = false;
+    private boolean oSA = false;
+    private boolean oSB = false;
     private long mThreadId = -1;
     private final BlockingQueue<Runnable> mQueue = new LinkedBlockingQueue();
 
@@ -27,7 +27,7 @@ public class g implements Executor {
         this.mUrl = str;
     }
 
-    private boolean ehq() {
+    private boolean ehy() {
         if (this.mThreadId != -1) {
             return this.mThreadId == Thread.currentThread().getId();
         }
@@ -55,30 +55,30 @@ public class g implements Executor {
         }
     }
 
-    public void ehr() throws IOException {
-        Nf(0);
+    public void ehz() throws IOException {
+        Ng(0);
     }
 
-    public void Nf(int i) throws IOException {
-        if (!$assertionsDisabled && !ehq()) {
+    public void Ng(int i) throws IOException {
+        if (!$assertionsDisabled && !ehy()) {
             throw new AssertionError();
         }
         long nanoTime = System.nanoTime();
         long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-        if (this.oSb) {
+        if (this.oSB) {
             throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
         }
-        if (this.oSa) {
+        if (this.oSA) {
             throw new IllegalStateException("Cannot run loop when it is already running.");
         }
-        this.oSa = true;
-        while (this.oSa) {
+        this.oSA = true;
+        while (this.oSA) {
             if (i == 0) {
                 try {
                     p(false, 0L).run();
                 } catch (InterruptedIOException | RuntimeException e) {
-                    this.oSa = false;
-                    this.oSb = true;
+                    this.oSA = false;
+                    this.oSB = true;
                     throw e;
                 }
             } else {
@@ -88,10 +88,10 @@ public class g implements Executor {
     }
 
     public void quit() {
-        if (!$assertionsDisabled && !ehq()) {
+        if (!$assertionsDisabled && !ehy()) {
             throw new AssertionError();
         }
-        this.oSa = false;
+        this.oSA = false;
     }
 
     @Override // java.util.concurrent.Executor

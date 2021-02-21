@@ -62,15 +62,15 @@ public class n extends XMPushService.i {
                 o.a(this.f14313a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            Collection<ap.b> m571a = ap.a().m571a("5");
-            if (m571a.isEmpty()) {
+            Collection<ap.b> m570a = ap.a().m570a("5");
+            if (m570a.isEmpty()) {
                 next = kVar.a(this.f14313a);
                 w.a(this.f14313a, next);
                 ap.a().a(next);
             } else {
-                next = m571a.iterator().next();
+                next = m570a.iterator().next();
             }
-            if (!this.f14313a.m552c()) {
+            if (!this.f14313a.m551c()) {
                 this.f14313a.a(true);
                 return;
             }

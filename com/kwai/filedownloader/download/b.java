@@ -30,8 +30,8 @@ public class b {
         return a.f10904a;
     }
 
-    private static void a(a.InterfaceC1154a interfaceC1154a) {
-        Iterator<com.kwai.filedownloader.d.c> it = interfaceC1154a.iterator();
+    private static void a(a.InterfaceC1156a interfaceC1156a) {
+        Iterator<com.kwai.filedownloader.d.c> it = interfaceC1156a.iterator();
         long j = 0;
         long j2 = 0;
         long j3 = 0;
@@ -68,7 +68,7 @@ public class b {
                 }
                 if (z) {
                     it.remove();
-                    interfaceC1154a.a(next);
+                    interfaceC1156a.a(next);
                     j2++;
                 } else {
                     int a2 = next.a();
@@ -78,16 +78,16 @@ public class b {
                             com.kwai.filedownloader.f.d.c(com.kwai.filedownloader.b.a.class, "the id is changed on restoring from db: old[%d] -> new[%d]", Integer.valueOf(a2), Integer.valueOf(a3));
                         }
                         next.a(a3);
-                        interfaceC1154a.a(a2, next);
+                        interfaceC1156a.a(a2, next);
                         j3++;
                     }
-                    interfaceC1154a.b(next);
+                    interfaceC1156a.b(next);
                     j++;
                 }
                 j3 = j3;
             } catch (Throwable th) {
                 com.kwai.filedownloader.f.f.b(com.kwai.filedownloader.f.c.a());
-                interfaceC1154a.a();
+                interfaceC1156a.a();
                 if (com.kwai.filedownloader.f.d.f10930a) {
                     com.kwai.filedownloader.f.d.c(com.kwai.filedownloader.b.a.class, "refreshed data count: %d , delete data count: %d, reset id count: %d. consume %d", Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -95,7 +95,7 @@ public class b {
             }
         }
         com.kwai.filedownloader.f.f.b(com.kwai.filedownloader.f.c.a());
-        interfaceC1154a.a();
+        interfaceC1156a.a();
         if (com.kwai.filedownloader.f.d.f10930a) {
             com.kwai.filedownloader.f.d.c(com.kwai.filedownloader.b.a.class, "refreshed data count: %d , delete data count: %d, reset id count: %d. consume %d", Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
         }

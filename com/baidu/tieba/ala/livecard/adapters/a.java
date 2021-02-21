@@ -10,7 +10,7 @@ import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.g;
 /* loaded from: classes10.dex */
 public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
-    private com.baidu.tieba.ala.livecard.a.a hmJ;
+    private com.baidu.tieba.ala.livecard.a.a hmX;
     private String mForumName;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -26,9 +26,9 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
         if (this.mPageContext == null) {
             return null;
         }
-        this.hmJ = new com.baidu.tieba.ala.livecard.a.a(this.mPageContext);
-        this.hmJ.setForumName(this.mForumName);
-        return new FrsPageAlaInsertRecLiveHolder(this.hmJ);
+        this.hmX = new com.baidu.tieba.ala.livecard.a.a(this.mPageContext);
+        this.hmX.setForumName(this.mForumName);
+        return new FrsPageAlaInsertRecLiveHolder(this.hmX);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,12 +37,12 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
     public View a(int i, View view, ViewGroup viewGroup, g gVar, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (g) frsPageAlaInsertRecLiveHolder);
         if (gVar != null) {
-            int topThreadSize = this.jfG != null ? this.jfG.getTopThreadSize() : 0;
-            if (gVar.nuh != null && gVar.nuh.get(0) != null) {
-                gVar.nuh.get(0).eOs = (i + 1) - topThreadSize;
+            int topThreadSize = this.jfU != null ? this.jfU.getTopThreadSize() : 0;
+            if (gVar.nuI != null && gVar.nuI.get(0) != null) {
+                gVar.nuI.get(0).eOs = (i + 1) - topThreadSize;
             }
-            frsPageAlaInsertRecLiveHolder.hnc.setForumName(this.mForumName);
-            frsPageAlaInsertRecLiveHolder.hnc.a(gVar);
+            frsPageAlaInsertRecLiveHolder.hnq.setForumName(this.mForumName);
+            frsPageAlaInsertRecLiveHolder.hnq.a(gVar);
         }
         return view;
     }

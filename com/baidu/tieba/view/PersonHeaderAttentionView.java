@@ -23,28 +23,28 @@ import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public class PersonHeaderAttentionView extends LinearLayout {
     private View.OnClickListener aEh;
-    private TextView jSz;
-    private TextView kGQ;
-    private ImageView mBU;
+    private TextView jSN;
+    private TextView kHe;
+    private ImageView mCj;
     private Context mContext;
-    private f mFa;
+    private f mFp;
     private int mSkinType;
     private UserData mUserData;
-    private TextView muB;
-    private TextView nZP;
-    private TextView nZQ;
-    private TextView nZR;
-    private TextView nZS;
-    private TextView nZT;
-    private View nZU;
-    private View nZV;
-    private View nZW;
+    private TextView muQ;
+    private TextView oap;
+    private TextView oaq;
+    private TextView oar;
+    private TextView oas;
+    private TextView oat;
+    private View oau;
+    private View oav;
+    private View oaw;
 
     public PersonHeaderAttentionView(Context context) {
         super(context);
         this.mSkinType = -1;
         this.aEh = new View.OnClickListener() { // from class: com.baidu.tieba.view.PersonHeaderAttentionView.1
-            com.baidu.tieba.g.a nZX = new com.baidu.tieba.g.a();
+            com.baidu.tieba.g.a oax = new com.baidu.tieba.g.a();
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -52,9 +52,9 @@ public class PersonHeaderAttentionView extends LinearLayout {
                     boolean equals = TbadkCoreApplication.getCurrentAccount().equals(PersonHeaderAttentionView.this.mUserData.getUserId());
                     boolean z = PersonHeaderAttentionView.this.mUserData.getIsFriend() == 1;
                     int id = view.getId();
-                    if (id != PersonHeaderAttentionView.this.muB.getId() && id != PersonHeaderAttentionView.this.nZP.getId()) {
-                        if (id != PersonHeaderAttentionView.this.jSz.getId() && id != PersonHeaderAttentionView.this.nZQ.getId()) {
-                            if (id == PersonHeaderAttentionView.this.nZR.getId() || id == PersonHeaderAttentionView.this.nZS.getId()) {
+                    if (id != PersonHeaderAttentionView.this.muQ.getId() && id != PersonHeaderAttentionView.this.oap.getId()) {
+                        if (id != PersonHeaderAttentionView.this.jSN.getId() && id != PersonHeaderAttentionView.this.oaq.getId()) {
+                            if (id == PersonHeaderAttentionView.this.oar.getId() || id == PersonHeaderAttentionView.this.oas.getId()) {
                                 TiebaStatic.log(new ar("c12502").dR("obj_locate", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ));
                                 if (PersonHeaderAttentionView.this.mUserData.getPersonPrivate() == null) {
                                     PersonHeaderAttentionView.this.Hc(PersonHeaderAttentionView.this.mUserData.getSex());
@@ -63,27 +63,27 @@ public class PersonHeaderAttentionView extends LinearLayout {
                                     PersonHeaderAttentionView.this.Hc(PersonHeaderAttentionView.this.mUserData.getSex());
                                     return;
                                 } else {
-                                    this.nZX.iRK = 7;
+                                    this.oax.iRY = 7;
                                 }
                             }
                         } else {
                             TiebaStatic.log(new ar("c12502").dR("obj_locate", "8"));
-                            this.nZX.iRK = 5;
+                            this.oax.iRY = 5;
                         }
                     } else {
                         TiebaStatic.log(new ar("c12502").dR("obj_locate", "9"));
-                        this.nZX.iRK = 4;
+                        this.oax.iRY = 4;
                     }
-                    if (PersonHeaderAttentionView.this.mFa != null) {
-                        this.nZX.iRL = new Bundle();
-                        this.nZX.iRL.putSerializable(UserData.TYPE_USER, PersonHeaderAttentionView.this.mUserData);
-                        PersonHeaderAttentionView.this.mFa.a(view, this.nZX);
+                    if (PersonHeaderAttentionView.this.mFp != null) {
+                        this.oax.iRZ = new Bundle();
+                        this.oax.iRZ.putSerializable(UserData.TYPE_USER, PersonHeaderAttentionView.this.mUserData);
+                        PersonHeaderAttentionView.this.mFp.a(view, this.oax);
                     }
                 }
             }
         };
         init(context);
-        dWe();
+        dWm();
         onChangeSkinType(0);
     }
 
@@ -91,7 +91,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
         super(context, attributeSet);
         this.mSkinType = -1;
         this.aEh = new View.OnClickListener() { // from class: com.baidu.tieba.view.PersonHeaderAttentionView.1
-            com.baidu.tieba.g.a nZX = new com.baidu.tieba.g.a();
+            com.baidu.tieba.g.a oax = new com.baidu.tieba.g.a();
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -99,9 +99,9 @@ public class PersonHeaderAttentionView extends LinearLayout {
                     boolean equals = TbadkCoreApplication.getCurrentAccount().equals(PersonHeaderAttentionView.this.mUserData.getUserId());
                     boolean z = PersonHeaderAttentionView.this.mUserData.getIsFriend() == 1;
                     int id = view.getId();
-                    if (id != PersonHeaderAttentionView.this.muB.getId() && id != PersonHeaderAttentionView.this.nZP.getId()) {
-                        if (id != PersonHeaderAttentionView.this.jSz.getId() && id != PersonHeaderAttentionView.this.nZQ.getId()) {
-                            if (id == PersonHeaderAttentionView.this.nZR.getId() || id == PersonHeaderAttentionView.this.nZS.getId()) {
+                    if (id != PersonHeaderAttentionView.this.muQ.getId() && id != PersonHeaderAttentionView.this.oap.getId()) {
+                        if (id != PersonHeaderAttentionView.this.jSN.getId() && id != PersonHeaderAttentionView.this.oaq.getId()) {
+                            if (id == PersonHeaderAttentionView.this.oar.getId() || id == PersonHeaderAttentionView.this.oas.getId()) {
                                 TiebaStatic.log(new ar("c12502").dR("obj_locate", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ));
                                 if (PersonHeaderAttentionView.this.mUserData.getPersonPrivate() == null) {
                                     PersonHeaderAttentionView.this.Hc(PersonHeaderAttentionView.this.mUserData.getSex());
@@ -110,27 +110,27 @@ public class PersonHeaderAttentionView extends LinearLayout {
                                     PersonHeaderAttentionView.this.Hc(PersonHeaderAttentionView.this.mUserData.getSex());
                                     return;
                                 } else {
-                                    this.nZX.iRK = 7;
+                                    this.oax.iRY = 7;
                                 }
                             }
                         } else {
                             TiebaStatic.log(new ar("c12502").dR("obj_locate", "8"));
-                            this.nZX.iRK = 5;
+                            this.oax.iRY = 5;
                         }
                     } else {
                         TiebaStatic.log(new ar("c12502").dR("obj_locate", "9"));
-                        this.nZX.iRK = 4;
+                        this.oax.iRY = 4;
                     }
-                    if (PersonHeaderAttentionView.this.mFa != null) {
-                        this.nZX.iRL = new Bundle();
-                        this.nZX.iRL.putSerializable(UserData.TYPE_USER, PersonHeaderAttentionView.this.mUserData);
-                        PersonHeaderAttentionView.this.mFa.a(view, this.nZX);
+                    if (PersonHeaderAttentionView.this.mFp != null) {
+                        this.oax.iRZ = new Bundle();
+                        this.oax.iRZ.putSerializable(UserData.TYPE_USER, PersonHeaderAttentionView.this.mUserData);
+                        PersonHeaderAttentionView.this.mFp.a(view, this.oax);
                     }
                 }
             }
         };
         init(context);
-        dWe();
+        dWm();
         onChangeSkinType(0);
     }
 
@@ -138,7 +138,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
         super(context, attributeSet, i);
         this.mSkinType = -1;
         this.aEh = new View.OnClickListener() { // from class: com.baidu.tieba.view.PersonHeaderAttentionView.1
-            com.baidu.tieba.g.a nZX = new com.baidu.tieba.g.a();
+            com.baidu.tieba.g.a oax = new com.baidu.tieba.g.a();
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -146,9 +146,9 @@ public class PersonHeaderAttentionView extends LinearLayout {
                     boolean equals = TbadkCoreApplication.getCurrentAccount().equals(PersonHeaderAttentionView.this.mUserData.getUserId());
                     boolean z = PersonHeaderAttentionView.this.mUserData.getIsFriend() == 1;
                     int id = view.getId();
-                    if (id != PersonHeaderAttentionView.this.muB.getId() && id != PersonHeaderAttentionView.this.nZP.getId()) {
-                        if (id != PersonHeaderAttentionView.this.jSz.getId() && id != PersonHeaderAttentionView.this.nZQ.getId()) {
-                            if (id == PersonHeaderAttentionView.this.nZR.getId() || id == PersonHeaderAttentionView.this.nZS.getId()) {
+                    if (id != PersonHeaderAttentionView.this.muQ.getId() && id != PersonHeaderAttentionView.this.oap.getId()) {
+                        if (id != PersonHeaderAttentionView.this.jSN.getId() && id != PersonHeaderAttentionView.this.oaq.getId()) {
+                            if (id == PersonHeaderAttentionView.this.oar.getId() || id == PersonHeaderAttentionView.this.oas.getId()) {
                                 TiebaStatic.log(new ar("c12502").dR("obj_locate", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ));
                                 if (PersonHeaderAttentionView.this.mUserData.getPersonPrivate() == null) {
                                     PersonHeaderAttentionView.this.Hc(PersonHeaderAttentionView.this.mUserData.getSex());
@@ -157,27 +157,27 @@ public class PersonHeaderAttentionView extends LinearLayout {
                                     PersonHeaderAttentionView.this.Hc(PersonHeaderAttentionView.this.mUserData.getSex());
                                     return;
                                 } else {
-                                    this.nZX.iRK = 7;
+                                    this.oax.iRY = 7;
                                 }
                             }
                         } else {
                             TiebaStatic.log(new ar("c12502").dR("obj_locate", "8"));
-                            this.nZX.iRK = 5;
+                            this.oax.iRY = 5;
                         }
                     } else {
                         TiebaStatic.log(new ar("c12502").dR("obj_locate", "9"));
-                        this.nZX.iRK = 4;
+                        this.oax.iRY = 4;
                     }
-                    if (PersonHeaderAttentionView.this.mFa != null) {
-                        this.nZX.iRL = new Bundle();
-                        this.nZX.iRL.putSerializable(UserData.TYPE_USER, PersonHeaderAttentionView.this.mUserData);
-                        PersonHeaderAttentionView.this.mFa.a(view, this.nZX);
+                    if (PersonHeaderAttentionView.this.mFp != null) {
+                        this.oax.iRZ = new Bundle();
+                        this.oax.iRZ.putSerializable(UserData.TYPE_USER, PersonHeaderAttentionView.this.mUserData);
+                        PersonHeaderAttentionView.this.mFp.a(view, this.oax);
                     }
                 }
             }
         };
         init(context);
-        dWe();
+        dWm();
         onChangeSkinType(0);
     }
 
@@ -186,58 +186,58 @@ public class PersonHeaderAttentionView extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         LayoutInflater.from(context).inflate(R.layout.item_person_header_attention_view, (ViewGroup) this, true);
-        this.jSz = (TextView) findViewById(R.id.person_header_fans_num);
-        this.nZQ = (TextView) findViewById(R.id.person_header_fans_des);
-        this.mBU = (ImageView) findViewById(R.id.person_header_fans_red_tip);
-        this.muB = (TextView) findViewById(R.id.person_header_attention_num);
-        this.nZP = (TextView) findViewById(R.id.person_header_attention_des);
-        this.nZR = (TextView) findViewById(R.id.person_header_bar_num);
-        this.nZS = (TextView) findViewById(R.id.person_header_bar_des);
-        this.kGQ = (TextView) findViewById(R.id.person_header_thread_num);
-        this.kGQ.setVisibility(8);
-        this.nZT = (TextView) findViewById(R.id.person_header_thread_des);
-        this.nZT.setVisibility(8);
-        this.nZU = findViewById(R.id.divider_for_fans_and_attention);
-        this.nZV = findViewById(R.id.divider_for_attention_and_bar);
-        this.nZW = findViewById(R.id.divider_for_bar_and_thread);
-        this.nZW.setVisibility(8);
+        this.jSN = (TextView) findViewById(R.id.person_header_fans_num);
+        this.oaq = (TextView) findViewById(R.id.person_header_fans_des);
+        this.mCj = (ImageView) findViewById(R.id.person_header_fans_red_tip);
+        this.muQ = (TextView) findViewById(R.id.person_header_attention_num);
+        this.oap = (TextView) findViewById(R.id.person_header_attention_des);
+        this.oar = (TextView) findViewById(R.id.person_header_bar_num);
+        this.oas = (TextView) findViewById(R.id.person_header_bar_des);
+        this.kHe = (TextView) findViewById(R.id.person_header_thread_num);
+        this.kHe.setVisibility(8);
+        this.oat = (TextView) findViewById(R.id.person_header_thread_des);
+        this.oat.setVisibility(8);
+        this.oau = findViewById(R.id.divider_for_fans_and_attention);
+        this.oav = findViewById(R.id.divider_for_attention_and_bar);
+        this.oaw = findViewById(R.id.divider_for_bar_and_thread);
+        this.oaw.setVisibility(8);
     }
 
-    private void dWe() {
-        this.jSz.setOnClickListener(this.aEh);
-        this.nZQ.setOnClickListener(this.aEh);
-        this.muB.setOnClickListener(this.aEh);
-        this.nZP.setOnClickListener(this.aEh);
-        this.nZR.setOnClickListener(this.aEh);
-        this.nZS.setOnClickListener(this.aEh);
-        this.kGQ.setOnClickListener(this.aEh);
-        this.nZT.setOnClickListener(this.aEh);
+    private void dWm() {
+        this.jSN.setOnClickListener(this.aEh);
+        this.oaq.setOnClickListener(this.aEh);
+        this.muQ.setOnClickListener(this.aEh);
+        this.oap.setOnClickListener(this.aEh);
+        this.oar.setOnClickListener(this.aEh);
+        this.oas.setOnClickListener(this.aEh);
+        this.kHe.setOnClickListener(this.aEh);
+        this.oat.setOnClickListener(this.aEh);
     }
 
     public void setOnViewResponseListener(f fVar) {
-        this.mFa = fVar;
+        this.mFp = fVar;
     }
 
     private void G(String str, String str2, String str3, String str4) {
-        this.muB.setText(str);
-        this.jSz.setText(str2);
-        this.nZR.setText(str4);
-        this.kGQ.setText(str3);
+        this.muQ.setText(str);
+        this.jSN.setText(str2);
+        this.oar.setText(str4);
+        this.kHe.setText(str3);
     }
 
     public void setData(UserData userData) {
         this.mUserData = userData;
         if (this.mUserData.getConcernNum() >= 9999000) {
-            this.muB.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds32));
+            this.muQ.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds32));
         }
         if (this.mUserData.getFansNum() >= 9999000) {
-            this.jSz.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds32));
+            this.jSN.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds32));
         }
         if (this.mUserData.getLike_bars() >= 9999000) {
-            this.nZR.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds32));
+            this.oar.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds32));
         }
         if (this.mUserData.getPosts_num() >= 9999000) {
-            this.kGQ.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds32));
+            this.kHe.setTextSize(0, l.getDimens(this.mContext, R.dimen.ds32));
         }
         G(au.numFormatOverWanNa(this.mUserData.getConcernNum()), au.numFormatOverWanNa(this.mUserData.getFansNum()), au.numFormatOverWanNa(this.mUserData.getPosts_num()), au.numFormatOverWanNa(this.mUserData.getLike_bars()));
     }
@@ -245,18 +245,18 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setViewTextColor(this.muB, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(this.nZP, R.color.CAM_X0107, 1);
-            ap.setViewTextColor(this.jSz, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(this.nZQ, R.color.CAM_X0107, 1);
-            ap.setImageResource(this.mBU, R.drawable.icon_news_down_bar_one);
-            ap.setViewTextColor(this.nZR, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(this.nZS, R.color.CAM_X0107, 1);
-            ap.setViewTextColor(this.kGQ, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(this.nZT, R.color.CAM_X0107, 1);
-            ap.setBackgroundColor(this.nZU, R.color.CAM_X0204);
-            ap.setBackgroundColor(this.nZV, R.color.CAM_X0204);
-            ap.setBackgroundColor(this.nZW, R.color.CAM_X0204);
+            ap.setViewTextColor(this.muQ, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.oap, R.color.CAM_X0107, 1);
+            ap.setViewTextColor(this.jSN, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.oaq, R.color.CAM_X0107, 1);
+            ap.setImageResource(this.mCj, R.drawable.icon_news_down_bar_one);
+            ap.setViewTextColor(this.oar, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.oas, R.color.CAM_X0107, 1);
+            ap.setViewTextColor(this.kHe, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.oat, R.color.CAM_X0107, 1);
+            ap.setBackgroundColor(this.oau, R.color.CAM_X0204);
+            ap.setBackgroundColor(this.oav, R.color.CAM_X0204);
+            ap.setBackgroundColor(this.oaw, R.color.CAM_X0204);
         }
     }
 

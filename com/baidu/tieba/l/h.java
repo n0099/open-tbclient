@@ -9,17 +9,17 @@ public interface h {
 
     void F(long j, int i);
 
-    void OE(String str);
+    void OF(String str);
 
-    String OF(String str);
+    String OG(String str);
 
-    boolean OG(String str);
+    boolean OH(String str);
 
     void ao(boolean z, boolean z2);
 
-    void dgL();
+    void dgS();
 
-    void dgM();
+    void dgT();
 
     void h(long j, long j2, long j3);
 

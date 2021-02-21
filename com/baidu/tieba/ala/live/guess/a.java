@@ -21,7 +21,7 @@ public class a {
         return Long.valueOf(d.xc().getLong("live_guess_last_question", -1L));
     }
 
-    public void bWU() {
+    public void bXb() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_ACTIVITY_NAME, "gongyan_newyear");
@@ -31,7 +31,7 @@ public class a {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "follow_clk").setContentExt(null, UbcStatConstant.SubPage.GUESS_POPUP, jSONObject));
     }
 
-    public void Ha(String str) {
+    public void Hb(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_ACTIVITY_NAME, "gongyan_newyear");
@@ -41,7 +41,7 @@ public class a {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", str, "guessentry_show").setContentExt(null, UbcStatConstant.SubPage.GUESS_POPUP, jSONObject));
     }
 
-    public void Hb(String str) {
+    public void Hc(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_ACTIVITY_NAME, "gongyan_newyear");
@@ -51,7 +51,7 @@ public class a {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "display", str, "guessentry_clk").setContentExt(null, UbcStatConstant.SubPage.GUESS_POPUP, jSONObject));
     }
 
-    public void bWV() {
+    public void bXc() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_ACTIVITY_NAME, "gongyan_newyear");
@@ -61,7 +61,7 @@ public class a {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "followguide_show").setContentExt(null, UbcStatConstant.SubPage.GUESS_POPUP, jSONObject));
     }
 
-    public void bWW() {
+    public void bXd() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_ACTIVITY_NAME, "gongyan_newyear");
@@ -71,7 +71,7 @@ public class a {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "guesslack_clk").setContentExt(null, UbcStatConstant.SubPage.GUESS_POPUP, jSONObject));
     }
 
-    public void bWX() {
+    public void bXe() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_ACTIVITY_NAME, "gongyan_newyear");
@@ -81,7 +81,7 @@ public class a {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "guesslack_show").setContentExt(null, UbcStatConstant.SubPage.GUESS_POPUP, jSONObject));
     }
 
-    public void bWY() {
+    public void bXf() {
         a(v(UbcStatisticLiveKey.KEY_ID_1395, "click", "guessing_succ", ""));
     }
 

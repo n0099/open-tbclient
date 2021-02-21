@@ -33,7 +33,7 @@ public class k {
         return f7732a.getSharedPreferences("ssoconfigs", 0).getString(d.a(str), str2);
     }
 
-    public static a erv() {
+    public static a erD() {
         return new a(f7732a.getSharedPreferences("ssoconfigs", 0).edit());
     }
 

@@ -5,7 +5,7 @@ public final class b {
     private final int length;
     private final int location;
 
-    public final int eDu() {
+    public final int eDC() {
         return this.length;
     }
 

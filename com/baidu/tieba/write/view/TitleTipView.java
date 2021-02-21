@@ -19,16 +19,16 @@ public class TitleTipView extends RelativeLayout {
     private int bGF;
     private Runnable bGP;
     private boolean isShowing;
-    private LinearLayout kZj;
-    private int kgI;
-    private ImageView lBE;
+    private LinearLayout kZx;
+    private int kgW;
+    private ImageView lBS;
     private View.OnClickListener mOnClickListener;
-    private ImageView ohX;
-    private View ohY;
+    private ImageView oix;
+    private View oiy;
 
     public TitleTipView(Context context) {
         super(context);
-        this.kgI = 3;
+        this.kgW = 3;
         this.bGF = 5000;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.TitleTipView.1
             @Override // android.view.View.OnClickListener
@@ -47,7 +47,7 @@ public class TitleTipView extends RelativeLayout {
 
     public TitleTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kgI = 3;
+        this.kgW = 3;
         this.bGF = 5000;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.TitleTipView.1
             @Override // android.view.View.OnClickListener
@@ -66,7 +66,7 @@ public class TitleTipView extends RelativeLayout {
 
     public TitleTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kgI = 3;
+        this.kgW = 3;
         this.bGF = 5000;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.view.TitleTipView.1
             @Override // android.view.View.OnClickListener
@@ -85,17 +85,17 @@ public class TitleTipView extends RelativeLayout {
 
     private void init() {
         View.inflate(getContext(), R.layout.title_tip_layout, this);
-        this.kZj = (LinearLayout) findViewById(R.id.tip_bg);
-        this.ohX = (ImageView) findViewById(R.id.img_icon);
-        this.lBE = (ImageView) findViewById(R.id.img_close);
+        this.kZx = (LinearLayout) findViewById(R.id.tip_bg);
+        this.oix = (ImageView) findViewById(R.id.img_icon);
+        this.lBS = (ImageView) findViewById(R.id.img_close);
         this.acQ = (TextView) findViewById(R.id.tv_tip);
-        this.ohY = findViewById(R.id.tv_line);
+        this.oiy = findViewById(R.id.tv_line);
         this.acQ.setText(R.string.add_title_tip);
-        this.lBE.setOnClickListener(this.mOnClickListener);
+        this.lBS.setOnClickListener(this.mOnClickListener);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void dXE() {
+    public void dXM() {
         setVisibility(0);
         this.isShowing = true;
         e.mA().postDelayed(this.bGP, this.bGF);
@@ -108,15 +108,15 @@ public class TitleTipView extends RelativeLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kgI != i) {
-            c.br(this.kZj).og(R.string.J_X05).ok(R.dimen.L_X01).oj(R.color.CAM_X0602).setBackGroundColor(R.color.CAM_X0206);
-            c.br(this.ohY).setBackGroundColor(R.color.CAM_X0203);
+        if (this.kgW != i) {
+            c.br(this.kZx).og(R.string.J_X05).ok(R.dimen.L_X01).oj(R.color.CAM_X0602).setBackGroundColor(R.color.CAM_X0206);
+            c.br(this.oiy).setBackGroundColor(R.color.CAM_X0203);
             c.br(this.acQ).nY(R.color.CAM_X0107);
-            this.lBE.setImageDrawable(WebPManager.a(R.drawable.icon_pure_home_delete16, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null));
-            if (this.ohX != null) {
-                this.ohX.setImageDrawable(WebPManager.a(R.drawable.pic_post_fatiemijue, ap.getColor(R.color.CAM_X0302), (WebPManager.ResourceStateType) null));
+            this.lBS.setImageDrawable(WebPManager.a(R.drawable.icon_pure_home_delete16, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null));
+            if (this.oix != null) {
+                this.oix.setImageDrawable(WebPManager.a(R.drawable.pic_post_fatiemijue, ap.getColor(R.color.CAM_X0302), (WebPManager.ResourceStateType) null));
             }
         }
-        this.kgI = i;
+        this.kgW = i;
     }
 }

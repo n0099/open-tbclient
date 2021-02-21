@@ -179,7 +179,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return this.fXm;
     }
 
-    public void Ed(String str) {
+    public void Eb(String str) {
         this.fXm = str;
     }
 

@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class b {
     String address;
-    float iEJ;
+    float iEX;
     private List<Integer> data = new ArrayList();
-    boolean iEK = false;
-    boolean iEL = false;
+    boolean iEY = false;
+    boolean iEZ = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -52,9 +52,9 @@ public class b {
         float f = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.iEJ = 0.0f;
+            this.iEX = 0.0f;
         } else if (size == 1) {
-            this.iEJ = this.data.get(0).intValue();
+            this.iEX = this.data.get(0).intValue();
         } else {
             float f2 = 1.0f;
             Iterator<Integer> it = this.data.iterator();
@@ -68,15 +68,15 @@ public class b {
                 f2 *= 0.5f;
                 f += intValue * f2;
             }
-            this.iEJ = ((i * f2) / size) + f;
-            if (this.iEJ < 0.05d) {
-                if (!this.iEK) {
-                    com.baidu.tieba.dnsproxy.d.ctZ().aD("ip_weight_lower", this.address, String.valueOf(this.iEJ));
-                    this.iEK = true;
+            this.iEX = ((i * f2) / size) + f;
+            if (this.iEX < 0.05d) {
+                if (!this.iEY) {
+                    com.baidu.tieba.dnsproxy.d.cug().aD("ip_weight_lower", this.address, String.valueOf(this.iEX));
+                    this.iEY = true;
                 }
-            } else if (this.iEK && this.iEJ > 0.5d && !this.iEL) {
-                com.baidu.tieba.dnsproxy.d.ctZ().aD("ip_weight_lower_recover", this.address, String.valueOf(this.iEJ));
-                this.iEL = true;
+            } else if (this.iEY && this.iEX > 0.5d && !this.iEZ) {
+                com.baidu.tieba.dnsproxy.d.cug().aD("ip_weight_lower_recover", this.address, String.valueOf(this.iEX));
+                this.iEZ = true;
             }
         }
     }

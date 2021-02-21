@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
     private AlaLiveUserInfoData aId;
-    private v gOH;
-    private long gOI;
+    private v gOV;
+    private long gOW;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.gOH = new v();
-                this.gOH.parserJson(optJSONObject);
+                this.gOV = new v();
+                this.gOV.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
                 this.aId = new AlaLiveUserInfoData();
                 this.aId.parserJson(optJSONObject2);
             }
-            this.gOI = optJSONObject.optLong("live_total_price");
+            this.gOW = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bTJ() {
+    public long bTQ() {
         return this.mAudienceCount;
     }
 
-    public v bTK() {
-        return this.gOH;
+    public v bTR() {
+        return this.gOV;
     }
 
-    public AlaLiveUserInfoData bTL() {
+    public AlaLiveUserInfoData bTS() {
         return this.aId;
     }
 
-    public long bTM() {
-        return this.gOI;
+    public long bTT() {
+        return this.gOW;
     }
 }

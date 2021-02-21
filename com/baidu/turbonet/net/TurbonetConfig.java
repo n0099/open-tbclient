@@ -10,8 +10,8 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class TurbonetConfig {
     private String mStoragePath;
-    private boolean oRe = false;
-    private JSONObject oRd = new JSONObject();
+    private boolean oRE = false;
+    private JSONObject oRD = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes6.dex */
@@ -26,7 +26,7 @@ public class TurbonetConfig {
         e(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
     }
 
-    public void WP(String str) {
+    public void Xb(String str) {
         if (!new File(str).isDirectory()) {
             throw new IllegalArgumentException("Storage path must be set to existing directory");
         }
@@ -35,11 +35,11 @@ public class TurbonetConfig {
 
     public void D(int i, long j) {
         if (i == 3 || i == 2) {
-            if (egD() == null) {
+            if (egL() == null) {
                 throw new IllegalArgumentException("Storage path must be set");
             }
-            this.oRe = true;
-        } else if (egD() != null) {
+            this.oRE = true;
+        } else if (egL() != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
         e(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
@@ -64,7 +64,7 @@ public class TurbonetConfig {
         e("conn", "preconnect_enabled", Boolean.valueOf(z));
     }
 
-    public void WQ(String str) {
+    public void Xc(String str) {
         e("conn", "preconnect_app_hosts", str);
     }
 
@@ -80,28 +80,28 @@ public class TurbonetConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject egC() {
-        return this.oRd;
+    public JSONObject egK() {
+        return this.oRD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String egD() {
+    public String egL() {
         return this.mStoragePath;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean egE() {
-        return this.oRe;
+    public boolean egM() {
+        return this.oRE;
     }
 
     public void e(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.oRd.optJSONObject(str);
+            JSONObject optJSONObject = this.oRD.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.oRd.put(str, optJSONObject);
+            this.oRD.put(str, optJSONObject);
         } catch (JSONException e) {
             throw new IllegalStateException("JSON expcetion:", e);
         }

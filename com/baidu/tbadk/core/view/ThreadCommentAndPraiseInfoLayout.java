@@ -448,18 +448,18 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     protected void bA(View view) {
         boolean z = false;
         if (this.djP != null && this.ahi != null && this.fkj != null && !this.ahi.bpF()) {
-            if (!this.ahi.bpD() && com.baidu.tieba.frs.b.cBr().cBl()) {
-                if (com.baidu.tieba.frs.b.cBr().am(this.ahi)) {
+            if (!this.ahi.bpD() && com.baidu.tieba.frs.b.cBy().cBs()) {
+                if (com.baidu.tieba.frs.b.cBy().am(this.ahi)) {
                     this.ahi.jA(true);
                 }
-            } else if (!this.ahi.bpE() && com.baidu.tieba.frs.a.cBk().cBl()) {
-                if (com.baidu.tieba.frs.a.cBk().am(this.ahi)) {
+            } else if (!this.ahi.bpE() && com.baidu.tieba.frs.a.cBr().cBs()) {
+                if (com.baidu.tieba.frs.a.cBr().am(this.ahi)) {
                     this.ahi.jB(true);
                 }
             } else {
-                com.baidu.tieba.frs.b.cBr().an(this.ahi);
+                com.baidu.tieba.frs.b.cBy().an(this.ahi);
                 this.ahi.jA(false);
-                com.baidu.tieba.frs.a.cBk().an(this.ahi);
+                com.baidu.tieba.frs.a.cBr().an(this.ahi);
                 this.ahi.jB(false);
             }
             if (this.ahi.bpD() || this.ahi.bpE()) {
@@ -517,7 +517,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     protected void by(View view) {
         if (this.ahi != null && this.mContext != null) {
-            m.IM(this.ahi.getTid());
+            m.IN(this.ahi.getTid());
             ar arVar = new ar("c12942");
             arVar.ap("obj_locate", this.mFrom);
             arVar.ap("obj_type", getThreadType());
@@ -951,7 +951,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 boolean z2 = false;
                 shareDialogConfig.setIsAlaLive((this.ahi.getThreadType() != 49 || this.ahi.getThreadType() == 60) ? true : true);
                 a(shareDialogConfig);
-                com.baidu.tieba.c.f.ctz().b(shareDialogConfig);
+                com.baidu.tieba.c.f.ctG().b(shareDialogConfig);
             }
             z = true;
             String shareImageUrl2 = getShareImageUrl(this.ahi);
@@ -1005,21 +1005,21 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             boolean z22 = false;
             shareDialogConfig2.setIsAlaLive((this.ahi.getThreadType() != 49 || this.ahi.getThreadType() == 60) ? true : true);
             a(shareDialogConfig2);
-            com.baidu.tieba.c.f.ctz().b(shareDialogConfig2);
+            com.baidu.tieba.c.f.ctG().b(shareDialogConfig2);
         }
     }
 
     private void buG() {
-        ItemInfo cBH;
-        if ((this.mContext instanceof ak) && ((ak) this.mContext).cBI() && this.ahi != null && this.ahi.bpW() == null && (cBH = ((ak) this.mContext).cBH()) != null) {
+        ItemInfo cBO;
+        if ((this.mContext instanceof ak) && ((ak) this.mContext).cBP() && this.ahi != null && this.ahi.bpW() == null && (cBO = ((ak) this.mContext).cBO()) != null) {
             Item.Builder builder = new Item.Builder();
-            builder.item_id = Long.valueOf(cBH.id.longValue());
-            builder.item_name = cBH.name;
-            builder.icon_size = cBH.icon_size;
-            builder.icon_url = cBH.icon_url;
-            builder.tags = cBH.tags;
-            if (cBH.score != null && cBH.score.item_point != null) {
-                Iterator<ItemPoint> it = cBH.score.item_point.iterator();
+            builder.item_id = Long.valueOf(cBO.id.longValue());
+            builder.item_name = cBO.name;
+            builder.icon_size = cBO.icon_size;
+            builder.icon_url = cBO.icon_url;
+            builder.tags = cBO.tags;
+            if (cBO.score != null && cBO.score.item_point != null) {
+                Iterator<ItemPoint> it = cBO.score.item_point.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -1283,7 +1283,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     this.mMaskView.setVisibility(8);
                 }
                 this.fkk.setVisibility(8);
-            } else if (this.fku && !isShow(128) && (com.baidu.tieba.frs.b.cBr().cBl() || com.baidu.tieba.frs.a.cBk().cBl())) {
+            } else if (this.fku && !isShow(128) && (com.baidu.tieba.frs.b.cBy().cBs() || com.baidu.tieba.frs.a.cBr().cBs())) {
                 if (this.mMaskView == null) {
                     this.mMaskView = new View(getContext());
                     ap.setBackgroundColor(this.mMaskView, R.color.CAM_X0201);

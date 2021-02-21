@@ -26,26 +26,26 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     private View djU;
     private RelativeLayout dxS;
     private View dyo;
-    private TextView jGi;
-    private View jGj;
-    private View jGk;
-    private View jGl;
-    private TbImageView jGm;
-    private LinearGradientView jGn;
-    private View jGo;
-    private View jGp;
-    private View jGq;
-    private View jGr;
-    private View jGs;
-    private View jGt;
+    private TbImageView jGA;
+    private LinearGradientView jGB;
+    private View jGC;
+    private View jGD;
+    private View jGE;
+    private View jGF;
+    private View jGG;
+    private View jGH;
+    private TextView jGw;
+    private View jGx;
+    private View jGy;
+    private View jGz;
     private View mBack;
     private NavigationBar mNavigationBar;
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.professional.FrsProfessionIntroActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != FrsProfessionIntroActivity.this.mBack) {
-                if (view != FrsProfessionIntroActivity.this.jGi) {
-                    if (view == FrsProfessionIntroActivity.this.jGj) {
+                if (view != FrsProfessionIntroActivity.this.jGw) {
+                    if (view == FrsProfessionIntroActivity.this.jGx) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(FrsProfessionIntroActivity.this.getActivity()).createNormalCfg("5977226324", null, "frs")));
                         Intent intent = new Intent();
                         intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
@@ -75,34 +75,34 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         setContentView(R.layout.layout_frs_profession);
         this.dxS = (RelativeLayout) findViewById(R.id.profession_header_container);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.profession_intro_navigation_bar);
-        this.jGn = (LinearGradientView) findViewById(R.id.profession_intro_background);
-        this.jGi = (TextView) findViewById(R.id.profession_intro_go_publish);
-        this.jGj = findViewById(R.id.profession_intro_got_it);
+        this.jGB = (LinearGradientView) findViewById(R.id.profession_intro_background);
+        this.jGw = (TextView) findViewById(R.id.profession_intro_go_publish);
+        this.jGx = findViewById(R.id.profession_intro_got_it);
         this.djU = findViewById(R.id.bottom_view);
-        this.jGk = findViewById(R.id.profession_intro_desc);
+        this.jGy = findViewById(R.id.profession_intro_desc);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.onClickListener);
         this.mNavigationBar.setCenterTextTitle(getString(R.string.profession_intro_title));
-        this.jGm = (TbImageView) findViewById(R.id.profession_intro_content);
-        this.jGm.setDefaultBgResource(R.color.transparent);
-        this.jGm.setDefaultResource(R.drawable.pic_frs_head_default);
+        this.jGA = (TbImageView) findViewById(R.id.profession_intro_content);
+        this.jGA.setDefaultBgResource(R.color.transparent);
+        this.jGA.setDefaultResource(R.drawable.pic_frs_head_default);
         this.dyo = findViewById(R.id.profession_intro_container);
-        this.jGl = findViewById(R.id.profession_intro_top_corner);
-        this.jGo = findViewById(R.id.profession_intro_first_index);
-        this.jGs = findViewById(R.id.profession_intro_first_intro);
-        this.jGq = findViewById(R.id.profession_intro_first_title);
-        this.jGp = findViewById(R.id.profession_intro_second_index);
-        this.jGt = findViewById(R.id.profession_intro_second_intro);
-        this.jGr = findViewById(R.id.profession_intro_second_title);
-        this.jGi.setEnabled(true);
-        this.jGi.setOnClickListener(this.onClickListener);
-        this.jGj.setOnClickListener(this.onClickListener);
-        cJX();
+        this.jGz = findViewById(R.id.profession_intro_top_corner);
+        this.jGC = findViewById(R.id.profession_intro_first_index);
+        this.jGG = findViewById(R.id.profession_intro_first_intro);
+        this.jGE = findViewById(R.id.profession_intro_first_title);
+        this.jGD = findViewById(R.id.profession_intro_second_index);
+        this.jGH = findViewById(R.id.profession_intro_second_intro);
+        this.jGF = findViewById(R.id.profession_intro_second_title);
+        this.jGw.setEnabled(true);
+        this.jGw.setOnClickListener(this.onClickListener);
+        this.jGx.setOnClickListener(this.onClickListener);
+        cKe();
         String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
-        this.jGn.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
-        this.jGm.startLoad(stringExtra, 10, false);
+        this.jGB.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
+        this.jGA.startLoad(stringExtra, 10, false);
     }
 
-    private void cJX() {
+    private void cKe() {
         boolean z = false;
         if (UtilHelper.isMiNotchDevice()) {
             z = true;
@@ -112,7 +112,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
             ViewGroup.LayoutParams layoutParams = this.dxS.getLayoutParams();
             if (layoutParams instanceof LinearLayout.LayoutParams) {
                 ((LinearLayout.LayoutParams) layoutParams).height = dimens;
-                ViewGroup.LayoutParams layoutParams2 = this.jGn.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.jGB.getLayoutParams();
                 if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                     ((RelativeLayout.LayoutParams) layoutParams2).height = dimens;
                 }
@@ -125,20 +125,20 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         ap.setViewTextColor(this.mNavigationBar.mCenterText, R.color.CAM_X0101);
-        ap.setViewTextColor(this.jGk, R.color.CAM_X0101);
-        ap.setViewTextColor(this.jGo, R.color.CAM_X0111);
-        ap.setViewTextColor(this.jGq, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jGs, R.color.CAM_X0106);
-        ap.setViewTextColor(this.jGp, R.color.CAM_X0111);
-        ap.setViewTextColor(this.jGr, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jGt, R.color.CAM_X0106);
-        ap.setViewTextColor(this.jGj, R.color.CAM_X0101);
+        ap.setViewTextColor(this.jGy, R.color.CAM_X0101);
+        ap.setViewTextColor(this.jGC, R.color.CAM_X0111);
+        ap.setViewTextColor(this.jGE, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jGG, R.color.CAM_X0106);
+        ap.setViewTextColor(this.jGD, R.color.CAM_X0111);
+        ap.setViewTextColor(this.jGF, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jGH, R.color.CAM_X0106);
+        ap.setViewTextColor(this.jGx, R.color.CAM_X0101);
         ap.setBackgroundColor(this.dyo, R.color.CAM_X0201);
-        ap.setBackgroundResource(this.jGl, R.drawable.bg_top_corner_white);
+        ap.setBackgroundResource(this.jGz, R.drawable.bg_top_corner_white);
         ap.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.btn_sml_back_selector_s);
-        ap.setBackgroundResource(this.jGj, R.drawable.frs_profession_button_bg);
-        ap.setViewTextColor(this.jGi, R.color.CAM_X0302);
+        ap.setBackgroundResource(this.jGx, R.drawable.frs_profession_button_bg);
+        ap.setViewTextColor(this.jGw, R.color.CAM_X0302);
         ap.setBackgroundColor(this.djU, R.color.CAM_X0201);
-        this.jGn.changeSkinType(i);
+        this.jGB.changeSkinType(i);
     }
 }

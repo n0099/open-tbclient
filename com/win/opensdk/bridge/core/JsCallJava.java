@@ -16,12 +16,12 @@ public class JsCallJava {
     /* renamed from: case  reason: not valid java name */
     private String f29case;
     private String java;
-    private JSONObject qkd;
+    private JSONObject qkD;
 
     private JsCallJava() {
     }
 
-    public static JsCallJava eJg() {
+    public static JsCallJava eJo() {
         return new JsCallJava();
     }
 
@@ -38,20 +38,20 @@ public class JsCallJava {
                 }
                 this.f13732a = String.valueOf(parse.getPort());
                 try {
-                    this.qkd = new JSONObject(parse.getQuery());
+                    this.qkD = new JSONObject(parse.getQuery());
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    this.qkd = new JSONObject();
+                    this.qkD = new JSONObject();
                 }
             }
-            Method hD = NativeMethodInjectHelper.eJh().hD(this.java, this.f29case);
+            Method hF = NativeMethodInjectHelper.eJp().hF(this.java, this.f29case);
             JsCallback g = JsCallback.g(webView, this.f13732a);
-            if (hD == null) {
+            if (hF == null) {
                 JsCallback.a(g, false, null, "Method (" + this.f29case + ") in this class (" + this.java + ") not found!");
                 return;
             }
             try {
-                hD.invoke(null, webView, this.qkd, g);
+                hF.invoke(null, webView, this.qkD, g);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (InvocationTargetException e3) {

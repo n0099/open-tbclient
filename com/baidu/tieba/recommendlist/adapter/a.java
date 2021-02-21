@@ -29,7 +29,7 @@ import com.baidu.tieba.recommendlist.data.AlaRecommendLiveData;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, C0859a> {
+public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, C0861a> {
     private ab bxN;
     private int type;
 
@@ -42,16 +42,16 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: cY */
-    public C0859a onCreateViewHolder(ViewGroup viewGroup) {
-        return this.type == 102 ? new C0859a(LayoutInflater.from(this.mContext).inflate(a.g.ala_follow_live_small_item_layout, viewGroup, false), this.mContext) : new C0859a(LayoutInflater.from(this.mContext).inflate(a.g.ala_follow_live_big_item_layout, viewGroup, false), this.mContext);
+    public C0861a onCreateViewHolder(ViewGroup viewGroup) {
+        return this.type == 102 ? new C0861a(LayoutInflater.from(this.mContext).inflate(a.g.ala_follow_live_small_item_layout, viewGroup, false), this.mContext) : new C0861a(LayoutInflater.from(this.mContext).inflate(a.g.ala_follow_live_big_item_layout, viewGroup, false), this.mContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendlist.data.a aVar, C0859a c0859a) {
-        c0859a.a(aVar.naI, i, this.type, this.bxN);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendlist.data.a aVar, C0861a c0861a) {
+        c0861a.a(aVar.nbi, i, this.type, this.bxN);
         return view;
     }
 
@@ -61,60 +61,60 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, 
 
     /* renamed from: com.baidu.tieba.recommendlist.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0859a extends TypeAdapter.ViewHolder {
+    public static class C0861a extends TypeAdapter.ViewHolder {
         private ab bxN;
-        private String ige;
+        private String igs;
         private Context mContext;
         private int mPosition;
-        private HeadImageView nah;
-        private TextView nai;
-        private TBLottieAnimationView naj;
-        private TextView nak;
-        private AlaRecommendLiveData nal;
+        private HeadImageView naI;
+        private TextView naJ;
+        private TBLottieAnimationView naK;
+        private TextView naL;
+        private AlaRecommendLiveData naM;
         private View rootView;
 
-        private C0859a(View view, Context context) {
+        private C0861a(View view, Context context) {
             super(view);
-            this.ige = "";
+            this.igs = "";
             this.mContext = context;
             this.rootView = view;
-            this.nah = (HeadImageView) view.findViewById(a.f.ala_headImage);
-            this.nai = (TextView) view.findViewById(a.f.ala_liveroom_name);
-            this.naj = (TBLottieAnimationView) view.findViewById(a.f.ala_headImage_lottieView);
-            this.nak = (TextView) view.findViewById(a.f.ala_audience_count);
+            this.naI = (HeadImageView) view.findViewById(a.f.ala_headImage);
+            this.naJ = (TextView) view.findViewById(a.f.ala_liveroom_name);
+            this.naK = (TBLottieAnimationView) view.findViewById(a.f.ala_headImage_lottieView);
+            this.naL = (TextView) view.findViewById(a.f.ala_audience_count);
             if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.ige = "@resize{w:" + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds100) + ",h:" + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds100) + "}";
+                this.igs = "@resize{w:" + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds100) + ",h:" + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds100) + "}";
             } else {
-                this.ige = "";
+                this.igs = "";
             }
-            this.naj.setImageAssetsFolder("images/");
+            this.naK.setImageAssetsFolder("images/");
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.naj.setAnimation("headNightJson.json");
+                this.naK.setAnimation("headNightJson.json");
             } else {
-                this.naj.setAnimation("headDayJson.json");
+                this.naK.setAnimation("headDayJson.json");
             }
         }
 
         public void a(final AlaRecommendLiveData alaRecommendLiveData, int i, int i2, ab abVar) {
             if (alaRecommendLiveData != null) {
                 this.bxN = abVar;
-                this.nal = alaRecommendLiveData;
+                this.naM = alaRecommendLiveData;
                 this.mPosition = i;
-                this.nah.setIsRound(true);
-                this.nah.setDrawBorder(false);
-                this.nah.setDefaultBgResource(a.c.sdk_transparent);
-                this.nah.startLoad(alaRecommendLiveData.getLivePortrait() + this.ige, 12, false);
-                this.nai.setText(alaRecommendLiveData.getNameShow());
-                if (i2 == 101 && this.nak != null) {
-                    this.nak.setText(alaRecommendLiveData.audience_count + "观看");
+                this.naI.setIsRound(true);
+                this.naI.setDrawBorder(false);
+                this.naI.setDefaultBgResource(a.c.sdk_transparent);
+                this.naI.startLoad(alaRecommendLiveData.getLivePortrait() + this.igs, 12, false);
+                this.naJ.setText(alaRecommendLiveData.getNameShow());
+                if (i2 == 101 && this.naL != null) {
+                    this.naL.setText(alaRecommendLiveData.audience_count + "观看");
                 }
                 this.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        C0859a.this.a(alaRecommendLiveData);
+                        C0861a.this.a(alaRecommendLiveData);
                     }
                 });
-                this.naj.playAnimation();
+                this.naK.playAnimation();
                 a.a(UbcStatisticLiveKey.KEY_ID_1392, "show", alaRecommendLiveData, this.mPosition);
             }
         }
@@ -128,7 +128,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, 
                     b(alaRecommendLiveData);
                 } else {
                     BdLog.e("openByScheme: " + alaRecommendLiveData.scheme);
-                    if (!RV(alaRecommendLiveData.scheme)) {
+                    if (!Sh(alaRecommendLiveData.scheme)) {
                         BdLog.e("openInner: scheme: " + alaRecommendLiveData.scheme);
                         b(alaRecommendLiveData);
                     }
@@ -137,7 +137,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, 
             }
         }
 
-        private boolean RV(String str) {
+        private boolean Sh(String str) {
             return openScheme(TbadkCoreApplication.getInst(), str);
         }
 

@@ -13,8 +13,8 @@ import java.util.List;
 /* loaded from: classes6.dex */
 class CronetLibraryLoader {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static volatile boolean oPm;
-    private static List<Runnable> oPn;
+    private static volatile boolean oPM;
+    private static List<Runnable> oPN;
     private static final HandlerThread sInitThread;
     private static boolean sInitThreadInitDone;
     private static final Object sLoadLock;
@@ -31,16 +31,16 @@ class CronetLibraryLoader {
         $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();
         sLoadLock = new Object();
         sInitThread = new HandlerThread("TurboNetInit");
-        oPm = false;
+        oPM = false;
         sInitThreadInitDone = false;
-        oPn = new ArrayList();
+        oPN = new ArrayList();
     }
 
     CronetLibraryLoader() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long ega() {
+    public static long egi() {
         if (sInitThreadInitDone) {
             return nativeGetTurboNetHandler();
         }
@@ -50,11 +50,11 @@ class CronetLibraryLoader {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(final Context context, TurbonetEngine.Builder builder) {
         synchronized (sLoadLock) {
-            if (!oPm) {
-                oPm = true;
+            if (!oPM) {
+                oPM = true;
                 ContextUtils.initApplicationContext(context.getApplicationContext());
-                builder.egH();
-                ContextUtils.efR();
+                builder.egP();
+                ContextUtils.efZ();
                 com.baidu.turbonet.base.a.i("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.initApplicationContext(context.getApplicationContext());
                 if (!sInitThread.isAlive()) {
@@ -70,33 +70,33 @@ class CronetLibraryLoader {
         }
     }
 
-    private static boolean egb() {
+    private static boolean egj() {
         return sInitThread.getLooper() == Looper.myLooper();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void hm(Context context) {
-        if (!$assertionsDisabled && !oPm) {
+        if (!$assertionsDisabled && !oPM) {
             throw new AssertionError();
         }
-        if (!$assertionsDisabled && !egb()) {
+        if (!$assertionsDisabled && !egj()) {
             throw new AssertionError();
         }
         if (!sInitThreadInitDone) {
             NetworkChangeNotifier.init(context);
-            NetworkChangeNotifier.egn();
+            NetworkChangeNotifier.egv();
             nativeCronetInitOnInitThread();
-            for (Runnable runnable : oPn) {
+            for (Runnable runnable : oPN) {
                 runnable.run();
             }
-            oPn.clear();
+            oPN.clear();
             sInitThreadInitDone = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void postToInitThread(Runnable runnable) {
-        if (egb()) {
+        if (egj()) {
             runnable.run();
         } else {
             new Handler(sInitThread.getLooper()).post(runnable);

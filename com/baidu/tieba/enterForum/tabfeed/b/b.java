@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.data.bo;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b {
-    public c iOO;
+    public c iPc;
     public boolean hasMore = true;
     public boolean akO = true;
-    public int iON = 0;
+    public int iPb = 0;
     public int refreshCount = 0;
-    public boolean gcx = true;
-    public ArrayList<n> iOM = new ArrayList<>();
-    public bo iOL = new bo();
+    public boolean gcC = true;
+    public ArrayList<n> iPa = new ArrayList<>();
+    public bo iOZ = new bo();
 }

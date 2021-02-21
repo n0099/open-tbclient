@@ -13,21 +13,21 @@ import com.baidu.tieba.card.data.h;
 import com.baidu.tieba.godSquare.a.b;
 /* loaded from: classes8.dex */
 public class GodSquareRecGodAdapter extends com.baidu.adp.widget.ListView.a<h, ViewHolder> {
-    private ab hmP;
-    private b jXB;
+    private ab hnd;
+    private b jXP;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public GodSquareRecGodAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.iAr);
-        this.hmP = new ab() { // from class: com.baidu.tieba.godSquare.adapter.GodSquareRecGodAdapter.1
+        super(tbPageContext.getPageActivity(), h.iAF);
+        this.hnd = new ab() { // from class: com.baidu.tieba.godSquare.adapter.GodSquareRecGodAdapter.1
             @Override // com.baidu.tieba.card.ab
             public void a(View view, BaseCardInfo baseCardInfo) {
-                if (view != null && GodSquareRecGodAdapter.this.jXB != null && (baseCardInfo instanceof h)) {
+                if (view != null && GodSquareRecGodAdapter.this.jXP != null && (baseCardInfo instanceof h)) {
                     h hVar = (h) baseCardInfo;
                     if (hVar.eRz != null && !StringUtils.isNull(hVar.eRz.getUserId())) {
-                        if (view.getId() != GodSquareRecGodAdapter.this.jXB.jXJ.getId()) {
-                            if (view.getId() == GodSquareRecGodAdapter.this.jXB.getView().getId() || view.getId() == GodSquareRecGodAdapter.this.jXB.jSx.getId()) {
+                        if (view.getId() != GodSquareRecGodAdapter.this.jXP.jXX.getId()) {
+                            if (view.getId() == GodSquareRecGodAdapter.this.jXP.getView().getId() || view.getId() == GodSquareRecGodAdapter.this.jXP.jSL.getId()) {
                                 TiebaStatic.log(new ar("c10951").dR("obj_id", hVar.eRz.getUserId()));
                                 return;
                             }
@@ -46,30 +46,30 @@ public class GodSquareRecGodAdapter extends com.baidu.adp.widget.ListView.a<h, V
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bQ */
     public ViewHolder e(ViewGroup viewGroup) {
-        this.jXB = new b(this.mPageContext);
-        this.jXB.l(this.mPageContext.getUniqueId());
-        this.jXB.c(this.hmP);
-        return new ViewHolder(this.jXB);
+        this.jXP = new b(this.mPageContext);
+        this.jXP.l(this.mPageContext.getUniqueId());
+        this.jXP.c(this.hnd);
+        return new ViewHolder(this.jXP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
-        if (viewHolder == null || viewHolder.jXD == null) {
+        if (viewHolder == null || viewHolder.jXR == null) {
             return null;
         }
-        viewHolder.jXD.a(hVar);
+        viewHolder.jXR.a(hVar);
         return viewHolder.getView();
     }
 
     /* loaded from: classes8.dex */
     public class ViewHolder extends TypeAdapter.ViewHolder {
-        public b jXD;
+        public b jXR;
 
         public ViewHolder(b bVar) {
             super(bVar.getView());
-            this.jXD = bVar;
+            this.jXR = bVar;
         }
     }
 }

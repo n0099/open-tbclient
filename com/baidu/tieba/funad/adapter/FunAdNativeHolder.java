@@ -16,21 +16,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class FunAdNativeHolder extends TypeAdapter.ViewHolder {
-    public ViewGroup jSJ;
-    public List<View> jSK;
-    public List<View> jSL;
-    public ImageView jSM;
-    public ImageView jSN;
-    public TextView jSO;
-    public TextView jSP;
-    public FrameLayout jSQ;
-    public Button jSR;
-    public ImageView jTg;
-    public CardView jTh;
-    public TextView jTi;
-    public View jTj;
-    public View jTk;
-    public a.C0742a jTx;
+    public ViewGroup jSX;
+    public List<View> jSY;
+    public List<View> jSZ;
+    public a.C0743a jTL;
+    public ImageView jTa;
+    public ImageView jTb;
+    public TextView jTc;
+    public TextView jTd;
+    public FrameLayout jTe;
+    public Button jTf;
+    public ImageView jTu;
+    public CardView jTv;
+    public TextView jTw;
+    public View jTx;
+    public View jTy;
 
     public FunAdNativeHolder(View view) {
         super(view);
@@ -38,40 +38,40 @@ public class FunAdNativeHolder extends TypeAdapter.ViewHolder {
     }
 
     private void am(View view) {
-        this.jSJ = (ViewGroup) view;
-        this.jSO = (TextView) view.findViewById(R.id.fun_ad_name);
-        this.jSP = (TextView) view.findViewById(R.id.fun_card_title);
-        this.jSQ = (FrameLayout) view.findViewById(R.id.fun_card_content);
-        this.jSR = (Button) view.findViewById(R.id.fun_ad_button);
-        this.jTg = (ImageView) view.findViewById(R.id.fun_ad_feedback);
-        this.jTj = view.findViewById(R.id.divider_with_reply_title);
-        this.jTi = (TextView) view.findViewById(R.id.fun_ad_lable);
-        this.jTh = (CardView) view.findViewById(R.id.media_bg);
-        this.jTk = view.findViewById(R.id.media_mask);
-        this.jSK = new ArrayList(6);
-        this.jSK.add(this.jSJ);
-        this.jSK.add(this.jTh);
-        this.jSK.add(this.jSQ);
-        this.jSK.add(this.jSR);
-        this.jSK.add(this.jTk);
-        this.jSK.add((RelativeLayout) view.findViewById(R.id.fun_card_layout));
-        this.jSL = new ArrayList(1);
-        this.jSL.add(this.jSR);
+        this.jSX = (ViewGroup) view;
+        this.jTc = (TextView) view.findViewById(R.id.fun_ad_name);
+        this.jTd = (TextView) view.findViewById(R.id.fun_card_title);
+        this.jTe = (FrameLayout) view.findViewById(R.id.fun_card_content);
+        this.jTf = (Button) view.findViewById(R.id.fun_ad_button);
+        this.jTu = (ImageView) view.findViewById(R.id.fun_ad_feedback);
+        this.jTx = view.findViewById(R.id.divider_with_reply_title);
+        this.jTw = (TextView) view.findViewById(R.id.fun_ad_lable);
+        this.jTv = (CardView) view.findViewById(R.id.media_bg);
+        this.jTy = view.findViewById(R.id.media_mask);
+        this.jSY = new ArrayList(6);
+        this.jSY.add(this.jSX);
+        this.jSY.add(this.jTv);
+        this.jSY.add(this.jTe);
+        this.jSY.add(this.jTf);
+        this.jSY.add(this.jTy);
+        this.jSY.add((RelativeLayout) view.findViewById(R.id.fun_card_layout));
+        this.jSZ = new ArrayList(1);
+        this.jSZ.add(this.jTf);
     }
 
     public void b(n nVar) {
-        if (this.jTx == null) {
-            this.jTx = new a.C0742a();
-            this.jTx.eUi = nVar;
-            this.jTx.jSJ = this.jSJ;
-            this.jTx.jSK = this.jSK;
-            this.jTx.jSL = this.jSL;
-            this.jTx.jSM = this.jSM;
-            this.jTx.jSN = this.jSN;
-            this.jTx.jSO = this.jSO;
-            this.jTx.jSP = this.jSP;
-            this.jTx.jSQ = this.jSQ;
-            this.jTx.jSR = this.jSR;
+        if (this.jTL == null) {
+            this.jTL = new a.C0743a();
+            this.jTL.eUi = nVar;
+            this.jTL.jSX = this.jSX;
+            this.jTL.jSY = this.jSY;
+            this.jTL.jSZ = this.jSZ;
+            this.jTL.jTa = this.jTa;
+            this.jTL.jTb = this.jTb;
+            this.jTL.jTc = this.jTc;
+            this.jTL.jTd = this.jTd;
+            this.jTL.jTe = this.jTe;
+            this.jTL.jTf = this.jTf;
         }
     }
 }

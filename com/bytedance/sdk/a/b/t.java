@@ -7,7 +7,7 @@ import java.net.Proxy;
 import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class t {
-    public static final t ptB = new t() { // from class: com.bytedance.sdk.a.b.t.1
+    public static final t pub = new t() { // from class: com.bytedance.sdk.a.b.t.1
     };
 
     /* loaded from: classes6.dex */

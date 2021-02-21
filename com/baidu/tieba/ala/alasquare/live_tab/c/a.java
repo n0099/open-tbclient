@@ -12,9 +12,9 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
     private boolean hasMore = false;
-    private List<String> gDD = new ArrayList();
-    private List<SdkLiveInfoData> gDE = new ArrayList();
-    private List<n> gDF = new ArrayList();
+    private List<String> gDR = new ArrayList();
+    private List<SdkLiveInfoData> gDS = new ArrayList();
+    private List<n> gDT = new ArrayList();
 
     public a(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         a(alaTabLiveResponsedMessage.tabAllLiveInfo);
@@ -33,7 +33,7 @@ public class a {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.gAI;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.gAW;
         if (y.isEmpty(arrayList)) {
             return false;
         }
@@ -43,18 +43,18 @@ public class a {
             SdkLiveInfoData next = it.next();
             if (next != null && com.baidu.tieba.ala.alasquare.live_tab.c.a(next)) {
                 String str = next.liveId;
-                if (!this.gDD.contains(str)) {
+                if (!this.gDR.contains(str)) {
                     arrayList2.add(next);
-                    this.gDD.add(str);
+                    this.gDR.add(str);
                 }
             }
         }
         if (y.isEmpty(arrayList2)) {
             return false;
         }
-        this.gDE.addAll(arrayList2);
-        this.gDF = cg(this.gDE);
-        return !y.isEmpty(this.gDF);
+        this.gDS.addAll(arrayList2);
+        this.gDT = cg(this.gDS);
+        return !y.isEmpty(this.gDT);
     }
 
     private ArrayList<n> cg(List<SdkLiveInfoData> list) {
@@ -63,17 +63,17 @@ public class a {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.gyx = list.get(i);
+            aVar.gyL = list.get(i);
             aVar.isLeft = true;
-            eVar.gAM = aVar;
+            eVar.gBa = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.gyx = list.get(i + 1);
-                eVar.gAN = aVar2;
+                aVar2.gyL = list.get(i + 1);
+                eVar.gBb = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.gyy = true;
+                aVar.gyM = true;
             }
             arrayList.add(eVar);
         }
@@ -86,22 +86,22 @@ public class a {
 
     public List<n> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!y.isEmpty(this.gDF)) {
-            arrayList.addAll(this.gDF);
+        if (!y.isEmpty(this.gDT)) {
+            arrayList.addAll(this.gDT);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.gDD != null) {
-            this.gDD.clear();
+        if (this.gDR != null) {
+            this.gDR.clear();
         }
-        if (this.gDE != null) {
-            this.gDE.clear();
+        if (this.gDS != null) {
+            this.gDS.clear();
         }
-        if (this.gDF != null) {
-            this.gDF.clear();
+        if (this.gDT != null) {
+            this.gDT.clear();
         }
     }
 }

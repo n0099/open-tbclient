@@ -9,11 +9,11 @@ import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
-    private com.baidu.tieba.im.settingcache.a kMp;
+    private com.baidu.tieba.im.settingcache.a kMD;
     private int mCmd;
 
     public a(com.baidu.tieba.im.settingcache.a aVar, int i) {
-        this.kMp = aVar;
+        this.kMD = aVar;
         this.mCmd = i;
     }
 
@@ -31,7 +31,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
         LoadDraftMessage.a data = loadDraftMessage.getData();
-        ChatSetting fx = this.kMp.fx(str, data.id);
+        ChatSetting fx = this.kMD.fx(str, data.id);
         if (fx == null) {
             return Dm(loadDraftMessage.getCmd());
         }

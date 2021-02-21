@@ -6,23 +6,23 @@ import android.view.animation.Transformation;
 import android.widget.FrameLayout;
 /* loaded from: classes8.dex */
 public class a extends Animation {
-    private View lvv;
-    private int lvw;
+    private View lvJ;
+    private int lvK;
     private FrameLayout.LayoutParams mLayoutParams;
     private int mType;
 
     public a(View view, int i, int i2) {
         if (view != null) {
-            this.lvv = view;
-            if (this.lvv.getVisibility() == 8 && i2 > 0) {
-                this.lvw = i2;
+            this.lvJ = view;
+            if (this.lvJ.getVisibility() == 8 && i2 > 0) {
+                this.lvK = i2;
             } else {
-                this.lvw = this.lvv.getMeasuredHeight();
+                this.lvK = this.lvJ.getMeasuredHeight();
             }
             this.mLayoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
             this.mType = i;
             if (this.mType == 0) {
-                this.mLayoutParams.bottomMargin = -this.lvw;
+                this.mLayoutParams.bottomMargin = -this.lvK;
                 return;
             }
             this.mLayoutParams.bottomMargin = 0;
@@ -34,19 +34,19 @@ public class a extends Animation {
         super.applyTransformation(f, transformation);
         if (f < 1.0f) {
             if (this.mType == 0) {
-                this.mLayoutParams.bottomMargin = (-this.lvw) + ((int) (this.lvw * f));
+                this.mLayoutParams.bottomMargin = (-this.lvK) + ((int) (this.lvK * f));
             } else {
-                this.mLayoutParams.bottomMargin = -((int) (this.lvw * f));
+                this.mLayoutParams.bottomMargin = -((int) (this.lvK * f));
             }
-            this.lvv.requestLayout();
+            this.lvJ.requestLayout();
         } else if (this.mType == 0) {
             this.mLayoutParams.bottomMargin = 0;
-            this.lvv.requestLayout();
-            this.lvw = this.lvv.getMeasuredHeight();
+            this.lvJ.requestLayout();
+            this.lvK = this.lvJ.getMeasuredHeight();
         } else {
-            this.mLayoutParams.bottomMargin = -this.lvw;
-            this.lvv.setVisibility(8);
-            this.lvv.requestLayout();
+            this.mLayoutParams.bottomMargin = -this.lvK;
+            this.lvJ.setVisibility(8);
+            this.lvJ.requestLayout();
         }
     }
 }

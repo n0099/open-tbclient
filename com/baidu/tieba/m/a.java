@@ -26,12 +26,12 @@ import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> luY = new HashSet();
-    private static final boolean luZ = OH(System.getProperty("java.vm.version"));
+    private static final Set<String> lvm = new HashSet();
+    private static final boolean lvn = OI(System.getProperty("java.vm.version"));
 
     public static void gD(Context context) {
         Log.i("MultiDex", Config.INPUT_INSTALLED_PKG);
-        if (luZ) {
+        if (lvn) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -39,11 +39,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = luY;
-                    synchronized (luY) {
+                    Set<String> set = lvm;
+                    synchronized (lvm) {
                         String str = applicationInfo.sourceDir;
-                        if (!luY.contains(str)) {
-                            luY.add(str);
+                        if (!lvm.contains(str)) {
+                            lvm.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }
@@ -94,7 +94,7 @@ public final class a {
         }
     }
 
-    static boolean OH(String str) {
+    static boolean OI(String str) {
         boolean z = false;
         if (str != null) {
             Matcher matcher = Pattern.compile("(\\d+)\\.(\\d+)(\\.\\d+)?").matcher(str);
@@ -120,7 +120,7 @@ public final class a {
                     c.a(classLoader, list);
                     return;
                 } else {
-                    C0788a.a(classLoader, list, file);
+                    C0789a.a(classLoader, list, file);
                     return;
                 }
             }
@@ -236,7 +236,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0788a {
+    public static final class C0789a {
         /* JADX INFO: Access modifiers changed from: private */
         public static void a(ClassLoader classLoader, List<File> list, File file) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException {
             Object obj = a.findField(classLoader, "pathList").get(classLoader);

@@ -53,36 +53,36 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0677a c0677a;
+        C0678a c0678a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_my_assis_wish_list_item_view, (ViewGroup) null);
-            C0677a c0677a2 = new C0677a();
-            c0677a2.hSR = (TbImageView) view.findViewById(a.f.gift_thumbnail);
-            c0677a2.hSR.setDefaultBgResource(a.e.icon_live_gift_default);
-            c0677a2.hSR.setDefaultErrorResource(a.e.icon_live_gift_default);
-            c0677a2.hSR.setAutoChangeStyle(false);
-            c0677a2.hST = (TextView) view.findViewById(a.f.wish_name);
-            c0677a2.hSS = (TextView) view.findViewById(a.f.wish_count);
-            c0677a2.hSU = (ImageView) view.findViewById(a.f.wish_icon_cheng);
-            view.setTag(c0677a2);
-            c0677a = c0677a2;
+            C0678a c0678a2 = new C0678a();
+            c0678a2.hTf = (TbImageView) view.findViewById(a.f.gift_thumbnail);
+            c0678a2.hTf.setDefaultBgResource(a.e.icon_live_gift_default);
+            c0678a2.hTf.setDefaultErrorResource(a.e.icon_live_gift_default);
+            c0678a2.hTf.setAutoChangeStyle(false);
+            c0678a2.hTh = (TextView) view.findViewById(a.f.wish_name);
+            c0678a2.hTg = (TextView) view.findViewById(a.f.wish_count);
+            c0678a2.hTi = (ImageView) view.findViewById(a.f.wish_icon_cheng);
+            view.setTag(c0678a2);
+            c0678a = c0678a2;
         } else {
-            c0677a = (C0677a) view.getTag();
+            c0678a = (C0678a) view.getTag();
         }
         f item = getItem(i);
         if (item != null) {
-            c0677a.hSR.startLoad(item.gSq, 10, false);
-            c0677a.hST.setText(item.mGiftName);
-            if (!TextUtils.isEmpty(item.gSB) && JavaTypesHelper.toInt(item.gSB, 0) <= 0) {
-                c0677a.hSU.setVisibility(8);
-                c0677a.hSS.setText(this.mContext.getString(a.h.ala_my_not_assist));
-                c0677a.hSS.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize40));
-                c0677a.hSS.setTextColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha60));
+            c0678a.hTf.startLoad(item.gSE, 10, false);
+            c0678a.hTh.setText(item.mGiftName);
+            if (!TextUtils.isEmpty(item.gSP) && JavaTypesHelper.toInt(item.gSP, 0) <= 0) {
+                c0678a.hTi.setVisibility(8);
+                c0678a.hTg.setText(this.mContext.getString(a.h.ala_my_not_assist));
+                c0678a.hTg.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize40));
+                c0678a.hTg.setTextColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha60));
             } else {
-                c0677a.hSU.setVisibility(0);
-                c0677a.hSS.setText(String.format("%s", item.gSB));
-                c0677a.hSS.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize48));
-                c0677a.hSS.setTextColor(Color.parseColor("#C4586A"));
+                c0678a.hTi.setVisibility(0);
+                c0678a.hTg.setText(String.format("%s", item.gSP));
+                c0678a.hTg.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize48));
+                c0678a.hTg.setTextColor(Color.parseColor("#C4586A"));
             }
         }
         return view;
@@ -90,13 +90,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.ala.livewishlist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private static class C0677a {
-        public TbImageView hSR;
-        public TextView hSS;
-        public TextView hST;
-        public ImageView hSU;
+    private static class C0678a {
+        public TbImageView hTf;
+        public TextView hTg;
+        public TextView hTh;
+        public ImageView hTi;
 
-        private C0677a() {
+        private C0678a() {
         }
     }
 }

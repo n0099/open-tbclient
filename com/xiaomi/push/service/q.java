@@ -28,7 +28,7 @@ final class q extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            w.a(this.f1001a, w.a(this.f14316a.b(), this.f14316a.m445a()));
+            w.a(this.f1001a, w.a(this.f14316a.b(), this.f14316a.m444a()));
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
             this.f1001a.a(10, e);

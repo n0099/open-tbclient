@@ -34,8 +34,8 @@ public class b extends d {
         this.c.a(this.f10652a.g);
         this.c.g();
         if (this.c instanceof com.kwad.sdk.c.a) {
-            ((com.kwad.sdk.c.a) this.c).a(new a.InterfaceC1071a() { // from class: com.kwad.sdk.reward.b.c.a.b.1
-                @Override // com.kwad.sdk.c.a.InterfaceC1071a
+            ((com.kwad.sdk.c.a) this.c).a(new a.InterfaceC1073a() { // from class: com.kwad.sdk.reward.b.c.a.b.1
+                @Override // com.kwad.sdk.c.a.InterfaceC1073a
                 public void a() {
                     if (b.this.f10652a.f10527b != null) {
                         b.this.f10652a.f10527b.e();

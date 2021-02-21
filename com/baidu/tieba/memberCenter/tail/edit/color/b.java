@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class b {
-    private View lss;
+    private View lsG;
     private String mColor;
     private View mRootView;
 
@@ -19,14 +19,14 @@ public class b {
 
     public View gB(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.tail_edit_color_item, (ViewGroup) null);
-        this.lss = this.mRootView.findViewById(R.id.tail_edit_color_item_selected);
+        this.lsG = this.mRootView.findViewById(R.id.tail_edit_color_item_selected);
         this.mRootView.setTag(this);
         return this.mRootView;
     }
 
     public void setColor(String str) {
         this.mColor = str;
-        this.mRootView.setBackgroundColor(com.baidu.tieba.memberCenter.tail.a.c.Oo(str));
+        this.mRootView.setBackgroundColor(com.baidu.tieba.memberCenter.tail.a.c.Op(str));
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -34,12 +34,12 @@ public class b {
     }
 
     public void tW(boolean z) {
-        this.lss.setVisibility(z ? 0 : 4);
+        this.lsG.setVisibility(z ? 0 : 4);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         tbPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
         tbPageContext.getLayoutMode().onModeChanged(this.mRootView);
-        this.mRootView.setBackgroundColor(com.baidu.tieba.memberCenter.tail.a.c.Oo(this.mColor));
+        this.mRootView.setBackgroundColor(com.baidu.tieba.memberCenter.tail.a.c.Op(this.mColor));
     }
 }

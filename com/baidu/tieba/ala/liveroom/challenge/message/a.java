@@ -5,21 +5,21 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 public class a extends HttpMessage {
     private int bOQ;
     private long buN;
-    private long goL;
-    private long hug;
-    private int hvg;
+    private long goZ;
+    private long huu;
+    private int hvu;
 
     public a(long j, int i, long j2, long j3, int i2) {
         super(1021112);
-        this.hug = j;
+        this.huu = j;
         this.bOQ = i;
         this.buN = j2;
-        this.goL = j3;
-        this.hvg = i2;
-        addParam("challenge_id", this.hug);
+        this.goZ = j3;
+        this.hvu = i2;
+        addParam("challenge_id", this.huu);
         addParam("avts_conn", this.bOQ);
         addParam("live_id", this.buN);
-        addParam("anchor_id", this.goL);
-        addParam("avts_fail", this.hvg);
+        addParam("anchor_id", this.goZ);
+        addParam("avts_fail", this.hvu);
     }
 }

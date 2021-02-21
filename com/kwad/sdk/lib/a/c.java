@@ -13,7 +13,7 @@ import com.kwad.sdk.contentalliance.refreshview.RefreshLayout;
 import com.kwad.sdk.lib.a.a;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes3.dex */
-public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC1136a, b<PAGE> {
+public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC1138a, b<PAGE> {
 
     /* renamed from: a  reason: collision with root package name */
     protected ViewGroup f10416a;
@@ -54,7 +54,7 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC1
 
     protected abstract com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> d();
 
-    @Override // com.kwad.sdk.lib.a.a.InterfaceC1136a
+    @Override // com.kwad.sdk.lib.a.a.InterfaceC1138a
     @NonNull
     public final Presenter e() {
         Presenter presenter = new Presenter();

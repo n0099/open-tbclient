@@ -6,17 +6,17 @@ import java.nio.channels.WritableByteChannel;
 public interface d extends r, WritableByteChannel {
     d OA(int i) throws IOException;
 
-    d Oy(int i) throws IOException;
+    d OB(int i) throws IOException;
 
     d Oz(int i) throws IOException;
 
-    d YA(String str) throws IOException;
+    d YM(String str) throws IOException;
 
     d ah(byte[] bArr) throws IOException;
 
-    d eoA() throws IOException;
+    d eoI() throws IOException;
 
-    c eor();
+    c eoz();
 
     @Override // com.bytedance.sdk.a.a.r, java.io.Flushable
     void flush() throws IOException;

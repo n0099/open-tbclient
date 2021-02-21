@@ -29,15 +29,15 @@ public class a implements k {
         AlertDialog show = new AlertDialog.Builder(cVar.f12899a).setTitle(cVar.f12900b).setMessage(cVar.c).setPositiveButton(cVar.d, new DialogInterface.OnClickListener() { // from class: com.ss.android.downloadlib.c.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (com.ss.android.a.a.d.c.this.qay != null) {
-                    com.ss.android.a.a.d.c.this.qay.a(dialogInterface);
+                if (com.ss.android.a.a.d.c.this.qaY != null) {
+                    com.ss.android.a.a.d.c.this.qaY.a(dialogInterface);
                 }
             }
         }).setNegativeButton(cVar.e, new DialogInterface.OnClickListener() { // from class: com.ss.android.downloadlib.c.a.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (com.ss.android.a.a.d.c.this.qay != null) {
-                    com.ss.android.a.a.d.c.this.qay.b(dialogInterface);
+                if (com.ss.android.a.a.d.c.this.qaY != null) {
+                    com.ss.android.a.a.d.c.this.qaY.b(dialogInterface);
                 }
             }
         }).show();
@@ -45,8 +45,8 @@ public class a implements k {
         show.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.ss.android.downloadlib.c.a.3
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (com.ss.android.a.a.d.c.this.qay != null) {
-                    com.ss.android.a.a.d.c.this.qay.c(dialogInterface);
+                if (com.ss.android.a.a.d.c.this.qaY != null) {
+                    com.ss.android.a.a.d.c.this.qaY.c(dialogInterface);
                 }
             }
         });

@@ -358,7 +358,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int CM(String str) {
+    public int CK(String str) {
         Integer num = fCp.get(str);
         if ("video_icon".equals(str)) {
             return Integer.valueOf(R.drawable.ico_link_video).intValue();
@@ -370,7 +370,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int CN(String str) {
+    public int CL(String str) {
         Integer num = fCr.get(str);
         if (num != null) {
             return num.intValue();
@@ -379,7 +379,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public String CO(String str) {
+    public String CM(String str) {
         return fCs.get(str);
     }
 

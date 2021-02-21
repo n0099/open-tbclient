@@ -6,11 +6,11 @@ import java.util.Map;
 import rx.d;
 /* loaded from: classes5.dex */
 public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements d.a<R> {
-    final rx.d<TLeft> qyV;
-    final rx.d<TRight> qyW;
-    final rx.functions.g<TLeft, TRight, R> qyZ;
-    final rx.functions.f<TLeft, rx.d<TLeftDuration>> qzf;
-    final rx.functions.f<TRight, rx.d<TRightDuration>> qzg;
+    final rx.functions.f<TLeft, rx.d<TLeftDuration>> qzF;
+    final rx.functions.f<TRight, rx.d<TRightDuration>> qzG;
+    final rx.d<TLeft> qzv;
+    final rx.d<TRight> qzw;
+    final rx.functions.g<TLeft, TRight, R> qzz;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -47,8 +47,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             b bVar = new b();
             this.group.add(aVar);
             this.group.add(bVar);
-            OnSubscribeJoin.this.qyV.a((rx.j<? super TLeft>) aVar);
-            OnSubscribeJoin.this.qyW.a((rx.j<? super TRight>) bVar);
+            OnSubscribeJoin.this.qzv.a((rx.j<? super TLeft>) aVar);
+            OnSubscribeJoin.this.qzw.a((rx.j<? super TRight>) bVar);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -86,9 +86,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     i2 = ResultSink.this.rightId;
                 }
                 try {
-                    C1317a c1317a = new C1317a(i);
-                    ResultSink.this.group.add(c1317a);
-                    OnSubscribeJoin.this.qzf.call(tleft).a((rx.j<? super TLeftDuration>) c1317a);
+                    C1319a c1319a = new C1319a(i);
+                    ResultSink.this.group.add(c1319a);
+                    OnSubscribeJoin.this.qzF.call(tleft).a((rx.j<? super TLeftDuration>) c1319a);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TRight> entry : ResultSink.this.rightMap.entrySet()) {
@@ -98,7 +98,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qyZ.n(tleft, obj));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qzz.n(tleft, obj));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);
@@ -130,11 +130,11 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            final class C1317a extends rx.j<TLeftDuration> {
+            final class C1319a extends rx.j<TLeftDuration> {
                 final int id;
                 boolean once = true;
 
-                public C1317a(int i) {
+                public C1319a(int i) {
                     this.id = i;
                 }
 
@@ -196,7 +196,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 try {
                     a aVar = new a(i);
                     ResultSink.this.group.add(aVar);
-                    OnSubscribeJoin.this.qzg.call(tright).a((rx.j<? super TRightDuration>) aVar);
+                    OnSubscribeJoin.this.qzG.call(tright).a((rx.j<? super TRightDuration>) aVar);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TLeft> entry : ResultSink.this.leftMap().entrySet()) {
@@ -206,7 +206,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         }
                     }
                     for (Object obj : arrayList) {
-                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qyZ.n(obj, tright));
+                        ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.qzz.n(obj, tright));
                     }
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this);

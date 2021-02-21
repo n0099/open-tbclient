@@ -47,20 +47,20 @@ import org.json.JSONArray;
 public class c {
     private TbPageContext context;
     private String fDL;
-    private String kVe;
-    private LinearLayout kWf;
-    private b kWg;
-    private a kWh;
-    private a kWi;
-    private a kWj;
-    ViewTreeObserver.OnGlobalLayoutListener kWk;
-    ViewTreeObserver.OnGlobalLayoutListener kWl;
-    private ImageUrlData kWm;
-    public ar kWo;
-    private am kWp;
+    private String kVs;
+    private ImageUrlData kWA;
+    public ar kWC;
+    private am kWD;
+    private LinearLayout kWt;
+    private b kWu;
+    private a kWv;
+    private a kWw;
+    private a kWx;
+    ViewTreeObserver.OnGlobalLayoutListener kWy;
+    ViewTreeObserver.OnGlobalLayoutListener kWz;
     private int mSkinType;
     private int replyPrivateFlag;
-    private boolean kWn = false;
+    private boolean kWB = false;
     private View.OnClickListener fEx = new View.OnClickListener() { // from class: com.baidu.tieba.image.a.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -72,25 +72,25 @@ public class c {
     private com.baidu.tbadk.editortools.pb.b fDP = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.image.a.c.2
         @Override // com.baidu.tbadk.editortools.pb.b
         public boolean bBL() {
-            if (c.this.kWm == null) {
+            if (c.this.kWA == null) {
                 return false;
             }
-            if (c.this.kWo != null) {
-                com.baidu.tieba.write.c drF = c.this.kWm.isFirstPost ? c.this.kWo.drF() : c.this.kWo.drG();
-                if (drF != null && drF.dWp()) {
-                    c.this.context.showToast(drF.dWr());
-                    if (c.this.kWh != null && (c.this.kWh.bCc() || c.this.kWh.bCd())) {
-                        c.this.kWh.a(false, c.this.kWo.drI());
+            if (c.this.kWC != null) {
+                com.baidu.tieba.write.c drM = c.this.kWA.isFirstPost ? c.this.kWC.drM() : c.this.kWC.drN();
+                if (drM != null && drM.dWx()) {
+                    c.this.context.showToast(drM.dWz());
+                    if (c.this.kWv != null && (c.this.kWv.bCc() || c.this.kWv.bCd())) {
+                        c.this.kWv.a(false, c.this.kWC.drP());
                     }
-                    if (c.this.kWm.isFirstPost) {
-                        c.this.kWo.vQ(true);
+                    if (c.this.kWA.isFirstPost) {
+                        c.this.kWC.vQ(true);
                     } else {
-                        c.this.kWo.vR(true);
+                        c.this.kWC.vR(true);
                     }
                     return true;
                 }
             }
-            return !c.this.kWp.oy(c.this.replyPrivateFlag);
+            return !c.this.kWD.oy(c.this.replyPrivateFlag);
         }
     };
     private final NewWriteModel.d fDW = new NewWriteModel.d() { // from class: com.baidu.tieba.image.a.c.3
@@ -103,7 +103,7 @@ public class c {
                 str = postWriteCallBackData.getErrorString();
             }
             if (z) {
-                c.this.daw();
+                c.this.daD();
                 if (c.this.context != null && (c.this.context.getPageActivity() instanceof BaseActivity)) {
                     ShowReplyInPbEvent showReplyInPbEvent = new ShowReplyInPbEvent();
                     showReplyInPbEvent.writeData = postWriteCallBackData;
@@ -115,14 +115,14 @@ public class c {
                 }
             } else if (i == 220015) {
                 c.this.context.showToast(str);
-                if (c.this.kWh != null && (c.this.kWh.bCc() || c.this.kWh.bCd())) {
-                    c.this.kWh.a(false, postWriteCallBackData);
-                    c.this.daw();
+                if (c.this.kWv != null && (c.this.kWv.bCc() || c.this.kWv.bCd())) {
+                    c.this.kWv.a(false, postWriteCallBackData);
+                    c.this.daD();
                 }
-                if (c.this.kWm.isFirstPost) {
-                    c.this.kWo.h(postWriteCallBackData);
+                if (c.this.kWA.isFirstPost) {
+                    c.this.kWC.h(postWriteCallBackData);
                 } else {
-                    c.this.kWo.i(postWriteCallBackData);
+                    c.this.kWC.i(postWriteCallBackData);
                 }
             } else if (i == 238010) {
                 if (!au.isEmpty(str)) {
@@ -130,7 +130,7 @@ public class c {
                 } else {
                     c.this.context.showToast(R.string.message_privacy_fans_can_reply);
                 }
-                c.this.daw();
+                c.this.daD();
             } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorLinkCountExceedLimit()) {
                 if (!au.isEmpty(postWriteCallBackData.getErrorString())) {
                     DefaultNavigationBarCoverTip.d(c.this.context.getPageActivity(), postWriteCallBackData.getErrorString(), null).show();
@@ -162,49 +162,49 @@ public class c {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c13745").ap("obj_locate", 1).ap("obj_type", 2));
             } else if (ahVar == null && i != 227001) {
                 c.this.aN(i, str);
-                c.this.daw();
+                c.this.daD();
             }
         }
     };
 
     public c(TbPageContext tbPageContext, LinearLayout linearLayout) {
         this.context = tbPageContext;
-        this.kWf = linearLayout;
-        this.kWf.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.a.c.4
+        this.kWt = linearLayout;
+        this.kWt.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.a.c.4
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent != null && motionEvent.getAction() == 0) {
-                    c.this.daw();
+                    c.this.daD();
                     return true;
                 }
                 return true;
             }
         });
-        this.kWf.setVisibility(8);
-        this.kWp = new am(tbPageContext);
+        this.kWt.setVisibility(8);
+        this.kWD = new am(tbPageContext);
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        this.kWn = true;
-        if (this.kWh != null) {
+        this.kWB = true;
+        if (this.kWv != null) {
             if (i == 25035) {
                 d(i2, intent);
-                daw();
+                daD();
                 return;
             }
-            this.kWh.onActivityResult(i, i2, intent);
+            this.kWv.onActivityResult(i, i2, intent);
         }
     }
 
     public void setFromForumId(String str) {
-        this.kVe = str;
+        this.kVs = str;
     }
 
     private void d(int i, Intent intent) {
-        if (i == 0 && this.kWh != null) {
-            this.kWh.bBh().bzD();
+        if (i == 0 && this.kWv != null) {
+            this.kWv.bBh().bzD();
         } else {
-            daw();
+            daD();
         }
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA);
@@ -216,31 +216,31 @@ public class c {
                 writeData.setWriteImagesInfo(pbEditorData.getWriteImagesInfo());
                 switch (pbEditorData.getEditorType()) {
                     case 0:
-                        if (this.kWi != null) {
-                            this.kWi.resetData();
-                            this.kWi.setVoiceModel(pbEditorData.getVoiceModel());
-                            this.kWi.c(writeData);
-                            m qU = this.kWi.bBh().qU(6);
+                        if (this.kWw != null) {
+                            this.kWw.resetData();
+                            this.kWw.setVoiceModel(pbEditorData.getVoiceModel());
+                            this.kWw.c(writeData);
+                            m qU = this.kWw.bBh().qU(6);
                             if (qU != null && qU.fBo != null) {
                                 qU.fBo.a(new com.baidu.tbadk.editortools.a(52, 0, pbEditorData.getVoiceModel()));
                             }
                             if (i == -1) {
-                                this.kWi.a((String) null, (WriteData) null);
+                                this.kWw.a((String) null, (WriteData) null);
                                 return;
                             }
                             return;
                         }
                         return;
                     case 1:
-                        if (this.kWj != null) {
-                            this.kWj.c(writeData);
-                            this.kWj.setVoiceModel(pbEditorData.getVoiceModel());
-                            m qU2 = this.kWj.bBh().qU(6);
+                        if (this.kWx != null) {
+                            this.kWx.c(writeData);
+                            this.kWx.setVoiceModel(pbEditorData.getVoiceModel());
+                            m qU2 = this.kWx.bBh().qU(6);
                             if (qU2 != null && qU2.fBo != null) {
                                 qU2.fBo.a(new com.baidu.tbadk.editortools.a(52, 0, pbEditorData.getVoiceModel()));
                             }
                             if (i == -1) {
-                                this.kWj.a((String) null, (WriteData) null);
+                                this.kWx.a((String) null, (WriteData) null);
                                 return;
                             }
                             return;
@@ -268,13 +268,13 @@ public class c {
                 }
             });
         } else if (i == 230277) {
-            Dc(str);
+            Da(str);
         } else {
             this.context.showToast(str);
         }
     }
 
-    private void Dc(String str) {
+    private void Da(String str) {
         if (str == null) {
             str = "";
         }
@@ -297,73 +297,73 @@ public class c {
         JSONArray jSONArray;
         String str;
         if (imageUrlData != null && dVar != null) {
-            if (this.kWg == null) {
-                this.kWg = new b();
-                this.kWg.eg(imageUrlData.forumName, imageUrlData.forumId);
+            if (this.kWu == null) {
+                this.kWu = new b();
+                this.kWu.eg(imageUrlData.forumName, imageUrlData.forumId);
             }
-            if (imageUrlData.isFirstPost && this.kWi == null) {
-                this.kWg.kWa = false;
-                this.kWi = (a) this.kWg.fg(this.context.getPageActivity());
-                this.kWk = com.baidu.tbadk.editortools.noConflictPanel.b.b.a(this.context.getPageActivity(), this.kWi.bBh().fBy, new b.InterfaceC0574b() { // from class: com.baidu.tieba.image.a.c.7
+            if (imageUrlData.isFirstPost && this.kWw == null) {
+                this.kWu.kWo = false;
+                this.kWw = (a) this.kWu.fg(this.context.getPageActivity());
+                this.kWy = com.baidu.tbadk.editortools.noConflictPanel.b.b.a(this.context.getPageActivity(), this.kWw.bBh().fBy, new b.InterfaceC0574b() { // from class: com.baidu.tieba.image.a.c.7
                     @Override // com.baidu.tbadk.editortools.noConflictPanel.b.b.InterfaceC0574b
                     public void kT(boolean z2) {
                         if (!z2) {
-                            c.this.kWi.bBh().fBy.bBk();
+                            c.this.kWw.bBh().fBy.bBk();
                         } else {
-                            c.this.kWi.bBh().fBy.setVisibility(0);
+                            c.this.kWw.bBh().fBy.setVisibility(0);
                         }
                     }
                 });
                 z = true;
-            } else if (imageUrlData.isFirstPost || this.kWj != null) {
+            } else if (imageUrlData.isFirstPost || this.kWx != null) {
                 z = false;
             } else {
-                this.kWg.kWa = true;
-                this.kWj = (a) this.kWg.fg(this.context.getPageActivity());
-                this.kWl = com.baidu.tbadk.editortools.noConflictPanel.b.b.a(this.context.getPageActivity(), this.kWj.bBh().fBy, new b.InterfaceC0574b() { // from class: com.baidu.tieba.image.a.c.8
+                this.kWu.kWo = true;
+                this.kWx = (a) this.kWu.fg(this.context.getPageActivity());
+                this.kWz = com.baidu.tbadk.editortools.noConflictPanel.b.b.a(this.context.getPageActivity(), this.kWx.bBh().fBy, new b.InterfaceC0574b() { // from class: com.baidu.tieba.image.a.c.8
                     @Override // com.baidu.tbadk.editortools.noConflictPanel.b.b.InterfaceC0574b
                     public void kT(boolean z2) {
                         if (!z2) {
-                            c.this.kWj.bBh().fBy.bBk();
+                            c.this.kWx.bBh().fBy.bBk();
                         } else {
-                            c.this.kWj.bBh().fBy.setVisibility(0);
+                            c.this.kWx.bBh().fBy.setVisibility(0);
                         }
                     }
                 });
                 z = true;
             }
-            this.kWh = imageUrlData.isFirstPost ? this.kWi : this.kWj;
+            this.kWv = imageUrlData.isFirstPost ? this.kWw : this.kWx;
             if (z) {
-                this.kWh.a(this.context);
-                this.kWh.a(this.fDW);
-                this.kWh.a(this.fDP);
-                this.kWh.a(this.context, (Bundle) null);
-                this.kWh.a(dVar.jSl, (UserData) null);
-                this.kWh.kY(dVar.kUk);
-                this.kWh.bCg();
-                this.kWh.kVe = this.kVe;
-                if (dVar.kUi == null) {
-                    this.kWh.setThreadId(imageUrlData.threadId + "");
+                this.kWv.a(this.context);
+                this.kWv.a(this.fDW);
+                this.kWv.a(this.fDP);
+                this.kWv.a(this.context, (Bundle) null);
+                this.kWv.a(dVar.jSz, (UserData) null);
+                this.kWv.kY(dVar.kUy);
+                this.kWv.bCg();
+                this.kWv.kVs = this.kVs;
+                if (dVar.kUw == null) {
+                    this.kWv.setThreadId(imageUrlData.threadId + "");
                 } else {
-                    this.kWh.a(dVar.kUi, imageUrlData.threadId + "", dVar.kUj);
+                    this.kWv.a(dVar.kUw, imageUrlData.threadId + "", dVar.kUx);
                 }
                 if (imageUrlData.isFirstPost) {
-                    this.kWh.bBS();
+                    this.kWv.bBS();
                 }
-                this.kWh.bBh().fBx.setPadding(0, 0, 0, 0);
-                this.kWh.bBh().b(new com.baidu.tbadk.editortools.a(45, 27, null));
-                this.kWh.bBh().onChangeSkinType(this.mSkinType);
+                this.kWv.bBh().fBx.setPadding(0, 0, 0, 0);
+                this.kWv.bBh().b(new com.baidu.tbadk.editortools.a(45, 27, null));
+                this.kWv.bBh().onChangeSkinType(this.mSkinType);
             }
-            if (this.kWm == null || imageUrlData.postId != this.kWm.postId) {
-                if (this.kWm != null) {
-                    this.kWh.CW(this.kWm.threadId + "");
+            if (this.kWA == null || imageUrlData.postId != this.kWA.postId) {
+                if (this.kWA != null) {
+                    this.kWv.CU(this.kWA.threadId + "");
                 }
-                this.kWh.bCb();
-                this.kWh.resetData();
-                this.kWh.kWa = !imageUrlData.isFirstPost;
-                this.kWh.postId = imageUrlData.postId + "";
-                this.kWh.kWb = imageUrlData.userId;
-                if (!imageUrlData.isFirstPost && this.kWh.bBh() != null) {
+                this.kWv.bCb();
+                this.kWv.resetData();
+                this.kWv.kWo = !imageUrlData.isFirstPost;
+                this.kWv.postId = imageUrlData.postId + "";
+                this.kWv.kWp = imageUrlData.userId;
+                if (!imageUrlData.isFirstPost && this.kWv.bBh() != null) {
                     String string = TbadkCoreApplication.getInst().getResources().getString(R.string.reply_title);
                     try {
                     } catch (Exception e) {
@@ -376,97 +376,97 @@ public class c {
                         } else {
                             str = TbRichTextView.a((Context) this.context.getPageActivity(), jSONArray, false).toString();
                         }
-                        this.kWh.bBh().b(new com.baidu.tbadk.editortools.a(45, 27, String.format(string, imageUrlData.userNameShow, str)));
+                        this.kWv.bBh().b(new com.baidu.tbadk.editortools.a(45, 27, String.format(string, imageUrlData.userNameShow, str)));
                     }
                     jSONArray = null;
                     if (jSONArray != null) {
                     }
                     str = "";
-                    this.kWh.bBh().b(new com.baidu.tbadk.editortools.a(45, 27, String.format(string, imageUrlData.userNameShow, str)));
+                    this.kWv.bBh().b(new com.baidu.tbadk.editortools.a(45, 27, String.format(string, imageUrlData.userNameShow, str)));
                 }
                 this.replyPrivateFlag = dVar.replyPrivateFlag;
                 this.fDL = dVar.fDL;
-                if (this.kWh.bBh() != null && !StringUtils.isNull(this.fDL) && (qR = this.kWh.bBh().qR(6)) != null && !TextUtils.isEmpty(this.fDL)) {
+                if (this.kWv.bBh() != null && !StringUtils.isNull(this.fDL) && (qR = this.kWv.bBh().qR(6)) != null && !TextUtils.isEmpty(this.fDL)) {
                     ((View) qR).setOnClickListener(this.fEx);
                 }
-                this.kWh.CX(imageUrlData.threadId + "");
+                this.kWv.CV(imageUrlData.threadId + "");
             }
-            if (this.kWm == null || this.kWm.isFirstPost != imageUrlData.isFirstPost) {
-                if (this.kWh.bBh() != null) {
-                    this.kWf.removeAllViews();
-                    this.kWf.addView(this.kWh.bBh());
+            if (this.kWA == null || this.kWA.isFirstPost != imageUrlData.isFirstPost) {
+                if (this.kWv.bBh() != null) {
+                    this.kWt.removeAllViews();
+                    this.kWt.addView(this.kWv.bBh());
                 }
-                if (this.kWo == null) {
-                    this.kWo = new ar();
+                if (this.kWC == null) {
+                    this.kWC = new ar();
                 }
-                if (this.kWh.bBN() != null) {
-                    this.kWo.f(this.kWh.bBN().getInputView());
+                if (this.kWv.bBN() != null) {
+                    this.kWC.f(this.kWv.bBN().getInputView());
                 }
             }
-            this.kWm = imageUrlData;
+            this.kWA = imageUrlData;
         }
     }
 
     public void b(ImageUrlData imageUrlData, d dVar) {
-        if (this.kWp != null && imageUrlData != null && dVar != null && this.kWp.ox(dVar.replyPrivateFlag)) {
-            if (this.kWm == null || this.kWm.postId != imageUrlData.postId || this.kWh == null) {
+        if (this.kWD != null && imageUrlData != null && dVar != null && this.kWD.ox(dVar.replyPrivateFlag)) {
+            if (this.kWA == null || this.kWA.postId != imageUrlData.postId || this.kWv == null) {
                 a(imageUrlData, dVar);
             }
-            if (this.kWh != null) {
-                if (this.kWh.bCc() || this.kWh.bCd()) {
-                    this.kWh.a(false, (PostWriteCallBackData) null);
+            if (this.kWv != null) {
+                if (this.kWv.bCc() || this.kWv.bCd()) {
+                    this.kWv.a(false, (PostWriteCallBackData) null);
                     return;
                 }
-                this.kWf.setVisibility(0);
-                if (this.kWh.bBh() != null) {
-                    this.kWh.bBh().display();
-                    this.kWh.bBh().bzD();
+                this.kWt.setVisibility(0);
+                if (this.kWv.bBh() != null) {
+                    this.kWv.bBh().display();
+                    this.kWv.bBh().bzD();
                 }
             }
         }
     }
 
-    public void daw() {
-        if (this.kWh != null && this.kWh.bBh() != null) {
-            this.kWh.bBh().hide();
+    public void daD() {
+        if (this.kWv != null && this.kWv.bBh() != null) {
+            this.kWv.bBh().hide();
         }
-        l.hideSoftKeyPad(this.context.getPageActivity(), this.kWf);
-        this.kWf.setVisibility(8);
+        l.hideSoftKeyPad(this.context.getPageActivity(), this.kWt);
+        this.kWt.setVisibility(8);
     }
 
     public void onPause() {
-        if (this.kWm != null && this.kWh != null) {
-            this.kWh.CW(this.kWm.threadId + "");
+        if (this.kWA != null && this.kWv != null) {
+            this.kWv.CU(this.kWA.threadId + "");
         }
     }
 
     public void onResume() {
-        if (this.kWm != null && this.kWh != null) {
-            if (this.kWn) {
-                this.kWn = false;
+        if (this.kWA != null && this.kWv != null) {
+            if (this.kWB) {
+                this.kWB = false;
                 return;
             }
-            this.kWh.bCb();
-            this.kWh.CX(this.kWm.threadId + "");
-            this.kWh.bBh().bzD();
+            this.kWv.bCb();
+            this.kWv.CV(this.kWA.threadId + "");
+            this.kWv.bBh().bzD();
         }
     }
 
     public void onDestroy() {
-        if (this.kWp != null) {
-            this.kWp.onDestroy();
+        if (this.kWD != null) {
+            this.kWD.onDestroy();
         }
-        if (this.kWk != null) {
-            com.baidu.tbadk.editortools.noConflictPanel.b.b.a(this.context.getPageActivity(), this.kWk);
+        if (this.kWy != null) {
+            com.baidu.tbadk.editortools.noConflictPanel.b.b.a(this.context.getPageActivity(), this.kWy);
         }
-        if (this.kWl != null) {
-            com.baidu.tbadk.editortools.noConflictPanel.b.b.a(this.context.getPageActivity(), this.kWl);
+        if (this.kWz != null) {
+            com.baidu.tbadk.editortools.noConflictPanel.b.b.a(this.context.getPageActivity(), this.kWz);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kWh != null) {
-            this.kWh.bBh().onChangeSkinType(i);
+        if (this.kWv != null) {
+            this.kWv.bBh().onChangeSkinType(i);
         }
     }
 

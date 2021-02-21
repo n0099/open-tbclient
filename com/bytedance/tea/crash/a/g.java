@@ -31,7 +31,7 @@ public class g {
     private static long l;
     private static int n;
     private static boolean o;
-    private static Handler pvB;
+    private static Handler pwb;
     private static boolean c = false;
     private static boolean d = true;
     private static volatile AtomicLong g = new AtomicLong(-1);
@@ -46,9 +46,9 @@ public class g {
     /* renamed from: b  reason: collision with root package name */
     public static long f7617b = -1;
     private static int s = -1;
-    private static MessageQueue pvC = null;
-    private static Field pvD = null;
-    private static Field pvE = null;
+    private static MessageQueue pwc = null;
+    private static Field pwd = null;
+    private static Field pwe = null;
 
     static /* synthetic */ int j() {
         int i2 = n;
@@ -66,7 +66,7 @@ public class g {
             }
             f = new ArrayList();
             a();
-            a(eqP());
+            a(eqX());
         }
     }
 
@@ -121,8 +121,8 @@ public class g {
 
     public static void a() {
         com.bytedance.tea.crash.e.g.a(4L);
-        com.bytedance.tea.crash.e.f.eqZ().b();
-        com.bytedance.tea.crash.e.f.eqZ().b(new Printer() { // from class: com.bytedance.tea.crash.a.g.1
+        com.bytedance.tea.crash.e.f.erh().b();
+        com.bytedance.tea.crash.e.f.erh().b(new Printer() { // from class: com.bytedance.tea.crash.a.g.1
             @Override // android.util.Printer
             public void println(String str) {
                 int i2;
@@ -159,26 +159,26 @@ public class g {
                         } else {
                             i2 = 5;
                         }
-                        long eqQ = g.eqQ();
+                        long eqY = g.eqY();
                         long uptimeMillis = SystemClock.uptimeMillis();
                         if (!g.q) {
-                            g.a(g.eqO(), eqQ - g.k, uptimeMillis - g.l, j2, i2, g.n, null);
+                            g.a(g.eqW(), eqY - g.k, uptimeMillis - g.l, j2, i2, g.n, null);
                         }
-                        long unused4 = g.k = eqQ;
+                        long unused4 = g.k = eqY;
                         long unused5 = g.l = uptimeMillis;
                         int unused6 = g.n = 1;
                     }
                 }
             }
         });
-        com.bytedance.tea.crash.e.f.eqZ().a(new Printer() { // from class: com.bytedance.tea.crash.a.g.2
+        com.bytedance.tea.crash.e.f.erh().a(new Printer() { // from class: com.bytedance.tea.crash.a.g.2
             @Override // android.util.Printer
             public void println(String str) {
                 g.f7617b = g.g.get();
                 if (g.f7616a > 0) {
                     long j2 = g.f7617b - g.f7616a;
                     if (j2 > 0) {
-                        long eqQ = g.eqQ();
+                        long eqY = g.eqY();
                         long uptimeMillis = SystemClock.uptimeMillis();
                         int i2 = 0;
                         if (j2 == 1 && g.n > 1) {
@@ -191,9 +191,9 @@ public class g {
                             i2 = 8;
                         }
                         if (!g.q) {
-                            g.a(g.eqO(), eqQ - g.k, uptimeMillis - g.l, j2, i2, g.n, str);
+                            g.a(g.eqW(), eqY - g.k, uptimeMillis - g.l, j2, i2, g.n, str);
                         }
-                        long unused = g.k = eqQ;
+                        long unused = g.k = eqY;
                         long unused2 = g.l = uptimeMillis;
                         int unused3 = g.n = 0;
                         g.f7616a = -1L;
@@ -201,12 +201,12 @@ public class g {
                 }
             }
         });
-        k = eqQ();
+        k = eqY();
         l = SystemClock.uptimeMillis();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static a eqO() {
+    public static a eqW() {
         if (f.size() == e) {
             s = (s + 1) % e;
             return f.get(s);
@@ -288,9 +288,9 @@ public class g {
     public static void u() {
         j = h.a();
         i = SystemClock.uptimeMillis();
-        pvB = new Handler(j.getLooper());
+        pwb = new Handler(j.getLooper());
         com.bytedance.tea.crash.e.g.a(8L);
-        pvB.postDelayed(new Runnable() { // from class: com.bytedance.tea.crash.a.g.3
+        pwb.postDelayed(new Runnable() { // from class: com.bytedance.tea.crash.a.g.3
             @Override // java.lang.Runnable
             public void run() {
                 long j2;
@@ -302,54 +302,54 @@ public class g {
                 } else {
                     j2 = g.h - uptimeMillis;
                 }
-                g.pvB.postDelayed(this, j2);
+                g.pwb.postDelayed(this, j2);
             }
         }, h);
     }
 
-    public static MessageQueue eqP() {
-        if (pvC == null && Looper.getMainLooper() != null) {
+    public static MessageQueue eqX() {
+        if (pwc == null && Looper.getMainLooper() != null) {
             Looper mainLooper = Looper.getMainLooper();
             if (mainLooper == Looper.myLooper()) {
-                pvC = Looper.myQueue();
+                pwc = Looper.myQueue();
             } else if (Build.VERSION.SDK_INT >= 23) {
-                pvC = mainLooper.getQueue();
+                pwc = mainLooper.getQueue();
             } else {
                 try {
                     Field declaredField = mainLooper.getClass().getDeclaredField("mQueue");
                     declaredField.setAccessible(true);
-                    pvC = (MessageQueue) declaredField.get(mainLooper);
+                    pwc = (MessageQueue) declaredField.get(mainLooper);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
         }
-        return pvC;
+        return pwc;
     }
 
     private static Message a(MessageQueue messageQueue) {
-        if (pvD == null) {
+        if (pwd == null) {
             try {
-                pvD = Class.forName("android.os.MessageQueue").getDeclaredField("mMessages");
-                pvD.setAccessible(true);
-                return (Message) pvD.get(messageQueue);
+                pwd = Class.forName("android.os.MessageQueue").getDeclaredField("mMessages");
+                pwd.setAccessible(true);
+                return (Message) pwd.get(messageQueue);
             } catch (Exception e2) {
                 return null;
             }
         }
         try {
-            return (Message) pvD.get(messageQueue);
+            return (Message) pwd.get(messageQueue);
         } catch (Exception e3) {
             return null;
         }
     }
 
     public static JSONArray E(int i2, long j2) {
-        MessageQueue eqP = eqP();
+        MessageQueue eqX = eqX();
         JSONArray jSONArray = new JSONArray();
-        if (eqP != null) {
-            synchronized (eqP) {
-                Message a2 = a(eqP);
+        if (eqX != null) {
+            synchronized (eqX) {
+                Message a2 = a(eqX);
                 if (a2 != null) {
                     int i3 = 0;
                     int i4 = 0;
@@ -371,7 +371,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static long eqQ() {
+    public static long eqY() {
         return com.bytedance.tea.crash.e.c.a(r);
     }
 
@@ -380,7 +380,7 @@ public class g {
         try {
             jSONObject.put("message", p);
             jSONObject.put("currentMessageCost", e());
-            jSONObject.put("currentMessageCpu", eqQ() - k);
+            jSONObject.put("currentMessageCpu", eqY() - k);
             jSONObject.put("currentTick", g.get());
         } catch (Throwable th) {
             j.a(th);
@@ -419,11 +419,11 @@ public class g {
     }
 
     private static Message W(Message message) {
-        if (pvE == null) {
+        if (pwe == null) {
             try {
-                pvE = Class.forName("android.os.Message").getDeclaredField(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
-                pvE.setAccessible(true);
-                Message message2 = (Message) pvE.get(message);
+                pwe = Class.forName("android.os.Message").getDeclaredField(UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                pwe.setAccessible(true);
+                Message message2 = (Message) pwe.get(message);
                 if (c) {
                     Log.i("LooperMonitor", "[getNextMessage] success get next msg :" + message2);
                     return message2;
@@ -434,7 +434,7 @@ public class g {
             }
         }
         try {
-            return (Message) pvE.get(message);
+            return (Message) pwe.get(message);
         } catch (Exception e3) {
             return null;
         }

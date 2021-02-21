@@ -6,7 +6,7 @@ import com.xiaomi.push.jo;
 /* loaded from: classes6.dex */
 public class iw {
     public static short a(Context context, ii iiVar) {
-        return (short) ((ah.b(context) ? 4 : 0) + 0 + g.m332a(context, iiVar.f684b).a() + (ah.a(context) ? 8 : 0));
+        return (short) ((ah.b(context) ? 4 : 0) + 0 + g.m331a(context, iiVar.f684b).a() + (ah.a(context) ? 8 : 0));
     }
 
     public static <T extends ix<T, ?>> void a(T t, byte[] bArr) {

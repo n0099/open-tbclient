@@ -19,16 +19,16 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class f {
-    private static f iTa = new f();
-    private a iTb;
-    private List<String> iTc;
+    private static f iTo = new f();
+    private a iTp;
+    private List<String> iTq;
     private int max = 5;
-    private CustomMessageListener iTd = new CustomMessageListener(CmdConfigCustom.CMD_CANCEL_FILE_DOWNLOAD) { // from class: com.baidu.tieba.faceshop.f.1
+    private CustomMessageListener iTr = new CustomMessageListener(CmdConfigCustom.CMD_CANCEL_FILE_DOWNLOAD) { // from class: com.baidu.tieba.faceshop.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001140 && (customResponsedMessage instanceof CancelDownloadMessage)) {
-                f.this.cys();
+                f.this.cyz();
             }
         }
     };
@@ -37,25 +37,25 @@ public class f {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                f.this.iTc = ((QueryDownloadMessage) customResponsedMessage).getData();
-                f.this.cY(f.this.iTc);
+                f.this.iTq = ((QueryDownloadMessage) customResponsedMessage).getData();
+                f.this.cY(f.this.iTq);
             }
         }
     };
 
     private f() {
         MessageManager.getInstance().registerListener(this.eJz);
-        MessageManager.getInstance().registerListener(this.iTd);
+        MessageManager.getInstance().registerListener(this.iTr);
     }
 
-    public static f cyr() {
-        return iTa;
+    public static f cyy() {
+        return iTo;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cY(List<String> list) {
-        this.iTb = new a();
-        this.iTb.execute(list);
+        this.iTp = new a();
+        this.iTp.execute(list);
     }
 
     public void aG(String str, String str2, String str3) {
@@ -104,11 +104,11 @@ public class f {
         }
     }
 
-    public void Jy(String str) {
+    public void Jz(String str) {
         com.baidu.tbadk.download.d.bBd().cancelDownLoadById(str, 11);
     }
 
-    public void cys() {
+    public void cyz() {
         com.baidu.tbadk.download.d.bBd().cancelDownloadByType(11);
     }
 
@@ -138,8 +138,8 @@ public class f {
                 return linkedList;
             }
             for (int i = 0; i < listArr[0].size(); i++) {
-                MyEmotionGroupData eS = com.baidu.tieba.faceshop.a.cyo().eS(TbadkApplication.getCurrentAccount(), listArr[0].get(i));
-                if (eS != null && b.Jx(eS.getGroupId())) {
+                MyEmotionGroupData eS = com.baidu.tieba.faceshop.a.cyv().eS(TbadkApplication.getCurrentAccount(), listArr[0].get(i));
+                if (eS != null && b.Jy(eS.getGroupId())) {
                     DownloadData downloadData = new DownloadData(eS.getGroupId());
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -158,7 +158,7 @@ public class f {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : com.baidu.tbadk.download.d.bBd().getDownloadList()) {
-                for (String str : f.this.iTc) {
+                for (String str : f.this.iTq) {
                     if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                         list.add(downloadData);
                     }

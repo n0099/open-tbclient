@@ -14,13 +14,13 @@ import com.baidu.tieba.ala.data.d;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private ArrayList<AlaLiveWishListData> gqK;
-    private boolean hSW;
+    private ArrayList<AlaLiveWishListData> gqY;
+    private boolean hTk;
     private Context mContext;
     private long mCurrentTime;
     private LayoutInflater mInflater;
     private ArrayList<d> ajo = new ArrayList<>();
-    private SparseArray<CountDownTimer> hSV = new SparseArray<>();
+    private SparseArray<CountDownTimer> hTj = new SparseArray<>();
 
     public b(Context context) {
         this.mContext = context;
@@ -33,11 +33,11 @@ public class b extends BaseAdapter {
     }
 
     public void oT(boolean z) {
-        this.hSW = z;
+        this.hTk = z;
     }
 
     public void ad(ArrayList<AlaLiveWishListData> arrayList) {
-        this.gqK = arrayList;
+        this.gqY = arrayList;
         notifyDataSetChanged();
     }
 
@@ -76,31 +76,31 @@ public class b extends BaseAdapter {
             aVar = (com.baidu.tieba.ala.livewishlist.b.a) view.getTag();
         }
         d dVar = this.ajo.get(i);
-        if (!ListUtils.isEmpty(this.gqK)) {
+        if (!ListUtils.isEmpty(this.gqY)) {
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 >= this.gqK.size()) {
+                if (i3 >= this.gqY.size()) {
                     break;
-                } else if (!this.gqK.get(i3).wish_id.equals(dVar.gSn)) {
+                } else if (!this.gqY.get(i3).wish_id.equals(dVar.gSB)) {
                     i2 = i3 + 1;
                 } else {
-                    aVar.a(this.gqK.get(i3));
+                    aVar.a(this.gqY.get(i3));
                     break;
                 }
             }
         }
-        aVar.oT(this.hSW);
+        aVar.oT(this.hTk);
         aVar.fM(this.mCurrentTime);
-        aVar.a(i, this.hSV, dVar);
+        aVar.a(i, this.hTj, dVar);
         return view;
     }
 
-    public void clM() {
-        if (this.hSV != null) {
-            int size = this.hSV.size();
+    public void clT() {
+        if (this.hTj != null) {
+            int size = this.hTj.size();
             for (int i = 0; i < size; i++) {
-                CountDownTimer countDownTimer = this.hSV.get(this.hSV.keyAt(i));
+                CountDownTimer countDownTimer = this.hTj.get(this.hTj.keyAt(i));
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
                 }

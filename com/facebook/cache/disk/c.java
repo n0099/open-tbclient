@@ -20,7 +20,7 @@ public interface c {
 
         com.facebook.a.a aZ(Object obj) throws IOException;
 
-        boolean erU();
+        boolean esc();
     }
 
     b E(String str, Object obj) throws IOException;
@@ -29,13 +29,13 @@ public interface c {
 
     boolean G(String str, Object obj) throws IOException;
 
-    long Zd(String str) throws IOException;
+    long Zp(String str) throws IOException;
 
     long a(a aVar) throws IOException;
 
-    void erQ();
+    void erY();
 
-    Collection<a> erR() throws IOException;
+    Collection<a> erZ() throws IOException;
 
     boolean isExternal();
 }

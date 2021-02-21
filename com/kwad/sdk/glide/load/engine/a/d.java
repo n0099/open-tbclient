@@ -3,7 +3,7 @@ package com.kwad.sdk.glide.load.engine.a;
 import com.kwad.sdk.glide.load.engine.a.a;
 import java.io.File;
 /* loaded from: classes3.dex */
-public class d implements a.InterfaceC1130a {
+public class d implements a.InterfaceC1132a {
 
     /* renamed from: a  reason: collision with root package name */
     private final long f10162a;
@@ -21,7 +21,7 @@ public class d implements a.InterfaceC1130a {
         this.f10163b = aVar;
     }
 
-    @Override // com.kwad.sdk.glide.load.engine.a.a.InterfaceC1130a
+    @Override // com.kwad.sdk.glide.load.engine.a.a.InterfaceC1132a
     public com.kwad.sdk.glide.load.engine.a.a a() {
         File a2 = this.f10163b.a();
         if (a2 == null) {

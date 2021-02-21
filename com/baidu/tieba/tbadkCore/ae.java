@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
     private String mFrom = BarDetailForDirSwitch.BAR_DETAIL_DIR;
-    private a nvE;
+    private a nwe;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,11 +29,11 @@ public class ae {
     }
 
     public void a(a aVar) {
-        this.nvE = aVar;
+        this.nwe = aVar;
     }
 
     public void O(String str, long j) {
-        new b(str, j, this.mFrom, this.nvE, this, null).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.nwe, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -46,18 +46,18 @@ public class ae {
         private String mForumName;
         private String mFrom;
         private com.baidu.tbadk.core.util.aa mNetwork = null;
-        private WeakReference<a> nvF;
-        private WeakReference<ae> nvG;
+        private WeakReference<a> nwf;
+        private WeakReference<ae> nwg;
         private AuthTokenData tokenData;
 
         public b(String str, long j, String str2, a aVar, ae aeVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.nvF = null;
-            this.nvG = new WeakReference<>(aeVar);
+            this.nwf = null;
+            this.nwg = new WeakReference<>(aeVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.nvF = new WeakReference<>(aVar);
+            this.nwf = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -66,7 +66,7 @@ public class ae {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
+        /* renamed from: e */
         public Integer doInBackground(Integer... numArr) {
             JSONObject jSONObject;
             try {
@@ -100,10 +100,10 @@ public class ae {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.nvF != null) {
+            if (this.nwf != null) {
                 com.baidu.tieba.tbadkCore.writeModel.e eVar = new com.baidu.tieba.tbadkCore.writeModel.e();
                 eVar.forumId = this.mForumId;
-                a aVar = this.nvF.get();
+                a aVar = this.nwf.get();
                 if (aVar != null) {
                     if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.bsr().btb().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);

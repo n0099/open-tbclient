@@ -9,30 +9,30 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class e {
     @SuppressLint({"StaticFieldLeak"})
-    private static volatile e pvQ;
+    private static volatile e pwq;
 
     /* renamed from: b  reason: collision with root package name */
     private Context f7642b;
     private Map<com.bytedance.tea.crash.c, c> c = new HashMap();
-    private b pvO;
-    private d pvP;
+    private b pwo;
+    private d pwp;
 
     private e(@NonNull Context context) {
         this.f7642b = context;
-        this.pvO = new b(this.f7642b);
-        this.pvP = new d(this.f7642b);
+        this.pwo = new b(this.f7642b);
+        this.pwp = new d(this.f7642b);
     }
 
-    public static e eqY() {
-        if (pvQ == null) {
+    public static e erg() {
+        if (pwq == null) {
             throw new IllegalArgumentException("CrashContextAssembly not init");
         }
-        return pvQ;
+        return pwq;
     }
 
     public static void a(Context context) {
-        if (pvQ == null) {
-            pvQ = new e(context);
+        if (pwq == null) {
+            pwq = new e(context);
         }
     }
 
@@ -42,13 +42,13 @@ public class e {
         if (cVar2 == null) {
             switch (cVar) {
                 case JAVA:
-                    cVar2 = new g(this.f7642b, this.pvO, this.pvP);
+                    cVar2 = new g(this.f7642b, this.pwo, this.pwp);
                     break;
                 case ANR:
-                    cVar2 = new a(this.f7642b, this.pvO, this.pvP);
+                    cVar2 = new a(this.f7642b, this.pwo, this.pwp);
                     break;
                 case CUSTOM_JAVA:
-                    cVar2 = new f(this.f7642b, this.pvO, this.pvP);
+                    cVar2 = new f(this.f7642b, this.pwo, this.pwp);
                     break;
             }
             if (cVar2 != null) {

@@ -18,26 +18,26 @@ import java.util.Queue;
 public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final C1133a f10307a = new C1133a();
+    private static final C1135a f10307a = new C1135a();
 
     /* renamed from: b  reason: collision with root package name */
     private static final b f10308b = new b();
     private final Context c;
     private final List<ImageHeaderParser> d;
     private final b e;
-    private final C1133a f;
+    private final C1135a f;
     private final com.kwad.sdk.glide.load.resource.d.b g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
     /* renamed from: com.kwad.sdk.glide.load.resource.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1133a {
-        C1133a() {
+    public static class C1135a {
+        C1135a() {
         }
 
-        com.kwad.sdk.glide.b.a a(a.InterfaceC1120a interfaceC1120a, com.kwad.sdk.glide.b.c cVar, ByteBuffer byteBuffer, int i) {
-            return new com.kwad.sdk.glide.b.e(interfaceC1120a, cVar, byteBuffer, i);
+        com.kwad.sdk.glide.b.a a(a.InterfaceC1122a interfaceC1122a, com.kwad.sdk.glide.b.c cVar, ByteBuffer byteBuffer, int i) {
+            return new com.kwad.sdk.glide.b.e(interfaceC1122a, cVar, byteBuffer, i);
         }
     }
 
@@ -72,10 +72,10 @@ public class a implements com.kwad.sdk.glide.load.f<ByteBuffer, c> {
     }
 
     @VisibleForTesting
-    a(Context context, List<ImageHeaderParser> list, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, b bVar2, C1133a c1133a) {
+    a(Context context, List<ImageHeaderParser> list, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, b bVar2, C1135a c1135a) {
         this.c = context.getApplicationContext();
         this.d = list;
-        this.f = c1133a;
+        this.f = c1135a;
         this.g = new com.kwad.sdk.glide.load.resource.d.b(eVar, bVar);
         this.e = bVar2;
     }

@@ -15,20 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d {
-    public String jdX;
-    private String mMJ;
-    public ArrayList<String> mMS;
-    private PostSearchActivity mMr;
-    public int mMK = 0;
-    public int mML = 0;
-    public int mMM = 1;
-    public int mMN = 1;
-    public int mMO = 1;
-    public boolean mMP = false;
-    public boolean mMQ = false;
-    public boolean mMR = false;
-    private int mMT = 0;
-    private final HttpMessageListener mMU = new HttpMessageListener(1003016) { // from class: com.baidu.tieba.postsearch.d.1
+    public String jel;
+    private PostSearchActivity mMG;
+    private String mMY;
+    public ArrayList<String> mNh;
+    public int mMZ = 0;
+    public int mNa = 0;
+    public int mNb = 1;
+    public int mNc = 1;
+    public int mNd = 1;
+    public boolean mNe = false;
+    public boolean mNf = false;
+    public boolean mNg = false;
+    private int mNi = 0;
+    private final HttpMessageListener mNj = new HttpMessageListener(1003016) { // from class: com.baidu.tieba.postsearch.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,123 +41,123 @@ public class d {
                 boolean z = d.this.Hx(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.mMr.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.mMG.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.Hw(intValue);
-                    d.this.dBM();
-                    d.this.dBP();
+                    d.this.dBT();
+                    d.this.dBW();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.mMr.getResources().getString(R.string.neterror);
+                    errorString = d.this.mMG.getResources().getString(R.string.neterror);
                 }
-                d.this.mMr.showToast(errorString);
-                d.this.mMr.a(intValue, null, z);
+                d.this.mMG.showToast(errorString);
+                d.this.mMG.a(intValue, null, z);
             }
         }
     };
-    private CustomMessageListener mMV = new CustomMessageListener(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA) { // from class: com.baidu.tieba.postsearch.d.2
+    private CustomMessageListener mNk = new CustomMessageListener(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA) { // from class: com.baidu.tieba.postsearch.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                d.this.mMS = (ArrayList) data;
-                d.this.mMr.dBy();
+                d.this.mNh = (ArrayList) data;
+                d.this.mMG.dBF();
             }
         }
     };
 
     public d(PostSearchActivity postSearchActivity) {
-        this.mMr = postSearchActivity;
-        this.mMr.registerListener(this.mMV);
-        this.mMr.registerListener(this.mMU);
+        this.mMG = postSearchActivity;
+        this.mMG.registerListener(this.mNk);
+        this.mMG.registerListener(this.mNj);
     }
 
     public boolean bM(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.jdX)) {
-            dBO();
+        if (!str.equals(this.jel)) {
+            dBV();
         }
         switch (i) {
             case 1:
-                return QM(str);
-            case 2:
                 return QN(str);
-            case 3:
+            case 2:
                 return QO(str);
+            case 3:
+                return QP(str);
             default:
                 return false;
         }
     }
 
-    public boolean QM(String str) {
-        if (this.mMP) {
-            return false;
-        }
-        this.jdX = str;
-        this.mMT = 1;
-        this.mMr.sendMessage(Hv(this.mMT));
-        this.mMP = true;
-        return true;
-    }
-
     public boolean QN(String str) {
-        if (this.mMQ) {
+        if (this.mNe) {
             return false;
         }
-        this.jdX = str;
-        this.mMT = 2;
-        this.mMr.sendMessage(Hv(this.mMT));
-        this.mMQ = true;
+        this.jel = str;
+        this.mNi = 1;
+        this.mMG.sendMessage(Hv(this.mNi));
+        this.mNe = true;
         return true;
     }
 
     public boolean QO(String str) {
-        if (this.mMR) {
+        if (this.mNf) {
             return false;
         }
-        this.jdX = str;
-        this.mMT = 3;
-        this.mMr.sendMessage(Hv(this.mMT));
-        this.mMR = true;
+        this.jel = str;
+        this.mNi = 2;
+        this.mMG.sendMessage(Hv(this.mNi));
+        this.mNf = true;
         return true;
     }
 
-    public void dBL() {
-        this.mMr.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
+    public boolean QP(String str) {
+        if (this.mNg) {
+            return false;
+        }
+        this.jel = str;
+        this.mNi = 3;
+        this.mMG.sendMessage(Hv(this.mNi));
+        this.mNg = true;
+        return true;
     }
 
-    public void dBM() {
-        if (!StringUtils.isNull(this.jdX) && !this.jdX.equals(this.mMJ)) {
-            this.mMr.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.jdX));
-            this.mMJ = this.jdX;
+    public void dBS() {
+        this.mMG.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
+    }
+
+    public void dBT() {
+        if (!StringUtils.isNull(this.jel) && !this.jel.equals(this.mMY)) {
+            this.mMG.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.jel));
+            this.mMY = this.jel;
         }
     }
 
-    public void dBN() {
-        if (this.mMS != null) {
-            this.mMS.clear();
+    public void dBU() {
+        if (this.mNh != null) {
+            this.mNh.clear();
         }
-        this.mMr.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
+        this.mMG.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
-    public void dBO() {
-        this.mMM = 1;
-        this.mMN = 1;
-        this.mMO = 1;
+    public void dBV() {
+        this.mNb = 1;
+        this.mNc = 1;
+        this.mNd = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dBP() {
-        if (this.mMS == null) {
-            this.mMS = new ArrayList<>();
+    public void dBW() {
+        if (this.mNh == null) {
+            this.mNh = new ArrayList<>();
         }
-        this.mMS.remove(this.jdX);
-        this.mMS.add(0, this.jdX);
-        fH(this.mMS);
+        this.mNh.remove(this.jel);
+        this.mNh.add(0, this.jel);
+        fH(this.mNh);
     }
 
     private void fH(List<String> list) {
@@ -172,25 +172,25 @@ public class d {
 
     private HttpMessage Hv(int i) {
         HttpMessage httpMessage = new HttpMessage(1003016);
-        httpMessage.addParam("word", this.jdX);
+        httpMessage.addParam("word", this.jel);
         httpMessage.addParam("rn", 30);
-        httpMessage.addParam("kw", this.mMr.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.mMT));
+        httpMessage.addParam("kw", this.mMG.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.mNi));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.mMM);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.mNb);
                 break;
             case 2:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.mMN);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.mNc);
                 break;
             case 3:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.mMO);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.mNd);
                 break;
         }
         return httpMessage;
@@ -200,13 +200,13 @@ public class d {
     public void Hw(int i) {
         switch (i) {
             case 1:
-                this.mMM++;
+                this.mNb++;
                 return;
             case 2:
-                this.mMN++;
+                this.mNc++;
                 return;
             case 3:
-                this.mMO++;
+                this.mNd++;
                 return;
             default:
                 return;
@@ -217,11 +217,11 @@ public class d {
     public int Hx(int i) {
         switch (i) {
             case 1:
-                return this.mMM;
+                return this.mNb;
             case 2:
-                return this.mMN;
+                return this.mNc;
             case 3:
-                return this.mMO;
+                return this.mNd;
             default:
                 return 0;
         }
@@ -231,13 +231,13 @@ public class d {
     public void Hy(int i) {
         switch (i) {
             case 1:
-                this.mMP = false;
+                this.mNe = false;
                 return;
             case 2:
-                this.mMQ = false;
+                this.mNf = false;
                 return;
             case 3:
-                this.mMR = false;
+                this.mNg = false;
                 return;
             default:
                 return;

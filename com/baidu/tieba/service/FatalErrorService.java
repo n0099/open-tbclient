@@ -148,7 +148,7 @@ public class FatalErrorService extends BdBaseService {
                                 }
                                 if (this.mNetwork.bsr().btb().isRequestSuccess()) {
                                     if (z2) {
-                                        af(file);
+                                        ag(file);
                                     }
                                     fileWriter = new FileWriter(file, false);
                                     try {
@@ -293,7 +293,7 @@ public class FatalErrorService extends BdBaseService {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private void af(File file) {
+        private void ag(File file) {
             BufferedReader bufferedReader;
             try {
                 bufferedReader = new BufferedReader(new FileReader(file));
@@ -354,7 +354,7 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(o.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(o.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), Config.ERROR_LOG_SERVER, "0", false, false);
-                dFU();
+                dGc();
                 if (!TbConfig.getVersion().equals(b.brQ().getString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, ""))) {
                     b.brQ().putString(SharedPrefConfig.NATIVE_CRASH_DUMP_VERSION, TbConfig.getVersion());
                     z = false;
@@ -363,7 +363,7 @@ public class FatalErrorService extends BdBaseService {
                 if (GetFile != null) {
                     for (File file : GetFile.listFiles()) {
                         if (file.length() >= 1024 && z) {
-                            ag(file);
+                            ah(file);
                             a(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
                         } else {
                             file.delete();
@@ -378,7 +378,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void dFU() {
+        private void dGc() {
             File GetFileByAbsolutePath = o.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
             if (GetFileByAbsolutePath != null) {
                 try {
@@ -404,7 +404,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void ag(File file) {
+        private void ah(File file) {
             FileWriter fileWriter;
             if (file == null || !file.exists() || !file.isFile()) {
                 return;

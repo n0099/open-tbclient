@@ -7,21 +7,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes15.dex */
 public final class g {
-    private static String[] oUz = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File oUA = null;
-    private static RandomAccessFile oUB = null;
+    private static String[] oUZ = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File oVa = null;
+    private static RandomAccessFile oVb = null;
 
     public static synchronized boolean b(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (eir() && f(str2, str3)) {
+            if (eiz() && f(str2, str3)) {
                 try {
-                    oUA = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(oUA, "rwd");
-                    oUB = randomAccessFile;
-                    randomAccessFile.seek(oUA.length());
-                    oUB.write((str + "\r\n").getBytes("UTF-8"));
-                    oUB.close();
+                    oVa = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(oVa, "rwd");
+                    oVb = randomAccessFile;
+                    randomAccessFile.seek(oVa.length());
+                    oVb.write((str + "\r\n").getBytes("UTF-8"));
+                    oVb.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -34,14 +34,14 @@ public final class g {
     public static synchronized String e(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (eir()) {
-                if (XH(str + str2)) {
+            if (eiz()) {
+                if (XT(str + str2)) {
                     try {
-                        oUA = new File(str + str2);
-                        oUB = new RandomAccessFile(oUA, "r");
+                        oVa = new File(str + str2);
+                        oVb = new RandomAccessFile(oVa, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = oUB.readLine();
+                            String readLine = oVb.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -49,14 +49,14 @@ public final class g {
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            oUB.close();
+                            oVb.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            oUB.close();
+                            oVb.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -70,39 +70,39 @@ public final class g {
         return str3;
     }
 
-    private static boolean eir() {
+    private static boolean eiz() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.ehZ().getContext().checkCallingOrSelfPermission(oUz[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.eih().getContext().checkCallingOrSelfPermission(oUZ[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
-    public static boolean XH(String str) {
+    public static boolean XT(String str) {
         File file = new File(str);
-        oUA = file;
+        oVa = file;
         return file.exists();
     }
 
-    public static boolean XI(String str) {
+    public static boolean XU(String str) {
         File file = new File(str);
-        oUA = file;
+        oVa = file;
         return file.delete();
     }
 
     private static boolean f(String str, String str2) {
         try {
-            oUA = new File(str);
-            if (!XH(str)) {
-                oUA.mkdirs();
+            oVa = new File(str);
+            if (!XT(str)) {
+                oVa.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            oUA = file;
+            oVa = file;
             if (file.exists()) {
                 return true;
             }
-            return oUA.createNewFile();
+            return oVa.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

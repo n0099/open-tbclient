@@ -7,12 +7,12 @@ import tbclient.ThreadInfo;
 public class b {
     private String content;
     private String ctr;
-    private int jvj;
-    private long kFE;
-    private int kFF;
-    private long kFG;
-    private RecommendForumInfo kFH;
-    private ThreadInfo kFI;
+    private int jvx;
+    private long kFS;
+    private int kFT;
+    private long kFU;
+    private RecommendForumInfo kFV;
+    private ThreadInfo kFW;
     private String picUrl;
     private int pv;
     private String title;
@@ -29,51 +29,51 @@ public class b {
         return this.picUrl;
     }
 
-    public long cVV() {
-        return this.kFE;
+    public long cWc() {
+        return this.kFS;
     }
 
-    public int cVW() {
-        return this.kFF;
+    public int cWd() {
+        return this.kFT;
     }
 
-    public int cVX() {
+    public int cWe() {
         return this.pv;
     }
 
-    public String cVY() {
+    public String cWf() {
         return this.ctr;
     }
 
-    public long cVZ() {
-        return this.kFG;
+    public long cWg() {
+        return this.kFU;
     }
 
-    public int cHa() {
-        return this.jvj;
+    public int cHh() {
+        return this.jvx;
     }
 
-    public RecommendForumInfo cWa() {
-        return this.kFH;
+    public RecommendForumInfo cWh() {
+        return this.kFV;
     }
 
-    public ThreadInfo cWb() {
-        return this.kFI;
+    public ThreadInfo cWi() {
+        return this.kFW;
     }
 
     public void a(BroadcastInfo broadcastInfo) {
         if (broadcastInfo != null) {
-            this.kFG = broadcastInfo.bcast_id.longValue();
+            this.kFU = broadcastInfo.bcast_id.longValue();
             this.title = broadcastInfo.title;
             this.content = broadcastInfo.content;
             this.picUrl = broadcastInfo.pic_url;
-            this.kFE = broadcastInfo.publish_time.intValue();
-            this.kFF = broadcastInfo.pushuser_cnt.intValue();
-            this.kFH = broadcastInfo.forum_info;
-            this.kFI = broadcastInfo.thread_infos;
+            this.kFS = broadcastInfo.publish_time.intValue();
+            this.kFT = broadcastInfo.pushuser_cnt.intValue();
+            this.kFV = broadcastInfo.forum_info;
+            this.kFW = broadcastInfo.thread_infos;
             this.ctr = broadcastInfo.ctr;
             this.pv = broadcastInfo.pv.intValue();
-            this.jvj = broadcastInfo.audit_status.intValue();
+            this.jvx = broadcastInfo.audit_status.intValue();
         }
     }
 }

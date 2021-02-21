@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes10.dex */
 public class b implements com.baidu.h.a.a.a {
-    private c lgY;
+    private c lhm;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.livesdk.a.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.lgY != null) {
-                b.this.lgY.onLoginStatusChanged(false, false);
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.lhm != null) {
+                b.this.lhm.onLoginStatusChanged(false, false);
             }
         }
     };
@@ -54,6 +54,6 @@ public class b implements com.baidu.h.a.a.a {
 
     @Override // com.baidu.h.a.a.a
     public void a(c cVar) {
-        this.lgY = cVar;
+        this.lhm = cVar;
     }
 }

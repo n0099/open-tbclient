@@ -10,12 +10,12 @@ import com.baidu.tieba.R;
 public class ChooseColorLayout extends LinearLayout {
     private int mPadding;
     private int mWidth;
-    private int[] mqP;
-    private int mqQ;
-    private int mqR;
-    private int mqS;
-    private int mqT;
-    private a mqU;
+    private int[] mre;
+    private int mrf;
+    private int mrg;
+    private int mrh;
+    private int mri;
+    private a mrj;
     public View.OnClickListener onClickListener;
 
     /* loaded from: classes2.dex */
@@ -37,16 +37,16 @@ public class ChooseColorLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue;
-                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.mqT) {
-                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.mqT);
+                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.mri) {
+                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.mri);
                     if (childAt instanceof ChooseColorView) {
                         ((ChooseColorView) childAt).setIsChooseView(false);
                     }
-                    ChooseColorLayout.this.mqT = intValue;
-                    ChooseColorLayout.this.mqS = ((ChooseColorView) view).getChooseColor();
+                    ChooseColorLayout.this.mri = intValue;
+                    ChooseColorLayout.this.mrh = ((ChooseColorView) view).getChooseColor();
                     ((ChooseColorView) view).setIsChooseView(true);
-                    if (ChooseColorLayout.this.mqU != null) {
-                        ChooseColorLayout.this.mqU.GC(ChooseColorLayout.this.mqS);
+                    if (ChooseColorLayout.this.mrj != null) {
+                        ChooseColorLayout.this.mrj.GC(ChooseColorLayout.this.mrh);
                     }
                 }
             }
@@ -56,21 +56,21 @@ public class ChooseColorLayout extends LinearLayout {
 
     private void init() {
         this.mWidth = l.getEquipmentWidth(getContext());
-        this.mqP = getResources().getIntArray(R.array.choose_colors);
+        this.mre = getResources().getIntArray(R.array.choose_colors);
         this.mPadding = getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.mqQ = (this.mWidth - (this.mPadding * 2)) / 8;
-        this.mqR = (this.mqQ - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mqQ, this.mqQ);
+        this.mrf = (this.mWidth - (this.mPadding * 2)) / 8;
+        this.mrg = (this.mrf - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mrf, this.mrf);
         layoutParams.gravity = 17;
-        for (int i = 0; i < this.mqP.length; i++) {
+        for (int i = 0; i < this.mre.length; i++) {
             ChooseColorView chooseColorView = new ChooseColorView(getContext());
-            chooseColorView.setChooseColor(this.mqP[i]);
+            chooseColorView.setChooseColor(this.mre[i]);
             chooseColorView.setTag(Integer.valueOf(i));
-            chooseColorView.setRadius(this.mqR);
+            chooseColorView.setRadius(this.mrg);
             if (i == 0) {
                 chooseColorView.setIsChooseView(true);
-                this.mqS = this.mqP[i];
-                this.mqT = i;
+                this.mrh = this.mre[i];
+                this.mri = i;
             }
             chooseColorView.setOnClickListener(this.onClickListener);
             addView(chooseColorView, layoutParams);
@@ -79,10 +79,10 @@ public class ChooseColorLayout extends LinearLayout {
     }
 
     public int getCurrentChooseColor() {
-        return this.mqS;
+        return this.mrh;
     }
 
     public void setOnChooseColorChangeListener(a aVar) {
-        this.mqU = aVar;
+        this.mrj = aVar;
     }
 }

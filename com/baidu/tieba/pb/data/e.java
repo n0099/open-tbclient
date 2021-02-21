@@ -3,13 +3,13 @@ package com.baidu.tieba.pb.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes2.dex */
 public class e implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lJR = BdUniqueId.gen();
+    public static final BdUniqueId lKf = BdUniqueId.gen();
     private BdUniqueId mTag;
     private String mTitle;
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lJR;
+        return lKf;
     }
 
     public String getTitle() {

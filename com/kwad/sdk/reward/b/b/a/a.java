@@ -10,7 +10,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private InterfaceC1145a f10543a;
+    private InterfaceC1147a f10543a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.reward.b.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1145a {
+    public interface InterfaceC1147a {
         void a(boolean z);
     }
 
@@ -81,8 +81,8 @@ public class a {
     }
 
     @MainThread
-    public void a(InterfaceC1145a interfaceC1145a) {
-        this.f10543a = interfaceC1145a;
+    public void a(InterfaceC1147a interfaceC1147a) {
+        this.f10543a = interfaceC1147a;
     }
 
     @MainThread

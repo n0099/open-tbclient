@@ -37,9 +37,9 @@ public class EmotionCategoryAdapter extends com.baidu.adp.widget.ListView.a<com.
 
     /* loaded from: classes9.dex */
     public static class EmotionCategoryViewHolder extends TypeAdapter.ViewHolder {
-        private ImageView iXZ;
-        private TextView iYa;
-        private View iYb;
+        private ImageView iYn;
+        private TextView iYo;
+        private View iYp;
         private TextView mTitle;
         private View mView;
 
@@ -52,17 +52,17 @@ public class EmotionCategoryAdapter extends com.baidu.adp.widget.ListView.a<com.
         private void initView() {
             if (this.mView != null) {
                 this.mTitle = (TextView) this.mView.findViewById(R.id.emotion_title);
-                this.iXZ = (ImageView) this.mView.findViewById(R.id.emotion_change_iv);
-                this.iYa = (TextView) this.mView.findViewById(R.id.emotion_function);
+                this.iYn = (ImageView) this.mView.findViewById(R.id.emotion_change_iv);
+                this.iYo = (TextView) this.mView.findViewById(R.id.emotion_function);
                 this.mTitle.setText(this.mView.getResources().getText(R.string.emotion_center_quality_recommend));
-                this.iXZ.setVisibility(8);
-                this.iYa.setVisibility(8);
-                this.iYb = this.mView.findViewById(R.id.category_line_top);
+                this.iYn.setVisibility(8);
+                this.iYo.setVisibility(8);
+                this.iYp = this.mView.findViewById(R.id.category_line_top);
             }
         }
 
         public void onChangeSkin(int i) {
-            ap.setBackgroundColor(this.iYb, R.color.common_color_10312);
+            ap.setBackgroundColor(this.iYp, R.color.common_color_10312);
             ap.setViewTextColor(this.mTitle, R.color.CAM_X0107);
         }
     }

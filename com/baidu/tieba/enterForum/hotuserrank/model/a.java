@@ -14,8 +14,8 @@ import com.baidu.tieba.enterForum.hotuserrank.a.c;
 /* loaded from: classes2.dex */
 public class a {
     private BdUniqueId agC;
-    private InterfaceC0706a iKp;
-    private c iLn;
+    private InterfaceC0707a iKD;
+    private c iLB;
     private int mPageNum = 1;
     private com.baidu.adp.framework.listener.a eDt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOT_USER_RANK, 309652) { // from class: com.baidu.tieba.enterForum.hotuserrank.model.a.1
         @Override // com.baidu.adp.framework.listener.a
@@ -29,29 +29,29 @@ public class a {
                         cVar = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
                     }
                     if (responsedMessage.getError() == 0) {
-                        if (a.this.mPageNum == 1 && (cVar == null || y.isEmpty(cVar.iLk))) {
-                            if (a.this.iKp != null) {
-                                a.this.iKp.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                        if (a.this.mPageNum == 1 && (cVar == null || y.isEmpty(cVar.iLy))) {
+                            if (a.this.iKD != null) {
+                                a.this.iKD.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                             }
                         } else if (cVar != null) {
-                            a.this.iLn.iLj = cVar.iLj;
-                            a.this.iLn.iLk.addAll(cVar.iLk);
-                            a.this.iLn.iLl = cVar.iLl;
-                            a.this.iLn.hcK = cVar.hcK;
-                            a.this.iLn.iLm = cVar.iLm;
-                            a.this.iLn.iLc = cVar.iLc;
-                            if (y.isEmpty(cVar.iLk)) {
-                                a.this.iLn.hasMore = false;
+                            a.this.iLB.iLx = cVar.iLx;
+                            a.this.iLB.iLy.addAll(cVar.iLy);
+                            a.this.iLB.iLz = cVar.iLz;
+                            a.this.iLB.hcY = cVar.hcY;
+                            a.this.iLB.iLA = cVar.iLA;
+                            a.this.iLB.iLq = cVar.iLq;
+                            if (y.isEmpty(cVar.iLy)) {
+                                a.this.iLB.hasMore = false;
                             } else {
-                                a.this.iLn.hasMore = cVar.hasMore;
+                                a.this.iLB.hasMore = cVar.hasMore;
                                 a.e(a.this);
                             }
-                            if (a.this.iKp != null) {
-                                a.this.iKp.a(cVar);
+                            if (a.this.iKD != null) {
+                                a.this.iKD.a(cVar);
                             }
                         }
-                    } else if (a.this.iKp != null) {
-                        a.this.iKp.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (a.this.iKD != null) {
+                        a.this.iKD.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
@@ -60,7 +60,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.enterForum.hotuserrank.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0706a {
+    public interface InterfaceC0707a {
         void a(c cVar);
 
         void onError(int i, String str);
@@ -78,10 +78,10 @@ public class a {
         MessageManager.getInstance().registerListener(this.eDt);
         brf();
         brg();
-        this.iLn = new c();
+        this.iLB = new c();
     }
 
-    public void Jm(String str) {
+    public void Jn(String str) {
         HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
         hotUserRankReqMsg.category = str;
         hotUserRankReqMsg.pageSize = 20;
@@ -100,15 +100,15 @@ public class a {
     }
 
     public c getPageData() {
-        return this.iLn;
+        return this.iLB;
     }
 
-    public int cwx() {
+    public int cwE() {
         return this.mPageNum;
     }
 
     public boolean hasMore() {
-        return this.iLn.hasMore;
+        return this.iLB.hasMore;
     }
 
     private void brf() {
@@ -132,7 +132,7 @@ public class a {
         MessageManager.getInstance().unRegisterListener(this.agC);
     }
 
-    public void a(InterfaceC0706a interfaceC0706a) {
-        this.iKp = interfaceC0706a;
+    public void a(InterfaceC0707a interfaceC0707a) {
+        this.iKD = interfaceC0707a;
     }
 }

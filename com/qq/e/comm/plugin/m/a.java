@@ -7,11 +7,11 @@ import androidx.annotation.NonNull;
 public class a extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private InterfaceC1200a f12185a;
+    private InterfaceC1202a f12185a;
 
     /* renamed from: com.qq.e.comm.plugin.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC1200a {
+    public interface InterfaceC1202a {
         void a();
 
         void a(int i);
@@ -27,8 +27,8 @@ public class a extends FrameLayout {
         super(context);
     }
 
-    public void a(InterfaceC1200a interfaceC1200a) {
-        this.f12185a = interfaceC1200a;
+    public void a(InterfaceC1202a interfaceC1202a) {
+        this.f12185a = interfaceC1202a;
     }
 
     @Override // android.view.ViewGroup, android.view.View

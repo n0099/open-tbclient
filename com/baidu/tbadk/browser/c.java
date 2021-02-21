@@ -36,7 +36,7 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.util.al;
 import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.t;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class c {
@@ -86,7 +86,7 @@ public class c {
                 if (str.startsWith("tel:")) {
                     UtilHelper.callPhone(tbPageContext.getPageActivity(), str.substring(4));
                     return 0;
-                } else if (al.DY(str) && str.toLowerCase().endsWith(".apk")) {
+                } else if (al.DW(str) && str.toLowerCase().endsWith(".apk")) {
                     c.az(tbPageContext.getPageActivity(), str);
                     return 0;
                 } else if (str.contains("http://tieba.baidu.com/mo/q/hotMessage?topic_id=")) {
@@ -120,7 +120,7 @@ public class c {
                     a.startExternWebActivity(tbPageContext.getPageActivity(), str);
                     return 1;
                 } else if (UtilHelper.isNativeAdURL(str)) {
-                    s.x(tbPageContext.getPageActivity(), str, null);
+                    t.i(tbPageContext.getPageActivity(), str, null, null);
                     return 1;
                 } else if (str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) || str.contains("jump=open_screen_web_page")) {
                     a.startWebActivity(tbPageContext.getPageActivity(), str);

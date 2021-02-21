@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class ba extends com.baidu.adp.base.a.c {
     public ba(Context context) {
-        super(context, "baidu_tieba.db", 21);
+        super(context, "baidu_tieba.db", 22);
     }
 
     @Override // com.baidu.adp.base.a.c
@@ -28,6 +28,7 @@ public class ba extends com.baidu.adp.base.a.c {
             prepareDBForV17(sQLiteDatabase);
             N(sQLiteDatabase);
             O(sQLiteDatabase);
+            P(sQLiteDatabase);
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
         }
@@ -63,6 +64,7 @@ public class ba extends com.baidu.adp.base.a.c {
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS local_game");
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS user_graffiti");
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
+        executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS ad_follow_up_info_table");
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.adp.base.a.a
@@ -129,6 +131,10 @@ public class ba extends com.baidu.adp.base.a.c {
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
             O(sQLiteDatabase);
         }
+        if (i < 22) {
+            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS ad_follow_up_info_table");
+            P(sQLiteDatabase);
+        }
     }
 
     protected void prepareDBForV7(SQLiteDatabase sQLiteDatabase) {
@@ -175,5 +181,9 @@ public class ba extends com.baidu.adp.base.a.c {
 
     protected void O(SQLiteDatabase sQLiteDatabase) {
         executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists activity_mission_info(id INTEGER primary key autoincrement, activityid INTEGER, missionid INTEGER, activitysource TEXT, calltype INTEGER, tasktype INTEGER, browsetimepage TEXT, browsetime INTEGER, threadnum INTEGER, forumnum INTEGER, cleartype INTEGER, cleartime INTEGER, specificcleartime INTEGER, tid INTEGER, fid INTEGER, executingMissionList TEXT, totalLimit INTEGER, completedLimitCount INTEGER, threadtext TEXT, threadimg TEXT, threadforum INTEGER, token TEXT)");
+    }
+
+    private void P(SQLiteDatabase sQLiteDatabase) {
+        executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists ad_follow_up_info_table(download_key TEXT NOT NULL, package_name TEXT NOT NULL, last_show_time TEXT NOT NULL, show_times TEXT, finish_download_time TEXT, ad_string TEXT NOT NULL, cmatch TEXT, install_status TEXT, ad_extension_info1 TEXT, ad_extension_info2 TEXT, ad_extension_info3 TEXT,PRIMARY KEY(download_key , package_name ) )");
     }
 }

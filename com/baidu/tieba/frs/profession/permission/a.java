@@ -8,9 +8,9 @@ import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes.dex */
 public class a implements h {
     public String forum_id;
-    public int jFY;
-    public int jFZ;
-    public int jGa;
+    public int jGm;
+    public int jGn;
+    public int jGo;
     public long thread_id;
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -29,7 +29,7 @@ public class a implements h {
         v.a(builder, true, false, true);
         builder.forum_id = Long.valueOf(com.baidu.adp.lib.f.b.toLong(this.forum_id, 0L));
         builder.thread_id = Long.valueOf(this.thread_id);
-        builder.req_type = Integer.valueOf(this.jFZ == 1 ? 2 : 1);
+        builder.req_type = Integer.valueOf(this.jGn == 1 ? 2 : 1);
         ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

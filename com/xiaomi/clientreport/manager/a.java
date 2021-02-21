@@ -53,7 +53,7 @@ public class a {
     private HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f13775b = new HashMap<>();
 
     static {
-        f13774a = l.m526a() ? 30 : 10;
+        f13774a = l.m525a() ? 30 : 10;
     }
 
     private a(Context context) {
@@ -122,26 +122,26 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(EventClientReport eventClientReport) {
         if (this.f92a != null) {
-            this.f92a.mo87a(eventClientReport);
+            this.f92a.mo86a(eventClientReport);
             if (a() < 10) {
                 a(new d(this), f13774a);
                 return;
             }
             d();
-            ai.a(this.f90a).m154a(100888);
+            ai.a(this.f90a).m153a(100888);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(PerfClientReport perfClientReport) {
         if (this.f93a != null) {
-            this.f93a.mo87a(perfClientReport);
+            this.f93a.mo86a(perfClientReport);
             if (b() < 10) {
                 a(new f(this), f13774a);
                 return;
             }
             e();
-            ai.a(this.f90a).m154a(100889);
+            ai.a(this.f90a).m153a(100889);
         }
     }
 
@@ -164,16 +164,16 @@ public class a {
     }
 
     private void f() {
-        if (a(this.f90a).m84a().isEventUploadSwitchOpen()) {
+        if (a(this.f90a).m83a().isEventUploadSwitchOpen()) {
             bg bgVar = new bg(this.f90a);
-            int eventUploadFrequency = (int) a(this.f90a).m84a().getEventUploadFrequency();
+            int eventUploadFrequency = (int) a(this.f90a).m83a().getEventUploadFrequency();
             int i = eventUploadFrequency >= 1800 ? eventUploadFrequency : 1800;
             if (System.currentTimeMillis() - bm.a(this.f90a).a("sp_client_report_status", "event_last_upload_time", 0L) > i * 1000) {
                 ai.a(this.f90a).a(new h(this, bgVar), 10);
             }
             synchronized (a.class) {
                 if (!ai.a(this.f90a).a((ai.a) bgVar, i)) {
-                    ai.a(this.f90a).m154a(100886);
+                    ai.a(this.f90a).m153a(100886);
                     ai.a(this.f90a).a((ai.a) bgVar, i);
                 }
             }
@@ -181,16 +181,16 @@ public class a {
     }
 
     private void g() {
-        if (a(this.f90a).m84a().isPerfUploadSwitchOpen()) {
+        if (a(this.f90a).m83a().isPerfUploadSwitchOpen()) {
             bh bhVar = new bh(this.f90a);
-            int perfUploadFrequency = (int) a(this.f90a).m84a().getPerfUploadFrequency();
+            int perfUploadFrequency = (int) a(this.f90a).m83a().getPerfUploadFrequency();
             int i = perfUploadFrequency >= 1800 ? perfUploadFrequency : 1800;
             if (System.currentTimeMillis() - bm.a(this.f90a).a("sp_client_report_status", "perf_last_upload_time", 0L) > i * 1000) {
                 ai.a(this.f90a).a(new i(this, bhVar), 15);
             }
             synchronized (a.class) {
                 if (!ai.a(this.f90a).a((ai.a) bhVar, i)) {
-                    ai.a(this.f90a).m154a(100887);
+                    ai.a(this.f90a).m153a(100887);
                     ai.a(this.f90a).a((ai.a) bhVar, i);
                 }
             }
@@ -198,7 +198,7 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Config m84a() {
+    public synchronized Config m83a() {
         if (this.f91a == null) {
             this.f91a = Config.defaultConfig(this.f90a);
         }
@@ -220,7 +220,7 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m85a() {
+    public void m84a() {
         a(this.f90a).f();
         a(this.f90a).g();
     }
@@ -234,13 +234,13 @@ public class a {
     }
 
     public void a(EventClientReport eventClientReport) {
-        if (m84a().isEventUploadSwitchOpen()) {
+        if (m83a().isEventUploadSwitchOpen()) {
             this.f96a.execute(new b(this, eventClientReport));
         }
     }
 
     public void a(PerfClientReport perfClientReport) {
-        if (m84a().isPerfUploadSwitchOpen()) {
+        if (m83a().isPerfUploadSwitchOpen()) {
             this.f96a.execute(new c(this, perfClientReport));
         }
     }
@@ -259,13 +259,13 @@ public class a {
             Config build = Config.getBuilder().setAESKey(bj.a(this.f90a)).setEventEncrypted(this.f91a.isEventEncrypted()).setEventUploadSwitchOpen(z).setEventUploadFrequency(j).setPerfUploadSwitchOpen(z2).setPerfUploadFrequency(j2).build(this.f90a);
             this.f91a = build;
             if (!this.f91a.isEventUploadSwitchOpen()) {
-                ai.a(this.f90a).m154a(100886);
+                ai.a(this.f90a).m153a(100886);
             } else if (eventUploadFrequency != build.getEventUploadFrequency()) {
                 com.xiaomi.channel.commonutils.logger.b.c(this.f90a.getPackageName() + "reset event job " + build.getEventUploadFrequency());
                 f();
             }
             if (!this.f91a.isPerfUploadSwitchOpen()) {
-                ai.a(this.f90a).m154a(100887);
+                ai.a(this.f90a).m153a(100887);
             } else if (perfUploadFrequency != build.getPerfUploadFrequency()) {
                 com.xiaomi.channel.commonutils.logger.b.c(this.f90a.getPackageName() + "reset perf job " + build.getPerfUploadFrequency());
                 g();
@@ -274,8 +274,8 @@ public class a {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m86b() {
-        if (m84a().isEventUploadSwitchOpen()) {
+    public void m85b() {
+        if (m83a().isEventUploadSwitchOpen()) {
             bi biVar = new bi();
             biVar.a(this.f90a);
             biVar.a(this.f92a);
@@ -284,7 +284,7 @@ public class a {
     }
 
     public void c() {
-        if (m84a().isPerfUploadSwitchOpen()) {
+        if (m83a().isPerfUploadSwitchOpen()) {
             bi biVar = new bi();
             biVar.a(this.f93a);
             biVar.a(this.f90a);

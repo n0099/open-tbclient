@@ -18,8 +18,8 @@ public class aq {
                 AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(context);
                 String id = advertisingIdInfo != null ? advertisingIdInfo.getId() : null;
                 if (TextUtils.isEmpty(id)) {
-                    id = cnVar.eog().getString("google_aid", null);
-                } else if (!TextUtils.equals(cnVar.eog().getString("google_aid", null), id)) {
+                    id = cnVar.eoo().getString("google_aid", null);
+                } else if (!TextUtils.equals(cnVar.eoo().getString("google_aid", null), id)) {
                     a(context, id, cnVar);
                 }
                 f5784a = id;
@@ -30,7 +30,7 @@ public class aq {
 
     private static void a(Context context, String str, cn cnVar) {
         if (!TextUtils.isEmpty(str) && context != null) {
-            cnVar.eog().edit().putString("google_aid", str).apply();
+            cnVar.eoo().edit().putString("google_aid", str).apply();
         }
     }
 }

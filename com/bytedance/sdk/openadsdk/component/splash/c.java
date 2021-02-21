@@ -75,8 +75,8 @@ public class c {
             str = z2 ? "download_video_image_success" : "download_video_image_fail";
         }
         String str2 = null;
-        if (!z2 && pVar != null && pVar.pvp != null) {
-            str2 = pVar.pvp.getMessage();
+        if (!z2 && pVar != null && pVar.pvP != null) {
+            str2 = pVar.pvP.getMessage();
         }
         if (z) {
             Map<String, Object> a2 = aj.a(z2, lVar, elapsedRealtime, j2, str2);
@@ -175,13 +175,13 @@ public class c {
             if (lVar.ai() && lVar.M() != null && !lVar.M().isEmpty()) {
                 for (k kVar : lVar.M()) {
                     if (!TextUtils.isEmpty(kVar.a())) {
-                        com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(kVar.a(), (b.InterfaceC1020b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), true);
+                        com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(kVar.a(), (b.InterfaceC1022b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), true);
                     }
                 }
             }
             k I = lVar.I();
             if (I != null && !TextUtils.isEmpty(I.a())) {
-                com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(I.a(), (b.InterfaceC1020b) com.bytedance.sdk.openadsdk.i.a.b.a(), I.b(), I.c(), true);
+                com.bytedance.sdk.openadsdk.i.e.a(p.a()).f().a(I.a(), (b.InterfaceC1022b) com.bytedance.sdk.openadsdk.i.a.b.a(), I.b(), I.c(), true);
             }
         }
     }

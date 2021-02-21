@@ -10,13 +10,13 @@ public class bv extends bx {
 
     public static bv a(Context context, String str, int i) {
         com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
-        String m223a = cb.a(context).m223a(str);
-        if (TextUtils.isEmpty(m223a)) {
+        String m222a = cb.a(context).m222a(str);
+        if (TextUtils.isEmpty(m222a)) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("rowDataId in (select ");
-        sb.append("rowDataId from " + m223a);
+        sb.append("rowDataId from " + m222a);
         sb.append(" order by createTimeStamp asc");
         sb.append(" limit ?)");
         return new bv(str, sb.toString(), new String[]{String.valueOf(i)}, "a job build to delete history message");

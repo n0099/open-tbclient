@@ -42,7 +42,7 @@ public class b implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: RA */
+        /* renamed from: RB */
         public b[] newArray(int i) {
             return new b[i];
         }
@@ -60,7 +60,7 @@ public class b implements Parcelable {
         this.g = aVar.f;
         this.i = aVar.g;
         this.h = new AtomicInteger(-1);
-        a(aVar.qfR);
+        a(aVar.qgr);
         this.n = new AtomicBoolean(false);
     }
 
@@ -124,7 +124,7 @@ public class b implements Parcelable {
         return 0;
     }
 
-    public ContentValues eGL() {
+    public ContentValues eGT() {
         ContentValues contentValues = new ContentValues();
         contentValues.put(IMConstants.MSG_ROW_ID, Integer.valueOf(this.f13152b));
         contentValues.put("chunkIndex", Integer.valueOf(this.g));
@@ -211,7 +211,7 @@ public class b implements Parcelable {
         return b() == -1;
     }
 
-    public b eGM() {
+    public b eGU() {
         if (!d()) {
             this = this.k;
         }
@@ -430,9 +430,9 @@ public class b implements Parcelable {
                 j3 = m;
                 j4 = j5;
             }
-            b eGN = new a(this.f13152b).RB((-i3) - 1).ji(j3).jj(m).jm(m).jk(j2).jl(j4).c(this).eGN();
+            b eGV = new a(this.f13152b).RC((-i3) - 1).ji(j3).jj(m).jm(m).jk(j2).jl(j4).c(this).eGV();
             com.ss.android.socialbase.downloader.f.a.b(f13151a, "divide sub chunk : " + i3 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j2 + " contentLen:" + j4);
-            arrayList.add(eGN);
+            arrayList.add(eGV);
             m += j5;
             i2 = i3 + 1;
         }
@@ -478,7 +478,7 @@ public class b implements Parcelable {
         private long e;
         private int f;
         private long g;
-        private b qfR;
+        private b qgr;
 
         public a(int i) {
             this.f13153a = i;
@@ -504,13 +504,13 @@ public class b implements Parcelable {
             return this;
         }
 
-        public a RB(int i) {
+        public a RC(int i) {
             this.f = i;
             return this;
         }
 
         public a c(b bVar) {
-            this.qfR = bVar;
+            this.qgr = bVar;
             return this;
         }
 
@@ -519,7 +519,7 @@ public class b implements Parcelable {
             return this;
         }
 
-        public b eGN() {
+        public b eGV() {
             return new b(this);
         }
     }

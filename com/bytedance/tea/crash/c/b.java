@@ -97,8 +97,8 @@ public final class b {
     private void b(JSONObject jSONObject) {
         Map<String, Object> b2;
         Object obj;
-        com.bytedance.tea.crash.e.a erd = h.erd();
-        if (erd != null && jSONObject != null && (b2 = erd.b()) != null) {
+        com.bytedance.tea.crash.e.a erl = h.erl();
+        if (erl != null && jSONObject != null && (b2 = erl.b()) != null) {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 for (String str : b2.keySet()) {

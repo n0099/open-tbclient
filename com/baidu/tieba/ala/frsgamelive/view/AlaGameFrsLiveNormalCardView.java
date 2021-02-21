@@ -8,7 +8,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.h;
 /* loaded from: classes10.dex */
 public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private b gWE;
+    private b gWS;
     private TbPageContext mPageContext;
 
     public AlaGameFrsLiveNormalCardView(TbPageContext<?> tbPageContext) {
@@ -18,20 +18,20 @@ public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.bai
     }
 
     private void initView() {
-        this.gWE = new b(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.gWE.getView());
+        this.gWS = new b(this.mPageContext);
+        ((ViewGroup) getView()).addView(this.gWS.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.gWE != null) {
-            this.gWE.onChangeSkinType(tbPageContext, i);
+        if (this.gWS != null) {
+            this.gWS.onChangeSkinType(tbPageContext, i);
         }
     }
 
     public void c(h hVar) {
-        if (this.gWE != null) {
-            this.gWE.d(hVar);
+        if (this.gWS != null) {
+            this.gWS.d(hVar);
         }
     }
 
@@ -43,8 +43,8 @@ public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.bai
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.eJQ != null && this.gWE != null) {
-            this.gWE.a(cVar.eJQ);
+        if (cVar != null && cVar.eJQ != null && this.gWS != null) {
+            this.gWS.a(cVar.eJQ);
         }
     }
 
@@ -54,11 +54,11 @@ public class AlaGameFrsLiveNormalCardView extends com.baidu.tieba.card.b<com.bai
 
     /* loaded from: classes10.dex */
     public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
-        public AlaGameFrsLiveNormalCardView gWF;
+        public AlaGameFrsLiveNormalCardView gWT;
 
         public AlaGameFrsNormalViewHolder(AlaGameFrsLiveNormalCardView alaGameFrsLiveNormalCardView) {
             super(alaGameFrsLiveNormalCardView.getView());
-            this.gWF = alaGameFrsLiveNormalCardView;
+            this.gWT = alaGameFrsLiveNormalCardView;
         }
     }
 }

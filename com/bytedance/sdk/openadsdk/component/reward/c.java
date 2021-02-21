@@ -111,8 +111,8 @@ public class c {
                     fullScreenVideoAdListener.onFullScreenVideoCached();
                 }
             }
-            com.bytedance.sdk.openadsdk.core.g.a.a().a(c, new a.InterfaceC1007a() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.1
-                @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1007a
+            com.bytedance.sdk.openadsdk.core.g.a.a().a(c, new a.InterfaceC1009a() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.1
+                @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1009a
                 public void a(boolean z2) {
                     if (fullScreenVideoAdListener != null && c.t()) {
                         fullScreenVideoAdListener.onFullScreenVideoCached();
@@ -161,8 +161,8 @@ public class c {
                     if (!z && fullScreenVideoAdListener != null) {
                         fullScreenVideoAdListener.onFullScreenVideoAdLoad(iVar);
                     }
-                    com.bytedance.sdk.openadsdk.core.g.a.a().a(lVar, new a.InterfaceC1007a() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.2.1
-                        @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1007a
+                    com.bytedance.sdk.openadsdk.core.g.a.a().a(lVar, new a.InterfaceC1009a() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.2.1
+                        @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1009a
                         public void a(boolean z2) {
                             if (!z && fullScreenVideoAdListener != null && lVar != null && lVar.t()) {
                                 fullScreenVideoAdListener.onFullScreenVideoCached();
@@ -175,8 +175,8 @@ public class c {
                                 c.this.a(new a(lVar, adSlot));
                             }
                         } else if (!lVar.t()) {
-                            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6304b).a(lVar, new a.InterfaceC1001a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.2.2
-                                @Override // com.bytedance.sdk.openadsdk.component.reward.a.InterfaceC1001a
+                            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6304b).a(lVar, new a.InterfaceC1003a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.2.2
+                                @Override // com.bytedance.sdk.openadsdk.component.reward.a.InterfaceC1003a
                                 public void a(boolean z2, Object obj) {
                                     u.b("FullScreenVideoLoadManager", "download video file: " + z2 + ", preload: " + z);
                                     if (z2) {
@@ -268,8 +268,8 @@ public class c {
 
         @Override // java.lang.Runnable
         public void run() {
-            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6304b).a(this.f6314a, new a.InterfaceC1001a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.a.1
-                @Override // com.bytedance.sdk.openadsdk.component.reward.a.InterfaceC1001a
+            com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6304b).a(this.f6314a, new a.InterfaceC1003a<Object>() { // from class: com.bytedance.sdk.openadsdk.component.reward.c.a.1
+                @Override // com.bytedance.sdk.openadsdk.component.reward.a.InterfaceC1003a
                 public void a(boolean z, Object obj) {
                     if (z) {
                         com.bytedance.sdk.openadsdk.component.reward.a.a(c.this.f6304b).a(a.this.f6315b, a.this.f6314a);

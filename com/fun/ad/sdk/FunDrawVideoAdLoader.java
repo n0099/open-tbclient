@@ -52,7 +52,7 @@ public class FunDrawVideoAdLoader {
 
     private void doLoadKsDrawVideoAd(FunAdSlot funAdSlot, au.a aVar, FunDrawVideoAdLoadListener funDrawVideoAdLoadListener) {
         KsAdSDK.getLoadManager().loadDrawAd(new KsScene.Builder(Long.parseLong(aVar.f7762a)).adNum(5).build(), new a(aVar, funDrawVideoAdLoadListener, funAdSlot));
-        ((d.a) d.pOz).b(this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, aVar.f7762a);
+        ((d.a) d.pOZ).b(this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, aVar.f7762a);
     }
 
     private Activity getActivity() {
@@ -106,7 +106,7 @@ public class FunDrawVideoAdLoader {
             return;
         }
         TTAdSdk.getAdManager().createAdNative(activity).loadExpressDrawFeedAd(new AdSlot.Builder().setCodeId(aVar.f7762a).setSupportDeepLink(true).setExpressViewAcceptedSize(funAdSlot.getExpressWidth(), funAdSlot.getExpressHeight()).setImageAcceptedSize(640, VideoConstant.THUMBNAIL_WIDTH).setAdCount(3).build(), new b(aVar, funDrawVideoAdLoadListener, funAdSlot));
-        ((d.a) d.pOz).b(this.mSlotId.f7760a, FunAdType.CSJ_DRAW_VIDEO, aVar.f7762a);
+        ((d.a) d.pOZ).b(this.mSlotId.f7760a, FunAdType.CSJ_DRAW_VIDEO, aVar.f7762a);
     }
 
     /* loaded from: classes6.dex */
@@ -128,7 +128,7 @@ public class FunDrawVideoAdLoader {
         @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.a.b
         public void onError(int i, String str) {
             m.a("CSJDrawVideoAd onError code: " + i + ", message: " + str);
-            ((d.a) d.pOz).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.CSJ_DRAW_VIDEO, this.f7801a.f7762a, i, str);
+            ((d.a) d.pOZ).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.CSJ_DRAW_VIDEO, this.f7801a.f7762a, i, str);
             if (!FunDrawVideoAdLoader.this.mLoopAdIds.isEmpty()) {
                 FunDrawVideoAdLoader.this.doLoad(this.c, this.f7802b);
                 return;
@@ -154,10 +154,10 @@ public class FunDrawVideoAdLoader {
                 if (funDrawVideoAdLoadListener != null) {
                     funDrawVideoAdLoadListener.onAdLoaded(this.c.getSid(), arrayList);
                 }
-                ((d.a) d.pOz).c(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.CSJ_DRAW_VIDEO, this.f7801a.f7762a);
+                ((d.a) d.pOZ).c(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.CSJ_DRAW_VIDEO, this.f7801a.f7762a);
                 return;
             }
-            ((d.a) d.pOz).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.CSJ_DRAW_VIDEO, this.f7801a.f7762a, 0, "Custom error message: adList is null");
+            ((d.a) d.pOZ).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.CSJ_DRAW_VIDEO, this.f7801a.f7762a, 0, "Custom error message: adList is null");
             if (FunDrawVideoAdLoader.this.mLoopAdIds.isEmpty()) {
                 FunDrawVideoAdLoader.this.mIsLoading = false;
                 FunDrawVideoAdLoadListener funDrawVideoAdLoadListener2 = this.f7802b;
@@ -190,7 +190,7 @@ public class FunDrawVideoAdLoader {
         @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
         public void onError(int i, String str) {
             m.a("KSDrawVideoAd onError code: " + i + ", message: " + str);
-            ((d.a) d.pOz).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, this.f7799a.f7762a, i, str);
+            ((d.a) d.pOZ).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, this.f7799a.f7762a, i, str);
             if (!FunDrawVideoAdLoader.this.mLoopAdIds.isEmpty()) {
                 FunDrawVideoAdLoader.this.doLoad(this.c, this.f7800b);
                 return;
@@ -214,7 +214,7 @@ public class FunDrawVideoAdLoader {
                     }
                 }
                 if (arrayList.isEmpty()) {
-                    ((d.a) d.pOz).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, this.f7799a.f7762a, 0, "Custom error message: adList is null");
+                    ((d.a) d.pOZ).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, this.f7799a.f7762a, 0, "Custom error message: adList is null");
                     if (!FunDrawVideoAdLoader.this.mLoopAdIds.isEmpty()) {
                         FunDrawVideoAdLoader.this.doLoad(this.c, this.f7800b);
                         return;
@@ -232,10 +232,10 @@ public class FunDrawVideoAdLoader {
                 if (funDrawVideoAdLoadListener2 != null) {
                     funDrawVideoAdLoadListener2.onAdLoaded(this.c.getSid(), arrayList);
                 }
-                ((d.a) d.pOz).c(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, this.f7799a.f7762a);
+                ((d.a) d.pOZ).c(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, this.f7799a.f7762a);
                 return;
             }
-            ((d.a) d.pOz).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, this.f7799a.f7762a, 0, "Custom error message: adList is null");
+            ((d.a) d.pOZ).a(FunDrawVideoAdLoader.this.mSlotId.f7760a, FunAdType.KS_DRAW_VIDEO, this.f7799a.f7762a, 0, "Custom error message: adList is null");
             if (FunDrawVideoAdLoader.this.mLoopAdIds.isEmpty()) {
                 FunDrawVideoAdLoader.this.mIsLoading = false;
                 FunDrawVideoAdLoadListener funDrawVideoAdLoadListener3 = this.f7800b;

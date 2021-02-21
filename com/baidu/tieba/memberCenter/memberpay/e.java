@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class e extends BaseAdapter {
-    private List<d> jRh;
+    private List<d> jRv;
     private LayoutInflater layoutInflater;
 
     public e(Context context) {
@@ -21,30 +21,30 @@ public class e extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.jRh = list;
+        this.jRv = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jRh == null) {
+        if (this.jRv == null) {
             return 0;
         }
-        return this.jRh.size();
+        return this.jRv.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: EB */
     public d getItem(int i) {
-        if (this.jRh == null) {
+        if (this.jRv == null) {
             return null;
         }
-        return this.jRh.get(i);
+        return this.jRv.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.jRh == null) {
+        if (this.jRv == null) {
             return 0L;
         }
         return i;
@@ -64,20 +64,20 @@ public class e extends BaseAdapter {
         if (dVar == null) {
             return;
         }
-        aVar.lpN.setText(dVar.name);
-        ap.setViewTextColor(aVar.lpN, R.color.CAM_X0106);
-        SvgManager.bsR().a(aVar.lpM, dVar.lpL, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+        aVar.lqb.setText(dVar.name);
+        ap.setViewTextColor(aVar.lqb, R.color.CAM_X0106);
+        SvgManager.bsR().a(aVar.lqa, dVar.lpZ, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes9.dex */
     public class a {
-        private ImageView lpM;
-        private TextView lpN;
+        private ImageView lqa;
+        private TextView lqb;
 
         public a(View view) {
-            this.lpM = (ImageView) view.findViewById(R.id.member_privilege_pic);
-            this.lpN = (TextView) view.findViewById(R.id.member_privilege_name);
+            this.lqa = (ImageView) view.findViewById(R.id.member_privilege_pic);
+            this.lqb = (TextView) view.findViewById(R.id.member_privilege_name);
         }
     }
 }

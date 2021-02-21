@@ -29,13 +29,13 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
     private ab<l> agg;
     private s amk;
     public BdUniqueId fGZ;
-    private as iOz;
+    private as iON;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view, l lVar) {
-        if (this.iOz != null && this.iOz.tq() != null && this.iOz.tq().dzP() != null) {
-            if (view.getId() == this.iOz.tq().dzP().getId()) {
+        if (this.iON != null && this.iON.tq() != null && this.iON.tq().dzW() != null) {
+            if (view.getId() == this.iON.tq().dzW().getId()) {
                 com.baidu.tieba.pb.c.a.a(lVar, 4);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.pb.c.a.a(lVar, 1);
@@ -49,7 +49,7 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, l lVar) {
-                t.csu().mG(true);
+                t.csB().mG(true);
                 if (lVar != null && lVar.bln() != null && !StringUtils.isNull(lVar.bln().getTid())) {
                     if (lVar.bln().eTa <= 0) {
                         h.this.b(view, lVar);
@@ -89,10 +89,10 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
                 }
             }
         });
-        this.iOz = gVar;
-        aVar.c(this.iOz);
-        if (this.iOz != null) {
-            this.iOz.setStageType("2002");
+        this.iON = gVar;
+        aVar.c(this.iON);
+        if (this.iON != null) {
+            this.iON.setStageType("2002");
         }
         ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amk);
         AutoVideoCardViewHolder<l> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(a2);
@@ -146,16 +146,16 @@ public class h extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
             if (lVar.bln() != null) {
                 oVar.fNd = String.valueOf(lVar.bln().getFid());
                 if (lVar.bln().boh() != null) {
-                    oVar.mIj = lVar.bln().boh().video_md5;
-                    oVar.mIl = String.valueOf(lVar.bln().boh().is_vertical);
+                    oVar.mIA = lVar.bln().boh().video_md5;
+                    oVar.mIC = String.valueOf(lVar.bln().boh().is_vertical);
                 }
             }
             oVar.eNE = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.mIi = lVar.csI();
-            oVar.mIf = lVar.getWeight();
+            oVar.mIz = lVar.csP();
+            oVar.mIw = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            oVar.mFloor = String.valueOf(lVar.csH());
+            oVar.mFloor = String.valueOf(lVar.csO());
         }
         return oVar;
     }

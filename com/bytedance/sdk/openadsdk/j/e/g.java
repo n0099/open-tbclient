@@ -14,8 +14,8 @@ public class g extends a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.c.eqL().size()) {
-                com.bytedance.sdk.adnet.core.a aVar = this.c.eqL().get(i2);
+            if (i2 < this.c.eqT().size()) {
+                com.bytedance.sdk.adnet.core.a aVar = this.c.eqT().get(i2);
                 if (aVar != null) {
                     this.f7260a.add(new i.b(aVar.getName(), aVar.getValue()));
                 }

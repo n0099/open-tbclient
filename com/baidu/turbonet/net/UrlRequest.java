@@ -20,15 +20,15 @@ public interface UrlRequest {
         public abstract void onStatus(int i);
     }
 
-    void MM(int i);
-
     void MN(int i);
 
     void MO(int i);
 
-    void WM(String str);
+    void MP(int i);
 
-    void WN(String str);
+    void WY(String str);
+
+    void WZ(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -36,9 +36,9 @@ public interface UrlRequest {
 
     void cancel();
 
-    void egd();
+    void egl();
 
-    void ege();
+    void egm();
 
     void followRedirect();
 
@@ -64,17 +64,17 @@ public interface UrlRequest {
         int mTimeout;
         Executor mUploadDataProviderExecutor;
         final String mUrl;
-        boolean oPK;
-        boolean oPM;
-        int oPN;
-        int oPO;
-        int oPP;
-        String oPQ;
-        String oPR;
-        final Callback oPv;
-        final TurbonetEngine oQJ;
-        UploadDataProvider oRn;
-        boolean oRo;
+        final Callback oPV;
+        boolean oQk;
+        boolean oQm;
+        int oQn;
+        int oQo;
+        int oQp;
+        String oQq;
+        String oQr;
+        UploadDataProvider oRN;
+        boolean oRO;
+        final TurbonetEngine oRj;
         final ArrayList<Pair<String, String>> mRequestHeaders = new ArrayList<>();
         int mPriority = 3;
         Collection<Object> mRequestAnnotations = Collections.emptyList();
@@ -98,21 +98,21 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.oPv = callback;
+            this.oPV = callback;
             this.mExecutor = executor;
-            this.oQJ = turbonetEngine;
-            this.oRo = false;
-            this.oPM = false;
+            this.oRj = turbonetEngine;
+            this.oRO = false;
+            this.oQm = false;
             this.mTimeout = 0;
-            this.oPN = 0;
-            this.oPO = 0;
-            this.oPP = 0;
+            this.oQn = 0;
+            this.oQo = 0;
+            this.oQp = 0;
             this.mTag = null;
-            this.oPQ = null;
-            this.oPR = null;
+            this.oQq = null;
+            this.oQr = null;
         }
 
-        public Builder WX(String str) {
+        public Builder Xj(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
@@ -120,7 +120,7 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder gZ(String str, String str2) {
+        public Builder hb(String str, String str2) {
             if (str == null) {
                 throw new NullPointerException("Invalid header name.");
             }
@@ -135,43 +135,43 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder egO() {
+        public Builder egW() {
             this.mDisableCache = true;
             return this;
         }
 
-        public Builder egP() {
-            this.oRo = true;
+        public Builder egX() {
+            this.oRO = true;
             return this;
         }
 
-        public Builder egQ() {
-            this.oPK = true;
-            return this;
-        }
-
-        public Builder MY(int i) {
-            this.mTimeout = i;
+        public Builder egY() {
+            this.oQk = true;
             return this;
         }
 
         public Builder MZ(int i) {
-            this.oPN = i;
+            this.mTimeout = i;
             return this;
         }
 
         public Builder Na(int i) {
-            this.oPO = i;
+            this.oQn = i;
             return this;
         }
 
-        public Builder WY(String str) {
-            this.oPQ = str;
+        public Builder Nb(int i) {
+            this.oQo = i;
             return this;
         }
 
-        public Builder WZ(String str) {
-            this.oPR = str;
+        public Builder Xk(String str) {
+            this.oQq = str;
+            return this;
+        }
+
+        public Builder Xl(String str) {
+            this.oQr = str;
             return this;
         }
 
@@ -185,13 +185,13 @@ public interface UrlRequest {
             if (this.mMethod == null) {
                 this.mMethod = "POST";
             }
-            this.oRn = uploadDataProvider;
+            this.oRN = uploadDataProvider;
             this.mUploadDataProviderExecutor = executor;
             return this;
         }
 
-        public UrlRequest egR() {
-            UrlRequest a2 = this.oQJ.a(this.mUrl, this.oPv, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oPK);
+        public UrlRequest egZ() {
+            UrlRequest a2 = this.oRj.a(this.mUrl, this.oPV, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oQk);
             if (this.mMethod != null) {
                 a2.setHttpMethod(this.mMethod);
             }
@@ -200,35 +200,35 @@ public interface UrlRequest {
                 Pair<String, String> next = it.next();
                 a2.addHeader((String) next.first, (String) next.second);
             }
-            if (this.oRn != null) {
-                a2.a(this.oRn, this.mUploadDataProviderExecutor);
+            if (this.oRN != null) {
+                a2.a(this.oRN, this.mUploadDataProviderExecutor);
             }
-            if (this.oRo) {
-                a2.egd();
+            if (this.oRO) {
+                a2.egl();
             }
-            if (this.oPM) {
-                a2.ege();
+            if (this.oQm) {
+                a2.egm();
             }
             if (this.mTimeout > 0) {
                 a2.setTimeout(this.mTimeout);
             }
-            if (this.oPN > 0) {
-                a2.MM(this.oPN);
+            if (this.oQn > 0) {
+                a2.MN(this.oQn);
             }
-            if (this.oPO > 0) {
-                a2.MN(this.oPO);
+            if (this.oQo > 0) {
+                a2.MO(this.oQo);
             }
-            if (this.oPP > 0) {
-                a2.MO(this.oPP);
+            if (this.oQp > 0) {
+                a2.MP(this.oQp);
             }
             if (this.mTag != null) {
                 a2.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.oPQ)) {
-                a2.WM(this.oPQ);
+            if (!TextUtils.isEmpty(this.oQq)) {
+                a2.WY(this.oQq);
             }
-            if (!TextUtils.isEmpty(this.oPR)) {
-                a2.WN(this.oPR);
+            if (!TextUtils.isEmpty(this.oQr)) {
+                a2.WZ(this.oQr);
             }
             return a2;
         }
@@ -267,7 +267,7 @@ public interface UrlRequest {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static int Nb(int i) {
+        public static int Nc(int i) {
             if ($assertionsDisabled || (i >= 0 && i <= 15)) {
                 switch (i) {
                     case 0:

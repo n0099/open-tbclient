@@ -553,13 +553,13 @@ public class AppStatusHelper {
         f10753a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.AppStatusHelper.3
             @Override // java.lang.Runnable
             public void run() {
-                com.kwad.sdk.collector.a.a(context, new a.InterfaceC1072a() { // from class: com.kwad.sdk.utils.AppStatusHelper.3.1
-                    @Override // com.kwad.sdk.collector.a.InterfaceC1072a
+                com.kwad.sdk.collector.a.a(context, new a.InterfaceC1074a() { // from class: com.kwad.sdk.utils.AppStatusHelper.3.1
+                    @Override // com.kwad.sdk.collector.a.InterfaceC1074a
                     public void a(int i, String str) {
                         com.kwad.sdk.core.d.a.d("AppStatusHelper", "fetchAppStatusConfig onFetchError: " + str + ", code: " + i);
                     }
 
-                    @Override // com.kwad.sdk.collector.a.InterfaceC1072a
+                    @Override // com.kwad.sdk.collector.a.InterfaceC1074a
                     public void a(AppStatusRules appStatusRules) {
                         AppStatusRules unused = AppStatusHelper.f = appStatusRules;
                         AppStatusHelper.b(context, AppStatusHelper.f);

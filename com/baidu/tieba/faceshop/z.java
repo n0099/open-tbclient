@@ -20,8 +20,8 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes9.dex */
 public class z extends com.baidu.tbadk.editortools.emotiontool.c {
-    private ArrayList<String> iST = new ArrayList<>();
-    private Set<String> iWQ = new HashSet();
+    private ArrayList<String> iTh = new ArrayList<>();
+    private Set<String> iXe = new HashSet();
 
     public z() {
         init();
@@ -43,15 +43,15 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public String qX(int i) {
-        if (i >= this.iST.size()) {
+        if (i >= this.iTh.size()) {
             return null;
         }
-        return this.iST.get(i);
+        return this.iTh.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean CP(String str) {
-        return this.iWQ.contains(str);
+    public boolean CN(String str) {
+        return this.iXe.contains(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
@@ -60,11 +60,11 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CQ(String str) {
+    public com.baidu.adp.widget.ImageView.a CO(String str) {
         if (com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT.equals(str)) {
             return new com.baidu.adp.widget.ImageView.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
         }
-        Bitmap image = com.baidu.tbadk.core.util.o.getImage(JP(str).getAbsolutePath());
+        Bitmap image = com.baidu.tbadk.core.util.o.getImage(JQ(str).getAbsolutePath());
         if (image == null) {
             return null;
         }
@@ -73,10 +73,10 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [118=4] */
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CR(String str) {
+    public com.baidu.adp.widget.ImageView.a CP(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
-        File file = new File(JP(str).getAbsolutePath().replace("_s.jpg", "_b.gif"));
+        File file = new File(JQ(str).getAbsolutePath().replace("_s.jpg", "_b.gif"));
         if (!file.exists()) {
             return null;
         }
@@ -134,10 +134,10 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        if (this.iST == null || this.iST.size() == 0) {
+        if (this.iTh == null || this.iTh.size() == 0) {
             return 1;
         }
-        return this.iST.size();
+        return this.iTh.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
@@ -165,7 +165,7 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
         return true;
     }
 
-    public File JP(String str) {
+    public File JQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -178,20 +178,20 @@ public class z extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     public void Mk() {
-        List<CollectEmotionData> JF = i.cyE().JF(TbadkCoreApplication.getCurrentAccountForEmotion());
-        this.iST.clear();
-        this.iWQ.clear();
-        for (CollectEmotionData collectEmotionData : JF) {
-            this.iST.add(collectEmotionData.sharpText);
-            this.iWQ.add(collectEmotionData.sharpText);
+        List<CollectEmotionData> JG = i.cyL().JG(TbadkCoreApplication.getCurrentAccountForEmotion());
+        this.iTh.clear();
+        this.iXe.clear();
+        for (CollectEmotionData collectEmotionData : JG) {
+            this.iTh.add(collectEmotionData.sharpText);
+            this.iXe.add(collectEmotionData.sharpText);
         }
     }
 
-    public boolean JQ(String str) {
-        if (this.iST == null || TextUtils.isEmpty(str)) {
+    public boolean JR(String str) {
+        if (this.iTh == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        Iterator<String> it = this.iST.iterator();
+        Iterator<String> it = this.iTh.iterator();
         while (it.hasNext()) {
             if (it.next().contains(str)) {
                 return true;

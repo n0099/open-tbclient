@@ -12,8 +12,8 @@ import com.baidu.tieba.ala.alasquare.widget.b;
 import com.baidu.tieba.ala.alasquare.widget.d;
 /* loaded from: classes10.dex */
 public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
-    private int gyd;
-    d gye;
+    private int gyr;
+    d gys;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
     /* renamed from: N */
     public SquareActiveAllViewHolder e(ViewGroup viewGroup) {
         b bVar = new b(this.mPageContext);
-        bVar.a(this.gye);
+        bVar.a(this.gys);
         return new SquareActiveAllViewHolder(bVar);
     }
 
@@ -31,11 +31,11 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, SquareActiveAllViewHolder squareActiveAllViewHolder) {
         b bVar;
-        if (squareActiveAllViewHolder == null || (bVar = squareActiveAllViewHolder.gyh) == null || bVar.getView() == null) {
+        if (squareActiveAllViewHolder == null || (bVar = squareActiveAllViewHolder.gyv) == null || bVar.getView() == null) {
             return null;
         }
         bVar.a(cVar);
-        if (i == this.gyd) {
+        if (i == this.gyr) {
             bVar.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
         }
         return squareActiveAllViewHolder.getView();
@@ -43,11 +43,11 @@ public class AlaSquareActiveAllAdapter extends a<c, SquareActiveAllViewHolder> {
 
     /* loaded from: classes10.dex */
     public class SquareActiveAllViewHolder extends TypeAdapter.ViewHolder {
-        public b gyh;
+        public b gyv;
 
         public SquareActiveAllViewHolder(b bVar) {
             super(bVar.getView());
-            this.gyh = bVar;
+            this.gyv = bVar;
         }
     }
 }

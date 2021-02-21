@@ -20,41 +20,41 @@ import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.OnePicInfoCard;
 /* loaded from: classes9.dex */
 public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
-    private TbImageView gFx;
-    private TextView iCm;
-    private LinearLayout kZU;
-    private ViewGroup ldY;
-    private LineCountNotifyTextView ldZ;
-    private TextView lea;
-    private LinearLayout leb;
-    private TbImageView lec;
-    private TextView led;
-    private TbImageView lee;
-    private TextView lef;
-    private int leg;
-    private int leh;
+    private TbImageView gFL;
+    private TextView iCA;
+    private LinearLayout lai;
+    private ViewGroup lem;
+    private LineCountNotifyTextView leo;
+    private TextView lep;
+    private LinearLayout leq;
+    private TbImageView ler;
+    private TextView les;
+    private TbImageView let;
+    private TextView leu;
+    private int lev;
+    private int lew;
 
     public OnePicInfoCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.leg = 0;
-        this.leh = -1;
+        this.lev = 0;
+        this.lew = -1;
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbO() {
-        this.ldY = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_one_pic_info, (ViewGroup) null);
-        this.gFx = (TbImageView) z(this.ldY, R.id.img);
-        this.ldZ = (LineCountNotifyTextView) z(this.ldY, R.id.one_title);
-        this.lea = (TextView) z(this.ldY, R.id.discription);
-        View view = (View) z(this.ldY, R.id.hot_thread_comment);
-        this.iCm = (TextView) z(view, R.id.hot_thread_line_tag);
-        this.leb = (LinearLayout) z(view, R.id.ll_left);
-        this.lec = (TbImageView) z(view, R.id.iconLeft);
-        this.led = (TextView) z(view, R.id.textLeft);
-        this.kZU = (LinearLayout) z(view, R.id.ll_right);
-        this.lee = (TbImageView) z(view, R.id.iconRight);
-        this.lef = (TextView) z(view, R.id.textRight);
-        return this.ldY;
+    protected View dbV() {
+        this.lem = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_one_pic_info, (ViewGroup) null);
+        this.gFL = (TbImageView) z(this.lem, R.id.img);
+        this.leo = (LineCountNotifyTextView) z(this.lem, R.id.one_title);
+        this.lep = (TextView) z(this.lem, R.id.discription);
+        View view = (View) z(this.lem, R.id.hot_thread_comment);
+        this.iCA = (TextView) z(view, R.id.hot_thread_line_tag);
+        this.leq = (LinearLayout) z(view, R.id.ll_left);
+        this.ler = (TbImageView) z(view, R.id.iconLeft);
+        this.les = (TextView) z(view, R.id.textLeft);
+        this.lai = (LinearLayout) z(view, R.id.ll_right);
+        this.let = (TbImageView) z(view, R.id.iconRight);
+        this.leu = (TextView) z(view, R.id.textRight);
+        return this.lem;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,22 +62,22 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(OnePicInfoCard onePicInfoCard, int i) {
         com.baidu.tbadk.r.a.a(this.eUY, getRootView());
-        ap.setBackgroundResource(this.ldY, R.drawable.addresslist_item_bg);
+        ap.setBackgroundResource(this.lem, R.drawable.addresslist_item_bg);
         setTagBg(onePicInfoCard);
-        ap.setViewTextColor(this.iCm, R.color.CAM_X0111);
-        ap.setViewTextColor(this.led, R.color.CAM_X0110);
-        ap.setViewTextColor(this.lef, R.color.CAM_X0110);
-        if (this.leg != 0 && this.ldZ != null) {
-            ap.setViewTextColor(this.ldZ, this.leg, 1);
+        ap.setViewTextColor(this.iCA, R.color.CAM_X0111);
+        ap.setViewTextColor(this.les, R.color.CAM_X0110);
+        ap.setViewTextColor(this.leu, R.color.CAM_X0110);
+        if (this.lev != 0 && this.leo != null) {
+            ap.setViewTextColor(this.leo, this.lev, 1);
         }
     }
 
     private void setTagBg(OnePicInfoCard onePicInfoCard) {
-        if (this.iCm != null) {
+        if (this.iCA != null) {
             if (onePicInfoCard != null && !com.baidu.tieba.lego.card.c.b.DT(onePicInfoCard.gettBgColor()) && !com.baidu.tieba.lego.card.c.b.DT(onePicInfoCard.gettBgColorN())) {
-                this.iCm.setBackgroundColor(isNightMode() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
+                this.iCA.setBackgroundColor(isNightMode() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
             } else {
-                ap.setBackgroundResource(this.iCm, R.drawable.label_bg_tie_n);
+                ap.setBackgroundResource(this.iCA, R.drawable.label_bg_tie_n);
             }
         }
     }
@@ -90,54 +90,54 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         if (!TextUtils.isEmpty(onePicInfoCard.getPic())) {
             str = onePicInfoCard.getPic();
         }
-        this.gFx.startLoad(str, 10, false);
+        this.gFL.startLoad(str, 10, false);
         if (!StringUtils.isNull(onePicInfoCard.getCardTitle())) {
-            this.ldZ.setText(onePicInfoCard.getCardTitle());
-            this.ldZ.setGetLineCountCallback(new LineCountNotifyTextView.a() { // from class: com.baidu.tieba.lego.card.view.OnePicInfoCardView.1
+            this.leo.setText(onePicInfoCard.getCardTitle());
+            this.leo.setGetLineCountCallback(new LineCountNotifyTextView.a() { // from class: com.baidu.tieba.lego.card.view.OnePicInfoCardView.1
                 @Override // com.baidu.tbadk.widget.LineCountNotifyTextView.a
                 public void bGb() {
-                    int lineCount = OnePicInfoCardView.this.ldZ.getLineCount();
-                    if (OnePicInfoCardView.this.leh != lineCount) {
+                    int lineCount = OnePicInfoCardView.this.leo.getLineCount();
+                    if (OnePicInfoCardView.this.lew != lineCount) {
                         if (lineCount == 1) {
-                            OnePicInfoCardView.this.lea.setMaxLines(2);
+                            OnePicInfoCardView.this.lep.setMaxLines(2);
                         } else {
-                            OnePicInfoCardView.this.lea.setMaxLines(1);
+                            OnePicInfoCardView.this.lep.setMaxLines(1);
                         }
                     }
-                    OnePicInfoCardView.this.leh = lineCount;
-                    OnePicInfoCardView.this.lea.setText(onePicInfoCard.getDesc());
+                    OnePicInfoCardView.this.lew = lineCount;
+                    OnePicInfoCardView.this.lep.setText(onePicInfoCard.getDesc());
                 }
             });
         }
         if (StringUtils.isNull(onePicInfoCard.getTag())) {
-            this.iCm.setVisibility(8);
+            this.iCA.setVisibility(8);
         } else {
-            this.iCm.setVisibility(0);
+            this.iCA.setVisibility(0);
             setTagBg(onePicInfoCard);
-            this.iCm.setText(onePicInfoCard.getTag());
+            this.iCA.setText(onePicInfoCard.getTag());
         }
         if (onePicInfoCard.getIconList() != null) {
-            this.leb.setVisibility(8);
-            this.kZU.setVisibility(8);
+            this.leq.setVisibility(8);
+            this.lai.setVisibility(8);
             if (onePicInfoCard.getIconList().size() > 0) {
-                this.leb.setVisibility(0);
-                a(this.led, this.lec, onePicInfoCard.getIconList().get(0));
+                this.leq.setVisibility(0);
+                a(this.les, this.ler, onePicInfoCard.getIconList().get(0));
             }
             if (onePicInfoCard.getIconList().size() > 1) {
-                this.kZU.setVisibility(0);
-                a(this.lef, this.lee, onePicInfoCard.getIconList().get(1));
+                this.lai.setVisibility(0);
+                a(this.leu, this.let, onePicInfoCard.getIconList().get(1));
             }
         } else {
-            this.leb.setVisibility(8);
-            this.kZU.setVisibility(8);
+            this.leq.setVisibility(8);
+            this.lai.setVisibility(8);
         }
         com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.TA(String.valueOf(onePicInfoCard.getItemId()))) {
-            this.leg = R.color.CAM_X0108;
+        if (readThreadHistory != null && readThreadHistory.TM(String.valueOf(onePicInfoCard.getItemId()))) {
+            this.lev = R.color.CAM_X0108;
         } else {
-            this.leg = R.color.CAM_X0105;
+            this.lev = R.color.CAM_X0105;
         }
-        ap.setViewTextColor(this.ldZ, this.leg, 1);
+        ap.setViewTextColor(this.leo, this.lev, 1);
         setCardOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.OnePicInfoCardView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -147,7 +147,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     }
 
     private void a(TextView textView, TbImageView tbImageView, com.baidu.tieba.lego.card.model.b bVar) {
-        String str = isNightMode() ? bVar.lbN : bVar.url;
+        String str = isNightMode() ? bVar.lcb : bVar.url;
         if (!TextUtils.isEmpty(str)) {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             tbImageView.setVisibility(0);

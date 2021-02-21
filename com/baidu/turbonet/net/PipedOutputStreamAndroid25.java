@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes6.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 oQS;
+    private PipedInputStreamAndroid25 oRs;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.oQS == null) {
+        if (this.oRs == null) {
             throw new IOException("Pipe not connected");
         }
-        this.oQS.MX(i);
+        this.oRs.MY(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.oQS == null) {
+        if (this.oRs == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.oQS.u(bArr, i, i2);
+            this.oRs.u(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.oQS != null) {
-            synchronized (this.oQS) {
-                this.oQS.notifyAll();
+        if (this.oRs != null) {
+            synchronized (this.oRs) {
+                this.oRs.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.oQS != null) {
-            this.oQS.egA();
+        if (this.oRs != null) {
+            this.oRs.egI();
         }
     }
 }

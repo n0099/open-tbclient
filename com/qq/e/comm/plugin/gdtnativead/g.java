@@ -31,15 +31,15 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
     public static class a implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private a.InterfaceC1205a f12027a;
+        private a.InterfaceC1207a f12027a;
 
         /* renamed from: b  reason: collision with root package name */
         private Queue<ADEvent> f12028b = new LinkedList();
         private boolean c;
         private boolean d;
 
-        public a(a.InterfaceC1205a interfaceC1205a, boolean z) {
-            this.f12027a = interfaceC1205a;
+        public a(a.InterfaceC1207a interfaceC1207a, boolean z) {
+            this.f12027a = interfaceC1207a;
             this.c = z;
         }
 
@@ -124,8 +124,8 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
         if (this.g != null) {
             baseNativeExpressAd.setVideoOption(this.g);
         }
-        a aVar = new a(new a.InterfaceC1205a() { // from class: com.qq.e.comm.plugin.gdtnativead.g.1
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+        a aVar = new a(new a.InterfaceC1207a() { // from class: com.qq.e.comm.plugin.gdtnativead.g.1
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void a() {
                 if (g.this.j()) {
                     return;
@@ -136,7 +136,7 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
                 }
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public boolean a(ADEvent aDEvent) {
                 int i;
                 boolean z;
@@ -161,12 +161,12 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
                 return false;
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void b() {
                 g.this.a((g) baseNativeExpressAd, 70542);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void b(ADEvent aDEvent) {
                 if (g.this.d == null || !g.this.d((g) baseNativeExpressAd)) {
                     return;
@@ -174,7 +174,7 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
                 g.this.d.onADEvent(aDEvent);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void c() {
                 g.this.b((g) baseNativeExpressAd, 70532);
             }

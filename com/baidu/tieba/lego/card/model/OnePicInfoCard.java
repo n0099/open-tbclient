@@ -55,7 +55,7 @@ public class OnePicInfoCard extends BaseCardInfo {
                 b bVar = new b();
                 bVar.type = optJSONObject.optInt("type");
                 bVar.url = optJSONObject.optString("url");
-                bVar.lbN = optJSONObject.optString("urlNight");
+                bVar.lcb = optJSONObject.optString("urlNight");
                 bVar.content = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }

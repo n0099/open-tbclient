@@ -3,18 +3,18 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes2.dex */
 public class a {
-    private static a kcB = new a();
+    private static a kcP = new a();
     private long creatTime = 0;
-    private SparseArray<Long> kcC = new SparseArray<>();
-    private SparseArray<Long> kcD = new SparseArray<>();
-    private SparseArray<Long> kcE = new SparseArray<>();
-    private SparseArray<Long> kcF = new SparseArray<>();
+    private SparseArray<Long> kcQ = new SparseArray<>();
+    private SparseArray<Long> kcR = new SparseArray<>();
+    private SparseArray<Long> kcS = new SparseArray<>();
+    private SparseArray<Long> kcT = new SparseArray<>();
 
     private a() {
     }
 
-    public static a cPn() {
-        return kcB;
+    public static a cPu() {
+        return kcP;
     }
 
     public long getCreateTime() {
@@ -26,7 +26,7 @@ public class a {
     }
 
     public long By(int i) {
-        Long l = this.kcD.get(i);
+        Long l = this.kcR.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void B(long j, int i) {
-        this.kcD.put(i, Long.valueOf(j));
+        this.kcR.put(i, Long.valueOf(j));
     }
 
     public long Bz(int i) {
-        Long l = this.kcC.get(i);
+        Long l = this.kcQ.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void C(long j, int i) {
-        this.kcC.put(i, Long.valueOf(j));
+        this.kcQ.put(i, Long.valueOf(j));
     }
 
     public long BA(int i) {
-        Long l = this.kcE.get(i);
+        Long l = this.kcS.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void D(long j, int i) {
-        this.kcE.put(i, Long.valueOf(j));
+        this.kcS.put(i, Long.valueOf(j));
     }
 
     public long BB(int i) {
-        Long l = this.kcF.get(i);
+        Long l = this.kcT.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void E(long j, int i) {
-        this.kcF.put(i, Long.valueOf(j));
+        this.kcT.put(i, Long.valueOf(j));
     }
 }

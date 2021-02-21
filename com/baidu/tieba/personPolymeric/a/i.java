@@ -17,16 +17,16 @@ import com.baidu.tieba.card.r;
 /* loaded from: classes8.dex */
 public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadData, CardViewHolder<r>> {
     private boolean isHost;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> jmF;
-    private com.baidu.adp.lib.d.b<TbImageView> jmG;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> jmT;
+    private com.baidu.adp.lib.d.b<TbImageView> jmU;
     private TbPageContext<?> mPageContext;
 
     public i(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.iBi);
-        this.jmF = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.i.2
+        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.iBw);
+        this.jmT = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cFf */
+            /* renamed from: cFm */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(i.this.mPageContext.getPageActivity());
             }
@@ -52,7 +52,7 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.jmG = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.i.3
+        this.jmU = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.i.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: buL */
@@ -97,18 +97,18 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
     /* renamed from: aX */
     public CardViewHolder<r> e(ViewGroup viewGroup) {
         r rVar = new r(this.mPageContext);
-        rVar.setConstrainLayoutPool(this.jmF);
-        rVar.setConstrainImagePool(this.jmG);
+        rVar.setConstrainLayoutPool(this.jmT);
+        rVar.setConstrainImagePool(this.jmU);
         rVar.currentPageType = 4;
-        if (rVar.ixT != null) {
-            rVar.ixT.fkw = 4;
+        if (rVar.iyh != null) {
+            rVar.iyh.fkw = 4;
         }
-        if (rVar.iys != null) {
-            rVar.iys.fkw = 4;
+        if (rVar.iyG != null) {
+            rVar.iyG.fkw = 4;
         }
-        if (rVar.iyp != null) {
-            rVar.iyp.setUsePlaceHolder(false);
-            rVar.iyp.izg = 4;
+        if (rVar.iyD != null) {
+            rVar.iyD.setUsePlaceHolder(false);
+            rVar.iyD.izu = 4;
         }
         rVar.c(new ab<CardPersonDynamicThreadData>() { // from class: com.baidu.tieba.personPolymeric.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -124,8 +124,8 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, CardViewHolder<r> cardViewHolder) {
-        cardViewHolder.ctb().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.ctb().a(cardPersonDynamicThreadData);
+        cardViewHolder.cti().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.cti().a(cardPersonDynamicThreadData);
         return cardViewHolder.getView();
     }
 

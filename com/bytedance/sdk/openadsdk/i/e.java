@@ -96,9 +96,9 @@ public class e {
         a(str, imageView, a(str, imageView, 0, 0));
     }
 
-    public void a(String str, ImageView imageView, d.InterfaceC0997d interfaceC0997d) {
+    public void a(String str, ImageView imageView, d.InterfaceC0999d interfaceC0999d) {
         i();
-        this.h.a(str, interfaceC0997d);
+        this.h.a(str, interfaceC0999d);
     }
 
     public static a a(String str, ImageView imageView, int i, int i2) {
@@ -107,7 +107,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
-    public static class a implements d.InterfaceC0997d {
+    public static class a implements d.InterfaceC0999d {
 
         /* renamed from: a  reason: collision with root package name */
         private ImageView f7217a;
@@ -131,21 +131,21 @@ public class e {
         public void a(com.bytedance.sdk.adnet.core.p<Bitmap> pVar) {
         }
 
-        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
         public void a() {
             if ((this.f7217a == null || !(this.f7217a.getContext() instanceof Activity) || !((Activity) this.f7217a.getContext()).isFinishing()) && this.f7217a != null && c() && this.c != 0) {
                 this.f7217a.setImageResource(this.c);
             }
         }
 
-        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
         public void a(d.c cVar, boolean z) {
             if ((this.f7217a == null || !(this.f7217a.getContext() instanceof Activity) || !((Activity) this.f7217a.getContext()).isFinishing()) && this.f7217a != null && c() && cVar.a() != null) {
                 this.f7217a.setImageBitmap(cVar.a());
             }
         }
 
-        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+        @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
         public void b() {
             this.f7217a = null;
         }

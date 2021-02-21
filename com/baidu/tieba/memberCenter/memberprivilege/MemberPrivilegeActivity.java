@@ -28,20 +28,20 @@ import com.baidu.tieba.memberCenter.memberprivilege.a;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
-    private d lrn;
+    private d lrB;
     private String SCENE_ID = "4001001000";
-    private HttpMessageListener lro = new HttpMessageListener(1001531) { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberPrivilegeActivity.1
+    private HttpMessageListener lrC = new HttpMessageListener(1001531) { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberPrivilegeActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            MemberPrivilegeActivity.this.hideLoadingView(MemberPrivilegeActivity.this.lrn.getRootView());
+            MemberPrivilegeActivity.this.hideLoadingView(MemberPrivilegeActivity.this.lrB.getRootView());
             if ((httpResponsedMessage instanceof ResponseMemberPrivilegeMessage) && httpResponsedMessage.getCmd() == 1001531) {
                 int error = httpResponsedMessage.getError();
                 ResponseMemberPrivilegeMessage responseMemberPrivilegeMessage = (ResponseMemberPrivilegeMessage) httpResponsedMessage;
                 if (error != 0) {
                     MemberPrivilegeActivity.this.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? MemberPrivilegeActivity.this.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
                 } else if (responseMemberPrivilegeMessage.mData != null) {
-                    MemberPrivilegeActivity.this.lrn.dfL().a(responseMemberPrivilegeMessage.mData);
+                    MemberPrivilegeActivity.this.lrB.dfS().a(responseMemberPrivilegeMessage.mData);
                 } else {
                     MemberPrivilegeActivity.this.showToast(R.string.neterror);
                 }
@@ -53,16 +53,16 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && ((Integer) customResponsedMessage.getData()) != null) {
-                MemberPrivilegeActivity.this.dfK();
+                MemberPrivilegeActivity.this.dfR();
             }
         }
     };
-    private final CustomMessageListener jUG = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberPrivilegeActivity.3
+    private final CustomMessageListener jUU = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberPrivilegeActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                MemberPrivilegeActivity.this.dfK();
+                MemberPrivilegeActivity.this.dfR();
             }
         }
     };
@@ -71,27 +71,27 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        dfJ();
+        dfQ();
         registerListener(this.mMemListener);
-        registerListener(this.jUG);
-        registerListener(this.lro);
+        registerListener(this.jUU);
+        registerListener(this.lrC);
         initUI();
-        dfK();
+        dfR();
     }
 
     private void initUI() {
-        this.lrn = new d((MemberPrivilegeActivity) getPageContext().getOrignalPage());
+        this.lrB = new d((MemberPrivilegeActivity) getPageContext().getOrignalPage());
     }
 
-    private void dfJ() {
+    private void dfQ() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001531, TbConfig.SERVER_ADDRESS + TbConfig.MEMBER_PRIVILEGE);
         tbHttpMessageTask.setResponsedClass(ResponseMemberPrivilegeMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void dfK() {
-        showLoadingView(this.lrn.getRootView(), true);
+    public void dfR() {
+        showLoadingView(this.lrB.getRootView(), true);
         HttpMessage httpMessage = new HttpMessage(1001531);
         httpMessage.addParam("st_type", "shop");
         sendMessage(httpMessage);
@@ -100,16 +100,16 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lrn.onChangeSkinType(i);
+        this.lrB.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i != 0 && 1 != this.lrn.dfL().getItemViewType(i)) {
-            String str = ((a.C0795a) this.lrn.dfL().getItem(i)).mLink;
-            String str2 = ((a.C0795a) this.lrn.dfL().getItem(i)).mTitle;
+        if (i != 0 && 1 != this.lrB.dfS().getItemViewType(i)) {
+            String str = ((a.C0796a) this.lrB.dfS().getItem(i)).mLink;
+            String str2 = ((a.C0796a) this.lrB.dfS().getItem(i)).mTitle;
             if (!au.isEmpty(str)) {
-                if (Od(str)) {
+                if (Oe(str)) {
                     sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
                 } else {
                     com.baidu.tbadk.browser.a.startWebActivity(getPageContext().getPageActivity(), str2, str, true, true, true);
@@ -128,7 +128,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         }
     }
 
-    private boolean Od(String str) {
+    private boolean Oe(String str) {
         Map<String, String> paramPair;
         return (TextUtils.isEmpty(str) || (paramPair = bf.getParamPair(bf.getParamStr(str))) == null || !"1".equals(paramPair.get("type"))) ? false : true;
     }

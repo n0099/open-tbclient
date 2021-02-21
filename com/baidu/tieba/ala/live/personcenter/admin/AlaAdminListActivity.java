@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.ala.live.personcenter.admin.c.a;
 /* loaded from: classes11.dex */
 public class AlaAdminListActivity extends BaseFragmentActivity {
-    private NoNetworkView hjT;
-    private a hjU;
+    private NoNetworkView hkh;
+    private a hki;
     private NavigationBar mNavigationBar;
     private View rootView;
 
@@ -32,9 +32,9 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
             }
             this.rootView = findViewById(a.f.ala_person_adminlist_rootview);
             this.mNavigationBar = (NavigationBar) findViewById(a.f.ala_person_adminlist_navigation_bar);
-            this.hjT = (NoNetworkView) findViewById(a.f.ala_person_adminlist_no_network_view);
-            this.hjU = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
-            this.hjU.onCreate(bundle);
+            this.hkh = (NoNetworkView) findViewById(a.f.ala_person_adminlist_no_network_view);
+            this.hki = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
+            this.hki.onCreate(bundle);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(getString(a.h.sdk_prc_person_live_admin));
         }
@@ -48,11 +48,11 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
         }
         SkinManager.setBackgroundResource(this.mNavigationBar, a.c.sdk_cp_bg_line_d);
         SkinManager.setBackgroundResource(this.rootView, a.c.sdk_cp_bg_line_d);
-        if (this.hjT != null) {
-            this.hjT.onChangeSkinType(getPageContext(), i);
+        if (this.hkh != null) {
+            this.hkh.onChangeSkinType(getPageContext(), i);
         }
-        if (this.hjU != null) {
-            this.hjU.onChangeSkinType(i);
+        if (this.hki != null) {
+            this.hki.onChangeSkinType(i);
         }
     }
 }

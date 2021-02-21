@@ -27,8 +27,8 @@ public class a implements b<LocationEvent> {
                 }
                 if (socketResponsedMessage.getError() == 0 && locationEvent.locationData != null) {
                     LocationModel.c(locationEvent.locationData);
-                    com.baidu.tieba.tbadkCore.location.b.dOk().setTimeStamp(System.currentTimeMillis());
-                    com.baidu.tieba.tbadkCore.location.b.dOk().setLocationData(locationEvent.locationData);
+                    com.baidu.tieba.tbadkCore.location.b.dOs().setTimeStamp(System.currentTimeMillis());
+                    com.baidu.tieba.tbadkCore.location.b.dOs().setLocationData(locationEvent.locationData);
                 }
                 g.publishEvent(locationEvent);
             }
@@ -53,7 +53,7 @@ public class a implements b<LocationEvent> {
                 locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
                 MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
             } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                com.baidu.tieba.tbadkCore.location.b.dOk().setLocationData(locationEvent.locationData);
+                com.baidu.tieba.tbadkCore.location.b.dOs().setLocationData(locationEvent.locationData);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
             }

@@ -35,9 +35,9 @@ public class PersonalCardDetailSocketReponse extends SocketResponsedMessage {
                 }
                 this.cardData.setTitle(getCardResIdl.data.title);
                 this.cardData.setDescription(getCardResIdl.data.description);
-                this.cardData.TR(getCardResIdl.data.pic_url);
-                this.cardData.TS(getCardResIdl.data.permission);
-                this.cardData.TT(getCardResIdl.data.props_state_img);
+                this.cardData.Ud(getCardResIdl.data.pic_url);
+                this.cardData.Ue(getCardResIdl.data.permission);
+                this.cardData.Uf(getCardResIdl.data.props_state_img);
                 this.cardData.Kd(getCardResIdl.data.in_use.intValue());
                 this.cardData.setFreeUserLevel(getCardResIdl.data.free_user_level.intValue());
                 this.cardData.setActivityUrl(getCardResIdl.data.activity_url);

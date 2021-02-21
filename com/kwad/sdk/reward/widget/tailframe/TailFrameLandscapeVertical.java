@@ -155,8 +155,8 @@ public class TailFrameLandscapeVertical extends LinearLayout implements View.OnC
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.g, new a.InterfaceC1092a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeVertical.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.g, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeVertical.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 if (TailFrameLandscapeVertical.this.f != null) {
                     TailFrameLandscapeVertical.this.f.a();

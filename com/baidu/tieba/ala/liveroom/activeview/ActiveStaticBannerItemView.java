@@ -13,9 +13,9 @@ import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
 import com.facebook.drawee.drawable.p;
 /* loaded from: classes11.dex */
 public class ActiveStaticBannerItemView extends FrameLayout implements c {
-    private a hoX;
-    private SimpleDraweeView hoY;
-    private View hoZ;
+    private a hpl;
+    private SimpleDraweeView hpm;
+    private View hpn;
 
     public ActiveStaticBannerItemView(@NonNull Context context) {
         super(context);
@@ -24,17 +24,17 @@ public class ActiveStaticBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setCallback(a aVar) {
-        this.hoX = aVar;
+        this.hpl = aVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setData(boolean z, ab abVar, t tVar) {
         if (tVar != null) {
-            this.hoY.setImageURI(tVar.pic_url);
+            this.hpm.setImageURI(tVar.pic_url);
             if (tVar.aHG) {
-                this.hoZ.setVisibility(0);
+                this.hpn.setVisibility(0);
             } else {
-                this.hoZ.setVisibility(4);
+                this.hpn.setVisibility(4);
             }
         }
     }
@@ -49,22 +49,22 @@ public class ActiveStaticBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        this.hoX = null;
+        this.hpl = null;
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_active_view_item, (ViewGroup) this, true);
-        this.hoY = (SimpleDraweeView) findViewById(a.f.ala_live_active_view_img);
-        this.hoZ = findViewById(a.f.new_icon);
-        com.facebook.drawee.generic.a hierarchy = this.hoY.getHierarchy();
-        hierarchy.a(a.e.sdk_transparent_bg, p.b.pDw);
-        hierarchy.b(a.e.sdk_transparent_bg, p.b.pDw);
-        hierarchy.b(p.b.pDs);
+        this.hpm = (SimpleDraweeView) findViewById(a.f.ala_live_active_view_img);
+        this.hpn = findViewById(a.f.new_icon);
+        com.facebook.drawee.generic.a hierarchy = this.hpm.getHierarchy();
+        hierarchy.a(a.e.sdk_transparent_bg, p.b.pDW);
+        hierarchy.b(a.e.sdk_transparent_bg, p.b.pDW);
+        hierarchy.b(p.b.pDS);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveStaticBannerItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ActiveStaticBannerItemView.this.hoX != null) {
-                    ActiveStaticBannerItemView.this.hoX.bZG();
+                if (ActiveStaticBannerItemView.this.hpl != null) {
+                    ActiveStaticBannerItemView.this.hpl.bZN();
                 }
             }
         });

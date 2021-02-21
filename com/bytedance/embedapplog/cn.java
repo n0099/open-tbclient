@@ -17,43 +17,43 @@ public class cn {
     private final SharedPreferences e;
     private volatile JSONObject f;
     private volatile JSONObject g;
-    private final l pnv;
-    private final SharedPreferences pnw;
+    private final l pnV;
+    private final SharedPreferences pnW;
 
     public cn(Context context, l lVar) {
         this.f5828a = context;
-        this.pnv = lVar;
+        this.pnV = lVar;
         this.e = this.f5828a.getSharedPreferences("embed_applog_stats", 0);
         this.c = this.f5828a.getSharedPreferences("embed_header_custom", 0);
-        this.pnw = this.f5828a.getSharedPreferences("embed_last_sp_session", 0);
+        this.pnW = this.f5828a.getSharedPreferences("embed_last_sp_session", 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
-        return this.pnv.enB();
+        return this.pnV.enJ();
     }
 
     public String c() {
-        return this.pnw.getString("session_last_day", "");
+        return this.pnW.getString("session_last_day", "");
     }
 
     public void a(String str, int i) {
-        this.pnw.edit().putString("session_last_day", str).putInt("session_order", i).apply();
+        this.pnW.edit().putString("session_last_day", str).putInt("session_order", i).apply();
     }
 
     public int d() {
-        return this.pnw.getInt("session_order", 0);
+        return this.pnW.getInt("session_order", 0);
     }
 
-    public SharedPreferences eog() {
+    public SharedPreferences eoo() {
         return this.e;
     }
 
     public boolean f() {
-        return this.pnv.eny();
+        return this.pnV.enG();
     }
 
-    public JSONObject eoh() {
+    public JSONObject eop() {
         return this.g;
     }
 
@@ -121,27 +121,27 @@ public class cn {
     }
 
     public String j() {
-        return this.pnv.uB();
+        return this.pnV.uB();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String k() {
-        return this.pnv.getChannel();
+        return this.pnV.getChannel();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String l() {
-        return this.pnv.enz();
+        return this.pnV.enH();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String m() {
-        return this.pnv.getLanguage();
+        return this.pnV.getLanguage();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String n() {
-        return this.pnv.enA();
+        return this.pnV.enI();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,10 +165,10 @@ public class cn {
     }
 
     public boolean r() {
-        if (this.pnv.getProcess() == 0) {
-            this.pnv.AX(!av.a(this.f5828a).contains(":"));
+        if (this.pnV.getProcess() == 0) {
+            this.pnV.AX(!av.a(this.f5828a).contains(":"));
         }
-        return this.pnv.getProcess() == 1;
+        return this.pnV.getProcess() == 1;
     }
 
     public long s() {
@@ -183,10 +183,10 @@ public class cn {
     }
 
     public String t() {
-        return !TextUtils.isEmpty(this.pnv.enH()) ? this.pnv.enH() : this.c.getString("ab_version", null);
+        return !TextUtils.isEmpty(this.pnV.enP()) ? this.pnV.enP() : this.c.getString("ab_version", null);
     }
 
-    public JSONObject eoi() {
+    public JSONObject eoq() {
         JSONObject jSONObject = this.f;
         if (jSONObject == null) {
             synchronized (this) {
@@ -211,11 +211,11 @@ public class cn {
         return this.e.getBoolean("bav_log_collect", false);
     }
 
-    public long eoj() {
+    public long eor() {
         return this.e.getLong("session_interval", 30000L);
     }
 
-    public long eok() {
+    public long eos() {
         return this.e.getLong("batch_event_interval", 30000L);
     }
 
@@ -226,7 +226,7 @@ public class cn {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String A() {
-        return this.pnv.enx();
+        return this.pnV.enF();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -245,63 +245,63 @@ public class cn {
     public void a(long j) {
     }
 
-    public long eol() {
+    public long eot() {
         return 10000L;
     }
 
     public String D() {
-        return this.pnv.getAppName();
+        return this.pnV.getAppName();
     }
 
     public int E() {
-        return this.pnv.getVersionCode();
+        return this.pnV.getVersionCode();
     }
 
     public int F() {
-        return this.pnv.enE();
+        return this.pnV.enM();
     }
 
     public int G() {
-        return this.pnv.enF();
+        return this.pnV.enN();
     }
 
     public String H() {
-        return this.pnv.getVersion();
+        return this.pnV.getVersion();
     }
 
     public String I() {
-        return this.pnv.enD();
+        return this.pnV.enL();
     }
 
     public String J() {
-        return this.pnv.enG();
+        return this.pnV.enO();
     }
 
     public String K() {
-        return this.pnv.enI();
+        return this.pnV.enQ();
     }
 
     public String L() {
-        return this.pnv.enJ();
+        return this.pnV.enR();
     }
 
     public String M() {
-        return this.pnv.enK();
+        return this.pnV.enS();
     }
 
     public String N() {
-        return this.pnv.enN() == null ? "" : this.pnv.enN();
+        return this.pnV.enV() == null ? "" : this.pnV.enV();
     }
 
     public boolean O() {
-        return this.pnv.enM();
+        return this.pnV.enU();
     }
 
-    public l eom() {
-        return this.pnv;
+    public l eou() {
+        return this.pnV;
     }
 
-    public CharSequence eon() {
-        return this.pnv.enL();
+    public CharSequence eov() {
+        return this.pnV.enT();
     }
 }

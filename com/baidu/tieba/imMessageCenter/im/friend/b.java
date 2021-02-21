@@ -17,9 +17,9 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.base.d<IMBlackListActivity> {
     private BdListView WO;
-    private NoNetworkView gxW;
-    private IMBlackListActivity kOL;
-    private a kOP;
+    private NoNetworkView gyk;
+    private IMBlackListActivity kOZ;
+    private a kPd;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private ProgressBar mProgress;
@@ -27,7 +27,7 @@ public class b extends com.baidu.adp.base.d<IMBlackListActivity> {
 
     public b(IMBlackListActivity iMBlackListActivity) {
         super(iMBlackListActivity.getPageContext());
-        this.kOL = iMBlackListActivity;
+        this.kOZ = iMBlackListActivity;
         initialize();
     }
 
@@ -35,31 +35,31 @@ public class b extends com.baidu.adp.base.d<IMBlackListActivity> {
         this.mProgress.setVisibility(0);
     }
 
-    public void cYx() {
+    public void cYE() {
         this.mProgress.setVisibility(8);
     }
 
     public void b(BlackListItemData blackListItemData) {
-        this.kOP.b(blackListItemData);
-        if (this.kOP.getCount() <= 0) {
+        this.kPd.b(blackListItemData);
+        if (this.kPd.getCount() <= 0) {
             this.WO.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.WO.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.kOP.notifyDataSetChanged();
+        this.kPd.notifyDataSetChanged();
     }
 
     public void refreshData() {
-        if (this.kOP.getCount() <= 0) {
+        if (this.kPd.getCount() <= 0) {
             this.WO.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.WO.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.kOP.notifyDataSetChanged();
+        this.kPd.notifyDataSetChanged();
     }
 
     public void aF(ArrayList<BlackListItemData> arrayList) {
@@ -70,31 +70,31 @@ public class b extends com.baidu.adp.base.d<IMBlackListActivity> {
         }
         this.WO.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.kOP.setData(arrayList);
-        this.kOP.notifyDataSetChanged();
+        this.kPd.setData(arrayList);
+        this.kPd.notifyDataSetChanged();
     }
 
     private void initialize() {
-        this.kOL.setContentView(R.layout.im_black_list);
-        this.mRoot = this.kOL.findViewById(R.id.root_view);
-        this.gxW = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.kOZ.setContentView(R.layout.im_black_list);
+        this.mRoot = this.kOZ.findViewById(R.id.root_view);
+        this.gyk = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.chat_black_list_title);
         this.WO = (BdListView) this.mRoot.findViewById(R.id.black_list);
-        this.mNoDataView = NoDataViewFactory.a(this.kOL.getPageContext().getContext(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.fMD), NoDataViewFactory.d.pz(R.string.black_list_no_data_text), null);
+        this.mNoDataView = NoDataViewFactory.a(this.kOZ.getPageContext().getContext(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.fMD), NoDataViewFactory.d.pz(R.string.black_list_no_data_text), null);
         this.mProgress = (ProgressBar) this.mRoot.findViewById(R.id.progress);
-        this.kOP = new a(this.kOL);
-        this.WO.setAdapter((ListAdapter) this.kOP);
+        this.kPd = new a(this.kOZ);
+        this.WO.setAdapter((ListAdapter) this.kPd);
         bup();
     }
 
     private void bup() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.kOL.getLayoutMode().setNightMode(skinType == 1);
-        this.kOL.getLayoutMode().onModeChanged(this.mRoot);
-        this.mNavigationBar.onChangeSkinType(this.kOL.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.kOL.getPageContext(), skinType);
-        this.gxW.onChangeSkinType(this.kOL.getPageContext(), skinType);
+        this.kOZ.getLayoutMode().setNightMode(skinType == 1);
+        this.kOZ.getLayoutMode().onModeChanged(this.mRoot);
+        this.mNavigationBar.onChangeSkinType(this.kOZ.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.kOZ.getPageContext(), skinType);
+        this.gyk.onChangeSkinType(this.kOZ.getPageContext(), skinType);
     }
 }

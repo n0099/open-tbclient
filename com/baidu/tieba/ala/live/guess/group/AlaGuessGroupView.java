@@ -8,9 +8,9 @@ import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class AlaGuessGroupView extends LinearLayout {
-    private AlaGuessGroupInfoView hgu;
-    private AlaGuessGroupInfoView hgv;
-    private AlaGuessGroupInfoView hgw;
+    private AlaGuessGroupInfoView hgI;
+    private AlaGuessGroupInfoView hgJ;
+    private AlaGuessGroupInfoView hgK;
 
     public AlaGuessGroupView(Context context) {
         super(context);
@@ -29,20 +29,20 @@ public class AlaGuessGroupView extends LinearLayout {
 
     public void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.ala_guess_group_view, this);
-        this.hgu = (AlaGuessGroupInfoView) findViewById(a.f.group_first);
-        this.hgv = (AlaGuessGroupInfoView) findViewById(a.f.group_second);
-        this.hgw = (AlaGuessGroupInfoView) findViewById(a.f.group_third);
+        this.hgI = (AlaGuessGroupInfoView) findViewById(a.f.group_first);
+        this.hgJ = (AlaGuessGroupInfoView) findViewById(a.f.group_second);
+        this.hgK = (AlaGuessGroupInfoView) findViewById(a.f.group_third);
     }
 
     public AlaGuessGroupInfoView getFirstInfo() {
-        return this.hgu;
+        return this.hgI;
     }
 
     public AlaGuessGroupInfoView getSecondInfo() {
-        return this.hgv;
+        return this.hgJ;
     }
 
     public AlaGuessGroupInfoView getThirdInfo() {
-        return this.hgw;
+        return this.hgK;
     }
 }

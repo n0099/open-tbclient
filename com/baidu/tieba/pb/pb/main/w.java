@@ -9,7 +9,7 @@ public class w extends l<x, PbListAlaRecommendVH> {
     private com.baidu.tieba.pb.data.f pbData;
 
     public w(com.baidu.tieba.pb.videopb.b bVar) {
-        super(bVar, x.lUD);
+        super(bVar, x.lUS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public class w extends l<x, PbListAlaRecommendVH> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cw */
     public PbListAlaRecommendVH e(ViewGroup viewGroup) {
-        return new PbListAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.lPU.doa());
+        return new PbListAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.lQj.doh());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

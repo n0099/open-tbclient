@@ -3,14 +3,14 @@ package rx.internal.operators;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
 public final class NotificationLite {
-    private static final Object qyy = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+    private static final Object qyY = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         private static final long serialVersionUID = 1;
 
         public String toString() {
             return "Notification=>Completed";
         }
     };
-    private static final Object qyz = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+    private static final Object qyZ = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
         private static final long serialVersionUID = 2;
 
         public String toString() {
@@ -34,13 +34,13 @@ public final class NotificationLite {
 
     public static <T> Object next(T t) {
         if (t == null) {
-            return qyz;
+            return qyZ;
         }
         return t;
     }
 
-    public static Object eMS() {
-        return qyy;
+    public static Object eNa() {
+        return qyY;
     }
 
     public static Object error(Throwable th) {
@@ -48,10 +48,10 @@ public final class NotificationLite {
     }
 
     public static <T> boolean a(rx.e<? super T> eVar, Object obj) {
-        if (obj == qyy) {
+        if (obj == qyY) {
             eVar.onCompleted();
             return true;
-        } else if (obj == qyz) {
+        } else if (obj == qyZ) {
             eVar.onNext(null);
             return false;
         } else if (obj != null) {
@@ -67,7 +67,7 @@ public final class NotificationLite {
     }
 
     public static boolean ca(Object obj) {
-        return obj == qyy;
+        return obj == qyY;
     }
 
     public static boolean isError(Object obj) {
@@ -77,7 +77,7 @@ public final class NotificationLite {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T getValue(Object obj) {
-        if (obj == qyz) {
+        if (obj == qyZ) {
             return null;
         }
         return obj;

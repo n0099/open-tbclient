@@ -3,9 +3,9 @@ package com.baidu.tieba.horizonalList.a;
 import java.util.Random;
 /* loaded from: classes.dex */
 public final class a {
-    private static final Random krL = new Random();
+    private static final Random krZ = new Random();
 
-    public static int cH(int i, int i2) {
-        return i >= i2 ? i : (int) ((krL.nextFloat() * (i2 - i)) + i);
+    public static int cI(int i, int i2) {
+        return i >= i2 ? i : (int) ((krZ.nextFloat() * (i2 - i)) + i);
     }
 }

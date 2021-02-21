@@ -6,7 +6,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 /* loaded from: classes8.dex */
 public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<T, V> {
-    private boolean lyq;
+    private boolean lyE;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
@@ -14,10 +14,10 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
     }
 
     public void up(boolean z) {
-        this.lyq = z;
+        this.lyE = z;
     }
 
-    public boolean did() {
-        return this.lyq;
+    public boolean dik() {
+        return this.lyE;
     }
 }

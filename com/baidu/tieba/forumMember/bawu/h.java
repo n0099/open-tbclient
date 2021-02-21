@@ -14,28 +14,28 @@ import java.util.ArrayList;
 public class h extends BaseAdapter {
     private TbPageContext<?> eUY;
     private int eWz;
-    private b jbN;
-    private ArrayList<i> jbP = new ArrayList<>();
-    private l jbQ;
-    private int jbR;
+    private b jcb;
+    private ArrayList<i> jcd = new ArrayList<>();
+    private l jce;
+    private int jcf;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void JV(String str);
+        void JW(String str);
     }
 
     public h(TbPageContext<?> tbPageContext) {
         this.eWz = 0;
-        this.jbR = 0;
+        this.jcf = 0;
         this.eUY = tbPageContext;
         this.eWz = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds31);
-        this.jbR = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds0);
+        this.jcf = com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds0);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jbP != null) {
-            return this.jbP.size();
+        if (this.jcd != null) {
+            return this.jcd.size();
         }
         return 0;
     }
@@ -44,10 +44,10 @@ public class h extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: yh */
     public i getItem(int i) {
-        if (this.jbP == null || i >= this.jbP.size()) {
+        if (this.jcd == null || i >= this.jcd.size()) {
             return null;
         }
-        return this.jbP.get(i);
+        return this.jcd.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,7 +57,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return getItem(i).cAC();
+        return getItem(i).cAJ();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -84,74 +84,74 @@ public class h extends BaseAdapter {
         } else if (getItemViewType(i) == 1) {
             if (view != null && (view.getTag() instanceof c)) {
                 c cVar2 = (c) view.getTag();
-                cVar2.jbU.setVisibility(0);
-                cVar2.jbV.setVisibility(8);
-                cVar2.jbW.setVisibility(8);
-                cVar2.jbX.setVisibility(8);
+                cVar2.jci.setVisibility(0);
+                cVar2.jcj.setVisibility(8);
+                cVar2.jck.setVisibility(8);
+                cVar2.jcl.setVisibility(8);
                 cVar = cVar2;
             } else {
                 view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.bawu_item_member, viewGroup, false);
                 c cVar3 = new c();
-                cVar3.jbT = (RelativeLayout) view.findViewById(R.id.bawu_item_member_root);
-                cVar3.jbU = (BawuMemberInfoView) view.findViewById(R.id.left_member);
-                cVar3.jbV = (BawuMemberInfoView) view.findViewById(R.id.right_member);
-                cVar3.jbW = (BawuManagerApplyInfoView) view.findViewById(R.id.left_manager_apply);
-                cVar3.jbX = (BawuManagerApplyInfoView) view.findViewById(R.id.right_manager_apply);
+                cVar3.jch = (RelativeLayout) view.findViewById(R.id.bawu_item_member_root);
+                cVar3.jci = (BawuMemberInfoView) view.findViewById(R.id.left_member);
+                cVar3.jcj = (BawuMemberInfoView) view.findViewById(R.id.right_member);
+                cVar3.jck = (BawuManagerApplyInfoView) view.findViewById(R.id.left_manager_apply);
+                cVar3.jcl = (BawuManagerApplyInfoView) view.findViewById(R.id.right_manager_apply);
                 view.setTag(cVar3);
                 cVar = cVar3;
             }
             com.baidu.tieba.forumMember.bawu.b bVar = (com.baidu.tieba.forumMember.bawu.b) getItem(i);
-            if (bVar != null && bVar.cAD() != null && bVar.cAD().size() > 0) {
-                if (bVar.isLast() && bVar.cAE()) {
-                    cVar.jbT.setPadding(this.eWz, 0, this.eWz, this.jbR);
-                    if (this.jbQ != null && !this.jbQ.isEmpty()) {
-                        if (bVar.cAD().size() == 2) {
-                            if (bVar.cAF().equals(this.eUY.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                                cVar.jbX.setVisibility(8);
-                                cVar.jbW.setVisibility(8);
-                            } else if (bVar.cAF().equals(this.eUY.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                                cVar.jbX.setVisibility(8);
-                                cVar.jbW.setVisibility(0);
-                                cVar.jbW.aW(this.eUY.getResources().getString(R.string.tip_assist_apply), this.jbQ.cAO());
-                                cVar.jbW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
+            if (bVar != null && bVar.cAK() != null && bVar.cAK().size() > 0) {
+                if (bVar.isLast() && bVar.cAL()) {
+                    cVar.jch.setPadding(this.eWz, 0, this.eWz, this.jcf);
+                    if (this.jce != null && !this.jce.isEmpty()) {
+                        if (bVar.cAK().size() == 2) {
+                            if (bVar.cAM().equals(this.eUY.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                                cVar.jcl.setVisibility(8);
+                                cVar.jck.setVisibility(8);
+                            } else if (bVar.cAM().equals(this.eUY.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                                cVar.jcl.setVisibility(8);
+                                cVar.jck.setVisibility(0);
+                                cVar.jck.aW(this.eUY.getResources().getString(R.string.tip_assist_apply), this.jce.cAV());
+                                cVar.jck.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
-                                        if (h.this.jbN != null) {
-                                            h.this.jbN.JV(h.this.jbQ.cAP());
+                                        if (h.this.jcb != null) {
+                                            h.this.jcb.JW(h.this.jce.cAW());
                                         }
                                     }
                                 });
                             }
-                        } else if (bVar.cAF().equals(this.eUY.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                            cVar.jbV.setVisibility(8);
-                            cVar.jbX.setVisibility(8);
-                            cVar.jbW.setVisibility(8);
-                        } else if (bVar.cAF().equals(this.eUY.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                            cVar.jbV.setVisibility(8);
-                            cVar.jbX.setVisibility(0);
-                            cVar.jbW.setVisibility(8);
-                            cVar.jbX.aW(this.eUY.getResources().getString(R.string.tip_assist_apply), this.jbQ.cAO());
-                            cVar.jbX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
+                        } else if (bVar.cAM().equals(this.eUY.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                            cVar.jcj.setVisibility(8);
+                            cVar.jcl.setVisibility(8);
+                            cVar.jck.setVisibility(8);
+                        } else if (bVar.cAM().equals(this.eUY.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                            cVar.jcj.setVisibility(8);
+                            cVar.jcl.setVisibility(0);
+                            cVar.jck.setVisibility(8);
+                            cVar.jcl.aW(this.eUY.getResources().getString(R.string.tip_assist_apply), this.jce.cAV());
+                            cVar.jcl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (h.this.jbN != null) {
-                                        h.this.jbN.JV(h.this.jbQ.cAP());
+                                    if (h.this.jcb != null) {
+                                        h.this.jcb.JW(h.this.jce.cAW());
                                     }
                                 }
                             });
                         }
                     }
                 } else {
-                    cVar.jbT.setPadding(this.eWz, 0, this.eWz, 0);
-                    cVar.jbW.setVisibility(8);
-                    cVar.jbX.setVisibility(8);
+                    cVar.jch.setPadding(this.eWz, 0, this.eWz, 0);
+                    cVar.jck.setVisibility(8);
+                    cVar.jcl.setVisibility(8);
                 }
-                cVar.jbU.a(bVar.cAD().get(0));
-                if (bVar.cAD().size() >= 2) {
-                    cVar.jbV.a(bVar.cAD().get(1));
-                    cVar.jbV.setVisibility(0);
+                cVar.jci.a(bVar.cAK().get(0));
+                if (bVar.cAK().size() >= 2) {
+                    cVar.jcj.a(bVar.cAK().get(1));
+                    cVar.jcj.setVisibility(0);
                 } else {
-                    cVar.jbV.setVisibility(8);
+                    cVar.jcj.setVisibility(8);
                 }
                 this.eUY.getLayoutMode().onModeChanged(view);
             }
@@ -170,24 +170,24 @@ public class h extends BaseAdapter {
     }
 
     public void as(ArrayList<i> arrayList) {
-        this.jbP = arrayList;
+        this.jcd = arrayList;
     }
 
     public void a(l lVar) {
-        this.jbQ = lVar;
+        this.jce = lVar;
     }
 
     public void a(b bVar) {
-        this.jbN = bVar;
+        this.jcb = bVar;
     }
 
     /* loaded from: classes8.dex */
     public class c {
-        RelativeLayout jbT;
-        BawuMemberInfoView jbU;
-        BawuMemberInfoView jbV;
-        BawuManagerApplyInfoView jbW;
-        BawuManagerApplyInfoView jbX;
+        RelativeLayout jch;
+        BawuMemberInfoView jci;
+        BawuMemberInfoView jcj;
+        BawuManagerApplyInfoView jck;
+        BawuManagerApplyInfoView jcl;
 
         public c() {
         }

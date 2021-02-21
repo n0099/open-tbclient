@@ -25,8 +25,8 @@ public class d {
     private final Map<String, a> e = Collections.synchronizedMap(new HashMap());
     private final Map<String, a> f = Collections.synchronizedMap(new HashMap());
     private final Handler g = new Handler(Looper.getMainLooper());
-    private final o puB;
-    private final b puC;
+    private final o pvb;
+    private final b pvc;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -39,7 +39,7 @@ public class d {
 
     /* renamed from: com.bytedance.sdk.adnet.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0997d extends p.a<Bitmap> {
+    public interface InterfaceC0999d extends p.a<Bitmap> {
         void a();
 
         void a(c cVar, boolean z);
@@ -48,49 +48,49 @@ public class d {
     }
 
     public d(o oVar, b bVar) {
-        this.puB = oVar;
-        this.puC = bVar == null ? new com.bytedance.sdk.adnet.b.a() : bVar;
+        this.pvb = oVar;
+        this.pvc = bVar == null ? new com.bytedance.sdk.adnet.b.a() : bVar;
     }
 
-    public void a(String str, InterfaceC0997d interfaceC0997d) {
-        a(str, interfaceC0997d, 0, 0);
+    public void a(String str, InterfaceC0999d interfaceC0999d) {
+        a(str, interfaceC0999d, 0, 0);
     }
 
-    public void a(String str, InterfaceC0997d interfaceC0997d, int i, int i2) {
-        a(str, interfaceC0997d, i, i2, ImageView.ScaleType.CENTER_INSIDE);
+    public void a(String str, InterfaceC0999d interfaceC0999d, int i, int i2) {
+        a(str, interfaceC0999d, i, i2, ImageView.ScaleType.CENTER_INSIDE);
     }
 
-    public void a(final String str, final InterfaceC0997d interfaceC0997d, final int i, final int i2, final ImageView.ScaleType scaleType) {
+    public void a(final String str, final InterfaceC0999d interfaceC0999d, final int i, final int i2, final ImageView.ScaleType scaleType) {
         this.f5999a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.1
             @Override // java.lang.Runnable
             public void run() {
-                d.this.b(str, interfaceC0997d, i, i2, scaleType);
+                d.this.b(str, interfaceC0999d, i, i2, scaleType);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str, final InterfaceC0997d interfaceC0997d, int i, int i2, ImageView.ScaleType scaleType) {
+    public void b(String str, final InterfaceC0999d interfaceC0999d, int i, int i2, ImageView.ScaleType scaleType) {
         this.g.post(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.2
             @Override // java.lang.Runnable
             public void run() {
-                interfaceC0997d.a();
+                interfaceC0999d.a();
             }
         });
         String a2 = a(str, i, i2, scaleType);
-        Bitmap a3 = this.puC.a(a2);
+        Bitmap a3 = this.pvc.a(a2);
         if (a3 != null) {
             final c cVar = new c(a3, str, null, null);
             this.g.post(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    interfaceC0997d.a(cVar, true);
-                    interfaceC0997d.b();
+                    interfaceC0999d.a(cVar, true);
+                    interfaceC0999d.b();
                 }
             });
             return;
         }
-        c cVar2 = new c(null, str, a2, interfaceC0997d);
+        c cVar2 = new c(null, str, a2, interfaceC0999d);
         a aVar = this.e.get(a2);
         if (aVar == null) {
             aVar = this.f.get(a2);
@@ -100,7 +100,7 @@ public class d {
             return;
         }
         Request<Bitmap> b2 = b(str, i, i2, scaleType, a2);
-        this.puB.j(b2);
+        this.pvb.j(b2);
         this.e.put(a2, new a(b2, cVar2));
     }
 
@@ -129,7 +129,7 @@ public class d {
     }
 
     protected void a(String str, p<Bitmap> pVar) {
-        this.puC.a(str, pVar.f6047a);
+        this.pvc.a(str, pVar.f6047a);
         a remove = this.e.remove(str);
         if (remove == null) {
             return;
@@ -142,7 +142,7 @@ public class d {
     protected void b(String str, p<Bitmap> pVar) {
         a remove = this.e.remove(str);
         if (remove != null) {
-            remove.b(pVar.pvp);
+            remove.b(pVar.pvP);
             remove.a(pVar);
             a(str, remove);
         }
@@ -155,13 +155,13 @@ public class d {
         private Bitmap f6004b;
         private final String d;
         private final String e;
-        private final InterfaceC0997d puM;
+        private final InterfaceC0999d pvm;
 
-        public c(Bitmap bitmap, String str, String str2, InterfaceC0997d interfaceC0997d) {
+        public c(Bitmap bitmap, String str, String str2, InterfaceC0999d interfaceC0999d) {
             this.f6004b = bitmap;
             this.e = str;
             this.d = str2;
-            this.puM = interfaceC0997d;
+            this.pvm = interfaceC0999d;
         }
 
         public Bitmap a() {
@@ -178,10 +178,10 @@ public class d {
         private Bitmap c;
         private VAdError d;
         private final List<c> e = Collections.synchronizedList(new ArrayList());
-        private final Request<?> puL;
+        private final Request<?> pvl;
 
         public a(Request<?> request, c cVar) {
-            this.puL = request;
+            this.pvl = request;
             this.e.add(cVar);
         }
 
@@ -189,11 +189,11 @@ public class d {
             this.d = vAdError;
         }
 
-        public VAdError eqF() {
+        public VAdError eqN() {
             return this.d;
         }
 
-        public p<Bitmap> eqG() {
+        public p<Bitmap> eqO() {
             return this.f6003b;
         }
 
@@ -214,14 +214,14 @@ public class d {
                 a aVar2 = (a) d.this.f.get(str);
                 if (aVar2 != null) {
                     for (c cVar : aVar2.e) {
-                        if (cVar.puM != null) {
-                            if (aVar2.eqF() == null) {
+                        if (cVar.pvm != null) {
+                            if (aVar2.eqN() == null) {
                                 cVar.f6004b = aVar2.c;
-                                cVar.puM.a(cVar, false);
+                                cVar.pvm.a(cVar, false);
                             } else {
-                                cVar.puM.b(aVar2.eqG());
+                                cVar.pvm.b(aVar2.eqO());
                             }
-                            cVar.puM.b();
+                            cVar.pvm.b();
                         }
                     }
                 }
@@ -231,7 +231,7 @@ public class d {
     }
 
     private String a(String str, int i, int i2, ImageView.ScaleType scaleType) {
-        String a2 = this.puC.a(str, i, i2, scaleType);
+        String a2 = this.pvc.a(str, i, i2, scaleType);
         if (!TextUtils.isEmpty(a2)) {
             return a2;
         }

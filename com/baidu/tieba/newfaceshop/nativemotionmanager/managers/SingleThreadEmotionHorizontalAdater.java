@@ -48,16 +48,16 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
 
     /* loaded from: classes9.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
-        private SingleThreadEmotionHorizontalView lDi;
+        private SingleThreadEmotionHorizontalView lDw;
 
         public EmotionGridViewHolder(View view) {
             super(view);
-            this.lDi = (SingleThreadEmotionHorizontalView) view;
+            this.lDw = (SingleThreadEmotionHorizontalView) view;
         }
 
         public void setData(EmotionPackageData emotionPackageData) {
-            if (this.lDi != null && emotionPackageData != null) {
-                this.lDi.setData(emotionPackageData);
+            if (this.lDw != null && emotionPackageData != null) {
+                this.lDw.setData(emotionPackageData);
             }
         }
     }

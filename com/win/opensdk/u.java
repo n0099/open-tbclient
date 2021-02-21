@@ -4,29 +4,29 @@ import android.content.Context;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class u {
-    private static u qjG = null;
+    private static u qkg = null;
     private String java = "Poseidon";
-    public PBInterstitial qiT;
-    private WeakReference qjH;
+    public PBInterstitial qjt;
+    private WeakReference qkh;
 
     private u(Context context) {
-        this.qjH = new WeakReference(context);
+        this.qkh = new WeakReference(context);
     }
 
     public static u iK(Context context) {
-        if (qjG == null) {
+        if (qkg == null) {
             synchronized (u.class) {
-                if (qjG == null) {
-                    qjG = new u(context);
+                if (qkg == null) {
+                    qkg = new u(context);
                 }
             }
         }
-        return qjG;
+        return qkg;
     }
 
-    public final Context eIU() {
+    public final Context eJc() {
         Object obj;
-        if (this.qjH == null || (obj = this.qjH.get()) == null || !(obj instanceof Context)) {
+        if (this.qkh == null || (obj = this.qkh.get()) == null || !(obj instanceof Context)) {
             return null;
         }
         return (Context) obj;

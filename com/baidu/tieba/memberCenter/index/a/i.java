@@ -7,33 +7,33 @@ import tbclient.GetVipInfo.VipThemeItem;
 import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes9.dex */
 public class i implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lmI = BdUniqueId.gen();
+    public static final BdUniqueId lmW = BdUniqueId.gen();
     public String cardId;
-    private List<j> lmJ;
-    private List<j> lmK;
-    public boolean lmk = false;
-    public boolean lml = true;
-    private d lmq;
+    private d lmE;
+    private List<j> lmX;
+    private List<j> lmY;
+    public boolean lmy = false;
+    public boolean lmz = true;
 
     public i(VipThemeList vipThemeList) {
         this.cardId = "";
         if (vipThemeList != null) {
             this.cardId = vipThemeList.card_id;
-            this.lmq = new d();
-            this.lmq.Es(2);
-            this.lmq.setCategoryName(vipThemeList.class_name);
-            this.lmq.NZ(vipThemeList.class_url_name);
-            this.lmq.Oa(vipThemeList.class_url);
+            this.lmE = new d();
+            this.lmE.Es(2);
+            this.lmE.setCategoryName(vipThemeList.class_name);
+            this.lmE.Oa(vipThemeList.class_url_name);
+            this.lmE.Ob(vipThemeList.class_url);
             if (vipThemeList.item != null) {
-                this.lmJ = new ArrayList();
+                this.lmX = new ArrayList();
                 for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                    this.lmJ.add(new j(vipThemeItem));
+                    this.lmX.add(new j(vipThemeItem));
                 }
             }
             if (vipThemeList.item_card != null) {
-                this.lmK = new ArrayList();
+                this.lmY = new ArrayList();
                 for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                    this.lmK.add(new j(vipThemeItem2));
+                    this.lmY.add(new j(vipThemeItem2));
                 }
             }
         }
@@ -41,6 +41,6 @@ public class i implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lmI;
+        return lmW;
     }
 }

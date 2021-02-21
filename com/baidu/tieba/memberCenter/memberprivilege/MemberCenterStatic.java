@@ -77,9 +77,9 @@ public class MemberCenterStatic {
         TbadkApplication.getInst().RegisterIntent(CardBoxMemberPayActivityConfig.class, CardBoxMemberPayActivity.class);
         TbadkApplication.getInst().RegisterIntent(MemberPayResultActivityConfig.class, MemberPayResultActivity.class);
         TbadkApplication.getInst().RegisterIntent(MemberExchangeActivityConfig.class, MemberExchangeActivity.class);
-        dfG();
-        dfH();
-        dfI();
+        dfN();
+        dfO();
+        dfP();
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_MEMBER_CENTER_RES_TOOL, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Object> run(CustomMessage<String> customMessage) {
@@ -93,7 +93,7 @@ public class MemberCenterStatic {
             public CustomResponsedMessage<Boolean> run(CustomMessage<TbPageContext> customMessage) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof TbPageContext)) {
                     BubbleListModel bubbleListModel = new BubbleListModel(customMessage.getData());
-                    bubbleListModel.deZ();
+                    bubbleListModel.dfg();
                     bubbleListModel.W(0, l.getEquipmentWidth(customMessage.getData().getPageActivity()), l.getEquipmentHeight(customMessage.getData().getPageActivity()));
                 }
                 return null;
@@ -329,7 +329,7 @@ public class MemberCenterStatic {
         }
     }
 
-    private static void dfG() {
+    private static void dfN() {
         a(1003019, CmdConfigSocket.CMD_TAIL_ADD, TbConfig.TAIL_ADD, AddTailHttpResponseMessage.class, AddTailSocketResponseMessage.class);
         a(1003023, CmdConfigSocket.CMD_TAIL_UPDATE, TbConfig.TAIL_UPDATE, UpdateTailHttpResponseMessage.class, UpdateTailSocketResponseMessage.class);
         a(1003022, CmdConfigSocket.CMD_TAIL_SET, TbConfig.TAIL_SET, SetTailHttpResponseMessage.class, SetTailSocketResponseMessage.class);
@@ -342,7 +342,7 @@ public class MemberCenterStatic {
         com.baidu.tieba.tbadkCore.a.a.a(i2, i, str, cls, false, false, false, false);
     }
 
-    private static void dfH() {
+    private static void dfO() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_TAIL_TOOL_CRTL, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
@@ -356,7 +356,7 @@ public class MemberCenterStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dfI() {
+    private static void dfP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_PRIVILEGE_TOOL_CRTL, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {

@@ -5,14 +5,14 @@ import com.baidu.live.data.ab;
 /* loaded from: classes11.dex */
 public class e {
     public AlaWheatInfoData ccw;
-    public ab hfI;
-    public int ouf;
-    public int oug;
+    public ab hfW;
+    public int ouG;
+    public int ouH;
 
     public e(ab abVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
-        this.hfI = abVar;
+        this.hfW = abVar;
         this.ccw = alaWheatInfoData;
-        this.ouf = i;
-        this.oug = i2;
+        this.ouG = i;
+        this.ouH = i2;
     }
 }

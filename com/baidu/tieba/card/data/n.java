@@ -4,17 +4,17 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n extends BaseCardInfo implements p {
-    public static final BdUniqueId iBd = BdUniqueId.gen();
-    public boolean iBe = true;
-    public boolean iBf = true;
-    public String iBg;
-    public List<m> iBh;
+    public static final BdUniqueId iBr = BdUniqueId.gen();
+    public boolean iBs = true;
+    public boolean iBt = true;
+    public String iBu;
+    public List<m> iBv;
     public int locate;
     public int position;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return iBd;
+        return iBr;
     }
 
     @Override // com.baidu.tieba.card.data.p
@@ -23,17 +23,17 @@ public class n extends BaseCardInfo implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean csR() {
+    public boolean csY() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public void pE(boolean z) {
-        this.iBe = z;
+        this.iBs = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public void pF(boolean z) {
-        this.iBf = z;
+        this.iBt = z;
     }
 }

@@ -32,24 +32,24 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public TbImageView feK;
     private View.OnClickListener fhT;
     private int from;
-    public View jWG;
-    public ImageView kgT;
-    public TextView lOA;
-    public View lOB;
-    public View lOC;
-    public View lOD;
-    public TextView lOE;
-    public TextView lOF;
-    public TextView lOG;
-    private boolean lOr;
-    private PbActivity lOs;
-    private com.baidu.tbadk.core.data.p lOt;
-    private String lOu;
-    private boolean lOv;
-    public View lOw;
-    public View lOx;
-    public View lOy;
-    public View lOz;
+    public View jWU;
+    public ImageView khh;
+    private boolean lOG;
+    private PbActivity lOH;
+    private com.baidu.tbadk.core.data.p lOI;
+    private String lOJ;
+    private boolean lOK;
+    public View lOL;
+    public View lOM;
+    public View lON;
+    public View lOO;
+    public TextView lOP;
+    public View lOQ;
+    public View lOR;
+    public View lOS;
+    public TextView lOT;
+    public TextView lOU;
+    public TextView lOV;
     public int mSkinType;
 
     public PbBjhRecommendViewHolder(View view, PbActivity pbActivity) {
@@ -60,13 +60,13 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             public void onClick(View view2) {
                 int i = 2;
                 int id = view2.getId();
-                if (PbBjhRecommendViewHolder.this.lOt != null) {
+                if (PbBjhRecommendViewHolder.this.lOI != null) {
                     if (id == R.id.tail_more_video) {
-                        VideoInfo boh = PbBjhRecommendViewHolder.this.lOt.boh();
+                        VideoInfo boh = PbBjhRecommendViewHolder.this.lOI.boh();
                         if (boh != null) {
                             if (boh.is_vertical.intValue() == 1) {
                                 VideoItemData videoItemData = new VideoItemData();
-                                videoItemData.buildWithThreadData(PbBjhRecommendViewHolder.this.lOt);
+                                videoItemData.buildWithThreadData(PbBjhRecommendViewHolder.this.lOI);
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(videoItemData);
                                 String str = "";
@@ -81,15 +81,15 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                                 } else {
                                     str = "index";
                                 }
-                                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(PbBjhRecommendViewHolder.this.lOs, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "", "", str);
+                                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(PbBjhRecommendViewHolder.this.lOH, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "", "", str);
                                 videoPlayActivityConfig.setIsFromBjhPb(true);
-                                if (PbBjhRecommendViewHolder.this.lOt.bln() != null && PbBjhRecommendViewHolder.this.lOt.getBaijiahaoData() != null) {
-                                    videoPlayActivityConfig.setNid(PbBjhRecommendViewHolder.this.lOt.getBaijiahaoData().oriUgcNid);
+                                if (PbBjhRecommendViewHolder.this.lOI.bln() != null && PbBjhRecommendViewHolder.this.lOI.getBaijiahaoData() != null) {
+                                    videoPlayActivityConfig.setNid(PbBjhRecommendViewHolder.this.lOI.getBaijiahaoData().oriUgcNid);
                                 }
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoPlayActivityConfig));
                             } else if (boh.is_vertical.intValue() == 0) {
                                 VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-                                videoSerializeVideoThreadInfo.copyFromThreadInfo(PbBjhRecommendViewHolder.this.lOt);
+                                videoSerializeVideoThreadInfo.copyFromThreadInfo(PbBjhRecommendViewHolder.this.lOI);
                                 String str2 = "";
                                 if (PbBjhRecommendViewHolder.this.from != 2) {
                                     if (PbBjhRecommendViewHolder.this.from != 1) {
@@ -102,90 +102,90 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                                 } else {
                                     str2 = "index";
                                 }
-                                VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(PbBjhRecommendViewHolder.this.lOs, str2, PbBjhRecommendViewHolder.this.lOt.getTid(), "", "", videoSerializeVideoThreadInfo);
+                                VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(PbBjhRecommendViewHolder.this.lOH, str2, PbBjhRecommendViewHolder.this.lOI.getTid(), "", "", videoSerializeVideoThreadInfo);
                                 videoMiddlePageActivityConfig.setNid(PbBjhRecommendViewHolder.this.eTz);
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoMiddlePageActivityConfig));
                             }
                         }
                     } else if (id == R.id.main_view || id == R.id.bjh_imageView || id == R.id.bjh_gradient_cover) {
-                        String tid = PbBjhRecommendViewHolder.this.lOt.getTid();
+                        String tid = PbBjhRecommendViewHolder.this.lOI.getTid();
                         if (PbBjhRecommendViewHolder.this.from == 2) {
                             i = 1;
                         } else if (PbBjhRecommendViewHolder.this.from != 1) {
                             i = PbBjhRecommendViewHolder.this.from == 3 ? 3 : 4;
                         }
                         if (i != 0) {
-                            if (PbBjhRecommendViewHolder.this.lOt.threadType == 40) {
-                                com.baidu.tbadk.core.util.ar.Bd("c13535").dR("tid", tid).v("fid", PbBjhRecommendViewHolder.this.lOt.getFid()).ap("obj_source", i).ap("obj_locate", PbBjhRecommendViewHolder.this.lOt.getFloorNum()).dR("obj_id", PbBjhRecommendViewHolder.this.lOu).ap("obj_type", PbBjhRecommendViewHolder.this.lOt.bpM() ? 1 : 0).bsO();
+                            if (PbBjhRecommendViewHolder.this.lOI.threadType == 40) {
+                                com.baidu.tbadk.core.util.ar.Bd("c13535").dR("tid", tid).v("fid", PbBjhRecommendViewHolder.this.lOI.getFid()).ap("obj_source", i).ap("obj_locate", PbBjhRecommendViewHolder.this.lOI.getFloorNum()).dR("obj_id", PbBjhRecommendViewHolder.this.lOJ).ap("obj_type", PbBjhRecommendViewHolder.this.lOI.bpM() ? 1 : 0).bsO();
                             } else {
-                                com.baidu.tbadk.core.util.ar.Bd("c13534").dR("tid", tid).v("fid", PbBjhRecommendViewHolder.this.lOt.getFid()).ap("obj_source", i).ap("obj_locate", PbBjhRecommendViewHolder.this.lOt.getFloorNum()).dR("obj_id", PbBjhRecommendViewHolder.this.lOu).bsO();
+                                com.baidu.tbadk.core.util.ar.Bd("c13534").dR("tid", tid).v("fid", PbBjhRecommendViewHolder.this.lOI.getFid()).ap("obj_source", i).ap("obj_locate", PbBjhRecommendViewHolder.this.lOI.getFloorNum()).dR("obj_id", PbBjhRecommendViewHolder.this.lOJ).bsO();
                             }
                         }
-                        if (PbBjhRecommendViewHolder.this.lOv) {
+                        if (PbBjhRecommendViewHolder.this.lOK) {
                             com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c13589");
-                            arVar.dR("tid", PbBjhRecommendViewHolder.this.lOt.getTid());
-                            if (PbBjhRecommendViewHolder.this.lOt.bpG() != null) {
-                                arVar.dR("fid", PbBjhRecommendViewHolder.this.lOt.bpG().getForumId());
+                            arVar.dR("tid", PbBjhRecommendViewHolder.this.lOI.getTid());
+                            if (PbBjhRecommendViewHolder.this.lOI.bpG() != null) {
+                                arVar.dR("fid", PbBjhRecommendViewHolder.this.lOI.bpG().getForumId());
                             }
-                            arVar.dR("obj_param1", PbBjhRecommendViewHolder.this.lOt.mRecomWeight);
-                            arVar.dR("obj_source", PbBjhRecommendViewHolder.this.lOt.mRecomSource);
-                            arVar.dR("obj_id", PbBjhRecommendViewHolder.this.lOu);
-                            arVar.ap("obj_locate", PbBjhRecommendViewHolder.this.lOt.getFloorNum());
+                            arVar.dR("obj_param1", PbBjhRecommendViewHolder.this.lOI.mRecomWeight);
+                            arVar.dR("obj_source", PbBjhRecommendViewHolder.this.lOI.mRecomSource);
+                            arVar.dR("obj_id", PbBjhRecommendViewHolder.this.lOJ);
+                            arVar.ap("obj_locate", PbBjhRecommendViewHolder.this.lOI.getFloorNum());
                             arVar.v(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
                             arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                            if (PbBjhRecommendViewHolder.this.lOt.bln().getBaijiahaoData() != null) {
-                                arVar.dR("obj_param4", PbBjhRecommendViewHolder.this.lOt.bln().getBaijiahaoData().oriUgcNid);
-                                arVar.dR("obj_param6", PbBjhRecommendViewHolder.this.lOt.bln().getBaijiahaoData().oriUgcVid);
+                            if (PbBjhRecommendViewHolder.this.lOI.bln().getBaijiahaoData() != null) {
+                                arVar.dR("obj_param4", PbBjhRecommendViewHolder.this.lOI.bln().getBaijiahaoData().oriUgcNid);
+                                arVar.dR("obj_param6", PbBjhRecommendViewHolder.this.lOI.bln().getBaijiahaoData().oriUgcVid);
                             }
-                            arVar.ap("obj_param5", PbBjhRecommendViewHolder.this.lOt.bpS());
-                            arVar.dR("ab_tag", PbBjhRecommendViewHolder.this.lOt.mRecomAbTag);
-                            arVar.ap("is_vertical", PbBjhRecommendViewHolder.this.lOt.boh().is_vertical.intValue());
-                            arVar.dR("extra", PbBjhRecommendViewHolder.this.lOt.mRecomExtra);
+                            arVar.ap("obj_param5", PbBjhRecommendViewHolder.this.lOI.bpS());
+                            arVar.dR("ab_tag", PbBjhRecommendViewHolder.this.lOI.mRecomAbTag);
+                            arVar.ap("is_vertical", PbBjhRecommendViewHolder.this.lOI.boh().is_vertical.intValue());
+                            arVar.dR("extra", PbBjhRecommendViewHolder.this.lOI.mRecomExtra);
                             TiebaStatic.log(arVar);
                         }
-                        if (PbBjhRecommendViewHolder.this.lOr) {
-                            ((VideoPbViewModel) ViewModelProviders.of(PbBjhRecommendViewHolder.this.lOs).get(VideoPbViewModel.class)).aV(PbBjhRecommendViewHolder.this.lOt);
+                        if (PbBjhRecommendViewHolder.this.lOG) {
+                            ((VideoPbViewModel) ViewModelProviders.of(PbBjhRecommendViewHolder.this.lOH).get(VideoPbViewModel.class)).aV(PbBjhRecommendViewHolder.this.lOI);
                             return;
                         }
-                        PbActivityConfig pbActivityConfig = new PbActivityConfig(PbBjhRecommendViewHolder.this.lOs);
+                        PbActivityConfig pbActivityConfig = new PbActivityConfig(PbBjhRecommendViewHolder.this.lOH);
                         pbActivityConfig.createNormalCfg(tid, null, "pb");
                         pbActivityConfig.setBjhFrom(PbBjhRecommendViewHolder.this.from);
-                        pbActivityConfig.setLastTid(PbBjhRecommendViewHolder.this.lOu);
+                        pbActivityConfig.setLastTid(PbBjhRecommendViewHolder.this.lOJ);
                         pbActivityConfig.setStartFrom(20);
-                        pbActivityConfig.setThreadData(PbBjhRecommendViewHolder.this.lOt);
+                        pbActivityConfig.setThreadData(PbBjhRecommendViewHolder.this.lOI);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
                     }
                 }
             }
         };
-        this.lOs = pbActivity;
+        this.lOH = pbActivity;
         this.bUP = view.findViewById(R.id.main_view);
-        this.jWG = view.findViewById(R.id.first_head_divider_line);
-        this.lOw = view.findViewById(R.id.bjh_main_content);
-        this.lOx = view.findViewById(R.id.bjh_click_container);
+        this.jWU = view.findViewById(R.id.first_head_divider_line);
+        this.lOL = view.findViewById(R.id.bjh_main_content);
+        this.lOM = view.findViewById(R.id.bjh_click_container);
         this.feK = (TbImageView) view.findViewById(R.id.bjh_imageView);
-        this.lOy = view.findViewById(R.id.bjh_gradient_cover);
+        this.lON = view.findViewById(R.id.bjh_gradient_cover);
         this.bkl = (TextView) view.findViewById(R.id.bjh_content);
-        this.lOz = view.findViewById(R.id.bjh_video_during_container);
-        this.kgT = (ImageView) view.findViewById(R.id.bjh_vidoe_play_iv);
-        this.lOA = (TextView) view.findViewById(R.id.bjh_video_during_tv);
-        this.lOB = view.findViewById(R.id.last_video_tail);
-        this.lOE = (TextView) view.findViewById(R.id.tail_more_video);
-        this.lOC = view.findViewById(R.id.last_tail_divider_line);
-        this.lOD = view.findViewById(R.id.last_tail_padding);
-        this.lOF = (TextView) view.findViewById(R.id.bjh_user_info);
-        this.lOG = (TextView) view.findViewById(R.id.bjh_video_info);
+        this.lOO = view.findViewById(R.id.bjh_video_during_container);
+        this.khh = (ImageView) view.findViewById(R.id.bjh_vidoe_play_iv);
+        this.lOP = (TextView) view.findViewById(R.id.bjh_video_during_tv);
+        this.lOQ = view.findViewById(R.id.last_video_tail);
+        this.lOT = (TextView) view.findViewById(R.id.tail_more_video);
+        this.lOR = view.findViewById(R.id.last_tail_divider_line);
+        this.lOS = view.findViewById(R.id.last_tail_padding);
+        this.lOU = (TextView) view.findViewById(R.id.bjh_user_info);
+        this.lOV = (TextView) view.findViewById(R.id.bjh_video_info);
         this.fHj = view.findViewById(R.id.bjh_item_cross_line);
     }
 
     public void a(com.baidu.tbadk.core.data.p pVar) {
-        this.lOt = pVar;
-        this.jWG.setVisibility(pVar.blM() ? 0 : 8);
-        this.lOD.setVisibility(pVar.blN() ? 0 : 8);
-        this.lOw.setVisibility(pVar.blO() ? 8 : 0);
-        this.lOB.setVisibility(pVar.blO() ? 0 : 8);
-        this.lOE.setOnClickListener(this.fhT);
-        this.lOy.setOnClickListener(this.fhT);
+        this.lOI = pVar;
+        this.jWU.setVisibility(pVar.blM() ? 0 : 8);
+        this.lOS.setVisibility(pVar.blN() ? 0 : 8);
+        this.lOL.setVisibility(pVar.blO() ? 8 : 0);
+        this.lOQ.setVisibility(pVar.blO() ? 0 : 8);
+        this.lOT.setOnClickListener(this.fhT);
+        this.lON.setOnClickListener(this.fhT);
         this.feK.setOnClickListener(this.fhT);
         this.feK.setConrers(15);
         this.feK.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21));
@@ -194,36 +194,36 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         if (pVar.boh() != null) {
             this.bkl.setText(pVar.getTitle());
             this.feK.startLoad(pVar.boh().thumbnail_url, 10, false);
-            this.lOy.setVisibility(0);
-            this.lOy.setAlpha(0.5f);
-            this.lOz.setVisibility(0);
-            this.lOA.setText(StringUtils.translateSecondsToString(pVar.boh().video_duration.intValue()));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.lOG.getLayoutParams();
+            this.lON.setVisibility(0);
+            this.lON.setAlpha(0.5f);
+            this.lOO.setVisibility(0);
+            this.lOP.setText(StringUtils.translateSecondsToString(pVar.boh().video_duration.intValue()));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.lOV.getLayoutParams();
             if (pVar.bnQ() != null && !com.baidu.tbadk.core.util.au.isEmpty(pVar.bnQ().getName_show())) {
-                this.lOF.setText(pVar.bnQ().getName_show());
-                this.lOF.setVisibility(0);
+                this.lOU.setText(pVar.bnQ().getName_show());
+                this.lOU.setVisibility(0);
                 layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
             } else {
-                this.lOF.setVisibility(8);
+                this.lOU.setVisibility(8);
                 layoutParams.leftMargin = 0;
             }
-            this.lOG.setLayoutParams(layoutParams);
-            this.lOG.setText(String.format(this.lOs.getResources().getString(R.string.bjh_pb_recommend_video_tip), com.baidu.tbadk.core.util.au.numFormatOverWan(pVar.boh().play_count.intValue())));
+            this.lOV.setLayoutParams(layoutParams);
+            this.lOV.setText(String.format(this.lOH.getResources().getString(R.string.bjh_pb_recommend_video_tip), com.baidu.tbadk.core.util.au.numFormatOverWan(pVar.boh().play_count.intValue())));
         } else {
-            this.lOz.setVisibility(8);
-            this.lOy.setVisibility(8);
+            this.lOO.setVisibility(8);
+            this.lON.setVisibility(8);
             this.feK.startLoad(pVar.bpQ(), 10, false);
             this.bkl.setText(pVar.getTitle());
         }
         this.bUP.setOnClickListener(this.fhT);
     }
 
-    public void Pp(String str) {
-        this.lOu = str;
+    public void Pq(String str) {
+        this.lOJ = str;
     }
 
     public void uV(boolean z) {
-        this.lOv = z;
+        this.lOK = z;
     }
 
     public void setNid(String str) {
@@ -235,6 +235,6 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void uU(boolean z) {
-        this.lOr = z;
+        this.lOG = z;
     }
 }

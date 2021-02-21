@@ -103,7 +103,7 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
             String str = (String) methodCall.argument("status");
             Object argument = methodCall.argument("time");
             if (argument == null) {
-                p.eLm();
+                p.eLu();
             }
             double doubleValue = ((Number) argument).doubleValue();
             activity2 = ProgresshudPluginKt.mCurrentActivity;

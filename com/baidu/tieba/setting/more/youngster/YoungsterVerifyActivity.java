@@ -20,7 +20,7 @@ import com.baidu.tieba.setting.more.youngster.model.YoungsterVerifyModel;
 /* loaded from: classes8.dex */
 public class YoungsterVerifyActivity extends TbWebViewActivity {
     private int from;
-    private YoungsterVerifyModel niM;
+    private YoungsterVerifyModel njm;
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -32,7 +32,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
             this.mWebView.setWebViewClient(new a());
         }
         TbSingleton.getInstance().setCanWebViewActivityShowProgress(false);
-        this.niM = new YoungsterVerifyModel(getPageContext(), new YoungsterVerifyModel.a() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterVerifyActivity.1
+        this.njm = new YoungsterVerifyModel(getPageContext(), new YoungsterVerifyModel.a() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterVerifyActivity.1
             @Override // com.baidu.tieba.setting.more.youngster.model.YoungsterVerifyModel.a
             public void onSuccess() {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(YoungsterVerifyActivity.this.getPageContext().getPageActivity());
@@ -84,7 +84,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
             if (StringUtils.isNull(str) || !str.contains(TbConfig.URL_YOUNGSTER_VERIFY_AUTHID)) {
                 return super.shouldOverrideUrlLoading(webView, str);
             }
-            YoungsterVerifyActivity.this.niM.Sn(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
+            YoungsterVerifyActivity.this.njm.Sz(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
             return true;
         }
     }

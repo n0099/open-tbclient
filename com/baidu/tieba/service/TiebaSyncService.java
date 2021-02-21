@@ -308,7 +308,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteUpdateData() {
-        com.baidu.tieba.lc.c.dba().tB(false);
+        com.baidu.tieba.lc.c.dbh().tB(false);
         VersionData byJ = this.mModel.byJ();
         if (byJ != null && byJ.hasNewVer() && TbConfig.COULD_UPDATE) {
             TbadkCoreApplication.getInst().setVersionData(byJ);

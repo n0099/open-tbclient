@@ -20,7 +20,7 @@ public class b {
         return com.baidu.tbadk.core.util.o.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
     }
 
-    public static boolean Jx(String str) {
+    public static boolean Jy(String str) {
         Bitmap eQ = eQ(str, "panel.png");
         if (eQ == null) {
             return false;

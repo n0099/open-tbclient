@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public abstract class a extends Dialog {
-    public InterfaceC0667a hEp;
-    public String hEq;
+    public InterfaceC0668a hED;
+    public String hEE;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0667a {
+    public interface InterfaceC0668a {
         void onConfirm();
     }
 
@@ -35,10 +35,10 @@ public abstract class a extends Dialog {
     private void Hf() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        cfK();
+        cfR();
     }
 
-    public void cfK() {
+    public void cfR() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -56,11 +56,11 @@ public abstract class a extends Dialog {
         }
     }
 
-    public void a(InterfaceC0667a interfaceC0667a) {
-        this.hEp = interfaceC0667a;
+    public void a(InterfaceC0668a interfaceC0668a) {
+        this.hED = interfaceC0668a;
     }
 
-    public String cfL() {
-        return this.hEq;
+    public String cfS() {
+        return this.hEE;
     }
 }

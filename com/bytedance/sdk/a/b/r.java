@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface r {
-    public static final r ptA = new r() { // from class: com.bytedance.sdk.a.b.r.1
+    public static final r pua = new r() { // from class: com.bytedance.sdk.a.b.r.1
         @Override // com.bytedance.sdk.a.b.r
         public List<InetAddress> a(String str) throws UnknownHostException {
             if (str == null) {

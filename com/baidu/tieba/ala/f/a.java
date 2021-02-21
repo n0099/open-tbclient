@@ -20,9 +20,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes11.dex */
 public class a implements View.OnClickListener {
-    public TextView hft;
-    public TextView hfu;
-    public TextView hfv;
+    public TextView hfH;
+    public TextView hfI;
+    public TextView hfJ;
     private Context mContext;
     private AlertDialog mDialog;
     Handler handler = new Handler();
@@ -35,32 +35,32 @@ public class a implements View.OnClickListener {
             }
         }
     };
-    private Runnable hfw = new Runnable() { // from class: com.baidu.tieba.ala.f.a.3
+    private Runnable hfK = new Runnable() { // from class: com.baidu.tieba.ala.f.a.3
         @Override // java.lang.Runnable
         public void run() {
             a.this.dismiss();
         }
     };
     private View mRootView = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(a.g.ala_level_up_dialog, (ViewGroup) null);
-    public ImageView hfs = (ImageView) this.mRootView.findViewById(a.f.close_img);
+    public ImageView hfG = (ImageView) this.mRootView.findViewById(a.f.close_img);
 
     public a(Context context) {
         this.mContext = context;
-        this.hfs.setOnClickListener(this);
+        this.hfG.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.hft = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipLevel);
-        this.hfu = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipNum);
-        this.hfv = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipLebel);
+        this.hfH = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipLevel);
+        this.hfI = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipNum);
+        this.hfJ = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipLebel);
     }
 
-    private void bWS() {
+    private void bWZ() {
         MessageManager.getInstance().registerListener(this.aWK);
     }
 
     public void B(String str, String str2, boolean z) {
-        this.hfv.setVisibility(z ? 0 : 8);
-        this.hft.setText(this.mContext.getResources().getString(a.h.ala_task_level_up_tip_level, str2));
-        this.hfu.setText(this.mContext.getResources().getString(a.h.ala_task_level_up_tip_flower_num, str));
+        this.hfJ.setVisibility(z ? 0 : 8);
+        this.hfH.setText(this.mContext.getResources().getString(a.h.ala_task_level_up_tip_level, str2));
+        this.hfI.setText(this.mContext.getResources().getString(a.h.ala_task_level_up_tip_flower_num, str));
     }
 
     public void show() {
@@ -74,7 +74,7 @@ public class a implements View.OnClickListener {
         });
         if (this.mContext instanceof Activity) {
             ShowUtil.showDialog(this.mDialog, (Activity) this.mContext);
-            this.handler.postDelayed(this.hfw, 5000L);
+            this.handler.postDelayed(this.hfK, 5000L);
         }
         Window window = this.mDialog.getWindow();
         if (window != null) {
@@ -82,12 +82,12 @@ public class a implements View.OnClickListener {
             window.setBackgroundDrawableResource(17170445);
             window.setContentView(this.mRootView);
         }
-        bWS();
+        bWZ();
     }
 
     public void dismiss() {
         if (this.handler != null) {
-            this.handler.removeCallbacks(this.hfw);
+            this.handler.removeCallbacks(this.hfK);
         }
         if (this.mDialog != null && (this.mContext instanceof Activity)) {
             ShowUtil.dismissDialog(this.mDialog, (Activity) this.mContext);

@@ -293,7 +293,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.f5674a == null) {
-            aVar.f5674a = new a.C0954a(aVar, (byte) 0);
+            aVar.f5674a = new a.C0956a(aVar, (byte) 0);
         }
         if (i == 9) {
             aVar.f5674a.a();
@@ -436,7 +436,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.f5674a == null) {
-            aVar.f5674a = new a.C0954a(aVar, (byte) 0);
+            aVar.f5674a = new a.C0956a(aVar, (byte) 0);
         }
         if (aVar.f5674a.c == -1) {
             aVar.f5674a.a();

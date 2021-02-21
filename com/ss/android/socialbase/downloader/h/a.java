@@ -37,15 +37,15 @@ public class a {
             e = e2;
         }
         try {
-            q eGb = com.ss.android.socialbase.downloader.downloader.b.eGb();
+            q eGj = com.ss.android.socialbase.downloader.downloader.b.eGj();
             String str3 = "";
             String str4 = "";
             String str5 = "";
             int i2 = 0;
-            if (eGb == null) {
+            if (eGj == null) {
                 str2 = "";
             } else {
-                str3 = eGb.b();
+                str3 = eGj.b();
                 try {
                     if (TextUtils.isDigitsOnly(str3)) {
                         str4 = String.valueOf(Long.valueOf(str3).longValue() % 100);
@@ -55,8 +55,8 @@ public class a {
                     e3.printStackTrace();
                     str2 = "";
                 }
-                str5 = eGb.a();
-                i2 = eGb.c();
+                str5 = eGj.a();
+                i2 = eGj.c();
             }
             jSONObject.put("event_page", str);
             jSONObject.put("app_id", str5);
@@ -68,35 +68,35 @@ public class a {
                 jSONObject.put("download_id", cVar.g());
                 jSONObject.put("name", cVar.h());
                 jSONObject.put("url", cVar.j());
-                jSONObject.put("download_time", cVar.eHt());
-                jSONObject.put("cur_bytes", cVar.eHa());
-                jSONObject.put("total_bytes", cVar.eij());
-                jSONObject.put("network_quality", cVar.eHc());
+                jSONObject.put("download_time", cVar.eHB());
+                jSONObject.put("cur_bytes", cVar.eHi());
+                jSONObject.put("total_bytes", cVar.eir());
+                jSONObject.put("network_quality", cVar.eHk());
                 jSONObject.put("only_wifi", cVar.x() ? 1 : 0);
-                jSONObject.put("need_https_degrade", cVar.eHg() ? 1 : 0);
+                jSONObject.put("need_https_degrade", cVar.eHo() ? 1 : 0);
                 jSONObject.put("https_degrade_retry_used", cVar.t() ? 1 : 0);
                 jSONObject.put("md5", cVar.F());
-                jSONObject.put("chunk_count", cVar.eHM());
+                jSONObject.put("chunk_count", cVar.eHU());
                 jSONObject.put("is_force", cVar.aj() ? 1 : 0);
                 jSONObject.put(DownloadDataConstants.Columns.COLUMN_RETRY_COUNT, cVar.J());
                 jSONObject.put("cur_retry_time", cVar.ax());
-                jSONObject.put("need_retry_delay", cVar.eHh() ? 1 : 0);
+                jSONObject.put("need_retry_delay", cVar.eHp() ? 1 : 0);
                 jSONObject.put("need_reuse_first_connection", cVar.ad() ? 1 : 0);
                 jSONObject.put("default_http_service_backup", cVar.o() ? 1 : 0);
-                jSONObject.put("retry_delay_status", cVar.eHo().ordinal());
+                jSONObject.put("retry_delay_status", cVar.eHw().ordinal());
                 jSONObject.put("backup_url_used", cVar.P() ? 1 : 0);
-                jSONObject.put("download_byte_error_retry_status", cVar.eHb().ordinal());
-                jSONObject.put("forbidden_handler_status", cVar.eHp().ordinal());
+                jSONObject.put("download_byte_error_retry_status", cVar.eHj().ordinal());
+                jSONObject.put("forbidden_handler_status", cVar.eHx().ordinal());
                 jSONObject.put("need_independent_process", cVar.ae() ? 1 : 0);
                 jSONObject.put("head_connection_error_msg", cVar.c() != null ? cVar.c() : "");
                 jSONObject.put("extra", cVar.C() != null ? cVar.C() : "");
                 jSONObject.put("add_listener_to_same_task", cVar.ai() ? 1 : 0);
-                if (cVar.eHz() != null) {
-                    jSONObject.put("backup_url_count", cVar.eHz().size());
+                if (cVar.eHH() != null) {
+                    jSONObject.put("backup_url_count", cVar.eHH().size());
                     jSONObject.put("cur_backup_url_index", cVar.s());
                 }
-                if (cVar.eGV() != null) {
-                    jSONObject.put("forbidden_urls", cVar.eGV().toString());
+                if (cVar.eHd() != null) {
+                    jSONObject.put("forbidden_urls", cVar.eHd().toString());
                 }
             }
             if (aVar != null) {
@@ -124,16 +124,16 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void a(@Nullable e eVar, String str, long j, String str2, int i, IOException iOException, com.ss.android.socialbase.downloader.g.c cVar) {
-        com.ss.android.socialbase.downloader.k.a RV;
+        com.ss.android.socialbase.downloader.k.a RW;
         int b2;
         String b3;
         int aq;
         String path;
         String lastPathSegment;
         JSONObject jSONObject;
-        c eGv;
-        b eGw;
-        if (cVar != null && (b2 = (RV = com.ss.android.socialbase.downloader.k.a.RV(cVar.g())).b("monitor_download_connect")) > 0 && !TextUtils.isEmpty(str)) {
+        c eGD;
+        b eGE;
+        if (cVar != null && (b2 = (RW = com.ss.android.socialbase.downloader.k.a.RW(cVar.g())).b("monitor_download_connect")) > 0 && !TextUtils.isEmpty(str)) {
             int i2 = -1;
             if (eVar != null) {
                 try {
@@ -146,7 +146,7 @@ public class a {
             if (i2 < 200 || i2 >= 400) {
                 if (cVar.ax() == 0 || ((aq = cVar.aq()) >= 200 && aq < 400)) {
                     if (iOException != null) {
-                        if (!d.b(com.ss.android.socialbase.downloader.downloader.b.eGu())) {
+                        if (!d.b(com.ss.android.socialbase.downloader.downloader.b.eGC())) {
                             i2 = 1049;
                             b3 = null;
                         } else {
@@ -169,7 +169,7 @@ public class a {
                             }
                         }
                         jSONObject = new JSONObject();
-                        jSONObject.put("setting_tag", RV.d("setting_tag"));
+                        jSONObject.put("setting_tag", RW.d("setting_tag"));
                         jSONObject.put("url_host", host);
                         jSONObject.put("url_path", path);
                         jSONObject.put("url_file", lastPathSegment);
@@ -177,16 +177,16 @@ public class a {
                         jSONObject.put("connect_type", str2);
                         jSONObject.put("status_code", i2);
                         if (b3 != null) {
-                            jSONObject.put("err_msg", d.a(b3, RV.a("exception_msg_length", 500)));
+                            jSONObject.put("err_msg", d.a(b3, RW.a("exception_msg_length", 500)));
                         }
                         jSONObject.put(KsMediaMeta.KSM_KEY_HTTP_CONNECT_TIME, j);
                         jSONObject.put("pkg_name", cVar.D());
                         jSONObject.put("name", cVar.i());
-                        if ((b2 != 1 || b2 == 3) && (eGv = com.ss.android.socialbase.downloader.downloader.b.eGv()) != null) {
-                            eGv.a("download_connect", jSONObject);
+                        if ((b2 != 1 || b2 == 3) && (eGD = com.ss.android.socialbase.downloader.downloader.b.eGD()) != null) {
+                            eGD.a("download_connect", jSONObject);
                         }
-                        if ((b2 != 2 || b2 == 3) && (eGw = com.ss.android.socialbase.downloader.downloader.b.eGw()) != null) {
-                            eGw.a(cVar, "download_connect", jSONObject);
+                        if ((b2 != 2 || b2 == 3) && (eGE = com.ss.android.socialbase.downloader.downloader.b.eGE()) != null) {
+                            eGE.a(cVar, "download_connect", jSONObject);
                         }
                         return;
                     }
@@ -203,7 +203,7 @@ public class a {
                 path = path.substring(0, path.length() - lastPathSegment.length());
             }
             jSONObject = new JSONObject();
-            jSONObject.put("setting_tag", RV.d("setting_tag"));
+            jSONObject.put("setting_tag", RW.d("setting_tag"));
             jSONObject.put("url_host", host2);
             jSONObject.put("url_path", path);
             jSONObject.put("url_file", lastPathSegment);
@@ -217,10 +217,10 @@ public class a {
             jSONObject.put("name", cVar.i());
             if (b2 != 1) {
             }
-            eGv.a("download_connect", jSONObject);
+            eGD.a("download_connect", jSONObject);
             if (b2 != 2) {
             }
-            eGw.a(cVar, "download_connect", jSONObject);
+            eGE.a(cVar, "download_connect", jSONObject);
         }
     }
 }

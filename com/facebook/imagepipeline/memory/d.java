@@ -7,57 +7,57 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes5.dex */
 class d<V> {
-    public final int lAX;
+    public final int lBl;
     public final int mItemSize;
-    final Queue pKB;
-    private final boolean pKC;
-    private int pKD;
+    final Queue pLb;
+    private final boolean pLc;
+    private int pLd;
 
     public d(int i, int i2, int i3, boolean z) {
         com.facebook.common.internal.g.checkState(i > 0);
         com.facebook.common.internal.g.checkState(i2 >= 0);
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
-        this.lAX = i2;
-        this.pKB = new LinkedList();
-        this.pKD = i3;
-        this.pKC = z;
+        this.lBl = i2;
+        this.pLb = new LinkedList();
+        this.pLd = i3;
+        this.pLc = z;
     }
 
-    public boolean eyC() {
-        return this.pKD + eyD() > this.lAX;
+    public boolean eyK() {
+        return this.pLd + eyL() > this.lBl;
     }
 
-    int eyD() {
-        return this.pKB.size();
+    int eyL() {
+        return this.pLb.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.pKD++;
+            this.pLd++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.pKB.poll();
+        return (V) this.pLb.poll();
     }
 
-    public void eyE() {
-        this.pKD++;
+    public void eyM() {
+        this.pLd++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        if (this.pKC) {
-            com.facebook.common.internal.g.checkState(this.pKD > 0);
-            this.pKD--;
+        if (this.pLc) {
+            com.facebook.common.internal.g.checkState(this.pLd > 0);
+            this.pLd--;
             bz(v);
-        } else if (this.pKD > 0) {
-            this.pKD--;
+        } else if (this.pLd > 0) {
+            this.pLd--;
             bz(v);
         } else {
             com.facebook.common.c.a.e("BUCKET", "Tried to release value %s from an empty bucket!", v);
@@ -65,11 +65,11 @@ class d<V> {
     }
 
     void bz(V v) {
-        this.pKB.add(v);
+        this.pLb.add(v);
     }
 
-    public void eyF() {
-        com.facebook.common.internal.g.checkState(this.pKD > 0);
-        this.pKD--;
+    public void eyN() {
+        com.facebook.common.internal.g.checkState(this.pLd > 0);
+        this.pLd--;
     }
 }

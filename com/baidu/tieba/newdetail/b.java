@@ -26,7 +26,7 @@ public class b {
     public static void a(com.baidu.tieba.newdetail.adapter.a.a aVar, com.baidu.tbadk.core.data.a aVar2) {
         if (aVar2 != null && aVar2.bln() != null) {
             cb bln = aVar2.bln();
-            ar arVar = new ar(aVar.did() ? "c13823" : "c13822");
+            ar arVar = new ar(aVar.dik() ? "c13823" : "c13822");
             arVar.dR("tid", bln.getTid());
             arVar.v("fid", bln.getFid());
             arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
@@ -37,7 +37,7 @@ public class b {
     public static void b(com.baidu.tieba.newdetail.adapter.a.a aVar, com.baidu.tbadk.core.data.a aVar2) {
         if (aVar2 != null && aVar2.bln() != null) {
             cb bln = aVar2.bln();
-            ar arVar = new ar(aVar.did() ? "c13824" : "c13821");
+            ar arVar = new ar(aVar.dik() ? "c13824" : "c13821");
             arVar.dR("tid", bln.getTid());
             arVar.v("fid", bln.getFid());
             arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());

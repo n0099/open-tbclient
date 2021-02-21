@@ -21,7 +21,7 @@ public abstract class a {
     protected Activity mContext;
     private AlertDialog mDialog;
     private View mView;
-    protected TbPageContext oGe;
+    protected TbPageContext oGE;
     private boolean bJw = false;
     private boolean bJx = false;
     private int mDialogGravity = -1;
@@ -37,7 +37,7 @@ public abstract class a {
     protected abstract void initData();
 
     public a(TbPageContext tbPageContext) {
-        this.oGe = tbPageContext;
+        this.oGE = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
     }
 
@@ -121,7 +121,7 @@ public abstract class a {
         return this;
     }
 
-    public a Mw(int i) {
+    public a Mx(int i) {
         this.mDialogGravity = i;
         return this;
     }

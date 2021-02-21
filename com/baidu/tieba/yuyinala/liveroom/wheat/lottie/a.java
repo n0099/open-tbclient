@@ -7,18 +7,18 @@ import com.baidu.live.data.ck;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class a {
-    private static a oIu;
-    private int oIv = 0;
+    private static a oIU;
+    private int oIV = 0;
 
-    public static a eeg() {
-        if (oIu == null) {
+    public static a eeo() {
+        if (oIU == null) {
             synchronized (a.class) {
-                if (oIu == null) {
-                    oIu = new a();
+                if (oIU == null) {
+                    oIU = new a();
                 }
             }
         }
-        return oIu;
+        return oIU;
     }
 
     private a() {
@@ -27,35 +27,35 @@ public class a {
     public void a(ViewGroup viewGroup, c cVar) {
         az CC = CC();
         if (!a(CC) && a(CC, true)) {
-            b.eel().a(viewGroup, CC.Cv(), cVar);
+            b.eet().a(viewGroup, CC.Cv(), cVar);
         }
     }
 
     public void b(ViewGroup viewGroup, c cVar) {
-        az eeh = eeh();
-        if (!a(eeh) && a(eeh, true)) {
-            b.eel().a(viewGroup, eeh.Cv(), cVar);
+        az eep = eep();
+        if (!a(eep) && a(eep, true)) {
+            b.eet().a(viewGroup, eep.Cv(), cVar);
         }
     }
 
     public void c(ViewGroup viewGroup, c cVar) {
-        az eei = eei();
-        if (!a(eei) && a(eei, true)) {
-            b.eel().a(viewGroup, eei.Cv(), cVar);
+        az eeq = eeq();
+        if (!a(eeq) && a(eeq, true)) {
+            b.eet().a(viewGroup, eeq.Cv(), cVar);
         }
     }
 
     public void d(ViewGroup viewGroup, c cVar) {
-        az eej = eej();
-        if (!a(eej) && a(eej, true)) {
-            b.eel().a(viewGroup, eej.Cv(), cVar);
+        az eer = eer();
+        if (!a(eer) && a(eer, true)) {
+            b.eet().a(viewGroup, eer.Cv(), cVar);
         }
     }
 
     public void a(ViewGroup viewGroup, String str, String str2, c cVar) {
         az CD = CD();
         if (!a(CD) && a(CD, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.eel().a(viewGroup, CD.Cv(), str, str2, cVar);
+            b.eet().a(viewGroup, CD.Cv(), str, str2, cVar);
         }
     }
 
@@ -66,7 +66,7 @@ public class a {
     public void b(ViewGroup viewGroup, String str, String str2, c cVar) {
         az CE = CE();
         if (!a(CE) && a(CE, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.eel().b(viewGroup, CE.Cv(), str, str2, cVar);
+            b.eet().b(viewGroup, CE.Cv(), str, str2, cVar);
         }
     }
 
@@ -77,7 +77,7 @@ public class a {
     public void c(ViewGroup viewGroup, String str, String str2, c cVar) {
         az CF = CF();
         if (!a(CF) && a(CF, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.eel().c(viewGroup, CF.Cv(), str, str2, cVar);
+            b.eet().c(viewGroup, CF.Cv(), str, str2, cVar);
         }
     }
 
@@ -85,83 +85,83 @@ public class a {
         if (azVar == null) {
             return false;
         }
-        boolean Wy = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.Wy(azVar.Cv());
-        if (!Wy && z) {
+        boolean WK = com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.WK(azVar.Cv());
+        if (!WK && z) {
             com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.b(azVar.getDownloadUrl(), azVar.Cv(), null);
-            return Wy;
+            return WK;
         }
-        return Wy;
+        return WK;
     }
 
     private az CC() {
-        ck eek = eek();
-        if (eek == null) {
+        ck ees = ees();
+        if (ees == null) {
             return null;
         }
-        return eek.CC();
+        return ees.CC();
     }
 
-    private az eeh() {
-        ck eek = eek();
-        if (eek == null) {
+    private az eep() {
+        ck ees = ees();
+        if (ees == null) {
             return null;
         }
-        return eek.CG();
+        return ees.CG();
     }
 
-    private az eei() {
-        ck eek = eek();
-        if (eek == null) {
+    private az eeq() {
+        ck ees = ees();
+        if (ees == null) {
             return null;
         }
-        return eek.CH();
+        return ees.CH();
     }
 
-    private az eej() {
-        ck eek = eek();
-        if (eek == null) {
+    private az eer() {
+        ck ees = ees();
+        if (ees == null) {
             return null;
         }
-        return eek.CI();
+        return ees.CI();
     }
 
     private az CD() {
-        ck eek = eek();
-        if (eek == null) {
+        ck ees = ees();
+        if (ees == null) {
             return null;
         }
-        return eek.CD();
+        return ees.CD();
     }
 
     private az CE() {
-        ck eek = eek();
-        if (eek == null) {
+        ck ees = ees();
+        if (ees == null) {
             return null;
         }
-        return eek.CE();
+        return ees.CE();
     }
 
     private az CF() {
-        ck eek = eek();
-        if (eek == null) {
+        ck ees = ees();
+        if (ees == null) {
             return null;
         }
-        return eek.CF();
+        return ees.CF();
     }
 
     private az CK() {
-        ck eek = eek();
-        if (eek == null) {
+        ck ees = ees();
+        if (ees == null) {
             return null;
         }
-        return eek.CK();
+        return ees.CK();
     }
 
     private static boolean a(az azVar) {
         return azVar == null || StringUtils.isNull(azVar.getDownloadUrl(), true) || StringUtils.isNull(azVar.Cv(), true);
     }
 
-    private ck eek() {
+    private ck ees() {
         if (com.baidu.live.ae.a.Qj().buX == null || com.baidu.live.ae.a.Qj().buX.aNt == null) {
             return null;
         }
@@ -187,7 +187,7 @@ public class a {
         }
     }
 
-    public boolean Wv(String str) {
+    public boolean WH(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
@@ -198,7 +198,7 @@ public class a {
     public void e(ViewGroup viewGroup, c cVar) {
         az CK = CK();
         if (!a(CK) && a(CK, true)) {
-            b.eel().a(viewGroup, CK.Cv(), cVar);
+            b.eet().a(viewGroup, CK.Cv(), cVar);
         }
     }
 }

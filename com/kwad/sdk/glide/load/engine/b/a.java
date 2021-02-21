@@ -28,7 +28,7 @@ public final class a implements ExecutorService {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.glide.load.engine.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class ThreadFactoryC1131a implements ThreadFactory {
+    public static final class ThreadFactoryC1133a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
         final b f10183a;
@@ -38,7 +38,7 @@ public final class a implements ExecutorService {
         private final String c;
         private int d;
 
-        ThreadFactoryC1131a(String str, b bVar, boolean z) {
+        ThreadFactoryC1133a(String str, b bVar, boolean z) {
             this.c = str;
             this.f10183a = bVar;
             this.f10184b = z;
@@ -51,13 +51,13 @@ public final class a implements ExecutorService {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     Process.setThreadPriority(9);
-                    if (ThreadFactoryC1131a.this.f10184b) {
+                    if (ThreadFactoryC1133a.this.f10184b) {
                         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectNetwork().penaltyDeath().build());
                     }
                     try {
                         super.run();
                     } catch (Throwable th) {
-                        ThreadFactoryC1131a.this.f10183a.a(th);
+                        ThreadFactoryC1133a.this.f10183a.a(th);
                     }
                 }
             };
@@ -109,11 +109,11 @@ public final class a implements ExecutorService {
     }
 
     public static a a(int i, b bVar) {
-        return new a(new ThreadPoolExecutor(0, i, f10181a, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1131a("animation", bVar, true)));
+        return new a(new ThreadPoolExecutor(0, i, f10181a, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1133a("animation", bVar, true)));
     }
 
     public static a a(int i, String str, b bVar) {
-        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1131a(str, bVar, true)));
+        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1133a(str, bVar, true)));
     }
 
     public static a b() {
@@ -121,11 +121,11 @@ public final class a implements ExecutorService {
     }
 
     public static a b(int i, String str, b bVar) {
-        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1131a(str, bVar, false)));
+        return new a(new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new ThreadFactoryC1133a(str, bVar, false)));
     }
 
     public static a c() {
-        return new a(new ThreadPoolExecutor(0, Integer.MAX_VALUE, f10181a, TimeUnit.MILLISECONDS, new SynchronousQueue(), new ThreadFactoryC1131a("source-unlimited", b.d, false)));
+        return new a(new ThreadPoolExecutor(0, Integer.MAX_VALUE, f10181a, TimeUnit.MILLISECONDS, new SynchronousQueue(), new ThreadFactoryC1133a("source-unlimited", b.d, false)));
     }
 
     public static a d() {

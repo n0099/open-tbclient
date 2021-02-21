@@ -49,7 +49,7 @@ public class bc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m188a(String str) {
+    public static byte[] m187a(String str) {
         return a(str.toCharArray());
     }
 
@@ -172,6 +172,6 @@ public class bc {
     }
 
     public static String b(String str) {
-        return new String(m188a(str));
+        return new String(m187a(str));
     }
 }

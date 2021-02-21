@@ -24,7 +24,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private static final KeyEvent iSl = new KeyEvent(0, 67);
+    private static final KeyEvent iSz = new KeyEvent(0, 67);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -107,7 +107,7 @@ public class b {
         CustomResponsedMessage runTask;
         if (context != null && !TextUtils.isEmpty(str) && aVar != null) {
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            final int[] iArr = {com.baidu.tieba.face.a.Js(str)};
+            final int[] iArr = {com.baidu.tieba.face.a.Jt(str)};
             if (iArr[0] <= 0) {
                 if (aVar != null) {
                     aVar.d(spannableStringBuilder);
@@ -115,7 +115,7 @@ public class b {
                 }
                 return;
             }
-            Matcher matcher = com.baidu.tieba.face.a.iSj.matcher(spannableStringBuilder);
+            Matcher matcher = com.baidu.tieba.face.a.iSx.matcher(spannableStringBuilder);
             while (matcher.find()) {
                 String group = matcher.group();
                 final int start = matcher.start();
@@ -252,9 +252,9 @@ public class b {
         if (editText != null && (text = editText.getText()) != null) {
             int selectionStart = editText.getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                editText.onKeyDown(67, iSl);
+                editText.onKeyDown(67, iSz);
             }
-            editText.onKeyDown(67, iSl);
+            editText.onKeyDown(67, iSz);
             int selectionStart2 = editText.getSelectionStart();
             if (text != null) {
                 editText.setSelection(selectionStart2);

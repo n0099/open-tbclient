@@ -11,7 +11,7 @@ import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes2.dex */
 public class a extends bt {
-    public static final Integer kbw = 6;
+    public static final Integer kbK = 6;
     private boolean ePx;
     private List<MetaData> ePy = new ArrayList();
 
@@ -31,7 +31,7 @@ public class a extends bt {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(kbw);
+        return concernData.recom_type.equals(kbK);
     }
 
     @Override // com.baidu.tbadk.core.data.bt, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n

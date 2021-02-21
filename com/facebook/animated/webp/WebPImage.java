@@ -52,7 +52,7 @@ public class WebPImage implements c, b {
     }
 
     public static WebPImage N(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.erJ();
+        com.facebook.imagepipeline.nativecode.b.erR();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -89,8 +89,8 @@ public class WebPImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: OR */
-    public WebPFrame OQ(int i) {
+    /* renamed from: OS */
+    public WebPFrame OR(int i) {
         return nativeGetFrame(i);
     }
 
@@ -100,17 +100,17 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean erK() {
+    public boolean erS() {
         return true;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo OO(int i) {
-        WebPFrame OQ = OQ(i);
+    public AnimatedDrawableFrameInfo OP(int i) {
+        WebPFrame OR = OR(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, OQ.getXOffset(), OQ.getYOffset(), OQ.getWidth(), OQ.getHeight(), OQ.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, OQ.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+            return new AnimatedDrawableFrameInfo(i, OR.getXOffset(), OR.getYOffset(), OR.getWidth(), OR.getHeight(), OR.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, OR.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
         } finally {
-            OQ.dispose();
+            OR.dispose();
         }
     }
 }

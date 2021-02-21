@@ -4,9 +4,9 @@ import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.notify.BIMInviteSyncRtcInfo;
 /* loaded from: classes11.dex */
 public interface d {
-    void Mt(int i);
-
     void Mu(int i);
+
+    void Mv(int i);
 
     void Rl();
 

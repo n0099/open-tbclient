@@ -13,7 +13,7 @@ public class c implements b {
     public void a(long j, Thread thread, Throwable th) {
         com.bytedance.tea.crash.c.a a2 = com.bytedance.tea.crash.c.a.a(j, this.f7634a, thread, th);
         d.a(this.f7634a, com.bytedance.tea.crash.c.JAVA.a(), Thread.currentThread().getName());
-        com.bytedance.tea.crash.upload.a.eri().a(e.eqY().a(com.bytedance.tea.crash.c.JAVA, a2).a());
+        com.bytedance.tea.crash.upload.a.erq().a(e.erg().a(com.bytedance.tea.crash.c.JAVA, a2).a());
     }
 
     @Override // com.bytedance.tea.crash.d.b

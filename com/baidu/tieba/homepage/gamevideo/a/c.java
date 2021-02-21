@@ -27,13 +27,13 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
     private s amk;
     private BdUniqueId fGZ;
     private int feu;
-    private as iOz;
+    private as iON;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view, l lVar) {
-        if (this.iOz != null && this.iOz.tq() != null && this.iOz.tq().dzP() != null) {
-            if (view.getId() == this.iOz.tq().dzP().getId()) {
+        if (this.iON != null && this.iON.tq() != null && this.iON.tq().dzW() != null) {
+            if (view.getId() == this.iON.tq().dzW().getId()) {
                 com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.feu);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.feu);
@@ -64,11 +64,11 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
     /* renamed from: be */
     public AutoVideoCardViewHolder<l> e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        this.iOz = new ac(this.mPageContext.getPageActivity());
-        this.iOz.setPageUniqueId(this.fGZ);
-        this.iOz.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
-        this.iOz.setStageType("2001");
-        aVar.c(this.iOz);
+        this.iON = new ac(this.mPageContext.getPageActivity());
+        this.iON.setPageUniqueId(this.fGZ);
+        this.iON.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
+        this.iON.setStageType("2001");
+        aVar.c(this.iON);
         ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amk);
         AutoVideoCardViewHolder<l> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(a2);
         autoVideoCardViewHolder.setPageId(this.fGZ);
@@ -121,17 +121,17 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
             if (lVar.bln() != null) {
                 oVar.fNd = String.valueOf(lVar.bln().getFid());
                 if (lVar.bln().boh() != null) {
-                    oVar.mIj = lVar.bln().boh().video_md5;
-                    oVar.mIl = String.valueOf(lVar.bln().boh().is_vertical);
+                    oVar.mIA = lVar.bln().boh().video_md5;
+                    oVar.mIC = String.valueOf(lVar.bln().boh().is_vertical);
                 }
             }
             oVar.eNE = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.mIi = lVar.csI();
-            oVar.mIf = lVar.getWeight();
+            oVar.mIz = lVar.csP();
+            oVar.mIw = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            oVar.mFloor = String.valueOf(lVar.csH());
-            oVar.mIm = String.valueOf(this.feu);
+            oVar.mFloor = String.valueOf(lVar.csO());
+            oVar.mIE = String.valueOf(this.feu);
         }
         return oVar;
     }
@@ -145,8 +145,8 @@ public class c extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
     }
 
     public void onPause() {
-        if (this.iOz != null) {
-            this.iOz.onPause();
+        if (this.iON != null) {
+            this.iON.onPause();
         }
     }
 }

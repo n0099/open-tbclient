@@ -18,11 +18,11 @@ public class SearchEmotionModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003330 && (httpResponsedMessage instanceof SearchEmotionResponseMessage) && SearchEmotionModel.this.iSt != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003330 && (httpResponsedMessage instanceof SearchEmotionResponseMessage) && SearchEmotionModel.this.iSH != null) {
                 SearchEmotionResponseMessage searchEmotionResponseMessage = (SearchEmotionResponseMessage) httpResponsedMessage;
                 if (searchEmotionResponseMessage.getData() != null) {
                     if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
-                        SearchEmotionModel.this.iSt.a((String) httpResponsedMessage.getOrginalMessage().getExtra(), searchEmotionResponseMessage.getData());
+                        SearchEmotionModel.this.iSH.a((String) httpResponsedMessage.getOrginalMessage().getExtra(), searchEmotionResponseMessage.getData());
                         return;
                     }
                     return;
@@ -30,11 +30,11 @@ public class SearchEmotionModel extends BdBaseModel {
                 if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
                     l.showToast(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
                 }
-                SearchEmotionModel.this.iSt.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
+                SearchEmotionModel.this.iSH.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
             }
         }
     };
-    private a iSt;
+    private a iSH;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -59,7 +59,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     public void a(String str, int i, int i2, a aVar) {
         if (aVar != null && !TextUtils.isEmpty(str)) {
-            this.iSt = aVar;
+            this.iSH = aVar;
             HttpMessage httpMessage = new HttpMessage(1003330);
             httpMessage.addParam("kw", str);
             httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, i);
@@ -77,7 +77,7 @@ public class SearchEmotionModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(getUniqueId());
-        this.iSt = null;
+        this.iSH = null;
         return true;
     }
 }

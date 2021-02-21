@@ -20,7 +20,7 @@ abstract class bv {
 
     abstract String e();
 
-    abstract long[] enU();
+    abstract long[] eoc();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(Context context) {
@@ -57,10 +57,10 @@ abstract class bv {
                 this.f5817b = 0;
                 j = b() - System.currentTimeMillis();
             } else {
-                long[] enU = enU();
+                long[] eoc = eoc();
                 int i = this.f5817b;
                 this.f5817b = i + 1;
-                j = enU[i % enU.length];
+                j = eoc[i % eoc.length];
             }
             au.d(e() + " worked:" + z + " " + j, null);
             return j;

@@ -30,7 +30,7 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String bMx() {
+    public static String bME() {
         return Build.VERSION.RELEASE;
     }
 

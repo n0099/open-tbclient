@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
-    private EMTextView ohA;
-    private TBSpecificationBtn ohB;
-    private TBSpecificationBtn ohC;
+    private EMTextView oia;
+    private TBSpecificationBtn oib;
+    private TBSpecificationBtn oic;
 
     public CustomPrivacyDialogView(Context context) {
         this(context, null);
@@ -40,52 +40,52 @@ public class CustomPrivacyDialogView extends LinearLayout {
         gradientDrawable.setColor(ap.getColor(R.color.CAM_X0211));
         setBackgroundDrawable(gradientDrawable);
         inflate(context, R.layout.custom_privacy_dialog_view, this);
-        this.ohA = (EMTextView) findViewById(R.id.privacy_message);
-        this.ohB = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
-        this.ohC = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
-        this.ohB.setTextSize(R.dimen.tbds34);
+        this.oia = (EMTextView) findViewById(R.id.privacy_message);
+        this.oib = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
+        this.oic = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
+        this.oib.setTextSize(R.dimen.tbds34);
         c cVar = new c();
         cVar.pT(R.color.CAM_X0105);
-        this.ohB.setConfig(cVar);
-        this.ohC.setTextSize(R.dimen.tbds34);
+        this.oib.setConfig(cVar);
+        this.oic.setTextSize(R.dimen.tbds34);
         c cVar2 = new c();
         cVar2.pR(R.color.CAM_X0302);
-        this.ohC.setConfig(cVar2);
+        this.oic.setConfig(cVar2);
     }
 
     public void setMessageTextViewColor(int i) {
-        if (this.ohA != null) {
-            this.ohA.setTextColor(i);
+        if (this.oia != null) {
+            this.oia.setTextColor(i);
         }
     }
 
     public void setMessageTextViewMessage(String str) {
-        if (this.ohA != null) {
-            this.ohA.setText(str);
+        if (this.oia != null) {
+            this.oia.setText(str);
         }
     }
 
     public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
-        if (this.ohB != null) {
-            this.ohB.setOnClickListener(onClickListener);
+        if (this.oib != null) {
+            this.oib.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
-        if (this.ohC != null) {
-            this.ohC.setOnClickListener(onClickListener);
+        if (this.oic != null) {
+            this.oic.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogCancelButtonText(String str) {
-        if (this.ohB != null) {
-            this.ohB.setText(str);
+        if (this.oib != null) {
+            this.oib.setText(str);
         }
     }
 
     public void setPrivacyDialogConfirmButtonText(String str) {
-        if (this.ohC != null) {
-            this.ohC.setText(str);
+        if (this.oic != null) {
+            this.oic.setText(str);
         }
     }
 }

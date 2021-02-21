@@ -36,7 +36,7 @@ public class a extends AlertDialog {
     private TextView f;
     private ListView g;
     private Button h;
-    private InterfaceC1013a i;
+    private InterfaceC1015a i;
     private String j;
     private String k;
     private String l;
@@ -50,7 +50,7 @@ public class a extends AlertDialog {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1013a {
+    public interface InterfaceC1015a {
         void a(Dialog dialog);
 
         void b(Dialog dialog);
@@ -58,8 +58,8 @@ public class a extends AlertDialog {
         void c(Dialog dialog);
     }
 
-    public a a(InterfaceC1013a interfaceC1013a) {
-        this.i = interfaceC1013a;
+    public a a(InterfaceC1015a interfaceC1015a) {
+        this.i = interfaceC1015a;
         return this;
     }
 
@@ -251,31 +251,31 @@ public class a extends AlertDialog {
         @Override // android.widget.ArrayAdapter, android.widget.Adapter
         @NonNull
         public View getView(int i, @Nullable View view, @NonNull ViewGroup viewGroup) {
-            C1014a c1014a;
+            C1016a c1016a;
             c item = getItem(i);
             if (view == null) {
                 view = LayoutInflater.from(getContext()).inflate(ac.f(a.this.f6783a, "tt_app_detail_listview_item"), viewGroup, false);
-                C1014a c1014a2 = new C1014a();
-                c1014a2.f6789a = (TextView) view.findViewById(ac.e(a.this.f6783a, "tt_item_title_tv"));
-                c1014a2.f6790b = (TextView) view.findViewById(ac.e(a.this.f6783a, "tt_item_desc_tv"));
-                c1014a2.c = (ImageView) view.findViewById(ac.e(a.this.f6783a, "tt_item_select_img"));
-                view.setTag(c1014a2);
-                c1014a = c1014a2;
+                C1016a c1016a2 = new C1016a();
+                c1016a2.f6789a = (TextView) view.findViewById(ac.e(a.this.f6783a, "tt_item_title_tv"));
+                c1016a2.f6790b = (TextView) view.findViewById(ac.e(a.this.f6783a, "tt_item_desc_tv"));
+                c1016a2.c = (ImageView) view.findViewById(ac.e(a.this.f6783a, "tt_item_select_img"));
+                view.setTag(c1016a2);
+                c1016a = c1016a2;
             } else {
-                c1014a = (C1014a) view.getTag();
+                c1016a = (C1016a) view.getTag();
             }
-            c1014a.c.setVisibility(0);
+            c1016a.c.setVisibility(0);
             if ("补充中，可于应用官网查看".equals(item.a())) {
-                c1014a.c.setVisibility(4);
+                c1016a.c.setVisibility(4);
             }
-            c1014a.f6789a.setText(item.a());
-            c1014a.f6790b.setText(item.b());
+            c1016a.f6789a.setText(item.a());
+            c1016a.f6790b.setText(item.b());
             return view;
         }
 
         /* renamed from: com.bytedance.sdk.openadsdk.core.widget.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        class C1014a {
+        class C1016a {
 
             /* renamed from: a  reason: collision with root package name */
             TextView f6789a;
@@ -284,7 +284,7 @@ public class a extends AlertDialog {
             TextView f6790b;
             ImageView c;
 
-            C1014a() {
+            C1016a() {
             }
         }
     }

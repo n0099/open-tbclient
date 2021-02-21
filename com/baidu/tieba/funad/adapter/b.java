@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.ca;
-import com.baidu.tieba.recapp.k;
-import com.baidu.tieba.recapp.o;
+import com.baidu.tieba.recapp.l;
+import com.baidu.tieba.recapp.p;
 /* loaded from: classes5.dex */
-public class b extends com.baidu.adp.widget.ListView.a<ca, FunAdEmptyHolder> implements k, o {
-    private BaseFragmentActivity iKt;
+public class b extends com.baidu.adp.widget.ListView.a<ca, FunAdEmptyHolder> implements l, p {
+    private BaseFragmentActivity iKH;
 
     public b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity, bdUniqueId);
-        this.iKt = baseFragmentActivity;
+        this.iKH = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class b extends com.baidu.adp.widget.ListView.a<ca, FunAdEmptyHolder> imp
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bN */
     public FunAdEmptyHolder e(ViewGroup viewGroup) {
-        View view = new View(this.iKt.getPageContext().getPageActivity());
+        View view = new View(this.iKH.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new FunAdEmptyHolder(view);
     }
@@ -33,19 +33,19 @@ public class b extends com.baidu.adp.widget.ListView.a<ca, FunAdEmptyHolder> imp
         return funAdEmptyHolder.getView();
     }
 
-    @Override // com.baidu.tieba.recapp.o
+    @Override // com.baidu.tieba.recapp.p
     public void setIsFromCDN(boolean z) {
     }
 
-    @Override // com.baidu.tieba.recapp.k
+    @Override // com.baidu.tieba.recapp.l
     public void onPause() {
     }
 
-    @Override // com.baidu.tieba.recapp.k
+    @Override // com.baidu.tieba.recapp.l
     public void onResume() {
     }
 
-    @Override // com.baidu.tieba.recapp.k
+    @Override // com.baidu.tieba.recapp.l
     public void onDestroy() {
     }
 }

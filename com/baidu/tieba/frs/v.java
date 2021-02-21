@@ -14,29 +14,29 @@ import tbclient.BawuThrones;
 /* loaded from: classes.dex */
 public class v {
     private TextView cTD;
-    private ImageView iul;
-    private com.baidu.tbadk.core.dialog.a jjX;
-    private TextView jjY;
+    private ImageView iuz;
+    private com.baidu.tbadk.core.dialog.a jkl;
+    private TextView jkm;
     private boolean mIsChecked;
     private TextView mTitleView;
 
     public void b(TbPageContext tbPageContext, final String str, final String str2) {
-        if (this.jjX == null || !this.jjX.isShowing()) {
-            this.jjX = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            this.jjX.nA(1);
-            this.jjX.nz(R.color.CAM_X0105);
+        if (this.jkl == null || !this.jkl.isShowing()) {
+            this.jkl = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+            this.jkl.nA(1);
+            this.jkl.nz(R.color.CAM_X0105);
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
             this.mTitleView = (TextView) inflate.findViewById(R.id.title);
             this.mTitleView.setText(R.string.frs_recommend_thread_sure_title);
             this.cTD = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            BawuThrones cBw = c.cBv().cBw();
-            if (cBw != null) {
-                this.cTD.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), cBw.bazhu_level, cBw.total_recommend_num, Integer.valueOf(cBw.total_recommend_num.intValue() - cBw.used_recommend_num.intValue())));
+            BawuThrones cBD = c.cBC().cBD();
+            if (cBD != null) {
+                this.cTD.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), cBD.bazhu_level, cBD.total_recommend_num, Integer.valueOf(cBD.total_recommend_num.intValue() - cBD.used_recommend_num.intValue())));
             } else {
                 this.cTD.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), "D", 2, 2));
             }
-            this.iul = (ImageView) inflate.findViewById(R.id.checkbox);
-            this.jjY = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+            this.iuz = (ImageView) inflate.findViewById(R.id.checkbox);
+            this.jkm = (TextView) inflate.findViewById(R.id.no_tip_again_text);
             inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.v.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -45,33 +45,33 @@ public class v {
                 }
             });
             onChangeSkinType();
-            this.jjX.bn(inflate);
-            this.jjX.a(tbPageContext.getString(R.string.frs_recommend_thread_confirm), new a.b() { // from class: com.baidu.tieba.frs.v.2
+            this.jkl.bn(inflate);
+            this.jkl.a(tbPageContext.getString(R.string.frs_recommend_thread_confirm), new a.b() { // from class: com.baidu.tieba.frs.v.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("key_frs_recommend_tip", !v.this.mIsChecked);
-                    c.cBv().eX(str, str2);
-                    v.this.jjX.dismiss();
-                    v.this.jjX = null;
+                    c.cBC().eX(str, str2);
+                    v.this.jkl.dismiss();
+                    v.this.jkl = null;
                 }
             });
-            this.jjX.b(tbPageContext.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.frs.v.3
+            this.jkl.b(tbPageContext.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.frs.v.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     v.this.mIsChecked = false;
-                    v.this.jjX.dismiss();
-                    v.this.jjX = null;
+                    v.this.jkl.dismiss();
+                    v.this.jkl = null;
                 }
             });
-            this.jjX.b(tbPageContext).bqx();
+            this.jkl.b(tbPageContext).bqx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bqu() {
         Drawable a2;
-        if (this.iul != null) {
-            ImageView imageView = this.iul;
+        if (this.iuz != null) {
+            ImageView imageView = this.iuz;
             if (this.mIsChecked) {
                 a2 = SvgManager.bsR().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
@@ -89,16 +89,16 @@ public class v {
             com.baidu.tbadk.core.util.ap.setViewTextColor(this.cTD, R.color.CAM_X0107);
         }
         bqu();
-        if (this.jjY != null) {
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.jjY, R.color.CAM_X0107);
+        if (this.jkm != null) {
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.jkm, R.color.CAM_X0107);
         }
     }
 
     public void onDestory() {
-        this.jjX = null;
+        this.jkl = null;
         this.mTitleView = null;
         this.cTD = null;
-        this.iul = null;
-        this.jjY = null;
+        this.iuz = null;
+        this.jkm = null;
     }
 }

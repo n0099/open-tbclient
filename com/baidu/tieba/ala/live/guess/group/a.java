@@ -14,71 +14,71 @@ import com.baidu.live.utils.j;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private ab hfI;
-    private e hfO;
-    private AlaGuessGroupView hgl;
-    private e.b hgn;
-    private AlaGuessQuesData hgo;
-    private boolean hgm = false;
+    private ab hfW;
+    private e.b hgB;
+    private AlaGuessQuesData hgC;
+    private e hgc;
+    private AlaGuessGroupView hgz;
+    private boolean hgA = false;
     private Handler mHandler = new Handler();
-    private Runnable hgp = new Runnable() { // from class: com.baidu.tieba.ala.live.guess.group.a.1
+    private Runnable hgD = new Runnable() { // from class: com.baidu.tieba.ala.live.guess.group.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.hgo != null) {
-                a.this.hgo.setIsFirst(0);
-                a.this.g(a.this.hgo);
+            if (a.this.hgC != null) {
+                a.this.hgC.setIsFirst(0);
+                a.this.g(a.this.hgC);
             }
         }
     };
 
     public a(Context context, e eVar) {
-        this.hgl = new AlaGuessGroupView(context);
-        this.hfO = eVar;
-        if (this.hfO != null) {
-            this.hfO.a(new e.b() { // from class: com.baidu.tieba.ala.live.guess.group.a.2
+        this.hgz = new AlaGuessGroupView(context);
+        this.hgc = eVar;
+        if (this.hgc != null) {
+            this.hgc.a(new e.b() { // from class: com.baidu.tieba.ala.live.guess.group.a.2
                 @Override // com.baidu.live.guess.e.b
                 public void N(List<n> list) {
-                    if (a.this.hgn != null) {
-                        a.this.hgn.N(list);
+                    if (a.this.hgB != null) {
+                        a.this.hgB.N(list);
                     }
                 }
 
                 @Override // com.baidu.live.guess.e.b
                 public void onFailure(int i, String str) {
-                    if (a.this.hgn != null) {
-                        a.this.hgn.onFailure(i, str);
+                    if (a.this.hgB != null) {
+                        a.this.hgB.onFailure(i, str);
                     }
                 }
             });
         }
     }
 
-    public void bXo() {
-        bXp();
-        this.mHandler.postDelayed(this.hgp, 5000L);
+    public void bXv() {
+        bXw();
+        this.mHandler.postDelayed(this.hgD, 5000L);
     }
 
-    public void bXp() {
-        this.mHandler.removeCallbacks(this.hgp);
+    public void bXw() {
+        this.mHandler.removeCallbacks(this.hgD);
     }
 
     public void b(e.b bVar) {
-        this.hgn = bVar;
+        this.hgB = bVar;
     }
 
     public void a(ab abVar) {
-        this.hfI = abVar;
+        this.hfW = abVar;
     }
 
     public void g(AlaGuessQuesData alaGuessQuesData) {
-        this.hgo = alaGuessQuesData;
-        if (this.hfO != null && this.hfI.aIz != null) {
-            this.hfO.c(ExtraParamsManager.getEncryptionUserId(String.valueOf(this.hfI.aIz.userId)), this.hgo.getQuesId(), alaGuessQuesData.isFirst());
+        this.hgC = alaGuessQuesData;
+        if (this.hgc != null && this.hfW.aIz != null) {
+            this.hgc.c(ExtraParamsManager.getEncryptionUserId(String.valueOf(this.hfW.aIz.userId)), this.hgC.getQuesId(), alaGuessQuesData.isFirst());
         }
     }
 
-    public boolean bXq() {
-        return this.hgm;
+    public boolean bXx() {
+        return this.hgA;
     }
 
     public void av(ViewGroup viewGroup) {
@@ -86,17 +86,17 @@ public class a {
             if (viewGroup.getVisibility() == 8) {
                 viewGroup.setVisibility(0);
             }
-            viewGroup.addView(this.hgl, new ViewGroup.LayoutParams(-1, -1));
-            this.hgm = true;
+            viewGroup.addView(this.hgz, new ViewGroup.LayoutParams(-1, -1));
+            this.hgA = true;
         }
     }
 
     public void aw(ViewGroup viewGroup) {
-        if (viewGroup != null && this.hgl != null) {
+        if (viewGroup != null && this.hgz != null) {
             if (viewGroup.getChildCount() > 0) {
-                viewGroup.removeView(this.hgl);
+                viewGroup.removeView(this.hgz);
             }
-            this.hgm = false;
+            this.hgA = false;
         }
     }
 
@@ -122,15 +122,15 @@ public class a {
     }
 
     public void a(n nVar) {
-        a(nVar, this.hgl.getFirstInfo());
+        a(nVar, this.hgz.getFirstInfo());
     }
 
     public void b(n nVar) {
-        a(nVar, this.hgl.getSecondInfo());
+        a(nVar, this.hgz.getSecondInfo());
     }
 
     public void c(n nVar) {
-        a(nVar, this.hgl.getThirdInfo());
+        a(nVar, this.hgz.getThirdInfo());
     }
 
     public void o(List<n> list, boolean z) {

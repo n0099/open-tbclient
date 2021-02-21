@@ -19,72 +19,72 @@ import com.baidu.live.tieba.view.BarImageView;
 import com.baidu.tieba.yuyinala.AlaRankListActivity;
 /* loaded from: classes11.dex */
 public class c {
-    private TextView hXS;
-    private LottieAnimationView ijB;
-    private TextView ijy;
-    private TextView ijz;
+    private TextView hYg;
+    private TextView ijM;
+    private TextView ijN;
+    private LottieAnimationView ijP;
     private View mRootView;
-    private FrameLayout oNJ;
-    private BarImageView oNW;
-    private com.baidu.tieba.yuyinala.data.c oNX;
-    private AlaRankListActivity ooW;
+    private FrameLayout oOj;
+    private BarImageView oOw;
+    private com.baidu.tieba.yuyinala.data.c oOx;
+    private AlaRankListActivity opx;
 
     public c(AlaRankListActivity alaRankListActivity, View view) {
-        this.ooW = alaRankListActivity;
+        this.opx = alaRankListActivity;
         this.mRootView = view;
-        this.hXS = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
-        this.ijz = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
-        this.ijy = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_rank_info);
-        this.oNW = (BarImageView) this.mRootView.findViewById(a.f.ala_rank_list_header);
-        this.oNW.setShowOval(true);
-        this.oNW.setAutoChangeStyle(false);
-        this.ijB = (LottieAnimationView) this.mRootView.findViewById(a.f.rank_live_anim);
-        this.oNJ = (FrameLayout) this.mRootView.findViewById(a.f.ll_living);
+        this.hYg = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
+        this.ijN = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
+        this.ijM = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_rank_info);
+        this.oOw = (BarImageView) this.mRootView.findViewById(a.f.ala_rank_list_header);
+        this.oOw.setShowOval(true);
+        this.oOw.setAutoChangeStyle(false);
+        this.ijP = (LottieAnimationView) this.mRootView.findViewById(a.f.rank_live_anim);
+        this.oOj = (FrameLayout) this.mRootView.findViewById(a.f.ll_living);
     }
 
     public void a(com.baidu.tieba.yuyinala.data.c cVar, int i) {
         if (cVar != null) {
-            this.oNX = cVar;
-            this.hXS.setText(this.oNX.getNameShow());
-            this.oNW.startLoad(this.oNX.cover, 12, false);
-            if (this.oNX.eRx == 2) {
-                this.ijB.setAnimation("alavl_room_living.json");
-                this.ijB.loop(true);
-                this.ijB.playAnimation();
-                this.oNJ.setVisibility(0);
+            this.oOx = cVar;
+            this.hYg.setText(this.oOx.getNameShow());
+            this.oOw.startLoad(this.oOx.cover, 12, false);
+            if (this.oOx.eRx == 2) {
+                this.ijP.setAnimation("alavl_room_living.json");
+                this.ijP.loop(true);
+                this.ijP.playAnimation();
+                this.oOj.setVisibility(0);
             } else {
-                this.oNJ.setVisibility(8);
+                this.oOj.setVisibility(8);
             }
-            int i2 = this.oNX.rank;
-            this.ijz.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_cp_cont_d));
+            int i2 = this.oOx.rank;
+            this.ijN.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_cp_cont_d));
             if (i2 >= 100) {
-                this.ijz.setTextSize(0, this.ooW.getResources().getDimension(a.d.sdk_fontsize28));
+                this.ijN.setTextSize(0, this.opx.getResources().getDimension(a.d.sdk_fontsize28));
             } else {
-                this.ijz.setTextSize(0, this.ooW.getResources().getDimension(a.d.sdk_fontsize32));
+                this.ijN.setTextSize(0, this.opx.getResources().getDimension(a.d.sdk_fontsize32));
             }
-            this.ijz.setText(String.valueOf(i2));
-            this.ijz.setBackgroundResource(a.c.sdk_transparent);
-            this.ijy.setText(String.format(this.ooW.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatYuyinValue(this.oNX.aGE)));
+            this.ijN.setText(String.valueOf(i2));
+            this.ijN.setBackgroundResource(a.c.sdk_transparent);
+            this.ijM.setText(String.format(this.opx.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatYuyinValue(this.oOx.aGE)));
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.view.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    Intent intent = c.this.ooW.getIntent();
+                    Intent intent = c.this.opx.getIntent();
                     boolean iH = com.baidu.live.ao.a.Yj().iH(intent.getStringExtra("uk"));
                     long longExtra = intent.getLongExtra("live_id", 0L);
                     try {
-                        if (!String.valueOf(longExtra).equals(c.this.oNX.liveId)) {
-                            if (c.this.oNX.eRx == 2) {
+                        if (!String.valueOf(longExtra).equals(c.this.oOx.liveId)) {
+                            if (c.this.oOx.eRx == 2) {
                                 if (iH) {
                                     ab abVar = new ab();
                                     abVar.aIU = new dj();
-                                    abVar.aIU.live_id = c.this.oNX.liveId;
-                                    abVar.aIU.aTK = c.this.oNX.aTK;
+                                    abVar.aIU.live_id = c.this.oOx.liveId;
+                                    abVar.aIU.aTK = c.this.oOx.aTK;
                                     MessageManager.getInstance().dispatchResponsedMessage(new YuyinShowRoomDialogMessage(new ShowRoomCard(abVar)));
                                 } else {
                                     if (com.baidu.live.ao.a.Yj().isApplying()) {
                                         com.baidu.live.ao.a.Yj().Yt();
                                     }
-                                    YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(c.this.ooW);
+                                    YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(c.this.opx);
                                     String stringExtra = intent.getStringExtra("room_id");
                                     String stringExtra2 = intent.getStringExtra("portrait");
                                     AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
@@ -93,18 +93,18 @@ public class c {
                                     alaLastLiveroomInfo.setLastRoomId(Long.valueOf(stringExtra).longValue());
                                     alaLastLiveroomInfo.setIsAudio(1);
                                     alaLastLiveroomInfo.setLastAnchorPortrait(stringExtra2);
-                                    yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(Long.valueOf(c.this.oNX.liveId).longValue(), c.this.oNX.aTK, "live_sdk");
+                                    yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(Long.valueOf(c.this.oOx.liveId).longValue(), c.this.oOx.aTK, "live_sdk");
                                     yuyinAlaLiveRoomActivityConfig.addLastLiveInfoParams(alaLastLiveroomInfo);
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2501018, yuyinAlaLiveRoomActivityConfig));
                                 }
                             } else {
                                 ab abVar2 = new ab();
                                 abVar2.aIU = new dj();
-                                abVar2.aIU.live_id = c.this.oNX.liveId;
-                                abVar2.aIU.aTK = c.this.oNX.aTK;
+                                abVar2.aIU.live_id = c.this.oOx.liveId;
+                                abVar2.aIU.aTK = c.this.oOx.aTK;
                                 MessageManager.getInstance().dispatchResponsedMessage(new YuyinShowRoomDialogMessage(new ShowRoomCard(abVar2)));
                             }
-                            c.this.ooW.finish();
+                            c.this.opx.finish();
                         }
                     } catch (Throwable th) {
                     }

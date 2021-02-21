@@ -5,42 +5,42 @@ import com.ss.android.downloadlib.a.j;
 import com.ss.android.downloadlib.a.k;
 /* loaded from: classes6.dex */
 public class i {
-    private static volatile i qcP;
-    private final com.ss.android.b.a.a qcR;
-    private com.ss.android.b.a.b qcS;
-    private final h qcJ = h.eFd();
-    private final com.ss.android.a.a.a qcQ = new g();
+    private static volatile i qdp;
+    private final com.ss.android.b.a.a qdr;
+    private com.ss.android.b.a.b qds;
+    private final h qdj = h.eFl();
+    private final com.ss.android.a.a.a qdq = new g();
     private long f = System.currentTimeMillis();
 
     public static i iA(Context context) {
-        if (qcP == null) {
+        if (qdp == null) {
             synchronized (i.class) {
-                if (qcP == null) {
-                    qcP = new i(context);
+                if (qdp == null) {
+                    qdp = new i(context);
                 }
             }
         }
-        return qcP;
+        return qdp;
     }
 
     private i(Context context) {
         b(context);
-        this.qcR = b.eEo();
+        this.qdr = b.eEw();
     }
 
     private void b(Context context) {
         j.a(context);
         com.ss.android.socialbase.downloader.downloader.f.iB(j.a());
-        com.ss.android.downloadlib.a.b.d.eEt().b();
-        com.ss.android.socialbase.appdownloader.d.eFn().a(j.a(), "misc_config", new com.ss.android.downloadlib.d.d(), new com.ss.android.downloadlib.d.c(context), new e());
-        com.ss.android.socialbase.appdownloader.d.eFn().a(new com.ss.android.downloadlib.d.b());
-        com.ss.android.socialbase.appdownloader.d.eFn().a(new k());
+        com.ss.android.downloadlib.a.b.d.eEB().b();
+        com.ss.android.socialbase.appdownloader.d.eFv().a(j.a(), "misc_config", new com.ss.android.downloadlib.d.d(), new com.ss.android.downloadlib.d.c(context), new e());
+        com.ss.android.socialbase.appdownloader.d.eFv().a(new com.ss.android.downloadlib.d.b());
+        com.ss.android.socialbase.appdownloader.d.eFv().a(new k());
         com.ss.android.socialbase.downloader.downloader.b.a(new d());
-        com.ss.android.socialbase.appdownloader.d.eFn().a(new com.ss.android.downloadlib.guide.install.d());
+        com.ss.android.socialbase.appdownloader.d.eFv().a(new com.ss.android.downloadlib.guide.install.d());
     }
 
-    public com.ss.android.a.a.a eFe() {
-        return this.qcQ;
+    public com.ss.android.a.a.a eFm() {
+        return this.qdq;
     }
 
     public long b() {
@@ -51,43 +51,43 @@ public class i {
         this.f = System.currentTimeMillis();
     }
 
-    public com.ss.android.b.a.a eFf() {
-        return this.qcR;
+    public com.ss.android.b.a.a eFn() {
+        return this.qdr;
     }
 
-    public com.ss.android.b.a.b eFg() {
-        if (this.qcS == null) {
-            this.qcS = c.eEV();
+    public com.ss.android.b.a.b eFo() {
+        if (this.qds == null) {
+            this.qds = c.eFd();
         }
-        return this.qcS;
+        return this.qds;
     }
 
-    private h eFh() {
-        return this.qcJ;
+    private h eFp() {
+        return this.qdj;
     }
 
     public void a(Context context, int i, com.ss.android.a.a.b.d dVar, com.ss.android.a.a.b.c cVar) {
-        eFh().a(context, i, dVar, cVar);
+        eFp().a(context, i, dVar, cVar);
     }
 
     public void a(String str, long j, int i, com.ss.android.a.a.b.b bVar, com.ss.android.a.a.b.a aVar) {
-        eFh().a(str, j, i, bVar, aVar);
+        eFp().a(str, j, i, bVar, aVar);
     }
 
     public void e(String str, long j, int i) {
-        eFh().e(str, j, i);
+        eFp().e(str, j, i);
     }
 
     public void a(String str, int i) {
-        eFh().a(str, i);
+        eFp().a(str, i);
     }
 
     public void a(String str, boolean z) {
-        eFh().a(str, z);
+        eFp().a(str, z);
     }
 
     public void a(com.ss.android.a.a.b.a.a aVar) {
-        eFh().a(aVar);
+        eFp().a(aVar);
     }
 
     public String f() {
@@ -95,6 +95,6 @@ public class i {
     }
 
     public void g() {
-        f.eEZ().e();
+        f.eFh().e();
     }
 }

@@ -36,9 +36,9 @@ public class a {
     public static void a(com.baidu.tbadk.core.data.a aVar, String str) {
         if (aVar != null && aVar.bln() != null) {
             if (aVar.bln().bmv()) {
-                t.csu().e(m.b(aVar.bln(), str));
+                t.csB().e(m.b(aVar.bln(), str));
             } else {
-                t.csu().e(m.a(aVar.bln(), str));
+                t.csB().e(m.a(aVar.bln(), str));
             }
         }
     }

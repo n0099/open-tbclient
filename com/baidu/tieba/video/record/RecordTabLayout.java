@@ -11,11 +11,11 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class RecordTabLayout extends LinearLayout {
-    private int jDB;
-    private LinearLayout nRh;
-    private View nRi;
-    private boolean nRj;
-    private a nRk;
+    private int jDP;
+    private LinearLayout nRH;
+    private View nRI;
+    private boolean nRJ;
+    private a nRK;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -24,33 +24,33 @@ public class RecordTabLayout extends LinearLayout {
 
     public RecordTabLayout(Context context) {
         super(context);
-        this.nRj = true;
+        this.nRJ = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nRj = true;
+        this.nRJ = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nRj = true;
+        this.nRJ = true;
         initView();
     }
 
     private void initView() {
         setOrientation(1);
-        this.nRh = new LinearLayout(getContext());
-        this.nRh.setOrientation(0);
-        this.nRh.setGravity(17);
-        addView(this.nRh, new ViewGroup.LayoutParams(-1, -2));
-        this.nRi = new View(getContext());
-        this.nRi.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
+        this.nRH = new LinearLayout(getContext());
+        this.nRH.setOrientation(0);
+        this.nRH.setGravity(17);
+        addView(this.nRH, new ViewGroup.LayoutParams(-1, -2));
+        this.nRI = new View(getContext());
+        this.nRI.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44), com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds4));
         layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds18);
-        addView(this.nRi, layoutParams);
+        addView(this.nRI, layoutParams);
     }
 
     public void cf(final int i, String str) {
@@ -62,29 +62,29 @@ public class RecordTabLayout extends LinearLayout {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.RecordTabLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (RecordTabLayout.this.jDB != i) {
+                if (RecordTabLayout.this.jDP != i) {
                     RecordTabLayout.this.setCurrentTab(i, true);
-                    if (RecordTabLayout.this.nRk != null) {
-                        RecordTabLayout.this.nRk.ai(i, true);
+                    if (RecordTabLayout.this.nRK != null) {
+                        RecordTabLayout.this.nRK.ai(i, true);
                     }
                 }
             }
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        if (this.nRh.getChildCount() != 0) {
+        if (this.nRH.getChildCount() != 0) {
             layoutParams.leftMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds44);
         }
-        this.nRh.addView(textView, layoutParams);
+        this.nRH.addView(textView, layoutParams);
     }
 
     public void setCurrentTab(int i, final boolean z) {
         TextView textView;
-        if (this.jDB != i) {
-            this.jDB = i;
+        if (this.jDP != i) {
+            this.jDP = i;
             final TextView textView2 = null;
             int i2 = 0;
-            while (i2 < this.nRh.getChildCount()) {
-                View childAt = this.nRh.getChildAt(i2);
+            while (i2 < this.nRH.getChildCount()) {
+                View childAt = this.nRH.getChildAt(i2);
                 if (childAt instanceof TextView) {
                     Object tag = childAt.getTag();
                     if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
@@ -100,19 +100,19 @@ public class RecordTabLayout extends LinearLayout {
                 i2++;
                 textView2 = textView;
             }
-            if (this.nRj) {
+            if (this.nRJ) {
                 textView2.post(new Runnable() { // from class: com.baidu.tieba.video.record.RecordTabLayout.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.nRi.getWidth()) / 2)) - RecordTabLayout.this.nRi.getLeft();
+                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.nRI.getWidth()) / 2)) - RecordTabLayout.this.nRI.getLeft();
                         if (z) {
-                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.nRi, "translationX", RecordTabLayout.this.nRi.getTranslationX(), x);
+                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.nRI, "translationX", RecordTabLayout.this.nRI.getTranslationX(), x);
                             ofFloat.setDuration(500L);
                             ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
                             ofFloat.start();
                             return;
                         }
-                        RecordTabLayout.this.nRi.setTranslationX(x);
+                        RecordTabLayout.this.nRI.setTranslationX(x);
                     }
                 });
             }
@@ -120,17 +120,17 @@ public class RecordTabLayout extends LinearLayout {
     }
 
     public int getCurrentTab() {
-        return this.jDB;
+        return this.jDP;
     }
 
     public void setListener(a aVar) {
-        this.nRk = aVar;
+        this.nRK = aVar;
     }
 
     public void setShowIndicator(boolean z) {
-        this.nRj = z;
-        if (!this.nRj) {
-            this.nRi.setVisibility(4);
+        this.nRJ = z;
+        if (!this.nRJ) {
+            this.nRI.setVisibility(4);
         }
     }
 }

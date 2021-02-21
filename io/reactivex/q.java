@@ -3,8 +3,8 @@ package io.reactivex;
 public abstract class q<T> implements t<T> {
     protected abstract void a(u<? super T> uVar);
 
-    public static int eKe() {
-        return g.eKe();
+    public static int eKm() {
+        return g.eKm();
     }
 
     @Override // io.reactivex.t

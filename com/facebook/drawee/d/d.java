@@ -13,5 +13,5 @@ public interface d {
 
     d c(@Nullable a aVar);
 
-    a euf();
+    a eun();
 }

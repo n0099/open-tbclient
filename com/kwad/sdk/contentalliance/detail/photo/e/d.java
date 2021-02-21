@@ -62,7 +62,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             d.this.g();
-            d.this.e().a(new C1076d());
+            d.this.e().a(new C1078d());
             d.this.k = false;
         }
 
@@ -73,7 +73,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
-            d.this.e().a(new C1076d());
+            d.this.e().a(new C1078d());
         }
     };
     private Runnable j = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.d.4
@@ -81,7 +81,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         public void run() {
             com.kwad.sdk.core.d.a.a("PhotoVideoControlPresenter", "mAutoHidePauseButtonCallback run=" + d.this.f);
             if (d.this.f != null) {
-                d.this.f.a(new C1076d());
+                d.this.f.a(new C1078d());
             }
         }
     };
@@ -91,7 +91,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d.this.g();
-            if (d.this.e() instanceof C1076d) {
+            if (d.this.e() instanceof C1078d) {
                 d.this.e().b();
             } else {
                 d.this.e().a();
@@ -213,8 +213,8 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.contentalliance.detail.photo.e.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1076d extends a {
-        private C1076d() {
+    public class C1078d extends a {
+        private C1078d() {
             super();
         }
 
@@ -331,7 +331,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b {
 
     public b e() {
         if (this.f == null) {
-            this.f = new C1076d();
+            this.f = new C1078d();
         }
         return this.f;
     }

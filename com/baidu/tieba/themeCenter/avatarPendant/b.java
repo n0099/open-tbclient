@@ -12,11 +12,11 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class b extends BaseAdapter {
     private List<DressItemData> mDataList;
-    private AvatarPendantActivity nFN;
-    private c.a nFO;
+    private AvatarPendantActivity nGn;
+    private c.a nGo;
 
     public b(AvatarPendantActivity avatarPendantActivity) {
-        this.nFN = avatarPendantActivity;
+        this.nGn = avatarPendantActivity;
     }
 
     public void setData(List<DressItemData> list) {
@@ -50,10 +50,10 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.nFN.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
+            view = LayoutInflater.from(this.nGn.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.nFP = (AvatarPendantPerItemView) view.findViewById(R.id.avatar_pendant_per_item);
-            aVar2.nFP.setAvatarPendantItemClickListener(this.nFO);
+            aVar2.nGp = (AvatarPendantPerItemView) view.findViewById(R.id.avatar_pendant_per_item);
+            aVar2.nGp.setAvatarPendantItemClickListener(this.nGo);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -61,7 +61,7 @@ public class b extends BaseAdapter {
         }
         DressItemData item = getItem(i);
         if (item != null) {
-            aVar.nFP.d(item);
+            aVar.nGp.d(item);
         }
         ek(view);
         return view;
@@ -70,20 +70,20 @@ public class b extends BaseAdapter {
     private void ek(View view) {
         int skinType = TbadkApplication.getInst().getSkinType();
         if (view != null) {
-            this.nFN.getLayoutMode().setNightMode(skinType == 1);
-            this.nFN.getLayoutMode().onModeChanged(view);
+            this.nGn.getLayoutMode().setNightMode(skinType == 1);
+            this.nGn.getLayoutMode().onModeChanged(view);
         }
     }
 
     /* loaded from: classes9.dex */
     private class a {
-        AvatarPendantPerItemView nFP;
+        AvatarPendantPerItemView nGp;
 
         private a() {
         }
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
-        this.nFO = aVar;
+        this.nGo = aVar;
     }
 }

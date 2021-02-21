@@ -60,78 +60,78 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     private LinearLayout bbl;
     private int bby;
     private int bbz;
-    private String jUA;
-    private InputMethodManager jUC;
-    private FrameLayout jUf;
-    private View jUg;
-    private View jUh;
-    private EditText jUi;
-    private TextView jUj;
-    private TextView jUk;
-    private BaseViewPager jUl;
-    private IndicatorView jUm;
-    private View jUn;
-    private View jUo;
-    private View jUp;
-    private ListView jUq;
-    private com.baidu.tieba.gift.buyGift.b jUr;
-    private GiftPagerAdapter jUs;
-    private GiftCommonList jUt;
-    private GiftCommonList.GiftItem jUu;
-    private com.baidu.tbadk.core.dialog.a jUw;
-    private View jUx;
-    private EditText jUy;
-    private TextView jUz;
+    private IndicatorView jUA;
+    private View jUB;
+    private View jUC;
+    private View jUD;
+    private ListView jUE;
+    private com.baidu.tieba.gift.buyGift.b jUF;
+    private GiftPagerAdapter jUG;
+    private GiftCommonList jUH;
+    private GiftCommonList.GiftItem jUI;
+    private com.baidu.tbadk.core.dialog.a jUK;
+    private View jUL;
+    private EditText jUM;
+    private TextView jUN;
+    private String jUO;
+    private InputMethodManager jUQ;
+    private FrameLayout jUt;
+    private View jUu;
+    private View jUv;
+    private EditText jUw;
+    private TextView jUx;
+    private TextView jUy;
+    private BaseViewPager jUz;
     private int mFrom;
     private String mPassword;
     private long mReceiverId;
     private int mSelectedPosition;
     private List<View> bbu = new ArrayList();
     private SparseIntArray bbG = new SparseIntArray();
-    private boolean jUv = false;
-    private boolean jUB = false;
+    private boolean jUJ = false;
+    private boolean jUP = false;
     private SendGiftSuccessMessage.a mGiftInfo = new SendGiftSuccessMessage.a();
-    private final HttpMessageListener jUD = new HttpMessageListener(1001509) { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.1
+    private final HttpMessageListener jUR = new HttpMessageListener(1001509) { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetGiftCommonListHttpResponseMessage) {
                 GetGiftCommonListHttpResponseMessage getGiftCommonListHttpResponseMessage = (GetGiftCommonListHttpResponseMessage) httpResponsedMessage;
-                BuyGiftActivity.this.jUt = getGiftCommonListHttpResponseMessage.getGiftInfo();
+                BuyGiftActivity.this.jUH = getGiftCommonListHttpResponseMessage.getGiftInfo();
                 BuyGiftActivity.this.bD(getGiftCommonListHttpResponseMessage.getError(), getGiftCommonListHttpResponseMessage.getErrorString());
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c jUE = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_GET_GIFT_LIST) { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.8
+    private final com.baidu.adp.framework.listener.c jUS = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_GET_GIFT_LIST) { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage instanceof GetGiftCommonListSocketResponseMessage) {
                 GetGiftCommonListSocketResponseMessage getGiftCommonListSocketResponseMessage = (GetGiftCommonListSocketResponseMessage) socketResponsedMessage;
-                BuyGiftActivity.this.jUt = getGiftCommonListSocketResponseMessage.getGiftInfo();
+                BuyGiftActivity.this.jUH = getGiftCommonListSocketResponseMessage.getGiftInfo();
                 BuyGiftActivity.this.bD(getGiftCommonListSocketResponseMessage.getError(), getGiftCommonListSocketResponseMessage.getErrorString());
             }
         }
     };
-    private final com.baidu.adp.framework.listener.a jUF = new com.baidu.adp.framework.listener.a(1001510, CmdConfigSocket.CMD_SEND_GIFT) { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.9
+    private final com.baidu.adp.framework.listener.a jUT = new com.baidu.adp.framework.listener.a(1001510, CmdConfigSocket.CMD_SEND_GIFT) { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.9
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof SendGiftSocketResponseMessage) {
-                BuyGiftActivity.this.jUk.setEnabled(true);
+                BuyGiftActivity.this.jUy.setEnabled(true);
                 SendGiftSocketResponseMessage sendGiftSocketResponseMessage = (SendGiftSocketResponseMessage) responsedMessage;
                 BuyGiftActivity.this.a(sendGiftSocketResponseMessage.getError(), sendGiftSocketResponseMessage.getErrorString(), sendGiftSocketResponseMessage.getResponseData());
             } else if (responsedMessage instanceof SendGiftHttpResponseMessage) {
-                BuyGiftActivity.this.jUk.setEnabled(true);
+                BuyGiftActivity.this.jUy.setEnabled(true);
                 SendGiftHttpResponseMessage sendGiftHttpResponseMessage = (SendGiftHttpResponseMessage) responsedMessage;
                 BuyGiftActivity.this.a(sendGiftHttpResponseMessage.getError(), sendGiftHttpResponseMessage.getErrorString(), sendGiftHttpResponseMessage.getResponseData());
             }
         }
     };
-    private final CustomMessageListener jUG = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.10
+    private final CustomMessageListener jUU = new CustomMessageListener(CmdConfigCustom.CMD_BUY_YINJI_SUCCESS) { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            BuyGiftActivity.this.jUv = true;
+            BuyGiftActivity.this.jUJ = true;
             BuyGiftActivity.this.FR();
         }
     };
@@ -152,7 +152,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && !this.jUB) {
+        if (z && !this.jUP) {
             aCu();
         }
     }
@@ -179,10 +179,10 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     private void aCu() {
-        this.jUg.setBackgroundColor(ap.getColor(R.color.common_color_10175));
+        this.jUu.setBackgroundColor(ap.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
         alphaAnimation.setDuration(300L);
-        this.jUg.startAnimation(alphaAnimation);
+        this.jUu.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -197,20 +197,20 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                BuyGiftActivity.this.jUh.setVisibility(0);
-                BuyGiftActivity.this.cNJ();
+                BuyGiftActivity.this.jUv.setVisibility(0);
+                BuyGiftActivity.this.cNQ();
             }
         });
-        this.jUh.startAnimation(loadAnimation);
-        this.jUB = true;
+        this.jUv.startAnimation(loadAnimation);
+        this.jUP = true;
     }
 
     private void UX() {
-        this.jUg.setBackgroundColor(ap.getColor(R.color.common_color_10175));
+        this.jUu.setBackgroundColor(ap.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
         alphaAnimation.setDuration(300L);
         alphaAnimation.setFillAfter(true);
-        this.jUg.startAnimation(alphaAnimation);
+        this.jUu.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -228,7 +228,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                 BuyGiftActivity.this.finish();
             }
         });
-        this.jUh.startAnimation(loadAnimation);
+        this.jUv.startAnimation(loadAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -238,95 +238,95 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     private void initViews() {
-        this.jUf = (FrameLayout) findViewById(R.id.gift_panel_lay);
-        this.jUg = findViewById(R.id.empty_layout);
-        this.jUg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.13
+        this.jUt = (FrameLayout) findViewById(R.id.gift_panel_lay);
+        this.jUu = findViewById(R.id.empty_layout);
+        this.jUu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.13
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (BuyGiftActivity.this.jUp.getVisibility() == 0) {
-                    BuyGiftActivity.this.jUp.setVisibility(8);
+                if (BuyGiftActivity.this.jUD.getVisibility() == 0) {
+                    BuyGiftActivity.this.jUD.setVisibility(8);
                 } else {
                     BuyGiftActivity.this.closeActivity();
                 }
             }
         });
-        this.jUh = findViewById(R.id.gift_list_layout);
-        this.jUC = (InputMethodManager) getSystemService("input_method");
-        this.jUi = (EditText) findViewById(R.id.gift_count_input);
-        this.jUi.setSelection(1);
+        this.jUv = findViewById(R.id.gift_list_layout);
+        this.jUQ = (InputMethodManager) getSystemService("input_method");
+        this.jUw = (EditText) findViewById(R.id.gift_count_input);
+        this.jUw.setSelection(1);
         rQ(false);
-        this.jUi.addTextChangedListener(new c());
-        this.jUi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.14
+        this.jUw.addTextChangedListener(new c());
+        this.jUw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.14
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BuyGiftActivity.this.HidenSoftKeyPad(BuyGiftActivity.this.jUC, BuyGiftActivity.this.jUi);
+                BuyGiftActivity.this.HidenSoftKeyPad(BuyGiftActivity.this.jUQ, BuyGiftActivity.this.jUw);
                 BuyGiftActivity.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.14.1
                     @Override // java.lang.Runnable
                     public void run() {
                         BuyGiftActivity.this.rQ(false);
-                        BuyGiftActivity.this.jUp.setVisibility(0);
+                        BuyGiftActivity.this.jUD.setVisibility(0);
                     }
                 }, 200L);
             }
         });
-        this.jUi.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.15
+        this.jUw.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.15
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (z) {
-                    BuyGiftActivity.this.ShowSoftKeyPad(BuyGiftActivity.this.jUC, BuyGiftActivity.this.jUi);
+                    BuyGiftActivity.this.ShowSoftKeyPad(BuyGiftActivity.this.jUQ, BuyGiftActivity.this.jUw);
                 } else {
-                    BuyGiftActivity.this.HidenSoftKeyPad(BuyGiftActivity.this.jUC, BuyGiftActivity.this.jUi);
+                    BuyGiftActivity.this.HidenSoftKeyPad(BuyGiftActivity.this.jUQ, BuyGiftActivity.this.jUw);
                 }
             }
         });
-        this.jUj = (TextView) findViewById(R.id.gift_count_result);
-        this.jUk = (TextView) findViewById(R.id.gift_button);
-        this.jUk.setEnabled(false);
-        this.jUk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.2
+        this.jUx = (TextView) findViewById(R.id.gift_count_result);
+        this.jUy = (TextView) findViewById(R.id.gift_button);
+        this.jUy.setEnabled(false);
+        this.jUy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 BuyGiftActivity.this.FR();
             }
         });
-        this.jUn = findViewById(R.id.gift_lower_layout);
-        this.jUl = (BaseViewPager) findViewById(R.id.gift_viewpager);
-        this.jUl.setOnPageChangeListener(this);
-        this.jUm = (IndicatorView) findViewById(R.id.gift_tab_indicator);
+        this.jUB = findViewById(R.id.gift_lower_layout);
+        this.jUz = (BaseViewPager) findViewById(R.id.gift_viewpager);
+        this.jUz.setOnPageChangeListener(this);
+        this.jUA = (IndicatorView) findViewById(R.id.gift_tab_indicator);
         this.bbl = (LinearLayout) findViewById(R.id.gift_tab_layout);
-        this.jUo = findViewById(R.id.gift_progress_layout);
-        this.jUp = findViewById(R.id.gift_num_layout);
-        this.jUp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.3
+        this.jUC = findViewById(R.id.gift_progress_layout);
+        this.jUD = findViewById(R.id.gift_num_layout);
+        this.jUD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BuyGiftActivity.this.jUp.setVisibility(8);
+                BuyGiftActivity.this.jUD.setVisibility(8);
             }
         });
-        this.jUq = (ListView) findViewById(R.id.gift_num_list);
-        this.jUq.setOnItemClickListener(new b());
-        this.jUw = new com.baidu.tbadk.core.dialog.a(getActivity());
-        this.jUx = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_tdou_pay_pwd, (ViewGroup) null);
-        this.jUy = (EditText) this.jUx.findViewById(R.id.password_dialog_input);
-        this.jUz = (TextView) this.jUx.findViewById(R.id.password_dialog_warning);
-        this.jUw.bn(this.jUx);
-        this.jUw.jG(false);
-        this.jUw.b(getPageContext().getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.4
+        this.jUE = (ListView) findViewById(R.id.gift_num_list);
+        this.jUE.setOnItemClickListener(new b());
+        this.jUK = new com.baidu.tbadk.core.dialog.a(getActivity());
+        this.jUL = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_tdou_pay_pwd, (ViewGroup) null);
+        this.jUM = (EditText) this.jUL.findViewById(R.id.password_dialog_input);
+        this.jUN = (TextView) this.jUL.findViewById(R.id.password_dialog_warning);
+        this.jUK.bn(this.jUL);
+        this.jUK.jG(false);
+        this.jUK.b(getPageContext().getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 BuyGiftActivity.this.mPassword = "";
-                BuyGiftActivity.this.jUy.clearFocus();
-                BuyGiftActivity.this.HidenSoftKeyPad(BuyGiftActivity.this.jUC, BuyGiftActivity.this.jUy);
-                BuyGiftActivity.this.jUw.dismiss();
+                BuyGiftActivity.this.jUM.clearFocus();
+                BuyGiftActivity.this.HidenSoftKeyPad(BuyGiftActivity.this.jUQ, BuyGiftActivity.this.jUM);
+                BuyGiftActivity.this.jUK.dismiss();
             }
         });
-        this.jUw.a(getPageContext().getString(R.string.confirm), new a.b() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.5
+        this.jUK.a(getPageContext().getString(R.string.confirm), new a.b() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 BuyGiftActivity.this.rO(false);
-                BuyGiftActivity.this.mPassword = BuyGiftActivity.this.jUy.getText().toString();
+                BuyGiftActivity.this.mPassword = BuyGiftActivity.this.jUM.getText().toString();
                 if (StringUtils.isValidPassWord(BuyGiftActivity.this.mPassword)) {
-                    if (!StringUtils.isNull(BuyGiftActivity.this.jUA)) {
+                    if (!StringUtils.isNull(BuyGiftActivity.this.jUO)) {
                         try {
-                            com.baidu.ueg.encrypt.a a2 = com.baidu.ueg.encrypt.b.a(new com.baidu.ueg.encrypt.entity.a(EncryptAlgorithm.RSA, BuyGiftActivity.this.jUA));
+                            com.baidu.ueg.encrypt.a a2 = com.baidu.ueg.encrypt.b.a(new com.baidu.ueg.encrypt.entity.a(EncryptAlgorithm.RSA, BuyGiftActivity.this.jUO));
                             BuyGiftActivity.this.mPassword = a2.encrypt(BuyGiftActivity.this.mPassword);
                         } catch (Exception e) {
                             BuyGiftActivity.this.mPassword = "";
@@ -334,13 +334,13 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                         }
                     }
                     BuyGiftActivity.this.FR();
-                    BuyGiftActivity.this.jUy.setText("");
+                    BuyGiftActivity.this.jUM.setText("");
                     return;
                 }
                 BuyGiftActivity.this.rO(true);
             }
         });
-        this.jUw.b(getPageContext());
+        this.jUK.b(getPageContext());
     }
 
     private void initData() {
@@ -374,25 +374,25 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     private void registerListener() {
-        registerListener(this.jUD);
-        registerListener(this.jUE);
-        registerListener(this.jUF);
-        registerListener(this.jUG);
+        registerListener(this.jUR);
+        registerListener(this.jUS);
+        registerListener(this.jUT);
+        registerListener(this.jUU);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cNJ() {
-        this.jUo.setVisibility(0);
-        this.jUn.setVisibility(8);
-        this.jUp.setVisibility(8);
+    public void cNQ() {
+        this.jUC.setVisibility(0);
+        this.jUB.setVisibility(8);
+        this.jUD.setVisibility(8);
         rQ(false);
-        HidenSoftKeyPad((InputMethodManager) getSystemService("input_method"), this.jUi);
+        HidenSoftKeyPad((InputMethodManager) getSystemService("input_method"), this.jUw);
         sendMessage(new GetGiftCommonListRequestMessage());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bD(int i, String str) {
-        if (i != 0 || this.jUt == null || this.jUt.getGiftInfo() == null || this.jUt.getGiftInfo().getTypeInfo().size() <= 0) {
+        if (i != 0 || this.jUH == null || this.jUH.getGiftInfo() == null || this.jUH.getGiftInfo().getTypeInfo().size() <= 0) {
             if (TextUtils.isEmpty(str)) {
                 showToast(R.string.neterror);
             } else {
@@ -401,34 +401,34 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             closeActivity();
             return;
         }
-        this.jUk.setEnabled(true);
-        this.jUo.setVisibility(8);
-        this.jUn.setVisibility(0);
-        cNL();
+        this.jUy.setEnabled(true);
+        this.jUC.setVisibility(8);
+        this.jUB.setVisibility(0);
+        cNS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void FR() {
-        if (this.jUu != null && this.mReceiverId > 0) {
-            if (this.jUw != null && this.jUw.isShowing()) {
-                this.jUw.setYesBtnClickable(false);
-                this.jUw.setNoBtnClickable(false);
+        if (this.jUI != null && this.mReceiverId > 0) {
+            if (this.jUK != null && this.jUK.isShowing()) {
+                this.jUK.setYesBtnClickable(false);
+                this.jUK.setNoBtnClickable(false);
             }
-            this.jUk.setEnabled(false);
-            this.jUo.setVisibility(0);
+            this.jUy.setEnabled(false);
+            this.jUC.setVisibility(0);
             RequestSendGiftNetMessage requestSendGiftNetMessage = new RequestSendGiftNetMessage();
-            int i = com.baidu.adp.lib.f.b.toInt(String.valueOf(this.jUi.getText()), 1);
-            requestSendGiftNetMessage.setParams(this.mReceiverId, this.jUu.getGiftId(), this.jUu.getPrice(), i, cNK(), this.mPassword);
+            int i = com.baidu.adp.lib.f.b.toInt(String.valueOf(this.jUw.getText()), 1);
+            requestSendGiftNetMessage.setParams(this.mReceiverId, this.jUI.getGiftId(), this.jUI.getPrice(), i, cNR(), this.mPassword);
             this.mGiftInfo.setCount(i);
-            this.mGiftInfo.setName(this.jUu.getName());
-            this.mGiftInfo.setUrl(this.jUu.getThumbnailUrl());
-            this.mGiftInfo.setId(this.jUu.getGiftId());
+            this.mGiftInfo.setName(this.jUI.getName());
+            this.mGiftInfo.setUrl(this.jUI.getThumbnailUrl());
+            this.mGiftInfo.setId(this.jUI.getGiftId());
             this.mGiftInfo.AH(TbadkCoreApplication.getCurrentAccountName());
             sendMessage(requestSendGiftNetMessage);
         }
     }
 
-    public int cNK() {
+    public int cNR() {
         switch (this.mFrom) {
             case 1:
             default:
@@ -442,47 +442,47 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, SendGiftAndroidResIdl sendGiftAndroidResIdl) {
-        if (this.jUw != null && this.jUw.isShowing()) {
-            this.jUw.setYesBtnClickable(true);
-            this.jUw.setNoBtnClickable(true);
+        if (this.jUK != null && this.jUK.isShowing()) {
+            this.jUK.setYesBtnClickable(true);
+            this.jUK.setNoBtnClickable(true);
         }
-        this.jUo.setVisibility(8);
+        this.jUC.setVisibility(8);
         this.mPassword = "";
-        if (i == 1990018 && !this.jUv) {
+        if (i == 1990018 && !this.jUJ) {
             int rP = rP(false);
             int intValue = (sendGiftAndroidResIdl == null || sendGiftAndroidResIdl.data == null || sendGiftAndroidResIdl.data.money == null) ? 0 : rP - sendGiftAndroidResIdl.data.money.intValue();
             if (intValue > 0) {
                 showToast(String.format(getPageContext().getString(R.string.not_enough_tdou_format), Integer.valueOf(intValue)));
             }
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), rP)));
-            if (this.jUC != null) {
-                HidenSoftKeyPad(this.jUC, this.jUi);
+            if (this.jUQ != null) {
+                HidenSoftKeyPad(this.jUQ, this.jUw);
             }
-            if (this.jUw != null && this.jUw.isShowing()) {
-                this.jUw.dismiss();
+            if (this.jUK != null && this.jUK.isShowing()) {
+                this.jUK.dismiss();
             }
         } else if (i == 1990028) {
             rO(true);
         } else if (i == 1990019) {
             bc(str, 0);
-            cNJ();
+            cNQ();
         } else if (i == 1990027) {
             if (sendGiftAndroidResIdl != null && sendGiftAndroidResIdl.data != null && sendGiftAndroidResIdl.data.public_key != null) {
-                this.jUA = sendGiftAndroidResIdl.data.public_key;
+                this.jUO = sendGiftAndroidResIdl.data.public_key;
             }
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    BuyGiftActivity.this.jUw.bqx();
+                    BuyGiftActivity.this.jUK.bqx();
                 }
             });
-            this.jUy.setText("");
+            this.jUM.setText("");
             rO(false);
-            this.jUy.requestFocus();
+            this.jUM.requestFocus();
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.gift.buyGift.BuyGiftActivity.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    BuyGiftActivity.this.ShowSoftKeyPad((InputMethodManager) BuyGiftActivity.this.getSystemService("input_method"), BuyGiftActivity.this.jUy);
+                    BuyGiftActivity.this.ShowSoftKeyPad((InputMethodManager) BuyGiftActivity.this.getSystemService("input_method"), BuyGiftActivity.this.jUM);
                 }
             });
         } else if (i != 0) {
@@ -499,9 +499,9 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     /* JADX INFO: Access modifiers changed from: private */
     public void rO(boolean z) {
         if (z) {
-            this.jUz.setVisibility(0);
+            this.jUN.setVisibility(0);
         } else {
-            this.jUz.setVisibility(8);
+            this.jUN.setVisibility(8);
         }
     }
 
@@ -516,12 +516,12 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         showToast(str);
     }
 
-    private void cNL() {
-        if (this.jUt != null && this.jUt.getGiftInfo() != null) {
-            List<GiftCommonList.TypeInfo> typeInfo = this.jUt.getGiftInfo().getTypeInfo();
+    private void cNS() {
+        if (this.jUH != null && this.jUH.getGiftInfo() != null) {
+            List<GiftCommonList.TypeInfo> typeInfo = this.jUH.getGiftInfo().getTypeInfo();
             dI(typeInfo);
             dK(typeInfo);
-            K(this.jUt.getGiftInfo().getNumInfo());
+            K(this.jUH.getGiftInfo().getNumInfo());
         }
     }
 
@@ -582,13 +582,13 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         if (list != null) {
             this.bbG.clear();
             this.bbu.clear();
-            this.jUl.setAdapter(null);
+            this.jUz.setAdapter(null);
             for (int i = 0; i < list.size(); i++) {
                 List<GiftCommonList.GiftItem> dL = dL(list.get(i).getGiftItems());
                 int size = dL.size();
                 if (size > 0) {
-                    if (this.jUu == null) {
-                        this.jUu = dL.get(0);
+                    if (this.jUI == null) {
+                        this.jUI = dL.get(0);
                         rP(true);
                     }
                     int ceil = (int) Math.ceil(size / 8.0d);
@@ -612,8 +612,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                     }
                 }
             }
-            this.jUs = new GiftPagerAdapter(this.bbu);
-            this.jUl.setAdapter(this.jUs);
+            this.jUG = new GiftPagerAdapter(this.bbu);
+            this.jUz.setAdapter(this.jUG);
             Gw();
         }
     }
@@ -654,12 +654,12 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             for (int i3 = 0; i3 < this.bbG.get(i2); i3++) {
                 if (i + i3 == this.bby) {
                     if (this.bbG.get(i2) <= 1) {
-                        this.jUm.setVisibility(4);
+                        this.jUA.setVisibility(4);
                     } else {
-                        this.jUm.setVisibility(0);
+                        this.jUA.setVisibility(0);
                     }
-                    this.jUm.setCount(this.bbG.get(i2));
-                    this.jUm.setPosition(i3);
+                    this.jUA.setCount(this.bbG.get(i2));
+                    this.jUA.setPosition(i3);
                     dd(i2);
                     return;
                 }
@@ -678,9 +678,9 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             }
             list.removeAll(arrayList);
         }
-        this.jUr = new com.baidu.tieba.gift.buyGift.b(getPageContext().getPageActivity());
-        this.jUq.setAdapter((ListAdapter) this.jUr);
-        this.jUr.J(list);
+        this.jUF = new com.baidu.tieba.gift.buyGift.b(getPageContext().getPageActivity());
+        this.jUE.setAdapter((ListAdapter) this.jUF);
+        this.jUF.J(list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -689,28 +689,28 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         super.onChangeSkinType(i);
         boolean z = TbadkCoreApplication.getInst().getSkinType() == 1;
         getLayoutMode().setNightMode(z);
-        getLayoutMode().onModeChanged(this.jUh);
-        if (this.jUr != null) {
-            this.jUr.notifyDataSetChanged();
+        getLayoutMode().onModeChanged(this.jUv);
+        if (this.jUF != null) {
+            this.jUF.notifyDataSetChanged();
         }
         if (z) {
-            this.jUm.setSelector(getResources().getDrawable(R.drawable.icon_pagecontrol_on_1));
-            this.jUm.setDrawable(getResources().getDrawable(R.drawable.icon_pagecontrol_off_1));
+            this.jUA.setSelector(getResources().getDrawable(R.drawable.icon_pagecontrol_on_1));
+            this.jUA.setDrawable(getResources().getDrawable(R.drawable.icon_pagecontrol_off_1));
             return;
         }
-        this.jUm.setSelector(getResources().getDrawable(R.drawable.icon_pagecontrol_on));
-        this.jUm.setDrawable(getResources().getDrawable(R.drawable.icon_pagecontrol_off));
+        this.jUA.setSelector(getResources().getDrawable(R.drawable.icon_pagecontrol_on));
+        this.jUA.setDrawable(getResources().getDrawable(R.drawable.icon_pagecontrol_off));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.jUw != null && this.jUw.isShowing()) {
-                this.jUy.clearFocus();
-                this.jUw.dismiss();
+            if (this.jUK != null && this.jUK.isShowing()) {
+                this.jUM.clearFocus();
+                this.jUK.dismiss();
                 return true;
-            } else if (this.jUp.getVisibility() == 0) {
-                this.jUp.setVisibility(8);
+            } else if (this.jUD.getVisibility() == 0) {
+                this.jUD.setVisibility(8);
                 return true;
             }
         }
@@ -739,8 +739,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                 return;
             }
             int i2 = i >= 0 ? i : 0;
-            BuyGiftActivity.this.jUi.setText("" + i2);
-            BuyGiftActivity.this.jUi.setSelection(String.valueOf(i2).length());
+            BuyGiftActivity.this.jUw.setText("" + i2);
+            BuyGiftActivity.this.jUw.setSelection(String.valueOf(i2).length());
         }
     }
 
@@ -758,7 +758,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             if (aVar != null) {
                 GiftCommonList.GiftItem item = aVar.getItem(i);
                 if (item != null) {
-                    BuyGiftActivity.this.jUu = item;
+                    BuyGiftActivity.this.jUI = item;
                 }
                 aVar.cQ(i);
                 aVar.notifyDataSetChanged();
@@ -770,21 +770,21 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     /* JADX INFO: Access modifiers changed from: private */
     public int rP(boolean z) {
         int i;
-        int i2 = com.baidu.adp.lib.f.b.toInt(this.jUi.getText().toString(), 1);
-        if (this.jUu != null) {
-            i = this.jUu.getPrice() > 0 ? this.jUu.getPrice() : 1;
+        int i2 = com.baidu.adp.lib.f.b.toInt(this.jUw.getText().toString(), 1);
+        if (this.jUI != null) {
+            i = this.jUI.getPrice() > 0 ? this.jUI.getPrice() : 1;
         } else {
             i = 1;
         }
         int i3 = i * i2;
         if (z) {
-            this.jUj.setText(String.format(getPageContext().getString(R.string.tdou_count_format), au.numFormat(i3)));
+            this.jUx.setText(String.format(getPageContext().getString(R.string.tdou_count_format), au.numFormat(i3)));
             if (i3 <= 0) {
-                ap.setBackgroundResource(this.jUk, R.drawable.btn_gift_give_d);
-                this.jUk.setEnabled(false);
+                ap.setBackgroundResource(this.jUy, R.drawable.btn_gift_give_d);
+                this.jUy.setEnabled(false);
             } else {
-                ap.setBackgroundResource(this.jUk, R.drawable.btn_gift_give_normal);
-                this.jUk.setEnabled(true);
+                ap.setBackgroundResource(this.jUy, R.drawable.btn_gift_give_normal);
+                this.jUy.setEnabled(true);
             }
         }
         return i3;
@@ -798,20 +798,20 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (BuyGiftActivity.this.jUt != null && BuyGiftActivity.this.jUt.getGiftInfo() != null) {
-                List<GiftCommonList.NumInfo> numInfo = BuyGiftActivity.this.jUt.getGiftInfo().getNumInfo();
+            if (BuyGiftActivity.this.jUH != null && BuyGiftActivity.this.jUH.getGiftInfo() != null) {
+                List<GiftCommonList.NumInfo> numInfo = BuyGiftActivity.this.jUH.getGiftInfo().getNumInfo();
                 if (i == numInfo.size()) {
                     BuyGiftActivity.this.rQ(true);
-                    Selection.selectAll(BuyGiftActivity.this.jUi.getText());
+                    Selection.selectAll(BuyGiftActivity.this.jUw.getText());
                 } else {
-                    BuyGiftActivity.this.jUi.setCursorVisible(true);
-                    BuyGiftActivity.this.jUi.setFocusable(true);
+                    BuyGiftActivity.this.jUw.setCursorVisible(true);
+                    BuyGiftActivity.this.jUw.setFocusable(true);
                     GiftCommonList.NumInfo numInfo2 = numInfo.get(i);
                     if (numInfo2 != null) {
-                        BuyGiftActivity.this.jUi.setText("" + numInfo2.getNum());
+                        BuyGiftActivity.this.jUw.setText("" + numInfo2.getNum());
                     }
                 }
-                BuyGiftActivity.this.jUp.setVisibility(8);
+                BuyGiftActivity.this.jUD.setVisibility(8);
                 BuyGiftActivity.this.rP(true);
             }
         }
@@ -819,13 +819,13 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
     /* JADX INFO: Access modifiers changed from: private */
     public void rQ(boolean z) {
-        this.jUi.setCursorVisible(z);
-        this.jUi.setFocusable(z);
-        this.jUi.setFocusableInTouchMode(z);
+        this.jUw.setCursorVisible(z);
+        this.jUw.setFocusable(z);
+        this.jUw.setFocusableInTouchMode(z);
         if (z) {
-            this.jUi.requestFocus();
+            this.jUw.requestFocus();
         } else {
-            this.jUi.clearFocus();
+            this.jUw.clearFocus();
         }
     }
 
@@ -848,7 +848,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                 i2 = BuyGiftActivity.this.bbG.get(i) + i2;
             }
             BuyGiftActivity.this.bby = i2;
-            BuyGiftActivity.this.jUl.setCurrentItem(BuyGiftActivity.this.bby);
+            BuyGiftActivity.this.jUz.setCurrentItem(BuyGiftActivity.this.bby);
             BuyGiftActivity.this.Gw();
         }
     }

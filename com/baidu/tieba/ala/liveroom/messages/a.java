@@ -8,7 +8,7 @@ public class a extends HttpMessage {
     private double aXw;
     private long buN;
     private String buO;
-    private String hJi;
+    private String hJw;
     private String mForumName;
     private String roomId;
     private String uk;
@@ -38,8 +38,8 @@ public class a extends HttpMessage {
         this.roomId = str;
     }
 
-    public void HW(String str) {
-        this.hJi = str;
+    public void HX(String str) {
+        this.hJw = str;
     }
 
     public a() {
@@ -48,7 +48,7 @@ public class a extends HttpMessage {
         this.buO = "";
         this.uk = "";
         this.mForumName = "";
-        this.hJi = "";
+        this.hJw = "";
     }
 
     public void setParams() {
@@ -63,8 +63,8 @@ public class a extends HttpMessage {
         addParam("forum_name", this.mForumName);
         addParam("lng", this.aXv);
         addParam("lat", this.aXw);
-        if (!TextUtils.isEmpty(this.hJi)) {
-            addParam("fromishotswitch", this.hJi);
+        if (!TextUtils.isEmpty(this.hJw)) {
+            addParam("fromishotswitch", this.hJw);
         }
     }
 }

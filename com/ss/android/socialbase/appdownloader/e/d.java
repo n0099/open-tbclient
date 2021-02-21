@@ -20,11 +20,11 @@ public class d {
     /* renamed from: b  reason: collision with root package name */
     private static List<o> f13040b = new ArrayList();
     private static AlertDialog d;
-    private static com.ss.android.socialbase.appdownloader.view.a qdG;
+    private static com.ss.android.socialbase.appdownloader.view.a qeg;
 
     public static boolean a() {
         try {
-            return NotificationManagerCompat.from(com.ss.android.socialbase.downloader.downloader.b.eGu()).areNotificationsEnabled();
+            return NotificationManagerCompat.from(com.ss.android.socialbase.downloader.downloader.b.eGC()).areNotificationsEnabled();
         } catch (Throwable th) {
             th.printStackTrace();
             return true;
@@ -59,10 +59,10 @@ public class d {
                 if (activity != null) {
                     try {
                         if (!activity.isFinishing()) {
-                            int a2 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGu(), "appdownloader_notification_request_title");
-                            int a3 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGu(), "appdownloader_notification_request_message");
-                            int a4 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGu(), "appdownloader_notification_request_btn_yes");
-                            int a5 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGu(), "appdownloader_notification_request_btn_no");
+                            int a2 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGC(), "appdownloader_notification_request_title");
+                            int a3 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGC(), "appdownloader_notification_request_message");
+                            int a4 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGC(), "appdownloader_notification_request_btn_yes");
+                            int a5 = i.a(com.ss.android.socialbase.downloader.downloader.b.eGC(), "appdownloader_notification_request_btn_no");
                             f13040b.add(oVar);
                             if (d == null || !d.isShowing()) {
                                 d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.3
@@ -107,13 +107,13 @@ public class d {
             try {
                 if (!activity.isFinishing()) {
                     FragmentManager fragmentManager = activity.getFragmentManager();
-                    qdG = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f13039a);
-                    if (qdG == null) {
-                        qdG = new com.ss.android.socialbase.appdownloader.view.a();
-                        fragmentManager.beginTransaction().add(qdG, f13039a).commitAllowingStateLoss();
+                    qeg = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f13039a);
+                    if (qeg == null) {
+                        qeg = new com.ss.android.socialbase.appdownloader.view.a();
+                        fragmentManager.beginTransaction().add(qeg, f13039a).commitAllowingStateLoss();
                         fragmentManager.executePendingTransactions();
                     }
-                    qdG.a();
+                    qeg.a();
                     return;
                 }
             } catch (Throwable th) {

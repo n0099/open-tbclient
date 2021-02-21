@@ -21,7 +21,7 @@ import tbclient.User;
 /* loaded from: classes2.dex */
 public class a {
     private BdUniqueId fGZ;
-    private final com.baidu.adp.framework.listener.a iDJ = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private final com.baidu.adp.framework.listener.a iDX = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,31 +33,31 @@ public class a {
             }
         }
     };
-    private TopicDetailView koM;
+    private TopicDetailView kpa;
 
     public a(TopicDetailView topicDetailView) {
-        this.koM = topicDetailView;
+        this.kpa = topicDetailView;
     }
 
     public void l(BdUniqueId bdUniqueId) {
         this.fGZ = bdUniqueId;
-        this.iDJ.setTag(bdUniqueId);
-        this.iDJ.getHttpMessageListener().setSelfListener(true);
-        this.iDJ.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.iDJ);
+        this.iDX.setTag(bdUniqueId);
+        this.iDX.getHttpMessageListener().setSelfListener(true);
+        this.iDX.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.iDX);
     }
 
-    public RunnableC0748a G(long j, long j2) {
-        return new RunnableC0748a(j2, j);
+    public RunnableC0749a G(long j, long j2) {
+        return new RunnableC0749a(j2, j);
     }
 
     /* renamed from: com.baidu.tieba.homepage.topic.topicdetail.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0748a implements Runnable {
+    public class RunnableC0749a implements Runnable {
         private long postId;
         private long threadId;
 
-        public RunnableC0748a(long j, long j2) {
+        public RunnableC0749a(long j, long j2) {
             this.threadId = j;
             this.postId = j2;
         }
@@ -91,7 +91,7 @@ public class a {
             cbVar.a(build);
             cbVar.dL(new Date().getTime());
             if (k.ae(cbVar)) {
-                this.koM.aH(cbVar);
+                this.kpa.aH(cbVar);
             }
         }
     }

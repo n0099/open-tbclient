@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaDiversionInfoResponseMessage;
 /* loaded from: classes11.dex */
 public class e extends BdBaseModel {
-    private a hKI;
-    private HttpMessageListener hKJ;
+    private a hKW;
+    private HttpMessageListener hKX;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -23,25 +23,25 @@ public class e extends BdBaseModel {
 
     public e(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hKJ = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.n.e.1
+        this.hKX = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.n.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021181 && (httpResponsedMessage instanceof AlaDiversionInfoResponseMessage)) {
                     AlaDiversionInfoResponseMessage alaDiversionInfoResponseMessage = (AlaDiversionInfoResponseMessage) httpResponsedMessage;
-                    if (e.this.hKI != null) {
+                    if (e.this.hKW != null) {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
-                            e.this.hKI.bp(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
+                            e.this.hKW.bp(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            e.this.hKI.a(alaDiversionInfoResponseMessage.ciJ());
+                            e.this.hKW.a(alaDiversionInfoResponseMessage.ciQ());
                         }
                     }
                 }
             }
         };
-        this.hKI = aVar;
+        this.hKW = aVar;
         initTasks();
-        registerListener(this.hKJ);
+        registerListener(this.hKX);
     }
 
     private void initTasks() {

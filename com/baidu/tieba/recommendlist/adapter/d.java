@@ -66,143 +66,143 @@ public class d extends AbsDelegateAdapter<f, a> {
     /* loaded from: classes11.dex */
     public static class a extends TypeAdapter.ViewHolder {
         private ab bxN;
-        private AlphaAnimation gDa;
-        private TbImageView[] ifV;
-        private TextView[] ifW;
-        private TextView[] ifX;
-        private String ige;
+        private AlphaAnimation gDo;
+        private TbImageView[] igj;
+        private TextView[] igk;
+        private TextView[] igl;
+        private String igs;
         private Context mContext;
         private int mPosition;
-        private TextView[] naA;
-        private TbImageView[] naB;
-        private f naC;
-        private String naD;
-        private LinearLayout[] nau;
-        private ViewGroup[] nav;
-        private ViewGroup[] naw;
-        private LinearLayout[] nax;
-        private ImageView[] nay;
-        private TextView[] naz;
+        private LinearLayout[] naU;
+        private ViewGroup[] naV;
+        private ViewGroup[] naW;
+        private LinearLayout[] naX;
+        private ImageView[] naY;
+        private TextView[] naZ;
+        private TextView[] nba;
+        private TbImageView[] nbb;
+        private f nbc;
+        private String nbd;
 
         private a(View view, Context context, int i) {
             super(view);
-            this.ige = "";
-            this.naD = "";
+            this.igs = "";
+            this.nbd = "";
             this.mContext = context;
-            this.nau = new LinearLayout[2];
-            this.nav = new ViewGroup[2];
-            this.naw = new ViewGroup[2];
-            this.ifV = new TbImageView[2];
-            this.ifW = new TextView[2];
-            this.ifX = new TextView[2];
-            this.nax = new LinearLayout[2];
-            this.nay = new ImageView[2];
-            this.naz = new TextView[2];
-            this.naA = new TextView[2];
-            this.naB = new TbImageView[2];
-            this.nau[0] = (LinearLayout) view.findViewById(a.f.left_content_layout);
-            this.nau[1] = (LinearLayout) view.findViewById(a.f.right_content_layout);
-            this.nav[0] = (ViewGroup) view.findViewById(a.f.left_container_cover);
-            this.nav[1] = (ViewGroup) view.findViewById(a.f.right_container_cover);
-            this.naw[0] = (ViewGroup) view.findViewById(a.f.left_playback_shadow);
-            this.naw[1] = (ViewGroup) view.findViewById(a.f.right_playback_shadow);
-            this.ifV[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
-            this.ifV[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
-            this.ifW[0] = (TextView) view.findViewById(a.f.left_count_textView);
-            this.ifW[1] = (TextView) view.findViewById(a.f.right_count_textView);
-            this.ifX[0] = (TextView) view.findViewById(a.f.left_name_textView);
-            this.ifX[1] = (TextView) view.findViewById(a.f.right_name_textView);
-            this.nax[0] = (LinearLayout) view.findViewById(a.f.left_tag_layout);
-            this.nax[1] = (LinearLayout) view.findViewById(a.f.right_tag_layout);
-            this.nay[0] = (ImageView) view.findViewById(a.f.left_tag_icon_imageView);
-            this.nay[1] = (ImageView) view.findViewById(a.f.right_tag_icon_imageView);
-            this.naz[0] = (TextView) view.findViewById(a.f.left_tag_des_textView);
-            this.naz[1] = (TextView) view.findViewById(a.f.right_tag_des_textView);
-            this.naA[0] = (TextView) view.findViewById(a.f.left_des_textView);
-            this.naA[1] = (TextView) view.findViewById(a.f.right_des_textView);
-            this.naB[0] = (TbImageView) view.findViewById(a.f.left_portrait_imageView);
-            this.naB[1] = (TbImageView) view.findViewById(a.f.right_portrait_imageView);
+            this.naU = new LinearLayout[2];
+            this.naV = new ViewGroup[2];
+            this.naW = new ViewGroup[2];
+            this.igj = new TbImageView[2];
+            this.igk = new TextView[2];
+            this.igl = new TextView[2];
+            this.naX = new LinearLayout[2];
+            this.naY = new ImageView[2];
+            this.naZ = new TextView[2];
+            this.nba = new TextView[2];
+            this.nbb = new TbImageView[2];
+            this.naU[0] = (LinearLayout) view.findViewById(a.f.left_content_layout);
+            this.naU[1] = (LinearLayout) view.findViewById(a.f.right_content_layout);
+            this.naV[0] = (ViewGroup) view.findViewById(a.f.left_container_cover);
+            this.naV[1] = (ViewGroup) view.findViewById(a.f.right_container_cover);
+            this.naW[0] = (ViewGroup) view.findViewById(a.f.left_playback_shadow);
+            this.naW[1] = (ViewGroup) view.findViewById(a.f.right_playback_shadow);
+            this.igj[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
+            this.igj[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
+            this.igk[0] = (TextView) view.findViewById(a.f.left_count_textView);
+            this.igk[1] = (TextView) view.findViewById(a.f.right_count_textView);
+            this.igl[0] = (TextView) view.findViewById(a.f.left_name_textView);
+            this.igl[1] = (TextView) view.findViewById(a.f.right_name_textView);
+            this.naX[0] = (LinearLayout) view.findViewById(a.f.left_tag_layout);
+            this.naX[1] = (LinearLayout) view.findViewById(a.f.right_tag_layout);
+            this.naY[0] = (ImageView) view.findViewById(a.f.left_tag_icon_imageView);
+            this.naY[1] = (ImageView) view.findViewById(a.f.right_tag_icon_imageView);
+            this.naZ[0] = (TextView) view.findViewById(a.f.left_tag_des_textView);
+            this.naZ[1] = (TextView) view.findViewById(a.f.right_tag_des_textView);
+            this.nba[0] = (TextView) view.findViewById(a.f.left_des_textView);
+            this.nba[1] = (TextView) view.findViewById(a.f.right_des_textView);
+            this.nbb[0] = (TbImageView) view.findViewById(a.f.left_portrait_imageView);
+            this.nbb[1] = (TbImageView) view.findViewById(a.f.right_portrait_imageView);
             int dimensionPixelOffset = (context.getResources().getDimensionPixelOffset(a.d.sdk_tbds146) * i) / context.getResources().getDimensionPixelOffset(a.d.sdk_tbds260);
-            this.nav[0].getLayoutParams().width = i;
-            this.nav[0].getLayoutParams().height = dimensionPixelOffset;
-            this.nav[1].getLayoutParams().width = i;
-            this.nav[1].getLayoutParams().height = dimensionPixelOffset;
-            this.naB[0].setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.naB[1].setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.ifV[0].setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.ifV[1].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.naV[0].getLayoutParams().width = i;
+            this.naV[0].getLayoutParams().height = dimensionPixelOffset;
+            this.naV[1].getLayoutParams().width = i;
+            this.naV[1].getLayoutParams().height = dimensionPixelOffset;
+            this.nbb[0].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.nbb[1].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.igj[0].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.igj[1].setDefaultBgResource(a.e.sdk_shape_transparent);
             if (!TbadkCoreApplication.getInst().isMobileBaidu() && i > 0) {
-                this.ige = "@resize{w:" + i + ",h:" + dimensionPixelOffset + "}";
+                this.igs = "@resize{w:" + i + ",h:" + dimensionPixelOffset + "}";
             }
             if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
                 int dimensionPixelOffset2 = context.getResources().getDimensionPixelOffset(a.d.sdk_ds28);
-                this.naD = "@resize{w:" + dimensionPixelOffset2 + ",h:" + dimensionPixelOffset2 + "}";
+                this.nbd = "@resize{w:" + dimensionPixelOffset2 + ",h:" + dimensionPixelOffset2 + "}";
             }
-            this.nau[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.d.a.1
+            this.naU[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.d.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.naC != null) {
-                        if (a.this.naC.naM != null) {
-                            a.this.b(a.this.naC.naM, 0);
-                        } else if (a.this.naC.naN != null) {
-                            a.this.b(a.this.naC.naN, 0);
+                    if (a.this.nbc != null) {
+                        if (a.this.nbc.nbm != null) {
+                            a.this.b(a.this.nbc.nbm, 0);
+                        } else if (a.this.nbc.nbn != null) {
+                            a.this.b(a.this.nbc.nbn, 0);
                         }
                     }
                 }
             });
-            this.nau[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.d.a.2
+            this.naU[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.d.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.naC != null && a.this.naC.naN != null) {
-                        a.this.b(a.this.naC.naN, 1);
+                    if (a.this.nbc != null && a.this.nbc.nbn != null) {
+                        a.this.b(a.this.nbc.nbn, 1);
                     }
                 }
             });
-            this.gDa = new AlphaAnimation(0.0f, 1.0f);
-            this.gDa.setDuration(150L);
+            this.gDo = new AlphaAnimation(0.0f, 1.0f);
+            this.gDo.setDuration(150L);
         }
 
         public void a(f fVar, int i, ab abVar) {
             boolean z;
             int i2;
             if (fVar != null) {
-                this.naC = fVar;
+                this.nbc = fVar;
                 this.mPosition = i;
                 this.bxN = abVar;
-                if (fVar.naM != null) {
-                    a(fVar.naM, 0);
+                if (fVar.nbm != null) {
+                    a(fVar.nbm, 0);
                 }
-                if (fVar.naN != null) {
-                    if (fVar.naM == null) {
+                if (fVar.nbn != null) {
+                    if (fVar.nbm == null) {
                         i2 = 0;
                         z = false;
                     } else {
                         i2 = 1;
                         z = true;
                     }
-                    a(fVar.naN, i2);
+                    a(fVar.nbn, i2);
                 } else {
                     z = false;
                 }
                 if (z) {
-                    this.nau[1].setVisibility(0);
+                    this.naU[1].setVisibility(0);
                 } else {
-                    this.nau[1].setVisibility(8);
+                    this.naU[1].setVisibility(8);
                 }
             }
         }
 
         private void a(AlaRecommendLiveData alaRecommendLiveData, int i) {
-            final TbImageView tbImageView = this.ifV[i];
+            final TbImageView tbImageView = this.igj[i];
             tbImageView.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.recommendlist.adapter.d.a.3
                 @Override // com.baidu.live.tbadk.widget.TbImageView.ImageViewEvent
                 public void onComplete(String str, boolean z) {
                     Object tag = tbImageView.getTag(tbImageView.getId());
                     if ((tag == null || (tag instanceof String)) && !str.equals(tag)) {
                         tbImageView.setTag(tbImageView.getId(), str);
-                        a.this.gDa.cancel();
-                        a.this.gDa.reset();
-                        tbImageView.startAnimation(a.this.gDa);
+                        a.this.gDo.cancel();
+                        a.this.gDo.reset();
+                        tbImageView.startAnimation(a.this.gDo);
                     }
                 }
 
@@ -210,44 +210,44 @@ public class d extends AbsDelegateAdapter<f, a> {
                 public void onCancel() {
                 }
             });
-            this.gDa.cancel();
+            this.gDo.cancel();
             tbImageView.stopLoad();
-            tbImageView.startLoad(alaRecommendLiveData.cover + this.ige, 10, false);
-            this.ifX[i].setText(alaRecommendLiveData.getNameShow());
-            this.naw[i].setVisibility(8);
+            tbImageView.startLoad(alaRecommendLiveData.cover + this.igs, 10, false);
+            this.igl[i].setText(alaRecommendLiveData.getNameShow());
+            this.naW[i].setVisibility(8);
             if (alaRecommendLiveData.mixType == 0) {
                 if (alaRecommendLiveData.live_status == 3) {
-                    this.nax[i].setVisibility(8);
-                    this.ifW[i].setText(alaRecommendLiveData.duration);
-                    this.naw[i].setVisibility(0);
+                    this.naX[i].setVisibility(8);
+                    this.igk[i].setText(alaRecommendLiveData.duration);
+                    this.naW[i].setVisibility(0);
                 } else {
-                    this.ifW[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_watch_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
+                    this.igk[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_watch_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
                     com.baidu.tieba.recommendlist.data.c cVar = alaRecommendLiveData.interactTag;
                     if (cVar != null && !TextUtils.isEmpty(cVar.type)) {
                         int a2 = d.a(cVar);
                         if (a2 == 0) {
-                            this.nax[i].setVisibility(8);
+                            this.naX[i].setVisibility(8);
                         } else {
-                            this.nay[i].setImageResource(a2);
-                            this.naz[i].setText(cVar.msg);
-                            this.nax[i].setVisibility(0);
+                            this.naY[i].setImageResource(a2);
+                            this.naZ[i].setText(cVar.msg);
+                            this.naX[i].setVisibility(0);
                         }
                     } else {
-                        this.nax[i].setVisibility(8);
+                        this.naX[i].setVisibility(8);
                     }
                 }
             } else {
-                this.ifW[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_watch_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
+                this.igk[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_watch_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
                 if (!TextUtils.isEmpty(alaRecommendLiveData.distance) && !TextUtils.equals(alaRecommendLiveData.distance, "0")) {
-                    this.nay[i].setImageResource(a.e.icon_recommend_location);
-                    this.naz[i].setText(alaRecommendLiveData.distance);
-                    this.nax[i].setVisibility(0);
+                    this.naY[i].setImageResource(a.e.icon_recommend_location);
+                    this.naZ[i].setText(alaRecommendLiveData.distance);
+                    this.naX[i].setVisibility(0);
                 } else {
-                    this.nax[i].setVisibility(8);
+                    this.naX[i].setVisibility(8);
                 }
             }
-            this.naA[i].setText(alaRecommendLiveData.description);
-            this.naB[i].startLoad(alaRecommendLiveData.getLivePortrait() + this.naD, 12, false);
+            this.nba[i].setText(alaRecommendLiveData.description);
+            this.nbb[i].startLoad(alaRecommendLiveData.getLivePortrait() + this.nbd, 12, false);
             a(UbcStatisticLiveKey.KEY_ID_1392, "show", alaRecommendLiveData, i);
         }
 
@@ -260,7 +260,7 @@ public class d extends AbsDelegateAdapter<f, a> {
                     b(alaRecommendLiveData);
                 } else {
                     BdLog.e("openByScheme: " + alaRecommendLiveData.scheme);
-                    if (!RV(alaRecommendLiveData.scheme)) {
+                    if (!Sh(alaRecommendLiveData.scheme)) {
                         BdLog.e("openInner: scheme: " + alaRecommendLiveData.scheme);
                         b(alaRecommendLiveData);
                     }
@@ -269,7 +269,7 @@ public class d extends AbsDelegateAdapter<f, a> {
             }
         }
 
-        private boolean RV(String str) {
+        private boolean Sh(String str) {
             return openScheme(TbadkCoreApplication.getInst(), str);
         }
 

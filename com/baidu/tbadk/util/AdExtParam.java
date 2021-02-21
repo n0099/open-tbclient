@@ -38,22 +38,22 @@ public class AdExtParam {
             return this;
         }
 
-        public a DG(String str) {
+        public a DE(String str) {
             this.fMp.put(AdExtParam.KEY_SHOUBAI_CUID, str);
             return this;
         }
 
-        public a DH(String str) {
+        public a DF(String str) {
             this.fMp.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
             return this;
         }
 
-        public a DI(String str) {
+        public a DG(String str) {
             this.fMp.put("forum_name", str);
             return this;
         }
 
-        public a DJ(String str) {
+        public a DH(String str) {
             this.fMp.put(AdExtParam.KEY_FLOOR_INFO, str);
             return this;
         }

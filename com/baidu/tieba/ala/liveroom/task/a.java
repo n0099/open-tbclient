@@ -4,22 +4,22 @@ import com.baidu.android.imsdk.db.TableDefine;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    public int hOm;
-    public String hOn;
-    public int hOo;
-    public int hOp;
+    public int hOA;
+    public String hOB;
+    public int hOC;
+    public int hOD;
     public String tips;
     public String title;
     public String url;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.hOm = jSONObject.optInt("istip");
+            this.hOA = jSONObject.optInt("istip");
             this.tips = jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS);
-            this.hOn = jSONObject.optString("righttips");
-            this.hOo = jSONObject.optInt("upperlimit");
+            this.hOB = jSONObject.optString("righttips");
+            this.hOC = jSONObject.optInt("upperlimit");
             this.url = jSONObject.optString("url");
-            this.hOp = jSONObject.optInt("isreward");
+            this.hOD = jSONObject.optInt("isreward");
             this.title = jSONObject.optString("title");
         }
     }

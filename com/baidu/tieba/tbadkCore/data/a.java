@@ -9,11 +9,11 @@ public class a {
     private int mImageType;
     private String mTitle;
     private int mWidth;
-    private String nvM;
-    private String nvN;
+    private String nwm;
+    private String nwn;
 
-    public String dMX() {
-        return this.nvM;
+    public String dNf() {
+        return this.nwm;
     }
 
     public int getImageWidth() {
@@ -24,7 +24,7 @@ public class a {
         return this.mHeight;
     }
 
-    public String dMY() {
+    public String dNg() {
         return this.eMO;
     }
 
@@ -33,7 +33,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.nvN;
+        return this.nwn;
     }
 
     public void a(ActHot actHot) {
@@ -54,10 +54,10 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.nvM = actHot.img_src;
+            this.nwm = actHot.img_src;
             this.eMO = actHot.link;
             this.mTitle = actHot.author_name;
-            this.nvN = actHot.img_des;
+            this.nwn = actHot.img_des;
             this.mImageType = actHot.img_type.intValue();
         }
     }

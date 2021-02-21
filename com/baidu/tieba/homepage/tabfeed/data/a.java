@@ -20,103 +20,103 @@ import tbclient.Page;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class a {
-    private ArrayList<cb> iOG;
-    private m knE;
-    private ak knF;
-    private bo knG;
-    private bt knH;
-    private b knI;
-    private SpecialColumnListData knJ;
+    private ArrayList<cb> iOU;
+    private m knS;
+    private ak knT;
+    private bo knU;
+    private bt knV;
+    private b knW;
+    private SpecialColumnListData knX;
     private boolean hasMore = true;
-    private int knD = 1;
+    private int knR = 1;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             Page page = dataRes.page_info;
             if (page != null) {
-                this.knD = page.current_page.intValue();
+                this.knR = page.current_page.intValue();
                 this.hasMore = page.has_more.intValue() == 1;
             }
-            this.iOG = new ArrayList<>(y.getCount(dataRes.thread_list));
+            this.iOU = new ArrayList<>(y.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 cb cbVar = new cb();
                 cbVar.a(threadInfo);
                 cbVar.bns();
-                this.iOG.add(cbVar);
+                this.iOU.add(cbVar);
             }
             List<BannerImage> list = dataRes.banner_image;
             if (!y.isEmpty(list)) {
-                this.knE = new m();
-                this.knE.parserProtobuf(list);
+                this.knS = new m();
+                this.knS.parserProtobuf(list);
             }
             List<BannerImage> list2 = dataRes.grid;
             if (y.getCount(list2) >= 4) {
-                this.knF = new ak();
-                this.knF.parserProtobuf(list2);
+                this.knT = new ak();
+                this.knT.parserProtobuf(list2);
             }
             RecommendForumList recommendForumList = dataRes.recommend_forum;
             if (recommendForumList != null && y.getCount(recommendForumList.forum_list) >= 5) {
-                this.knG = new bo();
-                this.knG.bo(recommendForumList.forum_list);
-                this.knG.className = recommendForumList.class_name;
-                this.knG.floorPosition = recommendForumList.floor_position.intValue();
-                this.knG.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
-                this.knG.ePm = R.color.CAM_X0108;
+                this.knU = new bo();
+                this.knU.bo(recommendForumList.forum_list);
+                this.knU.className = recommendForumList.class_name;
+                this.knU.floorPosition = recommendForumList.floor_position.intValue();
+                this.knU.title = TbadkCoreApplication.getInst().getString(R.string.recommend_forum_list_title);
+                this.knU.ePm = R.color.CAM_X0108;
             }
             RecommendUserList recommendUserList = dataRes.recommend_user;
             if (recommendUserList != null && y.getCount(recommendUserList.user_list) >= 4) {
-                this.knH = new bt();
-                this.knH.bp(recommendUserList.user_list);
-                this.knH.floorPosition = recommendUserList.floor_position.intValue();
-                this.knH.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
-                this.knH.ePm = R.color.CAM_X0108;
+                this.knV = new bt();
+                this.knV.bp(recommendUserList.user_list);
+                this.knV.floorPosition = recommendUserList.floor_position.intValue();
+                this.knV.title = TbadkCoreApplication.getInst().getString(R.string.recommend_user_list_title);
+                this.knV.ePm = R.color.CAM_X0108;
             }
             HotTopic hotTopic = dataRes.hot_topic;
             if (hotTopic != null && y.getCount(hotTopic.topic_list) >= 4) {
-                this.knI = new b();
-                this.knI.a(hotTopic);
+                this.knW = new b();
+                this.knW.a(hotTopic);
             }
             SpecialColumnList specialColumnList = dataRes.special_column;
             if (specialColumnList != null && y.getCount(specialColumnList.item_list) >= 3) {
-                this.knJ = new SpecialColumnListData();
-                this.knJ.a(specialColumnList);
+                this.knX = new SpecialColumnListData();
+                this.knX.a(specialColumnList);
             }
         }
     }
 
-    public int cRU() {
-        return this.knD;
+    public int cSb() {
+        return this.knR;
     }
 
     public boolean hasMore() {
         return this.hasMore;
     }
 
-    public ArrayList<cb> cxb() {
-        return this.iOG;
+    public ArrayList<cb> cxi() {
+        return this.iOU;
     }
 
-    public bo cRV() {
-        return this.knG;
+    public bo cSc() {
+        return this.knU;
     }
 
-    public bt cRW() {
-        return this.knH;
+    public bt cSd() {
+        return this.knV;
     }
 
-    public m cRX() {
-        return this.knE;
+    public m cSe() {
+        return this.knS;
     }
 
-    public ak cRY() {
-        return this.knF;
+    public ak cSf() {
+        return this.knT;
     }
 
-    public b cRZ() {
-        return this.knI;
+    public b cSg() {
+        return this.knW;
     }
 
-    public SpecialColumnListData cSa() {
-        return this.knJ;
+    public SpecialColumnListData cSh() {
+        return this.knX;
     }
 }

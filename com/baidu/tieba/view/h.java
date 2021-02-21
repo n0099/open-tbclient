@@ -20,56 +20,56 @@ public class h {
     private LinearLayout eVK;
     private View eVN;
     private TextView eVO;
-    private RadioButton jyF;
-    private RadioButton jyG;
-    private RadioButton jyH;
-    private RadioButton jyI;
-    private RadioButton jyJ;
+    private RadioButton jyT;
+    private RadioButton jyU;
+    private RadioButton jyV;
+    private RadioButton jyW;
+    private RadioButton jyX;
     private List<a> mItems;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == h.this.jyF) {
-                h.this.jyG.setChecked(false);
-                h.this.jyH.setChecked(false);
-                h.this.jyI.setChecked(false);
-                h.this.jyJ.setChecked(false);
+            if (view == h.this.jyT) {
+                h.this.jyU.setChecked(false);
+                h.this.jyV.setChecked(false);
+                h.this.jyW.setChecked(false);
+                h.this.jyX.setChecked(false);
                 h.this.mScore = 1;
-            } else if (view == h.this.jyG) {
-                h.this.jyF.setChecked(true);
-                h.this.jyH.setChecked(false);
-                h.this.jyI.setChecked(false);
-                h.this.jyJ.setChecked(false);
+            } else if (view == h.this.jyU) {
+                h.this.jyT.setChecked(true);
+                h.this.jyV.setChecked(false);
+                h.this.jyW.setChecked(false);
+                h.this.jyX.setChecked(false);
                 h.this.mScore = 2;
-            } else if (view == h.this.jyH) {
-                h.this.jyF.setChecked(true);
-                h.this.jyG.setChecked(true);
-                h.this.jyI.setChecked(false);
-                h.this.jyJ.setChecked(false);
+            } else if (view == h.this.jyV) {
+                h.this.jyT.setChecked(true);
+                h.this.jyU.setChecked(true);
+                h.this.jyW.setChecked(false);
+                h.this.jyX.setChecked(false);
                 h.this.mScore = 3;
-            } else if (view == h.this.jyI) {
-                h.this.jyF.setChecked(true);
-                h.this.jyG.setChecked(true);
-                h.this.jyH.setChecked(true);
-                h.this.jyJ.setChecked(false);
+            } else if (view == h.this.jyW) {
+                h.this.jyT.setChecked(true);
+                h.this.jyU.setChecked(true);
+                h.this.jyV.setChecked(true);
+                h.this.jyX.setChecked(false);
                 h.this.mScore = 4;
-            } else if (view == h.this.jyJ) {
-                h.this.jyF.setChecked(true);
-                h.this.jyG.setChecked(true);
-                h.this.jyH.setChecked(true);
-                h.this.jyI.setChecked(true);
+            } else if (view == h.this.jyX) {
+                h.this.jyT.setChecked(true);
+                h.this.jyU.setChecked(true);
+                h.this.jyV.setChecked(true);
+                h.this.jyW.setChecked(true);
                 h.this.mScore = 5;
             }
-            if (h.this.oab != null) {
-                h.this.oab.HJ(h.this.mScore);
+            if (h.this.oaB != null) {
+                h.this.oaB.HJ(h.this.mScore);
             }
         }
     };
     private int mScore;
-    private d nZZ;
-    private b oaa;
-    private e oab;
-    private LinearLayout oac;
+    private b oaA;
+    private e oaB;
+    private LinearLayout oaC;
+    private d oaz;
     private String titleText;
     private View view;
 
@@ -102,17 +102,17 @@ public class h {
             this.eVN = this.view.findViewById(R.id.title_divide_line);
             this.mItems = new ArrayList();
             this.eVO = (TextView) this.view.findViewById(R.id.dialog_bottom_cancel_button);
-            this.jyF = (RadioButton) this.view.findViewById(R.id.comment_grade_1);
-            this.jyF.setOnClickListener(this.mOnClickListener);
-            this.jyG = (RadioButton) this.view.findViewById(R.id.comment_grade_2);
-            this.jyG.setOnClickListener(this.mOnClickListener);
-            this.jyH = (RadioButton) this.view.findViewById(R.id.comment_grade_3);
-            this.jyH.setOnClickListener(this.mOnClickListener);
-            this.jyI = (RadioButton) this.view.findViewById(R.id.comment_grade_4);
-            this.jyI.setOnClickListener(this.mOnClickListener);
-            this.jyJ = (RadioButton) this.view.findViewById(R.id.comment_grade_5);
-            this.jyJ.setOnClickListener(this.mOnClickListener);
-            this.oac = (LinearLayout) this.view.findViewById(R.id.comment_grade);
+            this.jyT = (RadioButton) this.view.findViewById(R.id.comment_grade_1);
+            this.jyT.setOnClickListener(this.mOnClickListener);
+            this.jyU = (RadioButton) this.view.findViewById(R.id.comment_grade_2);
+            this.jyU.setOnClickListener(this.mOnClickListener);
+            this.jyV = (RadioButton) this.view.findViewById(R.id.comment_grade_3);
+            this.jyV.setOnClickListener(this.mOnClickListener);
+            this.jyW = (RadioButton) this.view.findViewById(R.id.comment_grade_4);
+            this.jyW.setOnClickListener(this.mOnClickListener);
+            this.jyX = (RadioButton) this.view.findViewById(R.id.comment_grade_5);
+            this.jyX.setOnClickListener(this.mOnClickListener);
+            this.oaC = (LinearLayout) this.view.findViewById(R.id.comment_grade);
         }
     }
 
@@ -129,61 +129,61 @@ public class h {
     }
 
     public void zp(boolean z) {
-        this.jyF.setEnabled(z);
-        this.jyG.setEnabled(z);
-        this.jyH.setEnabled(z);
-        this.jyI.setEnabled(z);
-        this.jyJ.setEnabled(z);
+        this.jyT.setEnabled(z);
+        this.jyU.setEnabled(z);
+        this.jyV.setEnabled(z);
+        this.jyW.setEnabled(z);
+        this.jyX.setEnabled(z);
     }
 
-    public void KW(int i) {
+    public void KX(int i) {
         switch (i) {
             case 1:
-                this.jyF.setChecked(true);
-                this.jyG.setChecked(false);
-                this.jyH.setChecked(false);
-                this.jyI.setChecked(false);
-                this.jyJ.setChecked(false);
+                this.jyT.setChecked(true);
+                this.jyU.setChecked(false);
+                this.jyV.setChecked(false);
+                this.jyW.setChecked(false);
+                this.jyX.setChecked(false);
                 return;
             case 2:
-                this.jyF.setChecked(true);
-                this.jyG.setChecked(true);
-                this.jyH.setChecked(false);
-                this.jyI.setChecked(false);
-                this.jyJ.setChecked(false);
+                this.jyT.setChecked(true);
+                this.jyU.setChecked(true);
+                this.jyV.setChecked(false);
+                this.jyW.setChecked(false);
+                this.jyX.setChecked(false);
                 return;
             case 3:
-                this.jyF.setChecked(true);
-                this.jyG.setChecked(true);
-                this.jyH.setChecked(true);
-                this.jyI.setChecked(false);
-                this.jyJ.setChecked(false);
+                this.jyT.setChecked(true);
+                this.jyU.setChecked(true);
+                this.jyV.setChecked(true);
+                this.jyW.setChecked(false);
+                this.jyX.setChecked(false);
                 return;
             case 4:
-                this.jyF.setChecked(true);
-                this.jyG.setChecked(true);
-                this.jyH.setChecked(true);
-                this.jyI.setChecked(true);
-                this.jyJ.setChecked(false);
+                this.jyT.setChecked(true);
+                this.jyU.setChecked(true);
+                this.jyV.setChecked(true);
+                this.jyW.setChecked(true);
+                this.jyX.setChecked(false);
                 return;
             case 5:
-                this.jyF.setChecked(true);
-                this.jyG.setChecked(true);
-                this.jyH.setChecked(true);
-                this.jyI.setChecked(true);
-                this.jyJ.setChecked(true);
+                this.jyT.setChecked(true);
+                this.jyU.setChecked(true);
+                this.jyV.setChecked(true);
+                this.jyW.setChecked(true);
+                this.jyX.setChecked(true);
                 return;
             default:
                 return;
         }
     }
 
-    public void KX(int i) {
-        this.oac.setVisibility(i);
+    public void KY(int i) {
+        this.oaC.setVisibility(i);
     }
 
     public void L(int i, int i2, int i3, int i4) {
-        this.oac.setPadding(i, i2, i3, i4);
+        this.oaC.setPadding(i, i2, i3, i4);
     }
 
     public void setTitlePadding(int i, int i2, int i3, int i4) {
@@ -194,8 +194,8 @@ public class h {
         this.eHx.setTextSize(0, l.getDimens(this.eVI, i));
     }
 
-    public d dWf() {
-        return this.nZZ;
+    public d dWn() {
+        return this.oaz;
     }
 
     public void bw(List<a> list) {
@@ -219,14 +219,14 @@ public class h {
     }
 
     public void a(b bVar) {
-        this.oaa = bVar;
+        this.oaA = bVar;
     }
 
     public void a(e eVar) {
-        this.oab = eVar;
+        this.oaB = eVar;
     }
 
-    public void KY(int i) {
+    public void KZ(int i) {
         this.eVO.setVisibility(i);
     }
 
@@ -236,7 +236,7 @@ public class h {
         ap.setBackgroundColor(this.eVN, R.color.CAM_X0204);
         ap.setBackgroundResource(this.eVO, R.drawable.bg_bottom_up_list_dialog_item);
         ap.setViewTextColor(this.eVO, R.color.CAM_X0106);
-        ap.setBackgroundResource(this.oac, R.drawable.bg_bottom_up_list_dialog_item);
+        ap.setBackgroundResource(this.oaC, R.drawable.bg_bottom_up_list_dialog_item);
         if (this.mItems != null) {
             for (a aVar : this.mItems) {
                 aVar.onChangeSkinType();
@@ -250,11 +250,11 @@ public class h {
         } else {
             this.eHx.setVisibility(8);
         }
-        if (this.oaa != null) {
+        if (this.oaA != null) {
             this.eVO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.h.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    h.this.oaa.onClick();
+                    h.this.oaA.onClick();
                 }
             });
         }
@@ -268,8 +268,8 @@ public class h {
         private String mText;
         private TextView mTextView;
         private View mView;
-        private h oae;
-        private c oaf;
+        private h oaE;
+        private c oaF;
         private int mTextColor = R.drawable.person_more_pop_cancel_text_selector;
         private int eVn = R.drawable.person_more_pop_item_bg_selector;
         private int eVo = 17;
@@ -277,11 +277,11 @@ public class h {
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.h.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.oaf != null) {
-                    a.this.oaf.onClick();
+                if (a.this.oaF != null) {
+                    a.this.oaF.onClick();
                 }
-                if (a.this.oae != null && a.this.oae.dWf() != null) {
-                    a.this.oae.dWf().dV(a.this.mId);
+                if (a.this.oaE != null && a.this.oaE.dWn() != null) {
+                    a.this.oaE.dWn().dV(a.this.mId);
                 }
             }
         };
@@ -289,7 +289,7 @@ public class h {
 
         public a(String str, h hVar) {
             this.mText = str;
-            this.oae = hVar;
+            this.oaE = hVar;
             initView();
             initListener();
         }
@@ -299,7 +299,7 @@ public class h {
         }
 
         public void a(c cVar) {
-            this.oaf = cVar;
+            this.oaF = cVar;
             initListener();
         }
 
@@ -310,8 +310,8 @@ public class h {
         }
 
         private void initView() {
-            if (this.oae != null && this.oae.getContext() != null) {
-                this.mView = LayoutInflater.from(this.oae.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.oae.getView(), false);
+            if (this.oaE != null && this.oaE.getContext() != null) {
+                this.mView = LayoutInflater.from(this.oaE.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.oaE.getView(), false);
                 this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
                 this.mTextView.setText(this.mText);
                 this.mTextView.setGravity(this.eVo);

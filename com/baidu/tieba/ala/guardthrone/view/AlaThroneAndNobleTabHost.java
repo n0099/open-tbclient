@@ -31,8 +31,8 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
     private int aEQ;
     private List<com.baidu.live.j.c> aES;
     private View.OnClickListener aEW;
-    private a hcY;
-    private b hcZ;
+    private a hdm;
+    private b hdn;
     private int mCurrentTabIndex;
     private boolean mIsClicked;
 
@@ -178,8 +178,8 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.hcY != null) {
-                this.hcY.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aES, this.mCurrentTabIndex));
+            if (this.hdm != null) {
+                this.hdm.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aES, this.mCurrentTabIndex));
             }
         }
     }
@@ -190,12 +190,12 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.hcY != null) {
-                this.hcY.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aES, this.mCurrentTabIndex));
+            if (this.hdm != null) {
+                this.hdm.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aES, this.mCurrentTabIndex));
             }
         }
-        if (this.hcZ != null) {
-            this.hcZ.onPageSelected(i);
+        if (this.hdn != null) {
+            this.hdn.onPageSelected(i);
         }
     }
 
@@ -207,11 +207,11 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.hcY = aVar;
+        this.hdm = aVar;
     }
 
     public void setPageSelectedListener(b bVar) {
-        this.hcZ = bVar;
+        this.hdn = bVar;
     }
 
     public void setAdapter(AlaThroneAndNobleControllerAdapter alaThroneAndNobleControllerAdapter) {

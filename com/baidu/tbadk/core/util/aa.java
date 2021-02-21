@@ -251,7 +251,7 @@ public class aa {
         stringBuffer.append("tiebaclient!!!");
         this.eZX.addPostData("sign", com.baidu.adp.lib.util.s.toMd5(stringBuffer.toString()));
         if (this.eZW.bta().eZZ) {
-            this.eZX.addPostData("sig", StringU.Eu(stringBuffer.toString()));
+            this.eZX.addPostData("sig", StringU.Es(stringBuffer.toString()));
         }
     }
 

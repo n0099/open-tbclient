@@ -428,7 +428,7 @@ public abstract class a implements c, d, am.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(c.InterfaceC1011c interfaceC1011c) {
+    public void a(c.InterfaceC1013c interfaceC1013c) {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c

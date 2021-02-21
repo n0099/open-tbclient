@@ -34,7 +34,7 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     private LottieAnimationView h;
     private StaggeredGridLayoutManager i;
     private AtomicBoolean c = new AtomicBoolean(false);
-    private C1085a j = new C1085a();
+    private C1087a j = new C1087a();
     private b.a k = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.a.1
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z) {
@@ -79,8 +79,8 @@ public class a extends com.kwad.sdk.contentalliance.tube.detail.a.a {
 
     /* renamed from: com.kwad.sdk.contentalliance.tube.detail.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1085a extends RecyclerView.OnScrollListener {
-        public C1085a() {
+    public class C1087a extends RecyclerView.OnScrollListener {
+        public C1087a() {
         }
 
         private int a(int[] iArr) {

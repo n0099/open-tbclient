@@ -3,7 +3,7 @@ package com.baidu.yuyinala.privatemessage.session.b;
 public class a {
     protected String dSA;
 
-    public void Yr(String str) {
+    public void YD(String str) {
         this.dSA = str;
     }
 }

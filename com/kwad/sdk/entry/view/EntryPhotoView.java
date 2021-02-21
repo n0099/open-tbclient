@@ -524,8 +524,8 @@ public class EntryPhotoView extends com.kwad.sdk.widget.a implements View.OnClic
             i = 35;
         }
         com.kwad.sdk.core.download.b.b.a(this.r, true);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1092a() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.7
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1094a() { // from class: com.kwad.sdk.entry.view.EntryPhotoView.7
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 EntryPhotoView.this.h.mHasEntryAdClick = true;
                 EntryPhotoView.this.b(i);

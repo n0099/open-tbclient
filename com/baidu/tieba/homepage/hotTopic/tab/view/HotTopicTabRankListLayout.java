@@ -27,48 +27,48 @@ import com.baidu.tieba.homepage.hotTopic.tab.b.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class HotTopicTabRankListLayout extends RecyclerView {
-    private int kgI;
-    private a kgJ;
+    private int kgW;
+    private a kgX;
 
     public void setOnItemCoverListener(f<c> fVar) {
-        this.kgJ.setOnItemCoverListener(fVar);
+        this.kgX.setOnItemCoverListener(fVar);
     }
 
     public HotTopicTabRankListLayout(Context context) {
         super(context);
-        this.kgI = 3;
+        this.kgW = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kgI = 3;
+        this.kgW = 3;
         initView();
     }
 
     public HotTopicTabRankListLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kgI = 3;
+        this.kgW = 3;
         initView();
     }
 
     private void initView() {
         setLayoutManager(new GridLayoutManager(getContext(), 2));
         setOverScrollMode(2);
-        this.kgJ = new a();
-        setAdapter(this.kgJ);
+        this.kgX = new a();
+        setAdapter(this.kgX);
     }
 
     public void a(d dVar) {
-        if (dVar != null && dVar.cQJ() != null) {
-            this.kgJ.dZ(dVar.cQJ());
+        if (dVar != null && dVar.cQQ() != null) {
+            this.kgX.dZ(dVar.cQQ());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kgI != i) {
-            this.kgJ.notifyDataSetChanged();
-            this.kgI = i;
+        if (this.kgW != i) {
+            this.kgX.notifyDataSetChanged();
+            this.kgW = i;
         }
     }
 
@@ -76,7 +76,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
     /* loaded from: classes2.dex */
     public static class a extends RecyclerView.Adapter<b> {
         private f<c> ajq;
-        private List<c> kgG;
+        private List<c> kgU;
 
         a() {
         }
@@ -86,7 +86,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         }
 
         void dZ(@NonNull List<c> list) {
-            this.kgG = list;
+            this.kgU = list;
             notifyDataSetChanged();
         }
 
@@ -105,7 +105,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: a */
         public void onBindViewHolder(@NonNull b bVar, int i) {
-            List<c> list = this.kgG;
+            List<c> list = this.kgU;
             if (list != null && list.size() > i) {
                 c cVar = list.get(i);
                 bVar.a(cVar);
@@ -118,10 +118,10 @@ public class HotTopicTabRankListLayout extends RecyclerView {
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            if (this.kgG == null) {
+            if (this.kgU == null) {
                 return 0;
             }
-            return this.kgG.size();
+            return this.kgU.size();
         }
     }
 
@@ -132,30 +132,30 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         private TextView ajQ;
         private f<c> ajq;
         private TextView eHx;
-        private int kgI;
-        private View kgK;
-        private View kgL;
-        private TextView kgM;
-        private ImageView kgN;
+        private int kgW;
+        private View kgY;
+        private View kgZ;
+        private TextView kha;
+        private ImageView khb;
 
         b(View view) {
             super(view);
-            this.kgI = 3;
-            this.kgK = view.findViewById(R.id.itemLayout);
+            this.kgW = 3;
+            this.kgY = view.findViewById(R.id.itemLayout);
             this.ajP = (TextView) view.findViewById(R.id.indexView);
             this.eHx = (TextView) view.findViewById(R.id.titleView);
             this.ajQ = (TextView) view.findViewById(R.id.tagView);
-            this.kgL = view.findViewById(R.id.moreLayout);
-            this.kgM = (TextView) view.findViewById(R.id.moreText);
-            this.kgN = (ImageView) view.findViewById(R.id.moreIcon);
+            this.kgZ = view.findViewById(R.id.moreLayout);
+            this.kha = (TextView) view.findViewById(R.id.moreText);
+            this.khb = (ImageView) view.findViewById(R.id.moreIcon);
         }
 
         void a(final c cVar) {
             if (cVar != null) {
-                if (cVar.kgF) {
-                    this.kgK.setVisibility(8);
-                    this.kgL.setVisibility(0);
-                    this.kgL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
+                if (cVar.kgT) {
+                    this.kgY.setVisibility(8);
+                    this.kgZ.setVisibility(0);
+                    this.kgZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hotforum", "all").start();
@@ -167,8 +167,8 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                     });
                     return;
                 }
-                this.kgK.setVisibility(0);
-                this.kgK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
+                this.kgY.setVisibility(0);
+                this.kgY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         new HotTopicActivityConfig(view.getContext()).createNormalConfig("" + cVar.topicId, null, "3").start();
@@ -178,7 +178,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                         }
                     }
                 });
-                this.kgL.setVisibility(8);
+                this.kgZ.setVisibility(8);
                 if (cVar.index > 0) {
                     this.ajP.setText(String.valueOf(cVar.index));
                     this.ajP.setVisibility(0);
@@ -208,20 +208,20 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         }
 
         void onChangeSkinType(int i) {
-            if (this.kgI != i) {
+            if (this.kgW != i) {
                 int i2 = R.color.CAM_X0204;
-                com.baidu.tbadk.core.util.f.a.m(this.kgK, R.color.CAM_X0205, i2);
-                com.baidu.tbadk.core.util.f.a.m(this.kgL, R.color.CAM_X0205, i2);
+                com.baidu.tbadk.core.util.f.a.m(this.kgY, R.color.CAM_X0205, i2);
+                com.baidu.tbadk.core.util.f.a.m(this.kgZ, R.color.CAM_X0205, i2);
                 ap.setViewTextColor(this.eHx, R.color.CAM_X0105);
                 ap.setViewTextColor(this.ajQ, R.color.CAM_X0101);
-                if (this.kgL.getVisibility() == 0) {
-                    ap.setViewTextColor(this.kgM, R.color.CAM_X0304);
+                if (this.kgZ.getVisibility() == 0) {
+                    ap.setViewTextColor(this.kha, R.color.CAM_X0304);
                     int color = ap.getColor(R.color.CAM_X0304);
-                    Drawable drawable = this.kgN.getDrawable();
+                    Drawable drawable = this.khb.getDrawable();
                     DrawableCompat.setTint(drawable, color);
-                    this.kgN.setImageDrawable(drawable);
+                    this.khb.setImageDrawable(drawable);
                 }
-                this.kgI = i;
+                this.kgW = i;
             }
         }
     }

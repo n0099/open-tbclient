@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes15.dex */
 public class b {
-    private com.cmic.sso.sdk.a pwp;
+    private com.cmic.sso.sdk.a pwP;
 
     private static void a(a aVar, com.cmic.sso.sdk.a aVar2) {
         if (aVar != null && aVar2 != null) {
@@ -41,7 +41,7 @@ public class b {
             aVar.m(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
             aVar.c(aVar2.b("imsiState"));
             aVar.A(k.b("AID", ""));
-            aVar.XA(j.eru().f());
+            aVar.XM(j.erC().f());
             c.a("SendLog", "traceId" + aVar2.b("traceId"));
         }
     }
@@ -65,9 +65,9 @@ public class b {
             aVar2.b(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
             a(aVar2, aVar);
             JSONArray jSONArray = null;
-            if (a.pwX.size() > 0) {
+            if (a.pxx.size() > 0) {
                 JSONArray jSONArray2 = new JSONArray();
-                Iterator<Throwable> it = a.pwX.iterator();
+                Iterator<Throwable> it = a.pxx.iterator();
                 while (it.hasNext()) {
                     Throwable next = it.next();
                     StringBuffer stringBuffer = new StringBuffer();
@@ -79,7 +79,7 @@ public class b {
                     jSONObject.put("stack", stringBuffer.toString());
                     jSONArray2.put(jSONObject);
                 }
-                a.pwX.clear();
+                a.pxx.clear();
                 jSONArray = jSONArray2;
             }
             if (jSONArray != null && jSONArray.length() > 0) {
@@ -93,7 +93,7 @@ public class b {
     }
 
     private void a(final JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
-        this.pwp = aVar;
+        this.pwP = aVar;
         o.a(new o.a() { // from class: com.cmic.sso.sdk.d.b.1
             @Override // com.cmic.sso.sdk.e.o.a
             protected void a() {
@@ -105,20 +105,20 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(JSONObject jSONObject) {
         if (q.m() == 0 || q.l() == 0 || System.currentTimeMillis() > k.a("logCloseTime", 0L) + q.m()) {
-            com.cmic.sso.sdk.c.c.a.ero().a(jSONObject, this.pwp, new d() { // from class: com.cmic.sso.sdk.d.b.2
+            com.cmic.sso.sdk.c.c.a.erx().a(jSONObject, this.pwP, new d() { // from class: com.cmic.sso.sdk.d.b.2
                 @Override // com.cmic.sso.sdk.c.c.d
                 public void i(String str, String str2, JSONObject jSONObject2) {
                     if (!str.equals("103000")) {
                         if (q.m() != 0 && q.l() != 0) {
                             int a2 = k.a("logFailTimes", 0) + 1;
-                            k.a erv = k.erv();
+                            k.a erD = k.erD();
                             if (a2 >= q.l()) {
-                                erv.a("logFailTimes", 0);
-                                erv.a("logCloseTime", System.currentTimeMillis());
+                                erD.a("logFailTimes", 0);
+                                erD.a("logCloseTime", System.currentTimeMillis());
                             } else {
-                                erv.a("logFailTimes", a2);
+                                erD.a("logFailTimes", a2);
                             }
-                            erv.b();
+                            erD.b();
                         }
                         c.a("SendLog", "request failed , url : " + q.g() + ">>>>>errorMsg : " + jSONObject2.toString());
                         return;

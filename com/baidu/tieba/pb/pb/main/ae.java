@@ -7,14 +7,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes2.dex */
 public class ae {
-    private NavigationBarCoverTip jMg;
-    private int jMh;
+    private NavigationBarCoverTip jMu;
+    private int jMv;
     private com.baidu.adp.base.f mContext;
     private TextView mTipView;
 
     public ae(com.baidu.adp.base.f fVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = fVar;
-        this.jMg = navigationBarCoverTip;
+        this.jMu = navigationBarCoverTip;
         init();
     }
 
@@ -28,26 +28,26 @@ public class ae {
         this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
     }
 
-    public void PE(String str) {
-        if (this.jMg != null) {
-            if (com.baidu.tbadk.core.util.au.isEmpty(str) || this.jMh > 0) {
+    public void PF(String str) {
+        if (this.jMu != null) {
+            if (com.baidu.tbadk.core.util.au.isEmpty(str) || this.jMv > 0) {
                 onDestory();
-                this.jMg.setVisibility(8);
+                this.jMu.setVisibility(8);
                 return;
             }
-            this.jMg.setVisibility(0);
-            this.jMh++;
+            this.jMu.setVisibility(0);
+            this.jMv++;
             this.mTipView.setText(str);
             com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTipView, R.color.CAM_X0101);
-            this.jMg.removeAllViews();
-            this.jMg.addView(this.mTipView);
-            this.jMg.i(this.mContext.getPageActivity(), 5000);
+            this.jMu.removeAllViews();
+            this.jMu.addView(this.mTipView);
+            this.jMu.i(this.mContext.getPageActivity(), 5000);
         }
     }
 
     public void onDestory() {
-        if (this.jMg != null) {
-            this.jMg.onDestroy();
+        if (this.jMu != null) {
+            this.jMu.onDestroy();
         }
     }
 }

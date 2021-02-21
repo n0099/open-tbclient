@@ -26,6 +26,6 @@ public class b implements n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.lFE;
+        return a.lFS;
     }
 }

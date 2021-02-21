@@ -16,18 +16,18 @@ public class PostSearchActivityStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PostSearchActivityConfig.class, PostSearchActivity.class);
-        dBC();
-        dBD();
-        dBE();
+        dBJ();
+        dBK();
+        dBL();
     }
 
-    private static void dBC() {
+    private static void dBJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003016, TbConfig.SERVER_ADDRESS + TbConfig.POST_SEARCH_URL);
         tbHttpMessageTask.setResponsedClass(PostSearchHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dBD() {
+    private static void dBK() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.SAVE_SEARCH_POST_DATA, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.postsearch.PostSearchActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Void> run(CustomMessage<String> customMessage) {
@@ -38,7 +38,7 @@ public class PostSearchActivityStatic {
                 if (StringUtils.isNull(data)) {
                     return null;
                 }
-                com.baidu.tieba.tbadkCore.util.a.Tv(data);
+                com.baidu.tieba.tbadkCore.util.a.TH(data);
                 return new CustomResponsedMessage<>(CmdConfigCustom.SAVE_SEARCH_POST_DATA);
             }
         });
@@ -46,14 +46,14 @@ public class PostSearchActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dBE() {
+    private static void dBL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.postsearch.PostSearchActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Void> run(CustomMessage<Void> customMessage) {
                 if (customMessage == null) {
                     return null;
                 }
-                com.baidu.tieba.tbadkCore.util.a.dOz();
+                com.baidu.tieba.tbadkCore.util.a.dOH();
                 return new CustomResponsedMessage<>(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA);
             }
         });

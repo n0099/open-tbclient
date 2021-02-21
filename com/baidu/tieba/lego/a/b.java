@@ -6,47 +6,47 @@ import com.baidu.tbadk.b.f;
 import java.util.HashMap;
 /* loaded from: classes9.dex */
 public class b implements com.baidu.tbadk.b.e {
-    private final HashMap<String, f> lah;
+    private final HashMap<String, f> law;
 
     private b() {
-        this.lah = new HashMap<>();
+        this.law = new HashMap<>();
     }
 
     /* renamed from: com.baidu.tieba.lego.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    private static class C0774b {
-        private static b lai = new b();
+    private static class C0775b {
+        private static b lax = new b();
     }
 
-    public static b dbk() {
-        return C0774b.lai;
+    public static b dbr() {
+        return C0775b.lax;
     }
 
     public void k(Object obj, String str) {
         if (str != null) {
-            a NA = a.NA(str);
-            f fVar = this.lah.get(NA.getKey());
-            if (fVar != null && NA.isValid()) {
-                fVar.a(obj, NA.getParams(), str);
+            a NB = a.NB(str);
+            f fVar = this.law.get(NB.getKey());
+            if (fVar != null && NB.isValid()) {
+                fVar.a(obj, NB.getParams(), str);
             }
         }
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, com.baidu.adp.base.e eVar) {
         if (str != null) {
-            a NA = a.NA(str);
-            f fVar = this.lah.get(NA.getKey());
-            if (fVar != null && NA.isValid()) {
+            a NB = a.NB(str);
+            f fVar = this.law.get(NB.getKey());
+            if (fVar != null && NB.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    NA.getParams().putAll(hashMap);
+                    NB.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, NA.getParams(), str, eVar);
+                fVar.a(obj, NB.getParams(), str, eVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.lah.put(str, fVar);
+        this.law.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
@@ -87,7 +87,7 @@ public class b implements com.baidu.tbadk.b.e {
             this.eZG = new HashMap<>();
         }
 
-        public String Nz(String str) {
+        public String NA(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -101,7 +101,7 @@ public class b implements com.baidu.tbadk.b.e {
             return null;
         }
 
-        public static a NA(String str) {
+        public static a NB(String str) {
             return new a(str);
         }
     }

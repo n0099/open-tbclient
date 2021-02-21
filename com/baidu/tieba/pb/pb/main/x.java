@@ -10,15 +10,15 @@ import tbclient.AlaLiveInfo;
 import tbclient.DislikeInfo;
 /* loaded from: classes2.dex */
 public class x implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lUD = BdUniqueId.gen();
+    public static final BdUniqueId lUS = BdUniqueId.gen();
     public String cover;
     public String description;
     public MetaData eRz;
     public boolean isChushou;
     private boolean isValid;
-    public int lTT;
-    public boolean lTU = false;
-    public av lTW;
+    public int lUi;
+    public boolean lUj = false;
+    public av lUl;
     public long liveId;
     public int liveStatus;
     public String routeType;
@@ -32,7 +32,7 @@ public class x implements com.baidu.adp.widget.ListView.n {
         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
             this.userName = alaLiveInfo.user_info.user_name;
             this.liveStatus = alaLiveInfo.live_status.intValue();
-            this.lTT = alaLiveInfo.audience_count.intValue();
+            this.lUi = alaLiveInfo.audience_count.intValue();
             this.description = alaLiveInfo.description;
             this.cover = alaLiveInfo.cover;
             this.liveId = alaLiveInfo.live_id.longValue();
@@ -53,11 +53,11 @@ public class x implements com.baidu.adp.widget.ListView.n {
                         sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
                     }
                 }
-                this.lTW = new av();
-                this.lTW.setFeedBackReasonMap(sparseArray);
-                this.lTW.eOo = sparseArray2;
+                this.lUl = new av();
+                this.lUl.setFeedBackReasonMap(sparseArray);
+                this.lUl.eOo = sparseArray2;
             } else {
-                this.lTW = null;
+                this.lUl = null;
             }
             this.isValid = true;
             return;
@@ -75,6 +75,6 @@ public class x implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lUD;
+        return lUS;
     }
 }

@@ -10,12 +10,12 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
     /* loaded from: classes9.dex */
     public static class a {
         public int cEb;
-        public int kuB;
-        public String lbO;
-        public int lbP;
-        public int lbQ;
-        public boolean lbR;
-        public boolean lbS;
+        public int kuP;
+        public String lcc;
+        public int lcd;
+        public int lce;
+        public boolean lcf;
+        public boolean lcg;
         public String thumbUrl;
         public int videoDuration;
         public int videoHeight;
@@ -41,18 +41,18 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
             boolean z2 = optJSONObject.optInt("show_progress", 1) == 1;
             if (optInt > 0 && !TextUtils.isEmpty(optString2)) {
                 this.videoInfo = new a();
-                this.videoInfo.lbO = optString;
+                this.videoInfo.lcc = optString;
                 this.videoInfo.videoUrl = optString2;
                 this.videoInfo.videoDuration = optInt;
                 this.videoInfo.videoWidth = optInt2;
                 this.videoInfo.videoHeight = optInt3;
                 this.videoInfo.thumbUrl = optString3;
-                this.videoInfo.lbP = optInt4;
-                this.videoInfo.lbQ = optInt5;
-                this.videoInfo.kuB = optInt6;
+                this.videoInfo.lcd = optInt4;
+                this.videoInfo.lce = optInt5;
+                this.videoInfo.kuP = optInt6;
                 this.videoInfo.cEb = optInt7;
-                this.videoInfo.lbR = z;
-                this.videoInfo.lbS = z2;
+                this.videoInfo.lcf = z;
+                this.videoInfo.lcg = z2;
                 return;
             }
             this.videoInfo = null;

@@ -7,35 +7,35 @@ import java.util.LinkedHashMap;
 /* loaded from: classes15.dex */
 public final class l {
     private static String aE;
-    private static String oUe;
-    private final LinkedHashMap<String, Long> oUf = new LinkedHashMap<>();
+    private static String oUE;
+    private final LinkedHashMap<String, Long> oUF = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Xw(String str) {
+    public final void XI(String str) {
         if (!TextUtils.isEmpty(str)) {
-            synchronized (this.oUf) {
-                this.oUf.put(str, Long.valueOf(System.currentTimeMillis()));
-                oUe = str;
+            synchronized (this.oUF) {
+                this.oUF.put(str, Long.valueOf(System.currentTimeMillis()));
+                oUE = str;
                 aE = String.valueOf(System.currentTimeMillis());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Xx(String str) {
+    public final void XJ(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.oUf) {
-                Long remove = this.oUf.remove(str);
+            synchronized (this.oUF) {
+                Long remove = this.oUF.remove(str);
                 if (remove != null) {
                     try {
                         lVar.setStartTime(String.valueOf(remove));
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
-                        dVar = d.a.oTU;
+                        dVar = d.a.oUu;
                         lVar.setPath(dVar.adI());
-                        lVar.x(m.eii().I());
+                        lVar.x(m.eiq().I());
                     } catch (Exception e) {
                         com.baidu.ubs.analytics.d.j.G(e.toString());
                         com.baidu.ubs.analytics.d.b.I(e.toString());

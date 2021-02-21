@@ -2,9 +2,9 @@ package com.github.a.a;
 /* loaded from: classes6.dex */
 public class h extends a {
     private int mPid;
-    private StringBuffer pQO;
-    private long pQP;
-    private long pQQ;
+    private StringBuffer pRo;
+    private long pRp;
+    private long pRq;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void stop() {
@@ -13,10 +13,10 @@ public class h extends a {
 
     public h(long j) {
         super(j);
-        this.pQO = new StringBuffer();
+        this.pRo = new StringBuffer();
         this.mPid = 0;
-        this.pQP = 0L;
-        this.pQQ = 0L;
+        this.pRp = 0L;
+        this.pRq = 0L;
     }
 
     @Override // com.github.a.a.a
@@ -26,7 +26,7 @@ public class h extends a {
     }
 
     public String getCpuRateInfo() {
-        return this.pQO.toString();
+        return this.pRo.toString();
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -38,11 +38,11 @@ public class h extends a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     @Override // com.github.a.a.a
-    protected void eAu() {
+    protected void eAC() {
         /*
             r8 = this;
             r2 = 0
-            java.lang.StringBuffer r0 = r8.pQO
+            java.lang.StringBuffer r0 = r8.pRo
             r1 = 0
             r0.setLength(r1)
             java.io.BufferedReader r3 = new java.io.BufferedReader     // Catch: java.lang.Throwable -> L7f
@@ -83,7 +83,7 @@ public class h extends a {
             if (r0 != 0) goto L66
             java.lang.String r0 = ""
         L66:
-            r8.hv(r4, r0)     // Catch: java.lang.Throwable -> Lc2
+            r8.hx(r4, r0)     // Catch: java.lang.Throwable -> Lc2
             if (r3 == 0) goto L6e
             r3.close()     // Catch: java.io.IOException -> L74
         L6e:
@@ -153,15 +153,15 @@ public class h extends a {
             r4 = r0
             goto L25
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.github.a.a.h.eAu():void");
+        throw new UnsupportedOperationException("Method not decompiled: com.github.a.a.h.eAC():void");
     }
 
     private void reset() {
-        this.pQP = 0L;
-        this.pQQ = 0L;
+        this.pRp = 0L;
+        this.pRq = 0L;
     }
 
-    private void hv(String str, String str2) {
+    private void hx(String str, String str2) {
         String[] split = str.split(" ");
         if (split.length >= 9) {
             long parseLong = Long.parseLong(split[2]);
@@ -172,11 +172,11 @@ public class h extends a {
             long parseLong6 = parseLong5 + parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]);
             if (str2.split(" ").length >= 17) {
                 if (parseLong6 != 0) {
-                    long j = parseLong6 - this.pQQ;
-                    this.pQO.append(((j - (parseLong4 - this.pQP)) * 100) / j);
+                    long j = parseLong6 - this.pRq;
+                    this.pRo.append(((j - (parseLong4 - this.pRp)) * 100) / j);
                 }
-                this.pQP = parseLong4;
-                this.pQQ = parseLong6;
+                this.pRp = parseLong4;
+                this.pRq = parseLong6;
             }
         }
     }

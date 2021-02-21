@@ -9,6 +9,8 @@ import java.util.Objects;
 /* loaded from: classes.dex */
 public final class AdDownloadData implements IDownloadModel, Serializable {
     private final String mAdId;
+    private String mAppJson;
+    private String mDownloadKey;
     private String mDownloadUrl;
     private String mExtInfo;
     private final AdDownloadExtra mExtra;
@@ -89,8 +91,26 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         return this.mExtInfo;
     }
 
+    @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
+    public String getDownloadKey() {
+        return this.mDownloadKey;
+    }
+
+    @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
+    public String getAppJson() {
+        return this.mAppJson;
+    }
+
     public void setExtInfo(String str) {
         this.mExtInfo = str;
+    }
+
+    public void setDownloadKey(String str) {
+        this.mDownloadKey = str;
+    }
+
+    public void setAppJson(String str) {
+        this.mAppJson = str;
     }
 
     /* loaded from: classes.dex */
@@ -108,7 +128,7 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         }
 
         @NonNull
-        public AdDownloadData bLs() {
+        public AdDownloadData bLx() {
             return new AdDownloadData(this);
         }
     }

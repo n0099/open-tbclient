@@ -19,31 +19,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private static a oIK;
-    private HttpMessageListener ifG;
-    private ck oIL;
-    private List<az> oIM;
-    private List<az> oIN;
-    private boolean oIO = false;
+    private static a oJk;
+    private HttpMessageListener ifU;
+    private ck oJl;
+    private List<az> oJm;
+    private List<az> oJn;
+    private boolean oJo = false;
 
     private a() {
     }
 
-    public static a eep() {
-        if (oIK == null) {
+    public static a eex() {
+        if (oJk == null) {
             synchronized (a.class) {
-                if (oIK == null) {
-                    oIK = new a();
+                if (oJk == null) {
+                    oJk = new a();
                 }
             }
         }
-        return oIK;
+        return oJk;
     }
 
     public void bdh() {
         final ar arVar = com.baidu.live.ae.a.Qj().buX;
         if (arVar == null || arVar.aNt == null || arVar.aNt.aRi == null) {
-            bWF();
+            bWM();
         } else {
             new BdAsyncTask<ck, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class a {
                 public Boolean doInBackground(ck... ckVarArr) {
                     boolean z = false;
                     if (ckVarArr != null && ckVarArr.length != 0) {
-                        if (!a.this.oIO) {
-                            a.this.oIO = true;
+                        if (!a.this.oJo) {
+                            a.this.oJo = true;
                             ck ckVar = ckVarArr[0];
                             ck fB = ck.fB(d.xc().getString("audio_live_dating_anim", ""));
                             if (fB != null) {
@@ -103,11 +103,11 @@ public class a {
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass1) bool);
-                    a.this.oIL = arVar.aNt.aRi;
+                    a.this.oJl = arVar.aNt.aRi;
                     if (bool != null && bool.booleanValue()) {
-                        d.xc().putString("audio_live_dating_anim", ck.a(a.this.oIL));
+                        d.xc().putString("audio_live_dating_anim", ck.a(a.this.oJl));
                     }
-                    a.this.eeq();
+                    a.this.eey();
                     a.this.An(false);
                 }
             }.execute(arVar.aNt.aRi);
@@ -115,34 +115,34 @@ public class a {
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.ifG);
-        this.ifG = null;
+        MessageManager.getInstance().unRegisterListener(this.ifU);
+        this.ifU = null;
         com.baidu.live.h.b.cE(23);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eeq() {
-        if (this.oIL != null) {
-            if (this.oIM == null) {
-                this.oIM = new ArrayList();
+    public void eey() {
+        if (this.oJl != null) {
+            if (this.oJm == null) {
+                this.oJm = new ArrayList();
             } else {
-                this.oIM.clear();
+                this.oJm.clear();
             }
-            ListUtils.add(this.oIM, this.oIL.CF());
-            ListUtils.add(this.oIM, this.oIL.CC());
-            ListUtils.add(this.oIM, this.oIL.CD());
-            ListUtils.add(this.oIM, this.oIL.CE());
-            ListUtils.add(this.oIM, this.oIL.CG());
-            ListUtils.add(this.oIM, this.oIL.CH());
-            ListUtils.add(this.oIM, this.oIL.CI());
-            ListUtils.add(this.oIM, this.oIL.CJ());
+            ListUtils.add(this.oJm, this.oJl.CF());
+            ListUtils.add(this.oJm, this.oJl.CC());
+            ListUtils.add(this.oJm, this.oJl.CD());
+            ListUtils.add(this.oJm, this.oJl.CE());
+            ListUtils.add(this.oJm, this.oJl.CG());
+            ListUtils.add(this.oJm, this.oJl.CH());
+            ListUtils.add(this.oJm, this.oJl.CI());
+            ListUtils.add(this.oJm, this.oJl.CJ());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void An(final boolean z) {
-        if (!ListUtils.isEmpty(z ? this.oIN : this.oIM)) {
-            final az gp = gp(z ? this.oIN : this.oIM);
+        if (!ListUtils.isEmpty(z ? this.oJn : this.oJm)) {
+            final az gp = gp(z ? this.oJn : this.oJm);
             if (gp == null) {
                 An(z);
             } else {
@@ -150,21 +150,21 @@ public class a {
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.a
                     public void Ao(boolean z2) {
                         if (!z && !z2) {
-                            if (a.this.oIN == null) {
-                                a.this.oIN = new ArrayList();
+                            if (a.this.oJn == null) {
+                                a.this.oJn = new ArrayList();
                             }
-                            a.this.oIN.add(gp);
+                            a.this.oJn.add(gp);
                         }
-                        a.this.An(z || ListUtils.isEmpty(a.this.oIM));
+                        a.this.An(z || ListUtils.isEmpty(a.this.oJm));
                     }
                 });
             }
         }
     }
 
-    private void bWF() {
-        if (this.ifG == null) {
-            this.ifG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.3
+    private void bWM() {
+        if (this.ifU == null) {
+            this.ifU = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -173,7 +173,7 @@ public class a {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.ifG);
+            MessageManager.getInstance().registerListener(this.ifU);
         }
     }
 

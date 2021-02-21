@@ -21,11 +21,11 @@ public class o {
     private final PriorityBlockingQueue<Request<?>> d;
     private final List<b> j;
     private final List<a> k;
-    private final com.bytedance.sdk.adnet.e.b pvj;
-    private final com.bytedance.sdk.adnet.e.c pvk;
-    private final com.bytedance.sdk.adnet.e.d pvl;
-    private final k[] pvm;
-    private f pvn;
+    private final com.bytedance.sdk.adnet.e.b pvJ;
+    private final com.bytedance.sdk.adnet.e.c pvK;
+    private final com.bytedance.sdk.adnet.e.d pvL;
+    private final k[] pvM;
+    private f pvN;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -45,10 +45,10 @@ public class o {
         this.d = new PriorityBlockingQueue<>();
         this.j = new ArrayList();
         this.k = new ArrayList();
-        this.pvj = bVar;
-        this.pvk = cVar;
-        this.pvm = new k[i];
-        this.pvl = dVar;
+        this.pvJ = bVar;
+        this.pvK = cVar;
+        this.pvM = new k[i];
+        this.pvL = dVar;
     }
 
     public o(com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.c cVar, int i) {
@@ -61,21 +61,21 @@ public class o {
 
     public void a() {
         b();
-        this.pvn = new f(this.c, this.d, this.pvj, this.pvl);
-        this.pvn.start();
-        for (int i = 0; i < this.pvm.length; i++) {
-            k kVar = new k(this.d, this.pvk, this.pvj, this.pvl);
-            this.pvm[i] = kVar;
+        this.pvN = new f(this.c, this.d, this.pvJ, this.pvL);
+        this.pvN.start();
+        for (int i = 0; i < this.pvM.length; i++) {
+            k kVar = new k(this.d, this.pvK, this.pvJ, this.pvL);
+            this.pvM[i] = kVar;
             kVar.start();
         }
     }
 
     public void b() {
         k[] kVarArr;
-        if (this.pvn != null) {
-            this.pvn.a();
+        if (this.pvN != null) {
+            this.pvN.a();
         }
-        for (k kVar : this.pvm) {
+        for (k kVar : this.pvM) {
             if (kVar != null) {
                 kVar.a();
             }
@@ -107,8 +107,8 @@ public class o {
     public <T> void g(Request<T> request) {
         if (request != null && !TextUtils.isEmpty(request.getUrl())) {
             String url = request.getUrl();
-            if (com.bytedance.sdk.adnet.a.eqD() != null) {
-                String a2 = com.bytedance.sdk.adnet.a.eqD().a(url);
+            if (com.bytedance.sdk.adnet.a.eqL() != null) {
+                String a2 = com.bytedance.sdk.adnet.a.eqL().a(url);
                 if (!TextUtils.isEmpty(a2)) {
                     request.setUrl(a2);
                 }

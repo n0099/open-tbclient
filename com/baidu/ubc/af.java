@@ -41,9 +41,9 @@ public class af implements ab {
 
     public void onEvent(String str, String str2, int i) {
         int length;
-        if (DEBUG && !TextUtils.isEmpty(str2) && (length = str2.getBytes().length) > g.ehx().ehz()) {
+        if (DEBUG && !TextUtils.isEmpty(str2) && (length = str2.getBytes().length) > g.ehF().ehH()) {
             Log.e("UBCServiceManager", "UBC log too large, id=" + str + ", content=" + str2);
-            throw new RuntimeException(String.format("UBC log too large(size=%dKB / threshold=%d), log id=%s, please deal with. Any question connect UBC owner", Integer.valueOf(length), Integer.valueOf(g.ehx().ehz()), str));
+            throw new RuntimeException(String.format("UBC log too large(size=%dKB / threshold=%d), log id=%s, please deal with. Any question connect UBC owner", Integer.valueOf(length), Integer.valueOf(g.ehF().ehH()), str));
         } else if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
             if (UBC.getUBCContext() == null && TextUtils.isEmpty(str)) {
                 if (DEBUG) {
@@ -54,7 +54,7 @@ public class af implements ab {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "on event id:" + str + " value:" + str2);
             }
-            d.eht().o(str, str2, i);
+            d.ehB().o(str, str2, i);
         } else {
             try {
                 getProxy().ubcOnEvent(str, str2, i);
@@ -70,7 +70,7 @@ public class af implements ab {
                 if (DEBUG) {
                     Log.d("UBCServiceManager", "on event id:" + str + " value:" + jSONObject.toString());
                 }
-                d.eht().a(str, jSONObject, i);
+                d.ehB().a(str, jSONObject, i);
                 return;
             }
             return;
@@ -113,7 +113,7 @@ public class af implements ab {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + str2);
             }
-            return d.eht().beginFlow(str, str2, i);
+            return d.ehB().beginFlow(str, str2, i);
         }
         return z(str, str2, i);
     }
@@ -126,7 +126,7 @@ public class af implements ab {
             if (DEBUG) {
                 Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + jSONObject);
             }
-            return d.eht().beginFlow(str, jSONObject, i);
+            return d.ehB().beginFlow(str, jSONObject, i);
         }
         return z(str, jSONObject.toString(), i);
     }
@@ -151,7 +151,7 @@ public class af implements ab {
                         }
                     }
                 }
-                d.eht().a(flow.getId(), flow.getHandle(), jSONArray);
+                d.ehB().a(flow.getId(), flow.getHandle(), jSONArray);
                 return;
             }
             try {
@@ -169,7 +169,7 @@ public class af implements ab {
         }
         if (flow != null && flow.getValid()) {
             if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
-                d.eht().a(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
+                d.ehB().a(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
                 return;
             }
             try {
@@ -187,7 +187,7 @@ public class af implements ab {
         }
         if (flow != null && flow.getValid()) {
             if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
-                d.eht().a(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
+                d.ehB().a(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
                 return;
             }
             try {
@@ -205,7 +205,7 @@ public class af implements ab {
         }
         if (flow != null && flow.getValid()) {
             if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
-                d.eht().i(flow.getId(), flow.getHandle(), str);
+                d.ehB().i(flow.getId(), flow.getHandle(), str);
                 return;
             }
             try {
@@ -256,7 +256,7 @@ public class af implements ab {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                d.eht().i(flow.getId(), flow.getHandle(), jSONObject.toString());
+                d.ehB().i(flow.getId(), flow.getHandle(), jSONObject.toString());
                 return;
             }
             try {
@@ -294,7 +294,7 @@ public class af implements ab {
         }
         if (flow != null && flow.getValid()) {
             if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
-                d.eht().O(flow.getId(), flow.getHandle());
+                d.ehB().O(flow.getId(), flow.getHandle());
                 return;
             }
             try {
@@ -308,7 +308,7 @@ public class af implements ab {
     @Override // com.baidu.ubc.ab
     public String getUploadType(String str) {
         if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
-            return d.eht().getUploadType(str);
+            return d.ehB().getUploadType(str);
         }
         try {
             return UBC.getProxy().getUploadType(str);
@@ -320,7 +320,7 @@ public class af implements ab {
 
     public void uploadLocalDatas() {
         if (com.baidu.pyramid.runtime.multiprocess.a.aeb()) {
-            d.eht().ehu();
+            d.ehB().ehC();
             return;
         }
         try {
@@ -332,10 +332,10 @@ public class af implements ab {
 
     @Override // com.baidu.ubc.ab
     public void b(w wVar, boolean z, s sVar) {
-        d.eht().a(wVar, z, sVar);
+        d.ehB().a(wVar, z, sVar);
     }
 
-    public boolean ehR() {
+    public boolean ehZ() {
         if (AppConfig.isDebug()) {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("KEY_UBC_SAMPLE", false);
         }
@@ -343,7 +343,7 @@ public class af implements ab {
     }
 
     @Override // com.baidu.ubc.ab
-    public boolean ehO() {
+    public boolean ehW() {
         if (AppConfig.isDebug()) {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("KEY_UBC_DEBUG", AppConfig.isDebug());
         }

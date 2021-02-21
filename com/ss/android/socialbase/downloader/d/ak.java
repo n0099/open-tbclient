@@ -23,7 +23,7 @@ public interface ak extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ak)) {
                 return (ak) queryLocalInterface;
             }
-            return new C1236a(iBinder);
+            return new C1238a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -50,12 +50,12 @@ public interface ak extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.ak$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class C1236a implements ak {
+        private static class C1238a implements ak {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f13110a;
 
-            C1236a(IBinder iBinder) {
+            C1238a(IBinder iBinder) {
                 this.f13110a = iBinder;
             }
 

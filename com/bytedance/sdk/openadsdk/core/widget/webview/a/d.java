@@ -95,10 +95,10 @@ public class d {
     }
 
     private JSONObject c(String str) {
-        i eqH = i.eqH();
-        new j(0, str, eqH).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(p.a()).d());
+        i eqP = i.eqP();
+        new j(0, str, eqP).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.a(p.a()).d());
         try {
-            com.bytedance.sdk.adnet.core.p pVar = eqH.get();
+            com.bytedance.sdk.adnet.core.p pVar = eqP.get();
             if (pVar != null && pVar.a() && pVar.f6047a != 0) {
                 return new JSONObject((String) pVar.f6047a);
             }

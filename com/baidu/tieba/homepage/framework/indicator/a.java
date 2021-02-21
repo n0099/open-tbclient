@@ -7,17 +7,17 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class a {
-    private int kdP = 1;
-    private final List<x> kdQ = new ArrayList();
+    private int ked = 1;
+    private final List<x> kee = new ArrayList();
 
     public a() {
-        List<x> cPI = cPI();
-        if (!y.isEmpty(cPI)) {
-            this.kdQ.addAll(cPI);
+        List<x> cPP = cPP();
+        if (!y.isEmpty(cPP)) {
+            this.kee.addAll(cPP);
         }
     }
 
-    private List<x> cPI() {
+    private List<x> cPP() {
         ArrayList arrayList = new ArrayList();
         try {
             JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.brQ().getString("key_index_tab_info_list", "[]"));
@@ -34,11 +34,11 @@ public class a {
         return arrayList;
     }
 
-    public List<x> cPJ() {
-        return this.kdQ;
+    public List<x> cPQ() {
+        return this.kee;
     }
 
-    public int cPK() {
-        return this.kdP;
+    public int cPR() {
+        return this.ked;
     }
 }

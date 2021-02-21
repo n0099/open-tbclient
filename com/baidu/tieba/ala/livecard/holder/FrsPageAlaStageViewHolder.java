@@ -4,10 +4,10 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.ala.livecard.a.d;
 /* loaded from: classes10.dex */
 public class FrsPageAlaStageViewHolder extends TypeAdapter.ViewHolder {
-    public d hnd;
+    public d hnr;
 
     public FrsPageAlaStageViewHolder(d dVar) {
         super(dVar.getView());
-        this.hnd = dVar;
+        this.hnr = dVar;
     }
 }

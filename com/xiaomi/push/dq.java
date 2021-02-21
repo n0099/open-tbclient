@@ -20,7 +20,7 @@ public class dq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dp m258a() {
+    public dp m257a() {
         return this.f305a;
     }
 

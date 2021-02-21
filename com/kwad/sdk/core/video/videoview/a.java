@@ -40,11 +40,11 @@ public class a extends c implements View.OnClickListener {
     private ProgressBar o;
     private ImageView p;
     private ViewGroup q;
-    private InterfaceC1105a r;
+    private InterfaceC1107a r;
 
     /* renamed from: com.kwad.sdk.core.video.videoview.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1105a {
+    public interface InterfaceC1107a {
         void a();
 
         void a(long j);
@@ -263,7 +263,7 @@ public class a extends c implements View.OnClickListener {
         this.f = z;
     }
 
-    public void setVideoPlayCallback(InterfaceC1105a interfaceC1105a) {
-        this.r = interfaceC1105a;
+    public void setVideoPlayCallback(InterfaceC1107a interfaceC1107a) {
+        this.r = interfaceC1107a;
     }
 }

@@ -17,7 +17,7 @@ import org.apache.http.HttpHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class d {
-    static final c[] ppF = {new c(c.ppC, ""), new c(c.ppz, "GET"), new c(c.ppz, "POST"), new c(c.ppA, "/"), new c(c.ppA, "/index.html"), new c(c.ppB, HttpHost.DEFAULT_SCHEME_NAME), new c(c.ppB, "https"), new c(c.f5892b, BasicPushStatus.SUCCESS_CODE), new c(c.f5892b, "204"), new c(c.f5892b, "206"), new c(c.f5892b, "304"), new c(c.f5892b, "400"), new c(c.f5892b, "404"), new c(c.f5892b, "500"), new c("accept-charset", ""), new c("accept-encoding", "gzip, deflate"), new c("accept-language", ""), new c(Headers.ACCEPT_RANGES, ""), new c(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET, ""), new c("access-control-allow-origin", ""), new c("age", ""), new c("allow", ""), new c("authorization", ""), new c(Headers.CACHE_CONTROL, ""), new c(Headers.CONTENT_DISPOSITION, ""), new c(Headers.CONTENT_ENCODING, ""), new c("content-language", ""), new c(Headers.CONTENT_LEN, ""), new c("content-location", ""), new c("content-range", ""), new c(Headers.CONTENT_TYPE, ""), new c("cookie", ""), new c("date", ""), new c("etag", ""), new c("expect", ""), new c("expires", ""), new c("from", ""), new c("host", ""), new c("if-match", ""), new c("if-modified-since", ""), new c("if-none-match", ""), new c("if-range", ""), new c("if-unmodified-since", ""), new c(Headers.LAST_MODIFIED, ""), new c("link", ""), new c(Headers.LOCATION, ""), new c("max-forwards", ""), new c(Headers.PROXY_AUTHENTICATE, ""), new c("proxy-authorization", ""), new c("range", ""), new c(Config.LAUNCH_REFERER, ""), new c(Headers.REFRESH, ""), new c("retry-after", ""), new c("server", ""), new c(Headers.SET_COOKIE, ""), new c("strict-transport-security", ""), new c(Headers.TRANSFER_ENCODING, ""), new c("user-agent", ""), new c("vary", ""), new c("via", ""), new c(Headers.WWW_AUTHENTICATE, "")};
+    static final c[] pqf = {new c(c.pqc, ""), new c(c.ppZ, "GET"), new c(c.ppZ, "POST"), new c(c.pqa, "/"), new c(c.pqa, "/index.html"), new c(c.pqb, HttpHost.DEFAULT_SCHEME_NAME), new c(c.pqb, "https"), new c(c.f5892b, BasicPushStatus.SUCCESS_CODE), new c(c.f5892b, "204"), new c(c.f5892b, "206"), new c(c.f5892b, "304"), new c(c.f5892b, "400"), new c(c.f5892b, "404"), new c(c.f5892b, "500"), new c("accept-charset", ""), new c("accept-encoding", "gzip, deflate"), new c("accept-language", ""), new c(Headers.ACCEPT_RANGES, ""), new c(UbcStatConstant.ContentType.UBC_TYPE_PK_ACCPET, ""), new c("access-control-allow-origin", ""), new c("age", ""), new c("allow", ""), new c("authorization", ""), new c(Headers.CACHE_CONTROL, ""), new c(Headers.CONTENT_DISPOSITION, ""), new c(Headers.CONTENT_ENCODING, ""), new c("content-language", ""), new c(Headers.CONTENT_LEN, ""), new c("content-location", ""), new c("content-range", ""), new c(Headers.CONTENT_TYPE, ""), new c("cookie", ""), new c("date", ""), new c("etag", ""), new c("expect", ""), new c("expires", ""), new c("from", ""), new c("host", ""), new c("if-match", ""), new c("if-modified-since", ""), new c("if-none-match", ""), new c("if-range", ""), new c("if-unmodified-since", ""), new c(Headers.LAST_MODIFIED, ""), new c("link", ""), new c(Headers.LOCATION, ""), new c("max-forwards", ""), new c(Headers.PROXY_AUTHENTICATE, ""), new c("proxy-authorization", ""), new c("range", ""), new c(Config.LAUNCH_REFERER, ""), new c(Headers.REFRESH, ""), new c("retry-after", ""), new c("server", ""), new c(Headers.SET_COOKIE, ""), new c("strict-transport-security", ""), new c(Headers.TRANSFER_ENCODING, ""), new c("user-agent", ""), new c("vary", ""), new c("via", ""), new c(Headers.WWW_AUTHENTICATE, "")};
 
     /* renamed from: b  reason: collision with root package name */
     static final Map<com.bytedance.sdk.a.a.f, Integer> f5893b = a();
@@ -32,8 +32,8 @@ public final class d {
         private final List<c> e;
         private final int g;
         private int h;
-        c[] ppF;
-        private final com.bytedance.sdk.a.a.e ppG;
+        c[] pqf;
+        private final com.bytedance.sdk.a.a.e pqg;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(int i, s sVar) {
@@ -42,13 +42,13 @@ public final class d {
 
         a(int i, int i2, s sVar) {
             this.e = new ArrayList();
-            this.ppF = new c[8];
-            this.f5894b = this.ppF.length - 1;
+            this.pqf = new c[8];
+            this.f5894b = this.pqf.length - 1;
             this.c = 0;
             this.d = 0;
             this.g = i;
             this.h = i2;
-            this.ppG = com.bytedance.sdk.a.a.l.c(sVar);
+            this.pqg = com.bytedance.sdk.a.a.l.c(sVar);
         }
 
         private void d() {
@@ -62,8 +62,8 @@ public final class d {
         }
 
         private void e() {
-            Arrays.fill(this.ppF, (Object) null);
-            this.f5894b = this.ppF.length - 1;
+            Arrays.fill(this.pqf, (Object) null);
+            this.f5894b = this.pqf.length - 1;
             this.c = 0;
             this.d = 0;
         }
@@ -71,18 +71,18 @@ public final class d {
         private int a(int i) {
             int i2 = 0;
             if (i > 0) {
-                int length = this.ppF.length;
+                int length = this.pqf.length;
                 while (true) {
                     length--;
                     if (length < this.f5894b || i <= 0) {
                         break;
                     }
-                    i -= this.ppF[length].i;
-                    this.d -= this.ppF[length].i;
+                    i -= this.pqf[length].i;
+                    this.d -= this.pqf[length].i;
                     this.c--;
                     i2++;
                 }
-                System.arraycopy(this.ppF, this.f5894b + 1, this.ppF, this.f5894b + 1 + i2, this.c);
+                System.arraycopy(this.pqf, this.f5894b + 1, this.pqf, this.f5894b + 1 + i2, this.c);
                 this.f5894b += i2;
             }
             return i2;
@@ -90,27 +90,27 @@ public final class d {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a() throws IOException {
-            while (!this.ppG.e()) {
-                int eou = this.ppG.eou() & 255;
-                if (eou == 128) {
+            while (!this.pqg.e()) {
+                int eoC = this.pqg.eoC() & 255;
+                if (eoC == 128) {
                     throw new IOException("index == 0");
                 }
-                if ((eou & 128) == 128) {
-                    b(a(eou, ThunderNetStateService.NetState.SYSNET_UNKNOWN) - 1);
-                } else if (eou == 64) {
+                if ((eoC & 128) == 128) {
+                    b(a(eoC, ThunderNetStateService.NetState.SYSNET_UNKNOWN) - 1);
+                } else if (eoC == 64) {
                     g();
-                } else if ((eou & 64) == 64) {
-                    e(a(eou, 63) - 1);
-                } else if ((eou & 32) == 32) {
-                    this.h = a(eou, 31);
+                } else if ((eoC & 64) == 64) {
+                    e(a(eoC, 63) - 1);
+                } else if ((eoC & 32) == 32) {
+                    this.h = a(eoC, 31);
                     if (this.h < 0 || this.h > this.g) {
                         throw new IOException("Invalid dynamic table size update " + this.h);
                     }
                     d();
-                } else if (eou == 16 || eou == 0) {
+                } else if (eoC == 16 || eoC == 0) {
                     f();
                 } else {
-                    d(a(eou, 15) - 1);
+                    d(a(eoC, 15) - 1);
                 }
             }
         }
@@ -123,14 +123,14 @@ public final class d {
 
         private void b(int i) throws IOException {
             if (g(i)) {
-                this.e.add(d.ppF[i]);
+                this.e.add(d.pqf[i]);
                 return;
             }
-            int c = c(i - d.ppF.length);
-            if (c < 0 || c > this.ppF.length - 1) {
+            int c = c(i - d.pqf.length);
+            if (c < 0 || c > this.pqf.length - 1) {
                 throw new IOException("Header index too large " + (i + 1));
             }
-            this.e.add(this.ppF[c]);
+            this.e.add(this.pqf[c]);
         }
 
         private int c(int i) {
@@ -138,7 +138,7 @@ public final class d {
         }
 
         private void d(int i) throws IOException {
-            this.e.add(new c(Ox(i), c()));
+            this.e.add(new c(Oy(i), c()));
         }
 
         private void f() throws IOException {
@@ -146,26 +146,26 @@ public final class d {
         }
 
         private void e(int i) throws IOException {
-            a(-1, new c(Ox(i), c()));
+            a(-1, new c(Oy(i), c()));
         }
 
         private void g() throws IOException {
             a(-1, new c(d.d(c()), c()));
         }
 
-        private com.bytedance.sdk.a.a.f Ox(int i) {
-            return g(i) ? d.ppF[i].ppD : this.ppF[c(i - d.ppF.length)].ppD;
+        private com.bytedance.sdk.a.a.f Oy(int i) {
+            return g(i) ? d.pqf[i].pqd : this.pqf[c(i - d.pqf.length)].pqd;
         }
 
         private boolean g(int i) {
-            return i >= 0 && i <= d.ppF.length + (-1);
+            return i >= 0 && i <= d.pqf.length + (-1);
         }
 
         private void a(int i, c cVar) {
             this.e.add(cVar);
             int i2 = cVar.i;
             if (i != -1) {
-                i2 -= this.ppF[c(i)].i;
+                i2 -= this.pqf[c(i)].i;
             }
             if (i2 > this.h) {
                 e();
@@ -173,24 +173,24 @@ public final class d {
             }
             int a2 = a((this.d + i2) - this.h);
             if (i == -1) {
-                if (this.c + 1 > this.ppF.length) {
-                    c[] cVarArr = new c[this.ppF.length * 2];
-                    System.arraycopy(this.ppF, 0, cVarArr, this.ppF.length, this.ppF.length);
-                    this.f5894b = this.ppF.length - 1;
-                    this.ppF = cVarArr;
+                if (this.c + 1 > this.pqf.length) {
+                    c[] cVarArr = new c[this.pqf.length * 2];
+                    System.arraycopy(this.pqf, 0, cVarArr, this.pqf.length, this.pqf.length);
+                    this.f5894b = this.pqf.length - 1;
+                    this.pqf = cVarArr;
                 }
                 int i3 = this.f5894b;
                 this.f5894b = i3 - 1;
-                this.ppF[i3] = cVar;
+                this.pqf[i3] = cVar;
                 this.c++;
             } else {
-                this.ppF[a2 + c(i) + i] = cVar;
+                this.pqf[a2 + c(i) + i] = cVar;
             }
             this.d = i2 + this.d;
         }
 
         private int h() throws IOException {
-            return this.ppG.eou() & 255;
+            return this.pqg.eoC() & 255;
         }
 
         int a(int i, int i2) throws IOException {
@@ -216,17 +216,17 @@ public final class d {
             boolean z = (h & 128) == 128;
             int a2 = a(h, ThunderNetStateService.NetState.SYSNET_UNKNOWN);
             if (z) {
-                return com.bytedance.sdk.a.a.f.a(k.epv().a(this.ppG.ik(a2)));
+                return com.bytedance.sdk.a.a.f.a(k.epD().a(this.pqg.ik(a2)));
             }
-            return this.ppG.ii(a2);
+            return this.pqg.ii(a2);
         }
     }
 
     private static Map<com.bytedance.sdk.a.a.f, Integer> a() {
-        LinkedHashMap linkedHashMap = new LinkedHashMap(ppF.length);
-        for (int i = 0; i < ppF.length; i++) {
-            if (!linkedHashMap.containsKey(ppF[i].ppD)) {
-                linkedHashMap.put(ppF[i].ppD, Integer.valueOf(i));
+        LinkedHashMap linkedHashMap = new LinkedHashMap(pqf.length);
+        for (int i = 0; i < pqf.length; i++) {
+            if (!linkedHashMap.containsKey(pqf[i].pqd)) {
+                linkedHashMap.put(pqf[i].pqd, Integer.valueOf(i));
             }
         }
         return Collections.unmodifiableMap(linkedHashMap);
@@ -246,8 +246,8 @@ public final class d {
         private final boolean h;
         private int i;
         private boolean j;
-        private final com.bytedance.sdk.a.a.c ppH;
-        c[] ppI;
+        private final com.bytedance.sdk.a.a.c pqh;
+        c[] pqi;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b(com.bytedance.sdk.a.a.c cVar) {
@@ -256,19 +256,19 @@ public final class d {
 
         b(int i, boolean z, com.bytedance.sdk.a.a.c cVar) {
             this.i = Integer.MAX_VALUE;
-            this.ppI = new c[8];
-            this.d = this.ppI.length - 1;
+            this.pqi = new c[8];
+            this.d = this.pqi.length - 1;
             this.e = 0;
             this.f = 0;
             this.f5895a = i;
             this.f5896b = i;
             this.h = z;
-            this.ppH = cVar;
+            this.pqh = cVar;
         }
 
         private void a() {
-            Arrays.fill(this.ppI, (Object) null);
-            this.d = this.ppI.length - 1;
+            Arrays.fill(this.pqi, (Object) null);
+            this.d = this.pqi.length - 1;
             this.e = 0;
             this.f = 0;
         }
@@ -276,19 +276,19 @@ public final class d {
         private int b(int i) {
             int i2 = 0;
             if (i > 0) {
-                int length = this.ppI.length;
+                int length = this.pqi.length;
                 while (true) {
                     length--;
                     if (length < this.d || i <= 0) {
                         break;
                     }
-                    i -= this.ppI[length].i;
-                    this.f -= this.ppI[length].i;
+                    i -= this.pqi[length].i;
+                    this.f -= this.pqi[length].i;
                     this.e--;
                     i2++;
                 }
-                System.arraycopy(this.ppI, this.d + 1, this.ppI, this.d + 1 + i2, this.e);
-                Arrays.fill(this.ppI, this.d + 1, this.d + 1 + i2, (Object) null);
+                System.arraycopy(this.pqi, this.d + 1, this.pqi, this.d + 1 + i2, this.e);
+                Arrays.fill(this.pqi, this.d + 1, this.d + 1 + i2, (Object) null);
                 this.d += i2;
             }
             return i2;
@@ -301,15 +301,15 @@ public final class d {
                 return;
             }
             b((this.f + i) - this.f5896b);
-            if (this.e + 1 > this.ppI.length) {
-                c[] cVarArr = new c[this.ppI.length * 2];
-                System.arraycopy(this.ppI, 0, cVarArr, this.ppI.length, this.ppI.length);
-                this.d = this.ppI.length - 1;
-                this.ppI = cVarArr;
+            if (this.e + 1 > this.pqi.length) {
+                c[] cVarArr = new c[this.pqi.length * 2];
+                System.arraycopy(this.pqi, 0, cVarArr, this.pqi.length, this.pqi.length);
+                this.d = this.pqi.length - 1;
+                this.pqi = cVarArr;
             }
             int i2 = this.d;
             this.d = i2 - 1;
-            this.ppI[i2] = cVar;
+            this.pqi[i2] = cVar;
             this.e++;
             this.f = i + this.f;
         }
@@ -329,16 +329,16 @@ public final class d {
             int size = list.size();
             for (int i3 = 0; i3 < size; i3++) {
                 c cVar = list.get(i3);
-                com.bytedance.sdk.a.a.f f = cVar.ppD.f();
-                com.bytedance.sdk.a.a.f fVar = cVar.ppE;
+                com.bytedance.sdk.a.a.f f = cVar.pqd.f();
+                com.bytedance.sdk.a.a.f fVar = cVar.pqe;
                 Integer num = d.f5893b.get(f);
                 if (num != null) {
                     int intValue = num.intValue() + 1;
                     if (intValue > 1 && intValue < 8) {
-                        if (com.bytedance.sdk.a.b.a.c.a(d.ppF[intValue - 1].ppE, fVar)) {
+                        if (com.bytedance.sdk.a.b.a.c.a(d.pqf[intValue - 1].pqe, fVar)) {
                             i = intValue;
                             i2 = intValue;
-                        } else if (com.bytedance.sdk.a.b.a.c.a(d.ppF[intValue].ppE, fVar)) {
+                        } else if (com.bytedance.sdk.a.b.a.c.a(d.pqf[intValue].pqe, fVar)) {
                             i2 = intValue + 1;
                             i = intValue;
                         }
@@ -351,17 +351,17 @@ public final class d {
                 }
                 if (i2 == -1) {
                     int i4 = this.d + 1;
-                    int length = this.ppI.length;
+                    int length = this.pqi.length;
                     while (true) {
                         if (i4 >= length) {
                             break;
                         }
-                        if (com.bytedance.sdk.a.b.a.c.a(this.ppI[i4].ppD, f)) {
-                            if (com.bytedance.sdk.a.b.a.c.a(this.ppI[i4].ppE, fVar)) {
-                                i2 = (i4 - this.d) + d.ppF.length;
+                        if (com.bytedance.sdk.a.b.a.c.a(this.pqi[i4].pqd, f)) {
+                            if (com.bytedance.sdk.a.b.a.c.a(this.pqi[i4].pqe, fVar)) {
+                                i2 = (i4 - this.d) + d.pqf.length;
                                 break;
                             } else if (i == -1) {
-                                i = (i4 - this.d) + d.ppF.length;
+                                i = (i4 - this.d) + d.pqf.length;
                             }
                         }
                         i4++;
@@ -370,11 +370,11 @@ public final class d {
                 if (i2 != -1) {
                     a(i2, ThunderNetStateService.NetState.SYSNET_UNKNOWN, 128);
                 } else if (i == -1) {
-                    this.ppH.OA(64);
+                    this.pqh.OB(64);
                     e(f);
                     e(fVar);
                     a(cVar);
-                } else if (f.a(c.ppy) && !c.ppC.equals(f)) {
+                } else if (f.a(c.ppY) && !c.pqc.equals(f)) {
                     a(i, 15, 0);
                     e(fVar);
                 } else {
@@ -387,29 +387,29 @@ public final class d {
 
         void a(int i, int i2, int i3) {
             if (i < i2) {
-                this.ppH.OA(i3 | i);
+                this.pqh.OB(i3 | i);
                 return;
             }
-            this.ppH.OA(i3 | i2);
+            this.pqh.OB(i3 | i2);
             int i4 = i - i2;
             while (i4 >= 128) {
-                this.ppH.OA((i4 & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
+                this.pqh.OB((i4 & ThunderNetStateService.NetState.SYSNET_UNKNOWN) | 128);
                 i4 >>>= 7;
             }
-            this.ppH.OA(i4);
+            this.pqh.OB(i4);
         }
 
         void e(com.bytedance.sdk.a.a.f fVar) throws IOException {
-            if (this.h && k.epv().f(fVar) < fVar.g()) {
+            if (this.h && k.epD().f(fVar) < fVar.g()) {
                 com.bytedance.sdk.a.a.c cVar = new com.bytedance.sdk.a.a.c();
-                k.epv().a(fVar, cVar);
-                com.bytedance.sdk.a.a.f eox = cVar.eox();
-                a(eox.g(), ThunderNetStateService.NetState.SYSNET_UNKNOWN, 128);
-                this.ppH.c(eox);
+                k.epD().a(fVar, cVar);
+                com.bytedance.sdk.a.a.f eoF = cVar.eoF();
+                a(eoF.g(), ThunderNetStateService.NetState.SYSNET_UNKNOWN, 128);
+                this.pqh.c(eoF);
                 return;
             }
             a(fVar.g(), ThunderNetStateService.NetState.SYSNET_UNKNOWN, 0);
-            this.ppH.c(fVar);
+            this.pqh.c(fVar);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */

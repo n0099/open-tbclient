@@ -21,15 +21,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
-    private final NavigationBar iJz;
-    private final TextView lwq;
-    private final FragmentTabHost lwr;
-    private Fragment lwt;
-    private final NoNetworkView lwu;
-    private CollectTabActivity lwv;
+    private final NavigationBar iJN;
+    private final TextView lwE;
+    private final FragmentTabHost lwF;
+    private Fragment lwH;
+    private final NoNetworkView lwI;
+    private CollectTabActivity lwJ;
     private List mTabDataList;
-    private int lws = -1;
-    private boolean lww = false;
+    private int lwG = -1;
+    private boolean lwK = false;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.myCollection.a.1
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -46,77 +46,77 @@ public class a {
         }
     };
 
-    public int dhl() {
-        return this.lws;
+    public int dhs() {
+        return this.lwG;
     }
 
-    public Fragment dhm() {
-        return this.lwt;
+    public Fragment dht() {
+        return this.lwH;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public a(CollectTabActivity collectTabActivity) {
-        this.lwv = collectTabActivity;
-        this.lwr = (FragmentTabHost) this.lwv.findViewById(R.id.tab_host);
-        this.lwr.setup(this.lwv.getSupportFragmentManager());
-        this.lwr.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.iJz = (NavigationBar) this.lwv.findViewById(R.id.navigation_bar);
-        this.lwu = (NoNetworkView) this.lwv.findViewById(R.id.view_no_network);
-        this.iJz.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.iJz.setCenterTextTitle(this.lwv.getPageContext().getString(R.string.my_mark));
-        this.lwq = (TextView) this.iJz.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, this.lwv).findViewById(R.id.right_textview);
-        this.lwq.setText(R.string.edit);
-        this.lwq.setOnClickListener(this.lwv);
-        this.iJz.onChangeSkinType(this.lwv.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.lwJ = collectTabActivity;
+        this.lwF = (FragmentTabHost) this.lwJ.findViewById(R.id.tab_host);
+        this.lwF.setup(this.lwJ.getSupportFragmentManager());
+        this.lwF.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.iJN = (NavigationBar) this.lwJ.findViewById(R.id.navigation_bar);
+        this.lwI = (NoNetworkView) this.lwJ.findViewById(R.id.view_no_network);
+        this.iJN.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.iJN.setCenterTextTitle(this.lwJ.getPageContext().getString(R.string.my_mark));
+        this.lwE = (TextView) this.iJN.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, this.lwJ).findViewById(R.id.right_textview);
+        this.lwE.setText(R.string.edit);
+        this.lwE.setOnClickListener(this.lwJ);
+        this.iJN.onChangeSkinType(this.lwJ.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public TextView dhn() {
-        return this.lwq;
+    public TextView dhu() {
+        return this.lwE;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void uc(boolean z) {
         int i = -1;
-        if (this.lwt instanceof CollectFragment) {
-            CollectFragment collectFragment = (CollectFragment) this.lwt;
+        if (this.lwH instanceof CollectFragment) {
+            CollectFragment collectFragment = (CollectFragment) this.lwH;
             if (!collectFragment.bkP()) {
                 z = false;
             }
             ud(collectFragment.bkP());
             i = collectFragment.getType();
         }
-        this.lww = z;
-        this.lwq.setText(this.lww ? R.string.done : R.string.edit);
+        this.lwK = z;
+        this.lwE.setText(this.lwK ? R.string.done : R.string.edit);
         if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-            ap.setNavbarTitleColor(this.lwq, R.color.navi_op_text, R.color.navi_op_text_skin);
+            ap.setNavbarTitleColor(this.lwE, R.color.navi_op_text, R.color.navi_op_text_skin);
         } else {
-            ap.setNavbarTitleColor(this.lwq, this.lww ? R.color.CAM_X0302 : R.color.navi_op_text, R.color.navi_op_text_skin);
+            ap.setNavbarTitleColor(this.lwE, this.lwK ? R.color.CAM_X0302 : R.color.navi_op_text, R.color.navi_op_text_skin);
         }
         Bundle bundle = new Bundle();
-        bundle.putBoolean("is_edit_state", this.lww);
+        bundle.putBoolean("is_edit_state", this.lwK);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ACTION, bundle));
     }
 
-    public boolean dho() {
-        return this.lww;
+    public boolean dhv() {
+        return this.lwK;
     }
 
     public void aR(ArrayList<com.baidu.tbadk.mainTab.b> arrayList) {
         if (arrayList != null && !arrayList.isEmpty()) {
             this.mTabDataList = arrayList;
-            this.lwr.reset();
+            this.lwF.reset();
             for (int i = 0; i < arrayList.size(); i++) {
                 com.baidu.tbadk.mainTab.b bVar = arrayList.get(i);
                 if (bVar != null && bVar.isAvailable()) {
-                    a(bVar, (FragmentTabIndicator) bVar.getTabIndicator(this.lwv.getPageContext().getPageActivity()));
+                    a(bVar, (FragmentTabIndicator) bVar.getTabIndicator(this.lwJ.getPageContext().getPageActivity()));
                 }
             }
-            this.lwr.initViewPager(0);
-            this.lwr.setCurrentTab(0);
+            this.lwF.initViewPager(0);
+            this.lwF.setCurrentTab(0);
             if (arrayList.size() == 1) {
-                this.lwr.getFragmentTabWidget().setVisibility(8);
+                this.lwF.getFragmentTabWidget().setVisibility(8);
             }
             EM(0);
         }
@@ -128,9 +128,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void EM(int i) {
-        FragmentTabHost.b ot = this.lwr.ot(i);
-        this.lws = ot.mType;
-        this.lwt = ot.mContentFragment;
+        FragmentTabHost.b ot = this.lwF.ot(i);
+        this.lwG = ot.mType;
+        this.lwH = ot.mContentFragment;
     }
 
     private void a(com.baidu.tbadk.mainTab.b bVar, FragmentTabIndicator fragmentTabIndicator) {
@@ -140,36 +140,36 @@ public class a {
             bVar2.mContentFragment = fragmentTabStructure.frag;
             bVar2.mType = fragmentTabStructure.type;
             fragmentTabIndicator.setText(fragmentTabStructure.textResId);
-            fragmentTabIndicator.setTextSize(0, this.lwv.getResources().getDimension(R.dimen.fontsize32));
+            fragmentTabIndicator.setTextSize(0, this.lwJ.getResources().getDimension(R.dimen.fontsize32));
             fragmentTabIndicator.setTextColorResId(R.color.s_actionbar_text_color);
             fragmentTabIndicator.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
             fragmentTabIndicator.setTipPosType(1);
             bVar2.eZk = fragmentTabIndicator;
             bVar2.eZl = bVar;
-            this.lwr.a(bVar2);
+            this.lwF.a(bVar2);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.lwr.onChangeSkinType(i);
-        if (this.lwr.getTabWrapper() != null) {
+        this.lwF.onChangeSkinType(i);
+        if (this.lwF.getTabWrapper() != null) {
             if (getTabCount() <= 1) {
-                this.lwr.getTabWrapper().setVisibility(8);
+                this.lwF.getTabWrapper().setVisibility(8);
             } else {
-                this.lwr.getTabWrapper().setVisibility(0);
+                this.lwF.getTabWrapper().setVisibility(0);
             }
         }
-        ap.setNavbarTitleColor(this.lwq, R.color.navi_op_text, R.color.navi_op_text_skin);
-        this.iJz.onChangeSkinType(this.lwv.getPageContext(), i);
-        this.lwu.onChangeSkinType(this.lwv.getPageContext(), i);
+        ap.setNavbarTitleColor(this.lwE, R.color.navi_op_text, R.color.navi_op_text_skin);
+        this.iJN.onChangeSkinType(this.lwJ.getPageContext(), i);
+        this.lwI.onChangeSkinType(this.lwJ.getPageContext(), i);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void ud(boolean z) {
-        this.lwq.setEnabled(z);
+        this.lwE.setEnabled(z);
         if (!z) {
-            this.lwq.setText(R.string.edit);
-            ap.setNavbarTitleColor(this.lwq, R.color.navi_op_text, R.color.navi_op_text_skin);
+            this.lwE.setText(R.string.edit);
+            ap.setNavbarTitleColor(this.lwE, R.color.navi_op_text, R.color.navi_op_text_skin);
         }
     }
 }

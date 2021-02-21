@@ -15,11 +15,11 @@ public class a {
 
     /* renamed from: b  reason: collision with root package name */
     private List<AdTemplate> f9810b;
-    private List<InterfaceC1114a> c;
+    private List<InterfaceC1116a> c;
 
     /* renamed from: com.kwad.sdk.feed.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1114a {
+    public interface InterfaceC1116a {
         @MainThread
         void a(int i);
     }
@@ -43,17 +43,17 @@ public class a {
         if (this.c == null) {
             return;
         }
-        for (InterfaceC1114a interfaceC1114a : this.c) {
-            interfaceC1114a.a(i);
+        for (InterfaceC1116a interfaceC1116a : this.c) {
+            interfaceC1116a.a(i);
         }
     }
 
     @MainThread
-    public void a(InterfaceC1114a interfaceC1114a) {
+    public void a(InterfaceC1116a interfaceC1116a) {
         if (this.c == null) {
             this.c = new LinkedList();
         }
-        this.c.add(interfaceC1114a);
+        this.c.add(interfaceC1116a);
     }
 
     public void a(List<AdTemplate> list) {
@@ -73,11 +73,11 @@ public class a {
     }
 
     @MainThread
-    public void b(InterfaceC1114a interfaceC1114a) {
+    public void b(InterfaceC1116a interfaceC1116a) {
         if (this.c == null) {
             this.c = new LinkedList();
         }
-        this.c.remove(interfaceC1114a);
+        this.c.remove(interfaceC1116a);
     }
 
     public void b(List<AdTemplate> list) {

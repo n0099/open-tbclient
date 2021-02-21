@@ -86,8 +86,8 @@ public class g implements com.kwad.sdk.core.webview.a.a {
                 this.c = new com.kwad.sdk.core.download.b.b(this.f9575b);
                 this.c.a(1);
             }
-            com.kwad.sdk.core.download.b.a.a(this.f9574a.e.getContext(), this.f9575b, new a.InterfaceC1092a() { // from class: com.kwad.sdk.core.webview.jshandler.g.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+            com.kwad.sdk.core.download.b.a.a(this.f9574a.e.getContext(), this.f9575b, new a.InterfaceC1094a() { // from class: com.kwad.sdk.core.webview.jshandler.g.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                 public void a() {
                 }
             }, this.c);

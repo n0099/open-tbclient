@@ -23,13 +23,13 @@ import com.baidu.tieba.faceshop.emotioncenter.data.c;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
 /* loaded from: classes9.dex */
 public class a {
-    private NoNetworkView gAh;
-    private PbListView gAi;
-    private g gJn;
-    private BdTypeListView gzb;
-    private com.baidu.tieba.faceshop.emotioncenter.a iYP;
-    private LinearLayout jao;
-    private ForumEmotionVoteEntryView jav;
+    private NoNetworkView gAv;
+    private PbListView gAw;
+    private g gJB;
+    private BdTypeListView gzp;
+    private com.baidu.tieba.faceshop.emotioncenter.a iZd;
+    private LinearLayout jaC;
+    private ForumEmotionVoteEntryView jaJ;
     private NoDataView mNoDataView;
     private TbPageContext mPageContext;
     private com.baidu.tbadk.core.view.g mPullView;
@@ -38,54 +38,54 @@ public class a {
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mRootView = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_forum_emotion_center, (ViewGroup) null);
-        this.gAh = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
-        this.gzb = (BdTypeListView) this.mRootView.findViewById(R.id.forum_emotion_list);
-        this.gzb.addHeaderView(this.jao);
-        this.gzb.setDivider(null);
+        this.gAv = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
+        this.gzp = (BdTypeListView) this.mRootView.findViewById(R.id.forum_emotion_list);
+        this.gzp.addHeaderView(this.jaC);
+        this.gzp.setDivider(null);
         this.mPullView = new com.baidu.tbadk.core.view.g(this.mPageContext);
         this.mPullView.setTag(bdUniqueId);
-        this.gzb.setPullRefresh(this.mPullView);
-        this.gAi = new PbListView(tbPageContext.getPageActivity());
-        this.gAi.createView();
-        cAn();
-        cAp();
-        cAo();
+        this.gzp.setPullRefresh(this.mPullView);
+        this.gAw = new PbListView(tbPageContext.getPageActivity());
+        this.gAw.createView();
+        cAu();
+        cAw();
+        cAv();
         showLoadingView();
     }
 
     public BdTypeListView getListView() {
-        return this.gzb;
+        return this.gzp;
     }
 
-    private void cAn() {
-        this.jao = new LinearLayout(this.mPageContext.getPageActivity());
-        this.jao.setGravity(17);
-        this.gzb.addHeaderView(this.jao);
+    private void cAu() {
+        this.jaC = new LinearLayout(this.mPageContext.getPageActivity());
+        this.jaC.setGravity(17);
+        this.gzp.addHeaderView(this.jaC);
     }
 
-    private void cAo() {
-        this.jav = new ForumEmotionVoteEntryView(this.mPageContext.getPageActivity());
-        this.gzb.addHeaderView(this.jav);
+    private void cAv() {
+        this.jaJ = new ForumEmotionVoteEntryView(this.mPageContext.getPageActivity());
+        this.gzp.addHeaderView(this.jaJ);
     }
 
-    private void cAp() {
-        this.iYP = new com.baidu.tieba.faceshop.emotioncenter.a(this.mPageContext);
-        this.iYP.getView().setVisibility(8);
-        this.gzb.addHeaderView(this.iYP.getView());
+    private void cAw() {
+        this.iZd = new com.baidu.tieba.faceshop.emotioncenter.a(this.mPageContext);
+        this.iZd.getView().setVisibility(8);
+        this.gzp.addHeaderView(this.iZd.getView());
     }
 
     public void showLoadingView() {
         if (this.mPageContext != null && this.mRootView != null) {
-            this.gJn = new g(this.mPageContext.getPageActivity());
-            this.gJn.attachView(this.mRootView, false);
-            this.gJn.onChangeSkinType();
+            this.gJB = new g(this.mPageContext.getPageActivity());
+            this.gJB.attachView(this.mRootView, false);
+            this.gJB.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
-        if (this.gJn != null) {
-            this.gJn.dettachView(this.mRootView);
-            this.gJn = null;
+        if (this.gJB != null) {
+            this.gJB.dettachView(this.mRootView);
+            this.gJB = null;
         }
     }
 
@@ -93,17 +93,17 @@ public class a {
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
-        this.iYP.getView().setVisibility(0);
-        this.jav.setVisibility(0);
+        this.iZd.getView().setVisibility(0);
+        this.jaJ.setVisibility(0);
     }
 
     public void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.mPageContext.getPageActivity(), this.jao, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.d.dS(null, this.mPageContext.getString(R.string.emotion_error_net_tip)), null, true);
+            this.mNoDataView = NoDataViewFactory.a(this.mPageContext.getPageActivity(), this.jaC, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.d.dS(null, this.mPageContext.getString(R.string.emotion_error_net_tip)), null, true);
         }
         this.mNoDataView.setVisibility(0);
-        this.iYP.getView().setVisibility(4);
-        this.jav.setVisibility(4);
+        this.iZd.getView().setVisibility(4);
+        this.jaJ.setVisibility(4);
         this.mNoDataView.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -111,77 +111,77 @@ public class a {
         return this.mRootView;
     }
 
-    public View czZ() {
-        return this.gAh;
+    public View cAg() {
+        return this.gAv;
     }
 
     public void c(ForumEmotionData forumEmotionData) {
         if (forumEmotionData != null) {
             hideLoadingView();
             if (forumEmotionData.banner != null) {
-                this.iYP.getView().setVisibility(0);
-                this.iYP.l(this.mPageContext.getUniqueId());
-                this.iYP.a(new c(forumEmotionData.banner));
-                this.iYP.bvv();
+                this.iZd.getView().setVisibility(0);
+                this.iZd.l(this.mPageContext.getUniqueId());
+                this.iZd.a(new c(forumEmotionData.banner));
+                this.iZd.bvv();
             }
             if (forumEmotionData.forum_avatar != null) {
-                this.jav.setAvatarList(forumEmotionData.forum_avatar);
+                this.jaJ.setAvatarList(forumEmotionData.forum_avatar);
             }
         }
     }
 
     public void completePullRefresh() {
-        this.gzb.completePullRefresh();
+        this.gzp.completePullRefresh();
     }
 
     public void setListPullRefreshListener(f.c cVar) {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public ForumEmotionVoteEntryView cAq() {
-        return this.jav;
+    public ForumEmotionVoteEntryView cAx() {
+        return this.jaJ;
     }
 
-    public void bRq() {
-        if (this.gAi != null) {
-            if (this.gAi.getView().getParent() == null) {
-                this.gzb.setNextPage(this.gAi);
+    public void bRx() {
+        if (this.gAw != null) {
+            if (this.gAw.getView().getParent() == null) {
+                this.gzp.setNextPage(this.gAw);
             }
-            this.gAi.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
-            this.gAi.endLoadData();
+            this.gAw.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
+            this.gAw.endLoadData();
         }
     }
 
-    public void bRr() {
-        if (this.gAi != null) {
-            if (this.gAi.getView().getParent() == null) {
-                this.gzb.setNextPage(this.gAi);
+    public void bRy() {
+        if (this.gAw != null) {
+            if (this.gAw.getView().getParent() == null) {
+                this.gzp.setNextPage(this.gAw);
             }
-            this.gAi.showLoadingViewWithoutEmptyView();
-            this.gAi.startLoadData();
+            this.gAw.showLoadingViewWithoutEmptyView();
+            this.gAw.startLoadData();
         }
     }
 
-    public void bSr() {
-        if (this.gAi != null) {
-            this.gAi.endLoadData();
+    public void bSy() {
+        if (this.gAw != null) {
+            this.gAw.endLoadData();
         }
-        this.gzb.setNextPage(null);
+        this.gzp.setNextPage(null);
     }
 
     public void b(BdListView.e eVar) {
-        this.gzb.setOnSrollToBottomListener(eVar);
+        this.gzp.setOnSrollToBottomListener(eVar);
     }
 
     public void onChangeSkinType(int i) {
-        this.gAi.setContainerBackgroundColorResId(R.color.CAM_X0204);
-        this.gAi.changeSkin(i);
+        this.gAw.setContainerBackgroundColorResId(R.color.CAM_X0204);
+        this.gAw.changeSkin(i);
         this.mPullView.changeSkin(i);
-        this.gzb.setBackgroundColor(ap.getColor(R.color.CAM_X0201));
+        this.gzp.setBackgroundColor(ap.getColor(R.color.CAM_X0201));
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        this.gAh.onChangeSkinType(this.mPageContext, i);
-        if (this.jav != null) {
-            this.jav.onChangeSkin(i);
+        this.gAv.onChangeSkinType(this.mPageContext, i);
+        if (this.jaJ != null) {
+            this.jaJ.onChangeSkin(i);
         }
     }
 }

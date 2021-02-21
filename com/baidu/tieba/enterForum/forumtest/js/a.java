@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private ArrayList<b> iIk = new ArrayList<>();
+    private ArrayList<b> iIy = new ArrayList<>();
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.iIk.add(bVar);
+            this.iIy.add(bVar);
         }
     }
 
@@ -35,8 +35,8 @@ public class a {
     }
 
     private boolean b(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (this.iIk.size() > 0) {
-            Iterator<b> it = this.iIk.iterator();
+        if (this.iIy.size() > 0) {
+            Iterator<b> it = this.iIy.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {

@@ -11,32 +11,32 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class LoadingLayout extends LinearLayout {
     private ProgressBar dRn;
-    private LinearLayout oZH;
-    private TextView oZI;
-    private a oZJ;
-    private boolean oZK;
+    private LinearLayout pai;
+    private TextView paj;
+    private a pak;
+    private boolean pal;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void ejJ();
+        void ejR();
     }
 
     public LoadingLayout(Context context) {
         super(context);
         this.dRn = null;
-        this.oZH = null;
-        this.oZI = null;
-        this.oZJ = null;
-        this.oZK = true;
+        this.pai = null;
+        this.paj = null;
+        this.pak = null;
+        this.pal = true;
     }
 
     public LoadingLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.dRn = null;
-        this.oZH = null;
-        this.oZI = null;
-        this.oZJ = null;
-        this.oZK = true;
+        this.pai = null;
+        this.paj = null;
+        this.pak = null;
+        this.pal = true;
     }
 
     @Override // android.view.View
@@ -47,23 +47,23 @@ public class LoadingLayout extends LinearLayout {
 
     private void initView() {
         this.dRn = (ProgressBar) findViewById(a.f.loading_pb);
-        this.oZH = (LinearLayout) findViewById(a.f.loading_fail_layout);
-        this.oZH.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.imagechooser.LoadingLayout.1
+        this.pai = (LinearLayout) findViewById(a.f.loading_fail_layout);
+        this.pai.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.imagechooser.LoadingLayout.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (!LoadingLayout.this.oZK) {
+                if (!LoadingLayout.this.pal) {
                     return false;
                 }
-                if (motionEvent.getAction() == 0 && LoadingLayout.this.oZJ != null) {
-                    LoadingLayout.this.oZJ.ejJ();
+                if (motionEvent.getAction() == 0 && LoadingLayout.this.pak != null) {
+                    LoadingLayout.this.pak.ejR();
                 }
                 return true;
             }
         });
-        this.oZI = (TextView) findViewById(a.f.loading_fail_tv);
+        this.paj = (TextView) findViewById(a.f.loading_fail_tv);
     }
 
     public void setRetryListener(a aVar) {
-        this.oZJ = aVar;
+        this.pak = aVar;
     }
 }

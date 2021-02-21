@@ -20,7 +20,7 @@ public class TimeCountTextView extends TextView {
     private CountDownTimer bRK;
     @SuppressLint({"HandlerLeak"})
     Handler handler;
-    private boolean hjp;
+    private boolean hjD;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -37,7 +37,7 @@ public class TimeCountTextView extends TextView {
 
     public TimeCountTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hjp = false;
+        this.hjD = false;
         this.handler = new Handler() { // from class: com.baidu.tieba.ala.live.guess.widget.TimeCountTextView.2
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -65,7 +65,7 @@ public class TimeCountTextView extends TextView {
 
     public void a(String str, long j, final long j2, final a aVar) {
         setTextColor(Color.parseColor(str));
-        this.hjp = false;
+        this.hjD = false;
         if (this.bRK != null) {
             this.bRK.cancel();
         }
@@ -74,8 +74,8 @@ public class TimeCountTextView extends TextView {
                 @Override // android.os.CountDownTimer
                 public void onTick(long j3) {
                     if (j3 < j2) {
-                        if (!TimeCountTextView.this.hjp) {
-                            TimeCountTextView.this.hjp = true;
+                        if (!TimeCountTextView.this.hjD) {
+                            TimeCountTextView.this.hjD = true;
                             TimeCountTextView.this.setTextColor(Color.parseColor("#FF0050"));
                             TimeCountTextView.this.setText(String.valueOf((100 + j3) / 1000));
                             TimeCountTextView.this.handler.sendEmptyMessage(3);

@@ -15,16 +15,16 @@ import com.baidu.tieba.write.write.relevance.RelevanceItemSearchActivity;
 public class RelevanceItemListFragment extends BaseFragment {
     private String mCategory;
     private View mRootView;
-    private CustomMessageListener olG = new CustomMessageListener(2921529) { // from class: com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment.1
+    private CustomMessageListener omg = new CustomMessageListener(2921529) { // from class: com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
-                RelevanceItemListFragment.this.Vr(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
+                RelevanceItemListFragment.this.VD(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
             }
         }
     };
-    private RelevanceItemListController omV;
+    private RelevanceItemListController onw;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -43,22 +43,22 @@ public class RelevanceItemListFragment extends BaseFragment {
 
     private void initData() {
         String str;
-        this.omV = new RelevanceItemListController(this, this.mRootView, this.mCategory, getUniqueId());
-        if (((RelevanceItemSearchActivity) getActivity()).dZB() == null || ((RelevanceItemSearchActivity) getActivity()).dZB().dZE() == null) {
+        this.onw = new RelevanceItemListController(this, this.mRootView, this.mCategory, getUniqueId());
+        if (((RelevanceItemSearchActivity) getActivity()).dZJ() == null || ((RelevanceItemSearchActivity) getActivity()).dZJ().dZM() == null) {
             str = "";
         } else {
-            str = ((RelevanceItemSearchActivity) getActivity()).dZB().dZE().getText().toString();
+            str = ((RelevanceItemSearchActivity) getActivity()).dZJ().dZM().getText().toString();
         }
         if (!TextUtils.isEmpty(str)) {
-            Vr(str);
+            VD(str);
             return;
         }
         showLoadingView(this.mRootView);
-        this.omV.dZF();
+        this.onw.dZN();
     }
 
     private void initListener() {
-        registerListener(this.olG);
+        registerListener(this.omg);
     }
 
     public void onError(String str) {
@@ -66,16 +66,16 @@ public class RelevanceItemListFragment extends BaseFragment {
         showNetRefreshView(this.mRootView, str, false);
     }
 
-    public void djr() {
+    public void djy() {
         if (isLoadingViewAttached()) {
             hideLoadingView(this.mRootView);
         }
     }
 
-    public void Vr(String str) {
-        if (this.omV != null) {
-            this.omV.Vr(str);
-            this.omV.getListView().setVisibility(8);
+    public void VD(String str) {
+        if (this.onw != null) {
+            this.onw.VD(str);
+            this.onw.getListView().setVisibility(8);
             showLoadingView(this.mRootView);
         }
     }
@@ -84,11 +84,11 @@ public class RelevanceItemListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         hideNetRefreshView(this.mRootView);
-        this.omV.dZF();
+        this.onw.dZN();
         showLoadingView(this.mRootView);
     }
 
-    public void cOP() {
+    public void cOW() {
         hideLoadingView(this.mRootView);
         showNoDataNoRefreshView(this.mRootView, false);
     }
@@ -96,7 +96,7 @@ public class RelevanceItemListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.omV.onDestroy();
+        this.onw.onDestroy();
     }
 
     public void setCategory(String str) {

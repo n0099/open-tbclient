@@ -21,12 +21,12 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class f implements NoNetworkView.a {
     private FrameLayout dcv;
-    private NoNetworkView gAh;
-    private g gJn;
-    private BdListView iby;
-    private b lDP;
-    private boolean lDQ = false;
-    private com.baidu.tieba.newfaceshop.nativemotionmanager.managers.b lDW;
+    private NoNetworkView gAv;
+    private g gJB;
+    private BdListView ibM;
+    private b lEd;
+    private boolean lEe = false;
+    private com.baidu.tieba.newfaceshop.nativemotionmanager.managers.b lEk;
     private NoDataView mNoDataView;
     private TbPageContext mPageContext;
     private View rootView;
@@ -34,15 +34,15 @@ public class f implements NoNetworkView.a {
     public f(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_single_thread_emotions, (ViewGroup) null, false);
-        this.gAh = (NoNetworkView) this.rootView.findViewById(R.id.view_no_network);
-        this.gAh.a(this);
+        this.gAv = (NoNetworkView) this.rootView.findViewById(R.id.view_no_network);
+        this.gAv.a(this);
         this.dcv = (FrameLayout) this.rootView.findViewById(R.id.single_emotion_loading);
-        this.iby = (BdListView) this.rootView.findViewById(R.id.emotion_single_thread_list);
-        this.lDP = new b(this.rootView.findViewById(R.id.emotion_single_thread_empty), tbPageContext.getString(R.string.emotion_empty_single_thread));
-        this.iby.setDivider(null);
-        this.iby.setOverScrollMode(2);
-        this.iby.setVerticalScrollBarEnabled(false);
-        this.lDW = new com.baidu.tieba.newfaceshop.nativemotionmanager.managers.b(tbPageContext, this.iby);
+        this.ibM = (BdListView) this.rootView.findViewById(R.id.emotion_single_thread_list);
+        this.lEd = new b(this.rootView.findViewById(R.id.emotion_single_thread_empty), tbPageContext.getString(R.string.emotion_empty_single_thread));
+        this.ibM.setDivider(null);
+        this.ibM.setOverScrollMode(2);
+        this.ibM.setVerticalScrollBarEnabled(false);
+        this.lEk = new com.baidu.tieba.newfaceshop.nativemotionmanager.managers.b(tbPageContext, this.ibM);
         showLoadingView();
     }
 
@@ -52,7 +52,7 @@ public class f implements NoNetworkView.a {
 
     public void showNoDataView() {
         if (this.mPageContext != null && this.dcv != null) {
-            dji();
+            djp();
             this.dcv.setVisibility(0);
             this.mNoDataView = NoDataViewFactory.a(this.mPageContext.getPageActivity(), this.dcv, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.d.dS(null, this.mPageContext.getString(R.string.emotion_error_net_tip)), null, true);
             this.mNoDataView.setVisibility(0);
@@ -60,7 +60,7 @@ public class f implements NoNetworkView.a {
         }
     }
 
-    private void dji() {
+    private void djp() {
         hideLoadingView();
         hideNoDataView();
     }
@@ -73,30 +73,30 @@ public class f implements NoNetworkView.a {
         }
     }
 
-    private void djj() {
-        if (this.iby != null && !this.lDQ && this.lDP != null) {
-            this.lDQ = true;
-            this.iby.setEmptyView(this.lDP.getView());
+    private void djq() {
+        if (this.ibM != null && !this.lEe && this.lEd != null) {
+            this.lEe = true;
+            this.ibM.setEmptyView(this.lEd.getView());
         }
     }
 
     private void showLoadingView() {
         if (this.mPageContext != null && this.dcv != null) {
-            dji();
+            djp();
             this.dcv.setVisibility(0);
-            if (this.gJn == null) {
-                this.gJn = new g(this.mPageContext.getPageActivity());
+            if (this.gJB == null) {
+                this.gJB = new g(this.mPageContext.getPageActivity());
             }
-            this.gJn.attachView(this.dcv, true);
-            this.gJn.onChangeSkinType();
+            this.gJB.attachView(this.dcv, true);
+            this.gJB.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
-        if (this.gJn != null && this.dcv != null) {
+        if (this.gJB != null && this.dcv != null) {
             this.dcv.setVisibility(8);
-            this.gJn.dettachView(this.dcv);
-            this.gJn = null;
+            this.gJB.dettachView(this.dcv);
+            this.gJB = null;
         }
     }
 
@@ -104,14 +104,14 @@ public class f implements NoNetworkView.a {
         if (this.rootView != null) {
             ap.setBackgroundColor(this.rootView, R.color.cp_bg_line_d_alpha90, i);
         }
-        if (this.iby != null) {
-            ap.setBackgroundColor(this.iby, R.color.CAM_X0201, i);
+        if (this.ibM != null) {
+            ap.setBackgroundColor(this.ibM, R.color.CAM_X0201, i);
         }
-        if (this.lDP != null) {
-            this.lDP.onChangeSkinType(i);
+        if (this.lEd != null) {
+            this.lEd.onChangeSkinType(i);
         }
-        if (this.gAh != null) {
-            this.gAh.onChangeSkinType(this.mPageContext, i);
+        if (this.gAv != null) {
+            this.gAv.onChangeSkinType(this.mPageContext, i);
         }
         if (this.dcv != null) {
             ap.setBackgroundColor(this.dcv, R.color.CAM_X0201, i);
@@ -119,9 +119,9 @@ public class f implements NoNetworkView.a {
     }
 
     public void fa(List<EmotionPackageData> list) {
-        djj();
-        if (list != null && this.lDW != null) {
-            this.lDW.fa(list);
+        djq();
+        if (list != null && this.lEk != null) {
+            this.lEk.fa(list);
         }
     }
 

@@ -20,7 +20,7 @@ public class d implements b {
     public a a(f fVar) throws IOException, VAdError {
         e eVar = new e(fVar.f7264a, fVar.f7265b);
         if (fVar.c != -1) {
-            eVar.setRetryPolicy(new com.bytedance.sdk.adnet.core.g().OH((int) fVar.c));
+            eVar.setRetryPolicy(new com.bytedance.sdk.adnet.core.g().OI((int) fVar.c));
         }
         return new g(this.f7263a.a(eVar, fVar.e), fVar);
     }

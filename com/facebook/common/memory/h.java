@@ -6,24 +6,24 @@ import javax.annotation.concurrent.NotThreadSafe;
 /* loaded from: classes6.dex */
 public class h extends InputStream {
     int mOffset;
-    final PooledByteBuffer pzb;
-    int pzc;
+    final PooledByteBuffer pzB;
+    int pzC;
 
     public h(PooledByteBuffer pooledByteBuffer) {
         com.facebook.common.internal.g.checkArgument(!pooledByteBuffer.isClosed());
-        this.pzb = (PooledByteBuffer) com.facebook.common.internal.g.checkNotNull(pooledByteBuffer);
+        this.pzB = (PooledByteBuffer) com.facebook.common.internal.g.checkNotNull(pooledByteBuffer);
         this.mOffset = 0;
-        this.pzc = 0;
+        this.pzC = 0;
     }
 
     @Override // java.io.InputStream
     public int available() {
-        return this.pzb.size() - this.mOffset;
+        return this.pzB.size() - this.mOffset;
     }
 
     @Override // java.io.InputStream
     public void mark(int i) {
-        this.pzc = this.mOffset;
+        this.pzC = this.mOffset;
     }
 
     @Override // java.io.InputStream
@@ -36,10 +36,10 @@ public class h extends InputStream {
         if (available() <= 0) {
             return -1;
         }
-        PooledByteBuffer pooledByteBuffer = this.pzb;
+        PooledByteBuffer pooledByteBuffer = this.pzB;
         int i = this.mOffset;
         this.mOffset = i + 1;
-        return pooledByteBuffer.OU(i) & 255;
+        return pooledByteBuffer.OV(i) & 255;
     }
 
     @Override // java.io.InputStream
@@ -60,14 +60,14 @@ public class h extends InputStream {
             return 0;
         }
         int min = Math.min(available, i2);
-        this.pzb.c(this.mOffset, bArr, i, min);
+        this.pzB.c(this.mOffset, bArr, i, min);
         this.mOffset += min;
         return min;
     }
 
     @Override // java.io.InputStream
     public void reset() {
-        this.mOffset = this.pzc;
+        this.mOffset = this.pzC;
     }
 
     @Override // java.io.InputStream

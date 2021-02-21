@@ -21,11 +21,11 @@ import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes8.dex */
 public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     private TbPageContext<RecommendDetailActivity> eUY;
-    private boolean kGn;
-    private a kLd;
-    private boolean kLe;
-    private com.baidu.adp.framework.listener.a kLf;
-    private CustomMessageListener kLg;
+    private boolean kGB;
+    private a kLr;
+    private boolean kLs;
+    private com.baidu.adp.framework.listener.a kLt;
+    private CustomMessageListener kLu;
     private long mUserId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,61 +42,61 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
 
     public RecommendDetailModel(TbPageContext<RecommendDetailActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.kGn = false;
-        this.kLe = false;
-        this.kLf = new com.baidu.adp.framework.listener.a(1001535, CmdConfigSocket.CMD_GET_RECOMMEND_DETAIL) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.1
+        this.kGB = false;
+        this.kLs = false;
+        this.kLt = new com.baidu.adp.framework.listener.a(1001535, CmdConfigSocket.CMD_GET_RECOMMEND_DETAIL) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                RecommendDetailModel.this.kLe = true;
-                if (RecommendDetailModel.this.eUY != null && RecommendDetailModel.this.kLd != null) {
+                RecommendDetailModel.this.kLs = true;
+                if (RecommendDetailModel.this.eUY != null && RecommendDetailModel.this.kLr != null) {
                     if (responsedMessage == null) {
-                        RecommendDetailModel.this.kLd.onFailed(RecommendDetailModel.this.eUY.getString(R.string.neterror));
+                        RecommendDetailModel.this.kLr.onFailed(RecommendDetailModel.this.eUY.getString(R.string.neterror));
                     } else if (responsedMessage.getError() != 0) {
                         if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            RecommendDetailModel.this.kLd.onFailed(RecommendDetailModel.this.eUY.getString(R.string.neterror));
+                            RecommendDetailModel.this.kLr.onFailed(RecommendDetailModel.this.eUY.getString(R.string.neterror));
                         } else {
-                            RecommendDetailModel.this.kLd.onFailed(responsedMessage.getErrorString());
+                            RecommendDetailModel.this.kLr.onFailed(responsedMessage.getErrorString());
                         }
                     } else {
                         if (responsedMessage instanceof RecommendDetailHttpResponseMessage) {
                             RecommendDetailHttpResponseMessage recommendDetailHttpResponseMessage = (RecommendDetailHttpResponseMessage) responsedMessage;
                             if (recommendDetailHttpResponseMessage.getDetailInfo() != null) {
-                                RecommendDetailModel.this.kGn = true;
-                                RecommendDetailModel.this.kLd.a(recommendDetailHttpResponseMessage.getDetailInfo(), true);
+                                RecommendDetailModel.this.kGB = true;
+                                RecommendDetailModel.this.kLr.a(recommendDetailHttpResponseMessage.getDetailInfo(), true);
                             }
                         }
                         if (responsedMessage instanceof RecommendDetailSocketResponseMessage) {
                             RecommendDetailSocketResponseMessage recommendDetailSocketResponseMessage = (RecommendDetailSocketResponseMessage) responsedMessage;
                             if (recommendDetailSocketResponseMessage.getDetailInfo() != null) {
-                                RecommendDetailModel.this.kGn = true;
-                                RecommendDetailModel.this.kLd.a(recommendDetailSocketResponseMessage.getDetailInfo(), true);
+                                RecommendDetailModel.this.kGB = true;
+                                RecommendDetailModel.this.kLr.a(recommendDetailSocketResponseMessage.getDetailInfo(), true);
                             }
                         }
                     }
                 }
             }
         };
-        this.kLg = new CustomMessageListener(CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.3
+        this.kLu = new CustomMessageListener(CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof UserInfoBigVip)) {
-                    RecommendDetailModel.this.cXD();
+                    RecommendDetailModel.this.cXK();
                     return;
                 }
                 UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
-                if (RecommendDetailModel.this.kLd != null && userInfoBigVip != null) {
-                    RecommendDetailModel.this.kGn = true;
-                    RecommendDetailModel.this.kLd.a(userInfoBigVip, false);
+                if (RecommendDetailModel.this.kLr != null && userInfoBigVip != null) {
+                    RecommendDetailModel.this.kGB = true;
+                    RecommendDetailModel.this.kLr.a(userInfoBigVip, false);
                 }
-                RecommendDetailModel.this.cXD();
+                RecommendDetailModel.this.cXK();
             }
         };
         this.eUY = tbPageContext;
-        this.kLd = aVar;
-        MessageManager.getInstance().registerListener(this.kLf);
-        MessageManager.getInstance().registerListener(this.kLg);
-        cWm();
+        this.kLr = aVar;
+        MessageManager.getInstance().registerListener(this.kLt);
+        MessageManager.getInstance().registerListener(this.kLu);
+        cWt();
     }
 
     public void ha(long j) {
@@ -104,7 +104,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GET_RECOMMEND_DETAIL, Long.valueOf(this.mUserId)));
     }
 
-    private void cWm() {
+    private void cWt() {
         registerListener(new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -114,7 +114,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     Message<?> orginalMessage = responseUpdateMaskInfoMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestUpdateMaskInfoMessage) {
                         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
-                        if (requestUpdateMaskInfoMessage.getMaskType() == 6 && RecommendDetailModel.this.eUY != null && RecommendDetailModel.this.kLd != null) {
+                        if (requestUpdateMaskInfoMessage.getMaskType() == 6 && RecommendDetailModel.this.eUY != null && RecommendDetailModel.this.kLr != null) {
                             if (responseUpdateMaskInfoMessage.getError() != 0) {
                                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
                                     RecommendDetailModel.this.eUY.showToast(R.string.neterror);
@@ -122,14 +122,14 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                                     RecommendDetailModel.this.eUY.showToast(responseUpdateMaskInfoMessage.getErrorString());
                                 }
                                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                    RecommendDetailModel.this.kLd.ta(false);
+                                    RecommendDetailModel.this.kLr.ta(false);
                                 } else {
-                                    RecommendDetailModel.this.kLd.tb(false);
+                                    RecommendDetailModel.this.kLr.tb(false);
                                 }
                             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                RecommendDetailModel.this.kLd.ta(true);
+                                RecommendDetailModel.this.kLr.ta(true);
                             } else {
-                                RecommendDetailModel.this.kLd.tb(true);
+                                RecommendDetailModel.this.kLr.tb(true);
                             }
                         }
                     }
@@ -139,7 +139,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cXD() {
+    public void cXK() {
         RecommendDetailRequestMessage recommendDetailRequestMessage = new RecommendDetailRequestMessage();
         recommendDetailRequestMessage.setUserId(this.mUserId);
         sendMessage(recommendDetailRequestMessage);
@@ -158,12 +158,12 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public boolean cXE() {
-        return this.kGn;
+    public boolean cXL() {
+        return this.kGB;
     }
 
-    public boolean cXF() {
-        return this.kLe;
+    public boolean cXM() {
+        return this.kLs;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -177,7 +177,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.kLg);
-        MessageManager.getInstance().unRegisterListener(this.kLf);
+        MessageManager.getInstance().unRegisterListener(this.kLu);
+        MessageManager.getInstance().unRegisterListener(this.kLt);
     }
 }

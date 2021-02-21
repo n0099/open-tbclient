@@ -123,7 +123,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<com.baidu.tba
         if (voiceModel != null) {
             this.alb.Dp(voiceModel.voice_status.intValue());
         }
-        this.alb.ccu();
+        this.alb.ccB();
         this.ale = true;
     }
 

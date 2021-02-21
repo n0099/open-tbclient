@@ -18,7 +18,7 @@ public final class d {
     public static boolean g;
     public static boolean h;
     public static long i;
-    public static b pOz = new a();
+    public static b pOZ = new a();
 
     /* loaded from: classes6.dex */
     public static class a implements b {
@@ -34,7 +34,7 @@ public final class d {
             if (adCallback != null) {
                 adCallback.onAdClose(str, str3, str2, g.a(str2));
             }
-            bq.k(FunAdSdk.getAppContext(), str, str2, str3);
+            bq.l(FunAdSdk.getAppContext(), str, str2, str3);
         }
 
         public void a(String str, String str2, String str3, int i, String str4) {
@@ -71,7 +71,7 @@ public final class d {
             if (adCallback != null) {
                 adCallback.onAdShow(str, str3, str2, g.a(str2));
             }
-            bq.j(FunAdSdk.getAppContext(), str, str2, str3);
+            bq.k(FunAdSdk.getAppContext(), str, str2, str3);
         }
 
         public void e(String str, String str2, String str3) {

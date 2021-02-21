@@ -131,21 +131,21 @@ public abstract class d extends MessageSnapshot {
 
     /* renamed from: com.kwai.filedownloader.message.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1161d extends d {
+    public static class C1163d extends d {
 
         /* renamed from: b  reason: collision with root package name */
         private final long f10953b;
         private final Throwable c;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C1161d(int i, long j, Throwable th) {
+        public C1163d(int i, long j, Throwable th) {
             super(i);
             this.f10953b = j;
             this.c = th;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C1161d(Parcel parcel) {
+        public C1163d(Parcel parcel) {
             super(parcel);
             this.f10953b = parcel.readLong();
             this.c = (Throwable) parcel.readSerializable();
@@ -285,7 +285,7 @@ public abstract class d extends MessageSnapshot {
     }
 
     /* loaded from: classes3.dex */
-    public static class h extends C1161d {
+    public static class h extends C1163d {
 
         /* renamed from: b  reason: collision with root package name */
         private final int f10956b;
@@ -302,12 +302,12 @@ public abstract class d extends MessageSnapshot {
             this.f10956b = parcel.readInt();
         }
 
-        @Override // com.kwai.filedownloader.message.d.C1161d, com.kwai.filedownloader.message.c
+        @Override // com.kwai.filedownloader.message.d.C1163d, com.kwai.filedownloader.message.c
         public byte b() {
             return (byte) 5;
         }
 
-        @Override // com.kwai.filedownloader.message.d.C1161d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
+        @Override // com.kwai.filedownloader.message.d.C1163d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public int describeContents() {
             return 0;
         }
@@ -317,7 +317,7 @@ public abstract class d extends MessageSnapshot {
             return this.f10956b;
         }
 
-        @Override // com.kwai.filedownloader.message.d.C1161d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
+        @Override // com.kwai.filedownloader.message.d.C1163d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
             parcel.writeInt(this.f10956b);

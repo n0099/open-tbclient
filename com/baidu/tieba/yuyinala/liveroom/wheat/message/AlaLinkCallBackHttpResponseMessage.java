@@ -6,9 +6,9 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaLinkCallBackHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int fans;
-    private String oIX;
-    private int oIY;
-    private int oIZ;
+    private String oJx;
+    private int oJy;
+    private int oJz;
 
     public AlaLinkCallBackHttpResponseMessage() {
         super(1031027);
@@ -19,26 +19,26 @@ public class AlaLinkCallBackHttpResponseMessage extends BaseJsonHttpResponsedMes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031027 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.oIX = optJSONObject.optString("minute");
+            this.oJx = optJSONObject.optString("minute");
             this.fans = optJSONObject.optInt("fans");
-            this.oIY = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
-            this.oIZ = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
+            this.oJy = optJSONObject.optInt(SdkStaticKeys.RANK_TYPE_CHARM);
+            this.oJz = optJSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY);
         }
     }
 
-    public boolean eet() {
-        return this.oIZ == 1 || this.oIZ == 2 || this.oIZ == 3;
+    public boolean eeB() {
+        return this.oJz == 1 || this.oJz == 2 || this.oJz == 3;
     }
 
-    public String eeu() {
-        return this.oIX;
+    public String eeC() {
+        return this.oJx;
     }
 
-    public int cZo() {
+    public int cZv() {
         return this.fans;
     }
 
-    public int eev() {
-        return this.oIY;
+    public int eeD() {
+        return this.oJy;
     }
 }

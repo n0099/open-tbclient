@@ -68,7 +68,7 @@ public class c {
             u.b("GeckoHub", "no did so don't preload");
             return;
         }
-        com.bytedance.sdk.openadsdk.preload.geckox.a a3 = com.bytedance.sdk.openadsdk.preload.geckox.a.a(new b.a(p.a()).b("4ab312f7094810afa84659d3dc6cf0fe").a("4ab312f7094810afa84659d3dc6cf0fe").a(Long.parseLong("1371")).b(a2).a("9999999.0.0").a(new a.C1029a().a(20).a(com.bytedance.sdk.openadsdk.preload.geckox.a.a.b.c).a()).a(this.f7469b).a(false).c(c()).a(new com.bytedance.sdk.openadsdk.preload.geckox.statistic.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.c.1
+        com.bytedance.sdk.openadsdk.preload.geckox.a a3 = com.bytedance.sdk.openadsdk.preload.geckox.a.a(new b.a(p.a()).b("4ab312f7094810afa84659d3dc6cf0fe").a("4ab312f7094810afa84659d3dc6cf0fe").a(Long.parseLong("1371")).b(a2).a("9999999.0.0").a(new a.C1031a().a(20).a(com.bytedance.sdk.openadsdk.preload.geckox.a.a.b.c).a()).a(this.f7469b).a(false).c(c()).a(new com.bytedance.sdk.openadsdk.preload.geckox.statistic.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.c.1
             @Override // com.bytedance.sdk.openadsdk.preload.geckox.statistic.a
             public void a(String str, JSONObject jSONObject) {
                 if ("geckosdk_update_stats".equals(str)) {

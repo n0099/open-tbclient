@@ -25,7 +25,7 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class c {
     private TbPageContext mPageContext;
-    public a mep = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
+    public a meE = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
         @Override // com.baidu.tieba.pb.pb.main.b.c.a
         public void a(f fVar, cb cbVar, PostData postData, com.baidu.tbadk.widget.richText.a aVar) {
             String shareImageUrl;
@@ -39,7 +39,7 @@ public class c {
                     if (!StringUtils.isNull(shareImageUrl) && shareImageUrl.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         shareImageUrl = shareImageUrl.substring(TbConfig.URL_IMAGE_PREFIX.length());
                     }
-                    cbVar = fVar.dkZ();
+                    cbVar = fVar.dlg();
                     if (cbVar == null) {
                         return;
                     }
@@ -47,7 +47,7 @@ public class c {
                 n nVar = new n();
                 nVar.setContent(cbVar.getAbstract());
                 if (!StringUtils.isNull(shareImageUrl)) {
-                    nVar.Pm(shareImageUrl);
+                    nVar.Pn(shareImageUrl);
                 }
                 nVar.setThreadType(cbVar.getThreadType());
                 nVar.b(aVar);
@@ -64,7 +64,7 @@ public class c {
                     tid = cbVar.getTid();
                     str = "?share=9105&fr=share";
                 }
-                nVar.E(c.this.PT("http://tieba.baidu.com/p/" + tid + (str + "&post_id=" + postData.getId() + "&share_from=comment&post_sort=1")));
+                nVar.E(c.this.PU("http://tieba.baidu.com/p/" + tid + (str + "&post_id=" + postData.getId() + "&share_from=comment&post_sort=1")));
                 ShareItem shareItem = new ShareItem();
                 shareItem.shareType = 1;
                 shareItem.fuO = true;
@@ -104,7 +104,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap PT(String str) {
+    public Bitmap PU(String str) {
         CustomResponsedMessage runTask;
         if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
             return null;

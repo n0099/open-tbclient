@@ -16,12 +16,12 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
     private View.OnClickListener fhT;
-    private BaseActivity ggh;
+    private BaseActivity ggm;
     private List<AccountData> mData = null;
-    private boolean ggi = false;
+    private boolean ggn = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.ggh = baseActivity;
+        this.ggm = baseActivity;
         this.fhT = onClickListener;
     }
 
@@ -71,16 +71,16 @@ public class a extends BaseAdapter {
                 c0590a = (C0590a) view.getTag();
                 view3 = view;
             } else if (getItemViewType(i) == 0) {
-                view = LayoutInflater.from(this.ggh.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                view = LayoutInflater.from(this.ggm.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
                 c0590a = new C0590a();
-                c0590a.ggj = (TextView) view.findViewById(R.id.account);
-                c0590a.ggk = (ImageView) view.findViewById(R.id.active);
-                c0590a.ggl = (TextView) view.findViewById(R.id.delete);
-                c0590a.ggl.setOnClickListener(this.fhT);
+                c0590a.ggo = (TextView) view.findViewById(R.id.account);
+                c0590a.ggp = (ImageView) view.findViewById(R.id.active);
+                c0590a.ggq = (TextView) view.findViewById(R.id.delete);
+                c0590a.ggq.setOnClickListener(this.fhT);
                 view.setTag(c0590a);
                 view3 = view;
             } else {
-                view = LayoutInflater.from(this.ggh.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                view = LayoutInflater.from(this.ggm.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
                 c0590a = new C0590a();
                 c0590a.fjs = (TextView) view.findViewById(R.id.add_text);
                 view.setTag(c0590a);
@@ -95,52 +95,52 @@ public class a extends BaseAdapter {
         try {
             if (getItemViewType(i) == 0) {
                 AccountData accountData = (AccountData) getItem(i);
-                c0590a.ggk.setVisibility(8);
-                c0590a.ggl.setVisibility(8);
-                c0590a.ggl.setTag(accountData);
+                c0590a.ggp.setVisibility(8);
+                c0590a.ggq.setVisibility(8);
+                c0590a.ggq.setTag(accountData);
                 if (accountData != null) {
-                    c0590a.ggj.setText(accountData.getAccountNameShow());
+                    c0590a.ggo.setText(accountData.getAccountNameShow());
                     if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                        c0590a.ggk.setVisibility(0);
+                        c0590a.ggp.setVisibility(0);
                     }
-                    if (this.ggi) {
-                        c0590a.ggl.setVisibility(0);
+                    if (this.ggn) {
+                        c0590a.ggq.setVisibility(0);
                     }
                 }
             }
-            this.ggh.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.ggh.getLayoutMode().onModeChanged(view3);
+            this.ggm.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.ggm.getLayoutMode().onModeChanged(view3);
             return view3;
         } catch (Exception e3) {
             e = e3;
             view2 = view3;
             try {
                 BdLog.detailException(e);
-                this.ggh.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.ggh.getLayoutMode().onModeChanged(view2);
+                this.ggm.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.ggm.getLayoutMode().onModeChanged(view2);
                 return view2;
             } catch (Throwable th3) {
                 th = th3;
                 view = view2;
-                this.ggh.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.ggh.getLayoutMode().onModeChanged(view);
+                this.ggm.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.ggm.getLayoutMode().onModeChanged(view);
                 throw th;
             }
         } catch (Throwable th4) {
             th = th4;
             view = view3;
-            this.ggh.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.ggh.getLayoutMode().onModeChanged(view);
+            this.ggm.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.ggm.getLayoutMode().onModeChanged(view);
             throw th;
         }
     }
 
     public void mc(boolean z) {
-        this.ggi = z;
+        this.ggn = z;
     }
 
-    public boolean bKX() {
-        return this.ggi;
+    public boolean bLc() {
+        return this.ggn;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -160,9 +160,9 @@ public class a extends BaseAdapter {
     /* loaded from: classes2.dex */
     private class C0590a {
         TextView fjs;
-        TextView ggj;
-        ImageView ggk;
-        TextView ggl;
+        TextView ggo;
+        ImageView ggp;
+        TextView ggq;
 
         private C0590a() {
         }

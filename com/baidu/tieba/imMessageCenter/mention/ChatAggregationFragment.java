@@ -19,32 +19,32 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes2.dex */
 public class ChatAggregationFragment extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter kQH;
-    private e kQK;
+    private ViewEventCenter kQV;
+    private e kQY;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (ChatAggregationFragment.this.kQK != null) {
-                    ChatAggregationFragment.this.kQK.tp(true);
+                if (ChatAggregationFragment.this.kQY != null) {
+                    ChatAggregationFragment.this.kQY.tp(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (ChatAggregationFragment.this.kQK != null) {
-                    ChatAggregationFragment.this.kQK.cKS();
-                    ChatAggregationFragment.this.kQK.al(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (ChatAggregationFragment.this.kQY != null) {
+                    ChatAggregationFragment.this.kQY.cKZ();
+                    ChatAggregationFragment.this.kQY.al(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener kQI = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
+    private CustomMessageListener kQW = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ChatAggregationFragment.this.kQK != null) {
-                    ChatAggregationFragment.this.kQK.onNewIntent(intent);
+                if (ChatAggregationFragment.this.kQY != null) {
+                    ChatAggregationFragment.this.kQY.onNewIntent(intent);
                 }
             }
         }
@@ -52,26 +52,26 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.kQK = new e(this);
+        this.kQY = new e(this);
         if (bundle != null) {
-            this.kQK.as(bundle);
+            this.kQY.as(bundle);
         } else {
-            this.kQK.as(null);
+            this.kQY.as(null);
         }
-        View bVk = this.kQK.bVk();
-        this.kQK.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        View bVr = this.kQY.bVr();
+        this.kQY.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         bDI().addEventDelegate(this);
         registerListener(this.mAccountChangedListener);
-        registerListener(this.kQI);
-        return bVk;
+        registerListener(this.kQW);
+        return bVr;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         if (getActivity() != null && Y(getActivity().getIntent())) {
-            this.kQK.onNewIntent(getActivity().getIntent());
+            this.kQY.onNewIntent(getActivity().getIntent());
         } else {
-            this.kQK.cKS();
+            this.kQY.cKZ();
         }
         super.onViewCreated(view, bundle);
     }
@@ -91,16 +91,16 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     }
 
     public ViewEventCenter bDI() {
-        if (this.kQH == null) {
-            this.kQH = new ViewEventCenter();
+        if (this.kQV == null) {
+            this.kQV = new ViewEventCenter();
         }
-        return this.kQH;
+        return this.kQV;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.kQK != null) {
-            this.kQK.b(getPageContext(), i);
+        if (this.kQY != null) {
+            this.kQY.b(getPageContext(), i);
         }
     }
 
@@ -141,30 +141,30 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
-        MessageManager.getInstance().unRegisterListener(this.kQI);
-        if (this.kQK != null) {
-            this.kQK.cIZ();
+        MessageManager.getInstance().unRegisterListener(this.kQW);
+        if (this.kQY != null) {
+            this.kQY.cJg();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void onNetworkChange(boolean z) {
-        if (this.kQK != null) {
-            this.kQK.tm(z);
+        if (this.kQY != null) {
+            this.kQY.tm(z);
         }
     }
 
     public void Ut() {
-        if (this.kQK != null) {
-            this.kQK.Ut();
+        if (this.kQY != null) {
+            this.kQY.Ut();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.kQK != null) {
-            this.kQK.cZe();
+        if (this.kQY != null) {
+            this.kQY.cZl();
         }
     }
 }

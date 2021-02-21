@@ -25,27 +25,27 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
     public View mContentView;
     private Context mContext;
     public View mConvertView;
-    private LinearLayout oYM;
-    private LinearLayout oYN;
-    private TempletMsg oYO;
-    public LinearLayout oYj;
-    private TextView oYt;
-    private TextView oYu;
-    private TextView oYv;
+    public LinearLayout oYJ;
+    private TextView oYT;
+    private TextView oYU;
+    private TextView oYV;
+    private LinearLayout oZm;
+    private LinearLayout oZn;
+    private TempletMsg oZo;
 
     @SuppressLint({"InflateParams"})
     public l(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_push_template, (ViewGroup) null);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_push_content_view);
-        this.oYM = (LinearLayout) this.mConvertView.findViewById(a.f.bd_im_chating_push_content_item_view);
-        this.oXT = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oXU = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_title);
-        this.oYt = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_time);
-        this.oYu = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_first);
-        this.oYv = (TextView) this.mConvertView.findViewById(a.f.bd_im_template_remark);
-        this.oYj = (LinearLayout) this.mConvertView.findViewById(a.f.bd_im_chating_template_multi);
-        this.oYN = (LinearLayout) this.mContentView.findViewById(a.f.bd_im_template_footer);
+        this.oZm = (LinearLayout) this.mConvertView.findViewById(a.f.bd_im_chating_push_content_item_view);
+        this.oYt = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oYu = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_title);
+        this.oYT = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_time);
+        this.oYU = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_first);
+        this.oYV = (TextView) this.mConvertView.findViewById(a.f.bd_im_template_remark);
+        this.oYJ = (LinearLayout) this.mConvertView.findViewById(a.f.bd_im_chating_template_multi);
+        this.oZn = (LinearLayout) this.mContentView.findViewById(a.f.bd_im_template_footer);
         this.mConvertView.setTag(this);
     }
 
@@ -69,41 +69,41 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
         int i;
         int i2 = 0;
         if (chatMsg instanceof TempletMsg) {
-            this.oYO = (TempletMsg) chatMsg;
-            this.oXU.setText(this.oYO.getTitle());
-            this.oYt.setText(com.baidu.yuyinala.privatemessage.implugin.util.f.j(context, this.oYO.getMsgTime()));
-            if (TextUtils.isEmpty(this.oYO.getFirstName())) {
-                this.oYu.setVisibility(8);
+            this.oZo = (TempletMsg) chatMsg;
+            this.oYu.setText(this.oZo.getTitle());
+            this.oYT.setText(com.baidu.yuyinala.privatemessage.implugin.util.f.j(context, this.oZo.getMsgTime()));
+            if (TextUtils.isEmpty(this.oZo.getFirstName())) {
+                this.oYU.setVisibility(8);
             } else {
-                this.oYu.setText(this.oYO.getFirstName());
-                this.oYu.setVisibility(0);
+                this.oYU.setText(this.oZo.getFirstName());
+                this.oYU.setVisibility(0);
             }
-            if (TextUtils.isEmpty(this.oYO.getRemarkName())) {
-                this.oYv.setVisibility(8);
+            if (TextUtils.isEmpty(this.oZo.getRemarkName())) {
+                this.oYV.setVisibility(8);
             } else {
-                this.oYv.setText(this.oYO.getRemarkName());
-                this.oYv.setVisibility(0);
+                this.oYV.setText(this.oZo.getRemarkName());
+                this.oYV.setVisibility(0);
             }
             try {
-                this.oYu.setTextColor(Color.parseColor(Ya(this.oYO.getFirstColor())));
+                this.oYU.setTextColor(Color.parseColor(Ym(this.oZo.getFirstColor())));
             } catch (Exception e) {
-                this.oYu.setTextColor(ThemeManager.U(this.mContext, a.c.send_text_item_color));
+                this.oYU.setTextColor(ThemeManager.U(this.mContext, a.c.send_text_item_color));
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushTemplate", "Error:" + e.getMessage());
             }
             try {
-                this.oYv.setTextColor(Color.parseColor(Ya(this.oYO.getRemarkColor())));
+                this.oYV.setTextColor(Color.parseColor(Ym(this.oZo.getRemarkColor())));
             } catch (Exception e2) {
-                this.oYv.setTextColor(ThemeManager.U(this.mContext, a.c.template_time_txt_color));
+                this.oYV.setTextColor(ThemeManager.U(this.mContext, a.c.template_time_txt_color));
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushTemplate", "Error:" + e2.getMessage());
             }
             this.mContentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    String detail = l.this.oYO.getDetail();
+                    String detail = l.this.oZo.getDetail();
                     if (!TextUtils.isEmpty(detail)) {
-                        com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().h(l.this.mContext, detail, false);
+                        com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().h(l.this.mContext, detail, false);
                         com.baidu.yuyinala.privatemessage.implugin.util.c.i("PushTemplateItem", "click is template");
-                        l.this.Yb("mainpart");
+                        l.this.Yn("mainpart");
                     }
                 }
             });
@@ -114,12 +114,12 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
                     return true;
                 }
             });
-            if (this.oYO.getCommodity() == null) {
+            if (this.oZo.getCommodity() == null) {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushTemplate", "Error:getCommodity is null");
                 return;
             }
-            this.oYj.removeAllViews();
-            TempletMsg.Commodity[] commodity = this.oYO.getCommodity();
+            this.oYJ.removeAllViews();
+            TempletMsg.Commodity[] commodity = this.oZo.getCommodity();
             int length = commodity.length;
             int i3 = 0;
             int i4 = 0;
@@ -141,8 +141,8 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
                 i3++;
                 i4 = i;
             }
-            for (int i7 = 0; i7 < this.oYO.getCommodity().length; i7++) {
-                TempletMsg.Commodity commodity3 = this.oYO.getCommodity()[i7];
+            for (int i7 = 0; i7 < this.oZo.getCommodity().length; i7++) {
+                TempletMsg.Commodity commodity3 = this.oZo.getCommodity()[i7];
                 View inflate = View.inflate(context, a.g.bd_im_chating_cell_push_template, null);
                 TextView textView = (TextView) inflate.findViewById(a.f.bd_im_chating_cell_template_name);
                 TextView textView2 = (TextView) inflate.findViewById(a.f.bd_im_chating_cell_template_value);
@@ -153,7 +153,7 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
                     if (!TextUtils.isEmpty(commodity3.getName())) {
                         textView.setText(str);
                         String str2 = "#000000";
-                        if (ThemeManager.emo() == ThemeManager.ThemeMode.NIGHT) {
+                        if (ThemeManager.emw() == ThemeManager.ThemeMode.NIGHT) {
                             str2 = "#666666";
                         }
                         textView.setTextColor(Color.parseColor(str2));
@@ -166,54 +166,54 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
                     }
                     try {
                         if (!TextUtils.isEmpty(color)) {
-                            textView2.setTextColor(Color.parseColor(Ya(color)));
+                            textView2.setTextColor(Color.parseColor(Ym(color)));
                         }
                     } catch (Exception e3) {
                         com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushTemplate", "Error:color parse error");
                     }
                 }
-                this.oYj.addView(inflate, i7);
+                this.oYJ.addView(inflate, i7);
             }
-            this.oYN.removeAllViews();
-            switch (this.oYO.getMode()) {
+            this.oZn.removeAllViews();
+            switch (this.oZo.getMode()) {
                 case 1:
                     while (true) {
                         int i8 = i2;
-                        if (i8 >= this.oYO.getLinks().size()) {
+                        if (i8 >= this.oZo.getLinks().size()) {
                             break;
                         } else {
-                            this.oYN.addView(new b(LayoutInflater.from(context), this.oYO.getLinks().get(i8), this.oYN, String.valueOf(i8 + 1)).mContentView);
+                            this.oZn.addView(new b(LayoutInflater.from(context), this.oZo.getLinks().get(i8), this.oZn, String.valueOf(i8 + 1)).mContentView);
                             i2 = i8 + 1;
                         }
                     }
                 case 2:
-                    a aVar = new a(LayoutInflater.from(context), this.oYN);
-                    aVar.a(this.oYO.getImage());
-                    this.oYN.addView(aVar.getContentView());
+                    a aVar = new a(LayoutInflater.from(context), this.oZn);
+                    aVar.a(this.oZo.getImage());
+                    this.oZn.addView(aVar.getContentView());
                     break;
                 case 3:
-                    c cVar = new c(LayoutInflater.from(context), this.oYN);
-                    cVar.a(this.oYO.getVideo());
-                    this.oYN.addView(cVar.getContentView());
+                    c cVar = new c(LayoutInflater.from(context), this.oZn);
+                    cVar.a(this.oZo.getVideo());
+                    this.oZn.addView(cVar.getContentView());
                     break;
                 default:
                     LogUtils.d("PushTemplateItem", "no foot");
                     break;
             }
         }
-        ejE();
+        ejM();
         super.b(context, chatMsg);
     }
 
-    private String Ya(String str) {
-        if (ThemeManager.emo() == ThemeManager.ThemeMode.NIGHT) {
+    private String Ym(String str) {
+        if (ThemeManager.emw() == ThemeManager.ThemeMode.NIGHT) {
             return "#555555";
         }
         return str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Yb(String str) {
+    public void Yn(String str) {
         new HashMap().put("subchain", str);
     }
 
@@ -223,7 +223,7 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
         return textPaint.measureText(str);
     }
 
-    private void ejE() {
+    private void ejM() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -237,9 +237,9 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
         bVar.a(new b.a() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.3
             @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b.a
             public void a(com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b bVar2, int i, int i2) {
-                com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c Yn = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eld().Yn(com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eld().ele());
-                if (Yn != null) {
-                    Yn.gx(arrayList);
+                com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c Yz = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.ell().Yz(com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.ell().elm());
+                if (Yz != null) {
+                    Yz.gx(arrayList);
                 }
             }
         });
@@ -247,45 +247,45 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
 
     /* loaded from: classes11.dex */
     private class b {
-        private TextView hzM;
+        private TextView hAa;
         private ImageView mArrow;
         private View mContentView;
-        private View oYQ;
-        private LinearLayout oYR;
-        private TextView oYU;
+        private View oZq;
+        private LinearLayout oZr;
+        private TextView oZu;
 
         public b(LayoutInflater layoutInflater, TempletMsg.Link link, ViewGroup viewGroup, String str) {
             this.mContentView = layoutInflater.inflate(a.g.bd_im_chating_push_template_label, viewGroup, false);
-            this.oYQ = this.mContentView.findViewById(a.f.bd_im_chating_template_link_dividing);
-            this.hzM = (TextView) this.mContentView.findViewById(a.f.bd_im_chating_template_link_title);
-            this.oYU = (TextView) this.mContentView.findViewById(a.f.bd_im_chating_template_link_detail);
+            this.oZq = this.mContentView.findViewById(a.f.bd_im_chating_template_link_dividing);
+            this.hAa = (TextView) this.mContentView.findViewById(a.f.bd_im_chating_template_link_title);
+            this.oZu = (TextView) this.mContentView.findViewById(a.f.bd_im_chating_template_link_detail);
             this.mArrow = (ImageView) this.mContentView.findViewById(a.f.bd_im_chating_template_link_arrow);
-            this.oYR = (LinearLayout) this.mContentView.findViewById(a.f.bd_im_chat_template_link_item);
-            ejE();
+            this.oZr = (LinearLayout) this.mContentView.findViewById(a.f.bd_im_chat_template_link_item);
+            ejM();
             a(link, str);
         }
 
-        private void ejE() {
+        private void ejM() {
         }
 
         private void a(final TempletMsg.Link link, final String str) {
-            this.hzM.setText(link.getContent());
+            this.hAa.setText(link.getContent());
             if (TextUtils.isEmpty(link.getTitle())) {
-                this.oYU.setVisibility(8);
+                this.oZu.setVisibility(8);
             } else {
-                this.oYU.setText(link.getTitle());
+                this.oZu.setText(link.getTitle());
             }
-            this.oYR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.b.1
+            this.oZr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().h(l.this.mContext, link.getUrl(), false);
-                    l.this.Yb("text" + str);
+                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().h(l.this.mContext, link.getUrl(), false);
+                    l.this.Yn("text" + str);
                 }
             });
-            this.oYR.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.b.2
+            this.oZr.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.b.2
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    l.this.a(l.this.mContext, l.this.mContentView, l.this.oYO);
+                    l.this.a(l.this.mContext, l.this.mContentView, l.this.oZo);
                     return true;
                 }
             });
@@ -296,43 +296,43 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
     /* loaded from: classes11.dex */
     public class a {
         View erP;
-        TextView gDm;
+        TextView gDA;
         View mContentView;
         ImageView mImageView;
         TextView mTitle;
-        View oYQ;
-        LinearLayout oYR;
+        View oZq;
+        LinearLayout oZr;
 
         public a(LayoutInflater layoutInflater, ViewGroup viewGroup) {
             this.mContentView = layoutInflater.inflate(a.g.bd_im_chating_push_template_media, viewGroup, false);
             this.mImageView = (ImageView) this.mContentView.findViewById(a.f.bd_im_chat_template_media_display);
             this.mTitle = (TextView) this.mContentView.findViewById(a.f.bd_im_chat_template_media_title);
-            this.gDm = (TextView) this.mContentView.findViewById(a.f.bd_im_chat_template_media_description);
-            this.oYQ = this.mContentView.findViewById(a.f.bd_im_chat_template_media_dividing);
-            this.oYR = (LinearLayout) this.mContentView.findViewById(a.f.bd_im_chat_template_media_item);
+            this.gDA = (TextView) this.mContentView.findViewById(a.f.bd_im_chat_template_media_description);
+            this.oZq = this.mContentView.findViewById(a.f.bd_im_chat_template_media_dividing);
+            this.oZr = (LinearLayout) this.mContentView.findViewById(a.f.bd_im_chat_template_media_item);
             this.erP = this.mContentView.findViewById(a.f.bd_im_chat_template_media_display_cover);
-            ejE();
+            ejM();
         }
 
-        protected void ejE() {
+        protected void ejM() {
         }
 
         public void a(final TempletMsg.Image image) {
             this.mTitle.setText(image.getTitle());
-            this.gDm.setText(image.getDescription());
+            this.gDA.setText(image.getDescription());
             com.baidu.yuyinala.privatemessage.implugin.util.b.hF(l.this.mContext);
             ImageLoader.getInstance().displayImage(image.getImage(), this.mImageView);
-            this.oYR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.a.1
+            this.oZr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().h(l.this.mContext, image.getUrl(), false);
-                    l.this.Yb("image");
+                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().h(l.this.mContext, image.getUrl(), false);
+                    l.this.Yn("image");
                 }
             });
-            this.oYR.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.a.2
+            this.oZr.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.a.2
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    l.this.a(l.this.mContext, l.this.mContentView, l.this.oYO);
+                    l.this.a(l.this.mContext, l.this.mContentView, l.this.oZo);
                     return true;
                 }
             });
@@ -345,39 +345,39 @@ public class l extends com.baidu.yuyinala.privatemessage.implugin.a.a.c {
 
     /* loaded from: classes11.dex */
     private class c extends a {
-        private TextView gDo;
+        private TextView gDC;
 
         public c(LayoutInflater layoutInflater, ViewGroup viewGroup) {
             super(layoutInflater, viewGroup);
-            this.gDo = (TextView) this.mContentView.findViewById(a.f.bd_im_chat_template_video_time);
-            this.gDo.setVisibility(0);
+            this.gDC = (TextView) this.mContentView.findViewById(a.f.bd_im_chat_template_video_time);
+            this.gDC.setVisibility(0);
         }
 
         @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.l.a
-        protected void ejE() {
-            super.ejE();
-            if (this.gDo != null) {
+        protected void ejM() {
+            super.ejM();
+            if (this.gDC != null) {
             }
         }
 
         public void a(final TempletMsg.Video video) {
-            ejE();
+            ejM();
             this.mTitle.setText(video.getTitle());
-            this.gDm.setText(video.getDescription());
+            this.gDA.setText(video.getDescription());
             com.baidu.yuyinala.privatemessage.implugin.util.b.hF(l.this.mContext);
             ImageLoader.getInstance().displayImage(video.getCover(), this.mImageView);
-            this.gDo.setText(video.getDuration());
-            this.oYR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.c.1
+            this.gDC.setText(video.getDuration());
+            this.oZr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().h(l.this.mContext, video.getUrl(), false);
-                    l.this.Yb("video");
+                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().h(l.this.mContext, video.getUrl(), false);
+                    l.this.Yn("video");
                 }
             });
-            this.oYR.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.c.2
+            this.oZr.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.l.c.2
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    l.this.a(l.this.mContext, l.this.mContentView, l.this.oYO);
+                    l.this.a(l.this.mContext, l.this.mContentView, l.this.oZo);
                     return true;
                 }
             });

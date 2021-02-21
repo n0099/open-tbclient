@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class bk extends SQLiteOpenHelper {
-    public static volatile bk pPJ;
+    public static volatile bk pQj;
 
     public bk(Context context) {
         super(context, "ad_log_report.db", (SQLiteDatabase.CursorFactory) null, 1);
     }
 
     public static bk io(Context context) {
-        if (pPJ == null) {
+        if (pQj == null) {
             synchronized (bk.class) {
-                if (pPJ == null) {
-                    pPJ = new bk(context.getApplicationContext());
+                if (pQj == null) {
+                    pQj = new bk(context.getApplicationContext());
                 }
             }
         }
-        return pPJ;
+        return pQj;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x008f  */

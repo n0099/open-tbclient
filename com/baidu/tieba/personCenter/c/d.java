@@ -5,16 +5,16 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class d extends BaseCardInfo {
-    public static BdUniqueId mtE = BdUniqueId.gen();
-    public int mtA;
-    public int mtB;
-    public int mtC;
-    public boolean mtD;
+    public static BdUniqueId mtT = BdUniqueId.gen();
+    public int mtP;
+    public int mtQ;
+    public int mtR;
+    public boolean mtS;
     public int threadNum;
     public UserData userData;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mtE;
+        return mtT;
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.m.d;
 /* loaded from: classes9.dex */
 public class MembercenterActivity extends BaseFragmentActivity {
-    private MemberCenterFragment lmb;
-    private FragmentTransaction lmc;
+    private MemberCenterFragment lmp;
+    private FragmentTransaction lmq;
     private FragmentManager mFragmentManager;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -17,12 +17,12 @@ public class MembercenterActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         String stringExtra = getIntent().getStringExtra("key_url");
-        this.lmb = new MemberCenterFragment();
-        this.lmb.setUrl(stringExtra);
+        this.lmp = new MemberCenterFragment();
+        this.lmp.setUrl(stringExtra);
         this.mFragmentManager = getSupportFragmentManager();
-        this.lmc = this.mFragmentManager.beginTransaction();
-        this.lmc.add(16908290, this.lmb);
-        this.lmc.commit();
+        this.lmq = this.mFragmentManager.beginTransaction();
+        this.lmq.add(16908290, this.lmp);
+        this.lmq.commit();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,8 +35,8 @@ public class MembercenterActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.lmb != null) {
-            this.lmb.loadData();
+        if (this.lmp != null) {
+            this.lmp.loadData();
         }
     }
 

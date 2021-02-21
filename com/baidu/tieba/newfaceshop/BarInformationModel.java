@@ -14,7 +14,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.message.BazhuInfoResponseMessage;
 /* loaded from: classes9.dex */
 public class BarInformationModel extends BdBaseModel {
-    private final HttpMessageListener lzH;
+    private final HttpMessageListener lzV;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -23,7 +23,7 @@ public class BarInformationModel extends BdBaseModel {
 
     public BarInformationModel(TbPageContext<BaseActivity> tbPageContext) {
         super(tbPageContext);
-        this.lzH = new HttpMessageListener(1003357) { // from class: com.baidu.tieba.newfaceshop.BarInformationModel.1
+        this.lzV = new HttpMessageListener(1003357) { // from class: com.baidu.tieba.newfaceshop.BarInformationModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -43,9 +43,9 @@ public class BarInformationModel extends BdBaseModel {
             }
         };
         registerTask();
-        this.lzH.setTag(getUniqueId());
-        this.lzH.setSelfListener(true);
-        registerListener(this.lzH);
+        this.lzV.setTag(getUniqueId());
+        this.lzV.setSelfListener(true);
+        registerListener(this.lzV);
     }
 
     private void registerTask() {

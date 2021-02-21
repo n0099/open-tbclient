@@ -6,7 +6,7 @@ import com.ksad.lottie.a.b.a;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class p implements l, a.InterfaceC1065a {
+public class p implements l, a.InterfaceC1067a {
 
     /* renamed from: a  reason: collision with root package name */
     private final Path f7954a = new Path();
@@ -32,7 +32,7 @@ public class p implements l, a.InterfaceC1065a {
         this.c.invalidateSelf();
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1065a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
     public void a() {
         b();
     }

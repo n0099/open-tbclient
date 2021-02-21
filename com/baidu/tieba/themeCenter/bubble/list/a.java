@@ -12,26 +12,26 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a extends BaseAdapter {
     private TbPageContext<?> eUY;
-    private List<List<DressItemData>> nGq;
-    com.baidu.tieba.themeCenter.bubble.all.a nHu;
+    private List<List<DressItemData>> nGQ;
+    com.baidu.tieba.themeCenter.bubble.all.a nHU;
 
     /* renamed from: com.baidu.tieba.themeCenter.bubble.list.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0881a {
+    public static class C0883a {
         public View mEmptyView;
-        public BubbleItemView nHC;
-        public BubbleItemView nHD;
+        public BubbleItemView nIc;
+        public BubbleItemView nId;
     }
 
     public a(TbPageContext<?> tbPageContext, com.baidu.tieba.themeCenter.bubble.all.a aVar) {
         this.eUY = tbPageContext;
-        this.nHu = aVar;
+        this.nHU = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.nGq != null) {
-            return this.nGq.size();
+        if (this.nGQ != null) {
+            return this.nGQ.size();
         }
         return 0;
     }
@@ -40,10 +40,10 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: xW */
     public List<DressItemData> getItem(int i) {
-        if (this.nGq == null || this.nGq.size() <= 0 || i < 0 || i >= this.nGq.size()) {
+        if (this.nGQ == null || this.nGQ.size() <= 0 || i < 0 || i >= this.nGQ.size()) {
             return null;
         }
-        return this.nGq.get(i);
+        return this.nGQ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,33 +53,33 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0881a c0881a;
+        C0883a c0883a;
         List<DressItemData> item = getItem(i);
         if (view != null) {
-            c0881a = (C0881a) view.getTag();
+            c0883a = (C0883a) view.getTag();
         } else {
             view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.bubble_row, viewGroup, false);
-            c0881a = new C0881a();
-            c0881a.mEmptyView = view.findViewById(R.id.top_white_line);
-            c0881a.nHC = (BubbleItemView) view.findViewById(R.id.bg_view1);
-            c0881a.nHD = (BubbleItemView) view.findViewById(R.id.bg_view2);
-            view.setTag(c0881a);
+            c0883a = new C0883a();
+            c0883a.mEmptyView = view.findViewById(R.id.top_white_line);
+            c0883a.nIc = (BubbleItemView) view.findViewById(R.id.bg_view1);
+            c0883a.nId = (BubbleItemView) view.findViewById(R.id.bg_view2);
+            view.setTag(c0883a);
         }
         if (item != null) {
             if (i == 0) {
-                c0881a.mEmptyView.setVisibility(0);
+                c0883a.mEmptyView.setVisibility(0);
             } else {
-                c0881a.mEmptyView.setVisibility(8);
+                c0883a.mEmptyView.setVisibility(8);
             }
-            c0881a.nHC.d(item.get(0));
-            c0881a.nHC.setController(this.nHu);
-            c0881a.nHC.setFromBubbleGroup(false);
+            c0883a.nIc.d(item.get(0));
+            c0883a.nIc.setController(this.nHU);
+            c0883a.nIc.setFromBubbleGroup(false);
             if (item.size() > 1) {
-                c0881a.nHD.d(item.get(1));
-                c0881a.nHD.setController(this.nHu);
-                c0881a.nHD.setFromBubbleGroup(false);
+                c0883a.nId.d(item.get(1));
+                c0883a.nId.setController(this.nHU);
+                c0883a.nId.setFromBubbleGroup(false);
             } else {
-                c0881a.nHD.hide();
+                c0883a.nId.hide();
             }
         }
         this.eUY.getLayoutMode().onModeChanged(view);
@@ -87,6 +87,6 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<List<DressItemData>> list) {
-        this.nGq = list;
+        this.nGQ = list;
     }
 }

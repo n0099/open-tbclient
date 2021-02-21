@@ -40,41 +40,41 @@ public class d extends e {
 
     /* loaded from: classes9.dex */
     private static class a {
-        private static final d lbl = new d();
+        private static final d lbz = new d();
     }
 
-    public static d dbv() {
-        return a.lbl;
+    public static d dbC() {
+        return a.lbz;
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void dbt() {
-        lbm.put(1, lbm.size() + 1);
-        lbm.put(2, lbm.size() + 1);
-        lbm.put(3, lbm.size() + 1);
-        lbm.put(5, lbm.size() + 1);
-        lbm.put(6, lbm.size() + 1);
-        lbm.put(7, lbm.size() + 1);
-        lbm.put(8, lbm.size() + 1);
-        lbm.put(18, lbm.size() + 1);
-        lbm.put(19, lbm.size() + 1);
-        lbm.put(21, lbm.size() + 1);
-        lbm.put(22, lbm.size() + 1);
-        lbm.put(23, lbm.size() + 1);
-        lbm.put(28, lbm.size() + 1);
-        lbn.put(1, BdUniqueId.gen());
-        lbn.put(2, BdUniqueId.gen());
-        lbn.put(3, BdUniqueId.gen());
-        lbn.put(5, BdUniqueId.gen());
-        lbn.put(6, BdUniqueId.gen());
-        lbn.put(7, BdUniqueId.gen());
-        lbn.put(8, BdUniqueId.gen());
-        lbn.put(18, BdUniqueId.gen());
-        lbn.put(19, BdUniqueId.gen());
-        lbn.put(21, BdUniqueId.gen());
-        lbn.put(22, BdUniqueId.gen());
-        lbn.put(23, BdUniqueId.gen());
-        lbn.put(28, BdUniqueId.gen());
+    protected void dbA() {
+        lbA.put(1, lbA.size() + 1);
+        lbA.put(2, lbA.size() + 1);
+        lbA.put(3, lbA.size() + 1);
+        lbA.put(5, lbA.size() + 1);
+        lbA.put(6, lbA.size() + 1);
+        lbA.put(7, lbA.size() + 1);
+        lbA.put(8, lbA.size() + 1);
+        lbA.put(18, lbA.size() + 1);
+        lbA.put(19, lbA.size() + 1);
+        lbA.put(21, lbA.size() + 1);
+        lbA.put(22, lbA.size() + 1);
+        lbA.put(23, lbA.size() + 1);
+        lbA.put(28, lbA.size() + 1);
+        lbB.put(1, BdUniqueId.gen());
+        lbB.put(2, BdUniqueId.gen());
+        lbB.put(3, BdUniqueId.gen());
+        lbB.put(5, BdUniqueId.gen());
+        lbB.put(6, BdUniqueId.gen());
+        lbB.put(7, BdUniqueId.gen());
+        lbB.put(8, BdUniqueId.gen());
+        lbB.put(18, BdUniqueId.gen());
+        lbB.put(19, BdUniqueId.gen());
+        lbB.put(21, BdUniqueId.gen());
+        lbB.put(22, BdUniqueId.gen());
+        lbB.put(23, BdUniqueId.gen());
+        lbB.put(28, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e

@@ -27,31 +27,31 @@ public class b {
     private NavigationBar mNavigationBar;
     private g mPullView;
     private View mRoot;
-    private MemberRecommendView nGD;
-    private BubbleListActivity nHN;
-    private a nHS;
+    private MemberRecommendView nHd;
+    private BubbleListActivity nIn;
+    private a nIs;
     private int topMargin;
 
     public b(BubbleListActivity bubbleListActivity, com.baidu.tieba.themeCenter.bubble.all.a aVar) {
         this.mPullView = null;
         this.topMargin = 0;
-        this.nHN = bubbleListActivity;
+        this.nIn = bubbleListActivity;
         this.topMargin = l.getDimens(bubbleListActivity.getPageContext().getPageActivity(), R.dimen.ds120);
-        this.mRoot = LayoutInflater.from(this.nHN.getPageContext().getPageActivity()).inflate(R.layout.bubble_list, (ViewGroup) null);
-        this.nHN.setContentView(this.mRoot);
+        this.mRoot = LayoutInflater.from(this.nIn.getPageContext().getPageActivity()).inflate(R.layout.bubble_list, (ViewGroup) null);
+        this.nIn.setContentView(this.mRoot);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.bubble_all);
-        this.nGD = (MemberRecommendView) this.mRoot.findViewById(R.id.view_member_recommend);
-        this.nGD.setFromType(7);
+        this.nHd = (MemberRecommendView) this.mRoot.findViewById(R.id.view_member_recommend);
+        this.nHd.setFromType(7);
         this.WO = (BdListView) this.mRoot.findViewById(R.id.listview_bubble);
-        this.mPullView = new g(this.nHN.getPageContext());
+        this.mPullView = new g(this.nIn.getPageContext());
         this.WO.setPullRefresh(this.mPullView);
-        TextView textView = new TextView(this.nHN.getActivity());
-        textView.setHeight(l.getDimens(this.nHN.getActivity(), R.dimen.ds20));
+        TextView textView = new TextView(this.nIn.getActivity());
+        textView.setHeight(l.getDimens(this.nIn.getActivity(), R.dimen.ds20));
         this.WO.addFooterView(textView);
-        this.nHS = new a(this.nHN.getPageContext(), aVar);
-        this.WO.setAdapter((ListAdapter) this.nHS);
+        this.nIs = new a(this.nIn.getPageContext(), aVar);
+        this.WO.setAdapter((ListAdapter) this.nIs);
     }
 
     public void a(BdListView.e eVar, f.c cVar) {
@@ -61,10 +61,10 @@ public class b {
 
     public void a(e eVar, List<DressItemData> list, boolean z) {
         if (list == null || list.size() <= 0) {
-            cAH();
+            cAO();
             return;
         }
-        cAI();
+        cAP();
         b(eVar);
         fT(fU(list));
     }
@@ -90,49 +90,49 @@ public class b {
             return;
         }
         this.WO.setVisibility(0);
-        this.nHS.setData(list);
-        this.nHS.notifyDataSetChanged();
+        this.nIs.setData(list);
+        this.nIs.notifyDataSetChanged();
     }
 
     private boolean b(e eVar) {
-        if (eVar == null || StringUtils.isNull(eVar.dRo())) {
-            this.nGD.setVisibility(8);
+        if (eVar == null || StringUtils.isNull(eVar.dRw())) {
+            this.nHd.setVisibility(8);
             return false;
         }
-        this.nGD.setVisibility(0);
-        this.nGD.a(eVar);
+        this.nHd.setVisibility(0);
+        this.nHd.a(eVar);
         return true;
     }
 
-    public void cAH() {
-        this.nGD.setVisibility(8);
+    public void cAO() {
+        this.nHd.setVisibility(8);
         this.WO.setVisibility(8);
         this.mRoot.setVisibility(8);
         ap.setBackgroundColor(this.mRoot, R.color.CAM_X0201);
-        String string = this.nHN.getPageContext().getResources().getString(R.string.no_data_text);
-        this.nHN.setNetRefreshViewTopMargin(this.topMargin);
-        this.nHN.showNetRefreshView(this.mRoot, string, false);
+        String string = this.nIn.getPageContext().getResources().getString(R.string.no_data_text);
+        this.nIn.setNetRefreshViewTopMargin(this.topMargin);
+        this.nIn.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void cAI() {
+    public void cAP() {
         ap.setBackgroundColor(this.mRoot, R.color.CAM_X0204);
-        this.nHN.hideNetRefreshView(this.mRoot);
-        this.nGD.setVisibility(0);
+        this.nIn.hideNetRefreshView(this.mRoot);
+        this.nHd.setVisibility(0);
         this.WO.setVisibility(0);
         this.mRoot.setVisibility(0);
     }
 
-    public void bRB() {
+    public void bRI() {
         this.WO.completePullRefreshPostDelayed(0L);
     }
 
     public void bzn() {
-        com.baidu.tbadk.r.a.a(this.nHN.getPageContext(), this.mRoot);
+        com.baidu.tbadk.r.a.a(this.nIn.getPageContext(), this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.nHN.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.nIn.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.WO != null && this.WO.getVisibility() == 0 && this.nHS != null) {
-            this.nHS.notifyDataSetChanged();
+        if (this.WO != null && this.WO.getVisibility() == 0 && this.nIs != null) {
+            this.nIs.notifyDataSetChanged();
         }
         if (this.mPullView != null) {
             this.mPullView.changeSkin(TbadkApplication.getInst().getSkinType());

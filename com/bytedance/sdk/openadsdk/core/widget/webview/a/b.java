@@ -171,10 +171,10 @@ public class b {
                         } catch (Throwable th2) {
                         }
                     }
-                    i eqH = i.eqH();
-                    new com.bytedance.sdk.adnet.b.c(file.getAbsolutePath(), a4, eqH).build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).c());
+                    i eqP = i.eqP();
+                    new com.bytedance.sdk.adnet.b.c(file.getAbsolutePath(), a4, eqP).build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).c());
                     try {
-                        pVar = eqH.get();
+                        pVar = eqP.get();
                     } catch (Throwable th3) {
                         pVar = null;
                     }

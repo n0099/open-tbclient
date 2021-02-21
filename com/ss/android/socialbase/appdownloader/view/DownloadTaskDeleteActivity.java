@@ -21,7 +21,7 @@ public class DownloadTaskDeleteActivity extends Activity {
 
     /* renamed from: b  reason: collision with root package name */
     private Intent f13061b;
-    private j qee;
+    private j qeE;
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
@@ -47,15 +47,15 @@ public class DownloadTaskDeleteActivity extends Activity {
         super.onResume();
         this.f13061b = getIntent();
         b();
-        if (this.qee != null && !this.qee.b()) {
-            this.qee.a();
-        } else if (this.qee == null) {
+        if (this.qeE != null && !this.qeE.b()) {
+            this.qeE.a();
+        } else if (this.qeE == null) {
             finish();
         }
     }
 
     private void b() {
-        if (this.qee == null && this.f13061b != null) {
+        if (this.qeE == null && this.f13061b != null) {
             try {
                 final int intExtra = this.f13061b.getIntExtra("extra_click_download_ids", 0);
                 final c h = f.iB(getApplicationContext()).h(intExtra);
@@ -66,29 +66,29 @@ public class DownloadTaskDeleteActivity extends Activity {
                         return;
                     }
                     String format = String.format(getString(i.a(this, "appdownloader_notification_download_delete")), i);
-                    com.ss.android.socialbase.appdownloader.c.c eFi = d.eFn().eFi();
+                    com.ss.android.socialbase.appdownloader.c.c eFq = d.eFv().eFq();
                     k kVar = null;
-                    if (eFi != null) {
-                        kVar = eFi.iz(this);
+                    if (eFq != null) {
+                        kVar = eFq.iz(this);
                     }
                     if (kVar == null) {
                         kVar = new com.ss.android.socialbase.appdownloader.d.a(this);
                     }
                     if (kVar != null) {
                         int a2 = i.a(this, "appdownloader_tip");
-                        kVar.QV(a2).aaJ(format).h(i.a(this, "appdownloader_label_ok"), new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity.3
+                        kVar.QW(a2).aaV(format).h(i.a(this, "appdownloader_label_ok"), new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity.3
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i2) {
-                                com.ss.android.socialbase.appdownloader.c.d eFj = d.eFn().eFj();
-                                if (eFj != null) {
-                                    eFj.a(h);
+                                com.ss.android.socialbase.appdownloader.c.d eFr = d.eFv().eFr();
+                                if (eFr != null) {
+                                    eFr.a(h);
                                 }
-                                com.ss.android.socialbase.downloader.d.d Rs = f.iB(b.eGu()).Rs(intExtra);
-                                if (Rs != null) {
-                                    Rs.a(10, h, "", "");
+                                com.ss.android.socialbase.downloader.d.d Rt = f.iB(b.eGC()).Rt(intExtra);
+                                if (Rt != null) {
+                                    Rt.a(10, h, "", "");
                                 }
-                                if (b.eGu() != null) {
-                                    f.iB(b.eGu()).b(intExtra);
+                                if (b.eGC() != null) {
+                                    f.iB(b.eGC()).b(intExtra);
                                 }
                                 DownloadTaskDeleteActivity.this.finish();
                             }
@@ -103,7 +103,7 @@ public class DownloadTaskDeleteActivity extends Activity {
                                 DownloadTaskDeleteActivity.this.finish();
                             }
                         });
-                        this.qee = kVar.eEY();
+                        this.qeE = kVar.eFg();
                     }
                 }
             } catch (Exception e) {

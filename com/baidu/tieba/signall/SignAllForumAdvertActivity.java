@@ -16,10 +16,10 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     private ImageView dvq;
     private ImageView mCloseBtn;
     private NavigationBar mNavigationBar;
-    private String nol;
-    private String nom;
-    private boolean non;
-    private TbImageView noo;
+    private String noN;
+    private String noO;
+    private boolean noP;
+    private TbImageView noQ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -28,11 +28,11 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         super.setActivityBgTransparent();
         super.setSwipeBackEnabled(false);
         Intent intent = getIntent();
-        this.nol = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
-        this.nom = intent.getStringExtra("ad_url");
-        this.non = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
+        this.noN = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
+        this.noO = intent.getStringExtra("ad_url");
+        this.noP = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
         initUI();
-        dKV();
+        dLd();
     }
 
     private void initUI() {
@@ -40,10 +40,10 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
         this.dvq = (ImageView) findViewById(R.id.signallforum_icon);
-        this.noo = (TbImageView) findViewById(R.id.signallforum_advert_pic);
+        this.noQ = (TbImageView) findViewById(R.id.signallforum_advert_pic);
         this.mCloseBtn = (ImageView) findViewById(R.id.signallforum_advert_close);
-        this.noo.setDefaultBgResource(R.drawable.transparent_bg);
-        com.baidu.adp.lib.e.d.mw().a(this.nol, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.1
+        this.noQ.setDefaultBgResource(R.drawable.transparent_bg);
+        com.baidu.adp.lib.e.d.mw().a(this.noN, 10, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
@@ -54,13 +54,13 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                 }
             }
         }, null);
-        this.noo.startLoad(this.nol, 10, false);
-        this.noo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.2
+        this.noQ.startLoad(this.noN, 10, false);
+        this.noQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.2
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.signall.SignAllForumAdvertActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                bf.bsV().b(SignAllForumAdvertActivity.this.getPageContext(), new String[]{SignAllForumAdvertActivity.this.nom});
+                bf.bsV().b(SignAllForumAdvertActivity.this.getPageContext(), new String[]{SignAllForumAdvertActivity.this.noO});
             }
         });
         this.mCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.3
@@ -71,7 +71,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         });
     }
 
-    private void dKV() {
+    private void dLd() {
         TiebaStatic.log("c10746");
     }
 

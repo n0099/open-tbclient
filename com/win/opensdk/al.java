@@ -35,7 +35,7 @@ public class al {
         return c;
     }
 
-    public static String eIW() {
+    public static String eJe() {
         return c + "jy/cf?";
     }
 
@@ -46,24 +46,24 @@ public class al {
         /* renamed from: case  reason: not valid java name */
         String f22case;
         String java;
-        Context qiN;
-        protected r<bh> qkc;
+        Context qjn;
+        protected r<bh> qkC;
 
         public a(Context context) {
-            this.qiN = context;
+            this.qjn = context;
         }
 
         public final a a(r<bh> rVar) {
-            this.qkc = rVar;
+            this.qkC = rVar;
             return this;
         }
 
-        public final void eIP() {
+        public final void eIX() {
             this.f22case = al.java() + al.d;
             al.a(this);
         }
 
-        public final void eIQ() {
+        public final void eIY() {
             this.f22case = al.java() + al.e;
             al.a(this);
         }
@@ -159,7 +159,7 @@ public class al {
                             }
                         }
                     }
-                    bhVar.qjR = arrayList;
+                    bhVar.qkr = arrayList;
                     return bhVar;
                 }
             } catch (Exception e2) {
@@ -170,13 +170,13 @@ public class al {
     }
 
     static /* synthetic */ void a(final a aVar) {
-        if (TextUtils.isEmpty(aVar.f22case) || aVar.qiN == null || TextUtils.isEmpty(aVar.java)) {
+        if (TextUtils.isEmpty(aVar.f22case) || aVar.qjn == null || TextUtils.isEmpty(aVar.java)) {
             return;
         }
         ba.C(new Runnable() { // from class: com.win.opensdk.al.1
             @Override // java.lang.Runnable
             public final void run() {
-                HashMap<String, String> iP = ak.iP(a.this.qiN);
+                HashMap<String, String> iP = ak.iP(a.this.qjn);
                 iP.put("pid", a.this.java);
                 al.a(a.this, iP);
                 al.b(a.this, iP);
@@ -190,29 +190,29 @@ public class al {
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                     @Override // com.win.opensdk.r
                     public final /* synthetic */ void bH(am amVar) {
-                        bh fn = al.fn(amVar.qkd);
-                        if (a.this.qkc != null) {
+                        bh fn = al.fn(amVar.qkD);
+                        if (a.this.qkC != null) {
                             if (fn == null) {
-                                a.this.qkc.ck(101, "");
+                                a.this.qkC.ck(101, "");
                             } else if (!TextUtils.isEmpty(a.this.java) && a.this.java.equalsIgnoreCase(fn.java)) {
-                                a.this.qkc.bH(fn);
+                                a.this.qkC.bH(fn);
                             } else {
-                                a.this.qkc.ck(2003, "");
+                                a.this.qkC.ck(2003, "");
                             }
                         }
                     }
 
                     @Override // com.win.opensdk.r
-                    public final void eIP() {
-                        if (a.this.qkc != null) {
-                            a.this.qkc.eIP();
+                    public final void eIX() {
+                        if (a.this.qkC != null) {
+                            a.this.qkC.eIX();
                         }
                     }
 
                     @Override // com.win.opensdk.r
                     public final void ck(int i, String str2) {
-                        if (a.this.qkc != null) {
-                            a.this.qkc.ck(i, str2);
+                        if (a.this.qkC != null) {
+                            a.this.qkC.ck(i, str2);
                         }
                     }
                 });
@@ -224,22 +224,22 @@ public class al {
         if (!aVar.java.startsWith("602")) {
             return;
         }
-        hashMap.put("lo_timeout", String.valueOf(az.m60a(aVar.qiN)));
+        hashMap.put("lo_timeout", String.valueOf(az.m59a(aVar.qjn)));
     }
 
     static /* synthetic */ void b(a aVar, HashMap hashMap) {
         try {
-            String[] split = az.f(aVar.qiN).split(",");
+            String[] split = az.f(aVar.qjn).split(",");
             ArrayList<aa> arrayList = new ArrayList();
             arrayList.clear();
             for (String str : split) {
                 String[] split2 = str.split(":");
                 String str2 = split2[0];
                 String str3 = split2[1];
-                if (System.currentTimeMillis() - Long.parseLong(str3) < az.m68e(aVar.qiN)) {
+                if (System.currentTimeMillis() - Long.parseLong(str3) < az.m67e(aVar.qjn)) {
                     aa aaVar = new aa();
                     aaVar.java = str2;
-                    aaVar.qjj = Long.parseLong(str3);
+                    aaVar.qjJ = Long.parseLong(str3);
                     arrayList.add(aaVar);
                 }
             }
@@ -248,13 +248,13 @@ public class al {
                 String str5 = "";
                 for (aa aaVar2 : arrayList) {
                     str4 = str4 + aaVar2.java + ",";
-                    str5 = str5 + aaVar2.java + ":" + aaVar2.qjj + ",";
+                    str5 = str5 + aaVar2.java + ":" + aaVar2.qjJ + ",";
                 }
                 if (!TextUtils.isEmpty(str4)) {
                     hashMap.put("a605", str4.substring(0, str4.length() - 1));
                 }
                 if (!TextUtils.isEmpty(str5)) {
-                    az.k(aVar.qiN, str5.substring(0, str5.length() - 1), true);
+                    az.k(aVar.qjn, str5.substring(0, str5.length() - 1), true);
                 }
             }
         } catch (Exception e2) {
@@ -264,17 +264,17 @@ public class al {
 
     static /* synthetic */ void c(a aVar, HashMap hashMap) {
         try {
-            String[] split = az.g(aVar.qiN).split(",");
+            String[] split = az.g(aVar.qjn).split(",");
             ArrayList<aa> arrayList = new ArrayList();
             arrayList.clear();
             for (String str : split) {
                 String[] split2 = str.split(":");
                 String str2 = split2[0];
                 String str3 = split2[1];
-                if (System.currentTimeMillis() - Long.parseLong(str3) <= az.m68e(aVar.qiN)) {
+                if (System.currentTimeMillis() - Long.parseLong(str3) <= az.m67e(aVar.qjn)) {
                     aa aaVar = new aa();
                     aaVar.java = str2;
-                    aaVar.qjj = Long.parseLong(str3);
+                    aaVar.qjJ = Long.parseLong(str3);
                     arrayList.add(aaVar);
                 }
             }
@@ -283,13 +283,13 @@ public class al {
                 String str5 = "";
                 for (aa aaVar2 : arrayList) {
                     str4 = str4 + aaVar2.java + ",";
-                    str5 = str5 + aaVar2.java + ":" + aaVar2.qjj + ",";
+                    str5 = str5 + aaVar2.java + ":" + aaVar2.qjJ + ",";
                 }
                 if (!TextUtils.isEmpty(str4)) {
                     hashMap.put("a601", str4.substring(0, str4.length() - 1));
                 }
                 if (!TextUtils.isEmpty(str5)) {
-                    az.l(aVar.qiN, str5.substring(0, str5.length() - 1), true);
+                    az.l(aVar.qjn, str5.substring(0, str5.length() - 1), true);
                 }
             }
         } catch (Exception e2) {

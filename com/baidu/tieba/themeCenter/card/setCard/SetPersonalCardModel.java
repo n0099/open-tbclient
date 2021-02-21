@@ -13,11 +13,11 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     public static final int TYPE_DELETE_USE = 2;
     public static final int TYPE_SET_USE = 1;
     private long cardId;
-    private a nIJ;
+    private a nJj;
     private int type;
-    private boolean nGi = false;
+    private boolean nGI = false;
     private boolean isLoading = false;
-    private com.baidu.adp.framework.listener.a jbH = new com.baidu.adp.framework.listener.a(1003095, CmdConfigSocket.CMD_SET_PERSONAL_CARD) { // from class: com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel.1
+    private com.baidu.adp.framework.listener.a jbV = new com.baidu.adp.framework.listener.a(1003095, CmdConfigSocket.CMD_SET_PERSONAL_CARD) { // from class: com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             SetPersonalCardModel.this.isLoading = false;
@@ -37,12 +37,12 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
                         SetPersonalCardModel.this.setCardId(setPersonalCardSocketResponse.getCardId());
                         SetPersonalCardModel.this.setType(setPersonalCardSocketResponse.getType());
                     }
-                    if (SetPersonalCardModel.this.nIJ != null) {
-                        int i = c.nFD;
-                        if (responsedMessage.getError() == c.nFE) {
-                            i = c.nFC;
+                    if (SetPersonalCardModel.this.nJj != null) {
+                        int i = c.nGd;
+                        if (responsedMessage.getError() == c.nGe) {
+                            i = c.nGc;
                         }
-                        SetPersonalCardModel.this.nIJ.b(SetPersonalCardModel.this.nGi, SetPersonalCardModel.this.cardId, SetPersonalCardModel.this.type, responsedMessage.getErrorString(), i);
+                        SetPersonalCardModel.this.nJj.b(SetPersonalCardModel.this.nGI, SetPersonalCardModel.this.cardId, SetPersonalCardModel.this.type, responsedMessage.getErrorString(), i);
                     }
                 }
             }
@@ -57,7 +57,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     public SetPersonalCardModel() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SET_PERSONAL_CARD, SetPersonalCardSocketResponse.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SET_PERSONAL_CARD, 1003095, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
-        registerListener(this.jbH);
+        registerListener(this.jbV);
     }
 
     public void J(long j, int i) {
@@ -81,7 +81,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.jbH);
+        MessageManager.getInstance().unRegisterListener(this.jbV);
     }
 
     public void setCardId(long j) {
@@ -93,10 +93,10 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void yR(boolean z) {
-        this.nGi = z;
+        this.nGI = z;
     }
 
     public void a(a aVar) {
-        this.nIJ = aVar;
+        this.nJj = aVar;
     }
 }

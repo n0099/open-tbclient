@@ -18,7 +18,7 @@ public class d {
     }
 
     public static void a(o oVar, int i, int i2, int i3) {
-        if (oVar != null && oVar.dNl() != null && oVar.dNl().goods != null && oVar.dNl().goods.goods_style != 1001 && oVar.dNl().goods.goods_style != -1001) {
+        if (oVar != null && oVar.dNt() != null && oVar.dNt().goods != null && oVar.dNt().goods.goods_style != 1001 && oVar.dNt().goods.goods_style != -1001) {
             c b2 = h.b(oVar, 5);
             b2.HY(i);
             if (i2 != -999) {
@@ -27,9 +27,9 @@ public class d {
             if (i3 != -999) {
                 b2.Ia(i3);
             }
-            e.dEm().a(b2);
-            if (oVar != null && oVar.dNl() != null) {
-                oVar.dNl().mDiscardReason = i;
+            e.dEu().a(b2);
+            if (oVar != null && oVar.dNt() != null) {
+                oVar.dNt().mDiscardReason = i;
             }
         }
     }
@@ -39,7 +39,7 @@ public class d {
     }
 
     public static void a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
-        if (advertAppInfo != null && advertAppInfo.eLD != null && advertAppInfo.eLD.eLR != 1001 && advertAppInfo.eLD.eLR != -1001) {
+        if (advertAppInfo != null && advertAppInfo.eLC != null && advertAppInfo.eLC.eLR != 1001 && advertAppInfo.eLC.eLR != -1001) {
             c a2 = h.a(advertAppInfo, 5, i, i2);
             if (i3 != -999) {
                 a2.HZ(i3);
@@ -51,11 +51,11 @@ public class d {
                 if (TextUtils.isEmpty(mProcessName)) {
                     mProcessName = getProcessName();
                 }
-                a2.RL(mProcessName);
+                a2.RX(mProcessName);
             }
-            e.dEm().a(a2);
-            if (advertAppInfo.eLK != null) {
-                advertAppInfo.eLK.mDiscardReason = 2;
+            e.dEu().a(a2);
+            if (advertAppInfo.eLJ != null) {
+                advertAppInfo.eLJ.mDiscardReason = 2;
             }
         }
     }
@@ -65,16 +65,10 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             str = "hotarea";
         }
-        b2.RR(str);
-        e.dEm().a(b2);
-        b2.HW(706);
-        boolean z = i2 == 1000;
-        b2.RR(z ? "APP" : "URL");
-        if (!z) {
-            b2.HZ(i2);
-        }
-        b2.RQ("DEEPLINK");
-        e.dEm().a(b2);
+        b2.Sd(str);
+        e.dEu().a(b2);
+        a(b2, i2);
+        e.dEu().a(b2);
     }
 
     public static void a(AdvertAppInfo advertAppInfo, int i, HashMap hashMap, int i2) {
@@ -84,12 +78,12 @@ public class d {
     public static void a(AdvertAppInfo advertAppInfo, int i, String str, String str2, String str3) {
         com.baidu.tbadk.distribute.a.bAU().a(advertAppInfo, str, 0L, advertAppInfo.page, "click", i);
         c c = h.c(advertAppInfo, 2, i);
-        c.RM(str2);
+        c.RY(str2);
         if (TextUtils.isEmpty(str3)) {
             str3 = "hotarea";
         }
-        c.RR(str3);
-        e.dEm().a(c);
+        c.Sd(str3);
+        e.dEu().a(c);
     }
 
     public static void a(AdvertAppInfo advertAppInfo, int i, String str, String str2, HashMap hashMap) {
@@ -105,6 +99,16 @@ public class d {
             return "hotarea";
         }
         return str;
+    }
+
+    private static void a(c cVar, int i) {
+        cVar.HW(706);
+        boolean z = i == 1000;
+        cVar.Sd(z ? "APP" : "URL");
+        if (!z) {
+            cVar.HZ(i);
+        }
+        cVar.Sc("DEEPLINK");
     }
 
     private static String getProcessName() {

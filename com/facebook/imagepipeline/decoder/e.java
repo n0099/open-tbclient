@@ -6,24 +6,24 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public class e {
-    private boolean pJZ;
-    private final com.facebook.common.memory.a pze;
-    private int pJV = 0;
-    private int pJU = 0;
-    private int pJW = 0;
-    private int pJY = 0;
-    private int pJX = 0;
-    private int pJT = 0;
+    private boolean pKz;
+    private final com.facebook.common.memory.a pzE;
+    private int pKv = 0;
+    private int pKu = 0;
+    private int pKw = 0;
+    private int pKy = 0;
+    private int pKx = 0;
+    private int pKt = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.pze = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.pzE = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.e eVar) {
-        if (this.pJT != 6 && eVar.getSize() > this.pJV) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.pze.get(16384), this.pze);
+        if (this.pKt != 6 && eVar.getSize() > this.pKv) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.pzE.get(16384), this.pzE);
             try {
-                com.facebook.common.util.c.b(fVar, this.pJV);
+                com.facebook.common.util.c.b(fVar, this.pKv);
                 return w(fVar);
             } catch (IOException e) {
                 l.s(e);
@@ -38,88 +38,88 @@ public class e {
     private boolean w(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.pJX;
-        while (this.pJT != 6 && (read = inputStream.read()) != -1) {
+        int i = this.pKx;
+        while (this.pKt != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.pJV++;
-                if (this.pJZ) {
-                    this.pJT = 6;
-                    this.pJZ = false;
+                this.pKv++;
+                if (this.pKz) {
+                    this.pKt = 6;
+                    this.pKz = false;
                     return false;
                 }
-                switch (this.pJT) {
+                switch (this.pKt) {
                     case 0:
                         if (read == 255) {
-                            this.pJT = 1;
+                            this.pKt = 1;
                             break;
                         } else {
-                            this.pJT = 6;
+                            this.pKt = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.pJT = 2;
+                            this.pKt = 2;
                             break;
                         } else {
-                            this.pJT = 6;
+                            this.pKt = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.pJT = 3;
+                            this.pKt = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.pJT = 3;
+                            this.pKt = 3;
                             break;
                         } else if (read == 0) {
-                            this.pJT = 2;
+                            this.pKt = 2;
                             break;
                         } else if (read == 217) {
-                            this.pJZ = true;
-                            PK(this.pJV - 2);
-                            this.pJT = 2;
+                            this.pKz = true;
+                            PL(this.pKv - 2);
+                            this.pKt = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                PK(this.pJV - 2);
+                                PL(this.pKv - 2);
                             }
-                            if (PJ(read)) {
-                                this.pJT = 4;
+                            if (PK(read)) {
+                                this.pKt = 4;
                                 break;
                             } else {
-                                this.pJT = 2;
+                                this.pKt = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.pJT = 5;
+                        this.pKt = 5;
                         break;
                     case 5:
-                        int i2 = ((this.pJU << 8) + read) - 2;
+                        int i2 = ((this.pKu << 8) + read) - 2;
                         com.facebook.common.util.c.b(inputStream, i2);
-                        this.pJV = i2 + this.pJV;
-                        this.pJT = 2;
+                        this.pKv = i2 + this.pKv;
+                        this.pKt = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.pJU = read;
+                this.pKu = read;
             } catch (IOException e) {
                 l.s(e);
             }
         }
-        if (this.pJT == 6 || this.pJX == i) {
+        if (this.pKt == 6 || this.pKx == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean PJ(int i) {
+    private static boolean PK(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void PK(int i) {
-        if (this.pJW > 0) {
-            this.pJY = i;
+    private void PL(int i) {
+        if (this.pKw > 0) {
+            this.pKy = i;
         }
-        int i2 = this.pJW;
-        this.pJW = i2 + 1;
-        this.pJX = i2;
+        int i2 = this.pKw;
+        this.pKw = i2 + 1;
+        this.pKx = i2;
     }
 
-    public int eya() {
-        return this.pJY;
+    public int eyi() {
+        return this.pKy;
     }
 
-    public int eyb() {
-        return this.pJX;
+    public int eyj() {
+        return this.pKx;
     }
 
-    public boolean eyc() {
-        return this.pJZ;
+    public boolean eyk() {
+        return this.pKz;
     }
 }

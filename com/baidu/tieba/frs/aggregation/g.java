@@ -25,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, com.baidu.tieba.lego.card.view.i {
-    public static final BdUniqueId jnN = BdUniqueId.gen();
+    public static final BdUniqueId job = BdUniqueId.gen();
     public String abtest_tag;
     public long agreeNum;
     public int agreeType;
@@ -36,12 +36,12 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
     public String firstPostId;
     public String forumId;
     public boolean hasAgree;
-    public int iAe;
-    public long jnO;
-    public List<String> jnP;
-    public List<String> jnQ;
-    public b jnR;
-    public c jnS;
+    public int iAs;
+    public long joc;
+    public List<String> jod;
+    public List<String> joe;
+    public b jof;
+    public c jog;
     public long lastReplyTime;
     public BaijiahaoData mBaijiahao;
     public String nid;
@@ -54,7 +54,7 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
     public String title;
     public String weight;
     public List<p> postList = new ArrayList();
-    public boolean jnT = true;
+    public boolean joh = true;
     public boolean waitConfirm = false;
     public boolean isTitleExpanded = false;
     private AgreeData agreeData = new AgreeData();
@@ -64,7 +64,7 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
         public boolean hasFocus;
         public boolean isBigV;
         public boolean isGod;
-        public a job;
+        public a jop;
         public String portrait;
         public String userId;
         public String userName;
@@ -83,8 +83,8 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
 
     /* loaded from: classes.dex */
     public static class c {
-        public a joc;
-        public List<d> jod;
+        public a joq;
+        public List<d> jor;
         public String mcnLeadPage;
         public String originVideoUrl;
         public String thumbnailHeight;
@@ -129,8 +129,8 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
 
     @Override // com.baidu.tbadk.core.util.g.a
     public String getVideoUrl() {
-        if (this.jnS != null) {
-            return this.jnS.videoUrl;
+        if (this.jog != null) {
+            return this.jog.videoUrl;
         }
         return null;
     }
@@ -148,25 +148,25 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
     /* loaded from: classes.dex */
     public static class a {
         public String aaY;
-        public long jnU;
-        public long jnV;
-        public String jnW;
-        public String jnX;
-        public String jnY;
-        public long jnZ;
-        public long joa;
+        public long joi;
+        public long joj;
+        public String jok;
+        public String jol;
+        public String jom;
+        public long jon;
+        public long joo;
 
         public boolean isValid() {
-            return (StringUtils.isNull(this.jnX) || StringUtils.isNull(this.aaY)) ? false : true;
+            return (StringUtils.isNull(this.jol) || StringUtils.isNull(this.aaY)) ? false : true;
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("startTime = " + this.jnU);
-            sb.append(",   ad_end_time = " + this.jnV);
-            sb.append(",   pic_url = " + this.jnW);
-            sb.append(",   card_title = " + this.jnX);
-            sb.append(",   button_title = " + this.jnY);
+            sb.append("startTime = " + this.joi);
+            sb.append(",   ad_end_time = " + this.joj);
+            sb.append(",   pic_url = " + this.jok);
+            sb.append(",   card_title = " + this.jol);
+            sb.append(",   button_title = " + this.jom);
             return sb.toString();
         }
     }
@@ -185,84 +185,84 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
                 this.postNum = jSONObject.optLong("post_num");
                 this.shareNum = jSONObject.optLong("share_num");
                 this.agreeNum = jSONObject.optLong("agree_num");
-                this.jnO = jSONObject.optLong("disagree_num");
+                this.joc = jSONObject.optLong("disagree_num");
                 this.agreeType = jSONObject.optInt("agree_type");
                 this.hasAgree = jSONObject.optInt("has_agree") == 1;
                 if (this.agreeNum < 0) {
                     this.agreeNum = 0L;
                 }
-                if (this.jnO < 0) {
-                    this.jnO = 0L;
+                if (this.joc < 0) {
+                    this.joc = 0L;
                 }
                 this.agreeData.threadId = this.threadId;
                 this.agreeData.agreeType = this.agreeType;
                 this.agreeData.hasAgree = this.hasAgree;
                 this.agreeData.agreeNum = this.agreeNum;
-                this.agreeData.disAgreeNum = this.jnO;
+                this.agreeData.disAgreeNum = this.joc;
                 this.agreeData.diffAgreeNum = jSONObject.optLong("diff_agree_num", 0L);
                 this.source = jSONObject.optString("source");
                 this.extra = jSONObject.optString("extra");
                 this.abtest_tag = jSONObject.optString("abtest_tag");
                 this.weight = jSONObject.optString("weight");
-                this.jnP = new ArrayList();
+                this.jod = new ArrayList();
                 String optString = jSONObject.optString("forum_id_shared");
                 if (!StringUtils.isNull(optString)) {
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i = 0; i < jSONArray.length(); i++) {
-                        this.jnP.add(jSONArray.optString(i));
+                        this.jod.add(jSONArray.optString(i));
                     }
                 }
-                this.jnQ = new ArrayList();
+                this.joe = new ArrayList();
                 String optString2 = jSONObject.optString("forum_name_shared");
                 if (!StringUtils.isNull(optString2)) {
                     JSONArray jSONArray2 = new JSONArray(optString2);
                     for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        this.jnQ.add(jSONArray2.optString(i2));
+                        this.joe.add(jSONArray2.optString(i2));
                     }
                 }
                 String optString3 = jSONObject.optString("author");
                 if (!TextUtils.isEmpty(optString3)) {
-                    this.jnR = new b();
+                    this.jof = new b();
                     JSONObject jSONObject2 = new JSONObject(optString3);
-                    this.jnR.userId = jSONObject2.optString("user_id");
-                    this.jnR.userName = jSONObject2.optString("user_name");
-                    this.jnR.userNickname = jSONObject2.optString("user_nickname");
-                    this.jnR.portrait = jSONObject2.optString("portrait");
-                    this.jnR.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
-                    this.jnR.isGod = jSONObject2.optInt("is_god") == 1;
+                    this.jof.userId = jSONObject2.optString("user_id");
+                    this.jof.userName = jSONObject2.optString("user_name");
+                    this.jof.userNickname = jSONObject2.optString("user_nickname");
+                    this.jof.portrait = jSONObject2.optString("portrait");
+                    this.jof.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
+                    this.jof.isGod = jSONObject2.optInt("is_god") == 1;
                     String optString4 = jSONObject2.optString("baijiahao_info");
                     if (!TextUtils.isEmpty(optString4)) {
                         JSONObject jSONObject3 = new JSONObject(optString4);
-                        this.jnR.job = new b.a();
-                        this.jnR.job.name = jSONObject3.optString("name");
-                        this.jnR.job.brief = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
-                        this.jnR.job.avatar = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                        this.jnR.job.avatar_h = jSONObject3.optString("avatar_h");
-                        this.jnR.job.auth_id = Integer.valueOf(jSONObject3.optInt("auth_id"));
-                        this.jnR.job.auth_desc = jSONObject3.optString("auth_desc");
+                        this.jof.jop = new b.a();
+                        this.jof.jop.name = jSONObject3.optString("name");
+                        this.jof.jop.brief = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+                        this.jof.jop.avatar = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                        this.jof.jop.avatar_h = jSONObject3.optString("avatar_h");
+                        this.jof.jop.auth_id = Integer.valueOf(jSONObject3.optInt("auth_id"));
+                        this.jof.jop.auth_desc = jSONObject3.optString("auth_desc");
                     }
                 }
                 String optString5 = jSONObject.optString("video");
                 if (!TextUtils.isEmpty(optString5)) {
-                    this.jnS = new c();
+                    this.jog = new c();
                     JSONObject jSONObject4 = new JSONObject(optString5);
-                    this.jnS.thumbnailWidth = jSONObject4.optString("thumbnail_width");
-                    this.jnS.thumbnailHeight = jSONObject4.optString("thumbnail_height");
-                    this.jnS.videoMd5 = jSONObject4.optString("video_md5");
-                    this.jnS.videoUrl = jSONObject4.optString("video_url");
-                    this.jnS.videoDuration = jSONObject4.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION);
-                    this.jnS.videoWidth = jSONObject4.optString("video_width");
-                    this.jnS.videoHeight = jSONObject4.optString("video_height");
-                    this.jnS.videoSize = jSONObject4.optLong("video_size");
-                    this.jnS.videoType = jSONObject4.optString(LogConfig.LOG_VIDEO_TYPE);
-                    this.jnS.thumbnailUrl = jSONObject4.optString("thumbnail_url");
-                    this.jnS.videoFormat = jSONObject4.optString("video_format");
-                    this.jnS.thumbnailPicid = jSONObject4.optString("thumbnail_picid");
-                    this.jnS.originVideoUrl = jSONObject4.optString("origin_video_url");
-                    this.jnS.mcnLeadPage = jSONObject4.optString("mcn_lead_page");
+                    this.jog.thumbnailWidth = jSONObject4.optString("thumbnail_width");
+                    this.jog.thumbnailHeight = jSONObject4.optString("thumbnail_height");
+                    this.jog.videoMd5 = jSONObject4.optString("video_md5");
+                    this.jog.videoUrl = jSONObject4.optString("video_url");
+                    this.jog.videoDuration = jSONObject4.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION);
+                    this.jog.videoWidth = jSONObject4.optString("video_width");
+                    this.jog.videoHeight = jSONObject4.optString("video_height");
+                    this.jog.videoSize = jSONObject4.optLong("video_size");
+                    this.jog.videoType = jSONObject4.optString(LogConfig.LOG_VIDEO_TYPE);
+                    this.jog.thumbnailUrl = jSONObject4.optString("thumbnail_url");
+                    this.jog.videoFormat = jSONObject4.optString("video_format");
+                    this.jog.thumbnailPicid = jSONObject4.optString("thumbnail_picid");
+                    this.jog.originVideoUrl = jSONObject4.optString("origin_video_url");
+                    this.jog.mcnLeadPage = jSONObject4.optString("mcn_lead_page");
                     String optString6 = jSONObject4.optString("video_desc");
                     if (!TextUtils.isEmpty(optString6)) {
-                        this.jnS.jod = new ArrayList();
+                        this.jog.jor = new ArrayList();
                         JSONArray jSONArray3 = new JSONArray(optString6);
                         for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
                             d dVar = new d();
@@ -270,21 +270,21 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
                             dVar.videoUrl = jSONArray3.optJSONObject(i3).optString("video_url");
                             dVar.videoWidth = jSONArray3.optJSONObject(i3).optString("video_width");
                             dVar.videoHeight = jSONArray3.optJSONObject(i3).optString("video_height");
-                            this.jnS.jod.add(dVar);
+                            this.jog.jor.add(dVar);
                         }
                     }
                     JSONObject optJSONObject = jSONObject4.optJSONObject("mcn_ad_card");
                     if (optJSONObject != null) {
                         a aVar = new a();
-                        aVar.jnU = optJSONObject.optLong(SharedPrefConfig.AD_START_TIME);
-                        aVar.jnV = optJSONObject.optLong(SharedPrefConfig.AD_END_TIME);
-                        aVar.jnW = optJSONObject.optString("pic_url");
+                        aVar.joi = optJSONObject.optLong(SharedPrefConfig.AD_START_TIME);
+                        aVar.joj = optJSONObject.optLong(SharedPrefConfig.AD_END_TIME);
+                        aVar.jok = optJSONObject.optString("pic_url");
                         aVar.aaY = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                        aVar.jnX = optJSONObject.optString("card_title");
-                        aVar.jnY = optJSONObject.optString("button_title");
-                        aVar.jnZ = optJSONObject.optLong("effect_time");
-                        aVar.joa = optJSONObject.optLong("expire_time");
-                        this.jnS.joc = aVar;
+                        aVar.jol = optJSONObject.optString("card_title");
+                        aVar.jom = optJSONObject.optString("button_title");
+                        aVar.jon = optJSONObject.optLong("effect_time");
+                        aVar.joo = optJSONObject.optLong("expire_time");
+                        this.jog.joq = aVar;
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME);
@@ -313,13 +313,13 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
         }
     }
 
-    public boolean cFv() {
-        if (this.jnS == null) {
+    public boolean cFC() {
+        if (this.jog == null) {
             return false;
         }
         try {
-            int parseInt = Integer.parseInt(this.jnS.videoWidth);
-            return parseInt > 0 && ((float) Integer.parseInt(this.jnS.videoHeight)) / ((float) parseInt) > 1.0f;
+            int parseInt = Integer.parseInt(this.jog.videoWidth);
+            return parseInt > 0 && ((float) Integer.parseInt(this.jog.videoHeight)) / ((float) parseInt) > 1.0f;
         } catch (NumberFormatException e) {
             return false;
         }
@@ -327,7 +327,7 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jnN;
+        return job;
     }
 
     public static cb f(g gVar) {

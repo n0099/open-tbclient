@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.cb;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class f extends aq {
-    private TextView lNg;
+    private TextView lNv;
 
     public f(BaseFragmentActivity baseFragmentActivity, View view) {
         super(baseFragmentActivity, view);
-        this.lNg = null;
+        this.lNv = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.aq
     protected void a(e eVar) {
-        this.lNg = (TextView) this.mRootView.findViewById(R.id.icon_push);
-        this.lNg.setVisibility(8);
+        this.lNv = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.lNv.setVisibility(8);
     }
 
     public void uO(boolean z) {
-        if (this.lNg != null) {
+        if (this.lNv != null) {
             if (z) {
-                this.lNg.setText(R.string.push);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNg, R.drawable.push_text_selector);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNg, R.drawable.push_bg_selector);
-                this.lNg.setClickable(true);
+                this.lNv.setText(R.string.push);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNv, R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNv, R.drawable.push_bg_selector);
+                this.lNv.setClickable(true);
             } else {
-                this.lNg.setText(R.string.already_push);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNg, R.drawable.label_bg_gray80);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNg, R.color.CAM_X0109);
-                this.lNg.setClickable(false);
+                this.lNv.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNv, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNv, R.color.CAM_X0109);
+                this.lNv.setClickable(false);
             }
-            this.lNg.setVisibility(0);
+            this.lNv.setVisibility(0);
         }
     }
 
@@ -48,7 +48,7 @@ public class f extends aq {
         }
     }
 
-    public TextView dmA() {
-        return this.lNg;
+    public TextView dmH() {
+        return this.lNv;
     }
 }

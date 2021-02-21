@@ -65,42 +65,42 @@ public class c extends BaseAdapter {
     }
 
     private void a(int i, f.d dVar, a aVar) {
-        if (dVar == null || dVar.lqc < 0) {
+        if (dVar == null || dVar.lqq < 0) {
             return;
         }
-        aVar.lpJ.setText(bC(dVar.mTitle, 7));
+        aVar.lpX.setText(bC(dVar.mTitle, 7));
         if (TextUtils.isEmpty(dVar.mDiscount)) {
-            aVar.lpI.setVisibility(4);
+            aVar.lpW.setVisibility(4);
         } else {
-            aVar.lpI.setVisibility(0);
-            aVar.lpI.setText(bC(dVar.mDiscount, 10));
+            aVar.lpW.setVisibility(0);
+            aVar.lpW.setText(bC(dVar.mDiscount, 10));
         }
-        aVar.lpH.setText("" + (dVar.lqc / 100));
+        aVar.lpV.setText("" + (dVar.lqq / 100));
         if (TextUtils.isEmpty(dVar.mTagName)) {
-            aVar.lpG.setVisibility(4);
+            aVar.lpU.setVisibility(4);
         } else {
-            aVar.lpG.setVisibility(0);
-            aVar.lpG.setText(dVar.mTagName);
+            aVar.lpU.setVisibility(0);
+            aVar.lpU.setText(dVar.mTagName);
         }
         if (i == 0) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.lpD.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.lpR.getLayoutParams();
             layoutParams.width = this.aDJ;
             layoutParams.height = this.itemHeight;
             layoutParams.leftMargin = this.dividerWidth;
-            aVar.lpD.setLayoutParams(layoutParams);
+            aVar.lpR.setLayoutParams(layoutParams);
         } else {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.lpD.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.lpR.getLayoutParams();
             layoutParams2.width = this.aDJ;
             layoutParams2.height = this.itemHeight;
             layoutParams2.leftMargin = 0;
-            aVar.lpD.setLayoutParams(layoutParams2);
+            aVar.lpR.setLayoutParams(layoutParams2);
         }
-        ap.setViewTextColor(aVar.lpF, R.color.CAM_X0301);
-        ap.setViewTextColor(aVar.lpG, R.color.CAM_X0101);
-        ap.setBackgroundResource(aVar.lpG, R.drawable.member_price_tag_bg_shape);
-        ap.setViewTextColor(aVar.lpH, R.color.CAM_X0301);
-        ap.setViewTextColor(aVar.lpI, R.color.CAM_X0109);
-        ap.setViewTextColor(aVar.lpJ, R.color.CAM_X0105);
+        ap.setViewTextColor(aVar.lpT, R.color.CAM_X0301);
+        ap.setViewTextColor(aVar.lpU, R.color.CAM_X0101);
+        ap.setBackgroundResource(aVar.lpU, R.drawable.member_price_tag_bg_shape);
+        ap.setViewTextColor(aVar.lpV, R.color.CAM_X0301);
+        ap.setViewTextColor(aVar.lpW, R.color.CAM_X0109);
+        ap.setViewTextColor(aVar.lpX, R.color.CAM_X0105);
         a(dVar, aVar);
     }
 
@@ -114,9 +114,9 @@ public class c extends BaseAdapter {
     private void a(f.d dVar, a aVar) {
         if (dVar != null && aVar != null) {
             if (dVar.isChecked) {
-                ap.setBackgroundResource(aVar.lpE, R.drawable.member_price_bg_shape_s);
+                ap.setBackgroundResource(aVar.lpS, R.drawable.member_price_bg_shape_s);
             } else {
-                ap.setBackgroundResource(aVar.lpE, R.drawable.member_price_bg_shape_n);
+                ap.setBackgroundResource(aVar.lpS, R.drawable.member_price_bg_shape_n);
             }
         }
     }
@@ -125,7 +125,7 @@ public class c extends BaseAdapter {
         if (dVar != null && this.mList != null) {
             for (int i = 0; i < this.mList.size(); i++) {
                 this.mList.get(i).isChecked = false;
-                if (this.mList.get(i).lpX.equals(dVar.lpX)) {
+                if (this.mList.get(i).lql.equals(dVar.lql)) {
                     this.mList.get(i).isChecked = true;
                 }
             }
@@ -133,7 +133,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public f.d dfD() {
+    public f.d dfK() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -152,22 +152,22 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes9.dex */
     public class a {
-        private RelativeLayout lpD;
-        private LinearLayout lpE;
-        private TextView lpF;
-        private TextView lpG;
-        private TextView lpH;
-        private TextView lpI;
-        private TextView lpJ;
+        private RelativeLayout lpR;
+        private LinearLayout lpS;
+        private TextView lpT;
+        private TextView lpU;
+        private TextView lpV;
+        private TextView lpW;
+        private TextView lpX;
 
         public a(View view) {
-            this.lpD = (RelativeLayout) view.findViewById(R.id.root);
-            this.lpE = (LinearLayout) view.findViewById(R.id.container);
-            this.lpF = (TextView) view.findViewById(R.id.tv_price_money_label);
-            this.lpG = (TextView) view.findViewById(R.id.tv_price_tag);
-            this.lpH = (TextView) view.findViewById(R.id.tv_price_money);
-            this.lpI = (TextView) view.findViewById(R.id.tv_price_sale);
-            this.lpJ = (TextView) view.findViewById(R.id.tv_month);
+            this.lpR = (RelativeLayout) view.findViewById(R.id.root);
+            this.lpS = (LinearLayout) view.findViewById(R.id.container);
+            this.lpT = (TextView) view.findViewById(R.id.tv_price_money_label);
+            this.lpU = (TextView) view.findViewById(R.id.tv_price_tag);
+            this.lpV = (TextView) view.findViewById(R.id.tv_price_money);
+            this.lpW = (TextView) view.findViewById(R.id.tv_price_sale);
+            this.lpX = (TextView) view.findViewById(R.id.tv_month);
         }
     }
 }

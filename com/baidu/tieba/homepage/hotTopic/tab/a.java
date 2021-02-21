@@ -11,7 +11,7 @@ public class a {
     public static void a(View view, Object obj, int i, String str) {
         if (obj instanceof com.baidu.tieba.homepage.hotTopic.tab.b.c) {
             com.baidu.tieba.homepage.hotTopic.tab.b.c cVar = (com.baidu.tieba.homepage.hotTopic.tab.b.c) obj;
-            if (cVar.kgF) {
+            if (cVar.kgT) {
                 ar arVar = new ar("c13736");
                 arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
                 arVar.bsO();

@@ -42,8 +42,8 @@ public class a {
                 }
             }
         }
-        c a2 = a(this.f7699b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.erq().a()));
-        a2.d(cVar.erp());
+        c a2 = a(this.f7699b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.erz().a()));
+        a2.d(cVar.ery());
         return a2;
     }
 
@@ -57,8 +57,8 @@ public class a {
             s.a(aVar, "NONE");
         }
         s.b(aVar, String.valueOf(bVar.a()));
-        c a2 = a("http://www.cmpassport.com/unisdk" + this.f7698a, cVar.f(), "POST", new d(cVar.erq().a(), "1.0", bVar.c()));
-        a2.d(cVar.erp());
+        c a2 = a("http://www.cmpassport.com/unisdk" + this.f7698a, cVar.f(), "POST", new d(cVar.erz().a(), "1.0", bVar.c()));
+        a2.d(cVar.ery());
         this.f7698a = null;
         return a2;
     }

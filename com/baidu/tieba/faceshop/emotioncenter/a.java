@@ -24,15 +24,15 @@ import java.util.regex.Pattern;
 public class a {
     private TbPageContext<?> eUY;
     private View rootView;
-    Pattern iXR = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    Pattern iYf = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
     private CoverFlowView<com.baidu.tbadk.core.flow.a.a> ajA = null;
-    private c iXS = null;
+    private c iYg = null;
     private d<com.baidu.tbadk.core.flow.a.a> eXg = new d<com.baidu.tbadk.core.flow.a.a>() { // from class: com.baidu.tieba.faceshop.emotioncenter.a.2
         @Override // com.baidu.tbadk.core.flow.a.d
         public void f(int i, String str) {
             c.a aVar = (c.a) a.this.ajA.oo(i);
             if (aVar != null) {
-                Matcher matcher = a.this.iXR.matcher(aVar.blL());
+                Matcher matcher = a.this.iYf.matcher(aVar.blL());
                 if (matcher.find()) {
                     a.this.eUY.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(a.this.eUY.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
                 }
@@ -101,9 +101,9 @@ public class a {
     }
 
     public void a(c cVar) {
-        if (cVar != null && cVar != this.iXS) {
-            this.ajA.setData(cVar.czU());
-            this.iXS = cVar;
+        if (cVar != null && cVar != this.iYg) {
+            this.ajA.setData(cVar.cAb());
+            this.iYg = cVar;
         }
     }
 

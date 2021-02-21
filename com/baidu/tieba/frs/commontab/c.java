@@ -27,19 +27,19 @@ import tbclient.App;
 public class c implements NetModel.b {
     private com.baidu.tieba.funad.a funAdController;
     private boolean isDynamic;
-    private FrsCommonTabFragment joQ;
-    private boolean jpA;
-    private String jpD;
-    private d jpp;
-    private FrsCommonTabRequestData jpw;
-    private FrsCommonTabNetModel jpx;
-    private FrsDynamicRequestData jpy;
-    private FrsDynamicModel jpz;
+    private d jpD;
+    private FrsCommonTabRequestData jpK;
+    private FrsCommonTabNetModel jpL;
+    private FrsDynamicRequestData jpM;
+    private FrsDynamicModel jpN;
+    private boolean jpO;
+    private String jpR;
+    private FrsCommonTabFragment jpe;
     private int mErrorCode;
     private String mErrorString;
-    private HashSet<String> jpB = new HashSet<>();
+    private HashSet<String> jpP = new HashSet<>();
     private int mPn = 1;
-    private long jpC = -1;
+    private long jpQ = -1;
 
     public void setFunAdController(com.baidu.tieba.funad.a aVar) {
         this.funAdController = aVar;
@@ -47,85 +47,85 @@ public class c implements NetModel.b {
 
     public c(FrsCommonTabFragment frsCommonTabFragment, int i, int i2, String str, int i3) {
         if (frsCommonTabFragment != null) {
-            this.joQ = frsCommonTabFragment;
-            this.jpD = "FRS_GENERAL_TAB" + i2;
+            this.jpe = frsCommonTabFragment;
+            this.jpR = "FRS_GENERAL_TAB" + i2;
             if (i2 == 89) {
                 this.isDynamic = true;
-                this.jpy = new FrsDynamicRequestData();
-                this.jpy.forumId = i;
-                this.jpy.scrH = l.getEquipmentHeight(TbadkCoreApplication.getInst());
-                this.jpy.scrW = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-                this.jpy.scrDip = l.getEquipmentDensity(TbadkCoreApplication.getInst());
-                this.jpz = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.jpy);
-                this.jpz.a(this);
-                this.jpz.setUniqueId(frsCommonTabFragment.getUniqueId());
+                this.jpM = new FrsDynamicRequestData();
+                this.jpM.forumId = i;
+                this.jpM.scrH = l.getEquipmentHeight(TbadkCoreApplication.getInst());
+                this.jpM.scrW = l.getEquipmentWidth(TbadkCoreApplication.getInst());
+                this.jpM.scrDip = l.getEquipmentDensity(TbadkCoreApplication.getInst());
+                this.jpN = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.jpM);
+                this.jpN.a(this);
+                this.jpN.setUniqueId(frsCommonTabFragment.getUniqueId());
                 return;
             }
             this.isDynamic = false;
-            this.jpw = new FrsCommonTabRequestData();
-            this.jpw.fid = i;
-            this.jpw.tabId = i2;
-            this.jpw.isDefaultNavTab = zi(i2) ? 1 : 0;
-            this.jpw.tabName = str;
-            this.jpw.isGeneralTab = i3;
-            this.jpx = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.jpw);
-            this.jpx.a(this);
-            this.jpx.setUniqueId(frsCommonTabFragment.getUniqueId());
+            this.jpK = new FrsCommonTabRequestData();
+            this.jpK.fid = i;
+            this.jpK.tabId = i2;
+            this.jpK.isDefaultNavTab = zi(i2) ? 1 : 0;
+            this.jpK.tabName = str;
+            this.jpK.isGeneralTab = i3;
+            this.jpL = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.jpK);
+            this.jpL.a(this);
+            this.jpL.setUniqueId(frsCommonTabFragment.getUniqueId());
         }
     }
 
     public void setTabType(int i) {
-        if (this.jpw != null) {
-            this.jpw.tabType = i;
+        if (this.jpK != null) {
+            this.jpK.tabType = i;
         }
     }
 
     private boolean zi(int i) {
-        return (this.joQ == null || this.joQ.jpf == null || this.joQ.jpf.mHeadLineDefaultNavTabId != i) ? false : true;
+        return (this.jpe == null || this.jpe.jpt == null || this.jpe.jpt.mHeadLineDefaultNavTabId != i) ? false : true;
     }
 
     public void zj(int i) {
-        this.jpA = true;
+        this.jpO = true;
         if (!this.isDynamic) {
-            if (!this.jpx.isLoading()) {
+            if (!this.jpL.isLoading()) {
                 this.mPn = 1;
-                this.jpw.pn = this.mPn;
-                this.jpw.sortType = i;
-                if (this.jpC >= 0) {
-                    this.jpw.lastThreadId = this.jpC;
+                this.jpK.pn = this.mPn;
+                this.jpK.sortType = i;
+                if (this.jpQ >= 0) {
+                    this.jpK.lastThreadId = this.jpQ;
                 }
-                this.jpw.adExtParams = cFP();
-                this.jpx.loadData();
+                this.jpK.adExtParams = cFW();
+                this.jpL.loadData();
             }
-        } else if (!this.jpz.isLoading()) {
+        } else if (!this.jpN.isLoading()) {
             if (av.bsS().bsT()) {
-                this.jpy.qType = 2;
+                this.jpM.qType = 2;
             } else {
-                this.jpy.qType = 1;
+                this.jpM.qType = 1;
             }
-            this.jpy.lastThreadId = 0L;
-            this.jpz.loadData();
+            this.jpM.lastThreadId = 0L;
+            this.jpN.loadData();
         }
     }
 
     public void zk(int i) {
-        this.jpA = false;
+        this.jpO = false;
         if (!this.isDynamic) {
-            if (!this.jpx.isLoading()) {
+            if (!this.jpL.isLoading()) {
                 this.mPn++;
-                this.jpw.pn = this.mPn;
-                this.jpw.sortType = i;
-                this.jpw.lastThreadId = -1L;
-                this.jpw.adExtParams = cFP();
-                this.jpx.loadData();
+                this.jpK.pn = this.mPn;
+                this.jpK.sortType = i;
+                this.jpK.lastThreadId = -1L;
+                this.jpK.adExtParams = cFW();
+                this.jpL.loadData();
             }
-        } else if (!this.jpz.isLoading()) {
+        } else if (!this.jpN.isLoading()) {
             if (av.bsS().bsT()) {
-                this.jpy.qType = 2;
+                this.jpM.qType = 2;
             } else {
-                this.jpy.qType = 1;
+                this.jpM.qType = 1;
             }
-            this.jpz.loadData();
+            this.jpN.loadData();
         }
     }
 
@@ -133,66 +133,66 @@ public class c implements NetModel.b {
         if (dVar == null) {
             return false;
         }
-        if (this.jpA) {
-            this.jpp = dVar;
-            this.jpB.clear();
+        if (this.jpO) {
+            this.jpD = dVar;
+            this.jpP.clear();
             Iterator<n> it = dVar.threadList.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (next instanceof cb) {
                     String tid = ((cb) next).getTid();
-                    if (!this.jpB.contains(tid)) {
-                        this.jpB.add(tid);
+                    if (!this.jpP.contains(tid)) {
+                        this.jpP.add(tid);
                     }
                 }
             }
-            if (com.baidu.tieba.funad.a.cNn()) {
+            if (com.baidu.tieba.funad.a.cNu()) {
                 if (this.funAdController != null) {
-                    this.funAdController.r(this.jpp.threadList, this.jpA);
+                    this.funAdController.r(this.jpD.threadList, this.jpO);
                 }
             } else {
-                v(dVar.gcv, this.jpp.threadList);
+                v(dVar.gcA, this.jpD.threadList);
             }
         } else {
-            this.jpp.hasMore = dVar.hasMore;
-            this.jpp.userMap.putAll(dVar.userMap);
+            this.jpD.hasMore = dVar.hasMore;
+            this.jpD.userMap.putAll(dVar.userMap);
             ArrayList arrayList = new ArrayList();
             Iterator<n> it2 = dVar.threadList.iterator();
             while (it2.hasNext()) {
                 n next2 = it2.next();
                 if (next2 instanceof cb) {
                     String tid2 = ((cb) next2).getTid();
-                    if (!this.jpB.contains(tid2)) {
-                        ((cb) next2).eTo = this.joQ.isBrandForum;
+                    if (!this.jpP.contains(tid2)) {
+                        ((cb) next2).eTo = this.jpe.isBrandForum;
                         arrayList.add(next2);
-                        this.jpB.add(tid2);
+                        this.jpP.add(tid2);
                     }
                 }
             }
-            if (com.baidu.tieba.funad.a.cNn()) {
+            if (com.baidu.tieba.funad.a.cNu()) {
                 if (this.funAdController != null) {
-                    this.funAdController.r(arrayList, this.jpA);
+                    this.funAdController.r(arrayList, this.jpO);
                 }
             } else {
-                v(dVar.gcv, arrayList);
+                v(dVar.gcA, arrayList);
             }
-            this.jpp.threadList.addAll(arrayList);
+            this.jpD.threadList.addAll(arrayList);
         }
-        this.joQ.a(this.jpp);
+        this.jpe.a(this.jpD);
         return true;
     }
 
     public void aq(cb cbVar) {
-        if (cbVar != null && this.jpp != null && this.jpp.threadList != null) {
-            if (y.isEmpty(this.jpp.threadList)) {
-                this.jpp.threadList.add(cbVar);
+        if (cbVar != null && this.jpD != null && this.jpD.threadList != null) {
+            if (y.isEmpty(this.jpD.threadList)) {
+                this.jpD.threadList.add(cbVar);
             } else {
-                if (this.jpp.threadList.size() == 1 && (this.jpp.threadList.get(0) instanceof s)) {
-                    this.jpp.threadList.remove(0);
+                if (this.jpD.threadList.size() == 1 && (this.jpD.threadList.get(0) instanceof s)) {
+                    this.jpD.threadList.remove(0);
                 }
-                this.jpp.threadList.add(0, cbVar);
+                this.jpD.threadList.add(0, cbVar);
             }
-            this.joQ.a(this.jpp);
+            this.jpe.a(this.jpD);
         }
     }
 
@@ -212,7 +212,7 @@ public class c implements NetModel.b {
                     if (!y.isEmpty(dVar2.threadList)) {
                         n nVar = (n) y.getItem(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (nVar instanceof cb) {
-                            this.jpy.lastThreadId = com.baidu.adp.lib.f.b.toLong(((cb) nVar).getId(), 0L);
+                            this.jpM.lastThreadId = com.baidu.adp.lib.f.b.toLong(((cb) nVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -225,7 +225,7 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.joQ.a(errorData);
+                    this.jpe.a(errorData);
                 }
             }
         }
@@ -247,7 +247,7 @@ public class c implements NetModel.b {
                     if (!y.isEmpty(dVar2.threadList)) {
                         n nVar = (n) y.getItem(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (nVar instanceof cb) {
-                            this.jpy.lastThreadId = com.baidu.adp.lib.f.b.toLong(((cb) nVar).getId(), 0L);
+                            this.jpM.lastThreadId = com.baidu.adp.lib.f.b.toLong(((cb) nVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -260,14 +260,14 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.joQ.a(errorData);
+                    this.jpe.a(errorData);
                 }
             }
         }
     }
 
-    private String cFP() {
-        return AdExtParam.a.bEU().rC(this.jpA ? 0 : com.baidu.tieba.recapp.a.fJ(this.jpp.threadList)).DJ(com.baidu.tieba.recapp.a.y(this.jpp == null ? null : this.jpp.threadList, this.jpA)).DH(this.jpA ? "" : com.baidu.tieba.recapp.report.b.dEl().RF(this.jpD)).DI(this.joQ.forumName).bEV();
+    private String cFW() {
+        return AdExtParam.a.bEU().rC(this.jpO ? 0 : com.baidu.tieba.recapp.a.fJ(this.jpD.threadList)).DH(com.baidu.tieba.recapp.a.y(this.jpD == null ? null : this.jpD.threadList, this.jpO)).DF(this.jpO ? "" : com.baidu.tieba.recapp.report.b.dEt().RR(this.jpR)).DG(this.jpe.forumName).bEV();
     }
 
     private void v(List<App> list, List<n> list2) {
@@ -285,34 +285,34 @@ public class c implements NetModel.b {
                     arrayList.add(f);
                 }
             }
-            com.baidu.tieba.recapp.report.b.dEl().q(this.jpD, arrayList);
+            com.baidu.tieba.recapp.report.b.dEt().q(this.jpR, arrayList);
         }
     }
 
     public boolean hasData() {
-        return (this.jpp == null || y.isEmpty(this.jpp.threadList)) ? false : true;
+        return (this.jpD == null || y.isEmpty(this.jpD.threadList)) ? false : true;
     }
 
-    public d cFQ() {
-        return this.jpp;
+    public d cFX() {
+        return this.jpD;
     }
 
     public void gs(long j) {
-        this.jpC = j;
+        this.jpQ = j;
     }
 
-    public boolean cFR() {
-        return this.jpA;
+    public boolean cFY() {
+        return this.jpO;
     }
 
     public int getPn() {
         return this.mPn;
     }
 
-    public void Kr(String str) {
-        if (this.jpp != null && !com.baidu.tieba.lego.card.c.a.isEmpty(this.jpp.threadList)) {
-            com.baidu.tieba.recapp.a.i(str, this.jpp.threadList);
-            this.joQ.a(this.jpp);
+    public void Ks(String str) {
+        if (this.jpD != null && !com.baidu.tieba.lego.card.c.a.isEmpty(this.jpD.threadList)) {
+            com.baidu.tieba.recapp.a.i(str, this.jpD.threadList);
+            this.jpe.a(this.jpD);
         }
     }
 }

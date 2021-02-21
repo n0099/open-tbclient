@@ -4,8 +4,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaRecommendLiveResponseMessage extends JsonHttpResponsedMessage {
-    public com.baidu.tieba.yuyinala.liveroom.recommend.data.b oyf;
-    public com.baidu.tieba.yuyinala.liveroom.recommend.data.b oyg;
+    public com.baidu.tieba.yuyinala.liveroom.recommend.data.b oyF;
+    public com.baidu.tieba.yuyinala.liveroom.recommend.data.b oyG;
 
     public AlaRecommendLiveResponseMessage() {
         super(1031053);
@@ -18,15 +18,15 @@ public class AlaRecommendLiveResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("follow");
             if (optJSONObject2 != null) {
-                this.oyf = new com.baidu.tieba.yuyinala.liveroom.recommend.data.b();
-                this.oyf.type = 0;
-                this.oyf.parserJson(optJSONObject2);
+                this.oyF = new com.baidu.tieba.yuyinala.liveroom.recommend.data.b();
+                this.oyF.type = 0;
+                this.oyF.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("recommend");
             if (optJSONObject3 != null) {
-                this.oyg = new com.baidu.tieba.yuyinala.liveroom.recommend.data.b();
-                this.oyg.type = 1;
-                this.oyg.parserJson(optJSONObject3);
+                this.oyG = new com.baidu.tieba.yuyinala.liveroom.recommend.data.b();
+                this.oyG.type = 1;
+                this.oyG.parserJson(optJSONObject3);
             }
         }
     }

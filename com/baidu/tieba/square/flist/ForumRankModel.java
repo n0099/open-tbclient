@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes8.dex */
 public class ForumRankModel extends BdBaseModel {
     private String id;
-    private a nrx;
+    private a nrX;
     private String stType;
 
     public ForumRankModel(Bundle bundle) {
         super(null);
         this.id = null;
-        this.nrx = null;
+        this.nrX = null;
         this.stType = null;
         this.id = bundle.getString("id");
         this.stType = bundle.getString("st_type");
@@ -28,7 +28,7 @@ public class ForumRankModel extends BdBaseModel {
     public ForumRankModel(Intent intent) {
         super(null);
         this.id = null;
-        this.nrx = null;
+        this.nrX = null;
         this.stType = null;
         this.id = intent.getStringExtra("id");
         this.stType = intent.getStringExtra("st_type");
@@ -45,17 +45,17 @@ public class ForumRankModel extends BdBaseModel {
         if (this.id == null) {
             return false;
         }
-        if (this.nrx == null) {
-            this.nrx = new a();
-            this.nrx.execute(new Void[0]);
+        if (this.nrX == null) {
+            this.nrX = new a();
+            this.nrX.execute(new Void[0]);
         }
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.nrx != null) {
-            this.nrx.cancel();
+        if (this.nrX != null) {
+            this.nrX.cancel();
             return false;
         }
         return false;
@@ -93,7 +93,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            ForumRankModel.this.nrx = null;
+            ForumRankModel.this.nrX = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,7 +112,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(ForumRankData forumRankData) {
-            ForumRankModel.this.nrx = null;
+            ForumRankModel.this.nrX = null;
             if (ForumRankModel.this.mLoadDataCallBack != null) {
                 ForumRankModel.this.mLoadDataCallBack.callback(forumRankData);
             }

@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes8.dex */
 public class b {
-    private List<a> kXK;
-    private List<Integer> kXL;
-    private List<a> kXO;
+    private List<a> kXY;
+    private List<Integer> kXZ;
+    private List<a> kYc;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!y.isEmpty(dataRes.sex_taglist)) {
-                this.kXO = new ArrayList();
-                C(this.kXO, dataRes.sex_taglist);
+                this.kYc = new ArrayList();
+                C(this.kYc, dataRes.sex_taglist);
             }
             if (!y.isEmpty(dataRes.taglist)) {
-                this.kXK = new ArrayList();
-                this.kXL = new ArrayList();
-                C(this.kXK, dataRes.taglist);
+                this.kXY = new ArrayList();
+                this.kXZ = new ArrayList();
+                C(this.kXY, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.kXL != null && aVar.isFollow) {
-                        this.kXL.add(Integer.valueOf(aVar.labelId));
+                    if (this.kXZ != null && aVar.isFollow) {
+                        this.kXZ.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> daF() {
-        return this.kXO;
+    public List<a> daM() {
+        return this.kYc;
     }
 
-    public List<a> daG() {
-        return this.kXK;
+    public List<a> daN() {
+        return this.kXY;
     }
 
-    public List<Integer> daH() {
-        return this.kXL;
+    public List<Integer> daO() {
+        return this.kXZ;
     }
 }

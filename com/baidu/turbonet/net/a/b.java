@@ -9,17 +9,17 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public final class b extends f {
     private final ByteBuffer mBuffer;
-    private final d oRA;
-    private final g oRC;
-    private boolean oRE;
-    private boolean oRF;
-    private final UploadDataProvider oRn = new a();
-    private boolean oRD = false;
+    private final d oSa;
+    private final g oSc;
+    private boolean oSe;
+    private boolean oSf;
+    private final UploadDataProvider oRN = new a();
+    private boolean oSd = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(d dVar, int i, g gVar, boolean z, boolean z2) {
-        this.oRE = false;
-        this.oRF = false;
+        this.oSe = false;
+        this.oSf = false;
         if (dVar == null) {
             throw new NullPointerException();
         }
@@ -27,15 +27,15 @@ public final class b extends f {
             throw new IllegalArgumentException("chunkLength should be greater than 0");
         }
         this.mBuffer = ByteBuffer.allocate(i);
-        this.oRA = dVar;
-        this.oRC = gVar;
-        this.oRE = z;
-        this.oRF = z2;
+        this.oSa = dVar;
+        this.oSc = gVar;
+        this.oSe = z;
+        this.oSf = z2;
     }
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        ehc();
+        ehk();
         this.mBuffer.put((byte) i);
     }
 
@@ -50,36 +50,36 @@ public final class b extends f {
             int min = Math.min(i3, this.mBuffer.remaining());
             this.mBuffer.put(bArr, (i + i2) - i3, min);
             i3 -= min;
-            ehc();
+            ehk();
         }
     }
 
     @Override // com.baidu.turbonet.net.a.f, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         super.close();
-        if (!this.oRD) {
-            this.oRD = true;
+        if (!this.oSd) {
+            this.oSd = true;
             this.mBuffer.flip();
-            if (this.oRE) {
-                this.oRC.Nf(this.oRA.getReadTimeout());
+            if (this.oSe) {
+                this.oSc.Ng(this.oSa.getReadTimeout());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void egZ() throws IOException {
+    public void ehh() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void eha() throws IOException {
+    public void ehi() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider ehb() {
-        return this.oRn;
+    public UploadDataProvider ehj() {
+        return this.oRN;
     }
 
     /* loaded from: classes6.dex */
@@ -97,12 +97,12 @@ public final class b extends f {
             if (byteBuffer.remaining() >= b.this.mBuffer.remaining()) {
                 byteBuffer.put(b.this.mBuffer);
                 b.this.mBuffer.clear();
-                uploadDataSink.onReadSucceeded(b.this.oRD);
-                if (!b.this.oRD) {
-                    b.this.oRC.quit();
+                uploadDataSink.onReadSucceeded(b.this.oSd);
+                if (!b.this.oSd) {
+                    b.this.oSc.quit();
                     return;
-                } else if (b.this.oRE) {
-                    b.this.oRC.quit();
+                } else if (b.this.oSe) {
+                    b.this.oSc.quit();
                     return;
                 } else {
                     return;
@@ -121,23 +121,23 @@ public final class b extends f {
         }
     }
 
-    private void ehc() throws IOException {
+    private void ehk() throws IOException {
         if (!this.mBuffer.hasRemaining()) {
-            ehd();
+            ehl();
         }
     }
 
-    private void ehd() throws IOException {
+    private void ehl() throws IOException {
         checkNotClosed();
         this.mBuffer.flip();
-        this.oRC.Nf(this.oRA.getReadTimeout());
-        ehp();
+        this.oSc.Ng(this.oSa.getReadTimeout());
+        ehx();
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() throws IOException {
-        if (this.oRF && this.mBuffer.position() > 0) {
-            ehd();
+        if (this.oSf && this.mBuffer.position() > 0) {
+            ehl();
         }
     }
 }

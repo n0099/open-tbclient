@@ -16,7 +16,7 @@ public class k extends m {
     private final Bitmap mBitmap;
     private final Paint mBorderPaint;
     private final Paint mPaint;
-    private WeakReference<Bitmap> pCN;
+    private WeakReference<Bitmap> pDn;
 
     public k(Resources resources, @Nullable Bitmap bitmap, @Nullable Paint paint) {
         super(new BitmapDrawable(resources, bitmap));
@@ -32,40 +32,40 @@ public class k extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!eus()) {
+        if (!euA()) {
             super.draw(canvas);
             return;
         }
-        euu();
-        eut();
+        euC();
+        euB();
         updatePaint();
         int save = canvas.save();
-        canvas.concat(this.pDk);
+        canvas.concat(this.pDK);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-            this.mBorderPaint.setColor(e.dW(this.mBorderColor, this.mPaint.getAlpha()));
+            this.mBorderPaint.setColor(e.dX(this.mBorderColor, this.mPaint.getAlpha()));
             canvas.drawPath(this.eWn, this.mBorderPaint);
         }
         canvas.restoreToCount(save);
     }
 
     private void updatePaint() {
-        if (this.pCN == null || this.pCN.get() != this.mBitmap) {
-            this.pCN = new WeakReference<>(this.mBitmap);
+        if (this.pDn == null || this.pDn.get() != this.mBitmap) {
+            this.pDn = new WeakReference<>(this.mBitmap);
             this.mPaint.setShader(new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.pDa = true;
+            this.pDA = true;
         }
-        if (this.pDa) {
-            this.mPaint.getShader().setLocalMatrix(this.pDm);
-            this.pDa = false;
+        if (this.pDA) {
+            this.mPaint.getShader().setLocalMatrix(this.pDM);
+            this.pDA = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.facebook.drawee.drawable.m
-    public boolean eus() {
-        return super.eus() && this.mBitmap != null;
+    public boolean euA() {
+        return super.euA() && this.mBitmap != null;
     }
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable

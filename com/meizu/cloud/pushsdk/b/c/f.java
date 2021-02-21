@@ -34,27 +34,27 @@ public class f {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f11157a = new int[a.EnumC1168a.values().length];
+        static final /* synthetic */ int[] f11157a = new int[a.EnumC1170a.values().length];
 
         static {
             try {
-                f11157a[a.EnumC1168a.SUCCESS.ordinal()] = 1;
+                f11157a[a.EnumC1170a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f11157a[a.EnumC1168a.INVALID_HOST.ordinal()] = 2;
+                f11157a[a.EnumC1170a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f11157a[a.EnumC1168a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                f11157a[a.EnumC1170a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f11157a[a.EnumC1168a.MISSING_SCHEME.ordinal()] = 4;
+                f11157a[a.EnumC1170a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                f11157a[a.EnumC1168a.INVALID_PORT.ordinal()] = 5;
+                f11157a[a.EnumC1170a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
@@ -78,7 +78,7 @@ public class f {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public enum EnumC1168a {
+        public enum EnumC1170a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -399,7 +399,7 @@ public class f {
             return this.e != -1 ? this.e : f.a(this.f11158a);
         }
 
-        EnumC1168a a(f fVar, String str) {
+        EnumC1170a a(f fVar, String str) {
             int i;
             int a2 = m.a(str, 0, str.length());
             int b2 = m.b(str, a2, str.length());
@@ -408,13 +408,13 @@ public class f {
                     this.f11158a = "https";
                     a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTPS.length();
                 } else if (!str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC1168a.UNSUPPORTED_SCHEME;
+                    return EnumC1170a.UNSUPPORTED_SCHEME;
                 } else {
                     this.f11158a = HttpHost.DEFAULT_SCHEME_NAME;
                     a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTP.length();
                 }
             } else if (fVar == null) {
-                return EnumC1168a.MISSING_SCHEME;
+                return EnumC1170a.MISSING_SCHEME;
             } else {
                 this.f11158a = fVar.f11156b;
             }
@@ -436,7 +436,7 @@ public class f {
                                 this.d = e(str, i2, d);
                                 this.e = g(str, d + 1, a3);
                                 if (this.e == -1) {
-                                    return EnumC1168a.INVALID_PORT;
+                                    return EnumC1170a.INVALID_PORT;
                                 }
                             } else {
                                 this.d = e(str, i2, d);
@@ -446,7 +446,7 @@ public class f {
                                 a2 = a3;
                                 break;
                             } else {
-                                return EnumC1168a.INVALID_HOST;
+                                return EnumC1170a.INVALID_HOST;
                             }
                         case '@':
                             if (z) {
@@ -492,7 +492,7 @@ public class f {
             if (i < b2 && str.charAt(i) == '#') {
                 this.h = f.a(str, i + 1, b2, "", true, false, false, false);
             }
-            return EnumC1168a.SUCCESS;
+            return EnumC1170a.SUCCESS;
         }
 
         public a a(String str) {
@@ -744,7 +744,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC1168a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC1170a.SUCCESS) {
             return aVar.b();
         }
         return null;

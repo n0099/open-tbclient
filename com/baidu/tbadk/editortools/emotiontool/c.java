@@ -8,11 +8,11 @@ public abstract class c {
     private com.baidu.adp.widget.ImageView.a fCu;
     private int rows;
 
-    public abstract boolean CP(String str);
+    public abstract boolean CN(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a CQ(String str);
+    public abstract com.baidu.adp.widget.ImageView.a CO(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a CR(String str);
+    public abstract com.baidu.adp.widget.ImageView.a CP(String str);
 
     public abstract boolean bBA();
 

@@ -3,7 +3,7 @@ package io.reactivex.internal.functions;
 import io.reactivex.b.d;
 /* loaded from: classes5.dex */
 public final class a {
-    static final d<Object, Object> qnM = new C1299a();
+    static final d<Object, Object> qom = new C1301a();
 
     public static <T> T m(T t, String str) {
         if (t == null) {
@@ -46,8 +46,8 @@ public final class a {
 
     /* renamed from: io.reactivex.internal.functions.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    static final class C1299a implements d<Object, Object> {
-        C1299a() {
+    static final class C1301a implements d<Object, Object> {
+        C1301a() {
         }
 
         @Override // io.reactivex.b.d

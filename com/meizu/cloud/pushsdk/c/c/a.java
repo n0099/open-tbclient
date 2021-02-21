@@ -20,7 +20,7 @@ public class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static abstract class AbstractC1169a<T extends AbstractC1169a<T>> {
+    public static abstract class AbstractC1171a<T extends AbstractC1171a<T>> {
 
         /* renamed from: a  reason: collision with root package name */
         private List<com.meizu.cloud.pushsdk.c.a.b> f11278a = new LinkedList();
@@ -39,13 +39,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a(AbstractC1169a<?> abstractC1169a) {
-        d.a(((AbstractC1169a) abstractC1169a).f11278a);
-        d.a(((AbstractC1169a) abstractC1169a).c);
-        d.a(!((AbstractC1169a) abstractC1169a).c.isEmpty(), "eventId cannot be empty");
-        this.f11276a = ((AbstractC1169a) abstractC1169a).f11278a;
-        this.f11277b = ((AbstractC1169a) abstractC1169a).f11279b;
-        this.c = ((AbstractC1169a) abstractC1169a).c;
+    public a(AbstractC1171a<?> abstractC1171a) {
+        d.a(((AbstractC1171a) abstractC1171a).f11278a);
+        d.a(((AbstractC1171a) abstractC1171a).c);
+        d.a(!((AbstractC1171a) abstractC1171a).c.isEmpty(), "eventId cannot be empty");
+        this.f11276a = ((AbstractC1171a) abstractC1171a).f11278a;
+        this.f11277b = ((AbstractC1171a) abstractC1171a).f11279b;
+        this.c = ((AbstractC1171a) abstractC1171a).c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

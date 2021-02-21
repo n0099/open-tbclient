@@ -28,20 +28,20 @@ public class UegTbJsBridge_Proxy extends a {
         if (cVar == null) {
             cVar = new c();
         }
-        String dOj = eVar.dOj();
-        JSONObject dOh = eVar.dOh();
-        if (dOj.equals("host/callNativeSMS")) {
+        String dOr = eVar.dOr();
+        JSONObject dOp = eVar.dOp();
+        if (dOr.equals("host/callNativeSMS")) {
             cVar.yy(true);
-            c callNativeSMS = this.mJsBridge.callNativeSMS(dOh.optString("phoneNumber"), dOh.optString("content"));
+            c callNativeSMS = this.mJsBridge.callNativeSMS(dOp.optString("phoneNumber"), dOp.optString("content"));
             if (callNativeSMS != null) {
                 cVar.setStatus(callNativeSMS.getStatus());
                 cVar.setMessage(callNativeSMS.getMessage());
                 cVar.setData(callNativeSMS.getData());
             }
             cVar.JM(0);
-        } else if (dOj.equals("device/setBlockPopInfo")) {
+        } else if (dOr.equals("device/setBlockPopInfo")) {
             cVar.yy(true);
-            c blockPopInfo = this.mJsBridge.setBlockPopInfo(dOh.optInt("canPost"), dOh.optString("blockInfo"), dOh.optString("aheadInfo"), dOh.optString("aheadUrl"), dOh.optString("okInfo"), dOh.optInt("aheadType"));
+            c blockPopInfo = this.mJsBridge.setBlockPopInfo(dOp.optInt("canPost"), dOp.optString("blockInfo"), dOp.optString("aheadInfo"), dOp.optString("aheadUrl"), dOp.optString("okInfo"), dOp.optInt("aheadType"));
             if (blockPopInfo != null) {
                 cVar.setStatus(blockPopInfo.getStatus());
                 cVar.setMessage(blockPopInfo.getMessage());
@@ -68,12 +68,12 @@ public class UegTbJsBridge_Proxy extends a {
             while (it.hasNext()) {
                 b next = it.next();
                 c cVar2 = new c();
-                cVar2.Th(next.getName());
+                cVar2.Tt(next.getName());
                 cVar2.setStatus(cVar.getStatus());
                 cVar2.setMessage(cVar.getMessage());
                 cVar2.setData(cVar.getData());
                 arrayList.add(cVar2);
-                if (!next.dOa()) {
+                if (!next.dOi()) {
                     it.remove();
                 }
             }

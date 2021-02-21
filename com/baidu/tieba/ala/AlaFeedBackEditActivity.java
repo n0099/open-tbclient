@@ -28,8 +28,8 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
     private int availableHeight;
     private int bMV;
     private long buN;
-    private com.baidu.tieba.ala.d.b goK;
-    private long goL;
+    private com.baidu.tieba.ala.d.b goY;
+    private long goZ;
     private boolean mIsHost;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
@@ -104,19 +104,19 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
         super.onCreate(bundle);
         if (bundle != null) {
             this.buN = bundle.getLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID);
-            this.goL = bundle.getLong("ala_live_cur_anchor_id");
+            this.goZ = bundle.getLong("ala_live_cur_anchor_id");
             this.mUserId = bundle.getLong("ala_live_cur_user_id");
             this.mIsHost = bundle.getBoolean("ala_live_cur_is_host", false);
         } else {
             this.buN = getIntent().getLongExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, 0L);
-            this.goL = getIntent().getLongExtra("ala_live_cur_anchor_id", 0L);
+            this.goZ = getIntent().getLongExtra("ala_live_cur_anchor_id", 0L);
             this.mUserId = getIntent().getLongExtra("ala_live_cur_user_id", 0L);
             this.mIsHost = getIntent().getBooleanExtra("ala_live_cur_is_host", false);
         }
         registerListener(this.bMW);
         registerListener(this.aWJ);
-        this.goK = new com.baidu.tieba.ala.d.b(getPageContext(), this.buN, this.goL, this.mUserId, this.mIsHost);
-        this.mRootView = this.goK.getView();
+        this.goY = new com.baidu.tieba.ala.d.b(getPageContext(), this.buN, this.goZ, this.mUserId, this.mIsHost);
+        this.mRootView = this.goY.getView();
         if (this.mRootView == null) {
             super.finish();
             return;
@@ -199,7 +199,7 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         if (!this.baI) {
-            this.goK.onDestroy();
+            this.goY.onDestroy();
         }
         Gc();
     }
@@ -233,7 +233,7 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, this.buN);
-        bundle.putLong("ala_live_cur_anchor_id", this.goL);
+        bundle.putLong("ala_live_cur_anchor_id", this.goZ);
         bundle.putLong("ala_live_cur_user_id", this.mUserId);
         bundle.putBoolean("ala_live_cur_is_host", this.mIsHost);
     }
@@ -310,8 +310,8 @@ public class AlaFeedBackEditActivity extends BaseActivity implements View.OnTouc
             }
             this.mRootView.setLayoutParams(layoutParams);
         }
-        if (this.goK != null) {
-            this.goK.onKeyboardVisibilityChanged(z);
+        if (this.goY != null) {
+            this.goY.onKeyboardVisibilityChanged(z);
         }
     }
 

@@ -17,7 +17,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.t;
 /* loaded from: classes.dex */
 public class McnVideoAdView extends FrameLayout {
     private static final int cib = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
@@ -164,7 +164,7 @@ public class McnVideoAdView extends FrameLayout {
 
     private void abu() {
         if (this.mContext != null && this.chZ != null && this.chZ.chL != null) {
-            s.x(this.mContext, this.chZ.chL, null);
+            t.i(this.mContext, this.chZ.chL, null, null);
             if (this.cia != null) {
                 this.cia.b(this.chZ);
             }

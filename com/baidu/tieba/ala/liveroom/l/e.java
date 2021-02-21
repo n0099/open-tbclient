@@ -18,7 +18,7 @@ public class e extends a {
     private HeadImageView aDr;
     private TextView aYt;
     private View cBE;
-    private TextView hEG;
+    private TextView hEU;
 
     public e(@NonNull Context context) {
         super(context);
@@ -41,7 +41,7 @@ public class e extends a {
             }
         });
         this.aYt = (TextView) findViewById(a.f.tv_guide_folllow_tip);
-        this.hEG = (TextView) findViewById(a.f.ala_live_name);
+        this.hEU = (TextView) findViewById(a.f.ala_live_name);
         this.aDr = (HeadImageView) findViewById(a.f.iv_avatar);
         this.aDr.setDefaultResource(a.e.sdk_icon_default_avatar100);
         this.aDr.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
@@ -54,25 +54,25 @@ public class e extends a {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.l.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.hEp != null) {
-                    e.this.hEp.onConfirm();
+                if (e.this.hED != null) {
+                    e.this.hED.onConfirm();
                 }
             }
         });
-        this.hEq = textView.getText().toString();
-        cfU();
+        this.hEE = textView.getText().toString();
+        cgb();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.l.a
     public void ex(String str, String str2) {
-        cfT();
+        cga();
         this.aDr.startLoad(str, 25, false, false);
-        this.hEG.setText(str2);
+        this.hEU.setText(str2);
         LN();
         show();
     }
 
-    private void cfU() {
+    private void cgb() {
         bo boVar;
         if (com.baidu.live.ae.a.Qj().buX != null && (boVar = com.baidu.live.ae.a.Qj().buX.aMM) != null && !TextUtils.isEmpty(boVar.aPu)) {
             this.aYt.setText(boVar.aPu);
@@ -83,7 +83,7 @@ public class e extends a {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.l.e.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                e.this.cfT();
+                e.this.cga();
             }
         });
     }
@@ -96,7 +96,7 @@ public class e extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfT() {
+    public void cga() {
         if (this.aDr != null) {
             this.aDr.stopLoad();
         }

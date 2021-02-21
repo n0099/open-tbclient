@@ -15,19 +15,19 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.j, CardViewHolder<com.baidu.tieba.card.j>> implements com.baidu.tieba.a.f {
     private String aif;
     public BdUniqueId fGZ;
-    private ab iLO;
-    private com.baidu.tieba.card.j kaw;
+    private ab iMc;
+    private com.baidu.tieba.card.j kaK;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.iLO = new ab<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.concern.adapter.a.1
+        this.iMc = new ab<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.concern.adapter.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
-                if (view != null && a.this.kaw != null && a.this.kaw.getView() != null && jVar != null && jVar.bln() != null && !StringUtils.isNull(jVar.bln().getTid())) {
-                    com.baidu.tieba.homepage.concern.c.a(view, jVar, view == a.this.kaw.crY() ? 1 : 2);
-                    if (view == a.this.kaw.hng.getCommentContainer() || view == a.this.kaw.iup.getCommentContainer()) {
+                if (view != null && a.this.kaK != null && a.this.kaK.getView() != null && jVar != null && jVar.bln() != null && !StringUtils.isNull(jVar.bln().getTid())) {
+                    com.baidu.tieba.homepage.concern.c.a(view, jVar, view == a.this.kaK.csf() ? 1 : 2);
+                    if (view == a.this.kaK.hnu.getCommentContainer() || view == a.this.kaK.iuD.getCommentContainer()) {
                         ar arVar = new ar("c12942");
                         arVar.ap("obj_locate", 7);
                         arVar.ap("obj_type", 5);
@@ -53,28 +53,28 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<com.baidu.tieba.card.j> e(ViewGroup viewGroup) {
-        this.kaw = new com.baidu.tieba.card.j(this.mPageContext, this.fGZ);
-        this.kaw.jD(true);
+        this.kaK = new com.baidu.tieba.card.j(this.mPageContext, this.fGZ);
+        this.kaK.jD(true);
         if (this.fGZ != null) {
-            this.kaw.o(this.fGZ);
+            this.kaK.o(this.fGZ);
         }
-        return new CardViewHolder<>(this.kaw);
+        return new CardViewHolder<>(this.kaK);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, CardViewHolder<com.baidu.tieba.card.j> cardViewHolder) {
-        if (jVar == null || cardViewHolder == null || cardViewHolder.ctb() == null) {
+        if (jVar == null || cardViewHolder == null || cardViewHolder.cti() == null) {
             return null;
         }
         jVar.xd(i + 1);
-        com.baidu.tieba.card.t.csu().e(jVar.IT("c12351"));
-        if (cardViewHolder.ctb() instanceof com.baidu.tieba.a.e) {
-            cardViewHolder.ctb().setPage(this.aif);
+        com.baidu.tieba.card.t.csB().e(jVar.IU("c12351"));
+        if (cardViewHolder.cti() instanceof com.baidu.tieba.a.e) {
+            cardViewHolder.cti().setPage(this.aif);
         }
-        cardViewHolder.ctb().a(jVar);
-        cardViewHolder.ctb().c(this.iLO);
+        cardViewHolder.cti().a(jVar);
+        cardViewHolder.cti().c(this.iMc);
         if (jVar.bln() != null && jVar.bln().boj() != null) {
             ar arVar = new ar("c14007");
             arVar.ap("obj_locate", 2);
@@ -86,7 +86,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 }

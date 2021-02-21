@@ -25,20 +25,20 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes10.dex */
 public class j extends com.baidu.adp.widget.ListView.a<m, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a>> {
-    private com.baidu.tieba.ueg.d gEI;
-    private TextView gLI;
-    private String hGs;
-    private boolean hZh;
-    private boolean hZi;
+    private com.baidu.tieba.ueg.d gEW;
+    private TextView gLW;
+    private String hGG;
+    private boolean hZv;
+    private boolean hZw;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.hZN);
-        this.hZh = false;
-        this.hZi = false;
+        super(tbPageContext.getPageActivity(), m.iab);
+        this.hZv = false;
+        this.hZw = false;
         this.mPageContext = tbPageContext;
     }
 
@@ -54,38 +54,38 @@ public class j extends com.baidu.adp.widget.ListView.a<m, CardViewHolder<com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final m mVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a> cardViewHolder) {
-        if (cardViewHolder.ctb() == null) {
+        if (cardViewHolder.cti() == null) {
             return null;
         }
-        a(mVar, cardViewHolder.ctb());
-        cardViewHolder.ctb().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.j.1
+        a(mVar, cardViewHolder.cti());
+        cardViewHolder.cti().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 j.this.a(mVar);
             }
         });
-        return cardViewHolder.ctb().getView();
+        return cardViewHolder.cti().getView();
     }
 
     private void a(m mVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         if (mVar.getPersonCenterData() != null) {
-            this.gLI = aVar.cno();
-            cmL();
+            this.gLW = aVar.cnv();
+            cmS();
             aVar.wv(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_center_publish_live));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cmL() {
-        if (!this.hZi) {
-            this.hZi = true;
+    private void cmS() {
+        if (!this.hZw) {
+            this.hZw = true;
             if (!com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), false)) {
                 com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
-                a(this.gLI, null, true);
+                a(this.gLW, null, true);
                 return;
             }
-            a(this.gLI, null, false);
+            a(this.gLW, null, false);
         }
     }
 
@@ -111,13 +111,13 @@ public class j extends com.baidu.adp.widget.ListView.a<m, CardViewHolder<com.bai
     public void a(m mVar) {
         if (mVar != null && mVar.getPersonCenterData() != null) {
             com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("live_publish_live_has_showed"), true);
-            a(this.gLI, null, false);
-            bRT();
+            a(this.gLW, null, false);
+            bSa();
             TiebaStatic.log("c13618");
         }
     }
 
-    private void bRT() {
+    private void bSa() {
         Plugin plugin2;
         if (Build.VERSION.SDK_INT < 21) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
@@ -134,14 +134,14 @@ public class j extends com.baidu.adp.widget.ListView.a<m, CardViewHolder<com.bai
             });
             aVar.b(this.mPageContext).bqx();
         } else if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            if (this.gEI == null) {
-                this.gEI = new com.baidu.tieba.ueg.d(this.mPageContext);
+            if (this.gEW == null) {
+                this.gEW = new com.baidu.tieba.ueg.d(this.mPageContext);
             }
-            if (this.hZh) {
-                if (this.gEI.dRt()) {
+            if (this.hZv) {
+                if (this.gEW.dRB()) {
                     return;
                 }
-            } else if (this.gEI.dRs()) {
+            } else if (this.gEW.dRA()) {
                 return;
             }
             if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
@@ -163,13 +163,13 @@ public class j extends com.baidu.adp.widget.ListView.a<m, CardViewHolder<com.bai
                 @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.b
                 public void onPermissionsGranted() {
                     String str;
-                    if (j.this.hZh) {
+                    if (j.this.hZv) {
                         str = j.this.mForumId;
                     } else {
                         str = "0";
                     }
-                    String str2 = j.this.hZh ? j.this.mForumName : null;
-                    String str3 = j.this.hZh ? j.this.hGs : null;
+                    String str2 = j.this.hZv ? j.this.mForumName : null;
+                    String str3 = j.this.hZv ? j.this.hGG : null;
                     MessageManager.getInstance().sendMessage(new HttpMessage(1003303));
                     com.baidu.adp.lib.c.a.lH().getAddress(false);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaMasterLiveRoomActivityConfig(tbPageContext.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
@@ -188,10 +188,10 @@ public class j extends com.baidu.adp.widget.ListView.a<m, CardViewHolder<com.bai
     }
 
     public void mw(boolean z) {
-        this.hZh = z;
+        this.hZv = z;
     }
 
-    public void Im(String str) {
-        this.hGs = str;
+    public void In(String str) {
+        this.hGG = str;
     }
 }

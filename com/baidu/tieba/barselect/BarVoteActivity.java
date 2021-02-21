@@ -17,24 +17,24 @@ public class BarVoteActivity extends BaseActivity {
     public long fid;
     public int source;
     public BdUniqueId mPageId = BdUniqueId.gen();
-    private BarVoteModel ipc = null;
-    private com.baidu.tieba.barselect.a ipd = null;
-    BarVoteModel.a ipe = new BarVoteModel.a() { // from class: com.baidu.tieba.barselect.BarVoteActivity.1
+    private BarVoteModel ipq = null;
+    private com.baidu.tieba.barselect.a ipr = null;
+    BarVoteModel.a ips = new BarVoteModel.a() { // from class: com.baidu.tieba.barselect.BarVoteActivity.1
         @Override // com.baidu.tieba.barselect.BarVoteModel.a
         public void a(int i, String str, f fVar) {
-            if (BarVoteActivity.this.ipd != null && BarVoteActivity.this.ipd.getRootView() != null) {
-                BarVoteActivity.this.hideLoadingView(BarVoteActivity.this.ipd.getRootView());
+            if (BarVoteActivity.this.ipr != null && BarVoteActivity.this.ipr.getRootView() != null) {
+                BarVoteActivity.this.hideLoadingView(BarVoteActivity.this.ipr.getRootView());
                 if (i == 0) {
-                    if (fVar == null || fVar.crp() == null || fVar.crp().getStatus() < 1 || fVar.crp().getStatus() > 2) {
-                        if (BarVoteActivity.this.ipc != null && BarVoteActivity.this.ipc.mPn == 0) {
-                            if (BarVoteActivity.this.ipd.getListView() != null) {
-                                BarVoteActivity.this.ipd.getListView().setVisibility(8);
+                    if (fVar == null || fVar.crw() == null || fVar.crw().getStatus() < 1 || fVar.crw().getStatus() > 2) {
+                        if (BarVoteActivity.this.ipq != null && BarVoteActivity.this.ipq.mPn == 0) {
+                            if (BarVoteActivity.this.ipr.getListView() != null) {
+                                BarVoteActivity.this.ipr.getListView().setVisibility(8);
                             }
-                            if (fVar == null || fVar.crp() == null) {
-                                BarVoteActivity.this.ipd.IG(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
+                            if (fVar == null || fVar.crw() == null) {
+                                BarVoteActivity.this.ipr.IH(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
                                 return;
-                            } else if (fVar.crp().getStatus() < 1 || fVar.crp().getStatus() > 2) {
-                                BarVoteActivity.this.ipd.IG(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                            } else if (fVar.crw().getStatus() < 1 || fVar.crw().getStatus() > 2) {
+                                BarVoteActivity.this.ipr.IH(TbadkCoreApplication.getInst().getString(R.string.error_status));
                                 return;
                             } else {
                                 return;
@@ -42,8 +42,8 @@ public class BarVoteActivity extends BaseActivity {
                         }
                         return;
                     }
-                    if (BarVoteActivity.this.ipd.getListView() != null) {
-                        BarVoteActivity.this.ipd.getListView().setVisibility(0);
+                    if (BarVoteActivity.this.ipr.getListView() != null) {
+                        BarVoteActivity.this.ipr.getListView().setVisibility(0);
                     }
                     if (BarVoteActivity.this.fid != 0) {
                         fVar.setFid(BarVoteActivity.this.fid);
@@ -51,19 +51,19 @@ public class BarVoteActivity extends BaseActivity {
                     if (fVar.getUniqueId() == null) {
                         fVar.setUniqueId(BarVoteActivity.this.mPageId);
                     }
-                    BarVoteActivity.this.ipd.setData(fVar);
+                    BarVoteActivity.this.ipr.setData(fVar);
                 } else if (i == 2430005) {
-                    if (BarVoteActivity.this.ipc != null && BarVoteActivity.this.ipc.mPn == 0) {
-                        if (BarVoteActivity.this.ipd.getListView() != null) {
-                            BarVoteActivity.this.ipd.getListView().setVisibility(8);
+                    if (BarVoteActivity.this.ipq != null && BarVoteActivity.this.ipq.mPn == 0) {
+                        if (BarVoteActivity.this.ipr.getListView() != null) {
+                            BarVoteActivity.this.ipr.getListView().setVisibility(8);
                         }
-                        BarVoteActivity.this.ipd.IG(str);
+                        BarVoteActivity.this.ipr.IH(str);
                     }
-                } else if (BarVoteActivity.this.ipc != null && BarVoteActivity.this.ipc.mPn == 0) {
-                    if (BarVoteActivity.this.ipd.getListView() != null) {
-                        BarVoteActivity.this.ipd.getListView().setVisibility(8);
+                } else if (BarVoteActivity.this.ipq != null && BarVoteActivity.this.ipq.mPn == 0) {
+                    if (BarVoteActivity.this.ipr.getListView() != null) {
+                        BarVoteActivity.this.ipr.getListView().setVisibility(8);
                     }
-                    BarVoteActivity.this.ipd.IG(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                    BarVoteActivity.this.ipr.IH(TbadkCoreApplication.getInst().getString(R.string.error_status));
                 }
             }
         }
@@ -73,12 +73,12 @@ public class BarVoteActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ipd = new com.baidu.tieba.barselect.a(this);
+        this.ipr = new com.baidu.tieba.barselect.a(this);
         this.fid = getIntent().getLongExtra("fid", 0L);
         this.source = getIntent().getIntExtra("source", 0);
-        this.ipc = new BarVoteModel(this);
-        this.ipc.a(this.ipe);
-        this.ipd.h(new a());
+        this.ipq = new BarVoteModel(this);
+        this.ipq.a(this.ips);
+        this.ipr.h(new a());
         new ar("c13440").ap("obj_source", this.source).bsO();
     }
 
@@ -92,21 +92,21 @@ public class BarVoteActivity extends BaseActivity {
         new ar("c13440").ap("obj_source", this.source).bsO();
     }
 
-    public void cqN() {
-        if (this.ipc != null) {
-            this.ipc.bRc();
+    public void cqU() {
+        if (this.ipq != null) {
+            this.ipq.bRj();
         }
     }
 
     public void reload() {
-        if (this.ipc != null) {
-            this.ipc.refresh();
+        if (this.ipq != null) {
+            this.ipq.refresh();
         }
     }
 
     public void refresh() {
-        if (this.ipc != null) {
-            this.ipc.cqV();
+        if (this.ipq != null) {
+            this.ipq.crc();
         }
     }
 
@@ -115,10 +115,10 @@ public class BarVoteActivity extends BaseActivity {
         if (view.getId() == R.id.right_textview) {
             bf.bsV().b(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
         } else if (view.getId() == R.id.pb_more) {
-            if (this.ipd != null && this.ipd.cqX() != null) {
-                this.ipd.cqX().showLoading();
+            if (this.ipr != null && this.ipr.cre() != null) {
+                this.ipr.cre().showLoading();
             }
-            cqN();
+            cqU();
         }
     }
 
@@ -126,25 +126,25 @@ public class BarVoteActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ipd != null) {
-            this.ipd.uu(i);
+        if (this.ipr != null) {
+            this.ipr.uu(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.ipd != null) {
-            this.ipd.onDestroy();
+        if (this.ipr != null) {
+            this.ipr.onDestroy();
         }
-        if (this.ipc != null) {
-            this.ipc.onDestroy();
+        if (this.ipq != null) {
+            this.ipq.onDestroy();
         }
         super.onDestroy();
     }
 
-    public void bRu() {
-        this.ipd.bRu();
+    public void bRB() {
+        this.ipr.bRB();
     }
 
     /* loaded from: classes8.dex */
@@ -155,8 +155,8 @@ public class BarVoteActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (l.isNetOk()) {
-                BarVoteActivity.this.ipd.hideNoDataView();
-                BarVoteActivity.this.showLoadingView(BarVoteActivity.this.ipd.getRootView());
+                BarVoteActivity.this.ipr.hideNoDataView();
+                BarVoteActivity.this.showLoadingView(BarVoteActivity.this.ipr.getRootView());
                 BarVoteActivity.this.reload();
             }
         }

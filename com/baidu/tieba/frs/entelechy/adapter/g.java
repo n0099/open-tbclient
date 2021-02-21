@@ -22,7 +22,7 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class g extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<cb>> {
     public BdUniqueId fGZ;
-    private BdTypeRecyclerView jqK;
+    private BdTypeRecyclerView jqY;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -40,7 +40,7 @@ public class g extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
         com.baidu.card.s sVar = new com.baidu.card.s(this.mPageContext.getPageActivity());
         sVar.sY();
         aVar.a((com.baidu.card.h) sVar);
-        com.baidu.card.ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.jqK);
+        com.baidu.card.ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.jqY);
         a2.setSourceForPb(2);
         ThreadCardViewHolder<cb> threadCardViewHolder = new ThreadCardViewHolder<>(a2);
         threadCardViewHolder.setPageId(this.fGZ);
@@ -87,6 +87,6 @@ public class g extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
     }
 
     public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jqK = bdTypeRecyclerView;
+        this.jqY = bdTypeRecyclerView;
     }
 }

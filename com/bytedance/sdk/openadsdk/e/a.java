@@ -206,8 +206,8 @@ public class a implements c {
         }, false);
         b2.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.e.a.2
         });
-        b2.a(3, new a.InterfaceC1017a() { // from class: com.bytedance.sdk.openadsdk.e.a.3
-            @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1017a
+        b2.a(3, new a.InterfaceC1019a() { // from class: com.bytedance.sdk.openadsdk.e.a.3
+            @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1019a
             public boolean a(int i, l lVar2, String str2, String str3, Object obj) {
                 boolean z2 = false;
                 if (i != 3 || lVar2 == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {

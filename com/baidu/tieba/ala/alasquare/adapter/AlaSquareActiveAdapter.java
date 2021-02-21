@@ -12,8 +12,8 @@ import com.baidu.tieba.ala.alasquare.widget.c;
 import com.baidu.tieba.ala.alasquare.widget.d;
 /* loaded from: classes10.dex */
 public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
-    private int gyd;
-    d gye;
+    private int gyr;
+    d gys;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     /* renamed from: M */
     public SquareActiveViewHolder e(ViewGroup viewGroup) {
         c cVar = new c(this.mPageContext);
-        cVar.a(this.gye);
+        cVar.a(this.gys);
         return new SquareActiveViewHolder(cVar);
     }
 
@@ -31,12 +31,12 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, SquareActiveViewHolder squareActiveViewHolder) {
         c cVar;
-        if (squareActiveViewHolder == null || (cVar = squareActiveViewHolder.gyf) == null || cVar.getView() == null) {
+        if (squareActiveViewHolder == null || (cVar = squareActiveViewHolder.gyt) == null || cVar.getView() == null) {
             return null;
         }
         cVar.a(bVar);
-        com.baidu.tieba.ala.alasquare.b.a.bRX().e(bVar.az("c12249", false));
-        if (i == this.gyd) {
+        com.baidu.tieba.ala.alasquare.b.a.bSe().e(bVar.az("c12249", false));
+        if (i == this.gyr) {
             cVar.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
         }
         return squareActiveViewHolder.getView();
@@ -44,11 +44,11 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
 
     /* loaded from: classes10.dex */
     public class SquareActiveViewHolder extends TypeAdapter.ViewHolder {
-        public c gyf;
+        public c gyt;
 
         public SquareActiveViewHolder(c cVar) {
             super(cVar.getView());
-            this.gyf = cVar;
+            this.gyt = cVar;
         }
     }
 }

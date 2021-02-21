@@ -7,8 +7,8 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes9.dex */
 public class a {
     private int isFinished;
-    private InterfaceC0792a lnJ = null;
-    private com.baidu.adp.framework.listener.a lnK = new com.baidu.adp.framework.listener.a(1003188, CmdConfigSocket.CMD_FINISH_MEMBER_TASK) { // from class: com.baidu.tieba.memberCenter.memberTask.a.1
+    private InterfaceC0793a lnX = null;
+    private com.baidu.adp.framework.listener.a lnY = new com.baidu.adp.framework.listener.a(1003188, CmdConfigSocket.CMD_FINISH_MEMBER_TASK) { // from class: com.baidu.tieba.memberCenter.memberTask.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -18,8 +18,8 @@ public class a {
                     } else if (responsedMessage instanceof FinishMemberTaskSocketMessage) {
                         a.this.isFinished = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
                     }
-                    if (a.this.lnJ != null) {
-                        a.this.lnJ.a(responsedMessage.getError(), responsedMessage.getErrorString(), a.this.isFinished, a.this.scores, a.this.taskId);
+                    if (a.this.lnX != null) {
+                        a.this.lnX.a(responsedMessage.getError(), responsedMessage.getErrorString(), a.this.isFinished, a.this.scores, a.this.taskId);
                     }
                 }
             }
@@ -30,14 +30,14 @@ public class a {
 
     /* renamed from: com.baidu.tieba.memberCenter.memberTask.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0792a {
+    public interface InterfaceC0793a {
         void a(int i, String str, int i2, int i3, long j);
     }
 
     public a() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FINISH_MEMBER_TASK, FinishMemberTaskSocketMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_FINISH_MEMBER_TASK, 1003188, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.lnK);
+        MessageManager.getInstance().registerListener(this.lnY);
     }
 
     public void z(long j, int i) {
@@ -48,11 +48,11 @@ public class a {
         MessageManager.getInstance().sendMessage(finishMemberTaskReqMessage);
     }
 
-    public void a(InterfaceC0792a interfaceC0792a) {
-        this.lnJ = interfaceC0792a;
+    public void a(InterfaceC0793a interfaceC0793a) {
+        this.lnX = interfaceC0793a;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.lnK);
+        MessageManager.getInstance().unRegisterListener(this.lnY);
     }
 }

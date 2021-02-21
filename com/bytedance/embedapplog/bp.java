@@ -17,7 +17,7 @@ final class bp<SERVICE, RESULT> {
     /* renamed from: b  reason: collision with root package name */
     private final Intent f5810b;
     private final Context d;
-    private final b<SERVICE, RESULT> pmY;
+    private final b<SERVICE, RESULT> pny;
 
     /* loaded from: classes6.dex */
     interface b<T, RESULT> {
@@ -30,7 +30,7 @@ final class bp<SERVICE, RESULT> {
     public bp(Context context, Intent intent, b<SERVICE, RESULT> bVar) {
         this.d = context;
         this.f5810b = intent;
-        this.pmY = bVar;
+        this.pny = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,7 +39,7 @@ final class bp<SERVICE, RESULT> {
         RESULT result = null;
         if (Looper.getMainLooper() != Looper.myLooper()) {
             try {
-                aVar = new a(this.f5809a, this.pmY);
+                aVar = new a(this.f5809a, this.pny);
                 this.d.bindService(this.f5810b, aVar, 1);
                 this.f5809a.await();
             } catch (Throwable th) {
@@ -47,7 +47,7 @@ final class bp<SERVICE, RESULT> {
                 aVar = null;
             }
             try {
-                result = this.pmY.a(aVar.f5811a);
+                result = this.pny.a(aVar.f5811a);
                 a(aVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -81,11 +81,11 @@ final class bp<SERVICE, RESULT> {
         /* renamed from: a  reason: collision with root package name */
         SERVICE f5811a;
         private final CountDownLatch c;
-        private final b<SERVICE, RESULT> pmZ;
+        private final b<SERVICE, RESULT> pnz;
 
         a(CountDownLatch countDownLatch, b<SERVICE, RESULT> bVar) {
             this.c = countDownLatch;
-            this.pmZ = bVar;
+            this.pnz = bVar;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, IGET, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -93,7 +93,7 @@ final class bp<SERVICE, RESULT> {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             bb.b(bh.f5801a, "ServiceBlockBinder#onServiceConnected " + componentName);
             try {
-                this.f5811a = this.pmZ.e(iBinder);
+                this.f5811a = this.pnz.e(iBinder);
             } catch (Throwable th) {
                 try {
                     th.printStackTrace();

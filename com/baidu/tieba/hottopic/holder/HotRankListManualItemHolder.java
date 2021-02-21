@@ -9,32 +9,32 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class HotRankListManualItemHolder extends TypeAdapter.ViewHolder {
     public int ajU;
-    public TbImageView kvA;
-    public LinearLayout kvB;
-    public TextView kvu;
-    public TextView kvv;
-    public TextView kvw;
-    public TextView kvx;
-    public View kvy;
-    public View kvz;
+    public TextView kvI;
+    public TextView kvJ;
+    public TextView kvK;
+    public TextView kvL;
+    public View kvM;
+    public View kvN;
+    public TbImageView kvO;
+    public LinearLayout kvP;
 
     public HotRankListManualItemHolder(View view) {
         super(view);
         this.ajU = 3;
-        this.kvu = null;
-        this.kvv = null;
-        this.kvw = null;
-        this.kvx = null;
-        this.kvy = null;
-        this.kvz = null;
-        this.kvA = null;
-        this.kvB = null;
-        this.kvu = (TextView) view.findViewById(R.id.topic_module);
-        this.kvw = (TextView) view.findViewById(R.id.topic_desc);
-        this.kvv = (TextView) view.findViewById(R.id.topic_title);
-        this.kvA = (TbImageView) view.findViewById(R.id.topic_pic);
-        this.kvy = view.findViewById(R.id.devide_line_top);
-        this.kvz = view.findViewById(R.id.devide_line_bottom);
-        this.kvB = (LinearLayout) view.findViewById(R.id.topic_manual_item);
+        this.kvI = null;
+        this.kvJ = null;
+        this.kvK = null;
+        this.kvL = null;
+        this.kvM = null;
+        this.kvN = null;
+        this.kvO = null;
+        this.kvP = null;
+        this.kvI = (TextView) view.findViewById(R.id.topic_module);
+        this.kvK = (TextView) view.findViewById(R.id.topic_desc);
+        this.kvJ = (TextView) view.findViewById(R.id.topic_title);
+        this.kvO = (TbImageView) view.findViewById(R.id.topic_pic);
+        this.kvM = view.findViewById(R.id.devide_line_top);
+        this.kvN = view.findViewById(R.id.devide_line_bottom);
+        this.kvP = (LinearLayout) view.findViewById(R.id.topic_manual_item);
     }
 }

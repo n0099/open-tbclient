@@ -8,13 +8,13 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.h;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.i;
 /* loaded from: classes10.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c, LiveTabConcernRecommendLineHolder> {
-    private i gCj;
-    private h gCo;
+    private h gCC;
+    private i gCx;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.gCs);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.gCG);
         this.mPageContext = tbPageContext;
     }
 
@@ -23,28 +23,28 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ab */
     public LiveTabConcernRecommendLineHolder e(ViewGroup viewGroup) {
-        this.gCo = new h(this.mPageContext, viewGroup);
-        if (this.gCj != null) {
-            this.gCo.a(this.gCj);
+        this.gCC = new h(this.mPageContext, viewGroup);
+        if (this.gCx != null) {
+            this.gCC.a(this.gCx);
         }
-        return new LiveTabConcernRecommendLineHolder(this.gCo);
+        return new LiveTabConcernRecommendLineHolder(this.gCC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
-        if (liveTabConcernRecommendLineHolder == null || liveTabConcernRecommendLineHolder.gCo == null) {
+        if (liveTabConcernRecommendLineHolder == null || liveTabConcernRecommendLineHolder.gCC == null) {
             return null;
         }
-        liveTabConcernRecommendLineHolder.gCo.a(cVar);
+        liveTabConcernRecommendLineHolder.gCC.a(cVar);
         return liveTabConcernRecommendLineHolder.getView();
     }
 
     public void a(i iVar) {
-        this.gCj = iVar;
-        if (this.gCo != null) {
-            this.gCo.a(this.gCj);
+        this.gCx = iVar;
+        if (this.gCC != null) {
+            this.gCC.a(this.gCx);
         }
     }
 }

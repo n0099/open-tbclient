@@ -15,11 +15,11 @@ public final class b implements a {
     /* renamed from: a  reason: collision with root package name */
     private a f14338a;
     private CountDownLatch c;
-    private com.yxcorp.kuaishou.addfp.a.b.a qly;
+    private com.yxcorp.kuaishou.addfp.a.b.a qlY;
 
     private b() {
         this.c = null;
-        this.qly = null;
+        this.qlY = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,9 +32,9 @@ public final class b implements a {
         return !TextUtils.isEmpty(Build.MANUFACTURER) ? Build.MANUFACTURER.toLowerCase() : "";
     }
 
-    public static final b eJv() {
+    public static final b eJD() {
         b bVar;
-        bVar = d.qlA;
+        bVar = d.qma;
         return bVar;
     }
 

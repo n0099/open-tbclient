@@ -20,16 +20,16 @@ public class c implements com.bytedance.sdk.adnet.e.c {
 
     /* renamed from: a  reason: collision with root package name */
     protected static final boolean f6021a = r.f6048a;
-    protected final com.bytedance.sdk.adnet.e.a puV;
-    protected final d puW;
+    protected final com.bytedance.sdk.adnet.e.a pvv;
+    protected final d pvw;
 
     public c(com.bytedance.sdk.adnet.e.a aVar) {
         this(aVar, new d(4096));
     }
 
     public c(com.bytedance.sdk.adnet.e.a aVar, d dVar) {
-        this.puV = aVar;
-        this.puW = dVar;
+        this.pvv = aVar;
+        this.pvw = dVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [177=6, 178=6, 179=6, 182=5] */
@@ -46,11 +46,11 @@ public class c implements com.bytedance.sdk.adnet.e.c {
             b bVar2 = null;
             List<a> emptyList = Collections.emptyList();
             try {
-                bVar = this.puV.a(request, a(request.getCacheEntry()));
+                bVar = this.pvv.a(request, a(request.getCacheEntry()));
                 try {
                     try {
                         int statusCode = bVar.getStatusCode();
-                        emptyList = bVar.eqL();
+                        emptyList = bVar.eqT();
                         if (statusCode == 304) {
                             b.a cacheEntry = request.getCacheEntry();
                             if (cacheEntry != null) {
@@ -241,12 +241,12 @@ public class c implements com.bytedance.sdk.adnet.e.c {
     }
 
     private byte[] a(InputStream inputStream, int i) throws IOException, com.bytedance.sdk.adnet.err.f {
-        e eVar = new e(this.puW, i);
+        e eVar = new e(this.pvw, i);
         try {
             if (inputStream == null) {
                 throw new com.bytedance.sdk.adnet.err.f();
             }
-            byte[] a2 = this.puW.a(1024);
+            byte[] a2 = this.pvw.a(1024);
             while (true) {
                 int read = inputStream.read(a2);
                 if (read == -1) {
@@ -262,7 +262,7 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                     r.a("Error occurred when closing InputStream", new Object[0]);
                 }
             }
-            this.puW.a(a2);
+            this.pvw.a(a2);
             eVar.close();
             return byteArray;
         } catch (Throwable th) {
@@ -273,7 +273,7 @@ public class c implements com.bytedance.sdk.adnet.e.c {
                     r.a("Error occurred when closing InputStream", new Object[0]);
                 }
             }
-            this.puW.a((byte[]) null);
+            this.pvw.a((byte[]) null);
             eVar.close();
             throw th;
         }

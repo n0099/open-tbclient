@@ -13,15 +13,15 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class AlaAudioModeInitialize {
-    private static int oWr = -1;
+    private static int oWR = -1;
 
     static {
-        ejf();
-        ejg();
-        eiR();
+        ejn();
+        ejo();
+        eiZ();
     }
 
-    private static void ejf() {
+    private static void ejn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031079, com.baidu.live.a.avJ + "ala/audio/room/changeMode");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -33,7 +33,7 @@ public class AlaAudioModeInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void ejg() {
+    private static void ejo() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501008) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -43,20 +43,20 @@ public class AlaAudioModeInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("ala_live_show_data");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof ab)) {
-                        a.ejc().b((TbPageContext) obj, (ab) obj2);
+                        a.ejk().b((TbPageContext) obj, (ab) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void eiR() {
+    private static void eiZ() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.ejc().FA();
+                    a.ejk().FA();
                 }
             }
         });

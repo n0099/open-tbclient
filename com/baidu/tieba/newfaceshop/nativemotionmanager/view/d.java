@@ -22,13 +22,13 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class d implements NoNetworkView.a {
     private FrameLayout dcv;
-    private NoNetworkView gAh;
-    private g gJn;
-    private com.baidu.tieba.newfaceshop.nativemotionmanager.a.a lCZ;
-    private SimpleDragSortListView lDN;
-    private com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a lDO;
-    private b lDP;
-    private boolean lDQ = false;
+    private NoNetworkView gAv;
+    private g gJB;
+    private com.baidu.tieba.newfaceshop.nativemotionmanager.a.a lDn;
+    private SimpleDragSortListView lEb;
+    private com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a lEc;
+    private b lEd;
+    private boolean lEe = false;
     private NoDataView mNoDataView;
     private TbPageContext mPageContext;
     private View rootView;
@@ -37,21 +37,21 @@ public class d implements NoNetworkView.a {
         this.mPageContext = tbPageContext;
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_my_emotions, (ViewGroup) null, false);
         this.dcv = (FrameLayout) this.rootView.findViewById(R.id.my_emotion_loading);
-        this.gAh = (NoNetworkView) this.rootView.findViewById(R.id.view_no_network);
-        this.lDP = new b(this.rootView.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
-        this.lDN = (SimpleDragSortListView) this.rootView.findViewById(R.id.my_emotion_list);
-        this.lDN.setDivider(null);
-        this.lDN.setOverScrollMode(2);
-        this.lDN.setVerticalScrollBarEnabled(false);
-        djk();
-        this.lDO = new com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a(tbPageContext, this.lDN, this.lCZ);
+        this.gAv = (NoNetworkView) this.rootView.findViewById(R.id.view_no_network);
+        this.lEd = new b(this.rootView.findViewById(R.id.emotion_my_emotion_empty), tbPageContext.getString(R.string.emotion_empty_mine));
+        this.lEb = (SimpleDragSortListView) this.rootView.findViewById(R.id.my_emotion_list);
+        this.lEb.setDivider(null);
+        this.lEb.setOverScrollMode(2);
+        this.lEb.setVerticalScrollBarEnabled(false);
+        djr();
+        this.lEc = new com.baidu.tieba.newfaceshop.nativemotionmanager.managers.a(tbPageContext, this.lEb, this.lDn);
         showLoadingView();
-        this.gAh.a(this);
+        this.gAv.a(this);
     }
 
     public void showNoDataView() {
         if (this.mPageContext != null && this.dcv != null) {
-            dji();
+            djp();
             this.dcv.setVisibility(0);
             this.mNoDataView = NoDataViewFactory.a(this.mPageContext.getPageActivity(), this.dcv, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds110)), NoDataViewFactory.d.dS(null, this.mPageContext.getString(R.string.emotion_error_net_tip)), null, true);
             this.mNoDataView.setVisibility(0);
@@ -59,7 +59,7 @@ public class d implements NoNetworkView.a {
         }
     }
 
-    private void dji() {
+    private void djp() {
         hideLoadingView();
         hideNoDataView();
     }
@@ -73,37 +73,37 @@ public class d implements NoNetworkView.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void djj() {
-        if (this.lDN != null && !this.lDQ && this.lDP != null) {
-            this.lDQ = true;
-            this.lDN.setEmptyView(this.lDP.getView());
+    public void djq() {
+        if (this.lEb != null && !this.lEe && this.lEd != null) {
+            this.lEe = true;
+            this.lEb.setEmptyView(this.lEd.getView());
         }
     }
 
     private void showLoadingView() {
         if (this.mPageContext != null && this.dcv != null) {
-            dji();
+            djp();
             this.dcv.setVisibility(0);
-            this.gJn = new g(this.mPageContext.getPageActivity());
-            this.gJn.attachView(this.dcv, true);
-            this.gJn.onChangeSkinType();
+            this.gJB = new g(this.mPageContext.getPageActivity());
+            this.gJB.attachView(this.dcv, true);
+            this.gJB.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
-        if (this.gJn != null && this.dcv != null) {
+        if (this.gJB != null && this.dcv != null) {
             this.dcv.setVisibility(8);
-            this.gJn.dettachView(this.dcv);
-            this.gJn = null;
+            this.gJB.dettachView(this.dcv);
+            this.gJB = null;
         }
     }
 
-    private void djk() {
-        this.lCZ = new com.baidu.tieba.newfaceshop.nativemotionmanager.a.a(this.lDN);
-        this.lCZ.a(new a.g() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.d.1
+    private void djr() {
+        this.lDn = new com.baidu.tieba.newfaceshop.nativemotionmanager.a.a(this.lEb);
+        this.lDn.a(new a.g() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.d.1
             @Override // com.baidu.tbadk.widget.dragsort.a.g
             public void drop(int i, int i2) {
-                d.this.lDO.cX(i, i2);
+                d.this.lEc.cY(i, i2);
             }
         });
     }
@@ -113,20 +113,20 @@ public class d implements NoNetworkView.a {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.lDP != null) {
-            this.lDP.onChangeSkinType(i);
+        if (this.lEd != null) {
+            this.lEd.onChangeSkinType(i);
         }
         if (this.dcv != null) {
             ap.setBackgroundColor(this.dcv, R.color.CAM_X0201, i);
         }
-        if (this.lDP != null) {
-            ap.setBackgroundColor(this.lDP.getView(), R.color.CAM_X0201, i);
+        if (this.lEd != null) {
+            ap.setBackgroundColor(this.lEd.getView(), R.color.CAM_X0201, i);
         }
-        if (this.lDN != null) {
-            ap.setBackgroundColor(this.lDN, R.color.CAM_X0201, i);
+        if (this.lEb != null) {
+            ap.setBackgroundColor(this.lEb, R.color.CAM_X0201, i);
         }
-        if (this.gAh != null) {
-            this.gAh.onChangeSkinType(this.mPageContext, i);
+        if (this.gAv != null) {
+            this.gAv.onChangeSkinType(this.mPageContext, i);
         }
     }
 
@@ -134,20 +134,20 @@ public class d implements NoNetworkView.a {
         com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.djj();
-                if (d.this.lDO != null && list != null) {
-                    d.this.lDO.fa(list);
+                d.this.djq();
+                if (d.this.lEc != null && list != null) {
+                    d.this.lEc.fa(list);
                 }
             }
         });
     }
 
-    public void diT() {
+    public void dja() {
         com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.d.3
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.lDO != null) {
-                    d.this.lDO.update();
+                if (d.this.lEc != null) {
+                    d.this.lEc.update();
                 }
             }
         });

@@ -21,9 +21,9 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
     public int compareTo(ij ijVar) {
         int a2;
         if (getClass().equals(ijVar.getClass())) {
-            int compareTo = Boolean.valueOf(m454a()).compareTo(Boolean.valueOf(ijVar.m454a()));
+            int compareTo = Boolean.valueOf(m453a()).compareTo(Boolean.valueOf(ijVar.m453a()));
             if (compareTo == 0) {
-                if (!m454a() || (a2 = iy.a(this.f687a, ijVar.f687a)) == 0) {
+                if (!m453a() || (a2 = iy.a(this.f687a, ijVar.f687a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -38,7 +38,7 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m453a() {
+    public void m452a() {
         if (this.f687a == null) {
             throw new jj("Required field 'customConfigs' was not present! Struct: " + toString());
         }
@@ -46,20 +46,20 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m515a();
+        jiVar.m514a();
         while (true) {
-            jf m511a = jiVar.m511a();
-            if (m511a.f14173a == 0) {
+            jf m510a = jiVar.m510a();
+            if (m510a.f14173a == 0) {
                 jiVar.f();
-                m453a();
+                m452a();
                 return;
             }
-            switch (m511a.f857a) {
+            switch (m510a.f857a) {
                 case 1:
-                    if (m511a.f14173a == 15) {
-                        jg m512a = jiVar.m512a();
-                        this.f687a = new ArrayList(m512a.f858a);
-                        for (int i = 0; i < m512a.f858a; i++) {
+                    if (m510a.f14173a == 15) {
+                        jg m511a = jiVar.m511a();
+                        this.f687a = new ArrayList(m511a.f858a);
+                        for (int i = 0; i < m511a.f858a; i++) {
                             hx hxVar = new hx();
                             hxVar.a(jiVar);
                             this.f687a.add(hxVar);
@@ -67,11 +67,11 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14173a);
+                    jl.a(jiVar, m510a.f14173a);
                     break;
             }
             jiVar.g();
@@ -79,23 +79,23 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m454a() {
+    public boolean m453a() {
         return this.f687a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m455a(ij ijVar) {
+    public boolean m454a(ij ijVar) {
         if (ijVar == null) {
             return false;
         }
-        boolean m454a = m454a();
-        boolean m454a2 = ijVar.m454a();
-        return !(m454a || m454a2) || (m454a && m454a2 && this.f687a.equals(ijVar.f687a));
+        boolean m453a = m453a();
+        boolean m453a2 = ijVar.m453a();
+        return !(m453a || m453a2) || (m453a && m453a2 && this.f687a.equals(ijVar.f687a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m453a();
+        m452a();
         jiVar.a(f686a);
         if (this.f687a != null) {
             jiVar.a(f14139a);
@@ -107,12 +107,12 @@ public class ij implements ix<ij, Object>, Serializable, Cloneable {
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m519a();
+        jiVar.m518a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ij)) {
-            return m455a((ij) obj);
+            return m454a((ij) obj);
         }
         return false;
     }

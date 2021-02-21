@@ -45,7 +45,7 @@ public class g implements com.ss.android.a.a.a {
     }
 
     @Override // com.ss.android.a.a.a
-    public com.ss.android.a.a.a aaa(String str) {
+    public com.ss.android.a.a.a aam(String str) {
         j.a(str);
         return this;
     }
@@ -53,22 +53,22 @@ public class g implements com.ss.android.a.a.a {
     @Override // com.ss.android.a.a.a
     public com.ss.android.a.a.a a(@NonNull final com.ss.android.a.a.a.b bVar) {
         j.b(bVar);
-        com.ss.android.socialbase.appdownloader.d.eFn().a(new com.ss.android.socialbase.appdownloader.c.i() { // from class: com.ss.android.downloadlib.g.1
+        com.ss.android.socialbase.appdownloader.d.eFv().a(new com.ss.android.socialbase.appdownloader.c.i() { // from class: com.ss.android.downloadlib.g.1
         });
         return this;
     }
 
     @Override // com.ss.android.a.a.a
     public com.ss.android.a.a.a a(com.ss.android.socialbase.downloader.downloader.g gVar) {
-        if (gVar.eFA() == null) {
-            gVar.c(com.ss.android.downloadlib.a.d.eEz());
+        if (gVar.eFI() == null) {
+            gVar.c(com.ss.android.downloadlib.a.d.eEH());
         }
-        if (gVar.eGI() == null) {
+        if (gVar.eGQ() == null) {
             gVar.b(new r() { // from class: com.ss.android.downloadlib.g.2
                 @Override // com.ss.android.socialbase.downloader.d.r
                 public boolean a(com.ss.android.socialbase.downloader.g.c cVar) {
                     boolean n = n(cVar);
-                    if (com.ss.android.socialbase.downloader.k.a.RV(cVar.g()).a("disable_delete_dialog", 0) == 1) {
+                    if (com.ss.android.socialbase.downloader.k.a.RW(cVar.g()).a("disable_delete_dialog", 0) == 1) {
                         return true;
                     }
                     return n;
@@ -76,16 +76,16 @@ public class g implements com.ss.android.a.a.a {
 
                 private boolean n(com.ss.android.socialbase.downloader.g.c cVar) {
                     String m;
-                    com.ss.android.a.a.a.r eET = j.eET();
-                    if (eET != null) {
-                        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eEt().j(cVar);
+                    com.ss.android.a.a.a.r eFb = j.eFb();
+                    if (eFb != null) {
+                        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eEB().j(cVar);
                         if (j != null && j.p()) {
-                            m = com.ss.android.socialbase.downloader.k.a.RV(cVar.g()).a("ad_notification_jump_url", (String) null);
+                            m = com.ss.android.socialbase.downloader.k.a.RW(cVar.g()).a("ad_notification_jump_url", (String) null);
                         } else {
                             m = com.ss.android.downloadlib.a.i.m(cVar);
                         }
                         if (!TextUtils.isEmpty(m)) {
-                            return eET.a(j.a(), m);
+                            return eFb.a(j.a(), m);
                         }
                     }
                     return false;
@@ -101,18 +101,18 @@ public class g implements com.ss.android.a.a.a {
                     if (cVar == null) {
                         return false;
                     }
-                    com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eEt().j(cVar);
+                    com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eEB().j(cVar);
                     if (j != null) {
                         com.ss.android.downloadlib.b.a.d(j);
                     } else {
-                        com.ss.android.downloadlib.f.f.aaK(cVar.D());
+                        com.ss.android.downloadlib.f.f.aaW(cVar.D());
                     }
-                    com.ss.android.socialbase.downloader.notification.b.eIB().f(cVar.g());
+                    com.ss.android.socialbase.downloader.notification.b.eIJ().f(cVar.g());
                     return true;
                 }
             });
         }
-        if (gVar.eGG() == null) {
+        if (gVar.eGO() == null) {
             gVar.c(new com.ss.android.downloadlib.d.a());
         }
         com.ss.android.socialbase.downloader.downloader.f.b(gVar);

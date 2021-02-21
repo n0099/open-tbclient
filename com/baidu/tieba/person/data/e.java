@@ -5,13 +5,13 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class e {
     private ArrayList<n> eVV;
-    private boolean msC = true;
+    private boolean msR = true;
 
     public void ba(ArrayList<n> arrayList) {
         this.eVV = arrayList;
     }
 
     public void wD(boolean z) {
-        this.msC = z;
+        this.msR = z;
     }
 }

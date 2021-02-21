@@ -13,8 +13,8 @@ import com.baidu.tieba.ala.message.AlaGetMyAssistWIshListResponseMessage;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class e extends BdBaseModel {
-    private a hSG;
-    private HttpMessageListener hTK;
+    private a hSU;
+    private HttpMessageListener hTY;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -25,25 +25,25 @@ public class e extends BdBaseModel {
 
     public e(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hTK = new HttpMessageListener(1021171) { // from class: com.baidu.tieba.ala.g.e.1
+        this.hTY = new HttpMessageListener(1021171) { // from class: com.baidu.tieba.ala.g.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021171 && (httpResponsedMessage instanceof AlaGetMyAssistWIshListResponseMessage)) {
                     AlaGetMyAssistWIshListResponseMessage alaGetMyAssistWIshListResponseMessage = (AlaGetMyAssistWIshListResponseMessage) httpResponsedMessage;
-                    if (e.this.hSG != null) {
+                    if (e.this.hSU != null) {
                         if (alaGetMyAssistWIshListResponseMessage.getError() != 0 || !alaGetMyAssistWIshListResponseMessage.isSuccess()) {
-                            e.this.hSG.bt(alaGetMyAssistWIshListResponseMessage.getError(), alaGetMyAssistWIshListResponseMessage.getErrorString());
+                            e.this.hSU.bt(alaGetMyAssistWIshListResponseMessage.getError(), alaGetMyAssistWIshListResponseMessage.getErrorString());
                         } else {
-                            e.this.hSG.aa(alaGetMyAssistWIshListResponseMessage.getData());
+                            e.this.hSU.aa(alaGetMyAssistWIshListResponseMessage.getData());
                         }
                     }
                 }
             }
         };
-        this.hSG = aVar;
+        this.hSU = aVar;
         abY();
-        registerListener(this.hTK);
+        registerListener(this.hTY);
     }
 
     private void abY() {
@@ -56,7 +56,7 @@ public class e extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Ie(String str) {
+    public void If(String str) {
         HttpMessage httpMessage = new HttpMessage(1021171);
         httpMessage.addParam("anchor_id", str);
         sendMessage(httpMessage);
@@ -73,7 +73,7 @@ public class e extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hTK);
+        MessageManager.getInstance().unRegisterListener(this.hTY);
         MessageManager.getInstance().unRegisterTask(1021171);
     }
 }

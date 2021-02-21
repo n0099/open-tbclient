@@ -8,19 +8,19 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class cd extends bv {
-    private static final long[] pnm = {AppStatusRules.DEFAULT_GRANULARITY};
+    private static final long[] pnM = {AppStatusRules.DEFAULT_GRANULARITY};
     private long f;
     private long g;
-    private final cn pmu;
-    private final m pno;
-    private final ad pnq;
+    private final cn pmU;
+    private final m pnO;
+    private final ad pnQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(Context context, ad adVar, cn cnVar, m mVar) {
         super(context);
-        this.pnq = adVar;
-        this.pmu = cnVar;
-        this.pno = mVar;
+        this.pnQ = adVar;
+        this.pmU = cnVar;
+        this.pnO = mVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -31,40 +31,40 @@ public class cd extends bv {
     @Override // com.bytedance.embedapplog.bv
     long b() {
         long j = AppStatusRules.DEFAULT_GRANULARITY;
-        long eok = this.pmu.eok();
-        if (eok <= AppStatusRules.DEFAULT_GRANULARITY && eok > 0) {
-            j = eok;
+        long eos = this.pmU.eos();
+        if (eos <= AppStatusRules.DEFAULT_GRANULARITY && eos > 0) {
+            j = eos;
         }
-        pnm[0] = j;
+        pnM[0] = j;
         return j + this.f;
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] enU() {
-        return pnm;
+    long[] eoc() {
+        return pnM;
     }
 
     @Override // com.bytedance.embedapplog.bv
     public boolean d() {
-        ah enX;
-        if (System.currentTimeMillis() > this.g + this.pmu.eok()) {
-            JSONObject b2 = this.pno.b();
-            ce enW = bx.enW();
-            if (enW != null && b2 != null && (enX = enW.enX()) != null) {
-                this.pnq.a(b2, enX, enW.b());
+        ah eog;
+        if (System.currentTimeMillis() > this.g + this.pmU.eos()) {
+            JSONObject b2 = this.pnO.b();
+            ce eoe = bx.eoe();
+            if (eoe != null && b2 != null && (eog = eoe.eog()) != null) {
+                this.pnQ.a(b2, eog, eoe.b());
                 this.g = System.currentTimeMillis();
             }
         }
-        ArrayList<ai> a2 = this.pnq.a();
+        ArrayList<ai> a2 = this.pnQ.a();
         ArrayList<ai> arrayList = new ArrayList<>(a2.size());
         ArrayList<ai> arrayList2 = new ArrayList<>(a2.size());
-        this.pnq.a(this.f5816a, this.pno.a());
-        this.pnq.a(this.f5816a);
-        String[] m = ab.m(this.f5816a, this.pno.a());
+        this.pnQ.a(this.f5816a, this.pnO.a());
+        this.pnQ.a(this.f5816a);
+        String[] m = ab.m(this.f5816a, this.pnO.a());
         Iterator<ai> it = a2.iterator();
         while (it.hasNext()) {
             ai next = it.next();
-            int a3 = aa.a(m, next.h, this.pmu);
+            int a3 = aa.a(m, next.h, this.pmU);
             if (a3 == 200) {
                 arrayList.add(next);
             } else {
@@ -73,7 +73,7 @@ public class cd extends bv {
             }
         }
         if (arrayList.size() > 0 || arrayList2.size() > 0) {
-            this.pnq.j(arrayList, arrayList2);
+            this.pnQ.j(arrayList, arrayList2);
         }
         au.d(e() + arrayList.size() + " " + a2.size(), null);
         if (arrayList.size() == a2.size()) {

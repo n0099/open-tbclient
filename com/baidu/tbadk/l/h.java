@@ -71,7 +71,7 @@ public class h extends a {
         }
     }
 
-    public void Dm(String str) {
+    public void Dk(String str) {
         if (str != null) {
             this.bhK.setText(str);
             this.bhK.setVisibility(0);

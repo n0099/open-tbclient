@@ -13,18 +13,18 @@ import com.baidu.tieba.square.ForumSquareActivity;
 import com.baidu.tieba.square.view.c;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.data.b, CardViewHolder<c>> {
-    private ab<com.baidu.tieba.square.data.b> hmS;
+    private ab<com.baidu.tieba.square.data.b> hng;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity(), com.baidu.tieba.square.data.b.TYPE);
-        this.hmS = new ab<com.baidu.tieba.square.data.b>() { // from class: com.baidu.tieba.square.adapter.b.1
+        this.hng = new ab<com.baidu.tieba.square.data.b>() { // from class: com.baidu.tieba.square.adapter.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.square.data.b bVar) {
                 if (bVar != null && (b.this.mPageContext.getPageActivity() instanceof ForumSquareActivity)) {
-                    String className = ((ForumSquareActivity) b.this.mPageContext.getPageActivity()).dLo().getClassName();
+                    String className = ((ForumSquareActivity) b.this.mPageContext.getPageActivity()).dLw().getClassName();
                     if (!"推荐".equals(className)) {
                         ar arVar = new ar("c13652");
                         arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -58,13 +58,13 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.square.da
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.square.data.b bVar, CardViewHolder<c> cardViewHolder) {
-        if (bVar == null || cardViewHolder == null || cardViewHolder.ctb() == null) {
+        if (bVar == null || cardViewHolder == null || cardViewHolder.cti() == null) {
             return null;
         }
-        cardViewHolder.ctb().a(bVar);
-        cardViewHolder.ctb().c(this.hmS);
+        cardViewHolder.cti().a(bVar);
+        cardViewHolder.cti().c(this.hng);
         if (this.mPageContext.getPageActivity() instanceof ForumSquareActivity) {
-            String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).dLo().getClassName();
+            String className = ((ForumSquareActivity) this.mPageContext.getPageActivity()).dLw().getClassName();
             if (!"推荐".equals(className)) {
                 ar arVar = new ar("c13651");
                 arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());

@@ -179,7 +179,7 @@ public class e {
             case 2:
                 return a(cbVar, 2, pbContent.text, pbContent.link);
             case 4:
-                return Eb(pbContent.text);
+                return DZ(pbContent.text);
             case 16:
                 return b(cbVar, pbContent.text, String.valueOf(pbContent.uid));
             case 18:
@@ -234,7 +234,7 @@ public class e {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.e.4
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    e.Ec(str2);
+                    e.Ea(str2);
                 }
             };
         }
@@ -287,29 +287,29 @@ public class e {
         return a(cbVar, i, str, str2, 0);
     }
 
-    private static SpannableString Eb(String str) {
-        int CM;
+    private static SpannableString DZ(String str) {
+        int CK;
         String str2;
-        a.C0576a Dh;
+        a.C0576a Df;
         int width;
-        if (str == null || (CM = TbFaceManager.bCO().CM(str)) == 0) {
+        if (str == null || (CK = TbFaceManager.bCO().CK(str)) == 0) {
             return null;
         }
-        String CO = TbFaceManager.bCO().CO(str);
+        String CM = TbFaceManager.bCO().CM(str);
         if (!TextUtils.isEmpty(str) && str.startsWith("shoubai_emoji_")) {
-            str2 = "[" + CO + "]";
-            Dh = TbFaceManager.bCO().Dh("image_emoticon");
+            str2 = "[" + CM + "]";
+            Df = TbFaceManager.bCO().Df("image_emoticon");
         } else {
-            str2 = "#(" + CO + ")";
-            Dh = TbFaceManager.bCO().Dh(str);
+            str2 = "#(" + CM + ")";
+            Df = TbFaceManager.bCO().Df(str);
         }
         SpannableString spannableString = new SpannableString(str2 + " ");
-        d dVar = new d(TbadkCoreApplication.getInst().getContext(), CM);
-        if (Dh != null) {
+        d dVar = new d(TbadkCoreApplication.getInst().getContext(), CK);
+        if (Df != null) {
             if (str != null && str.startsWith("bearchildren_")) {
-                width = (int) (0.25d * Dh.getWidth());
+                width = (int) (0.25d * Df.getWidth());
             } else {
-                width = (int) (0.4d * Dh.getWidth());
+                width = (int) (0.4d * Df.getWidth());
             }
             dVar.setBounds(new Rect(0, 0, width, width));
         } else {
@@ -396,7 +396,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void Ec(String str) {
+    public static void Ea(String str) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
             bf.bsV().b(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});

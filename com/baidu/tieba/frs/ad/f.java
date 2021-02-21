@@ -29,9 +29,9 @@ public class f {
     private com.baidu.tbadk.core.dialog.a acU;
     private ForumData fEm;
     private TextView fcK;
-    private TbImageView jmR;
-    private RoundLinearLayout jmS;
-    private i jmT;
+    private TbImageView jnf;
+    private RoundLinearLayout jng;
+    private i jnh;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -40,18 +40,18 @@ public class f {
                 if (f.this.acU != null && f.this.acU.isShowing()) {
                     f.this.acU.dismiss();
                 }
-            } else if (view == f.this.jmR && f.this.jmT != null && !StringUtils.isNull(f.this.jmT.getUrl())) {
-                bf.bsV().a(f.this.mPageContext, new String[]{f.this.jmT.getUrl()}, true);
+            } else if (view == f.this.jnf && f.this.jnh != null && !StringUtils.isNull(f.this.jnh.getUrl())) {
+                bf.bsV().a(f.this.mPageContext, new String[]{f.this.jnh.getUrl()}, true);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                httpMessage.addParam("id", f.this.jmT.getId());
+                httpMessage.addParam("id", f.this.jnh.getId());
                 MessageManager.getInstance().sendMessage(httpMessage);
                 f.this.acU.dismiss();
                 ar arVar = new ar("common_click");
                 arVar.dR("page_type", PageStayDurationConstants.PageName.FRS);
                 arVar.dR("obj_isad", "1");
-                if (f.this.jmT.getType() != 1) {
-                    if (f.this.jmT.getType() != 2) {
-                        if (f.this.jmT.getType() == 3) {
+                if (f.this.jnh.getType() != 1) {
+                    if (f.this.jnh.getType() != 2) {
+                        if (f.this.jnh.getType() == 3) {
                             i = 13;
                         }
                     } else {
@@ -59,7 +59,7 @@ public class f {
                     }
                 }
                 arVar.ap("obj_adlocate", i);
-                arVar.v("obj_id", f.this.jmT.getId());
+                arVar.v("obj_id", f.this.jnh.getId());
                 arVar.ap("obj_floor", 1);
                 arVar.ap("obj_locate", 3);
                 if (f.this.fEm != null) {
@@ -67,9 +67,9 @@ public class f {
                     arVar.dR("first_dir", f.this.fEm.getFirst_class());
                     arVar.dR("second_dir", f.this.fEm.getSecond_class());
                 }
-                if (f.this.jmT.getType() == 1) {
-                    arVar.dR("tid", f.this.jmT.getThreadId());
-                    arVar.ap("thread_type", f.this.jmT.getThreadType());
+                if (f.this.jnh.getType() == 1) {
+                    arVar.dR("tid", f.this.jnh.getThreadId());
+                    arVar.ap("thread_type", f.this.jnh.getThreadType());
                 }
                 TiebaStatic.log(arVar);
             }
@@ -87,7 +87,7 @@ public class f {
             return false;
         }
         this.fEm = mVar.getForum();
-        this.jmT = mVar.getBusinessPromot();
+        this.jnh = mVar.getBusinessPromot();
         String str = "key_frs_dialog_ad_last_show_time" + mVar.getForum().getId();
         long j = com.baidu.tbadk.core.sharedPref.b.brQ().getLong(str, 0L);
         if (j < 0 || !be.c(new Date(j), new Date(System.currentTimeMillis()))) {
@@ -121,42 +121,42 @@ public class f {
         ar arVar = new ar("common_exp");
         arVar.dR("page_type", PageStayDurationConstants.PageName.FRS);
         arVar.dR("obj_isad", "1");
-        if (this.jmT.getType() == 1) {
+        if (this.jnh.getType() == 1) {
             i = 11;
-        } else if (this.jmT.getType() == 2) {
+        } else if (this.jnh.getType() == 2) {
             i = 12;
         } else {
-            i = this.jmT.getType() == 3 ? 13 : 11;
+            i = this.jnh.getType() == 3 ? 13 : 11;
         }
         arVar.ap("obj_floor", 1);
         arVar.ap("obj_adlocate", i);
-        arVar.v("obj_id", this.jmT.getId());
+        arVar.v("obj_id", this.jnh.getId());
         if (this.fEm != null) {
             arVar.dR("fid", this.fEm.getId());
             arVar.dR("first_dir", this.fEm.getFirst_class());
             arVar.dR("second_dir", this.fEm.getSecond_class());
         }
-        if (this.jmT.getType() == 1) {
-            arVar.dR("tid", this.jmT.getThreadId());
-            arVar.ap("thread_type", this.jmT.getThreadType());
+        if (this.jnh.getType() == 1) {
+            arVar.dR("tid", this.jnh.getThreadId());
+            arVar.ap("thread_type", this.jnh.getThreadType());
         }
         TiebaStatic.log(arVar);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.frs_dialog_ad_layout, (ViewGroup) null);
-        this.jmS = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
-        this.jmS.setRoundCount(8);
-        this.jmR = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
-        this.jmR.setOnClickListener(this.mClickListener);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jmR.getLayoutParams();
+        this.jng = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
+        this.jng.setRoundCount(8);
+        this.jnf = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
+        this.jnf.setOnClickListener(this.mClickListener);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jnf.getLayoutParams();
         layoutParams.width = l.getEquipmentWidth(this.mPageContext.getPageActivity()) - (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         layoutParams.height = (int) (layoutParams.width * 1.3306452f);
-        this.jmR.setLayoutParams(layoutParams);
+        this.jnf.setLayoutParams(layoutParams);
         this.fcK = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
         this.fcK.setOnClickListener(this.mClickListener);
-        if (this.jmT != null) {
-            this.jmR.startLoad(this.jmT.dMu(), 10, false);
+        if (this.jnh != null) {
+            this.jnf.startLoad(this.jnh.dMC(), 10, false);
         }
     }
 }

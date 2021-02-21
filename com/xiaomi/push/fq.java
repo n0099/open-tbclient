@@ -29,10 +29,10 @@ public class fq extends fz {
         if (z) {
             fpVar.a("1");
         }
-        byte[] m366a = hg.m366a();
-        if (m366a != null) {
+        byte[] m365a = hg.m365a();
+        if (m365a != null) {
             ek.j jVar = new ek.j();
-            jVar.a(a.a(m366a));
+            jVar.a(a.a(m365a));
             fpVar.a(jVar.a(), (String) null);
         }
         return fpVar;
@@ -80,14 +80,14 @@ public class fq extends fz {
         if (flVar == null) {
             return;
         }
-        if (flVar.m309a()) {
-            com.xiaomi.channel.commonutils.logger.b.m80a("[Slim] RCV blob chid=" + flVar.a() + "; id=" + flVar.e() + "; errCode=" + flVar.b() + "; err=" + flVar.m313c());
+        if (flVar.m308a()) {
+            com.xiaomi.channel.commonutils.logger.b.m79a("[Slim] RCV blob chid=" + flVar.a() + "; id=" + flVar.e() + "; errCode=" + flVar.b() + "; err=" + flVar.m312c());
         }
         if (flVar.a() == 0) {
-            if ("PING".equals(flVar.m306a())) {
-                com.xiaomi.channel.commonutils.logger.b.m80a("[Slim] RCV ping id=" + flVar.e());
+            if ("PING".equals(flVar.m305a())) {
+                com.xiaomi.channel.commonutils.logger.b.m79a("[Slim] RCV ping id=" + flVar.e());
                 g();
-            } else if ("CLOSE".equals(flVar.m306a())) {
+            } else if ("CLOSE".equals(flVar.m305a())) {
                 c(13, null);
             }
         }
@@ -114,12 +114,12 @@ public class fq extends fz {
 
     @Override // com.xiaomi.push.fz
     /* renamed from: a  reason: collision with other method in class */
-    protected void mo316a(boolean z) {
+    protected void mo315a(boolean z) {
         if (this.f434a == null) {
             throw new gd("The BlobWriter is null.");
         }
         fl a2 = a(z);
-        com.xiaomi.channel.commonutils.logger.b.m80a("[Slim] SND ping id=" + a2.e());
+        com.xiaomi.channel.commonutils.logger.b.m79a("[Slim] SND ping id=" + a2.e());
         b(a2);
         f();
     }
@@ -140,8 +140,8 @@ public class fq extends fz {
     @Override // com.xiaomi.push.fz, com.xiaomi.push.fs
     public synchronized byte[] a() {
         if (this.f436a == null && !TextUtils.isEmpty(this.f443a)) {
-            String m585a = com.xiaomi.push.service.be.m585a();
-            this.f436a = com.xiaomi.push.service.ay.a(this.f443a.getBytes(), (this.f443a.substring(this.f443a.length() / 2) + m585a.substring(m585a.length() / 2)).getBytes());
+            String m584a = com.xiaomi.push.service.be.m584a();
+            this.f436a = com.xiaomi.push.service.ay.a(this.f443a.getBytes(), (this.f443a.substring(this.f443a.length() / 2) + m584a.substring(m584a.length() / 2)).getBytes());
         }
         return this.f436a;
     }

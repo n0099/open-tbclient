@@ -28,7 +28,7 @@ public class EmojiconsView implements ViewPager.OnPageChangeListener {
     private RelativeLayout cdm;
     private LinearLayout cdo;
     private Context mContext;
-    private BaseViewPager pcQ;
+    private BaseViewPager pdq;
     private View rootView;
 
     public static EmojiconsView f(Context context, View view) {
@@ -40,12 +40,12 @@ public class EmojiconsView implements ViewPager.OnPageChangeListener {
         this.mContext = context;
         this.cdm = (RelativeLayout) view.findViewById(a.f.bd_im_emoji_root);
         this.cdo = (LinearLayout) view.findViewById(a.f.emojis_bar);
-        this.pcQ = (BaseViewPager) view.findViewById(a.f.emojis_pager);
+        this.pdq = (BaseViewPager) view.findViewById(a.f.emojis_pager);
         this.cdi = (LinearLayout) view.findViewById(a.f.emojis_viewgroup);
-        this.pcQ.setOnPageChangeListener(this);
-        a aVar = new a(Arrays.asList(com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, c.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, f.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, e.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.b.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.a.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, d.peQ).XO()));
+        this.pdq.setOnPageChangeListener(this);
+        a aVar = new a(Arrays.asList(com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, c.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, f.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, e.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.b.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.a.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, d.pfq).XO()));
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconsView", "emojisAdapter count =" + aVar.getCount());
-        this.pcQ.setAdapter(aVar);
+        this.pdq.setAdapter(aVar);
         this.cdj = new ImageView[aVar.getCount()];
         for (int i = 0; i < aVar.getCount(); i++) {
             ImageView imageView = new ImageView(this.mContext);
@@ -70,7 +70,7 @@ public class EmojiconsView implements ViewPager.OnPageChangeListener {
     }
 
     public void ZH() {
-        this.pcQ.setAdapter(new a(Arrays.asList(com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, c.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, f.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, e.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.b.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.a.peQ).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, d.peQ).XO())));
+        this.pdq.setAdapter(new a(Arrays.asList(com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, c.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, f.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, e.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.b.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.emoji.a.pfq).XO(), com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this.mContext, d.pfq).XO())));
         com.baidu.yuyinala.privatemessage.implugin.util.c.i("EmojiconsView", "resetCurrentPage");
         onPageSelected(0);
     }

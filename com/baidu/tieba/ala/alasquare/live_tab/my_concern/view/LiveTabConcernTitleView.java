@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class LiveTabConcernTitleView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private ViewHolder gDB;
+    private ViewHolder gDP;
 
     public LiveTabConcernTitleView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gDB = new ViewHolder(this);
+        this.gDP = new ViewHolder(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setBackgroundColor(this.gDB.eno, R.color.CAM_X0201);
-        ap.setViewTextColor(this.gDB.mTitle, R.color.CAM_X0105);
+        ap.setBackgroundColor(this.gDP.eno, R.color.CAM_X0201);
+        ap.setViewTextColor(this.gDP.mTitle, R.color.CAM_X0105);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -33,8 +33,8 @@ public class LiveTabConcernTitleView extends com.baidu.tieba.card.b<com.baidu.ti
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (gVar != null && !StringUtils.isNull(gVar.gGM) && this.gDB != null) {
-            this.gDB.mTitle.setText(gVar.gGM);
+        if (gVar != null && !StringUtils.isNull(gVar.gHa) && this.gDP != null) {
+            this.gDP.mTitle.setText(gVar.gHa);
         }
     }
 
@@ -45,12 +45,12 @@ public class LiveTabConcernTitleView extends com.baidu.tieba.card.b<com.baidu.ti
     /* loaded from: classes10.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public View eno;
-        public LiveTabConcernTitleView gDC;
+        public LiveTabConcernTitleView gDQ;
         public TextView mTitle;
 
         public ViewHolder(LiveTabConcernTitleView liveTabConcernTitleView) {
             super(liveTabConcernTitleView.getView());
-            this.gDC = liveTabConcernTitleView;
+            this.gDQ = liveTabConcernTitleView;
             this.eno = liveTabConcernTitleView.getView();
             this.mTitle = (TextView) this.eno.findViewById(R.id.tab_sub_rec_title_tv);
         }

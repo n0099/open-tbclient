@@ -22,35 +22,35 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private Context context;
-    private long hKM;
-    private long hKN;
-    private long hKO;
-    private int hKP;
-    private int hKQ;
-    private int hKR;
-    private int hKS;
-    private int hKT;
-    private int hKU;
-    private int hKV;
-    public boolean hKL = false;
+    private long hLa;
+    private long hLb;
+    private long hLc;
+    private int hLd;
+    private int hLe;
+    private int hLf;
+    private int hLg;
+    private int hLh;
+    private int hLi;
+    private int hLj;
+    public boolean hKZ = false;
     private Handler handler = new Handler();
     private boolean isDebug = false;
-    private boolean hKW = false;
-    private List<ab> hKX = new ArrayList();
-    Runnable hKY = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.o.a.1
+    private boolean hLk = false;
+    private List<ab> hLl = new ArrayList();
+    Runnable hLm = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.o.a.1
         @Override // java.lang.Runnable
         public void run() {
             ar arVar = com.baidu.live.ae.a.Qj().buX;
             if (arVar != null) {
-                a.this.cjH();
+                a.this.cjO();
                 int i = arVar.aNz;
                 if (i <= 0) {
                     i = 15;
                 }
-                a.this.handler.postDelayed(a.this.hKY, i * 1000);
+                a.this.handler.postDelayed(a.this.hLm, i * 1000);
                 if (a.this.isDebug) {
                     for (int i2 = 0; i2 < 2000; i2++) {
-                        a.this.hKX.add(new ab());
+                        a.this.hLl.add(new ab());
                     }
                 }
             }
@@ -61,7 +61,7 @@ public class a {
         this.context = context;
     }
 
-    public long cjE() {
+    public long cjL() {
         long j = Runtime.getRuntime().totalMemory();
         long freeMemory = Runtime.getRuntime().freeMemory();
         long j2 = j - freeMemory;
@@ -69,7 +69,7 @@ public class a {
         return j2;
     }
 
-    public void cjF() {
+    public void cjM() {
         Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @startMemoryMonitor");
         ar arVar = com.baidu.live.ae.a.Qj().buX;
         if (arVar != null) {
@@ -81,50 +81,50 @@ public class a {
             }
             boolean z = arVar.aNy == 1;
             if (z) {
-                this.hKL = true;
+                this.hKZ = true;
                 int i = arVar.aNz;
                 if (i <= 0) {
                     i = 15;
                 }
                 Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @startMemoryMonitor isMonitor=" + z);
-                cjG();
-                this.handler.postDelayed(this.hKY, i * 1000);
+                cjN();
+                this.handler.postDelayed(this.hLm, i * 1000);
                 Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @startMemoryMonitor end");
             }
         }
     }
 
-    private void cjG() {
-        this.hKM = cjE();
+    private void cjN() {
+        this.hLa = cjL();
         long maxMemory = Runtime.getRuntime().maxMemory();
-        long j = maxMemory - this.hKM;
+        long j = maxMemory - this.hLa;
         ar arVar = com.baidu.live.ae.a.Qj().buX;
         float f = arVar.aNB;
         float f2 = arVar.aNC;
-        this.hKN = maxMemory - (f * ((float) j));
-        if (this.hKN < this.hKM) {
-            this.hKN = maxMemory;
+        this.hLb = maxMemory - (f * ((float) j));
+        if (this.hLb < this.hLa) {
+            this.hLb = maxMemory;
         }
-        this.hKO = maxMemory - (f2 * ((float) j));
+        this.hLc = maxMemory - (f2 * ((float) j));
         if (this.isDebug) {
-            this.hKN = this.hKM * 2;
-            this.hKO = (long) (this.hKN * 0.8d);
+            this.hLb = this.hLa * 2;
+            this.hLc = (long) (this.hLb * 0.8d);
         }
-        Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @recordStartLive usedMemory=" + this.hKM + ", maxMemory=" + maxMemory + ", sub=" + j + ", alarmThreshold=" + this.hKN + ", resumeThreshold=" + this.hKO);
+        Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @recordStartLive usedMemory=" + this.hLa + ", maxMemory=" + maxMemory + ", sub=" + j + ", alarmThreshold=" + this.hLb + ", resumeThreshold=" + this.hLc);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjH() {
-        long cjE = cjE();
-        Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @checkUsedMemory usedMemory=" + cjE + ", alarmThreshold=" + this.hKN + ", resumeThreshold=" + this.hKO);
-        if (cjE >= this.hKN) {
-            this.hKW = true;
+    public void cjO() {
+        long cjL = cjL();
+        Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @checkUsedMemory usedMemory=" + cjL + ", alarmThreshold=" + this.hLb + ", resumeThreshold=" + this.hLc);
+        if (cjL >= this.hLb) {
+            this.hLk = true;
             Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @checkUsedMemory doCleanMemory");
             String str = com.baidu.live.ae.a.Qj().buX.aNA;
             if (!TextUtils.isEmpty(str)) {
                 BdUtilHelper.showToast(this.context, str);
             }
-            cjI();
+            cjP();
             float f = com.baidu.live.ae.a.Qj().buX.aND;
             if (f >= 1.0f) {
                 f = 0.7f;
@@ -134,21 +134,21 @@ public class a {
             aC(f);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("used_memory", cjE);
-                jSONObject.put("alarm_threshold", this.hKN);
+                jSONObject.put("used_memory", cjL);
+                jSONObject.put("alarm_threshold", this.hLb);
                 jSONObject.put("type", NotificationCompat.CATEGORY_ALARM);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_MEMORY, "memory", "liveroom", "memory_limit").setContentExt(null, null, jSONObject));
-        } else if (this.hKW && cjE <= this.hKO) {
+        } else if (this.hLk && cjL <= this.hLc) {
             Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @checkUsedMemory doResume");
-            this.hKW = false;
-            cjJ();
+            this.hLk = false;
+            cjQ();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("used_memory", cjE);
-                jSONObject2.put("resume_threshold", this.hKO);
+                jSONObject2.put("used_memory", cjL);
+                jSONObject2.put("resume_threshold", this.hLc);
                 jSONObject2.put("type", "resume");
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -157,85 +157,85 @@ public class a {
         }
     }
 
-    private void cjI() {
+    private void cjP() {
         Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @cleanMemory");
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913300, ""));
         d.Df().release();
-        j.exl().etq().ewy();
+        j.ext().ety().ewG();
     }
 
     private void aC(float f) {
-        Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @updateTempQueueLimit originalQueueLimitImMax=" + this.hKP);
-        if (this.hKP <= 0) {
-            this.hKP = com.baidu.live.ae.a.Qj().buX.aMQ;
-            this.hKQ = com.baidu.live.ae.a.Qj().buX.aMR;
-            this.hKR = com.baidu.live.ae.a.Qj().buX.aMS;
-            this.hKS = com.baidu.live.ae.a.Qj().buX.aMT;
-            this.hKT = com.baidu.live.ae.a.Qj().buX.aMU;
-            this.hKU = com.baidu.live.ae.a.Qj().buX.aMW;
-            this.hKV = com.baidu.live.ae.a.Qj().buX.aMX;
-            Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @updateTempQueueLimit originalQueueLimitImMax=" + this.hKP + ", originalQueueLimitBarrageMax=" + this.hKQ + ", originalQueueLimitPayBarrageMax=" + this.hKR + ", originalQueueLimitEnterEffectMax=" + this.hKS + ", originalQueueLimitGiftBigMax=" + this.hKT + ", originalQueueLimitGiftSmallMax=" + this.hKU + ", originalQueueLimitGiftGraffitiMax=" + this.hKV);
+        Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @updateTempQueueLimit originalQueueLimitImMax=" + this.hLd);
+        if (this.hLd <= 0) {
+            this.hLd = com.baidu.live.ae.a.Qj().buX.aMQ;
+            this.hLe = com.baidu.live.ae.a.Qj().buX.aMR;
+            this.hLf = com.baidu.live.ae.a.Qj().buX.aMS;
+            this.hLg = com.baidu.live.ae.a.Qj().buX.aMT;
+            this.hLh = com.baidu.live.ae.a.Qj().buX.aMU;
+            this.hLi = com.baidu.live.ae.a.Qj().buX.aMW;
+            this.hLj = com.baidu.live.ae.a.Qj().buX.aMX;
+            Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @updateTempQueueLimit originalQueueLimitImMax=" + this.hLd + ", originalQueueLimitBarrageMax=" + this.hLe + ", originalQueueLimitPayBarrageMax=" + this.hLf + ", originalQueueLimitEnterEffectMax=" + this.hLg + ", originalQueueLimitGiftBigMax=" + this.hLh + ", originalQueueLimitGiftSmallMax=" + this.hLi + ", originalQueueLimitGiftGraffitiMax=" + this.hLj);
         }
-        int i = (int) (this.hKP * f);
+        int i = (int) (this.hLd * f);
         if (i <= 0) {
             i = 5;
         }
         com.baidu.live.ae.a.Qj().buX.aMQ = i;
-        int i2 = (int) (this.hKQ * f);
+        int i2 = (int) (this.hLe * f);
         if (i2 <= 0) {
             i2 = 1;
         }
         com.baidu.live.ae.a.Qj().buX.aMR = i2;
-        int i3 = (int) (this.hKR * f);
+        int i3 = (int) (this.hLf * f);
         if (i3 <= 0) {
             i3 = 1;
         }
         com.baidu.live.ae.a.Qj().buX.aMS = i3;
-        int i4 = (int) (this.hKS * f);
+        int i4 = (int) (this.hLg * f);
         if (i4 <= 0) {
             i4 = 1;
         }
         com.baidu.live.ae.a.Qj().buX.aMT = i4;
-        int i5 = (int) (this.hKT * f);
+        int i5 = (int) (this.hLh * f);
         if (i5 <= 0) {
             i5 = 1;
         }
         com.baidu.live.ae.a.Qj().buX.aMU = i5;
-        int i6 = (int) (this.hKU * f);
+        int i6 = (int) (this.hLi * f);
         if (i6 <= 0) {
             i6 = 1;
         }
         com.baidu.live.ae.a.Qj().buX.aMW = i6;
-        int i7 = (int) (this.hKV * f);
+        int i7 = (int) (this.hLj * f);
         int i8 = i7 > 0 ? i7 : 1;
         com.baidu.live.ae.a.Qj().buX.aMX = i8;
         Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @updateTempQueueLimit queueLimitImMax=" + i + ", queueLimitBarrageMax=" + i2 + ", queueLimitPayBarrageMax=" + i3 + ", queueLimitEnterEffectMax=" + i4 + ", queueLimitGiftBigMax=" + i5 + ", queueLimitGiftSmallMax=" + i6 + ", queueLimitGiftGraffitiMax=" + i8);
     }
 
-    private void cjJ() {
-        Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @resumeQueueLimit originalQueueLimitImMax=" + this.hKP);
-        if (this.hKP > 0) {
-            com.baidu.live.ae.a.Qj().buX.aMQ = this.hKP;
-            com.baidu.live.ae.a.Qj().buX.aMR = this.hKQ;
-            com.baidu.live.ae.a.Qj().buX.aMS = this.hKR;
-            com.baidu.live.ae.a.Qj().buX.aMT = this.hKS;
-            com.baidu.live.ae.a.Qj().buX.aMU = this.hKT;
-            com.baidu.live.ae.a.Qj().buX.aMW = this.hKU;
-            com.baidu.live.ae.a.Qj().buX.aMX = this.hKV;
-            this.hKP = 0;
+    private void cjQ() {
+        Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @resumeQueueLimit originalQueueLimitImMax=" + this.hLd);
+        if (this.hLd > 0) {
+            com.baidu.live.ae.a.Qj().buX.aMQ = this.hLd;
+            com.baidu.live.ae.a.Qj().buX.aMR = this.hLe;
+            com.baidu.live.ae.a.Qj().buX.aMS = this.hLf;
+            com.baidu.live.ae.a.Qj().buX.aMT = this.hLg;
+            com.baidu.live.ae.a.Qj().buX.aMU = this.hLh;
+            com.baidu.live.ae.a.Qj().buX.aMW = this.hLi;
+            com.baidu.live.ae.a.Qj().buX.aMX = this.hLj;
+            this.hLd = 0;
         }
     }
 
     public void aCV() {
         Log.i("memoryMonitor", "@@ memoryMonitor MemoryMonitorHelper @stopMonitor");
         this.handler.removeCallbacksAndMessages(null);
-        this.hKL = false;
-        this.hKP = 0;
-        this.hKQ = 0;
-        this.hKR = 0;
-        this.hKS = 0;
-        this.hKT = 0;
-        this.hKU = 0;
-        this.hKV = 0;
+        this.hKZ = false;
+        this.hLd = 0;
+        this.hLe = 0;
+        this.hLf = 0;
+        this.hLg = 0;
+        this.hLh = 0;
+        this.hLi = 0;
+        this.hLj = 0;
     }
 }

@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.qsZ;
-        long j = this.qDr;
-        long eKu = eKu();
-        long jB = jB(eKu);
+        E[] eArr = this.qtz;
+        long j = this.qDR;
+        long eKC = eKC();
+        long jB = jB(eKC);
         if (b(eArr, jB) != null) {
-            if (eKu - eKv() > j) {
+            if (eKC - eKD() > j) {
                 return false;
             }
             do {
             } while (b(eArr, jB) != null);
             a(eArr, jB, e);
-            jD(1 + eKu);
+            jD(1 + eKC);
             return true;
         }
         a(eArr, jB, e);
-        jD(1 + eKu);
+        jD(1 + eKC);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long eKv;
-        long eNz = eNz();
+        long eKD;
+        long eNH = eNH();
         do {
-            eKv = eKv();
-            if (eKv >= eNz) {
-                long eKu = eKu();
-                if (eKv >= eKu) {
+            eKD = eKD();
+            if (eKD >= eNH) {
+                long eKC = eKC();
+                if (eKD >= eKC) {
                     return null;
                 }
-                jE(eKu);
+                jE(eKC);
             }
-        } while (!ac(eKv, 1 + eKv));
-        long jB = jB(eKv);
-        E[] eArr = this.qsZ;
+        } while (!ac(eKD, 1 + eKD));
+        long jB = jB(eKD);
+        E[] eArr = this.qtz;
         E a2 = a(eArr, jB);
         b(eArr, jB, null);
         return a2;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E jC;
-        long eNz = eNz();
+        long eNH = eNH();
         do {
-            long eKv = eKv();
-            if (eKv >= eNz) {
-                long eKu = eKu();
-                if (eKv >= eKu) {
+            long eKD = eKD();
+            if (eKD >= eNH) {
+                long eKC = eKC();
+                if (eKD >= eKC) {
                     return null;
                 }
-                jE(eKu);
+                jE(eKC);
             }
-            jC = jC(jB(eKv));
+            jC = jC(jB(eKD));
         } while (jC == null);
         return jC;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eKv = eKv();
+        long eKD = eKD();
         while (true) {
-            long eKu = eKu();
-            long eKv2 = eKv();
-            if (eKv == eKv2) {
-                return (int) (eKu - eKv2);
+            long eKC = eKC();
+            long eKD2 = eKD();
+            if (eKD == eKD2) {
+                return (int) (eKC - eKD2);
             }
-            eKv = eKv2;
+            eKD = eKD2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eKv() == eKu();
+        return eKD() == eKC();
     }
 }

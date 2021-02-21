@@ -15,29 +15,29 @@ public final class g implements x.a {
     private final int j;
     private final int k;
     private int l;
-    private final com.bytedance.sdk.a.b.a.b.g ppj;
-    private final c ppk;
-    private final com.bytedance.sdk.a.b.a.b.c ppl;
-    private final ab ppm;
-    private final com.bytedance.sdk.a.b.h ppn;
-    private final t ppo;
+    private final com.bytedance.sdk.a.b.a.b.g ppK;
+    private final c ppL;
+    private final com.bytedance.sdk.a.b.a.b.c ppM;
+    private final ab ppN;
+    private final com.bytedance.sdk.a.b.h ppO;
+    private final t ppP;
 
     public g(List<x> list, com.bytedance.sdk.a.b.a.b.g gVar, c cVar, com.bytedance.sdk.a.b.a.b.c cVar2, int i, ab abVar, com.bytedance.sdk.a.b.h hVar, t tVar, int i2, int i3, int i4) {
         this.f5881a = list;
-        this.ppl = cVar2;
-        this.ppj = gVar;
-        this.ppk = cVar;
+        this.ppM = cVar2;
+        this.ppK = gVar;
+        this.ppL = cVar;
         this.e = i;
-        this.ppm = abVar;
-        this.ppn = hVar;
-        this.ppo = tVar;
+        this.ppN = abVar;
+        this.ppO = hVar;
+        this.ppP = tVar;
         this.i = i2;
         this.j = i3;
         this.k = i4;
     }
 
-    public com.bytedance.sdk.a.b.l eph() {
-        return this.ppl;
+    public com.bytedance.sdk.a.b.l epp() {
+        return this.ppM;
     }
 
     @Override // com.bytedance.sdk.a.b.x.a
@@ -55,30 +55,30 @@ public final class g implements x.a {
         return this.k;
     }
 
-    public com.bytedance.sdk.a.b.a.b.g epi() {
-        return this.ppj;
+    public com.bytedance.sdk.a.b.a.b.g epq() {
+        return this.ppK;
     }
 
-    public c epj() {
-        return this.ppk;
+    public c epr() {
+        return this.ppL;
     }
 
-    public com.bytedance.sdk.a.b.h epk() {
-        return this.ppn;
+    public com.bytedance.sdk.a.b.h eps() {
+        return this.ppO;
     }
 
-    public t epl() {
-        return this.ppo;
+    public t ept() {
+        return this.ppP;
     }
 
     @Override // com.bytedance.sdk.a.b.x.a
-    public ab epm() {
-        return this.ppm;
+    public ab epu() {
+        return this.ppN;
     }
 
     @Override // com.bytedance.sdk.a.b.x.a
     public com.bytedance.sdk.a.b.b b(ab abVar) throws IOException {
-        return a(abVar, this.ppj, this.ppk, this.ppl);
+        return a(abVar, this.ppK, this.ppL, this.ppM);
     }
 
     public com.bytedance.sdk.a.b.b a(ab abVar, com.bytedance.sdk.a.b.a.b.g gVar, c cVar, com.bytedance.sdk.a.b.a.b.c cVar2) throws IOException {
@@ -86,13 +86,13 @@ public final class g implements x.a {
             throw new AssertionError();
         }
         this.l++;
-        if (this.ppk != null && !this.ppl.a(abVar.eoJ())) {
+        if (this.ppL != null && !this.ppM.a(abVar.eoR())) {
             throw new IllegalStateException("network interceptor " + this.f5881a.get(this.e - 1) + " must retain the same host and port");
         }
-        if (this.ppk != null && this.l > 1) {
+        if (this.ppL != null && this.l > 1) {
             throw new IllegalStateException("network interceptor " + this.f5881a.get(this.e - 1) + " must call proceed() exactly once");
         }
-        g gVar2 = new g(this.f5881a, gVar, cVar, cVar2, this.e + 1, abVar, this.ppn, this.ppo, this.i, this.j, this.k);
+        g gVar2 = new g(this.f5881a, gVar, cVar, cVar2, this.e + 1, abVar, this.ppO, this.ppP, this.i, this.j, this.k);
         x xVar = this.f5881a.get(this.e);
         com.bytedance.sdk.a.b.b a2 = xVar.a(gVar2);
         if (cVar != null && this.e + 1 < this.f5881a.size() && gVar2.l != 1) {
@@ -101,7 +101,7 @@ public final class g implements x.a {
         if (a2 == null) {
             throw new NullPointerException("interceptor " + xVar + " returned null");
         }
-        if (a2.epF() == null) {
+        if (a2.epN() == null) {
             throw new IllegalStateException("interceptor " + xVar + " returned a response with no body");
         }
         return a2;

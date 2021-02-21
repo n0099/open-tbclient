@@ -16,7 +16,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return com.ss.android.c.c.ax(new File(str));
+        return com.ss.android.c.c.ay(new File(str));
     }
 
     public static int a(String str, String str2) {
@@ -43,7 +43,7 @@ public class a {
 
     public static void a() {
         if (com.ss.android.downloadlib.a.j.i().optInt("hook", 0) == 1) {
-            com.ss.android.downloadlib.f.eEZ().a(new Runnable() { // from class: com.ss.android.downloadlib.f.a.1
+            com.ss.android.downloadlib.f.eFh().a(new Runnable() { // from class: com.ss.android.downloadlib.f.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     com.ss.android.socialbase.downloader.m.g.f();
@@ -69,7 +69,7 @@ public class a {
             declaredField2.setAccessible(true);
             Object obj2 = declaredField2.get(obj);
             if (obj2 != null && (cls = Class.forName("android.app.IActivityManager")) != null) {
-                declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C1224a(obj2)));
+                declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C1226a(obj2)));
             }
         } catch (Throwable th) {
         }
@@ -113,12 +113,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.ss.android.downloadlib.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1224a implements InvocationHandler {
+    public static class C1226a implements InvocationHandler {
 
         /* renamed from: a  reason: collision with root package name */
         private Object f12988a;
 
-        private C1224a(Object obj) {
+        private C1226a(Object obj) {
             this.f12988a = obj;
         }
 

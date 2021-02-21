@@ -7,37 +7,37 @@ import com.baidu.tbadk.b.f;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class b implements e {
-    private final HashMap<String, f> lah;
+    private final HashMap<String, f> law;
 
     private b() {
-        this.lah = new HashMap<>();
+        this.law = new HashMap<>();
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private static class C0855b {
-        private static b mRz = new b();
+    private static class C0856b {
+        private static b mRR = new b();
     }
 
-    public static b dDo() {
-        return C0855b.mRz;
+    public static b dDv() {
+        return C0856b.mRR;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, com.baidu.adp.base.e eVar) {
         if (str != null) {
-            a Ro = a.Ro(str);
-            f fVar = this.lah.get(Ro.getKey());
-            if (fVar != null && Ro.isValid()) {
+            a Ry = a.Ry(str);
+            f fVar = this.law.get(Ry.getKey());
+            if (fVar != null && Ry.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    Ro.getParams().putAll(hashMap);
+                    Ry.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, Ro.getParams(), str, eVar);
+                fVar.a(obj, Ry.getParams(), str, eVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.lah.put(str, fVar);
+        this.law.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
@@ -78,7 +78,7 @@ public class b implements e {
             this.eZG = new HashMap<>();
         }
 
-        public static a Ro(String str) {
+        public static a Ry(String str) {
             return new a(str);
         }
     }

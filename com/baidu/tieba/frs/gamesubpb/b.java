@@ -12,28 +12,28 @@ import java.util.List;
 public class b {
     private final List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
     private f eVB;
-    private BdTypeListView gzb;
-    private a jAP;
+    private BdTypeListView gzp;
+    private a jBd;
 
     public b(f fVar, BdTypeListView bdTypeListView) {
         this.eVB = fVar;
-        this.gzb = bdTypeListView;
+        this.gzp = bdTypeListView;
         Kw();
     }
 
     private void Kw() {
-        this.jAP = new a((TbPageContext) this.eVB, d.jBl);
-        this.bns.add(this.jAP);
-        this.gzb.addAdapters(this.bns);
+        this.jBd = new a((TbPageContext) this.eVB, d.jBz);
+        this.bns.add(this.jBd);
+        this.gzp.addAdapters(this.bns);
     }
 
     public void setData(List<n> list) {
-        if (this.gzb != null) {
-            this.gzb.setData(list);
+        if (this.gzp != null) {
+            this.gzp.setData(list);
         }
     }
 
-    public void setClickListener(a.InterfaceC0730a interfaceC0730a) {
-        this.jAP.setClickListener(interfaceC0730a);
+    public void setClickListener(a.InterfaceC0731a interfaceC0731a) {
+        this.jBd.setClickListener(interfaceC0731a);
     }
 }

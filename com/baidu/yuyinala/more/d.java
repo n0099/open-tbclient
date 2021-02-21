@@ -37,13 +37,13 @@ public class d implements View.OnClickListener {
     private Dialog mDialog;
     private LinearLayout mPanelLayout;
     private View mRootView;
-    private com.baidu.yuyinala.more.c.a oWM;
-    private EditText ovP;
-    int ovR = 20;
-    Runnable ovT = new Runnable() { // from class: com.baidu.yuyinala.more.d.4
+    private com.baidu.yuyinala.more.c.a oXm;
+    private EditText owp;
+    int owr = 20;
+    Runnable owt = new Runnable() { // from class: com.baidu.yuyinala.more.d.4
         @Override // java.lang.Runnable
         public void run() {
-            BdUtilHelper.showSoftKeyPad(d.this.mContext, d.this.ovP);
+            BdUtilHelper.showSoftKeyPad(d.this.mContext, d.this.owp);
         }
     };
     public CustomMessageListener bgy = new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.more.d.5
@@ -58,7 +58,7 @@ public class d implements View.OnClickListener {
 
     public d(Context context, com.baidu.yuyinala.more.c.a aVar) {
         this.mContext = context;
-        this.oWM = aVar;
+        this.oXm = aVar;
         initDialog();
     }
 
@@ -84,9 +84,9 @@ public class d implements View.OnClickListener {
         if (view == this.mRootView || view == this.bTn || view == this.eJb) {
             dismiss();
         }
-        if (view == this.bTm && this.oWM != null) {
-            this.oWM.ejz();
-            this.oWM.XY(this.ovP.getText().toString().trim());
+        if (view == this.bTm && this.oXm != null) {
+            this.oXm.ejH();
+            this.oXm.Yk(this.owp.getText().toString().trim());
             dismiss();
         }
     }
@@ -117,7 +117,7 @@ public class d implements View.OnClickListener {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.yuyin_room_close_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
-        this.ovP = (EditText) this.mRootView.findViewById(a.f.et_title);
+        this.owp = (EditText) this.mRootView.findViewById(a.f.et_title);
         this.bTm = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
         this.bTn = (TextView) this.mRootView.findViewById(a.f.tv_cancel);
         this.eJb = (ImageView) this.mRootView.findViewById(a.f.iv_close);
@@ -128,7 +128,7 @@ public class d implements View.OnClickListener {
         this.bTm.setOnClickListener(this);
         this.bTn.setOnClickListener(this);
         this.eJb.setOnClickListener(this);
-        this.ovP.addTextChangedListener(new TextWatcher() { // from class: com.baidu.yuyinala.more.d.1
+        this.owp.addTextChangedListener(new TextWatcher() { // from class: com.baidu.yuyinala.more.d.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -154,26 +154,26 @@ public class d implements View.OnClickListener {
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.ovP.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.yuyinala.more.d.2
+        this.owp.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.yuyinala.more.d.2
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                if (d.x(spanned) + d.x(charSequence) > d.this.ovR) {
+                if (d.x(spanned) + d.x(charSequence) > d.this.owr) {
                     return "";
                 }
                 return charSequence;
             }
         }});
-        this.ovP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.more.d.3
+        this.owp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.more.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    d.this.ovP.requestFocus();
-                    d.this.ovP.post(d.this.ovT);
+                    d.this.owp.requestFocus();
+                    d.this.owp.post(d.this.owt);
                 } catch (Exception e) {
                 }
             }
         });
-        this.ovP.setText("");
+        this.owp.setText("");
     }
 
     public static int x(CharSequence charSequence) {

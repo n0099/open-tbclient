@@ -1,15 +1,15 @@
 package com.baidu.tieba.q;
 /* loaded from: classes7.dex */
 public class n {
-    private static volatile m nmC;
+    private static volatile m nnc;
 
-    public static synchronized m dKg() {
+    public static synchronized m dKo() {
         m mVar;
         synchronized (n.class) {
-            if (nmC == null) {
-                nmC = new m();
+            if (nnc == null) {
+                nnc = new m();
             }
-            mVar = nmC;
+            mVar = nnc;
         }
         return mVar;
     }

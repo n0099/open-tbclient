@@ -75,7 +75,7 @@ public class RequestManager implements ModelTypes<RequestBuilder<Drawable>>, Lif
     }
 
     protected void setRequestOptions(@NonNull RequestOptions requestOptions) {
-        this.requestOptions = requestOptions.m54clone().autoClone();
+        this.requestOptions = requestOptions.m53clone().autoClone();
     }
 
     private void updateRequestOptions(@NonNull RequestOptions requestOptions) {

@@ -15,13 +15,13 @@ public class d {
         if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof com.baidu.tieba.lego.b)) {
             return null;
         }
-        return ((com.baidu.tieba.lego.b) tbPageContext.getPageActivity()).dbc();
+        return ((com.baidu.tieba.lego.b) tbPageContext.getPageActivity()).dbj();
     }
 
     public static LegoListFragment C(TbPageContext<?> tbPageContext) {
         if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof com.baidu.tieba.lego.b)) {
             return null;
         }
-        return ((com.baidu.tieba.lego.b) tbPageContext.getPageActivity()).dbd();
+        return ((com.baidu.tieba.lego.b) tbPageContext.getPageActivity()).dbk();
     }
 }

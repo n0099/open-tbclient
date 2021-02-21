@@ -7,8 +7,8 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.yuyinala.mode.c;
 import com.baidu.yuyinala.mode.c.a;
 /* loaded from: classes11.dex */
-public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioModeDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0961a {
-    private com.baidu.yuyinala.mode.c.a oWq;
+public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioModeDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0963a {
+    private com.baidu.yuyinala.mode.c.a oWQ;
 
     public b(TbPageContext tbPageContext, ab abVar, AlaAudioModeDialogData alaAudioModeDialogData) {
         super(tbPageContext, new c(tbPageContext), alaAudioModeDialogData);
@@ -18,21 +18,21 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
         de(true);
         df(true);
         a((DialogInterface.OnDismissListener) this.bJy);
-        this.oWq = new com.baidu.yuyinala.mode.c.a(abVar, this);
+        this.oWQ = new com.baidu.yuyinala.mode.c.a(abVar, this);
     }
 
     public void a(ab abVar, AlaAudioModeDialogData alaAudioModeDialogData) {
-        this.oWq.aR(abVar);
+        this.oWQ.aR(abVar);
         a((b) alaAudioModeDialogData);
     }
 
-    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0961a
-    public void ejd() {
+    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0963a
+    public void ejl() {
         this.mPageContext.showToast(a.h.change_mode_fail);
     }
 
-    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0961a
-    public void eje() {
+    @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0963a
+    public void ejm() {
         this.mPageContext.showToast(a.h.change_mode_succ);
     }
 
@@ -52,7 +52,7 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
     }
 
     @Override // com.baidu.yuyinala.mode.c.a
-    public void Nx(int i) {
-        this.oWq.Nx(i);
+    public void Ny(int i) {
+        this.oWQ.Ny(i);
     }
 }

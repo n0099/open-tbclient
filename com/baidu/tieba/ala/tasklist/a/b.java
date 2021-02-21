@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private com.baidu.tieba.ala.tasklist.a.a ihy;
+    private com.baidu.tieba.ala.tasklist.a.a ihM;
     private Context mActivity;
-    private int ihz = -1;
+    private int ihN = -1;
     private ArrayList<at> eVV = new ArrayList<>();
 
     public b(Context context, com.baidu.tieba.ala.tasklist.a.a aVar) {
         this.mActivity = context;
-        this.ihy = aVar;
+        this.ihM = aVar;
     }
 
     public void setData(ArrayList<at> arrayList) {
@@ -73,15 +73,15 @@ public class b extends BaseAdapter {
 
     private void a(a aVar, final at atVar) {
         if (atVar != null) {
-            aVar.ihC.setText(atVar.aNJ);
-            aVar.ihD.setText(atVar.aNO);
-            aVar.ihE.setText(this.mActivity.getResources().getString(a.h.ala_task_title_reward_mode, Integer.valueOf(atVar.aNN)));
+            aVar.ihQ.setText(atVar.aNJ);
+            aVar.ihR.setText(atVar.aNO);
+            aVar.ihS.setText(this.mActivity.getResources().getString(a.h.ala_task_title_reward_mode, Integer.valueOf(atVar.aNN)));
             if (atVar.status == 3) {
-                aVar.ihE.setVisibility(8);
+                aVar.ihS.setVisibility(8);
             } else {
-                aVar.ihE.setVisibility(0);
+                aVar.ihS.setVisibility(0);
             }
-            aVar.ihF.setTag(Integer.valueOf(atVar.aNI));
+            aVar.ihT.setTag(Integer.valueOf(atVar.aNI));
             if (atVar.status == 2) {
                 b(aVar);
             } else if (atVar.status == 3) {
@@ -89,11 +89,11 @@ public class b extends BaseAdapter {
             } else {
                 b(aVar, atVar);
             }
-            aVar.ihF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
+            aVar.ihT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.tasklist.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (atVar.status == 2 && b.this.ihy != null) {
-                        b.this.ihy.wA(atVar.aNI);
+                    if (atVar.status == 2 && b.this.ihM != null) {
+                        b.this.ihM.wA(atVar.aNI);
                     }
                 }
             });
@@ -103,13 +103,13 @@ public class b extends BaseAdapter {
     private void b(a aVar, at atVar) {
         String string;
         if (atVar.Co()) {
-            if (this.ihz < 0) {
+            if (this.ihN < 0) {
                 if (atVar.aNM != null) {
-                    this.ihz = atVar.aNM.aNZ;
+                    this.ihN = atVar.aNM.aNZ;
                 }
                 a(aVar);
                 return;
-            } else if (this.ihz == 0) {
+            } else if (this.ihN == 0) {
                 b(aVar);
                 return;
             } else {
@@ -126,32 +126,32 @@ public class b extends BaseAdapter {
     }
 
     private void a(a aVar) {
-        aVar.ihF.setText(StringHelper.formatSecondsTime(this.ihz * 1000));
-        aVar.ihF.setBackgroundResource(a.e.ala_bg_rectangle_stroke_blue);
-        aVar.ihF.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_common_color_10260));
-        c(aVar.ihF, true);
+        aVar.ihT.setText(StringHelper.formatSecondsTime(this.ihN * 1000));
+        aVar.ihT.setBackgroundResource(a.e.ala_bg_rectangle_stroke_blue);
+        aVar.ihT.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_common_color_10260));
+        c(aVar.ihT, true);
     }
 
     private void a(a aVar, String str) {
-        aVar.ihF.setText(str);
-        aVar.ihF.setBackgroundResource(a.e.sdk_transparent_bg);
-        aVar.ihF.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_d));
-        c(aVar.ihF, false);
+        aVar.ihT.setText(str);
+        aVar.ihT.setBackgroundResource(a.e.sdk_transparent_bg);
+        aVar.ihT.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_d));
+        c(aVar.ihT, false);
     }
 
     private void b(a aVar) {
-        aVar.ihF.setText(this.mActivity.getString(a.h.ala_task_status_can_get));
+        aVar.ihT.setText(this.mActivity.getString(a.h.ala_task_status_can_get));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            aVar.ihF.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_hk);
+            aVar.ihT.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_hk);
         } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-            aVar.ihF.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.ihT.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
         } else if (TbadkCoreApplication.getInst().isTieba()) {
-            aVar.ihF.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
+            aVar.ihT.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue_qm);
         } else {
-            aVar.ihF.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue);
+            aVar.ihT.setBackgroundResource(a.e.ala_btn_bg_round_rectangle_blue);
         }
-        aVar.ihF.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_g));
-        c(aVar.ihF, true);
+        aVar.ihT.setTextColor(this.mActivity.getResources().getColor(a.c.sdk_cp_cont_g));
+        c(aVar.ihT, true);
     }
 
     public void c(TextView textView, boolean z) {
@@ -171,12 +171,12 @@ public class b extends BaseAdapter {
     }
 
     public void o(Integer num) {
-        this.ihz = num.intValue();
+        this.ihN = num.intValue();
         at Cs = Cs();
         if (Cs != null) {
-            if (this.ihz == 0) {
+            if (this.ihN == 0) {
                 Cs.status = 2;
-            } else if (this.ihz > 0) {
+            } else if (this.ihN > 0) {
                 Cs.status = 1;
             } else {
                 Cs.status = 3;
@@ -201,18 +201,18 @@ public class b extends BaseAdapter {
     /* loaded from: classes11.dex */
     public static class a {
         public View bTo;
-        public TextView ihC;
-        public TextView ihD;
-        public TextView ihE;
-        public TextView ihF;
+        public TextView ihQ;
+        public TextView ihR;
+        public TextView ihS;
+        public TextView ihT;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.ihC = (TextView) view.findViewById(a.f.tvTaskTitle);
-            this.ihD = (TextView) view.findViewById(a.f.tvTaskSubTitle);
-            this.ihE = (TextView) view.findViewById(a.f.tvTaskRewardNum);
-            this.ihF = (TextView) view.findViewById(a.f.tvTaskStatus);
+            this.ihQ = (TextView) view.findViewById(a.f.tvTaskTitle);
+            this.ihR = (TextView) view.findViewById(a.f.tvTaskSubTitle);
+            this.ihS = (TextView) view.findViewById(a.f.tvTaskRewardNum);
+            this.ihT = (TextView) view.findViewById(a.f.tvTaskStatus);
             this.bTo = view.findViewById(a.f.divider);
         }
     }

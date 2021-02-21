@@ -131,7 +131,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
         b Cg = Cg(i);
-        com.baidu.tieba.horizonalList.widget.a aVar = Cg.krW;
+        com.baidu.tieba.horizonalList.widget.a aVar = Cg.ksk;
         boolean isChildSelectable = aVar.type == 1 ? this.bIe.isChildSelectable(aVar.bIr, aVar.bIs) : true;
         Cg.recycle();
         return isChildSelectable;
@@ -146,10 +146,10 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     public Object getItem(int i) {
         Object child;
         b Cg = Cg(i);
-        if (Cg.krW.type == 2) {
-            child = this.bIe.getGroup(Cg.krW.bIr);
-        } else if (Cg.krW.type == 1) {
-            child = this.bIe.getChild(Cg.krW.bIr, Cg.krW.bIs);
+        if (Cg.ksk.type == 2) {
+            child = this.bIe.getGroup(Cg.ksk.bIr);
+        } else if (Cg.ksk.type == 1) {
+            child = this.bIe.getChild(Cg.ksk.bIr, Cg.ksk.bIs);
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
@@ -161,11 +161,11 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     public long getItemId(int i) {
         long combinedChildId;
         b Cg = Cg(i);
-        long groupId = this.bIe.getGroupId(Cg.krW.bIr);
-        if (Cg.krW.type == 2) {
+        long groupId = this.bIe.getGroupId(Cg.ksk.bIr);
+        if (Cg.ksk.type == 2) {
             combinedChildId = this.bIe.getCombinedGroupId(groupId);
-        } else if (Cg.krW.type == 1) {
-            combinedChildId = this.bIe.getCombinedChildId(groupId, this.bIe.getChildId(Cg.krW.bIr, Cg.krW.bIs));
+        } else if (Cg.ksk.type == 1) {
+            combinedChildId = this.bIe.getCombinedChildId(groupId, this.bIe.getChildId(Cg.ksk.bIr, Cg.ksk.bIs));
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
@@ -177,10 +177,10 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View childView;
         b Cg = Cg(i);
-        if (Cg.krW.type == 2) {
-            childView = this.bIe.getGroupView(Cg.krW.bIr, Cg.isExpanded(), view, viewGroup);
-        } else if (Cg.krW.type == 1) {
-            childView = this.bIe.getChildView(Cg.krW.bIr, Cg.krW.bIs, Cg.krX.bIj == i, view, viewGroup);
+        if (Cg.ksk.type == 2) {
+            childView = this.bIe.getGroupView(Cg.ksk.bIr, Cg.isExpanded(), view, viewGroup);
+        } else if (Cg.ksk.type == 1) {
+            childView = this.bIe.getChildView(Cg.ksk.bIr, Cg.ksk.bIs, Cg.ksl.bIj == i, view, viewGroup);
         } else {
             throw new RuntimeException("Flat list position is of unknown type");
         }
@@ -192,7 +192,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     public int getItemViewType(int i) {
         int i2;
         b Cg = Cg(i);
-        com.baidu.tieba.horizonalList.widget.a aVar = Cg.krW;
+        com.baidu.tieba.horizonalList.widget.a aVar = Cg.ksk;
         if (this.bIe instanceof HeterogeneousExpandableList) {
             HeterogeneousExpandableList heterogeneousExpandableList = (HeterogeneousExpandableList) this.bIe;
             if (aVar.type == 2) {
@@ -292,22 +292,22 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(b bVar) {
-        if (bVar.krX == null) {
+        if (bVar.ksl == null) {
             return false;
         }
-        this.bIf.remove(bVar.krX);
+        this.bIf.remove(bVar.ksl);
         h(false, false);
         notifyDataSetChanged();
-        this.bIe.onGroupCollapsed(bVar.krX.bIk);
+        this.bIe.onGroupCollapsed(bVar.ksl.bIk);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean b(b bVar) {
-        if (bVar.krW.bIr < 0) {
+        if (bVar.ksk.bIr < 0) {
             throw new RuntimeException("Need group");
         }
-        if (this.bIh != 0 && bVar.krX == null) {
+        if (this.bIh != 0 && bVar.ksl == null) {
             if (this.bIf.size() >= this.bIh) {
                 GroupMetadata groupMetadata = this.bIf.get(0);
                 int indexOf = this.bIf.indexOf(groupMetadata);
@@ -316,7 +316,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
                     bVar.bIq--;
                 }
             }
-            GroupMetadata c = GroupMetadata.c(-1, -1, bVar.krW.bIr, this.bIe.getGroupId(bVar.krW.bIr));
+            GroupMetadata c = GroupMetadata.c(-1, -1, bVar.ksk.bIr, this.bIe.getGroupId(bVar.ksk.bIr));
             this.bIf.add(bVar.bIq, c);
             h(false, false);
             notifyDataSetChanged();
@@ -487,15 +487,15 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
     public static class b {
         private static ArrayList<b> bIn = new ArrayList<>(5);
         public int bIq;
-        public com.baidu.tieba.horizonalList.widget.a krW;
-        public GroupMetadata krX;
+        public com.baidu.tieba.horizonalList.widget.a ksk;
+        public GroupMetadata ksl;
 
         private void TP() {
-            if (this.krW != null) {
-                this.krW.recycle();
-                this.krW = null;
+            if (this.ksk != null) {
+                this.ksk.recycle();
+                this.ksk = null;
             }
-            this.krX = null;
+            this.ksl = null;
             this.bIq = 0;
         }
 
@@ -503,14 +503,14 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         }
 
         static b a(int i, int i2, int i3, int i4, GroupMetadata groupMetadata, int i5) {
-            b cSz = cSz();
-            cSz.krW = com.baidu.tieba.horizonalList.widget.a.H(i2, i3, i4, i);
-            cSz.krX = groupMetadata;
-            cSz.bIq = i5;
-            return cSz;
+            b cSG = cSG();
+            cSG.ksk = com.baidu.tieba.horizonalList.widget.a.H(i2, i3, i4, i);
+            cSG.ksl = groupMetadata;
+            cSG.bIq = i5;
+            return cSG;
         }
 
-        private static b cSz() {
+        private static b cSG() {
             b bVar;
             synchronized (bIn) {
                 if (bIn.size() > 0) {
@@ -533,7 +533,7 @@ class ExpandableHListConnector extends BaseAdapter implements Filterable {
         }
 
         public boolean isExpanded() {
-            return this.krX != null;
+            return this.ksl != null;
         }
     }
 }

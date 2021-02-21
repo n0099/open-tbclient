@@ -14,106 +14,106 @@ import com.baidu.yuyinala.privatemessage.implugin.common.ChatInfo;
 import com.baidu.yuyinala.privatemessage.implugin.f.k;
 /* loaded from: classes11.dex */
 public class c {
-    private View iwY;
+    private View ixm;
     private Context mContext;
     private View mRootView;
     private long mUserId;
-    private LinearLayout pdV;
-    private Button pdW;
-    private TextView pdX;
-    private ImageView pdY;
-    private LinearLayout pea;
-    private int peb;
-    private boolean pdM = false;
-    private int pdZ = 300;
+    private LinearLayout peA;
+    private int peB;
+    private LinearLayout pev;
+    private Button pew;
+    private TextView pex;
+    private ImageView pey;
+    private boolean pem = false;
+    private int pez = 300;
 
     public c(Context context, View view, int i, long j) {
-        this.peb = 1;
+        this.peB = 1;
         this.mUserId = -1L;
         this.mContext = context.getApplicationContext();
         this.mRootView = view;
-        this.peb = i;
+        this.peB = i;
         this.mUserId = j;
-        bXL();
+        bXS();
     }
 
-    private void bXL() {
-        this.pdV = (LinearLayout) this.mRootView.findViewById(a.f.bd_im_subscribe_dialog_ll);
-        this.pdW = (Button) this.mRootView.findViewById(a.f.subscribe_button);
-        this.pea = (LinearLayout) this.mRootView.findViewById(a.f.subscribe_text_root);
-        this.pdX = (TextView) this.mRootView.findViewById(a.f.subscribe_text);
-        this.iwY = this.mRootView.findViewById(a.f.subscribe_space_line);
-        this.pdY = (ImageView) this.mRootView.findViewById(a.f.subscribe_close);
-        this.pdY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.1
+    private void bXS() {
+        this.pev = (LinearLayout) this.mRootView.findViewById(a.f.bd_im_subscribe_dialog_ll);
+        this.pew = (Button) this.mRootView.findViewById(a.f.subscribe_button);
+        this.peA = (LinearLayout) this.mRootView.findViewById(a.f.subscribe_text_root);
+        this.pex = (TextView) this.mRootView.findViewById(a.f.subscribe_text);
+        this.ixm = this.mRootView.findViewById(a.f.subscribe_space_line);
+        this.pey = (ImageView) this.mRootView.findViewById(a.f.subscribe_close);
+        this.pey.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.dismiss();
-                if (c.this.peb != 1) {
-                    if (c.this.peb == 0) {
-                        com.baidu.yuyinala.privatemessage.implugin.util.c.b.e(c.this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.c.a.phM + c.this.mUserId, System.currentTimeMillis());
+                if (c.this.peB != 1) {
+                    if (c.this.peB == 0) {
+                        com.baidu.yuyinala.privatemessage.implugin.util.c.b.e(c.this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.c.a.pip + c.this.mUserId, System.currentTimeMillis());
                     }
                 } else {
-                    com.baidu.yuyinala.privatemessage.implugin.util.c.b.e(c.this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.c.a.phL + ChatInfo.mPaid + ChatInfo.oZs, System.currentTimeMillis());
+                    com.baidu.yuyinala.privatemessage.implugin.util.c.b.e(c.this.mContext, com.baidu.yuyinala.privatemessage.implugin.util.c.a.pio + ChatInfo.mPaid + ChatInfo.oZS, System.currentTimeMillis());
                 }
                 com.baidu.yuyinala.privatemessage.implugin.e.a.hB(c.this.mContext.getApplicationContext()).add("416", "subscribe_close");
             }
         });
-        if (this.peb == 1) {
-            this.pdX.setText(this.mContext.getString(a.h.bd_im_subscribe_tip_text));
-        } else if (this.peb == 0) {
-            this.pdX.setText(this.mContext.getString(a.h.bd_im_game_user_sub_tip));
+        if (this.peB == 1) {
+            this.pex.setText(this.mContext.getString(a.h.bd_im_subscribe_tip_text));
+        } else if (this.peB == 0) {
+            this.pex.setText(this.mContext.getString(a.h.bd_im_game_user_sub_tip));
         }
     }
 
     public void c(final String str, final long j, final IIsSubscribedListener iIsSubscribedListener) {
-        if (this.pdV != null && this.pdV.getVisibility() != 0) {
-            this.pdV.setVisibility(0);
+        if (this.pev != null && this.pev.getVisibility() != 0) {
+            this.pev.setVisibility(0);
         }
         if (iIsSubscribedListener != null) {
-            this.pdW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.2
+            this.pew.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (c.this.peb == 1) {
+                    if (c.this.peB == 1) {
                         k.hC(c.this.mContext).a(str, j, iIsSubscribedListener);
-                    } else if (c.this.peb == 0) {
+                    } else if (c.this.peB == 0) {
                         k.hC(c.this.mContext).b(str, j, iIsSubscribedListener);
                     }
                 }
             });
         } else {
-            this.pdW.setClickable(false);
+            this.pew.setClickable(false);
         }
-        this.pdM = true;
+        this.pem = true;
     }
 
     public void dismiss() {
         Handler handler = new Handler();
-        this.pdV.startAnimation(AnimationUtils.loadAnimation(this.mContext, a.C0195a.bd_im_dimiss_tip));
+        this.pev.startAnimation(AnimationUtils.loadAnimation(this.mContext, a.C0195a.bd_im_dimiss_tip));
         handler.postDelayed(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.3
             @Override // java.lang.Runnable
             public void run() {
-                c.this.ell();
+                c.this.elt();
             }
-        }, this.pdZ);
+        }, this.pez);
     }
 
-    public void elo() {
-        ell();
+    public void elw() {
+        elt();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ell() {
-        if (this.pdM) {
-            this.pdV.setVisibility(8);
+    public void elt() {
+        if (this.pem) {
+            this.pev.setVisibility(8);
         }
-        this.pdM = false;
+        this.pem = false;
     }
 
-    public boolean elp() {
-        return this.pdM;
+    public boolean elx() {
+        return this.pem;
     }
 
-    public int elq() {
-        return this.peb;
+    public int ely() {
+        return this.peB;
     }
 }

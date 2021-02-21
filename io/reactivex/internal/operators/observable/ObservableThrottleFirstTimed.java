@@ -13,7 +13,7 @@ public final class ObservableThrottleFirstTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
-        this.source.subscribe(new DebounceTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.eKi()));
+        this.source.subscribe(new DebounceTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.eKq()));
     }
 
     /* loaded from: classes5.dex */

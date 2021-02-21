@@ -86,7 +86,7 @@ public class ac {
         }
     }
 
-    private boolean DR(String str) {
+    private boolean DP(String str) {
         if (fNp.contains(str)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: imgPath has done; imagePath = " + str);
             return true;
@@ -173,9 +173,9 @@ public class ac {
                     String string = query.getString(columnIndex);
                     long j = query.getLong(columnIndex2);
                     if (i2 < 0 || i < 0) {
-                        Point DS = DS(string);
-                        i3 = DS.x;
-                        i4 = DS.y;
+                        Point DQ = DQ(string);
+                        i3 = DQ.x;
+                        i4 = DQ.y;
                     } else {
                         i3 = query.getInt(i2);
                         i4 = query.getInt(i);
@@ -216,7 +216,7 @@ public class ac {
         }
     }
 
-    private Point DS(String str) {
+    private Point DQ(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
@@ -226,7 +226,7 @@ public class ac {
     private void a(String str, long j, int i, int i2) {
         if (b(str, j, i, i2)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i + " * " + i2 + "; date = " + j);
-            if (this.fNq != null && !DR(str)) {
+            if (this.fNq != null && !DP(str)) {
                 this.fNq.onShot(str);
                 return;
             }

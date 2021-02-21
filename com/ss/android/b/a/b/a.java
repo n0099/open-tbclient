@@ -90,13 +90,13 @@ public class a {
         this.d = cVar.g();
         this.e = cVar.u();
         this.g = cVar.v();
-        this.r = cVar.eDX();
+        this.r = cVar.eEf();
         this.p = cVar.t();
         this.m = cVar.r();
         this.n = cVar.s();
         this.h = cVar.a();
-        if (cVar.eDV() != null) {
-            this.i = cVar.eDV().a();
+        if (cVar.eEd() != null) {
+            this.i = cVar.eEd().a();
         }
         this.j = cVar.A();
         this.o = cVar.h();
@@ -332,7 +332,7 @@ public class a {
         this.M = j;
     }
 
-    public long eEh() {
+    public long eEp() {
         return this.M;
     }
 
@@ -380,7 +380,7 @@ public class a {
         this.L = z;
     }
 
-    public long eEi() {
+    public long eEq() {
         return this.P;
     }
 
@@ -388,7 +388,7 @@ public class a {
         this.P = j;
     }
 
-    public long eEj() {
+    public long eEr() {
         return this.Q;
     }
 
@@ -432,7 +432,7 @@ public class a {
         this.N = z;
     }
 
-    public JSONObject eEk() {
+    public JSONObject eEs() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("mId", this.c);
@@ -535,19 +535,19 @@ public class a {
         return aVar;
     }
 
-    public com.ss.android.b.a.a.c eEl() {
-        c.a aaC = new c.a().iY(this.c).iZ(this.d).aay(this.e).aaz(this.g).fb(this.r).BT(this.p).QR(this.m).aaE(this.n).aaB(this.h).QQ(this.j).aaD(this.I).aaC(this.o);
+    public com.ss.android.b.a.a.c eEt() {
+        c.a aaO = new c.a().iY(this.c).iZ(this.d).aaK(this.e).aaL(this.g).fb(this.r).BT(this.p).QS(this.m).aaQ(this.n).aaN(this.h).QR(this.j).aaP(this.I).aaO(this.o);
         if (!TextUtils.isEmpty(this.i)) {
-            aaC.a(new com.ss.android.a.a.d.b(this.i, null, null));
+            aaO.a(new com.ss.android.a.a.d.b(this.i, null, null));
         }
-        return aaC.eEg();
+        return aaO.eEo();
     }
 
-    public com.ss.android.b.a.a.b eEm() {
-        return new b.a().aan(this.F).aav(this.G).BS(this.H).eEf();
+    public com.ss.android.b.a.a.b eEu() {
+        return new b.a().aaz(this.F).aaH(this.G).BS(this.H).eEn();
     }
 
-    public com.ss.android.b.a.a.a eEn() {
-        return new a.C1218a().BM(this.t).QN(this.k).QO(this.l).eEe();
+    public com.ss.android.b.a.a.a eEv() {
+        return new a.C1220a().BM(this.t).QO(this.k).QP(this.l).eEm();
     }
 }

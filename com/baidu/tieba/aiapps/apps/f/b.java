@@ -29,7 +29,7 @@ public class b implements f {
 
     @Override // com.baidu.swan.apps.t.b.f
     public void e(Activity activity, String str, final com.baidu.k.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.aAl().azV(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.Fn(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
+        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.aAl().azV(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.Fo(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 aVar.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));

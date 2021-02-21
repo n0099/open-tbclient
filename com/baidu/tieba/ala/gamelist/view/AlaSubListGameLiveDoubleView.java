@@ -7,8 +7,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.b;
 /* loaded from: classes10.dex */
 public class AlaSubListGameLiveDoubleView extends b<com.baidu.tieba.ala.gamelist.b.a> {
-    private a gXo;
-    private a gXp;
+    private a gXC;
+    private a gXD;
 
     /* loaded from: classes10.dex */
     public static class AlaSubListDoubleLiveViewHolder extends TypeAdapter.ViewHolder {
@@ -16,8 +16,8 @@ public class AlaSubListGameLiveDoubleView extends b<com.baidu.tieba.ala.gamelist
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gXo.onChangeSkinType(tbPageContext, i);
-        this.gXp.onChangeSkinType(tbPageContext, i);
+        this.gXC.onChangeSkinType(tbPageContext, i);
+        this.gXD.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -29,8 +29,8 @@ public class AlaSubListGameLiveDoubleView extends b<com.baidu.tieba.ala.gamelist
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.gamelist.b.a aVar) {
         if (aVar != null) {
-            this.gXo.a(aVar.gXe);
-            this.gXp.a(aVar.gXf);
+            this.gXC.a(aVar.gXs);
+            this.gXD.a(aVar.gXt);
         }
     }
 

@@ -25,13 +25,13 @@ class SecurityChecker {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(final File file, final a.C1068a c1068a, final a aVar) {
+    public static void a(final File file, final a.C1070a c1070a, final a aVar) {
         i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
             @Override // java.lang.Runnable
             public void run() {
                 State unused = SecurityChecker.f8188a = State.INIT;
                 try {
-                    boolean z = a.C1068a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C1068a.this.c);
+                    boolean z = a.C1070a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C1070a.this.c);
                     if (z) {
                         State unused2 = SecurityChecker.f8188a = State.SUCCESS;
                     }

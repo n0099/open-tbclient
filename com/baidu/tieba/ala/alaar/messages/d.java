@@ -6,7 +6,7 @@ import com.baidu.live.data.AlaLiveStickerInfo;
 /* loaded from: classes11.dex */
 public class d extends HttpMessage {
     private long buN;
-    public AlaLiveStickerInfo gsB;
+    public AlaLiveStickerInfo gsP;
     @IntRange(from = 1, to = 3)
     public int mRequestType;
 
@@ -14,19 +14,19 @@ public class d extends HttpMessage {
         super(1021206);
         this.buN = j;
         this.mRequestType = i;
-        this.gsB = alaLiveStickerInfo;
+        this.gsP = alaLiveStickerInfo;
     }
 
     public void setParams() {
         addParam("live_id", this.buN);
         addParam("type", this.mRequestType);
         if (1 != this.mRequestType) {
-            addParam(AlaLiveStickerInfo.STICKER_ID, String.valueOf(this.gsB.id));
+            addParam(AlaLiveStickerInfo.STICKER_ID, String.valueOf(this.gsP.id));
         }
-        addParam(AlaLiveStickerInfo.STICKER_TYPE, this.gsB.type);
-        addParam(AlaLiveStickerInfo.STICKER_LINK, this.gsB.link);
-        addParam(AlaLiveStickerInfo.STICKER_TEXT, this.gsB.text);
-        addParam(AlaLiveStickerInfo.STICKER_CENTERX, this.gsB.centerX);
-        addParam(AlaLiveStickerInfo.STICKER_CENTERY, this.gsB.centerY);
+        addParam(AlaLiveStickerInfo.STICKER_TYPE, this.gsP.type);
+        addParam(AlaLiveStickerInfo.STICKER_LINK, this.gsP.link);
+        addParam(AlaLiveStickerInfo.STICKER_TEXT, this.gsP.text);
+        addParam(AlaLiveStickerInfo.STICKER_CENTERX, this.gsP.centerX);
+        addParam(AlaLiveStickerInfo.STICKER_CENTERY, this.gsP.centerY);
     }
 }

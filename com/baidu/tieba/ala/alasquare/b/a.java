@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
-    private static a gFl;
-    private List<ar> gfQ;
+    private static a gFz;
+    private List<ar> gfV;
 
-    public static a bRX() {
-        if (gFl == null) {
+    public static a bSe() {
+        if (gFz == null) {
             synchronized (a.class) {
-                if (gFl == null) {
-                    gFl = new a();
+                if (gFz == null) {
+                    gFz = new a();
                 }
             }
         }
-        return gFl;
+        return gFz;
     }
 
     public void e(ar arVar) {
         if (arVar != null) {
-            if (this.gfQ == null) {
-                this.gfQ = new ArrayList();
+            if (this.gfV == null) {
+                this.gfV = new ArrayList();
             }
-            if (this.gfQ != null) {
-                this.gfQ.add(arVar);
+            if (this.gfV != null) {
+                this.gfV.add(arVar);
             }
         }
     }
 
-    public void FX(String str) {
+    public void FY(String str) {
         if (str != null) {
-            if (this.gfQ == null) {
-                this.gfQ = new ArrayList();
+            if (this.gfV == null) {
+                this.gfV = new ArrayList();
             }
-            if (this.gfQ != null) {
-                this.gfQ.add(new ar(str));
+            if (this.gfV != null) {
+                this.gfV.add(new ar(str));
             }
         }
     }
 
-    public void bOF() {
-        if (y.getCount(this.gfQ) != 0) {
-            for (ar arVar : this.gfQ) {
+    public void bOM() {
+        if (y.getCount(this.gfV) != 0) {
+            for (ar arVar : this.gfV) {
                 if (arVar != null) {
                     TiebaStatic.log(arVar);
                 }
             }
-            this.gfQ.clear();
+            this.gfV.clear();
         }
     }
 
     public void mG(boolean z) {
-        if (y.getCount(this.gfQ) != 0) {
-            for (ar arVar : this.gfQ) {
+        if (y.getCount(this.gfV) != 0) {
+            for (ar arVar : this.gfV) {
                 if (arVar != null) {
                     int i = 0;
                     if (z) {
@@ -71,7 +71,7 @@ public class a {
                     TiebaStatic.log(arVar);
                 }
             }
-            this.gfQ.clear();
+            this.gfV.clear();
         }
     }
 

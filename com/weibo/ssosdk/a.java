@@ -32,31 +32,31 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.weibo.ssosdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1272a {
-        private Intent qiz;
+    public static final class C1274a {
+        private Intent qiZ;
 
-        private C1272a(Context context) {
-            this.qiz = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        private C1274a(Context context) {
+            this.qiZ = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int getLevel() {
-            return this.qiz.getIntExtra("level", 0);
+            return this.qiZ.getIntExtra("level", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int eIH() {
-            return this.qiz.getIntExtra("scale", 0);
+        public int eIP() {
+            return this.qiZ.getIntExtra("scale", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int eII() {
-            return this.qiz.getIntExtra("voltage", 0);
+        public int eIQ() {
+            return this.qiZ.getIntExtra("voltage", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int eIJ() {
-            return this.qiz.getIntExtra("temperature", 0);
+        public int eIR() {
+            return this.qiZ.getIntExtra("temperature", 0);
         }
     }
 
@@ -119,25 +119,25 @@ public class a {
             if (!TextUtils.isEmpty(iccid)) {
                 jSONObject.put("iccid", iccid);
             }
-            String eID = eID();
-            if (!TextUtils.isEmpty(eID)) {
-                jSONObject.put("serial", eID);
+            String eIL = eIL();
+            if (!TextUtils.isEmpty(eIL)) {
+                jSONObject.put("serial", eIL);
             }
             String androidId = getAndroidId(context);
             if (!TextUtils.isEmpty(androidId)) {
                 jSONObject.put("androidid", androidId);
             }
-            String eIF = eIF();
-            if (!TextUtils.isEmpty(eIF)) {
-                jSONObject.put("cpu", eIF);
+            String eIN = eIN();
+            if (!TextUtils.isEmpty(eIN)) {
+                jSONObject.put("cpu", eIN);
             }
             String model = getModel();
             if (!TextUtils.isEmpty(model)) {
                 jSONObject.put("model", model);
             }
-            String eIG = eIG();
-            if (!TextUtils.isEmpty(eIG)) {
-                jSONObject.put("sdcard", eIG);
+            String eIO = eIO();
+            if (!TextUtils.isEmpty(eIO)) {
+                jSONObject.put("sdcard", eIO);
             }
             String iH = iH(context);
             if (!TextUtils.isEmpty(iH)) {
@@ -170,10 +170,10 @@ public class a {
             double iG = iG(context);
             jSONObject.put("batterymaxcapacity", String.valueOf(iG));
             jSONObject.put("batterycurrentcapacity", String.valueOf(iG));
-            C1272a c1272a = new C1272a(context);
-            jSONObject.put("batterycurrentvoltage", c1272a.eII());
-            jSONObject.put("batterycurrenttemperature", c1272a.eIJ());
-            jSONObject.put("batterycurrentcapacity", (iG * c1272a.getLevel()) / c1272a.eIH());
+            C1274a c1274a = new C1274a(context);
+            jSONObject.put("batterycurrentvoltage", c1274a.eIQ());
+            jSONObject.put("batterycurrenttemperature", c1274a.eIR());
+            jSONObject.put("batterycurrentcapacity", (iG * c1274a.getLevel()) / c1274a.eIP());
             return jSONObject.toString();
         } catch (JSONException e2) {
             return "";
@@ -257,9 +257,9 @@ public class a {
         }
     }
 
-    private static String eID() {
+    private static String eIL() {
         if (Build.VERSION.SDK_INT >= 26) {
-            return eIE();
+            return eIM();
         }
         try {
             Class<?> cls = Class.forName("android.os.SystemProperties");
@@ -283,7 +283,7 @@ public class a {
     }
 
     @TargetApi(26)
-    private static String eIE() {
+    private static String eIM() {
         try {
             return Build.getSerial();
         } catch (Exception e) {
@@ -300,7 +300,7 @@ public class a {
         }
     }
 
-    private static String eIF() {
+    private static String eIN() {
         try {
             return Build.CPU_ABI;
         } catch (Exception e) {
@@ -316,7 +316,7 @@ public class a {
         }
     }
 
-    private static String eIG() {
+    private static String eIO() {
         try {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return Long.toString(statFs.getBlockCount() * statFs.getBlockSize());

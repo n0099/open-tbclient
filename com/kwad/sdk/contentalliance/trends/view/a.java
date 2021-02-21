@@ -14,7 +14,7 @@ import com.kwad.sdk.utils.p;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class a extends RecyclerView.Adapter<C1082a> {
+public class a extends RecyclerView.Adapter<C1084a> {
 
     /* renamed from: a  reason: collision with root package name */
     private final LayoutInflater f8897a;
@@ -29,12 +29,12 @@ public class a extends RecyclerView.Adapter<C1082a> {
 
     /* renamed from: com.kwad.sdk.contentalliance.trends.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1082a extends RecyclerView.ViewHolder {
+    public class C1084a extends RecyclerView.ViewHolder {
 
         /* renamed from: b  reason: collision with root package name */
         private TrendListItemView f8900b;
 
-        public C1082a(TrendListItemView trendListItemView) {
+        public C1084a(TrendListItemView trendListItemView) {
             super(trendListItemView);
             this.f8900b = trendListItemView;
         }
@@ -48,7 +48,7 @@ public class a extends RecyclerView.Adapter<C1082a> {
                         if (trendInfo != null && trendInfo.offlineTime > 0 && trendInfo.offlineTime < System.currentTimeMillis()) {
                             p.a(a.this.f, a.this.f.getString(R.string.ksad_trend_is_no_valid));
                         } else {
-                            a.this.g.a(C1082a.this.f8900b, trendInfo, i);
+                            a.this.g.a(C1084a.this.f8900b, trendInfo, i);
                         }
                     }
                 });
@@ -81,17 +81,17 @@ public class a extends RecyclerView.Adapter<C1082a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public C1082a onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public C1084a onCreateViewHolder(ViewGroup viewGroup, int i) {
         TrendListItemView trendListItemView = (TrendListItemView) this.f8897a.inflate(R.layout.ksad_trend_panel_list_item_2, viewGroup, false);
         trendListItemView.setAdScene(this.f8898b);
-        return new C1082a(trendListItemView);
+        return new C1084a(trendListItemView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(C1082a c1082a, int i) {
-        c1082a.a(this.e.get(i), i);
+    public void onBindViewHolder(C1084a c1084a, int i) {
+        c1084a.a(this.e.get(i), i);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

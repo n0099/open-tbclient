@@ -39,41 +39,41 @@ public class gz implements ap.b.a {
     public void c() {
         b();
         if (this.f500a && this.f14076a != 11) {
-            fi m362a = he.m360a().m362a();
+            fi m361a = he.m359a().m361a();
             switch (hb.f14079a[this.f499a.ordinal()]) {
                 case 1:
                     if (this.f14076a != 17) {
                         if (this.f14076a != 21) {
                             try {
                                 hc.a c = hc.c(he.a().a());
-                                m362a.f403a = c.f14080a.a();
-                                m362a.c(c.f501a);
+                                m361a.f403a = c.f14080a.a();
+                                m361a.c(c.f501a);
                                 break;
                             } catch (NullPointerException e) {
-                                m362a = null;
+                                m361a = null;
                                 break;
                             }
                         } else {
-                            m362a.f403a = fh.BIND_TIMEOUT.a();
+                            m361a.f403a = fh.BIND_TIMEOUT.a();
                             break;
                         }
                     } else {
-                        m362a.f403a = fh.BIND_TCP_READ_TIMEOUT.a();
+                        m361a.f403a = fh.BIND_TCP_READ_TIMEOUT.a();
                         break;
                     }
                 case 3:
-                    m362a.f403a = fh.BIND_SUCCESS.a();
+                    m361a.f403a = fh.BIND_SUCCESS.a();
                     break;
             }
-            if (m362a != null) {
-                m362a.b(this.f496a.m320a());
-                m362a.d(this.f498a.f941b);
-                m362a.f406b = 1;
+            if (m361a != null) {
+                m361a.b(this.f496a.m319a());
+                m361a.d(this.f498a.f941b);
+                m361a.f406b = 1;
                 try {
-                    m362a.a((byte) Integer.parseInt(this.f498a.g));
+                    m361a.a((byte) Integer.parseInt(this.f498a.g));
                 } catch (NumberFormatException e2) {
                 }
-                he.m360a().a(m362a);
+                he.m359a().a(m361a);
             }
         }
     }
@@ -81,7 +81,7 @@ public class gz implements ap.b.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         this.f498a.a(this);
-        this.f496a = this.f497a.m545a();
+        this.f496a = this.f497a.m544a();
     }
 
     @Override // com.xiaomi.push.service.ap.b.a

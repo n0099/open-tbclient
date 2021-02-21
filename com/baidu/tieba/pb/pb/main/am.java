@@ -12,31 +12,31 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes2.dex */
 public class am {
     private TbPageContext eUY;
-    private be lYA;
-    private boolean lYz;
+    private boolean lYO;
+    private be lYP;
 
     public am(TbPageContext tbPageContext) {
         Uri uri;
-        this.lYz = false;
+        this.lYO = false;
         this.eUY = tbPageContext;
         if (this.eUY.getPageActivity() != null && this.eUY.getPageActivity().getIntent() != null && (uri = (Uri) this.eUY.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
             String queryParameter = uri.getQueryParameter("tid");
             uri.getQueryParameter("eqid");
-            this.lYA = new be();
-            this.lYA.tid = uri.getQueryParameter("tid");
-            this.lYA.eOP = uri.getQueryParameter("eqid");
+            this.lYP = new be();
+            this.lYP.tid = uri.getQueryParameter("tid");
+            this.lYP.eOP = uri.getQueryParameter("eqid");
             if (!TextUtils.isEmpty(queryParameter) && com.baidu.adp.base.b.kB().getSize() <= 3) {
-                this.lYz = true;
+                this.lYO = true;
             }
         }
     }
 
     public void h(PbModel pbModel) {
-        if (this.lYz && this.lYA != null && pbModel != null && pbModel.getPbData() != null && pbModel.getPbData().getForum() != null) {
+        if (this.lYO && this.lYP != null && pbModel != null && pbModel.getPbData() != null && pbModel.getPbData().getForum() != null) {
             ForumData forum = pbModel.getPbData().getForum();
-            this.lYA.firstDir = forum.getFirst_class();
-            this.lYA.secondDir = forum.getSecond_class();
-            TbSingleton.getInstance().setPbToHomeUpdateData(this.lYA);
+            this.lYP.firstDir = forum.getFirst_class();
+            this.lYP.secondDir = forum.getSecond_class();
+            TbSingleton.getInstance().setPbToHomeUpdateData(this.lYP);
             if (com.baidu.adp.base.b.kB().bo("MainTabActivity")) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
             } else {

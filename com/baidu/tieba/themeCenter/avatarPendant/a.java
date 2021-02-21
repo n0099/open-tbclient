@@ -8,11 +8,11 @@ import tbclient.ThemeBgProp;
 /* loaded from: classes9.dex */
 public class a {
     private List<DressItemData> mAvatarPendantList;
-    private String nFM;
+    private String nGm;
 
     public void a(ThemePendantInMain themePendantInMain) {
         if (themePendantInMain != null) {
-            this.nFM = themePendantInMain.pendant_category;
+            this.nGm = themePendantInMain.pendant_category;
             this.mAvatarPendantList = new ArrayList();
             for (ThemeBgProp themeBgProp : themePendantInMain.props) {
                 this.mAvatarPendantList.add(new DressItemData(themeBgProp));
@@ -20,11 +20,11 @@ public class a {
         }
     }
 
-    public String dQY() {
-        return this.nFM;
+    public String dRg() {
+        return this.nGm;
     }
 
-    public List<DressItemData> dQZ() {
+    public List<DressItemData> dRh() {
         return this.mAvatarPendantList;
     }
 }

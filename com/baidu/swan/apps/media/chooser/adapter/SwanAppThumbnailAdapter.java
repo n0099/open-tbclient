@@ -96,7 +96,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
             ImageRequestBuilder ag = ImageRequestBuilder.ag(Uri.fromFile(new File(mediaModel.getPath())));
             ag.c(new d(this.dkQ, this.dkQ));
             ag.By(true);
-            aVar.dkR.setController(c.eto().c(aVar.dkR.getController()).Bm(false).bo(ag.eAi()).euf());
+            aVar.dkR.setController(c.etw().c(aVar.dkR.getController()).Bm(false).bo(ag.eAq()).eun());
         }
     }
 

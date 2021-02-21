@@ -1,18 +1,18 @@
 package com.baidu.tieba.personCenter;
 /* loaded from: classes2.dex */
 public class a {
-    private static a mti = new a();
+    private static a mtx = new a();
     private long creatTime = 0;
     private long fJu = 0;
     private long beginTime = 0;
-    private long mtj = 0;
-    private long mtk = 0;
+    private long mty = 0;
+    private long mtz = 0;
 
     private a() {
     }
 
-    public static a dwt() {
-        return mti;
+    public static a dwA() {
+        return mtx;
     }
 
     public long getCreateTime() {
@@ -31,7 +31,7 @@ public class a {
         this.beginTime = j;
     }
 
-    public long dwu() {
+    public long dwB() {
         return this.fJu;
     }
 
@@ -40,18 +40,18 @@ public class a {
     }
 
     public long getRefreshTime() {
-        return this.mtj;
+        return this.mty;
     }
 
     public void setRefreshTime(long j) {
-        this.mtj = j;
+        this.mty = j;
     }
 
-    public long dwv() {
-        return this.mtk;
+    public long dwC() {
+        return this.mtz;
     }
 
     public void hu(long j) {
-        this.mtk = j;
+        this.mtz = j;
     }
 }

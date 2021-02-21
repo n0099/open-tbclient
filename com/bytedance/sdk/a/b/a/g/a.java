@@ -25,18 +25,18 @@ public class a extends e {
 
     /* renamed from: a  reason: collision with root package name */
     private final Class<?> f5929a;
-    private final d<Socket> pqG;
-    private final d<Socket> pqH;
-    private final d<Socket> pqI;
-    private final d<Socket> pqJ;
-    private final c pqK = c.epx();
+    private final d<Socket> prg;
+    private final d<Socket> prh;
+    private final d<Socket> pri;
+    private final d<Socket> prj;
+    private final c prk = c.epF();
 
     a(Class<?> cls, d<Socket> dVar, d<Socket> dVar2, d<Socket> dVar3, d<Socket> dVar4) {
         this.f5929a = cls;
-        this.pqG = dVar;
-        this.pqH = dVar2;
-        this.pqI = dVar3;
-        this.pqJ = dVar4;
+        this.prg = dVar;
+        this.prh = dVar2;
+        this.pri = dVar3;
+        this.prj = dVar4;
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
@@ -83,19 +83,19 @@ public class a extends e {
     @Override // com.bytedance.sdk.a.b.a.g.e
     public void a(SSLSocket sSLSocket, String str, List<w> list) {
         if (str != null) {
-            this.pqG.c(sSLSocket, true);
-            this.pqH.c(sSLSocket, str);
+            this.prg.c(sSLSocket, true);
+            this.prh.c(sSLSocket, str);
         }
-        if (this.pqJ != null && this.pqJ.a((d<Socket>) sSLSocket)) {
-            this.pqJ.e(sSLSocket, gF(list));
+        if (this.prj != null && this.prj.a((d<Socket>) sSLSocket)) {
+            this.prj.e(sSLSocket, gF(list));
         }
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
     public String c(SSLSocket sSLSocket) {
-        if (this.pqI != null && this.pqI.a((d<Socket>) sSLSocket)) {
-            byte[] bArr = (byte[]) this.pqI.e(sSLSocket, new Object[0]);
-            return bArr != null ? new String(bArr, com.bytedance.sdk.a.b.a.c.poY) : null;
+        if (this.pri != null && this.pri.a((d<Socket>) sSLSocket)) {
+            byte[] bArr = (byte[]) this.pri.e(sSLSocket, new Object[0]);
+            return bArr != null ? new String(bArr, com.bytedance.sdk.a.b.a.c.ppA) : null;
         }
         return null;
     }
@@ -128,12 +128,12 @@ public class a extends e {
 
     @Override // com.bytedance.sdk.a.b.a.g.e
     public Object a(String str) {
-        return this.pqK.a(str);
+        return this.prk.a(str);
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
     public void a(String str, Object obj) {
-        if (!this.pqK.a(obj)) {
+        if (!this.prk.a(obj)) {
             a(5, str, (Throwable) null);
         }
     }
@@ -191,13 +191,13 @@ public class a extends e {
     public com.bytedance.sdk.a.b.a.i.c a(X509TrustManager x509TrustManager) {
         try {
             Class<?> cls = Class.forName("android.net.http.X509TrustManagerExtensions");
-            return new C0994a(cls.getConstructor(X509TrustManager.class).newInstance(x509TrustManager), cls.getMethod("checkServerTrusted", X509Certificate[].class, String.class, String.class));
+            return new C0996a(cls.getConstructor(X509TrustManager.class).newInstance(x509TrustManager), cls.getMethod("checkServerTrusted", X509Certificate[].class, String.class, String.class));
         } catch (Exception e) {
             return super.a(x509TrustManager);
         }
     }
 
-    public static e epw() {
+    public static e epE() {
         Class<?> cls;
         d dVar;
         d dVar2;
@@ -235,7 +235,7 @@ public class a extends e {
 
     /* renamed from: com.bytedance.sdk.a.b.a.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    static final class C0994a extends com.bytedance.sdk.a.b.a.i.c {
+    static final class C0996a extends com.bytedance.sdk.a.b.a.i.c {
 
         /* renamed from: a  reason: collision with root package name */
         private final Object f5930a;
@@ -243,7 +243,7 @@ public class a extends e {
         /* renamed from: b  reason: collision with root package name */
         private final Method f5931b;
 
-        C0994a(Object obj, Method method) {
+        C0996a(Object obj, Method method) {
             this.f5930a = obj;
             this.f5931b = method;
         }
@@ -262,7 +262,7 @@ public class a extends e {
         }
 
         public boolean equals(Object obj) {
-            return obj instanceof C0994a;
+            return obj instanceof C0996a;
         }
 
         public int hashCode() {
@@ -310,7 +310,7 @@ public class a extends e {
             return false;
         }
 
-        static c epx() {
+        static c epF() {
             Method method;
             Method method2;
             Method method3;

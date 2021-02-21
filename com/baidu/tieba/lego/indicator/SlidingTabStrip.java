@@ -18,7 +18,7 @@ public class SlidingTabStrip extends LinearLayout {
         setWillNotDraw(false);
     }
 
-    public void cN(int i, int i2) {
+    public void cO(int i, int i2) {
         if (i != i2) {
             int childCount = getChildCount();
             if (i >= 0 && i < childCount) {

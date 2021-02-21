@@ -27,24 +27,24 @@ public class a {
     private static String f7189b;
     private static volatile a g;
     private WeakHashMap<String, String> c = new WeakHashMap<>();
-    private final LruCache<String, C1019a> f = new LruCache<String, C1019a>(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE) { // from class: com.bytedance.sdk.openadsdk.i.a.a.1
+    private final LruCache<String, C1021a> f = new LruCache<String, C1021a>(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE) { // from class: com.bytedance.sdk.openadsdk.i.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
         /* renamed from: a */
-        public int sizeOf(String str, C1019a c1019a) {
-            int length = c1019a.f7191a != null ? 0 + c1019a.f7191a.length : 0;
-            return length == 0 ? super.sizeOf(str, c1019a) : length;
+        public int sizeOf(String str, C1021a c1021a) {
+            int length = c1021a.f7191a != null ? 0 + c1021a.f7191a.length : 0;
+            return length == 0 ? super.sizeOf(str, c1021a) : length;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
         /* renamed from: a */
-        public void entryRemoved(boolean z, String str, C1019a c1019a, C1019a c1019a2) {
-            super.entryRemoved(z, str, c1019a, c1019a2);
-            if (z && c1019a != null) {
-                c1019a.f7191a = null;
+        public void entryRemoved(boolean z, String str, C1021a c1021a, C1021a c1021a2) {
+            super.entryRemoved(z, str, c1021a, c1021a2);
+            if (z && c1021a != null) {
+                c1021a.f7191a = null;
             }
         }
     };
@@ -79,7 +79,7 @@ public class a {
         u.f("splashLoadAd", " GifCache put 将图片素材保存到本地 key " + str);
         if (!TextUtils.isEmpty(str) && bArr != null) {
             if (!a(bArr)) {
-                this.f.put(str, new C1019a(bArr));
+                this.f.put(str, new C1021a(bArr));
             }
             File file = new File(c(), str);
             if (!file.exists() || !file.isFile() || file.length() <= 0) {
@@ -127,7 +127,7 @@ public class a {
         u.f("splashLoadAd", " GifCache put 将图片素材保存到本地 key " + str);
         if (!TextUtils.isEmpty(str) && bArr != null) {
             if (!a(bArr)) {
-                this.f.put(str, new C1019a(bArr));
+                this.f.put(str, new C1021a(bArr));
             }
             u.f("splashLoadAd", " GifCache put 保存到本地图片的素材路径 getCacheDir() " + b());
             File file = new File(b(), str);
@@ -200,14 +200,14 @@ public class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [256=4, 253=5, 254=5] */
-    public synchronized C1019a a(String str) {
-        C1019a c1019a;
+    public synchronized C1021a a(String str) {
+        C1021a c1021a;
         FileInputStream fileInputStream;
         if (TextUtils.isEmpty(str)) {
-            c1019a = null;
+            c1021a = null;
         } else {
-            c1019a = this.f.get(str);
-            if (c1019a == null) {
+            c1021a = this.f.get(str);
+            if (c1021a == null) {
                 File file = new File(c(), str);
                 if (file.exists()) {
                     try {
@@ -219,7 +219,7 @@ public class a {
                     try {
                         ByteBuffer allocate = ByteBuffer.allocate(Long.valueOf(file.length()).intValue());
                         fileInputStream.getChannel().read(allocate);
-                        c1019a = new C1019a(allocate.array());
+                        c1021a = new C1021a(allocate.array());
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
@@ -235,26 +235,26 @@ public class a {
                             } catch (IOException e2) {
                             }
                         }
-                        c1019a = null;
-                        return c1019a;
+                        c1021a = null;
+                        return c1021a;
                     }
                 }
-                c1019a = null;
+                c1021a = null;
             }
         }
-        return c1019a;
+        return c1021a;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [305=5, 306=5, 308=4] */
-    public synchronized C1019a b(String str) {
-        C1019a c1019a;
+    public synchronized C1021a b(String str) {
+        C1021a c1021a;
         FileInputStream fileInputStream;
         u.f("splashLoadAd", " GifCache get  key " + str);
         if (TextUtils.isEmpty(str)) {
-            c1019a = null;
+            c1021a = null;
         } else {
-            c1019a = this.f.get(str);
-            if (c1019a == null) {
+            c1021a = this.f.get(str);
+            if (c1021a == null) {
                 u.f("splashLoadAd", " GifCache 从缓存文件中获取图片素材，图片路径为" + b() + " key " + str);
                 File file = new File(b(), str);
                 try {
@@ -267,7 +267,7 @@ public class a {
                         try {
                             ByteBuffer allocate = ByteBuffer.allocate(Long.valueOf(file.length()).intValue());
                             fileInputStream.getChannel().read(allocate);
-                            c1019a = new C1019a(allocate.array());
+                            c1021a = new C1021a(allocate.array());
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
@@ -284,8 +284,8 @@ public class a {
                                 }
                             }
                             u.f("splashLoadAd", " GifCache 缓存文件中不存在该图片素材  key " + str);
-                            c1019a = null;
-                            return c1019a;
+                            c1021a = null;
+                            return c1021a;
                         }
                     } catch (Throwable th3) {
                         th = th3;
@@ -293,10 +293,10 @@ public class a {
                     }
                 }
                 u.f("splashLoadAd", " GifCache 缓存文件中不存在该图片素材  key " + str);
-                c1019a = null;
+                c1021a = null;
             }
         }
-        return c1019a;
+        return c1021a;
     }
 
     public synchronized String a(String str, int i, int i2, ImageView.ScaleType scaleType) {
@@ -371,12 +371,12 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1019a {
+    public static class C1021a {
 
         /* renamed from: a  reason: collision with root package name */
         byte[] f7191a;
 
-        public C1019a(byte[] bArr) {
+        public C1021a(byte[] bArr) {
             this.f7191a = bArr;
         }
     }

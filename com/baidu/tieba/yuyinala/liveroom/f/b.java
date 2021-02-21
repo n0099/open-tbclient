@@ -7,7 +7,7 @@ import com.baidu.tieba.yuyinala.liveroom.views.d;
 public class b {
     private TbPageContext mPageContext;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.liveroom.views.b oub;
+    private com.baidu.tieba.yuyinala.liveroom.views.b ouC;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -15,59 +15,59 @@ public class b {
     }
 
     private void init() {
-        this.oub = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
-        this.mRootView = this.oub.getView();
+        this.ouC = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
+        this.mRootView = this.ouC.getView();
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public boolean ceq() {
-        return this.oub.ceq();
+    public boolean cex() {
+        return this.ouC.cex();
     }
 
-    public boolean cer() {
-        return this.oub.cer();
+    public boolean cey() {
+        return this.ouC.cey();
     }
 
     public String getLiveTitle() {
-        return this.oub.getLiveTitle();
+        return this.ouC.getLiveTitle();
     }
 
-    public boolean ces() {
-        return this.oub.ces();
+    public boolean cez() {
+        return this.ouC.cez();
     }
 
-    public boolean cet() {
-        return this.oub.cet();
+    public boolean ceA() {
+        return this.ouC.ceA();
     }
 
-    public String cev() {
-        return this.oub.cev();
+    public String ceC() {
+        return this.ouC.ceC();
     }
 
     public void a(d.b bVar) {
-        this.oub.a(bVar);
+        this.ouC.a(bVar);
     }
 
     public void a(d.a aVar) {
-        this.oub.a(aVar);
+        this.ouC.a(aVar);
     }
 
-    public void HH(String str) {
-        this.oub.HH(str);
+    public void HI(String str) {
+        this.ouC.HI(str);
     }
 
-    public void cey() {
-        if (this.oub != null) {
-            this.oub.cey();
+    public void ceF() {
+        if (this.ouC != null) {
+            this.ouC.ceF();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.oub != null) {
-            this.oub.onKeyboardVisibilityChanged(z);
+        if (this.ouC != null) {
+            this.ouC.onKeyboardVisibilityChanged(z);
         }
     }
 }

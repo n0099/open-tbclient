@@ -6,21 +6,21 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class h extends BaseCardInfo {
-    public static BdUniqueId muc = BdUniqueId.gen();
+    public static BdUniqueId mur = BdUniqueId.gen();
     public String aHq;
-    public int grE;
+    public int grS;
     public int itemId;
-    public boolean mtX;
-    public boolean mtY;
-    public boolean mtZ = false;
-    public j mua;
-    public Bundle mub;
+    public boolean mum;
+    public boolean mun;
+    public boolean muo = false;
+    public j mup;
+    public Bundle muq;
     public String title;
     public int type;
     public UserData userData;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return muc;
+        return mur;
     }
 }

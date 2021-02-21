@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaGetApplyWheatListHttpR
 /* loaded from: classes11.dex */
 public class c extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oJz;
+    private a oJZ;
     private HttpMessageListener messageListener = new HttpMessageListener(1031006) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetApplyWheatListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.aCW && c.this.oJz != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetApplyWheatListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.aCW && c.this.oJZ != null) {
                 AlaGetApplyWheatListHttpResponseMessage alaGetApplyWheatListHttpResponseMessage = (AlaGetApplyWheatListHttpResponseMessage) httpResponsedMessage;
                 if (alaGetApplyWheatListHttpResponseMessage.getError() != 0 || !alaGetApplyWheatListHttpResponseMessage.isSuccess()) {
-                    c.this.oJz.onFail(alaGetApplyWheatListHttpResponseMessage.getError(), alaGetApplyWheatListHttpResponseMessage.getErrorString());
+                    c.this.oJZ.onFail(alaGetApplyWheatListHttpResponseMessage.getError(), alaGetApplyWheatListHttpResponseMessage.getErrorString());
                 } else {
-                    c.this.oJz.a(alaGetApplyWheatListHttpResponseMessage);
+                    c.this.oJZ.a(alaGetApplyWheatListHttpResponseMessage);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class c extends BdBaseModel {
     public c(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.oJz = aVar;
+        this.oJZ = aVar;
         zH();
         registerListener(this.messageListener);
     }
@@ -52,7 +52,7 @@ public class c extends BdBaseModel {
     }
 
     public void request() {
-        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.f(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().ym()));
+        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.f(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().ym()));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

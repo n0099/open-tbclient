@@ -66,12 +66,12 @@ public class a extends c {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.qq.e.comm.plugin.ab.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static class C1191a implements f.a {
+    public static class C1193a implements f.a {
 
         /* renamed from: a  reason: collision with root package name */
         private String f11787a;
 
-        public C1191a(String str) {
+        public C1193a(String str) {
             this.f11787a = str;
         }
 
@@ -440,7 +440,7 @@ public class a extends c {
         } else {
             a(eVar, optString, str);
             a(eVar);
-            p.a.f11644a.a(new C1191a(this.c.get(2)), optString);
+            p.a.f11644a.a(new C1193a(this.c.get(2)), optString);
         }
     }
 

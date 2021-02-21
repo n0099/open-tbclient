@@ -24,7 +24,7 @@ import java.util.List;
 public class e extends BaseAdapter {
     private static final int MAX_SIZE = TbadkCoreApplication.getInst().getListItemRule().getMaxCache();
     private TbPageContext<?> eUY;
-    private int hWN = -1;
+    private int hXb = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
@@ -61,11 +61,11 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.mMZ = (TextView) view.findViewById(R.id.title_text);
-            aVar.mNa = (TextView) view.findViewById(R.id.content_text);
-            aVar.mNb = (TextView) view.findViewById(R.id.label_text);
-            aVar.hXz = (TextView) view.findViewById(R.id.user_name);
-            aVar.mNc = (TextView) view.findViewById(R.id.time_text);
+            aVar.mNo = (TextView) view.findViewById(R.id.title_text);
+            aVar.mNp = (TextView) view.findViewById(R.id.content_text);
+            aVar.mNq = (TextView) view.findViewById(R.id.label_text);
+            aVar.hXN = (TextView) view.findViewById(R.id.user_name);
+            aVar.mNr = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -75,17 +75,17 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.mMZ.setText(Html.fromHtml(au.getHighLightString(aVar3.title, str)));
-            aVar2.mNa.setText(Html.fromHtml(au.getHighLightString(aVar3.content, str)));
-            aVar2.hXz.setText(aVar3.name_show);
-            aVar2.mNc.setText(au.getFormatTime(aVar3.time));
-            aVar2.mNb.setVisibility(0);
+            aVar2.mNo.setText(Html.fromHtml(au.getHighLightString(aVar3.title, str)));
+            aVar2.mNp.setText(Html.fromHtml(au.getHighLightString(aVar3.content, str)));
+            aVar2.hXN.setText(aVar3.name_show);
+            aVar2.mNr.setText(au.getFormatTime(aVar3.time));
+            aVar2.mNq.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.mNb.setText(R.string.floor_text);
-            } else if (aVar3.mMy == 1) {
-                aVar2.mNb.setText(R.string.reply_post);
+                aVar2.mNq.setText(R.string.floor_text);
+            } else if (aVar3.mMN == 1) {
+                aVar2.mNq.setText(R.string.reply_post);
             } else {
-                aVar2.mNb.setVisibility(8);
+                aVar2.mNq.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
@@ -112,17 +112,17 @@ public class e extends BaseAdapter {
     }
 
     public void setTabType(int i) {
-        this.hWN = i;
+        this.hXb = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
         ar dR = new ar("c12405").dR("fname", aVar.fname).dR("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.hWN > 0) {
-            dR.ap("tab_id", this.hWN);
+        if (this.hXb > 0) {
+            dR.ap("tab_id", this.hXb);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.mMy == 1) {
+            if (aVar.is_floor == 1 || aVar.mMN == 1) {
                 dR.v("pid", aVar.pid);
             } else {
                 dR.v("tid", aVar.tid);
@@ -133,11 +133,11 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes8.dex */
     private static class a {
-        TextView hXz;
-        TextView mMZ;
-        TextView mNa;
-        TextView mNb;
-        TextView mNc;
+        TextView hXN;
+        TextView mNo;
+        TextView mNp;
+        TextView mNq;
+        TextView mNr;
 
         private a() {
         }

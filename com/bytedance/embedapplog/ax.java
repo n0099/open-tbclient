@@ -11,7 +11,7 @@ public abstract class ax<SERVICE> implements bi {
 
     /* renamed from: a  reason: collision with root package name */
     private final String f5792a;
-    private aw<Boolean> pmH = new aw<Boolean>() { // from class: com.bytedance.embedapplog.ax.1
+    private aw<Boolean> pnh = new aw<Boolean>() { // from class: com.bytedance.embedapplog.ax.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -23,7 +23,7 @@ public abstract class ax<SERVICE> implements bi {
 
     protected abstract Intent c(Context context);
 
-    protected abstract bp.b<SERVICE, String> enS();
+    protected abstract bp.b<SERVICE, String> eoa();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(String str) {
@@ -35,15 +35,15 @@ public abstract class ax<SERVICE> implements bi {
         if (context == null) {
             return false;
         }
-        return this.pmH.b(context).booleanValue();
+        return this.pnh.b(context).booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
     public bi.a hS(Context context) {
-        return Yx((String) new bp(context, c(context), enS()).a());
+        return YJ((String) new bp(context, c(context), eoa()).a());
     }
 
-    private bi.a Yx(String str) {
+    private bi.a YJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

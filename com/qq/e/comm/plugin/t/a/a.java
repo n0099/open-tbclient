@@ -7,11 +7,11 @@ public interface a {
 
     /* renamed from: com.qq.e.comm.plugin.t.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC1210a {
+    public interface InterfaceC1212a {
         e a();
 
         f a(e eVar) throws Exception;
     }
 
-    f a(InterfaceC1210a interfaceC1210a) throws Exception;
+    f a(InterfaceC1212a interfaceC1212a) throws Exception;
 }

@@ -11,10 +11,7 @@ import com.baidu.tieba.b.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class b<T extends b<T>> implements a.b {
-    final Object ioE;
-    final com.baidu.tieba.b.c ioF;
-    private float ioI;
-    public static final d ioo = new d("translationX") { // from class: com.baidu.tieba.b.b.1
+    public static final d ioC = new d("translationX") { // from class: com.baidu.tieba.b.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -29,7 +26,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getTranslationX();
         }
     };
-    public static final d iop = new d("translationY") { // from class: com.baidu.tieba.b.b.7
+    public static final d ioD = new d("translationY") { // from class: com.baidu.tieba.b.b.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -44,7 +41,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getTranslationY();
         }
     };
-    public static final d ioq = new d("translationZ") { // from class: com.baidu.tieba.b.b.8
+    public static final d ioE = new d("translationZ") { // from class: com.baidu.tieba.b.b.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -59,7 +56,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return ViewCompat.getTranslationZ(view);
         }
     };
-    public static final d ior = new d("scaleX") { // from class: com.baidu.tieba.b.b.9
+    public static final d ioF = new d("scaleX") { // from class: com.baidu.tieba.b.b.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -74,7 +71,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getScaleX();
         }
     };
-    public static final d ios = new d("scaleY") { // from class: com.baidu.tieba.b.b.10
+    public static final d ioG = new d("scaleY") { // from class: com.baidu.tieba.b.b.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -89,7 +86,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getScaleY();
         }
     };
-    public static final d iot = new d("rotation") { // from class: com.baidu.tieba.b.b.11
+    public static final d ioH = new d("rotation") { // from class: com.baidu.tieba.b.b.11
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -104,7 +101,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getRotation();
         }
     };
-    public static final d iou = new d("rotationX") { // from class: com.baidu.tieba.b.b.12
+    public static final d ioI = new d("rotationX") { // from class: com.baidu.tieba.b.b.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -119,7 +116,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getRotationX();
         }
     };
-    public static final d iov = new d("rotationY") { // from class: com.baidu.tieba.b.b.13
+    public static final d ioJ = new d("rotationY") { // from class: com.baidu.tieba.b.b.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -134,7 +131,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getRotationY();
         }
     };
-    public static final d iow = new d(Config.EVENT_HEAT_X) { // from class: com.baidu.tieba.b.b.14
+    public static final d ioK = new d(Config.EVENT_HEAT_X) { // from class: com.baidu.tieba.b.b.14
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -149,7 +146,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getX();
         }
     };
-    public static final d iox = new d("y") { // from class: com.baidu.tieba.b.b.2
+    public static final d ioL = new d("y") { // from class: com.baidu.tieba.b.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -164,7 +161,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getY();
         }
     };
-    public static final d ioy = new d("z") { // from class: com.baidu.tieba.b.b.3
+    public static final d ioM = new d("z") { // from class: com.baidu.tieba.b.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -179,7 +176,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return ViewCompat.getZ(view);
         }
     };
-    public static final d ioz = new d("alpha") { // from class: com.baidu.tieba.b.b.4
+    public static final d ioN = new d("alpha") { // from class: com.baidu.tieba.b.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -194,7 +191,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getAlpha();
         }
     };
-    public static final d ioA = new d("scrollX") { // from class: com.baidu.tieba.b.b.5
+    public static final d ioO = new d("scrollX") { // from class: com.baidu.tieba.b.b.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -209,7 +206,7 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getScrollX();
         }
     };
-    public static final d ioB = new d("scrollY") { // from class: com.baidu.tieba.b.b.6
+    public static final d ioP = new d("scrollY") { // from class: com.baidu.tieba.b.b.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.b.c
         /* renamed from: o */
@@ -224,25 +221,28 @@ public abstract class b<T extends b<T>> implements a.b {
             return view.getScrollY();
         }
     };
-    float ioC = 0.0f;
+    final Object ioS;
+    final com.baidu.tieba.b.c ioT;
+    private float ioW;
+    float ioQ = 0.0f;
     float mValue = Float.MAX_VALUE;
-    boolean ioD = false;
+    boolean ioR = false;
     boolean mRunning = false;
-    float ioG = Float.MAX_VALUE;
-    float ioH = -this.ioG;
-    private long iok = 0;
-    private final ArrayList<InterfaceC0697b> ioJ = new ArrayList<>();
-    private final ArrayList<c> ioK = new ArrayList<>();
+    float ioU = Float.MAX_VALUE;
+    float ioV = -this.ioU;
+    private long ioy = 0;
+    private final ArrayList<InterfaceC0698b> ioX = new ArrayList<>();
+    private final ArrayList<c> ioY = new ArrayList<>();
 
     /* loaded from: classes.dex */
     static class a {
-        float ioC;
+        float ioQ;
         float mValue;
     }
 
     /* renamed from: com.baidu.tieba.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0697b {
+    public interface InterfaceC0698b {
         void a(b bVar, boolean z, float f, float f2);
     }
 
@@ -264,16 +264,16 @@ public abstract class b<T extends b<T>> implements a.b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public <K> b(K k, com.baidu.tieba.b.c<K> cVar) {
-        this.ioE = k;
-        this.ioF = cVar;
-        if (this.ioF == iot || this.ioF == iou || this.ioF == iov) {
-            this.ioI = 0.1f;
-        } else if (this.ioF == ioz) {
-            this.ioI = 0.00390625f;
-        } else if (this.ioF == ior || this.ioF == ios) {
-            this.ioI = 0.00390625f;
+        this.ioS = k;
+        this.ioT = cVar;
+        if (this.ioT == ioH || this.ioT == ioI || this.ioT == ioJ) {
+            this.ioW = 0.1f;
+        } else if (this.ioT == ioN) {
+            this.ioW = 0.00390625f;
+        } else if (this.ioT == ioF || this.ioT == ioG) {
+            this.ioW = 0.00390625f;
         } else {
-            this.ioI = 1.0f;
+            this.ioW = 1.0f;
         }
     }
 
@@ -290,35 +290,35 @@ public abstract class b<T extends b<T>> implements a.b {
             throw new AndroidRuntimeException("Animations may only be started on the main thread");
         }
         if (!this.mRunning) {
-            cqG();
+            cqN();
         }
     }
 
-    private void cqG() {
+    private void cqN() {
         if (!this.mRunning) {
             this.mRunning = true;
-            if (!this.ioD) {
-                this.mValue = cqI();
+            if (!this.ioR) {
+                this.mValue = cqP();
             }
-            if (this.mValue > this.ioG || this.mValue < this.ioH) {
+            if (this.mValue > this.ioU || this.mValue < this.ioV) {
                 throw new IllegalArgumentException("Starting value need to be in between min value and max value");
             }
-            com.baidu.tieba.b.a.cqC().a(this, 0L);
+            com.baidu.tieba.b.a.cqJ().a(this, 0L);
         }
     }
 
     @Override // com.baidu.tieba.b.a.b
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean fY(long j) {
-        if (this.iok == 0) {
-            this.iok = j;
+        if (this.ioy == 0) {
+            this.ioy = j;
             aE(this.mValue);
             return false;
         }
-        this.iok = j;
-        boolean fZ = fZ(j - this.iok);
-        this.mValue = Math.min(this.mValue, this.ioG);
-        this.mValue = Math.max(this.mValue, this.ioH);
+        this.ioy = j;
+        boolean fZ = fZ(j - this.ioy);
+        this.mValue = Math.min(this.mValue, this.ioU);
+        this.mValue = Math.max(this.mValue, this.ioV);
         aE(this.mValue);
         if (fZ) {
             pn(false);
@@ -329,46 +329,46 @@ public abstract class b<T extends b<T>> implements a.b {
     private void pn(boolean z) {
         int i = 0;
         this.mRunning = false;
-        com.baidu.tieba.b.a.cqC().a(this);
-        this.iok = 0L;
-        this.ioD = false;
+        com.baidu.tieba.b.a.cqJ().a(this);
+        this.ioy = 0L;
+        this.ioR = false;
         while (true) {
             int i2 = i;
-            if (i2 < this.ioJ.size()) {
-                if (this.ioJ.get(i2) != null) {
-                    this.ioJ.get(i2).a(this, z, this.mValue, this.ioC);
+            if (i2 < this.ioX.size()) {
+                if (this.ioX.get(i2) != null) {
+                    this.ioX.get(i2).a(this, z, this.mValue, this.ioQ);
                 }
                 i = i2 + 1;
             } else {
-                ai(this.ioJ);
+                ai(this.ioX);
                 return;
             }
         }
     }
 
     void aE(float f) {
-        this.ioF.b(this.ioE, f);
+        this.ioT.b(this.ioS, f);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.ioK.size()) {
-                if (this.ioK.get(i2) != null) {
-                    this.ioK.get(i2).a(this, this.mValue, this.ioC);
+            if (i2 < this.ioY.size()) {
+                if (this.ioY.get(i2) != null) {
+                    this.ioY.get(i2).a(this, this.mValue, this.ioQ);
                 }
                 i = i2 + 1;
             } else {
-                ai(this.ioK);
+                ai(this.ioY);
                 return;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public float cqH() {
-        return this.ioI * 0.75f;
+    public float cqO() {
+        return this.ioW * 0.75f;
     }
 
-    private float cqI() {
-        return this.ioF.aJ(this.ioE);
+    private float cqP() {
+        return this.ioT.aJ(this.ioS);
     }
 }

@@ -21,7 +21,7 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.emotion.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C1112a implements b {
+    public static final class C1114a implements b {
 
         /* renamed from: a  reason: collision with root package name */
         private final TextView f9762a;
@@ -30,7 +30,7 @@ public final class a {
         private final int f9763b;
         private final int c;
 
-        public C1112a(@NonNull TextView textView, int i, int i2) {
+        public C1114a(@NonNull TextView textView, int i, int i2) {
             this.f9762a = textView;
             this.f9763b = i;
             this.c = i2;
@@ -87,7 +87,7 @@ public final class a {
     public static synchronized CharSequence a(TextView textView, int i, int i2, boolean z) {
         CharSequence a2;
         synchronized (a.class) {
-            a2 = a(new C1112a(textView, i, i2), z);
+            a2 = a(new C1114a(textView, i, i2), z);
         }
         return a2;
     }

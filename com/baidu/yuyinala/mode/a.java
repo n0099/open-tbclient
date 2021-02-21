@@ -8,37 +8,37 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static a oWo;
+    private static a oWO;
     private TbPageContext mPageContext;
-    private b oWp;
+    private b oWP;
 
-    public static a ejc() {
-        if (oWo == null) {
+    public static a ejk() {
+        if (oWO == null) {
             synchronized (a.class) {
-                if (oWo == null) {
-                    oWo = new a();
+                if (oWO == null) {
+                    oWO = new a();
                 }
             }
         }
-        return oWo;
+        return oWO;
     }
 
     public void b(TbPageContext tbPageContext, ab abVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oWp = null;
+            this.oWP = null;
         }
         AlaAudioModeDialogData alaAudioModeDialogData = new AlaAudioModeDialogData();
-        alaAudioModeDialogData.setModeList(XU(abVar == null ? "" : abVar.aIT));
-        if (this.oWp == null) {
-            this.oWp = new b(tbPageContext, abVar, alaAudioModeDialogData);
+        alaAudioModeDialogData.setModeList(Yg(abVar == null ? "" : abVar.aIT));
+        if (this.oWP == null) {
+            this.oWP = new b(tbPageContext, abVar, alaAudioModeDialogData);
         } else {
-            this.oWp.a(abVar, alaAudioModeDialogData);
+            this.oWP.a(abVar, alaAudioModeDialogData);
         }
-        this.oWp.show();
+        this.oWP.show();
     }
 
-    private List<com.baidu.yuyinala.mode.b.a> XU(String str) {
+    private List<com.baidu.yuyinala.mode.b.a> Yg(String str) {
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("mode_list");
             int length = optJSONArray.length();
@@ -57,8 +57,8 @@ public class a {
     }
 
     public void FA() {
-        if (this.oWp != null && this.oWp.isShowing()) {
-            this.oWp.dismiss();
+        if (this.oWP != null && this.oWP.isShowing()) {
+            this.oWP.dismiss();
         }
     }
 }

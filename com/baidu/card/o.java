@@ -100,7 +100,7 @@ public class o extends h {
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0089a c0089a) {
                 if (o.this.agj != null && o.this.agj.bln() != null && !o.this.sP().booleanValue()) {
-                    com.baidu.tieba.card.m.IM(o.this.agj.bln().getId());
+                    com.baidu.tieba.card.m.IN(o.this.agj.bln().getId());
                     com.baidu.tieba.card.m.a(o.this.agT.mTitle, o.this.agj.bln().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     com.baidu.tieba.card.m.a(o.this.agT.agY, o.this.agj.bln().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }

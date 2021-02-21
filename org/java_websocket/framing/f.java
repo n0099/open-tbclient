@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes4.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode qxh;
-    private ByteBuffer qxi = org.java_websocket.e.b.eMs();
-    private boolean qxg = true;
-    private boolean qxj = false;
-    private boolean qxk = false;
-    private boolean qxl = false;
-    private boolean qxm = false;
+    private Framedata.Opcode qxH;
+    private ByteBuffer qxI = org.java_websocket.e.b.eMA();
+    private boolean qxG = true;
+    private boolean qxJ = false;
+    private boolean qxK = false;
+    private boolean qxL = false;
+    private boolean qxM = false;
 
-    public abstract void eMh() throws InvalidDataException;
+    public abstract void eMp() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.qxh = opcode;
+        this.qxH = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean eMk() {
-        return this.qxk;
+    public boolean eMs() {
+        return this.qxK;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean eMl() {
-        return this.qxl;
+    public boolean eMt() {
+        return this.qxL;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean eMm() {
-        return this.qxm;
+    public boolean eMu() {
+        return this.qxM;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean amI() {
-        return this.qxg;
+        return this.qxG;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode eMn() {
-        return this.qxh;
+    public Framedata.Opcode eMv() {
+        return this.qxH;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer eMj() {
-        return this.qxi;
+    public ByteBuffer eMr() {
+        return this.qxI;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + eMn() + ", fin:" + amI() + ", rsv1:" + eMk() + ", rsv2:" + eMl() + ", rsv3:" + eMm() + ", payloadlength:[pos:" + this.qxi.position() + ", len:" + this.qxi.remaining() + "], payload:" + (this.qxi.remaining() > 1000 ? "(too big to display)" : new String(this.qxi.array())) + '}';
+        return "Framedata{ optcode:" + eMv() + ", fin:" + amI() + ", rsv1:" + eMs() + ", rsv2:" + eMt() + ", rsv3:" + eMu() + ", payloadlength:[pos:" + this.qxI.position() + ", len:" + this.qxI.remaining() + "], payload:" + (this.qxI.remaining() > 1000 ? "(too big to display)" : new String(this.qxI.array())) + '}';
     }
 
     public void A(ByteBuffer byteBuffer) {
-        this.qxi = byteBuffer;
+        this.qxI = byteBuffer;
     }
 
     public void fa(boolean z) {
-        this.qxg = z;
+        this.qxG = z;
     }
 
     public void CZ(boolean z) {
-        this.qxk = z;
+        this.qxK = z;
     }
 
     public void Da(boolean z) {
-        this.qxl = z;
+        this.qxL = z;
     }
 
     public void Db(boolean z) {
-        this.qxm = z;
+        this.qxM = z;
     }
 
     public void Dc(boolean z) {
-        this.qxj = z;
+        this.qxJ = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.qxg == fVar.qxg && this.qxj == fVar.qxj && this.qxk == fVar.qxk && this.qxl == fVar.qxl && this.qxm == fVar.qxm && this.qxh == fVar.qxh) {
-            if (this.qxi != null) {
-                z = this.qxi.equals(fVar.qxi);
-            } else if (fVar.qxi != null) {
+        if (this.qxG == fVar.qxG && this.qxJ == fVar.qxJ && this.qxK == fVar.qxK && this.qxL == fVar.qxL && this.qxM == fVar.qxM && this.qxH == fVar.qxH) {
+            if (this.qxI != null) {
+                z = this.qxI.equals(fVar.qxI);
+            } else if (fVar.qxI != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.qxl ? 1 : 0) + (((this.qxk ? 1 : 0) + (((this.qxj ? 1 : 0) + (((this.qxi != null ? this.qxi.hashCode() : 0) + ((((this.qxg ? 1 : 0) * 31) + this.qxh.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.qxm ? 1 : 0);
+        return (((this.qxL ? 1 : 0) + (((this.qxK ? 1 : 0) + (((this.qxJ ? 1 : 0) + (((this.qxI != null ? this.qxI.hashCode() : 0) + ((((this.qxG ? 1 : 0) * 31) + this.qxH.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.qxM ? 1 : 0);
     }
 }

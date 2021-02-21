@@ -11,26 +11,26 @@ public class b {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1010b {
+    public interface InterfaceC1012b {
         void a(Bitmap bitmap);
     }
 
-    public static void a(long j, String str, InterfaceC1010b interfaceC1010b) {
-        new a(interfaceC1010b, j).execute(str);
+    public static void a(long j, String str, InterfaceC1012b interfaceC1012b) {
+        new a(interfaceC1012b, j).execute(str);
     }
 
     /* loaded from: classes6.dex */
     public static class a extends AsyncTask<String, Integer, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        private InterfaceC1010b f6720a;
+        private InterfaceC1012b f6720a;
 
         /* renamed from: b  reason: collision with root package name */
         private long f6721b;
 
-        public a(InterfaceC1010b interfaceC1010b, long j) {
+        public a(InterfaceC1012b interfaceC1012b, long j) {
             this.f6721b = 0L;
-            this.f6720a = interfaceC1010b;
+            this.f6720a = interfaceC1012b;
             this.f6721b = j;
         }
 

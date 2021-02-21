@@ -33,17 +33,17 @@ public class CircleProgressbar extends TextView {
 
     /* renamed from: java  reason: collision with other field name */
     private Ccase f73java;
-    private long qjj;
-    private Runnable qko;
-    private ColorStateList qla;
-    private Paint qlb;
-    private RectF qlc;
-    final Rect qld;
-    private a qle;
+    private long qjJ;
+    private Runnable qkO;
+    private ColorStateList qlA;
+    private Paint qlB;
+    private RectF qlC;
+    final Rect qlD;
+    private a qlE;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void eg(int i, int i2);
+        void eh(int i, int i2);
     }
 
     /* renamed from: com.win.opensdk.views.CircleProgressbar$case  reason: invalid class name */
@@ -65,17 +65,17 @@ public class CircleProgressbar extends TextView {
         super(context, attributeSet, i);
         this.java = ViewCompat.MEASURED_STATE_MASK;
         this.f72case = 2;
-        this.qla = ColorStateList.valueOf(0);
+        this.qlA = ColorStateList.valueOf(0);
         this.f13762b = -16776961;
         this.c = 8;
-        this.qlb = new Paint();
-        this.qlc = new RectF();
+        this.qlB = new Paint();
+        this.qlC = new RectF();
         this.d = 100;
         this.f73java = Ccase.COUNT_BACK;
-        this.qjj = IMConnection.RETRY_DELAY_TIMES;
-        this.qld = new Rect();
+        this.qjJ = IMConnection.RETRY_DELAY_TIMES;
+        this.qlD = new Rect();
         this.e = 0;
-        this.qko = new Runnable() { // from class: com.win.opensdk.views.CircleProgressbar.1
+        this.qkO = new Runnable() { // from class: com.win.opensdk.views.CircleProgressbar.1
             @Override // java.lang.Runnable
             public final void run() {
                 CircleProgressbar.this.removeCallbacks(this);
@@ -88,28 +88,28 @@ public class CircleProgressbar extends TextView {
                         break;
                 }
                 if (CircleProgressbar.this.d >= 0 && CircleProgressbar.this.d <= 100) {
-                    if (CircleProgressbar.this.qle != null) {
-                        CircleProgressbar.this.qle.eg(CircleProgressbar.this.e, CircleProgressbar.this.d);
+                    if (CircleProgressbar.this.qlE != null) {
+                        CircleProgressbar.this.qlE.eh(CircleProgressbar.this.e, CircleProgressbar.this.d);
                     }
                     CircleProgressbar.this.invalidate();
-                    CircleProgressbar.this.postDelayed(CircleProgressbar.this.qko, CircleProgressbar.this.qjj / 100);
+                    CircleProgressbar.this.postDelayed(CircleProgressbar.this.qkO, CircleProgressbar.this.qjJ / 100);
                     return;
                 }
-                CircleProgressbar.this.d = CircleProgressbar.Sh(CircleProgressbar.this.d);
+                CircleProgressbar.this.d = CircleProgressbar.Si(CircleProgressbar.this.d);
             }
         };
         o(context, attributeSet);
     }
 
     private void o(Context context, AttributeSet attributeSet) {
-        this.qlb.setAntiAlias(true);
+        this.qlB.setAntiAlias(true);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.f.CircleProgressbar);
         if (obtainStyledAttributes.hasValue(d.f.CircleProgressbar_win_in_circle_color)) {
-            this.qla = obtainStyledAttributes.getColorStateList(d.f.CircleProgressbar_win_in_circle_color);
+            this.qlA = obtainStyledAttributes.getColorStateList(d.f.CircleProgressbar_win_in_circle_color);
         } else {
-            this.qla = ColorStateList.valueOf(0);
+            this.qlA = ColorStateList.valueOf(0);
         }
-        this.f13761a = this.qla.getColorForState(getDrawableState(), 0);
+        this.f13761a = this.qlA.getColorForState(getDrawableState(), 0);
         obtainStyledAttributes.recycle();
     }
 
@@ -124,7 +124,7 @@ public class CircleProgressbar extends TextView {
     }
 
     public void setInCircleColor(@ColorInt int i) {
-        this.qla = ColorStateList.valueOf(i);
+        this.qlA = ColorStateList.valueOf(i);
         invalidate();
     }
 
@@ -139,12 +139,12 @@ public class CircleProgressbar extends TextView {
     }
 
     public void setProgress(int i) {
-        this.d = Sh(i);
+        this.d = Si(i);
         invalidate();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int Sh(int i) {
+    public static int Si(int i) {
         if (i > 100) {
             return 100;
         }
@@ -159,21 +159,21 @@ public class CircleProgressbar extends TextView {
     }
 
     public void setTimeMillis(long j) {
-        this.qjj = j;
+        this.qjJ = j;
         invalidate();
     }
 
     public long getTimeMillis() {
-        return this.qjj;
+        return this.qjJ;
     }
 
     public void setProgressType(Ccase ccase) {
         this.f73java = ccase;
-        eIQ();
+        eIY();
         invalidate();
     }
 
-    private void eIQ() {
+    private void eIY() {
         switch (this.f73java) {
             case COUNT:
                 this.d = 0;
@@ -192,29 +192,29 @@ public class CircleProgressbar extends TextView {
 
     public final void setCountdownProgressListener$6c60c32f(a aVar) {
         this.e = 1;
-        this.qle = aVar;
+        this.qlE = aVar;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        getDrawingRect(this.qld);
-        int width = this.qld.height() > this.qld.width() ? this.qld.width() : this.qld.height();
-        int colorForState = this.qla.getColorForState(getDrawableState(), 0);
-        this.qlb.setStyle(Paint.Style.FILL);
-        this.qlb.setColor(colorForState);
-        canvas.drawCircle(this.qld.centerX(), this.qld.centerY(), (width / 2) - this.f72case, this.qlb);
+        getDrawingRect(this.qlD);
+        int width = this.qlD.height() > this.qlD.width() ? this.qlD.width() : this.qlD.height();
+        int colorForState = this.qlA.getColorForState(getDrawableState(), 0);
+        this.qlB.setStyle(Paint.Style.FILL);
+        this.qlB.setColor(colorForState);
+        canvas.drawCircle(this.qlD.centerX(), this.qlD.centerY(), (width / 2) - this.f72case, this.qlB);
         TextPaint paint = getPaint();
         paint.setColor(getCurrentTextColor());
         paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(getText().toString(), this.qld.centerX(), this.qld.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
-        this.qlb.setColor(this.f13762b);
-        this.qlb.setStyle(Paint.Style.STROKE);
-        this.qlb.setStrokeWidth(this.c);
-        this.qlb.setAntiAlias(true);
+        canvas.drawText(getText().toString(), this.qlD.centerX(), this.qlD.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
+        this.qlB.setColor(this.f13762b);
+        this.qlB.setStyle(Paint.Style.STROKE);
+        this.qlB.setStrokeWidth(this.c);
+        this.qlB.setAntiAlias(true);
         int i = this.c + this.f72case;
-        this.qlc.set(this.qld.left + (i / 2), (this.qld.top - i) + this.f72case + this.c + bg.k(getContext(), 0.4f), this.qld.right - (i / 2), (((i + this.qld.bottom) - this.f72case) - this.c) - bg.k(getContext(), 0.5f));
-        canvas.drawArc(this.qlc, -90.0f, (this.d * (-360)) / 100, false, this.qlb);
+        this.qlC.set(this.qlD.left + (i / 2), (this.qlD.top - i) + this.f72case + this.c + bg.k(getContext(), 0.4f), this.qlD.right - (i / 2), (((i + this.qlD.bottom) - this.f72case) - this.c) - bg.k(getContext(), 0.5f));
+        canvas.drawArc(this.qlC, -90.0f, (this.d * (-360)) / 100, false, this.qlB);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -233,7 +233,7 @@ public class CircleProgressbar extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        int colorForState = this.qla.getColorForState(getDrawableState(), 0);
+        int colorForState = this.qlA.getColorForState(getDrawableState(), 0);
         if (this.f13761a == colorForState) {
             return;
         }

@@ -13,11 +13,11 @@ import com.baidu.tieba.personCenter.c.h;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class c {
-    private BdTypeListView gzb;
-    private ab<h> jze;
+    private BdTypeListView gzp;
+    private ab<h> jzs;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
-    private a msZ;
+    private a mto;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -25,8 +25,8 @@ public class c {
 
     public void am(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.gzb = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.msZ = new a(this.mPageContext, this.gzb, this.jze);
+        this.gzp = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.mto = new a(this.mPageContext, this.gzp, this.jzs);
         bEL();
     }
 
@@ -43,16 +43,16 @@ public class c {
     }
 
     public void setData(List<n> list) {
-        this.gzb.setData(list);
+        this.gzp.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.msZ.notifyDataSetChanged();
-        ap.setBackgroundColor(this.gzb, R.color.CAM_X0201);
+        this.mto.notifyDataSetChanged();
+        ap.setBackgroundColor(this.gzp, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(ab<h> abVar) {
-        this.jze = abVar;
+        this.jzs = abVar;
     }
 }

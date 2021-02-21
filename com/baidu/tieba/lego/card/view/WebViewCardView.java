@@ -28,22 +28,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class WebViewCardView extends BaseCardView<WebViewCard> {
-    private static boolean lfv = true;
+    private static boolean lfJ = true;
     private boolean enableTouchFromNet;
-    private LinearLayout kWf;
-    private XiubaTbJsBridge ldR;
-    private final CustomMessageListener lfw;
+    private LinearLayout kWt;
+    private XiubaTbJsBridge lef;
+    private final CustomMessageListener lfK;
     private BaseWebView mWebView;
 
     public WebViewCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.enableTouchFromNet = true;
-        this.lfw = new CustomMessageListener(CmdConfigCustom.CMD_COMMON_WEBVIEW_ENABLE_TOUCH) { // from class: com.baidu.tieba.lego.card.view.WebViewCardView.4
+        this.lfK = new CustomMessageListener(CmdConfigCustom.CMD_COMMON_WEBVIEW_ENABLE_TOUCH) { // from class: com.baidu.tieba.lego.card.view.WebViewCardView.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    boolean unused = WebViewCardView.lfv = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                    boolean unused = WebViewCardView.lfJ = ((Boolean) customResponsedMessage.getData()).booleanValue();
                 }
             }
         };
@@ -51,19 +51,19 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbO() {
-        this.kWf = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
-        dcy();
-        return this.kWf;
+    protected View dbV() {
+        this.kWt = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
+        dcF();
+        return this.kWt;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    private void dcy() {
+    private void dcF() {
         this.mWebView = new BaseWebView(TbadkCoreApplication.getInst());
-        if (this.ldR == null) {
-            this.ldR = new XiubaTbJsBridge(this.eUY);
+        if (this.lef == null) {
+            this.lef = new XiubaTbJsBridge(this.eUY);
         }
-        this.ldR.setBaseWebView(this.mWebView);
+        this.lef.setBaseWebView(this.mWebView);
         this.mWebView.setHorizontalScrollBarEnabled(false);
         this.mWebView.setWebChromeClient(new WebChromeClient() { // from class: com.baidu.tieba.lego.card.view.WebViewCardView.1
             @Override // android.webkit.WebChromeClient
@@ -74,7 +74,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         this.mWebView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.lego.card.view.WebViewCardView.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (!WebViewCardView.this.enableTouchFromNet && !WebViewCardView.lfv) {
+                if (!WebViewCardView.this.enableTouchFromNet && !WebViewCardView.lfJ) {
                     ((WebView) view).requestDisallowInterceptTouchEvent(true);
                 }
                 return false;
@@ -88,7 +88,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             }
         });
         l(this.eUY.getUniqueId());
-        this.kWf.addView(this.mWebView);
+        this.kWt.addView(this.mWebView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             if (StringUtils.isNull(optString) || StringUtils.isNull(optString2) || StringUtils.isNull(optString3)) {
                 return false;
             }
-            return this.ldR.dealJsInterface(optString, optString2, optString3, jsPromptResult);
+            return this.lef.dealJsInterface(optString, optString2, optString3, jsPromptResult);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;
@@ -152,8 +152,8 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
     public void l(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.lfw.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.lfw);
+            this.lfK.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.lfK);
         }
     }
 }

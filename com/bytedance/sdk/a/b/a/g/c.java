@@ -54,14 +54,14 @@ public class c extends e {
             if (aVar.f5940a || aVar.f5941b != null) {
                 return aVar.f5940a ? null : aVar.f5941b;
             }
-            e.epz().a(4, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?", (Throwable) null);
+            e.epH().a(4, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?", (Throwable) null);
             return null;
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw com.bytedance.sdk.a.b.a.c.f("unable to get selected protocol", e);
         }
     }
 
-    public static e epw() {
+    public static e epE() {
         try {
             Class<?> cls = Class.forName("org.eclipse.jetty.alpn.ALPN");
             Class<?> cls2 = Class.forName("org.eclipse.jetty.alpn.ALPN$Provider");

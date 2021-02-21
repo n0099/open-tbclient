@@ -9,61 +9,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int nzU = 524288;
-    private static int nzV = 6144000;
-    private static int nzW = 524288;
-    private g nxU;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b nzX;
+    private static int nAu = 524288;
+    private static int nAv = 6144000;
+    private static int nAw = 524288;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b nAx;
+    private g nyu;
 
     public a(g gVar) {
-        this.nxU = gVar;
+        this.nyu = gVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.nzX = new d(str2, nzW, this.nxU);
+                this.nAx = new d(str2, nAw, this.nyu);
             } else {
-                this.nzX = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, nzU, nzV, this.nxU);
+                this.nAx = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, nAu, nAv, this.nyu);
             }
-            this.nzX.a(eVar);
-            return this.nzX.bW(str2, i);
+            this.nAx.a(eVar);
+            return this.nAx.bW(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.nxU != null) {
-                this.nxU.o(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.l.a.o(e));
+            if (this.nyu != null) {
+                this.nyu.o(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.l.a.o(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.nzX != null) {
-            this.nzX.cancel();
+        if (this.nAx != null) {
+            this.nAx.cancel();
         }
     }
 
     public static void JS(int i) {
         if (i <= 0) {
-            nzW = 524288;
+            nAw = 524288;
         } else {
-            nzW = i;
+            nAw = i;
         }
     }
 
     public static void JT(int i) {
         if (i <= 0) {
-            nzU = 524288;
+            nAu = 524288;
         } else {
-            nzU = i;
+            nAu = i;
         }
     }
 
     public static void JU(int i) {
         if (i <= 0) {
-            nzV = 6144000;
+            nAv = 6144000;
         } else {
-            nzV = i;
+            nAv = i;
         }
     }
 }

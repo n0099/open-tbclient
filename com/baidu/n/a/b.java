@@ -5,18 +5,18 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class b {
     static String manufacturer;
-    static ArrayList<Integer> oUX = new ArrayList<>(4);
+    static ArrayList<Integer> oVx = new ArrayList<>(4);
 
     static {
-        oUX.add(10000);
-        oUX.add(10001);
-        oUX.add(10002);
-        oUX.add(20001);
-        oUX.add(-1);
+        oVx.add(10000);
+        oVx.add(10001);
+        oVx.add(10002);
+        oVx.add(20001);
+        oVx.add(-1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int eiw() {
+    public static int eiE() {
         if (TextUtils.isEmpty(manufacturer)) {
             manufacturer = com.baidu.n.a.c.d.getManufacturer();
         }

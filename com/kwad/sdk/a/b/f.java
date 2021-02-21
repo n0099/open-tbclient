@@ -68,8 +68,8 @@ public class f extends com.kwad.sdk.a.a.a implements View.OnClickListener {
     }
 
     private void f() {
-        com.kwad.sdk.core.download.b.a.a(this.f8154b.getContext(), this.f, new a.InterfaceC1092a() { // from class: com.kwad.sdk.a.b.f.3
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(this.f8154b.getContext(), this.f, new a.InterfaceC1094a() { // from class: com.kwad.sdk.a.b.f.3
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 com.kwad.sdk.core.report.b.a(f.this.f, 2, f.this.f8138a.c.getTouchCoords());
             }

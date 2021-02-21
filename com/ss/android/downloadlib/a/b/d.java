@@ -24,11 +24,11 @@ public class d {
 
     /* loaded from: classes6.dex */
     private static class b {
-        private static d qaZ = new d();
+        private static d qbz = new d();
     }
 
-    public static d eEt() {
-        return b.qaZ;
+    public static d eEB() {
+        return b.qbz;
     }
 
     private d() {
@@ -40,11 +40,11 @@ public class d {
     }
 
     public void b() {
-        com.ss.android.downloadlib.f.eEZ().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.d.1
+        com.ss.android.downloadlib.f.eFh().d(new Runnable() { // from class: com.ss.android.downloadlib.a.b.d.1
             @Override // java.lang.Runnable
             public void run() {
                 if (d.this.f12938a.compareAndSet(false, true)) {
-                    d.this.e.putAll(g.eEw().b());
+                    d.this.e.putAll(g.eEE().b());
                 }
             }
         }, true);
@@ -53,9 +53,9 @@ public class d {
     public void a(com.ss.android.a.a.b.c cVar) {
         if (cVar != null) {
             this.f12939b.put(Long.valueOf(cVar.d()), cVar);
-            if (cVar.eDV() != null) {
-                cVar.eDV().a(cVar.d());
-                cVar.eDV().d(cVar.v());
+            if (cVar.eEd() != null) {
+                cVar.eEd().a(cVar.d());
+                cVar.eEd().d(cVar.v());
             }
         }
     }
@@ -75,7 +75,7 @@ public class d {
     public synchronized void d(com.ss.android.b.a.b.a aVar) {
         if (aVar != null) {
             this.e.put(Long.valueOf(aVar.j()), aVar);
-            g.eEw().d(aVar);
+            g.eEE().d(aVar);
         }
     }
 
@@ -95,11 +95,11 @@ public class d {
         return this.e.get(Long.valueOf(j));
     }
 
-    public ConcurrentHashMap<Long, com.ss.android.b.a.b.a> eEu() {
+    public ConcurrentHashMap<Long, com.ss.android.b.a.b.a> eEC() {
         return this.e;
     }
 
-    public com.ss.android.b.a.b.a aaG(String str) {
+    public com.ss.android.b.a.b.a aaS(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -111,7 +111,7 @@ public class d {
         return null;
     }
 
-    public com.ss.android.b.a.b.a aaH(String str) {
+    public com.ss.android.b.a.b.a aaT(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -154,7 +154,7 @@ public class d {
         return null;
     }
 
-    public com.ss.android.b.a.b.a QU(int i) {
+    public com.ss.android.b.a.b.a QV(int i) {
         for (com.ss.android.b.a.b.a aVar : this.e.values()) {
             if (aVar != null && aVar.t() == i) {
                 return aVar;
@@ -167,11 +167,11 @@ public class d {
     public a jf(long j) {
         a aVar = new a();
         aVar.f12940a = j;
-        aVar.qba = jb(j);
-        aVar.qbb = jc(j);
-        aVar.qbc = jd(j);
-        if (aVar.qbc == null) {
-            aVar.qbc = new com.ss.android.b.a.a.a();
+        aVar.qbA = jb(j);
+        aVar.qbB = jc(j);
+        aVar.qbC = jd(j);
+        if (aVar.qbC == null) {
+            aVar.qbC = new com.ss.android.b.a.a.a();
         }
         return aVar;
     }
@@ -201,7 +201,7 @@ public class d {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             for (com.ss.android.a.a.b.c cVar : this.f12939b.values()) {
                 if ((cVar instanceof com.ss.android.b.a.a.c) && TextUtils.equals(cVar.a(), str)) {
-                    ((com.ss.android.b.a.a.c) cVar).aaw(str2);
+                    ((com.ss.android.b.a.a.c) cVar).aaI(str2);
                 }
             }
         }
@@ -214,7 +214,7 @@ public class d {
             arrayList.add(String.valueOf(longValue));
             this.e.remove(Long.valueOf(longValue));
         }
-        g.eEw().a((List<String>) arrayList);
+        g.eEE().a((List<String>) arrayList);
     }
 
     /* loaded from: classes6.dex */
@@ -222,22 +222,22 @@ public class d {
 
         /* renamed from: a  reason: collision with root package name */
         public long f12940a;
-        public com.ss.android.a.a.b.c qba;
-        public com.ss.android.a.a.b.b qbb;
-        public com.ss.android.a.a.b.a qbc;
+        public com.ss.android.a.a.b.c qbA;
+        public com.ss.android.a.a.b.b qbB;
+        public com.ss.android.a.a.b.a qbC;
 
         public a() {
         }
 
         public a(long j, com.ss.android.a.a.b.c cVar, com.ss.android.a.a.b.b bVar, com.ss.android.a.a.b.a aVar) {
             this.f12940a = j;
-            this.qba = cVar;
-            this.qbb = bVar;
-            this.qbc = aVar;
+            this.qbA = cVar;
+            this.qbB = bVar;
+            this.qbC = aVar;
         }
 
         public boolean a() {
-            return this.f12940a <= 0 || this.qba == null || this.qbb == null || this.qbc == null;
+            return this.f12940a <= 0 || this.qbA == null || this.qbB == null || this.qbC == null;
         }
     }
 }

@@ -8,11 +8,11 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.a.a {
 
     /* renamed from: a  reason: collision with root package name */
     private /* synthetic */ Context f14395a;
-    private /* synthetic */ a qmg;
+    private /* synthetic */ a qmG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, Context context) {
-        this.qmg = aVar;
+        this.qmG = aVar;
         this.f14395a = context;
     }
 
@@ -30,7 +30,7 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.a.a {
             } else {
                 com.yxcorp.kuaishou.addfp.android.b.b.b("not support OAID");
             }
-            com.yxcorp.kuaishou.addfp.a.a.b.eJv().b();
+            com.yxcorp.kuaishou.addfp.a.a.b.eJD().b();
             if (aVar != null) {
                 try {
                 } catch (Throwable th) {

@@ -9,17 +9,17 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class PersonViewPagerAdapter extends FragmentStatePagerAdapter {
-    private List<Fragment> hVv;
+    private List<Fragment> hVJ;
 
     public PersonViewPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.hVv = new LinkedList();
+        this.hVJ = new LinkedList();
     }
 
     public void setData(List<Fragment> list) {
-        this.hVv.clear();
+        this.hVJ.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.hVv.addAll(list);
+            this.hVJ.addAll(list);
         }
     }
 
@@ -29,7 +29,7 @@ public class PersonViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override // androidx.fragment.app.FragmentStatePagerAdapter
     public Fragment getItem(int i) {
-        return this.hVv.get(i);
+        return this.hVJ.get(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -44,6 +44,6 @@ public class PersonViewPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.hVv.size();
+        return this.hVJ.size();
     }
 }

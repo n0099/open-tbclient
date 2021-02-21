@@ -16,20 +16,20 @@ import com.baidu.tieba.h.a;
 /* loaded from: classes8.dex */
 public class c implements ImagePagerAdapter.a {
     private DragImageView.d fyu;
-    private boolean kTI;
-    private ImageViewerActivity kTK;
-    private View kTL;
+    private boolean kTW;
+    private ImageViewerActivity kTY;
+    private View kTZ;
     private RelativeLayout mRootView;
     private TbPageContext mTbPageContext;
     private int mCount = 0;
-    private int kTG = 0;
-    private boolean kTM = false;
-    private boolean kTN = false;
-    private final a.f kTO = new a.f() { // from class: com.baidu.tieba.image.c.2
+    private int kTU = 0;
+    private boolean kUa = false;
+    private boolean kUb = false;
+    private final a.f kUc = new a.f() { // from class: com.baidu.tieba.image.c.2
         @Override // com.baidu.tieba.h.a.f, com.baidu.tieba.h.a.c
         public void onAdClose(String str) {
-            if (c.this.kTK != null) {
-                c.this.kTK.finish();
+            if (c.this.kTY != null) {
+                c.this.kTY.finish();
             }
         }
 
@@ -45,32 +45,32 @@ public class c implements ImagePagerAdapter.a {
 
         @Override // com.baidu.tieba.h.a.f, com.baidu.tieba.h.a.e
         public void onAdClicked(String str) {
-            c.this.cZG();
+            c.this.cZN();
         }
     };
 
-    public void cR(int i, int i2) {
-        this.kTG = i;
+    public void cS(int i, int i2) {
+        this.kTU = i;
         this.mCount = i2;
     }
 
     public c(@NonNull ImageViewerActivity imageViewerActivity, boolean z) {
-        this.kTK = imageViewerActivity;
+        this.kTY = imageViewerActivity;
         this.mTbPageContext = imageViewerActivity.getPageContext();
-        this.kTI = z;
-        this.mRootView = new RelativeLayout(this.kTK);
-        this.kTL = com.baidu.tieba.h.a.cNj().g(imageViewerActivity, "6051001643-679358748");
-        if (this.kTL != null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.getEquipmentWidth(this.kTK), -2);
+        this.kTW = z;
+        this.mRootView = new RelativeLayout(this.kTY);
+        this.kTZ = com.baidu.tieba.h.a.cNq().g(imageViewerActivity, "6051001643-679358748");
+        if (this.kTZ != null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.getEquipmentWidth(this.kTY), -2);
             layoutParams.addRule(14, -1);
             layoutParams.addRule(15, -1);
-            this.mRootView.addView(this.kTL, layoutParams);
+            this.mRootView.addView(this.kTZ, layoutParams);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View p(ViewGroup viewGroup, int i) {
-        if (this.mTbPageContext != null && this.kTL != null && this.kTI && DC(i) && cZF()) {
+        if (this.mTbPageContext != null && this.kTZ != null && this.kTW && DC(i) && cZM()) {
             if (this.mRootView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
@@ -81,25 +81,25 @@ public class c implements ImagePagerAdapter.a {
     }
 
     public boolean DD(int i) {
-        if (this.mTbPageContext != null && this.kTL != null && this.kTI && DC(i) && cZF()) {
-            com.baidu.tieba.h.a.cNj().a(this.mTbPageContext.getPageActivity(), "6051001643-679358748", this.kTL, this.kTO);
-            ap.setBackgroundColor(this.kTL, R.color.CAM_X0101, 0);
+        if (this.mTbPageContext != null && this.kTZ != null && this.kTW && DC(i) && cZM()) {
+            com.baidu.tieba.h.a.cNq().a(this.mTbPageContext.getPageActivity(), "6051001643-679358748", this.kTZ, this.kUc);
+            ap.setBackgroundColor(this.kTZ, R.color.CAM_X0101, 0);
             DF(0);
             return true;
         }
         return false;
     }
 
-    public boolean cZF() {
-        return this.kTM;
+    public boolean cZM() {
+        return this.kUa;
     }
 
-    public boolean cZE() {
-        return this.kTI && this.kTL != null && this.kTM;
+    public boolean cZL() {
+        return this.kTW && this.kTZ != null && this.kUa;
     }
 
     private boolean DC(int i) {
-        return this.kTG != 0 && i == this.kTG;
+        return this.kTU != 0 && i == this.kTU;
     }
 
     public boolean U(int i, int i2, int i3) {
@@ -111,27 +111,27 @@ public class c implements ImagePagerAdapter.a {
     }
 
     public void onDestroy() {
-        com.baidu.tieba.h.a.cNj().destroyAd("6051001643-679358748");
+        com.baidu.tieba.h.a.cNq().destroyAd("6051001643-679358748");
     }
 
     public void onAdShow() {
     }
 
     public void setAddSize(int i) {
-        if (this.kTK != null) {
-            this.kTK.setAddSize(i);
+        if (this.kTY != null) {
+            this.kTY.setAddSize(i);
         }
     }
 
     public void V(int i, int i2, final int i3) {
-        if (this.kTI && this.kTL != null && !this.kTN && !this.kTM && U(i, i2, i3)) {
-            this.kTN = true;
-            com.baidu.tieba.h.a.cNj().a(this.kTK, "6051001643-679358748", new a.d() { // from class: com.baidu.tieba.image.c.1
+        if (this.kTW && this.kTZ != null && !this.kUb && !this.kUa && U(i, i2, i3)) {
+            this.kUb = true;
+            com.baidu.tieba.h.a.cNq().a(this.kTY, "6051001643-679358748", new a.d() { // from class: com.baidu.tieba.image.c.1
                 @Override // com.baidu.tieba.h.a.d
                 public void bb(String str, int i4) {
-                    c.this.kTN = false;
-                    c.this.kTM = true;
-                    if (com.baidu.tieba.h.a.cNj().isAdReady(str)) {
+                    c.this.kUb = false;
+                    c.this.kUa = true;
+                    if (com.baidu.tieba.h.a.cNq().isAdReady(str)) {
                         c.this.setAddSize(1);
                         c.this.DD(i3);
                         c.this.DE(0);
@@ -143,8 +143,8 @@ public class c implements ImagePagerAdapter.a {
 
                 @Override // com.baidu.tieba.h.a.d
                 public void onError(String str) {
-                    c.this.kTN = false;
-                    c.this.kTM = true;
+                    c.this.kUb = false;
+                    c.this.kUa = true;
                     c.this.setAddSize(0);
                     c.this.DE(1);
                 }
@@ -153,7 +153,7 @@ public class c implements ImagePagerAdapter.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cZG() {
+    public void cZN() {
         ar.Bd("c14053").ap("obj_source", 6).dR("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).bsO();
     }
 

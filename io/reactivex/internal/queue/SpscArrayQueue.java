@@ -15,7 +15,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
     long producerLookAhead;
 
     public SpscArrayQueue(int i) {
-        super(h.So(i));
+        super(h.Sp(i));
         this.mask = length() - 1;
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();

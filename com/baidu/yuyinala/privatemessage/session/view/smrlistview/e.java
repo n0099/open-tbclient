@@ -6,8 +6,8 @@ import android.graphics.drawable.Drawable;
 public class e {
     private Drawable icon;
     private Context mContext;
-    private Drawable mNC;
-    private int plz;
+    private Drawable mNR;
+    private int plZ;
     private String title;
     private int titleColor;
     private int width;
@@ -21,11 +21,11 @@ public class e {
     }
 
     public int getTitleSize() {
-        return this.plz;
+        return this.plZ;
     }
 
     public void setTitleSize(int i) {
-        this.plz = i;
+        this.plZ = i;
     }
 
     public void setTitleColor(int i) {
@@ -45,11 +45,11 @@ public class e {
     }
 
     public Drawable getBackground() {
-        return this.mNC;
+        return this.mNR;
     }
 
     public void setBackground(Drawable drawable) {
-        this.mNC = drawable;
+        this.mNR = drawable;
     }
 
     public int getWidth() {

@@ -39,10 +39,10 @@ public class a {
                 } else {
                     a3.ap("gua_type", 0);
                 }
-                c.dMr().a(bdUniqueId, a2, a3);
+                c.dMz().a(bdUniqueId, a2, a3);
                 if (g.isEnabled()) {
-                    g.Mf(a2);
-                    if (g.cRr() >= 10) {
+                    g.Mg(a2);
+                    if (g.cRy() >= 10) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921482));
                         g.setEnabled(false);
                     }
@@ -85,7 +85,7 @@ public class a {
                     a2.delete("thread_type");
                     a2.ap("thread_type", cbVar.getThreadType());
                 }
-                c.dMr().b(bdUniqueId, a2);
+                c.dMz().b(bdUniqueId, a2);
                 d(cbVar, i2);
             }
         }

@@ -21,7 +21,7 @@ public class e implements a {
     private int[] f9945b;
     @ColorInt
     private final int[] c;
-    private final a.InterfaceC1120a d;
+    private final a.InterfaceC1122a d;
     private ByteBuffer e;
     private byte[] f;
     private short[] g;
@@ -43,15 +43,15 @@ public class e implements a {
     @NonNull
     private Bitmap.Config u;
 
-    public e(@NonNull a.InterfaceC1120a interfaceC1120a) {
+    public e(@NonNull a.InterfaceC1122a interfaceC1122a) {
         this.c = new int[256];
         this.u = Bitmap.Config.ARGB_8888;
-        this.d = interfaceC1120a;
+        this.d = interfaceC1122a;
         this.m = new c();
     }
 
-    public e(@NonNull a.InterfaceC1120a interfaceC1120a, c cVar, ByteBuffer byteBuffer, int i) {
-        this(interfaceC1120a);
+    public e(@NonNull a.InterfaceC1122a interfaceC1122a, c cVar, ByteBuffer byteBuffer, int i) {
+        this(interfaceC1122a);
         a(cVar, byteBuffer, i);
     }
 

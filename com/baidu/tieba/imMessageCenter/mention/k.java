@@ -10,7 +10,7 @@ import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes2.dex */
 public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     private String ids;
-    private int kSh;
+    private int kSv;
     private int mPn = 1;
 
     public void e(FeedData feedData) {
@@ -19,19 +19,19 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         }
     }
 
-    public void cZv() {
+    public void cZC() {
         this.mPn++;
-        this.kSh = 4;
+        this.kSv = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.kSh = 1;
+        this.kSv = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.kSh;
+        return this.kSv;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -43,7 +43,7 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
-        if (this.kSh == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.kSv == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;

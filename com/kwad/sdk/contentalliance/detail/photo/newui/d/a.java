@@ -389,8 +389,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.photo.f.a<View> {
         }
         if (com.kwad.sdk.core.response.b.c.c(this.e)) {
             if (!com.kwad.sdk.core.response.b.a.y(com.kwad.sdk.core.response.b.c.j(this.e)) || com.kwad.sdk.core.config.c.T()) {
-                com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1092a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.8
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+                com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1094a() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.d.a.8
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                     public void a() {
                         a.this.u();
                     }

@@ -24,7 +24,7 @@ public abstract class a extends com.kwad.sdk.core.view.b {
 
     /* renamed from: b  reason: collision with root package name */
     protected AdInfo f9863b;
-    protected InterfaceC1118a c;
+    protected InterfaceC1120a c;
     @NonNull
     protected Context d;
     protected s.a e;
@@ -34,7 +34,7 @@ public abstract class a extends com.kwad.sdk.core.view.b {
 
     /* renamed from: com.kwad.sdk.feed.widget.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1118a {
+    public interface InterfaceC1120a {
         void a();
 
         void b();
@@ -74,21 +74,21 @@ public abstract class a extends com.kwad.sdk.core.view.b {
             b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(b2);
         }
-        b2.setViewCallback(new a.InterfaceC1103a() { // from class: com.kwad.sdk.feed.widget.base.a.2
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
+        b2.setViewCallback(new a.InterfaceC1105a() { // from class: com.kwad.sdk.feed.widget.base.a.2
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1105a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1105a
             public void a(View view) {
                 a.this.j();
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1105a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1105a
             public void b() {
             }
         });
@@ -207,8 +207,8 @@ public abstract class a extends com.kwad.sdk.core.view.b {
         super.onMeasure(i, i2);
     }
 
-    public void setAdClickListener(InterfaceC1118a interfaceC1118a) {
-        this.c = interfaceC1118a;
+    public void setAdClickListener(InterfaceC1120a interfaceC1120a) {
+        this.c = interfaceC1120a;
     }
 
     public void setMargin(int i) {

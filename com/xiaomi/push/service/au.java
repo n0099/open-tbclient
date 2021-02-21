@@ -48,7 +48,7 @@ public class au extends be.a implements cz.a {
             int port = url.getPort() == -1 ? 80 : url.getPort();
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                String a2 = com.xiaomi.push.az.a(com.xiaomi.push.t.m609a(), url);
+                String a2 = com.xiaomi.push.az.a(com.xiaomi.push.t.m608a(), url);
                 hg.a(url.getHost() + ":" + port, (int) (System.currentTimeMillis() - currentTimeMillis), null);
                 return a2;
             } catch (IOException e) {
@@ -68,8 +68,8 @@ public class au extends be.a implements cz.a {
         @Override // com.xiaomi.push.cz
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             try {
-                if (he.m360a().m365a()) {
-                    str2 = be.m585a();
+                if (he.m359a().m364a()) {
+                    str2 = be.m584a();
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e) {
@@ -106,30 +106,30 @@ public class au extends be.a implements cz.a {
         cv b2;
         boolean z;
         if (bVar.b() && bVar.a() && System.currentTimeMillis() - this.f14257a > BdKVCache.MILLS_1Hour) {
-            com.xiaomi.channel.commonutils.logger.b.m80a("fetch bucket :" + bVar.a());
+            com.xiaomi.channel.commonutils.logger.b.m79a("fetch bucket :" + bVar.a());
             this.f14257a = System.currentTimeMillis();
             cz a2 = cz.a();
-            a2.m244a();
-            a2.m247b();
-            fs m545a = this.f947a.m545a();
-            if (m545a == null || (b2 = a2.b(m545a.m319a().c())) == null) {
+            a2.m243a();
+            a2.m246b();
+            fs m544a = this.f947a.m544a();
+            if (m544a == null || (b2 = a2.b(m544a.m318a().c())) == null) {
                 return;
             }
-            ArrayList<String> m232a = b2.m232a();
-            Iterator<String> it = m232a.iterator();
+            ArrayList<String> m231a = b2.m231a();
+            Iterator<String> it = m231a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
                     break;
-                } else if (it.next().equals(m545a.m320a())) {
+                } else if (it.next().equals(m544a.m319a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m232a.isEmpty()) {
+            if (!z || m231a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m80a("bucket changed, force reconnect");
+            com.xiaomi.channel.commonutils.logger.b.m79a("bucket changed, force reconnect");
             this.f947a.a(0, (Exception) null);
             this.f947a.a(false);
         }

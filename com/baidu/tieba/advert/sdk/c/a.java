@@ -35,18 +35,18 @@ public class a {
 
     public static void a(b bVar) {
         if (bVar == null) {
-            bMA();
+            bMH();
         } else {
             TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", bVar.toString()).apply();
         }
     }
 
-    public static void bMA() {
+    public static void bMH() {
         TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).edit().putString("bc_splash_info_new", "").apply();
     }
 
-    public static void bMB() {
-        File file = new File(com.baidu.tieba.advert.sdk.b.a.gkK);
+    public static void bMI() {
+        File file = new File(com.baidu.tieba.advert.sdk.b.a.gkY);
         if (file.exists()) {
             o.deleteFileOrDir(file);
         }
@@ -54,7 +54,7 @@ public class a {
 
     public static void U(File file) {
         File[] listFiles;
-        File file2 = new File(com.baidu.tieba.advert.sdk.b.a.gkK);
+        File file2 = new File(com.baidu.tieba.advert.sdk.b.a.gkY);
         if (file2.exists() && (listFiles = file2.listFiles()) != null) {
             for (File file3 : listFiles) {
                 if (file3 != null && !file3.equals(file)) {
@@ -64,11 +64,11 @@ public class a {
         }
     }
 
-    public static String bMC() {
+    public static String bMJ() {
         return TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info_new", 0).getString("bc_splash_info_new", "");
     }
 
-    public static void bMD() {
+    public static void bMK() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://ignore"));
     }
 
@@ -102,31 +102,31 @@ public class a {
             a2 = new AdSplashStyle.a(a(splashElement, z), b(splashElement, z));
         }
         int i = a2.gravity;
-        String str = a2.gkH;
+        String str = a2.gkV;
         if (i <= 0) {
             i = a(splashElement, z);
         }
-        if (a2.gkI == null || TextUtils.isEmpty(str)) {
+        if (a2.gkW == null || TextUtils.isEmpty(str)) {
             str = b(splashElement, z);
         }
         a2.aQ(i, str);
-        Log.i("BESAdSdkSplash", splashElement + "-->isFullScreen=" + z + ",gravity=" + a2.gravity + ",margins=" + a2.gkH);
+        Log.i("BESAdSdkSplash", splashElement + "-->isFullScreen=" + z + ",gravity=" + a2.gravity + ",margins=" + a2.gkV);
         a(layoutParams, a2.gravity);
-        a(layoutParams, a2.gkI);
+        a(layoutParams, a2.gkW);
     }
 
     public static AdSplashStyle.a a(AdSplashStyle.SplashElement splashElement, AdSplashStyle adSplashStyle, boolean z) {
         switch (splashElement) {
             case LOGO:
-                return z ? adSplashStyle.gkC : adSplashStyle.gkx;
+                return z ? adSplashStyle.gkQ : adSplashStyle.gkL;
             case SKIP:
-                return z ? adSplashStyle.gkD : adSplashStyle.gky;
+                return z ? adSplashStyle.gkR : adSplashStyle.gkM;
             case LABEL:
-                return z ? adSplashStyle.gkE : adSplashStyle.gkz;
+                return z ? adSplashStyle.gkS : adSplashStyle.gkN;
             case VOICE:
-                return z ? adSplashStyle.gkF : adSplashStyle.gkA;
+                return z ? adSplashStyle.gkT : adSplashStyle.gkO;
             case WIFI_TIP:
-                return z ? adSplashStyle.gkG : adSplashStyle.gkB;
+                return z ? adSplashStyle.gkU : adSplashStyle.gkP;
             default:
                 return null;
         }

@@ -1,15 +1,15 @@
 package com.google.b.a.a.a;
 /* loaded from: classes3.dex */
 public class f {
-    private static g pWn = new g();
-    private static g pWo = new g();
-    private static g pVr = new g();
-    private static g pVn = new g();
-    private static g pVo = new g();
-    private static c pVw = new c();
-    private static c pVx = new c();
-    private static g pWp = new g();
-    private static g pWq = new g();
+    private static g pWN = new g();
+    private static g pWO = new g();
+    private static g pVR = new g();
+    private static g pVN = new g();
+    private static g pVO = new g();
+    private static c pVW = new c();
+    private static c pVX = new c();
+    private static g pWP = new g();
+    private static g pWQ = new g();
 
     private static void a(g gVar, double d, double d2, c cVar) {
         double d3 = gVar.f7883a * gVar.f7883a;

@@ -17,8 +17,8 @@ public class c {
     private static String MY;
     private static String sUid;
     private long Ne;
-    private g mSC;
-    private d mSD;
+    private g mTd;
+    private d mTe;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
@@ -38,33 +38,33 @@ public class c {
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.mSC = new g();
-        a(this.mSC, z);
-        this.mSC.dDC().setUrl(str);
-        this.mSD = new d(this.mSC);
-        this.mSD.d(i, i3, i4);
-        return this.mSC.dDD();
+        this.mTd = new g();
+        a(this.mTd, z);
+        this.mTd.dDK().setUrl(str);
+        this.mTe = new d(this.mTd);
+        this.mTe.d(i, i3, i4);
+        return this.mTd.dDL();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.mSC = new g();
-        a(this.mSC, z);
-        this.mSC.dDC().setUrl(str);
+        this.mTd = new g();
+        a(this.mTd, z);
+        this.mTd.dDK().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.mSC.dDC().addPostData(basicNameValuePair);
+                this.mTd.dDK().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.mSC.dDC().s(next.getName(), next.getValue());
+                this.mTd.dDK().s(next.getName(), next.getValue());
             }
         }
-        this.mSD = new d(this.mSC);
-        this.mSD.f(i, i2, -1);
-        return this.mSC.dDD();
+        this.mTe = new d(this.mTd);
+        this.mTe.f(i, i2, -1);
+        return this.mTd.dDL();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -72,11 +72,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.mSC = new g();
-        b(this.mSC);
-        this.mSC.dDC().setUrl(str);
-        this.mSD = new d(this.mSC);
-        return this.mSD.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.mTd = new g();
+        b(this.mTd);
+        this.mTd.dDK().setUrl(str);
+        this.mTe = new d(this.mTd);
+        return this.mTe.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -84,54 +84,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.mSD != null) {
-            this.mSD.cancel();
+        if (this.mTe != null) {
+            this.mTe.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.mSD != null) {
-            return this.mSD.isCancel();
+        if (this.mTe != null) {
+            return this.mTe.isCancel();
         }
         return false;
     }
 
     public void setCancel() {
-        if (this.mSD != null) {
-            this.mSD.setCancel();
+        if (this.mTe != null) {
+            this.mTe.setCancel();
         }
     }
 
-    public g dDB() {
-        return this.mSC;
+    public g dDJ() {
+        return this.mTd;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
             if (!TextUtils.isEmpty(MV)) {
-                gVar.dDC().s(SM.COOKIE, MV);
+                gVar.dDK().s(SM.COOKIE, MV);
             } else {
-                gVar.dDC().s(SM.COOKIE, "");
+                gVar.dDK().s(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(sUid)) {
-                gVar.dDC().s("client_user_token", sUid);
+                gVar.dDK().s("client_user_token", sUid);
             }
             if (!TextUtils.isEmpty(MW)) {
-                gVar.dDC().s("User-Agent", MW);
+                gVar.dDK().s("User-Agent", MW);
             }
             if (z) {
-                gVar.dDC().s(Headers.ACCEPT_ENCODING, "gzip");
+                gVar.dDK().s(Headers.ACCEPT_ENCODING, "gzip");
             } else {
-                gVar.dDC().s(Headers.ACCEPT_ENCODING, "");
+                gVar.dDK().s(Headers.ACCEPT_ENCODING, "");
             }
             if (MX) {
-                gVar.dDC().s(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                gVar.dDK().s(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.dDC().s(HTTP.CONN_DIRECTIVE, "close");
+                gVar.dDK().s(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.dDC().s("client_logid", String.valueOf(this.Ne));
+            gVar.dDK().s("client_logid", String.valueOf(this.Ne));
             if (!TextUtils.isEmpty(MY)) {
-                gVar.dDC().s("cuid", MY);
+                gVar.dDK().s("cuid", MY);
             }
         }
     }

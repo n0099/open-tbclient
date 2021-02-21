@@ -1,23 +1,23 @@
 package rx;
 /* loaded from: classes5.dex */
 public abstract class i<T> implements k {
-    private final rx.internal.util.i qya = new rx.internal.util.i();
+    private final rx.internal.util.i qyA = new rx.internal.util.i();
 
     public abstract void onError(Throwable th);
 
     public abstract void onSuccess(T t);
 
     public final void add(k kVar) {
-        this.qya.add(kVar);
+        this.qyA.add(kVar);
     }
 
     @Override // rx.k
     public final void unsubscribe() {
-        this.qya.unsubscribe();
+        this.qyA.unsubscribe();
     }
 
     @Override // rx.k
     public final boolean isUnsubscribed() {
-        return this.qya.isUnsubscribed();
+        return this.qyA.isUnsubscribed();
     }
 }

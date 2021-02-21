@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<Integer> gfK;
-    private c gfL;
+    private ArrayList<Integer> gfP;
+    private c gfQ;
     private HashMap<String, b> mData = new HashMap<>();
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.gfK = arrayList;
-        this.gfL = cVar;
+        this.gfP = arrayList;
+        this.gfQ = cVar;
     }
 
     public int aB(String str, int i) {
-        if (this.mData == null || au.isEmpty(str) || this.gfK == null || !this.gfK.contains(Integer.valueOf(i))) {
+        if (this.mData == null || au.isEmpty(str) || this.gfP == null || !this.gfP.contains(Integer.valueOf(i))) {
             return 0;
         }
         if (!this.mData.containsKey(str)) {
-            Ew(str);
+            Eu(str);
         }
         b bVar = this.mData.get(str);
         if (bVar == null) {
@@ -28,16 +28,16 @@ public class a {
         return bVar.sW(i);
     }
 
-    public void Ew(String str) {
-        if (this.mData != null && !au.isEmpty(str) && this.gfL != null) {
+    public void Eu(String str) {
+        if (this.mData != null && !au.isEmpty(str) && this.gfQ != null) {
             if (this.mData.containsKey(str)) {
                 b bVar = this.mData.get(str);
-                this.gfL.a(this.gfK, bVar);
+                this.gfQ.a(this.gfP, bVar);
                 this.mData.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.gfL.a(this.gfK, bVar2);
+            this.gfQ.a(this.gfP, bVar2);
             this.mData.put(str, bVar2);
         }
     }

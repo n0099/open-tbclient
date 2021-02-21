@@ -16,9 +16,9 @@ import com.baidu.tieba.R;
 public class e extends a {
     private ItemCardView agZ;
     private LinearLayout mRootView;
-    private af meA;
-    private com.baidu.tbadk.core.data.a met;
-    private cb mew;
+    private com.baidu.tbadk.core.data.a meI;
+    private cb meL;
+    private af meP;
 
     public e(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -35,15 +35,15 @@ public class e extends a {
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.meA == null) {
-            this.meA = new af(this.eUY);
-            this.meA.c(true);
+        if (this.meP == null) {
+            this.meP = new af(this.eUY);
+            this.meP.c(true);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.topMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
         layoutParams.leftMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        this.mRootView.addView(this.meA.getView(), layoutParams);
+        this.mRootView.addView(this.meP.getView(), layoutParams);
         if (this.agZ == null) {
             this.agZ = new ItemCardView(this.eUY.getPageActivity());
         }
@@ -59,12 +59,12 @@ public class e extends a {
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.mes = originalThreadInfo;
-        this.mew = originalThreadInfo == null ? null : originalThreadInfo.bmq();
-        this.met = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
+        this.meH = originalThreadInfo;
+        this.meL = originalThreadInfo == null ? null : originalThreadInfo.bmq();
+        this.meI = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
             @Override // com.baidu.tbadk.core.data.a
             public cb bln() {
-                return e.this.mew;
+                return e.this.meL;
             }
 
             @Override // com.baidu.tbadk.core.data.a
@@ -80,23 +80,23 @@ public class e extends a {
         if (this.agZ != null && originalThreadInfo != null) {
             this.agZ.setData(originalThreadInfo.item, 17);
         }
-        if (this.meA != null) {
-            this.meA.C(this.met);
+        if (this.meP != null) {
+            this.meP.C(this.meI);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(a.InterfaceC0088a interfaceC0088a) {
         super.a(interfaceC0088a);
-        if (this.meA != null) {
-            this.meA.a(interfaceC0088a);
+        if (this.meP != null) {
+            this.meP.a(interfaceC0088a);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (e.this.agh != null) {
-                        e.this.agh.a(e.this.met);
+                        e.this.agh.a(e.this.meI);
                     }
                 }
             });
@@ -108,8 +108,8 @@ public class e extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
-            if (this.meA != null) {
-                this.meA.onChangeSkinType(tbPageContext, i);
+            if (this.meP != null) {
+                this.meP.onChangeSkinType(tbPageContext, i);
             }
             if (this.agZ != null) {
                 this.agZ.onChangeSkinType();

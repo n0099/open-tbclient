@@ -33,18 +33,18 @@ public final class ax implements Runnable {
         String c;
         String c2;
         String c3;
-        com.xiaomi.channel.commonutils.logger.b.m80a("do sync info");
+        com.xiaomi.channel.commonutils.logger.b.m79a("do sync info");
         il ilVar = new il(com.xiaomi.push.service.an.a(), false);
-        b m120a = b.m120a(this.f13820a);
+        b m119a = b.m119a(this.f13820a);
         ilVar.c(hw.SyncInfo.f555a);
-        ilVar.b(m120a.m121a());
+        ilVar.b(m119a.m120a());
         ilVar.d(this.f13820a.getPackageName());
         ilVar.f696a = new HashMap();
-        com.xiaomi.push.n.a(ilVar.f696a, "app_version", com.xiaomi.push.g.m333a(this.f13820a, this.f13820a.getPackageName()));
+        com.xiaomi.push.n.a(ilVar.f696a, "app_version", com.xiaomi.push.g.m332a(this.f13820a, this.f13820a.getPackageName()));
         com.xiaomi.push.n.a(ilVar.f696a, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.push.g.a(this.f13820a, this.f13820a.getPackageName())));
         com.xiaomi.push.n.a(ilVar.f696a, "push_sdk_vn", "3_7_5");
         com.xiaomi.push.n.a(ilVar.f696a, "push_sdk_vc", Integer.toString(30705));
-        com.xiaomi.push.n.a(ilVar.f696a, "token", m120a.b());
+        com.xiaomi.push.n.a(ilVar.f696a, "token", m119a.b());
         if (!com.xiaomi.push.l.d()) {
             String a2 = bf.a(com.xiaomi.push.i.f(this.f13820a));
             String h = com.xiaomi.push.i.h(this.f13820a);
@@ -56,8 +56,8 @@ public final class ax implements Runnable {
             }
         }
         com.xiaomi.push.au.a(this.f13820a).a(ilVar.f696a);
-        com.xiaomi.push.n.a(ilVar.f696a, Constants.EXTRA_KEY_REG_ID, m120a.m128c());
-        com.xiaomi.push.n.a(ilVar.f696a, Constants.EXTRA_KEY_REG_SECRET, m120a.d());
+        com.xiaomi.push.n.a(ilVar.f696a, Constants.EXTRA_KEY_REG_ID, m119a.m127c());
+        com.xiaomi.push.n.a(ilVar.f696a, Constants.EXTRA_KEY_REG_SECRET, m119a.d());
         com.xiaomi.push.n.a(ilVar.f696a, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.f13820a).replace(",", Constants.ACCEPT_TIME_SEPARATOR_SERVER));
         if (this.f140a) {
             Map<String, String> map = ilVar.f696a;

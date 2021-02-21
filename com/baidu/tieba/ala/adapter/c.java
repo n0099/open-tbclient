@@ -11,52 +11,52 @@ import com.baidu.tieba.ala.data.h;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class c extends BaseAdapter {
-    private long gpB;
-    private String gpD;
-    private boolean gpE;
-    private ArrayList<h> grq;
-    private AlaLastLiveroomInfo grr;
+    private long gpP;
+    private String gpR;
+    private boolean gpS;
+    private ArrayList<h> grE;
+    private AlaLastLiveroomInfo grF;
     private Context mContext;
 
     public c(Context context, String str, long j, boolean z, AlaLastLiveroomInfo alaLastLiveroomInfo) {
         this.mContext = context;
-        this.gpD = str;
-        this.gpB = j;
-        this.gpE = z;
-        this.grr = alaLastLiveroomInfo;
+        this.gpR = str;
+        this.gpP = j;
+        this.gpS = z;
+        this.grF = alaLastLiveroomInfo;
     }
 
     public void setData(ArrayList<h> arrayList) {
-        if (this.grq == null) {
-            this.grq = new ArrayList<>();
+        if (this.grE == null) {
+            this.grE = new ArrayList<>();
         } else {
-            this.grq.clear();
+            this.grE.clear();
         }
         if (arrayList != null) {
-            this.grq.addAll(arrayList);
+            this.grE.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.grq == null) {
+        if (this.grE == null) {
             return 0;
         }
-        return this.grq.size();
+        return this.grE.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.grq == null) {
+        if (this.grE == null) {
             return null;
         }
-        return this.grq.get(i);
+        return this.grE.get(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        return this.grq == null || this.grq.size() == 0;
+        return this.grE == null || this.grE.size() == 0;
     }
 
     @Override // android.widget.Adapter
@@ -70,14 +70,14 @@ public class c extends BaseAdapter {
         View view2;
         if (view == null) {
             view2 = LayoutInflater.from(this.mContext).inflate(a.g.ala_rank_list_item_view, (ViewGroup) null);
-            com.baidu.tieba.ala.view.h hVar2 = new com.baidu.tieba.ala.view.h(this.mContext, view2, this.gpD, this.gpB, this.gpE, this.grr);
+            com.baidu.tieba.ala.view.h hVar2 = new com.baidu.tieba.ala.view.h(this.mContext, view2, this.gpR, this.gpP, this.gpS, this.grF);
             view2.setTag(hVar2);
             hVar = hVar2;
         } else {
             hVar = (com.baidu.tieba.ala.view.h) view.getTag();
             view2 = view;
         }
-        hVar.a(this.grq.get(i), i);
+        hVar.a(this.grE.get(i), i);
         return view2;
     }
 }

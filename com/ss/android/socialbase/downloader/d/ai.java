@@ -27,7 +27,7 @@ public interface ai extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ai)) {
                 return (ai) queryLocalInterface;
             }
-            return new C1235a(iBinder);
+            return new C1237a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -66,12 +66,12 @@ public interface ai extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.ai$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class C1235a implements ai {
+        private static class C1237a implements ai {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f13109a;
 
-            C1235a(IBinder iBinder) {
+            C1237a(IBinder iBinder) {
                 this.f13109a = iBinder;
             }
 

@@ -12,15 +12,15 @@ public class d implements ah {
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gGT;
+    private int gHh;
     private boolean isSigned;
-    private int nnn;
-    private int nno;
-    private int nnp;
-    private boolean nnq;
-    private boolean nnr;
-    private boolean nns;
-    private int nnt;
+    private int nnN;
+    private int nnO;
+    private int nnP;
+    private boolean nnQ;
+    private boolean nnR;
+    private boolean nnS;
+    private int nnT;
     private int userLevel;
 
     public int getForumId() {
@@ -35,82 +35,82 @@ public class d implements ah {
         return this.avatar;
     }
 
-    public int dKH() {
-        return this.nnn;
+    public int dKP() {
+        return this.nnN;
     }
 
-    public int dKI() {
-        return this.gGT;
+    public int dKQ() {
+        return this.gHh;
     }
 
-    public int bKx() {
+    public int bKC() {
         return this.userLevel;
     }
 
-    public int dKJ() {
-        return this.nno;
+    public int dKR() {
+        return this.nnO;
     }
 
-    public int dKK() {
-        return this.nnp;
+    public int dKS() {
+        return this.nnP;
     }
 
     public void Jj(int i) {
-        this.nnn = i;
+        this.nnN = i;
     }
 
     public void Jk(int i) {
-        this.gGT = i;
+        this.gHh = i;
     }
 
     public void setUserLevel(int i) {
         this.userLevel = i;
     }
 
-    public boolean bSg() {
+    public boolean bSn() {
         return this.isSigned;
     }
 
     public void yc(boolean z) {
         this.isSigned = z;
-        this.nnn = 1;
+        this.nnN = 1;
     }
 
-    public boolean dKL() {
-        return this.nnr;
+    public boolean dKT() {
+        return this.nnR;
     }
 
     public void yd(boolean z) {
-        this.nnr = z;
-        this.nnn = 0;
+        this.nnR = z;
+        this.nnN = 0;
     }
 
-    public boolean dKM() {
-        return this.nns;
+    public boolean dKU() {
+        return this.nnS;
     }
 
     public void ye(boolean z) {
-        this.nns = z;
+        this.nnS = z;
     }
 
-    public int dKN() {
-        return this.nnt;
+    public int dKV() {
+        return this.nnT;
     }
 
     public void Jl(int i) {
-        this.nnt = i;
+        this.nnT = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean dKO() {
-        return this.nnq;
+    public boolean dKW() {
+        return this.nnQ;
     }
 
     public void yf(boolean z) {
-        this.nnq = z;
+        this.nnQ = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -118,14 +118,14 @@ public class d implements ah {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.nnn = jSONObject.optInt("is_sign_in");
-            this.gGT = jSONObject.optInt("cont_sign_num");
+            this.nnN = jSONObject.optInt("is_sign_in");
+            this.gHh = jSONObject.optInt("cont_sign_num");
             this.userLevel = jSONObject.optInt(IntentConfig.USER_LEVEL);
-            this.nno = jSONObject.optInt("user_exp");
-            this.nnp = jSONObject.optInt("need_exp");
-            if (this.nnn != 0) {
+            this.nnO = jSONObject.optInt("user_exp");
+            this.nnP = jSONObject.optInt("need_exp");
+            if (this.nnN != 0) {
                 this.isSigned = true;
-                this.nnr = false;
+                this.nnR = false;
             }
         }
     }

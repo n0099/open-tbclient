@@ -26,8 +26,8 @@ public class k implements com.kwai.sodler.lib.a.e {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.kwai.sodler.lib.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C1164a extends a {
-            public C1164a(com.kwai.sodler.lib.a.e eVar) {
+        public static class C1166a extends a {
+            public C1166a(com.kwai.sodler.lib.a.e eVar) {
                 super(eVar);
             }
 
@@ -72,7 +72,7 @@ public class k implements com.kwai.sodler.lib.a.e {
                 case 1:
                     return new c(eVar);
                 case 256:
-                    return new C1164a(eVar);
+                    return new C1166a(eVar);
                 default:
                     return new b(eVar);
             }

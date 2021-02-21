@@ -19,12 +19,12 @@ public class o {
 
     public static void a(Context context, String str, int i, final a aVar, boolean z) {
         u.f("splashLoadAd", " getImageBytes url " + str);
-        com.bytedance.sdk.openadsdk.i.e.a(context).f().a(str, new b.InterfaceC1020b() { // from class: com.bytedance.sdk.openadsdk.utils.o.1
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC1020b
+        com.bytedance.sdk.openadsdk.i.e.a(context).f().a(str, new b.InterfaceC1022b() { // from class: com.bytedance.sdk.openadsdk.utils.o.1
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC1022b
             public void a() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC1020b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC1022b
             public void a(String str2, byte[] bArr) {
                 if (bArr != null && bArr.length > 0 && a.this != null) {
                     u.b("ImageBytesHelper: ", "图片数据返回成功" + bArr.length);
@@ -34,11 +34,11 @@ public class o {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC1020b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC1022b
             public void a(b.c cVar) {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC1020b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC1022b
             public void b(b.c cVar) {
                 if (a.this != null) {
                     a.this.a();

@@ -10,12 +10,12 @@ import com.baidu.tieba.ala.view.PkRankTaskBGStartAnimView;
 /* loaded from: classes11.dex */
 public class m {
     private MediaMetadataRetriever bem;
-    private PkRankTaskBGStartAnimView igU;
+    private PkRankTaskBGStartAnimView ihi;
     private ViewGroup mParentView;
 
     public void setParentView(ViewGroup viewGroup) {
         this.mParentView = viewGroup;
-        cou();
+        coB();
     }
 
     public void PU() {
@@ -38,14 +38,14 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean coS() {
+    public boolean coZ() {
         int i;
         int i2;
         int i3;
-        cou();
-        this.igU.setVisibility(0);
-        String cox = o.coT().cox();
-        if (TextUtils.isEmpty(cox)) {
+        coB();
+        this.ihi.setVisibility(0);
+        String coE = o.cpa().coE();
+        if (TextUtils.isEmpty(coE)) {
             i = 0;
             i2 = 0;
         } else {
@@ -53,7 +53,7 @@ public class m {
                 this.bem = new MediaMetadataRetriever();
             }
             try {
-                this.bem.setDataSource(cox);
+                this.bem.setDataSource(coE);
                 i3 = Integer.valueOf(this.bem.extractMetadata(18)).intValue();
                 try {
                     i = Integer.valueOf(this.bem.extractMetadata(19)).intValue();
@@ -63,13 +63,13 @@ public class m {
                     th.printStackTrace();
                     i = 0;
                     i2 = i3;
-                    cox = null;
+                    coE = null;
                     if (i2 > 0) {
                     }
-                    cox = null;
+                    coE = null;
                     int realScreenWidth = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-                    this.igU.bW(realScreenWidth, TextUtils.isEmpty(cox) ? (realScreenWidth * i) / (i2 / 2) : realScreenWidth);
-                    return this.igU.IE(cox);
+                    this.ihi.bX(realScreenWidth, TextUtils.isEmpty(coE) ? (realScreenWidth * i) / (i2 / 2) : realScreenWidth);
+                    return this.ihi.IF(coE);
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -77,32 +77,32 @@ public class m {
             }
         }
         if (i2 > 0 || i <= 0) {
-            cox = null;
+            coE = null;
         }
         int realScreenWidth2 = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-        this.igU.bW(realScreenWidth2, TextUtils.isEmpty(cox) ? (realScreenWidth2 * i) / (i2 / 2) : realScreenWidth2);
-        return this.igU.IE(cox);
+        this.ihi.bX(realScreenWidth2, TextUtils.isEmpty(coE) ? (realScreenWidth2 * i) / (i2 / 2) : realScreenWidth2);
+        return this.ihi.IF(coE);
     }
 
-    private void cou() {
-        if (this.igU == null) {
-            this.igU = new PkRankTaskBGStartAnimView(getContext());
+    private void coB() {
+        if (this.ihi == null) {
+            this.ihi = new PkRankTaskBGStartAnimView(getContext());
         }
-        if (bkq().indexOfChild(this.igU) < 0) {
-            bkq().addView(this.igU, new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds220), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds88)));
+        if (bkq().indexOfChild(this.ihi) < 0) {
+            bkq().addView(this.ihi, new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds220), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds88)));
         }
-        this.igU.setVisibility(8);
-        this.igU.setCallback(new PkRankTaskBGStartAnimView.a() { // from class: com.baidu.tieba.ala.h.m.1
+        this.ihi.setVisibility(8);
+        this.ihi.setCallback(new PkRankTaskBGStartAnimView.a() { // from class: com.baidu.tieba.ala.h.m.1
             @Override // com.baidu.tieba.ala.view.PkRankTaskBGStartAnimView.a
-            public void cov() {
+            public void coC() {
             }
         });
     }
 
     public void reset() {
-        if (this.igU != null) {
-            this.igU.stopAnim();
-            this.igU.setVisibility(8);
+        if (this.ihi != null) {
+            this.ihi.stopAnim();
+            this.ihi.setVisibility(8);
         }
     }
 
@@ -112,12 +112,12 @@ public class m {
             this.bem.release();
             this.bem = null;
         }
-        if (this.igU != null) {
-            this.igU.setCallback(null);
-            this.igU.release();
+        if (this.ihi != null) {
+            this.ihi.setCallback(null);
+            this.ihi.release();
         }
-        if (this.igU != null && (this.igU.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.igU.getParent()).removeView(this.igU);
+        if (this.ihi != null && (this.ihi.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.ihi.getParent()).removeView(this.ihi);
         }
         this.mParentView = null;
     }

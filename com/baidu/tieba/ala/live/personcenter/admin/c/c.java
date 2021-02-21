@@ -17,48 +17,48 @@ import java.util.List;
 public class c {
     private CommonEmptyView bMk;
     private BdTypeListView bnu;
-    private PbListView gNy;
-    private TbListViewPullView gOs;
-    private LoadingView gOx;
-    private com.baidu.tieba.ala.live.personcenter.admin.a.a hki;
-    private com.baidu.tieba.ala.live.personcenter.admin.d.a hkj;
+    private PbListView gNM;
+    private TbListViewPullView gOG;
+    private LoadingView gOL;
+    private com.baidu.tieba.ala.live.personcenter.admin.a.a hkw;
+    private com.baidu.tieba.ala.live.personcenter.admin.d.a hkx;
     private TbPageContext mPageContext;
     private View mRootView;
 
     public c(TbPageContext tbPageContext, View view) {
         this.bnu = null;
-        this.hki = null;
-        this.hkj = null;
+        this.hkw = null;
+        this.hkx = null;
         this.mPageContext = tbPageContext;
         this.mRootView = view;
-        this.hki = new com.baidu.tieba.ala.live.personcenter.admin.a.a(this.mPageContext.getPageActivity(), tbPageContext.getUniqueId());
+        this.hkw = new com.baidu.tieba.ala.live.personcenter.admin.a.a(this.mPageContext.getPageActivity(), tbPageContext.getUniqueId());
         this.bnu = (BdTypeListView) view.findViewById(a.f.ala_person_adminlist_listview);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.hki);
+        arrayList.add(this.hkw);
         this.bnu.addAdapters(arrayList);
-        this.hkj = new com.baidu.tieba.ala.live.personcenter.admin.d.a(tbPageContext);
-        this.bnu.addHeaderView(this.hkj.aZl());
-        this.gOx = new LoadingView(tbPageContext.getPageActivity());
-        this.gOs = new TbListViewPullView(this.mPageContext);
-        this.gOs.setTag(this.mPageContext.getUniqueId());
-        this.bnu.setPullRefresh(this.gOs);
-        this.gNy = new PbListView(this.mPageContext.getPageActivity());
-        this.gNy.createView();
+        this.hkx = new com.baidu.tieba.ala.live.personcenter.admin.d.a(tbPageContext);
+        this.bnu.addHeaderView(this.hkx.aZl());
+        this.gOL = new LoadingView(tbPageContext.getPageActivity());
+        this.gOG = new TbListViewPullView(this.mPageContext);
+        this.gOG.setTag(this.mPageContext.getUniqueId());
+        this.bnu.setPullRefresh(this.gOG);
+        this.gNM = new PbListView(this.mPageContext.getPageActivity());
+        this.gNM.createView();
     }
 
     public void f(List<IAdapterData> list, int i) {
-        this.hkj.bK(list.size(), i);
+        this.hkx.bL(list.size(), i);
         this.bnu.setData(list);
     }
 
     public void onChangeSkinType(int i) {
         this.mPageContext.getLayoutMode().onModeChanged(this.bnu);
         this.bnu.setDivider(null);
-        if (this.hki != null) {
-            this.hki.notifyDataSetChanged();
+        if (this.hkw != null) {
+            this.hkw.notifyDataSetChanged();
         }
-        if (this.hkj != null) {
-            this.hkj.onChangeSkinType(i);
+        if (this.hkx != null) {
+            this.hkx.onChangeSkinType(i);
         }
     }
 
@@ -68,22 +68,22 @@ public class c {
         }
     }
 
-    public void bVi() {
-        if (this.gNy != null) {
-            if (this.gNy.getView().getParent() == null) {
-                this.bnu.setNextPage(this.gNy);
+    public void bVp() {
+        if (this.gNM != null) {
+            if (this.gNM.getView().getParent() == null) {
+                this.bnu.setNextPage(this.gNM);
             }
-            this.gNy.setText(this.mPageContext.getResources().getString(a.h.sdk_load_more));
-            this.gNy.endLoadData();
+            this.gNM.setText(this.mPageContext.getResources().getString(a.h.sdk_load_more));
+            this.gNM.endLoadData();
         }
     }
 
-    public void bVE() {
+    public void bVL() {
         this.bnu.setNextPage(null);
     }
 
     public void setListPullRefreshListener(TbListCommonPullView.ListPullRefreshListener listPullRefreshListener) {
-        this.gOs.setListPullRefreshListener(listPullRefreshListener);
+        this.gOG.setListPullRefreshListener(listPullRefreshListener);
     }
 
     public void a(int i, View.OnClickListener onClickListener) {
@@ -106,13 +106,13 @@ public class c {
         }
     }
 
-    public void bYh() {
+    public void bYo() {
         if (this.bnu != null) {
             this.bnu.setVisibility(0);
         }
     }
 
-    public void bYi() {
+    public void bYp() {
         if (this.bnu != null) {
             this.bnu.setVisibility(4);
         }

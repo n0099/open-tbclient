@@ -5,5 +5,5 @@ import android.webkit.JsPromptResult;
 public interface b {
     void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult);
 
-    String cuv();
+    String cuC();
 }

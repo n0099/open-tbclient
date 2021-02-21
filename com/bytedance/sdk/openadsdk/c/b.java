@@ -62,8 +62,8 @@ public class b<T extends i> {
         return a.e();
     }
 
-    public static C0999b d() {
-        return C0999b.e();
+    public static C1001b d() {
+        return C1001b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -104,23 +104,23 @@ public class b<T extends i> {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0999b extends b<c.a> {
+    public static class C1001b extends b<c.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile C0999b f6223a;
+        private static volatile C1001b f6223a;
 
-        public static C0999b e() {
+        public static C1001b e() {
             if (f6223a == null) {
-                synchronized (C0999b.class) {
+                synchronized (C1001b.class) {
                     if (f6223a == null) {
-                        f6223a = new C0999b();
+                        f6223a = new C1001b();
                     }
                 }
             }
             return f6223a;
         }
 
-        C0999b() {
+        C1001b() {
         }
 
         @Override // com.bytedance.sdk.openadsdk.c.b

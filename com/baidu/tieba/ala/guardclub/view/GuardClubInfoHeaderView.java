@@ -17,24 +17,24 @@ import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes11.dex */
 public class GuardClubInfoHeaderView extends LinearLayout {
     public TextView aDM;
-    public TextView gPr;
-    public TextView gYM;
-    public TextView hbA;
-    public TextView hbB;
-    public LinearLayout hbC;
-    public TextView hbD;
-    public View hbE;
-    public TextView hbF;
-    public ImageView hbG;
-    public HeadImageView hbr;
-    public TbImageView hbs;
-    public ImageView hbt;
-    public ImageView hbu;
-    public ImageView hbv;
-    public TextView hbw;
-    public ProgressBar hbx;
-    public TextView hby;
-    public LinearLayout hbz;
+    public TextView gPF;
+    public TextView gZa;
+    public HeadImageView hbF;
+    public TbImageView hbG;
+    public ImageView hbH;
+    public ImageView hbI;
+    public ImageView hbJ;
+    public TextView hbK;
+    public ProgressBar hbL;
+    public TextView hbM;
+    public LinearLayout hbN;
+    public TextView hbO;
+    public TextView hbP;
+    public LinearLayout hbQ;
+    public TextView hbR;
+    public View hbS;
+    public TextView hbT;
+    public ImageView hbU;
 
     public GuardClubInfoHeaderView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -49,20 +49,20 @@ public class GuardClubInfoHeaderView extends LinearLayout {
                 if (this.aDM != null) {
                     this.aDM.setTypeface(Typeface.defaultFromStyle(0));
                 }
-                if (this.gYM != null) {
-                    this.gYM.setTypeface(Typeface.defaultFromStyle(0));
+                if (this.gZa != null) {
+                    this.gZa.setTypeface(Typeface.defaultFromStyle(0));
                 }
-                if (this.hby != null) {
-                    this.hby.setTextColor(getResources().getColor(a.c.sdk_white_alpha60));
+                if (this.hbM != null) {
+                    this.hbM.setTextColor(getResources().getColor(a.c.sdk_white_alpha60));
                 }
-                if (this.hbB != null) {
-                    this.hbB.setTextColor(getResources().getColor(a.c.sdk_white_alpha100));
+                if (this.hbP != null) {
+                    this.hbP.setTextColor(getResources().getColor(a.c.sdk_white_alpha100));
                 }
-                if (this.gPr != null) {
-                    this.gPr.setTextColor(getResources().getColor(a.c.sdk_white_alpha100));
+                if (this.gPF != null) {
+                    this.gPF.setTextColor(getResources().getColor(a.c.sdk_white_alpha100));
                 }
-                if (this.hbv != null) {
-                    this.hbv.setVisibility(0);
+                if (this.hbJ != null) {
+                    this.hbJ.setVisibility(0);
                     return;
                 }
                 return;
@@ -72,20 +72,20 @@ public class GuardClubInfoHeaderView extends LinearLayout {
                 if (this.aDM != null) {
                     this.aDM.setTypeface(Typeface.defaultFromStyle(1));
                 }
-                if (this.gYM != null) {
-                    this.gYM.setTypeface(Typeface.defaultFromStyle(1));
+                if (this.gZa != null) {
+                    this.gZa.setTypeface(Typeface.defaultFromStyle(1));
                 }
-                if (this.hby != null) {
-                    this.hby.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
+                if (this.hbM != null) {
+                    this.hbM.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
                 }
-                if (this.hbB != null) {
-                    this.hbB.setTextColor(-11337753);
+                if (this.hbP != null) {
+                    this.hbP.setTextColor(-11337753);
                 }
-                if (this.gPr != null) {
-                    this.gPr.setTextColor(-11337753);
+                if (this.gPF != null) {
+                    this.gPF.setTextColor(-11337753);
                 }
-                if (this.hbu != null) {
-                    this.hbu.setVisibility(0);
+                if (this.hbI != null) {
+                    this.hbI.setVisibility(0);
                     return;
                 }
                 return;
@@ -97,24 +97,24 @@ public class GuardClubInfoHeaderView extends LinearLayout {
     private void init() {
         setOrientation(0);
         LayoutInflater.from(getContext()).inflate(a.g.live_guard_club_widget_info_header, (ViewGroup) this, true);
-        this.hbr = (HeadImageView) findViewById(a.f.header_imageView);
-        this.hbs = (TbImageView) findViewById(a.f.headwear_imageView);
+        this.hbF = (HeadImageView) findViewById(a.f.header_imageView);
+        this.hbG = (TbImageView) findViewById(a.f.headwear_imageView);
         this.aDM = (TextView) findViewById(a.f.name_textView);
-        this.gYM = (TextView) findViewById(a.f.nameSuffix_textView);
-        this.hbt = (ImageView) findViewById(a.f.edit_imageView);
-        this.hbu = (ImageView) findViewById(a.f.explain_imageView_left);
-        this.hbv = (ImageView) findViewById(a.f.explain_imageView_right);
-        this.hbw = (TextView) findViewById(a.f.score_textView);
-        this.hbx = (ProgressBar) findViewById(a.f.score_progressBar);
-        this.hby = (TextView) findViewById(a.f.next_textView);
-        this.hbz = (LinearLayout) findViewById(a.f.memberNum_layout);
-        this.hbA = (TextView) findViewById(a.f.memberNumTitle_textView);
-        this.hbB = (TextView) findViewById(a.f.memberNum_textView);
-        this.hbC = (LinearLayout) findViewById(a.f.rank_layout);
-        this.hbD = (TextView) findViewById(a.f.rankTitle_textView);
-        this.gPr = (TextView) findViewById(a.f.rank_textView);
-        this.hbE = findViewById(a.f.modify_clubname);
-        this.hbG = (ImageView) findViewById(a.f.rename_pen);
-        this.hbF = (TextView) findViewById(a.f.rename_text);
+        this.gZa = (TextView) findViewById(a.f.nameSuffix_textView);
+        this.hbH = (ImageView) findViewById(a.f.edit_imageView);
+        this.hbI = (ImageView) findViewById(a.f.explain_imageView_left);
+        this.hbJ = (ImageView) findViewById(a.f.explain_imageView_right);
+        this.hbK = (TextView) findViewById(a.f.score_textView);
+        this.hbL = (ProgressBar) findViewById(a.f.score_progressBar);
+        this.hbM = (TextView) findViewById(a.f.next_textView);
+        this.hbN = (LinearLayout) findViewById(a.f.memberNum_layout);
+        this.hbO = (TextView) findViewById(a.f.memberNumTitle_textView);
+        this.hbP = (TextView) findViewById(a.f.memberNum_textView);
+        this.hbQ = (LinearLayout) findViewById(a.f.rank_layout);
+        this.hbR = (TextView) findViewById(a.f.rankTitle_textView);
+        this.gPF = (TextView) findViewById(a.f.rank_textView);
+        this.hbS = findViewById(a.f.modify_clubname);
+        this.hbU = (ImageView) findViewById(a.f.rename_pen);
+        this.hbT = (TextView) findViewById(a.f.rename_text);
     }
 }

@@ -17,7 +17,7 @@ import com.fun.ad.sdk.FunRippedAd;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class bo extends bd {
-    public TTNativeExpressAd pOC;
+    public TTNativeExpressAd pPc;
 
     /* loaded from: classes6.dex */
     public class b implements TTAdDislike.DislikeInteractionCallback {
@@ -46,7 +46,7 @@ public class bo extends bd {
                 ((ViewGroup) this.f7775a.getParent()).removeView(this.f7775a);
             }
             bo boVar = bo.this;
-            ax axVar = boVar.pPB;
+            ax axVar = boVar.pQb;
             if (axVar != null) {
                 ((am) axVar).a(boVar.f7766a.f7762a);
             }
@@ -60,17 +60,17 @@ public class bo extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        TTNativeExpressAd tTNativeExpressAd = this.pOC;
+        TTNativeExpressAd tTNativeExpressAd = this.pPc;
         if (tTNativeExpressAd != null) {
             tTNativeExpressAd.destroy();
-            this.pOC = null;
+            this.pPc = null;
         }
     }
 
     @Override // com.fun.ad.bd
-    public FunRippedAd eAp() {
+    public FunRippedAd eAx() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTNativeExpressAd tTNativeExpressAd = this.pOC;
+        TTNativeExpressAd tTNativeExpressAd = this.pPc;
         if (tTNativeExpressAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTNativeExpressAd, false)) == null) {
             return null;
         }
@@ -96,7 +96,7 @@ public class bo extends bd {
             bo.this.f7767b = false;
             m.a("CSJBannerExpressAd onError code: " + i + ", message: " + str);
             bo boVar = bo.this;
-            ba baVar = boVar.pPA;
+            ba baVar = boVar.pQa;
             if (baVar != null) {
                 ((aj) baVar).a(boVar.f7766a.f7762a, i, str);
             }
@@ -106,10 +106,10 @@ public class bo extends bd {
         public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
             m.a("CSJBannerExpressAd onNativeExpressAdLoad");
             if (list != null && !list.isEmpty()) {
-                bo.this.pOC = list.get(0);
-                AdRipper.ripCSJ(bo.this.pOC);
+                bo.this.pPc = list.get(0);
+                AdRipper.ripCSJ(bo.this.pPc);
                 bo boVar = bo.this;
-                TTNativeExpressAd tTNativeExpressAd = boVar.pOC;
+                TTNativeExpressAd tTNativeExpressAd = boVar.pPc;
                 tTNativeExpressAd.setExpressInteractionListener(new br(boVar));
                 tTNativeExpressAd.render();
                 return;
@@ -130,8 +130,8 @@ public class bo extends bd {
             } else {
                 expressWidth = funAdSlot.getExpressWidth();
             }
-            this.pPC.loadBannerExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
-            ba baVar2 = this.pPA;
+            this.pQc.loadBannerExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
+            ba baVar2 = this.pQa;
             if (baVar2 != null) {
                 ((aj) baVar2).a(this.f7766a.f7762a);
             }
@@ -141,17 +141,17 @@ public class bo extends bd {
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTNativeExpressAd tTNativeExpressAd = this.pOC;
+        TTNativeExpressAd tTNativeExpressAd = this.pPc;
         if (tTNativeExpressAd == null) {
             return;
         }
         tTNativeExpressAd.setSlideIntervalTime(this.f7766a.f);
-        View expressAdView = this.pOC.getExpressAdView();
+        View expressAdView = this.pPc.getExpressAdView();
         if (expressAdView.getParent() != null) {
             ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
         }
-        this.pOC.setDislikeCallback(activity, new b(expressAdView));
-        this.pOC.setDownloadListener(new bj(null));
+        this.pPc.setDislikeCallback(activity, new b(expressAdView));
+        this.pPc.setDownloadListener(new bj(null));
         funAdView.removeAllViews();
         funAdView.addView(expressAdView);
     }

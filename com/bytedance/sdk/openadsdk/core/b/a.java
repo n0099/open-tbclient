@@ -17,7 +17,7 @@ public class a {
     private static volatile boolean f6452b;
     private static volatile long c;
     private Handler e;
-    private final Queue<C1006a> d = new LinkedList();
+    private final Queue<C1008a> d = new LinkedList();
     private final l f = p.h();
 
     private a() {
@@ -46,10 +46,10 @@ public class a {
                 z = true;
             } else {
                 this.d.poll();
-                this.d.offer(new C1006a(currentTimeMillis, str));
+                this.d.offer(new C1008a(currentTimeMillis, str));
             }
         } else {
-            this.d.offer(new C1006a(currentTimeMillis, str));
+            this.d.offer(new C1008a(currentTimeMillis, str));
         }
         z = false;
         return z;
@@ -93,11 +93,11 @@ public class a {
     public synchronized String c() {
         String str;
         HashMap hashMap = new HashMap();
-        for (C1006a c1006a : this.d) {
-            if (hashMap.containsKey(c1006a.f6455b)) {
-                hashMap.put(c1006a.f6455b, Integer.valueOf(((Integer) hashMap.get(c1006a.f6455b)).intValue() + 1));
+        for (C1008a c1008a : this.d) {
+            if (hashMap.containsKey(c1008a.f6455b)) {
+                hashMap.put(c1008a.f6455b, Integer.valueOf(((Integer) hashMap.get(c1008a.f6455b)).intValue() + 1));
             } else {
-                hashMap.put(c1006a.f6455b, 1);
+                hashMap.put(c1008a.f6455b, 1);
             }
         }
         str = "";
@@ -115,7 +115,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.core.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1006a {
+    public static class C1008a {
 
         /* renamed from: a  reason: collision with root package name */
         private final long f6454a;
@@ -123,7 +123,7 @@ public class a {
         /* renamed from: b  reason: collision with root package name */
         private final String f6455b;
 
-        private C1006a(long j, String str) {
+        private C1008a(long j, String str) {
             this.f6454a = j;
             this.f6455b = str;
         }

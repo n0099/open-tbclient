@@ -20,11 +20,11 @@ public class ScreenTopToast extends LinearLayout {
     private Animation bRg;
     private Animation bRh;
     private TextView cTD;
-    private TBSpecificationBtn iMt;
+    private TBSpecificationBtn iMH;
     private boolean isShow;
     private Runnable mHideRunnable;
     private TextView mTitleView;
-    private ShadowLinearLayout oai;
+    private ShadowLinearLayout oaI;
 
     public ScreenTopToast(Context context) {
         this(context, null);
@@ -45,11 +45,11 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.oai = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.oaI = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
         this.mTitleView = (TextView) findViewById(R.id.screen_top_toast_title);
         this.cTD = (TextView) findViewById(R.id.screen_top_toast_content);
-        this.iMt = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-        this.iMt.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
+        this.iMH = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
+        this.iMH.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
         initAnimation();
         onChangeSkinType();
     }
@@ -83,23 +83,23 @@ public class ScreenTopToast extends LinearLayout {
         };
     }
 
-    public ScreenTopToast US(String str) {
+    public ScreenTopToast Ve(String str) {
         this.mTitleView.setText(str);
         return this;
     }
 
-    public ScreenTopToast UT(String str) {
+    public ScreenTopToast Vf(String str) {
         this.cTD.setText(str);
         return this;
     }
 
-    public ScreenTopToast UU(String str) {
-        this.iMt.setText(str);
+    public ScreenTopToast Vg(String str) {
+        this.iMH.setText(str);
         return this;
     }
 
     public ScreenTopToast an(View.OnClickListener onClickListener) {
-        this.iMt.setOnClickListener(onClickListener);
+        this.iMH.setOnClickListener(onClickListener);
         return this;
     }
 
@@ -134,8 +134,8 @@ public class ScreenTopToast extends LinearLayout {
     public void onChangeSkinType() {
         ap.setViewTextColor(this.mTitleView, R.color.CAM_X0302);
         ap.setViewTextColor(this.cTD, R.color.CAM_X0302);
-        this.iMt.bup();
-        this.oai.onChangeSkinType();
+        this.iMH.bup();
+        this.oaI.onChangeSkinType();
     }
 
     public boolean isShow() {

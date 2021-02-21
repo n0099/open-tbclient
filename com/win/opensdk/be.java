@@ -21,7 +21,7 @@ import org.json.JSONException;
 public final class be {
     public static String java;
 
-    public static boolean abE(String str) {
+    public static boolean abQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -73,10 +73,10 @@ public final class be {
 
     private static List<String> iZ(Context context) {
         ArrayList arrayList = new ArrayList();
-        String m67d = az.m67d(context);
-        if (!TextUtils.isEmpty(m67d)) {
+        String m66d = az.m66d(context);
+        if (!TextUtils.isEmpty(m66d)) {
             try {
-                JSONArray jSONArray = new JSONArray(m67d);
+                JSONArray jSONArray = new JSONArray(m66d);
                 if (jSONArray.length() > 0) {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         arrayList.add(jSONArray.optString(i));
@@ -97,7 +97,7 @@ public final class be {
         } else if (bf.aj(uri)) {
             intent.setPackage("com.android.vending");
         } else {
-            intent = bs.abO(uri.toString());
+            intent = bs.aca(uri.toString());
             intent.addFlags(268435456);
         }
         context.startActivity(intent);

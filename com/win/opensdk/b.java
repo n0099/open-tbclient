@@ -6,75 +6,75 @@ import com.win.opensdk.core.Info;
 /* loaded from: classes3.dex */
 public class b {
     private String java;
-    private bm qiZ;
-    private c qja;
+    private c qjA;
+    private bm qjz;
 
     public b(@NonNull Context context, String str) {
         Context applicationContext = context.getApplicationContext();
         this.java = str;
-        this.qiZ = new bm(applicationContext, str);
-        this.qiZ.qja = new c() { // from class: com.win.opensdk.b.1
+        this.qjz = new bm(applicationContext, str);
+        this.qjz.qjA = new c() { // from class: com.win.opensdk.b.1
             @Override // com.win.opensdk.c
-            public final void eAq() {
-                if (b.this.qja != null) {
-                    b.this.qja.eAq();
+            public final void eAy() {
+                if (b.this.qjA != null) {
+                    b.this.qjA.eAy();
                 }
             }
 
             @Override // com.win.opensdk.c
-            public final void eAr() {
-                if (b.this.qja != null) {
-                    b.this.qja.eAr();
+            public final void eAz() {
+                if (b.this.qjA != null) {
+                    b.this.qjA.eAz();
                 }
             }
 
             @Override // com.win.opensdk.c
-            public final void ZD(String str2) {
-                if (b.this.qja != null) {
-                    b.this.qja.ZD(str2);
+            public final void ZP(String str2) {
+                if (b.this.qjA != null) {
+                    b.this.qjA.ZP(str2);
                 }
             }
 
             @Override // com.win.opensdk.c
             public final void r(boolean z, long j) {
-                if (b.this.qja != null) {
-                    b.this.qja.r(z, j);
+                if (b.this.qjA != null) {
+                    b.this.qjA.r(z, j);
                 }
             }
 
             @Override // com.win.opensdk.PBListener
             public final void onFail(PBError pBError) {
-                if (b.this.qja != null) {
-                    b.this.qja.onFail(pBError);
+                if (b.this.qjA != null) {
+                    b.this.qjA.onFail(pBError);
                 }
             }
 
             @Override // com.win.opensdk.PBListener
             public final void onLoaded() {
-                if (b.this.qja != null) {
-                    b.this.qja.onLoaded();
+                if (b.this.qjA != null) {
+                    b.this.qjA.onLoaded();
                 }
             }
 
             @Override // com.win.opensdk.PBListener
             public final void onClicked() {
-                if (b.this.qja != null) {
-                    b.this.qja.onClicked();
+                if (b.this.qjA != null) {
+                    b.this.qjA.onClicked();
                 }
             }
         };
     }
 
     public void load() {
-        final bm bmVar = this.qiZ;
-        if (bmVar.java() && bmVar.qji.isEffective() && !bmVar.qji.isShown()) {
-            bmVar.a(bmVar.qji);
+        final bm bmVar = this.qjz;
+        if (bmVar.java() && bmVar.qjI.isEffective() && !bmVar.qjI.isShown()) {
+            bmVar.a(bmVar.qjI);
             return;
         }
-        if (bmVar.qjW == null) {
-            bmVar.qjW = new ad(bmVar.qiN, bmVar.java, e.f13748b);
+        if (bmVar.qkw == null) {
+            bmVar.qkw = new ad(bmVar.qjn, bmVar.java, e.f13748b);
         }
-        bmVar.qjW.qjT = new ae<Info>() { // from class: com.win.opensdk.bm.2
+        bmVar.qkw.qkt = new ae<Info>() { // from class: com.win.opensdk.bm.2
             @Override // com.win.opensdk.ae
             public final /* synthetic */ void bH(Info info) {
                 bmVar.a(info);
@@ -82,49 +82,49 @@ public class b {
 
             @Override // com.win.opensdk.ae
             public final void b(PBError pBError) {
-                bmVar.qja.onFail(pBError);
+                bmVar.qjA.onFail(pBError);
             }
         };
-        bmVar.qjW.eIP();
+        bmVar.qkw.eIX();
     }
 
     public void a(c cVar) {
-        this.qja = cVar;
+        this.qjA = cVar;
     }
 
     public boolean isReady() {
-        bm bmVar = this.qiZ;
-        return bmVar.m71a() || bmVar.c();
+        bm bmVar = this.qjz;
+        return bmVar.m70a() || bmVar.c();
     }
 
     public void show() {
-        bm bmVar = this.qiZ;
-        if (!av.iM(bmVar.qiN)) {
-            if (bmVar.qja != null) {
-                bmVar.qja.ZD(PBError.NO_NETWORK.getMsg());
+        bm bmVar = this.qjz;
+        if (!av.iM(bmVar.qjn)) {
+            if (bmVar.qjA != null) {
+                bmVar.qjA.ZP(PBError.NO_NETWORK.getMsg());
             }
-        } else if (bmVar.eJn()) {
-            if (!bmVar.m71a() || !bmVar.java()) {
+        } else if (bmVar.eJv()) {
+            if (!bmVar.m70a() || !bmVar.java()) {
                 return;
             }
-            bmVar.qiQ = false;
-            bp.eJo().a(bp.aX(bmVar.qji.getTraceid(), bmVar.qji.getId(), bmVar.qji.getPid()), bmVar.qiU);
-            bmVar.eIP();
-        } else if (!bmVar.m72b() || !bmVar.c() || !bmVar.java()) {
-        } else {
             bmVar.qjq = false;
-            bmVar.eIP();
+            bp.eJw().a(bp.aX(bmVar.qjI.getTraceid(), bmVar.qjI.getId(), bmVar.qjI.getPid()), bmVar.qju);
+            bmVar.eIX();
+        } else if (!bmVar.m71b() || !bmVar.c() || !bmVar.java()) {
+        } else {
+            bmVar.qjQ = false;
+            bmVar.eIX();
         }
     }
 
     public void destroy() {
-        bm bmVar = this.qiZ;
+        bm bmVar = this.qjz;
         bmVar.f13731a = false;
-        bmVar.qiQ = false;
         bmVar.qjq = false;
-        if (bmVar.qjW == null) {
+        bmVar.qjQ = false;
+        if (bmVar.qkw == null) {
             return;
         }
-        bmVar.qjW.eIQ();
+        bmVar.qkw.eIY();
     }
 }

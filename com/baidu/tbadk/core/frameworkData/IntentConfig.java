@@ -204,7 +204,7 @@ public class IntentConfig extends OrmObject {
             ArrayList<String> bDL = fq == null ? null : fq.bDL();
             if (!y.isEmpty(bDL)) {
                 if (fq != null) {
-                    com.baidu.tbadk.pageExtra.d.Dp(fq.getCurrentPageKey());
+                    com.baidu.tbadk.pageExtra.d.Dn(fq.getCurrentPageKey());
                     com.baidu.tbadk.mutiprocess.g.publishEvent(new PrePageKeyEvent(com.baidu.tbadk.pageExtra.d.bDM()));
                 }
                 this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", bDL);

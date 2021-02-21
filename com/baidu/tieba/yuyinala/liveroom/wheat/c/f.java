@@ -3,64 +3,64 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes11.dex */
 public class f {
-    private static f oGd;
-    private TbPageContext oGe;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c oGf;
+    private static f oGD;
+    private TbPageContext oGE;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c oGF;
 
-    public static f edj() {
-        if (oGd == null) {
-            oGd = new f();
+    public static f edr() {
+        if (oGD == null) {
+            oGD = new f();
         }
-        return oGd;
+        return oGD;
     }
 
     private f() {
     }
 
     public void f(TbPageContext tbPageContext) {
-        if (tbPageContext != null && tbPageContext != this.oGe) {
-            this.oGe = tbPageContext;
+        if (tbPageContext != null && tbPageContext != this.oGE) {
+            this.oGE = tbPageContext;
             hide();
         }
-        if (this.oGe == null) {
-            this.oGe = q.edE().edK();
+        if (this.oGE == null) {
+            this.oGE = q.edM().edS();
         }
-        if (this.oGe != null) {
-            if (this.oGf == null) {
-                this.oGf = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c(this.oGe);
+        if (this.oGE != null) {
+            if (this.oGF == null) {
+                this.oGF = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c(this.oGE);
             }
-            if (this.oGf.edU()) {
-                this.oGf.show();
+            if (this.oGF.eec()) {
+                this.oGF.show();
                 return;
             }
-            this.oGf.show();
-            this.oGf.startTimer();
+            this.oGF.show();
+            this.oGF.startTimer();
         }
     }
 
-    public f edk() {
-        if (this.oGf != null) {
-            this.oGf.startTimer();
+    public f eds() {
+        if (this.oGF != null) {
+            this.oGF.startTimer();
         }
         return this;
     }
 
-    public f edl() {
-        if (this.oGf != null) {
-            this.oGf.cancelTimer();
+    public f edt() {
+        if (this.oGF != null) {
+            this.oGF.cancelTimer();
         }
         return this;
     }
 
     private void hide() {
-        if (this.oGf != null) {
-            this.oGf.dismiss();
-            this.oGf = null;
+        if (this.oGF != null) {
+            this.oGF.dismiss();
+            this.oGF = null;
         }
     }
 
     public void onDestroy() {
-        edl();
+        edt();
         hide();
     }
 }

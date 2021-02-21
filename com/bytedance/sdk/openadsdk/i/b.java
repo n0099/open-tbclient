@@ -5,7 +5,7 @@ import com.bytedance.sdk.adnet.b.d;
 import com.bytedance.sdk.adnet.core.p;
 import com.bytedance.sdk.openadsdk.core.h;
 /* loaded from: classes6.dex */
-public class b implements d.InterfaceC0997d {
+public class b implements d.InterfaceC0999d {
 
     /* renamed from: a  reason: collision with root package name */
     private boolean f7210a;
@@ -50,11 +50,11 @@ public class b implements d.InterfaceC0997d {
         }
     }
 
-    @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+    @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
     public void a() {
     }
 
-    @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+    @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
     public void a(d.c cVar, boolean z) {
         if (this.f7210a && this.f7211b != null) {
             if (cVar == null || cVar.a() == null) {
@@ -64,7 +64,7 @@ public class b implements d.InterfaceC0997d {
         }
     }
 
-    @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0997d
+    @Override // com.bytedance.sdk.adnet.b.d.InterfaceC0999d
     public void b() {
     }
 

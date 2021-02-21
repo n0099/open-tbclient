@@ -9,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String gsk;
-    private int gsl;
+    public String gsy;
+    private int gsz;
     private List<d> mData;
     private File mFolder;
     private int mPosition;
@@ -54,8 +54,8 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         if (jSONObject == null) {
             return false;
         }
-        this.gsl = jSONObject.optInt("ar_version");
-        this.gsk = jSONObject.optString("version");
+        this.gsz = jSONObject.optInt("ar_version");
+        this.gsy = jSONObject.optString("version");
         this.mPosition = jSONObject.optInt("position");
         JSONArray optJSONArray = jSONObject.optJSONArray("makeup_category");
         this.mData = new ArrayList();
@@ -74,8 +74,8 @@ public class b extends com.baidu.tieba.ala.alaar.makeup.b.a {
         JSONObject json;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ar_version", this.gsl);
-            jSONObject.put("version", this.gsk);
+            jSONObject.put("ar_version", this.gsz);
+            jSONObject.put("version", this.gsy);
             jSONObject.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
             if (this.mData != null && this.mData.size() > 0) {

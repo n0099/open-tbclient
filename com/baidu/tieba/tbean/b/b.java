@@ -9,8 +9,8 @@ import tbclient.GetIconList.UserInfo;
 /* loaded from: classes9.dex */
 public class b extends BaseCardInfo implements n {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public Setting nCr;
-    public IconInfo nCs;
+    public Setting nCR;
+    public IconInfo nCS;
     public UserInfo userInfo;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n

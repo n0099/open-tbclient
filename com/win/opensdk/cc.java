@@ -12,12 +12,12 @@ final class cc implements by.a {
     }
 
     @Override // com.win.opensdk.by.a
-    public final byte[] Sf(int i) {
+    public final byte[] Sg(int i) {
         return new byte[i];
     }
 
     @Override // com.win.opensdk.by.a
-    public final int[] Sg(int i) {
+    public final int[] Sh(int i) {
         return new int[i];
     }
 }

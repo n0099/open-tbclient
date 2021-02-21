@@ -29,55 +29,55 @@ public class HotTopicTabThreadItem extends RelativeLayout {
     private TextView ajQ;
     private f<e> ajq;
     private TextView eHx;
-    private int kgI;
-    private TbImageView kgQ;
-    private View kgR;
-    private View kgS;
-    private ImageView kgT;
-    private TextView kgU;
-    private View kgV;
-    private e kgW;
+    private int kgW;
+    private TbImageView khe;
+    private View khf;
+    private View khg;
+    private ImageView khh;
+    private TextView khi;
+    private View khj;
+    private e khk;
 
     public HotTopicTabThreadItem(Context context) {
         super(context);
-        this.kgI = 3;
+        this.kgW = 3;
         initView();
     }
 
     public HotTopicTabThreadItem(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kgI = 3;
+        this.kgW = 3;
         initView();
     }
 
     public HotTopicTabThreadItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kgI = 3;
+        this.kgW = 3;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_tab_thread_item, (ViewGroup) this, true);
-        this.kgQ = (TbImageView) findViewById(R.id.coverView);
-        this.kgR = findViewById(R.id.coverGradientMask);
-        this.kgS = findViewById(R.id.videoTimeContainer);
-        this.kgT = (ImageView) findViewById(R.id.videoPlayIcon);
-        this.kgU = (TextView) findViewById(R.id.videoPlayTime);
+        this.khe = (TbImageView) findViewById(R.id.coverView);
+        this.khf = findViewById(R.id.coverGradientMask);
+        this.khg = findViewById(R.id.videoTimeContainer);
+        this.khh = (ImageView) findViewById(R.id.videoPlayIcon);
+        this.khi = (TextView) findViewById(R.id.videoPlayTime);
         this.ajP = (TextView) findViewById(R.id.indexView);
         this.eHx = (TextView) findViewById(R.id.titleView);
         this.ajQ = (TextView) findViewById(R.id.tagView);
-        this.kgQ.setPlaceHolder(2);
-        this.kgQ.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-        this.kgQ.setConrers(15);
-        this.kgV = findViewById(R.id.rootLayout);
-        this.kgV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem.1
+        this.khe.setPlaceHolder(2);
+        this.khe.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.khe.setConrers(15);
+        this.khj = findViewById(R.id.rootLayout);
+        this.khj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HotTopicTabThreadItem.this.kgW != null && HotTopicTabThreadItem.this.kgW.eJQ != null) {
+                if (HotTopicTabThreadItem.this.khk != null && HotTopicTabThreadItem.this.khk.eJQ != null) {
                     if (HotTopicTabThreadItem.this.ajq != null) {
-                        HotTopicTabThreadItem.this.ajq.a(view, HotTopicTabThreadItem.this.kgW, HotTopicTabThreadItem.this.kgW.index, HotTopicTabThreadItem.this.kgW.index);
+                        HotTopicTabThreadItem.this.ajq.a(view, HotTopicTabThreadItem.this.khk, HotTopicTabThreadItem.this.khk.index, HotTopicTabThreadItem.this.khk.index);
                     }
-                    az.a((com.baidu.tbadk.core.data.a) HotTopicTabThreadItem.this.kgW.eJQ, view.getContext(), 2, false, true);
+                    az.a((com.baidu.tbadk.core.data.a) HotTopicTabThreadItem.this.khk.eJQ, view.getContext(), 2, false, true);
                 }
             }
         });
@@ -89,44 +89,44 @@ public class HotTopicTabThreadItem extends RelativeLayout {
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.kgW = eVar;
+            this.khk = eVar;
             if (TextUtils.isEmpty(eVar.cover)) {
-                this.kgQ.setVisibility(8);
-                this.kgR.setVisibility(8);
-                this.kgS.setVisibility(8);
+                this.khe.setVisibility(8);
+                this.khf.setVisibility(8);
+                this.khg.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ajQ.getLayoutParams();
                 layoutParams.addRule(8, 0);
                 layoutParams.addRule(3, R.id.titleView);
                 this.ajQ.setLayoutParams(layoutParams);
             } else {
-                this.kgQ.startLoad(eVar.cover, 10, false);
-                this.kgQ.setVisibility(0);
+                this.khe.startLoad(eVar.cover, 10, false);
+                this.khe.setVisibility(0);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ajQ.getLayoutParams();
                 layoutParams2.addRule(8, R.id.coverView);
                 layoutParams2.addRule(3, 0);
                 this.ajQ.setLayoutParams(layoutParams2);
                 if (eVar.time > 0) {
-                    this.kgS.setVisibility(0);
-                    this.kgR.setVisibility(0);
-                    this.kgU.setText(StringUtils.translateSecondsToString(eVar.time));
+                    this.khg.setVisibility(0);
+                    this.khf.setVisibility(0);
+                    this.khi.setText(StringUtils.translateSecondsToString(eVar.time));
                 } else {
-                    this.kgS.setVisibility(8);
-                    this.kgR.setVisibility(8);
+                    this.khg.setVisibility(8);
+                    this.khf.setVisibility(8);
                 }
             }
             this.eHx.setText(eVar.title);
             this.ajQ.setText(this.ajQ.getContext().getResources().getString(R.string.hot_topic_thread_item_tag, au.ed(eVar.eTZ < 1000 ? 1000 : eVar.eTZ)));
             this.ajP.setText(String.valueOf(eVar.index));
-            cQM();
-            if (this.ajq != null && this.kgW != null) {
-                this.ajq.b(this, this.kgW, this.kgW.index, this.kgW.index);
+            cQT();
+            if (this.ajq != null && this.khk != null) {
+                this.ajq.b(this, this.khk, this.khk.index, this.khk.index);
             }
         }
     }
 
-    private void cQM() {
-        if (this.kgW != null) {
-            int oJ = TagTextHelper.oJ(this.kgW.index);
+    private void cQT() {
+        if (this.khk != null) {
+            int oJ = TagTextHelper.oJ(this.khk.index);
             Drawable background = this.ajQ.getBackground();
             DrawableCompat.setTint(background, ap.getColor(oJ));
             background.setAlpha(40);
@@ -139,14 +139,14 @@ public class HotTopicTabThreadItem extends RelativeLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.kgI != i) {
-            com.baidu.tbadk.core.util.f.a.m(this.kgV, R.color.CAM_X0205, R.color.CAM_X0204);
+        if (this.kgW != i) {
+            com.baidu.tbadk.core.util.f.a.m(this.khj, R.color.CAM_X0205, R.color.CAM_X0204);
             ap.setViewTextColor(this.eHx, R.color.CAM_X0105);
             ap.setViewTextColor(this.ajP, R.color.CAM_X0101);
-            ap.setViewTextColor(this.kgU, R.color.CAM_X0101);
-            this.kgT.setImageDrawable(SvgManager.bsR().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
-            cQM();
-            this.kgI = i;
+            ap.setViewTextColor(this.khi, R.color.CAM_X0101);
+            this.khh.setImageDrawable(SvgManager.bsR().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+            cQT();
+            this.kgW = i;
         }
     }
 }

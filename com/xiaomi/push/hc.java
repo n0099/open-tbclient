@@ -21,7 +21,7 @@ final class hc {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a a(Exception exc) {
-        m358a(exc);
+        m357a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -51,7 +51,7 @@ final class hc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m358a(Exception exc) {
+    private static void m357a(Exception exc) {
         if (exc == null) {
             throw new NullPointerException();
         }
@@ -60,7 +60,7 @@ final class hc {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a b(Exception exc) {
         Throwable cause;
-        m358a(exc);
+        m357a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -93,7 +93,7 @@ final class hc {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a c(Exception exc) {
-        m358a(exc);
+        m357a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {
@@ -141,7 +141,7 @@ final class hc {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a d(Exception exc) {
-        m358a(exc);
+        m357a(exc);
         boolean z = exc instanceof gd;
         Exception exc2 = exc;
         if (z) {

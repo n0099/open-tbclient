@@ -4,7 +4,7 @@ import java.util.Iterator;
 @kotlin.e
 /* loaded from: classes6.dex */
 public abstract class y implements Iterator<Integer> {
-    public abstract int eBy();
+    public abstract int eBG();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class y implements Iterator<Integer> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eLc */
+    /* renamed from: eLk */
     public final Integer next() {
-        return Integer.valueOf(eBy());
+        return Integer.valueOf(eBG());
     }
 }

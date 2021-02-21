@@ -24,10 +24,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
     private TbPageContext eUY;
-    private TextView gPm;
-    private ImageView iul;
-    private TextView ium;
-    boolean iun = false;
+    private TextView gPA;
+    private TextView iuA;
+    boolean iuB = false;
+    private ImageView iuz;
     private String mThreadId;
     private TextView mTitle;
 
@@ -40,26 +40,26 @@ public class a {
         this.mThreadId = str;
     }
 
-    public void crP() {
+    public void crW() {
         if (!TbSingleton.getInstance().mCanCallFans) {
             this.eUY.showToast(R.string.have_used_call_fans_this_week);
         } else if (b.brQ().getBoolean("key_call_fans_no_tip_again", false)) {
-            crQ();
+            crX();
         } else {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eUY.getPageActivity());
             aVar.nA(1);
             View inflate = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
             this.mTitle = (TextView) inflate.findViewById(R.id.title);
-            this.gPm = (TextView) inflate.findViewById(R.id.call_fans_intro);
-            this.ium = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-            this.iul = (ImageView) inflate.findViewById(R.id.checkbox);
+            this.gPA = (TextView) inflate.findViewById(R.id.call_fans_intro);
+            this.iuA = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+            this.iuz = (ImageView) inflate.findViewById(R.id.checkbox);
             bqu();
-            this.iul.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.callfans.a.1
+            this.iuz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.callfans.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.iun = !a.this.iun;
+                    a.this.iuB = !a.this.iuB;
                     a.this.bqu();
-                    b.brQ().putBoolean("key_call_fans_no_tip_again", a.this.iun);
+                    b.brQ().putBoolean("key_call_fans_no_tip_again", a.this.iuB);
                 }
             });
             onChangeSkinType();
@@ -67,7 +67,7 @@ public class a {
             aVar.a(this.eUY.getString(R.string.call_fans), new a.b() { // from class: com.baidu.tieba.callfans.a.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    a.this.crQ();
+                    a.this.crX();
                     aVar.dismiss();
                 }
             });
@@ -85,9 +85,9 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void bqu() {
         Drawable a2;
-        if (this.iul != null) {
-            ImageView imageView = this.iul;
-            if (this.iun) {
+        if (this.iuz != null) {
+            ImageView imageView = this.iuz;
+            if (this.iuB) {
                 a2 = SvgManager.bsR().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
                 a2 = SvgManager.bsR().a(R.drawable.ic_icon_mask_use_check16_svg, null);
@@ -98,9 +98,9 @@ public class a {
 
     public void onChangeSkinType() {
         ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-        ap.setViewTextColor(this.gPm, R.color.CAM_X0107);
+        ap.setViewTextColor(this.gPA, R.color.CAM_X0107);
         bqu();
-        ap.setViewTextColor(this.ium, R.color.CAM_X0107);
+        ap.setViewTextColor(this.iuA, R.color.CAM_X0107);
     }
 
     private void registerTask() {
@@ -112,7 +112,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crQ() {
+    public void crX() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
         httpMessage.addParam("thread_id", this.mThreadId);
         MessageManager.getInstance().sendMessage(httpMessage);

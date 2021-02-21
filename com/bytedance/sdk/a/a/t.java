@@ -5,7 +5,7 @@ import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class t {
-    public static final t pnQ = new t() { // from class: com.bytedance.sdk.a.a.t.1
+    public static final t pot = new t() { // from class: com.bytedance.sdk.a.a.t.1
         @Override // com.bytedance.sdk.a.a.t
         public t c(long j, TimeUnit timeUnit) {
             return this;
@@ -39,7 +39,7 @@ public class t {
         return this;
     }
 
-    public long eoC() {
+    public long eoK() {
         return this.d;
     }
 
@@ -47,7 +47,7 @@ public class t {
         return this.f5853a;
     }
 
-    public long eoD() {
+    public long eoL() {
         if (this.f5853a) {
             return this.f5854b;
         }
@@ -60,12 +60,12 @@ public class t {
         return this;
     }
 
-    public t eoE() {
+    public t eoM() {
         this.d = 0L;
         return this;
     }
 
-    public t eoF() {
+    public t eoN() {
         this.f5853a = false;
         return this;
     }

@@ -4,7 +4,7 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.turntable.lucky.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0674a {
+    public interface InterfaceC0675a {
         void a(float f, String str);
     }
 }

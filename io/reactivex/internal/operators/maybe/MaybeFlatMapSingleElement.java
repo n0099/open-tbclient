@@ -70,16 +70,16 @@ public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
     /* loaded from: classes5.dex */
     static final class a<R> implements y<R> {
         final m<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> qnO;
+        final AtomicReference<io.reactivex.disposables.b> qoo;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, m<? super R> mVar) {
-            this.qnO = atomicReference;
+            this.qoo = atomicReference;
             this.actual = mVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.qnO, bVar);
+            DisposableHelper.replace(this.qoo, bVar);
         }
 
         @Override // io.reactivex.y

@@ -372,8 +372,8 @@ public class a extends BaseAdapter {
         ImageRequestBuilder ag = ImageRequestBuilder.ag(Uri.fromFile(new File(str)));
         ag.c(new com.facebook.imagepipeline.common.d((int) (this.mItemWidth / 2.0f), (int) (this.dkj / 2.0f)));
         ag.By(true);
-        ag.a(com.facebook.imagepipeline.common.b.ewd().Bs(true).ewl());
-        c0435a.dko.setController(com.facebook.drawee.a.a.c.eto().bo(ag.eAi()).Bm(false).c(c0435a.dko.getController()).euf());
+        ag.a(com.facebook.imagepipeline.common.b.ewl().Bs(true).ewt());
+        c0435a.dko.setController(com.facebook.drawee.a.a.c.etw().bo(ag.eAq()).Bm(false).c(c0435a.dko.getController()).eun());
     }
 
     private String ct(long j) {

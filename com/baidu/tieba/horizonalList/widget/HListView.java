@@ -569,7 +569,7 @@ public class HListView extends AbsHListView {
         private c() {
         }
 
-        public c cJ(int i, int i2) {
+        public c cK(int i, int i2) {
             this.mPosition = i;
             this.bIX = i2;
             return this;
@@ -591,7 +591,7 @@ public class HListView extends AbsHListView {
             if (this.mFocusSelector == null) {
                 this.mFocusSelector = new c();
             }
-            post(this.mFocusSelector.cJ(indexOfChild, left));
+            post(this.mFocusSelector.cK(indexOfChild, left));
         }
         super.onSizeChanged(i, i2, i3, i4);
     }

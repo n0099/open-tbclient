@@ -4,7 +4,7 @@ import java.util.Iterator;
 @kotlin.e
 /* loaded from: classes6.dex */
 public abstract class u implements Iterator<Double> {
-    public abstract double eBw();
+    public abstract double eBE();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class u implements Iterator<Double> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eKX */
+    /* renamed from: eLf */
     public final Double next() {
-        return Double.valueOf(eBw());
+        return Double.valueOf(eBE());
     }
 }

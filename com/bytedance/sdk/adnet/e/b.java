@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface b {
-    a YQ(String str);
+    a Zc(String str);
 
     void a();
 

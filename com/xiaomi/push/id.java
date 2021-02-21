@@ -73,9 +73,9 @@ public class id implements ix<id, Object>, Serializable, Cloneable {
         int a10;
         int a11;
         if (getClass().equals(idVar.getClass())) {
-            int compareTo = Boolean.valueOf(m429a()).compareTo(Boolean.valueOf(idVar.m429a()));
+            int compareTo = Boolean.valueOf(m428a()).compareTo(Boolean.valueOf(idVar.m428a()));
             if (compareTo == 0) {
-                if (!m429a() || (a11 = iy.a(this.f637a, idVar.f637a)) == 0) {
+                if (!m428a() || (a11 = iy.a(this.f637a, idVar.f637a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(idVar.b()));
                     if (compareTo2 == 0) {
                         if (!b() || (a10 = iy.a(this.f636a, idVar.f636a)) == 0) {
@@ -153,12 +153,12 @@ public class id implements ix<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, String> m427a() {
+    public Map<String, String> m426a() {
         return this.f639a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m428a() {
+    public void m427a() {
         if (this.f640b == null) {
             throw new jj("Required field 'id' was not present! Struct: " + toString());
         }
@@ -166,104 +166,104 @@ public class id implements ix<id, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m515a();
+        jiVar.m514a();
         while (true) {
-            jf m511a = jiVar.m511a();
-            if (m511a.f14173a == 0) {
+            jf m510a = jiVar.m510a();
+            if (m510a.f14173a == 0) {
                 jiVar.f();
-                m428a();
+                m427a();
                 return;
             }
-            switch (m511a.f857a) {
+            switch (m510a.f857a) {
                 case 1:
-                    if (m511a.f14173a == 11) {
-                        this.f637a = jiVar.m516a();
+                    if (m510a.f14173a == 11) {
+                        this.f637a = jiVar.m515a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 2:
-                    if (m511a.f14173a == 12) {
+                    if (m510a.f14173a == 12) {
                         this.f636a = new ib();
                         this.f636a.a(jiVar);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 3:
-                    if (m511a.f14173a == 11) {
-                        this.f640b = jiVar.m516a();
+                    if (m510a.f14173a == 11) {
+                        this.f640b = jiVar.m515a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 4:
-                    if (m511a.f14173a == 11) {
-                        this.f641c = jiVar.m516a();
+                    if (m510a.f14173a == 11) {
+                        this.f641c = jiVar.m515a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 5:
-                    if (m511a.f14173a == 11) {
-                        this.f642d = jiVar.m516a();
+                    if (m510a.f14173a == 11) {
+                        this.f642d = jiVar.m515a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 6:
                 default:
-                    jl.a(jiVar, m511a.f14173a);
+                    jl.a(jiVar, m510a.f14173a);
                     break;
                 case 7:
-                    if (m511a.f14173a == 10) {
-                        this.f635a = jiVar.m510a();
+                    if (m510a.f14173a == 10) {
+                        this.f635a = jiVar.m509a();
                         a(true);
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 8:
-                    if (m511a.f14173a == 11) {
-                        this.f643e = jiVar.m516a();
+                    if (m510a.f14173a == 11) {
+                        this.f643e = jiVar.m515a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 9:
-                    if (m511a.f14173a == 13) {
-                        jh m513a = jiVar.m513a();
-                        this.f639a = new HashMap(m513a.f859a * 2);
-                        for (int i2 = 0; i2 < m513a.f859a; i2++) {
-                            this.f639a.put(jiVar.m516a(), jiVar.m516a());
+                    if (m510a.f14173a == 13) {
+                        jh m512a = jiVar.m512a();
+                        this.f639a = new HashMap(m512a.f859a * 2);
+                        for (int i2 = 0; i2 < m512a.f859a; i2++) {
+                            this.f639a.put(jiVar.m515a(), jiVar.m515a());
                         }
                         jiVar.h();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 10:
-                    if (m511a.f14173a == 11) {
-                        this.f644f = jiVar.m516a();
+                    if (m510a.f14173a == 11) {
+                        this.f644f = jiVar.m515a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 case 11:
-                    if (m511a.f14173a == 11) {
-                        this.f645g = jiVar.m516a();
+                    if (m510a.f14173a == 11) {
+                        this.f645g = jiVar.m515a();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
             }
@@ -276,23 +276,23 @@ public class id implements ix<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m429a() {
+    public boolean m428a() {
         return this.f637a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m430a(id idVar) {
+    public boolean m429a(id idVar) {
         if (idVar == null) {
             return false;
         }
-        boolean m429a = m429a();
-        boolean m429a2 = idVar.m429a();
-        if ((m429a || m429a2) && !(m429a && m429a2 && this.f637a.equals(idVar.f637a))) {
+        boolean m428a = m428a();
+        boolean m428a2 = idVar.m428a();
+        if ((m428a || m428a2) && !(m428a && m428a2 && this.f637a.equals(idVar.f637a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = idVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f636a.m424a(idVar.f636a))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f636a.m423a(idVar.f636a))) {
             return false;
         }
         boolean c2 = c();
@@ -337,9 +337,9 @@ public class id implements ix<id, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m428a();
+        m427a();
         jiVar.a(f634a);
-        if (this.f637a != null && m429a()) {
+        if (this.f637a != null && m428a()) {
             jiVar.a(f14128a);
             jiVar.a(this.f637a);
             jiVar.b();
@@ -395,7 +395,7 @@ public class id implements ix<id, Object>, Serializable, Cloneable {
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m519a();
+        jiVar.m518a();
     }
 
     public boolean b() {
@@ -416,7 +416,7 @@ public class id implements ix<id, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof id)) {
-            return m430a((id) obj);
+            return m429a((id) obj);
         }
         return false;
     }
@@ -449,7 +449,7 @@ public class id implements ix<id, Object>, Serializable, Cloneable {
         boolean z = false;
         StringBuilder sb = new StringBuilder("XmPushActionAckNotification(");
         boolean z2 = true;
-        if (m429a()) {
+        if (m428a()) {
             sb.append("debug:");
             if (this.f637a == null) {
                 sb.append("null");

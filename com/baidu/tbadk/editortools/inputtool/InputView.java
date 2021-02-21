@@ -93,7 +93,7 @@ public class InputView extends EditText implements n {
                 case 3:
                     if (getSelectionStart() > 0) {
                         String substring = getText().toString().substring(0, getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.iSk.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.iSy.matcher(substring);
                         if (matcher.find()) {
                             getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                             return;
@@ -142,7 +142,7 @@ public class InputView extends EditText implements n {
                     return;
                 case 44:
                     if (aVar.data != null && (aVar.data instanceof String)) {
-                        CS((String) aVar.data);
+                        CQ((String) aVar.data);
                         return;
                     }
                     return;
@@ -166,7 +166,7 @@ public class InputView extends EditText implements n {
     private void a(u uVar) {
         if (uVar != null && !TextUtils.isEmpty(uVar.getName()) && !TextUtils.isEmpty(uVar.getUrl())) {
             String obj = getText().toString();
-            if (this.fCV && com.baidu.tieba.face.a.Js(obj) >= 10 && getContext() != null) {
+            if (this.fCV && com.baidu.tieba.face.a.Jt(obj) >= 10 && getContext() != null) {
                 e.brY().showToast(R.string.too_many_face);
             } else {
                 b.a(getContext(), uVar, this);
@@ -177,7 +177,7 @@ public class InputView extends EditText implements n {
     private void b(u uVar) {
         if (!this.fCU || uVar.bwv() == EmotionGroupType.LOCAL) {
             String obj = getText().toString();
-            if (this.fCV && com.baidu.tieba.face.a.Js(obj) >= 10 && getContext() != null) {
+            if (this.fCV && com.baidu.tieba.face.a.Jt(obj) >= 10 && getContext() != null) {
                 e.brY().showToast(R.string.too_many_face);
             } else {
                 b.b(getContext(), uVar, this);
@@ -205,7 +205,7 @@ public class InputView extends EditText implements n {
         }
     }
 
-    private void CS(String str) {
+    private void CQ(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }

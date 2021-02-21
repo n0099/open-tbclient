@@ -9,6 +9,6 @@ public abstract class c {
     public abstract List<Certificate> s(List<Certificate> list, String str) throws SSLPeerUnverifiedException;
 
     public static c a(X509TrustManager x509TrustManager) {
-        return com.bytedance.sdk.a.b.a.g.e.epz().a(x509TrustManager);
+        return com.bytedance.sdk.a.b.a.g.e.epH().a(x509TrustManager);
     }
 }

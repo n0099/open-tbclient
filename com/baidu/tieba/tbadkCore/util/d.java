@@ -6,35 +6,35 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
     protected volatile int fej;
-    protected volatile HashMap<Long, Integer> nzP = new HashMap<>();
+    protected volatile HashMap<Long, Integer> nAp = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
         this.fej = i;
     }
 
-    public void Tz(String str) {
+    public void TL(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.nzP.size() >= this.fej) {
-                    dOK();
+                if (this.nAp.size() >= this.fej) {
+                    dOS();
                 }
                 this.mWeight++;
-                this.nzP.put(valueOf, Integer.valueOf(this.mWeight));
+                this.nAp.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void dOK() {
+    public void dOS() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.nzP.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.nAp.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
@@ -46,19 +46,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.nzP.remove(l2);
+                this.nAp.remove(l2);
             } else {
-                this.nzP.clear();
+                this.nAp.clear();
             }
         }
     }
 
-    public boolean TA(String str) {
+    public boolean TM(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.nzP.get(valueOf) != null;
+                z = this.nAp.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -67,18 +67,18 @@ public class d {
         }
     }
 
-    public boolean TB(String str) {
+    public boolean TN(String str) {
         try {
-            return this.nzP.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.nAp.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void dOJ() {
+    public void dOR() {
         synchronized (this) {
-            this.nzP.clear();
+            this.nAp.clear();
         }
     }
 }

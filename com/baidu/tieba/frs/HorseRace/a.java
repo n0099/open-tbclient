@@ -6,16 +6,16 @@ import tbclient.GetHorseRaceLampList.DataRes;
 import tbclient.GetHorseRaceLampList.LiveList;
 /* loaded from: classes2.dex */
 public class a {
-    private LiveHorseRaceData jkS;
-    private List<LiveHorseRaceData> jkT = new ArrayList();
+    private LiveHorseRaceData jlg;
+    private List<LiveHorseRaceData> jlh = new ArrayList();
 
-    public List<LiveHorseRaceData> cEH() {
-        return this.jkT;
+    public List<LiveHorseRaceData> cEO() {
+        return this.jlh;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.jkS = new LiveHorseRaceData();
+            this.jlg = new LiveHorseRaceData();
             List<LiveList> list = dataRes.live_list;
             if (list != null) {
                 int i = 0;
@@ -24,7 +24,7 @@ public class a {
                     if (i2 < list.size()) {
                         LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
                         liveHorseRaceData.parserProtobuf(list.get(i2));
-                        this.jkT.add(liveHorseRaceData);
+                        this.jlh.add(liveHorseRaceData);
                         i = i2 + 1;
                     } else {
                         return;

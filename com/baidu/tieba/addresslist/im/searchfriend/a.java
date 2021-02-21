@@ -18,25 +18,25 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class a {
     private Context context;
-    private EditText gjL;
-    private TextView gjM;
-    private ImageView gjN;
-    private InterfaceC0596a gjO;
-    private View.OnClickListener gjP = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
+    private EditText gjZ;
+    private TextView gka;
+    private ImageView gkb;
+    private InterfaceC0597a gkc;
+    private View.OnClickListener gkd = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.gjM) {
-                String charSequence2String = k.charSequence2String(a.this.gjL.getText(), null);
+            if (view == a.this.gka) {
+                String charSequence2String = k.charSequence2String(a.this.gjZ.getText(), null);
                 if (!StringUtils.isNULL(charSequence2String)) {
                     if (charSequence2String.trim().length() != 0) {
-                        a.this.Fd(charSequence2String.trim());
-                        a.this.gjM.setClickable(false);
+                        a.this.Fe(charSequence2String.trim());
+                        a.this.gka.setClickable(false);
                     } else if (charSequence2String.length() > 0) {
                         a.this.mPageContext.showToast(R.string.input_content);
                     }
                 }
-            } else if (view == a.this.gjN) {
-                a.this.Fc("");
+            } else if (view == a.this.gkb) {
+                a.this.Fd("");
             }
         }
     };
@@ -45,26 +45,26 @@ public class a {
 
     /* renamed from: com.baidu.tieba.addresslist.im.searchfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0596a {
-        void Fb(String str);
+    public interface InterfaceC0597a {
+        void Fc(String str);
     }
 
     public void me(boolean z) {
-        this.gjM.setClickable(z);
+        this.gka.setClickable(z);
     }
 
-    public void Fc(String str) {
-        this.gjL.setText(str);
+    public void Fd(String str) {
+        this.gjZ.setText(str);
     }
 
     public a(TbPageContext<?> tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.context = this.mPageContext.getPageActivity();
-        this.gjL = (EditText) view.findViewById(R.id.new_search_friend_input);
-        this.gjM = (TextView) view.findViewById(R.id.new_search_friend_search);
-        this.gjN = (ImageView) view.findViewById(R.id.new_search_friend_del);
-        this.gjM.setOnClickListener(this.gjP);
-        this.gjN.setOnClickListener(this.gjP);
+        this.gjZ = (EditText) view.findViewById(R.id.new_search_friend_input);
+        this.gka = (TextView) view.findViewById(R.id.new_search_friend_search);
+        this.gkb = (ImageView) view.findViewById(R.id.new_search_friend_del);
+        this.gka.setOnClickListener(this.gkd);
+        this.gkb.setOnClickListener(this.gkd);
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -77,38 +77,38 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (TextUtils.isEmpty(editable)) {
-                    a.this.gjN.setVisibility(8);
+                    a.this.gkb.setVisibility(8);
                 } else {
-                    a.this.gjN.setVisibility(0);
+                    a.this.gkb.setVisibility(0);
                 }
             }
         };
-        this.gjL.addTextChangedListener(this.mTextWatcher);
+        this.gjZ.addTextChangedListener(this.mTextWatcher);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void bMd() {
-        this.gjL.removeTextChangedListener(this.mTextWatcher);
+    public void bMk() {
+        this.gjZ.removeTextChangedListener(this.mTextWatcher);
     }
 
     public void bIW() {
-        l.hideSoftKeyPad(this.context, this.gjL);
+        l.hideSoftKeyPad(this.context, this.gjZ);
     }
 
-    public void a(InterfaceC0596a interfaceC0596a) {
-        this.gjO = interfaceC0596a;
+    public void a(InterfaceC0597a interfaceC0597a) {
+        this.gkc = interfaceC0597a;
     }
 
     public void changeSkin(int i) {
-        ap.setViewTextColor(this.gjM, R.color.CAM_X0111, 1);
-        this.gjL.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        ap.setImageResource(this.gjN, R.drawable.icon_search_close);
+        ap.setViewTextColor(this.gka, R.color.CAM_X0111, 1);
+        this.gjZ.setHintTextColor(ap.getColor(R.color.CAM_X0110));
+        ap.setImageResource(this.gkb, R.drawable.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fd(String str) {
-        if (this.gjO != null) {
-            this.gjO.Fb(str);
+    public void Fe(String str) {
+        if (this.gkc != null) {
+            this.gkc.Fc(str);
         }
     }
 }

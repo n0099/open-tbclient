@@ -10,8 +10,8 @@ import com.baidu.tieba.play.k;
 /* loaded from: classes.dex */
 public class j {
     private Activity mActivity;
-    private g mHv;
-    private k mHw;
+    private g mHK;
+    private k mHL;
     private Sensor mSensor;
     private SensorManager mSensorManager;
     private boolean bJY = false;
@@ -66,7 +66,7 @@ public class j {
             }
         }
     };
-    private k.a mHx = new k.a() { // from class: com.baidu.tieba.play.j.2
+    private k.a mHM = new k.a() { // from class: com.baidu.tieba.play.j.2
         @Override // com.baidu.tieba.play.k.a
         public void onChange(boolean z) {
             j.this.bKb = z;
@@ -90,29 +90,29 @@ public class j {
             this.mActivity = activity;
             this.mSensorManager = (SensorManager) activity.getSystemService("sensor");
             this.mSensor = this.mSensorManager.getDefaultSensor(1);
-            this.mHv = new g(this.mHandler);
+            this.mHK = new g(this.mHandler);
             if (!this.mActivity.getClass().getName().contains("SwanAppActivity")) {
                 this.mActivity.setRequestedOrientation(1);
             }
-            this.mHw = new k(this.mActivity, this.mHandler);
-            this.mHw.a(this.mHx);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.mHw);
+            this.mHL = new k(this.mActivity, this.mHandler);
+            this.mHL.a(this.mHM);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.mHL);
         }
     }
 
     public void start() {
         if (this.mSensorManager != null) {
-            this.mSensorManager.registerListener(this.mHv, this.mSensor, 2);
+            this.mSensorManager.registerListener(this.mHK, this.mSensor, 2);
         }
     }
 
     public void stop() {
         if (this.mSensorManager != null) {
-            this.mSensorManager.unregisterListener(this.mHv);
+            this.mSensorManager.unregisterListener(this.mHK);
         }
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.mHw);
+            this.mActivity.getContentResolver().unregisterContentObserver(this.mHL);
         }
     }
 

@@ -24,7 +24,7 @@ public final class y {
         this.f = str4;
     }
 
-    public static y YN(String str) {
+    public static y YZ(String str) {
         Matcher matcher = f5984a.matcher(str);
         if (matcher.lookingAt()) {
             String lowerCase = matcher.group(1).toLowerCase(Locale.US);
@@ -57,7 +57,7 @@ public final class y {
         return null;
     }
 
-    public Charset eqb() {
+    public Charset eqj() {
         return a(null);
     }
 

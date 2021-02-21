@@ -5,21 +5,21 @@ import com.baidu.tieba.ala.alaar.sticker.model.e;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class f<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
-    private static f gtl;
-    private ArrayMap<String, T> gtg = new ArrayMap<>();
+    private static f gtz;
+    private ArrayMap<String, T> gtu = new ArrayMap<>();
     private File mFolder;
 
-    public static f<com.baidu.tieba.ala.alaar.sticker.model.c> bPW() {
-        if (gtl == null) {
-            bPX();
+    public static f<com.baidu.tieba.ala.alaar.sticker.model.c> bQd() {
+        if (gtz == null) {
+            bQe();
         }
-        return gtl;
+        return gtz;
     }
 
-    private static synchronized void bPX() {
+    private static synchronized void bQe() {
         synchronized (f.class) {
-            if (gtl == null) {
-                gtl = new f(a.bPN().bPP());
+            if (gtz == null) {
+                gtz = new f(a.bPU().bPW());
             }
         }
     }
@@ -29,10 +29,10 @@ public class f<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
     }
 
     public T a(String str, T t) {
-        return this.gtg.put(str, t);
+        return this.gtu.put(str, t);
     }
 
-    public T FH(String str) {
-        return this.gtg.get(str);
+    public T FI(String str) {
+        return this.gtu.get(str);
     }
 }

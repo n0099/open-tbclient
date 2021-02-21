@@ -70,8 +70,8 @@ public class AlaEmoticonView extends FrameLayout {
     public void stopLoad() {
         if (this.bKh != null) {
             this.bKh.clearAnimation();
-            if (this.bKh.getController() != null && this.bKh.getController().etU() != null && this.bKh.getController().etU().isRunning()) {
-                this.bKh.getController().etU().stop();
+            if (this.bKh.getController() != null && this.bKh.getController().euc() != null && this.bKh.getController().euc().isRunning()) {
+                this.bKh.getController().euc().stop();
             }
         }
     }
@@ -83,7 +83,7 @@ public class AlaEmoticonView extends FrameLayout {
     private void aL(String str, final String str2) {
         if (!TextUtils.isEmpty(str)) {
             this.bKh.setVisibility(0);
-            this.bKh.setController(c.eto().bo(ImageRequest.Zz(str)).c(this.bKh.getController()).Bm(true).c(new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1
+            this.bKh.setController(c.etw().bo(ImageRequest.ZL(str)).c(this.bKh.getController()).Bm(true).c(new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
                 public void a(String str3, f fVar, Animatable animatable) {
@@ -107,7 +107,7 @@ public class AlaEmoticonView extends FrameLayout {
                         });
                     }
                 }
-            }).euf());
+            }).eun());
         }
     }
 
@@ -138,7 +138,7 @@ public class AlaEmoticonView extends FrameLayout {
 
     public static void a(String str, final String str2, final b bVar, Object obj) {
         if (!StringUtils.isNull(str, true)) {
-            c.etq().e(ImageRequestBuilder.ag(Uri.parse(str)).Bx(true).eAi(), obj).a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2
+            c.ety().e(ImageRequestBuilder.ag(Uri.parse(str)).Bx(true).eAq(), obj).a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2
                 @Override // com.facebook.imagepipeline.d.b
                 public void f(@Nullable Bitmap bitmap) {
                     SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2.1
@@ -160,7 +160,7 @@ public class AlaEmoticonView extends FrameLayout {
                         bVar.onFail();
                     }
                 }
-            }, com.facebook.common.b.a.esr());
+            }, com.facebook.common.b.a.esz());
         }
     }
 

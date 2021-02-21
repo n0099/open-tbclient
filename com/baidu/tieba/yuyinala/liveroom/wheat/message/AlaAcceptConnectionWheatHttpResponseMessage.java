@@ -3,8 +3,8 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaAcceptConnectionWheatHttpResponseMessage extends BaseJsonHttpResponsedMessage {
-    private String oIU;
-    private String oIV;
+    private String oJu;
+    private String oJv;
 
     public AlaAcceptConnectionWheatHttpResponseMessage() {
         super(1031009);
@@ -15,16 +15,16 @@ public class AlaAcceptConnectionWheatHttpResponseMessage extends BaseJsonHttpRes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031009 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.oIU = optJSONObject.optString("push_url");
-            this.oIV = optJSONObject.optString("push_single_url");
+            this.oJu = optJSONObject.optString("push_url");
+            this.oJv = optJSONObject.optString("push_single_url");
         }
     }
 
     public String getPushUrl() {
-        return this.oIU;
+        return this.oJu;
     }
 
-    public String eer() {
-        return this.oIV;
+    public String eez() {
+        return this.oJv;
     }
 }

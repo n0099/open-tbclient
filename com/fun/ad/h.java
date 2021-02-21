@@ -14,7 +14,7 @@ import com.fun.ad.sdk.FunRippedAd;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class h extends bd {
-    public TTNativeExpressAd pOC;
+    public TTNativeExpressAd pPc;
 
     public h(au.a aVar) {
         super(aVar);
@@ -23,28 +23,28 @@ public class h extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        TTNativeExpressAd tTNativeExpressAd = this.pOC;
+        TTNativeExpressAd tTNativeExpressAd = this.pPc;
         if (tTNativeExpressAd != null) {
             tTNativeExpressAd.destroy();
-            this.pOC = null;
+            this.pPc = null;
         }
     }
 
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTNativeExpressAd tTNativeExpressAd = this.pOC;
+        TTNativeExpressAd tTNativeExpressAd = this.pPc;
         if (tTNativeExpressAd == null) {
             return;
         }
         tTNativeExpressAd.setDownloadListener(new bj(null));
-        this.pOC.showInteractionExpressAd(activity);
+        this.pPc.showInteractionExpressAd(activity);
     }
 
     @Override // com.fun.ad.bd
-    public FunRippedAd eAp() {
+    public FunRippedAd eAx() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTNativeExpressAd tTNativeExpressAd = this.pOC;
+        TTNativeExpressAd tTNativeExpressAd = this.pPc;
         if (tTNativeExpressAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTNativeExpressAd, false)) == null) {
             return null;
         }
@@ -70,7 +70,7 @@ public class h extends bd {
             m.a("CSJInteractionExpressAd onError code: " + i + ", message: " + str);
             h hVar = h.this;
             hVar.f7767b = false;
-            ba baVar = hVar.pPA;
+            ba baVar = hVar.pQa;
             if (baVar != null) {
                 ((aj) baVar).a(hVar.f7766a.f7762a, i, str);
             }
@@ -80,10 +80,10 @@ public class h extends bd {
         public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
             m.a("CSJInteractionExpressAd onNativeExpressAdLoad");
             if (list != null && !list.isEmpty()) {
-                h.this.pOC = list.get(0);
-                AdRipper.ripCSJ(h.this.pOC);
+                h.this.pPc = list.get(0);
+                AdRipper.ripCSJ(h.this.pPc);
                 h hVar = h.this;
-                TTNativeExpressAd tTNativeExpressAd = hVar.pOC;
+                TTNativeExpressAd tTNativeExpressAd = hVar.pPc;
                 tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.AdInteractionListener) new k(hVar));
                 tTNativeExpressAd.render();
                 return;
@@ -104,8 +104,8 @@ public class h extends bd {
             } else {
                 expressWidth = funAdSlot.getExpressWidth();
             }
-            this.pPC.loadInteractionExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
-            ba baVar2 = this.pPA;
+            this.pQc.loadInteractionExpressAd(adCount.setExpressViewAcceptedSize(expressWidth, 0.0f).build(), new a());
+            ba baVar2 = this.pQa;
             if (baVar2 != null) {
                 ((aj) baVar2).a(this.f7766a.f7762a);
             }

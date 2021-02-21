@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaOnLineHttpResponseMess
 /* loaded from: classes11.dex */
 public class l extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oJR;
+    private a oKr;
     private HttpMessageListener messageListener = new HttpMessageListener(1031036) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.l.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaOnLineHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == l.this.aCW && l.this.oJR != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaOnLineHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == l.this.aCW && l.this.oKr != null) {
                 AlaOnLineHttpResponseMessage alaOnLineHttpResponseMessage = (AlaOnLineHttpResponseMessage) httpResponsedMessage;
                 if (alaOnLineHttpResponseMessage.getError() != 0 || !alaOnLineHttpResponseMessage.isSuccess()) {
-                    l.this.oJR.onFail(alaOnLineHttpResponseMessage.getError(), alaOnLineHttpResponseMessage.getErrorString());
+                    l.this.oKr.onFail(alaOnLineHttpResponseMessage.getError(), alaOnLineHttpResponseMessage.getErrorString());
                 } else {
-                    l.this.oJR.a(alaOnLineHttpResponseMessage);
+                    l.this.oKr.a(alaOnLineHttpResponseMessage);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class l extends BdBaseModel {
     public l(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.oJR = aVar;
+        this.oKr = aVar;
         zH();
         registerListener(this.messageListener);
     }

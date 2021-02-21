@@ -2,30 +2,30 @@ package kotlin.jvm.internal;
 @kotlin.e
 /* loaded from: classes6.dex */
 public final class r implements l {
-    private final String ktS;
-    private final Class<?> qts;
+    private final String kug;
+    private final Class<?> qtS;
 
     public r(Class<?> cls, String str) {
         p.o(cls, "jClass");
         p.o(str, "moduleName");
-        this.qts = cls;
-        this.ktS = str;
+        this.qtS = cls;
+        this.kug = str;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> eLk() {
-        return this.qts;
+    public Class<?> eLs() {
+        return this.qtS;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof r) && p.l(eLk(), ((r) obj).eLk());
+        return (obj instanceof r) && p.l(eLs(), ((r) obj).eLs());
     }
 
     public int hashCode() {
-        return eLk().hashCode();
+        return eLs().hashCode();
     }
 
     public String toString() {
-        return eLk().toString() + " (Kotlin reflection is not available)";
+        return eLs().toString() + " (Kotlin reflection is not available)";
     }
 }

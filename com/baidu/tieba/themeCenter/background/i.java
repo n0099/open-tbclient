@@ -22,7 +22,7 @@ public class i {
         @Override // com.baidu.adp.lib.e.c
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             if (aVar != null) {
-                aVar.drawImageTo(i.this.nHh);
+                aVar.drawImageTo(i.this.nHH);
             }
         }
 
@@ -38,74 +38,74 @@ public class i {
             super.onCancelled(str);
         }
     };
-    private TextView joJ;
+    private TextView joX;
     private View mRootView;
-    private TextView mxR;
-    private BackgroundPreviewActivity nHg;
-    private BdExpandImageView nHh;
-    private TbImageView nHi;
-    private TbImageView nHj;
-    private ImageView nHk;
+    private TextView myg;
+    private BackgroundPreviewActivity nHG;
+    private BdExpandImageView nHH;
+    private TbImageView nHI;
+    private TbImageView nHJ;
+    private ImageView nHK;
 
     public i(BackgroundPreviewActivity backgroundPreviewActivity) {
-        this.nHg = backgroundPreviewActivity;
-        this.mRootView = LayoutInflater.from(this.nHg.getPageContext().getPageActivity()).inflate(R.layout.background_preview_header, (ViewGroup) null);
-        this.mRootView.setLayoutParams(new AbsListView.LayoutParams(-1, this.nHg.getResources().getDimensionPixelSize(R.dimen.ds450)));
+        this.nHG = backgroundPreviewActivity;
+        this.mRootView = LayoutInflater.from(this.nHG.getPageContext().getPageActivity()).inflate(R.layout.background_preview_header, (ViewGroup) null);
+        this.mRootView.setLayoutParams(new AbsListView.LayoutParams(-1, this.nHG.getResources().getDimensionPixelSize(R.dimen.ds450)));
         initView();
     }
 
     private void initView() {
-        this.nHh = (BdExpandImageView) this.mRootView.findViewById(R.id.expand_image);
-        this.nHi = (TbImageView) this.mRootView.findViewById(R.id.user_head);
-        this.nHj = (TbImageView) this.mRootView.findViewById(R.id.vip_icon);
-        this.nHj.setAutoChangeStyle(false);
-        this.joJ = (TextView) this.mRootView.findViewById(R.id.user_name);
-        this.nHk = (ImageView) this.mRootView.findViewById(R.id.user_sex);
-        this.mxR = (TextView) this.mRootView.findViewById(R.id.user_bar_age_num);
-        this.nHi.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.nHH = (BdExpandImageView) this.mRootView.findViewById(R.id.expand_image);
+        this.nHI = (TbImageView) this.mRootView.findViewById(R.id.user_head);
+        this.nHJ = (TbImageView) this.mRootView.findViewById(R.id.vip_icon);
+        this.nHJ.setAutoChangeStyle(false);
+        this.joX = (TextView) this.mRootView.findViewById(R.id.user_name);
+        this.nHK = (ImageView) this.mRootView.findViewById(R.id.user_sex);
+        this.myg = (TextView) this.mRootView.findViewById(R.id.user_bar_age_num);
+        this.nHI.setDefaultResource(R.drawable.icon_default_avatar100);
     }
 
     public void f(DressItemData dressItemData) {
         if (dressItemData != null) {
             com.baidu.adp.lib.e.d.mw().a(dressItemData.getExampleImgUrl(), 10, this.eYI, 0, 0, null, new Object[0]);
             if (StringUtils.isNull(dressItemData.getPropsStateImg())) {
-                this.mxR.setText("0");
+                this.myg.setText("0");
             } else {
-                this.mxR.setText(dressItemData.getPropsStateImg());
+                this.myg.setText(dressItemData.getPropsStateImg());
             }
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo == null) {
-                ap.setViewTextColor(this.mxR, R.color.CAM_X0308, 1);
-                this.joJ.setText(R.string.default_user_name);
-                this.nHk.setImageResource(R.drawable.icon_pop_boy);
-                this.nHj.setVisibility(8);
+                ap.setViewTextColor(this.myg, R.color.CAM_X0308, 1);
+                this.joX.setText(R.string.default_user_name);
+                this.nHK.setImageResource(R.drawable.icon_pop_boy);
+                this.nHJ.setVisibility(8);
                 return;
             }
             String avatar = currentAccountInfo.getAvatar();
             int memberType = currentAccountInfo.getMemberType();
             if (!TextUtils.isEmpty(avatar)) {
-                this.nHi.startLoad(avatar, 25, false);
+                this.nHI.startLoad(avatar, 25, false);
             }
             String memberIconUrl = currentAccountInfo.getMemberIconUrl();
             if (StringUtils.isNull(memberIconUrl)) {
-                this.nHj.setVisibility(8);
+                this.nHJ.setVisibility(8);
             } else {
-                this.nHj.startLoad(memberIconUrl, 10, false);
-                this.nHj.setVisibility(0);
+                this.nHJ.startLoad(memberIconUrl, 10, false);
+                this.nHJ.setVisibility(0);
             }
             if (memberType > 0) {
-                this.joJ.setTextColor(this.nHg.getResources().getColor(R.color.CAM_X0308));
+                this.joX.setTextColor(this.nHG.getResources().getColor(R.color.CAM_X0308));
             } else {
-                this.joJ.setTextColor(this.nHg.getResources().getColor(R.color.CAM_X0111));
+                this.joX.setTextColor(this.nHG.getResources().getColor(R.color.CAM_X0111));
             }
-            this.joJ.setText(currentAccountInfo.getAccountNameShow());
+            this.joX.setText(currentAccountInfo.getAccountNameShow());
             int sex = currentAccountInfo.getSex();
             if (sex == 1) {
-                this.nHk.setImageResource(R.drawable.icon_pop_boy);
+                this.nHK.setImageResource(R.drawable.icon_pop_boy);
             } else if (sex == 2) {
-                this.nHk.setImageResource(R.drawable.icon_pop_girl);
+                this.nHK.setImageResource(R.drawable.icon_pop_girl);
             } else {
-                this.nHk.setVisibility(8);
+                this.nHK.setVisibility(8);
             }
         }
     }
@@ -115,8 +115,8 @@ public class i {
     }
 
     public void bzn() {
-        if (this.nHg.getPageContext() != null) {
-            com.baidu.tbadk.r.a.a(this.nHg.getPageContext(), this.mRootView);
+        if (this.nHG.getPageContext() != null) {
+            com.baidu.tbadk.r.a.a(this.nHG.getPageContext(), this.mRootView);
         }
     }
 }

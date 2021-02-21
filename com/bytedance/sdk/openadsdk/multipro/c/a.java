@@ -214,7 +214,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         } else if ("logStatusUpload".equals(str)) {
             String b3 = com.bytedance.sdk.openadsdk.multipro.c.b(uri.getQueryParameter("event"));
             if (!TextUtils.isEmpty(b3)) {
-                c.a().a(C1027a.b(b3));
+                c.a().a(C1029a.b(b3));
             }
         }
         return null;
@@ -345,17 +345,17 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C1027a implements com.bytedance.sdk.openadsdk.h.a.b {
+    private static class C1029a implements com.bytedance.sdk.openadsdk.h.a.b {
 
         /* renamed from: a  reason: collision with root package name */
         JSONObject f7405a;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static C1027a b(String str) {
-            return new C1027a(str);
+        public static C1029a b(String str) {
+            return new C1029a(str);
         }
 
-        private C1027a(String str) {
+        private C1029a(String str) {
             try {
                 this.f7405a = new JSONObject(str);
             } catch (Throwable th) {

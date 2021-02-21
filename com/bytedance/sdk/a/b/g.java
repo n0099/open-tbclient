@@ -6,8 +6,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes6.dex */
 public final class g {
-    public static final g prb = new a().epO().epQ();
-    public static final g prc = new a().epP().a(Integer.MAX_VALUE, TimeUnit.SECONDS).epQ();
+    public static final g prB = new a().epW().epY();
+    public static final g prC = new a().epX().a(Integer.MAX_VALUE, TimeUnit.SECONDS).epY();
     String c;
     private final boolean d;
     private final boolean e;
@@ -250,7 +250,7 @@ public final class g {
         boolean g;
         boolean h;
 
-        public a epO() {
+        public a epW() {
             this.f5959a = true;
             return this;
         }
@@ -264,12 +264,12 @@ public final class g {
             return this;
         }
 
-        public a epP() {
+        public a epX() {
             this.f = true;
             return this;
         }
 
-        public g epQ() {
+        public g epY() {
             return new g(this);
         }
     }

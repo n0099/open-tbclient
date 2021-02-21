@@ -38,7 +38,7 @@ public class c {
             arVar.v("fid", aVar.bln().getFid());
             arVar.ap("obj_source", 1);
             if (aVar instanceof com.baidu.tieba.card.data.b) {
-                arVar.ap("obj_param1", ((com.baidu.tieba.card.data.b) aVar).csM() ? 2 : 1);
+                arVar.ap("obj_param1", ((com.baidu.tieba.card.data.b) aVar).csT() ? 2 : 1);
             }
             if (aVar.bln().bnQ() != null) {
                 arVar.dR("uid", aVar.bln().bnQ().getUserId());

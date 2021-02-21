@@ -8,18 +8,18 @@ public class a {
     private String mMd5;
     private String mName;
     private int mType;
-    private String oVF;
-    private String oVG;
-    private String oVH;
-    private boolean oVI;
+    private String oWf;
+    private String oWg;
+    private String oWh;
+    private boolean oWi;
 
     public void parse(JSONObject jSONObject) {
         this.mId = jSONObject.optString("id");
         this.mName = jSONObject.optString("name");
-        this.oVF = jSONObject.optString("thumbnail_url");
-        this.oVG = jSONObject.optString("original_url");
-        this.oVI = jSONObject.optInt("is_chosen", 0) == 1;
-        this.oVH = jSONObject.optString("cover_mp4_zip");
+        this.oWf = jSONObject.optString("thumbnail_url");
+        this.oWg = jSONObject.optString("original_url");
+        this.oWi = jSONObject.optInt("is_chosen", 0) == 1;
+        this.oWh = jSONObject.optString("cover_mp4_zip");
         this.mMd5 = jSONObject.optString("mp4_md5");
         this.mType = jSONObject.optInt("is_dynamic_cover", 0);
     }
@@ -29,19 +29,19 @@ public class a {
     }
 
     public String getThumbnailUrl() {
-        return this.oVF;
+        return this.oWf;
     }
 
     public String getOriginalUrl() {
-        return this.oVG;
+        return this.oWg;
     }
 
-    public boolean eiT() {
-        return this.oVI;
+    public boolean ejb() {
+        return this.oWi;
     }
 
     public void AG(boolean z) {
-        this.oVI = z;
+        this.oWi = z;
     }
 
     public boolean isLoading() {
@@ -56,8 +56,8 @@ public class a {
         return this.mId;
     }
 
-    public String eiU() {
-        return this.oVH;
+    public String ejc() {
+        return this.oWh;
     }
 
     public String getMd5() {

@@ -9,19 +9,19 @@ public final class a extends ContentObserver {
 
     /* renamed from: b  reason: collision with root package name */
     private int f14371b;
-    private b qlQ;
+    private b qmq;
 
     public a(b bVar, int i, String str) {
         super(null);
-        this.qlQ = bVar;
+        this.qmq = bVar;
         this.f14371b = i;
         this.f14370a = str;
     }
 
     @Override // android.database.ContentObserver
     public final void onChange(boolean z) {
-        if (this.qlQ != null) {
-            this.qlQ.a(this.f14371b, this.f14370a);
+        if (this.qmq != null) {
+            this.qmq.a(this.f14371b, this.f14370a);
         }
     }
 }

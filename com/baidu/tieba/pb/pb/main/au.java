@@ -8,26 +8,26 @@ import com.baidu.tbadk.core.util.bf;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class au {
-    private static au mbi = null;
+    private static au mbx = null;
 
-    public static au drJ() {
-        if (mbi == null) {
+    public static au drQ() {
+        if (mbx == null) {
             synchronized (au.class) {
-                if (mbi == null) {
-                    mbi = new au();
+                if (mbx == null) {
+                    mbx = new au();
                 }
             }
         }
-        return mbi;
+        return mbx;
     }
 
     public void h(TbPageContext tbPageContext, String str) {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (PM(str)) {
+            if (PN(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (PN(str)) {
+            } else if (PO(str)) {
                 bf.bsV().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
             } else {
                 bf.bsV().b(tbPageContext, new String[]{str});
@@ -35,16 +35,16 @@ public class au {
         }
     }
 
-    public static boolean PL(String str) {
+    public static boolean PM(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean PM(String str) {
+    private boolean PN(String str) {
         Map<String, String> paramPair;
         if (!TextUtils.isEmpty(str) && (paramPair = bf.getParamPair(bf.getParamStr(str))) != null) {
             String str2 = paramPair.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return PM(com.baidu.adp.lib.util.k.getUrlDecode(str2));
+                return PN(com.baidu.adp.lib.util.k.getUrlDecode(str2));
             }
             String str3 = paramPair.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
@@ -52,7 +52,7 @@ public class au {
         return false;
     }
 
-    private boolean PN(String str) {
+    private boolean PO(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

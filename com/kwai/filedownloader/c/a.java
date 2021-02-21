@@ -10,16 +10,16 @@ public interface a extends IInterface {
 
     /* renamed from: com.kwai.filedownloader.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractBinderC1156a extends Binder implements a {
+    public static abstract class AbstractBinderC1158a extends Binder implements a {
 
         /* renamed from: com.kwai.filedownloader.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        private static class C1157a implements a {
+        private static class C1159a implements a {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f10883a;
 
-            C1157a(IBinder iBinder) {
+            C1159a(IBinder iBinder) {
                 this.f10883a = iBinder;
             }
 
@@ -46,7 +46,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC1156a() {
+        public AbstractBinderC1158a() {
             attachInterface(this, "com.kwai.filedownloader.i.IFileDownloadIPCCallback");
         }
 
@@ -55,7 +55,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCCallback");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1157a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1159a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

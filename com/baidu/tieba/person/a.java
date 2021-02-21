@@ -14,20 +14,20 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0844a c0844a = new C0844a();
-            c0844a.mrT = str;
-            c0844a.mrU = bVar;
-            c0844a.execute("");
+            C0845a c0845a = new C0845a();
+            c0845a.msj = str;
+            c0845a.msk = bVar;
+            c0845a.execute("");
         }
     }
 
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0844a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String mrT;
-        public b mrU;
+    private static class C0845a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String msj;
+        public b msk;
 
-        private C0844a() {
+        private C0845a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: P */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.f("user_pics").ax(o.getFileDireciory(this.mrT), false);
+            return new com.baidu.tbadk.img.f("user_pics").ax(o.getFileDireciory(this.msj), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,14 +44,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.mrU != null) {
+            if (this.msk != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.mrU.a(i, str, imageUploadResult);
+                this.msk.a(i, str, imageUploadResult);
             }
         }
     }

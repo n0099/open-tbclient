@@ -3,9 +3,9 @@ package com.baidu.tieba.frs;
 public interface am {
     void Ut();
 
-    void bRw();
+    void bRD();
 
-    void bRx();
+    void bRE();
 
     void bup();
 

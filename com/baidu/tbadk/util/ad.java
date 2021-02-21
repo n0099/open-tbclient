@@ -11,25 +11,25 @@ public class ad {
     private static final Pattern fNv = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
     private static final Pattern fNw = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
 
-    public static boolean DT(String str) {
-        return DU(str) || DV(str) || DW(str);
+    public static boolean DR(String str) {
+        return DS(str) || DT(str) || DU(str);
     }
 
-    private static boolean DU(String str) {
+    private static boolean DS(String str) {
         if (au.isEmpty(str)) {
             return false;
         }
         return fNv.matcher(str.toLowerCase()).find();
     }
 
-    private static boolean DV(String str) {
+    private static boolean DT(String str) {
         if (au.isEmpty(str)) {
             return false;
         }
         return fNw.matcher(str.toLowerCase()).find();
     }
 
-    private static boolean DW(String str) {
+    private static boolean DU(String str) {
         if (au.isEmpty(str)) {
             return false;
         }

@@ -16,39 +16,39 @@ public class bm implements ar.a {
     /* renamed from: a  reason: collision with root package name */
     public boolean f13731a;
     public String java;
-    public Context qiN;
-    public boolean qiQ;
-    public bw qiU;
-    private Handler qjV = new Handler() { // from class: com.win.opensdk.bm.1
+    public c qjA;
+    public Info qjI;
+    private long qjJ;
+    public boolean qjQ;
+    public Context qjn;
+    public boolean qjq;
+    public bw qju;
+    private Handler qkv = new Handler() { // from class: com.win.opensdk.bm.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             if (message.what == 11) {
                 bm.this.f13731a = true;
-                bm.this.qjV.removeMessages(11);
+                bm.this.qkv.removeMessages(11);
                 int i = 0;
                 if (bm.this.java()) {
-                    i = bm.this.qji.getWt();
+                    i = bm.this.qjI.getWt();
                 }
-                w.iN(bm.this.qiN).a(new x(bm.this.qji), 2002, i * 1000).eIP();
-                bm.this.qja.onFail(PBError.TIMEOUT);
+                w.iN(bm.this.qjn).a(new x(bm.this.qjI), 2002, i * 1000).eIX();
+                bm.this.qjA.onFail(PBError.TIMEOUT);
             }
         }
     };
-    public ad qjW;
-    public c qja;
-    public Info qji;
-    private long qjj;
-    public boolean qjq;
+    public ad qkw;
 
     public bm(Context context, String str) {
-        this.qiN = context;
+        this.qjn = context;
         this.java = str;
     }
 
     @Override // com.win.opensdk.ar.a
     public final void f(String str, String str2, Object obj) {
         long j;
-        if (TextUtils.equals(str, this.qji.getId() + this.java)) {
+        if (TextUtils.equals(str, this.qjI.getId() + this.java)) {
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1398725913:
@@ -84,16 +84,16 @@ public class bm implements ar.a {
             }
             switch (c) {
                 case 0:
-                    this.qja.onClicked();
+                    this.qjA.onClicked();
                     return;
                 case 1:
-                    this.qja.eAq();
+                    this.qjA.eAy();
                     return;
                 case 2:
-                    this.qja.eAr();
+                    this.qjA.eAz();
                     return;
                 case 3:
-                    if (av.iM(this.qiN)) {
+                    if (av.iM(this.qjn)) {
                         if (obj != null) {
                             try {
                                 j = ((Long) obj).longValue();
@@ -102,28 +102,28 @@ public class bm implements ar.a {
                                 j = 0;
                             }
                             if (j <= 0) {
-                                this.qja.r(false, j);
+                                this.qjA.r(false, j);
                                 return;
                             } else {
-                                this.qja.r(true, j);
+                                this.qjA.r(true, j);
                                 return;
                             }
                         }
-                        this.qja.r(false, 0L);
+                        this.qjA.r(false, 0L);
                         return;
                     }
-                    this.qja.r(false, 0L);
+                    this.qjA.r(false, 0L);
                     return;
                 case 4:
-                    if (av.iM(this.qiN)) {
+                    if (av.iM(this.qjn)) {
                         if (obj != null) {
-                            this.qja.ZD((String) obj);
+                            this.qjA.ZP((String) obj);
                             return;
                         }
-                        this.qja.ZD(PBError.UNKNOWN.getMsg());
+                        this.qjA.ZP(PBError.UNKNOWN.getMsg());
                         return;
                     }
-                    this.qja.ZD(PBError.NO_NETWORK.getMsg());
+                    this.qjA.ZP(PBError.NO_NETWORK.getMsg());
                     return;
                 default:
                     return;
@@ -133,95 +133,95 @@ public class bm implements ar.a {
 
     public final void a(Info info) {
         this.f13731a = false;
-        this.qji = info;
-        this.qjj = System.currentTimeMillis();
-        if (eJn()) {
-            if (m71a()) {
-                this.qja.onLoaded();
+        this.qjI = info;
+        this.qjJ = System.currentTimeMillis();
+        if (eJv()) {
+            if (m70a()) {
+                this.qjA.onLoaded();
             } else {
                 a();
             }
-        } else if (m72b()) {
+        } else if (m71b()) {
             if (c()) {
-                this.qja.onLoaded();
+                this.qjA.onLoaded();
             } else {
                 b();
             }
         } else {
-            eIQ();
+            eIY();
         }
     }
 
     public final boolean java() {
-        return this.qji != null;
+        return this.qjI != null;
     }
 
-    public final boolean eJn() {
-        return java() && this.qji.getType() == 41;
+    public final boolean eJv() {
+        return java() && this.qjI.getType() == 41;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public final boolean m71a() {
-        return this.qiQ && !this.f13731a && java() && !this.qji.isShown() && this.qji.isEffective();
+    public final boolean m70a() {
+        return this.qjq && !this.f13731a && java() && !this.qjI.isShown() && this.qjI.isEffective();
     }
 
-    private void eIQ() {
-        this.qja.onFail(PBError.PID_TYPE_ERROR);
+    private void eIY() {
+        this.qjA.onFail(PBError.PID_TYPE_ERROR);
     }
 
     private void a() {
-        this.qiU = new bw(this.qiN);
-        this.qiU.qjA = new bq() { // from class: com.win.opensdk.bm.3
+        this.qju = new bw(this.qjn);
+        this.qju.qka = new bq() { // from class: com.win.opensdk.bm.3
             @Override // com.win.opensdk.bq
-            public final void eIP() {
+            public final void eIX() {
             }
 
             @Override // com.win.opensdk.bq
-            public final void eIQ() {
-                bm.this.qjV.removeMessages(11);
-                bm.this.qiQ = true;
-                w.iN(bm.this.qiN).a(new x(bm.this.qji), 200, System.currentTimeMillis() - bm.this.qjj).eIP();
+            public final void eIY() {
+                bm.this.qkv.removeMessages(11);
+                bm.this.qjq = true;
+                w.iN(bm.this.qjn).a(new x(bm.this.qjI), 200, System.currentTimeMillis() - bm.this.qjJ).eIX();
                 if (!bm.this.f13731a) {
-                    bm.this.qja.onLoaded();
+                    bm.this.qjA.onLoaded();
                 }
             }
         };
-        this.qiU.a(this.qji.getLoad(), this.qji);
-        this.qjV.sendEmptyMessageDelayed(11, this.qji.getWt() * 1000);
+        this.qju.a(this.qjI.getLoad(), this.qjI);
+        this.qkv.sendEmptyMessageDelayed(11, this.qjI.getWt() * 1000);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public final boolean m72b() {
-        return java() && this.qji.getType() == 42;
+    public final boolean m71b() {
+        return java() && this.qjI.getType() == 42;
     }
 
     public final boolean c() {
-        return this.qjq && !this.f13731a && java() && !this.qji.isShown() && this.qji.isEffective();
+        return this.qjQ && !this.f13731a && java() && !this.qjI.isShown() && this.qjI.isEffective();
     }
 
     private void b() {
-        f.eIO().a(this.qiN, bp.aX(this.qji.getTraceid(), this.qji.getId(), this.qji.getPid()), af.Video, this.qji.getLoad(), new bq() { // from class: com.win.opensdk.bm.4
+        f.eIW().a(this.qjn, bp.aX(this.qjI.getTraceid(), this.qjI.getId(), this.qjI.getPid()), af.Video, this.qjI.getLoad(), new bq() { // from class: com.win.opensdk.bm.4
             @Override // com.win.opensdk.bq
-            public final void eIP() {
+            public final void eIX() {
             }
 
             @Override // com.win.opensdk.bq
-            public final void eIQ() {
-                bm.this.qjV.removeMessages(11);
-                bm.this.qjq = true;
-                w.iN(bm.this.qiN).a(new x(bm.this.qji), 200, System.currentTimeMillis() - bm.this.qjj).eIP();
+            public final void eIY() {
+                bm.this.qkv.removeMessages(11);
+                bm.this.qjQ = true;
+                w.iN(bm.this.qjn).a(new x(bm.this.qjI), 200, System.currentTimeMillis() - bm.this.qjJ).eIX();
                 if (!bm.this.f13731a) {
-                    bm.this.qja.onLoaded();
+                    bm.this.qjA.onLoaded();
                 }
             }
         });
-        this.qjV.sendEmptyMessageDelayed(11, this.qji.getWt() * 1000);
+        this.qkv.sendEmptyMessageDelayed(11, this.qjI.getWt() * 1000);
     }
 
-    public final void eIP() {
-        this.qji.setShown(true);
-        br.eJp().a(bp.aX(this.qji.getTraceid(), this.qji.getId(), this.java), this.qji);
-        H5Activity.a(this.qiN, this.qji, this.java);
-        ar.a(this.qji.getId() + this.java, this);
+    public final void eIX() {
+        this.qjI.setShown(true);
+        br.eJx().a(bp.aX(this.qjI.getTraceid(), this.qjI.getId(), this.java), this.qjI);
+        H5Activity.a(this.qjn, this.qjI, this.java);
+        ar.a(this.qjI.getId() + this.java, this);
     }
 }

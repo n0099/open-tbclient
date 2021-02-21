@@ -13,26 +13,26 @@ public class b {
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0829b {
+    public interface InterfaceC0830b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0829b interfaceC0829b) {
-        new a(str, str2, interfaceC0829b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0830b interfaceC0830b) {
+        new a(str, str2, interfaceC0830b).execute(new String[0]);
     }
 
     /* loaded from: classes2.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String lIt;
-        private String lIu;
-        private InterfaceC0829b lIv;
+        private String lIH;
+        private String lII;
+        private InterfaceC0830b lIJ;
 
-        public a(String str, String str2, InterfaceC0829b interfaceC0829b) {
-            this.lIt = str;
-            this.lIu = str2;
-            this.lIv = interfaceC0829b;
+        public a(String str, String str2, InterfaceC0830b interfaceC0830b) {
+            this.lIH = str;
+            this.lII = str2;
+            this.lIJ = interfaceC0830b;
             setPriority(3);
         }
 
@@ -42,8 +42,8 @@ public class b {
         /* renamed from: X */
         public ForbidTplData doInBackground(String... strArr) {
             aa aaVar = new aa(b.BAWU_LIST_REASON);
-            aaVar.addPostData("forum_id", this.lIt);
-            aaVar.addPostData("user_id", this.lIu);
+            aaVar.addPostData("forum_id", this.lIH);
+            aaVar.addPostData("user_id", this.lII);
             String postNetData = aaVar.postNetData();
             if (aaVar.bsr().btb().isRequestSuccess()) {
                 try {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.lIv != null) {
+            if (this.lIJ != null) {
                 if (forbidTplData.error.errno == 0 && au.isEmpty(forbidTplData.error.errMsg)) {
-                    this.lIv.a(forbidTplData);
+                    this.lIJ.a(forbidTplData);
                 } else {
-                    this.lIv.b(forbidTplData);
+                    this.lIJ.b(forbidTplData);
                 }
             }
         }

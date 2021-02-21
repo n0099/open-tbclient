@@ -17,7 +17,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.j.hZK);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.j.hZY);
         this.mPageContext = tbPageContext;
     }
 
@@ -33,18 +33,18 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.j jVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a> cardViewHolder) {
-        if (cardViewHolder.ctb() == null) {
+        if (cardViewHolder.cti() == null) {
             return null;
         }
         TiebaStatic.log("c13133");
-        a(jVar, cardViewHolder.ctb());
-        cardViewHolder.ctb().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.g.1
+        a(jVar, cardViewHolder.cti());
+        cardViewHolder.cti().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 g.this.a(jVar);
             }
         });
-        return cardViewHolder.ctb().getView();
+        return cardViewHolder.cti().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.j jVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
@@ -59,7 +59,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     public void a(com.baidu.tieba.ala.personcenter.c.j jVar) {
         if (jVar != null && jVar.getPersonCenterData() != null) {
             TiebaStatic.log("c13134");
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaFansFamilyActivityConfig(this.mContext, jVar.getPersonCenterData().cmP().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaFansFamilyActivityConfig(this.mContext, jVar.getPersonCenterData().cmW().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
         }
     }
 }

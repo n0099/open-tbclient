@@ -31,37 +31,37 @@ public class c extends com.baidu.tieba.card.b<a> {
     private TextView dvr;
     private TextView eIO;
     private TbPageContext eUY;
-    private TextView gDo;
-    private HeadImageView ipY;
-    public OriginalThreadCardView iyp;
-    private TextView kTc;
-    private TextView kTd;
-    private View kTe;
-    private View kTf;
-    private MessageCardBottomView kTg;
-    private View kTh;
-    private a kTi;
-    private OriginalThreadCardView.a kTj;
+    private TextView gDC;
+    private HeadImageView iqm;
+    public OriginalThreadCardView iyD;
+    private TextView kTq;
+    private TextView kTr;
+    private View kTs;
+    private View kTt;
+    private MessageCardBottomView kTu;
+    private View kTv;
+    private a kTw;
+    private OriginalThreadCardView.a kTx;
     private int mSkinType;
     private TextView mTitle;
 
     public c(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         this.mSkinType = 3;
-        this.kTj = new OriginalThreadCardView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.base.c.1
+        this.kTx = new OriginalThreadCardView.a() { // from class: com.baidu.tieba.imMessageCenter.mention.base.c.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (c.this.kTi != null && c.this.kTi.cZC() != null) {
-                    ar ap = new ar(c.this.kTi.cZC()).ap("obj_locate", 2);
-                    if (c.this.kTi.getType() == a.kSZ || c.this.kTi.getType() == a.kSV) {
+                if (c.this.kTw != null && c.this.kTw.cZJ() != null) {
+                    ar ap = new ar(c.this.kTw.cZJ()).ap("obj_locate", 2);
+                    if (c.this.kTw.getType() == a.kTn || c.this.kTw.getType() == a.kTj) {
                         ap.ap("obj_type", 1);
                     } else {
                         ap.ap("obj_type", 2);
                     }
                     TiebaStatic.log(ap);
                 }
-                if (c.this.crV() != null) {
-                    c.this.crV().a(c.this.iyp, c.this.kTi);
+                if (c.this.csc() != null) {
+                    c.this.csc().a(c.this.iyD, c.this.kTw);
                 }
             }
         };
@@ -73,22 +73,22 @@ public class c extends com.baidu.tieba.card.b<a> {
 
     private void initUI() {
         View view = getView();
-        this.ipY = (HeadImageView) view.findViewById(R.id.photo);
+        this.iqm = (HeadImageView) view.findViewById(R.id.photo);
         this.eIO = (TextView) view.findViewById(R.id.user_name);
-        this.kTc = (TextView) view.findViewById(R.id.fans_reply);
-        this.kTd = (TextView) view.findViewById(R.id.post_from);
-        this.kTe = view.findViewById(R.id.divider_between_time_and_post_from);
-        this.gDo = (TextView) view.findViewById(R.id.time);
+        this.kTq = (TextView) view.findViewById(R.id.fans_reply);
+        this.kTr = (TextView) view.findViewById(R.id.post_from);
+        this.kTs = view.findViewById(R.id.divider_between_time_and_post_from);
+        this.gDC = (TextView) view.findViewById(R.id.time);
         this.mTitle = (TextView) view.findViewById(R.id.card_message_title);
-        this.kTf = view.findViewById(R.id.card_message_divider_line);
+        this.kTt = view.findViewById(R.id.card_message_divider_line);
         this.dvr = (TextView) view.findViewById(R.id.card_message_post_title);
-        this.iyp = (OriginalThreadCardView) view.findViewById(R.id.original_thread_view);
-        this.kTg = (MessageCardBottomView) view.findViewById(R.id.card_message_bottom_layout);
-        this.kTh = view.findViewById(R.id.new_message);
-        this.iyp.setUsePlaceHolder(false);
-        this.ipY.setOnClickListener(this);
+        this.iyD = (OriginalThreadCardView) view.findViewById(R.id.original_thread_view);
+        this.kTu = (MessageCardBottomView) view.findViewById(R.id.card_message_bottom_layout);
+        this.kTv = view.findViewById(R.id.new_message);
+        this.iyD.setUsePlaceHolder(false);
+        this.iqm.setOnClickListener(this);
         this.eIO.setOnClickListener(this);
-        this.kTg.getReplyContainer().setOnClickListener(this);
+        this.kTu.getReplyContainer().setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -97,21 +97,21 @@ public class c extends com.baidu.tieba.card.b<a> {
             this.mSkinType = i;
             getView().setBackgroundDrawable(ap.oC(R.color.CAM_X0205));
             ap.setViewTextColor(this.eIO, R.color.CAM_X0106);
-            ap.setViewTextColor(this.kTc, R.color.CAM_X0109);
-            ap.setBackgroundResource(this.kTc, R.drawable.btn_rounded_corner_gray_frame_transparent_thin);
-            ap.setViewTextColor(this.kTd, R.color.CAM_X0109);
-            ap.setViewTextColor(this.gDo, R.color.CAM_X0109);
-            ap.setBackgroundColor(this.kTe, R.color.CAM_X0110);
+            ap.setViewTextColor(this.kTq, R.color.CAM_X0109);
+            ap.setBackgroundResource(this.kTq, R.drawable.btn_rounded_corner_gray_frame_transparent_thin);
+            ap.setViewTextColor(this.kTr, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gDC, R.color.CAM_X0109);
+            ap.setBackgroundColor(this.kTs, R.color.CAM_X0110);
             ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
-            ap.setBackgroundColor(this.kTf, R.color.CAM_X0204);
+            ap.setBackgroundColor(this.kTt, R.color.CAM_X0204);
             ap.setViewTextColor(this.dvr, R.color.CAM_X0107);
-            if (this.iyp != null) {
-                this.iyp.onChangeSkinType();
+            if (this.iyD != null) {
+                this.iyD.onChangeSkinType();
             }
-            if (this.kTg != null) {
-                this.kTg.onChangeSkinType();
+            if (this.kTu != null) {
+                this.kTu.onChangeSkinType();
             }
-            ap.setBackgroundResource(this.kTh, R.drawable.icon_news_red_dot);
+            ap.setBackgroundResource(this.kTv, R.drawable.icon_news_red_dot);
         }
     }
 
@@ -126,51 +126,51 @@ public class c extends com.baidu.tieba.card.b<a> {
     public void a(a aVar) {
         boolean z = true;
         if (aVar != null && aVar.getReplyer() != null) {
-            this.kTi = aVar;
+            this.kTw = aVar;
             MetaData replyer = aVar.getReplyer();
-            this.ipY.setVisibility(0);
-            this.ipY.setPlaceHolder(1);
-            this.ipY.setIsRound(true);
-            UtilHelper.showHeadImageViewBigV(this.ipY, replyer, 0);
-            this.ipY.setTag(null);
-            this.ipY.setPageId(this.eUY.getUniqueId());
-            this.ipY.startLoad(aVar.getReplyer().getAvater(), 12, false);
+            this.iqm.setVisibility(0);
+            this.iqm.setPlaceHolder(1);
+            this.iqm.setIsRound(true);
+            UtilHelper.showHeadImageViewBigV(this.iqm, replyer, 0);
+            this.iqm.setTag(null);
+            this.iqm.setPageId(this.eUY.getUniqueId());
+            this.iqm.startLoad(aVar.getReplyer().getAvater(), 12, false);
             this.eIO.setText(au.cutChineseAndEnglishWithSuffix(UtilHelper.getUserName(replyer), 14, StringHelper.STRING_MORE));
             if (aVar.getReplyer().getIsMyFans() == 1) {
-                this.kTc.setVisibility(0);
+                this.kTq.setVisibility(0);
             } else {
-                this.kTc.setVisibility(8);
+                this.kTq.setVisibility(8);
             }
             if (!au.isEmpty(aVar.getPostFrom())) {
-                this.kTe.setVisibility(0);
-                this.kTd.setVisibility(0);
-                this.kTd.setText(aVar.getPostFrom());
+                this.kTs.setVisibility(0);
+                this.kTr.setVisibility(0);
+                this.kTr.setText(aVar.getPostFrom());
             } else {
-                this.kTe.setVisibility(8);
-                this.kTd.setVisibility(8);
+                this.kTs.setVisibility(8);
+                this.kTr.setVisibility(8);
             }
-            this.gDo.setText(au.getFormatTime(aVar.getTime()));
+            this.gDC.setText(au.getFormatTime(aVar.getTime()));
             this.mTitle.setText(a(this.mTitle, TbFaceManager.bCO().b(this.eUY.getPageActivity().getApplicationContext(), aVar.getTitle(), this.ds48, this.ds48)));
             if (au.isEmpty(aVar.getSubTitle())) {
-                this.kTf.setVisibility(8);
+                this.kTt.setVisibility(8);
                 this.dvr.setVisibility(8);
             } else {
                 this.dvr.setText(a(this.dvr, TbFaceManager.bCO().b(this.eUY.getPageActivity().getApplicationContext(), aVar.getSubTitle(), this.ds42, this.ds42)));
                 this.dvr.setVisibility(0);
-                this.kTf.setVisibility(0);
+                this.kTt.setVisibility(0);
             }
-            this.iyp.b(aVar.getOriginalThreadInfo());
-            this.iyp.setSubClickListener(this.kTj);
-            MessageCardBottomView messageCardBottomView = this.kTg;
+            this.iyD.b(aVar.getOriginalThreadInfo());
+            this.iyD.setSubClickListener(this.kTx);
+            MessageCardBottomView messageCardBottomView = this.kTu;
             String fname = aVar.getFname();
-            if (aVar.getType() == a.kSV || aVar.getType() == a.kSW) {
+            if (aVar.getType() == a.kTj || aVar.getType() == a.kTk) {
                 z = false;
             }
             messageCardBottomView.setData(fname, z);
             if (aVar.isNew()) {
-                this.kTh.setVisibility(0);
+                this.kTv.setVisibility(0);
             } else {
-                this.kTh.setVisibility(8);
+                this.kTv.setVisibility(8);
             }
             onChangeSkinType(this.eUY, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -178,11 +178,11 @@ public class c extends com.baidu.tieba.card.b<a> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.kTi != null || this.eUY != null) {
-            if (view == this.ipY || view == this.eIO) {
-                if (this.kTi.getReplyer() != null) {
-                    String userId = this.kTi.getReplyer().getUserId();
-                    String userName = this.kTi.getReplyer().getUserName();
+        if (this.kTw != null || this.eUY != null) {
+            if (view == this.iqm || view == this.eIO) {
+                if (this.kTw.getReplyer() != null) {
+                    String userId = this.kTw.getReplyer().getUserId();
+                    String userName = this.kTw.getReplyer().getUserName();
                     if (userId != null && userId.length() > 0) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.eUY.getContext(), userId, userName)));
                     }
@@ -190,8 +190,8 @@ public class c extends com.baidu.tieba.card.b<a> {
                     return;
                 }
             }
-            if (crV() != null) {
-                crV().a(view, this.kTi);
+            if (csc() != null) {
+                csc().a(view, this.kTw);
             }
         }
     }

@@ -18,7 +18,7 @@ public class k implements d {
     private Surface c;
     private SurfaceHolder d;
     private l h;
-    private d.InterfaceC1165d i;
+    private d.InterfaceC1167d i;
     private d.b j;
     private d.c k;
     private b l;
@@ -97,10 +97,10 @@ public class k implements d {
         }
     }
 
-    public void a(d.InterfaceC1165d interfaceC1165d) {
-        this.i = interfaceC1165d;
+    public void a(d.InterfaceC1167d interfaceC1167d) {
+        this.i = interfaceC1167d;
         if (this.f11102a != null) {
-            this.f11102a.a(interfaceC1165d);
+            this.f11102a.a(interfaceC1167d);
         }
     }
 

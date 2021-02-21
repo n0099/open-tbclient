@@ -50,7 +50,7 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean egj();
+    public abstract boolean egr();
 
     abstract boolean isEnabled();
 
@@ -67,11 +67,11 @@ public abstract class TurbonetEngine {
         private boolean mQuicEnabled;
         private String mStoragePath;
         private String mUserAgent;
-        private String oRf;
-        private LibraryLoader oRg;
-        private String oRh;
-        private JSONObject oRi;
-        private String oRj;
+        private String oRF;
+        private LibraryLoader oRG;
+        private String oRH;
+        private JSONObject oRI;
+        private String oRJ;
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes6.dex */
@@ -85,44 +85,44 @@ public abstract class TurbonetEngine {
 
         public Builder(Context context) {
             this.mContext = context;
-            WR("turbonet");
-            this.oRi = new JSONObject();
+            Xd("turbonet");
+            this.oRI = new JSONObject();
             Az(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void egH() {
-            if (this.oRg == null) {
-                if (this.oRh.equals("turbonet")) {
-                    System.loadLibrary(this.oRh);
+        public void egP() {
+            if (this.oRG == null) {
+                if (this.oRH.equals("turbonet")) {
+                    System.loadLibrary(this.oRH);
                     return;
                 } else {
-                    System.load(this.oRh);
+                    System.load(this.oRH);
                     return;
                 }
             }
-            this.oRg.loadLibrary(this.oRh);
+            this.oRG.loadLibrary(this.oRH);
         }
 
-        public Builder WR(String str) {
-            this.oRh = str;
+        public Builder Xd(String str) {
+            this.oRH = str;
             return this;
         }
 
         private void e(String str, String str2, Object obj) {
             try {
-                JSONObject optJSONObject = this.oRi.optJSONObject(str);
+                JSONObject optJSONObject = this.oRI.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.oRi.put(str, optJSONObject);
+                this.oRI.put(str, optJSONObject);
             } catch (JSONException e) {
                 throw new IllegalStateException("JSON expcetion:", e);
             }
         }
 
-        public Builder WS(String str) {
+        public Builder Xe(String str) {
             e(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
             this.mUserAgent = str;
             return this;
@@ -140,16 +140,16 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean egI() {
+        public boolean egQ() {
             return this.mHttp2Enabled;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean egJ() {
+        public boolean egR() {
             return this.mQuicEnabled;
         }
 
-        public Builder WT(String str) {
+        public Builder Xf(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
@@ -158,7 +158,7 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String egD() {
+        public String egL() {
             return this.mStoragePath;
         }
 
@@ -168,7 +168,7 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long egK() {
+        public long egS() {
             return this.mHttpCacheMaxSize;
         }
 
@@ -193,31 +193,31 @@ public abstract class TurbonetEngine {
             return this.mNetworkQualityEstimatorEnabled;
         }
 
-        public Builder WU(String str) {
+        public Builder Xg(String str) {
             e("app", "cuid", str);
-            this.oRf = str;
+            this.oRF = str;
             return this;
         }
 
-        public Builder WV(String str) {
+        public Builder Xh(String str) {
             e("app", "app_name", str);
             this.mAppName = str;
             return this;
         }
 
-        public Builder WW(String str) {
-            this.oRj = str;
+        public Builder Xi(String str) {
+            this.oRJ = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String egL() {
-            return this.oRj;
+        public String egT() {
+            return this.oRJ;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String egM() {
-            return this.oRi.toString();
+        public String egU() {
+            return this.oRI.toString();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -225,7 +225,7 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine egN() {
+        public TurbonetEngine egV() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
@@ -234,7 +234,7 @@ public abstract class TurbonetEngine {
             }
             e(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (getUserAgent() == null) {
-                WS(c.from(this.mContext));
+                Xe(c.from(this.mContext));
             }
             return TurbonetEngine.a(this);
         }
@@ -258,23 +258,23 @@ public abstract class TurbonetEngine {
     /* loaded from: classes6.dex */
     public static final class UrlRequestMetrics {
         @Nullable
-        private final Long oPZ;
+        private final Long oQA;
         @Nullable
-        private final Long oQa;
+        private final Long oQz;
         @Nullable
-        private final Long oRk;
+        private final Long oRK;
         @Nullable
-        private final Long oRl;
+        private final Long oRL;
 
         public UrlRequestMetrics(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
-            this.oPZ = l;
-            this.oQa = l2;
-            this.oRk = l3;
-            this.oRl = l4;
+            this.oQz = l;
+            this.oQA = l2;
+            this.oRK = l3;
+            this.oRL = l4;
         }
     }
 
-    public long ega() {
+    public long egi() {
         return 0L;
     }
 }

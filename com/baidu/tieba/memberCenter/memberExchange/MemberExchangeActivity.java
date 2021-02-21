@@ -17,8 +17,8 @@ import com.baidu.tieba.R;
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
     private String descStr;
     private String dueDate;
-    private a lnv;
-    public HttpMessageListener lnw = new HttpMessageListener(1003320) { // from class: com.baidu.tieba.memberCenter.memberExchange.MemberExchangeActivity.1
+    private a lnJ;
+    public HttpMessageListener lnK = new HttpMessageListener(1003320) { // from class: com.baidu.tieba.memberCenter.memberExchange.MemberExchangeActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -65,17 +65,17 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         }
         abY();
         initListener();
-        this.lnv = new a(this);
-        this.lnv.l(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
+        this.lnJ = new a(this);
+        this.lnJ.l(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.go_to_exchange) {
-                dfh();
+                dfo();
             } else {
-                l.hideSoftKeyPad(getPageContext().getPageActivity(), this.lnv.getEditText());
+                l.hideSoftKeyPad(getPageContext().getPageActivity(), this.lnJ.getEditText());
             }
         }
     }
@@ -87,12 +87,12 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
     }
 
     private void initListener() {
-        registerListener(this.lnw);
+        registerListener(this.lnK);
     }
 
-    private void dfh() {
+    private void dfo() {
         HttpMessage httpMessage = new HttpMessage(1003320);
-        httpMessage.addParam(GetTCodeResMessage.ACTIVATION_CODE, this.lnv.getEditText().getText().toString());
+        httpMessage.addParam(GetTCodeResMessage.ACTIVATION_CODE, this.lnJ.getEditText().getText().toString());
         sendMessage(httpMessage);
     }
 }

@@ -16,7 +16,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
-    public k QV(int i) {
+    public k QW(int i) {
         if (this.f13023a != null) {
             this.f13023a.setTitle(i);
         }
@@ -24,7 +24,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
-    public k aaJ(String str) {
+    public k aaV(String str) {
         if (this.f13023a != null) {
             this.f13023a.setMessage(str);
         }
@@ -56,18 +56,18 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.k
-    public j eEY() {
-        return new C1229a(this.f13023a);
+    public j eFg() {
+        return new C1231a(this.f13023a);
     }
 
     /* renamed from: com.ss.android.socialbase.appdownloader.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C1229a implements j {
+    private static class C1231a implements j {
 
         /* renamed from: a  reason: collision with root package name */
         private AlertDialog f13024a;
 
-        public C1229a(AlertDialog.Builder builder) {
+        public C1231a(AlertDialog.Builder builder) {
             if (builder != null) {
                 this.f13024a = builder.show();
             }

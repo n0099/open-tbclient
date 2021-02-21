@@ -34,16 +34,16 @@ import com.sina.weibo.sdk.auth.AuthInfo;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class b implements View.OnClickListener {
-    private static final int hIE = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds202);
-    private static final int hIF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds239);
+    private static final int hIS = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds202);
+    private static final int hIT = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds239);
     private Context mContext;
     private ArrayList<TransmitForumData> mForumList;
     private int mPrivateThread;
     private ShareItem mShareItem;
-    private ShareGridLayout nIY;
-    private a nIZ;
-    private boolean nJa = false;
-    private CustomMessageListener lhC = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
+    private ShareGridLayout nJy;
+    private a nJz;
+    private boolean nJA = false;
+    private CustomMessageListener lhQ = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.transmitShare.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,19 +55,19 @@ public class b implements View.OnClickListener {
 
     public b(Context context) {
         this.mContext = context;
-        MessageManager.getInstance().registerListener(this.lhC);
+        MessageManager.getInstance().registerListener(this.lhQ);
     }
 
-    public ShareGridLayout dRq() {
-        if (this.nIY == null) {
+    public ShareGridLayout dRy() {
+        if (this.nJy == null) {
             initView();
         }
-        return this.nIY;
+        return this.nJy;
     }
 
     private void initView() {
-        this.nIY = new ShareGridLayout(this.mContext);
-        this.nIY.setItemParams(hIE, hIF);
+        this.nJy = new ShareGridLayout(this.mContext);
+        this.nJy.setItemParams(hIS, hIT);
     }
 
     private void b(com.baidu.tbadk.core.util.e.a aVar, int i, int i2) {
@@ -76,7 +76,7 @@ public class b implements View.OnClickListener {
             shareDialogItemView.setItemIcon(aVar, i2);
             shareDialogItemView.setItemName(i);
             shareDialogItemView.setOnClickListener(this);
-            this.nIY.addView(shareDialogItemView.dJw());
+            this.nJy.addView(shareDialogItemView.dJE());
         }
     }
 
@@ -85,16 +85,16 @@ public class b implements View.OnClickListener {
         shareDialogItemView.setItemIcon(i2, ap.getColor(R.color.CAM_X0107), i3);
         shareDialogItemView.setItemName(i);
         shareDialogItemView.setOnClickListener(this);
-        this.nIY.addView(shareDialogItemView.dJw());
+        this.nJy.addView(shareDialogItemView.dJE());
     }
 
     public void a(ShareDialogConfig shareDialogConfig, boolean z) {
         this.mShareItem = shareDialogConfig.shareItem;
         this.mForumList = shareDialogConfig.mForumList;
         this.mPrivateThread = shareDialogConfig.mPrivateThread;
-        this.nIY.removeAllViews();
-        this.nJa = shareDialogConfig.mShowMoreForumShare;
-        if (this.nJa) {
+        this.nJy.removeAllViews();
+        this.nJA = shareDialogConfig.mShowMoreForumShare;
+        if (this.nJA) {
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_circle40_svg), R.string.share_weixin_timeline, 3);
             b(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qq40_svg), R.string.share_qq_friends, 9);
@@ -117,13 +117,13 @@ public class b implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.nIZ = aVar;
+        this.nJz = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.nIZ != null) {
-            this.nIZ.el(view);
+        if (this.nJz != null) {
+            this.nJz.el(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -216,7 +216,7 @@ public class b implements View.OnClickListener {
 
     private void Km(int i) {
         if (i == 13) {
-            dRr();
+            dRz();
             Ko(13);
         }
     }
@@ -225,10 +225,10 @@ public class b implements View.OnClickListener {
         return i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10;
     }
 
-    private void dRr() {
+    private void dRz() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, RequestResponseCode.REQUEST_SELECT_FORUM);
         selectForumActivityConfig.setForumList(this.mForumList);
-        if (this.nJa) {
+        if (this.nJA) {
             selectForumActivityConfig.setFrom(4);
             selectForumActivityConfig.setMoreForumImg(this.mShareItem.imageUrl);
             selectForumActivityConfig.setMoreForumUrl(this.mShareItem.linkUrl);
@@ -247,7 +247,7 @@ public class b implements View.OnClickListener {
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.lhC);
+        MessageManager.getInstance().unRegisterListener(this.lhQ);
     }
 
     private void f(String str, Object... objArr) {

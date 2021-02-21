@@ -16,7 +16,7 @@ public final class d implements Runnable {
 
     public static void a(Context context, int i) {
         try {
-            if (!h.erd().d().equals(context.getPackageName())) {
+            if (!h.erl().d().equals(context.getPackageName())) {
                 return;
             }
         } catch (Exception e) {

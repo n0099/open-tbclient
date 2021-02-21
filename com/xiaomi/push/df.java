@@ -35,16 +35,16 @@ public class df {
                     try {
                         if (ixVar instanceof id) {
                             String str = ((id) ixVar).f642d;
-                            return (TextUtils.isEmpty(str) || fa.a(fa.m296a(str)) == -1) ? a2 : fa.a(fa.m296a(str));
+                            return (TextUtils.isEmpty(str) || fa.a(fa.m295a(str)) == -1) ? a2 : fa.a(fa.m295a(str));
                         } else if (ixVar instanceof il) {
                             String str2 = ((il) ixVar).f701d;
                             if (TextUtils.isEmpty(str2)) {
                                 return a2;
                             }
-                            if (fa.a(fa.m296a(str2)) != -1) {
-                                a2 = fa.a(fa.m296a(str2));
+                            if (fa.a(fa.m295a(str2)) != -1) {
+                                a2 = fa.a(fa.m295a(str2));
                             }
-                            if (hw.UploadTinyData.equals(fa.m296a(str2))) {
+                            if (hw.UploadTinyData.equals(fa.m295a(str2))) {
                                 return -1;
                             }
                             return a2;
@@ -125,7 +125,7 @@ public class df {
             iw.a(iiVar, bArr);
             a(str, context, iiVar, bArr.length);
         } catch (jc e) {
-            com.xiaomi.channel.commonutils.logger.b.m80a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m79a("fail to convert bytes to container");
         }
     }
 }

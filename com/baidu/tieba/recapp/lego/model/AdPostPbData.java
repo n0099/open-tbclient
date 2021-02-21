@@ -46,41 +46,41 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         if (optJSONObject != null) {
             this.buttonClick = new PostAdBaseData.a.b();
             this.buttonClick.scheme = optJSONObject.optString("scheme");
-            this.buttonClick.mSK = optJSONObject.optString("als_stat");
-            this.buttonClick.mSL = optJSONObject.optString("url_stat");
+            this.buttonClick.mTm = optJSONObject.optString("als_stat");
+            this.buttonClick.mTn = optJSONObject.optString("url_stat");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("ext_data");
         if (optJSONObject2 != null) {
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.mTa = new PostAdBaseData.a.C0858a();
-                this.extraData.mTa.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.mTa.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.mTC = new PostAdBaseData.a.C0860a();
+                this.extraData.mTC.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.mTC.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.mTa == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.mTC == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.mTa == null) {
+        if (this.extraData == null || this.extraData.mTC == null) {
             return null;
         }
-        return this.extraData.mTa.downloadUrl;
+        return this.extraData.mTC.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.mTa == null) {
+        if (this.extraData == null || this.extraData.mTC == null) {
             return null;
         }
-        return this.extraData.mTa.packageName;
+        return this.extraData.mTC.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.mTa == null) {
+        if (this.extraData == null || this.extraData.mTC == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
@@ -93,21 +93,21 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
             if ("apk_download".equals(this.style)) {
                 advertAppInfo.abz = 3;
             }
-            if (TextUtils.isEmpty(advertAppInfo.eLu)) {
-                advertAppInfo.eLu = this.id;
+            if (TextUtils.isEmpty(advertAppInfo.eLt)) {
+                advertAppInfo.eLt = this.id;
             }
             if (advertAppInfo.getFid() == 0) {
                 advertAppInfo.setFid(this.fid);
             }
             advertAppInfo.apkUrl = apkDownloadUrl();
             advertAppInfo.extensionInfo = this.extInfo;
-            advertAppInfo.eLx = apkDownloadPackage();
-            advertAppInfo.eLv = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
-            if (advertAppInfo.eLD == null) {
-                advertAppInfo.eLD = new AdvertAppInfo.a();
+            advertAppInfo.eLw = apkDownloadPackage();
+            advertAppInfo.eLu = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
+            if (advertAppInfo.eLC == null) {
+                advertAppInfo.eLC = new AdvertAppInfo.a();
             }
-            advertAppInfo.eLD.userPortrait = this.portrait;
-            advertAppInfo.eLD.userName = this.title;
+            advertAppInfo.eLC.userPortrait = this.portrait;
+            advertAppInfo.eLC.userName = this.title;
         }
     }
 
@@ -153,6 +153,11 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public boolean forFree() {
         return true;
+    }
+
+    @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
+    public String getDownloadKey() {
+        return null;
     }
 
     @Override // com.baidu.tieba.lego.card.a.b

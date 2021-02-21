@@ -26,13 +26,13 @@ final class a {
     private n.a e;
     private volatile boolean f;
     @Nullable
-    private volatile InterfaceC1129a g;
+    private volatile InterfaceC1131a g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
     /* renamed from: com.kwad.sdk.glide.load.engine.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1129a {
+    public interface InterfaceC1131a {
         void a();
     }
 
@@ -96,9 +96,9 @@ final class a {
         while (!this.f) {
             try {
                 a((b) this.d.remove());
-                InterfaceC1129a interfaceC1129a = this.g;
-                if (interfaceC1129a != null) {
-                    interfaceC1129a.a();
+                InterfaceC1131a interfaceC1131a = this.g;
+                if (interfaceC1131a != null) {
+                    interfaceC1131a.a();
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();

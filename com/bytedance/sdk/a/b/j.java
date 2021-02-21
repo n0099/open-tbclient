@@ -10,33 +10,33 @@ import java.util.Set;
 import javax.net.ssl.SSLPeerUnverifiedException;
 /* loaded from: classes6.dex */
 public final class j {
-    public static final j prd = new a().epR();
+    public static final j prD = new a().epZ();
 
     /* renamed from: b  reason: collision with root package name */
     private final Set<b> f5961b;
-    private final com.bytedance.sdk.a.b.a.i.c pre;
+    private final com.bytedance.sdk.a.b.a.i.c prE;
 
     j(Set<b> set, com.bytedance.sdk.a.b.a.i.c cVar) {
         this.f5961b = set;
-        this.pre = cVar;
+        this.prE = cVar;
     }
 
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
         }
-        return (obj instanceof j) && com.bytedance.sdk.a.b.a.c.a(this.pre, ((j) obj).pre) && this.f5961b.equals(((j) obj).f5961b);
+        return (obj instanceof j) && com.bytedance.sdk.a.b.a.c.a(this.prE, ((j) obj).prE) && this.f5961b.equals(((j) obj).f5961b);
     }
 
     public int hashCode() {
-        return ((this.pre != null ? this.pre.hashCode() : 0) * 31) + this.f5961b.hashCode();
+        return ((this.prE != null ? this.prE.hashCode() : 0) * 31) + this.f5961b.hashCode();
     }
 
     public void a(String str, List<Certificate> list) throws SSLPeerUnverifiedException {
         List<b> a2 = a(str);
         if (!a2.isEmpty()) {
-            if (this.pre != null) {
-                list = this.pre.s(list, str);
+            if (this.prE != null) {
+                list = this.prE.s(list, str);
             }
             int size = list.size();
             for (int i = 0; i < size; i++) {
@@ -51,14 +51,14 @@ public final class j {
                         if (fVar == null) {
                             fVar = d(x509Certificate);
                         }
-                        if (bVar.ppA.equals(fVar)) {
+                        if (bVar.pqa.equals(fVar)) {
                             return;
                         }
                     } else if (bVar.c.equals("sha1/")) {
                         if (fVar2 == null) {
                             fVar2 = c(x509Certificate);
                         }
-                        if (bVar.ppA.equals(fVar2)) {
+                        if (bVar.pqa.equals(fVar2)) {
                             return;
                         }
                     } else {
@@ -98,7 +98,7 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j a(com.bytedance.sdk.a.b.a.i.c cVar) {
-        return com.bytedance.sdk.a.b.a.c.a(this.pre, cVar) ? this : new j(this.f5961b, cVar);
+        return com.bytedance.sdk.a.b.a.c.a(this.prE, cVar) ? this : new j(this.f5961b, cVar);
     }
 
     public static String a(Certificate certificate) {
@@ -126,7 +126,7 @@ public final class j {
         /* renamed from: b  reason: collision with root package name */
         final String f5964b;
         final String c;
-        final com.bytedance.sdk.a.a.f ppA;
+        final com.bytedance.sdk.a.a.f pqa;
 
         boolean a(String str) {
             if (this.f5963a.startsWith("*.")) {
@@ -137,15 +137,15 @@ public final class j {
         }
 
         public boolean equals(Object obj) {
-            return (obj instanceof b) && this.f5963a.equals(((b) obj).f5963a) && this.c.equals(((b) obj).c) && this.ppA.equals(((b) obj).ppA);
+            return (obj instanceof b) && this.f5963a.equals(((b) obj).f5963a) && this.c.equals(((b) obj).c) && this.pqa.equals(((b) obj).pqa);
         }
 
         public int hashCode() {
-            return ((((this.f5963a.hashCode() + 527) * 31) + this.c.hashCode()) * 31) + this.ppA.hashCode();
+            return ((((this.f5963a.hashCode() + 527) * 31) + this.c.hashCode()) * 31) + this.pqa.hashCode();
         }
 
         public String toString() {
-            return this.c + this.ppA.b();
+            return this.c + this.pqa.b();
         }
     }
 
@@ -155,7 +155,7 @@ public final class j {
         /* renamed from: a  reason: collision with root package name */
         private final List<b> f5962a = new ArrayList();
 
-        public j epR() {
+        public j epZ() {
             return new j(new LinkedHashSet(this.f5962a), null);
         }
     }

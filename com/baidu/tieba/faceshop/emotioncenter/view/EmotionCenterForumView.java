@@ -18,9 +18,9 @@ import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 /* loaded from: classes9.dex */
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
     private TbPageContext eUY;
-    private TextView iYI;
-    private TextView iYJ;
-    private EmotionCenterData.EmotionForumData iYK;
+    private TextView iYW;
+    private TextView iYX;
+    private EmotionCenterData.EmotionForumData iYY;
     private ImageView mArrow;
 
     public EmotionCenterForumView(TbPageContext tbPageContext) {
@@ -41,27 +41,27 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_forum_layout, this);
-        this.iYI = (TextView) findViewById(R.id.forum_title_tv);
-        this.iYJ = (TextView) findViewById(R.id.forum_recommend_tv);
+        this.iYW = (TextView) findViewById(R.id.forum_title_tv);
+        this.iYX = (TextView) findViewById(R.id.forum_recommend_tv);
         this.mArrow = (ImageView) findViewById(R.id.forum_arrow);
         setOnClickListener(this);
     }
 
     public void setData(EmotionCenterData.EmotionForumData emotionForumData) {
         onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-        this.iYK = emotionForumData;
+        this.iYY = emotionForumData;
     }
 
     public void onChangeSkin(int i) {
-        ap.setViewTextColor(this.iYI, R.color.CAM_X0105, i);
-        ap.setViewTextColor(this.iYJ, R.color.cp_cont_r, i);
+        ap.setViewTextColor(this.iYW, R.color.CAM_X0105, i);
+        ap.setViewTextColor(this.iYX, R.color.cp_cont_r, i);
         ap.setBackgroundResource(this.mArrow, R.drawable.emotion_center_arrow, i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this && this.iYK != null) {
-            this.eUY.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.eUY.getPageActivity()).createNormalCfg(this.iYK.forum_name, null)));
+        if (view == this && this.iYY != null) {
+            this.eUY.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.eUY.getPageActivity()).createNormalCfg(this.iYY.forum_name, null)));
         }
     }
 }

@@ -58,7 +58,7 @@ public final class v {
         return Collections.emptyList();
     }
 
-    public a epU() {
+    public a eqc() {
         a aVar = new a();
         Collections.addAll(aVar.f5981a, this.f5980a);
         return aVar;
@@ -97,30 +97,30 @@ public final class v {
         final List<String> f5981a = new ArrayList(20);
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a YE(String str) {
+        public a YQ(String str) {
             int indexOf = str.indexOf(":", 1);
             if (indexOf != -1) {
-                return hk(str.substring(0, indexOf), str.substring(indexOf + 1));
+                return hm(str.substring(0, indexOf), str.substring(indexOf + 1));
             }
             if (str.startsWith(":")) {
-                return hk("", str.substring(1));
+                return hm("", str.substring(1));
             }
-            return hk("", str);
+            return hm("", str);
         }
 
-        public a hj(String str, String str2) {
+        public a hl(String str, String str2) {
             d(str, str2);
-            return hk(str, str2);
+            return hm(str, str2);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a hk(String str, String str2) {
+        public a hm(String str, String str2) {
             this.f5981a.add(str);
             this.f5981a.add(str2.trim());
             return this;
         }
 
-        public a YF(String str) {
+        public a YR(String str) {
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -137,10 +137,10 @@ public final class v {
             }
         }
 
-        public a hl(String str, String str2) {
+        public a hn(String str, String str2) {
             d(str, str2);
-            YF(str);
-            hk(str, str2);
+            YR(str);
+            hm(str, str2);
             return this;
         }
 
@@ -170,7 +170,7 @@ public final class v {
             }
         }
 
-        public v epV() {
+        public v eqd() {
             return new v(this);
         }
     }

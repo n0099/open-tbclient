@@ -12,30 +12,30 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private final List<cb> knQ = new ArrayList();
+    private final List<cb> koe = new ArrayList();
 
     public c a(boolean z, com.baidu.tieba.homepage.tabfeed.data.a aVar) {
         c cVar = new c();
-        cVar.gcx = z;
+        cVar.gcC = z;
         cVar.hasMore = aVar.hasMore();
-        cVar.knL = aVar.cRX();
-        cVar.knM = aVar.cRY();
-        ArrayList<cb> cxb = aVar.cxb();
+        cVar.knZ = aVar.cSe();
+        cVar.koa = aVar.cSf();
+        ArrayList<cb> cxi = aVar.cxi();
         if (z) {
-            if (!y.isEmpty(cxb)) {
-                this.knQ.clear();
-                this.knQ.addAll(cxb);
+            if (!y.isEmpty(cxi)) {
+                this.koe.clear();
+                this.koe.addAll(cxi);
             }
-        } else if (!y.isEmpty(cxb)) {
-            this.knQ.addAll(cxb);
+        } else if (!y.isEmpty(cxi)) {
+            this.koe.addAll(cxi);
         }
         ArrayList<n> arrayList = new ArrayList<>();
-        arrayList.addAll(this.knQ);
-        a(arrayList, aVar.cRV());
-        a(arrayList, aVar.cRW());
-        a(arrayList, aVar.cRZ());
-        a(arrayList, aVar.cSa());
-        cVar.knK = aE(arrayList);
+        arrayList.addAll(this.koe);
+        a(arrayList, aVar.cSc());
+        a(arrayList, aVar.cSd());
+        a(arrayList, aVar.cSg());
+        a(arrayList, aVar.cSh());
+        cVar.knY = aE(arrayList);
         return cVar;
     }
 
@@ -173,6 +173,6 @@ public class a {
     }
 
     public boolean hasData() {
-        return (this.knQ == null || y.isEmpty(this.knQ)) ? false : true;
+        return (this.koe == null || y.isEmpty(this.koe)) ? false : true;
     }
 }

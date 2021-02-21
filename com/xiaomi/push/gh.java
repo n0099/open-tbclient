@@ -120,7 +120,7 @@ public class gh extends gj {
         sb.append(o());
         gn a2 = a();
         if (a2 != null) {
-            sb.append(a2.m344a());
+            sb.append(a2.m343a());
         }
         sb.append("</iq>");
         return sb.toString();

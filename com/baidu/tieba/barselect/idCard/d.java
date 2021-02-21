@@ -19,15 +19,15 @@ public interface d {
 
     void a(e eVar);
 
-    Rect crC();
+    int crA();
 
-    void crD();
+    View crB();
 
-    void crs();
+    Rect crJ();
 
-    int crt();
+    void crK();
 
-    View cru();
+    void crz();
 
     void pause();
 

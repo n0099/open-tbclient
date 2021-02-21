@@ -12,12 +12,12 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
-    private boolean hkR;
-    private boolean iYY;
-    private boolean jWA;
-    private com.baidu.tieba.gift.myGiftList.a jWB;
-    private a jWC;
-    private com.baidu.adp.framework.listener.a jbH;
+    private boolean hlf;
+    private boolean iZm;
+    private boolean jWO;
+    private com.baidu.tieba.gift.myGiftList.a jWP;
+    private a jWQ;
+    private com.baidu.adp.framework.listener.a jbV;
     private boolean mHasMore;
     private int mPageNum;
     private String mStType;
@@ -31,10 +31,10 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     public MyGiftListModel(f<MyGiftListActivity> fVar, String str) {
         super(fVar);
-        this.jWA = false;
-        this.iYY = true;
+        this.jWO = false;
+        this.iZm = true;
         this.mUid = 0L;
-        this.jbH = new com.baidu.adp.framework.listener.a(1003051, CmdConfigSocket.CMD_GET_PERSONAL_GIFT_LIST) { // from class: com.baidu.tieba.gift.myGiftList.MyGiftListModel.1
+        this.jbV = new com.baidu.adp.framework.listener.a(1003051, CmdConfigSocket.CMD_GET_PERSONAL_GIFT_LIST) { // from class: com.baidu.tieba.gift.myGiftList.MyGiftListModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -46,19 +46,19 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
                                 MyGiftListModel.this.a(((GetPersonalGiftListSocketResponseMessage) responsedMessage).getGiftListData());
                             }
                         }
-                        if (MyGiftListModel.this.jWC != null) {
-                            MyGiftListModel.this.jWC.a(responsedMessage.getError(), responsedMessage.getErrorString(), MyGiftListModel.this.iYY, MyGiftListModel.this.jWB);
+                        if (MyGiftListModel.this.jWQ != null) {
+                            MyGiftListModel.this.jWQ.a(responsedMessage.getError(), responsedMessage.getErrorString(), MyGiftListModel.this.iZm, MyGiftListModel.this.jWP);
                         }
-                        MyGiftListModel.this.iYY = false;
+                        MyGiftListModel.this.iZm = false;
                     }
                 }
             }
         };
-        this.hkR = true;
+        this.hlf = true;
         this.mStType = str;
-        this.jbH.getHttpMessageListener().setSelfListener(true);
-        this.jbH.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.jbH);
+        this.jbV.getHttpMessageListener().setSelfListener(true);
+        this.jbV.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.jbV);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_PERSONAL_GIFT_LIST, GetPersonalGiftListSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_PERSONAL_GIFT_LIST, 1003051, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
     }
@@ -66,7 +66,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        cOc();
+        cOj();
         return false;
     }
 
@@ -88,9 +88,9 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         return getPersonalGiftListRequest;
     }
 
-    private void cOc() {
+    private void cOj() {
         GetPersonalGiftListRequest z;
-        if (!this.jWA) {
+        if (!this.jWO) {
             z = z(1, this.mUid);
         } else {
             z = z(this.mPageNum + 1, this.mUid);
@@ -102,61 +102,61 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public void a(com.baidu.tieba.gift.myGiftList.a aVar) {
         int i = 0;
         if (aVar != null) {
-            if (this.jWB == null) {
-                this.jWB = new com.baidu.tieba.gift.myGiftList.a();
+            if (this.jWP == null) {
+                this.jWP = new com.baidu.tieba.gift.myGiftList.a();
             }
-            if (this.jWB.cNX() == null) {
-                this.jWB.a(new a.b());
+            if (this.jWP.cOe() == null) {
+                this.jWP.a(new a.b());
             }
-            if (this.jWB.cNY() == null) {
-                this.jWB.a(new a.c());
+            if (this.jWP.cOf() == null) {
+                this.jWP.a(new a.c());
             }
-            if (this.jWB.getGiftList() == null) {
-                this.jWB.aD(new ArrayList<>());
+            if (this.jWP.getGiftList() == null) {
+                this.jWP.aD(new ArrayList<>());
             }
-            this.jWB.gz(aVar.cNV());
-            this.jWB.gA(aVar.cNW());
-            this.jWB.a(aVar.cNX());
-            this.jWB.a(aVar.cNY());
-            this.jWB.jVX = aVar.jVX;
+            this.jWP.gz(aVar.cOc());
+            this.jWP.gA(aVar.cOd());
+            this.jWP.a(aVar.cOe());
+            this.jWP.a(aVar.cOf());
+            this.jWP.jWl = aVar.jWl;
             if (aVar.urlTitleData != null) {
-                this.jWB.urlTitleData = new aj();
-                this.jWB.urlTitleData.eNX = aVar.urlTitleData.eNX;
-                this.jWB.urlTitleData.eNY = aVar.urlTitleData.eNY;
+                this.jWP.urlTitleData = new aj();
+                this.jWP.urlTitleData.eNX = aVar.urlTitleData.eNX;
+                this.jWP.urlTitleData.eNY = aVar.urlTitleData.eNY;
             }
-            if (this.jWB.cNX() != null) {
-                this.mPageNum = this.jWB.cNX().har;
-                this.mHasMore = this.jWB.cNX().jWd == 1;
+            if (this.jWP.cOe() != null) {
+                this.mPageNum = this.jWP.cOe().haF;
+                this.mHasMore = this.jWP.cOe().jWr == 1;
             }
             if (aVar.getGiftList() != null && aVar.getGiftList().size() > 0) {
-                if (this.jWA) {
-                    ArrayList<a.C0741a> giftList = aVar.getGiftList();
-                    int size = this.jWB.getGiftList().size() + 1;
+                if (this.jWO) {
+                    ArrayList<a.C0742a> giftList = aVar.getGiftList();
+                    int size = this.jWP.getGiftList().size() + 1;
                     while (true) {
                         int i2 = size;
                         if (i < giftList.size()) {
-                            a.C0741a c0741a = giftList.get(i);
-                            if (c0741a != null) {
-                                c0741a.jWc = i2;
+                            a.C0742a c0742a = giftList.get(i);
+                            if (c0742a != null) {
+                                c0742a.jWq = i2;
                                 size = i2 + 1;
                             } else {
                                 size = i2;
                             }
                             i++;
                         } else {
-                            this.jWB.getGiftList().addAll(giftList);
+                            this.jWP.getGiftList().addAll(giftList);
                             return;
                         }
                     }
                 } else {
-                    this.jWB.getGiftList().clear();
-                    this.jWB.getGiftList().addAll(aVar.getGiftList());
+                    this.jWP.getGiftList().clear();
+                    this.jWP.getGiftList().addAll(aVar.getGiftList());
                 }
             }
         }
     }
 
-    private void Lx(String str) {
+    private void Ly(String str) {
         if (str != null && str.length() > 0 && !str.equals("0") && !str.startsWith(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
             if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().equals(str)) {
                 setIsSelf(true);
@@ -172,15 +172,15 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     public void setUid(long j) {
         this.mUid = j;
-        Lx(String.valueOf(this.mUid));
+        Ly(String.valueOf(this.mUid));
     }
 
     public void setIsSelf(boolean z) {
-        this.hkR = z;
+        this.hlf = z;
     }
 
     public boolean getIsSelf() {
-        return this.hkR;
+        return this.hlf;
     }
 
     public boolean isHasMore() {
@@ -188,10 +188,10 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     }
 
     public void rT(boolean z) {
-        this.jWA = z;
+        this.jWO = z;
     }
 
     public void a(a aVar) {
-        this.jWC = aVar;
+        this.jWQ = aVar;
     }
 }

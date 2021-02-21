@@ -14,8 +14,8 @@ public abstract class an {
 
     /* renamed from: b  reason: collision with root package name */
     public boolean f7755b = false;
-    public ak pPm;
-    public ah pPn;
+    public ak pPM;
+    public ah pPN;
 
     public an(au.a aVar) {
         this.f7754a = aVar;
@@ -23,19 +23,19 @@ public abstract class an {
 
     public void a() {
         m.a("GDTAdLoader destroy adId: " + this.f7754a.f7762a);
-        this.pPm = null;
-        this.pPn = null;
+        this.pPM = null;
+        this.pPN = null;
     }
 
-    public abstract FunRippedAd eAp();
+    public abstract FunRippedAd eAx();
 
     public void a(Context context, FunAdSlot funAdSlot, ak akVar) {
         m.a("GDTAdLoader load adId: " + this.f7754a.f7762a);
-        this.pPm = akVar;
+        this.pPM = akVar;
     }
 
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         m.a("GDTAdLoader show adId: " + this.f7754a.f7762a);
-        this.pPn = ahVar;
+        this.pPN = ahVar;
     }
 }

@@ -11,17 +11,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.data.g;
 /* loaded from: classes10.dex */
 public class ConcernTabRecommendTitleView extends com.baidu.tieba.card.b<g> {
-    private ViewHolder gIh;
+    private ViewHolder gIv;
 
     public ConcernTabRecommendTitleView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gIh = new ViewHolder(getView());
+        this.gIv = new ViewHolder(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gIh.textView, R.color.CAM_X0109);
+        ap.setViewTextColor(this.gIv.textView, R.color.CAM_X0109);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -32,11 +32,11 @@ public class ConcernTabRecommendTitleView extends com.baidu.tieba.card.b<g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(g gVar) {
-        if (this.gIh != null) {
-            if (gVar.gGL) {
-                this.gIh.devider.setVisibility(0);
+        if (this.gIv != null) {
+            if (gVar.gGZ) {
+                this.gIv.devider.setVisibility(0);
             } else {
-                this.gIh.devider.setVisibility(8);
+                this.gIv.devider.setVisibility(8);
             }
         }
     }

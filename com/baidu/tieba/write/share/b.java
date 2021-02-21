@@ -22,14 +22,14 @@ public class b {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.share_sdk_check_no_resp));
                 }
-                if (b.this.ofY != null) {
-                    b.this.ofY.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (b.this.ogy != null) {
+                    b.this.ogy.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
     private BdUniqueId mPageId;
-    private a ofY;
+    private a ogy;
 
     public b(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -38,12 +38,12 @@ public class b {
 
     private void init() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(dXk());
+        messageManager.registerTask(dXs());
         this.mHttpMessageListener.setTag(this.mPageId);
         messageManager.registerListener(this.mHttpMessageListener);
     }
 
-    private HttpMessageTask dXk() {
+    private HttpMessageTask dXs() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setRetry(3);
@@ -52,13 +52,13 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.ofY = aVar;
+        this.ogy = aVar;
     }
 
-    public void gM(String str, String str2) {
+    public void gO(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            if (this.ofY != null) {
-                this.ofY.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
+            if (this.ogy != null) {
+                this.ogy.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
                 return;
             }
             return;

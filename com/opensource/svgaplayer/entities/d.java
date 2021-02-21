@@ -4,22 +4,22 @@ import com.opensource.svgaplayer.proto.ShapeEntity;
 @kotlin.e
 /* loaded from: classes6.dex */
 public final /* synthetic */ class d {
-    public static final /* synthetic */ int[] pZR = new int[ShapeEntity.ShapeType.values().length];
-    public static final /* synthetic */ int[] pZS;
-    public static final /* synthetic */ int[] pZT;
+    public static final /* synthetic */ int[] qar = new int[ShapeEntity.ShapeType.values().length];
+    public static final /* synthetic */ int[] qas;
+    public static final /* synthetic */ int[] qat;
 
     static {
-        pZR[ShapeEntity.ShapeType.SHAPE.ordinal()] = 1;
-        pZR[ShapeEntity.ShapeType.RECT.ordinal()] = 2;
-        pZR[ShapeEntity.ShapeType.ELLIPSE.ordinal()] = 3;
-        pZR[ShapeEntity.ShapeType.KEEP.ordinal()] = 4;
-        pZS = new int[ShapeEntity.ShapeStyle.LineCap.values().length];
-        pZS[ShapeEntity.ShapeStyle.LineCap.LineCap_BUTT.ordinal()] = 1;
-        pZS[ShapeEntity.ShapeStyle.LineCap.LineCap_ROUND.ordinal()] = 2;
-        pZS[ShapeEntity.ShapeStyle.LineCap.LineCap_SQUARE.ordinal()] = 3;
-        pZT = new int[ShapeEntity.ShapeStyle.LineJoin.values().length];
-        pZT[ShapeEntity.ShapeStyle.LineJoin.LineJoin_BEVEL.ordinal()] = 1;
-        pZT[ShapeEntity.ShapeStyle.LineJoin.LineJoin_MITER.ordinal()] = 2;
-        pZT[ShapeEntity.ShapeStyle.LineJoin.LineJoin_ROUND.ordinal()] = 3;
+        qar[ShapeEntity.ShapeType.SHAPE.ordinal()] = 1;
+        qar[ShapeEntity.ShapeType.RECT.ordinal()] = 2;
+        qar[ShapeEntity.ShapeType.ELLIPSE.ordinal()] = 3;
+        qar[ShapeEntity.ShapeType.KEEP.ordinal()] = 4;
+        qas = new int[ShapeEntity.ShapeStyle.LineCap.values().length];
+        qas[ShapeEntity.ShapeStyle.LineCap.LineCap_BUTT.ordinal()] = 1;
+        qas[ShapeEntity.ShapeStyle.LineCap.LineCap_ROUND.ordinal()] = 2;
+        qas[ShapeEntity.ShapeStyle.LineCap.LineCap_SQUARE.ordinal()] = 3;
+        qat = new int[ShapeEntity.ShapeStyle.LineJoin.values().length];
+        qat[ShapeEntity.ShapeStyle.LineJoin.LineJoin_BEVEL.ordinal()] = 1;
+        qat[ShapeEntity.ShapeStyle.LineJoin.LineJoin_MITER.ordinal()] = 2;
+        qat[ShapeEntity.ShapeStyle.LineJoin.LineJoin_ROUND.ordinal()] = 3;
     }
 }

@@ -14,8 +14,8 @@ public abstract class ac {
 
     /* renamed from: b  reason: collision with root package name */
     public boolean f7746b = false;
-    public z pPh;
-    public w pPi;
+    public z pPH;
+    public w pPI;
 
     public ac(au.a aVar) {
         this.f7745a = aVar;
@@ -23,19 +23,19 @@ public abstract class ac {
 
     public void a() {
         m.a("KSAdLoader destroy adId: " + this.f7745a.f7762a);
-        this.pPh = null;
-        this.pPi = null;
+        this.pPH = null;
+        this.pPI = null;
     }
 
-    public abstract FunRippedAd eAp();
+    public abstract FunRippedAd eAx();
 
     public void a(Context context, FunAdSlot funAdSlot, z zVar) {
         m.a("KSAdLoader load adId: " + this.f7745a.f7762a);
-        this.pPh = zVar;
+        this.pPH = zVar;
     }
 
     public void a(Activity activity, FunAdView funAdView, w wVar) {
         m.a("KSAdLoader show adId: " + this.f7745a.f7762a);
-        this.pPi = wVar;
+        this.pPI = wVar;
     }
 }

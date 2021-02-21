@@ -23,7 +23,7 @@ public class GenericDraweeView extends DraweeView<com.facebook.drawee.generic.a>
 
     protected void n(Context context, @Nullable AttributeSet attributeSet) {
         com.facebook.drawee.generic.b m = c.m(context, attributeSet);
-        setAspectRatio(m.euC());
-        setHierarchy(m.euQ());
+        setAspectRatio(m.euK());
+        setHierarchy(m.euY());
     }
 }

@@ -10,9 +10,9 @@ import android.os.Bundle;
 public class b {
     public Bitmap bm;
     private Context mContext;
-    public Bundle nyR;
-    public boolean nyS;
-    public boolean nyT;
+    public Bundle nzr;
+    public boolean nzs;
+    public boolean nzt;
     public Rect rect;
     private Rect src = new Rect();
 

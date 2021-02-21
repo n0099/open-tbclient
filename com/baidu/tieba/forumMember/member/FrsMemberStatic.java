@@ -15,19 +15,19 @@ public class FrsMemberStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        af.cEz().yZ(3);
+        af.cEG().yZ(3);
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.forumMember.member.FrsMemberStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new g(null, h.jcv));
-                    absDelegateAdapterList.add(new i(null, j.jcG));
-                    absDelegateAdapterList.add(new f(null, com.baidu.tieba.frs.n.jfQ));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.manito.a(null, com.baidu.tieba.forumMember.manito.b.jbY));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.manito.c(null, com.baidu.tieba.forumMember.manito.d.jcb));
-                    absDelegateAdapterList.add(new k(null, l.jcX));
+                    absDelegateAdapterList.add(new g(null, h.jcJ));
+                    absDelegateAdapterList.add(new i(null, j.jcU));
+                    absDelegateAdapterList.add(new f(null, com.baidu.tieba.frs.n.jge));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.manito.a(null, com.baidu.tieba.forumMember.manito.b.jcm));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.manito.c(null, com.baidu.tieba.forumMember.manito.d.jcp));
+                    absDelegateAdapterList.add(new k(null, l.jdl));
                 }
             }
         });

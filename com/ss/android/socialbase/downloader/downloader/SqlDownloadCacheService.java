@@ -36,13 +36,13 @@ public class SqlDownloadCacheService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         t tVar;
-        k eGk = b.eGk();
-        if (eGk instanceof com.ss.android.socialbase.downloader.impls.d) {
-            tVar = ((com.ss.android.socialbase.downloader.impls.d) eGk).eIr();
-        } else if (!(eGk instanceof t)) {
+        k eGs = b.eGs();
+        if (eGs instanceof com.ss.android.socialbase.downloader.impls.d) {
+            tVar = ((com.ss.android.socialbase.downloader.impls.d) eGs).eIz();
+        } else if (!(eGs instanceof t)) {
             tVar = null;
         } else {
-            tVar = (t) eGk;
+            tVar = (t) eGs;
         }
         if (tVar instanceof IBinder) {
             return (IBinder) tVar;

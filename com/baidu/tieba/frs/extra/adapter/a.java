@@ -14,48 +14,48 @@ import com.baidu.tieba.card.data.n;
 import com.baidu.tieba.card.o;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
-public class a extends k<n, C0724a> {
-    private boolean jug;
+public class a extends k<n, C0725a> {
+    private boolean juu;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.jug = z;
+        this.juu = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bz */
-    public C0724a e(ViewGroup viewGroup) {
+    public C0725a e(ViewGroup viewGroup) {
         o oVar = new o(this.mPageContext);
         oVar.setStatKey(null, TbadkCoreStatisticKey.FRS_HOT_TOPIC_ITEM_CLICK);
-        return new C0724a(oVar);
+        return new C0725a(oVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, n nVar, C0724a c0724a) {
+    public View a(int i, View view, ViewGroup viewGroup, n nVar, C0725a c0725a) {
         TiebaStatic.log(new ar(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
         if (nVar != null) {
             nVar.locate = i + 1;
-            c0724a.juh.xb(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0724a.juh.showBottomLine(this.jug);
-            c0724a.juh.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            c0725a.juv.xb(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0725a.juv.showBottomLine(this.juu);
+            c0725a.juv.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0724a.juh.a(nVar);
-        return c0724a.getView();
+        c0725a.juv.a(nVar);
+        return c0725a.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.frs.extra.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0724a extends TypeAdapter.ViewHolder {
-        public o juh;
+    public class C0725a extends TypeAdapter.ViewHolder {
+        public o juv;
 
-        public C0724a(o oVar) {
+        public C0725a(o oVar) {
             super(oVar.getView());
-            this.juh = oVar;
+            this.juv = oVar;
         }
     }
 }

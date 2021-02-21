@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class i extends BaseAdapter {
-    private static int lCs = 3;
+    private static int lCG = 3;
     private Context mContext;
     private List<BazhuInfoData.BaInfo> mDataList = new ArrayList();
 
@@ -63,34 +63,34 @@ public class i extends BaseAdapter {
     /* loaded from: classes9.dex */
     public static class a {
         public TextView fkQ;
-        public CheckBox lCt;
-        public BarImageView lCu;
-        private Drawable lCv;
+        public CheckBox lCH;
+        public BarImageView lCI;
+        private Drawable lCJ;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
                 this.fkQ = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.lCt = (CheckBox) view.findViewById(R.id.transmit_check_box);
-                this.lCu = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.lCH = (CheckBox) view.findViewById(R.id.transmit_check_box);
+                this.lCI = (BarImageView) view.findViewById(R.id.forum_avatar);
             }
         }
 
         public void b(BazhuInfoData.BaInfo baInfo) {
             if (baInfo != null) {
                 this.fkQ.setText(baInfo.forum_name);
-                this.lCt.setChecked(baInfo.isChecked);
-                this.lCu.startLoad(baInfo.forum_Avatar, 10, false);
-                this.lCt.setButtonDrawable(this.lCv);
+                this.lCH.setChecked(baInfo.isChecked);
+                this.lCI.startLoad(baInfo.forum_Avatar, 10, false);
+                this.lCH.setButtonDrawable(this.lCJ);
             }
         }
 
         public void bup() {
-            if (i.lCs != this.mSkinType) {
+            if (i.lCG != this.mSkinType) {
                 ap.setViewTextColor(this.fkQ, R.color.CAM_X0105);
-                this.lCv = ap.getDrawable(R.drawable.transmit_check_box);
+                this.lCJ = ap.getDrawable(R.drawable.transmit_check_box);
             }
-            this.mSkinType = i.lCs;
+            this.mSkinType = i.lCG;
         }
     }
 
@@ -101,9 +101,9 @@ public class i extends BaseAdapter {
     }
 
     public void Fi(int i) {
-        if (lCs != i) {
+        if (lCG != i) {
             notifyDataSetChanged();
         }
-        lCs = i;
+        lCG = i;
     }
 }

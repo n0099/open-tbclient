@@ -32,14 +32,14 @@ public class ShareStatic {
     public static String Tag = "tag";
 
     static {
-        dIU();
-        dIW();
-        dIV();
-        dIT();
-        dIX();
+        dJc();
+        dJe();
+        dJd();
+        dJb();
+        dJf();
     }
 
-    private static void dIT() {
+    private static void dJb() {
         MessageManager.getInstance().registerListener(new HttpMessageListener(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE) { // from class: com.baidu.tieba.sharesdk.ShareStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -63,7 +63,7 @@ public class ShareStatic {
         });
     }
 
-    private static void dIU() {
+    private static void dJc() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_CREATE_SHARE_DIALOG, new CustomMessageTask.CustomRunnable<e>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -75,7 +75,7 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dIV() {
+    private static void dJd() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE, TbConfig.SERVER_ADDRESS + TbConfig.URL_SHARE_COMMAND_GENERATE);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(CommandShareHttpResMsg.class);
@@ -83,7 +83,7 @@ public class ShareStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dIW() {
+    private static void dJe() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new CustomMessageTask.CustomRunnable<ShareDialogConfig>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
@@ -144,7 +144,7 @@ public class ShareStatic {
                             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                             while (it.hasNext()) {
                                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                                dVar.a(dVar.m47do(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), dVar.dJr(), (View.OnClickListener) ((Pair) next.second).second);
+                                dVar.a(dVar.dp(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), dVar.dJz(), (View.OnClickListener) ((Pair) next.second).second);
                             }
                         }
                         dVar.b(data.getFrom());
@@ -172,13 +172,13 @@ public class ShareStatic {
             Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = shareDialogConfig.textViewList.iterator();
             while (it.hasNext()) {
                 Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                aVar.a(aVar.m46do(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.dJr(), (View.OnClickListener) ((Pair) next.second).second);
+                aVar.a(aVar.dp(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), aVar.dJz(), (View.OnClickListener) ((Pair) next.second).second);
             }
         }
         aVar.show();
     }
 
-    private static void dIX() {
+    private static void dJf() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016567, new CustomMessageTask.CustomRunnable<ShareItem>() { // from class: com.baidu.tieba.sharesdk.ShareStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<ShareItem> customMessage) {

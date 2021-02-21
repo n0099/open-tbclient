@@ -17,12 +17,12 @@ public class g implements com.bytedance.sdk.adnet.e.e {
         this(TbConfig.NOTIFY_YUN_PUSH, 1, 1.0f);
     }
 
-    public g OH(int i) {
+    public g OI(int i) {
         this.f6027a = i;
         return this;
     }
 
-    public g OI(int i) {
+    public g OJ(int i) {
         this.c = i;
         return this;
     }

@@ -21,11 +21,11 @@ public class a extends RatioFrameLayout {
     private ViewTreeObserver.OnScrollChangedListener e;
     private ViewTreeObserver f;
     private an g;
-    private InterfaceC1152a h;
+    private InterfaceC1154a h;
 
     /* renamed from: com.kwad.sdk.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1152a {
+    public interface InterfaceC1154a {
         void a();
     }
 
@@ -150,7 +150,7 @@ public class a extends RatioFrameLayout {
         }
     }
 
-    public void setVisibleListener(InterfaceC1152a interfaceC1152a) {
-        this.h = interfaceC1152a;
+    public void setVisibleListener(InterfaceC1154a interfaceC1154a) {
+        this.h = interfaceC1154a;
     }
 }

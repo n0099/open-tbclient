@@ -7,10 +7,10 @@ import com.baidu.tieba.yuyinala.liveroom.alaaudiopk.c;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class TeamFightInfoResponseMessage extends JsonHttpResponsedMessage {
-    private c osd;
+    private c osD;
 
-    public c eaE() {
-        return this.osd;
+    public c eaM() {
+        return this.osD;
     }
 
     public TeamFightInfoResponseMessage() {
@@ -22,24 +22,24 @@ public class TeamFightInfoResponseMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031087) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501077, jSONObject.toString()));
-            if (this.osd == null) {
-                this.osd = new c();
+            if (this.osD == null) {
+                this.osD = new c();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.osd.osL = optJSONObject.optInt("next_sync_seconds");
-                this.osd.activity_stage = optJSONObject.optInt("activity_stage");
-                this.osd.osM = optJSONObject.optInt("stage_end_time");
-                this.osd.osN = optJSONObject.optInt("left_seconds");
-                this.osd.osQ = optJSONObject.optInt("left_milliseconds");
-                this.osd.osR = optJSONObject.optInt("need_fix");
-                this.osd.osS = optJSONObject.optInt("fix_moment_milli_range");
-                this.osd.osO = optJSONObject.optString("pk_winner");
+                this.osD.otl = optJSONObject.optInt("next_sync_seconds");
+                this.osD.activity_stage = optJSONObject.optInt("activity_stage");
+                this.osD.otm = optJSONObject.optInt("stage_end_time");
+                this.osD.otn = optJSONObject.optInt("left_seconds");
+                this.osD.otq = optJSONObject.optInt("left_milliseconds");
+                this.osD.otr = optJSONObject.optInt("need_fix");
+                this.osD.ots = optJSONObject.optInt("fix_moment_milli_range");
+                this.osD.oto = optJSONObject.optString("pk_winner");
                 if (optJSONObject.has("pk_value")) {
                     JSONObject jSONObject2 = new JSONObject(optJSONObject.optString("pk_value"));
-                    this.osd.osP = new c.a();
-                    this.osd.osP.f5351a = jSONObject2.optString("a");
-                    this.osd.osP.f5352b = jSONObject2.optString(com.baidu.pass.biometrics.face.liveness.d.b.f4046a);
+                    this.osD.otp = new c.a();
+                    this.osD.otp.f5351a = jSONObject2.optString("a");
+                    this.osD.otp.f5352b = jSONObject2.optString(com.baidu.pass.biometrics.face.liveness.d.b.f4046a);
                 }
             }
         }

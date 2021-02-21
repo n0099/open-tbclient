@@ -5,12 +5,12 @@ import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 /* loaded from: classes.dex */
 public class g {
     private cb akU;
-    private ForumManageModel geq;
+    private ForumManageModel gev;
     private int type;
 
     public g(int i, ForumManageModel forumManageModel, cb cbVar) {
         this.type = i;
-        this.geq = forumManageModel;
+        this.gev = forumManageModel;
         this.akU = cbVar;
     }
 
@@ -18,11 +18,11 @@ public class g {
         return this.type;
     }
 
-    public cb bKr() {
+    public cb bKw() {
         return this.akU;
     }
 
-    public ForumManageModel bKs() {
-        return this.geq;
+    public ForumManageModel bKx() {
+        return this.gev;
     }
 }

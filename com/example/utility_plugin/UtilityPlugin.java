@@ -166,17 +166,17 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                         openBBASMApp(methodCall, result);
                     } else if (methodCall.method.equals("readNewMessage")) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.dEW().dET() ? 1 : 0));
-                        hashMap.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.dEW().dES() ? 1 : 0));
+                        hashMap.put("bookmarkNum", Integer.valueOf(com.baidu.tieba.p.a.dFe().dFb() ? 1 : 0));
+                        hashMap.put("fansNum", Integer.valueOf(com.baidu.tieba.p.a.dFe().dFa() ? 1 : 0));
                         result.success(hashMap);
                     } else if (methodCall.method.equals("clearNewMessage")) {
                         clearNewMessage(methodCall, result);
                     } else if (methodCall.method.equals("readVipCenterNewMessage")) {
-                        result.success(Boolean.valueOf(com.baidu.tieba.p.a.dEW().dEU()));
+                        result.success(Boolean.valueOf(com.baidu.tieba.p.a.dFe().dFc()));
                     } else if (methodCall.method.equals("showLoginAwardCell")) {
                         result.success(Boolean.valueOf(TbadkCoreApplication.getInst().getActivityPrizeData().isPersonItemSwitch()));
                     } else if (methodCall.method.equals("showRedDotForMyTab")) {
-                        result.success(Boolean.valueOf(com.baidu.tieba.p.a.dEW().dEV()));
+                        result.success(Boolean.valueOf(com.baidu.tieba.p.a.dFe().dFd()));
                     } else if (methodCall.method.equals("getThemeMode")) {
                         result.success(ap.bsK());
                     } else if (methodCall.method.equals("getMyPrivateStat")) {
@@ -438,7 +438,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 if (!TextUtils.isEmpty(str)) {
-                    d.cXT().D(TbadkApplication.getCurrentAccount(), String.valueOf(str), booleanValue);
+                    d.cYa().D(TbadkApplication.getCurrentAccount(), String.valueOf(str), booleanValue);
                 }
                 return null;
             }
@@ -447,7 +447,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
     }
 
     private void getIsOfficalForumLetterReminderOpen(MethodCall methodCall, MethodChannel.Result result) {
-        OfficialSettingItemData fx = d.cXT().fx(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
+        OfficialSettingItemData fx = d.cYa().fx(TbadkApplication.getCurrentAccount(), (String) methodCall.arguments);
         if (fx != null) {
             result.success(Boolean.valueOf(fx.isAcceptNotify()));
         } else {
@@ -580,11 +580,11 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
         String str = (String) methodCall.arguments;
         if (!StringUtils.isNull(str)) {
             if ("bookmarkNum".equals(str)) {
-                com.baidu.tieba.p.a.dEW().h(3, false, true);
+                com.baidu.tieba.p.a.dFe().h(3, false, true);
             } else if ("fansNum".equals(str)) {
-                com.baidu.tieba.p.a.dEW().h(2, false, true);
+                com.baidu.tieba.p.a.dFe().h(2, false, true);
             } else if ("giftNum".equals(str)) {
-                com.baidu.tieba.p.a.dEW().h(1, false, true);
+                com.baidu.tieba.p.a.dFe().h(1, false, true);
             }
         }
     }
@@ -695,14 +695,14 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
                     bpJ.agreeType = 2;
                     bpJ.hasAgree = true;
                     bpJ.agreeNum++;
-                    com.baidu.tieba.o.a.dCR().J(tbPageContext);
+                    com.baidu.tieba.o.a.dCY().J(tbPageContext);
                     i = 0;
                 }
             } else {
                 bpJ.agreeType = 2;
                 bpJ.hasAgree = true;
                 bpJ.agreeNum++;
-                com.baidu.tieba.o.a.dCR().J(tbPageContext);
+                com.baidu.tieba.o.a.dCY().J(tbPageContext);
                 i = 0;
             }
             if (!StringUtil.isEmpty(str)) {
@@ -777,7 +777,7 @@ public class UtilityPlugin implements FlutterPlugin, MethodChannel.MethodCallHan
     }
 
     private void getAppPosInfo(MethodChannel.Result result) {
-        result.success(com.baidu.tieba.recapp.c.a.dEe().dEk());
+        result.success(com.baidu.tieba.recapp.c.a.dEm().dEs());
     }
 
     private void getHistoryCount() {

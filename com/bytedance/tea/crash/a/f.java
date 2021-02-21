@@ -4,25 +4,25 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public class f {
-    private static volatile f pvA;
-    private final c pvy;
+    private static volatile f pwa;
+    private final c pvY;
 
     public static f hZ(Context context) {
-        if (pvA == null) {
+        if (pwa == null) {
             synchronized (f.class) {
-                if (pvA == null) {
-                    pvA = new f(context);
+                if (pwa == null) {
+                    pwa = new f(context);
                 }
             }
         }
-        return pvA;
+        return pwa;
     }
 
     private f(@NonNull Context context) {
-        this.pvy = new c(context);
+        this.pvY = new c(context);
     }
 
     public void a() {
-        this.pvy.a();
+        this.pvY.a();
     }
 }

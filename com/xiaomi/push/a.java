@@ -30,7 +30,7 @@ public final class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m149a() {
+    public byte[] m148a() {
         int length = this.f169a.length;
         byte[] bArr = new byte[length];
         System.arraycopy(this.f169a, 0, bArr, 0, length);

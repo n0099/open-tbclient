@@ -6,33 +6,33 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class a extends SQLiteOpenHelper {
-    private static volatile a qek;
+    private static volatile a qeK;
 
     /* renamed from: b  reason: collision with root package name */
     private boolean f13084b;
 
-    public static a eFS() {
-        if (qek == null) {
+    public static a eGa() {
+        if (qeK == null) {
             synchronized (a.class) {
-                if (qek == null) {
-                    qek = new a();
+                if (qeK == null) {
+                    qeK = new a();
                 }
             }
         }
-        return qek;
+        return qeK;
     }
 
     private a() {
-        super(com.ss.android.socialbase.downloader.downloader.b.eGu(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 13);
+        super(com.ss.android.socialbase.downloader.downloader.b.eGC(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 13);
         this.f13084b = false;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public SQLiteDatabase getReadableDatabase() {
-        Context eGu = com.ss.android.socialbase.downloader.downloader.b.eGu();
-        if (!this.f13084b && eGu != null) {
+        Context eGC = com.ss.android.socialbase.downloader.downloader.b.eGC();
+        if (!this.f13084b && eGC != null) {
             try {
-                File file = new File("/data/data/" + eGu.getPackageName() + "/database/main/");
+                File file = new File("/data/data/" + eGC.getPackageName() + "/database/main/");
                 if (!file.exists()) {
                     file.mkdir();
                 }

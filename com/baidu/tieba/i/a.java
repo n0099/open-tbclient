@@ -5,58 +5,58 @@ import tbclient.EsportRank;
 public class a {
     private String bSZ;
     private String bcH;
-    private String ggy;
-    private String jTZ;
-    private String jUa;
-    private String jUb;
+    private String ggD;
+    private String jUn;
+    private String jUo;
+    private String jUp;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.jTZ = String.valueOf(esportRank.rank);
+            this.jUn = String.valueOf(esportRank.rank);
             this.bcH = esportRank.text;
-            this.ggy = esportRank.url;
+            this.ggD = esportRank.url;
             if (esportRank.user != null) {
-                this.jUa = esportRank.user.steam_name;
-                this.jUb = esportRank.user.steam_portrait;
+                this.jUo = esportRank.user.steam_name;
+                this.jUp = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String cHg() {
+    public String cHn() {
         return this.mTitle;
     }
 
-    public String cNB() {
-        return this.jTZ;
+    public String cNI() {
+        return this.jUn;
     }
 
-    public String cNC() {
+    public String cNJ() {
         return this.bcH;
     }
 
-    public String cND() {
-        return this.jUa;
+    public String cNK() {
+        return this.jUo;
     }
 
-    public String cNE() {
-        return this.jUb;
+    public String cNL() {
+        return this.jUp;
     }
 
-    public String cNF() {
+    public String cNM() {
         return this.bSZ;
     }
 
-    public void Lt(String str) {
+    public void Lu(String str) {
         this.bSZ = str;
     }
 
-    public String cNG() {
-        return this.ggy;
+    public String cNN() {
+        return this.ggD;
     }
 
-    public void Lu(String str) {
-        this.ggy = str;
+    public void Lv(String str) {
+        this.ggD = str;
     }
 }

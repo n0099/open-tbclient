@@ -46,7 +46,7 @@ public class a {
         a();
     }
 
-    public static a Or(int i) {
+    public static a Os(int i) {
         a aVar = new a();
         switch (i) {
             case 0:
@@ -65,27 +65,27 @@ public class a {
         return aVar;
     }
 
-    public String enZ() {
+    public String eoi() {
         return this.d;
     }
 
-    public String eoa() {
+    public String eoj() {
         return this.e;
     }
 
-    public String eob() {
+    public String eok() {
         return this.f;
     }
 
-    public String eoc() {
+    public String eol() {
         return this.g;
     }
 
-    public String[] eod() {
+    public String[] eom() {
         return this.h;
     }
 
-    public String eoe() {
+    public String eon() {
         return this.i;
     }
 }

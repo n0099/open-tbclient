@@ -8,8 +8,8 @@ import tbclient.GetIconList.Setting;
 /* loaded from: classes9.dex */
 public class a extends BaseCardInfo implements n {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public Custom nCq;
-    public Setting nCr;
+    public Custom nCQ;
+    public Setting nCR;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {

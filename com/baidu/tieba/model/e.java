@@ -26,28 +26,28 @@ import org.json.JSONObject;
 public class e {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] dgE;
+        String[] dgL;
         if (bVar == null) {
             return null;
         }
         try {
-            dgE = dgE();
+            dgL = dgL();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (dgE != null) {
+        if (dgL != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", "tb"));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", dgE[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", dgL[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.mBduss);
             jSONObject.put("ptoken", bVar.mPtoken);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(dgE[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(dgL[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", g(arrayList, "6e93e7659ae637845c7f83abee68a740")));
             aa aaVar = new aa("http://passport.baidu.com/v2/sapi/bdusslogin");
             aaVar.bsr().bta().mIsNeedAddCommenParam = false;
@@ -72,7 +72,7 @@ public class e {
         return null;
     }
 
-    private static String[] dgE() {
+    private static String[] dgL() {
         try {
             aa aaVar = new aa("http://passport.baidu.com/sslcrypt/get_last_cert");
             aaVar.bsr().bta().mIsNeedAddCommenParam = false;

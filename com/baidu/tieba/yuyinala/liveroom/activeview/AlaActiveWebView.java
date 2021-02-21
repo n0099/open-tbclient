@@ -25,8 +25,8 @@ public class AlaActiveWebView extends FrameLayout implements c {
     private List<String> bVP;
     private SchemeCallback bVR;
     private String eML;
-    private boolean hmy;
-    private a orR;
+    private boolean hmM;
+    private a osr;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -54,7 +54,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
     }
 
     public void setCallback(a aVar) {
-        this.orR = aVar;
+        this.osr = aVar;
     }
 
     public void addJavascriptInterface(Object obj, String str) {
@@ -75,8 +75,8 @@ public class AlaActiveWebView extends FrameLayout implements c {
         return this.bVO != null ? this.bVO.getOriginalUrl() : "";
     }
 
-    public boolean bYK() {
-        return this.hmy;
+    public boolean bYR() {
+        return this.hmM;
     }
 
     @RequiresApi(19)
@@ -105,8 +105,8 @@ public class AlaActiveWebView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.activeview.c
     public void release() {
-        this.orR = null;
-        this.hmy = false;
+        this.osr = null;
+        this.hmM = false;
         removeAllViews();
         if (this.bVO != null) {
             if (this.bVP != null) {
@@ -124,7 +124,7 @@ public class AlaActiveWebView extends FrameLayout implements c {
     }
 
     private void init() {
-        this.hmy = false;
+        this.hmM = false;
         setBackgroundColor(0);
         this.bVO = new CommonWebView(getContext());
         this.bVO.setVerticalScrollEnabled(false);
@@ -138,9 +138,9 @@ public class AlaActiveWebView extends FrameLayout implements c {
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
-                            AlaActiveWebView.this.hmy = Boolean.valueOf(str2).booleanValue();
-                            if (AlaActiveWebView.this.orR != null) {
-                                AlaActiveWebView.this.orR.nG(Boolean.valueOf(str2).booleanValue());
+                            AlaActiveWebView.this.hmM = Boolean.valueOf(str2).booleanValue();
+                            if (AlaActiveWebView.this.osr != null) {
+                                AlaActiveWebView.this.osr.nG(Boolean.valueOf(str2).booleanValue());
                             }
                         }
                     });

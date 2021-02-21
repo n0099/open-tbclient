@@ -6,7 +6,7 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class c extends BaseCardInfo {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public List<b> gGH;
+    public List<b> gGV;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {

@@ -11,25 +11,25 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tieba.yuyinala.message.AlaGetRoomRankListResponseMessage;
 /* loaded from: classes11.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener hTO = new HttpMessageListener(1031033) { // from class: com.baidu.tieba.yuyinala.c.b.1
+    private HttpMessageListener hUc = new HttpMessageListener(1031033) { // from class: com.baidu.tieba.yuyinala.c.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && b.this.oMq != null) {
-                b.this.oMq.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomRankListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && b.this.oMQ != null) {
+                b.this.oMQ.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
             }
         }
     };
-    private d oMq;
+    private d oMQ;
 
     public void a(d dVar) {
-        this.oMq = dVar;
+        this.oMQ = dVar;
     }
 
     public b(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
         registerTask();
-        registerListener(this.hTO);
+        registerListener(this.hUc);
     }
 
     private void registerTask() {
@@ -42,7 +42,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void WI(String str) {
+    public void WU(String str) {
         HttpMessage httpMessage = new HttpMessage(1031033);
         httpMessage.addParam(UbcStatConstant.KEY_CUSTOM_ROOM_ID, str);
         MessageManager.getInstance().sendMessage(httpMessage);

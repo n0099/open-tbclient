@@ -22,9 +22,9 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
     public int compareTo(Cif cif) {
         int a2;
         if (getClass().equals(cif.getClass())) {
-            int compareTo = Boolean.valueOf(m433a()).compareTo(Boolean.valueOf(cif.m433a()));
+            int compareTo = Boolean.valueOf(m432a()).compareTo(Boolean.valueOf(cif.m432a()));
             if (compareTo == 0) {
-                if (!m433a() || (a2 = iy.a(this.f651a, cif.f651a)) == 0) {
+                if (!m432a() || (a2 = iy.a(this.f651a, cif.f651a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -47,20 +47,20 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m515a();
+        jiVar.m514a();
         while (true) {
-            jf m511a = jiVar.m511a();
-            if (m511a.f14173a == 0) {
+            jf m510a = jiVar.m510a();
+            if (m510a.f14173a == 0) {
                 jiVar.f();
                 a();
                 return;
             }
-            switch (m511a.f857a) {
+            switch (m510a.f857a) {
                 case 1:
-                    if (m511a.f14173a == 15) {
-                        jg m512a = jiVar.m512a();
-                        this.f651a = new ArrayList(m512a.f858a);
-                        for (int i = 0; i < m512a.f858a; i++) {
+                    if (m510a.f14173a == 15) {
+                        jg m511a = jiVar.m511a();
+                        this.f651a = new ArrayList(m511a.f858a);
+                        for (int i = 0; i < m511a.f858a; i++) {
                             hu huVar = new hu();
                             huVar.a(jiVar);
                             this.f651a.add(huVar);
@@ -68,11 +68,11 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14173a);
+                    jl.a(jiVar, m510a.f14173a);
                     break;
             }
             jiVar.g();
@@ -80,18 +80,18 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m433a() {
+    public boolean m432a() {
         return this.f651a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m434a(Cif cif) {
+    public boolean m433a(Cif cif) {
         if (cif == null) {
             return false;
         }
-        boolean m433a = m433a();
-        boolean m433a2 = cif.m433a();
-        return !(m433a || m433a2) || (m433a && m433a2 && this.f651a.equals(cif.f651a));
+        boolean m432a = m432a();
+        boolean m432a2 = cif.m432a();
+        return !(m432a || m432a2) || (m432a && m432a2 && this.f651a.equals(cif.f651a));
     }
 
     @Override // com.xiaomi.push.ix
@@ -108,12 +108,12 @@ public class Cif implements ix<Cif, Object>, Serializable, Cloneable {
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m519a();
+        jiVar.m518a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof Cif)) {
-            return m434a((Cif) obj);
+            return m433a((Cif) obj);
         }
         return false;
     }

@@ -13,7 +13,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     private final w f10881b;
     private final w.a c;
     private int d;
-    private ArrayList<a.InterfaceC1153a> e;
+    private ArrayList<a.InterfaceC1155a> e;
     private final String f;
     private String g;
     private String h;
@@ -182,7 +182,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     }
 
     @Override // com.kwai.filedownloader.d.a
-    public ArrayList<a.InterfaceC1153a> S() {
+    public ArrayList<a.InterfaceC1155a> S() {
         return this.e;
     }
 

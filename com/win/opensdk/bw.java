@@ -23,14 +23,14 @@ public class bw implements bn {
 
     /* renamed from: case  reason: not valid java name */
     private String f30case;
-    private boolean qiQ;
-    public bq qjA;
-    public bo qjB;
-    public WebView qkq;
+    private boolean qjq;
+    public WebView qkQ;
+    public bq qka;
+    public bo qkb;
 
     public bw(Context context) {
-        this.qkq = new WebView(context);
-        WebView webView = this.qkq;
+        this.qkQ = new WebView(context);
+        WebView webView = this.qkQ;
         webView.setScrollContainer(false);
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
@@ -59,10 +59,10 @@ public class bw implements bn {
                 cookieManager.setAcceptThirdPartyCookies(webView, true);
             }
         }
-        this.qkq.getSettings().setJavaScriptEnabled(true);
-        JsBridge.eJf().E(JsInvokeJavaScope.class).eJi();
-        this.qkq.setWebChromeClient(new JsBridgeWebChromeClient());
-        this.qkq.setWebViewClient(new WebViewClient() { // from class: com.win.opensdk.bw.2
+        this.qkQ.getSettings().setJavaScriptEnabled(true);
+        JsBridge.eJn().E(JsInvokeJavaScope.class).eJq();
+        this.qkQ.setWebChromeClient(new JsBridgeWebChromeClient());
+        this.qkQ.setWebViewClient(new WebViewClient() { // from class: com.win.opensdk.bw.2
 
             /* renamed from: case  reason: not valid java name */
             private String f31case;
@@ -76,7 +76,7 @@ public class bw implements bn {
 
             @Override // android.webkit.WebViewClient
             public final boolean shouldOverrideUrlLoading(WebView webView2, String str) {
-                if (Build.VERSION.SDK_INT >= 24 || !abE(str)) {
+                if (Build.VERSION.SDK_INT >= 24 || !abQ(str)) {
                     return super.shouldOverrideUrlLoading(webView2, str);
                 }
                 return true;
@@ -84,17 +84,17 @@ public class bw implements bn {
 
             @Override // android.webkit.WebViewClient
             public final boolean shouldOverrideUrlLoading(WebView webView2, WebResourceRequest webResourceRequest) {
-                if (Build.VERSION.SDK_INT < 24 || !abE(webResourceRequest.getUrl().toString())) {
+                if (Build.VERSION.SDK_INT < 24 || !abQ(webResourceRequest.getUrl().toString())) {
                     return super.shouldOverrideUrlLoading(webView2, webResourceRequest);
                 }
                 return true;
             }
 
-            private boolean abE(String str) {
-                if (bw.this.qiQ) {
-                    bw.this.qiQ = false;
-                    if (bw.this.qjB != null) {
-                        return bw.this.qjB.hA(str, bw.this.f30case);
+            private boolean abQ(String str) {
+                if (bw.this.qjq) {
+                    bw.this.qjq = false;
+                    if (bw.this.qkb != null) {
+                        return bw.this.qkb.hC(str, bw.this.f30case);
                     }
                     return false;
                 }
@@ -106,8 +106,8 @@ public class bw implements bn {
                 super.onPageFinished(webView2, str);
                 if (TextUtils.isEmpty(this.f31case)) {
                     this.f31case = str;
-                    if (bw.this.qjA != null) {
-                        bw.this.qjA.eIQ();
+                    if (bw.this.qka != null) {
+                        bw.this.qka.eIY();
                     }
                 }
             }
@@ -125,53 +125,53 @@ public class bw implements bn {
 
     @Override // com.win.opensdk.bn
     public final void a(String str, Info info) {
-        if (be.abE(str) || str.startsWith("file:///")) {
-            this.qkq.loadUrl(str);
+        if (be.abQ(str) || str.startsWith("file:///")) {
+            this.qkQ.loadUrl(str);
         } else {
-            this.qkq.loadDataWithBaseURL("http://abcd/", str, "text/html", "UTF-8", null);
+            this.qkQ.loadDataWithBaseURL("http://abcd/", str, "text/html", "UTF-8", null);
         }
-        if (this.qjA != null) {
-            this.qjA.eIP();
+        if (this.qka != null) {
+            this.qka.eIX();
         }
-        this.qkq.setOnTouchListener(new bx(info, new bx.a() { // from class: com.win.opensdk.bw.1
+        this.qkQ.setOnTouchListener(new bx(info, new bx.a() { // from class: com.win.opensdk.bw.1
             @Override // com.win.opensdk.bx.a
-            public final boolean abE(String str2) {
-                bw.this.qiQ = true;
+            public final boolean abQ(String str2) {
+                bw.this.qjq = true;
                 bw.this.f30case = str2;
                 return false;
             }
 
             @Override // com.win.opensdk.bx.a
-            public final void abF(String str2) {
-                if (bw.this.qjB != null) {
-                    bw.this.qjB.abF(str2);
+            public final void abR(String str2) {
+                if (bw.this.qkb != null) {
+                    bw.this.qkb.abR(str2);
                 }
             }
         }));
     }
 
     @Override // com.win.opensdk.bn
-    public final void eIP() {
-        if (this.qkq != null) {
-            ViewGroup viewGroup = (ViewGroup) this.qkq.getParent();
+    public final void eIX() {
+        if (this.qkQ != null) {
+            ViewGroup viewGroup = (ViewGroup) this.qkQ.getParent();
             if (viewGroup != null) {
-                viewGroup.removeView(this.qkq);
+                viewGroup.removeView(this.qkQ);
             }
-            this.qkq.removeAllViews();
-            this.qkq.stopLoading();
-            this.qkq.setWebChromeClient(null);
-            this.qkq.setWebViewClient(null);
-            this.qkq.destroy();
+            this.qkQ.removeAllViews();
+            this.qkQ.stopLoading();
+            this.qkQ.setWebChromeClient(null);
+            this.qkQ.setWebViewClient(null);
+            this.qkQ.destroy();
         }
     }
 
     @Override // com.win.opensdk.bn
     public final void a(bo boVar) {
-        this.qjB = boVar;
+        this.qkb = boVar;
     }
 
     @Override // com.win.opensdk.bn
-    public final /* bridge */ /* synthetic */ View eIS() {
-        return this.qkq;
+    public final /* bridge */ /* synthetic */ View eJa() {
+        return this.qkQ;
     }
 }

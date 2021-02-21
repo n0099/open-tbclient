@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes9.dex */
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
-    private com.baidu.adp.framework.listener.a jbH = new com.baidu.adp.framework.listener.a(1003035, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GET) { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewModel.1
+    private com.baidu.adp.framework.listener.a jbV = new com.baidu.adp.framework.listener.a(1003035, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GET) { // from class: com.baidu.tieba.themeCenter.background.BackgroundPreviewModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -19,21 +19,21 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
                             BackgroundPreviewModel.this.mBgItem = ((BackgroundGetSocketResponseMessage) responsedMessage).getBgItem();
                         }
                     }
-                    if (BackgroundPreviewModel.this.nHm != null) {
+                    if (BackgroundPreviewModel.this.nHM != null) {
                         if (BackgroundPreviewModel.this.mBgItem != null) {
-                            BackgroundPreviewModel.this.mBgItem.setPropsId(BackgroundPreviewModel.this.nGH);
-                            BackgroundPreviewModel.this.mBgItem.setInUse(BackgroundPreviewModel.this.nHb == 1);
+                            BackgroundPreviewModel.this.mBgItem.setPropsId(BackgroundPreviewModel.this.nHh);
+                            BackgroundPreviewModel.this.mBgItem.setInUse(BackgroundPreviewModel.this.nHB == 1);
                         }
-                        BackgroundPreviewModel.this.nHm.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.mBgItem);
+                        BackgroundPreviewModel.this.nHM.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundPreviewModel.this.mBgItem);
                     }
                 }
             }
         }
     };
     private DressItemData mBgItem;
-    private int nGH;
-    private int nHb;
-    private a nHm;
+    private int nHB;
+    private a nHM;
+    private int nHh;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -41,10 +41,10 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     }
 
     public BackgroundPreviewModel(int i, int i2) {
-        this.nGH = i;
-        this.nHb = i2;
+        this.nHh = i;
+        this.nHB = i2;
         registerTask();
-        registerListener(this.jbH);
+        registerListener(this.jbV);
     }
 
     private void registerTask() {
@@ -55,7 +55,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-        backgroundGetRequestMessage.setPropId(this.nGH);
+        backgroundGetRequestMessage.setPropId(this.nHh);
         sendMessage(backgroundGetRequestMessage);
         return false;
     }
@@ -66,10 +66,10 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     }
 
     public void a(a aVar) {
-        this.nHm = aVar;
+        this.nHM = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.jbH);
+        MessageManager.getInstance().unRegisterListener(this.jbV);
     }
 }

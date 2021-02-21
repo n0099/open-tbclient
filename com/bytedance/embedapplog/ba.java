@@ -14,7 +14,7 @@ public final class ba {
 
     /* renamed from: a  reason: collision with root package name */
     private static final String f5796a = ba.class.getSimpleName() + "#";
-    private static aw<bh> pmH = new aw<bh>() { // from class: com.bytedance.embedapplog.ba.1
+    private static aw<bh> pnh = new aw<bh>() { // from class: com.bytedance.embedapplog.ba.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.bytedance.embedapplog.aw
@@ -26,7 +26,7 @@ public final class ba {
 
     @AnyThread
     public static void a(@NonNull Context context) {
-        pmH.b(context).a();
+        pnh.b(context).a();
     }
 
     @WorkerThread
@@ -41,7 +41,7 @@ public final class ba {
     @WorkerThread
     public static Map<String, String> a(@NonNull Context context, @NonNull SharedPreferences sharedPreferences) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        Map<String, String> ig = pmH.b(context).ig(100L);
+        Map<String, String> ig = pnh.b(context).ig(100L);
         bb.b("TrackerDr", f5796a + "getOaid takes " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
         return ig;
     }

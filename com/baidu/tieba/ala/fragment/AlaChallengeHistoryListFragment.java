@@ -12,22 +12,22 @@ import com.baidu.tieba.ala.g.b;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes11.dex */
 public class AlaChallengeHistoryListFragment extends BaseFragment {
-    private b gUB;
-    private com.baidu.tieba.ala.e.a gUC;
-    private b.a gUD = new b.a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
+    private b gUP;
+    private com.baidu.tieba.ala.e.a gUQ;
+    private b.a gUR = new b.a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
         @Override // com.baidu.tieba.ala.g.b.a
         public void a(int i, String str, Object obj) {
             if (i != 0 && !StringUtils.isNull(str)) {
-                if (AlaChallengeHistoryListFragment.this.gUC != null) {
-                    AlaChallengeHistoryListFragment.this.gUC.GY(AlaChallengeHistoryListFragment.this.getString(a.h.ala_rank_list_net_error));
+                if (AlaChallengeHistoryListFragment.this.gUQ != null) {
+                    AlaChallengeHistoryListFragment.this.gUQ.GZ(AlaChallengeHistoryListFragment.this.getString(a.h.ala_rank_list_net_error));
                 }
             } else if (obj != null && (obj instanceof AlaGetChallengeHistoryListResponseMessage)) {
                 AlaGetChallengeHistoryListResponseMessage alaGetChallengeHistoryListResponseMessage = (AlaGetChallengeHistoryListResponseMessage) obj;
-                AlaChallengeHistoryListFragment.this.gUC.a(alaGetChallengeHistoryListResponseMessage.grd, alaGetChallengeHistoryListResponseMessage.hTj);
+                AlaChallengeHistoryListFragment.this.gUQ.a(alaGetChallengeHistoryListResponseMessage.grr, alaGetChallengeHistoryListResponseMessage.hTx);
             }
         }
     };
-    private boolean gpE;
+    private boolean gpS;
     private String portrait;
 
     public static AlaChallengeHistoryListFragment i(int i, String str, boolean z) {
@@ -44,15 +44,15 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         this.portrait = arguments.getString("portrait");
-        this.gpE = arguments.getBoolean("is_from_host");
+        this.gpS = arguments.getBoolean("is_from_host");
     }
 
     @Override // androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.gUC = new com.baidu.tieba.ala.e.a(getPageContext());
-        this.gUB = new b(getPageContext(), this.gUD);
+        this.gUQ = new com.baidu.tieba.ala.e.a(getPageContext());
+        this.gUP = new b(getPageContext(), this.gUR);
         refreshData();
-        return this.gUC.getView();
+        return this.gUQ.getView();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment
@@ -64,17 +64,17 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
 
     private void refreshData() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.gUB.Id(this.portrait);
-        } else if (this.gUC != null) {
-            this.gUC.GY(getString(a.h.ala_rank_list_no_net));
+            this.gUP.Ie(this.portrait);
+        } else if (this.gUQ != null) {
+            this.gUQ.GZ(getString(a.h.ala_rank_list_no_net));
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.gUB != null) {
-            this.gUB.destroy();
+        if (this.gUP != null) {
+            this.gUP.destroy();
         }
     }
 

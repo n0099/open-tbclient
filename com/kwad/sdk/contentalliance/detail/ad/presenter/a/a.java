@@ -227,8 +227,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.kwad.sdk.core.download.b.b.a(this.j, true);
-        com.kwad.sdk.core.download.b.a.a(this.d.getContext(), this.h, new a.InterfaceC1092a() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.a.a.4
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(this.d.getContext(), this.h, new a.InterfaceC1094a() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.a.a.4
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 a.this.u();
             }

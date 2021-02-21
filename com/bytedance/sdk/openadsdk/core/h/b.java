@@ -95,7 +95,7 @@ public class b implements Runnable {
             return arrayList;
         }
         try {
-            JSONObject jSONObject = new JSONObject(com.bytedance.sdk.openadsdk.core.a.b(C1008b.a("utS\\Ijx.:}oJEviZ;q9Yx;wrpHEDSop\\7hSMzh6Ww}yffH}{<I[VmvQLVf\\G4pp8gdyJdndq7YtZ.lHJft<wemwVu[L|5Sg].Z]Zr3X}{:DwWYWiwl7|iYnxfxpE]ri<3f\\.t;T2}6h7H;.4hE7{x7fKdq[4KsvWYqP4DKE3WQLEx<7HjkQqwUXR}QVW2Wjf"), com.bytedance.sdk.openadsdk.core.b.a()));
+            JSONObject jSONObject = new JSONObject(com.bytedance.sdk.openadsdk.core.a.b(C1010b.a("utS\\Ijx.:}oJEviZ;q9Yx;wrpHEDSop\\7hSMzh6Ww}yffH}{<I[VmvQLVf\\G4pp8gdyJdndq7YtZ.lHJft<wemwVu[L|5Sg].Z]Zr3X}{:DwWYWiwl7|iYnxfxpE]ri<3f\\.t;T2}6h7H;.4hE7{x7fKdq[4KsvWYqP4DKE3WQLEx<7HjkQqwUXR}QVW2Wjf"), com.bytedance.sdk.openadsdk.core.b.a()));
             Object invoke = ah.a(jSONObject.optString(AdvanceSetting.CLEAR_NOTIFICATION), jSONObject.optString("m1"), new Class[0]).invoke(context, new Object[0]);
             String optString = jSONObject.optString(Config.PACKAGE_NAME);
             Object invoke2 = ah.a(optString, jSONObject.optString("m2"), Integer.TYPE).invoke(invoke, Integer.valueOf(jSONObject.optInt("f")));
@@ -148,7 +148,7 @@ public class b implements Runnable {
         String str;
         ArrayList arrayList = new ArrayList();
         try {
-            JSONObject jSONObject = new JSONObject(com.bytedance.sdk.openadsdk.core.a.b(C1008b.a("utS\\Ijx.:}oJEviZ;q9Yx;wrpHEDSop\\7hSMzh6Ww}yffH}{<I[VmvQLVf\\G4pp8gdyJdndq7YtZ.lHJft<wemwVu[L|5Sg].Z]Zr3X}{:DwWYWiwl7|iYnxfxpE]ri<3f\\.t;T2}6h7H;.4hE7{x7fKdq[4KsvWYqP4DKE3WQLEx<7HjkQqwUXR}QVW2Wjf"), com.bytedance.sdk.openadsdk.core.b.a()));
+            JSONObject jSONObject = new JSONObject(com.bytedance.sdk.openadsdk.core.a.b(C1010b.a("utS\\Ijx.:}oJEviZ;q9Yx;wrpHEDSop\\7hSMzh6Ww}yffH}{<I[VmvQLVf\\G4pp8gdyJdndq7YtZ.lHJft<wemwVu[L|5Sg].Z]Zr3X}{:DwWYWiwl7|iYnxfxpE]ri<3f\\.t;T2}6h7H;.4hE7{x7fKdq[4KsvWYqP4DKE3WQLEx<7HjkQqwUXR}QVW2Wjf"), com.bytedance.sdk.openadsdk.core.b.a()));
             Object invoke = ah.a(jSONObject.optString(AdvanceSetting.CLEAR_NOTIFICATION), jSONObject.optString("m1"), new Class[0]).invoke(context, new Object[0]);
             String optString = jSONObject.optString(Config.PACKAGE_NAME);
             Object invoke2 = ah.a(optString, jSONObject.optString("m2"), Integer.TYPE).invoke(invoke, Integer.valueOf(jSONObject.optInt("f")));
@@ -291,7 +291,7 @@ public class b implements Runnable {
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void b(com.bytedance.sdk.adnet.core.p<JSONObject> pVar) {
                 if (pVar != null) {
-                    u.c("ApplistHelper", "upload failed: code=" + pVar.h, pVar.pvp);
+                    u.c("ApplistHelper", "upload failed: code=" + pVar.h, pVar.pvP);
                 }
                 b.this.d.set(false);
             }
@@ -430,7 +430,7 @@ public class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.core.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1008b {
+    public static class C1010b {
         static String a(String str) {
             byte[] bytes = str.getBytes();
             for (int i = 0; i < bytes.length; i++) {

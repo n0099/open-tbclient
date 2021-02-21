@@ -22,14 +22,14 @@ public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListAct
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
-                if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).Oy() != null && GuardClubJoinListActivity.this.gYE != null) {
-                    GuardClubJoinListActivity.this.gYE.notifyDataSetInvalidated();
+                if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).Oy() != null && GuardClubJoinListActivity.this.gYS != null) {
+                    GuardClubJoinListActivity.this.gYS.notifyDataSetInvalidated();
                 }
             }
         }
     };
     private TextView bVE;
-    private h gYE;
+    private h gYS;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -69,8 +69,8 @@ public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListAct
                 findViewById2.setVisibility(0);
                 backBar.setVisibility(8);
             }
-            this.gYE = new h(this, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId());
-            View view = this.gYE.getView();
+            this.gYS = new h(this, getIntent().getStringExtra(IntentConfig.OTHER_PARAMS), getUniqueId());
+            View view = this.gYS.getView();
             if (view != null) {
                 frameLayout.addView(view, new FrameLayout.LayoutParams(-1, -1));
             }
@@ -88,8 +88,8 @@ public class GuardClubJoinListActivity extends BaseActivity<GuardClubJoinListAct
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gYE != null) {
-            this.gYE.onPageDestroy();
+        if (this.gYS != null) {
+            this.gYS.onPageDestroy();
         }
     }
 }

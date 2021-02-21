@@ -7,19 +7,19 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public class f {
-    private a oFf;
-    private Handler oFg;
-    private ConcurrentHashMap<Long, b> oFe = new ConcurrentHashMap<>();
-    boolean oFh = false;
+    private a oFF;
+    private Handler oFG;
+    private ConcurrentHashMap<Long, b> oFE = new ConcurrentHashMap<>();
+    boolean oFH = false;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1
         @Override // java.lang.Runnable
         public void run() {
-            f.this.oFh = true;
-            f.this.ecR();
-            if (f.this.oFe != null && f.this.oFe.size() > 0) {
-                f.this.oFg.postDelayed(f.this.mRunnable, 1000L);
+            f.this.oFH = true;
+            f.this.ecZ();
+            if (f.this.oFE != null && f.this.oFE.size() > 0) {
+                f.this.oFG.postDelayed(f.this.mRunnable, 1000L);
             } else {
-                f.this.oFh = false;
+                f.this.oFH = false;
             }
         }
     };
@@ -30,28 +30,28 @@ public class f {
     }
 
     public f(Handler handler) {
-        this.oFg = handler;
+        this.oFG = handler;
     }
 
     public void b(b bVar) {
         if (bVar != null && !TextUtils.isEmpty(bVar.thirdUserId)) {
-            bVar.oFj = System.currentTimeMillis();
-            this.oFe.put(Long.valueOf(bVar.imUK), bVar);
+            bVar.oFJ = System.currentTimeMillis();
+            this.oFE.put(Long.valueOf(bVar.imUK), bVar);
             sz();
         }
     }
 
     public void hQ(long j) {
-        this.oFe.remove(Long.valueOf(j));
+        this.oFE.remove(Long.valueOf(j));
     }
 
-    public void ecR() {
-        Iterator<Map.Entry<Long, b>> it = this.oFe.entrySet().iterator();
+    public void ecZ() {
+        Iterator<Map.Entry<Long, b>> it = this.oFE.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<Long, b> next = it.next();
-            if (System.currentTimeMillis() - next.getValue().oFj > 10000) {
-                if (this.oFf != null) {
-                    this.oFf.a(next.getValue());
+            if (System.currentTimeMillis() - next.getValue().oFJ > 10000) {
+                if (this.oFF != null) {
+                    this.oFF.a(next.getValue());
                 }
                 it.remove();
             }
@@ -59,16 +59,16 @@ public class f {
     }
 
     public void a(a aVar) {
-        this.oFf = aVar;
+        this.oFF = aVar;
     }
 
     private void sz() {
-        if (this.oFg == null) {
-            this.oFh = false;
-        } else if (this.oFe == null || this.oFe.size() == 0) {
-            this.oFh = false;
+        if (this.oFG == null) {
+            this.oFH = false;
+        } else if (this.oFE == null || this.oFE.size() == 0) {
+            this.oFH = false;
         } else {
-            this.oFg.postDelayed(this.mRunnable, 0L);
+            this.oFG.postDelayed(this.mRunnable, 0L);
         }
     }
 
@@ -77,7 +77,7 @@ public class f {
         public long appId;
         public String cuid;
         public long imUK;
-        public long oFj;
+        public long oFJ;
         public String thirdUserId;
 
         public b(long j, long j2, String str, String str2) {

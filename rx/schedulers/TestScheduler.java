@@ -9,7 +9,7 @@ import rx.k;
 import rx.subscriptions.e;
 /* loaded from: classes5.dex */
 public class TestScheduler extends g {
-    static long qEn;
+    static long qEN;
     final Queue<c> queue = new PriorityQueue(11, new a());
     long time;
 
@@ -18,16 +18,16 @@ public class TestScheduler extends g {
     public static final class c {
         final rx.functions.a action;
         private final long count;
-        final g.a qEs;
+        final g.a qES;
         final long time;
 
         c(g.a aVar, long j, rx.functions.a aVar2) {
-            long j2 = TestScheduler.qEn;
-            TestScheduler.qEn = 1 + j2;
+            long j2 = TestScheduler.qEN;
+            TestScheduler.qEN = 1 + j2;
             this.count = j2;
             this.time = j;
             this.action = aVar2;
-            this.qEs = aVar;
+            this.qES = aVar;
         }
 
         public String toString() {
@@ -82,7 +82,7 @@ public class TestScheduler extends g {
             }
             this.time = peek.time == 0 ? this.time : peek.time;
             this.queue.remove();
-            if (!peek.qEs.isUnsubscribed()) {
+            if (!peek.qES.isUnsubscribed()) {
                 peek.action.call();
             }
         }
@@ -96,19 +96,19 @@ public class TestScheduler extends g {
 
     /* loaded from: classes5.dex */
     final class b extends g.a {
-        private final rx.subscriptions.a qEo = new rx.subscriptions.a();
+        private final rx.subscriptions.a qEO = new rx.subscriptions.a();
 
         b() {
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.qEo.unsubscribe();
+            this.qEO.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.qEo.isUnsubscribed();
+            return this.qEO.isUnsubscribed();
         }
 
         @Override // rx.g.a

@@ -5,7 +5,7 @@ import java.util.List;
 public interface q {
     String aDx();
 
-    List<String> dKh();
+    List<String> dKp();
 
     boolean isBeta();
 

@@ -20,10 +20,10 @@ import com.baidu.tieba.R;
 public class c {
     public final TextView bYe;
     public final ImageView fgA;
-    public final ImageView gXi;
-    public final BdTypeListView gzb;
-    private final RelativeLayout jej;
-    public final EditText jek;
+    public final ImageView gXw;
+    public final BdTypeListView gzp;
+    private final RelativeLayout jex;
+    public final EditText jey;
     private TbPageContext mPageContext;
     public final View mRoot;
     private int mSkinType = 3;
@@ -31,20 +31,20 @@ public class c {
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mRoot = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.forum_search_main, (ViewGroup) null);
-        this.jej = (RelativeLayout) this.mRoot.findViewById(R.id.search_area_root);
-        this.gXi = (ImageView) this.mRoot.findViewById(R.id.search_bar_icon);
-        this.jek = (EditText) this.mRoot.findViewById(R.id.home_et_search);
+        this.jex = (RelativeLayout) this.mRoot.findViewById(R.id.search_area_root);
+        this.gXw = (ImageView) this.mRoot.findViewById(R.id.search_bar_icon);
+        this.jey = (EditText) this.mRoot.findViewById(R.id.home_et_search);
         this.fgA = (ImageView) this.mRoot.findViewById(R.id.home_bt_search_del);
-        this.jek.setHint(R.string.search_bar_you_want_post_to_share);
+        this.jey.setHint(R.string.search_bar_you_want_post_to_share);
         this.bYe = (TextView) this.mRoot.findViewById(R.id.home_bt_search_cancel_s);
         this.bYe.setText(tbPageContext.getString(R.string.cancel));
-        this.gzb = (BdTypeListView) this.mRoot.findViewById(R.id.search_bar_list);
-        cBb();
+        this.gzp = (BdTypeListView) this.mRoot.findViewById(R.id.search_bar_list);
+        cBi();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void cBb() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jej.getLayoutParams();
+    private void cBi() {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jex.getLayoutParams();
         layoutParams.height = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds88);
         int dimens = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds8);
         layoutParams.rightMargin = dimens;
@@ -53,20 +53,20 @@ public class c {
         if (immersiveStickyBarHeight > 0) {
             layoutParams.topMargin = immersiveStickyBarHeight;
         }
-        this.jej.setLayoutParams(layoutParams);
+        this.jex.setLayoutParams(layoutParams);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            SvgManager.bsR().a(this.gXi, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bsR().a(this.gXw, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
             ap.setViewTextColor(this.bYe, R.color.CAM_X0302, 1);
             SvgManager.bsR().a(this.fgA, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             if (i == 2) {
-                this.jek.setHintTextColor(ap.getColor(R.color.s_navbar_title_color));
+                this.jey.setHintTextColor(ap.getColor(R.color.s_navbar_title_color));
             } else {
-                this.jek.setHintTextColor(ap.getColor(R.color.CAM_X0110));
+                this.jey.setHintTextColor(ap.getColor(R.color.CAM_X0110));
             }
-            ap.setNavbarTitleColor(this.jek, R.color.CAM_X0105, R.color.s_navbar_title_color);
+            ap.setNavbarTitleColor(this.jey, R.color.CAM_X0105, R.color.s_navbar_title_color);
             this.mSkinType = i;
         }
     }

@@ -15,8 +15,8 @@ import com.baidu.tieba.ala.guardthrone.view.a;
 public class NewGuardThroneFragment extends BaseFragment {
     private String aNa;
     private String buH;
-    private a hcD;
-    private a hcE;
+    private a hcR;
+    private a hcS;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
@@ -45,37 +45,37 @@ public class NewGuardThroneFragment extends BaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         this.mRootView = new RelativeLayout(getPageContext().getPageActivity());
-        this.hcD = new a(getPageContext(), false, this.mIsHost);
-        this.hcD.i(this.mLiveId, this.buH, this.aNa, this.mTabId);
-        this.hcE = new a(getPageContext(), true, this.mIsHost);
-        this.hcE.i(this.mLiveId, this.buH, this.aNa, this.mTabId);
+        this.hcR = new a(getPageContext(), false, this.mIsHost);
+        this.hcR.i(this.mLiveId, this.buH, this.aNa, this.mTabId);
+        this.hcS = new a(getPageContext(), true, this.mIsHost);
+        this.hcS.i(this.mLiveId, this.buH, this.aNa, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-            this.hcE.getRootView().setVisibility(0);
-            this.hcD.getRootView().setVisibility(8);
+            this.hcS.getRootView().setVisibility(0);
+            this.hcR.getRootView().setVisibility(8);
         } else {
-            this.hcE.getRootView().setVisibility(8);
-            this.hcD.getRootView().setVisibility(0);
+            this.hcS.getRootView().setVisibility(8);
+            this.hcR.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.hcD.getRootView(), layoutParams);
-        this.mRootView.addView(this.hcE.getRootView(), layoutParams);
+        this.mRootView.addView(this.hcR.getRootView(), layoutParams);
+        this.mRootView.addView(this.hcS.getRootView(), layoutParams);
         return this.mRootView;
     }
 
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.hcD != null && this.hcE != null) {
+        if (this.hcR != null && this.hcS != null) {
             if (configuration.orientation == 2) {
-                this.hcE.getRootView().setVisibility(0);
-                this.hcD.getRootView().setVisibility(8);
+                this.hcS.getRootView().setVisibility(0);
+                this.hcR.getRootView().setVisibility(8);
             } else {
-                this.hcE.getRootView().setVisibility(8);
-                this.hcD.getRootView().setVisibility(0);
+                this.hcS.getRootView().setVisibility(8);
+                this.hcR.getRootView().setVisibility(0);
             }
-            this.hcD.bkp();
-            this.hcE.bkp();
+            this.hcR.bkp();
+            this.hcS.bkp();
         }
     }
 
@@ -92,13 +92,13 @@ public class NewGuardThroneFragment extends BaseFragment {
     @Override // com.baidu.live.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.hcD != null) {
-            this.hcD.bWA();
-            this.hcD.onDestroy();
+        if (this.hcR != null) {
+            this.hcR.bWH();
+            this.hcR.onDestroy();
         }
-        if (this.hcE != null) {
-            this.hcE.bWA();
-            this.hcE.onDestroy();
+        if (this.hcS != null) {
+            this.hcS.bWH();
+            this.hcS.onDestroy();
         }
     }
 }

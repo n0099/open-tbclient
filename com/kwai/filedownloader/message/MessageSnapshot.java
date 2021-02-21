@@ -42,7 +42,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                         jVar = new h.d(parcel);
                         break;
                     } else {
-                        jVar = new d.C1161d(parcel);
+                        jVar = new d.C1163d(parcel);
                         break;
                     }
                 case 1:
@@ -71,7 +71,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                     }
                 case 5:
                     if (!z) {
-                        jVar = new h.C1162h(parcel);
+                        jVar = new h.C1164h(parcel);
                         break;
                     } else {
                         jVar = new d.h(parcel);

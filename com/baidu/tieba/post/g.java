@@ -30,89 +30,89 @@ import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class g extends BaseAdapter {
     private BdUniqueId agC;
-    private TbPageContext<BaseFragmentActivity> iVb;
-    private PersonPostModel mAQ;
-    private PersonPostModel.a mLD;
-    private final PersonPostModel.a mLE = new PersonPostModel.a() { // from class: com.baidu.tieba.post.g.1
+    private TbPageContext<BaseFragmentActivity> iVp;
+    private PersonPostModel mBf;
+    private PersonPostModel.a mLS;
+    private final PersonPostModel.a mLT = new PersonPostModel.a() { // from class: com.baidu.tieba.post.g.1
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.a
         public void b(PersonPostModel personPostModel, boolean z) {
             if (z) {
-                g.this.mAQ = personPostModel;
-                Iterator<n> it = g.this.mAQ.postList.iterator();
+                g.this.mBf = personPostModel;
+                Iterator<n> it = g.this.mBf.postList.iterator();
                 while (it.hasNext()) {
                     n next = it.next();
                     if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
                         it.remove();
                     }
                 }
-            } else if (g.this.mAQ != null) {
+            } else if (g.this.mBf != null) {
                 for (int i = 0; i < personPostModel.postList.size(); i++) {
                     if (personPostModel.postList.get(i) instanceof PersonPostModel.PostInfoList) {
-                        g.this.mAQ.postList.add(personPostModel.postList.get(i));
+                        g.this.mBf.postList.add(personPostModel.postList.get(i));
                     }
                 }
             }
-            if (g.this.mLD != null) {
-                g.this.mLD.b(personPostModel, z);
+            if (g.this.mLS != null) {
+                g.this.mLS.b(personPostModel, z);
             }
             g.this.notifyDataSetChanged();
         }
     };
-    private final a.InterfaceC0849a mLF = new a.InterfaceC0849a() { // from class: com.baidu.tieba.post.g.2
-        @Override // com.baidu.tieba.post.a.InterfaceC0849a
+    private final a.InterfaceC0850a mLU = new a.InterfaceC0850a() { // from class: com.baidu.tieba.post.g.2
+        @Override // com.baidu.tieba.post.a.InterfaceC0850a
         public void dY(View view) {
             String[] strArr;
             int id = view.getId();
             if (id == R.id.portrait) {
-                ((BaseFragmentActivity) g.this.iVb.getOrignalPage()).finish();
+                ((BaseFragmentActivity) g.this.iVp.getOrignalPage()).finish();
             } else if (id == R.id.username) {
-                ((BaseFragmentActivity) g.this.iVb.getOrignalPage()).finish();
+                ((BaseFragmentActivity) g.this.iVp.getOrignalPage()).finish();
             } else if ((id == R.id.item_header || id == R.id.original_post_title || id == R.id.item_footer || id == R.id.reply_count) && (strArr = (String[]) view.getTag()) != null) {
                 if ("0".equals(strArr[2]) || strArr[1] == null) {
-                    PbActivityConfig createNormalCfg = new PbActivityConfig(g.this.iVb.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
+                    PbActivityConfig createNormalCfg = new PbActivityConfig(g.this.iVp.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                     createNormalCfg.setStartFrom(4);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                     return;
                 }
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(g.this.iVb.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(g.this.iVp.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
                 createSubPbActivityConfig.setKeyPageStartFrom(4);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
             }
         }
     };
     private final String mUid;
-    private String mzF;
+    private String mzU;
 
     public g(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2, BdUniqueId bdUniqueId) {
-        this.iVb = tbPageContext;
+        this.iVp = tbPageContext;
         this.mUid = str;
         this.agC = bdUniqueId;
     }
 
     public void a(PersonPostModel.a aVar) {
-        this.mLD = aVar;
+        this.mLS = aVar;
     }
 
     public void xt(boolean z) {
-        if (this.mAQ == null) {
-            this.mAQ = new PersonPostModel(this.iVb, this.agC, null, true, PersonPostModel.FROM_PERSON_POST);
-            this.mAQ.setUniqueId(this.agC);
+        if (this.mBf == null) {
+            this.mBf = new PersonPostModel(this.iVp, this.agC, null, true, PersonPostModel.FROM_PERSON_POST);
+            this.mBf.setUniqueId(this.agC);
         }
-        this.mAQ.fetchPost(this.iVb, this.mLE, z, this.mUid, false, true, false, null);
+        this.mBf.fetchPost(this.iVp, this.mLT, z, this.mUid, false, true, false, null);
     }
 
-    public void cFx() {
-        if (this.mAQ != null) {
-            this.mAQ.cancelLoadData();
+    public void cFE() {
+        if (this.mBf != null) {
+            this.mBf.cancelLoadData();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mAQ == null || this.mAQ.postList == null) {
+        if (this.mBf == null || this.mBf.postList == null) {
             return 0;
         }
-        return this.mAQ.postList.size();
+        return this.mBf.postList.size();
     }
 
     @Override // android.widget.Adapter
@@ -130,30 +130,30 @@ public class g extends BaseAdapter {
         a aVar;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_post_item_reply, viewGroup, false);
-            aVar = new a(view, this.iVb);
+            aVar = new a(view, this.iVp);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         if (i == 0) {
-            aVar.mCZ.setVisibility(0);
+            aVar.mDp.setVisibility(0);
         } else {
-            aVar.mCZ.setVisibility(8);
+            aVar.mDp.setVisibility(8);
         }
         a(i, aVar, viewGroup);
         return view;
     }
 
     public PersonPostModel.PostInfoList Ht(int i) {
-        return (PersonPostModel.PostInfoList) this.mAQ.postList.get(i);
+        return (PersonPostModel.PostInfoList) this.mBf.postList.get(i);
     }
 
     private void a(int i, a aVar, ViewGroup viewGroup) {
         PersonPostModel.PostInfoList Ht = Ht(i);
-        if (this.mzF == null) {
-            this.mzF = Ht.user_portrait;
+        if (this.mzU == null) {
+            this.mzU = Ht.user_portrait;
         }
-        aVar.a(Ht, false, this.mzF);
+        aVar.a(Ht, false, this.mzU);
         ArrayList<String[]> arrayList = new ArrayList<>();
         int length = Ht.content.length;
         for (int i2 = 0; i2 < length; i2++) {
@@ -169,26 +169,26 @@ public class g extends BaseAdapter {
                 arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(Ht.thread_id), String.valueOf(Ht.content[i2].post_id), String.valueOf(Ht.content[i2].post_type), au.getFormatTime(Ht.content[i2].create_time * 1000) + (Ht.content[i2].is_author_view == 1 ? " " + viewGroup.getContext().getString(R.string.not_open_read) : ""), String.valueOf(Ht.thread_type)});
             }
         }
-        aVar.mLH.setContent(arrayList);
+        aVar.mLW.setContent(arrayList);
         if (Pattern.compile("^回复：").matcher(Ht.title).find()) {
-            aVar.mCS.setText(Ht.title.replaceFirst("回复：", "原贴："));
+            aVar.mDi.setText(Ht.title.replaceFirst("回复：", "原贴："));
         } else {
-            aVar.mCS.setText(Ht.title);
+            aVar.mDi.setText(Ht.title);
         }
         if (Ht.originalThreadInfo != null && !StringUtils.isNull(Ht.originalThreadInfo.showText)) {
-            aVar.mCS.setText("分享：" + Ht.originalThreadInfo.showText);
+            aVar.mDi.setText("分享：" + Ht.originalThreadInfo.showText);
         }
-        aVar.mCS.setTag(new String[]{String.valueOf(Ht.thread_id), null, null, String.valueOf(Ht.thread_type)});
+        aVar.mDi.setTag(new String[]{String.valueOf(Ht.thread_id), null, null, String.valueOf(Ht.thread_type)});
         if (Ht.thread_type == 33) {
-            aVar.mCS.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+            aVar.mDi.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
         } else {
-            aVar.mCS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            aVar.mDi.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        ap.setBackgroundResource(aVar.mCS, R.drawable.person_post_line);
-        ap.setViewTextColor(aVar.mCS, R.color.common_color_10039, 1);
+        ap.setBackgroundResource(aVar.mDi, R.drawable.person_post_line);
+        ap.setViewTextColor(aVar.mDi, R.color.common_color_10039, 1);
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.ds20);
-        aVar.mCS.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-        aVar.a(this.mLF);
+        aVar.mDi.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+        aVar.a(this.mLU);
         aVar.changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -196,27 +196,27 @@ public class g extends BaseAdapter {
     @SuppressLint({"ResourceAsColor"})
     /* loaded from: classes8.dex */
     public static class a extends com.baidu.tieba.post.a {
-        private View ixr;
-        private View ixs;
-        public TextView mCS;
-        public ReplyLinearLayout mLH;
+        private View ixF;
+        private View ixG;
+        public TextView mDi;
+        public ReplyLinearLayout mLW;
 
         public a(View view, TbPageContext<BaseFragmentActivity> tbPageContext) {
             super(view, tbPageContext);
-            this.mLH = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-            this.mCS = (TextView) view.findViewById(R.id.original_post_title);
-            this.ixr = view.findViewById(R.id.reply_top_line);
-            this.ixs = view.findViewById(R.id.reply_bottom_line);
-            this.mCS.setOnClickListener(this);
+            this.mLW = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+            this.mDi = (TextView) view.findViewById(R.id.original_post_title);
+            this.ixF = view.findViewById(R.id.reply_top_line);
+            this.ixG = view.findViewById(R.id.reply_bottom_line);
+            this.mDi.setOnClickListener(this);
         }
 
         @Override // com.baidu.tieba.post.a
         public void changeSkin(int i) {
             super.changeSkin(i);
-            ap.setBackgroundResource(this.mCS, R.color.CAM_X0205);
-            ap.setViewTextColor(this.mCS, R.color.CAM_X0105, 1);
-            ap.setBackgroundResource(this.ixr, R.color.CAM_X0204);
-            ap.setBackgroundResource(this.ixs, R.color.CAM_X0204);
+            ap.setBackgroundResource(this.mDi, R.color.CAM_X0205);
+            ap.setViewTextColor(this.mDi, R.color.CAM_X0105, 1);
+            ap.setBackgroundResource(this.ixF, R.color.CAM_X0204);
+            ap.setBackgroundResource(this.ixG, R.color.CAM_X0204);
         }
     }
 }

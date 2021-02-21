@@ -23,10 +23,10 @@ public class hg {
     }
 
     public static void a(int i) {
-        fi m362a = he.m360a().m362a();
-        m362a.a(fh.CHANNEL_STATS_COUNTER.a());
-        m362a.c(i);
-        he.m360a().a(m362a);
+        fi m361a = he.m359a().m361a();
+        m361a.a(fh.CHANNEL_STATS_COUNTER.a());
+        m361a.c(i);
+        he.m359a().a(m361a);
     }
 
     public static synchronized void a(int i, int i2) {
@@ -40,13 +40,13 @@ public class hg {
     }
 
     public static void a(int i, int i2, int i3, String str, int i4) {
-        fi m362a = he.m360a().m362a();
-        m362a.a((byte) i);
-        m362a.a(i2);
-        m362a.b(i3);
-        m362a.b(str);
-        m362a.c(i4);
-        he.m360a().a(m362a);
+        fi m361a = he.m359a().m361a();
+        m361a.a((byte) i);
+        m361a.a(i2);
+        m361a.b(i3);
+        m361a.b(str);
+        m361a.c(i4);
+        he.m359a().a(m361a);
     }
 
     public static synchronized void a(int i, int i2, String str, int i3) {
@@ -54,14 +54,14 @@ public class hg {
             long currentTimeMillis = System.currentTimeMillis();
             int i4 = (i << 24) | i2;
             if (a.f14087a.containsKey(Integer.valueOf(i4))) {
-                fi m362a = he.m360a().m362a();
-                m362a.a(i2);
-                m362a.b((int) (currentTimeMillis - a.f14087a.get(Integer.valueOf(i4)).longValue()));
-                m362a.b(str);
+                fi m361a = he.m359a().m361a();
+                m361a.a(i2);
+                m361a.b((int) (currentTimeMillis - a.f14087a.get(Integer.valueOf(i4)).longValue()));
+                m361a.b(str);
                 if (i3 > -1) {
-                    m362a.c(i3);
+                    m361a.c(i3);
                 }
-                he.m360a().a(m362a);
+                he.m359a().a(m361a);
                 a.f14087a.remove(Integer.valueOf(i2));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
@@ -74,20 +74,20 @@ public class hg {
     }
 
     public static void a(String str, int i, Exception exc) {
-        fi m362a = he.m360a().m362a();
+        fi m361a = he.m359a().m361a();
         if (i > 0) {
-            m362a.a(fh.GSLB_REQUEST_SUCCESS.a());
-            m362a.b(str);
-            m362a.b(i);
-            he.m360a().a(m362a);
+            m361a.a(fh.GSLB_REQUEST_SUCCESS.a());
+            m361a.b(str);
+            m361a.b(i);
+            he.m359a().a(m361a);
             return;
         }
         try {
             hc.a a2 = hc.a(exc);
-            m362a.a(a2.f14080a.a());
-            m362a.c(a2.f501a);
-            m362a.b(str);
-            he.m360a().a(m362a);
+            m361a.a(a2.f14080a.a());
+            m361a.c(a2.f501a);
+            m361a.b(str);
+            he.m359a().a(m361a);
         } catch (NullPointerException e) {
         }
     }
@@ -95,20 +95,20 @@ public class hg {
     public static void a(String str, Exception exc) {
         try {
             hc.a b2 = hc.b(exc);
-            fi m362a = he.m360a().m362a();
-            m362a.a(b2.f14080a.a());
-            m362a.c(b2.f501a);
-            m362a.b(str);
-            he.m360a().a(m362a);
+            fi m361a = he.m359a().m361a();
+            m361a.a(b2.f14080a.a());
+            m361a.c(b2.f501a);
+            m361a.b(str);
+            he.m359a().a(m361a);
         } catch (NullPointerException e) {
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m366a() {
-        fj m363a = he.m360a().m363a();
-        if (m363a != null) {
-            return iw.a(m363a);
+    public static byte[] m365a() {
+        fj m362a = he.m359a().m362a();
+        if (m362a != null) {
+            return iw.a(m362a);
         }
         return null;
     }
@@ -120,11 +120,11 @@ public class hg {
     public static void b(String str, Exception exc) {
         try {
             hc.a d = hc.d(exc);
-            fi m362a = he.m360a().m362a();
-            m362a.a(d.f14080a.a());
-            m362a.c(d.f501a);
-            m362a.b(str);
-            he.m360a().a(m362a);
+            fi m361a = he.m359a().m361a();
+            m361a.a(d.f14080a.a());
+            m361a.c(d.f501a);
+            m361a.b(str);
+            he.m359a().a(m361a);
         } catch (NullPointerException e) {
         }
     }

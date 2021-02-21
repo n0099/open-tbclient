@@ -83,7 +83,7 @@ public class p {
                 public void onPostExecute(List<cd> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        o.coT().cL(list);
+                        o.cpa().cL(list);
                     }
                 }
             }.execute(new Void[0]);

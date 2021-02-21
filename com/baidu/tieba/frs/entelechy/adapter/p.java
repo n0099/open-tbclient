@@ -16,14 +16,14 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class p extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> implements com.baidu.tieba.a.f, com.baidu.tieba.card.aa, com.baidu.tieba.card.z, com.baidu.tieba.frs.b.d {
     private String aif;
-    private int jqp;
-    private com.baidu.tieba.frs.b.b jqq;
+    private int jqD;
+    private com.baidu.tieba.frs.b.b jqE;
     private TbPageContext<?> mPageContext;
 
     public p(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.jqp = 3;
-        this.jqq = new com.baidu.tieba.frs.b.b();
+        this.jqD = 3;
+        this.jqE = new com.baidu.tieba.frs.b.b();
         this.mPageContext = tbPageContext;
     }
 
@@ -34,13 +34,13 @@ public class p extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> imple
     public ThreadCardViewHolder e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         com.baidu.card.i iVar = new com.baidu.card.i(this.mPageContext.getPageActivity());
-        if (this.jqp == 502) {
+        if (this.jqD == 502) {
             iVar.setNeedFrsTabName(false);
         } else {
             iVar.setNeedFrsTabName(true);
         }
         aVar.c(iVar);
-        ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.iLK));
+        ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.iLY));
         threadCardViewHolder.setPageId(this.mPageId);
         a(new com.baidu.adp.widget.ListView.w() { // from class: com.baidu.tieba.frs.entelechy.adapter.p.1
             @Override // com.baidu.adp.widget.ListView.w
@@ -66,10 +66,10 @@ public class p extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> imple
             threadCardViewHolder.tj().setPage(this.aif);
         }
         super.a(i, view, viewGroup, (ViewGroup) caVar, (ca) threadCardViewHolder);
-        com.baidu.tieba.frs.j.a(threadCardViewHolder.tj().td(), this.jfG);
+        com.baidu.tieba.frs.j.a(threadCardViewHolder.tj().td(), this.jfU);
         threadCardViewHolder.tj().setPosition(i);
-        if (this.jfG != null && this.jfG.getForum() != null && !StringUtils.isNull(this.jfG.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.jfG.getForum().getTopic_special_icon_right())) {
-            caVar.eJQ.dD(this.jfG.getForum().getTopic_special_icon(), this.jfG.getForum().getTopic_special_icon_right());
+        if (this.jfU != null && this.jfU.getForum() != null && !StringUtils.isNull(this.jfU.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.jfU.getForum().getTopic_special_icon_right())) {
+            caVar.eJQ.dD(this.jfU.getForum().getTopic_special_icon(), this.jfU.getForum().getTopic_special_icon_right());
         }
         threadCardViewHolder.b((ThreadCardViewHolder<cb>) caVar.eJQ);
         threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -83,11 +83,11 @@ public class p extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> imple
 
     @Override // com.baidu.tieba.card.z
     public void uX(int i) {
-        this.jqp = i;
+        this.jqD = i;
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 
@@ -97,6 +97,6 @@ public class p extends com.baidu.tieba.frs.k<ca, ThreadCardViewHolder<cb>> imple
 
     @Override // com.baidu.tieba.frs.b.d
     public com.baidu.tieba.frs.b.b getStatisticMetaData() {
-        return this.jqq;
+        return this.jqE;
     }
 }

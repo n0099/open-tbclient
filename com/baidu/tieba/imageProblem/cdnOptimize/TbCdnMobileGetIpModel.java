@@ -30,7 +30,7 @@ public class TbCdnMobileGetIpModel {
     private static Object lock = new Object();
     private static long mobileLastTachometerTime = 0;
     private BdUniqueId unique_id = BdUniqueId.gen();
-    private HttpMessageListener kWz = new HttpMessageListener(1002601) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
+    private HttpMessageListener kWN = new HttpMessageListener(1002601) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -57,9 +57,9 @@ public class TbCdnMobileGetIpModel {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (10001 == message.what) {
-                TbCdnMobileGetIpModel.this.dax();
+                TbCdnMobileGetIpModel.this.daE();
             } else if (10002 == message.what) {
-                TbCdnMobileGetIpModel.this.day();
+                TbCdnMobileGetIpModel.this.daF();
             }
         }
     };
@@ -69,18 +69,18 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dax() {
+    public void daE() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1002601, "http://httpdns.baidu.com/ips/v1");
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
         tbHttpMessageTask.setResponsedClass(TbMobileCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.kWz);
-        MessageManager.getInstance().registerListener(this.kWz);
+        MessageManager.getInstance().unRegisterListener(this.kWN);
+        MessageManager.getInstance().registerListener(this.kWN);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1002601);
-        MessageManager.getInstance().unRegisterListener(this.kWz);
+        MessageManager.getInstance().unRegisterListener(this.kWN);
     }
 
     public void startGetMobileIpList() {
@@ -105,7 +105,7 @@ public class TbCdnMobileGetIpModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void day() {
+    public void daF() {
         HttpMessage httpMessage = new HttpMessage(1002601);
         httpMessage.addParam("domain", "hiphotos.jomodns.com");
         httpMessage.setTag(this.unique_id);
@@ -116,11 +116,11 @@ public class TbCdnMobileGetIpModel {
     /* loaded from: classes8.dex */
     public class TBCdnMobileTachometerAsyncTask extends BdAsyncTask<Object, Integer, ArrayList<String>> {
         ArrayList<TBCdnIpData> ipList;
-        TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData kWB;
+        TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData kWP;
 
         public TBCdnMobileTachometerAsyncTask(TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData tBCdnMobileListData) {
-            this.kWB = null;
-            this.kWB = tBCdnMobileListData;
+            this.kWP = null;
+            this.kWP = tBCdnMobileListData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +130,7 @@ public class TbCdnMobileGetIpModel {
         public ArrayList<String> doInBackground(Object... objArr) {
             String str;
             String str2;
-            if (this.kWB == null || (str = this.kWB.kWG) == null || str.length() <= 0 || (str2 = this.kWB.kWH) == null || str2.length() <= 0) {
+            if (this.kWP == null || (str = this.kWP.kWU) == null || str.length() <= 0 || (str2 = this.kWP.kWV) == null || str2.length() <= 0) {
                 return null;
             }
             try {
@@ -139,7 +139,7 @@ public class TbCdnMobileGetIpModel {
                     if (host.length() > 0) {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
-                            Iterator<String> it = this.kWB.mobileIpList.iterator();
+                            Iterator<String> it = this.kWP.mobileIpList.iterator();
                             while (it.hasNext()) {
                                 String next = it.next();
                                 long currentTimeMillis2 = System.currentTimeMillis();

@@ -9,33 +9,33 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes10.dex */
 public class e extends BaseCardInfo {
-    public static final BdUniqueId gyH = BdUniqueId.gen();
+    public static final BdUniqueId gyV = BdUniqueId.gen();
     public String entryName;
-    public cb gyA;
-    public boolean gyI;
-    public boolean gyJ;
+    public cb gyO;
+    public boolean gyW;
+    public boolean gyX;
     public String labelName;
     public int locate;
     public int tabId;
     public boolean isLeft = false;
     public boolean isRight = false;
-    public boolean gyy = false;
+    public boolean gyM = false;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return gyH;
+        return gyV;
     }
 
     @Deprecated
     public void a(ThreadInfo threadInfo) {
-        if (this.gyA == null) {
-            this.gyA = new cb();
+        if (this.gyO == null) {
+            this.gyO = new cb();
         }
-        this.gyA.a(threadInfo);
+        this.gyO.a(threadInfo);
     }
 
     public cb bln() {
-        return this.gyA;
+        return this.gyO;
     }
 
     public ar az(String str, boolean z) {
@@ -47,7 +47,7 @@ public class e extends BaseCardInfo {
         if (bln.boj() != null && !StringUtils.isNull(bln.boj().appId)) {
             str2 = bln.boj().appId;
         }
-        ar dR = new ar(str).v("obj_id", T(bln)).ap("obj_type", bQY()).dR("obj_param1", bln.mRecomWeight).dR("obj_source", bln.mRecomSource).ap("obj_locate", this.locate).dR("ab_tag", bln.mRecomAbTag).dR(TiebaInitialize.Params.OBJ_PARAM3, str2);
+        ar dR = new ar(str).v("obj_id", T(bln)).ap("obj_type", bRf()).dR("obj_param1", bln.mRecomWeight).dR("obj_source", bln.mRecomSource).ap("obj_locate", this.locate).dR("ab_tag", bln.mRecomAbTag).dR(TiebaInitialize.Params.OBJ_PARAM3, str2);
         if (z) {
             dR.dR(TiebaInitialize.Params.OBJ_PARAM2, bln.boe() > 0 ? "0" : "1");
         }
@@ -61,7 +61,7 @@ public class e extends BaseCardInfo {
         return cbVar.boj().live_id;
     }
 
-    private int bQY() {
+    private int bRf() {
         return 1;
     }
 }

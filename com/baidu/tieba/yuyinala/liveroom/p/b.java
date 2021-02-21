@@ -3,18 +3,18 @@ package com.baidu.tieba.yuyinala.liveroom.p;
 import com.baidu.live.data.aq;
 /* loaded from: classes11.dex */
 public class b {
-    private static volatile b ozm;
+    private static volatile b ozM;
     public aq bvg = new aq();
 
-    public static b ebL() {
-        if (ozm == null) {
+    public static b ebT() {
+        if (ozM == null) {
             synchronized (b.class) {
-                if (ozm == null) {
-                    ozm = new b();
+                if (ozM == null) {
+                    ozM = new b();
                 }
             }
         }
-        return ozm;
+        return ozM;
     }
 
     private b() {

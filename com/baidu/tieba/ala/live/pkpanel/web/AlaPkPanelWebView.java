@@ -25,8 +25,8 @@ public class AlaPkPanelWebView extends FrameLayout {
     private List<String> bVP;
     private SchemeCallback bVR;
     private String eML;
-    private a hmx;
-    private boolean hmy;
+    private a hmL;
+    private boolean hmM;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -54,7 +54,7 @@ public class AlaPkPanelWebView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.hmx = aVar;
+        this.hmL = aVar;
     }
 
     public void addJavascriptInterface(Object obj, String str) {
@@ -75,8 +75,8 @@ public class AlaPkPanelWebView extends FrameLayout {
         return this.bVO != null ? this.bVO.getOriginalUrl() : "";
     }
 
-    public boolean bYK() {
-        return this.hmy;
+    public boolean bYR() {
+        return this.hmM;
     }
 
     @RequiresApi(19)
@@ -87,8 +87,8 @@ public class AlaPkPanelWebView extends FrameLayout {
     }
 
     public void release() {
-        this.hmx = null;
-        this.hmy = false;
+        this.hmL = null;
+        this.hmM = false;
         removeAllViews();
         if (this.bVO != null) {
             if (this.bVP != null) {
@@ -106,7 +106,7 @@ public class AlaPkPanelWebView extends FrameLayout {
     }
 
     private void init() {
-        this.hmy = false;
+        this.hmM = false;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);
@@ -123,9 +123,9 @@ public class AlaPkPanelWebView extends FrameLayout {
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
-                            AlaPkPanelWebView.this.hmy = Boolean.valueOf(str2).booleanValue();
-                            if (AlaPkPanelWebView.this.hmx != null) {
-                                AlaPkPanelWebView.this.hmx.nG(Boolean.valueOf(str2).booleanValue());
+                            AlaPkPanelWebView.this.hmM = Boolean.valueOf(str2).booleanValue();
+                            if (AlaPkPanelWebView.this.hmL != null) {
+                                AlaPkPanelWebView.this.hmL.nG(Boolean.valueOf(str2).booleanValue());
                             }
                         }
                     });

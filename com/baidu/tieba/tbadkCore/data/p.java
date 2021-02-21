@@ -11,13 +11,13 @@ import org.json.JSONObject;
 public class p {
     public List<AbstractData> eOu = new ArrayList();
     public String id;
-    public MetaData nxH;
+    public MetaData nyh;
 
     public void parseJson(JSONObject jSONObject) {
         try {
             this.id = jSONObject.optString("id");
-            this.nxH = new MetaData();
-            this.nxH.parserJson(jSONObject.optJSONObject("author"));
+            this.nyh = new MetaData();
+            this.nyh.parserJson(jSONObject.optJSONObject("author"));
             JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
             this.eOu = new ArrayList();
             if (optJSONArray != null) {

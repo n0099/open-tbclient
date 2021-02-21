@@ -13,7 +13,7 @@ import com.baidu.afd.videopaster.view.VideoPasterContentView;
 import com.baidu.afd.videopaster.view.VideoPasterOverlayView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.t;
 /* loaded from: classes.dex */
 public class d {
     private VideoPasterContentView aaL;
@@ -66,7 +66,7 @@ public class d {
                 d.this.aaP.k(d.this.ri());
                 com.baidu.tieba.lego.card.a.c.a(d.this.aaQ);
                 if (d.this.aaQ != null) {
-                    d.this.c(d.this.ri(), s.x(d.this.mContext, d.this.aaQ.aaY, d.this.aaQ.adid));
+                    d.this.c(d.this.ri(), t.i(d.this.mContext, d.this.aaQ.aaY, d.this.aaQ.adid, d.this.aaQ.extra));
                 }
             }
 
@@ -75,7 +75,7 @@ public class d {
                 d.this.aaP.j(d.this.ri());
                 com.baidu.tieba.lego.card.a.c.a(d.this.aaQ);
                 if (d.this.aaQ != null) {
-                    d.this.c(d.this.ri(), s.x(d.this.mContext, d.this.aaQ.aaY, d.this.aaQ.adid));
+                    d.this.c(d.this.ri(), t.i(d.this.mContext, d.this.aaQ.aaY, d.this.aaQ.adid, d.this.aaQ.extra));
                 }
             }
 
@@ -84,7 +84,7 @@ public class d {
                 d.this.aaP.l(d.this.ri());
                 com.baidu.tieba.lego.card.a.c.a(d.this.aaQ);
                 if (d.this.aaQ != null) {
-                    d.this.c(d.this.ri(), s.x(d.this.mContext, d.this.aaQ.aaY, d.this.aaQ.adid));
+                    d.this.c(d.this.ri(), t.i(d.this.mContext, d.this.aaQ.aaY, d.this.aaQ.adid, d.this.aaQ.extra));
                 }
             }
 
@@ -319,7 +319,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.afd.videopaster.b.a aVar, int i) {
-        if (!s.HL(i)) {
+        if (!t.HL(i)) {
             this.aaP.e(aVar, i);
         }
     }

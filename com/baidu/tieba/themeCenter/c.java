@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter;
 /* loaded from: classes9.dex */
 public class c {
-    public static int nFC = 0;
-    public static int nFD = 1;
-    public static int nFE = 235004;
+    public static int nGc = 0;
+    public static int nGd = 1;
+    public static int nGe = 235004;
 }

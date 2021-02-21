@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.data.bc;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
 public class af extends PostData {
-    public static final BdUniqueId lXe = BdUniqueId.gen();
-    public bc lXf;
-    public bc lXg;
-    public bc lXh;
+    public static final BdUniqueId lXt = BdUniqueId.gen();
+    public bc lXu;
+    public bc lXv;
+    public bc lXw;
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lXe;
+        return lXt;
     }
 
     public boolean hasData() {
-        if (this.lXf == null || StringUtils.isNull(this.lXf.summary)) {
-            if (this.lXg == null || StringUtils.isNull(this.lXg.summary)) {
-                return (this.lXh == null || StringUtils.isNull(this.lXh.summary)) ? false : true;
+        if (this.lXu == null || StringUtils.isNull(this.lXu.summary)) {
+            if (this.lXv == null || StringUtils.isNull(this.lXv.summary)) {
+                return (this.lXw == null || StringUtils.isNull(this.lXw.summary)) ? false : true;
             }
             return true;
         }

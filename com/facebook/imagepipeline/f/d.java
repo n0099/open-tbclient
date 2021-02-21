@@ -8,11 +8,11 @@ import javax.annotation.concurrent.ThreadSafe;
 /* loaded from: classes5.dex */
 public class d extends b {
     private volatile Bitmap mBitmap;
-    private final int pCL;
-    private final int pCM;
+    private final int pDl;
+    private final int pDm;
     @GuardedBy("this")
-    private com.facebook.common.references.a<Bitmap> pKc;
-    private final h pKd;
+    private com.facebook.common.references.a<Bitmap> pKC;
+    private final h pKD;
 
     public d(Bitmap bitmap, com.facebook.common.references.c<Bitmap> cVar, h hVar, int i) {
         this(bitmap, cVar, hVar, i, 0);
@@ -20,10 +20,10 @@ public class d extends b {
 
     public d(Bitmap bitmap, com.facebook.common.references.c<Bitmap> cVar, h hVar, int i, int i2) {
         this.mBitmap = (Bitmap) com.facebook.common.internal.g.checkNotNull(bitmap);
-        this.pKc = com.facebook.common.references.a.a(this.mBitmap, (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar));
-        this.pKd = hVar;
-        this.pCL = i;
-        this.pCM = i2;
+        this.pKC = com.facebook.common.references.a.a(this.mBitmap, (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar));
+        this.pKD = hVar;
+        this.pDl = i;
+        this.pDm = i2;
     }
 
     public d(com.facebook.common.references.a<Bitmap> aVar, h hVar, int i) {
@@ -31,41 +31,41 @@ public class d extends b {
     }
 
     public d(com.facebook.common.references.a<Bitmap> aVar, h hVar, int i, int i2) {
-        this.pKc = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.esK());
-        this.mBitmap = this.pKc.get();
-        this.pKd = hVar;
-        this.pCL = i;
-        this.pCM = i2;
+        this.pKC = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.esS());
+        this.mBitmap = this.pKC.get();
+        this.pKD = hVar;
+        this.pDl = i;
+        this.pDm = i2;
     }
 
     @Override // com.facebook.imagepipeline.f.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.facebook.common.references.a<Bitmap> eyi = eyi();
-        if (eyi != null) {
-            eyi.close();
+        com.facebook.common.references.a<Bitmap> eyq = eyq();
+        if (eyq != null) {
+            eyq.close();
         }
     }
 
-    private synchronized com.facebook.common.references.a<Bitmap> eyi() {
+    private synchronized com.facebook.common.references.a<Bitmap> eyq() {
         com.facebook.common.references.a<Bitmap> aVar;
-        aVar = this.pKc;
-        this.pKc = null;
+        aVar = this.pKC;
+        this.pKC = null;
         this.mBitmap = null;
         return aVar;
     }
 
     @Nullable
-    public synchronized com.facebook.common.references.a<Bitmap> eyj() {
-        return com.facebook.common.references.a.b(this.pKc);
+    public synchronized com.facebook.common.references.a<Bitmap> eyr() {
+        return com.facebook.common.references.a.b(this.pKC);
     }
 
     @Override // com.facebook.imagepipeline.f.c
     public synchronized boolean isClosed() {
-        return this.pKc == null;
+        return this.pKC == null;
     }
 
     @Override // com.facebook.imagepipeline.f.b
-    public Bitmap eyg() {
+    public Bitmap eyo() {
         return this.mBitmap;
     }
 
@@ -76,12 +76,12 @@ public class d extends b {
 
     @Override // com.facebook.imagepipeline.f.f
     public int getWidth() {
-        return (this.pCL % 180 != 0 || this.pCM == 5 || this.pCM == 7) ? aa(this.mBitmap) : Z(this.mBitmap);
+        return (this.pDl % 180 != 0 || this.pDm == 5 || this.pDm == 7) ? aa(this.mBitmap) : Z(this.mBitmap);
     }
 
     @Override // com.facebook.imagepipeline.f.f
     public int getHeight() {
-        return (this.pCL % 180 != 0 || this.pCM == 5 || this.pCM == 7) ? Z(this.mBitmap) : aa(this.mBitmap);
+        return (this.pDl % 180 != 0 || this.pDm == 5 || this.pDm == 7) ? Z(this.mBitmap) : aa(this.mBitmap);
     }
 
     private static int Z(@Nullable Bitmap bitmap) {
@@ -98,16 +98,16 @@ public class d extends b {
         return bitmap.getHeight();
     }
 
-    public int eyk() {
-        return this.pCL;
+    public int eys() {
+        return this.pDl;
     }
 
-    public int eyl() {
-        return this.pCM;
+    public int eyt() {
+        return this.pDm;
     }
 
     @Override // com.facebook.imagepipeline.f.c
-    public h eyh() {
-        return this.pKd;
+    public h eyp() {
+        return this.pKD;
     }
 }

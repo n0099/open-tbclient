@@ -67,13 +67,13 @@ public class r {
         public static final boolean f6050a = r.f6048a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final List<C0998a> f6051b = new ArrayList();
+        private final List<C1000a> f6051b = new ArrayList();
         private boolean c = false;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.bytedance.sdk.adnet.core.r$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0998a {
+        public static class C1000a {
 
             /* renamed from: a  reason: collision with root package name */
             public final String f6052a;
@@ -82,7 +82,7 @@ public class r {
             public final long f6053b;
             public final long c;
 
-            public C0998a(String str, long j, long j2) {
+            public C1000a(String str, long j, long j2) {
                 this.f6052a = str;
                 this.f6053b = j;
                 this.c = j2;
@@ -93,7 +93,7 @@ public class r {
             if (this.c) {
                 throw new IllegalStateException("Marker added to finished log");
             }
-            this.f6051b.add(new C0998a(str, j, SystemClock.elapsedRealtime()));
+            this.f6051b.add(new C1000a(str, j, SystemClock.elapsedRealtime()));
         }
 
         public synchronized void a(String str) {
@@ -103,9 +103,9 @@ public class r {
                 long j = this.f6051b.get(0).c;
                 r.b("(%-4d ms) %s", Long.valueOf(a2), str);
                 long j2 = j;
-                for (C0998a c0998a : this.f6051b) {
-                    long j3 = c0998a.c;
-                    r.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c0998a.f6053b), c0998a.f6052a);
+                for (C1000a c1000a : this.f6051b) {
+                    long j3 = c1000a.c;
+                    r.b("(+%-4d) [%2d] %s", Long.valueOf(j3 - j2), Long.valueOf(c1000a.f6053b), c1000a.f6052a);
                     j2 = j3;
                 }
             }

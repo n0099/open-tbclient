@@ -28,9 +28,9 @@ public class ai extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.q, FrsVi
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
         FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
         ap.setViewTextColor(frsVideoActivityViewHolder.mTitleTv, R.color.CAM_X0105);
-        ap.setViewTextColor(frsVideoActivityViewHolder.jrW, R.color.CAM_X0301);
-        ap.setImageResource(frsVideoActivityViewHolder.jrV, R.drawable.icon_news_list_prompt);
-        ap.setImageResource(frsVideoActivityViewHolder.jrX, R.drawable.icon_index_category_arrow_r);
+        ap.setViewTextColor(frsVideoActivityViewHolder.jsk, R.color.CAM_X0301);
+        ap.setImageResource(frsVideoActivityViewHolder.jsj, R.drawable.icon_news_list_prompt);
+        ap.setImageResource(frsVideoActivityViewHolder.jsl, R.drawable.icon_index_category_arrow_r);
         ap.setBackgroundColor(frsVideoActivityViewHolder.bQV, R.color.CAM_X0204);
         ap.setBackgroundColor(frsVideoActivityViewHolder.bQW, R.color.CAM_X0204);
         ap.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
@@ -56,9 +56,9 @@ public class ai extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.q, FrsVi
         });
         frsVideoActivityViewHolder.mTitleTv.setText(qVar != null ? qVar.text : "");
         if (gt(com.baidu.tbadk.core.sharedPref.b.brQ().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + this.mForumId, 0L))) {
-            frsVideoActivityViewHolder.jrV.setVisibility(0);
+            frsVideoActivityViewHolder.jsj.setVisibility(0);
         } else {
-            frsVideoActivityViewHolder.jrV.setVisibility(8);
+            frsVideoActivityViewHolder.jsj.setVisibility(8);
         }
         return frsVideoActivityViewHolder.getView();
     }

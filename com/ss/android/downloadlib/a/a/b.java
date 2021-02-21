@@ -10,7 +10,7 @@ import org.json.JSONObject;
 class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
-    public CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> hy(String str, String str2) {
+    public CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> hA(String str, String str2) {
         CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
         try {
             String string = j.a().getSharedPreferences(str, 0).getString(str2, "");

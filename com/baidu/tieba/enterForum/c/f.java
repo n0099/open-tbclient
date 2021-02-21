@@ -34,14 +34,14 @@ public class f {
     private TextView aju;
     private bn ajy;
     private LikeModel fnw;
-    private TextView iRE;
-    private TextView iRF;
-    private TBSpecificationBtn iRG;
-    private ae iRI;
+    private TextView iRS;
+    private TextView iRT;
+    private TBSpecificationBtn iRU;
+    private ae iRW;
     private TbPageContext<?> mTbPageContext;
     private View mView;
     private String attention = TbadkCoreApplication.getInst().getString(R.string.attention);
-    private String iRH = TbadkCoreApplication.getInst().getString(R.string.thread_str);
+    private String iRV = TbadkCoreApplication.getInst().getString(R.string.thread_str);
 
     public f(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
@@ -49,16 +49,16 @@ public class f {
         this.ajr = (BarImageView) this.mView.findViewById(R.id.bar_image);
         this.ajt = (TextView) this.mView.findViewById(R.id.bar_name);
         this.aju = (TextView) this.mView.findViewById(R.id.desc);
-        this.iRE = (TextView) this.mView.findViewById(R.id.follow_text);
-        this.iRF = (TextView) this.mView.findViewById(R.id.tiezi_text);
-        this.iRG = (TBSpecificationBtn) this.mView.findViewById(R.id.forum_like_button);
+        this.iRS = (TextView) this.mView.findViewById(R.id.follow_text);
+        this.iRT = (TextView) this.mView.findViewById(R.id.tiezi_text);
+        this.iRU = (TBSpecificationBtn) this.mView.findViewById(R.id.forum_like_button);
         this.mView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.cxU();
+                f.this.cyb();
             }
         });
-        this.iRG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.f.2
+        this.iRU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ar arVar = new ar("c13644");
@@ -68,9 +68,9 @@ public class f {
                 arVar.ap(TiebaInitialize.Params.OBJ_TO, f.this.ajy.isLike() ? 2 : 1);
                 TiebaStatic.log(arVar);
                 if (f.this.ajy.isLike()) {
-                    f.this.cxW();
+                    f.this.cyd();
                 } else {
-                    f.this.cxV();
+                    f.this.cyc();
                 }
             }
         });
@@ -94,8 +94,8 @@ public class f {
                 forumName = "";
             }
             this.ajt.setText(forumName);
-            this.iRE.setText(this.attention + " " + au.ef(bnVar.bmU()));
-            this.iRF.setText(this.iRH + " " + au.ef(bnVar.bmV()));
+            this.iRS.setText(this.attention + " " + au.ef(bnVar.bmU()));
+            this.iRT.setText(this.iRV + " " + au.ef(bnVar.bmV()));
             String blo = bnVar.blo();
             if (au.isEmpty(blo)) {
                 if (this.aju.getVisibility() != 8) {
@@ -122,8 +122,8 @@ public class f {
 
     public void onChangeSkinType() {
         ap.setViewTextColor(this.ajt, R.color.CAM_X0105);
-        ap.setViewTextColor(this.iRE, R.color.CAM_X0109);
-        ap.setViewTextColor(this.iRF, R.color.CAM_X0109);
+        ap.setViewTextColor(this.iRS, R.color.CAM_X0109);
+        ap.setViewTextColor(this.iRT, R.color.CAM_X0109);
         ap.setViewTextColor(this.aju, R.color.CAM_X0109);
     }
 
@@ -131,19 +131,19 @@ public class f {
         if (!z) {
             com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
             bVar.pR(R.color.CAM_X0302);
-            this.iRG.setConfig(bVar);
-            this.iRG.setText(this.attention);
+            this.iRU.setConfig(bVar);
+            this.iRU.setText(this.attention);
         } else {
             com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
             bVar2.pT(R.color.CAM_X0109);
-            this.iRG.setConfig(bVar2);
-            this.iRG.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
+            this.iRU.setConfig(bVar2);
+            this.iRU.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         }
         this.ajy.setLike(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxU() {
+    public void cyb() {
         if (this.ajy != null) {
             String forumName = this.ajy.getForumName();
             if (au.isForumName(forumName)) {
@@ -159,7 +159,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxV() {
+    public void cyc() {
         if (!l.isNetOk()) {
             UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
         } else if (this.ajy != null && !StringUtils.isNull(this.ajy.getForumName()) && this.ajy.getForumId() > 0) {
@@ -186,14 +186,14 @@ public class f {
                 }
             });
             if (au.isForumName(this.ajy.getForumName())) {
-                this.fnw.dMN();
-                this.fnw.gw(this.ajy.getForumName(), String.valueOf(this.ajy.getForumId()));
+                this.fnw.dMV();
+                this.fnw.gy(this.ajy.getForumName(), String.valueOf(this.ajy.getForumId()));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxW() {
+    public void cyd() {
         if (!l.isNetOk()) {
             UtilHelper.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getString(R.string.neterror));
         } else if (this.ajy != null && !StringUtils.isNull(this.ajy.getForumName()) && this.ajy.getForumId() > 0) {
@@ -201,10 +201,10 @@ public class f {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                 return;
             }
-            if (this.iRI == null) {
-                this.iRI = new ae();
+            if (this.iRW == null) {
+                this.iRW = new ae();
             }
-            this.iRI.a(new ae.a() { // from class: com.baidu.tieba.enterForum.c.f.4
+            this.iRW.a(new ae.a() { // from class: com.baidu.tieba.enterForum.c.f.4
                 @Override // com.baidu.tieba.tbadkCore.ae.a
                 public void B(String str, long j) {
                     f.this.pY(false);
@@ -215,7 +215,7 @@ public class f {
                 public void C(String str, long j) {
                 }
             });
-            this.iRI.O(this.ajy.getForumName(), this.ajy.getForumId());
+            this.iRW.O(this.ajy.getForumName(), this.ajy.getForumId());
         }
     }
 

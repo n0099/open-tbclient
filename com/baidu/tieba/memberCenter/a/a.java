@@ -30,43 +30,43 @@ import com.baidu.tieba.memberCenter.bubble.c;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a extends com.baidu.tbadk.editortools.view.a {
-    private BubbleListModel llo;
-    private BubbleListData llp;
-    private String llq;
+    private BubbleListModel llC;
+    private BubbleListData llD;
+    private String llE;
     private Context mContext;
     private int dAv = 0;
-    private BubbleListModel.a lkI = new BubbleListModel.a() { // from class: com.baidu.tieba.memberCenter.a.a.2
+    private BubbleListModel.a lkW = new BubbleListModel.a() { // from class: com.baidu.tieba.memberCenter.a.a.2
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.a
         public void a(BubbleListData bubbleListData) {
             if (bubbleListData == null) {
                 a.this.bCz().onLoadFail();
                 return;
             }
-            a.this.llp = bubbleListData.m35clone();
-            if (a.this.llo.deX() > 0) {
+            a.this.llD = bubbleListData.m35clone();
+            if (a.this.llC.dfe() > 0) {
                 List<BubbleListData.BubbleData> b_info = bubbleListData.getB_info();
                 if (b_info != null && b_info.size() != 0) {
                     for (BubbleListData.BubbleData bubbleData : b_info) {
-                        if (bubbleData != null && bubbleData.getBcode() == a.this.llo.deX()) {
+                        if (bubbleData != null && bubbleData.getBcode() == a.this.llC.dfe()) {
                             if (!bubbleData.canUse() && !bubbleData.isFree()) {
                                 break;
                             }
-                            a.this.llo.Eq(a.this.llo.deX());
-                            a.this.llo.W(a.this.llo.deX(), l.getEquipmentWidth(a.this.mContext), l.getEquipmentHeight(a.this.mContext));
+                            a.this.llC.Eq(a.this.llC.dfe());
+                            a.this.llC.W(a.this.llC.dfe(), l.getEquipmentWidth(a.this.mContext), l.getEquipmentHeight(a.this.mContext));
                         }
                     }
-                    a.this.llo.Er(-1);
+                    a.this.llC.Er(-1);
                 } else {
                     return;
                 }
             }
-            a.this.dfa();
+            a.this.dfh();
             a.this.bCz().c(a.this);
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.a
         public void b(BubbleListData bubbleListData) {
-            a.this.llp = null;
+            a.this.llD = null;
             if (bubbleListData == null) {
                 UtilHelper.showToast(a.this.mContext, R.string.neterror);
             } else if (bubbleListData.getError_code().equals("0")) {
@@ -81,19 +81,19 @@ public class a extends com.baidu.tbadk.editortools.view.a {
             }
         }
     };
-    private BubbleListModel.b lkJ = new BubbleListModel.b() { // from class: com.baidu.tieba.memberCenter.a.a.3
+    private BubbleListModel.b lkX = new BubbleListModel.b() { // from class: com.baidu.tieba.memberCenter.a.a.3
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.b
         public void a(SetBubbleResultData setBubbleResultData) {
             if (setBubbleResultData == null || setBubbleResultData.getB_info() == null) {
                 a.this.bCz().onLoadFail();
                 return;
             }
-            a.this.llq = setBubbleResultData.getB_info().getB_url();
-            TbadkCoreApplication.getInst().setDefaultBubble(a.this.llq);
-            int deW = a.this.llo.deW();
-            if (deW == 0) {
+            a.this.llE = setBubbleResultData.getB_info().getB_url();
+            TbadkCoreApplication.getInst().setDefaultBubble(a.this.llE);
+            int dfd = a.this.llC.dfd();
+            if (dfd == 0) {
                 TbadkCoreApplication.getInst().setDefaultBubble("");
-                for (BubbleListData.BubbleData bubbleData : a.this.llp.getB_info()) {
+                for (BubbleListData.BubbleData bubbleData : a.this.llD.getB_info()) {
                     if (bubbleData.getBcode() != 0) {
                         if (bubbleData.isDef()) {
                             bubbleData.setIs_def(0);
@@ -103,42 +103,42 @@ public class a extends com.baidu.tbadk.editortools.view.a {
                     }
                 }
             } else if (setBubbleResultData.getB_info().canUser()) {
-                for (BubbleListData.BubbleData bubbleData2 : a.this.llp.getB_info()) {
-                    if (bubbleData2.getBcode() == deW) {
+                for (BubbleListData.BubbleData bubbleData2 : a.this.llD.getB_info()) {
+                    if (bubbleData2.getBcode() == dfd) {
                         bubbleData2.setIs_def(1);
                     } else if (bubbleData2.isDef()) {
                         bubbleData2.setIs_def(0);
                     }
-                    if (bubbleData2.getBcode() == deW) {
+                    if (bubbleData2.getBcode() == dfd) {
                         bubbleData2.setCan_use(1);
                     }
                 }
             } else {
                 UtilHelper.showToast(a.this.mContext, R.string.setdefualt_error);
-                if (a.this.llp != null && a.this.llp.getB_info() != null && a.this.llp.getB_info().size() > 0) {
-                    if (a.this.llp.getB_info().get(0).getBcode() == 0) {
+                if (a.this.llD != null && a.this.llD.getB_info() != null && a.this.llD.getB_info().size() > 0) {
+                    if (a.this.llD.getB_info().get(0).getBcode() == 0) {
                         a.this.dAv = 0;
                         int i = 0;
                         while (true) {
-                            if (i >= a.this.llp.getB_info().size()) {
+                            if (i >= a.this.llD.getB_info().size()) {
                                 break;
-                            } else if (a.this.llp.getB_info().get(i).isDef()) {
+                            } else if (a.this.llD.getB_info().get(i).isDef()) {
                                 a.this.dAv = i;
                                 break;
                             } else {
                                 i++;
                             }
                         }
-                        a.this.llp.getB_info().get(a.this.dAv).setIs_def(0);
-                        a.this.llp.getB_info().get(0).setIs_def(1);
+                        a.this.llD.getB_info().get(a.this.dAv).setIs_def(0);
+                        a.this.llD.getB_info().get(0).setIs_def(1);
                     } else {
                         BubbleListData.BubbleData bubbleData3 = new BubbleListData.BubbleData();
                         bubbleData3.setBcode(0);
-                        a.this.llp.getB_info().add(0, bubbleData3);
+                        a.this.llD.getB_info().add(0, bubbleData3);
                     }
                 }
             }
-            a.this.dfa();
+            a.this.dfh();
             a.this.bCz().c(a.this);
         }
 
@@ -158,47 +158,47 @@ public class a extends com.baidu.tbadk.editortools.view.a {
             }
         }
     };
-    public CustomMessageListener lkM = new CustomMessageListener(CmdConfigCustom.BUBBLE_LIST_REFRESH) { // from class: com.baidu.tieba.memberCenter.a.a.4
+    public CustomMessageListener lla = new CustomMessageListener(CmdConfigCustom.BUBBLE_LIST_REFRESH) { // from class: com.baidu.tieba.memberCenter.a.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.llo.I(0, 50, 0, 0);
+            a.this.llC.I(0, 50, 0, 0);
         }
     };
-    private View.OnClickListener llr = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.a.a.5
+    private View.OnClickListener llF = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.a.a.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.llp != null && (view instanceof BubbleView)) {
-                BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) y.getItem(a.this.llp.getB_info(), ((Integer) view.getTag()).intValue());
+            if (a.this.llD != null && (view instanceof BubbleView)) {
+                BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) y.getItem(a.this.llD.getB_info(), ((Integer) view.getTag()).intValue());
                 boolean loadBoolean = TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.isMem + TbadkCoreApplication.getCurrentAccount(), false);
                 if (bubbleData != null && !bubbleData.isDef()) {
                     if (bubbleData.getBcode() == 0 || bubbleData.canUse() || loadBoolean) {
                         a.this.En(bubbleData.getBcode());
                     } else if (bubbleData.isFree()) {
                         if (a.this.mContext instanceof TbPageContextSupport) {
-                            c.a(((TbPageContextSupport) a.this.mContext).getPageContext(), bubbleData, a.this.lkK);
+                            c.a(((TbPageContextSupport) a.this.mContext).getPageContext(), bubbleData, a.this.lkY);
                         }
                     } else if (a.this.mContext instanceof TbPageContextSupport) {
-                        c.b(((TbPageContextSupport) a.this.mContext).getPageContext(), bubbleData, a.this.lkL);
+                        c.b(((TbPageContextSupport) a.this.mContext).getPageContext(), bubbleData, a.this.lkZ);
                     }
                 }
             }
         }
     };
-    private c.a lkK = new c.a() { // from class: com.baidu.tieba.memberCenter.a.a.6
+    private c.a lkY = new c.a() { // from class: com.baidu.tieba.memberCenter.a.a.6
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
         public void Eo(int i) {
             a.this.En(i);
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void deS() {
+        public void deZ() {
         }
     };
-    private c.a lkL = new c.a() { // from class: com.baidu.tieba.memberCenter.a.a.7
+    private c.a lkZ = new c.a() { // from class: com.baidu.tieba.memberCenter.a.a.7
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
         public void Eo(int i) {
-            a.this.llo.Er(i);
+            a.this.llC.Er(i);
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(a.this.mContext, true, (int) RequestResponseCode.REQUEST_PAY_BUBBLE_CODE, "pop_unable");
             memberPayActivityConfig.setSceneId("4002001000");
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
@@ -206,7 +206,7 @@ public class a extends com.baidu.tbadk.editortools.view.a {
         }
 
         @Override // com.baidu.tieba.memberCenter.bubble.c.a
-        public void deS() {
+        public void deZ() {
         }
     };
 
@@ -234,10 +234,10 @@ public class a extends com.baidu.tbadk.editortools.view.a {
                 }
                 BubbleListData.BubbleData Ep = a.this.Ep(i);
                 if (Ep != null) {
-                    bubbleView.setData(Ep, BubbleListModel.eR(a.this.llp.getB_info()));
+                    bubbleView.setData(Ep, BubbleListModel.eR(a.this.llD.getB_info()));
                     bubbleView.setGravity(17);
                     bubbleView.setTag(Integer.valueOf(i));
-                    bubbleView.setOnClickListener(a.this.llr);
+                    bubbleView.setOnClickListener(a.this.llF);
                 }
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
                 TbPageContext tbPageContext = (TbPageContext) j.K(a.this.mContext);
@@ -246,105 +246,105 @@ public class a extends com.baidu.tbadk.editortools.view.a {
                 return view;
             }
         });
-        this.llq = TbadkCoreApplication.getInst().getDefaultBubble();
-        if (this.llo == null) {
+        this.llE = TbadkCoreApplication.getInst().getDefaultBubble();
+        if (this.llC == null) {
             if (this.mContext instanceof TbPageContext) {
-                this.llo = new BubbleListModel((TbPageContext) this.mContext);
+                this.llC = new BubbleListModel((TbPageContext) this.mContext);
             } else {
-                this.llo = new BubbleListModel(null);
+                this.llC = new BubbleListModel(null);
             }
         }
-        this.llo.a(this.lkI);
-        this.llo.a(this.lkJ);
-        this.llo.a(this.lkM);
-        this.llo.deY();
-        this.llo.deZ();
+        this.llC.a(this.lkW);
+        this.llC.a(this.lkX);
+        this.llC.a(this.lla);
+        this.llC.dff();
+        this.llC.dfg();
         if (bCz() != null) {
             bCz().preLoad();
         }
-        this.llo.I(0, 50, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
+        this.llC.I(0, 50, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void En(int i) {
-        this.llo.W(i, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
-        this.llo.Eq(i);
+        this.llC.W(i, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
+        this.llC.Eq(i);
         if (bCz() != null) {
             bCz().preLoad();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dfa() {
+    public void dfh() {
         boolean z = false;
-        if (this.llp != null && this.llp.getB_info() != null && this.llp.getB_info().size() > 0) {
+        if (this.llD != null && this.llD.getB_info() != null && this.llD.getB_info().size() > 0) {
             BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
             bubbleData.setBcode(0);
-            if (this.llp.getB_info().get(0).getBcode() != 0) {
-                this.llp.getB_info().add(0, bubbleData);
+            if (this.llD.getB_info().get(0).getBcode() != 0) {
+                this.llD.getB_info().add(0, bubbleData);
             }
             this.dAv = 0;
             int i = 0;
             while (true) {
-                if (i >= this.llp.getB_info().size()) {
+                if (i >= this.llD.getB_info().size()) {
                     break;
-                } else if (!this.llp.getB_info().get(i).isDef()) {
+                } else if (!this.llD.getB_info().get(i).isDef()) {
                     i++;
                 } else {
                     this.dAv = i;
-                    this.llq = this.llp.getB_info().get(i).getBg_url();
-                    TbadkCoreApplication.getInst().setDefaultBubble(this.llq);
+                    this.llE = this.llD.getB_info().get(i).getBg_url();
+                    TbadkCoreApplication.getInst().setDefaultBubble(this.llE);
                     break;
                 }
             }
         }
-        if (this.dAv == 0 || TextUtils.isEmpty(this.llq)) {
+        if (this.dAv == 0 || TextUtils.isEmpty(this.llE)) {
             b(new com.baidu.tbadk.editortools.a(2, 12, null));
         } else {
             b(new com.baidu.tbadk.editortools.a(2, 12, " "));
             z = true;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_BUBBLE_TOOL_RED_DOT, Boolean.valueOf(z)));
-        b(new com.baidu.tbadk.editortools.a(25, -1, this.llq));
+        b(new com.baidu.tbadk.editortools.a(25, -1, this.llE));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public BubbleListData.BubbleData Ep(int i) {
-        if (i < 0 || i >= getCount() || this.llp == null) {
+        if (i < 0 || i >= getCount() || this.llD == null) {
             return null;
         }
-        return this.llp.getB_info().get(i);
+        return this.llD.getB_info().get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.llp == null || this.llp.getB_info() == null) {
+        if (this.llD == null || this.llD.getB_info() == null) {
             return 0;
         }
-        return this.llp.getB_info().size();
+        return this.llD.getB_info().size();
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void exit() {
-        if (this.llo != null) {
-            this.llo.unRegisterListener();
-            this.llo.b(this.lkM);
-            this.llo = null;
+        if (this.llC != null) {
+            this.llC.unRegisterListener();
+            this.llC.b(this.lla);
+            this.llC = null;
         }
     }
 
     @Override // com.baidu.tbadk.editortools.b
     public void a(com.baidu.tbadk.editortools.a aVar) {
-        if (this.llo == null) {
+        if (this.llC == null) {
             if (this.mContext instanceof TbPageContext) {
-                this.llo = new BubbleListModel((TbPageContext) this.mContext);
+                this.llC = new BubbleListModel((TbPageContext) this.mContext);
             } else {
-                this.llo = new BubbleListModel(null);
+                this.llC = new BubbleListModel(null);
             }
         }
         if (bCz() != null) {
             bCz().preLoad();
         }
-        this.llo.I(0, 50, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
+        this.llC.I(0, 50, l.getEquipmentWidth(this.mContext), l.getEquipmentHeight(this.mContext));
     }
 }

@@ -34,7 +34,7 @@ public class ap extends a<com.baidu.tbadk.core.data.a> {
                         ap.this.sO().a(ap.this.aiU, ap.this.agj);
                     }
                     String id = ap.this.agj.bln().getId();
-                    com.baidu.tieba.card.m.IM(id);
+                    com.baidu.tieba.card.m.IN(id);
                     ap.this.dd(id);
                     ap.this.agd.b(new a.C0089a(1));
                 }
@@ -66,14 +66,14 @@ public class ap extends a<com.baidu.tbadk.core.data.a> {
     }
 
     public void bD(int i) {
-        this.aiU.izg = i;
+        this.aiU.izu = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dd(String str) {
         com.baidu.tieba.card.m.a(this.mTitle, str, R.color.CAM_X0105, R.color.CAM_X0109);
         com.baidu.tieba.card.m.a(this.agY, str, R.color.CAM_X0105, R.color.CAM_X0109);
-        this.aiU.setReadState(com.baidu.tieba.card.m.IN(str));
+        this.aiU.setReadState(com.baidu.tieba.card.m.IO(str));
     }
 
     @Override // com.baidu.card.q

@@ -18,9 +18,9 @@ import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba.tbadkCore.m, T> implements NetModel.b<FrsRequestData, com.baidu.tieba.tbadkCore.m> {
-    private MvcNetMessage jFA;
-    private boolean jFy;
-    private Message jFz;
+    private boolean jFM;
+    private Message jFN;
+    private MvcNetMessage jFO;
     private ResponsedMessage mResponsedMessage;
 
     public FrsNetModel(TbPageContext<T> tbPageContext, FrsRequestData frsRequestData) {
@@ -61,7 +61,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
         this.cmr = frsRequestData;
     }
 
-    public FrsRequestData cJN() {
+    public FrsRequestData cJU() {
         return (FrsRequestData) this.cmr;
     }
 
@@ -72,37 +72,37 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
     public boolean loadData() {
-        this.jFy = super.loadData();
-        return this.jFy;
+        this.jFM = super.loadData();
+        return this.jFM;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcHttpMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
         this.mResponsedMessage = mvcHttpResponsedMessage;
-        this.jFz = mvcHttpMessage;
-        this.jFA = mvcNetMessage;
+        this.jFN = mvcHttpMessage;
+        this.jFO = mvcNetMessage;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
         this.mResponsedMessage = mvcSocketResponsedMessage;
-        this.jFz = mvcSocketMessage;
-        this.jFA = mvcNetMessage;
+        this.jFN = mvcSocketMessage;
+        this.jFO = mvcNetMessage;
     }
 
-    public boolean cJO() {
-        return this.jFy;
+    public boolean cJV() {
+        return this.jFM;
     }
 
     public ResponsedMessage getResponsedMessage() {
         return this.mResponsedMessage;
     }
 
-    public Message cJP() {
-        return this.jFz;
+    public Message cJW() {
+        return this.jFN;
     }
 
-    public MvcNetMessage cJQ() {
-        return this.jFA;
+    public MvcNetMessage cJX() {
+        return this.jFO;
     }
 }

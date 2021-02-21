@@ -17,24 +17,24 @@ import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
 /* loaded from: classes11.dex */
 public class x extends e {
     private final TextView amy;
-    public ImageView jPv;
+    public ImageView jPJ;
     public View mContentView;
     public View mConvertView;
-    private final ImageView oZl;
+    private final ImageView oZL;
 
     @SuppressLint({"InflateParams"})
     public x(Context context, LayoutInflater layoutInflater) {
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_video_item, (ViewGroup) null);
-        this.oXT = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oXW = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oXY = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.oYt = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oYw = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oYy = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.jPv = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
-        this.oZl = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_play_icon);
+        this.jPJ = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
+        this.oZL = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_play_icon);
         this.amy = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_video_duration);
-        this.oXZ = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oYa = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oYb = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.oYz = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oYA = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oYB = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
         this.mConvertView.setTag(this);
     }
 
@@ -58,9 +58,9 @@ public class x extends e {
         com.baidu.yuyinala.privatemessage.implugin.util.b.hF(context);
         a(signleGraphicTextMsg);
         SingleGraphicTextMsgExt singleGraphicTextMsgExt = new SingleGraphicTextMsgExt(signleGraphicTextMsg);
-        double d = singleGraphicTextMsgExt.pih;
-        String str = singleGraphicTextMsgExt.pig;
-        this.amy.setText(singleGraphicTextMsgExt.pii);
+        double d = singleGraphicTextMsgExt.piI;
+        String str = singleGraphicTextMsgExt.piH;
+        this.amy.setText(singleGraphicTextMsgExt.piJ);
         super.b(context, chatMsg);
     }
 
@@ -69,6 +69,6 @@ public class x extends e {
         if (TextUtils.isEmpty(covers)) {
             covers = signleGraphicTextMsg.getCover();
         }
-        ImageLoader.getInstance().displayImage(covers, this.jPv, com.baidu.yuyinala.privatemessage.implugin.util.b.emr());
+        ImageLoader.getInstance().displayImage(covers, this.jPJ, com.baidu.yuyinala.privatemessage.implugin.util.b.emz());
     }
 }

@@ -6,39 +6,39 @@ import android.view.WindowManager;
 import com.baidu.ar.constants.HttpConstants;
 /* loaded from: classes11.dex */
 public class a {
-    public static float hhm;
-    public static float hhn;
-    public static float hho;
-    private static a hhp;
+    public static float hhA;
+    public static float hhB;
+    public static float hhC;
+    private static a hhD;
 
     public static a fY(Context context) {
-        if (hhp == null) {
-            hhp = new a(context);
+        if (hhD == null) {
+            hhD = new a(context);
         }
-        return hhp;
+        return hhD;
     }
 
-    public static a bXK() {
-        if (hhp == null) {
+    public static a bXR() {
+        if (hhD == null) {
             throw new RuntimeException("UiUtil应该先调用含有构造方法进行初始化");
         }
-        return hhp;
+        return hhD;
     }
 
     private a(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        if (hhm == 0.0f || hhn == 0.0f) {
+        if (hhA == 0.0f || hhB == 0.0f) {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             int fZ = fZ(context);
             if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
-                hhm = displayMetrics.heightPixels;
-                hhn = displayMetrics.widthPixels - fZ;
+                hhA = displayMetrics.heightPixels;
+                hhB = displayMetrics.widthPixels - fZ;
             } else {
-                hhm = displayMetrics.widthPixels;
-                hhn = displayMetrics.heightPixels - fZ;
+                hhA = displayMetrics.widthPixels;
+                hhB = displayMetrics.heightPixels - fZ;
             }
-            hho = fZ(context);
+            hhC = fZ(context);
         }
     }
 
@@ -58,10 +58,10 @@ public class a {
     }
 
     public int uL(int i) {
-        return Math.round((i * hhm) / 414.0f);
+        return Math.round((i * hhA) / 414.0f);
     }
 
     public int uM(int i) {
-        return Math.round((i * hhn) / (896.0f - hho));
+        return Math.round((i * hhB) / (896.0f - hhC));
     }
 }

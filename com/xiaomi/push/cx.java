@@ -33,9 +33,9 @@ public final class cx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m239a(String str, int i) {
+    public static InetSocketAddress m238a(String str, int i) {
         cx a2 = a(str, i);
-        return new InetSocketAddress(a2.m240a(), a2.a());
+        return new InetSocketAddress(a2.m239a(), a2.a());
     }
 
     public int a() {
@@ -43,7 +43,7 @@ public final class cx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m240a() {
+    public String m239a() {
         return this.f265a;
     }
 

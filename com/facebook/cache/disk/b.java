@@ -11,96 +11,96 @@ import javax.annotation.Nullable;
 public class b {
     private final Context mContext;
     private final int mVersion;
-    private final CacheErrorLogger pxH;
-    private final String pxO;
-    private final j<File> pxP;
-    private final long pxQ;
-    private final long pxR;
-    private final long pxS;
-    private final g pxT;
-    private final CacheEventListener pxU;
-    private final com.facebook.common.a.b pxV;
-    private final boolean pxW;
+    private final CacheErrorLogger pyh;
+    private final String pyo;
+    private final j<File> pyp;
+    private final long pyq;
+    private final long pyr;
+    private final long pys;
+    private final g pyt;
+    private final CacheEventListener pyu;
+    private final com.facebook.common.a.b pyv;
+    private final boolean pyw;
 
     private b(a aVar) {
         CacheErrorLogger cacheErrorLogger;
         CacheEventListener cacheEventListener;
         com.facebook.common.a.b bVar;
         this.mVersion = aVar.mVersion;
-        this.pxO = (String) com.facebook.common.internal.g.checkNotNull(aVar.pxO);
-        this.pxP = (j) com.facebook.common.internal.g.checkNotNull(aVar.pxP);
-        this.pxQ = aVar.pxX;
-        this.pxR = aVar.pxY;
-        this.pxS = aVar.pxZ;
-        this.pxT = (g) com.facebook.common.internal.g.checkNotNull(aVar.pxT);
-        if (aVar.pxH == null) {
-            cacheErrorLogger = com.facebook.cache.common.e.erN();
+        this.pyo = (String) com.facebook.common.internal.g.checkNotNull(aVar.pyo);
+        this.pyp = (j) com.facebook.common.internal.g.checkNotNull(aVar.pyp);
+        this.pyq = aVar.pyx;
+        this.pyr = aVar.pyy;
+        this.pys = aVar.pyz;
+        this.pyt = (g) com.facebook.common.internal.g.checkNotNull(aVar.pyt);
+        if (aVar.pyh == null) {
+            cacheErrorLogger = com.facebook.cache.common.e.erV();
         } else {
-            cacheErrorLogger = aVar.pxH;
+            cacheErrorLogger = aVar.pyh;
         }
-        this.pxH = cacheErrorLogger;
-        if (aVar.pxU == null) {
-            cacheEventListener = com.facebook.cache.common.f.erO();
+        this.pyh = cacheErrorLogger;
+        if (aVar.pyu == null) {
+            cacheEventListener = com.facebook.cache.common.f.erW();
         } else {
-            cacheEventListener = aVar.pxU;
+            cacheEventListener = aVar.pyu;
         }
-        this.pxU = cacheEventListener;
-        if (aVar.pxV == null) {
-            bVar = com.facebook.common.a.c.esq();
+        this.pyu = cacheEventListener;
+        if (aVar.pyv == null) {
+            bVar = com.facebook.common.a.c.esy();
         } else {
-            bVar = aVar.pxV;
+            bVar = aVar.pyv;
         }
-        this.pxV = bVar;
+        this.pyv = bVar;
         this.mContext = aVar.mContext;
-        this.pxW = aVar.pxW;
+        this.pyw = aVar.pyw;
     }
 
     public int getVersion() {
         return this.mVersion;
     }
 
-    public String erW() {
-        return this.pxO;
+    public String ese() {
+        return this.pyo;
     }
 
-    public j<File> erX() {
-        return this.pxP;
+    public j<File> esf() {
+        return this.pyp;
     }
 
-    public long erY() {
-        return this.pxQ;
+    public long esg() {
+        return this.pyq;
     }
 
-    public long erZ() {
-        return this.pxR;
+    public long esh() {
+        return this.pyr;
     }
 
-    public long esa() {
-        return this.pxS;
+    public long esi() {
+        return this.pys;
     }
 
-    public g esb() {
-        return this.pxT;
+    public g esj() {
+        return this.pyt;
     }
 
-    public CacheErrorLogger esc() {
-        return this.pxH;
+    public CacheErrorLogger esk() {
+        return this.pyh;
     }
 
-    public CacheEventListener esd() {
-        return this.pxU;
+    public CacheEventListener esl() {
+        return this.pyu;
     }
 
-    public com.facebook.common.a.b ese() {
-        return this.pxV;
+    public com.facebook.common.a.b esm() {
+        return this.pyv;
     }
 
     public Context getContext() {
         return this.mContext;
     }
 
-    public boolean esf() {
-        return this.pxW;
+    public boolean esn() {
+        return this.pyw;
     }
 
     public static a ih(@Nullable Context context) {
@@ -112,31 +112,31 @@ public class b {
         @Nullable
         private final Context mContext;
         private int mVersion;
-        private CacheErrorLogger pxH;
-        private String pxO;
-        private j<File> pxP;
-        private g pxT;
-        private CacheEventListener pxU;
-        private com.facebook.common.a.b pxV;
-        private boolean pxW;
-        private long pxX;
-        private long pxY;
-        private long pxZ;
+        private CacheErrorLogger pyh;
+        private String pyo;
+        private j<File> pyp;
+        private g pyt;
+        private CacheEventListener pyu;
+        private com.facebook.common.a.b pyv;
+        private boolean pyw;
+        private long pyx;
+        private long pyy;
+        private long pyz;
 
         private a(@Nullable Context context) {
             this.mVersion = 1;
-            this.pxO = "image_cache";
-            this.pxX = 41943040L;
-            this.pxY = 10485760L;
-            this.pxZ = PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
-            this.pxT = new com.facebook.cache.disk.a();
+            this.pyo = "image_cache";
+            this.pyx = 41943040L;
+            this.pyy = 10485760L;
+            this.pyz = PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+            this.pyt = new com.facebook.cache.disk.a();
             this.mContext = context;
         }
 
-        public b esg() {
-            com.facebook.common.internal.g.checkState((this.pxP == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
-            if (this.pxP == null && this.mContext != null) {
-                this.pxP = new j<File>() { // from class: com.facebook.cache.disk.b.a.1
+        public b eso() {
+            com.facebook.common.internal.g.checkState((this.pyp == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
+            if (this.pyp == null && this.mContext != null) {
+                this.pyp = new j<File>() { // from class: com.facebook.cache.disk.b.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.facebook.common.internal.j

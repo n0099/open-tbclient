@@ -42,7 +42,7 @@ public class PropsInfoData extends BaseData implements Serializable {
     /* loaded from: classes11.dex */
     public class a {
         public long endTime;
-        public long gTe;
+        public long gTs;
         public long startTime;
         public long userId;
 
@@ -51,7 +51,7 @@ public class PropsInfoData extends BaseData implements Serializable {
 
         public void parserJson(JSONObject jSONObject) {
             this.userId = jSONObject.optLong("anchor_id");
-            this.gTe = jSONObject.optLong("pay_userid");
+            this.gTs = jSONObject.optLong("pay_userid");
             this.startTime = jSONObject.optLong("start_time");
             this.endTime = jSONObject.optLong("end_time");
         }

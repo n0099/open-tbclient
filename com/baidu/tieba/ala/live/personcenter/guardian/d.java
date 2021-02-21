@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class d {
-    private LinearLayout hlW;
-    private TextView hlX;
+    private LinearLayout hmk;
+    private TextView hml;
     protected Context mContext;
     private View mRootView;
 
@@ -22,7 +22,7 @@ public class d {
         am(this.mRootView);
     }
 
-    public View bYo() {
+    public View bYv() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }
@@ -30,15 +30,15 @@ public class d {
     }
 
     private void am(View view) {
-        this.hlW = (LinearLayout) view.findViewById(a.f.ala_guardian_header_root);
-        this.hlX = (TextView) view.findViewById(a.f.ala_guardian_header_title);
+        this.hmk = (LinearLayout) view.findViewById(a.f.ala_guardian_header_root);
+        this.hml = (TextView) view.findViewById(a.f.ala_guardian_header_title);
     }
 
-    public void Hl(String str) {
-        this.hlX.setText(str);
+    public void Hm(String str) {
+        this.hml.setText(str);
     }
 
     public void a(AlaGuardianListActivity alaGuardianListActivity, int i) {
-        alaGuardianListActivity.getLayoutMode().onModeChanged(this.hlW);
+        alaGuardianListActivity.getLayoutMode().onModeChanged(this.hmk);
     }
 }

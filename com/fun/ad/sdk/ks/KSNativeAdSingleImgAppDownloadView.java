@@ -57,7 +57,7 @@ public class KSNativeAdSingleImgAppDownloadView extends o1 {
             if (ksImage != null && ksImage.isValid()) {
                 this.f = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
                 m.a("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight());
-                ap.a.pPq.a(this, ksImage.getImageUrl(), this.f7832b);
+                ap.a.pPQ.a(this, ksImage.getImageUrl(), this.f7832b);
             }
         }
         this.f7831a.setText(ksNativeAd.getAdDescription());
@@ -65,7 +65,7 @@ public class KSNativeAdSingleImgAppDownloadView extends o1 {
             this.c.setVisibility(8);
         } else {
             this.c.setVisibility(0);
-            ap.a.pPq.a(getContext(), ksNativeAd.getAppIconUrl(), this.c);
+            ap.a.pPQ.a(getContext(), ksNativeAd.getAppIconUrl(), this.c);
         }
         this.d.setText(ksNativeAd.getAppName());
         this.e.setText(ksNativeAd.getActionDescription());

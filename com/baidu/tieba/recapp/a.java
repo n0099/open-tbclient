@@ -14,7 +14,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 import tbclient.App;
+import tbclient.BannerList;
+import tbclient.GoodsInfo;
 /* loaded from: classes.dex */
 public class a {
     public static List<am> p(List<App> list, String str) {
@@ -116,9 +120,9 @@ public class a {
     }
 
     private static void b(AdvertAppInfo advertAppInfo, int i) {
-        com.baidu.tieba.recapp.report.e.dEm().a(com.baidu.tieba.recapp.report.h.b(advertAppInfo, 5, 1, i));
-        if (advertAppInfo != null && advertAppInfo.eLK != null) {
-            advertAppInfo.eLK.mDiscardReason = i;
+        com.baidu.tieba.recapp.report.e.dEu().a(com.baidu.tieba.recapp.report.h.b(advertAppInfo, 5, 1, i));
+        if (advertAppInfo != null && advertAppInfo.eLJ != null) {
+            advertAppInfo.eLJ.mDiscardReason = i;
         }
     }
 
@@ -154,8 +158,8 @@ public class a {
         if (com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
             return hashSet;
         }
-        Set<com.baidu.adp.widget.ListView.n> RE = com.baidu.tieba.recapp.report.a.RE(str);
-        HashSet hashSet2 = RE == null ? new HashSet() : RE;
+        Set<com.baidu.adp.widget.ListView.n> RQ = com.baidu.tieba.recapp.report.a.RQ(str);
+        HashSet hashSet2 = RQ == null ? new HashSet() : RQ;
         for (com.baidu.adp.widget.ListView.n nVar : list) {
             if (nVar != null) {
                 for (com.baidu.adp.widget.ListView.n nVar2 : hashSet2) {
@@ -191,7 +195,7 @@ public class a {
                         if (next instanceof am) {
                             am amVar = (am) next;
                             if (amVar.blH() != null) {
-                                str2 = amVar.blH().eLu;
+                                str2 = amVar.blH().eLt;
                             }
                         }
                         str2 = "";
@@ -264,5 +268,99 @@ public class a {
 
     public static boolean h(AdvertAppInfo advertAppInfo) {
         return advertAppInfo == null || advertAppInfo.getType() == AdvertAppInfo.eLa || advertAppInfo.getType() == AdvertAppInfo.eLf || advertAppInfo.getType() == AdvertAppInfo.eLg;
+    }
+
+    public static int e(@NonNull App app) {
+        if (app.goods_info == null) {
+            return -1001;
+        }
+        for (GoodsInfo goodsInfo : app.goods_info) {
+            if (goodsInfo != null) {
+                return goodsInfo.goods_style.intValue();
+            }
+        }
+        return -1001;
+    }
+
+    public static boolean f(@NonNull App app) {
+        if (app.goods_info == null) {
+            return false;
+        }
+        for (GoodsInfo goodsInfo : app.goods_info) {
+            if (goodsInfo != null && goodsInfo.goods_style.intValue() == 1001) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean a(App app, BannerList bannerList) {
+        if (app == null || bannerList == null) {
+            return false;
+        }
+        if (a(app, bannerList.pb_banner_ad)) {
+            return true;
+        }
+        List<App> list = bannerList.video_recommend_ad;
+        if (!com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
+            for (App app2 : list) {
+                if (a(app, app2)) {
+                    return true;
+                }
+            }
+        }
+        List<App> list2 = bannerList.app;
+        if (!com.baidu.tieba.lego.card.c.a.isEmpty(list2)) {
+            for (App app3 : list2) {
+                if (a(app, app3)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean a(App app, App app2) {
+        String str;
+        String str2 = null;
+        if (app == null || app2 == null) {
+            return false;
+        }
+        if (com.baidu.tieba.lego.card.c.a.isEmpty(app.goods_info) || com.baidu.tieba.lego.card.c.a.isEmpty(app2.goods_info)) {
+            return false;
+        }
+        Iterator<GoodsInfo> it = app.goods_info.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                str = null;
+                break;
+            }
+            GoodsInfo next = it.next();
+            if (next != null) {
+                str = next.lego_card;
+                break;
+            }
+        }
+        Iterator<GoodsInfo> it2 = app2.goods_info.iterator();
+        while (true) {
+            if (!it2.hasNext()) {
+                break;
+            }
+            GoodsInfo next2 = it2.next();
+            if (next2 != null) {
+                str2 = next2.lego_card;
+                break;
+            }
+        }
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return false;
+        }
+        try {
+            if (TextUtils.equals(new JSONObject(str).optString("download_key"), new JSONObject(str2).optString("download_key"))) {
+                return true;
+            }
+        } catch (JSONException e) {
+        }
+        return false;
     }
 }

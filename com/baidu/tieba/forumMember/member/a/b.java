@@ -15,10 +15,10 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b {
-    private NoNetworkView gxW;
-    private BdTypeListView gzb;
-    private View jdm;
-    private a jdn;
+    private NoNetworkView gyk;
+    private BdTypeListView gzp;
+    private View jdA;
+    private a jdB;
     private BaseActivity mActivity;
     private NavigationBar mNavigationBar;
     private g mPullView;
@@ -37,78 +37,78 @@ public class b {
         });
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mActivity.setNetRefreshViewTopMargin(BdListViewHelper.fMD);
-        this.gxW = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
-        this.gzb = (BdTypeListView) this.mActivity.findViewById(R.id.forum_member_listview);
+        this.gyk = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
+        this.gzp = (BdTypeListView) this.mActivity.findViewById(R.id.forum_member_listview);
         this.mPullView = new g(this.mActivity.getPageContext());
         this.mPullView.setTag(this.mActivity.getUniqueId());
         if (this.mActivity instanceof f.c) {
             this.mPullView.setListPullRefreshListener((f.c) this.mActivity);
         }
         if (this.mActivity instanceof BdListView.e) {
-            this.gzb.setOnSrollToBottomListener((BdListView.e) this.mActivity);
+            this.gzp.setOnSrollToBottomListener((BdListView.e) this.mActivity);
         }
-        this.gzb.setPullRefresh(this.mPullView);
-        this.jdm = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.gzb, BdListViewHelper.HeadType.DEFAULT);
-        this.jdn = new a(this.mActivity, this.gzb);
-        this.gzb.addAdapters(this.jdn.bRD());
+        this.gzp.setPullRefresh(this.mPullView);
+        this.jdA = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.gzp, BdListViewHelper.HeadType.DEFAULT);
+        this.jdB = new a(this.mActivity, this.gzp);
+        this.gzp.addAdapters(this.jdB.bRK());
     }
 
     public void showLoadingView() {
-        this.gzb.setVisibility(8);
+        this.gzp.setVisibility(8);
         this.mActivity.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
-        this.gzb.setVisibility(0);
+        this.gzp.setVisibility(0);
         this.mActivity.hideLoadingView(this.mRootView);
     }
 
-    public void JZ(String str) {
-        this.gzb.setVisibility(8);
+    public void Ka(String str) {
+        this.gzp.setVisibility(8);
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }
 
     public void WZ() {
-        this.gzb.setVisibility(0);
+        this.gzp.setVisibility(0);
         this.mActivity.hideNetRefreshView(this.mRootView);
     }
 
     public void df(List<n> list) {
         if (list != null) {
-            this.gzb.setData(list);
+            this.gzp.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        this.jdn.notifyDataSetChanged();
+        this.jdB.notifyDataSetChanged();
     }
 
     public void completePullRefresh() {
-        this.gzb.completePullRefreshPostDelayed(0L);
+        this.gzp.completePullRefreshPostDelayed(0L);
     }
 
     public void startPullRefresh() {
-        this.gzb.startPullRefresh();
+        this.gzp.startPullRefresh();
     }
 
     public void f(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.gxW.a(aVar);
+            this.gyk.a(aVar);
         }
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), i);
-        this.gxW.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.gyk.onChangeSkinType(this.mActivity.getPageContext(), i);
         notifyDataSetChanged();
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0204);
     }
 
     public void qo(boolean z) {
-        BdListViewHelper.a(this.jdm, BdListViewHelper.HeadType.DEFAULT, z);
+        BdListViewHelper.a(this.jdA, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void onDestroy() {
-        this.jdn.onDestroy();
+        this.jdB.onDestroy();
     }
 }

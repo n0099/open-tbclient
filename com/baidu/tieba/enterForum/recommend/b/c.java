@@ -4,20 +4,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class c extends BaseCardInfo {
-    public static final BdUniqueId iMc = BdUniqueId.gen();
-    public b iMd;
-    public b iMe;
+    public static final BdUniqueId iMq = BdUniqueId.gen();
+    public b iMr;
+    public b iMs;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return iMc;
+        return iMq;
     }
 
     public void a(b bVar) {
-        this.iMe = bVar;
+        this.iMs = bVar;
     }
 
     public void b(b bVar) {
-        this.iMd = bVar;
+        this.iMr = bVar;
     }
 }

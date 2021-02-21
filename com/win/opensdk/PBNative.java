@@ -7,72 +7,72 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class PBNative {
     private String java;
-    private Context qiN;
-    private cd qiV;
-    private PBNativeListener qiW;
+    private Context qjn;
+    private cd qjv;
+    private PBNativeListener qjw;
 
     public PBNative(Context context, String str) {
-        this.qiN = context;
+        this.qjn = context;
         this.java = str;
-        this.qiV = new cd(context, str);
-        this.qiV.qiW = new a();
+        this.qjv = new cd(context, str);
+        this.qjv.qjw = new a();
     }
 
     public void setNativeListener(PBNativeListener pBNativeListener) {
-        this.qiW = pBNativeListener;
+        this.qjw = pBNativeListener;
     }
 
     public void load() {
-        if (this.qiV != null) {
-            cd cdVar = this.qiV;
-            if (cdVar.qjW == null) {
+        if (this.qjv != null) {
+            cd cdVar = this.qjv;
+            if (cdVar.qkw == null) {
                 return;
             }
-            cdVar.qjW.eIP();
+            cdVar.qkw.eIX();
         }
     }
 
     public boolean isReady() {
-        return this.qiV != null && this.qiV.m73java();
+        return this.qjv != null && this.qjv.m72java();
     }
 
     public String getHeadline() {
-        if (this.qiV != null) {
-            cd cdVar = this.qiV;
-            return cdVar.m73java() ? cdVar.qji.getTitle() : "";
+        if (this.qjv != null) {
+            cd cdVar = this.qjv;
+            return cdVar.m72java() ? cdVar.qjI.getTitle() : "";
         }
         return "";
     }
 
     public String getIcon() {
-        if (this.qiV != null) {
-            cd cdVar = this.qiV;
-            return cdVar.m73java() ? cdVar.qji.getIcon() : "";
+        if (this.qjv != null) {
+            cd cdVar = this.qjv;
+            return cdVar.m72java() ? cdVar.qjI.getIcon() : "";
         }
         return "";
     }
 
     public String getBody() {
-        if (this.qiV != null) {
-            cd cdVar = this.qiV;
-            return cdVar.m73java() ? cdVar.qji.getDesc() : "";
+        if (this.qjv != null) {
+            cd cdVar = this.qjv;
+            return cdVar.m72java() ? cdVar.qjI.getDesc() : "";
         }
         return "";
     }
 
     public String getCallToAction() {
-        if (this.qiV != null) {
-            cd cdVar = this.qiV;
-            return cdVar.m73java() ? cdVar.qji.getBtndesc() : "";
+        if (this.qjv != null) {
+            cd cdVar = this.qjv;
+            return cdVar.m72java() ? cdVar.qjI.getBtndesc() : "";
         }
         return "";
     }
 
     public int getMediaViewHeight() {
-        if (this.qiV != null) {
-            cd cdVar = this.qiV;
-            if (cdVar.m73java()) {
-                return cdVar.qji.getH();
+        if (this.qjv != null) {
+            cd cdVar = this.qjv;
+            if (cdVar.m72java()) {
+                return cdVar.qjI.getH();
             }
             return 0;
         }
@@ -80,10 +80,10 @@ public class PBNative {
     }
 
     public int getMediaViewWidth() {
-        if (this.qiV != null) {
-            cd cdVar = this.qiV;
-            if (cdVar.m73java()) {
-                return cdVar.qji.getW();
+        if (this.qjv != null) {
+            cd cdVar = this.qjv;
+            if (cdVar.m72java()) {
+                return cdVar.qjI.getW();
             }
             return 0;
         }
@@ -91,16 +91,16 @@ public class PBNative {
     }
 
     public String getPid() {
-        if (this.qiV != null) {
-            cd cdVar = this.qiV;
-            return cdVar.m73java() ? cdVar.qji.getPid() : "";
+        if (this.qjv != null) {
+            cd cdVar = this.qjv;
+            return cdVar.m72java() ? cdVar.qjI.getPid() : "";
         }
         return "";
     }
 
     public void registerViewForInteraction(View view, PBMediaView pBMediaView) {
-        if (this.qiV != null) {
-            cd cdVar = this.qiV;
+        if (this.qjv != null) {
+            cd cdVar = this.qjv;
             List<View> arrayList = new ArrayList<>();
             if (view != null) {
                 arrayList = cdVar.ex(view);
@@ -110,30 +110,30 @@ public class PBNative {
     }
 
     public void registerViewForInteraction(View view, PBMediaView pBMediaView, List<View> list) {
-        if (this.qiV != null) {
-            this.qiV.a(view, pBMediaView, list);
+        if (this.qjv != null) {
+            this.qjv.a(view, pBMediaView, list);
         }
     }
 
     public void destroy() {
         try {
-            if (this.qiV != null) {
-                cd cdVar = this.qiV;
+            if (this.qjv != null) {
+                cd cdVar = this.qjv;
                 try {
-                    cdVar.eIP();
-                    if (cdVar.qjW != null) {
-                        cdVar.qjW.eIQ();
-                        cdVar.qjW = null;
+                    cdVar.eIX();
+                    if (cdVar.qkw != null) {
+                        cdVar.qkw.eIY();
+                        cdVar.qkw = null;
                     }
-                    if (cdVar.qiW != null) {
-                        cdVar.qiW = null;
+                    if (cdVar.qjw != null) {
+                        cdVar.qjw = null;
                     }
                 } catch (Exception e) {
                 }
-                this.qiV = null;
+                this.qjv = null;
             }
-            if (this.qiW != null) {
-                this.qiW = null;
+            if (this.qjw != null) {
+                this.qjw = null;
             }
         } catch (Exception e2) {
         }
@@ -146,29 +146,29 @@ public class PBNative {
 
         @Override // com.win.opensdk.PBNativeListener
         public final void onDisplayed() {
-            if (PBNative.this.qiW != null) {
-                PBNative.this.qiW.onDisplayed();
+            if (PBNative.this.qjw != null) {
+                PBNative.this.qjw.onDisplayed();
             }
         }
 
         @Override // com.win.opensdk.PBListener
         public final void onFail(PBError pBError) {
-            if (PBNative.this.qiW != null) {
-                PBNative.this.qiW.onFail(pBError);
+            if (PBNative.this.qjw != null) {
+                PBNative.this.qjw.onFail(pBError);
             }
         }
 
         @Override // com.win.opensdk.PBListener
         public final void onLoaded() {
-            if (PBNative.this.qiW != null) {
-                PBNative.this.qiW.onLoaded();
+            if (PBNative.this.qjw != null) {
+                PBNative.this.qjw.onLoaded();
             }
         }
 
         @Override // com.win.opensdk.PBListener
         public final void onClicked() {
-            if (PBNative.this.qiW != null) {
-                PBNative.this.qiW.onClicked();
+            if (PBNative.this.qjw != null) {
+                PBNative.this.qjw.onClicked();
             }
         }
     }

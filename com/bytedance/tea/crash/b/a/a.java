@@ -8,7 +8,7 @@ public class a {
     /* renamed from: b  reason: collision with root package name */
     public long f7623b;
 
-    public static a YR(String str) {
+    public static a Zd(String str) {
         a aVar = new a();
         aVar.f7622a = str;
         aVar.f7623b = System.currentTimeMillis();

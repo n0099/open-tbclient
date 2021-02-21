@@ -16,43 +16,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView kXI;
-    private List<com.baidu.tieba.interestlabel.b.a> kXK;
-    private List<Integer> kXL = new ArrayList();
+    private LabelSettingView kXW;
+    private List<com.baidu.tieba.interestlabel.b.a> kXY;
+    private List<Integer> kXZ = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.kXI = labelSettingView;
+        this.kXW = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !y.isEmpty(bVar.daG())) {
+        if (bVar != null && !y.isEmpty(bVar.daN())) {
             this.mLabelDataSet = bVar;
-            this.kXK = bVar.daG();
-            if (!y.isEmpty(bVar.daH())) {
-                this.kXL = new ArrayList(bVar.daH());
+            this.kXY = bVar.daN();
+            if (!y.isEmpty(bVar.daO())) {
+                this.kXZ = new ArrayList(bVar.daO());
             }
         }
     }
 
-    public List<Integer> daD() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.daH();
+    public List<Integer> daK() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.daO();
     }
 
-    public List<Integer> daE() {
-        return this.kXL;
+    public List<Integer> daL() {
+        return this.kXZ;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return y.getCount(this.kXK);
+        return y.getCount(this.kXY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: DM */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) y.getItem(this.kXK, i);
+        return (com.baidu.tieba.interestlabel.b.a) y.getItem(this.kXY, i);
     }
 
     @Override // android.widget.Adapter
@@ -66,20 +66,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0771b c0771b;
+        C0772b c0772b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.kXI.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0771b c0771b2 = new C0771b();
-            c0771b2.kXN = (TextView) view2;
-            view2.setTag(c0771b2);
-            c0771b = c0771b2;
+            view2 = LayoutInflater.from(this.kXW.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            C0772b c0772b2 = new C0772b();
+            c0772b2.kYb = (TextView) view2;
+            view2.setTag(c0772b2);
+            c0772b = c0772b2;
         } else {
-            c0771b = (C0771b) view.getTag();
+            c0772b = (C0772b) view.getTag();
             view2 = view;
         }
-        c0771b.kXN.setOnClickListener(new a(i));
-        a(c0771b.kXN, getItem(i));
+        c0772b.kYb.setOnClickListener(new a(i));
+        a(c0772b.kYb, getItem(i));
         return view2;
     }
 
@@ -105,10 +105,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    class C0771b {
-        TextView kXN;
+    class C0772b {
+        TextView kYb;
 
-        C0771b() {
+        C0772b() {
         }
     }
 
@@ -129,12 +129,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.kXL.add(Integer.valueOf(item.labelId));
+                    b.this.kXZ.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.kXL.remove(Integer.valueOf(item.labelId));
+                    b.this.kXZ.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.kXI != null) {
-                    b.this.kXI.tA(y.getCount(b.this.kXL) > 0);
+                if (b.this.kXW != null) {
+                    b.this.kXW.tA(y.getCount(b.this.kXZ) > 0);
                 }
             }
         }

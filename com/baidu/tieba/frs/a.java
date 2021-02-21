@@ -13,25 +13,25 @@ import org.json.JSONObject;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    private final List<cb> jeM;
-    private boolean jeN;
-    private int jeO;
-    private List<FrsTabInfo> jeP;
-    private SparseArray<FrsTabInfo> jeQ;
-    private av jeR;
+    private final List<cb> jfa;
+    private boolean jfb;
+    private int jfc;
+    private List<FrsTabInfo> jfd;
+    private SparseArray<FrsTabInfo> jfe;
+    private av jff;
     private String mForumId;
 
     private a() {
-        this.jeO = -1;
-        this.jeM = new ArrayList();
+        this.jfc = -1;
+        this.jfa = new ArrayList();
     }
 
-    public static a cBk() {
-        return C0722a.jeS;
+    public static a cBr() {
+        return C0723a.jfg;
     }
 
-    public boolean cBl() {
-        return this.jeN;
+    public boolean cBs() {
+        return this.jfb;
     }
 
     public void setForumId(String str) {
@@ -43,43 +43,43 @@ public class a {
     }
 
     public void ys(int i) {
-        this.jeO = i;
+        this.jfc = i;
     }
 
-    public int cBm() {
-        return this.jeO;
+    public int cBt() {
+        return this.jfc;
     }
 
     public void dh(List<FrsTabInfo> list) {
-        this.jeP = new ArrayList(list);
-        this.jeQ = new SparseArray<>();
-        for (FrsTabInfo frsTabInfo : this.jeP) {
+        this.jfd = new ArrayList(list);
+        this.jfe = new SparseArray<>();
+        for (FrsTabInfo frsTabInfo : this.jfd) {
             if (frsTabInfo != null) {
-                this.jeQ.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
+                this.jfe.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
             }
         }
     }
 
-    public List<FrsTabInfo> cBn() {
-        return this.jeP;
+    public List<FrsTabInfo> cBu() {
+        return this.jfd;
     }
 
-    public List<cb> cBo() {
-        return this.jeM;
+    public List<cb> cBv() {
+        return this.jfa;
     }
 
     public boolean yt(int i) {
-        return this.jeQ.get(i) != null && this.jeQ.get(i).is_general_tab.intValue() == 1;
+        return this.jfe.get(i) != null && this.jfe.get(i).is_general_tab.intValue() == 1;
     }
 
     public void a(av avVar) {
-        this.jeR = avVar;
+        this.jff = avVar;
     }
 
     public void X(boolean z, boolean z2) {
-        this.jeN = z;
-        if (this.jeR != null) {
-            this.jeR.g(this.jeN, z2, 2);
+        this.jfb = z;
+        if (this.jff != null) {
+            this.jff.g(this.jfb, z2, 2);
         }
     }
 
@@ -87,32 +87,32 @@ public class a {
         if (cbVar == null) {
             return false;
         }
-        if (this.jeM.size() > 29) {
-            if (this.jeR != null) {
-                this.jeR.yB(2);
+        if (this.jfa.size() > 29) {
+            if (this.jff != null) {
+                this.jff.yB(2);
                 return false;
             }
             return false;
         }
-        this.jeM.add(cbVar);
-        if (this.jeR != null) {
-            this.jeR.cl(this.jeM.size(), 2);
+        this.jfa.add(cbVar);
+        if (this.jff != null) {
+            this.jff.cm(this.jfa.size(), 2);
         }
         return true;
     }
 
     public void an(cb cbVar) {
-        this.jeM.remove(cbVar);
-        if (this.jeR != null) {
-            this.jeR.cl(this.jeM.size(), 2);
+        this.jfa.remove(cbVar);
+        if (this.jff != null) {
+            this.jff.cm(this.jfa.size(), 2);
         }
     }
 
-    public void ck(int i, int i2) {
+    public void cl(int i, int i2) {
         try {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
             JSONArray jSONArray = new JSONArray();
-            for (cb cbVar : cBk().cBo()) {
+            for (cb cbVar : cBr().cBv()) {
                 if (cbVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("thread_id", cbVar.getId());
@@ -122,31 +122,31 @@ public class a {
                 }
             }
             httpMessage.addParam("threads", jSONArray.toString());
-            httpMessage.addParam("forum_id", cBk().getForumId());
+            httpMessage.addParam("forum_id", cBr().getForumId());
             MessageManager.getInstance().sendMessage(httpMessage);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void cBp() {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.jeM)) {
-            this.jeM.clear();
-            if (this.jeR != null) {
-                this.jeR.cl(this.jeM.size(), 2);
+    public void cBw() {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(this.jfa)) {
+            this.jfa.clear();
+            if (this.jff != null) {
+                this.jff.cm(this.jfa.size(), 2);
             }
         }
     }
 
     public void clearData() {
-        for (cb cbVar : this.jeM) {
+        for (cb cbVar : this.jfa) {
             if (cbVar != null) {
                 cbVar.jB(false);
             }
         }
-        this.jeM.clear();
-        if (this.jeR != null) {
-            this.jeR.cl(0, 2);
+        this.jfa.clear();
+        if (this.jff != null) {
+            this.jff.cm(0, 2);
         }
     }
 
@@ -157,19 +157,19 @@ public class a {
 
     public void destory() {
         this.mForumId = null;
-        this.jeO = -1;
-        if (this.jeP != null) {
-            this.jeP.clear();
+        this.jfc = -1;
+        if (this.jfd != null) {
+            this.jfd.clear();
         }
-        if (this.jeQ != null) {
-            this.jeQ.clear();
+        if (this.jfe != null) {
+            this.jfe.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0722a {
-        private static a jeS = new a();
+    public static class C0723a {
+        private static a jfg = new a();
     }
 }

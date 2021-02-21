@@ -8,16 +8,16 @@ import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class MyPagerAdapter extends PagerAdapter {
     Context context;
-    private ArrayList<View> gLP;
+    private ArrayList<View> gMd;
 
     public MyPagerAdapter(Context context, ArrayList<View> arrayList) {
         this.context = context;
-        this.gLP = arrayList;
+        this.gMd = arrayList;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.gLP.size();
+        return this.gMd.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -27,12 +27,12 @@ public class MyPagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.gLP.get(i));
-        return this.gLP.get(i);
+        viewGroup.addView(this.gMd.get(i));
+        return this.gMd.get(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.gLP.get(i));
+        viewGroup.removeView(this.gMd.get(i));
     }
 }

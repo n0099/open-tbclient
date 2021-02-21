@@ -18,7 +18,7 @@ import com.qq.e.comm.util.AdError;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class be extends an {
-    public NativeExpressADView pPD;
+    public NativeExpressADView pQd;
 
     /* loaded from: classes6.dex */
     public class a implements NativeExpressAD.NativeExpressADListener {
@@ -29,7 +29,7 @@ public class be extends an {
         public void onADClicked(NativeExpressADView nativeExpressADView) {
             m.a("GDTNativeExpressAd onADClicked");
             be beVar = be.this;
-            ah ahVar = beVar.pPn;
+            ah ahVar = beVar.pPN;
             if (ahVar != null) {
                 ((aa) ahVar).c(beVar.f7754a.f7762a);
             }
@@ -38,7 +38,7 @@ public class be extends an {
         @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
         public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
             m.a("GDTNativeExpressAd onADCloseOverlay");
-            ah ahVar = be.this.pPn;
+            ah ahVar = be.this.pPN;
             if (ahVar != null) {
                 aa aaVar = (aa) ahVar;
                 m.a("GDTAdLoaderFactory onADCloseOverlay");
@@ -49,7 +49,7 @@ public class be extends an {
         public void onADClosed(NativeExpressADView nativeExpressADView) {
             m.a("GDTNativeExpressAd onADClosed");
             be beVar = be.this;
-            ah ahVar = beVar.pPn;
+            ah ahVar = beVar.pPN;
             if (ahVar != null) {
                 ((aa) ahVar).a(beVar.f7754a.f7762a);
             }
@@ -59,7 +59,7 @@ public class be extends an {
         public void onADExposure(NativeExpressADView nativeExpressADView) {
             m.a("GDTNativeExpressAd onADExposure");
             be beVar = be.this;
-            ah ahVar = beVar.pPn;
+            ah ahVar = beVar.pPN;
             if (ahVar != null) {
                 ((aa) ahVar).b(beVar.f7754a.f7762a);
             }
@@ -68,7 +68,7 @@ public class be extends an {
         @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
         public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
             m.a("GDTNativeExpressAd onADLeftApplication");
-            ah ahVar = be.this.pPn;
+            ah ahVar = be.this.pPN;
             if (ahVar != null) {
                 if (((aa) ahVar) == null) {
                     throw null;
@@ -88,7 +88,7 @@ public class be extends an {
             }
             be beVar = be.this;
             beVar.f7755b = false;
-            ak akVar = beVar.pPm;
+            ak akVar = beVar.pPM;
             if (akVar != null) {
                 ((x) akVar).a(beVar.f7754a.f7762a, 0, "Custom error message: adList is epmty");
             }
@@ -98,7 +98,7 @@ public class be extends an {
         @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
         public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
             m.a("GDTNativeExpressAd onADOpenOverlay");
-            ah ahVar = be.this.pPn;
+            ah ahVar = be.this.pPN;
             if (ahVar != null) {
                 aa aaVar = (aa) ahVar;
                 m.a("GDTAdLoaderFactory onADOpenOverlay");
@@ -110,7 +110,7 @@ public class be extends an {
             be.this.f7755b = false;
             m.a("GDTNativeExpressAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg());
             be beVar = be.this;
-            ak akVar = beVar.pPm;
+            ak akVar = beVar.pPM;
             if (akVar != null) {
                 ((x) akVar).a(beVar.f7754a.f7762a, adError.getErrorCode(), adError.getErrorMsg());
             }
@@ -121,7 +121,7 @@ public class be extends an {
             be.this.f7755b = false;
             m.a("GDTNativeExpressAd onRenderFail");
             be beVar = be.this;
-            ak akVar = beVar.pPm;
+            ak akVar = beVar.pPM;
             if (akVar != null) {
                 ((x) akVar).a(beVar.f7754a.f7762a, 0, "Custom error message: render fail");
             }
@@ -132,10 +132,10 @@ public class be extends an {
             m.a("GDTNativeExpressAd onRenderSuccess");
             be beVar = be.this;
             beVar.f7755b = false;
-            beVar.pPD = nativeExpressADView;
+            beVar.pQd = nativeExpressADView;
             m.a("GDTNativeExpressAd onADLoaded adPatternType: " + nativeExpressADView.getBoundData().getAdPatternType());
             be beVar2 = be.this;
-            ak akVar = beVar2.pPm;
+            ak akVar = beVar2.pPM;
             if (akVar != null) {
                 ((x) akVar).b(beVar2.f7754a.f7762a);
             }
@@ -205,17 +205,17 @@ public class be extends an {
     @Override // com.fun.ad.an
     public void a() {
         super.a();
-        NativeExpressADView nativeExpressADView = this.pPD;
+        NativeExpressADView nativeExpressADView = this.pQd;
         if (nativeExpressADView != null) {
             nativeExpressADView.destroy();
-            this.pPD = null;
+            this.pQd = null;
         }
     }
 
     @Override // com.fun.ad.an
-    public FunRippedAd eAp() {
+    public FunRippedAd eAx() {
         AdRipper.RippedGDTAd rippedGDTNativeExpressAd;
-        NativeExpressADView nativeExpressADView = this.pPD;
+        NativeExpressADView nativeExpressADView = this.pQd;
         if (nativeExpressADView == null || (rippedGDTNativeExpressAd = AdRipper.getRippedGDTNativeExpressAd(nativeExpressADView, false)) == null) {
             return null;
         }
@@ -239,7 +239,7 @@ public class be extends an {
             if (!(context instanceof Activity)) {
                 m.a("GDTNativeExpressAdLoader context is not activity");
                 this.f7755b = false;
-                ak akVar2 = this.pPm;
+                ak akVar2 = this.pPM;
                 if (akVar2 != null) {
                     ((x) akVar2).a(this.f7754a.f7762a, 0, "Custom error message: context is not activity");
                     return;
@@ -252,7 +252,7 @@ public class be extends an {
             nativeExpressAD.setMaxVideoDuration(0);
             nativeExpressAD.setVideoPlayPolicy(1);
             nativeExpressAD.loadAD(1);
-            ak akVar3 = this.pPm;
+            ak akVar3 = this.pPM;
             if (akVar3 != null) {
                 ((x) akVar3).a(this.f7754a.f7762a);
             }
@@ -262,9 +262,9 @@ public class be extends an {
     @Override // com.fun.ad.an
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         super.a(activity, funAdView, ahVar);
-        NativeExpressADView nativeExpressADView = this.pPD;
+        NativeExpressADView nativeExpressADView = this.pQd;
         if (nativeExpressADView == null) {
-            ah ahVar2 = this.pPn;
+            ah ahVar2 = this.pPN;
             if (ahVar2 != null) {
                 ((aa) ahVar2).a(this.f7754a.f7762a, 0, "Custom error message: mNativeExpressADView is null when show");
                 return;
@@ -272,12 +272,12 @@ public class be extends an {
             return;
         }
         if (nativeExpressADView.getBoundData().getAdPatternType() == 2) {
-            this.pPD.setMediaListener(new b(this));
+            this.pQd.setMediaListener(new b(this));
         }
-        if (this.pPD.getParent() != null) {
-            ((ViewGroup) this.pPD.getParent()).removeView(this.pPD);
+        if (this.pQd.getParent() != null) {
+            ((ViewGroup) this.pQd.getParent()).removeView(this.pQd);
         }
         funAdView.removeAllViews();
-        funAdView.addView(this.pPD);
+        funAdView.addView(this.pQd);
     }
 }

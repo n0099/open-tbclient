@@ -14,17 +14,17 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes11.dex */
 public final class a {
-    private static long pjG = -1;
+    private static long pkh = -1;
 
     public static String k(Context context, long j) {
-        Calendar calendar = Calendar.getInstance(emT());
+        Calendar calendar = Calendar.getInstance(enb());
         calendar.setTimeInMillis(j);
         Date time = calendar.getTime();
-        Calendar calendar2 = Calendar.getInstance(emT());
+        Calendar calendar2 = Calendar.getInstance(enb());
         calendar2.setTimeInMillis(ic(System.currentTimeMillis()));
         SimpleDateFormat simpleDateFormat = null;
         if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5)) {
-            simpleDateFormat = new SimpleDateFormat("HH:mm", emT());
+            simpleDateFormat = new SimpleDateFormat("HH:mm", enb());
         } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5) - 1) {
             return "昨天";
         } else {
@@ -52,25 +52,25 @@ public final class a {
                     return "星期日";
                 }
             } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) != calendar2.get(5)) {
-                simpleDateFormat = new SimpleDateFormat("MM-dd", emT());
+                simpleDateFormat = new SimpleDateFormat("MM-dd", enb());
             } else {
-                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", emT());
+                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", enb());
             }
         }
         return simpleDateFormat.format(time);
     }
 
     public static long ic(long j) {
-        if (pjG < 0) {
-            pjG = j;
+        if (pkh < 0) {
+            pkh = j;
         }
-        if (Math.abs(pjG - j) > 1000) {
-            pjG = j;
+        if (Math.abs(pkh - j) > 1000) {
+            pkh = j;
         }
-        return pjG;
+        return pkh;
     }
 
-    public static Locale emT() {
+    public static Locale enb() {
         return BdBaseApplication.getInst().getResources().getConfiguration().locale;
     }
 
@@ -89,7 +89,7 @@ public final class a {
     }
 
     public static void ie(long j) {
-        b.emQ().ib(j);
+        b.emY().ib(j);
     }
 
     public static String b(ChatSession chatSession) {
